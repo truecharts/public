@@ -2,6 +2,16 @@
 
 
 
+## [postgresql-8.0.91](https://github.com/truecharts/charts/compare/postgresql-8.0.90...postgresql-8.0.91) (2022-10-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.6.8
+
+
+
+
 ## [postgresql-8.0.90](https://github.com/truecharts/charts/compare/postgresql-8.0.89...postgresql-8.0.90) (2022-09-29)
 
 ### Chore

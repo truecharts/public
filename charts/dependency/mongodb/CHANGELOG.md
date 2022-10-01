@@ -2,6 +2,16 @@
 
 
 
+## [mongodb-2.0.26](https://github.com/truecharts/charts/compare/mongodb-2.0.25...mongodb-2.0.26) (2022-10-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.6.8
+
+
+
+
 ## [mongodb-2.0.25](https://github.com/truecharts/charts/compare/mongodb-2.0.24...mongodb-2.0.25) (2022-09-30)
 
 ### Chore

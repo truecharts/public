@@ -2,6 +2,16 @@
 
 
 
+## [memcached-3.0.87](https://github.com/truecharts/charts/compare/memcached-3.0.86...memcached-3.0.87) (2022-10-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.6.8
+
+
+
+
 ## [clickhouse-1.0.32](https://github.com/truecharts/charts/compare/clickhouse-1.0.31...clickhouse-1.0.32) (2022-09-29)
 
 ### Chore
