@@ -11,6 +11,35 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+probes:
+  liveness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /bin/sh
+          - -c
+          - curl -k --silent --faill http://localhost:80 || curl -k --silent http://localhost:3000
+  readiness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /bin/sh
+          - -c
+          - curl -k --silent --faill http://localhost:80 || curl -k --silent http://localhost:3000
+  startup:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /bin/sh
+          - -c
+          - curl -k --silent --faill http://localhost:80 || curl -k --silent http://localhost:3000
+
 service:
   main:
     ports:
