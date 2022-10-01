@@ -1,6 +1,6 @@
 # redisinsight
 
-RedisInsight - The GUI for Redis.
+GUI for Redis.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
