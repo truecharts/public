@@ -1,0 +1,143 @@
+        - variable: codeserver
+          label: Codeserver
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enabled
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: git
+                      label: Git Settings
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: deployKey
+                            description: Raw SSH Private Key
+                            label: Deploy Key
+                            schema:
+                              type: string
+                          - variable: deployKeyBase64
+                            description: Base64-encoded SSH private key. When both variables are set, the raw SSH key takes precedence
+                            label: Deploy Key Base64
+                            schema:
+                              type: string
+                    - variable: service
+                      label: ""
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: type
+                            label: Service Type
+                            description: "ClusterIP's are only internally available and Loadbalancer exposes the service using the system loadbalancer"
+                            schema:
+                              type: string
+                              default: LoadBalancer
+                              enum:
+                                - value: NodePort
+                                  description: Deprecated CHANGE THIS
+                                - value: ClusterIP
+                                  description: ClusterIP
+                                - value: LoadBalancer
+                                  description: LoadBalancer
+                          - variable: loadBalancerIP
+                            label: LoadBalancer IP
+                            description: "MetalLB Only: Selects the Loadbalancer IP to expose on. Required when using PortalButton with MetalLB"
+                            schema:
+                              show_if: [["type", "=", "LoadBalancer"]]
+                              type: string
+                              default: ""
+                          - variable: advancedsvcset
+                            label: Show Advanced Service Settings
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: externalIPs
+                                  label: "External IP's"
+                                  description: "External IP's"
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: externalIP
+                                        label: External IP
+                                        schema:
+                                          type: string
+                                - variable: ipFamilyPolicy
+                                  label: IP Family Policy
+                                  description: Specify the IP Policy
+                                  schema:
+                                    type: string
+                                    default: SingleStack
+                                    enum:
+                                      - value: SingleStack
+                                        description: SingleStack
+                                      - value: PreferDualStack
+                                        description: PreferDualStack
+                                      - value: RequireDualStack
+                                        description: RequireDualStack
+                                - variable: ipFamilies
+                                  label: IP Families
+                                  description: (Advanced) The IP Families that should be used
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: ipFamily
+                                        label: IP Family
+                                        schema:
+                                          type: string
+                          - variable: ports
+                            label: ""
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: codeserver
+                                  label: ""
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: port
+                                        label: Port
+                                        schema:
+                                          type: int
+                                          default: 36107
+                                      - variable: nodePort
+                                        description: Leave Empty to Disable
+                                        label: nodePort DEPRECATED
+                                        schema:
+                                          type: int
+                                          default: 36107
+                    - variable: envList
+                      label: Codeserver Environment Variables
+                      schema:
+                        type: list
+                        show_if: [["type", "!=", "disabled"]]
+                        default: []
+                        items:
+                          - variable: envItem
+                            label: Environment Variable
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: Name
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: value
+                                  label: Value
+                                  schema:
+                                    type: string
+                                    required: true
