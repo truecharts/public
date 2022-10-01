@@ -102,8 +102,17 @@ questions:
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
+# Include{persistenceRoot}
+        - variable: config
+          label: App Config Storage
+          description: Stores the Application Configuration.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
 # Include{persistenceList}
-# Include{ingressList}
 # Include{ingressRoot}
         - variable: main
           label: Main Ingress
