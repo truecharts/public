@@ -1,7 +1,6 @@
-{{/* Define the proxy container */}}
-{{- define "briefkaster.createdb" -}}
-image: {{ .Values.proxyImage.repository }}:{{ .Values.proxyImage.tag }}
-imagePullPolicy: {{ .Values.proxyImage.pullPolicy }}
+{{- define "briefkasten.createdb" -}}
+image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+imagePullPolicy: {{ .Values.image.pullPolicy }}
 securityContext:
   runAsUser: {{ .Values.podSecurityContext.runAsUser }}
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
