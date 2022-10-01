@@ -12,6 +12,93 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
+  - variable: midarr
+    group: Container Configuration
+    label: Midarr Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: admin
+          label: Admin Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: mail
+                label: Admin Mail
+                schema:
+                  type: string
+                  default: ""
+              - variable: name
+                label: Admin Name
+                schema:
+                  type: string
+                  default: ""
+              - variable: pass
+                label: Admin Password
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+        - variable: general
+          label: General Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: app_url
+                label: App URL
+                description: App URL in format http(s)://IPorFQDN:(port)
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: app_mailer_from
+                label: Mailer From
+                schema:
+                  type: string
+                  default: ""
+              - variable: sendgrid_api_key
+                label: SendGrid API Key
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+        - variable: radarr
+          label: Radarr Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: base_url
+                label: Base URL
+                schema:
+                  type: string
+                  default: ""
+              - variable: api_key
+                label: API Key
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+        - variable: sonarr
+          label: Sonarr Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: base_url
+                label: Base URL
+                schema:
+                  type: string
+                  default: ""
+              - variable: api_key
+                label: API Key
+                schema:
+                  type: string
+                  private: true
+                  default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -47,16 +134,6 @@ questions:
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-# Include{persistenceRoot}
-        - variable: config
-          label: App Config Storage
-          description: Stores the Application Configuration.
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

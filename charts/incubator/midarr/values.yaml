@@ -38,6 +38,7 @@ service:
     ports:
       main:
         port: 10347
+        protocol: HTTP
         targetPort: 4000
 
 postgresql:
@@ -45,7 +46,6 @@ postgresql:
   existingSecret: dbcreds
   postgresqlUsername: midarr
   postgresqlDatabase: midarr
-
 
 portal:
   enabled: true
