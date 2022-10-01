@@ -2,6 +2,15 @@
 
 
 
+## [authentik-7.1.0](https://github.com/truecharts/charts/compare/authentik-7.0.2...authentik-7.1.0) (2022-10-01)
+
+### Feat
+
+- cleanup GUI from unnecessary services/ingresses and add serviceMonitor and prometheusRule ([#3961](https://github.com/truecharts/charts/issues/3961))
+
+
+
+
 ## [authentik-7.0.1](https://github.com/truecharts/charts/compare/authentik-7.0.0...authentik-7.0.1) (2022-09-27)
 
 ### Chore

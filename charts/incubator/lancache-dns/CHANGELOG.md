@@ -2,6 +2,16 @@
 
 
 
+## [lancache-dns-0.0.27](https://github.com/truecharts/charts/compare/lancache-dns-0.0.26...lancache-dns-0.0.27) (2022-10-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3975](https://github.com/truecharts/charts/issues/3975))
+
+
+
+
 ## [lancache-dns-0.0.26](https://github.com/truecharts/charts/compare/lancache-dns-0.0.25...lancache-dns-0.0.26) (2022-09-27)
 
 ### Chore

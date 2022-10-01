@@ -2,6 +2,16 @@
 
 
 
+## [xwiki-3.0.50](https://github.com/truecharts/charts/compare/xwiki-3.0.49...xwiki-3.0.50) (2022-10-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3975](https://github.com/truecharts/charts/issues/3975))
+
+
+
+
 ## [xwiki-3.0.49](https://github.com/truecharts/charts/compare/xwiki-3.0.48...xwiki-3.0.49) (2022-09-28)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [yourls-0.0.33](https://github.com/truecharts/charts/compare/yourls-0.0.32...yourls-0.0.33) (2022-10-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3975](https://github.com/truecharts/charts/issues/3975))
+
+
+
+
 ## [yourls-0.0.32](https://github.com/truecharts/charts/compare/yourls-0.0.31...yourls-0.0.32) (2022-09-27)
 
 ### Chore

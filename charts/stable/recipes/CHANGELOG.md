@@ -2,6 +2,16 @@
 
 
 
+## [recipes-8.0.59](https://github.com/truecharts/charts/compare/recipes-8.0.58...recipes-8.0.59) (2022-10-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3975](https://github.com/truecharts/charts/issues/3975))
+
+
+
+
 ## [recipes-8.0.58](https://github.com/truecharts/charts/compare/recipes-8.0.57...recipes-8.0.58) (2022-09-28)
 
 ### Chore

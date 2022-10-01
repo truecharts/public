@@ -2,6 +2,15 @@
 
 
 
+## [searx-0.0.37](https://github.com/truecharts/charts/compare/searxng-0.0.50...searx-0.0.37) (2022-10-01)
+
+### Chore
+
+- update docker general non-major ([#3975](https://github.com/truecharts/charts/issues/3975))
+
+
+
+
 ## [searx-0.0.36](https://github.com/truecharts/charts/compare/searxng-0.0.48...searx-0.0.36) (2022-09-27)
 
 ### Chore

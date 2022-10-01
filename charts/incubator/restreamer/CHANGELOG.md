@@ -2,6 +2,16 @@
 
 
 
+## [restreamer-0.1.5](https://github.com/truecharts/charts/compare/restreamer-0.1.4...restreamer-0.1.5) (2022-10-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3975](https://github.com/truecharts/charts/issues/3975))
+
+
+
+
 ## [restreamer-0.1.4](https://github.com/truecharts/charts/compare/restreamer-0.1.3...restreamer-0.1.4) (2022-09-27)
 
 ### Chore

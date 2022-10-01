@@ -2,6 +2,17 @@
 
 
 
+## [ombi-11.0.45](https://github.com/truecharts/charts/compare/ombi-11.0.44...ombi-11.0.45) (2022-10-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3975](https://github.com/truecharts/charts/issues/3975))
+  - update docker general non-major ([#3920](https://github.com/truecharts/charts/issues/3920))
+
+
+
+
 ## [ombi-11.0.44](https://github.com/truecharts/charts/compare/ombi-11.0.43...ombi-11.0.44) (2022-09-27)
 
 ### Chore
