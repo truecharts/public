@@ -1,0 +1,55 @@
+image:
+  repository: tccr.io/truecharts/wallabag
+  pullPolicy: IfNotPresent
+  tag: v2.5.1@sha256:8876bbf9c7cfc922dcf2ecd08e6d13709941454259dcd8531bcef800158c90f4
+
+briefkasten:
+  general:
+    nextauth_url: http://localhost:3000
+  github:
+    id: ""
+    secret: ""
+  google:
+    id: ""
+    secret: ""
+  supabase:
+    key:
+    url:
+    bucket_id:
+  mail:
+    from:
+    server:
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-config'
+
+service:
+  main:
+    ports:
+      main:
+        port: 10349
+        protocol: HTTP
+        targetPort: 3000
+
+probes:
+  liveness:
+    type: HTTP
+    path: /
+  readiness:
+    type: HTTP
+    path: /
+  startup:
+    type: HTTP
+    path: /
+
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlUsername: briefkasten
+  postgresqlDatabase: briefkasten
+
+portal:
+  enabled: true
