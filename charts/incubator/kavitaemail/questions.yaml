@@ -104,8 +104,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+          label: App Config Storage
+          description: Stores the Application Configuration.
           schema:
             additional_attrs: true
             type: dict
@@ -115,7 +115,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
