@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "10.6.2"
+appVersion: "1.16.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -9,8 +9,8 @@ dependencies:
     repository: https://charts.truecharts.org/
     version: 8.0.88
 description: Midarr is a minimal lightweight media server for enjoying your media
-home: https://truecharts.org/docs/charts/stable/airsonic
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.png
+home: https://truecharts.org/docs/charts/incubator/midarr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/midarr.png
 keywords:
   - midarr
 kubeVersion: ">=1.16.0-0"
@@ -20,7 +20,7 @@ maintainers:
     url: https://truecharts.org
 name: midarr
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/airsonic
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/midarr
   - https://github.com/midarrlabs/midarr-server
 version: 0.0.1
 annotations:
