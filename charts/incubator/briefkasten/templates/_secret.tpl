@@ -1,7 +1,7 @@
 {{/* Define the secret */}}
 {{- define "briefkasten.secret" -}}
 
-{{- $secretName ::  printf "%s-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
 
 ---
 
