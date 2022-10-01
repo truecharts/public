@@ -3,13 +3,13 @@ image:
   tag: v1.16.0@sha256:b2c433337beb328dafe3e6058c1a61ff5872f0ff2f2de1a883d521063ea6c943
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 midarr:
   admin:
