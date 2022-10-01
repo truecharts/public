@@ -15,15 +15,15 @@ metadata:
 data:
   DB_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
   {{- with .Values.midarr.admin.pass }}
-  SETUP_ADMIN_PASSWORD: {{ . }}
+  SETUP_ADMIN_PASSWORD: {{ . | b64enc }}
   {{- end }}
   {{- with .Values.midarr.radarr.api_key }}
-  RADARR_API_KEY: {{ . }}
+  RADARR_API_KEY: {{ . | b64enc }}
   {{- end }}
   {{- with .Values.midarr.sonarr.api_key }}
-  SONARR_API_KEY: {{ . }}
+  SONARR_API_KEY: {{ . | b64enc }}
   {{- end }}
   {{- with .Values.midarr.general.sendgrid_api_key }}
-  SENDGRID_API_KEY: ""
+  SENDGRID_API_KEY: {{ . | b64enc }}
   {{- end }}
 {{- end }}
