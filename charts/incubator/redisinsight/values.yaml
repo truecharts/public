@@ -3,37 +3,34 @@ image:
   repository: tccr.io/truecharts/redisinsight
   tag: latest@sha256:d89be8436458397ab87d0e577c218165276a93995f53d489c774eb3f437f846d
 
+redisinsight:
+  log_level: WARNING
+  trusted_origins: []
+  auth_prompt: false
+  auth_timer: 30
+
 env:
   RIPORT: "{{ .Values.service.main.ports.main.port }}"
-  RITRUSTEDORIGINS: ""
-  RIHOMEDIR: "/config"
-  RILOGDIR: "/logs"
-  RILOGLEVEL: "WARNING"
-  RIAUTHPROMPT: False
-  RIAUTHTIMER: 30
+  RIHOMEDIR: /config
+  RILOGDIR: /logs
+  RILOGLEVEL: "{{ .Values.redisinsight.log_level }}"
+  RITRUSTEDORIGINS: '{{ join "," .Values.redisinsight.trusted_origins }}'
+  RIAUTHPROMPT: "{{ .Values.redisinsight.auth_prompt }}"
+  RIAUTHTIMER: "{{ .Values.redisinsight.auth_timer }}"
 
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+# podSecurityContext:
+#   runAsGroup: 0
+#   runAsUser: 0
 
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
 
 service:
   main:
     ports:
       main:
         protocol: HTTP
-        targetPort: 8001
         port: 10579
 
 persistence:
