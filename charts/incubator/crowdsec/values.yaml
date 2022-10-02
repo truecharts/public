@@ -32,6 +32,19 @@ crowdsec:
         type: test-type
         program: test-app
 
+persistence:
+  acquis-config:
+    enabled: true
+    readOnly: true
+    type: custom
+    mountPath: /etc/crowdsec
+    volumeSpec:
+      configMap:
+        name: '{{ include "tc.common.names.fullname" . }}-acquis-config'
+        items:
+          - key: acquis.yaml
+            path: acquis.yaml
+
 # securityContext:
 #   readOnlyRootFilesystem: false
 #   runAsNonRoot: false

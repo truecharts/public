@@ -25,7 +25,9 @@ data:
       {{- end }}
     labels:
       type: {{ $container_runtime }}
-      program: {{ .program }}
+      {{- with .program }}
+      program: {{ . }}
+      {{- end }}
     {{- end }}
 
     {{- range .Values.crowdsec.acquisition.raw_log_paths }}
@@ -36,7 +38,9 @@ data:
       {{- with .type }}
       type: {{ . }}
       {{- end }}
-      program: {{ .program }}
+      {{- with .program }}
+      program: {{ . }}
+      {{- end }}
     {{- end }}
 
 ---
