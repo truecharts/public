@@ -3,14 +3,6 @@ image:
   tag: v1.1.1@sha256:0af550df5ac615d1c3db0d39b3c91eb440d616e1de15a5a49115e8f81ded9e07
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
-
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
-
 microbin:
   username: user
   password: pass
