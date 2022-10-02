@@ -10,7 +10,7 @@ securityContext:
 command:
   - /bin/sh
   - -c
-  - wget {{ .Values.crowdsec.lapi.dashboad.assetURL }} && unzip metabase_sqlite.zip -d /metabase-data/
+  - wget {{ .Values.crowdsec.lapi.dashboard.assetURL }} && unzip metabase_sqlite.zip -d /metabase-data/
 volumeMounts:
   - name: shared-data
     mountPath: /metabase-data
