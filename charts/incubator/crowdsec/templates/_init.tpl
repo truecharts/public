@@ -1,7 +1,7 @@
 {{/* Define the fetch container */}}
-{{- define "crowdsec.fetch" -}}
-image: {{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}
-imagePullPolicy: {{ .Values.alpineImage.pullPolicy }}
+{{- define "crowdsec.init" -}}
+image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+imagePullPolicy: {{ .Values.image.pullPolicy }}
 securityContext:
   runAsUser: {{ .Values.podSecurityContext.runAsUser }}
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
@@ -10,8 +10,17 @@ securityContext:
 command:
   - /bin/sh
   - -c
-  - wget {{ .Values.crowdsec.lapi.dashboard.assetURL }} && unzip metabase_sqlite.zip -d /metabase-data/
+args:
+  - |
+    echo "Fetching metabase assets..."
+    wget {{ .Values.crowdsec.lapi.dashboard.assetURL }} && \
+    unzip metabase_sqlite.zip -d /metabase-data/
+
+    echo "Creating crowdsec files that do not exit..."
+    mv -n /staging/etc/crowdsec/* /etc/crowdsec/
 volumeMounts:
-  - name: shared-data
+  - name: metabase-data
     mountPath: /metabase-data
+  - name: crowdsec-config
+    mountPath: /etc/crowdsec
 {{- end -}}

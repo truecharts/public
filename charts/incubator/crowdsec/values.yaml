@@ -76,13 +76,13 @@ metrics:
       #     severity: critical
 
 persistence:
-  crowdsec_config:
+  crowdsec-config:
     enabled: true
     mountPath: /etc/crowdsec
-  crowdsec_data:
+  crowdsec-data:
     enabled: true
     mountPath: /var/lib/crowdsec/data
-  shared_data:
+  metabase-data:
     enabled: true
     mountPath: /metabase-data
   varlog:

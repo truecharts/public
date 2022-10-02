@@ -7,10 +7,6 @@ securityContext:
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
-command:
-  - /bin/sh
-  - -c
-  - mv -n /staging/etc/crowdsec/* /etc/crowdsec_data/ && rm -rf /staging/etc/crowdsec && ln -s /etc/crowdsec_data /etc/crowdsec && ./docker_start.sh
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-credentials-secret'

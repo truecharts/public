@@ -10,7 +10,10 @@ securityContext:
 command:
   - /bin/sh
   - -c
-  - ln -fs /var/lib/crowdsec/data/crowdsec.db /metabase-data/crowdsec.db && /app/run_metabase.sh
+args:
+  - |
+    ln -fs /var/lib/crowdsec/data/crowdsec.db /metabase-data/crowdsec.db && \
+    /app/run_metabase.sh
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-dashboard-config'
@@ -18,9 +21,9 @@ ports:
   - containerPort: 3000
     name: dashboard
 volumeMounts:
-  - name: shared-data
+  - name: metabase-data
     mountPath: /metabase-data
-  - name: crowdsec_data
+  - name: crowdsec-data
     mountPath: /var/lib/crowdsec/data
 readinessProbe:
   httpGet:
