@@ -3,6 +3,13 @@ image:
   tag: 0.107.14@sha256:25de77dee1dca14ecb8842e81da2a8690093142dce673207fbe95cc8eb0b0e6d
   pullPolicy: IfNotPresent
 
+args:
+  - --no-check-update
+  - -h "0.0.0.0"
+  - -c /opt/adguardhome/conf/AdGuardHome.yaml
+  - -w /opt/adguardhome/work
+  - --port {{ .Values.service.main.ports.main.port }}
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -13,32 +20,35 @@ podSecurityContext:
 
 probes:
   liveness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - /bin/sh
-          - -c
-          - curl -k --silent --faill http://localhost:80 || curl -k --silent http://localhost:3000
+    type: HTTP
+    path: /
+    # custom: true
+    # spec:
+    #   exec:
+    #     command:
+    #       - /bin/sh
+    #       - -c
+    #       - curl -k --silent --fail http://localhost:80 || curl -k --silent http://localhost:3000
   readiness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - /bin/sh
-          - -c
-          - curl -k --silent --faill http://localhost:80 || curl -k --silent http://localhost:3000
+    type: HTTP
+    path: /
+    # custom: true
+    # spec:
+    #   exec:
+    #     command:
+    #       - /bin/sh
+    #       - -c
+    #       - curl -k --silent --fail http://localhost:80 || curl -k --silent http://localhost:3000
   startup:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - /bin/sh
-          - -c
-          - curl -k --silent --faill http://localhost:80 || curl -k --silent http://localhost:3000
+    type: HTTP
+    path: /
+    # custom: true
+    # spec:
+    #   exec:
+    #     command:
+    #       - /bin/sh
+    #       - -c
+    #       - curl -k --silent --fail http://localhost:80 || curl -k --silent http://localhost:3000
 
 service:
   main:
@@ -46,15 +56,15 @@ service:
       main:
         port: 10232
         protocol: HTTP
-        targetPort: 80
-  install-wizard:
-    enabled: true
-    ports:
-      install-wizard:
-        enabled: true
-        protocol: HTTP
-        port: 10233
         targetPort: 3000
+  # install-wizard:
+  #   enabled: true
+  #   ports:
+  #     install-wizard:
+  #       enabled: true
+  #       protocol: HTTP
+  #       port: 10233
+  #       targetPort: 3000
   dns-tcp:
     enabled: true
     ports:
