@@ -8,13 +8,13 @@ dashboardImage:
   tag: v0.44.4@sha256:07cbf35571ee2e23aedd222cac80c1876a979e0244eb5320f618ce045db9aa59
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 envFrom:
   - secretRef:
@@ -29,7 +29,7 @@ crowdsec:
   agent:
     # docker | containerd
     container_runtime: docker
-    local_apI_url: http://localhost:{{ .Values.service.lapi.ports.lapi.targetPort }}
+    local_apI_url: http://localhost:8080
     acquisition:
       pods:
         - name: truenas
