@@ -19,6 +19,7 @@ data:
   SYMFONY__ENV__DATABASE_USER: {{ .Values.postgresql.postgresqlUsername }}
   SYMFONY__ENV__REDIS_HOST: {{ printf "%v-%v" .Release.Name "redis" }}
   SYMFONY__ENV__REDIS_PORT: "6379"
+  POPULATE_DATABASE: "False"
   SYMFONY__ENV__LOCALE:
   {{- with .Values.wallabag.general.locale }}
   SYMFONY__ENV__LOCALE: {{ . }}
