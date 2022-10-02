@@ -2,6 +2,20 @@
 
 
 
+## [adguard-home-2.0.8](https://github.com/truecharts/charts/compare/adguard-home-2.0.6...adguard-home-2.0.8) (2022-10-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+
+  ### Fix
+
+- Change port on main service ([#3987](https://github.com/truecharts/charts/issues/3987))
+
+
+
+
 ## [adguard-home-2.0.6](https://github.com/truecharts/charts/compare/adguard-home-2.0.5...adguard-home-2.0.6) (2022-09-30)
 
 ### Chore
