@@ -4,11 +4,15 @@ image:
   pullPolicy: IfNotPresent
 
 args:
-  - '--no-check-update'
-  - '--host 0.0.0.0'
-  - '--config /opt/adguardhome/conf/AdGuardHome.yaml'
-  - '--work-dir /opt/adguardhome/work'
-  - '--port {{ .Values.service.main.ports.main.port }}'
+  - --no-check-update
+  - --host
+  - "0.0.0.0"
+  - --config
+  - /opt/adguardhome/conf/AdGuardHome.yaml
+  - --work-dir
+  - /opt/adguardhome/work
+  - --port
+  - "{{ .Values.service.main.ports.main.port }}"
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -56,7 +60,7 @@ service:
       main:
         port: 10232
         protocol: HTTP
-        targetPort: 3000
+        targetPort: 3001
   # install-wizard:
   #   enabled: true
   #   ports:
