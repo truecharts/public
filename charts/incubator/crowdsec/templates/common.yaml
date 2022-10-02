@@ -2,7 +2,10 @@
 {{- include "tc.common.loader.init" . }}
 
 {{/* Render config */}}
-{{- include "crowdsec.acquis" . }}
+{{- include "crowdsec.config" . }}
+
+{{/* Render secret */}}
+{{- include "crowdsec.secret" . }}
 
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}

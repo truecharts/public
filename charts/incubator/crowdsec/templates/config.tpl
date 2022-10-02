@@ -1,14 +1,15 @@
 {{/* Define the configmap */}}
-{{- define "crowdsec.acquis" -}}
+{{- define "crowdsec.config" -}}
 
-{{- $configName := printf "%s-acquis-config" (include "tc.common.names.fullname" .) }}
+{{- $acquisConfigName := printf "%s-acquis-config" (include "tc.common.names.fullname" .) }}
+{{- $agentConfigName := printf "%s-agent-config" (include "tc.common.names.fullname" .) }}
 
 ---
 
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ $configName }}
+  name: {{ $acquisConfigName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
@@ -37,4 +38,16 @@ data:
       {{- end }}
       program: {{ .program }}
     {{- end }}
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $agentConfigName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
+  LOCAL_API_URL: {{ .Values.crowdsec.local_api_url }}
+  DISABLE_LOCAL_API: {{ .Values.crowdsec.disable_local_api | quote }}
 {{- end }}

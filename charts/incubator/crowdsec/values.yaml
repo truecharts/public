@@ -3,9 +3,20 @@ image:
   tag: v1.4.1@sha256:cd7b6cd8e4774cdafb3862961f607de6fc513ea87d5b7a039a0a06bc3a5a97ed
   pullPolicy: IfNotPresent
 
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-credentials-secret'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-agent-config'
+
 crowdsec:
   # docker | containerd
   container_runtime: docker
+  local_apI_url: http://localhost:8080
+  disable_local_api: true
+  credentials:
+    username: username
+    password: password
   acquisition:
     pods:
       - name: truenas
@@ -21,8 +32,16 @@ crowdsec:
         type: test-type
         program: test-app
 
-
-
+service:
+  metrics:
+    enabled: true
+    type: ClusterIP
+    ports:
+      metrics:
+        enabled: true
+        port: 6060
+        protocol: HTTP
+        targetPort: 6060
 
 
 
