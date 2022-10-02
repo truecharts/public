@@ -1,7 +1,13 @@
 image:
-  repository: tccr.io/truecharts/wallabag
-  pullPolicy: IfNotPresent
-  tag: v2.5.1@sha256:8876bbf9c7cfc922dcf2ecd08e6d13709941454259dcd8531bcef800158c90f4
+  # repository: tccr.io/truecharts/wallabag
+  # pullPolicy: IfNotPresent
+  # tag: v2.5.1@sha256:8876bbf9c7cfc922dcf2ecd08e6d13709941454259dcd8531bcef800158c90f4
+
+  # https://github.com/ndom91/briefkasten/issues/21
+
+podSecurityContext:
+  runAsUser: 1001
+  runAsGroup: 1001
 
 briefkasten:
   general:
