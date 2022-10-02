@@ -13,7 +13,7 @@ args:
   {{- end }}
   {{- if not $v.hide_footer }}
   {{- with $v.footer }}
-  - "--footer_text {{ . }}"
+  - --footer_text {{ . | quote }}
   {{- end }}
   {{- else }}
   - --hide-footer
@@ -34,7 +34,7 @@ args:
   - --readonly
   {{- end }}
   {{- with $v.title }}
-  - "--title {{ . }}"
+  - --title {{ . | quote }}
   {{- end }}
   {{- if $v.wide }}
   - --wide
@@ -44,9 +44,9 @@ args:
   - {{ . }}
   {{- end }}
   {{- if $v.username }}
-  - "--auth-username {{ $v.username }}"
+  - --auth-username {{ $v.username | quote }}
   {{- if $v.password }}
-  - "--auth-password {{ $v.password }}"
+  - --auth-password {{ $v.password | quote }}
   {{- end }}
   {{- end }}
 
