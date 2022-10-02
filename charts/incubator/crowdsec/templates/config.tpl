@@ -56,7 +56,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  LOCAL_API_URL: {{ .Values.crowdsec.local_api_url }}
+  LOCAL_API_URL: {{ .Values.crowdsec.agent.local_api_url }}
   # Disable integrated LAPI. Use only the AGENT function
   DISABLE_LOCAL_API: "true"
 
