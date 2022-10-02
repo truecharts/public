@@ -14,8 +14,7 @@ args:
   {{- end }}
   {{- if not $v.hide_footer }}
   {{- with $v.footer }}
-  - --footer_text
-  - {{ . | quote }}
+  - --footer_text {{ . }}
   {{- end }}
   {{- else }}
   - --hide-footer
