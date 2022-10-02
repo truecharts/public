@@ -1,0 +1,10 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{- $newArgs := (include "microbin.args" . | fromYaml) }}
+{{- $_ := set .Values "newArgs" $newArgs -}}
+{{- $args := concat .Values.args .Values.newArgs.args }}
+{{- $_ := set .Values "args" $args -}}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}
