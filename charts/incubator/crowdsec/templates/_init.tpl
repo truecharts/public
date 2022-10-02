@@ -13,7 +13,7 @@ command:
 args:
   - |
     echo "Fetching metabase assets..."
-    wget {{ .Values.crowdsec.lapi.dashboard.assetURL }} && \
+    wget {{ .Values.crowdsec.lapi.dashboard.assetURL }} -O metabase_sqlite.zip && \
     unzip metabase_sqlite.zip -d /metabase-data/
 
     echo "Creating crowdsec files that do not exit..."
