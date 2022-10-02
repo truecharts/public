@@ -32,22 +32,6 @@ crowdsec:
         type: test-type
         program: test-app
 
-service:
-  metrics:
-    enabled: true
-    type: ClusterIP
-    ports:
-      metrics:
-        enabled: true
-        port: 6060
-        protocol: HTTP
-        targetPort: 6060
-
-
-
-
-
-
 # securityContext:
 #   readOnlyRootFilesystem: false
 #   runAsNonRoot: false
