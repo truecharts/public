@@ -43,35 +43,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 80
-        - variable: install-wizard
-          label: Install Wizard Service
-          description: The install Wizard service.
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: install-wizard
-                      label: Install Wizard Service Port Configuration
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
-                              default: 10233
-                              required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 3000
         - variable: dns-tcp
           label: dns-tcp Service
           description: dns-tcp service
