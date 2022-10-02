@@ -2,7 +2,7 @@
 {{ $v := .Values.microbin }}
 args:
   - port
-  - {{ .Values.service.main.ports.main.port }}
+  - "{{ .Values.service.main.ports.main.port }}"
   {{- if $v.editable }}
   - --editable
   {{- end }}
@@ -15,7 +15,7 @@ args:
   {{- if not $v.hide_footer }}
   {{- with $v.footer }}
   - --footer_text
-  - {{ . }}
+  - "{{ . }}"
   {{- end }}
   {{- else }}
   - --hide-footer
@@ -37,7 +37,7 @@ args:
   {{- end }}
   {{- with $v.title }}
   - --title
-  - {{ . }}
+  - "{{ . }}"
   {{- end }}
   {{- if $v.wide }}
   - --wide
@@ -48,10 +48,10 @@ args:
   {{- end }}
   {{- if $v.username }}
   - --auth-username
-  - {{ $v.username }}
+  - "{{ $v.username }}"
   {{- if $v.password }}
   - --auth-password
-  - {{ $v.password }}
+  - "{{ $v.password }}"
   {{- end }}
   {{- end }}
 
