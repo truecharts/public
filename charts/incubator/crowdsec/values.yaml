@@ -33,17 +33,21 @@ crowdsec:
         program: test-app
 
 persistence:
+  crowdsec_config:
+    enabled: true
+    mountPath: /etc/crowdsec
+  crowdsec_data:
+    enabled: true
+    mountPath: /var/lib/crowdsec/data
   acquis-config:
     enabled: true
     readOnly: true
     type: custom
-    mountPath: /etc/crowdsec
+    mountPath: /etc/crowdsec/acquis.yaml
+    subPath: acquis.yaml
     volumeSpec:
       configMap:
         name: '{{ include "tc.common.names.fullname" . }}-acquis-config'
-        items:
-          - key: acquis.yaml
-            path: acquis.yaml
 
 # securityContext:
 #   readOnlyRootFilesystem: false
