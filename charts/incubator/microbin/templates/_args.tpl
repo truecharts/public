@@ -1,7 +1,7 @@
 {{- define "microbin.args" -}}
 {{ $v := .Values.microbin }}
 args:
-  - --port {{ .Values.service.main.ports.main.port | quote }}
+  - --port {{ .Values.service.main.ports.main.port }}
   {{- if $v.editable }}
   - --editable
   {{- end }}
@@ -13,7 +13,7 @@ args:
   {{- end }}
   {{- if not $v.hide_footer }}
   {{- with $v.footer }}
-  - --footer_text {{ . | quote }}
+  - --footer_text {{ . }}
   {{- end }}
   {{- else }}
   - --hide-footer
@@ -34,19 +34,18 @@ args:
   - --readonly
   {{- end }}
   {{- with $v.title }}
-  - --title {{ . | quote }}
+  - --title {{ . }}
   {{- end }}
   {{- if $v.wide }}
   - --wide
   {{- end }}
   {{- with $v.threads }}
-  - --threads
-  - {{ . }}
+  - --threads {{ . }}
   {{- end }}
   {{- if $v.username }}
-  - --auth-username {{ $v.username | quote }}
+  - --auth-username {{ $v.username }}
   {{- if $v.password }}
-  - --auth-password {{ $v.password | quote }}
+  - --auth-password {{ $v.password }}
   {{- end }}
   {{- end }}
 
