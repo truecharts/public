@@ -1,0 +1,30 @@
+apiVersion: v2
+appVersion: "11.0.0"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.6.4
+description: CrowdSec is an open-source and collaborative IPS (Intrusion Prevention System) and a security suite.
+home: https://truecharts.org/docs/charts/stable/airsonic-advanced
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic-advanced.png
+keywords:
+  - ips
+  - security
+  - crowdsec
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: crowdsec
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/airsonic-advanced
+  - https://github.com/crowdsecurity/crowdsec
+  - https://www.crowdsec.net/
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - security
+    - network
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

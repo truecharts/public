@@ -1,0 +1,53 @@
+image:
+  repository: tccr.io/truecharts/crowdsec
+  tag: v1.4.1@sha256:cd7b6cd8e4774cdafb3862961f607de6fc513ea87d5b7a039a0a06bc3a5a97ed
+  pullPolicy: IfNotPresent
+
+crowdsec:
+  # docker | containerd
+  container_runtime: docker
+  acquisition:
+    pods:
+      - name: truenas
+        namespace: ""
+        program: nginx
+      - name: native
+        namespace: test-native
+        program: traefik
+    raw_log_paths:
+      - path: /path1
+        program: nginx
+      - path: /path2
+        type: test-type
+        program: test-app
+
+
+
+
+
+
+
+
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+# service:
+#   main:
+#     ports:
+#       main:
+#         port: 10122
+#         targetPort: 4040
+
+# persistence:
+#   config:
+#     enabled: true
+#     mountPath: "/airsonic"
+
+# portal:
+#   enabled: true
