@@ -95,13 +95,6 @@ persistence:
     mountPath: /root
     hostPathType: ""
     readOnly: false
-  cluster:
-    enabled: true
-    type: hostPath
-    hostPath: /cluster
-    mountPath: /cluster
-    hostPathType: ""
-    readOnly: false
   docker-certs-ca:
     enabled: true
     mountPath: "/config"
