@@ -7,5 +7,9 @@
 {{/* Render secret */}}
 {{- include "crowdsec.secret" . }}
 
+{{- $_ := set .Values.additionalContainers "fetch" (include "crowdsec.fetch" . | fromYaml) -}}
+{{- $_ := set .Values.additionalContainers "lapi" (include "crowdsec.lapi" . | fromYaml) -}}
+{{- $_ := set .Values.additionalContainers "dashboard" (include "crowdsec.dashboard" . | fromYaml) -}}
+
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}

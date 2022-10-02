@@ -3,6 +3,8 @@
 
 {{- $acquisConfigName := printf "%s-acquis-config" (include "tc.common.names.fullname" .) }}
 {{- $agentConfigName := printf "%s-agent-config" (include "tc.common.names.fullname" .) }}
+{{- $lapiConfigName := printf "%s-lapi-config" (include "tc.common.names.fullname" .) }}
+{{- $dashboardConfigName := printf "%s-dashboard-config" (include "tc.common.names.fullname" .) }}
 
 ---
 
@@ -14,8 +16,10 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   acquis.yaml: |-
-    {{- $container_runtime := .Values.crowdsec.container_runtime }}
-    {{- range .Values.crowdsec.acquisition.pods }}
+    {{- $container_runtime := .Values.crowdsec.agent.container_runtime -}}
+    {{- $acquisitionConfig := .Values.crowdsec.agent.acquisition -}}
+    {{- range $acquisitionConfig.pods }}
+
     ---
     filenames:
       {{- if not .namespace }}
@@ -30,7 +34,7 @@ data:
       {{- end }}
     {{- end }}
 
-    {{- range .Values.crowdsec.acquisition.raw_log_paths }}
+    {{- range $acquisitionConfig.raw_log_paths }}
     ---
     filenames:
       - {{ .path }}
@@ -53,5 +57,29 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   LOCAL_API_URL: {{ .Values.crowdsec.local_api_url }}
-  DISABLE_LOCAL_API: {{ .Values.crowdsec.disable_local_api | quote }}
+  # Disable integrated LAPI. Use only the AGENT function
+  DISABLE_LOCAL_API: "true"
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $lapiConfigName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
+  # Disable integrated AGENT. Use only the LAPI function
+  DISABLE_AGENT: "true"
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $dashboardConfigName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
+  MB_DB_FILE: /metabase-data/metabase.db
 {{- end }}

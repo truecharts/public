@@ -3,6 +3,19 @@ image:
   tag: v1.4.1@sha256:cd7b6cd8e4774cdafb3862961f607de6fc513ea87d5b7a039a0a06bc3a5a97ed
   pullPolicy: IfNotPresent
 
+dashboardImage:
+  repository: tccr.io/truecharts/metabase
+  tag: v0.44.4@sha256:07cbf35571ee2e23aedd222cac80c1876a979e0244eb5320f618ce045db9aa59
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-credentials-secret'
@@ -10,27 +23,30 @@ envFrom:
       name: '{{ include "tc.common.names.fullname" . }}-agent-config'
 
 crowdsec:
-  # docker | containerd
-  container_runtime: docker
-  local_apI_url: http://localhost:8080
-  disable_local_api: true
   credentials:
     username: username
     password: password
-  acquisition:
-    pods:
-      - name: truenas
-        namespace: ""
-        program: nginx
-      - name: native
-        namespace: test-native
-        program: traefik
-    raw_log_paths:
-      - path: /path1
-        program: nginx
-      - path: /path2
-        type: test-type
-        program: test-app
+  agent:
+    # docker | containerd
+    container_runtime: docker
+    local_apI_url: http://localhost:{{ .Values.service.lapi.ports.lapi.targetPort }}
+    acquisition:
+      pods:
+        - name: truenas
+          namespace: ""
+          program: nginx
+        - name: native
+          namespace: test-native
+          program: traefik
+      raw_log_paths:
+        - path: /path1
+          program: nginx
+        - path: /path2
+          type: test-type
+          program: test-app
+  lapi:
+    dashboard:
+      assetURL: https://crowdsec-statics-assets.s3-eu-west-1.amazonaws.com/metabase_sqlite.zip
 
 persistence:
   crowdsec_config:
@@ -39,6 +55,15 @@ persistence:
   crowdsec_data:
     enabled: true
     mountPath: /var/lib/crowdsec/data
+  shared_data:
+    enabled: true
+    mountPath: /metabase-data
+  varlog:
+    enabled: true
+    type: hostPath
+    readOnly: true
+    mountPath: /var/log
+    hostPath: /var/log
   acquis-config:
     enabled: true
     readOnly: true
@@ -49,25 +74,22 @@ persistence:
       configMap:
         name: '{{ include "tc.common.names.fullname" . }}-acquis-config'
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+service:
+  main:
+    ports:
+      main:
+        port: 11001
+        protocol: HTTP
+        targetPort: 3000
+  lapi:
+    enabled: true
+    type: ClusterIP
+    ports:
+      lapi:
+        enabled: true
+        port: 11000
+        protocol: HTTP
+        targetPort: 8080
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
-
-# service:
-#   main:
-#     ports:
-#       main:
-#         port: 10122
-#         targetPort: 4040
-
-# persistence:
-#   config:
-#     enabled: true
-#     mountPath: "/airsonic"
-
-# portal:
-#   enabled: true
+portal:
+  enabled: true
