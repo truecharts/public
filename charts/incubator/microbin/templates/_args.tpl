@@ -1,7 +1,8 @@
 {{- define "microbin.args" -}}
 {{ $v := .Values.microbin }}
 args:
-  - --port {{ .Values.service.main.ports.main.port }}
+  - --port
+  - {{ .Values.service.main.ports.main.port | quote }}
   {{- if $v.editable }}
   - --editable
   {{- end }}
