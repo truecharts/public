@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "10.6.2"
+appVersion: "1.1.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 10.6.4
 description: MicroBin is a super tiny, feature rich, configurable, self-contained and self-hosted paste bin web application.
-home: https://truecharts.org/docs/charts/stable/airsonic
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.png
+home: https://truecharts.org/docs/charts/incubator/microbin
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/microbin.png
 keywords:
   - microbin
 kubeVersion: ">=1.16.0-0"
@@ -16,7 +16,7 @@ maintainers:
     url: https://truecharts.org
 name: microbin
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/airsonic
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/microbin
   - https://github.com/szabodanika/microbin
 version: 0.0.1
 annotations:
