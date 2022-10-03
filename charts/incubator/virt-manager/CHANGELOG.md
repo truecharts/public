@@ -2,6 +2,18 @@
 
 
 
+## [virt-manager-0.0.68](https://github.com/truecharts/charts/compare/virt-manager-0.0.67...virt-manager-0.0.68) (2022-10-03)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#3994](https://github.com/truecharts/charts/issues/3994))
+  - update docker general non-major
+
+
+
+
 ## [virt-manager-0.0.67](https://github.com/truecharts/charts/compare/virt-manager-0.0.66...virt-manager-0.0.67) (2022-09-30)
 
 ### Chore

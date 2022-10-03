@@ -2,6 +2,18 @@
 
 
 
+## [cyberchef-2.0.95](https://github.com/truecharts/charts/compare/cyberchef-2.0.94...cyberchef-2.0.95) (2022-10-03)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#3994](https://github.com/truecharts/charts/issues/3994))
+  - update docker general non-major
+
+
+
+
 ## [cyberchef-2.0.94](https://github.com/truecharts/charts/compare/cyberchef-2.0.93...cyberchef-2.0.94) (2022-10-01)
 
 ### Chore

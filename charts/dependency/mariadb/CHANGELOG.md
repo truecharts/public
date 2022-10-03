@@ -2,6 +2,17 @@
 
 
 
+## [mariadb-3.0.88](https://github.com/truecharts/charts/compare/mariadb-3.0.87...mariadb-3.0.88) (2022-10-03)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#3994](https://github.com/truecharts/charts/issues/3994))
+
+
+
+
 ## [mariadb-3.0.87](https://github.com/truecharts/charts/compare/mariadb-3.0.86...mariadb-3.0.87) (2022-10-01)
 
 ### Chore

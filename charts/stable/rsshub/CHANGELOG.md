@@ -2,6 +2,18 @@
 
 
 
+## [rsshub-3.0.110](https://github.com/truecharts/charts/compare/rsshub-3.0.109...rsshub-3.0.110) (2022-10-03)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#3994](https://github.com/truecharts/charts/issues/3994))
+  - update docker general non-major
+
+
+
+
 ## [rsshub-3.0.109](https://github.com/truecharts/charts/compare/rsshub-3.0.108...rsshub-3.0.109) (2022-10-01)
 
 ### Chore

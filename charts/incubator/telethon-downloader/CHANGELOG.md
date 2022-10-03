@@ -2,6 +2,18 @@
 
 
 
+## [telethon-downloader-0.0.28](https://github.com/truecharts/charts/compare/telethon-downloader-0.0.27...telethon-downloader-0.0.28) (2022-10-03)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#3994](https://github.com/truecharts/charts/issues/3994))
+  - update docker general non-major
+
+
+
+
 ## [telethon-downloader-0.0.27](https://github.com/truecharts/charts/compare/telethon-downloader-0.0.26...telethon-downloader-0.0.27) (2022-10-01)
 
 ### Chore

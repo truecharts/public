@@ -2,6 +2,17 @@
 
 
 
+## [chromium-0.0.33](https://github.com/truecharts/charts/compare/chromium-0.0.32...chromium-0.0.33) (2022-10-03)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#3994](https://github.com/truecharts/charts/issues/3994))
+
+
+
+
 ## [chromium-0.0.32](https://github.com/truecharts/charts/compare/chromium-0.0.31...chromium-0.0.32) (2022-09-29)
 
 ### Chore
