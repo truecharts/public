@@ -33,24 +33,23 @@ data:
   DOCSPELL_SERVER_MAX__NOTE__LENGTH: {{ . | quote }}
   {{- end }}
 
-  DOCSPELL_SERVER_SHOW__CLASSIFICATION__SETTINGS: {{ $server.show_classification_settings | quote }}
-
+  DOCSPELL_SERVER_SHOW__CLASSIFICATION__SETTINGS: {{ $server.show_classification_settings | quote | default "true" }}
 
   {{/* Auth */}}
   {{- with $server.auth.session_valid }}
   DOCSPELL_SERVER_AUTH_SESSION__VALID: {{ . }}
   {{- end }}
 
-  DOCSPELL_SERVER_AUTH_REMEMBER__ME_ENABLED: {{ $server.auth.remember_me.enable | quote }}
+  DOCSPELL_SERVER_AUTH_REMEMBER__ME_ENABLED: {{ $server.auth.remember_me.enabled | quote | default "true" }}
 
   {{- with $server.auth.remember_me.valid }}
   DOCSPELL_SERVER_AUTH_REMEMBER__ME_VALID: {{ . }}
   {{- end }}
 
   {{/* Addons */}}
-  DOCSPELL_SERVER_BACKEND_ADDONS_ENABLED: {{ $server.addons.enabled | quote }}
+  DOCSPELL_SERVER_BACKEND_ADDONS_ENABLED: {{ $server.addons.enabled | quote | default "false" }}
 
-  DOCSPELL_SERVER_BACKEND_ADDONS_ALLOW__IMPURE: {{ $server.addons.allow_impure | quote }}
+  DOCSPELL_SERVER_BACKEND_ADDONS_ALLOW__IMPURE: {{ $server.addons.allow_impure | quote | default "true "}}
 
   {{- with $server.addons.allowed_urls }}
   DOCSPELL_SERVER_BACKEND_ADDONS_ALLOWED__URLS: {{ join "," . | quote }}
@@ -95,7 +94,7 @@ data:
   {{- end }}
 
   {{/* Server Options */}}
-  DOCSPELL_SERVER_SERVER__OPTIONS_ENABLE__HTTP__2: {{ $server.server_opts.enable_http2 | quote }}
+  DOCSPELL_SERVER_SERVER__OPTIONS_ENABLE__HTTP__2: {{ $server.server_opts.enable_http2 | quote | default "false" }}
 
   {{- with $server.server_opts.max_connections }}
   DOCSPELL_SERVER_SERVER__OPTIONS_MAX__CONNECTIONS: {{ . | quote }}
@@ -105,7 +104,39 @@ data:
   DOCSPELL_SERVER_SERVER__OPTIONS_RESPONSE__TIMEOUT: {{ . }}
   {{- end }}
 
+  {{/* Integration Endpoint */}}
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ENABLED: {{ $server.integration_endpoint.enabled | quote | default "false" }}
+
+  {{- with $server.integration_endpoint.priority }}
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_PRIORITY: {{ . }}
+  {{- end }}
+
+  {{- with $server.integration_endpoint.source_name }}
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_SOURCE__NAME: {{ . }}
+  {{- end }}
+
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_ENABLED: {{ $server.integration_endpoint.allowed_ips.enabled | quote | default "false" }}
+
+  {{- with $server.integration_endpoint.allowed_ips.ips }}
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_IPS: {{ join "," . | quote }}
+  {{- end }}
+
 {{/*
+
+DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_ENABLED=false
+DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_PASSWORD="docspell-int"
+DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_REALM="Docspell Integration"
+DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_USER="docspell-int"
+DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_ENABLED=false
+DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__NAME="Docspell-Integration"
+DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__VALUE="some-secret"
+
+
+
+
+
+
+
 
 #  Use with care. This repairs all migrations in the database by
 #  updating their checksums and removing failed migrations. Good
@@ -216,22 +247,7 @@ DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_Q__OP="OR"
 
 #  The URL to solr
 DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL="http://localhost:8983/solr/docspell"
-DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_ENABLED=false
-DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ENABLED=false
-DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_ENABLED=false
-DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_PASSWORD="docspell-int"
-DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_REALM="Docspell Integration"
-DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_USER="docspell-int"
-DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_ENABLED=false
-DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__NAME="Docspell-Integration"
-DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__VALUE="some-secret"
 
-#  The priority to use when submitting files through this endpoint.
-DOCSPELL_SERVER_INTEGRATION__ENDPOINT_PRIORITY="low"
-
-#  The name used for the item "source" property when uploaded
-#  through this endpoint.
-DOCSPELL_SERVER_INTEGRATION__ENDPOINT_SOURCE__NAME="integration"
 
 
 

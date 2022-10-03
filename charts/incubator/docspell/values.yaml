@@ -73,24 +73,29 @@ rest_server:
     max_connections: 1024
     # -- Timeout for waiting for the first output of the response
     response_timeout: 45s
+  integration_endpoint:
+    enabled: false
+    # -- The priority to use when submitting files through this endpoint.
+    # low | high
+    priority: low
+    # -- The name used for the item "source" property when uploaded through this endpoint.
+    source_name: integration
+    allowed_ips:
+      enabled: false
+      ips:
+    http_basic_auth:
+      enabled:
+      realm:
+      user:
+      password:
+    http_header:
+      enabled:
+      header_name:
+      header_value:
 
 
-  # integration_endpoint
-  #   enabled
-  #   priority
-  #   source_name
-  #   allowed_ips
-  #     enabled
-  #     ips
-  #   http_basic_auth
-  #     enabled
-  #     realm
-  #     user
-  #     password
-  #   http_header
-  #     enabled
-  #     header_name
-  #     header_value
+
+
   # full_text_search
   #   enabled
   #   backend
