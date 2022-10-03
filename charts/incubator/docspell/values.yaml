@@ -93,58 +93,60 @@ rest_server:
       enabled: false
       header_name: Docspell-Integration
       header_value: some-secret
-
-  # full_text_search
-  #   enabled
-  #   backend
-  #   solr
-  #     url
-  #     commit_within
-  #     log_verbose
-  #     def_type
-  #     q_op
-  #   postgresql
-  #     use_default_connection
-  #     jdbc
-  #       url
-  #       user
-  #       password
-  #     pg_config
-  #     pg_query_parser
-  #     pg_rank_normalization
-  # backend
-  #   mail_debug
-  #   jdbc
-  #     url
-  #     user
-  #     password
-  #   database_schema
-  #     run_main_migrations
-  #     run_fixup_migrations
-  #     repair_schema
-  #   signup
-  #     mode
-  #     new_invite_password
-  #     invite_time
-  #   files
-  #     chunk_size
-  #     valid_mime_types
-  #     default_store
-  #     stores
-  #       database
-  #         enabled
-  #         type
-  #       filesystem
-  #         enabled
-  #         type
-  #         directory
-  #       minio
-  #         enabled
-  #         type
-  #         endpoint
-  #         access_key
-  #         secret_key
-  #         bucket
+  backend:
+    # -- Enable or disable debugging for e-mail related functionality
+    mail_debug: false
+    database_schema:
+      # --  Whether to run main database migrations.
+      run_main_migrations: true
+      # -- Whether to run the fixup migrations.
+      run_fixup_migrations: true
+      # -- Use with care. This repairs all migrations in the database by updating their checksums and removing failed migrations.
+      repair_schema: false
+    signup:
+      # -- The mode defines if new users can signup or not.
+      # open | invite | closed
+      mode: open
+      # -- This is the period an invitation token is considered valid.
+      invite_time: 3 days
+    # files:
+    #   chunk_size:
+    #   valid_mime_types:
+    #   default_store:
+    #   stores:
+    #     database:
+    #       enabled:
+    #       type:
+    #     filesystem:
+    #       enabled:
+    #       type:
+    #       directory:
+    #     minio:
+    #       enabled:
+    #       type:
+    #       endpoint:
+    #       access_key:
+    #       secret_key:
+    #       bucket:
+  # full_text_search:
+  #   enabled:
+  #   backend:
+  #   solr:
+  #     url:
+  #     commit_within:
+  #     log_verbose:
+  #     def_type:
+  #     q_op:
+  #   postgresql:
+  #     use_default_connection:
+  #     jdbc:
+  #       url:
+  #       user:
+  #       password:
+  #     pg_config:
+  #     pg_query_parser:
+  #     pg_rank_normalization:
+  # openid:
 
 service:
   main:

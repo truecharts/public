@@ -23,6 +23,15 @@ data:
   DOCSPELL_SERVER_AUTH_SERVER__SECRET: {{ printf "b64:%v" (randAlphaNum 32 | b64enc) | b64enc }}
   {{- end }}
 
+  {{/* This used to generate invitation keys via the WebUI or API */}}
+  {{- with (lookup "v1" "Secret" .Release.Namespace $serverSecretName) }}
+  DOCSPELL_SERVER_BACKEND_SIGNUP_NEW__INVITE__PASSWORD: {{ index .data "DOCSPELL_SERVER_BACKEND_SIGNUP_NEW__INVITE__PASSWORD" }}
+  {{- else }}
+  DOCSPELL_SERVER_BACKEND_SIGNUP_NEW__INVITE__PASSWORD: {{ randAlphaNum 32 | b64enc }}
+  {{- end }}
+
+  DOCSPELL_SERVER_BACKEND_JDBC_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
+
   {{- with $server.admin_endpoint.secret }}
   DOCSPELL_SERVER_ADMIN__ENDPOINT_SECRET: {{ . | b64enc }}
   {{- end }}
