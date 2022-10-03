@@ -8,8 +8,10 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
       initContainers:
         - name: init-postgresdb
           image: {{ template "postgres.imageName" . }}
-          command: ['sh', '-c', "until pg_isready -h {{ template "common.names.fullname" $postgres_values }}; do echo waiting for postgres; sleep 2; done"]
+          command: ['sh', '-c', "until pg_isready -U $POSTGRES_USER -d {{ include "postgres.DatabaseName" .Values }} -h {{ template "common.names.fullname" $postgres_values }}; do echo waiting for postgres; sleep 2; done"]
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env: {{ include "postgres.envVariableConfiguration" $postgres_values | nindent 10 }}
+
       containers:
       {{ if eq (include "nginx.certAvailable" .) "true" }}
       - name: nginx
