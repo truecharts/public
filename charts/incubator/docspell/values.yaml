@@ -15,9 +15,9 @@ dscImage:
 
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-docspell-secret'
+      name: '{{ include "tc.common.names.fullname" . }}-server-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-docspell-server'
+      name: '{{ include "tc.common.names.fullname" . }}-server-config'
 
 rest_server:
   # -- App name, shows on the top right corner
@@ -146,12 +146,19 @@ rest_server:
   #         secret_key
   #         bucket
 
-
 service:
   main:
     ports:
       main:
         port: 10320
+        protocol: HTTP
+  joex:
+    enabled: true
+    type: ClusterIP
+    ports:
+      joex:
+        enabled: true
+        port: 10321
         protocol: HTTP
 
 postgresql:

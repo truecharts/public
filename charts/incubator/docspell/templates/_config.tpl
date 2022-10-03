@@ -1,8 +1,8 @@
 {{/* Define the configmap */}}
 {{- define "docspell.config" -}}
 
-{{- $serverConfigName := printf "%s-docspell-server" (include "tc.common.names.fullname" .) }}
-{{- $joexConfigName := printf "%s-docspell-joex" (include "tc.common.names.fullname" .) }}
+{{- $serverConfigName := printf "%s-server-config" (include "tc.common.names.fullname" .) }}
+{{- $joexConfigName := printf "%s-joex-config" (include "tc.common.names.fullname" .) }}
 
 {{- $server := .Values.rest_server -}}
 
@@ -267,7 +267,7 @@ DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL="http://localhost:8983/solr/docspell
 DOCSPELL_SERVER_OIDC__AUTO__REDIRECT=true
 
 
-
+*/}}
 
 ---
 
@@ -278,7 +278,12 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
+  DOCSPELL_JOEX_APP__ID: joex-{{ randAlphaNum 10 }}
+  DOCSPELL_JOEX_BIND_ADDRESS: "0.0.0.0"
+  DOCSPELL_JOEX_BIND_PORT: {{ .Values.service.joex.ports.joex.port }}
+  DOCSPELL_JOEX_BASE__URL: {{ printf "%v:%v" "http://localhost" .Values.service.joex.ports.joex.port }}
 
+{{/*
 #### JOEX Configuration ####
 DOCSPELL_JOEX_ADDONS_CACHE__DIR="/tmp/docspell-addon-cache"
 
@@ -332,17 +337,6 @@ DOCSPELL_JOEX_ADDONS_EXECUTOR__CONFIG_RUN__TIMEOUT="15 minutes"
 #  runners the computer supports.
 DOCSPELL_JOEX_ADDONS_EXECUTOR__CONFIG_RUNNER="nix-flake, docker, trivial"
 DOCSPELL_JOEX_ADDONS_WORKING__DIR="/tmp/docspell-addons"
-
-#  This is the id of this node. If you run more than one server, you
-#  have to make sure to provide unique ids per node.
-DOCSPELL_JOEX_APP__ID="joex1"
-
-#  This is the base URL this application is deployed to. This is used
-#  to register this joex instance such that docspell rest servers can
-#  reach them
-DOCSPELL_JOEX_BASE__URL="http://localhost:7878"
-DOCSPELL_JOEX_BIND_ADDRESS="localhost"
-DOCSPELL_JOEX_BIND_PORT=7878
 
 #  Defines the chunk size (in bytes) used to store the files.
 #  This will affect the memory footprint when uploading and

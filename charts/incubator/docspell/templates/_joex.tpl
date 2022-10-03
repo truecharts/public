@@ -1,27 +1,21 @@
 {{/* Define the joex container */}}
 {{- define "docspell.joex" -}}
-{{/*
-image: {{ .Values.proxyImage.repository }}:{{ .Values.proxyImage.tag }}
-imagePullPolicy: {{ .Values.proxyImage.pullPolicy }}
+image: {{ .Values.joexImage.repository }}:{{ .Values.joexImage.tag }}
+imagePullPolicy: {{ .Values.joexImage.pullPolicy }}
 securityContext:
   runAsUser: {{ .Values.podSecurityContext.runAsUser }}
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
-  readOnlyRootFilesystem: true
-  runAsNonRoot: true
+  readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
+  runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-proxy-secret'
+      name: '{{ include "tc.common.names.fullname" . }}-joex-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-proxy-config'
+      name: '{{ include "tc.common.names.fullname" . }}-joex-config'
 ports:
-  - containerPort: {{ .Values.service.proxyhttps.ports.proxyhttps.targetPort }}
-    name: proxyhttps
-  - containerPort: {{ .Values.service.proxyhttp.ports.proxyhttp.targetPort }}
-    name: proxyhttp
-{{- if .Values.metrics.enabled }}
-  - containerPort: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
-    name: proxymetrics
-{{- end }}
+  - containerPort: {{ .Values.service.joex.ports.joex.targetPort }}
+    name: joex
+{{/*
 readinessProbe:
   httpGet:
     path: /outpost.goauthentik.io/ping

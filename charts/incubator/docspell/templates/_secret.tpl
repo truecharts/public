@@ -1,20 +1,22 @@
 {{/* Define the secret */}}
 {{- define "docspell.secret" -}}
 
-{{- $secretName := printf "%s-docspell-secret" (include "tc.common.names.fullname" .) }}
+{{- $serverSecretName := printf "%s-server-secret" (include "tc.common.names.fullname" .) }}
+{{- $joexSecretName := printf "%s-joex-secret" (include "tc.common.names.fullname" .) }}
 
 {{ $server := .Values.rest_server }}
+
 ---
 
 apiVersion: v1
 kind: Secret
 type: Opaque
 metadata:
-  name: {{ $secretName }}
+  name: {{ $serverSecretName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
+  {{- with (lookup "v1" "Secret" .Release.Namespace $serverSecretName) }}
   DOCSPELL_SERVER_AUTH_SERVER__SECRET: {{ index .data "DOCSPELL_SERVER_AUTH_SERVER__SECRET" }}
   {{- else }}
   {{/* This should ensure that container receivers something like b64:ENCODEDSECRET */}}
@@ -32,4 +34,14 @@ data:
   {{- with $server.integration_endpoint.http_header.header_name }}
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__VALUE:
   {{- end }}
+---
+
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: {{ $joexSecretName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
 {{- end }}
