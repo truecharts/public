@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: "beta"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.6.4
+deprecated: false
+description: Money Balancer helps you to keep track of who paid for what and calculates your balance with all of your friends.
+home: https://truecharts.org/docs/charts/stable/kitchenowl
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kitchenowl.png
+keywords:
+  - money
+  - balance
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: money-balancer
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/kitchenowl
+  - https://github.com/dorianim/money-balancer
+type: application
+version: 1.0.7
+annotations:
+  truecharts.org/catagories: |
+    - finance
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

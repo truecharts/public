@@ -1,0 +1,5 @@
+{{- include "tc.common.loader.init" . }}
+
+{{ include "moneybalancer.secrets" . }}
+
+{{ include "tc.common.loader.apply" . }}
