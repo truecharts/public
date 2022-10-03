@@ -83,18 +83,16 @@ rest_server:
     allowed_ips:
       enabled: false
       ips:
+        - "127.0.0.1"
     http_basic_auth:
-      enabled:
-      realm:
-      user:
-      password:
+      enabled: false
+      realm: Docspell Integration
+      user: docspell-int
+      password: docspell-int
     http_header:
-      enabled:
-      header_name:
-      header_value:
-
-
-
+      enabled: false
+      header_name: Docspell-Integration
+      header_value: some-secret
 
   # full_text_search
   #   enabled

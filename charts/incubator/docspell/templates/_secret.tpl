@@ -25,16 +25,11 @@ data:
   DOCSPELL_SERVER_ADMIN__ENDPOINT_SECRET: {{ . | b64enc }}
   {{- end }}
 
+  {{- with $server.integration_endpoint.http_basic_auth.password }}
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_PASSWORD: {{ . | b64enc }}
+  {{- end }}
 
-
-
-
-
-
-
-
-
-
-
-
+  {{- with $server.integration_endpoint.http_header.header_name }}
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__VALUE:
+  {{- end }}
 {{- end }}
