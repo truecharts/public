@@ -260,6 +260,8 @@ data:
   DOCSPELL_JOEX_BIND_ADDRESS: "0.0.0.0"
   DOCSPELL_JOEX_BIND_PORT: {{ .Values.service.joex.ports.joex.port }}
   DOCSPELL_JOEX_BASE__URL: {{ printf "%v:%v" "http://localhost" .Values.service.joex.ports.joex.port }}
+  DOCSPELL_JOEX_JDBC_URL: {{ printf "jdbc:postgresql://%v-%v:5432/%v" .Release.Name "postgresql" .Values.postgresql.postgresqlDatabase }}
+  DOCSPELL_JOEX_JDBC_USER: {{ .Values.postgresql.postgresqlUsername }}
 
   {{/* Logging */}}
   {{- $logging := $joex.logging -}}
@@ -525,12 +527,7 @@ DOCSPELL_JOEX_HOUSE__KEEPING_INTEGRITY__CHECK_ENABLED=true
 #  week.
 DOCSPELL_JOEX_HOUSE__KEEPING_SCHEDULE="Sun *-*-* 00:00:00 UTC"
 
-#  The database password.
-DOCSPELL_JOEX_JDBC_PASSWORD=""
-DOCSPELL_JOEX_JDBC_URL="jdbc:h2:///tmp/docspell-demo.db;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;AUTO_SERVER=TRUE"
 
-#  The database user.
-DOCSPELL_JOEX_JDBC_USER="sa"
 
 
 #  Enable or disable debugging for e-mail related functionality. This

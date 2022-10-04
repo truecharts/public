@@ -61,4 +61,5 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
+  DOCSPELL_JOEX_JDBC_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
 {{- end }}
