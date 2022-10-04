@@ -59,10 +59,12 @@ data:
 
   DOCSPELL_SERVER_BACKEND_ADDONS_ALLOW__IMPURE: {{ $addons.allow_impure | default true | quote }}
 
+  # TODO:
   {{- with $addons.allowed_urls }}
   DOCSPELL_SERVER_BACKEND_ADDONS_ALLOWED__URLS: {{ join "," . | quote }}
   {{- end }}
 
+  # TODO:
   {{- with $addons.denied_urls }}
   DOCSPELL_SERVER_BACKEND_ADDONS_DENIED__URLS: {{ join "," . | quote }}
   {{- end }}
@@ -92,9 +94,7 @@ data:
   {{- end }}
 
   {{- with $logging.levels.flywaydb }}
-  {{/* TODO: See how to pass this env with quotes
-  DOCSPELL_SERVER_LOGGING_LEVELS_"ORG_FLYWAYDB": {{ . }}
-  */}}
+  DOCSPELL_SERVER_LOGGING_LEVELS_ORG_FLYWAYDB: {{ . }}
   {{- end }}
 
   {{- with $logging.levels.binny }}
@@ -102,9 +102,7 @@ data:
   {{- end }}
 
   {{- with $logging.levels.http4s }}
-  {{/* TODO: See how to pass this env with quotes
-  DOCSPELL_SERVER_LOGGING_LEVELS_"ORG_HTTP4S": {{ . }}
-  */}}
+  DOCSPELL_SERVER_LOGGING_LEVELS_ORG_HTTP4S: {{ . }}
   {{- end }}
 
   {{/* Server Options */}}
@@ -291,9 +289,7 @@ data:
   {{- end }}
 
   {{- with $logging.levels.flywaydb }}
-  {{/* TODO: See how to pass this env with quotes
-  DOCSPELL_JOEX_LOGGING_LEVELS_"ORG_FLYWAYDB": {{ . }}
-  */}}
+  DOCSPELL_JOEX_LOGGING_LEVELS_ORG_FLYWAYDB: {{ . }}
   {{- end }}
 
   {{- with $logging.levels.binny }}
@@ -301,9 +297,7 @@ data:
   {{- end }}
 
   {{- with $logging.levels.http4s }}
-  {{/* TODO: See how to pass this env with quotes
-  DOCSPELL_JOEX_LOGGING_LEVELS_"ORG_HTTP4S": {{ . }}
-  */}}
+  DOCSPELL_JOEX_LOGGING_LEVELS_ORG_HTTP4S: {{ . }}
   {{- end }}
 
   {{/* Database Schema */}}
