@@ -32,37 +32,6 @@ rest_server:
   # -- App name, shows on the top right corner
   app_name: Docspell
   base_url: ""
-  # -- This defines whether the classification form in the collective settings is displayed or not.
-  show_classification_settings: true
-  # -- This is a hard limit to restrict the size of a batch that is returned when searching for items.
-  max_item_page_size: 200
-  # -- The number of characters to return for each item notes when searching.
-  max_note_length: 180
-  admin_endpoint:
-    # -- Disables endpoint if empty
-    secret: ""
-  auth:
-    # -- How long a authentication token is valid
-    session_valid: 5 minutes
-    remember_me:
-      enabled: true
-      # -- How long the remember me cookie/token is valid.
-      valid: 30 days
-  addons:
-    # TODO: Check how exactly addons work. There are mentions of docker daemon
-    enabled: false
-    # -- Whether installing addons requiring network should be allowed or not.
-    allow_impure: true
-    # -- Define patterns of urls that are allowed to install addons from.
-    allowed_urls:
-      - "*"
-    # -- Define patterns of urls that are denied to install addons from.
-    denied_urls: []
-  download_all:
-    # -- How many files to allow in a zip.
-    max_files: 500
-    # --- The maximum (uncompressed) size of the zip file contents.
-    max_size: 1400M
   logging:
     # -- The format for the log messages. Can be one of:
     # -- Json | Logfmt | Fancy | Plain
@@ -83,6 +52,24 @@ rest_server:
     max_connections: 1024
     # -- Timeout for waiting for the first output of the response
     response_timeout: 45s
+  # -- This is a hard limit to restrict the size of a batch that is returned when searching for items.
+  max_item_page_size: 200
+  # -- The number of characters to return for each item notes when searching.
+  max_note_length: 180
+  # -- This defines whether the classification form in the collective settings is displayed or not.
+  show_classification_settings: true
+  auth:
+    # -- How long a authentication token is valid
+    session_valid: 5 minutes
+    remember_me:
+      enabled: true
+      # -- How long the remember me cookie/token is valid.
+      valid: 30 days
+  download_all:
+    # -- How many files to allow in a zip.
+    max_files: 500
+    # --- The maximum (uncompressed) size of the zip file contents.
+    max_size: 1400M
   integration_endpoint:
     enabled: false
     # -- The priority to use when submitting files through this endpoint.
@@ -103,6 +90,9 @@ rest_server:
       enabled: false
       header_name: Docspell-Integration
       header_value: some-secret
+  admin_endpoint:
+    # -- Disables endpoint if empty
+    secret: ""
   backend:
     # -- Enable or disable debugging for e-mail related functionality
     mail_debug: false
@@ -139,6 +129,16 @@ rest_server:
         filesystem:
           enabled: false
           directory: /documents
+  addons:
+    # TODO: Check how exactly addons work. There are mentions of docker daemon
+    enabled: false
+    # -- Whether installing addons requiring network should be allowed or not.
+    allow_impure: true
+    # -- Define patterns of urls that are allowed to install addons from.
+    allowed_urls:
+      - "*"
+    # -- Define patterns of urls that are denied to install addons from.
+    denied_urls: []
   # full_text_search:
   #   enabled:
   #   backend:
@@ -160,6 +160,26 @@ rest_server:
   # openid:
 
 joex:
+  logging:
+    # -- The format for the log messages. Can be one of:
+    # -- Json | Logfmt | Fancy | Plain
+    format: Fancy
+    # -- The minimum level to log. From lowest to highest:
+    # -- Trace | Debug | Info | Warn | Error
+    minimum_level: Warn
+    levels:
+      # -- Override the log level of specific loggers
+      docspell: Info
+      flywaydb: Info
+      binny: Info
+      http4s: Info
+  database_schema:
+    # -- Whether to run main database migrations.
+    run_main_migrations: true
+    # -- Whether to run the fixup migrations.
+    run_fixup_migrations: true
+    # -- Use with care. This repairs all migrations in the database by updating their checksums and removing failed migrations.
+    repair_schema: false
   # -- Enable or disable debugging for e-mail related functionality. This applies to both sending and receiving mails.
   mail_debug: false
   send_mail:
@@ -189,26 +209,6 @@ joex:
       mail_chunk_size: 50
       # -- A limit on how many mails to process in one job run.
       max_mails: 500
-  logging:
-    # -- The format for the log messages. Can be one of:
-    # -- Json | Logfmt | Fancy | Plain
-    format: Fancy
-    # -- The minimum level to log. From lowest to highest:
-    # -- Trace | Debug | Info | Warn | Error
-    minimum_level: Warn
-    levels:
-      # -- Override the log level of specific loggers
-      docspell: Info
-      flywaydb: Info
-      binny: Info
-      http4s: Info
-  database_schema:
-    # -- Whether to run main database migrations.
-    run_main_migrations: true
-    # -- Whether to run the fixup migrations.
-    run_fixup_migrations: true
-    # -- Use with care. This repairs all migrations in the database by updating their checksums and removing failed migrations.
-    repair_schema: false
 
 service:
   main:

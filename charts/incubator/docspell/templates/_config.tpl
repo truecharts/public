@@ -19,65 +19,15 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  DOCSPELL_SERVER_APP__ID: {{ $serverID }}
-  DOCSPELL_SERVER_BIND_ADDRESS: "0.0.0.0"
-  DOCSPELL_SERVER_BIND_PORT: {{ .Values.service.main.ports.main.port | quote }}
-  DOCSPELL_SERVER_BASE__URL: {{ $server.base_url | default (printf "%v:%v" "http://localhost" .Values.service.main.ports.main.port) }}
-  DOCSPELL_SERVER_INTERNAL__URL: {{ printf "%v:%v" "http://localhost" .Values.service.main.ports.main.port }}
-  DOCSPELL_SERVER_BACKEND_JDBC_URL: {{ printf "jdbc:postgresql://%v-%v:5432/%v" .Release.Name "postgresql" .Values.postgresql.postgresqlDatabase }}
-  DOCSPELL_SERVER_BACKEND_JDBC_USER: {{ .Values.postgresql.postgresqlUsername }}
-
   {{- with $server.app_name }}
   DOCSPELL_SERVER_APP__NAME: {{ . }}
   {{- end }}
 
-  {{- with $server.max_item_page_size }}
-  DOCSPELL_SERVER_MAX__ITEM__PAGE__SIZE: {{ . | quote }}
-  {{- end }}
+  DOCSPELL_SERVER_APP__ID: {{ $serverID }}
 
-  {{- with $server.max_item_page_size }}
-  DOCSPELL_SERVER_MAX__NOTE__LENGTH: {{ . | quote }}
-  {{- end }}
+  DOCSPELL_SERVER_BASE__URL: {{ $server.base_url | default (printf "%v:%v" "http://localhost" .Values.service.main.ports.main.port) }}
 
-  DOCSPELL_SERVER_SHOW__CLASSIFICATION__SETTINGS: {{ $server.show_classification_settings | default true | quote }}
-
-  {{/* Auth */}}
-  {{- $auth := $server.auth -}}
-  {{- with $auth.session_valid }}
-  DOCSPELL_SERVER_AUTH_SESSION__VALID: {{ . }}
-  {{- end }}
-
-  DOCSPELL_SERVER_AUTH_REMEMBER__ME_ENABLED: {{ $auth.remember_me.enabled | default true | quote }}
-
-  {{- with $auth.remember_me.valid }}
-  DOCSPELL_SERVER_AUTH_REMEMBER__ME_VALID: {{ . }}
-  {{- end }}
-
-  {{/* Addons */}}
-  {{- $addons := $server.addons -}}
-  DOCSPELL_SERVER_BACKEND_ADDONS_ENABLED: {{ $addons.enabled | default false | quote }}
-
-  DOCSPELL_SERVER_BACKEND_ADDONS_ALLOW__IMPURE: {{ $addons.allow_impure | default true | quote }}
-
-  # TODO:
-  {{- with $addons.allowed_urls }}
-  DOCSPELL_SERVER_BACKEND_ADDONS_ALLOWED__URLS: {{ join "," . | quote }}
-  {{- end }}
-
-  # TODO:
-  {{- with $addons.denied_urls }}
-  DOCSPELL_SERVER_BACKEND_ADDONS_DENIED__URLS: {{ join "," . | quote }}
-  {{- end }}
-
-  {{/* Download All */}}
-  {{- $downloads := $server.download_all -}}
-  {{- with $downloads.max_files }}
-  DOCSPELL_SERVER_DOWNLOAD__ALL_MAX__FILES: {{ . | quote }}
-  {{- end }}
-
-  {{- with $downloads.max_size }}
-  DOCSPELL_SERVER_DOWNLOAD__ALL_MAX__SIZE: {{ . }}
-  {{- end }}
+  DOCSPELL_SERVER_INTERNAL__URL: {{ printf "%v:%v" "http://localhost" .Values.service.main.ports.main.port }}
 
   {{/* Logging */}}
   {{- $logging := $server.logging -}}
@@ -105,6 +55,10 @@ data:
   DOCSPELL_SERVER_LOGGING_LEVELS_ORG_HTTP4S: {{ . }}
   {{- end }}
 
+  DOCSPELL_SERVER_BIND_ADDRESS: "0.0.0.0"
+
+  DOCSPELL_SERVER_BIND_PORT: {{ .Values.service.main.ports.main.port | quote }}
+
   {{/* Server Options */}}
   {{- $serverOpts := $server.server_opts -}}
   DOCSPELL_SERVER_SERVER__OPTIONS_ENABLE__HTTP__2: {{ $serverOpts.enable_http2 | default false | quote }}
@@ -115,6 +69,38 @@ data:
 
   {{- with $serverOpts.response_timeout }}
   DOCSPELL_SERVER_SERVER__OPTIONS_RESPONSE__TIMEOUT: {{ . }}
+  {{- end }}
+
+  {{- with $server.max_item_page_size }}
+  DOCSPELL_SERVER_MAX__ITEM__PAGE__SIZE: {{ . | quote }}
+  {{- end }}
+
+  {{- with $server.max_item_page_size }}
+  DOCSPELL_SERVER_MAX__NOTE__LENGTH: {{ . | quote }}
+  {{- end }}
+
+  DOCSPELL_SERVER_SHOW__CLASSIFICATION__SETTINGS: {{ $server.show_classification_settings | default true | quote }}
+
+  {{/* Auth */}}
+  {{- $auth := $server.auth -}}
+  {{- with $auth.session_valid }}
+  DOCSPELL_SERVER_AUTH_SESSION__VALID: {{ . }}
+  {{- end }}
+
+  DOCSPELL_SERVER_AUTH_REMEMBER__ME_ENABLED: {{ $auth.remember_me.enabled | default true | quote }}
+
+  {{- with $auth.remember_me.valid }}
+  DOCSPELL_SERVER_AUTH_REMEMBER__ME_VALID: {{ . }}
+  {{- end }}
+
+  {{/* Download All */}}
+  {{- $downloads := $server.download_all -}}
+  {{- with $downloads.max_files }}
+  DOCSPELL_SERVER_DOWNLOAD__ALL_MAX__FILES: {{ . | quote }}
+  {{- end }}
+
+  {{- with $downloads.max_size }}
+  DOCSPELL_SERVER_DOWNLOAD__ALL_MAX__SIZE: {{ . }}
   {{- end }}
 
   {{/* Integration Endpoint */}}
@@ -155,6 +141,11 @@ data:
 
   {{/* Backend */}}
   {{- $backend := $server.backend -}}
+
+  DOCSPELL_SERVER_BACKEND_JDBC_URL: {{ printf "jdbc:postgresql://%v-%v:5432/%v" .Release.Name "postgresql" .Values.postgresql.postgresqlDatabase }}
+
+  DOCSPELL_SERVER_BACKEND_JDBC_USER: {{ .Values.postgresql.postgresqlUsername }}
+
   DOCSPELL_SERVER_BACKEND_MAIL__DEBUG: {{ $backend.mail_debug | default false | quote }}
 
   DOCSPELL_SERVER_BACKEND_DATABASE__SCHEMA_RUN__MAIN__MIGRATIONS: {{ $backend.database_schema.run_main_migrations | default true | quote }}
@@ -208,6 +199,24 @@ data:
   {{- with $files.stores.minio.bucket }}
   DOCSPELL_SERVER_BACKEND_FILES_STORES_MINIO_BUCKET: {{ . }}
   {{- end }}
+
+  {{/* Addons */}}
+  {{- $addons := $server.addons -}}
+  DOCSPELL_SERVER_BACKEND_ADDONS_ENABLED: {{ $addons.enabled | default false | quote }}
+
+  DOCSPELL_SERVER_BACKEND_ADDONS_ALLOW__IMPURE: {{ $addons.allow_impure | default true | quote }}
+
+  # TODO:
+  {{- with $addons.allowed_urls }}
+  DOCSPELL_SERVER_BACKEND_ADDONS_ALLOWED__URLS: {{ join "," . | quote }}
+  {{- end }}
+
+  # TODO:
+  {{- with $addons.denied_urls }}
+  DOCSPELL_SERVER_BACKEND_ADDONS_DENIED__URLS: {{ join "," . | quote }}
+  {{- end }}
+
+
 {{/*
 #  Which backend to use, either solr or postgresql
 DOCSPELL_SERVER_FULL__TEXT__SEARCH_BACKEND="solr"
@@ -264,15 +273,12 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   DOCSPELL_JOEX_APP__ID: {{ $joexID }}
-  DOCSPELL_JOEX_SCHEDULER_NAME: {{ $joexID }}
-  DOCSPELL_JOEX_PERIODIC__SCHEDULER_NAME: {{ $joexID }}
-  DOCSPELL_JOEX_BIND_ADDRESS: "0.0.0.0"
-  DOCSPELL_JOEX_BIND_PORT: {{ .Values.service.joex.ports.joex.port | quote }}
-  DOCSPELL_JOEX_BASE__URL: {{ printf "%v:%v" "http://localhost" .Values.service.joex.ports.joex.port }}
-  DOCSPELL_JOEX_JDBC_URL: {{ printf "jdbc:postgresql://%v-%v:5432/%v" .Release.Name "postgresql" .Values.postgresql.postgresqlDatabase }}
-  DOCSPELL_JOEX_JDBC_USER: {{ .Values.postgresql.postgresqlUsername }}
 
-  DOCSPELL_JOEX_MAIL__DEBUG: {{ $joex.mail_debug | default false | quote }}
+  DOCSPELL_JOEX_BASE__URL: {{ printf "%v:%v" "http://localhost" .Values.service.joex.ports.joex.port }}
+
+  DOCSPELL_JOEX_BIND_ADDRESS: "0.0.0.0"
+
+  DOCSPELL_JOEX_BIND_PORT: {{ .Values.service.joex.ports.joex.port | quote }}
 
   {{/* Logging */}}
   {{- $logging := $joex.logging -}}
@@ -300,6 +306,10 @@ data:
   DOCSPELL_JOEX_LOGGING_LEVELS_ORG_HTTP4S: {{ . }}
   {{- end }}
 
+  DOCSPELL_JOEX_JDBC_URL: {{ printf "jdbc:postgresql://%v-%v:5432/%v" .Release.Name "postgresql" .Values.postgresql.postgresqlDatabase }}
+
+  DOCSPELL_JOEX_JDBC_USER: {{ .Values.postgresql.postgresqlUsername }}
+
   {{/* Database Schema */}}
   {{- $database_schema := $joex.database_schema -}}
   DOCSPELL_JOEX_DATABASE__SCHEMA_RUN__MAIN__MIGRATIONS: {{ $database_schema.run_main_migrations | default true | quote }}
@@ -308,11 +318,15 @@ data:
 
   DOCSPELL_JOEX_DATABASE__SCHEMA_REPAIR__SCHEMA: {{ $database_schema.repair_schema | default false | quote }}
 
+  DOCSPELL_JOEX_MAIL__DEBUG: {{ $joex.mail_debug | default false | quote }}
+
   {{/* Send Mail */}}
   {{- $send_mail := $joex.send_mail -}}
   {{- with $send_mail.list_id }}
   DOCSPELL_JOEX_SEND__MAIL_LIST__ID: {{ . }}
   {{- end }}
+
+  DOCSPELL_JOEX_SCHEDULER_NAME: {{ $joexID }}
 
   {{/* Scheduler */}}
   {{- $scheduler := $joex.scheduler -}}
@@ -321,7 +335,7 @@ data:
   {{- end }}
 
   {{- with $scheduler.counting_scheme }}
-  DOCSPELL_JOEX_SCHEDULER_COUNTING__SCHEME: {{ . }}
+  DOCSPELL_JOEX_SCHEDULER_COUNTING__SCHEME: {{ . | quote }}
   {{- end }}
 
   {{- with $scheduler.retries }}
@@ -342,6 +356,8 @@ data:
 
   {{/* Periodic Scheduler */}}
   {{- $periodic_scheduler := $joex.periodic_scheduler -}}
+  DOCSPELL_JOEX_PERIODIC__SCHEDULER_NAME: {{ $joexID }}
+
   {{- with $periodic_scheduler.wakeup_period }}
   DOCSPELL_JOEX_PERIODIC__SCHEDULER_WAKEUP__PERIOD: {{ . }}
   {{- end }}
