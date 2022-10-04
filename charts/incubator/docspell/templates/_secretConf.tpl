@@ -30,7 +30,7 @@ stringData:
       app-name = {{ $server.app_name | default "Docspell" | quote }}
       app-id = {{ $serverID | quote }}
       base-url = {{ $server.base_url | default (printf "%v:%v" "http://localhost" .Values.service.main.ports.main.port) | quote }}
-      internal-url = "http://localhost:7880"
+      internal-url = {{ printf "%v:%v" "http://localhost" .Values.service.main.ports.main.port | quote }}
       logging {
         format = "Fancy"
         minimum-level = "Warn"
