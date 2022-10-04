@@ -177,28 +177,32 @@ data:
   DOCSPELL_SERVER_BACKEND_FILES_DEFAULT__STORE: {{ . }}
   {{- end }}
 
-  DOCSPELL_SERVER_BACKEND_FILES_STORES_DATABASE_ENABLED: {{ $files.stores.database.enabled | quote }}
+  DOCSPELL_SERVER_BACKEND_FILES_STORES_DATABASE_ENABLED: {{ $files.stores.database.enabled | quote | default "true" }}
 
-  {{- with $files.stores.database.type }}
-  DOCSPELL_SERVER_BACKEND_FILES_STORES_DATABASE_TYPE: {{ . }}
+  DOCSPELL_SERVER_BACKEND_FILES_STORES_DATABASE_TYPE: default-database
+
+  DOCSPELL_SERVER_BACKEND_FILES_STORES_FILESYSTEM_ENABLED: {{ $files.stores.filesystem.enabled | quote | default "false" }}
+
+  DOCSPELL_SERVER_BACKEND_FILES_STORES_FILESYSTEM_TYPE: file-system
+
+  {{- with $files.stores.filesystem.directory }}
+  DOCSPELL_SERVER_BACKEND_FILES_STORES_FILESYSTEM_DIRECTORY: {{ . }}
   {{- end }}
 
+  DOCSPELL_SERVER_BACKEND_FILES_STORES_MINIO_ENABLED: {{ $files.stores.minio.enabled | quote | default "false" }}
 
+  DOCSPELL_SERVER_BACKEND_FILES_STORES_MINIO_TYPE: s3
+
+  {{- with $files.stores.minio.endpoint }}
+  DOCSPELL_SERVER_BACKEND_FILES_STORES_MINIO_ENDPOINT: {{ . }}
+  {{- end }}
+
+  {{- with $files.stores.minio.bucket }}
+  DOCSPELL_SERVER_BACKEND_FILES_STORES_MINIO_BUCKET: {{ . }}
+  {{- end }}
 {{/*
-#  The id of an enabled store from the `stores` array that should
-#  be used.
-#
-#  IMPORTANT NOTE: All nodes must have the exact same file store
-#  configuration!
-DOCSPELL_SERVER_BACKEND_FILES_STORES_FILESYSTEM_DIRECTORY="/some/directory"
-DOCSPELL_SERVER_BACKEND_FILES_STORES_FILESYSTEM_ENABLED=false
-DOCSPELL_SERVER_BACKEND_FILES_STORES_FILESYSTEM_TYPE="file-system"
-DOCSPELL_SERVER_BACKEND_FILES_STORES_MINIO_ACCESS__KEY="username"
-DOCSPELL_SERVER_BACKEND_FILES_STORES_MINIO_BUCKET="docspell"
-DOCSPELL_SERVER_BACKEND_FILES_STORES_MINIO_ENABLED=false
-DOCSPELL_SERVER_BACKEND_FILES_STORES_MINIO_ENDPOINT="http://localhost:9000"
-DOCSPELL_SERVER_BACKEND_FILES_STORES_MINIO_SECRET__KEY="password"
-DOCSPELL_SERVER_BACKEND_FILES_STORES_MINIO_TYPE="s3"
+
+
 
 #  Which backend to use, either solr or postgresql
 DOCSPELL_SERVER_FULL__TEXT__SEARCH_BACKEND="solr"
