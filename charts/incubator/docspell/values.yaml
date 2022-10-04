@@ -181,7 +181,7 @@ joex:
     # -- Use with care. This repairs all migrations in the database by updating their checksums and removing failed migrations.
     repair_schema: false
   # -- Enable or disable debugging for e-mail related functionality. This applies to both sending and receiving mails.
-  mail_debug: false
+  # mail_debug: false
   send_mail:
     # -- This is used as the List-Id e-mail header when mails are sent from docspell to its users
     list_id: ""
@@ -264,7 +264,17 @@ joex:
       # -- The subject of the mail.
       subject: Docspell {{ latestVersion }} is available
       # -- The body of the mail.
-      body: Your current version is {{ currentVersion }}. Version {{ latestVersion }} is available. Released at {{ releasedAt }}
+      body: |
+        Hello,
+
+        You are currently running Docspell \{\{ currentVersion \}\}. Version *\{\{ latestVersion \}\}*
+        is now available, which was released on \{\{ releasedAt \}\}. Check the release page at
+
+        <https://github.com/eikek/docspell/releases/latest>
+
+        Have a nice day!
+
+        Docspell Update Check
   # -- Configuration of text extraction
   extraction:
     pdf:
@@ -279,21 +289,21 @@ joex:
         # -- Defines what pages to process.
         begin: 10
     # -- # The ghostscript command.
-    ghost_script:
-      command:
-        program: gs
-        timeout: 5 minutes
-      work_dir: /tmp/docspell-extraction
-    # -- The unpaper command.
-    unpaper:
-      command:
-        program: unpaper
-        timeout: 5 minutes
-    # -- The tesseract command.
-    tesseract:
-      command:
-        program: tesseract
-        timeout: 5 minutes
+  #   ghost_script:
+  #     command:
+  #       program: gs
+  #       timeout: 5 minutes
+  #     work_dir: /tmp/docspell-extraction
+  #   # -- The unpaper command.
+  #   unpaper:
+  #     command:
+  #       program: unpaper
+  #       timeout: 5 minutes
+  #   # -- The tesseract command.
+  #   tesseract:
+  #     command:
+  #       program: tesseract
+  #       timeout: 5 minutes
 
 service:
   main:

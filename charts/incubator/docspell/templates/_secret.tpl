@@ -271,322 +271,119 @@ stringData:
         run-fixup-migrations = {{ $database_schema.run_fixup_migrations | default true }}
         repair-schema = {{ $database_schema.repair_schema | default false }}
       }
-      # Enable or disable debugging for e-mail related functionality. This
-      # applies to both sending and receiving mails. For security reasons
-      # logging is not very extensive on authentication failures. Setting
-      # this to true, results in a lot of data printed to stdout.
-      mail-debug = false
-
+      mail-debug = {{ $joex.mail_debug | default false }}
       send-mail {
-        # This is used as the List-Id e-mail header when mails are sent
-        # from docspell to its users (example: for notification mails). It
-        # is not used when sending to external recipients. If it is empty,
-        # no such header is added. Using this header is often useful when
-        # filtering mails.
-        #
-        # It should be a string in angle brackets. See
-        # https://tools.ietf.org/html/rfc2919 for a formal specification
-        # of this header.
-        list-id = ""
+        list-id = {{ $joex.send_mail.list_id | default "" | quote }}
       }
-
-      # Configuration for the job scheduler.
+      {{- $scheduler := $joex.scheduler }}
       scheduler {
-
-        # Each scheduler needs a unique name. This defaults to the node
-        # name, which must be unique, too.
-        name = ${docspell.joex.app-id}
-
-        # Number of processing allowed in parallel.
-        pool-size = 1
-
-        # A counting scheme determines the ratio of how high- and low-prio
-        # jobs are run. For example: 4,1 means run 4 high prio jobs, then
-        # 1 low prio and then start over.
-        counting-scheme = "4,1"
-
-        # How often a failed job should be retried until it enters failed
-        # state. If a job fails, it becomes "stuck" and will be retried
-        # after a delay.
-        retries = 2
-
-        # The delay until the next try is performed for a failed job. This
-        # delay is increased exponentially with the number of retries.
-        retry-delay = "1 minute"
-
-        # The queue size of log statements from a job.
-        log-buffer-size = 500
-
-        # If no job is left in the queue, the scheduler will wait until a
-        # notify is requested (using the REST interface). To also retry
-        # stuck jobs, it will notify itself periodically.
-        wakeup-period = "30 minutes"
+        name = {{ $joexID | quote }}
+        pool-size = {{ $scheduler.pool_size | default 1 }}
+        counting-scheme = {{ $joex.counting_scheme | default "4,1" | quote }}
+        retries = {{ $scheduler.retries | default 2 }}
+        retry-delay = {{ $scheduler.retry_delay | default "1 minute" | quote }}
+        log-buffer-size = {{ $scheduler.log_buffer_size | default 500 }}
+        wakeup-period = {{ $scheduler.wakeup_period | default "30 minutes" | quote }}
       }
-
+      {{- $periodic_scheduler := $joex.periodic_scheduler }}
       periodic-scheduler {
-
-        # Each scheduler needs a unique name. This defaults to the node
-        # name, which must be unique, too.
-        name = ${docspell.joex.app-id}
-
-        # A fallback to start looking for due periodic tasks regularily.
-        # Usually joex instances should be notified via REST calls if
-        # external processes change tasks. But these requests may get
-        # lost.
-        wakeup-period = "10 minutes"
+        name = {{ $joexID | quote }}
+        wakeup-period = {{ $periodic_scheduler.wakeup_period | default "10 minutes" | quote }}
       }
-
-      # Configuration for the user-tasks.
+      {{- $user_tasks := $joex.user_tasks }}
       user-tasks {
-        # Allows to import e-mails by scanning a mailbox.
         scan-mailbox {
-          # A limit of how many folders to scan through. If a user
-          # configures more than this, only upto this limit folders are
-          # scanned and a warning is logged.
-          max-folders = 50
-
-          # How many mails (headers only) to retrieve in one chunk.
-          #
-          # If this is greater than `max-mails' it is set automatically to
-          # the value of `max-mails'.
-          mail-chunk-size = 50
-
-          # A limit on how many mails to process in one job run. This is
-          # meant to avoid too heavy resource allocation to one
-          # user/collective.
-          #
-          # If more than this number of mails is encountered, a warning is
-          # logged.
-          max-mails = 500
+          max-folders = {{ $user_tasks.max_folders | default 50 }}
+          mail-chunk-size = {{ $user_tasks.mail_chunk_size | default 50 }}
+          max-mails = {{ $user_tasks.max_mails | default 500 }}
         }
       }
-
-
-      # Docspell uses periodic house keeping tasks, like cleaning expired
-      # invites, that can be configured here.
+      {{- $house_keeping := $joex.house_keeping }}
       house-keeping {
-
-        # When the house keeping tasks execute. Default is to run every
-        # week.
-        schedule = "Sun *-*-* 00:00:00 UTC"
-
-        # This task removes invitation keys that have been created but not
-        # used. The timespan here must be greater than the `invite-time'
-        # setting in the rest server config file.
+        schedule = {{ $house_keeping.schedule | default "Sun *-*-* 00:00:00 UTC" | quote }}
         cleanup-invites = {
-
-          # Whether this task is enabled.
-          enabled = true
-
-          # The minimum age of invites to be deleted.
-          older-than = "30 days"
+          enabled = {{ $house_keeping.cleanup_invites.enabled | default true }}
+          older-than = {{ $house_keeping.cleanup_invites.older_than | default "30 days" | quote }}
         }
-
-        # This task removes expired remember-me tokens. The timespan
-        # should be greater than the `valid` time in the restserver
-        # config.
         cleanup-remember-me = {
-          # Whether the job is enabled.
-          enabled = true
-
-          # The minimum age of tokens to be deleted.
-          older-than = "30 days"
+          enabled = {{ $house_keeping.cleanup_remember_me.enabled | default true }}
+          older-than = {{ $house_keeping.cleanup_remember_me.older_than | default "30 days" | quote }}
         }
-
-        # Jobs store their log output in the database. Normally this data
-        # is only interesting for some period of time. The processing logs
-        # of old files can be removed eventually.
         cleanup-jobs = {
-
-          # Whether this task is enabled.
-          enabled = true
-
-          # The minimum age of jobs to delete. It is matched against the
-          # `finished' timestamp.
-          older-than = "30 days"
-
-          # This defines how many jobs are deleted in one transaction.
-          # Since the data to delete may get large, it can be configured
-          # whether more or less memory should be used.
-          delete-batch = "100"
+          enabled = {{ $house_keeping.cleanup_jobs.enabled | default true }}
+          older-than = {{ $house_keeping.cleanup_jobs.older_than | default "30 days" | quote }}
+          delete-batch = {{ $house_keeping.cleanup_jobs.delete_batch | default "100" | quote }}
         }
-
-        # Zip files created for downloading multiple files are cached and
-        # can be cleared periodically.
         cleanup-downloads = {
-
-          # Whether to enable clearing old download archives.
-          enabled = true
-
-          # The minimum age of a download file to be deleted.
-          older-than = "14 days"
+          enabled = {{ $house_keeping.cleanup_downloads.enabled | default true }}
+          older-than = {{ $house_keeping.cleanup_downloads.older_than | default "14 days" | quote }}
         }
-
-        # Removes node entries that are not reachable anymore.
         check-nodes {
-          # Whether this task is enabled
-          enabled = true
-          # How often the node must be unreachable, before it is removed.
-          min-not-found = 2
+          enabled = {{ $house_keeping.check_nodes.enabled | default true }}
+          min-not-found = {{ $house_keeping.check_nodes.min_not_found | default 2 }}
         }
-
-        # Checks all files against their checksum
         integrity-check {
-          enabled = true
+          enabled = {{ $house_keeping.integrity_check.enabled | default true }}
         }
       }
-
-      # A periodic task to check for new releases of docspell. It can
-      # inform about a new release via e-mail. You need to specify an
-      # account that has SMTP settings to use for sending.
       update-check {
-        # Whether to enable this task
-        enabled = false
-
-        # Sends the mail without checking the latest release. Can be used
-        # if you want to see if mail sending works, but don't want to wait
-        # until a new release is published.
-        test-run = false
-
-        # When the update check should execute. Default is to run every
-        # week. You can specify a time zone identifier, like
-        # 'Europe/Berlin' at the end.
-        schedule = "Sun *-*-* 00:00:00 UTC"
-
-        # An account id in form of `collective/user` (or just `user` if
-        # collective and user name are the same). This user account must
-        # have at least one valid SMTP settings which are used to send the
-        # mail.
-        sender-account = ""
-
-        # The SMTP connection id that should be used for sending the mail.
-        smtp-id = ""
-
-        # A list of recipient e-mail addresses.
-        # Example: `[ "john.doe@gmail.com" ]`
+        enabled = {{ $house_keeping.update_check.enabled | default false }}
+        test-run = {{ $house_keeping.update_check.test_run | default false }}
+        schedule = {{ $house_keeping.update_check.schedule | default "Sun *-*-* 00:00:00 UTC" | quote }}
+        sender-account = {{ $house_keeping.update_check.sender_account | default "" | quote }}
+        smtp-id = {{ $house_keeping.update_check.smtp_id | default "" | quote }}
+        # TODO:
         recipients = []
-
-        # The subject of the mail. It supports the same variables as the
-        # body.
-        subject = "Docspell \{\{ latestVersion \}\} is available"
-
-        # The body of the mail. Subject and body can contain these
-        # variables which are replaced:
-        #
-        # - `latestVersion` the latest available version of Docspell
-        # - `currentVersion` the currently running (old) version of Docspell
-        # - `releasedAt` a date when the release was published
-        #
-        # The body is processed as markdown after the variables have been
-        # replaced.
-        body = """
-    Hello,
-
-    You are currently running Docspell \{\{ currentVersion \}\}. Version *\{\{ latestVersion \}\}*
-    is now available, which was released on \{\{ releasedAt \}\}. Check the release page at:
-
-    <https://github.com/eikek/docspell/releases/latest>
-
-    Have a nice day!
-
-    Docpell Update Check
-    """
+        subject = {{ $house_keeping.update_check.subject | default "Docspeasdll {{ latestVersion }} is available" | quote }}
+        body = {{ $house_keeping.update_check.body | default "You need to define a body!" | quote }}
       }
-
-      # Configuration of text extraction
+      {{- $extraction := $joex.extraction }}
       extraction {
-        # For PDF files it is first tried to read the text parts of the
-        # PDF. But PDFs can be complex documents and they may contain text
-        # and images. If the returned text is shorter than the value
-        # below, OCR is run afterwards. Then both extracted texts are
-        # compared and the longer will be used.
-        #
-        # If you set this to 0 (or a negative value), then the text parts
-        # of a PDF are ignored and OCR is always run and its result used.
         pdf {
-          min-text-len = 500
+          min-text-len = {{ $extraction.pdf.min_text_length | default 500 }}
         }
-
         preview {
-          # When rendering a pdf page, use this dpi. This results in
-          # scaling the image. A standard A4 page rendered at 96dpi
-          # results in roughly 790x1100px image. Using 32 results in
-          # roughly 200x300px image.
-          #
-          # Note, when this is changed, you might want to re-generate
-          # preview images. Check the api for this, there is an endpoint
-          # to regenerate all for a collective.
-          dpi = 32
+          dpi = {{ $extraction.preview.dpi || default 32 }}
         }
-
-        # Extracting text using OCR works for image and pdf files. It will
-        # first run ghostscript to create a gray image from a pdf. Then
-        # unpaper is run to optimize the image for the upcoming ocr, which
-        # will be done by tesseract. All these programs must be available
-        # in your PATH or the absolute path can be specified below.
         ocr {
-
-          # Images greater than this size are skipped. Note that every
-          # image is loaded completely into memory for doing OCR. This is
-          # the pixel count, `height * width` of the image.
-          max-image-size = 14000000
-
-          # Defines what pages to process. If a PDF with 600 pages is
-          # submitted, it is probably not necessary to scan through all of
-          # them. This would take a long time and occupy resources for no
-          # value. The first few pages should suffice. The default is first
-          # 10 pages.
-          #
-          # If you want all pages being processed, set this number to -1.
-          #
-          # Note: if you change the ghostscript command below, be aware that
-          # this setting (if not -1) will add another parameter to the
-          # beginning of the command.
+          max-image-size = {{ $extraction.ocr.max_image_size | default 14000000 }}
           page-range {
-            begin = 10
+            begin = {{ $extraction.ocr.page_range.begin | default 10 }}
           }
-
-          # The ghostscript command.
-          ghostscript {
-            command {
-              program = "gs"
-              args = [ "-dNOPAUSE"
-                    , "-dBATCH"
-                    , "-dSAFER"
-                    , "-sDEVICE=tiffscaled8"
-                    , "-sOutputFile=\{\{outfile\}\}"
-                    , "\{\{infile\}\}"
-                    ]
-              timeout = "5 minutes"
-            }
-            working-dir = ${java.io.tmpdir}"/docspell-extraction"
-          }
-
-          # The unpaper command.
-          unpaper {
-            command {
-              program = "unpaper"
-              args = [ "\{\{infile\}\}", "\{\{outfile\}\}" ]
-              timeout = "5 minutes"
-            }
-          }
-
-          # The tesseract command.
-          tesseract {
-            command {
-              program = "tesseract"
-              args = ["\{\{file\}\}"
-                    , "stdout"
-                    , "-l"
-                    , "\{\{lang\}\}"
-                    ]
-              timeout = "5 minutes"
-            }
-          }
+          # ghostscript {
+          #   command {
+          #     program = "gs"
+          #     args = [ "-dNOPAUSE"
+          #           , "-dBATCH"
+          #           , "-dSAFER"
+          #           , "-sDEVICE=tiffscaled8"
+          #           , "-sOutputFile=\{\{outfile\}\}"
+          #           , "\{\{infile\}\}"
+          #           ]
+          #     timeout = "5 minutes"
+          #   }
+          #   working-dir = ${java.io.tmpdir}"/docspell-extraction"
+          # }
+          # unpaper {
+          #   command {
+          #     program = "unpaper"
+          #     args = [ "\{\{infile\}\}", "\{\{outfile\}\}" ]
+          #     timeout = "5 minutes"
+          #   }
+          # }
+          # tesseract {
+          #   command {
+          #     program = "tesseract"
+          #     args = ["\{\{file\}\}"
+          #           , "stdout"
+          #           , "-l"
+          #           , "\{\{lang\}\}"
+          #           ]
+          #     timeout = "5 minutes"
+          #   }
+          # }
         }
       }
-
-      # Settings for text analysis
       text-analysis {
         # Maximum length of text to be analysed.
         #
