@@ -7,14 +7,21 @@
 {{- $server := .Values.rest_server -}}
 {{- $serverID := printf "server-%v" (randAlphaNum 10) -}}
 
----
-
 {{- $server_secret := "" }}
 {{- with (lookup "v1" "Secret" .Release.Namespace $serverSecretName) }}
 {{- $server_secret = (index .data "server_secret") }}
 {{- else }}
 {{- $server_secret = printf "b64:%v" (randAlphaNum 32 | b64enc) }}
 {{- end }}
+
+{{- $new_invite_password := "" }}
+{{- with (lookup "v1" "Secret" .Release.Namespace $serverSecretName) }}
+{{- $new_invite_password = (index .data "new_invite_password") }}
+{{- else }}
+{{- $new_invite_password = randAlphaNum 32 | b64enc }}
+{{- end }}
+
+---
 
 apiVersion: v1
 kind: Secret
@@ -25,6 +32,7 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
   server_secret: {{ $server_secret }}
+  new_invite_password: {{ $new_invite_password }}
   server.conf: |
     docspell.server {
       app-name = {{ $server.app_name | default "Docspell" | quote }}
@@ -168,10 +176,11 @@ stringData:
           run-fixup-migrations = {{ $database_schema.run_fixup_migrations | default true }}
           repair-schema = {{ $database_schema.repair_schema | default false }}
         }
+        {{- $signup := $server.signup }}
         signup {
-          mode = "open"
-          new-invite-password = ""
-          invite-time = "3 days"
+          mode = {{ $signup.mode | default "open" | quote }}
+          new-invite-password = {{ $new_invite_password | quote }}
+          invite-time = {{ $signup.invite_time | default "3 days" | quote }}
         }
         files {
           chunk-size = 524288
