@@ -275,6 +275,7 @@ DOCSPELL_SERVER_OIDC__AUTO__REDIRECT=true
 {{- $periodic_scheduler := $joex.periodic_scheduler -}}
 {{- $user_tasks := $joex.user_tasks -}}
 {{- $house_keeping := $joex.house_keeping -}}
+{{- $extraction := $joex.extraction -}}
 
 apiVersion: v1
 kind: ConfigMap
@@ -392,7 +393,7 @@ data:
 
   DOCSPELL_JOEX_HOUSE__KEEPING_CLEANUP__INVITES_ENABLED: {{ $house_keeping.cleanup_invites.enabled | default true | quote }}
 
-  {{- with $house_keeping.cleanup_ivnites.older_than }}
+  {{- with $house_keeping.cleanup_invites.older_than }}
   DOCSPELL_JOEX_HOUSE__KEEPING_CLEANUP__INVITES_OLDER__THAN: {{ . }}
   {{- end }}
 
@@ -453,6 +454,50 @@ data:
 
   {{- with $house_keeping.update_check.body }}
   DOCSPELL_JOEX_UPDATE__CHECK_BODY: {{ . }}
+  {{- end }}
+
+  {{- with $extraction.pdf.min_text_length }}
+  DOCSPELL_JOEX_EXTRACTION_PDF_MIN__TEXT__LEN: {{ . | quote }}
+  {{- end }}
+
+  {{- with $extraction.preview.dpi }}
+  DOCSPELL_JOEX_EXTRACTION_PREVIEW_DPI: {{ . | quote }}
+  {{- end }}
+
+  {{- with $extraction.ocr.max_image_size }}
+  DOCSPELL_JOEX_EXTRACTION_OCR_MAX__IMAGE__SIZE: {{ . | quote }}
+  {{- end }}
+
+  {{- with $extraction.ocr.page_range.begin }}
+  DOCSPELL_JOEX_EXTRACTION_OCR_PAGE__RANGE_BEGIN: {{ . | quote }}
+  {{- end }}
+
+  {{- with $extraction.ghost_script.command.program }}
+  DOCSPELL_JOEX_EXTRACTION_OCR_GHOSTSCRIPT_COMMAND_PROGRAM: {{ . }}
+  {{- end }}
+
+  {{- with $extraction.ghost_script.command.timeout }}
+  DOCSPELL_JOEX_EXTRACTION_OCR_GHOSTSCRIPT_COMMAND_TIMEOUT: {{ . }}
+  {{- end }}
+
+  {{- with $extraction.ghost_script.work_dir }}
+  DOCSPELL_JOEX_EXTRACTION_OCR_GHOSTSCRIPT_WORKING__DIR: {{ . }}
+  {{- end }}
+
+  {{- with $extraction.unpaper.command.program }}
+  DOCSPELL_JOEX_EXTRACTION_OCR_UNPAPER_COMMAND_PROGRAM: {{ . }}
+  {{- end }}
+
+  {{- with $extraction.unpaper.command.timetout }}
+  DOCSPELL_JOEX_EXTRACTION_OCR_UNPAPER_COMMAND_TIMEOUT: {{ . }}
+  {{- end }}
+
+  {{- with $extraction.tesseract.command.program }}
+  DOCSPELL_JOEX_EXTRACTION_OCR_TESSERACT_COMMAND_PROGRAM: {{ . }}
+  {{- end }}
+
+  {{- with $extraction.tesseract.command.timetout }}
+  DOCSPELL_JOEX_EXTRACTION_OCR_TESSERACT_COMMAND_TIMEOUT: {{ . }}
   {{- end }}
 
 {{/*
@@ -546,31 +591,6 @@ DOCSPELL_JOEX_CONVERT_UNOCONV_WORKING__DIR="/tmp/docspell-convert"
 DOCSPELL_JOEX_CONVERT_WKHTMLPDF_COMMAND_PROGRAM="wkhtmltopdf"
 DOCSPELL_JOEX_CONVERT_WKHTMLPDF_COMMAND_TIMEOUT="2 minutes"
 DOCSPELL_JOEX_CONVERT_WKHTMLPDF_WORKING__DIR="/tmp/docspell-convert"
-
-DOCSPELL_JOEX_EXTRACTION_OCR_GHOSTSCRIPT_COMMAND_PROGRAM="gs"
-DOCSPELL_JOEX_EXTRACTION_OCR_GHOSTSCRIPT_COMMAND_TIMEOUT="5 minutes"
-DOCSPELL_JOEX_EXTRACTION_OCR_GHOSTSCRIPT_WORKING__DIR="/tmp/docspell-extraction"
-
-#  Images greater than this size are skipped. Note that every
-#  image is loaded completely into memory for doing OCR. This is
-#  the pixel count, `height * width` of the image.
-DOCSPELL_JOEX_EXTRACTION_OCR_MAX__IMAGE__SIZE=14000000
-DOCSPELL_JOEX_EXTRACTION_OCR_PAGE__RANGE_BEGIN=10
-DOCSPELL_JOEX_EXTRACTION_OCR_TESSERACT_COMMAND_PROGRAM="tesseract"
-DOCSPELL_JOEX_EXTRACTION_OCR_TESSERACT_COMMAND_TIMEOUT="5 minutes"
-DOCSPELL_JOEX_EXTRACTION_OCR_UNPAPER_COMMAND_PROGRAM="unpaper"
-DOCSPELL_JOEX_EXTRACTION_OCR_UNPAPER_COMMAND_TIMEOUT="5 minutes"
-DOCSPELL_JOEX_EXTRACTION_PDF_MIN__TEXT__LEN=500
-
-#  When rendering a pdf page, use this dpi. This results in
-#  scaling the image. A standard A4 page rendered at 96dpi
-#  results in roughly 790x1100px image. Using 32 results in
-#  roughly 200x300px image.
-#
-#  Note, when this is changed, you might want to re-generate
-#  preview images. Check the api for this, there is an endpoint
-#  to regenerate all for a collective.
-DOCSPELL_JOEX_EXTRACTION_PREVIEW_DPI=32
 
 #  Defines the chunk size (in bytes) used to store the files.
 #  This will affect the memory footprint when uploading and

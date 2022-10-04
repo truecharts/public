@@ -265,7 +265,35 @@ joex:
       subject: Docspell {{ latestVersion }} is available
       # -- The body of the mail.
       body: Your current version is {{ currentVersion }}. Version {{ latestVersion }} is available. Released at {{ releasedAt }}
-
+  # -- Configuration of text extraction
+  extraction:
+    pdf:
+      min_text_length: 500
+    preview:
+      # -- When rendering a pdf page, use this dpi.
+      dpi: 32
+    ocr:
+      # -- Images greater than this size are skipped.
+      max_image_size: 14000000
+      page_range:
+        # -- Defines what pages to process.
+        begin: 10
+    # -- # The ghostscript command.
+    ghost_script:
+      command:
+        program: gs
+        timeout: 5 minutes
+      work_dir: /tmp/docspell-extraction
+    # -- The unpaper command.
+    unpaper:
+      command:
+        program: unpaper
+        timeout: 5 minutes
+    # -- The tesseract command.
+    tesseract:
+      command:
+        program: tesseract
+        timeout: 5 minutes
 
 service:
   main:
