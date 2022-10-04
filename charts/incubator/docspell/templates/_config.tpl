@@ -5,7 +5,10 @@
 {{- $joexConfigName := printf "%s-joex-config" (include "tc.common.names.fullname" .) }}
 
 {{- $server := .Values.rest_server -}}
+{{- $serverID := printf "server-%v" (randAlphaNum 10) -}}
+
 {{- $joex := .Values.joex -}}
+{{- $joexID := printf "joex-%v" (randAlphaNum 10) -}}
 
 ---
 
@@ -16,7 +19,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  DOCSPELL_SERVER_APP__ID: server-{{ randAlphaNum 10 }}
+  DOCSPELL_SERVER_APP__ID: {{ $serverID }}
   DOCSPELL_SERVER_BIND_ADDRESS: "0.0.0.0"
   DOCSPELL_SERVER_BIND_PORT: {{ .Values.service.main.ports.main.port }}
   DOCSPELL_SERVER_BASE__URL: {{ $server.base_url | default (printf "%v:%v" "http://localhost" .Values.service.main.ports.main.port) }}
@@ -256,12 +259,16 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  DOCSPELL_JOEX_APP__ID: joex-{{ randAlphaNum 10 }}
+  DOCSPELL_JOEX_APP__ID: {{ $joexID }}
+  DOCSPELL_JOEX_SCHEDULER_NAME: {{ $joexID }}
+  DOCSPELL_JOEX_PERIODIC__SCHEDULER_NAME: {{ $joexID }}
   DOCSPELL_JOEX_BIND_ADDRESS: "0.0.0.0"
   DOCSPELL_JOEX_BIND_PORT: {{ .Values.service.joex.ports.joex.port }}
   DOCSPELL_JOEX_BASE__URL: {{ printf "%v:%v" "http://localhost" .Values.service.joex.ports.joex.port }}
   DOCSPELL_JOEX_JDBC_URL: {{ printf "jdbc:postgresql://%v-%v:5432/%v" .Release.Name "postgresql" .Values.postgresql.postgresqlDatabase }}
   DOCSPELL_JOEX_JDBC_USER: {{ .Values.postgresql.postgresqlUsername }}
+
+  DOCSPELL_JOEX_MAIL__DEBUG: {{ $joex.mail_debug | quote | default "false" }}
 
   {{/* Logging */}}
   {{- $logging := $joex.logging -}}
@@ -289,7 +296,54 @@ data:
   DOCSPELL_JOEX_LOGGING_LEVELS_"ORG_HTTP4S: {{ . }}
   {{- end }}
 
+  {{/* Database Schema */}}
+  {{- $database_schema := $joex.database_schema -}}
+  DOCSPELL_JOEX_DATABASE__SCHEMA_RUN__MAIN__MIGRATIONS: {{ $database_schema.run_main_migrations | quote | default "true" }}
+
+  DOCSPELL_JOEX_DATABASE__SCHEMA_RUN__FIXUP__MIGRATIONS: {{ $database_schema.run_fixup_migrations | quote | default "true" }}
+
+  DOCSPELL_JOEX_DATABASE__SCHEMA_REPAIR__SCHEMA: {{ $database_schema.repair_schema | quote | default "false" }}
+
+  {{/* Send Mail */}}
+  {{- $send_mail := $joex.send_mail -}}
+  {{- with $send_mail.list_id }}
+  DOCSPELL_JOEX_SEND__MAIL_LIST__ID: {{ . }}
+  {{- end }}
+
+  {{/* Scheduler */}}
+  {{- $scheduler := $joex.scheduler -}}
+  {{- with $scheduler.pool_size }}
+  DOCSPELL_JOEX_SCHEDULER_POOL__SIZE: {{ . | quote }}
+  {{- end }}
+
+  {{- with $scheduler.counting_scheme }}
+  DOCSPELL_JOEX_SCHEDULER_COUNTING__SCHEME: {{ . }}
+  {{- end }}
+
+  {{- with $scheduler.retries }}
+  DOCSPELL_JOEX_SCHEDULER_RETRIES: {{ . | quote }}
+  {{- end }}
+
+  {{- with $scheduler.retry_delay }}
+  DOCSPELL_JOEX_SCHEDULER_RETRY__DELAY: {{ . }}
+  {{- end }}
+
+  {{- with $scheduler.log_buffer_size }}
+  DOCSPELL_JOEX_SCHEDULER_LOG__BUFFER__SIZE: {{ . | quote }}
+  {{- end }}
+
+  {{- with $scheduler.wakeup_period }}
+  DOCSPELL_JOEX_SCHEDULER_WAKEUP__PERIOD: {{ . }}
+  {{- end }}
+
+  {{/* Periodic Scheduler */}}
+  {{- $periodic_scheduler := $joex.periodic_scheduler -}}
+  {{- with $periodic_scheduler.wakeup_period }}
+  DOCSPELL_JOEX_PERIODIC__SCHEDULER_WAKEUP__PERIOD: {{ . }}
+  {{- end }}
+
 {{/*
+
 #### JOEX Configuration ####
 DOCSPELL_JOEX_ADDONS_CACHE__DIR="/tmp/docspell-addon-cache"
 
@@ -380,16 +434,7 @@ DOCSPELL_JOEX_CONVERT_WKHTMLPDF_COMMAND_PROGRAM="wkhtmltopdf"
 DOCSPELL_JOEX_CONVERT_WKHTMLPDF_COMMAND_TIMEOUT="2 minutes"
 DOCSPELL_JOEX_CONVERT_WKHTMLPDF_WORKING__DIR="/tmp/docspell-convert"
 
-#  Use with care. This repairs all migrations in the database by
-#  updating their checksums and removing failed migrations. Good
-#  for testing, not recommended for normal operation.
-DOCSPELL_JOEX_DATABASE__SCHEMA_REPAIR__SCHEMA=false
 
-#  Whether to run the fixup migrations.
-DOCSPELL_JOEX_DATABASE__SCHEMA_RUN__FIXUP__MIGRATIONS=true
-
-#  Whether to run main database migrations.
-DOCSPELL_JOEX_DATABASE__SCHEMA_RUN__MAIN__MIGRATIONS=true
 DOCSPELL_JOEX_EXTRACTION_OCR_GHOSTSCRIPT_COMMAND_PROGRAM="gs"
 DOCSPELL_JOEX_EXTRACTION_OCR_GHOSTSCRIPT_COMMAND_TIMEOUT="5 minutes"
 DOCSPELL_JOEX_EXTRACTION_OCR_GHOSTSCRIPT_WORKING__DIR="/tmp/docspell-extraction"
@@ -526,65 +571,6 @@ DOCSPELL_JOEX_HOUSE__KEEPING_INTEGRITY__CHECK_ENABLED=true
 #  When the house keeping tasks execute. Default is to run every
 #  week.
 DOCSPELL_JOEX_HOUSE__KEEPING_SCHEDULE="Sun *-*-* 00:00:00 UTC"
-
-
-
-
-#  Enable or disable debugging for e-mail related functionality. This
-#  applies to both sending and receiving mails. For security reasons
-#  logging is not very extensive on authentication failures. Setting
-#  this to true, results in a lot of data printed to stdout.
-DOCSPELL_JOEX_MAIL__DEBUG=false
-
-#  This is the id of this node. If you run more than one server, you
-#  have to make sure to provide unique ids per node.
-DOCSPELL_JOEX_PERIODIC__SCHEDULER_NAME="joex1"
-
-#  A fallback to start looking for due periodic tasks regularily.
-#  Usually joex instances should be notified via REST calls if
-#  external processes change tasks. But these requests may get
-#  lost.
-DOCSPELL_JOEX_PERIODIC__SCHEDULER_WAKEUP__PERIOD="10 minutes"
-
-#  A counting scheme determines the ratio of how high- and low-prio
-#  jobs are run. For example: 4,1 means run 4 high prio jobs, then
-#  1 low prio and then start over.
-DOCSPELL_JOEX_SCHEDULER_COUNTING__SCHEME="4,1"
-
-#  The queue size of log statements from a job.
-DOCSPELL_JOEX_SCHEDULER_LOG__BUFFER__SIZE=500
-
-#  This is the id of this node. If you run more than one server, you
-#  have to make sure to provide unique ids per node.
-DOCSPELL_JOEX_SCHEDULER_NAME="joex1"
-
-#  Number of processing allowed in parallel.
-DOCSPELL_JOEX_SCHEDULER_POOL__SIZE=1
-
-#  How often a failed job should be retried until it enters failed
-#  state. If a job fails, it becomes "stuck" and will be retried
-#  after a delay.
-DOCSPELL_JOEX_SCHEDULER_RETRIES=2
-
-#  The delay until the next try is performed for a failed job. This
-#  delay is increased exponentially with the number of retries.
-DOCSPELL_JOEX_SCHEDULER_RETRY__DELAY="1 minute"
-
-#  If no job is left in the queue, the scheduler will wait until a
-#  notify is requested (using the REST interface). To also retry
-#  stuck jobs, it will notify itself periodically.
-DOCSPELL_JOEX_SCHEDULER_WAKEUP__PERIOD="30 minutes"
-
-#  This is used as the List-Id e-mail header when mails are sent
-#  from docspell to its users (example: for notification mails). It
-#  is not used when sending to external recipients. If it is empty,
-#  no such header is added. Using this header is often useful when
-#  filtering mails.
-#
-#  It should be a string in angle brackets. See
-#  https://tools.ietf.org/html/rfc2919 for a formal specification
-#  of this header.
-DOCSPELL_JOEX_SEND__MAIL_LIST__ID=""
 
 #  Whether to enable classification globally. Each collective can
 #  enable/disable auto-tagging. The classifier is also used for

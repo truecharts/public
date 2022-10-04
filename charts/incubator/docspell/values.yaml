@@ -157,6 +157,27 @@ rest_server:
   # openid:
 
 joex:
+  # -- Enable or disable debugging for e-mail related functionality. This applies to both sending and receiving mails.
+  mail_debug: false
+  send_mail:
+    # -- This is used as the List-Id e-mail header when mails are sent from docspell to its users
+    list_id: ""
+  scheduler:
+    # -- Number of processing allowed in parallel.
+    pool_size: 1
+    # -- A counting scheme determines the ratio of how high and low priority jobs are run.
+    counting_scheme: 4,1
+    # -- How many times a failed job should be retried until it enters failed state.
+    retries: 2
+    # -- The delay until the next try is performed for a failed job.
+    retry_delay: 1 minute
+    # -- The queue size of log statements from a job.
+    log_buffer_size: 500
+    # -- If no job is left in the queue, the scheduler will wait until a notify is requested.
+    wakeup_period: 30 minutes
+  periodic_scheduler:
+    # -- A fallback to start looking for due periodic tasks regularly.
+    wakeup_period: 10 minutes
   logging:
     # -- The format for the log messages. Can be one of:
     # -- Json | Logfmt | Fancy | Plain
@@ -170,6 +191,13 @@ joex:
       flywaydb: Info
       binny: Info
       http4s: Info
+  database_schema:
+    # -- Whether to run main database migrations.
+    run_main_migrations: true
+    # -- Whether to run the fixup migrations.
+    run_fixup_migrations: true
+    # -- Use with care. This repairs all migrations in the database by updating their checksums and removing failed migrations.
+    repair_schema: false
 
 service:
   main:
