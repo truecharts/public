@@ -14,10 +14,10 @@ dscImage:
   tag: v0.38.0@sha256:86c8100df78f47f00291de0c2395917427f6caacbf896691559296c0a805a7a9
   pullPolicy: IfNotPresent
 
-# args:
-#   - /opt/server.conf
-command:
-  - cat /opt/server.conf
+args:
+  - /opt/server.conf
+# command:
+#   - cat /opt/server.conf
 
 podSecurityContext:
   runAsUser: 0
@@ -175,7 +175,7 @@ joex:
       http4s: Info
   database_schema:
     # -- Whether to run main database migrations.
-    run_main_migrations: true
+    run_main_migrations: false
     # -- Whether to run the fixup migrations.
     run_fixup_migrations: true
     # -- Use with care. This repairs all migrations in the database by updating their checksums and removing failed migrations.

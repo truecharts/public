@@ -24,7 +24,7 @@
 {{- else }}
 {{- $new_invite_password = randAlphaNum 32 | b64enc }}
 {{- end }}
-
+# TODO: "default" in booleans takes evaluates false as undefined. So when false it will always use the default
 ---
 apiVersion: v1
 kind: Secret
@@ -243,76 +243,34 @@ metadata:
 stringData:
   joex.conf: |
     docspell.joex {
-
-      # This is the id of this node. If you run more than one server, you
-      # have to make sure to provide unique ids per node.
-      app-id = "joex1"
-
-
-      # This is the base URL this application is deployed to. This is used
-      # to register this joex instance such that docspell rest servers can
-      # reach them
-      base-url = "http://localhost:7878"
-
-      # Where the REST server binds to.
-      #
-      # JOEX provides a very simple REST interface to inspect its state.
+      app-id = {{ $joexID | quote }}
+      base-url = {{ printf "%v:%v" "http://localhost" .Values.service.joex.ports.joex.port | quote }}
       bind {
-        address = "localhost"
-        port = 7878
+        address = "0.0.0.0"
+        port = {{ .Values.service.joex.ports.joex.port }}
       }
-
-      # Configures logging
+      {{- $logging := $joex.logging }}
       logging {
-        # The format for the log messages. Can be one of:
-        # Json, Logfmt, Fancy or Plain
-        format = "Fancy"
-
-        # The minimum level to log. From lowest to highest:
-        # Trace, Debug, Info, Warn, Error
-        minimum-level = "Warn"
-
-        # Override the log level of specific loggers
+        format = {{ $logging.format | default "Fancy" | quote }}
+        minimum-level = {{ $logging.minimum_level | default "Warn" | quote }}
         levels = {
-          "docspell" = "Info"
-          "org.flywaydb" = "Info"
-          "binny" = "Info"
-          "org.http4s" = "Info"
+          "docspell" = {{ $logging.levels.docspell | default "Info" | quote }}
+          "org.flywaydb" = {{ $logging.levels.flywaydb | default "Info" | quote }}
+          "binny" = {{ $logging.levels.binny | default "Info" | quote }}
+          "org.http4s" = {{ $logging.levels.http4s | default "Info" | quote }}
         }
       }
-
-      # The database connection.
-      #
-      # It must be the same connection as the rest server is using.
       jdbc {
-
-        # The JDBC url to the database. By default a H2 file-based
-        # database is configured. You can provide a postgresql or mariadb
-        # connection here. When using H2 use the PostgreSQL compatibility
-        # mode and AUTO_SERVER feature.
-        url = "jdbc:h2://"${java.io.tmpdir}"/docspell-demo.db;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;AUTO_SERVER=TRUE"
-
-        # The database user.
-        user = "sa"
-
-        # The database password.
-        password = ""
+        url = {{ printf "jdbc:postgresql://%v-%v:5432/%v" .Release.Name "postgresql" .Values.postgresql.postgresqlDatabase | quote }}
+        user = {{ .Values.postgresql.postgresqlUsername | quote }}
+        password = {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | quote }}
       }
-
-      # Additional settings related to schema migration.
+      {{- $database_schema := $joex.database_schema }}
       database-schema = {
-        # Whether to run main database migrations.
-        run-main-migrations = true
-
-        # Whether to run the fixup migrations.
-        run-fixup-migrations = true
-
-        # Use with care. This repairs all migrations in the database by
-        # updating their checksums and removing failed migrations. Good
-        # for testing, not recommended for normal operation.
-        repair-schema = false
+        run-main-migrations = {{ $database_schema.run_main_migrations | default true }}
+        run-fixup-migrations = {{ $database_schema.run_fixup_migrations | default true }}
+        repair-schema = {{ $database_schema.repair_schema | default false }}
       }
-
       # Enable or disable debugging for e-mail related functionality. This
       # applies to both sending and receiving mails. For security reasons
       # logging is not very extensive on authentication failures. Setting
@@ -510,7 +468,7 @@ stringData:
 
         # The subject of the mail. It supports the same variables as the
         # body.
-        subject = "Docspell {{ latestVersion }} is available"
+        subject = "Docspell \{\{ latestVersion \}\} is available"
 
         # The body of the mail. Subject and body can contain these
         # variables which are replaced:
@@ -524,8 +482,8 @@ stringData:
         body = """
     Hello,
 
-    You are currently running Docspell {{ currentVersion }}. Version *{{ latestVersion }}*
-    is now available, which was released on {{ releasedAt }}. Check the release page at:
+    You are currently running Docspell \{\{ currentVersion \}\}. Version *\{\{ latestVersion \}\}*
+    is now available, which was released on \{\{ releasedAt \}\}. Check the release page at:
 
     <https://github.com/eikek/docspell/releases/latest>
 
@@ -596,8 +554,8 @@ stringData:
                     , "-dBATCH"
                     , "-dSAFER"
                     , "-sDEVICE=tiffscaled8"
-                    , "-sOutputFile={{outfile}}"
-                    , "{{infile}}"
+                    , "-sOutputFile=\{\{outfile\}\}"
+                    , "\{\{infile\}\}"
                     ]
               timeout = "5 minutes"
             }
@@ -608,7 +566,7 @@ stringData:
           unpaper {
             command {
               program = "unpaper"
-              args = [ "{{infile}}", "{{outfile}}" ]
+              args = [ "\{\{infile\}\}", "\{\{outfile\}\}" ]
               timeout = "5 minutes"
             }
           }
@@ -617,10 +575,10 @@ stringData:
           tesseract {
             command {
               program = "tesseract"
-              args = ["{{file}}"
+              args = ["\{\{file\}\}"
                     , "stdout"
                     , "-l"
-                    , "{{lang}}"
+                    , "\{\{lang\}\}"
                     ]
               timeout = "5 minutes"
             }
@@ -804,11 +762,11 @@ stringData:
               "-s",
               "A4",
               "--encoding",
-              "{{encoding}}",
+              "\{\{encoding\}\}",
               "--load-error-handling", "ignore",
               "--load-media-error-handling", "ignore",
               "-",
-              "{{outfile}}"
+              "\{\{outfile\}\}"
             ]
             timeout = "2 minutes"
           }
@@ -821,10 +779,10 @@ stringData:
           command = {
             program = "tesseract"
             args = [
-              "{{infile}}",
+              "\{\{infile\}\}",
               "out",
               "-l",
-              "{{lang}}",
+              "\{\{lang\}\}",
               "pdf",
               "txt"
             ]
@@ -848,8 +806,8 @@ stringData:
               "-f",
               "pdf",
               "-o",
-              "{{outfile}}",
-              "{{infile}}"
+              "\{\{outfile\}\}",
+              "\{\{infile\}\}"
             ]
             timeout = "2 minutes"
           }
@@ -877,12 +835,12 @@ stringData:
           command = {
             program = "ocrmypdf"
             args = [
-              "-l", "{{lang}}",
+              "-l", "\{\{lang\}\}",
               "--skip-text",
               "--deskew",
               "-j", "1",
-              "{{infile}}",
-              "{{outfile}}"
+              "\{\{infile\}\}",
+              "\{\{outfile\}\}"
             ]
             timeout = "5 minutes"
           }
