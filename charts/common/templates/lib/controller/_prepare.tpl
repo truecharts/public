@@ -63,7 +63,7 @@ before chart installation.
           key: ping
     {{- end }}
     {{- if .Values.solr.enabled }}
-    - name: "SOLR_HOST"
+    - name: SOLR_HOST
       valueFrom:
         secretKeyRef:
           name: solrcreds
@@ -72,6 +72,7 @@ before chart installation.
       value: "{{ .Values.solr.solrCores }}"
     - name: SOLR_ENABLE_AUTHENTICATION
       value: "{{ .Values.solr.solrEnableAuthentication }}"
+    {{- if eq .Values.solr.solrEnableAuthentication "yes" }}
     - name: SOLR_ADMIN_USERNAME
       value: "{{ .Values.solr.solrUsername }}"
     - name: SOLR_ADMIN_PASSWORD
@@ -79,6 +80,7 @@ before chart installation.
         secretKeyRef:
           name: solrcreds
           key: solr-password
+    {{- end }}
     {{- end }}
   command:
     - "/bin/sh"
