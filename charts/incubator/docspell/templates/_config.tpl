@@ -290,7 +290,7 @@ data:
 
   {{- with $logging.levels.flywaydb }}
   {{/* TODO: See how to pass this env with quotes
-  DOCSPELL_JOEX_LOGGING_LEVELS_"ORG_FLYWAYDB: {{ . }}
+  DOCSPELL_JOEX_LOGGING_LEVELS_"ORG_FLYWAYDB": {{ . }}
   */}}
   {{- end }}
 
@@ -300,7 +300,7 @@ data:
 
   {{- with $logging.levels.http4s }}
   {{/* TODO: See how to pass this env with quotes
-  DOCSPELL_JOEX_LOGGING_LEVELS_"ORG_HTTP4S: {{ . }}
+  DOCSPELL_JOEX_LOGGING_LEVELS_"ORG_HTTP4S": {{ . }}
   */}}
   {{- end }}
 
