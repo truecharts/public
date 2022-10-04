@@ -4,9 +4,6 @@
 {{/* Render secret */}}
 {{- include "docspell.secret" . }}
 
-{{/* Render config */}}
-{{- include "docspell.config" . }}
-
 {{- $_ := set .Values.additionalContainers "joex" (include "docspell.joex" . | fromYaml) -}}
 
 {{/* Render the templates */}}
