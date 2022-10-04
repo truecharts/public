@@ -247,7 +247,8 @@ questions:
                             description: "URL of your Authentik server. (e.g. https://auth.domain.com)"
                             schema:
                               type: string
-                              required: true
+                              # TODO: Make them required again once Scale stable supports nested subquestions
+                              # required: true
                               default: ""
                           - variable: insecure
                             label: Insecure
@@ -269,7 +270,8 @@ questions:
                           schema:
                             type: string
                             private: true
-                            required: true
+                            # TODO: Make them required again once Scale stable supports nested subquestions
+                            # required: true
                             default: ""
                     - variable: overrideBrowserHost
                       label: Override Host Browser
@@ -284,7 +286,8 @@ questions:
                           description: URL to use in the browser, when it differs from << host >>
                           schema:
                             type: string
-                            required: true
+                            # TODO: Make them required again once Scale stable supports nested subquestions
+                            # required: true
                             default: ""
         - variable: proxy
           label: Proxy
@@ -311,7 +314,8 @@ questions:
                             description: "URL of your Authentik server. (e.g. https://auth.domain.com)"
                             schema:
                               type: string
-                              required: true
+                              # TODO: Make them required again once Scale stable supports nested subquestions
+                              # required: true
                               default: ""
                           - variable: insecure
                             label: Insecure
@@ -333,7 +337,8 @@ questions:
                           schema:
                             type: string
                             private: true
-                            required: true
+                            # TODO: Make them required again once Scale stable supports nested subquestions
+                            # required: true
                             default: ""
                     - variable: overrideBrowserHost
                       label: Override Host Browser
@@ -348,7 +353,8 @@ questions:
                           description: URL to use in the browser, when it differs from << host >>
                           schema:
                             type: string
-                            required: true
+                            # TODO: Make them required again once Scale stable supports nested subquestions
+                            # required: true
                             default: ""
   - variable: geoip
     group: Container Configuration
