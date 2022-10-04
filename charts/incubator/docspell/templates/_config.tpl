@@ -39,7 +39,7 @@ data:
   DOCSPELL_SERVER_MAX__NOTE__LENGTH: {{ . | quote }}
   {{- end }}
 
-  DOCSPELL_SERVER_SHOW__CLASSIFICATION__SETTINGS: {{ $server.show_classification_settings | quote | default "true" }}
+  DOCSPELL_SERVER_SHOW__CLASSIFICATION__SETTINGS: {{ $server.show_classification_settings | default true | quote }}
 
   {{/* Auth */}}
   {{- $auth := $server.auth -}}
@@ -47,7 +47,7 @@ data:
   DOCSPELL_SERVER_AUTH_SESSION__VALID: {{ . }}
   {{- end }}
 
-  DOCSPELL_SERVER_AUTH_REMEMBER__ME_ENABLED: {{ $auth.remember_me.enabled | quote | default "true" }}
+  DOCSPELL_SERVER_AUTH_REMEMBER__ME_ENABLED: {{ $auth.remember_me.enabled | default true | quote }}
 
   {{- with $auth.remember_me.valid }}
   DOCSPELL_SERVER_AUTH_REMEMBER__ME_VALID: {{ . }}
@@ -55,9 +55,9 @@ data:
 
   {{/* Addons */}}
   {{- $addons := $server.addons -}}
-  DOCSPELL_SERVER_BACKEND_ADDONS_ENABLED: {{ $addons.enabled | quote | default "false" }}
+  DOCSPELL_SERVER_BACKEND_ADDONS_ENABLED: {{ $addons.enabled | default false | quote }}
 
-  DOCSPELL_SERVER_BACKEND_ADDONS_ALLOW__IMPURE: {{ $addons.allow_impure | quote | default "true "}}
+  DOCSPELL_SERVER_BACKEND_ADDONS_ALLOW__IMPURE: {{ $addons.allow_impure | default true | quote }}
 
   {{- with $addons.allowed_urls }}
   DOCSPELL_SERVER_BACKEND_ADDONS_ALLOWED__URLS: {{ include "utils.quotedList" . | squote }}
@@ -105,7 +105,7 @@ data:
 
   {{/* Server Options */}}
   {{- $serverOpts := $server.server_opts -}}
-  DOCSPELL_SERVER_SERVER__OPTIONS_ENABLE__HTTP__2: {{ $serverOpts.enable_http2 | quote | default "false" }}
+  DOCSPELL_SERVER_SERVER__OPTIONS_ENABLE__HTTP__2: {{ $serverOpts.enable_http2 | default false | quote }}
 
   {{- with $serverOpts.max_connections }}
   DOCSPELL_SERVER_SERVER__OPTIONS_MAX__CONNECTIONS: {{ . | quote }}
@@ -117,7 +117,7 @@ data:
 
   {{/* Integration Endpoint */}}
   {{- $integration := $server.integration_endpoint -}}
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ENABLED: {{ $integration.enabled | quote | default "false" }}
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ENABLED: {{ $integration.enabled | default false | quote }}
 
   {{- with $integration.priority }}
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_PRIORITY: {{ . }}
@@ -127,13 +127,13 @@ data:
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_SOURCE__NAME: {{ . }}
   {{- end }}
 
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_ENABLED: {{ $integration.allowed_ips.enabled | quote | default "false" }}
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_ENABLED: {{ $integration.allowed_ips.enabled | default false | quote }}
 
   {{- with $integration.allowed_ips.ips }}
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_IPS: {{ include "utils.quotedList" . | squote }}
   {{- end }}
 
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_ENABLED: {{ $integration.http_basic_auth.enabled | quote | default "false" }}
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_ENABLED: {{ $integration.http_basic_auth.enabled | default false | quote }}
 
   {{- with $integration.http_basic_auth.realm }}
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_REALM: {{ . }}
@@ -143,7 +143,7 @@ data:
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_USER: {{ . }}
   {{- end }}
 
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_ENABLED: {{ $integration.http_header.enabled | quote | default "false" }}
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_ENABLED: {{ $integration.http_header.enabled | default false | quote }}
 
   {{- with $integration.http_header.header_name }}
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__NAME: {{ . }}
@@ -151,13 +151,13 @@ data:
 
   {{/* Backend */}}
   {{- $backend := $server.backend -}}
-  DOCSPELL_SERVER_BACKEND_MAIL__DEBUG: {{ $backend.mail_debug | quote | default "false" }}
+  DOCSPELL_SERVER_BACKEND_MAIL__DEBUG: {{ $backend.mail_debug | default false | quote }}
 
-  DOCSPELL_SERVER_BACKEND_DATABASE__SCHEMA_RUN__MAIN__MIGRATIONS: {{ $backend.database_schema.run_main_migrations | quote | default "true" }}
+  DOCSPELL_SERVER_BACKEND_DATABASE__SCHEMA_RUN__MAIN__MIGRATIONS: {{ $backend.database_schema.run_main_migrations | default true | quote }}
 
-  DOCSPELL_SERVER_BACKEND_DATABASE__SCHEMA_RUN__FIXUP__MIGRATIONS: {{ $backend.database_schema.run_fixup_migrations | quote | default "true" }}
+  DOCSPELL_SERVER_BACKEND_DATABASE__SCHEMA_RUN__FIXUP__MIGRATIONS: {{ $backend.database_schema.run_fixup_migrations | default true | quote }}
 
-  DOCSPELL_SERVER_BACKEND_DATABASE__SCHEMA_REPAIR__SCHEMA: {{ $backend.database_schema.repair_schema | quote | default "false" }}
+  DOCSPELL_SERVER_BACKEND_DATABASE__SCHEMA_REPAIR__SCHEMA: {{ $backend.database_schema.repair_schema | default false | quote }}
 
   {{- with $backend.signup.mode }}
   DOCSPELL_SERVER_BACKEND_SIGNUP_MODE: {{ . }}
@@ -181,11 +181,11 @@ data:
   DOCSPELL_SERVER_BACKEND_FILES_DEFAULT__STORE: {{ . }}
   {{- end }}
 
-  DOCSPELL_SERVER_BACKEND_FILES_STORES_DATABASE_ENABLED: {{ $files.stores.database.enabled | quote | default "true" }}
+  DOCSPELL_SERVER_BACKEND_FILES_STORES_DATABASE_ENABLED: {{ $files.stores.database.enabled | default true | quote }}
 
   DOCSPELL_SERVER_BACKEND_FILES_STORES_DATABASE_TYPE: default-database
 
-  DOCSPELL_SERVER_BACKEND_FILES_STORES_FILESYSTEM_ENABLED: {{ $files.stores.filesystem.enabled | quote | default "false" }}
+  DOCSPELL_SERVER_BACKEND_FILES_STORES_FILESYSTEM_ENABLED: {{ $files.stores.filesystem.enabled | default false | quote }}
 
   DOCSPELL_SERVER_BACKEND_FILES_STORES_FILESYSTEM_TYPE: file-system
 
@@ -193,7 +193,7 @@ data:
   DOCSPELL_SERVER_BACKEND_FILES_STORES_FILESYSTEM_DIRECTORY: {{ . }}
   {{- end }}
 
-  DOCSPELL_SERVER_BACKEND_FILES_STORES_MINIO_ENABLED: {{ $files.stores.minio.enabled | quote | default "false" }}
+  DOCSPELL_SERVER_BACKEND_FILES_STORES_MINIO_ENABLED: {{ $files.stores.minio.enabled | default false | quote }}
 
   DOCSPELL_SERVER_BACKEND_FILES_STORES_MINIO_TYPE: s3
 
@@ -268,7 +268,7 @@ data:
   DOCSPELL_JOEX_JDBC_URL: {{ printf "jdbc:postgresql://%v-%v:5432/%v" .Release.Name "postgresql" .Values.postgresql.postgresqlDatabase }}
   DOCSPELL_JOEX_JDBC_USER: {{ .Values.postgresql.postgresqlUsername }}
 
-  DOCSPELL_JOEX_MAIL__DEBUG: {{ $joex.mail_debug | quote | default "false" }}
+  DOCSPELL_JOEX_MAIL__DEBUG: {{ $joex.mail_debug | default false | quote }}
 
   {{/* Logging */}}
   {{- $logging := $joex.logging -}}
@@ -298,11 +298,11 @@ data:
 
   {{/* Database Schema */}}
   {{- $database_schema := $joex.database_schema -}}
-  DOCSPELL_JOEX_DATABASE__SCHEMA_RUN__MAIN__MIGRATIONS: {{ $database_schema.run_main_migrations | quote | default "true" }}
+  DOCSPELL_JOEX_DATABASE__SCHEMA_RUN__MAIN__MIGRATIONS: {{ $database_schema.run_main_migrations | default true | quote }}
 
-  DOCSPELL_JOEX_DATABASE__SCHEMA_RUN__FIXUP__MIGRATIONS: {{ $database_schema.run_fixup_migrations | quote | default "true" }}
+  DOCSPELL_JOEX_DATABASE__SCHEMA_RUN__FIXUP__MIGRATIONS: {{ $database_schema.run_fixup_migrations | default true | quote }}
 
-  DOCSPELL_JOEX_DATABASE__SCHEMA_REPAIR__SCHEMA: {{ $database_schema.repair_schema | quote | default "false" }}
+  DOCSPELL_JOEX_DATABASE__SCHEMA_REPAIR__SCHEMA: {{ $database_schema.repair_schema | default false | quote }}
 
   {{/* Send Mail */}}
   {{- $send_mail := $joex.send_mail -}}
