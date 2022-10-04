@@ -8,6 +8,7 @@ joexImage:
   tag: v0.38.0@sha256:16f2c2e32d8b20f8cdd1b62ae458ded2bbb16ed7bdc2727dc4a7624298ef7021
   pullPolicy: IfNotPresent
 
+# TODO: Check if we create it as separate app. It's a document consumer
 dscImage:
   repository: tccr.io/truecharts/docspell-dsc
   tag: v0.38.0@sha256:86c8100df78f47f00291de0c2395917427f6caacbf896691559296c0a805a7a9
@@ -48,6 +49,7 @@ rest_server:
       # -- How long the remember me cookie/token is valid.
       valid: 30 days
   addons:
+    # TODO: Check how exactly addons work. There are mentions of docker daemon
     enabled: false
     # -- Whether installing addons requiring network should be allowed or not.
     allow_impure: true
@@ -122,20 +124,21 @@ rest_server:
       chunk_size: 524288
       # -- The file content types that are considered valid.
       valid_mime_types: []
-      # database | filesystem | minio
+      # database | minio | filesystem
       default_store: database
       stores:
         database:
           enabled: true
-        filesystem:
-          enabled: false
-          directory: /documents
         minio:
           enabled: false
           endpoint: http://localhost:9000
           access_key: access_key
           secret_key: secret_key
           bucket: docspell
+        # -- Highly NOT recommended
+        filesystem:
+          enabled: false
+          directory: /documents
   # full_text_search:
   #   enabled:
   #   backend:
