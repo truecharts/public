@@ -13,7 +13,7 @@ envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-joex-config'
 ports:
-  - containerPort: {{ .Values.service.joex.ports.joex.targetPort }}
+  - containerPort: {{ .Values.service.joex.ports.joex.port }}
     name: joex
 {{/*
 readinessProbe:
