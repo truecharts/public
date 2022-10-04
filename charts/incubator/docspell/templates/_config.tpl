@@ -342,6 +342,20 @@ data:
   DOCSPELL_JOEX_PERIODIC__SCHEDULER_WAKEUP__PERIOD: {{ . }}
   {{- end }}
 
+  {{/* User Tasks */}}
+  {{- $user_tasks := $joex.user_tasks -}}
+  {{- with $user_tasks.scan_mailbox.max_folders -}}
+  DOCSPELL_JOEX_USER__TASKS_SCAN__MAILBOX_MAX__FOLDERS: {{ . | quote }}
+  {{- end }}
+
+  {{- with $user_tasks.scan_mailbox.max_chunk_size -}}
+  DOCSPELL_JOEX_USER__TASKS_SCAN__MAILBOX_MAIL__CHUNK__SIZE: {{ . | quote }}
+  {{- end }}
+
+  {{- with $user_tasks.scan_mailbox.max_mails -}}
+  DOCSPELL_JOEX_USER__TASKS_SCAN__MAILBOX_MAX__MAILS: {{ . | quote }}
+  {{- end }}
+
 {{/*
 
 #### JOEX Configuration ####
@@ -701,24 +715,7 @@ DOCSPELL_JOEX_UPDATE__CHECK_SUBJECT="Docspell {{ latestVersion }} is available"
 #  until a new release is published.
 DOCSPELL_JOEX_UPDATE__CHECK_TEST__RUN=false
 
-#  How many mails (headers only) to retrieve in one chunk.
-#
-#  If this is greater than `max-mails' it is set automatically to
-#  the value of `max-mails'.
-DOCSPELL_JOEX_USER__TASKS_SCAN__MAILBOX_MAIL__CHUNK__SIZE=50
 
-#  A limit of how many folders to scan through. If a user
-#  configures more than this, only upto this limit folders are
-#  scanned and a warning is logged.
-DOCSPELL_JOEX_USER__TASKS_SCAN__MAILBOX_MAX__FOLDERS=50
-
-#  A limit on how many mails to process in one job run. This is
-#  meant to avoid too heavy resource allocation to one
-#  user/collective.
-#
-#  If more than this number of mails is encountered, a warning is
-#  logged.
-DOCSPELL_JOEX_USER__TASKS_SCAN__MAILBOX_MAX__MAILS=500
 */}}
 {{- end -}}
 
