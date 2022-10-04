@@ -26,8 +26,8 @@ securityContext:
   readOnlyRootFilesystem: false
 
 envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-server-secret'
+  # - secretRef:
+      # name: '{{ include "tc.common.names.fullname" . }}-server-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-server-config'
 
@@ -73,6 +73,7 @@ rest_server:
     max_files: 500
     # --- The maximum (uncompressed) size of the zip file contents.
     max_size: 1400M
+  oidc_auto_redirect: true
   integration_endpoint:
     enabled: false
     # -- The priority to use when submitting files through this endpoint.

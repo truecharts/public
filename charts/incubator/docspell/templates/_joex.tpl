@@ -8,8 +8,8 @@ securityContext:
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-joex-secret'
+  # - secretRef:
+  #     name: '{{ include "tc.common.names.fullname" . }}-joex-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-joex-config'
 ports:
