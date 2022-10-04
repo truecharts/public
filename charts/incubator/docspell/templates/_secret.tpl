@@ -220,4 +220,4 @@ stringData:
         }
       }
     }
-{{- end }}
+{{- end -}}
