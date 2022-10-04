@@ -8,6 +8,9 @@
 {{- $server := .Values.rest_server -}}
 {{- $serverID := printf "server-%v" (randAlphaNum 10) -}}
 
+{{- $joex := .Values.joex -}}
+{{- $joexID := printf "joex-%v" (randAlphaNum 10) -}}
+
 {{- $server_secret := "" }}
 {{- with (lookup "v1" "Secret" .Release.Namespace $storeSecretName) }}
 {{- $server_secret = (index .data "server_secret") }}
@@ -226,6 +229,892 @@ stringData:
           allowed-urls = "*"
           # TODO:
           denied-urls = ""
+        }
+      }
+    }
+---
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: {{ $joexSecretName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+stringData:
+  joex.conf: |
+    docspell.joex {
+
+      # This is the id of this node. If you run more than one server, you
+      # have to make sure to provide unique ids per node.
+      app-id = "joex1"
+
+
+      # This is the base URL this application is deployed to. This is used
+      # to register this joex instance such that docspell rest servers can
+      # reach them
+      base-url = "http://localhost:7878"
+
+      # Where the REST server binds to.
+      #
+      # JOEX provides a very simple REST interface to inspect its state.
+      bind {
+        address = "localhost"
+        port = 7878
+      }
+
+      # Configures logging
+      logging {
+        # The format for the log messages. Can be one of:
+        # Json, Logfmt, Fancy or Plain
+        format = "Fancy"
+
+        # The minimum level to log. From lowest to highest:
+        # Trace, Debug, Info, Warn, Error
+        minimum-level = "Warn"
+
+        # Override the log level of specific loggers
+        levels = {
+          "docspell" = "Info"
+          "org.flywaydb" = "Info"
+          "binny" = "Info"
+          "org.http4s" = "Info"
+        }
+      }
+
+      # The database connection.
+      #
+      # It must be the same connection as the rest server is using.
+      jdbc {
+
+        # The JDBC url to the database. By default a H2 file-based
+        # database is configured. You can provide a postgresql or mariadb
+        # connection here. When using H2 use the PostgreSQL compatibility
+        # mode and AUTO_SERVER feature.
+        url = "jdbc:h2://"${java.io.tmpdir}"/docspell-demo.db;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;AUTO_SERVER=TRUE"
+
+        # The database user.
+        user = "sa"
+
+        # The database password.
+        password = ""
+      }
+
+      # Additional settings related to schema migration.
+      database-schema = {
+        # Whether to run main database migrations.
+        run-main-migrations = true
+
+        # Whether to run the fixup migrations.
+        run-fixup-migrations = true
+
+        # Use with care. This repairs all migrations in the database by
+        # updating their checksums and removing failed migrations. Good
+        # for testing, not recommended for normal operation.
+        repair-schema = false
+      }
+
+      # Enable or disable debugging for e-mail related functionality. This
+      # applies to both sending and receiving mails. For security reasons
+      # logging is not very extensive on authentication failures. Setting
+      # this to true, results in a lot of data printed to stdout.
+      mail-debug = false
+
+      send-mail {
+        # This is used as the List-Id e-mail header when mails are sent
+        # from docspell to its users (example: for notification mails). It
+        # is not used when sending to external recipients. If it is empty,
+        # no such header is added. Using this header is often useful when
+        # filtering mails.
+        #
+        # It should be a string in angle brackets. See
+        # https://tools.ietf.org/html/rfc2919 for a formal specification
+        # of this header.
+        list-id = ""
+      }
+
+      # Configuration for the job scheduler.
+      scheduler {
+
+        # Each scheduler needs a unique name. This defaults to the node
+        # name, which must be unique, too.
+        name = ${docspell.joex.app-id}
+
+        # Number of processing allowed in parallel.
+        pool-size = 1
+
+        # A counting scheme determines the ratio of how high- and low-prio
+        # jobs are run. For example: 4,1 means run 4 high prio jobs, then
+        # 1 low prio and then start over.
+        counting-scheme = "4,1"
+
+        # How often a failed job should be retried until it enters failed
+        # state. If a job fails, it becomes "stuck" and will be retried
+        # after a delay.
+        retries = 2
+
+        # The delay until the next try is performed for a failed job. This
+        # delay is increased exponentially with the number of retries.
+        retry-delay = "1 minute"
+
+        # The queue size of log statements from a job.
+        log-buffer-size = 500
+
+        # If no job is left in the queue, the scheduler will wait until a
+        # notify is requested (using the REST interface). To also retry
+        # stuck jobs, it will notify itself periodically.
+        wakeup-period = "30 minutes"
+      }
+
+      periodic-scheduler {
+
+        # Each scheduler needs a unique name. This defaults to the node
+        # name, which must be unique, too.
+        name = ${docspell.joex.app-id}
+
+        # A fallback to start looking for due periodic tasks regularily.
+        # Usually joex instances should be notified via REST calls if
+        # external processes change tasks. But these requests may get
+        # lost.
+        wakeup-period = "10 minutes"
+      }
+
+      # Configuration for the user-tasks.
+      user-tasks {
+        # Allows to import e-mails by scanning a mailbox.
+        scan-mailbox {
+          # A limit of how many folders to scan through. If a user
+          # configures more than this, only upto this limit folders are
+          # scanned and a warning is logged.
+          max-folders = 50
+
+          # How many mails (headers only) to retrieve in one chunk.
+          #
+          # If this is greater than `max-mails' it is set automatically to
+          # the value of `max-mails'.
+          mail-chunk-size = 50
+
+          # A limit on how many mails to process in one job run. This is
+          # meant to avoid too heavy resource allocation to one
+          # user/collective.
+          #
+          # If more than this number of mails is encountered, a warning is
+          # logged.
+          max-mails = 500
+        }
+      }
+
+
+      # Docspell uses periodic house keeping tasks, like cleaning expired
+      # invites, that can be configured here.
+      house-keeping {
+
+        # When the house keeping tasks execute. Default is to run every
+        # week.
+        schedule = "Sun *-*-* 00:00:00 UTC"
+
+        # This task removes invitation keys that have been created but not
+        # used. The timespan here must be greater than the `invite-time'
+        # setting in the rest server config file.
+        cleanup-invites = {
+
+          # Whether this task is enabled.
+          enabled = true
+
+          # The minimum age of invites to be deleted.
+          older-than = "30 days"
+        }
+
+        # This task removes expired remember-me tokens. The timespan
+        # should be greater than the `valid` time in the restserver
+        # config.
+        cleanup-remember-me = {
+          # Whether the job is enabled.
+          enabled = true
+
+          # The minimum age of tokens to be deleted.
+          older-than = "30 days"
+        }
+
+        # Jobs store their log output in the database. Normally this data
+        # is only interesting for some period of time. The processing logs
+        # of old files can be removed eventually.
+        cleanup-jobs = {
+
+          # Whether this task is enabled.
+          enabled = true
+
+          # The minimum age of jobs to delete. It is matched against the
+          # `finished' timestamp.
+          older-than = "30 days"
+
+          # This defines how many jobs are deleted in one transaction.
+          # Since the data to delete may get large, it can be configured
+          # whether more or less memory should be used.
+          delete-batch = "100"
+        }
+
+        # Zip files created for downloading multiple files are cached and
+        # can be cleared periodically.
+        cleanup-downloads = {
+
+          # Whether to enable clearing old download archives.
+          enabled = true
+
+          # The minimum age of a download file to be deleted.
+          older-than = "14 days"
+        }
+
+        # Removes node entries that are not reachable anymore.
+        check-nodes {
+          # Whether this task is enabled
+          enabled = true
+          # How often the node must be unreachable, before it is removed.
+          min-not-found = 2
+        }
+
+        # Checks all files against their checksum
+        integrity-check {
+          enabled = true
+        }
+      }
+
+      # A periodic task to check for new releases of docspell. It can
+      # inform about a new release via e-mail. You need to specify an
+      # account that has SMTP settings to use for sending.
+      update-check {
+        # Whether to enable this task
+        enabled = false
+
+        # Sends the mail without checking the latest release. Can be used
+        # if you want to see if mail sending works, but don't want to wait
+        # until a new release is published.
+        test-run = false
+
+        # When the update check should execute. Default is to run every
+        # week. You can specify a time zone identifier, like
+        # 'Europe/Berlin' at the end.
+        schedule = "Sun *-*-* 00:00:00 UTC"
+
+        # An account id in form of `collective/user` (or just `user` if
+        # collective and user name are the same). This user account must
+        # have at least one valid SMTP settings which are used to send the
+        # mail.
+        sender-account = ""
+
+        # The SMTP connection id that should be used for sending the mail.
+        smtp-id = ""
+
+        # A list of recipient e-mail addresses.
+        # Example: `[ "john.doe@gmail.com" ]`
+        recipients = []
+
+        # The subject of the mail. It supports the same variables as the
+        # body.
+        subject = "Docspell {{ latestVersion }} is available"
+
+        # The body of the mail. Subject and body can contain these
+        # variables which are replaced:
+        #
+        # - `latestVersion` the latest available version of Docspell
+        # - `currentVersion` the currently running (old) version of Docspell
+        # - `releasedAt` a date when the release was published
+        #
+        # The body is processed as markdown after the variables have been
+        # replaced.
+        body = """
+    Hello,
+
+    You are currently running Docspell {{ currentVersion }}. Version *{{ latestVersion }}*
+    is now available, which was released on {{ releasedAt }}. Check the release page at:
+
+    <https://github.com/eikek/docspell/releases/latest>
+
+    Have a nice day!
+
+    Docpell Update Check
+    """
+      }
+
+      # Configuration of text extraction
+      extraction {
+        # For PDF files it is first tried to read the text parts of the
+        # PDF. But PDFs can be complex documents and they may contain text
+        # and images. If the returned text is shorter than the value
+        # below, OCR is run afterwards. Then both extracted texts are
+        # compared and the longer will be used.
+        #
+        # If you set this to 0 (or a negative value), then the text parts
+        # of a PDF are ignored and OCR is always run and its result used.
+        pdf {
+          min-text-len = 500
+        }
+
+        preview {
+          # When rendering a pdf page, use this dpi. This results in
+          # scaling the image. A standard A4 page rendered at 96dpi
+          # results in roughly 790x1100px image. Using 32 results in
+          # roughly 200x300px image.
+          #
+          # Note, when this is changed, you might want to re-generate
+          # preview images. Check the api for this, there is an endpoint
+          # to regenerate all for a collective.
+          dpi = 32
+        }
+
+        # Extracting text using OCR works for image and pdf files. It will
+        # first run ghostscript to create a gray image from a pdf. Then
+        # unpaper is run to optimize the image for the upcoming ocr, which
+        # will be done by tesseract. All these programs must be available
+        # in your PATH or the absolute path can be specified below.
+        ocr {
+
+          # Images greater than this size are skipped. Note that every
+          # image is loaded completely into memory for doing OCR. This is
+          # the pixel count, `height * width` of the image.
+          max-image-size = 14000000
+
+          # Defines what pages to process. If a PDF with 600 pages is
+          # submitted, it is probably not necessary to scan through all of
+          # them. This would take a long time and occupy resources for no
+          # value. The first few pages should suffice. The default is first
+          # 10 pages.
+          #
+          # If you want all pages being processed, set this number to -1.
+          #
+          # Note: if you change the ghostscript command below, be aware that
+          # this setting (if not -1) will add another parameter to the
+          # beginning of the command.
+          page-range {
+            begin = 10
+          }
+
+          # The ghostscript command.
+          ghostscript {
+            command {
+              program = "gs"
+              args = [ "-dNOPAUSE"
+                    , "-dBATCH"
+                    , "-dSAFER"
+                    , "-sDEVICE=tiffscaled8"
+                    , "-sOutputFile={{outfile}}"
+                    , "{{infile}}"
+                    ]
+              timeout = "5 minutes"
+            }
+            working-dir = ${java.io.tmpdir}"/docspell-extraction"
+          }
+
+          # The unpaper command.
+          unpaper {
+            command {
+              program = "unpaper"
+              args = [ "{{infile}}", "{{outfile}}" ]
+              timeout = "5 minutes"
+            }
+          }
+
+          # The tesseract command.
+          tesseract {
+            command {
+              program = "tesseract"
+              args = ["{{file}}"
+                    , "stdout"
+                    , "-l"
+                    , "{{lang}}"
+                    ]
+              timeout = "5 minutes"
+            }
+          }
+        }
+      }
+
+      # Settings for text analysis
+      text-analysis {
+        # Maximum length of text to be analysed.
+        #
+        # All text to analyse must fit into RAM. A large document may take
+        # too much heap. Also, most important information is at the
+        # beginning of a document, so in most cases the first two pages
+        # should suffice. Default is 5000, which are about 2 pages (just a
+        # rough guess, of course). For my data, more than 80% of the
+        # documents are less than 5000 characters.
+        #
+        # This values applies to nlp and the classifier. If this value is
+        # <= 0, the limit is disabled.
+        max-length = 5000
+
+        # A working directory for the analyser to store temporary/working
+        # files.
+        working-dir = ${java.io.tmpdir}"/docspell-analysis"
+
+        nlp {
+          # The mode for configuring NLP models:
+          #
+          # 1. full – builds the complete pipeline
+          # 2. basic - builds only the ner annotator
+          # 3. regexonly - matches each entry in your address book via regexps
+          # 4. disabled - doesn't use any stanford-nlp feature
+          #
+          # The full and basic variants rely on pre-build language models
+          # that are available for only a few languages. Memory usage
+          # varies among the languages. So joex should run with -Xmx1400M
+          # at least when using mode=full.
+          #
+          # The basic variant does a quite good job for German and
+          # English. It might be worse for French, always depending on the
+          # type of text that is analysed. Joex should run with about 500M
+          # heap, here again lanugage German uses the most.
+          #
+          # The regexonly variant doesn't depend on a language. It roughly
+          # works by converting all entries in your addressbook into
+          # regexps and matches each one against the text. This can get
+          # memory intensive, too, when the addressbook grows large. This
+          # is included in the full and basic by default, but can be used
+          # independently by setting mode=regexner.
+          #
+          # When mode=disabled, then the whole nlp pipeline is disabled,
+          # and you won't get any suggestions. Only what the classifier
+          # returns (if enabled).
+          mode = full
+
+          # The StanfordCoreNLP library caches language models which
+          # requires quite some amount of memory. Setting this interval to a
+          # positive duration, the cache is cleared after this amount of
+          # idle time. Set it to 0 to disable it if you have enough memory,
+          # processing will be faster.
+          #
+          # This has only any effect, if mode != disabled.
+          clear-interval = "15 minutes"
+
+          # Restricts proposals for due dates. Only dates earlier than this
+          # number of years in the future are considered.
+          max-due-date-years = 10
+
+          regex-ner {
+            # Whether to enable custom NER annotation. This uses the
+            # address book of a collective as input for NER tagging (to
+            # automatically find correspondent and concerned entities). If
+            # the address book is large, this can be quite memory
+            # intensive and also makes text analysis much slower. But it
+            # improves accuracy and can be used independent of the
+            # lanugage. If this is set to 0, it is effectively disabled
+            # and NER tagging uses only statistical models (that also work
+            # quite well, but are restricted to the languages mentioned
+            # above).
+            #
+            # Note, this is only relevant if nlp-config.mode is not
+            # "disabled".
+            max-entries = 1000
+
+            # The NER annotation uses a file of patterns that is derived
+            # from a collective's address book. This is is the time how
+            # long this data will be kept until a check for a state change
+            # is done.
+            file-cache-time = "1 minute"
+          }
+        }
+
+        # Settings for doing document classification.
+        #
+        # This works by learning from existing documents. This requires a
+        # satstical model that is computed from all existing documents.
+        # This process is run periodically as configured by the
+        # collective. It may require more memory, depending on the amount
+        # of data.
+        #
+        # It utilises this NLP library: https://nlp.stanford.edu/.
+        classification {
+          # Whether to enable classification globally. Each collective can
+          # enable/disable auto-tagging. The classifier is also used for
+          # finding correspondents and concerned entities, if enabled
+          # here.
+          enabled = true
+
+          # If concerned with memory consumption, this restricts the
+          # number of items to consider. More are better for training. A
+          # negative value or zero means to train on all items.
+          #
+          # This limit and `text-analysis.max-length` define how much
+          # memory is required. On weaker hardware, it is advised to play
+          # with these values.
+          item-count = 600
+
+          # These settings are used to configure the classifier. If
+          # multiple are given, they are all tried and the "best" is
+          # chosen at the end. See
+          # https://nlp.stanford.edu/nlp/javadoc/javanlp/edu/stanford/nlp/classify/ColumnDataClassifier.html
+          # for more info about these settings. The settings here yielded
+          # good results with *my* dataset.
+          #
+          # Enclose regexps in triple quotes.
+          classifiers = [
+            { "useSplitWords" = "true"
+              "splitWordsTokenizerRegexp" = """[\p{L}][\p{L}0-9]*|(?:\$ ?)?[0-9]+(?:\.[0-9]{2})?%?|\s+|."""
+              "splitWordsIgnoreRegexp" = """\s+"""
+              "useSplitPrefixSuffixNGrams" = "true"
+              "maxNGramLeng" = "4"
+              "minNGramLeng" = "1"
+              "splitWordShape" = "chris4"
+              "intern" = "true" # makes it slower but saves memory
+            }
+          ]
+        }
+      }
+
+      # Configuration for converting files into PDFs.
+      #
+      # Most of it is delegated to external tools, which can be configured
+      # below. They must be in the PATH environment or specify the full
+      # path below via the `program` key.
+      convert {
+
+        # The chunk size used when storing files. This should be the same
+        # as used with the rest server.
+        chunk-size = ${docspell.joex.files.chunk-size}
+
+        # A string used to change the filename of the converted pdf file.
+        # If empty, the original file name is used for the pdf file ( the
+        # extension is always replaced with `pdf`).
+        converted-filename-part = "converted"
+
+        # When reading images, this is the maximum size. Images that are
+        # larger are not processed.
+        max-image-size = ${docspell.joex.extraction.ocr.max-image-size}
+
+        # Settings when processing markdown files (and other text files)
+        # to HTML.
+        #
+        # In order to support text formats, text files are first converted
+        # to HTML using a markdown processor. The resulting HTML is then
+        # converted to a PDF file.
+        markdown {
+
+          # The CSS that is used to style the resulting HTML.
+          internal-css = """
+            body { padding: 2em 5em; }
+          """
+        }
+
+        # To convert HTML files into PDF files, the external tool
+        # wkhtmltopdf is used.
+        wkhtmlpdf {
+          command = {
+            program = "wkhtmltopdf"
+            args = [
+              "-s",
+              "A4",
+              "--encoding",
+              "{{encoding}}",
+              "--load-error-handling", "ignore",
+              "--load-media-error-handling", "ignore",
+              "-",
+              "{{outfile}}"
+            ]
+            timeout = "2 minutes"
+          }
+          working-dir = ${java.io.tmpdir}"/docspell-convert"
+        }
+
+        # To convert image files to PDF files, tesseract is used. This
+        # also extracts the text in one go.
+        tesseract = {
+          command = {
+            program = "tesseract"
+            args = [
+              "{{infile}}",
+              "out",
+              "-l",
+              "{{lang}}",
+              "pdf",
+              "txt"
+            ]
+            timeout = "5 minutes"
+          }
+          working-dir = ${java.io.tmpdir}"/docspell-convert"
+        }
+
+        # To convert "office" files to PDF files, the external tool
+        # unoconv is used. Unoconv uses libreoffice/openoffice for
+        # converting. So it supports all formats that are possible to read
+        # with libreoffice/openoffic.
+        #
+        # Note: to greatly improve performance, it is recommended to start
+        # a libreoffice listener by running `unoconv -l` in a separate
+        # process.
+        unoconv = {
+          command = {
+            program = "unoconv"
+            args = [
+              "-f",
+              "pdf",
+              "-o",
+              "{{outfile}}",
+              "{{infile}}"
+            ]
+            timeout = "2 minutes"
+          }
+          working-dir = ${java.io.tmpdir}"/docspell-convert"
+        }
+
+        # The tool ocrmypdf can be used to convert pdf files to pdf files
+        # in order to add extracted text as a separate layer. This makes
+        # image-only pdfs searchable and you can select and copy/paste the
+        # text. It also converts pdfs into pdf/a type pdfs, which are best
+        # suited for archiving. So it makes sense to use this even for
+        # text-only pdfs.
+        #
+        # It is recommended to install ocrympdf, but it also is optional.
+        # If it is enabled but fails, the error is not fatal and the
+        # processing will continue using the original pdf for extracting
+        # text. You can also disable it to remove the errors from the
+        # processing logs.
+        #
+        # The `--skip-text` option is necessary to not fail on "text" pdfs
+        # (where ocr is not necessary). In this case, the pdf will be
+        # converted to PDF/A.
+        ocrmypdf = {
+          enabled = true
+          command = {
+            program = "ocrmypdf"
+            args = [
+              "-l", "{{lang}}",
+              "--skip-text",
+              "--deskew",
+              "-j", "1",
+              "{{infile}}",
+              "{{outfile}}"
+            ]
+            timeout = "5 minutes"
+          }
+          working-dir = ${java.io.tmpdir}"/docspell-convert"
+        }
+
+        # Allows to try to decrypt a PDF with encryption or protection. If
+        # enabled, a PDFs encryption or protection will be removed during
+        # conversion.
+        #
+        # For encrypted PDFs, this is necessary to be processed, because
+        # docspell needs to read it. It also requires to specify a
+        # password here. All passwords are tried when reading a PDF.
+        #
+        # This is enabled by default with an empty password list. This
+        # removes protection from PDFs, which is better for processing.
+        #
+        # Passwords can be given here and each collective can maintain
+        # their passwords as well. But if the `enabled` setting below is
+        # `false`, then no attempt at decrypting is done.
+        decrypt-pdf = {
+          enabled = true
+          passwords = []
+        }
+      }
+
+      # The same section is also present in the rest-server config. It is
+      # used when submitting files into the job queue for processing.
+      #
+      # Currently, these settings may affect memory usage of all nodes, so
+      # it should be the same on all nodes.
+      files {
+        # Defines the chunk size (in bytes) used to store the files.
+        # This will affect the memory footprint when uploading and
+        # downloading files. At most this amount is loaded into RAM for
+        # down- and uploading.
+        #
+        # It also defines the chunk size used for the blobs inside the
+        # database.
+        chunk-size = 524288
+
+        # The file content types that are considered valid. Docspell
+        # will only pass these files to processing. The processing code
+        # itself has also checks for which files are supported and which
+        # not. This affects the uploading part and can be used to
+        # restrict file types that should be handed over to processing.
+        # By default all files are allowed.
+        valid-mime-types = [ ]
+
+        # The id of an enabled store from the `stores` array that should
+        # be used.
+        #
+        # IMPORTANT NOTE: All nodes must have the exact same file store
+        # configuration!
+        default-store = "database"
+
+        # A list of possible file stores. Each entry must have a unique
+        # id. The `type` is one of: default-database, filesystem, s3.
+        #
+        # The enabled property serves currently to define target stores
+        # for te "copy files" task. All stores with enabled=false are
+        # removed from the list. The `default-store` must be enabled.
+        stores = {
+          database =
+            { enabled = true
+              type = "default-database"
+            }
+
+          filesystem =
+            { enabled = false
+              type = "file-system"
+              directory = "/some/directory"
+            }
+
+          minio =
+          { enabled = false
+            type = "s3"
+            endpoint = "http://localhost:9000"
+            access-key = "username"
+            secret-key = "password"
+            bucket = "docspell"
+          }
+        }
+      }
+
+      # Configuration of the full-text search engine. (the same must be used for restserver)
+      full-text-search {
+        # The full-text search feature can be disabled. It requires an
+        # additional index server which needs additional memory and disk
+        # space. It can be enabled later any time.
+        #
+        # Currently the SOLR search platform and PostgreSQL is supported.
+        enabled = false
+
+        # Which backend to use, either solr or postgresql
+        backend = "solr"
+
+        # Configuration for the SOLR backend.
+        solr = {
+          # The URL to solr
+          url = "http://localhost:8983/solr/docspell"
+          # Used to tell solr when to commit the data
+          commit-within = 1000
+          # If true, logs request and response bodies
+          log-verbose = false
+          # The defType parameter to lucene that defines the parser to
+          # use. You might want to try "edismax" or look here:
+          # https://solr.apache.org/guide/8_4/query-syntax-and-parsing.html#query-syntax-and-parsing
+          def-type = "lucene"
+          # The default combiner for tokens. One of {AND, OR}.
+          q-op = "OR"
+        }
+
+        # Configuration for PostgreSQL backend
+        postgresql = {
+          # Whether to use the default database, only works if it is
+          # postgresql
+          use-default-connection = false
+
+          # The database connection.
+          jdbc {
+            url = "jdbc:postgresql://server:5432/db"
+            user = "pguser"
+            password = ""
+          }
+
+          # A mapping from a language to a postgres text search config. By
+          # default a language is mapped to a predefined config.
+          # PostgreSQL has predefined configs for some languages. This
+          # setting allows to create a custom text search config and
+          # define it here for some or all languages.
+          #
+          # Example:
+          #  { german = "my-german" }
+          #
+          # See https://www.postgresql.org/docs/14/textsearch-tables.html ff.
+          pg-config = {
+          }
+
+          # Define which query parser to use.
+          #
+          # https://www.postgresql.org/docs/14/textsearch-controls.html#TEXTSEARCH-PARSING-QUERIES
+          pg-query-parser = "websearch_to_tsquery"
+
+          # Allows to define a normalization for the ranking.
+          #
+          # https://www.postgresql.org/docs/14/textsearch-controls.html#TEXTSEARCH-RANKING
+          pg-rank-normalization = [ 4 ]
+        }
+
+        # Settings for running the index migration tasks
+        migration = {
+          # Chunk size to use when indexing data from the database. This
+          # many attachments are loaded into memory and pushed to the
+          # full-text index.
+          index-all-chunk = 10
+        }
+      }
+
+      addons {
+        # A directory to extract addons when running them. Everything in
+        # here will be cleared after each run.
+        working-dir = ${java.io.tmpdir}"/docspell-addons"
+
+        # A directory for addons to store data between runs. This is not
+        # cleared by Docspell and can get large depending on the addons
+        # executed.
+        #
+        # This directory is used as base. In it subdirectories are created
+        # per run configuration id.
+        cache-dir = ${java.io.tmpdir}"/docspell-addon-cache"
+
+        executor-config {
+          # Define a (comma or whitespace separated) list of runners that
+          # are responsible for executing an addon. This setting is
+          # compared to what is supported by addons. Possible values are:
+          #
+          # - nix-flake: use nix-flake runner if the addon supports it
+          #   (this requires the nix package manager on the joex machine)
+          # - docker: use docker
+          # - trivial: use the trivial runner
+          #
+          # The first successful execution is used. This should list all
+          # runners the computer supports.
+          runner = "nix-flake, docker, trivial"
+
+          # systemd-nspawn can be used to run the program in a container.
+          # This is used by runners nix-flake and trivial.
+          nspawn = {
+            # If this is false, systemd-nspawn is not tried. When true, the
+            # addon is executed inside a lightweight container via
+            # systemd-nspawn.
+            enabled = false
+
+            # Path to sudo command. By default systemd-nspawn is executed
+            # via sudo - the user running joex must be allowed to do so NON
+            # INTERACTIVELY. If this is empty, then nspawn is tried to
+            # execute without sudo.
+            sudo-binary = "sudo"
+
+            # Path to the systemd-nspawn command.
+            nspawn-binary = "systemd-nspawn"
+
+            # Workaround, if multiple same named containers are run too fast
+            container-wait = "100 millis"
+          }
+
+          # When multiple addons are executed sequentially, stop after the
+          # first failing result. If this is false, then subsequent addons
+          # will be run for their side effects only.
+          fail-fast = true
+
+          # The timeout for running an addon.
+          run-timeout = "15 minutes"
+
+          # Configure the nix flake runner.
+          nix-runner {
+            # Path to the nix command.
+            nix-binary = "nix"
+
+            # The timeout for building the package (running nix build).
+            build-timeout = "15 minutes"
+          }
+
+          # Configure the docker runner
+          docker-runner {
+            # Path to the docker command.
+            docker-binary = "docker"
+
+            # The timeout for building the package (running docker build).
+            build-timeout = "15 minutes"
+          }
         }
       }
     }

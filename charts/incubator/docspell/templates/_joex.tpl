@@ -7,11 +7,12 @@ securityContext:
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
-envFrom:
-  # - secretRef:
-  #     name: '{{ include "tc.common.names.fullname" . }}-joex-secret'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-joex-config'
+args:
+  - /opt/joex.conf
+volumeMounts:
+  - mountPath: /opt
+    name: server
+    readOnly: true
 ports:
   - containerPort: {{ .Values.service.joex.ports.joex.port }}
     name: joex
