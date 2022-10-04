@@ -31,7 +31,7 @@ stringData:
       app-id = {{ $serverID | quote }}
       base-url = {{ $server.base_url | default (printf "%v:%v" "http://localhost" .Values.service.main.ports.main.port) | quote }}
       internal-url = {{ printf "%v:%v" "http://localhost" .Values.service.main.ports.main.port | quote }}
-      {{- $logging := $server.logging -}}
+      {{- $logging := $server.logging }}
       logging {
         format = {{ $logging.format | default "Fancy" | quote }}
         minimum-level = {{ $logging.minimum_level | default "Warn" | quote }}
@@ -46,7 +46,7 @@ stringData:
         address = "0.0.0.0"
         port = {{ .Values.service.main.ports.main.port }}
       }
-      {{- $server_opts := $server.server_opts -}}
+      {{- $server_opts := $server.server_opts }}
       server-options {
         enable-http-2 = {{ $server_opts.enable_http2 | default false }}
         max-connections = {{ $server_opts.max_connections | default 1024 }}
@@ -55,7 +55,7 @@ stringData:
       max-item-page-size = {{ $server.max_item_page_size | default 200 }}
       max-note-length = {{ $server.max_note_length | default 180 }}
       show-classification-settings = {{ $server.show_classification_settings | default true }}
-      {{- $auth := $server.auth -}}
+      {{- $auth := $server.auth }}
       auth {
         server-secret = {{ $server_secret | quote }}
         session-valid = {{ $auth.session_valid | default "5 minutes" | quote }}
@@ -64,7 +64,7 @@ stringData:
           valid = {{ $auth.remember_me.valid | default "30 days" | quote }}
         }
       }
-      {{- $download_all := $server.download_all -}}
+      {{- $download_all := $server.download_all }}
       download-all {
         max-files = {{ $download_all.max_files | default 500 }}
         max-size = {{ $download_all.max_size | default "1400M" }}
@@ -106,66 +106,67 @@ stringData:
       #     }
       #   ]
       oidc-auto-redirect = {{ $server.oidc_auto_redirect | default true }}
-      {{- $integration_endpoint := $server.integration_endpoint -}}
-
+      {{- $integration_endpoint := $server.integration_endpoint }}
       integration-endpoint {
         enabled = {{ $integration_endpoint.enabled | default false }}
         priority = {{ $integration_endpoint.priority | default "low" | quote }}
         source-name = {{ $integration_endpoint.source_name | default "integration" | quote }}
         allowed-ips {
-          enabled = false
+          enabled = {{ $integration_endpoint.allowed_ips.enabled | default false }}
+          # TODO:
           ips = [ "127.0.0.1" ]
         }
         http-basic {
-          enabled = false
-          realm = "Docspell Integration"
-          user = "docspell-int"
-          password = "docspell-int"
+          enabled = {{ $integration_endpoint.http_basic_auth.enabled | default false }}
+          realm = {{ $integration_endpoint.http_basic_auth.realm | default "Docspell Integration" | quote }}
+          user = {{ $integration_endpoint.http_basic_auth.user | default "docspell-int" | quote }}
+          password = {{ $integration_endpoint.http_basic_auth.password | default "docspell-int" | quote }}
         }
         http-header {
-          enabled = false
-          header-name = "Docspell-Integration"
-          header-value = "some-secret"
+          enabled = {{ $integration_endpoint.http_header.enabled | default false }}
+          header-name = {{ $integration_endpoint.http_header.header_name | default "Docspell-Integration" | quote }}
+          header-value = {{ $integration_endpoint.http_header.header_value | default "some-secret" | quote }}
         }
       }
       admin-endpoint {
-        # The secret. If empty, the endpoint is disabled.
-        secret = ""
+        secret = {{ $server.admin_endpoint.secret | default "" | quote }}
       }
-      full-text-search {
-        enabled = false
-        backend = "solr"
-        solr = {
-          url = "http://localhost:8983/solr/docspell"
-          commit-within = 1000
-          log-verbose = false
-          def-type = "lucene"
-          q-op = "OR"
-        }
-        postgresql = {
-          use-default-connection = false
-          jdbc {
-            url = "jdbc:postgresql://server:5432/db"
-            user = "pguser"
-            password = ""
-          }
-          pg-config = {
-          }
-          pg-query-parser = "websearch_to_tsquery"
-          pg-rank-normalization = [ 4 ]
-        }
-      }
+      # full-text-search {
+      #   enabled = false
+      #   backend = "solr"
+      #   solr = {
+      #     url = "http://localhost:8983/solr/docspell"
+      #     commit-within = 1000
+      #     log-verbose = false
+      #     def-type = "lucene"
+      #     q-op = "OR"
+      #   }
+      #   postgresql = {
+      #     use-default-connection = false
+      #     jdbc {
+      #       url = "jdbc:postgresql://server:5432/db"
+      #       user = "pguser"
+      #       password = ""
+      #     }
+      #     pg-config = {
+      #     }
+      #     pg-query-parser = "websearch_to_tsquery"
+      #     pg-rank-normalization = [ 4 ]
+      #   }
+      # }
+      {{- $backend := $server.backend }}
       backend {
-        mail-debug = false
+        mail-debug = {{ $backend.mail_debug | default false }}
         jdbc {
-          url = "jdbc:h2://"${java.io.tmpdir}"/docspell-demo.db;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;AUTO_SERVER=TRUE"
-          user = "sa"
-          password = ""
+          url = {{ printf "jdbc:postgresql://%v-%v:5432/%v" .Release.Name "postgresql" .Values.postgresql.postgresqlDatabase | quote }}
+          user = {{ .Values.postgresql.postgresqlUsername | quote }}
+          password = {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | quote }}
         }
+        {{- $database_schema := $server.database_schema }}
         database-schema = {
-          run-main-migrations = true
-          run-fixup-migrations = true
-          repair-schema = false
+          run-main-migrations = {{ $database_schema.run_main_migrations | default true }}
+          run-fixup-migrations = {{ $database_schema.run_fixup_migrations | default true }}
+          repair-schema = {{ $database_schema.repair_schema | default false }}
         }
         signup {
           mode = "open"

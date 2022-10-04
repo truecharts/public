@@ -97,6 +97,24 @@ rest_server:
   admin_endpoint:
     # -- Disables endpoint if empty
     secret: ""
+  # full_text_search:
+  #   enabled:
+  #   backend:
+  #   solr:
+  #     url:
+  #     commit_within:
+  #     log_verbose:
+  #     def_type:
+  #     q_op:
+  #   postgresql:
+  #     use_default_connection:
+  #     jdbc:
+  #       url:
+  #       user:
+  #       password:
+  #     pg_config:
+  #     pg_query_parser:
+  #     pg_rank_normalization:
   backend:
     # -- Enable or disable debugging for e-mail related functionality
     mail_debug: false
@@ -143,24 +161,6 @@ rest_server:
       - "*"
     # -- Define patterns of urls that are denied to install addons from.
     denied_urls: []
-  # full_text_search:
-  #   enabled:
-  #   backend:
-  #   solr:
-  #     url:
-  #     commit_within:
-  #     log_verbose:
-  #     def_type:
-  #     q_op:
-  #   postgresql:
-  #     use_default_connection:
-  #     jdbc:
-  #       url:
-  #       user:
-  #       password:
-  #     pg_config:
-  #     pg_query_parser:
-  #     pg_rank_normalization:
   # openid:
 
 joex:
