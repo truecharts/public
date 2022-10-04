@@ -41,7 +41,7 @@ data:
   {{- end }}
 
   {{- with $server.integration_endpoint.http_header.header_name }}
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__VALUE:
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__VALUE: {{ . | b64enc }}
   {{- end }}
 
   {{- with $server.backend.files.stores.minio.access_key }}
