@@ -209,6 +209,63 @@ joex:
       mail_chunk_size: 50
       # -- A limit on how many mails to process in one job run.
       max_mails: 500
+  house_keeping:
+    # -- When the house keeping tasks execute.
+    schedule: Sun *-*-* 00:00:00 UTC
+    # -- This task removes invitation keys that have been created but not used.
+    cleanup_invites:
+      # -- Whether this task is enabled.
+      enabled: true
+      # -- The minimum age of invites to be deleted.
+      older_than: 30 days
+    # -- This task removes expired remember-me tokens.
+    cleanup_remember_me:
+      # -- Whether this task is enabled.
+      enabled: true
+      # -- The minimum age of tokens to be deleted.
+      older_than: 30 days
+    # -- Jobs store their log output in the database.
+    cleanup_jobs:
+      # -- Whether this task is enabled.
+      enabled: true
+      # -- The minimum age of jobs to delete.
+      older_than: 30 days
+      # -- This defines how many jobs are deleted in one transaction.
+      delete_batch: 100
+    # -- Zip files created for downloading multiple files are cached and can be cleared periodically.
+    cleanup_downloads:
+      # -- Whether this task is enabled.
+      enabled: true
+      # -- The minimum age of a download file to be deleted.
+      older_than: 14 days
+    # -- Removes node entries that are not reachable anymore.
+    check_nodes:
+      # -- Whether this task is enabled.
+      enabled: true
+      # -- How often the node must be unreachable, before it is removed.
+      min_not_found: 2
+    # -- Checks all files against their checksum
+    integrity_check:
+      enabled: true
+    # -- A periodic task to check for new releases of docspell.
+    update_check:
+      # -- Whether to enable this task
+      enabled: false
+      # -- Sends the mail without checking the latest release.
+      test_run: false
+      # -- When the update check should execute.
+      schedule: "Sun *-*-* 00:00:00 UTC"
+      # -- An account id in form of `collective/user`
+      sender_account: ""
+      # -- The SMTP connection id that should be used for sending the mail.
+      smtp_id: ""
+      # -- A list of recipient e-mail addresses.
+      recipients: []
+      # -- The subject of the mail.
+      subject: Docspell {{ latestVersion }} is available
+      # -- The body of the mail.
+      body: Your current version is {{ currentVersion }}. Version {{ latestVersion }} is available. Released at {{ releasedAt }}
+
 
 service:
   main:

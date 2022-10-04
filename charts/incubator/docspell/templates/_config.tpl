@@ -11,6 +11,14 @@
 {{- $joexID := printf "joex-%v" (randAlphaNum 10) -}}
 
 ---
+{{- $logging := $server.logging -}}
+{{- $serverOpts := $server.server_opts -}}
+{{- $auth := $server.auth -}}
+{{- $downloads := $server.download_all -}}
+{{- $integration := $server.integration_endpoint -}}
+{{- $backend := $server.backend -}}
+{{- $files := $server.files -}}
+{{- $addons := $server.addons -}}
 
 apiVersion: v1
 kind: ConfigMap
@@ -30,7 +38,6 @@ data:
   DOCSPELL_SERVER_INTERNAL__URL: {{ printf "%v:%v" "http://localhost" .Values.service.main.ports.main.port }}
 
   {{/* Logging */}}
-  {{- $logging := $server.logging -}}
   {{- with $logging.format }}
   DOCSPELL_SERVER_LOGGING_FORMAT: {{ . }}
   {{- end }}
@@ -64,7 +71,6 @@ data:
   DOCSPELL_SERVER_BIND_PORT: {{ .Values.service.main.ports.main.port | quote }}
 
   {{/* Server Options */}}
-  {{- $serverOpts := $server.server_opts -}}
   DOCSPELL_SERVER_SERVER__OPTIONS_ENABLE__HTTP__2: {{ $serverOpts.enable_http2 | default false | quote }}
 
   {{- with $serverOpts.max_connections }}
@@ -86,7 +92,6 @@ data:
   DOCSPELL_SERVER_SHOW__CLASSIFICATION__SETTINGS: {{ $server.show_classification_settings | default true | quote }}
 
   {{/* Auth */}}
-  {{- $auth := $server.auth -}}
   {{- with $auth.session_valid }}
   DOCSPELL_SERVER_AUTH_SESSION__VALID: {{ . }}
   {{- end }}
@@ -98,7 +103,6 @@ data:
   {{- end }}
 
   {{/* Download All */}}
-  {{- $downloads := $server.download_all -}}
   {{- with $downloads.max_files }}
   DOCSPELL_SERVER_DOWNLOAD__ALL_MAX__FILES: {{ . | quote }}
   {{- end }}
@@ -108,7 +112,6 @@ data:
   {{- end }}
 
   {{/* Integration Endpoint */}}
-  {{- $integration := $server.integration_endpoint -}}
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ENABLED: {{ $integration.enabled | default false | quote }}
 
   {{- with $integration.priority }}
@@ -144,7 +147,6 @@ data:
   {{- end }}
 
   {{/* Backend */}}
-  {{- $backend := $server.backend -}}
 
   DOCSPELL_SERVER_BACKEND_JDBC_URL: {{ printf "jdbc:postgresql://%v-%v:5432/%v" .Release.Name "postgresql" .Values.postgresql.postgresqlDatabase }}
 
@@ -167,7 +169,6 @@ data:
   {{- end }}
 
   {{/* Files */}}
-  {{- $files := $server.files -}}
   {{- with $files.chunk_size }}
   DOCSPELL_SERVER_BACKEND_FILES_CHUNK__SIZE: {{ . | quote }}
   {{- end }}
@@ -205,7 +206,6 @@ data:
   {{- end }}
 
   {{/* Addons */}}
-  {{- $addons := $server.addons -}}
   DOCSPELL_SERVER_BACKEND_ADDONS_ENABLED: {{ $addons.enabled | default false | quote }}
 
   DOCSPELL_SERVER_BACKEND_ADDONS_ALLOW__IMPURE: {{ $addons.allow_impure | default true | quote }}
@@ -268,6 +268,13 @@ DOCSPELL_SERVER_OIDC__AUTO__REDIRECT=true
 */}}
 
 ---
+{{- $logging := $joex.logging -}}
+{{- $database_schema := $joex.database_schema -}}
+{{- $send_mail := $joex.send_mail -}}
+{{- $scheduler := $joex.scheduler -}}
+{{- $periodic_scheduler := $joex.periodic_scheduler -}}
+{{- $user_tasks := $joex.user_tasks -}}
+{{- $house_keeping := $joex.house_keeping -}}
 
 apiVersion: v1
 kind: ConfigMap
@@ -285,7 +292,6 @@ data:
   DOCSPELL_JOEX_BIND_PORT: {{ .Values.service.joex.ports.joex.port | quote }}
 
   {{/* Logging */}}
-  {{- $logging := $joex.logging -}}
   {{- with $logging.format }}
   DOCSPELL_JOEX_LOGGING_FORMAT: {{ . }}
   {{- end }}
@@ -319,7 +325,6 @@ data:
   DOCSPELL_JOEX_JDBC_USER: {{ .Values.postgresql.postgresqlUsername }}
 
   {{/* Database Schema */}}
-  {{- $database_schema := $joex.database_schema -}}
   DOCSPELL_JOEX_DATABASE__SCHEMA_RUN__MAIN__MIGRATIONS: {{ $database_schema.run_main_migrations | default true | quote }}
 
   DOCSPELL_JOEX_DATABASE__SCHEMA_RUN__FIXUP__MIGRATIONS: {{ $database_schema.run_fixup_migrations | default true | quote }}
@@ -329,7 +334,6 @@ data:
   DOCSPELL_JOEX_MAIL__DEBUG: {{ $joex.mail_debug | default false | quote }}
 
   {{/* Send Mail */}}
-  {{- $send_mail := $joex.send_mail -}}
   {{- with $send_mail.list_id }}
   DOCSPELL_JOEX_SEND__MAIL_LIST__ID: {{ . }}
   {{- end }}
@@ -337,7 +341,6 @@ data:
   DOCSPELL_JOEX_SCHEDULER_NAME: {{ $joexID }}
 
   {{/* Scheduler */}}
-  {{- $scheduler := $joex.scheduler -}}
   {{- with $scheduler.pool_size }}
   DOCSPELL_JOEX_SCHEDULER_POOL__SIZE: {{ . | quote }}
   {{- end }}
@@ -363,7 +366,6 @@ data:
   {{- end }}
 
   {{/* Periodic Scheduler */}}
-  {{- $periodic_scheduler := $joex.periodic_scheduler -}}
   DOCSPELL_JOEX_PERIODIC__SCHEDULER_NAME: {{ $joexID }}
 
   {{- with $periodic_scheduler.wakeup_period }}
@@ -371,7 +373,6 @@ data:
   {{- end }}
 
   {{/* User Tasks */}}
-  {{- $user_tasks := $joex.user_tasks -}}
   {{- with $user_tasks.scan_mailbox.max_folders }}
   DOCSPELL_JOEX_USER__TASKS_SCAN__MAILBOX_MAX__FOLDERS: {{ . | quote }}
   {{- end }}
@@ -382,6 +383,76 @@ data:
 
   {{- with $user_tasks.scan_mailbox.max_mails }}
   DOCSPELL_JOEX_USER__TASKS_SCAN__MAILBOX_MAX__MAILS: {{ . | quote }}
+  {{- end }}
+
+  {{/* House Keeping */}}
+  {{- with $house_keeping.schedule }}
+  DOCSPELL_JOEX_HOUSE__KEEPING_SCHEDULE: {{ . }}
+  {{- end }}
+
+  DOCSPELL_JOEX_HOUSE__KEEPING_CLEANUP__INVITES_ENABLED: {{ $house_keeping.cleanup_invites.enabled | default true | quote }}
+
+  {{- with $house_keeping.cleanup_ivnites.older_than }}
+  DOCSPELL_JOEX_HOUSE__KEEPING_CLEANUP__INVITES_OLDER__THAN: {{ . }}
+  {{- end }}
+
+  DOCSPELL_JOEX_HOUSE__KEEPING_CLEANUP__REMEMBER__ME_ENABLED: {{ $house_keeping.cleanup_remember_me.enabled | default true | quote }}
+
+  {{- with $house_keeping.cleanup_remember_me.older_than }}
+  DOCSPELL_JOEX_HOUSE__KEEPING_CLEANUP__REMEMBER__ME_OLDER__THAN: {{ . }}
+  {{- end }}
+
+  DOCSPELL_JOEX_HOUSE__KEEPING_CLEANUP__JOBS_ENABLED: {{ $house_keeping.cleanup_jobs.enabled | default true | quote }}
+
+  {{- with $house_keeping.cleanup_jobs.older_than }}
+  DOCSPELL_JOEX_HOUSE__KEEPING_CLEANUP__JOBS_OLDER__THAN: {{ . }}
+  {{- end }}
+
+  {{- with $house_keeping.cleanup_jobs.delete_batch }}
+  DOCSPELL_JOEX_HOUSE__KEEPING_CLEANUP__JOBS_DELETE__BATCH: {{ . | quote }}
+  {{- end }}
+
+  DOCSPELL_JOEX_HOUSE__KEEPING_CLEANUP__DOWNLOADS_ENABLED: {{ $house_keeping.cleanup_downloads.enabled | default true | quote }}
+
+  {{- with $house_keeping.cleanup_downloads.older_than }}
+  DOCSPELL_JOEX_HOUSE__KEEPING_CLEANUP__DOWNLOADS_OLDER__THAN: {{ . }}
+  {{- end }}
+
+  DOCSPELL_JOEX_HOUSE__KEEPING_CHECK__NODES_ENABLED: {{ $house_keeping.check_nodes.enabled | default true | quote }}
+
+  {{- with $house_keeping.check_nodes.min_not_found }}
+  DOCSPELL_JOEX_HOUSE__KEEPING_CHECK__NODES_MIN__NOT__FOUND: {{ . | quote }}
+  {{- end }}
+
+  DOCSPELL_JOEX_HOUSE__KEEPING_INTEGRITY__CHECK_ENABLED: {{ $house_keeping.integrity_check.enabled | default true | quote }}
+
+  DOCSPELL_JOEX_UPDATE__CHECK_ENABLED: {{ $house_keeping.update_check.enabled | default false | quote }}
+
+  DOCSPELL_JOEX_UPDATE__CHECK_TEST__RUN: {{ $house_keeping.update_check.test_run | default false | quote }}
+
+  {{- with $house_keeping.update_check.schedule }}
+  DOCSPELL_JOEX_UPDATE__CHECK_SCHEDULE: {{ . }}
+  {{- end }}
+
+  {{- with $house_keeping.update_check.sender_account }}
+  DOCSPELL_JOEX_UPDATE__CHECK_SENDER__ACCOUNT: {{ . }}
+  {{- end }}
+
+  {{- with $house_keeping.update_check.smtp_id }}
+  DOCSPELL_JOEX_UPDATE__CHECK_SMTP__ID: {{ . }}
+  {{- end }}
+
+  {{- with $house_keeping.update_check.recipients }}
+  # TODO:
+  DOCSPELL_JOEX_UPDATE__CHECK_RECIPIENTS: {{ . }}
+  {{- end }}
+
+  {{- with $house_keeping.update_check.subject }}
+  DOCSPELL_JOEX_UPDATE__CHECK_SUBJECT: {{ . }}
+  {{- end }}
+
+  {{- with $house_keeping.update_check.body }}
+  DOCSPELL_JOEX_UPDATE__CHECK_BODY: {{ . }}
   {{- end }}
 
 {{/*
@@ -475,7 +546,6 @@ DOCSPELL_JOEX_CONVERT_UNOCONV_WORKING__DIR="/tmp/docspell-convert"
 DOCSPELL_JOEX_CONVERT_WKHTMLPDF_COMMAND_PROGRAM="wkhtmltopdf"
 DOCSPELL_JOEX_CONVERT_WKHTMLPDF_COMMAND_TIMEOUT="2 minutes"
 DOCSPELL_JOEX_CONVERT_WKHTMLPDF_WORKING__DIR="/tmp/docspell-convert"
-
 
 DOCSPELL_JOEX_EXTRACTION_OCR_GHOSTSCRIPT_COMMAND_PROGRAM="gs"
 DOCSPELL_JOEX_EXTRACTION_OCR_GHOSTSCRIPT_COMMAND_TIMEOUT="5 minutes"
@@ -573,47 +643,6 @@ DOCSPELL_JOEX_FULL__TEXT__SEARCH_SOLR_Q__OP="OR"
 #  The URL to solr
 DOCSPELL_JOEX_FULL__TEXT__SEARCH_SOLR_URL="http://localhost:8983/solr/docspell"
 
-#  Whether this task is enabled
-DOCSPELL_JOEX_HOUSE__KEEPING_CHECK__NODES_ENABLED=true
-
-#  How often the node must be unreachable, before it is removed.
-DOCSPELL_JOEX_HOUSE__KEEPING_CHECK__NODES_MIN__NOT__FOUND=2
-
-#  Whether to enable clearing old download archives.
-DOCSPELL_JOEX_HOUSE__KEEPING_CLEANUP__DOWNLOADS_ENABLED=true
-
-#  The minimum age of a download file to be deleted.
-DOCSPELL_JOEX_HOUSE__KEEPING_CLEANUP__DOWNLOADS_OLDER__THAN="14 days"
-
-#  Whether this task is enabled.
-DOCSPELL_JOEX_HOUSE__KEEPING_CLEANUP__INVITES_ENABLED=true
-
-#  The minimum age of invites to be deleted.
-DOCSPELL_JOEX_HOUSE__KEEPING_CLEANUP__INVITES_OLDER__THAN="30 days"
-
-#  This defines how many jobs are deleted in one transaction.
-#  Since the data to delete may get large, it can be configured
-#  whether more or less memory should be used.
-DOCSPELL_JOEX_HOUSE__KEEPING_CLEANUP__JOBS_DELETE__BATCH="100"
-
-#  Whether this task is enabled.
-DOCSPELL_JOEX_HOUSE__KEEPING_CLEANUP__JOBS_ENABLED=true
-
-#  The minimum age of jobs to delete. It is matched against the
-#  `finished' timestamp.
-DOCSPELL_JOEX_HOUSE__KEEPING_CLEANUP__JOBS_OLDER__THAN="30 days"
-
-#  Whether the job is enabled.
-DOCSPELL_JOEX_HOUSE__KEEPING_CLEANUP__REMEMBER__ME_ENABLED=true
-
-#  The minimum age of tokens to be deleted.
-DOCSPELL_JOEX_HOUSE__KEEPING_CLEANUP__REMEMBER__ME_OLDER__THAN="30 days"
-DOCSPELL_JOEX_HOUSE__KEEPING_INTEGRITY__CHECK_ENABLED=true
-
-#  When the house keeping tasks execute. Default is to run every
-#  week.
-DOCSPELL_JOEX_HOUSE__KEEPING_SCHEDULE="Sun *-*-* 00:00:00 UTC"
-
 #  Whether to enable classification globally. Each collective can
 #  enable/disable auto-tagging. The classifier is also used for
 #  finding correspondents and concerned entities, if enabled
@@ -705,45 +734,6 @@ DOCSPELL_JOEX_TEXT__ANALYSIS_NLP_REGEX__NER_FILE__CACHE__TIME="1 minute"
 #  "disabled".
 DOCSPELL_JOEX_TEXT__ANALYSIS_NLP_REGEX__NER_MAX__ENTRIES=1000
 DOCSPELL_JOEX_TEXT__ANALYSIS_WORKING__DIR="/tmp/docspell-analysis"
-
-#  The body of the mail. Subject and body can contain these
-#  variables which are replaced:
-#
-#  - `latestVersion` the latest available version of Docspell
-#  - `currentVersion` the currently running (old) version of Docspell
-#  - `releasedAt` a date when the release was published
-#
-#  The body is processed as markdown after the variables have been
-#  replaced.
-DOCSPELL_JOEX_UPDATE__CHECK_BODY="\nHello,\n\nYou are currently running Docspell {{ currentVersion }}. Version *{{ latestVersion }}*\nis now available, which was released on {{ releasedAt }}. Check the release page at:\n\n<https://github.com/eikek/docspell/releases/latest>\n\nHave a nice day!\n\nDocpell Update Check\n"
-
-#  Whether to enable this task
-DOCSPELL_JOEX_UPDATE__CHECK_ENABLED=false
-
-#  When the update check should execute. Default is to run every
-#  week. You can specify a time zone identifier, like
-#  'Europe/Berlin' at the end.
-DOCSPELL_JOEX_UPDATE__CHECK_SCHEDULE="Sun *-*-* 00:00:00 UTC"
-
-#  An account id in form of `collective/user` (or just `user` if
-#  collective and user name are the same). This user account must
-#  have at least one valid SMTP settings which are used to send the
-#  mail.
-DOCSPELL_JOEX_UPDATE__CHECK_SENDER__ACCOUNT=""
-
-#  The SMTP connection id that should be used for sending the mail.
-DOCSPELL_JOEX_UPDATE__CHECK_SMTP__ID=""
-
-#  The subject of the mail. It supports the same variables as the
-#  body.
-DOCSPELL_JOEX_UPDATE__CHECK_SUBJECT="Docspell {{ latestVersion }} is available"
-
-#  Sends the mail without checking the latest release. Can be used
-#  if you want to see if mail sending works, but don't want to wait
-#  until a new release is published.
-DOCSPELL_JOEX_UPDATE__CHECK_TEST__RUN=false
-
-
 */}}
 {{- end -}}
 
