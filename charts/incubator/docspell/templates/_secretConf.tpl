@@ -27,7 +27,7 @@ stringData:
   server_secret: {{ $server_secret }}
   server.conf: |
     docspell.server {
-      app-name = {{ $server.app_name | defautl "Docspell" | quote }}
+      app-name = {{ $server.app_name | default "Docspell" | quote }}
       app-id = {{ $serverID | quote }}
       base-url = {{ $server.base_url | default (printf "%v:%v" "http://localhost" .Values.service.main.ports.main.port) | quote }}
       internal-url = "http://localhost:7880"
