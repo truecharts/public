@@ -45,7 +45,7 @@ data:
 
   {{- with $logging.levels.flywaydb }}
   {{/*
-  DOCSPELL_SERVER_LOGGING_LEVELS_ORG_FLYWAYDB: {{ . }}
+  DOCSPELL_SERVER_LOGGING_LEVELS_"ORG_FLYWAYDB": {{ . }}
   */}}
   {{- end }}
 
@@ -55,7 +55,7 @@ data:
 
   {{- with $logging.levels.http4s }}
   {{/*
-  DOCSPELL_SERVER_LOGGING_LEVELS_ORG_HTTP4S: {{ . }}
+  DOCSPELL_SERVER_LOGGING_LEVELS_"ORG_HTTP4S": {{ . }}
   */}}
   {{- end }}
 
@@ -300,7 +300,7 @@ data:
 
   {{- with $logging.levels.flywaydb }}
   {{/*
-  DOCSPELL_JOEX_LOGGING_LEVELS_ORG_FLYWAYDB: {{ . }}
+  DOCSPELL_JOEX_LOGGING_LEVELS_"ORG_FLYWAYDB": {{ . }}
   */}}
   {{- end }}
 
@@ -310,7 +310,7 @@ data:
 
   {{- with $logging.levels.http4s }}
   {{/*
-  DOCSPELL_JOEX_LOGGING_LEVELS_ORG_HTTP4S: {{ . }}
+  DOCSPELL_JOEX_LOGGING_LEVELS_"ORG_HTTP4S": {{ . }}
   */}}
   {{- end }}
 
