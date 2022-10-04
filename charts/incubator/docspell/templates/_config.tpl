@@ -344,15 +344,15 @@ data:
 
   {{/* User Tasks */}}
   {{- $user_tasks := $joex.user_tasks -}}
-  {{- with $user_tasks.scan_mailbox.max_folders -}}
+  {{- with $user_tasks.scan_mailbox.max_folders }}
   DOCSPELL_JOEX_USER__TASKS_SCAN__MAILBOX_MAX__FOLDERS: {{ . | quote }}
   {{- end }}
 
-  {{- with $user_tasks.scan_mailbox.max_chunk_size -}}
+  {{- with $user_tasks.scan_mailbox.mail_chunk_size }}
   DOCSPELL_JOEX_USER__TASKS_SCAN__MAILBOX_MAIL__CHUNK__SIZE: {{ . | quote }}
   {{- end }}
 
-  {{- with $user_tasks.scan_mailbox.max_mails -}}
+  {{- with $user_tasks.scan_mailbox.max_mails }}
   DOCSPELL_JOEX_USER__TASKS_SCAN__MAILBOX_MAX__MAILS: {{ . | quote }}
   {{- end }}
 
