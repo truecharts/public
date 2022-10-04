@@ -319,7 +319,7 @@ persistence:
     type: secret
     readOnly: true
     defaultMode: "0600"
-    objectName: '{{ include "tc.common.names.fullname" . }}-joex-secret'
+    objectName: '{{ include "tc.common.names.fullname" . }}-server-secret'
     mountPath: /opt/docspell.conf
     items:
       - key: server.conf
