@@ -14,6 +14,9 @@ dscImage:
   tag: v0.38.0@sha256:86c8100df78f47f00291de0c2395917427f6caacbf896691559296c0a805a7a9
   pullPolicy: IfNotPresent
 
+command:
+  - cat /opt/docspell.conf
+
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
@@ -309,6 +312,18 @@ service:
         enabled: true
         port: 10321
         protocol: HTTP
+persistence:
+  server:
+    enabled: true
+    type: secret
+    readOnly: true
+    defaultMode: "0600"
+    objectName: '{{ include "tc.common.names.fullname" . }}-joex-secret'
+    mountPath: /opt/docspell.conf
+    items:
+      - key: server.conf
+        path: docspell.conf
+
 
 postgresql:
   enabled: true

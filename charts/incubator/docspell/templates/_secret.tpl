@@ -1,5 +1,5 @@
 {{/* Define the secret */}}
-{{- define "docspell.secret" -}}
+{{- define "docspell.secretbak" -}}
 
 {{- $serverSecretName := printf "%s-server-secret" (include "tc.common.names.fullname" .) }}
 {{- $joexSecretName := printf "%s-joex-secret" (include "tc.common.names.fullname" .) }}

@@ -1,0 +1,540 @@
+{{/* Define the secret */}}
+{{- define "docspell.secret" -}}
+
+{{- $serverSecretName := printf "%s-server-secret" (include "tc.common.names.fullname" .) }}
+{{- $joexSecretName := printf "%s-joex-secret" (include "tc.common.names.fullname" .) }}
+
+---
+
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: {{ $serverSecretName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+stringData: |
+  docspell.server {
+
+    # This is shown in the top right corner of the web application
+    app-name = "Docspell"
+
+    # This is the id of this node. If you run more than one server, you
+    # have to make sure to provide unique ids per node.
+    app-id = "rest1"
+
+    # This is the base URL this application is deployed to. This is used
+    # to create absolute URLs and to configure the cookie.
+    #
+    # If default is not changed, the HOST line of the login request is
+    # used instead or the value of the `X-Forwarded-For` header. If set
+    # to some other value, the request is not inspected.
+    base-url = "http://localhost:7880"
+
+    # This url is the base url for reaching this server internally.
+    # While you might set `base-url` to some external address (like
+    # mydocs.myserver.com), the `internal-url` must be set such that
+    # other nodes can reach this server.
+    internal-url = "http://localhost:7880"
+
+    # Configures logging
+    logging {
+      # The format for the log messages. Can be one of:
+      # Json, Logfmt, Fancy or Plain
+      format = "Fancy"
+
+      # The minimum level to log. From lowest to highest:
+      # Trace, Debug, Info, Warn, Error
+      minimum-level = "Warn"
+
+      # Override the log level of specific loggers
+      levels = {
+        "docspell" = "Info"
+        "org.flywaydb" = "Info"
+        "binny" = "Info"
+        "org.http4s" = "Info"
+      }
+    }
+
+    # Where the server binds to.
+    bind {
+      address = "localhost"
+      port = 7880
+    }
+
+    # Options for tuning the http server
+    server-options {
+      enable-http-2 = false
+
+      # Maximum allowed connections
+      max-connections = 1024
+
+      # Timeout for waiting for the first output of the response
+      response-timeout = 45s
+    }
+
+    # This is a hard limit to restrict the size of a batch that is
+    # returned when searching for items. The user can set this limit
+    # within the client config, but it is restricted by the server to
+    # the number defined here. An admin might choose a lower number
+    # depending on the available resources.
+    max-item-page-size = 200
+
+    # The number of characters to return for each item notes when
+    # searching. Item notes may be very long, when returning them with
+    # all the results from a search, they add quite some data to return.
+    # In order to keep this low, a limit can be defined here.
+    max-note-length = 180
+
+    # This defines whether the classification form in the collective
+    # settings is displayed or not. If all joex instances have document
+    # classification disabled, it makes sense to hide its settings from
+    # users.
+    show-classification-settings = true
+
+    # Authentication.
+    auth {
+
+      # The secret for this server that is used to sign the authenicator
+      # tokens. If multiple servers are running, all must share the same
+      # secret. You can use base64 or hex strings (prefix with b64: and
+      # hex:, respectively). If empty, a random secret is generated.
+      # Example: b64:YRx77QujCGkHSvll0TVEmtTaw3Z5eXr+nWMsEJowgKg=
+      server-secret = ""
+
+      # How long an authentication token is valid. The web application
+      # will get a new one periodically.
+      session-valid = "5 minutes"
+
+      remember-me {
+        enabled = true
+        # How long the remember me cookie/token is valid.
+        valid = "30 days"
+      }
+    }
+
+    # Settings for "download as zip"
+    download-all {
+      # How many files to allow in a zip.
+      max-files = 500
+
+      # The maximum (uncompressed) size of the zip file contents.
+      max-size = 1400M
+    }
+
+    # Configures OpenID Connect (OIDC) or OAuth2 authentication. Only
+    # the "Authorization Code Flow" is supported.
+    #
+    # Multiple authentication providers can be defined. Each is
+    # configured in the array below. The `provider` block gives all
+    # details necessary to authenticate against an external OIDC or
+    # OAuth provider. This requires at least two URLs for OIDC and three
+    # for OAuth2. When using OIDC, the `user-url` is only required if
+    # the account data is to be retrieved from the user-info endpoint
+    # and not from the JWT token. For the request to the `user-url`, the
+    # access token is then used to authenticate at the provider. Thus,
+    # it doesn't need to be validated here and therefore no `sign-key`
+    # setting is needed. However, if you want to extract the account
+    # information from the access token, it must be validated here and
+    # therefore the correct signature key and algorithm must be
+    # provided. If the `sign-key` is left empty, the `user-url` is used
+    # and must be specified. If the `sign-key` is _not_ empty, the
+    # response from the authentication provider is validated using this
+    # key.
+    #
+    # If a `logout-url` is provided, it will be used to finally redirect
+    # the browser to this url that should logout the user from Docspell
+    # at the provider.
+    #
+    # After successful authentication, docspell needs to create the
+    # account. For this a username and collective name is required. The
+    # account name is defined by the `user-key` and `collective-key`
+    # setting. The `user-key` is used to search the JSON structure, that
+    # is obtained from the JWT token or the user-info endpoint, for the
+    # login name to use. It traverses the JSON structure recursively,
+    # until it finds an object with that key. The first value is used.
+    #
+    # The `collective-key` can be used in multiple ways and both can
+    # work together to retrieve the full account id:
+    #
+    # - If it starts with `fixed:`, like "fixed:collective", the name
+    #   after the `fixed:` prefix is used as collective as is. So all
+    #   users are in the same collective.
+    #
+    # - If it starts with `lookup:`, like "lookup:collective_name", the
+    #   value after the prefix is used to search the JSON response for
+    #   an object with this key, just like it works with the `user-key`.
+    #
+    # - If it starts with `account:`, like "account:demo", it works the
+    #   same as `lookup:` only that the value is interpreted as the full
+    #   account name of form `collective/login`. The `user-key` value is
+    #   ignored in this case.
+    #
+    # If these values cannot be obtained from the response, docspell
+    # fails the authentication. It is then assumed that the successfully
+    # authenticated user at the OP has not enough permissions to access
+    # docspell.
+    #
+    # Below are examples for OpenID Connect (keycloak) and OAuth2
+    # (github).
+    openid =
+      [ { enabled = false,
+
+          # The name to render on the login link/button.
+          display = "Keycloak"
+
+          # This illustrates to use a custom keycloak setup as the
+          # authentication provider. For details, please refer to the
+          # keycloak documentation. The settings here assume a certain
+          # configuration at keycloak.
+          #
+          # Keycloak can be configured to return the collective name for
+          # each user in the access token. It may also be configured to
+          # return it in the user info response. If it is already in the
+          # access token, an additional request can be omitted. Set the
+          # `sign-key` to an empty string then. Otherwise provide the
+          # algo and key from your realm settings. In this example, the
+          # realm is called "home".
+          provider = {
+            provider-id = "keycloak",
+            client-id = "docspell",
+            client-secret = "example-secret-439e-bf06-911e4cdd56a6",
+            scope = "profile", # scope is required for OIDC
+            authorize-url = "http://localhost:8080/auth/realms/home/protocol/openid-connect/auth",
+            token-url = "http://localhost:8080/auth/realms/home/protocol/openid-connect/token",
+            #User URL is not used when signature key is set.
+            #user-url = "http://localhost:8080/auth/realms/home/protocol/openid-connect/userinfo",
+            logout-url = "http://localhost:8080/auth/realms/home/protocol/openid-connect/logout"
+            sign-key = "b64:anVzdC1hLXRlc3Q=",
+            sig-algo = "RS512"
+          },
+          # The collective of the user is given in the access token as
+          # property `docspell_collective`.
+          collective-key = "lookup:docspell_collective",
+          # The username to use for the docspell account
+          user-key = "preferred_username"
+        },
+        { enabled = false,
+
+          # The name to render on the login link/button.
+          display = "Github"
+
+          # Provider settings for using github as an authentication
+          # provider. Note that this is only an example to illustrate
+          # how it works. Usually you wouldn't want to let every user on
+          # github in ;-).
+          #
+          # Github doesn't have full OpenIdConnect, but supports the
+          # OAuth2 code flow (which is very similar). It mainly means,
+          # that there is no standardized token to validate and get
+          # information from. So the user-url must be used in this case.
+          provider = {
+            provider-id = "github",
+            client-id = "<your github client id>",
+            client-secret = "<your github client secret>",
+            scope = "", # scope is not needed for github
+            authorize-url = "https://github.com/login/oauth/authorize",
+            token-url = "https://github.com/login/oauth/access_token",
+            user-url = "https://api.github.com/user",
+            sign-key = "" # this must be set empty
+            sig-algo = "RS256" #unused but must be set to something
+          },
+
+          # If the authentication provider doesn't provide the
+          # collective name, simply use a fixed one. This means all
+          # users from this provider are in the same collective!
+          collective-key = "fixed:demo",
+
+          # Github provides the login name via the `login` property as
+          # response from the user-url. This value is used to construct
+          # the account in docspell.
+          user-key = "login"
+        }
+      ]
+
+    # When exactly one OIDC/OAuth provider is configured, then the weapp
+    # automatically redirects to its authentication page skipping the
+    # docspell login page.
+    oidc-auto-redirect = true
+
+    # This endpoint allows to upload files to any collective. The
+    # intention is that local software integrates with docspell more
+    # easily. Therefore the endpoint is not protected by the usual
+    # means.
+    #
+    # For security reasons, this endpoint is disabled by default. If
+    # enabled, you can choose from some ways to protect it. It may be a
+    # good idea to further protect this endpoint using a firewall, such
+    # that outside traffic is not routed.
+    #
+    # NOTE: If all protection methods are disabled, the endpoint is not
+    # protected at all!
+    integration-endpoint {
+      enabled = false
+
+      # The priority to use when submitting files through this endpoint.
+      priority = "low"
+
+      # The name used for the item "source" property when uploaded
+      # through this endpoint.
+      source-name = "integration"
+
+      # IPv4 addresses to allow access. An empty list, if enabled,
+      # prohibits all requests. IP addresses may be specified as simple
+      # globs: a part marked as `*' matches any octet, like in
+      # `192.168.*.*`. The `127.0.0.1' (the default) matches the
+      # loopback address.
+      allowed-ips {
+        enabled = false
+        ips = [ "127.0.0.1" ]
+      }
+
+      # Requests are expected to use http basic auth when uploading
+      # files.
+      http-basic {
+        enabled = false
+        realm = "Docspell Integration"
+        user = "docspell-int"
+        password = "docspell-int"
+      }
+
+      # Requests are expected to supply some specific header when
+      # uploading files.
+      http-header {
+        enabled = false
+        header-name = "Docspell-Integration"
+        header-value = "some-secret"
+      }
+    }
+
+    # This is a special endpoint that allows some basic administration.
+    #
+    # It is intended to be used by admins only, that is users who
+    # installed the app and have access to the system. Normal users
+    # should not have access and therefore a secret must be provided in
+    # order to access it.
+    #
+    # This is used for some endpoints, for example:
+    # - re-create complete fulltext index:
+    #   curl -XPOST -H'Docspell-Admin-Secret: xyz' http://localhost:7880/api/v1/admin/fts/reIndexAll
+    admin-endpoint {
+      # The secret. If empty, the endpoint is disabled.
+      secret = ""
+    }
+
+    # Configuration of the full-text search engine. (the same must be used for joex)
+    full-text-search {
+      # The full-text search feature can be disabled. It requires an
+      # additional index server which needs additional memory and disk
+      # space. It can be enabled later any time.
+      #
+      # Currently the SOLR search platform and PostgreSQL is supported.
+      enabled = false
+
+      # Which backend to use, either solr or postgresql
+      backend = "solr"
+
+      # Configuration for the SOLR backend.
+      solr = {
+        # The URL to solr
+        url = "http://localhost:8983/solr/docspell"
+        # Used to tell solr when to commit the data
+        commit-within = 1000
+        # If true, logs request and response bodies
+        log-verbose = false
+        # The defType parameter to lucene that defines the parser to
+        # use. You might want to try "edismax" or look here:
+        # https://solr.apache.org/guide/8_4/query-syntax-and-parsing.html#query-syntax-and-parsing
+        def-type = "lucene"
+        # The default combiner for tokens. One of {AND, OR}.
+        q-op = "OR"
+      }
+
+      # Configuration for PostgreSQL backend
+      postgresql = {
+        # Whether to use the default database, only works if it is
+        # postgresql
+        use-default-connection = false
+
+        # The database connection.
+        jdbc {
+          url = "jdbc:postgresql://server:5432/db"
+          user = "pguser"
+          password = ""
+        }
+
+        # A mapping from a language to a postgres text search config. By
+        # default a language is mapped to a predefined config.
+        # PostgreSQL has predefined configs for some languages. This
+        # setting allows to create a custom text search config and
+        # define it here for some or all languages.
+        #
+        # Example:
+        #  { german = "my-german" }
+        #
+        # See https://www.postgresql.org/docs/14/textsearch-tables.html ff.
+        pg-config = {
+        }
+
+        # Define which query parser to use.
+        #
+        # https://www.postgresql.org/docs/14/textsearch-controls.html#TEXTSEARCH-PARSING-QUERIES
+        pg-query-parser = "websearch_to_tsquery"
+
+        # Allows to define a normalization for the ranking.
+        #
+        # https://www.postgresql.org/docs/14/textsearch-controls.html#TEXTSEARCH-RANKING
+        pg-rank-normalization = [ 4 ]
+      }
+    }
+
+    # Configuration for the backend.
+    backend {
+
+      # Enable or disable debugging for e-mail related functionality. This
+      # applies to both sending and receiving mails. For security reasons
+      # logging is not very extensive on authentication failures. Setting
+      # this to true, results in a lot of data printed to stdout.
+      mail-debug = false
+
+      # The database connection.
+      jdbc {
+        # The JDBC url to the database. By default a H2 file-based
+        # database is configured. You can provide a postgresql or
+        # mariadb connection here. When using H2 use the PostgreSQL
+        # compatibility mode and AUTO_SERVER feature.
+        url = "jdbc:h2://"${java.io.tmpdir}"/docspell-demo.db;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;AUTO_SERVER=TRUE"
+
+        # The database user.
+        user = "sa"
+
+        # The database password.
+        password = ""
+      }
+
+      # Additional settings related to schema migration.
+      database-schema = {
+        # Whether to run main database migrations.
+        run-main-migrations = true
+
+        # Whether to run the fixup migrations.
+        run-fixup-migrations = true
+
+        # Use with care. This repairs all migrations in the database by
+        # updating their checksums and removing failed migrations. Good
+        # for testing, not recommended for normal operation.
+        repair-schema = false
+      }
+
+      # Configuration for registering new users.
+      signup {
+
+        # The mode defines if new users can signup or not. It can have
+        # three values:
+        #
+        # - open: every new user can sign up
+        # - invite: new users can sign up only if they provide a correct
+        #   invitation key. Invitation keys can be generated by the
+        #   server.
+        # - closed: signing up is disabled.
+        mode = "open"
+
+        # If mode == 'invite', a password must be provided to generate
+        # invitation keys. It must not be empty.
+        new-invite-password = ""
+
+        # If mode == 'invite', this is the period an invitation token is
+        # considered valid.
+        invite-time = "3 days"
+      }
+
+      files {
+        # Defines the chunk size (in bytes) used to store the files.
+        # This will affect the memory footprint when uploading and
+        # downloading files. At most this amount is loaded into RAM for
+        # down- and uploading.
+        #
+        # It also defines the chunk size used for the blobs inside the
+        # database.
+        chunk-size = 524288
+
+        # The file content types that are considered valid. Docspell
+        # will only pass these files to processing. The processing code
+        # itself has also checks for which files are supported and which
+        # not. This affects the uploading part and can be used to
+        # restrict file types that should be handed over to processing.
+        # By default all files are allowed.
+        valid-mime-types = [ ]
+
+        # The id of an enabled store from the `stores` array that should
+        # be used.
+        #
+        # IMPORTANT NOTE: All nodes must have the exact same file store
+        # configuration!
+        default-store = "database"
+
+        # A list of possible file stores. Each entry must have a unique
+        # id. The `type` is one of: default-database, filesystem, s3.
+        #
+        # The enabled property serves currently to define target stores
+        # for te "copy files" task. All stores with enabled=false are
+        # removed from the list. The `default-store` must be enabled.
+        stores = {
+          database =
+            { enabled = true
+              type = "default-database"
+            }
+
+          filesystem =
+            { enabled = false
+              type = "file-system"
+              directory = "/some/directory"
+            }
+
+          minio =
+          { enabled = false
+            type = "s3"
+            endpoint = "http://localhost:9000"
+            access-key = "username"
+            secret-key = "password"
+            bucket = "docspell"
+          }
+        }
+      }
+
+      addons = {
+        enabled = false
+
+        # Whether installing addons requiring network should be allowed
+        # or not.
+        allow-impure = true
+
+        # Define patterns of urls that are allowed to install addons
+        # from.
+        #
+        # A pattern is compared against an URL by comparing three parts
+        # of an URL via globs: scheme, host and path.
+        #
+        # You can use '*' (0 or more) and '?' (one) as wildcards in each
+        # part. For example:
+        #
+        #   https://*.mydomain.com/projects/*
+        #   *s://gitea.mydomain/*
+        #
+        # A hostname is separated by dots and the path by a slash. A '*'
+        # in a pattern means to match one or more characters. The path
+        # pattern is always matching the given prefix. So /a/b/* matches
+        # /a/b/c and /a/b/c/d and all other sub-paths.
+        #
+        # Multiple patterns can be defined va a comma separated string
+        # or as an array. An empty string matches no URL, while the
+        # special pattern '*' all by itself means to match every URL.
+        allowed-urls = "*"
+
+        # Same as `allowed-urls` but a match here means do deny addons
+        # from this url.
+        denied-urls = ""
+      }
+    }
+  }
+{{- end }}
