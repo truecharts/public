@@ -78,3 +78,64 @@ tests:
         equal:
           path: spec.template.spec.containers[0].name
           value: vpn
+
+  - it: tailscale addon enabled with authkey should pass
+    set:
+      addons:
+        vpn:
+          type: tailscale
+          tailscale:
+            authkey: something
+    asserts:
+      - hasDocuments:
+          count: 6
+      - documentIndex: &ServiceAccountDocument 0
+        isKind:
+          of: ServiceAccount
+      - documentIndex: *ServiceAccountDocument
+        equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test-tailscale-addon
+      - documentIndex: &ClusterRoleDocument 1
+        isKind:
+          of: ClusterRole
+      - documentIndex: *ClusterRoleDocument
+        equal:
+          path: rules[1].resourceNames[0]
+          value: RELEASE-NAME-common-test-tailscale-secret
+      - documentIndex: &ClusterRoleBindingDocument 2
+        isKind:
+          of: ClusterRoleBinding
+      - documentIndex: *ClusterRoleBindingDocument
+        equal:
+          path: subjects[0].name
+          value: RELEASE-NAME-common-test-tailscale-addon
+      - documentIndex: &SecretDocument 3
+        isKind:
+          of: Secret
+      - documentIndex: *SecretDocument
+        equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test-tailscale-secret
+      - documentIndex: *SecretDocument
+        isNotNull:
+          path: data.TS_AUTH_KEY
+      - documentIndex: &DeploymentDocument 4
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDocument
+        not: true
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: tailscale
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: tailscale
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].env[0].value
+          value: RELEASE-NAME-common-test-tailscale-secret
+      - documentIndex: &ServiceDocument 5
+        isKind:
+          of: Service
