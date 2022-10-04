@@ -201,9 +201,6 @@ data:
   DOCSPELL_SERVER_BACKEND_FILES_STORES_MINIO_BUCKET: {{ . }}
   {{- end }}
 {{/*
-
-
-
 #  Which backend to use, either solr or postgresql
 DOCSPELL_SERVER_FULL__TEXT__SEARCH_BACKEND="solr"
 
@@ -242,7 +239,6 @@ DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_Q__OP="OR"
 
 #  The URL to solr
 DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL="http://localhost:8983/solr/docspell"
-
 
 #  When exactly one OIDC/OAuth provider is configured, then the weapp
 #  automatically redirects to its authentication page skipping the

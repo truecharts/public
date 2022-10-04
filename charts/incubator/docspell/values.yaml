@@ -13,6 +13,14 @@ dscImage:
   tag: v0.38.0@sha256:86c8100df78f47f00291de0c2395917427f6caacbf896691559296c0a805a7a9
   pullPolicy: IfNotPresent
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-server-secret'
