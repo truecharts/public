@@ -5,6 +5,7 @@
 {{- $joexConfigName := printf "%s-joex-config" (include "tc.common.names.fullname" .) }}
 
 {{- $server := .Values.rest_server -}}
+{{- $joex := .Values.joex -}}
 
 ---
 
@@ -251,7 +252,7 @@ DOCSPELL_SERVER_OIDC__AUTO__REDIRECT=true
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ $serverConfigName }}
+  name: {{ $joexConfigName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
@@ -259,6 +260,32 @@ data:
   DOCSPELL_JOEX_BIND_ADDRESS: "0.0.0.0"
   DOCSPELL_JOEX_BIND_PORT: {{ .Values.service.joex.ports.joex.port }}
   DOCSPELL_JOEX_BASE__URL: {{ printf "%v:%v" "http://localhost" .Values.service.joex.ports.joex.port }}
+
+  {{/* Logging */}}
+  {{- $logging := $joex.logging -}}
+  {{- with $logging.format }}
+  DOCSPELL_JOEX_LOGGING_FORMAT: {{ . }}
+  {{- end }}
+
+  {{- with $logging.minimum_level }}
+  DOCSPELL_JOEX_LOGGING_MINIMUM__LEVEL: {{ . }}
+  {{- end }}
+
+  {{- with $logging.levels.docspell }}
+  DOCSPELL_JOEX_LOGGING_LEVELS_DOCSPELL: {{ . }}
+  {{- end }}
+
+  {{- with $logging.levels.flywaydb }}
+  DOCSPELL_JOEX_LOGGING_LEVELS_"ORG_FLYWAYDB: {{ . }}
+  {{- end }}
+
+  {{- with $logging.levels.binny }}
+  DOCSPELL_JOEX_LOGGING_LEVELS_BINNY: {{ . }}
+  {{- end }}
+
+  {{- with $logging.levels.http4s }}
+  DOCSPELL_JOEX_LOGGING_LEVELS_"ORG_HTTP4S: {{ . }}
+  {{- end }}
 
 {{/*
 #### JOEX Configuration ####
@@ -505,17 +532,6 @@ DOCSPELL_JOEX_JDBC_URL="jdbc:h2:///tmp/docspell-demo.db;MODE=PostgreSQL;DATABASE
 #  The database user.
 DOCSPELL_JOEX_JDBC_USER="sa"
 
-#  The format for the log messages. Can be one of:
-#  Json, Logfmt, Fancy or Plain
-DOCSPELL_JOEX_LOGGING_FORMAT="Fancy"
-DOCSPELL_JOEX_LOGGING_LEVELS_"ORG_FLYWAYDB"="Info"
-DOCSPELL_JOEX_LOGGING_LEVELS_"ORG_HTTP4S"="Info"
-DOCSPELL_JOEX_LOGGING_LEVELS_BINNY="Info"
-DOCSPELL_JOEX_LOGGING_LEVELS_DOCSPELL="Info"
-
-#  The minimum level to log. From lowest to highest:
-#  Trace, Debug, Info, Warn, Error
-DOCSPELL_JOEX_LOGGING_MINIMUM__LEVEL="Warn"
 
 #  Enable or disable debugging for e-mail related functionality. This
 #  applies to both sending and receiving mails. For security reasons

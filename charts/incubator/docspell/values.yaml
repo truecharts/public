@@ -156,6 +156,21 @@ rest_server:
   #     pg_rank_normalization:
   # openid:
 
+joex:
+  logging:
+    # -- The format for the log messages. Can be one of:
+    # -- Json | Logfmt | Fancy | Plain
+    format: Fancy
+    # -- The minimum level to log. From lowest to highest:
+    # -- Trace | Debug | Info | Warn | Error
+    minimum_level: Warn
+    levels:
+      # -- Override the log level of specific loggers
+      docspell: Info
+      flywaydb: Info
+      binny: Info
+      http4s: Info
+
 service:
   main:
     ports:
