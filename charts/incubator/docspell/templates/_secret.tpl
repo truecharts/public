@@ -343,7 +343,7 @@ stringData:
           min-text-len = {{ $extraction.pdf.min_text_length | default 500 }}
         }
         preview {
-          dpi = {{ $extraction.preview.dpi || default 32 }}
+          dpi = {{ $extraction.preview.dpi | default 32 }}
         }
         ocr {
           max-image-size = {{ $extraction.ocr.max_image_size | default 14000000 }}
