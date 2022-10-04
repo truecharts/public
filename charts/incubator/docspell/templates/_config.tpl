@@ -92,7 +92,9 @@ data:
   {{- end }}
 
   {{- with $logging.levels.flywaydb }}
+  {{/* TODO: See how to pass this env with quotes
   DOCSPELL_SERVER_LOGGING_LEVELS_"ORG_FLYWAYDB": {{ . }}
+  */}}
   {{- end }}
 
   {{- with $logging.levels.binny }}
@@ -100,7 +102,9 @@ data:
   {{- end }}
 
   {{- with $logging.levels.http4s }}
+  {{/* TODO: See how to pass this env with quotes
   DOCSPELL_SERVER_LOGGING_LEVELS_"ORG_HTTP4S": {{ . }}
+  */}}
   {{- end }}
 
   {{/* Server Options */}}
@@ -285,7 +289,9 @@ data:
   {{- end }}
 
   {{- with $logging.levels.flywaydb }}
+  {{/* TODO: See how to pass this env with quotes
   DOCSPELL_JOEX_LOGGING_LEVELS_"ORG_FLYWAYDB: {{ . }}
+  */}}
   {{- end }}
 
   {{- with $logging.levels.binny }}
@@ -293,7 +299,9 @@ data:
   {{- end }}
 
   {{- with $logging.levels.http4s }}
+  {{/* TODO: See how to pass this env with quotes
   DOCSPELL_JOEX_LOGGING_LEVELS_"ORG_HTTP4S: {{ . }}
+  */}}
   {{- end }}
 
   {{/* Database Schema */}}
