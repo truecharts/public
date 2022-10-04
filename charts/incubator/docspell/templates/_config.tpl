@@ -44,7 +44,9 @@ data:
   {{- end }}
 
   {{- with $logging.levels.flywaydb }}
+  {{/*
   DOCSPELL_SERVER_LOGGING_LEVELS_ORG_FLYWAYDB: {{ . }}
+  */}}
   {{- end }}
 
   {{- with $logging.levels.binny }}
@@ -52,7 +54,9 @@ data:
   {{- end }}
 
   {{- with $logging.levels.http4s }}
+  {{/*
   DOCSPELL_SERVER_LOGGING_LEVELS_ORG_HTTP4S: {{ . }}
+  */}}
   {{- end }}
 
   DOCSPELL_SERVER_BIND_ADDRESS: "0.0.0.0"
@@ -295,7 +299,9 @@ data:
   {{- end }}
 
   {{- with $logging.levels.flywaydb }}
+  {{/*
   DOCSPELL_JOEX_LOGGING_LEVELS_ORG_FLYWAYDB: {{ . }}
+  */}}
   {{- end }}
 
   {{- with $logging.levels.binny }}
@@ -303,7 +309,9 @@ data:
   {{- end }}
 
   {{- with $logging.levels.http4s }}
+  {{/*
   DOCSPELL_JOEX_LOGGING_LEVELS_ORG_HTTP4S: {{ . }}
+  */}}
   {{- end }}
 
   DOCSPELL_JOEX_JDBC_URL: {{ printf "jdbc:postgresql://%v-%v:5432/%v" .Release.Name "postgresql" .Values.postgresql.postgresqlDatabase }}
