@@ -6,7 +6,6 @@
 
 {{- $server := .Values.rest_server -}}
 
-
 ---
 
 apiVersion: v1
@@ -57,11 +56,11 @@ data:
   DOCSPELL_SERVER_BACKEND_ADDONS_ALLOW__IMPURE: {{ $addons.allow_impure | quote | default "true "}}
 
   {{- with $addons.allowed_urls }}
-  DOCSPELL_SERVER_BACKEND_ADDONS_ALLOWED__URLS: {{ printf "[%v]" (include "utils.quotedList" .) | squote }}
+  DOCSPELL_SERVER_BACKEND_ADDONS_ALLOWED__URLS: {{ include "utils.quotedList" . | squote }}
   {{- end }}
 
   {{- with $addons.denied_urls }}
-  DOCSPELL_SERVER_BACKEND_ADDONS_DENIED__URLS: {{ printf "[%v]" (include "utils.quotedList" .) | squote }}
+  DOCSPELL_SERVER_BACKEND_ADDONS_DENIED__URLS: {{ include "utils.quotedList" . | squote }}
   {{- end }}
 
   {{/* Download All */}}
@@ -127,7 +126,7 @@ data:
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_ENABLED: {{ $integration.allowed_ips.enabled | quote | default "false" }}
 
   {{- with $integration.allowed_ips.ips }}
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_IPS: {{ printf "[%v]" (include "utils.quotedList" .) | squote }}
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_IPS: {{ include "utils.quotedList" . | squote }}
   {{- end }}
 
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_ENABLED: {{ $integration.http_basic_auth.enabled | quote | default "false" }}
@@ -719,5 +718,5 @@ DOCSPELL_JOEX_USER__TASKS_SCAN__MAILBOX_MAX__MAILS=500
 {{- define "utils.quotedList" -}}
 {{- $local := dict "first" true -}}
 {{/* This results in "["item","item"]" */}}
-{{- range $v := . -}}{{- if not $local.first -}},{{- end -}}{{- $v | quote -}}{{- $_ := set $local "first" false -}}{{- end -}}
+{{- "[" -}}{{- range $v := . -}}{{- if not $local.first -}},{{- end -}}{{- $v | quote -}}{{- $_ := set $local "first" false -}}{{- end -}}{{- "]" -}}
 {{- end -}}
