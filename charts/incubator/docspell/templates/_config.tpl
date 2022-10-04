@@ -60,11 +60,11 @@ data:
   DOCSPELL_SERVER_BACKEND_ADDONS_ALLOW__IMPURE: {{ $addons.allow_impure | default true | quote }}
 
   {{- with $addons.allowed_urls }}
-  DOCSPELL_SERVER_BACKEND_ADDONS_ALLOWED__URLS: {{ include "utils.quotedList" . | squote }}
+  DOCSPELL_SERVER_BACKEND_ADDONS_ALLOWED__URLS: {{ include "utils.quotedList" . }}
   {{- end }}
 
   {{- with $addons.denied_urls }}
-  DOCSPELL_SERVER_BACKEND_ADDONS_DENIED__URLS: {{ include "utils.quotedList" . | squote }}
+  DOCSPELL_SERVER_BACKEND_ADDONS_DENIED__URLS: {{ include "utils.quotedList" . }}
   {{- end }}
 
   {{/* Download All */}}
@@ -134,7 +134,7 @@ data:
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_ENABLED: {{ $integration.allowed_ips.enabled | default false | quote }}
 
   {{- with $integration.allowed_ips.ips }}
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_IPS: {{ include "utils.quotedList" . | squote }}
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_IPS: {{ include "utils.quotedList" . }}
   {{- end }}
 
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_ENABLED: {{ $integration.http_basic_auth.enabled | default false | quote }}
@@ -178,7 +178,7 @@ data:
   {{- end }}
 
   {{- with $files.valid_mime_types }}
-  DOCSPELL_SERVER_BACKEND_FILES_VALID__MIME__TYPES: {{ include "utils.quotedList" . | squote }}
+  DOCSPELL_SERVER_BACKEND_FILES_VALID__MIME__TYPES: {{ include "utils.quotedList" . }}
   {{- end }}
 
   {{- with $files.default_store }}
