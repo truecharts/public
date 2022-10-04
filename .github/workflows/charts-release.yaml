@@ -14,7 +14,7 @@ jobs:
   release-scale:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/truecharts/devcontainer:v2.6.0@sha256:d3da15f9a48e8bb2d36329c81db2d928fd332cc3d0e3718fe0b6dcad40eff7e9
+      image: ghcr.io/truecharts/devcontainer:v2.6.0@sha256:a82c7d302bc6028271f98162779be7e15a998f55556f513b5216241a8d517330
     steps:
       - name: Install Kubernetes tools
         uses: yokawasa/action-setup-kube-tools@f7f73d7965074b0f5491b7210ff51e3254d42058 # tag=v0.8.2
@@ -175,7 +175,7 @@ jobs:
   release-helm:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/truecharts/devcontainer:v2.6.0@sha256:d3da15f9a48e8bb2d36329c81db2d928fd332cc3d0e3718fe0b6dcad40eff7e9
+      image: ghcr.io/truecharts/devcontainer:v2.6.0@sha256:a82c7d302bc6028271f98162779be7e15a998f55556f513b5216241a8d517330
     needs: release-scale
     steps:
       - name: Install Kubernetes tools
