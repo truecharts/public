@@ -1,0 +1,15 @@
+name: json_format
+
+on: [push]
+
+jobs:
+  validation:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Validate json format
+      run: |
+        find -name upgrade_info.json -exec sh -c "cat {} | jq && exit 0 || echo $? >> .exit_status" \;
+        test -f jq_exit_status && rm .exit_status && exit 1; exit 0;
