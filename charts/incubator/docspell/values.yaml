@@ -320,7 +320,7 @@ persistence:
     readOnly: true
     defaultMode: "0600"
     objectName: '{{ include "tc.common.names.fullname" . }}-server-secret'
-    mountPath: /opt/docspell.conf
+    mountPath: /opt
     items:
       - key: server.conf
         path: docspell.conf
