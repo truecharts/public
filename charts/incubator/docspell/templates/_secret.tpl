@@ -3,26 +3,37 @@
 
 {{- $serverSecretName := printf "%s-server-secret" (include "tc.common.names.fullname" .) }}
 {{- $joexSecretName := printf "%s-joex-secret" (include "tc.common.names.fullname" .) }}
+{{- $storeSecretName := printf "%s-store-secret" (include "tc.common.names.fullname" .) }}
 
 {{- $server := .Values.rest_server -}}
 {{- $serverID := printf "server-%v" (randAlphaNum 10) -}}
 
 {{- $server_secret := "" }}
-{{- with (lookup "v1" "Secret" .Release.Namespace $serverSecretName) }}
+{{- with (lookup "v1" "Secret" .Release.Namespace $storeSecretName) }}
 {{- $server_secret = (index .data "server_secret") }}
 {{- else }}
 {{- $server_secret = printf "b64:%v" (randAlphaNum 32 | b64enc) }}
 {{- end }}
 
 {{- $new_invite_password := "" }}
-{{- with (lookup "v1" "Secret" .Release.Namespace $serverSecretName) }}
+{{- with (lookup "v1" "Secret" .Release.Namespace $storeSecretName) }}
 {{- $new_invite_password = (index .data "new_invite_password") }}
 {{- else }}
 {{- $new_invite_password = randAlphaNum 32 | b64enc }}
 {{- end }}
 
 ---
-
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: {{ $storeSecretName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+stringData:
+  server_secret: {{ $server_secret }}
+  new_invite_password: {{ $new_invite_password }}
+---
 apiVersion: v1
 kind: Secret
 type: Opaque
@@ -31,8 +42,6 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
-  server_secret: {{ $server_secret }}
-  new_invite_password: {{ $new_invite_password }}
   server.conf: |
     docspell.server {
       app-name = {{ $server.app_name | default "Docspell" | quote }}
