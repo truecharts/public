@@ -109,14 +109,16 @@ rest_server:
       mode: open
       # -- This is the period an invitation token is considered valid.
       invite_time: 3 days
-    # files:
-    #   chunk_size:
-    #   valid_mime_types:
-    #   default_store:
-    #   stores:
-    #     database:
-    #       enabled:
-    #       type:
+    files:
+      # -- Defines the chunk size (in bytes) used to store the files.
+      chunk_size: 524288
+      # -- The file content types that are considered valid.
+      valid_mime_types: []
+      default_store: database
+      stores:
+        database:
+          enabled: true
+          type: default-database
     #     filesystem:
     #       enabled:
     #       type:

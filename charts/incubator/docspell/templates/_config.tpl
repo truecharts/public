@@ -163,25 +163,33 @@ data:
   DOCSPELL_SERVER_BACKEND_SIGNUP_INVITE__TIME: {{ . }}
   {{- end }}
 
+  {{/* Files */}}
+  {{- $files := $server.files -}}
+  {{- with $files.chunk_size }}
+  DOCSPELL_SERVER_BACKEND_FILES_CHUNK__SIZE: {{ . | quote }}
+  {{- end }}
+
+  {{- with $files.valid_mime_types }}
+  DOCSPELL_SERVER_BACKEND_FILES_VALID__MIME__TYPES: {{ include "utils.quotedList" . | squote }}
+  {{- end }}
+
+  {{- with $files.default_store }}
+  DOCSPELL_SERVER_BACKEND_FILES_DEFAULT__STORE: {{ . }}
+  {{- end }}
+
+  DOCSPELL_SERVER_BACKEND_FILES_STORES_DATABASE_ENABLED: {{ $files.stores.database.enabled | quote }}
+
+  {{- with $files.stores.database.type }}
+  DOCSPELL_SERVER_BACKEND_FILES_STORES_DATABASE_TYPE: {{ . }}
+  {{- end }}
+
+
 {{/*
-
-#  Defines the chunk size (in bytes) used to store the files.
-#  This will affect the memory footprint when uploading and
-#  downloading files. At most this amount is loaded into RAM for
-#  down- and uploading.
-#
-#  It also defines the chunk size used for the blobs inside the
-#  database.
-DOCSPELL_SERVER_BACKEND_FILES_CHUNK__SIZE=524288
-
 #  The id of an enabled store from the `stores` array that should
 #  be used.
 #
 #  IMPORTANT NOTE: All nodes must have the exact same file store
 #  configuration!
-DOCSPELL_SERVER_BACKEND_FILES_DEFAULT__STORE="database"
-DOCSPELL_SERVER_BACKEND_FILES_STORES_DATABASE_ENABLED=true
-DOCSPELL_SERVER_BACKEND_FILES_STORES_DATABASE_TYPE="default-database"
 DOCSPELL_SERVER_BACKEND_FILES_STORES_FILESYSTEM_DIRECTORY="/some/directory"
 DOCSPELL_SERVER_BACKEND_FILES_STORES_FILESYSTEM_ENABLED=false
 DOCSPELL_SERVER_BACKEND_FILES_STORES_FILESYSTEM_TYPE="file-system"
