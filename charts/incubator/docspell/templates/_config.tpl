@@ -6,7 +6,7 @@
 
 {{- $server := .Values.rest_server -}}
 
-{{/* TODO: Check all lists that are comma separated */}}
+
 ---
 
 apiVersion: v1
