@@ -134,7 +134,9 @@ data:
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_ENABLED: {{ $integration.allowed_ips.enabled | default false | quote }}
 
   {{- with $integration.allowed_ips.ips }}
+  {{/* TODO: Check if comma sepa is allowed here
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_IPS: {{ join "," . | quote }}
+  */}}
   {{- end }}
 
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_ENABLED: {{ $integration.http_basic_auth.enabled | default false | quote }}
