@@ -114,22 +114,20 @@ rest_server:
       chunk_size: 524288
       # -- The file content types that are considered valid.
       valid_mime_types: []
+      # database | filesystem | minio
       default_store: database
       stores:
         database:
           enabled: true
-          type: default-database
-    #     filesystem:
-    #       enabled:
-    #       type:
-    #       directory:
-    #     minio:
-    #       enabled:
-    #       type:
-    #       endpoint:
-    #       access_key:
-    #       secret_key:
-    #       bucket:
+        filesystem:
+          enabled: false
+          directory: /documents
+        minio:
+          enabled: false
+          endpoint: http://localhost:9000
+          access_key: access_key
+          secret_key: secret_key
+          bucket: docspell
   # full_text_search:
   #   enabled:
   #   backend:

@@ -43,6 +43,14 @@ data:
   {{- with $server.integration_endpoint.http_header.header_name }}
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__VALUE:
   {{- end }}
+
+  {{- with $server.backend.files.stores.minio.access_key }}
+  DOCSPELL_SERVER_BACKEND_FILES_STORES_MINIO_ACCESS__KEY: {{ . | b64enc }}
+  {{- end }}
+
+  {{- with $server.backend.files.stores.minio.secret_key }}
+  DOCSPELL_SERVER_BACKEND_FILES_STORES_MINIO_SECRET__KEY: {{ . | b64enc }}
+  {{- end }}
 ---
 
 apiVersion: v1
