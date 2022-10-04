@@ -182,36 +182,40 @@ stringData:
           new-invite-password = {{ $new_invite_password | quote }}
           invite-time = {{ $signup.invite_time | default "3 days" | quote }}
         }
+
+        {{- $files := $server.backend.files }}
         files {
-          chunk-size = 524288
+          chunk-size = {{ $files.chunk_size | default 524288 }}
+          # TODO:
           valid-mime-types = [ ]
-          default-store = "database"
+          default-store = {{ $files.default_store | default "database" | quote }}
           stores = {
-            database =
-              { enabled = true
+            database = {
+                enabled = {{ $files.stores.database.enabled | default true }}
                 type = "default-database"
               }
-
-            filesystem =
-              { enabled = false
+            filesystem = {
+                enabled = {{ $files.stores.filesystem.enabled | default false }}
                 type = "file-system"
-                directory = "/some/directory"
+                directory = {{ $files.stores.filesystem.directory | default "/documents" | quote }}
               }
-
-            minio =
-            { enabled = false
+            minio = {
+              enabled = {{ $files.stores.minio.enabled | default false }}
               type = "s3"
-              endpoint = "http://localhost:9000"
-              access-key = "username"
-              secret-key = "password"
-              bucket = "docspell"
+              endpoint = {{ $files.stores.minio.endpoint | default "http://localhost:9000" | quote }}
+              access-key = {{ $files.stores.minio.access_key | default "username" | quote }}
+              secret-key = {{ $files.stores.minio.secret_key | default "password" | quote }}
+              bucket = {{ $files.stores.minio.bucket | default "docspell" | quote }}
             }
           }
         }
+        {{- $addons := $server.addons }}
         addons = {
-          enabled = false
-          allow-impure = true
+          enabled = {{ $addons.enabled | default false }}
+          allow-impure = {{ $addons.allow_impure | default true }}
+          # TODO:
           allowed-urls = "*"
+          # TODO:
           denied-urls = ""
         }
       }
