@@ -2,6 +2,17 @@
 
 
 
+## [zusam-0.0.14](https://github.com/truecharts/charts/compare/zusam-0.0.13...zusam-0.0.14) (2022-10-04)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#4001](https://github.com/truecharts/charts/issues/4001))
+
+
+
+
 ## [zusam-0.0.13](https://github.com/truecharts/charts/compare/zusam-0.0.12...zusam-0.0.13) (2022-09-27)
 
 ### Chore

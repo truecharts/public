@@ -2,6 +2,18 @@
 
 
 
+## [jackett-11.0.102](https://github.com/truecharts/charts/compare/jackett-11.0.101...jackett-11.0.102) (2022-10-04)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#4001](https://github.com/truecharts/charts/issues/4001))
+  - update docker general non-major
+
+
+
+
 ## [jackett-11.0.101](https://github.com/truecharts/charts/compare/jackett-11.0.100...jackett-11.0.101) (2022-10-01)
 
 ### Chore

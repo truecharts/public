@@ -2,6 +2,17 @@
 
 
 
+## [dokuwiki-3.0.59](https://github.com/truecharts/charts/compare/dokuwiki-3.0.58...dokuwiki-3.0.59) (2022-10-04)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#4001](https://github.com/truecharts/charts/issues/4001))
+
+
+
+
 ## [dokuwiki-3.0.58](https://github.com/truecharts/charts/compare/dokuwiki-3.0.57...dokuwiki-3.0.58) (2022-10-01)
 
 ### Chore

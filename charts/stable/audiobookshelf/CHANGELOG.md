@@ -2,6 +2,17 @@
 
 
 
+## [audiobookshelf-2.0.41](https://github.com/truecharts/charts/compare/audiobookshelf-2.0.40...audiobookshelf-2.0.41) (2022-10-04)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#4001](https://github.com/truecharts/charts/issues/4001))
+
+
+
+
 ## [audiobookshelf-2.0.40](https://github.com/truecharts/charts/compare/audiobookshelf-2.0.39...audiobookshelf-2.0.40) (2022-09-27)
 
 ### Chore

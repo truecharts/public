@@ -2,6 +2,16 @@
 
 
 
+## [minio-3.0.59](https://github.com/truecharts/charts/compare/minio-console-3.0.44...minio-3.0.59) (2022-10-04)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#4001](https://github.com/truecharts/charts/issues/4001))
+
+
+
+
 ## [minio-3.0.58](https://github.com/truecharts/charts/compare/minio-3.0.57...minio-3.0.58) (2022-09-27)
 
 ### Chore

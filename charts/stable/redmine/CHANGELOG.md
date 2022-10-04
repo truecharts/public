@@ -2,6 +2,16 @@
 
 
 
+## [redmine-3.0.52](https://github.com/truecharts/charts/compare/redmine-3.0.51...redmine-3.0.52) (2022-10-04)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#4001](https://github.com/truecharts/charts/issues/4001))
+
+
+
+
 ## [redmine-3.0.50](https://github.com/truecharts/charts/compare/redmine-3.0.49...redmine-3.0.50) (2022-09-27)
 
 ### Chore

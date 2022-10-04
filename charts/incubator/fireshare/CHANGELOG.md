@@ -2,6 +2,17 @@
 
 
 
+## [fireshare-0.0.32](https://github.com/truecharts/charts/compare/fireshare-0.0.31...fireshare-0.0.32) (2022-10-04)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#4001](https://github.com/truecharts/charts/issues/4001))
+
+
+
+
 ## [fireshare-0.0.31](https://github.com/truecharts/charts/compare/fireshare-0.0.30...fireshare-0.0.31) (2022-10-01)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [meshcentral-4.0.12](https://github.com/truecharts/charts/compare/meshcentral-4.0.11...meshcentral-4.0.12) (2022-10-04)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#4001](https://github.com/truecharts/charts/issues/4001))
+
+
+
+
 ## [meshcentral-4.0.10](https://github.com/truecharts/charts/compare/meshcentral-4.0.9...meshcentral-4.0.10) (2022-09-27)
 
 ### Chore

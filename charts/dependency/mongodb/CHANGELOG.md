@@ -2,6 +2,17 @@
 
 
 
+## [mongodb-2.0.28](https://github.com/truecharts/charts/compare/mongodb-2.0.27...mongodb-2.0.28) (2022-10-04)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#4001](https://github.com/truecharts/charts/issues/4001))
+
+
+
+
 ## [mongodb-2.0.27](https://github.com/truecharts/charts/compare/mongodb-2.0.26...mongodb-2.0.27) (2022-10-01)
 
 ### Chore
