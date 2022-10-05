@@ -2,6 +2,17 @@
 
 
 
+## [redis-3.0.90](https://github.com/truecharts/charts/compare/redisinsight-0.0.28...redis-3.0.90) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#4010](https://github.com/truecharts/charts/issues/4010))
+  - update docker general non-major
+
+
+
+
 ## [redis-3.0.89](https://github.com/truecharts/charts/compare/redis-3.0.88...redis-3.0.89) (2022-10-01)
 
 ### Chore

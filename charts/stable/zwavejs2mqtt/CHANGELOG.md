@@ -2,6 +2,16 @@
 
 
 
+## [zwavejs2mqtt-12.0.5](https://github.com/truecharts/charts/compare/zwavejs2mqtt-12.0.4...zwavejs2mqtt-12.0.5) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4010](https://github.com/truecharts/charts/issues/4010))
+
+
+
+
 ## [zwavejs2mqtt-12.0.4](https://github.com/truecharts/charts/compare/zwavejs2mqtt-12.0.3...zwavejs2mqtt-12.0.4) (2022-10-04)
 
 ### Chore
