@@ -326,21 +326,17 @@ persistence:
     readOnly: true
     defaultMode: "0600"
     objectName: '{{ include "tc.common.names.fullname" . }}-server-secret'
-    mountPath: /opt
-    items:
-      - key: server.conf
-        path: server.conf
+    mountPath: /opt/server.conf
+    subPath: server.conf
   joex:
     enabled: true
     type: secret
     noMount: true
     readOnly: true
     defaultMode: "0600"
-    objectName: '{{ include "tc.common.names.fullname" . }}-server-secret'
-    mountPath: /opt
-    items:
-      - key: joex.conf
-        path: joex.conf
+    objectName: '{{ include "tc.common.names.fullname" . }}-joex-secret'
+    mountPath: /opt/joex.conf
+    subPath: joex.conf
 
 postgresql:
   enabled: true

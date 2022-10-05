@@ -10,8 +10,9 @@ securityContext:
 args:
   - /opt/joex.conf
 volumeMounts:
-  - mountPath: /opt
-    name: server
+  - name: joex
+    mountPath: /opt/joex.conf
+    subPath: /opt/joex.conf
     readOnly: true
 ports:
   - containerPort: {{ .Values.service.joex.ports.joex.port }}
