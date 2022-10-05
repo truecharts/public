@@ -12,7 +12,7 @@ args:
 volumeMounts:
   - name: joex
     mountPath: /opt/joex.conf
-    subPath: /opt/joex.conf
+    subPath: joex.conf
     readOnly: true
 ports:
   - containerPort: {{ .Values.service.joex.ports.joex.port }}
