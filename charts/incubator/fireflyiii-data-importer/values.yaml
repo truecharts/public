@@ -1,0 +1,27 @@
+image:
+  repository: fireflyiii/data-importer
+  pullPolicy: IfNotPresent
+  tag: version-0.9.16@sha256:60d28f48839ce420b4333335204a0cbfd858634b5e505db04e758d7dbd335aa7
+
+secretEnv:
+  # User Defined
+  # FIREFLY_III_ACCESS_TOKEN: ""
+  # NORDIGEN_ID: ""
+  # NORDIGEN_KEY: ""
+  # SPECTRE_APP_ID: ""
+  # SPECTRE_SECRET: ""
+
+env:
+  # User Defined
+  # FIREFLY_III_URL: ""
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 8080
+        port: 10580
+
+portal:
+  enabled: true
