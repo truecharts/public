@@ -3,6 +3,14 @@ image:
   pullPolicy: IfNotPresent
   tag: version-0.9.16@sha256:60d28f48839ce420b4333335204a0cbfd858634b5e505db04e758d7dbd335aa7
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 secretEnv:
   # User Defined
   # FIREFLY_III_ACCESS_TOKEN: ""
