@@ -17,14 +17,14 @@ jobs:
     container:
       image: ghcr.io/truecharts/devcontainer:v2.6.0@sha256:a82c7d302bc6028271f98162779be7e15a998f55556f513b5216241a8d517330
     steps:
-      - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3
+      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
         name: Checkout
         with:
           fetch-depth: 100
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
         with:
           repository: truecharts/catalog
           path: catalog
