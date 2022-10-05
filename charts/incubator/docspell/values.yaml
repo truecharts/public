@@ -288,22 +288,89 @@ joex:
       page_range:
         # -- Defines what pages to process.
         begin: 10
-    # -- # The ghostscript command.
-  #   ghost_script:
-  #     command:
-  #       program: gs
-  #       timeout: 5 minutes
-  #     work_dir: /tmp/docspell-extraction
-  #   # -- The unpaper command.
-  #   unpaper:
-  #     command:
-  #       program: unpaper
-  #       timeout: 5 minutes
-  #   # -- The tesseract command.
-  #   tesseract:
-  #     command:
-  #       program: tesseract
-  #       timeout: 5 minutes
+    # -- The ghostscript command.
+    ghostscript:
+      command:
+        timeout: 5 minutes
+    # -- The unpaper command.
+    unpaper:
+      command:
+        timeout: 5 minutes
+    # -- The tesseract command.
+    tesseract:
+      command:
+        timeout: 5 minutes
+  text_analysis:
+    # -- Maximum length of text to be analyzed.
+    max_length: 0
+    nlp:
+      # -- The mode for configuring NLP models
+      # -- full | basic | regexonly | disabled
+      mode: full
+      clear_interval: 15 minutes
+      # -- Restricts proposals for due dates.
+      max_due_date_years: 10
+      regex_ner:
+        # -- Whether to enable custom NER annotation.
+        max_entries: 1000
+        file_cache_time: 1 minute
+  classification:
+    enabled: true
+    item_count: 600
+    classifiers:
+      useSplitWords: true
+      splitWordsTokenizerRegexp: '"""[\p{L}][\p{L}0-9]*|(?:\$ ?)?[0-9]+(?:\.[0-9]{2})?%?|\s+|."""'
+      splitWordsIgnoreRegexp: '"""\s+"""'
+      useSplitPrefixSuffixNGrams: true
+      maxNGramLeng: 4
+      minNGramLeng: 1
+      splitWordShape: chris4
+      intern: true
+  convert:
+    chunk_size: 524288
+    converted_filename_part: converted
+    max_image_size: 14000000
+    markdown:
+      internal_css: "body { padding: 2em 5em; }"
+    wkhtmlpdf:
+      command:
+        timeout: 2 minutes
+    tesseract:
+      command:
+        timeout: 5 minutes
+    unoconv:
+      command:
+        timeout: 5 minutes
+    ocrmypdf:
+      command:
+        timeout: 5 minutes
+    decrypt_pdf:
+      enabled: true
+      passwords: []
+  files:
+    # -- Defines the chunk size (in bytes) used to store the files.
+    chunk_size: 524288
+    # -- The file content types that are considered valid.
+    valid_mime_types: []
+    # database | minio | filesystem
+    default_store: database
+    stores:
+      database:
+        enabled: true
+      minio:
+        enabled: false
+        endpoint: http://localhost:9000
+        access_key: access_key
+        secret_key: secret_key
+        bucket: docspell
+      # -- Highly NOT recommended
+      filesystem:
+        enabled: false
+        directory: /documents
+  addons:
+    executor_config:
+      fail_fast: true
+      run_timeout: 15 minutes
 
 service:
   main:
