@@ -185,7 +185,7 @@ stringData:
           user = {{ .Values.postgresql.postgresqlUsername | quote }}
           password = {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | quote }}
         }
-        {{- $database_schema := $server.database_schema }}
+        {{- $database_schema := $server.backend.database_schema }}
         database-schema = {
           run-main-migrations = {{ $database_schema.run_main_migrations }}
           run-fixup-migrations = {{ $database_schema.run_fixup_migrations }}
@@ -296,9 +296,9 @@ stringData:
       {{- $user_tasks := $joex.user_tasks }}
       user-tasks {
         scan-mailbox {
-          max-folders = {{ $user_tasks.max_folders }}
-          mail-chunk-size = {{ $user_tasks.mail_chunk_size }}
-          max-mails = {{ $user_tasks.max_mails }}
+          max-folders = {{ $user_tasks.scan_mailbox.max_folders }}
+          mail-chunk-size = {{ $user_tasks.scan_mailbox.mail_chunk_size }}
+          max-mails = {{ $user_tasks.scan_mailbox.max_mails }}
         }
       }
       {{- $house_keeping := $joex.house_keeping }}
@@ -360,8 +360,8 @@ stringData:
                     , "-dBATCH"
                     , "-dSAFER"
                     , "-sDEVICE=tiffscaled8"
-                    , "-sOutputFile={{"{"}}{{"{"}}outfile{{"}"}}{{"}"}}"
-                    , "{{"{"}}{{"{"}}infile{{"}"}}{{"}"}}"
+                    , "-sOutputFile={{"{{"}}outfile{{"}}"}}"
+                    , "{{"{{"}}infile{{"}}"}}"
                     ]
               timeout = {{ $extraction.ghostscript.command.timeout | default "5 minutes" | quote }}
             }
@@ -370,17 +370,17 @@ stringData:
           unpaper {
             command {
               program = "unpaper"
-              args = [ "{{"{"}}{{"{"}}infile{{"}"}}"{{"}"}}", "{{"{"}}{{"{"}}outfile{{"}"}}{{"}"}}" ]
+              args = [ "{{"{{"}}infile{{"}}"}}", "{{"{{"}}outfile{{"}}"}}" ]
               timeout = {{ $extraction.unpaper.command.timeout | default "5 minutes" | quote }}
             }
           }
           tesseract {
             command {
               program = "tesseract"
-              args = ["{{"{"}}"{{"{"}}file{{"}"}}{{"}"}}"
+              args = ["{{"{{"}}file{{"}}"}}"
                     , "stdout"
                     , "-l"
-                    , "{{"{"}}{{"{"}}lang{{"}"}}{{"}"}}"
+                    , "{{"{{"}}lang{{"}}"}}"
                     ]
               timeout = {{ $extraction.tesseract.command.timeout | default "5 minutes" | quote }}
             }
@@ -435,11 +435,11 @@ stringData:
               "-s",
               "A4",
               "--encoding",
-              "{{"{"}}{{"{"}}encoding{{"}"}}"{{"}"}}",
+              "{{"{{"}}encoding{{"}}"}}",
               "--load-error-handling", "ignore",
               "--load-media-error-handling", "ignore",
               "-",
-              "{{"{"}}{{"{"}}outfile{{"}"}}{{"}"}}"
+              "{{"{{"}}outfile{{"}}"}}"
             ]
             timeout = {{ $convert.wkhtmlpdf.timeout | default "2 minutes" | quote }}
           }
@@ -449,10 +449,10 @@ stringData:
           command = {
             program = "tesseract"
             args = [
-              "{{"{"}}{{"{"}}infile{{"}"}}"{{"}"}}",
+              "{{"{{"}}infile{{"}}"}}",
               "out",
               "-l",
-              "{{"{"}}{{"{"}}lang{{"}"}}"{{"}"}}",
+              "{{"{{"}}lang{{"}}"}}",
               "pdf",
               "txt"
             ]
@@ -467,8 +467,8 @@ stringData:
               "-f",
               "pdf",
               "-o",
-              "{{"{"}}{{"{"}}outfile{{"}"}}"{{"}"}}",
-              "{{"{"}}{{"{"}}infile{{"}"}}{{"}"}}"
+              "{{"{{"}}outfile{{"}}"}}",
+              "{{"{{"}}infile{{"}}"}}"
             ]
             timeout = {{ $convert.tesseract.command.timeout | default "2 minutes" | quote }}
           }
@@ -479,12 +479,12 @@ stringData:
           command = {
             program = "ocrmypdf"
             args = [
-              "-l", "{{"{"}}{{"{"}}lang{{"}"}}"{{"}"}}",
+              "-l", "{{"{{"}}lang{{"}}"}}",
               "--skip-text",
               "--deskew",
               "-j", "1",
-              "{{"{"}}{{"{"}}infile{{"}"}}"{{"}"}}",
-              "{{"{"}}{{"{"}}outfile{{"}"}}{{"}"}}"
+              "{{"{{"}}infile{{"}}"}}",
+              "{{"{{"}}outfile{{"}}"}}"
             ]
             timeout = {{ $convert.ocrmypdf.command.timeout | default "5 minutes" | quote }}
           }
