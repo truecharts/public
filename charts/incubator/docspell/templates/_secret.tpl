@@ -91,7 +91,7 @@ stringData:
         max-files = {{ $download_all.max_files }}
         max-size = {{ $download_all.max_size | default "1400M" }}
       }
-      TODO:
+      # TODO:
       # openid =
       #   [ { enabled = false,
       #       display = "Keycloak"
@@ -499,7 +499,7 @@ stringData:
       {{ $files := $joex.files }}
       files {
         chunk-size = {{ $files.chunk_size }}
-        TODO:
+        # TODO:
         valid-mime-types = [ ]
         default-store = {{ $files.default_store | default "database" | quote }}
         stores = {
