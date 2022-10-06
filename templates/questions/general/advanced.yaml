@@ -1,16 +1,21 @@
- - variable: horizontalPodAutoscaler
-   group: Advanced
-   label: (Advanced) Horizontal Pod Autoscaler
-   schema:
-     additional_attrs: true
-     type: dict
-     attrs:
-      - variable: main
-        label: Main
+  - variable: horizontalPodAutoscaler
+    group: Advanced
+    label: (Advanced) Horizontal Pod Autoscaler
+    schema:
+      type: list
+      default: []
+      items:
+      - variable: hpaEntry
+        label: HPA Entry
         schema:
           additional_attrs: true
           type: dict
           attrs:
+            - variable: name
+              label: Name
+              schema:
+                type: string
+                default: ""
             - variable: enabled
               label: Enabled
               schema:
