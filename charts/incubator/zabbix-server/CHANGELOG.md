@@ -2,6 +2,16 @@
 
 
 
+## [zabbix-server-2.0.47](https://github.com/truecharts/charts/compare/zabbix-server-2.0.46...zabbix-server-2.0.47) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [zabbix-server-2.0.45](https://github.com/truecharts/charts/compare/zabbix-server-2.0.44...zabbix-server-2.0.45) (2022-09-27)
 
 ### Chore

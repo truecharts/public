@@ -2,6 +2,16 @@
 
 
 
+## [uptime-kuma-3.0.37](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.36...uptime-kuma-3.0.37) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [uptime-kuma-3.0.36](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.35...uptime-kuma-3.0.36) (2022-10-04)
 
 ### Chore

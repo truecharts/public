@@ -2,6 +2,16 @@
 
 
 
+## [umami-0.0.6](https://github.com/truecharts/charts/compare/umami-0.0.5...umami-0.0.6) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [umami-0.0.4](https://github.com/truecharts/charts/compare/umami-0.0.3...umami-0.0.4) (2022-09-27)
 
 ### Chore

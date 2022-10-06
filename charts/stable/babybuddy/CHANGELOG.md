@@ -2,6 +2,16 @@
 
 
 
+## [babybuddy-8.0.56](https://github.com/truecharts/charts/compare/babybuddy-8.0.55...babybuddy-8.0.56) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [babybuddy-8.0.54](https://github.com/truecharts/charts/compare/babybuddy-8.0.53...babybuddy-8.0.54) (2022-09-27)
 
 ### Chore

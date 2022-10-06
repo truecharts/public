@@ -2,6 +2,16 @@
 
 
 
+## [rimgo-0.0.73](https://github.com/truecharts/charts/compare/rimgo-0.0.72...rimgo-0.0.73) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [rimgo-0.0.72](https://github.com/truecharts/charts/compare/rimgo-0.0.71...rimgo-0.0.72) (2022-10-05)
 
 ### Chore

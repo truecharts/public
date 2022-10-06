@@ -2,6 +2,16 @@
 
 
 
+## [zwavejs2mqtt-12.0.6](https://github.com/truecharts/charts/compare/zwavejs2mqtt-12.0.5...zwavejs2mqtt-12.0.6) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [zwavejs2mqtt-12.0.5](https://github.com/truecharts/charts/compare/zwavejs2mqtt-12.0.4...zwavejs2mqtt-12.0.5) (2022-10-05)
 
 ### Chore

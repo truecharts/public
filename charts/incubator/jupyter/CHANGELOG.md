@@ -2,6 +2,18 @@
 
 
 
+## [jupyter-0.0.15](https://github.com/truecharts/charts/compare/jupyter-0.0.14...jupyter-0.0.15) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+  - update docker general non-major
+
+
+
+
 ## [jupyter-0.0.14](https://github.com/truecharts/charts/compare/jupyter-0.0.13...jupyter-0.0.14) (2022-09-30)
 
 ### Chore

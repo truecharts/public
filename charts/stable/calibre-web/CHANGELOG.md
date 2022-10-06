@@ -2,6 +2,16 @@
 
 
 
+## [calibre-web-11.0.47](https://github.com/truecharts/charts/compare/calibre-web-11.0.46...calibre-web-11.0.47) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [calibre-web-11.0.46](https://github.com/truecharts/charts/compare/calibre-web-11.0.45...calibre-web-11.0.46) (2022-10-05)
 
 ### Chore

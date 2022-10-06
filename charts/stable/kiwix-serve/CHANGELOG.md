@@ -2,6 +2,17 @@
 
 
 
+## [kiwix-serve-1.0.5](https://github.com/truecharts/charts/compare/kiwix-serve-1.0.4...kiwix-serve-1.0.5) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [kiwix-serve-1.0.4](https://github.com/truecharts/charts/compare/kiwix-serve-1.0.3...kiwix-serve-1.0.4) (2022-09-27)
 
 ### Chore

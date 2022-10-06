@@ -2,6 +2,16 @@
 
 
 
+## [awesome-ttrss-0.0.47](https://github.com/truecharts/charts/compare/awesome-ttrss-0.0.46...awesome-ttrss-0.0.47) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [awesome-ttrss-0.0.45](https://github.com/truecharts/charts/compare/awesome-ttrss-0.0.44...awesome-ttrss-0.0.45) (2022-09-27)
 
 ### Chore

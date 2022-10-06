@@ -2,6 +2,16 @@
 
 
 
+## [matomo-3.0.72](https://github.com/truecharts/charts/compare/matomo-3.0.71...matomo-3.0.72) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [matomo-3.0.71](https://github.com/truecharts/charts/compare/matomo-3.0.70...matomo-3.0.71) (2022-10-04)
 
 ### Chore

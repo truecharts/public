@@ -2,6 +2,16 @@
 
 
 
+## [jelu-0.0.34](https://github.com/truecharts/charts/compare/jelu-0.0.33...jelu-0.0.34) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [jelu-0.0.33](https://github.com/truecharts/charts/compare/jelu-0.0.32...jelu-0.0.33) (2022-10-04)
 
 ### Chore

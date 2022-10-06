@@ -2,6 +2,17 @@
 
 
 
+## [import-ics-0.0.27](https://github.com/truecharts/charts/compare/import-ics-0.0.26...import-ics-0.0.27) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [import-ics-0.0.26](https://github.com/truecharts/charts/compare/import-ics-0.0.25...import-ics-0.0.26) (2022-09-27)
 
 ### Chore

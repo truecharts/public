@@ -2,6 +2,17 @@
 
 
 
+## [pyload-ng-0.0.33](https://github.com/truecharts/charts/compare/pyload-ng-0.0.32...pyload-ng-0.0.33) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [pyload-ng-0.0.32](https://github.com/truecharts/charts/compare/pyload-ng-0.0.31...pyload-ng-0.0.32) (2022-09-28)
 
 ### Chore

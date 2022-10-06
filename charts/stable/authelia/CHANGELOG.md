@@ -2,6 +2,16 @@
 
 
 
+## [authelia-11.0.52](https://github.com/truecharts/charts/compare/authelia-11.0.51...authelia-11.0.52) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [authelia-11.0.50](https://github.com/truecharts/charts/compare/authelia-11.0.49...authelia-11.0.50) (2022-09-27)
 
 ### Chore

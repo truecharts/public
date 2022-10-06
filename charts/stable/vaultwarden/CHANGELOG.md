@@ -2,6 +2,16 @@
 
 
 
+## [vaultwarden-16.0.43](https://github.com/truecharts/charts/compare/vaultwarden-16.0.42...vaultwarden-16.0.43) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [vaultwarden-16.0.41](https://github.com/truecharts/charts/compare/vaultwarden-16.0.40...vaultwarden-16.0.41) (2022-09-27)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [wikijs-7.0.45](https://github.com/truecharts/charts/compare/wikijs-7.0.44...wikijs-7.0.45) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [wikijs-7.0.43](https://github.com/truecharts/charts/compare/wikijs-7.0.42...wikijs-7.0.43) (2022-09-27)
 
 ### Chore

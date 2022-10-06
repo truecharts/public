@@ -2,6 +2,16 @@
 
 
 
+## [qinglong-2.0.46](https://github.com/truecharts/charts/compare/qinglong-2.0.45...qinglong-2.0.46) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [qinglong-2.0.45](https://github.com/truecharts/charts/compare/qinglong-2.0.44...qinglong-2.0.45) (2022-10-04)
 
 ### Chore

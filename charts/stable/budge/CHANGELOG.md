@@ -2,6 +2,17 @@
 
 
 
+## [budge-2.0.46](https://github.com/truecharts/charts/compare/budge-2.0.45...budge-2.0.46) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [budge-2.0.45](https://github.com/truecharts/charts/compare/budge-2.0.44...budge-2.0.45) (2022-09-28)
 
 ### Chore

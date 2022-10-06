@@ -2,6 +2,16 @@
 
 
 
+## [fleet-3.0.40](https://github.com/truecharts/charts/compare/fleet-3.0.39...fleet-3.0.40) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [fleet-3.0.38](https://github.com/truecharts/charts/compare/fleet-3.0.37...fleet-3.0.38) (2022-09-27)
 
 ### Chore

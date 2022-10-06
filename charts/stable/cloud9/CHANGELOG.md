@@ -2,6 +2,17 @@
 
 
 
+## [cloud9-4.0.33](https://github.com/truecharts/charts/compare/cloud9-4.0.32...cloud9-4.0.33) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [cloud9-4.0.32](https://github.com/truecharts/charts/compare/cloud9-4.0.31...cloud9-4.0.32) (2022-09-27)
 
 ### Chore

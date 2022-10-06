@@ -2,6 +2,16 @@
 
 
 
+## [mealie-10.0.5](https://github.com/truecharts/charts/compare/mealie-10.0.4...mealie-10.0.5) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [mealie-10.0.2](https://github.com/truecharts/charts/compare/mealie-10.0.1...mealie-10.0.2) (2022-09-27)
 
 ### Chore

@@ -2,6 +2,18 @@
 
 
 
+## [noisedash-0.0.2](https://github.com/truecharts/charts/compare/noisedash-0.0.1...noisedash-0.0.2) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [noisedash-0.0.1]noisedash-0.0.1 (2022-09-28)
 
 ### Feat

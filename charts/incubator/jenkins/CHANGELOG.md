@@ -2,6 +2,17 @@
 
 
 
+## [jenkins-0.1.12](https://github.com/truecharts/charts/compare/jenkins-0.1.11...jenkins-0.1.12) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [jenkins-0.1.11](https://github.com/truecharts/charts/compare/jenkins-0.1.10...jenkins-0.1.11) (2022-09-27)
 
 ### Chore

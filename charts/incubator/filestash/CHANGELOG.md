@@ -2,6 +2,16 @@
 
 
 
+## [filestash-0.0.42](https://github.com/truecharts/charts/compare/filestash-0.0.41...filestash-0.0.42) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [filestash-0.0.41](https://github.com/truecharts/charts/compare/filestash-0.0.40...filestash-0.0.41) (2022-10-05)
 
 ### Chore

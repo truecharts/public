@@ -2,6 +2,16 @@
 
 
 
+## [firefox-2.0.33](https://github.com/truecharts/charts/compare/firefox-desktop-g3-0.0.31...firefox-2.0.33) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [firefox-2.0.32](https://github.com/truecharts/charts/compare/firefox-2.0.31...firefox-2.0.32) (2022-09-27)
 
 ### Chore

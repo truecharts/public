@@ -2,6 +2,16 @@
 
 
 
+## [spotweb-4.0.42](https://github.com/truecharts/charts/compare/spotweb-4.0.41...spotweb-4.0.42) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [spotweb-4.0.40](https://github.com/truecharts/charts/compare/spotweb-4.0.39...spotweb-4.0.40) (2022-09-27)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [joplin-server-8.0.41](https://github.com/truecharts/charts/compare/joplin-server-8.0.40...joplin-server-8.0.41) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [joplin-server-8.0.39](https://github.com/truecharts/charts/compare/joplin-server-8.0.38...joplin-server-8.0.39) (2022-09-27)
 
 ### Chore

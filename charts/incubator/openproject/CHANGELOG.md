@@ -2,6 +2,16 @@
 
 
 
+## [openproject-0.0.36](https://github.com/truecharts/charts/compare/openproject-0.0.35...openproject-0.0.36) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [openproject-0.0.34](https://github.com/truecharts/charts/compare/openproject-0.0.33...openproject-0.0.34) (2022-09-27)
 
 ### Chore

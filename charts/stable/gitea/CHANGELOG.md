@@ -2,6 +2,16 @@
 
 
 
+## [gitea-9.0.21](https://github.com/truecharts/charts/compare/gitea-9.0.20...gitea-9.0.21) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [gitea-9.0.19](https://github.com/truecharts/charts/compare/gitea-9.0.18...gitea-9.0.19) (2022-09-27)
 
 ### Chore

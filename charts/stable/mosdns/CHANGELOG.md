@@ -2,6 +2,16 @@
 
 
 
+## [mosdns-2.0.38](https://github.com/truecharts/charts/compare/mosdns-2.0.37...mosdns-2.0.38) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [mosdns-2.0.37](https://github.com/truecharts/charts/compare/mosdns-2.0.36...mosdns-2.0.37) (2022-10-04)
 
 ### Chore

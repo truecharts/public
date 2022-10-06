@@ -2,6 +2,17 @@
 
 
 
+## [tdarr-2.0.36](https://github.com/truecharts/charts/compare/tdarr-node-2.0.35...tdarr-2.0.36) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [tdarr-2.0.35](https://github.com/truecharts/charts/compare/tdarr-2.0.34...tdarr-2.0.35) (2022-09-27)
 
 ### Chore

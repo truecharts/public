@@ -2,6 +2,16 @@
 
 
 
+## [vikunja-3.0.56](https://github.com/truecharts/charts/compare/vikunja-3.0.55...vikunja-3.0.56) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [vikunja-3.0.54](https://github.com/truecharts/charts/compare/vikunja-3.0.53...vikunja-3.0.54) (2022-09-27)
 
 ### Chore

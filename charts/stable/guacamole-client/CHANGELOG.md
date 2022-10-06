@@ -2,6 +2,16 @@
 
 
 
+## [guacamole-client-4.0.45](https://github.com/truecharts/charts/compare/guacamole-client-4.0.44...guacamole-client-4.0.45) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [guacamole-client-4.0.43](https://github.com/truecharts/charts/compare/guacamole-client-4.0.42...guacamole-client-4.0.43) (2022-09-27)
 
 ### Chore

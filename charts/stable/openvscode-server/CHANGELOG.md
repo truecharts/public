@@ -2,6 +2,17 @@
 
 
 
+## [openvscode-server-2.0.41](https://github.com/truecharts/charts/compare/openvscode-server-2.0.40...openvscode-server-2.0.41) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [openvscode-server-2.0.40](https://github.com/truecharts/charts/compare/openvscode-server-2.0.39...openvscode-server-2.0.40) (2022-09-27)
 
 ### Chore

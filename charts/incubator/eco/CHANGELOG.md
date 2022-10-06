@@ -2,6 +2,17 @@
 
 
 
+## [eco-0.0.27](https://github.com/truecharts/charts/compare/minecraft-bungeecord-0.0.23...eco-0.0.27) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [eco-0.0.26](https://github.com/truecharts/charts/compare/deconz-8.0.37...eco-0.0.26) (2022-09-27)
 
 ### Chore

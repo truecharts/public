@@ -2,6 +2,16 @@
 
 
 
+## [posterr-1.0.1](https://github.com/truecharts/charts/compare/posterr-1.0.0...posterr-1.0.1) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [posterr-0.0.26](https://github.com/truecharts/charts/compare/posterr-0.0.25...posterr-0.0.26) (2022-09-27)
 
 ### Chore

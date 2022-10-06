@@ -2,6 +2,17 @@
 
 
 
+## [n8n-4.0.63](https://github.com/truecharts/charts/compare/n8n-4.0.62...n8n-4.0.63) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [n8n-4.0.62](https://github.com/truecharts/charts/compare/n8n-4.0.61...n8n-4.0.62) (2022-10-01)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [airsonic-6.0.34](https://github.com/truecharts/charts/compare/airsonic-advanced-4.0.39...airsonic-6.0.34) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [airsonic-6.0.33](https://github.com/truecharts/charts/compare/airsonic-6.0.32...airsonic-6.0.33) (2022-09-27)
 
 ### Chore

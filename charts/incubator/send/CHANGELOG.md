@@ -2,6 +2,16 @@
 
 
 
+## [send-0.0.28](https://github.com/truecharts/charts/compare/projectsend-3.0.40...send-0.0.28) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [send-0.0.27](https://github.com/truecharts/charts/compare/send-0.0.26...send-0.0.27) (2022-09-27)
 
 ### Chore

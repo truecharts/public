@@ -2,6 +2,17 @@
 
 
 
+## [apt-cacher-ng-1.0.5](https://github.com/truecharts/charts/compare/apt-cacher-ng-1.0.4...apt-cacher-ng-1.0.5) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [apt-cacher-ng-1.0.4](https://github.com/truecharts/charts/compare/apt-cacher-ng-1.0.3...apt-cacher-ng-1.0.4) (2022-09-27)
 
 ### Chore

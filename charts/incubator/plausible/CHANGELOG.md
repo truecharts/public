@@ -2,6 +2,16 @@
 
 
 
+## [plausible-1.0.24](https://github.com/truecharts/charts/compare/plausible-1.0.23...plausible-1.0.24) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [plausible-1.0.22](https://github.com/truecharts/charts/compare/plausible-1.0.21...plausible-1.0.22) (2022-09-27)
 
 ### Chore

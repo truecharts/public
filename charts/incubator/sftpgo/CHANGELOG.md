@@ -2,6 +2,17 @@
 
 
 
+## [sftpgo-0.0.31](https://github.com/truecharts/charts/compare/sftpgo-0.0.30...sftpgo-0.0.31) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [sftpgo-0.0.30](https://github.com/truecharts/charts/compare/sftpgo-0.0.29...sftpgo-0.0.30) (2022-09-27)
 
 ### Chore

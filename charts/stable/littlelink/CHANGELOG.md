@@ -2,6 +2,18 @@
 
 
 
+## [littlelink-6.0.70](https://github.com/truecharts/charts/compare/littlelink-6.0.69...littlelink-6.0.70) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+  - update docker general non-major
+
+
+
+
 ## [littlelink-6.0.69](https://github.com/truecharts/charts/compare/littlelink-6.0.68...littlelink-6.0.69) (2022-10-01)
 
 ### Chore

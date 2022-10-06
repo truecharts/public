@@ -2,6 +2,17 @@
 
 
 
+## [bender-0.0.4](https://github.com/truecharts/charts/compare/bender-0.0.3...bender-0.0.4) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [bender-0.0.3](https://github.com/truecharts/charts/compare/bender-0.0.2...bender-0.0.3) (2022-09-27)
 
 ### Chore

@@ -2,6 +2,17 @@
 
 
 
+## [minio-console-3.0.45](https://github.com/truecharts/charts/compare/minio-console-3.0.44...minio-console-3.0.45) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [minio-console-3.0.44](https://github.com/truecharts/charts/compare/minio-console-3.0.43...minio-console-3.0.44) (2022-10-01)
 
 ### Chore

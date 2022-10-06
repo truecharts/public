@@ -2,6 +2,17 @@
 
 
 
+## [embystat-2.0.34](https://github.com/truecharts/charts/compare/embystat-2.0.33...embystat-2.0.34) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [embystat-2.0.33](https://github.com/truecharts/charts/compare/embystat-2.0.32...embystat-2.0.33) (2022-09-27)
 
 ### Chore
