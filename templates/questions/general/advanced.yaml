@@ -49,19 +49,24 @@
                     schema:
                       type: int
                       default: 80
- - variable: networkPolicy
-   group: Advanced
-   label: (Advanced) Network Policy
-   schema:
-     additional_attrs: true
-     type: dict
-     attrs:
-      - variable: main
-        label: Main
+  - variable: networkPolicy
+    group: Advanced
+    label: (Advanced) Network Policy
+    schema:
+      type: list
+      default: []
+      items:
+      - variable: netPolicyEntry
+        label: Network Policy Entry
         schema:
           additional_attrs: true
           type: dict
           attrs:
+            - variable: name
+              label: Name
+              schema:
+                type: string
+                default: ""
             - variable: enabled
               label: Enabled
               schema:
