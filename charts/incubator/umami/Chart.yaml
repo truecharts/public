@@ -3,11 +3,11 @@ appVersion: "1.38.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.6.4
+    version: 10.6.8
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.88
+    version: 8.0.93
 description: Umami is a simple, fast, privacy-focused alternative to Google Analytics.
 home: https://truecharts.org/docs/charts/incubator/umami
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/umami.png
@@ -23,7 +23,7 @@ name: umami
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/umami
   - https://github.com/umami-software/umami
-version: 0.0.5
+version: 0.0.6
 annotations:
   truecharts.org/catagories: |
     - website
