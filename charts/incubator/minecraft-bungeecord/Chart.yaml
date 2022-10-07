@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: minecraft-bungeecord
-version: 0.0.24
+version: 0.0.25
 appVersion: "2022.4.1"
 description: A Spigot BungeeCord server.
 type: application
@@ -18,7 +18,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.6.8
+    version: 10.6.11
     # condition:
 maintainers:
   - email: info@truecharts.org
