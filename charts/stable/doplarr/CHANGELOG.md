@@ -2,6 +2,16 @@
 
 
 
+## [doplarr-2.0.37](https://github.com/truecharts/charts/compare/doplarr-2.0.36...doplarr-2.0.37) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [doplarr-2.0.36](https://github.com/truecharts/charts/compare/doplarr-2.0.35...doplarr-2.0.36) (2022-10-05)
 
 ### Chore

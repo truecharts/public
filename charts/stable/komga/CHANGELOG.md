@@ -2,6 +2,16 @@
 
 
 
+## [komga-6.0.42](https://github.com/truecharts/charts/compare/komga-6.0.41...komga-6.0.42) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [komga-6.0.41](https://github.com/truecharts/charts/compare/komga-6.0.40...komga-6.0.41) (2022-10-05)
 
 ### Chore

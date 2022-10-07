@@ -2,6 +2,16 @@
 
 
 
+## [nano-wallet-2.0.34](https://github.com/truecharts/charts/compare/nano-wallet-2.0.33...nano-wallet-2.0.34) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [nano-wallet-2.0.33](https://github.com/truecharts/charts/compare/nano-wallet-2.0.32...nano-wallet-2.0.33) (2022-10-05)
 
 ### Chore

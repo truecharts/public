@@ -2,6 +2,16 @@
 
 
 
+## [dockerregistry-0.0.27](https://github.com/truecharts/charts/compare/dockerregistry-0.0.26...dockerregistry-0.0.27) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [dockerregistry-0.0.26](https://github.com/truecharts/charts/compare/dockerregistry-0.0.25...dockerregistry-0.0.26) (2022-10-05)
 
 ### Chore

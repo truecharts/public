@@ -2,6 +2,16 @@
 
 
 
+## [minetest-1.0.36](https://github.com/truecharts/charts/compare/minetest-1.0.35...minetest-1.0.36) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [minetest-1.0.35](https://github.com/truecharts/charts/compare/minetest-1.0.34...minetest-1.0.35) (2022-10-05)
 
 ### Chore

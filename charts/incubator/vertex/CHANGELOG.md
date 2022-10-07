@@ -2,6 +2,16 @@
 
 
 
+## [vertex-0.0.65](https://github.com/truecharts/charts/compare/vertex-0.0.64...vertex-0.0.65) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [vertex-0.0.64](https://github.com/truecharts/charts/compare/vertex-0.0.63...vertex-0.0.64) (2022-10-07)
 
 ### Chore

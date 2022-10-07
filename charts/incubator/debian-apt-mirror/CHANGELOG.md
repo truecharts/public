@@ -2,6 +2,16 @@
 
 
 
+## [debian-apt-mirror-0.0.28](https://github.com/truecharts/charts/compare/debian-apt-mirror-0.0.27...debian-apt-mirror-0.0.28) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [debian-apt-mirror-0.0.27](https://github.com/truecharts/charts/compare/debian-apt-mirror-0.0.26...debian-apt-mirror-0.0.27) (2022-10-05)
 
 ### Chore

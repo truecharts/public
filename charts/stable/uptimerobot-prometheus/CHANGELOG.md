@@ -2,6 +2,16 @@
 
 
 
+## [uptimerobot-prometheus-4.0.38](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.37...uptimerobot-prometheus-4.0.38) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [uptimerobot-prometheus-4.0.37](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.36...uptimerobot-prometheus-4.0.37) (2022-10-05)
 
 ### Chore

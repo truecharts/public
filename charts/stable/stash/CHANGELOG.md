@@ -2,6 +2,15 @@
 
 
 
+## [stash-7.0.38](https://github.com/truecharts/charts/compare/filestash-0.0.43...stash-7.0.38) (2022-10-07)
+
+### Chore
+
+- update helm general non-major
+
+
+
+
 ## [stash-7.0.37](https://github.com/truecharts/charts/compare/filestash-0.0.41...stash-7.0.37) (2022-10-05)
 
 ### Chore

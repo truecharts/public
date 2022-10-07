@@ -2,6 +2,16 @@
 
 
 
+## [raneto-0.0.34](https://github.com/truecharts/charts/compare/raneto-0.0.33...raneto-0.0.34) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [raneto-0.0.33](https://github.com/truecharts/charts/compare/raneto-0.0.32...raneto-0.0.33) (2022-10-05)
 
 ### Chore

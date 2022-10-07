@@ -2,6 +2,16 @@
 
 
 
+## [webp-server-0.0.33](https://github.com/truecharts/charts/compare/webp-server-0.0.32...webp-server-0.0.33) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [webp-server-0.0.32](https://github.com/truecharts/charts/compare/webp-server-0.0.31...webp-server-0.0.32) (2022-10-05)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [cloudflareddns-1.0.28](https://github.com/truecharts/charts/compare/cloudflareddns-1.0.27...cloudflareddns-1.0.28) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [cloudflareddns-1.0.27](https://github.com/truecharts/charts/compare/cloudflareddns-1.0.26...cloudflareddns-1.0.27) (2022-10-05)
 
 ### Chore

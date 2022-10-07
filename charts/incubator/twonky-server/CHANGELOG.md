@@ -2,6 +2,16 @@
 
 
 
+## [twonky-server-0.0.35](https://github.com/truecharts/charts/compare/twonky-server-0.0.34...twonky-server-0.0.35) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [twonky-server-0.0.34](https://github.com/truecharts/charts/compare/twonky-server-0.0.33...twonky-server-0.0.34) (2022-10-05)
 
 ### Chore

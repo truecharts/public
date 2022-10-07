@@ -2,6 +2,16 @@
 
 
 
+## [cadquery-jupyter-0.0.31](https://github.com/truecharts/charts/compare/cadquery-jupyter-0.0.30...cadquery-jupyter-0.0.31) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [cadquery-jupyter-0.0.30](https://github.com/truecharts/charts/compare/cadquery-jupyter-0.0.29...cadquery-jupyter-0.0.30) (2022-10-05)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [syncthing-11.0.40](https://github.com/truecharts/charts/compare/syncthing-11.0.39...syncthing-11.0.40) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [syncthing-11.0.39](https://github.com/truecharts/charts/compare/syncthing-11.0.38...syncthing-11.0.39) (2022-10-05)
 
 ### Chore

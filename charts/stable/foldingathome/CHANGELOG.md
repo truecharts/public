@@ -2,6 +2,16 @@
 
 
 
+## [foldingathome-2.0.35](https://github.com/truecharts/charts/compare/foldingathome-2.0.34...foldingathome-2.0.35) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [foldingathome-2.0.34](https://github.com/truecharts/charts/compare/foldingathome-2.0.33...foldingathome-2.0.34) (2022-10-05)
 
 ### Chore

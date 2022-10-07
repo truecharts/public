@@ -2,6 +2,16 @@
 
 
 
+## [flemarr-0.0.5](https://github.com/truecharts/charts/compare/flemarr-0.0.4...flemarr-0.0.5) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [flemarr-0.0.4](https://github.com/truecharts/charts/compare/flemarr-0.0.3...flemarr-0.0.4) (2022-10-05)
 
 ### Chore

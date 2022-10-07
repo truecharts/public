@@ -2,6 +2,16 @@
 
 
 
+## [radarr-11.0.39](https://github.com/truecharts/charts/compare/radarr-11.0.38...radarr-11.0.39) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [radarr-11.0.38](https://github.com/truecharts/charts/compare/radarr-11.0.37...radarr-11.0.38) (2022-10-05)
 
 ### Chore

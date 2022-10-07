@@ -2,6 +2,16 @@
 
 
 
+## [deemix-3.0.37](https://github.com/truecharts/charts/compare/deemix-3.0.36...deemix-3.0.37) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [deemix-3.0.36](https://github.com/truecharts/charts/compare/deemix-3.0.35...deemix-3.0.36) (2022-10-05)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [protonmail-bridge-6.0.35](https://github.com/truecharts/charts/compare/protonmail-bridge-6.0.34...protonmail-bridge-6.0.35) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [protonmail-bridge-6.0.34](https://github.com/truecharts/charts/compare/protonmail-bridge-6.0.33...protonmail-bridge-6.0.34) (2022-10-05)
 
 ### Chore

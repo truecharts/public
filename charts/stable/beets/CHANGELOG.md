@@ -2,6 +2,16 @@
 
 
 
+## [beets-4.0.43](https://github.com/truecharts/charts/compare/beets-4.0.42...beets-4.0.43) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [beets-4.0.42](https://github.com/truecharts/charts/compare/beets-4.0.41...beets-4.0.42) (2022-10-05)
 
 ### Chore

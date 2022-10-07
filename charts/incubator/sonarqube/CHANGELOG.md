@@ -2,6 +2,16 @@
 
 
 
+## [sonarqube-0.0.31](https://github.com/truecharts/charts/compare/sonarqube-0.0.30...sonarqube-0.0.31) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [sonarqube-0.0.30](https://github.com/truecharts/charts/compare/sonarqube-0.0.29...sonarqube-0.0.30) (2022-10-07)
 
 ### Chore

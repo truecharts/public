@@ -2,6 +2,16 @@
 
 
 
+## [openldap-7.0.37](https://github.com/truecharts/charts/compare/openldap-7.0.36...openldap-7.0.37) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [openldap-7.0.36](https://github.com/truecharts/charts/compare/openldap-7.0.35...openldap-7.0.36) (2022-10-05)
 
 ### Chore

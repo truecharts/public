@@ -2,6 +2,16 @@
 
 
 
+## [immich-0.0.5](https://github.com/truecharts/charts/compare/immich-0.0.4...immich-0.0.5) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [immich-0.0.4](https://github.com/truecharts/charts/compare/immich-0.0.3...immich-0.0.4) (2022-10-05)
 
 ### Chore

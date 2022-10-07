@@ -2,6 +2,16 @@
 
 
 
+## [mylar-6.0.44](https://github.com/truecharts/charts/compare/mylar-6.0.43...mylar-6.0.44) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [mylar-6.0.43](https://github.com/truecharts/charts/compare/mylar-6.0.42...mylar-6.0.43) (2022-10-05)
 
 ### Chore

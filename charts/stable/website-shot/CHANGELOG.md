@@ -2,6 +2,16 @@
 
 
 
+## [website-shot-2.0.36](https://github.com/truecharts/charts/compare/website-shot-2.0.35...website-shot-2.0.36) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [website-shot-2.0.35](https://github.com/truecharts/charts/compare/website-shot-2.0.34...website-shot-2.0.35) (2022-10-05)
 
 ### Chore

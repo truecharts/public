@@ -2,6 +2,16 @@
 
 
 
+## [inkscape-desktop-g3-0.0.29](https://github.com/truecharts/charts/compare/inkscape-desktop-g3-0.0.28...inkscape-desktop-g3-0.0.29) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [inkscape-desktop-g3-0.0.28](https://github.com/truecharts/charts/compare/inkscape-desktop-g3-0.0.27...inkscape-desktop-g3-0.0.28) (2022-10-05)
 
 ### Chore

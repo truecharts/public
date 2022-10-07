@@ -2,6 +2,16 @@
 
 
 
+## [pydio-cells-4.0.42](https://github.com/truecharts/charts/compare/pydio-cells-4.0.41...pydio-cells-4.0.42) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [pydio-cells-4.0.41](https://github.com/truecharts/charts/compare/pydio-cells-4.0.40...pydio-cells-4.0.41) (2022-10-05)
 
 ### Chore

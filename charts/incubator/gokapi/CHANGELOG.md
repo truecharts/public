@@ -2,6 +2,16 @@
 
 
 
+## [gokapi-0.0.34](https://github.com/truecharts/charts/compare/gokapi-0.0.33...gokapi-0.0.34) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [gokapi-0.0.33](https://github.com/truecharts/charts/compare/gokapi-0.0.32...gokapi-0.0.33) (2022-10-05)
 
 ### Chore

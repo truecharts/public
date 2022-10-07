@@ -2,6 +2,16 @@
 
 
 
+## [mkvcleaver-1.0.14](https://github.com/truecharts/charts/compare/mkvcleaver-1.0.13...mkvcleaver-1.0.14) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [mkvcleaver-1.0.13](https://github.com/truecharts/charts/compare/mkvcleaver-1.0.12...mkvcleaver-1.0.13) (2022-10-05)
 
 ### Chore

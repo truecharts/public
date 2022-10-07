@@ -2,6 +2,16 @@
 
 
 
+## [chevereto-3.0.42](https://github.com/truecharts/charts/compare/chevereto-3.0.41...chevereto-3.0.42) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [chevereto-3.0.41](https://github.com/truecharts/charts/compare/chevereto-3.0.40...chevereto-3.0.41) (2022-10-05)
 
 ### Chore

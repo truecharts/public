@@ -2,6 +2,16 @@
 
 
 
+## [citadel-forgedwithfire-0.0.28](https://github.com/truecharts/charts/compare/citadel-forgedwithfire-0.0.27...citadel-forgedwithfire-0.0.28) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [citadel-forgedwithfire-0.0.27](https://github.com/truecharts/charts/compare/citadel-forgedwithfire-0.0.26...citadel-forgedwithfire-0.0.27) (2022-10-05)
 
 ### Chore

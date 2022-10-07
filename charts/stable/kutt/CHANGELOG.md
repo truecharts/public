@@ -2,6 +2,16 @@
 
 
 
+## [kutt-3.0.43](https://github.com/truecharts/charts/compare/kutt-3.0.42...kutt-3.0.43) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [kutt-3.0.42](https://github.com/truecharts/charts/compare/kutt-3.0.41...kutt-3.0.42) (2022-10-05)
 
 ### Chore

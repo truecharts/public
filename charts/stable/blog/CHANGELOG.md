@@ -2,6 +2,16 @@
 
 
 
+## [blog-3.0.44](https://github.com/truecharts/charts/compare/hexo-blog-0.0.28...blog-3.0.44) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [blog-3.0.43](https://github.com/truecharts/charts/compare/blog-3.0.42...blog-3.0.43) (2022-10-05)
 
 ### Chore

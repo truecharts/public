@@ -2,6 +2,16 @@
 
 
 
+## [projectzomboidreporter-frontend-0.0.28](https://github.com/truecharts/charts/compare/projectzomboidreporter-frontend-0.0.27...projectzomboidreporter-frontend-0.0.28) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [projectzomboidreporter-frontend-0.0.27](https://github.com/truecharts/charts/compare/projectzomboidreporter-frontend-0.0.26...projectzomboidreporter-frontend-0.0.27) (2022-10-05)
 
 ### Chore

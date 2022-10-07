@@ -2,6 +2,16 @@
 
 
 
+## [backuppc-0.0.32](https://github.com/truecharts/charts/compare/backuppc-0.0.31...backuppc-0.0.32) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [backuppc-0.0.31](https://github.com/truecharts/charts/compare/backuppc-0.0.30...backuppc-0.0.31) (2022-10-07)
 
 ### Chore

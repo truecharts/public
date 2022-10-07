@@ -2,6 +2,16 @@
 
 
 
+## [nocodb-3.0.50](https://github.com/truecharts/charts/compare/nocodb-3.0.49...nocodb-3.0.50) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [nocodb-3.0.49](https://github.com/truecharts/charts/compare/nocodb-3.0.48...nocodb-3.0.49) (2022-10-05)
 
 ### Chore

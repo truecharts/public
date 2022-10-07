@@ -2,6 +2,16 @@
 
 
 
+## [self-service-password-1.0.43](https://github.com/truecharts/charts/compare/self-service-password-1.0.42...self-service-password-1.0.43) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [self-service-password-1.0.42](https://github.com/truecharts/charts/compare/self-service-password-1.0.41...self-service-password-1.0.42) (2022-10-07)
 
 ### Chore

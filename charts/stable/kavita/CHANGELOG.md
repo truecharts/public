@@ -2,6 +2,16 @@
 
 
 
+## [kavita-2.0.39](https://github.com/truecharts/charts/compare/kavita-2.0.38...kavita-2.0.39) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [kavita-2.0.38](https://github.com/truecharts/charts/compare/kavitaemail-0.0.2...kavita-2.0.38) (2022-10-05)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [monero-node-0.0.28](https://github.com/truecharts/charts/compare/monero-node-0.0.27...monero-node-0.0.28) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [monero-node-0.0.27](https://github.com/truecharts/charts/compare/monero-node-0.0.26...monero-node-0.0.27) (2022-10-05)
 
 ### Chore

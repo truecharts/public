@@ -2,6 +2,16 @@
 
 
 
+## [eco-0.0.28](https://github.com/truecharts/charts/compare/eco-0.0.27...eco-0.0.28) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [eco-0.0.27](https://github.com/truecharts/charts/compare/minecraft-bungeecord-0.0.23...eco-0.0.27) (2022-10-05)
 
 ### Chore

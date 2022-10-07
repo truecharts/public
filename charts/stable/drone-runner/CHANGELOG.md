@@ -2,6 +2,16 @@
 
 
 
+## [drone-runner-1.0.11](https://github.com/truecharts/charts/compare/drone-runner-1.0.10...drone-runner-1.0.11) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [drone-runner-1.0.10](https://github.com/truecharts/charts/compare/drone-runner-1.0.9...drone-runner-1.0.10) (2022-10-05)
 
 ### Chore

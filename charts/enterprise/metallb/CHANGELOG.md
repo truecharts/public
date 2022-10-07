@@ -2,6 +2,16 @@
 
 
 
+## [metallb-4.0.15](https://github.com/truecharts/charts/compare/metallb-4.0.14...metallb-4.0.15) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [metallb-4.0.14](https://github.com/truecharts/charts/compare/metallb-4.0.13...metallb-4.0.14) (2022-10-05)
 
 ### Chore
