@@ -2,6 +2,16 @@
 
 
 
+## [monica-3.0.55](https://github.com/truecharts/charts/compare/monica-3.0.54...monica-3.0.55) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
 ## [monica-3.0.54](https://github.com/truecharts/charts/compare/monica-3.0.53...monica-3.0.54) (2022-10-05)
 
 ### Chore

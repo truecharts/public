@@ -2,6 +2,16 @@
 
 
 
+## [ghost-3.0.70](https://github.com/truecharts/charts/compare/ghost-3.0.69...ghost-3.0.70) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
 ## [ghost-3.0.69](https://github.com/truecharts/charts/compare/ghost-3.0.68...ghost-3.0.69) (2022-10-05)
 
 ### Chore

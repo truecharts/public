@@ -2,6 +2,16 @@
 
 
 
+## [emby-11.0.37](https://github.com/truecharts/charts/compare/emby-11.0.36...emby-11.0.37) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
 ## [emby-11.0.36](https://github.com/truecharts/charts/compare/embystat-2.0.33...emby-11.0.36) (2022-10-05)
 
 ### Chore

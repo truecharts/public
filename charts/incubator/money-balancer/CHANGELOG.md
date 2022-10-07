@@ -2,6 +2,17 @@
 
 
 
+## [money-balancer-0.0.2](https://github.com/truecharts/charts/compare/money-balancer-0.0.1...money-balancer-0.0.2) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
 ## [money-balancer-0.0.1]money-balancer-0.0.1 (2022-10-03)
 
 ### Feat

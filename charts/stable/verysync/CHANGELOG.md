@@ -2,6 +2,16 @@
 
 
 
+## [verysync-2.0.38](https://github.com/truecharts/charts/compare/verysync-2.0.37...verysync-2.0.38) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
 ## [verysync-2.0.37](https://github.com/truecharts/charts/compare/verysync-2.0.36...verysync-2.0.37) (2022-10-05)
 
 ### Chore

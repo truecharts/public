@@ -2,6 +2,16 @@
 
 
 
+## [redmine-3.0.54](https://github.com/truecharts/charts/compare/redmine-3.0.53...redmine-3.0.54) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
 ## [redmine-3.0.53](https://github.com/truecharts/charts/compare/redmine-3.0.52...redmine-3.0.53) (2022-10-05)
 
 ### Chore

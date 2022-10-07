@@ -2,6 +2,16 @@
 
 
 
+## [snipe-it-4.0.53](https://github.com/truecharts/charts/compare/snipe-it-4.0.52...snipe-it-4.0.53) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
 ## [snipe-it-4.0.52](https://github.com/truecharts/charts/compare/snipe-it-4.0.51...snipe-it-4.0.52) (2022-10-05)
 
 ### Chore

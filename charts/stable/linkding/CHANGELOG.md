@@ -2,6 +2,16 @@
 
 
 
+## [linkding-2.0.39](https://github.com/truecharts/charts/compare/linkding-2.0.38...linkding-2.0.39) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
 ## [linkding-2.0.38](https://github.com/truecharts/charts/compare/linkding-2.0.37...linkding-2.0.38) (2022-10-05)
 
 ### Chore

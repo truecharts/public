@@ -2,6 +2,16 @@
 
 
 
+## [home-assistant-15.0.58](https://github.com/truecharts/charts/compare/home-assistant-15.0.57...home-assistant-15.0.58) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
 ## [home-assistant-15.0.57](https://github.com/truecharts/charts/compare/home-assistant-15.0.56...home-assistant-15.0.57) (2022-10-05)
 
 ### Chore

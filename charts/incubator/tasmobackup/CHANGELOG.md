@@ -2,6 +2,16 @@
 
 
 
+## [tasmobackup-0.0.28](https://github.com/truecharts/charts/compare/tasmobackup-0.0.27...tasmobackup-0.0.28) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
 ## [tasmobackup-0.0.27](https://github.com/truecharts/charts/compare/tasmobackup-0.0.26...tasmobackup-0.0.27) (2022-10-05)
 
 ### Chore

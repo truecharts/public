@@ -2,6 +2,16 @@
 
 
 
+## [teamspeak3-4.0.38](https://github.com/truecharts/charts/compare/teamspeak3-4.0.37...teamspeak3-4.0.38) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
 ## [teamspeak3-4.0.37](https://github.com/truecharts/charts/compare/teamspeak3-4.0.36...teamspeak3-4.0.37) (2022-10-05)
 
 ### Chore
