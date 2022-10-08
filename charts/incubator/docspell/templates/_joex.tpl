@@ -17,6 +17,7 @@ volumeMounts:
 ports:
   - containerPort: {{ .Values.service.joex.ports.joex.port }}
     name: joex
+{{/* TODO: Find out a path for healthchecks and come back to enable probes
 readinessProbe:
   httpGet:
     path: /
@@ -41,4 +42,5 @@ startupProbe:
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
   failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
+*/}}
 {{- end -}}
