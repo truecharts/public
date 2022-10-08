@@ -1,0 +1,174 @@
+# Include{groups}
+portals:
+  open:
+# Include{portalLink}
+questions:
+# Include{global}
+# Include{controller}
+# Include{controllerDeployment}
+# Include{replicas}
+# Include{replica1}
+# Include{strategy}
+# Include{recreate}
+# Include{controllerExpert}
+# Include{controllerExpertExtraArgs}
+# Include{containerConfig}
+  - variable: secretEnv
+    group: Container Configuration
+    label: Image Secrets
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: FIREFLY_III_ACCESS_TOKEN
+          label: Firefly III Access Token
+          description: Access Token for Firefly III.
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: NORDIGEN_ID
+          label: Nordigen ID
+          description: Your Nordigen Client ID.
+          schema:
+            type: string
+            default: ""
+        - variable: NORDIGEN_KEY
+          label: Nordigen Key
+          description: Your Nordigen Client SECRET.
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: SPECTRE_APP_ID
+          label: Spectre App ID
+          description: Your Spectre / Salt Edge Client ID.
+          schema:
+            type: string
+            default: ""
+        - variable: SPECTRE_SECRET
+          label: Spectre Secret
+          description: Is your Spectre / Salt Edge Client secret.
+          schema:
+            type: string
+            private: true
+            default: ""
+  - variable: env
+    group: Container Configuration
+    label: Image Environment
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: FIREFLY_III_URL
+          label: Firefly III URL
+          description: "Internal URL for Firefly III. `http(s)://` is needed."
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: VANITY_URL
+          label: Vanity URL
+          description: "External URL for Firefly III. `http(s)://` is needed."
+          schema:
+            type: string
+            required: true
+            default: ""
+# Include{serviceRoot}
+        - variable: main
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: main
+                      label: Main Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 10580
+                              required: true
+# Include{advancedPortHTTP}
+                                - variable: targetPort
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
+                                  schema:
+                                    type: int
+                                    default: 8080
+# Include{serviceExpertRoot}
+            default: false
+# Include{serviceExpert}
+# Include{serviceList}
+# Include{persistenceList}
+# Include{ingressRoot}
+        - variable: main
+          label: Main Ingress
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressExpert}
+# Include{ingressList}
+# Include{security}
+# Include{securityContextAdvancedRoot}
+              - variable: privileged
+                label: Privileged mode
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: ReadOnly Root Filesystem
+                schema:
+                  type: boolean
+                  default: false
+              - variable: allowPrivilegeEscalation
+                label: Allow Privilege Escalation
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: runAsNonRoot
+                schema:
+                  type: boolean
+                  default: false
+# Include{securityContextAdvanced}
+# Include{podSecurityContextRoot}
+        - variable: runAsUser
+          label: runAsUser
+          description: The UserID of the user running the application
+          schema:
+            type: int
+            default: 0
+        - variable: runAsGroup
+          label: runAsGroup
+          description: The groupID this App of the user running the application
+          schema:
+            type: int
+            default: 0
+        - variable: fsGroup
+          label: fsGroup
+          description: The group that should own ALL storage.
+          schema:
+            type: int
+            default: 568
+# Include{podSecurityContextAdvanced}
+# Include{resources}
+# Include{advanced}
+# Include{addons}
+# Include{codeserver}
+# Include{promtail}
+# Include{netshoot}
+# Include{vpn}
+# Include{documentation}
