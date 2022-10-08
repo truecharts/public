@@ -10,7 +10,6 @@
 
 {{- $joex := .Values.joex -}}
 {{- $joexID := printf "joex-%v" (randAlphaNum 10) -}}
-{{- $tmpDir := "/tmp" -}}
 
 {{- $server_secret := "" }}
 {{- with (lookup "v1" "Secret" .Release.Namespace $storeSecretName) }}
