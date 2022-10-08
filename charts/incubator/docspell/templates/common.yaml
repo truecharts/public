@@ -1,0 +1,13 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{/* Render secret */}}
+{{- include "docspell.secret" . }}
+
+{{- $_ := set .Values.additionalContainers "joex" (include "docspell.joex" . | fromYaml) -}}
+{{- if and .Values.dsc.enabled .Values.rest_server.integration_endpoint.enabled -}}
+{{- $_ := set .Values.additionalContainers "dsc" (include "docspell.dsc" . | fromYaml) -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}
