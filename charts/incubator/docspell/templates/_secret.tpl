@@ -432,7 +432,7 @@ stringData:
               "useSplitPrefixSuffixNGrams" = "{{ $classification.classifiers.useSplitPrefixSuffixNGrams }}"
               "maxNGramLeng" = "{{ $classification.classifiers.maxNGramLeng }}"
               "minNGramLeng" = "{{ $classification.classifiers.minNGramLeng }}"
-              "splitWordShape" = "{{ $classification.classifiers.intern | default "chris4" }} "
+              "splitWordShape" = "{{ $classification.classifiers.intern | default "chris4" }}"
               "intern" = "{{ $classification.classifiers.intern }}"
             }
           ]
@@ -450,65 +450,56 @@ stringData:
         }
         wkhtmlpdf {
           command = {
-            program = "wkhtmltopdf"
+            program = {{ $convert.wkhtmlpdf.command.program | quote }}
             args = [
-              "-s",
-              "A4",
-              "--encoding",
-              "{{"{{"}}encoding{{"}}"}}",
-              "--load-error-handling", "ignore",
-              "--load-media-error-handling", "ignore",
-              "-",
-              "{{"{{"}}outfile{{"}}"}}"
+              {{- range initial $convert.wkhtmlpdf.command.args }}
+              {{ . | quote }},
+              {{- end }}
+              {{ last $convert.wkhtmlpdf.command.args | quote }}
             ]
             timeout = {{ $convert.wkhtmlpdf.timeout | default "2 minutes" | quote }}
           }
-          working-dir = {{ $tmpDir }}/docspell-convert"
+          working-dir = {{ $convert.wkhtmlpdf.working_dir | quote }}
         }
         tesseract = {
           command = {
-            program = "tesseract"
+            program = {{ $convert.tesseract.command.program | quote }}
             args = [
-              "{{"{{"}}infile{{"}}"}}",
-              "out",
-              "-l",
-              "{{"{{"}}lang{{"}}"}}",
-              "pdf",
-              "txt"
+              {{- range initial $convert.tesseract.command.args }}
+              {{ . | quote }},
+              {{- end }}
+              {{ last $convert.tesseract.command.args | quote }}
             ]
             timeout = {{ $convert.tesseract.command.timeout | default "5 minutes" | quote }}
           }
-          working-dir = {{ $tmpDir }}/docspell-convert"
+          working-dir = {{ $convert.tesseract.working_dir | quote }}
         }
         unoconv = {
           command = {
-            program = "unoconv"
+            program = {{ $convert.unoconv.command.program | quote }}
             args = [
-              "-f",
-              "pdf",
-              "-o",
-              "{{"{{"}}outfile{{"}}"}}",
-              "{{"{{"}}infile{{"}}"}}"
+              {{- range initial $convert.unoconv.command.args }}
+              {{ . | quote }},
+              {{- end }}
+              {{ last $convert.unoconv.command.args | quote }}
             ]
             timeout = {{ $convert.tesseract.command.timeout | default "2 minutes" | quote }}
           }
-          working-dir = {{ $tmpDir }}/docspell-convert"
+          working-dir = {{ $convert.unoconv.working_dir | quote }}
         }
         ocrmypdf = {
-          enabled = true
+          enabled = {{ $convert.ocrmypdf.enabled | default true }}
           command = {
-            program = "ocrmypdf"
+            program = {{ $convert.ocrmypdf.command.program | quote }}
             args = [
-              "-l", "{{"{{"}}lang{{"}}"}}",
-              "--skip-text",
-              "--deskew",
-              "-j", "1",
-              "{{"{{"}}infile{{"}}"}}",
-              "{{"{{"}}outfile{{"}}"}}"
+              {{- range initial $convert.ocrmypdf.command.args }}
+              {{ . | quote }},
+              {{- end }}
+              {{ last $convert.ocrmypdf.command.args | quote }}
             ]
             timeout = {{ $convert.ocrmypdf.command.timeout | default "5 minutes" | quote }}
           }
-          working-dir = {{ $tmpDir }}/docspell-convert"
+          working-dir = {{ $convert.ocrmypdf.working_dir | quote }}
         }
         decrypt-pdf = {
           enabled = {{ $convert.decrypt_pdf.enabled }}

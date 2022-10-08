@@ -334,16 +334,58 @@ joex:
       internal_css: "body { padding: 2em 5em; }"
     wkhtmlpdf:
       command:
+        program: wkhtmltopdf
+        args:
+          - -s
+          - A4
+          - --encoding
+          - "{{enconding}}"
+          - --load-error-handling
+          - ignore
+          - --load-media-error-handling
+          - ignore
+          - "-"
+          - "{{outfile}}"
         timeout: 2 minutes
+      working_dir: /tmp/docspell-convert
     tesseract:
       command:
+        program: tesseract
+        args:
+          - "{{infile}}"
+          - out
+          - -l
+          - "{{lang}}"
+          - pdf
+          - txt
         timeout: 5 minutes
+      working_dir: /tmp/docspell-convert
     unoconv:
       command:
+        program: unoconv
+        args:
+          - -f
+          - pdf
+          - -o
+          - "{{outfile}}"
+          - "{{infile}}"
         timeout: 5 minutes
+      working_dir: /tmp/docspell-convert
     ocrmypdf:
+      enabled: true
       command:
+        program: ocrmypdf
+        args:
+          - -l
+          - "{{lang}}"
+          - --skip-text
+          - --deskew
+          - -j
+          - "1"
+          - "{{infile}}"
+          - "{{outfile}}"
         timeout: 5 minutes
+      working_dir: /tmp/docspell-convert
     decrypt_pdf:
       enabled: true
       passwords: []
