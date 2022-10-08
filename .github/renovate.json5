@@ -175,7 +175,7 @@
     },
     {
       "matchDatasources": ["docker"],
-      "versioning": "regex:^v(?<major>\\d{4})-(?<minor>\\d{1})(?<patch>\\d{1})$",
+      "versioning": "regex:^v(?<major>\\d{4})-(?<minor>\\d{2})$",
       "matchPackageNames": ["tccr.io/truecharts/rss-bridge"],
     },
     {
