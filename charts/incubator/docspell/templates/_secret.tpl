@@ -202,7 +202,7 @@ stringData:
           run-fixup-migrations = {{ $database_schema.run_fixup_migrations }}
           repair-schema = {{ $database_schema.repair_schema }}
         }
-        {{- $signup := $server.signup }}
+        {{- $signup := $server.backend.signup }}
         signup {
           mode = {{ $signup.mode | quote }}
           new-invite-password = {{ $new_invite_password | quote }}
@@ -305,7 +305,7 @@ stringData:
       scheduler {
         name = {{ $joexID | quote }}
         pool-size = {{ $scheduler.pool_size }}
-        counting-scheme = {{ $joex.counting_scheme | quote }}
+        counting-scheme = {{ $scheduler.counting_scheme | quote }}
         retries = {{ $scheduler.retries }}
         retry-delay = {{ $scheduler.retry_delay | quote }}
         log-buffer-size = {{ $scheduler.log_buffer_size }}
