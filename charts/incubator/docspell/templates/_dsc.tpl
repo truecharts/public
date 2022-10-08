@@ -7,6 +7,9 @@ securityContext:
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
+volumeMounts:
+  - name: import
+    mountPath: /import
 command:
   - dsc
   - {{ printf "%v:%v" "http://localhost" .Values.service.main.ports.main.port | quote }}
@@ -29,7 +32,7 @@ command:
   {{- if eq .Values.dsc.imported_action "delete" }}
   - --delete
   {{- else if eq .Values.dsc.imported_action "move" }}
-  - --move {{ .Values.dsc.move_directory }}
+  - --move {{ .Values.persistence.import.mountPath }}/imported
   {{- end }}
-  - {{ .Values.dsc.watch_directory }}
+  - {{ .Values.persistence.import.mountPath }}/docs
 {{- end -}}

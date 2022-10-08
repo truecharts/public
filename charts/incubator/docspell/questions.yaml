@@ -12,6 +12,44 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
+  - variable: dsc
+    group: Container Configuration
+    label: DSC Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: Enable DSC (Document Importer)
+          description: You need to enable integration endpoint with HTTP header as well in Rest Server configuration
+          schema:
+            type: boolean
+            default: false
+        - variable: imported_action
+          label: Action to perform on imported documents
+          schema:
+            type: string
+            default: move
+            enum:
+              - value: move
+                description: move
+              - value: delete
+                description: delete
+        - variable: not_match_glob
+          label: Not match glob pattern
+          schema:
+            type: string
+            default: "**/.*"
+        - variable: match_glob
+          label: Match glob pattern
+          schema:
+            type: string
+            default: ""
+        - variable: language
+          label: Language
+          schema:
+            type: string
+            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -34,7 +72,7 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 10047
+                              default: 10320
                               required: true
 # Include{advancedPortHTTP}
                                 - variable: targetPort
@@ -42,15 +80,44 @@ questions:
                                   description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
-                                    default: 4040
+                                    default: 10320
+        - variable: joex
+          label: Joex Service
+          description: Joex Service
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorClusterIP}
+# Include{serviceSelectorExtras}
+                    - variable: joex
+                      label: Joex Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 10321
+                              required: true
+# Include{advancedPortHTTP}
+                                - variable: targetPort
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
+                                  schema:
+                                    type: int
+                                    default: 10321
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-# Include{persistenceRoot}
-        - variable: config
-          label: App Config Storage
-          description: Stores the Application Configuration.
+# Include{persistenceAdvanced}
+        - variable: import
+          label: Import Storage
+          description: Mounted to DSC container at /import
           schema:
             additional_attrs: true
             type: dict

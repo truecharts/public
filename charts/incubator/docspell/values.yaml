@@ -26,14 +26,11 @@ securityContext:
 
 dsc:
   # -- You need to enable integration endpoint with HTTP Header in rest server
-  enabled: true
+  enabled: false
   # move | delete
   imported_action: move
-  # -- Move imported to this dir
-  move_directory: /import/imported
   not_match_glob: "**/.*"
   match_glob: ""
-  watch_directory: /import/docs
   language: ""
 
 rest_server:
@@ -520,7 +517,10 @@ persistence:
     objectName: '{{ include "tc.common.names.fullname" . }}-joex-secret'
     mountPath: /opt/joex.conf
     subPath: joex.conf
-
+  import:
+    enabled: true
+    noMount: true
+    mountPath: /import
 postgresql:
   enabled: true
   existingSecret: dbcreds
