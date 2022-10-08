@@ -34,51 +34,56 @@ questions:
             min: 0
             max: 1
             default: 0
-            show_subquestions_if: true
-            subquestions:
-              - variable: MAILER_HOST
-                label: Mailer Host
-                description: Sets the MAILER_HOST env var, eg smtp.example.com
-                schema:
-                  type: string
-                  default: ""
-              - variable: MAILER_PORT
-                label: Mailer Port
-                description: Sets the MAILER_PORT env var, eg: SMTP PORT 465
-                schema:
-                  type: int
-                  default: 465
-              - variable: MAILER_SECURE
-                label: Mailer Secure
-                description: Sets the MAILER_SECURE env var, HTTPS for the smtp
-                schema:
-                  type: boolean
-                  default: true
-              - variable: MAILER_AUTH_USER
-                label: Mailer Auth User
-                description: Sets the MAILER_AUTH_USER env var, username for Email server
-                schema:
-                  type: string
-                  default: ""
-              - variable: MAILER_AUTH_PASSWORD
-                label: Mailer Auth Password
-                description: Sets the MAILER_AUTH_PASSWORD env var, password for Email server
-                schema:
-                  type: string
-                  private: true
-                  default: ""
-              - variable: MAILER_NOREPLY_NAME
-                label: Mailer No Reply Name
-                description: Sets the MAILER_NOREPLY_NAME env var, No Reply email name
-                schema:
-                  type: string
-                  default: ""
-              - variable: MAILER_NOREPLY_EMAIL
-                label: Mailer No Reply Email
-                description: Sets the MAILER_NOREPLY_EMAIL env var, No Reply default email
-                schema:
-                  type: string
-                  default: ""
+        - variable: MAILER_HOST
+          label: Mailer Host
+          description: Sets the MAILER_HOST env var, eg smtp.example.com
+          schema:
+            show_if: [["MAILER_ENABLED", "=", "1"]]
+            type: string
+            default: ""
+        - variable: MAILER_PORT
+          label: Mailer Port
+          description: Sets the MAILER_PORT env var, eg: SMTP PORT 465
+          schema:
+            show_if: [["MAILER_ENABLED", "=", "1"]]
+            type: int
+            default: 465
+        - variable: MAILER_SECURE
+          label: Mailer Secure
+          description: Sets the MAILER_SECURE env var, HTTPS for the smtp
+          schema:
+            show_if: [["MAILER_ENABLED", "=", "1"]]
+            type: boolean
+            default: true
+        - variable: MAILER_AUTH_USER
+          label: Mailer Auth User
+          description: Sets the MAILER_AUTH_USER env var, username for Email server
+          schema:
+            show_if: [["MAILER_ENABLED", "=", "1"]]
+            type: string
+            default: ""
+        - variable: MAILER_AUTH_PASSWORD
+          label: Mailer Auth Password
+          description: Sets the MAILER_AUTH_PASSWORD env var, password for Email server
+          schema:
+            show_if: [["MAILER_ENABLED", "=", "1"]]
+            type: string
+            private: true
+            default: ""
+        - variable: MAILER_NOREPLY_NAME
+          label: Mailer No Reply Name
+          description: Sets the MAILER_NOREPLY_NAME env var, No Reply email name
+          schema:
+            show_if: [["MAILER_ENABLED", "=", "1"]]
+            type: string
+            default: ""
+        - variable: MAILER_NOREPLY_EMAIL
+          label: Mailer No Reply Email
+          description: Sets the MAILER_NOREPLY_EMAIL env var, No Reply default email
+          schema:
+            show_if: [["MAILER_ENABLED", "=", "1"]]
+            type: string
+            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
