@@ -104,7 +104,9 @@ stringData:
               scope = {{ .provider.scope | quote }},
               authorize-url = {{ .provider.authorize_url | quote }},
               token-url = {{ .provider.token_url | quote }},
-              user-url = {{ .provider.user_url | quote }},
+              {{- with .provider.user_url }}
+              user-url = {{ . | quote }},
+              {{- end }}
               {{- with .provider.logout_url }}
               logout-url = {{ . | quote }},
               {{- end }}
@@ -126,7 +128,9 @@ stringData:
               scope = {{ .provider.scope | quote }},
               authorize-url = {{ .provider.authorize_url | quote }},
               token-url = {{ .provider.token_url | quote }},
-              user-url = {{ .provider.user_url | quote }},
+              {{- with .provider.user_url }}
+              user-url = {{ . | quote }},
+              {{- end }}
               {{- with .provider.logout_url }}
               logout-url = {{ . | quote }},
               {{- end }}
