@@ -2,6 +2,19 @@
 
 
 
+## [joplin-server-8.1.0](https://github.com/truecharts/charts/compare/joplin-server-8.0.42...joplin-server-8.1.0) (2022-10-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Feat
+
+- Add Email config for users ([#4036](https://github.com/truecharts/charts/issues/4036))
+
+
+
+
 ## [joplin-server-8.0.42](https://github.com/truecharts/charts/compare/joplin-server-8.0.41...joplin-server-8.0.42) (2022-10-07)
 
 ### Chore
