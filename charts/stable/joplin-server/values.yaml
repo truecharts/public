@@ -26,6 +26,14 @@ env:
     secretKeyRef:
       name: dbcreds
       key: plainhost
+  MAILER_ENABLED: 1
+  MAILER_HOST: ""
+  MAILER_PORT: 465
+  MAILER_SECURE: true
+  MAILER_AUTH_USER: ""
+  MAILER_AUTH_PASSWORD: ""
+  MAILER_NOREPLY_NAME: ""
+  MAILER_NOREPLY_EMAIL: ""
 
 probes:
   liveness:
