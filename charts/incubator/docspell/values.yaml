@@ -69,6 +69,37 @@ rest_server:
     max_files: 500
     # --- The maximum (uncompressed) size of the zip file contents.
     max_size: 1400M
+  openid:
+    - enabled: false
+      display: keycloak
+      provider:
+        provider_id: keycloak
+        client_id: docspell
+        client_secret: example-secret-439e-bf06-911e4cdd56a6
+        scope: profile
+        authorize_url: http://localhost:8080/auth/realms/home/protocol/openid-connect/auth
+        token_url: http://localhost:8080/auth/realms/home/protocol/openid-connect/token
+        user_url: http://localhost:8080/auth/realms/home/protocol/openid-connect/userinfo
+        logout_url: http://localhost:8080/auth/realms/home/protocol/openid-connect/logout
+        sign_key: b64:anVzdC1hLXRlc3Q=
+        sig_algo: RS512
+      collective_key: lookup:docspell_collective
+      user_key: preferred_username
+    - enabled: false
+      display: Github
+      provider:
+        provider_id: github
+        client_id: <your github client id>
+        client_secret: <your github client secret>
+        scope: ""
+        authorize_url: https://github.com/login/oauth/authorize
+        token_url: https://github.com/login/oauth/access_token
+        user_url: https://api.github.com/user
+        logout_url: ""
+        sign_key: ""
+        sig_algo: RS256
+      collective_key: fixed:demo
+      user_key: login
   oidc_auto_redirect: true
   integration_endpoint:
     enabled: false

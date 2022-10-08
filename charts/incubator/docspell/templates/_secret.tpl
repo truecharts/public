@@ -48,6 +48,7 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
   server.conf: |
+    # TODO: handle false and 0 vs defaults
     docspell.server {
       app-name = {{ $server.app_name | default "Docspell" | quote }}
       app-id = {{ $serverID | quote }}
@@ -91,43 +92,50 @@ stringData:
         max-files = {{ $download_all.max_files }}
         max-size = {{ $download_all.max_size | default "1400M" }}
       }
-      # TODO:
-      # openid =
-      #   [ { enabled = false,
-      #       display = "Keycloak"
-      #       provider = {
-      #         provider-id = "keycloak",
-      #         client-id = "docspell",
-      #         client-secret = "example-secret-439e-bf06-911e4cdd56a6",
-      #         scope = "profile", # scope is required for OIDC
-      #         authorize-url = "http://localhost:8080/auth/realms/home/protocol/openid-connect/auth",
-      #         token-url = "http://localhost:8080/auth/realms/home/protocol/openid-connect/token",
-      #         #User URL is not used when signature key is set.
-      #         #user-url = "http://localhost:8080/auth/realms/home/protocol/openid-connect/userinfo",
-      #         logout-url = "http://localhost:8080/auth/realms/home/protocol/openid-connect/logout"
-      #         sign-key = "b64:anVzdC1hLXRlc3Q=",
-      #         sig-algo = "RS512"
-      #       },
-      #       collective-key = "lookup:docspell_collective",
-      #       user-key = "preferred_username"
-      #     },
-      #     { enabled = false,
-      #       display = "Github"
-      #       provider = {
-      #         provider-id = "github",
-      #         client-id = "<your github client id>",
-      #         client-secret = "<your github client secret>",
-      #         scope = "", # scope is not needed for github
-      #         authorize-url = "https://github.com/login/oauth/authorize",
-      #         token-url = "https://github.com/login/oauth/access_token",
-      #         user-url = "https://api.github.com/user",
-      #         sign-key = "" # this must be set empty
-      #         sig-algo = "RS256" #unused but must be set to something
-      #       },
-      #       collective-key = "fixed:demo",
-      #       user-key = "login"
-      #     }
-      #   ]
+      {{- $openid := $server.openid }}
+      openid =
+        [
+          {{- range initial $openid }}
+          {
+            enabled = {{ .enabled }},
+            display = {{ .display | quote }}
+            provider = {
+              provider-id = {{ .provider.provider_id | quote }},
+              client-id = {{ .provider.client_id | quote }},
+              client-secret = {{ .provider.client_secret | quote }},
+              scope = {{ .provider.scope | quote }},
+              authorize-url = {{ .provider.authorize_url | quote }},
+              token-url = {{ .provider.token_url | quote }},
+              user-url = {{ .provider.user_url | quote }},
+              logout-url = {{ .provider.logout_url | quote }},
+              sign-key = {{ .provider.sign_key | quote }},
+              sig-algo = {{ .provider.sig_algo | quote }}
+            },
+            collective-key = {{ .collective_key | quote }},
+            user-key = {{ .user_key | quote }}
+          },
+          {{- end }}
+          {{- with last $openid }}
+          {
+            enabled = {{ .enabled }},
+            display = {{ .display | quote }}
+            provider = {
+              provider-id = {{ .provider.provider_id | quote }},
+              client-id = {{ .provider.client_id | quote }},
+              client-secret = {{ .provider.client_secret | quote }},
+              scope = {{ .provider.scope | quote }},
+              authorize-url = {{ .provider.authorize_url | quote }},
+              token-url = {{ .provider.token_url | quote }},
+              user-url = {{ .provider.user_url | quote }},
+              logout-url = {{ .provider.logout_url | quote }},
+              sign-key = {{ .provider.sign_key | quote }},
+              sig-algo = {{ .provider.sig_algo | quote }}
+            },
+            collective-key = {{ .collective_key | quote }},
+            user-key = {{ .user_key | quote }}
+          }
+        {{- end }}
+        ]
       oidc-auto-redirect = {{ $server.oidc_auto_redirect }}
       {{- $integration_endpoint := $server.integration_endpoint }}
       integration-endpoint {
