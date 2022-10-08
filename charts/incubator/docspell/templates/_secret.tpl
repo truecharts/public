@@ -105,7 +105,9 @@ stringData:
               authorize-url = {{ .provider.authorize_url | quote }},
               token-url = {{ .provider.token_url | quote }},
               user-url = {{ .provider.user_url | quote }},
-              logout-url = {{ .provider.logout_url | quote }},
+              {{- with .provider.logout_url }}
+              logout-url = {{ . | quote }},
+              {{- end }}
               sign-key = {{ .provider.sign_key | quote }},
               sig-algo = {{ .provider.sig_algo | quote }}
             },
@@ -125,7 +127,9 @@ stringData:
               authorize-url = {{ .provider.authorize_url | quote }},
               token-url = {{ .provider.token_url | quote }},
               user-url = {{ .provider.user_url | quote }},
-              logout-url = {{ .provider.logout_url | quote }},
+              {{- with .provider.logout_url }}
+              logout-url = {{ . | quote }},
+              {{- end }}
               sign-key = {{ .provider.sign_key | quote }},
               sig-algo = {{ .provider.sig_algo | quote }}
             },
@@ -469,7 +473,7 @@ stringData:
               {{- end }}
               {{ last $convert.wkhtmlpdf.command.args | quote }}
             ]
-            timeout = {{ $convert.wkhtmlpdf.timeout | quote }}
+            timeout = {{ $convert.wkhtmlpdf.command.timeout | quote }}
           }
           working-dir = {{ $convert.wkhtmlpdf.working_dir | quote }}
         }
