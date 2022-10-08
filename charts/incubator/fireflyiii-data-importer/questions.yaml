@@ -62,7 +62,14 @@ questions:
       attrs:
         - variable: FIREFLY_III_URL
           label: Firefly III URL
-          description: "URL for Firefly III. `http(s)://` is needed."
+          description: "Internal URL for Firefly III. `http(s)://` is needed."
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: VANITY_URL
+          label: Vanity URL
+          description: "External URL for Firefly III. `http(s)://` is needed."
           schema:
             type: string
             required: true
