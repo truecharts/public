@@ -124,9 +124,12 @@ rest_server:
     secret: ""
   full_text_search:
     solr:
+      # -- Used to tell solr when to commit the data
       commit_within: 1000
+      # -- If true, logs request and response bodies
       log_verbose: false
       def_type: lucene
+      # -- The default combiner for tokens. One of AND | OR
       q_op: OR
   backend:
     # -- Enable or disable debugging for e-mail related functionality
@@ -174,7 +177,6 @@ rest_server:
       - "*"
     # -- Define patterns of urls that are denied to install addons from.
     denied_urls: []
-  # openid:
 
 joex:
   logging:
@@ -352,8 +354,11 @@ joex:
         max_entries: 1000
         file_cache_time: 1 minute
   classification:
+    # -- Whether to enable classification globally.
     enabled: true
+    # -- This limit and `text-analysis.max-length` define how much memory is required.
     item_count: 600
+    # -- Enclose regexps in triple quotes.
     classifiers:
       useSplitWords: true
       splitWordsTokenizerRegexp: '"""[\p{L}][\p{L}0-9]*|(?:\$ ?)?[0-9]+(?:\.[0-9]{2})?%?|\s+|."""'
@@ -363,11 +368,16 @@ joex:
       minNGramLeng: 1
       splitWordShape: chris4
       intern: true
+  # -- Configuration for converting files into PDFs.
   convert:
+    # -- The chunk size used when storing files.
     chunk_size: 524288
+    # -- A string used to change the filename of the converted pdf file.
     converted_filename_part: converted
+    # -- When reading images, this is the maximum size.
     max_image_size: 14000000
     markdown:
+      # -- The CSS that is used to style the resulting HTML.
       internal_css: "body { padding: 2em 5em; }"
     wkhtmlpdf:
       command:
@@ -448,9 +458,12 @@ joex:
         directory: /documents
   full_text_search:
     solr:
+      # -- Used to tell solr when to commit the data
       commit_within: 1000
+      # -- If true, logs request and response bodies
       log_verbose: false
       def_type: lucene
+      # -- The default combiner for tokens. One of AND | OR
       q_op: OR
     migration:
       index_all_chunk: 10
@@ -476,6 +489,7 @@ service:
         enabled: true
         port: 10321
         protocol: HTTP
+
 persistence:
   server:
     enabled: true
