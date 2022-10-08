@@ -25,36 +25,38 @@ questions:
           schema:
             type: boolean
             default: false
-        - variable: imported_action
-          label: Action to perform on imported documents
-          schema:
-            type: string
-            default: move
-            enum:
-              - value: move
-                description: move
-              - value: delete
-                description: delete
-        - variable: not_match_glob
-          label: Not match glob pattern
-          schema:
-            type: string
-            default: "**/.*"
-        - variable: match_glob
-          label: Match glob pattern
-          schema:
-            type: string
-            default: ""
-        - variable: language
-          label: Language
-          schema:
-            type: string
-            default: ""
-        - variable: tag
-          label: Tag
-          schema:
-            type: string
-            default: ""
+            show_subquestions_if: true
+            subquestions:
+              - variable: imported_action
+                label: Action to perform on imported documents
+                schema:
+                  type: string
+                  default: move
+                  enum:
+                    - value: move
+                      description: move
+                    - value: delete
+                      description: delete
+              - variable: not_match_glob
+                label: Not match glob pattern
+                schema:
+                  type: string
+                  default: "**/.*"
+              - variable: match_glob
+                label: Match glob pattern
+                schema:
+                  type: string
+                  default: ""
+              - variable: language
+                label: Language
+                schema:
+                  type: string
+                  default: ""
+              - variable: tag
+                label: Tag
+                schema:
+                  type: string
+                  default: ""
   - variable: rest_server
     group: Container Configuration
     label: Rest Server Configuration
