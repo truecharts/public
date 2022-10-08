@@ -236,10 +236,18 @@ stringData:
         addons = {
           enabled = {{ $addons.enabled | default false }}
           allow-impure = {{ $addons.allow_impure }}
-          # TODO:
-          allowed-urls = "*"
-          # TODO:
-          denied-urls = ""
+          allowed-urls = [
+            {{- range initial $addons.allowed_urls }}
+            {{ . | quote }},
+            {{- end }}
+            {{ last $addons.allowed_urls | quote }}
+          ]
+          denied-urls = [
+            {{- range initial $addons.denied_urls }}
+            {{ . | quote }},
+            {{- end }}
+            {{ last $addons.denied_urls | quote }}
+          ]
         }
       }
     }
