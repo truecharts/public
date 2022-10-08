@@ -37,7 +37,7 @@ questions:
           description: "Sets the MAILER_PORT env var, eg: SMTP PORT 465"
           schema:
             type: int
-            default:  465
+            default: 465
         - variable: MAILER_SECURE
           label: "MAILER_SECURE"
           description: "Sets the MAILER_SECURE env var, HTTPS for the smtp"
