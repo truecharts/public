@@ -412,7 +412,7 @@ postgresql:
   postgresqlDatabase: docspell
 
 solr:
-  enabled: false
+  enabled: true
   existingSecret: solrcreds
   solrCores: docspell
   solrUsername: docspell
