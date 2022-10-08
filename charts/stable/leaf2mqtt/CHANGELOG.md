@@ -7,6 +7,17 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [leaf2mqtt-4.0.36](https://github.com/truecharts/charts/compare/leaf2mqtt-4.0.35...leaf2mqtt-4.0.36) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update helm general non-major
 
 

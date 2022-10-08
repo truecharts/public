@@ -7,6 +7,17 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [awesome-ttrss-0.0.48](https://github.com/truecharts/charts/compare/awesome-ttrss-0.0.47...awesome-ttrss-0.0.48) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update helm general non-major
 
 

@@ -7,6 +7,17 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [sqlitebrowser-3.0.34](https://github.com/truecharts/charts/compare/sqlitebrowser-3.0.33...sqlitebrowser-3.0.34) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update helm general non-major
 
 

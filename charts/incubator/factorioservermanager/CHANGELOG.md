@@ -7,6 +7,17 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [factorioservermanager-0.0.28](https://github.com/truecharts/charts/compare/factorioservermanager-0.0.27...factorioservermanager-0.0.28) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update helm general non-major
 
 

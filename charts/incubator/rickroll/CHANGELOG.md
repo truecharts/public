@@ -2,6 +2,18 @@
 
 
 
+## [rickroll-0.0.36](https://github.com/truecharts/charts/compare/rickroll-0.0.34...rickroll-0.0.36) (2022-10-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#4030](https://github.com/truecharts/charts/issues/4030))
+  - update helm general non-major
+
+
+
+
 ## [rickroll-0.0.35](https://github.com/truecharts/charts/compare/rickroll-0.0.34...rickroll-0.0.35) (2022-10-07)
 
 ### Chore

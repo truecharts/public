@@ -7,6 +7,17 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [minecraft-bungeecord-0.0.25](https://github.com/truecharts/charts/compare/minecraft-bungeecord-0.0.24...minecraft-bungeecord-0.0.25) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update helm general non-major
 
 

@@ -7,6 +7,17 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [breitbandmessung-de-0.0.30](https://github.com/truecharts/charts/compare/breitbandmessung-de-0.0.29...breitbandmessung-de-0.0.30) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update helm general non-major
 
 

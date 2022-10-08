@@ -7,6 +7,17 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [zigbee2mqtt-4.0.39](https://github.com/truecharts/charts/compare/zigbee2mqtt-4.0.38...zigbee2mqtt-4.0.39) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update helm general non-major
 
 

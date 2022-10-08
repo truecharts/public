@@ -7,6 +7,17 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [k8s-gateway-6.1.22](https://github.com/truecharts/charts/compare/k8s-gateway-6.1.21...k8s-gateway-6.1.22) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update helm general non-major
 
 

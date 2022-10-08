@@ -7,6 +7,17 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [tachidesk-docker-0.0.31](https://github.com/truecharts/charts/compare/tachidesk-docker-0.0.30...tachidesk-docker-0.0.31) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update helm general non-major
 
 
