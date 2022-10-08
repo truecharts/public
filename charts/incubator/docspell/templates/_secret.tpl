@@ -158,29 +158,30 @@ stringData:
       admin-endpoint {
         secret = {{ $server.admin_endpoint.secret | default "" | quote }}
       }
-      # full-text-search {
-      #   enabled = false
-      #   backend = "solr"
-      #   solr = {
-      #     url = "http://localhost:8983/solr/docspell"
-      #     commit-within = 1000
-      #     log-verbose = false
-      #     def-type = "lucene"
-      #     q-op = "OR"
-      #   }
-      #   postgresql = {
-      #     use-default-connection = false
-      #     jdbc {
-      #       url = "jdbc:postgresql://server:5432/db"
-      #       user = "pguser"
-      #       password = ""
-      #     }
-      #     pg-config = {
-      #     }
-      #     pg-query-parser = "websearch_to_tsquery"
-      #     pg-rank-normalization = [ 4 ]
-      #   }
-      # }
+      {{- $full_text_search := $server.full_text_search -}}
+      full-text-search {
+        enabled = true
+        backend = "solr"
+        solr = {
+          url = {{ printf "http://%v:%v@%v-solr:8983/%v" .Values.solr.solrUsername (.Values.solr.solrPassword | trimAll "\"") .Release.Name .Values.solr.solrCores | quote }}
+          commit-within = {{ $full_text_search.solr.commit_within | default 1000 }}
+          log-verbose = {{ $full_text_search.solr.log_verbose | default false }}
+          def-type = {{ $full_text_search.solr.def_type | default "lucene" | quote }}
+          q-op = {{ $full_text_search.solr.q_op | default "OR" | quote }}
+        }
+        postgresql = {
+          use-default-connection = false
+          jdbc {
+            url = {{ printf "jdbc:postgresql://%v-%v:5432/%v" .Release.Name "postgresql" .Values.postgresql.postgresqlDatabase | quote }}
+            user = {{ .Values.postgresql.postgresqlUsername | quote }}
+            password = {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | quote }}
+          }
+          pg-config = {
+          }
+          pg-query-parser = "websearch_to_tsquery"
+          pg-rank-normalization = [ 4 ]
+        }
+      }
       {{- $backend := $server.backend }}
       backend {
         mail-debug = {{ $backend.mail_debug | default false }}
@@ -375,33 +376,38 @@ stringData:
           }
           ghostscript {
             command {
-              program = "gs"
-              args = [ "-dNOPAUSE"
-                    , "-dBATCH"
-                    , "-dSAFER"
-                    , "-sDEVICE=tiffscaled8"
-                    , "-sOutputFile={{"{{"}}outfile{{"}}"}}"
-                    , "{{"{{"}}infile{{"}}"}}"
-                    ]
+              program = {{ $extraction.ghostscript.command.program | quote }}
+              args = [
+                {{- range initial $extraction.ghostscript.command.args }}
+                {{ . | quote }},
+                {{- end }}
+                {{ last $extraction.ghostscript.command.args | quote }}
+              ]
               timeout = {{ $extraction.ghostscript.command.timeout | default "5 minutes" | quote }}
             }
-            working-dir = "{{ $tmpDir }}/docspell-extraction"
+            working-dir = {{ $extraction.ghostscript.working_dir | quote }}
           }
           unpaper {
             command {
-              program = "unpaper"
-              args = [ "{{"{{"}}infile{{"}}"}}", "{{"{{"}}outfile{{"}}"}}" ]
+              program = {{ $extraction.unpaper.command.program | quote }}
+              args = [
+                {{- range initial $extraction.unpaper.command.args }}
+                {{ . | quote }},
+                {{- end }}
+                {{ last $extraction.unpaper.command.args | quote }}
+              ]
               timeout = {{ $extraction.unpaper.command.timeout | default "5 minutes" | quote }}
             }
           }
           tesseract {
             command {
-              program = "tesseract"
-              args = ["{{"{{"}}file{{"}}"}}"
-                    , "stdout"
-                    , "-l"
-                    , "{{"{{"}}lang{{"}}"}}"
-                    ]
+              program = {{ $extraction.tesseract.command.program | quote }}
+              args = [
+                {{- range initial $extraction.tesseract.command.args }}
+                {{ . | quote }},
+                {{- end }}
+                {{ last $extraction.tesseract.command.args | quote }}
+              ]
               timeout = {{ $extraction.tesseract.command.timeout | default "5 minutes" | quote }}
             }
           }
@@ -410,7 +416,7 @@ stringData:
       {{- $text_analysis := $joex.text_analysis }}
       text-analysis {
         max-length = {{ $text_analysis.max_length }}
-        working-dir = "{{ $tmpDir }}/docspell-analysis"
+        working-dir = {{ $text_analysis.working_dir | quote }}
         nlp {
           mode = {{ $text_analysis.nlp.mode | default "full" }}
           clear-interval = {{ $text_analysis.nlp.clear_interval | default "15 minutes" | quote }}

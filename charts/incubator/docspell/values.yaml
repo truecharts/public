@@ -93,24 +93,12 @@ rest_server:
   admin_endpoint:
     # -- Disables endpoint if empty
     secret: ""
-  # full_text_search:
-  #   enabled:
-  #   backend:
-  #   solr:
-  #     url:
-  #     commit_within:
-  #     log_verbose:
-  #     def_type:
-  #     q_op:
-  #   postgresql:
-  #     use_default_connection:
-  #     jdbc:
-  #       url:
-  #       user:
-  #       password:
-  #     pg_config:
-  #     pg_query_parser:
-  #     pg_rank_normalization:
+  full_text_search:
+    solr:
+      commit_within: 1000
+      log_verbose: false
+      def_type: lucene
+      q_op: OR
   backend:
     # -- Enable or disable debugging for e-mail related functionality
     mail_debug: false
@@ -291,18 +279,38 @@ joex:
     # -- The ghostscript command.
     ghostscript:
       command:
+        program: gs
+        args:
+          - -dNOPAUSE
+          - -dBATCH
+          - -dSAFER
+          - -sDEVICE=tiffscaled8
+          - "-sOutputFile={{outfile}}"
+          - "{{infile}}"
         timeout: 5 minutes
+      working_dir: /tmp/docspell-extraction
     # -- The unpaper command.
     unpaper:
       command:
+        program: unpaper
+        args:
+          - "{{infile}}"
+          - "{{outfile}}"
         timeout: 5 minutes
     # -- The tesseract command.
     tesseract:
       command:
+        program: tesseract
+        args:
+          - "{{file}}"
+          - stdout
+          - -l
+          - "{{lang}}"
         timeout: 5 minutes
   text_analysis:
     # -- Maximum length of text to be analyzed.
     max_length: 0
+    working_dir: /tmp/docspell-analysis
     nlp:
       # -- The mode for configuring NLP models
       # -- full | basic | regexonly | disabled
