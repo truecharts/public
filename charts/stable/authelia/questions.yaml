@@ -33,10 +33,12 @@ questions:
     label: "Theme"
     schema:
       type: string
-      default: "light"
+      default: "auto
       enum:
+        - value: "auto"
+          description: "auto"       
         - value: "light"
-          description: "info"
+          description: "light"
         - value: "grey"
           description: "grey"
         - value: "dark"
@@ -52,10 +54,8 @@ questions:
           label: "Log Level"
           schema:
             type: string
-            default: "auto"
+            default: "info"
             enum:
-              - value: "auto"
-                description: "auto"
               - value: "info"
                 description: "info"
               - value: "debug"
