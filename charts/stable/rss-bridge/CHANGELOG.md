@@ -2,6 +2,16 @@
 
 
 
+## [rss-bridge-2.0.35](https://github.com/truecharts/charts/compare/rss-bridge-2.0.34...rss-bridge-2.0.35) (2022-10-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - manual update and fix renovate ([#4035](https://github.com/truecharts/charts/issues/4035))
+
+
+
+
 ## [rss-bridge-2.0.34](https://github.com/truecharts/charts/compare/rss-bridge-2.0.33...rss-bridge-2.0.34) (2022-10-07)
 
 ### Chore
