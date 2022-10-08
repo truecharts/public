@@ -30,10 +30,10 @@ dsc:
   # move | delete
   imported_action: move
   # -- Move imported to this dir
-  move_directory: /opt/imported
+  move_directory: /import/imported
   not_match_glob: "**/.*"
   match_glob: ""
-  watch_directory: /opt/docs
+  watch_directory: /import/docs
   language: ""
 
 rest_server:
