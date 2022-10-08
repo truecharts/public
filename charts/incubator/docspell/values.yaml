@@ -8,7 +8,6 @@ joexImage:
   tag: v0.38.0@sha256:16f2c2e32d8b20f8cdd1b62ae458ded2bbb16ed7bdc2727dc4a7624298ef7021
   pullPolicy: IfNotPresent
 
-# TODO: Check if we create it as separate app. It's a document consumer
 dscImage:
   repository: tccr.io/truecharts/docspell-dsc
   tag: v0.38.0@sha256:86c8100df78f47f00291de0c2395917427f6caacbf896691559296c0a805a7a9
@@ -24,6 +23,18 @@ podSecurityContext:
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
+
+dsc:
+  # -- You need to enable integration endpoint with HTTP Header in rest server
+  enabled: true
+  # move | delete
+  imported_action: move
+  # -- Move imported to this dir
+  move_directory: /opt/imported
+  not_match_glob: "**/.*"
+  match_glob: ""
+  watch_directory: /opt/docs
+  language: ""
 
 rest_server:
   # -- App name, shows on the top right corner
@@ -468,6 +479,7 @@ joex:
     migration:
       index_all_chunk: 10
   addons:
+    # TODO: Check TODO above for addons
     working_dir: /tmp/docspell-addons
     cache_dir: /tmp/docspell-addons-cache
     executor_config:
