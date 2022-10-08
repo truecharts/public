@@ -16,8 +16,6 @@ dscImage:
 
 args:
   - /opt/server.conf
-# command:
-#   - cat /opt/server.conf
 
 podSecurityContext:
   runAsUser: 0
@@ -286,8 +284,8 @@ joex:
       body: |
         Hello,
 
-        You are currently running Docspell \{\{ currentVersion \}\}. Version *\{\{ latestVersion \}\}*
-        is now available, which was released on \{\{ releasedAt \}\}. Check the release page at
+        You are currently running Docspell {{ currentVersion }}. Version *{{ latestVersion }}*
+        is now available, which was released on {{ releasedAt }}. Check the release page at
 
         <https://github.com/eikek/docspell/releases/latest>
 

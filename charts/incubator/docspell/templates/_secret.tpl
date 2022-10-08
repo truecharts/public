@@ -47,21 +47,20 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
   server.conf: |
-    # TODO: handle false and 0 vs defaults
     docspell.server {
-      app-name = {{ $server.app_name | default "Docspell" | quote }}
+      app-name = {{ $server.app_name | quote }}
       app-id = {{ $serverID | quote }}
       base-url = {{ $server.base_url | default (printf "%v:%v" "http://localhost" .Values.service.main.ports.main.port) | quote }}
       internal-url = {{ printf "%v:%v" "http://localhost" .Values.service.main.ports.main.port | quote }}
       {{- $logging := $server.logging }}
       logging {
-        format = {{ $logging.format | default "Fancy" | quote }}
-        minimum-level = {{ $logging.minimum_level | default "Warn" | quote }}
+        format = {{ $logging.format | quote }}
+        minimum-level = {{ $logging.minimum_level | quote }}
         levels = {
-          "docspell" = {{ $logging.levels.docspell | default "Info" | quote }}
-          "org.flywaydb" = {{ $logging.levels.flywaydb | default "Info" | quote }}
-          "binny" = {{ $logging.levels.binny | default "Info" | quote }}
-          "org.http4s" = {{ $logging.levels.http4s | default "Info" | quote }}
+          "docspell" = {{ $logging.levels.docspell | quote }}
+          "org.flywaydb" = {{ $logging.levels.flywaydb | quote }}
+          "binny" = {{ $logging.levels.binny | quote }}
+          "org.http4s" = {{ $logging.levels.http4s | quote }}
         }
       }
       bind {
@@ -70,9 +69,9 @@ stringData:
       }
       {{- $server_opts := $server.server_opts }}
       server-options {
-        enable-http-2 = {{ $server_opts.enable_http2 | default false }}
+        enable-http-2 = {{ $server_opts.enable_http2 }}
         max-connections = {{ $server_opts.max_connections }}
-        response-timeout = {{ $server_opts.response_timeout | default "45s" }}
+        response-timeout = {{ $server_opts.response_timeout }}
       }
       max-item-page-size = {{ $server.max_item_page_size }}
       max-note-length = {{ $server.max_note_length }}
@@ -80,16 +79,16 @@ stringData:
       {{- $auth := $server.auth }}
       auth {
         server-secret = {{ $server_secret | quote }}
-        session-valid = {{ $auth.session_valid | default "5 minutes" | quote }}
+        session-valid = {{ $auth.session_valid | quote }}
         remember-me {
           enabled = {{ $auth.remember_me.enabled }}
-          valid = {{ $auth.remember_me.valid | default "30 days" | quote }}
+          valid = {{ $auth.remember_me.valid | quote }}
         }
       }
       {{- $download_all := $server.download_all }}
       download-all {
         max-files = {{ $download_all.max_files }}
-        max-size = {{ $download_all.max_size | default "1400M" }}
+        max-size = {{ $download_all.max_size }}
       }
       {{- $openid := $server.openid }}
       openid =
@@ -138,11 +137,11 @@ stringData:
       oidc-auto-redirect = {{ $server.oidc_auto_redirect }}
       {{- $integration_endpoint := $server.integration_endpoint }}
       integration-endpoint {
-        enabled = {{ $integration_endpoint.enabled | default false }}
-        priority = {{ $integration_endpoint.priority | default "low" | quote }}
-        source-name = {{ $integration_endpoint.source_name | default "integration" | quote }}
+        enabled = {{ $integration_endpoint.enabled }}
+        priority = {{ $integration_endpoint.priority | quote }}
+        source-name = {{ $integration_endpoint.source_name | quote }}
         allowed-ips {
-          enabled = {{ $integration_endpoint.allowed_ips.enabled | default false }}
+          enabled = {{ $integration_endpoint.allowed_ips.enabled }}
           ips = [
             {{- range initial $integration_endpoint.allowed_ips.ips }}
             {{ . | quote }},
@@ -151,19 +150,19 @@ stringData:
           ]
         }
         http-basic {
-          enabled = {{ $integration_endpoint.http_basic_auth.enabled | default false }}
-          realm = {{ $integration_endpoint.http_basic_auth.realm | default "Docspell Integration" | quote }}
-          user = {{ $integration_endpoint.http_basic_auth.user | default "docspell-int" | quote }}
-          password = {{ $integration_endpoint.http_basic_auth.password | default "docspell-int" | quote }}
+          enabled = {{ $integration_endpoint.http_basic_auth.enabled }}
+          realm = {{ $integration_endpoint.http_basic_auth.realm | quote }}
+          user = {{ $integration_endpoint.http_basic_auth.user | quote }}
+          password = {{ $integration_endpoint.http_basic_auth.password | quote }}
         }
         http-header {
-          enabled = {{ $integration_endpoint.http_header.enabled | default false }}
-          header-name = {{ $integration_endpoint.http_header.header_name | default "Docspell-Integration" | quote }}
-          header-value = {{ $integration_endpoint.http_header.header_value | default "some-secret" | quote }}
+          enabled = {{ $integration_endpoint.http_header.enabled }}
+          header-name = {{ $integration_endpoint.http_header.header_name | quote }}
+          header-value = {{ $integration_endpoint.http_header.header_value | quote }}
         }
       }
       admin-endpoint {
-        secret = {{ $server.admin_endpoint.secret | default "" | quote }}
+        secret = {{ $server.admin_endpoint.secret | quote }}
       }
       {{- $full_text_search := $server.full_text_search }}
       full-text-search {
@@ -171,10 +170,10 @@ stringData:
         backend = "solr"
         solr = {
           url = {{ printf "http://%v:%v@%v-solr:8983/%v" .Values.solr.solrUsername (.Values.solr.solrPassword | trimAll "\"") .Release.Name .Values.solr.solrCores | quote }}
-          commit-within = {{ $full_text_search.solr.commit_within | default 1000 }}
-          log-verbose = {{ $full_text_search.solr.log_verbose | default false }}
-          def-type = {{ $full_text_search.solr.def_type | default "lucene" | quote }}
-          q-op = {{ $full_text_search.solr.q_op | default "OR" | quote }}
+          commit-within = {{ $full_text_search.solr.commit_within }}
+          log-verbose = {{ $full_text_search.solr.log_verbose }}
+          def-type = {{ $full_text_search.solr.def_type | quote }}
+          q-op = {{ $full_text_search.solr.q_op | quote }}
         }
         postgresql = {
           use-default-connection = false
@@ -191,7 +190,7 @@ stringData:
       }
       {{- $backend := $server.backend }}
       backend {
-        mail-debug = {{ $backend.mail_debug | default false }}
+        mail-debug = {{ $backend.mail_debug }}
         jdbc {
           url = {{ printf "jdbc:postgresql://%v-%v:5432/%v" .Release.Name "postgresql" .Values.postgresql.postgresqlDatabase | quote }}
           user = {{ .Values.postgresql.postgresqlUsername | quote }}
@@ -201,13 +200,13 @@ stringData:
         database-schema = {
           run-main-migrations = {{ $database_schema.run_main_migrations }}
           run-fixup-migrations = {{ $database_schema.run_fixup_migrations }}
-          repair-schema = {{ $database_schema.repair_schema | default false }}
+          repair-schema = {{ $database_schema.repair_schema }}
         }
         {{- $signup := $server.signup }}
         signup {
-          mode = {{ $signup.mode | default "open" | quote }}
+          mode = {{ $signup.mode | quote }}
           new-invite-password = {{ $new_invite_password | quote }}
-          invite-time = {{ $signup.invite_time | default "3 days" | quote }}
+          invite-time = {{ $signup.invite_time | quote }}
         }
 
         {{- $files := $server.backend.files }}
@@ -219,30 +218,30 @@ stringData:
             {{- end }}
             {{ last $files.valid_mime_types | quote }}
           ]
-          default-store = {{ $files.default_store | default "database" | quote }}
+          default-store = {{ $files.default_store | quote }}
           stores = {
             database = {
                 enabled = {{ $files.stores.database.enabled }}
                 type = "default-database"
               }
             filesystem = {
-                enabled = {{ $files.stores.filesystem.enabled | default false }}
+                enabled = {{ $files.stores.filesystem.enabled }}
                 type = "file-system"
-                directory = {{ $files.stores.filesystem.directory | default "/documents" | quote }}
+                directory = {{ $files.stores.filesystem.directory | quote }}
               }
             minio = {
-              enabled = {{ $files.stores.minio.enabled | default false }}
+              enabled = {{ $files.stores.minio.enabled }}
               type = "s3"
-              endpoint = {{ $files.stores.minio.endpoint | default "http://localhost:9000" | quote }}
-              access-key = {{ $files.stores.minio.access_key | default "username" | quote }}
-              secret-key = {{ $files.stores.minio.secret_key | default "password" | quote }}
-              bucket = {{ $files.stores.minio.bucket | default "docspell" | quote }}
+              endpoint = {{ $files.stores.minio.endpoint | quote }}
+              access-key = {{ $files.stores.minio.access_key | quote }}
+              secret-key = {{ $files.stores.minio.secret_key | quote }}
+              bucket = {{ $files.stores.minio.bucket | quote }}
             }
           }
         }
         {{- $addons := $server.addons }}
         addons = {
-          enabled = {{ $addons.enabled | default false }}
+          enabled = {{ $addons.enabled }}
           allow-impure = {{ $addons.allow_impure }}
           allowed-urls = [
             {{- range initial $addons.allowed_urls }}
@@ -278,13 +277,13 @@ stringData:
       }
       {{- $logging := $joex.logging }}
       logging {
-        format = {{ $logging.format | default "Fancy" | quote }}
-        minimum-level = {{ $logging.minimum_level | default "Warn" | quote }}
+        format = {{ $logging.format | quote }}
+        minimum-level = {{ $logging.minimum_level | quote }}
         levels = {
-          "docspell" = {{ $logging.levels.docspell | default "Info" | quote }}
-          "org.flywaydb" = {{ $logging.levels.flywaydb | default "Info" | quote }}
-          "binny" = {{ $logging.levels.binny | default "Info" | quote }}
-          "org.http4s" = {{ $logging.levels.http4s | default "Info" | quote }}
+          "docspell" = {{ $logging.levels.docspell | quote }}
+          "org.flywaydb" = {{ $logging.levels.flywaydb | quote }}
+          "binny" = {{ $logging.levels.binny | quote }}
+          "org.http4s" = {{ $logging.levels.http4s | quote }}
         }
       }
       jdbc {
@@ -296,26 +295,26 @@ stringData:
       database-schema = {
         run-main-migrations = {{ $database_schema.run_main_migrations }}
         run-fixup-migrations = {{ $database_schema.run_fixup_migrations }}
-        repair-schema = {{ $database_schema.repair_schema | default false }}
+        repair-schema = {{ $database_schema.repair_schema }}
       }
-      mail-debug = {{ $joex.mail_debug | default false }}
+      mail-debug = {{ $joex.mail_debug }}
       send-mail {
-        list-id = {{ $joex.send_mail.list_id | default "" | quote }}
+        list-id = {{ $joex.send_mail.list_id | quote }}
       }
       {{- $scheduler := $joex.scheduler }}
       scheduler {
         name = {{ $joexID | quote }}
         pool-size = {{ $scheduler.pool_size }}
-        counting-scheme = {{ $joex.counting_scheme | default "4,1" | quote }}
+        counting-scheme = {{ $joex.counting_scheme | quote }}
         retries = {{ $scheduler.retries }}
-        retry-delay = {{ $scheduler.retry_delay | default "1 minute" | quote }}
+        retry-delay = {{ $scheduler.retry_delay | quote }}
         log-buffer-size = {{ $scheduler.log_buffer_size }}
-        wakeup-period = {{ $scheduler.wakeup_period | default "30 minutes" | quote }}
+        wakeup-period = {{ $scheduler.wakeup_period | quote }}
       }
       {{- $periodic_scheduler := $joex.periodic_scheduler }}
       periodic-scheduler {
         name = {{ $joexID | quote }}
-        wakeup-period = {{ $periodic_scheduler.wakeup_period | default "10 minutes" | quote }}
+        wakeup-period = {{ $periodic_scheduler.wakeup_period | quote }}
       }
       {{- $user_tasks := $joex.user_tasks }}
       user-tasks {
@@ -327,23 +326,23 @@ stringData:
       }
       {{- $house_keeping := $joex.house_keeping }}
       house-keeping {
-        schedule = {{ $house_keeping.schedule | default "Sun *-*-* 00:00:00 UTC" | quote }}
+        schedule = {{ $house_keeping.schedule | quote }}
         cleanup-invites = {
           enabled = {{ $house_keeping.cleanup_invites.enabled }}
-          older-than = {{ $house_keeping.cleanup_invites.older_than | default "30 days" | quote }}
+          older-than = {{ $house_keeping.cleanup_invites.older_than | quote }}
         }
         cleanup-remember-me = {
           enabled = {{ $house_keeping.cleanup_remember_me.enabled }}
-          older-than = {{ $house_keeping.cleanup_remember_me.older_than | default "30 days" | quote }}
+          older-than = {{ $house_keeping.cleanup_remember_me.older_than | quote }}
         }
         cleanup-jobs = {
           enabled = {{ $house_keeping.cleanup_jobs.enabled }}
-          older-than = {{ $house_keeping.cleanup_jobs.older_than | default "30 days" | quote }}
-          delete-batch = {{ $house_keeping.cleanup_jobs.delete_batch | default "100" | quote }}
+          older-than = {{ $house_keeping.cleanup_jobs.older_than | quote }}
+          delete-batch = {{ $house_keeping.cleanup_jobs.delete_batch | quote }}
         }
         cleanup-downloads = {
           enabled = {{ $house_keeping.cleanup_downloads.enabled }}
-          older-than = {{ $house_keeping.cleanup_downloads.older_than | default "14 days" | quote }}
+          older-than = {{ $house_keeping.cleanup_downloads.older_than | quote }}
         }
         check-nodes {
           enabled = {{ $house_keeping.check_nodes.enabled }}
@@ -354,19 +353,19 @@ stringData:
         }
       }
       update-check {
-        enabled = {{ $house_keeping.update_check.enabled | default false }}
-        test-run = {{ $house_keeping.update_check.test_run | default false }}
-        schedule = {{ $house_keeping.update_check.schedule | default "Sun *-*-* 00:00:00 UTC" | quote }}
-        sender-account = {{ $house_keeping.update_check.sender_account | default "" | quote }}
-        smtp-id = {{ $house_keeping.update_check.smtp_id | default "" | quote }}
+        enabled = {{ $house_keeping.update_check.enabled }}
+        test-run = {{ $house_keeping.update_check.test_run }}
+        schedule = {{ $house_keeping.update_check.schedule | quote }}
+        sender-account = {{ $house_keeping.update_check.sender_account | quote }}
+        smtp-id = {{ $house_keeping.update_check.smtp_id | quote }}
         recipients = [
           {{- range initial $house_keeping.update_check.recipients }}
           {{ . | quote }},
           {{- end }}
           {{ last $house_keeping.update_check.recipients | quote }}
         ]
-        subject = {{ $house_keeping.update_check.subject | default "Docspeasdll {{ latestVersion }} is available" | quote }}
-        body = {{ $house_keeping.update_check.body | default "You need to define a body!" | quote }}
+        subject = {{ $house_keeping.update_check.subject | quote }}
+        body = {{ $house_keeping.update_check.body | quote }}
       }
       {{- $extraction := $joex.extraction }}
       extraction {
@@ -390,7 +389,7 @@ stringData:
                 {{- end }}
                 {{ last $extraction.ghostscript.command.args | quote }}
               ]
-              timeout = {{ $extraction.ghostscript.command.timeout | default "5 minutes" | quote }}
+              timeout = {{ $extraction.ghostscript.command.timeout | quote }}
             }
             working-dir = {{ $extraction.ghostscript.working_dir | quote }}
           }
@@ -403,7 +402,7 @@ stringData:
                 {{- end }}
                 {{ last $extraction.unpaper.command.args | quote }}
               ]
-              timeout = {{ $extraction.unpaper.command.timeout | default "5 minutes" | quote }}
+              timeout = {{ $extraction.unpaper.command.timeout | quote }}
             }
           }
           tesseract {
@@ -415,7 +414,7 @@ stringData:
                 {{- end }}
                 {{ last $extraction.tesseract.command.args | quote }}
               ]
-              timeout = {{ $extraction.tesseract.command.timeout | default "5 minutes" | quote }}
+              timeout = {{ $extraction.tesseract.command.timeout | quote }}
             }
           }
         }
@@ -425,8 +424,8 @@ stringData:
         max-length = {{ $text_analysis.max_length }}
         working-dir = {{ $text_analysis.working_dir | quote }}
         nlp {
-          mode = {{ $text_analysis.nlp.mode | default "full" }}
-          clear-interval = {{ $text_analysis.nlp.clear_interval | default "15 minutes" | quote }}
+          mode = {{ $text_analysis.nlp.mode }}
+          clear-interval = {{ $text_analysis.nlp.clear_interval | quote }}
           max-due-date-years = {{ $text_analysis.nlp.max_due_date_years }}
           regex-ner {
             max-entries = {{ $text_analysis.nlp.regex_ner.max_entries }}
@@ -445,7 +444,7 @@ stringData:
               "useSplitPrefixSuffixNGrams" = "{{ $classification.classifiers.useSplitPrefixSuffixNGrams }}"
               "maxNGramLeng" = "{{ $classification.classifiers.maxNGramLeng }}"
               "minNGramLeng" = "{{ $classification.classifiers.minNGramLeng }}"
-              "splitWordShape" = "{{ $classification.classifiers.intern | default "chris4" }}"
+              "splitWordShape" = "{{ $classification.classifiers.intern }}"
               "intern" = "{{ $classification.classifiers.intern }}"
             }
           ]
@@ -458,7 +457,7 @@ stringData:
         max-image-size = {{ $convert.max_image_size }}
         markdown {
           internal-css = """
-            {{ $convert.markdown.internal_css | default "body { padding: 2em 5em; }" | quote }}
+            {{ $convert.markdown.internal_css | quote }}
           """
         }
         wkhtmlpdf {
@@ -470,7 +469,7 @@ stringData:
               {{- end }}
               {{ last $convert.wkhtmlpdf.command.args | quote }}
             ]
-            timeout = {{ $convert.wkhtmlpdf.timeout | default "2 minutes" | quote }}
+            timeout = {{ $convert.wkhtmlpdf.timeout | quote }}
           }
           working-dir = {{ $convert.wkhtmlpdf.working_dir | quote }}
         }
@@ -483,7 +482,7 @@ stringData:
               {{- end }}
               {{ last $convert.tesseract.command.args | quote }}
             ]
-            timeout = {{ $convert.tesseract.command.timeout | default "5 minutes" | quote }}
+            timeout = {{ $convert.tesseract.command.timeout | quote }}
           }
           working-dir = {{ $convert.tesseract.working_dir | quote }}
         }
@@ -496,12 +495,12 @@ stringData:
               {{- end }}
               {{ last $convert.unoconv.command.args | quote }}
             ]
-            timeout = {{ $convert.tesseract.command.timeout | default "2 minutes" | quote }}
+            timeout = {{ $convert.tesseract.command.timeout | quote }}
           }
           working-dir = {{ $convert.unoconv.working_dir | quote }}
         }
         ocrmypdf = {
-          enabled = {{ $convert.ocrmypdf.enabled | default true }}
+          enabled = {{ $convert.ocrmypdf.enabled }}
           command = {
             program = {{ $convert.ocrmypdf.command.program | quote }}
             args = [
@@ -510,7 +509,7 @@ stringData:
               {{- end }}
               {{ last $convert.ocrmypdf.command.args | quote }}
             ]
-            timeout = {{ $convert.ocrmypdf.command.timeout | default "5 minutes" | quote }}
+            timeout = {{ $convert.ocrmypdf.command.timeout | quote }}
           }
           working-dir = {{ $convert.ocrmypdf.working_dir | quote }}
         }
@@ -533,7 +532,7 @@ stringData:
           {{- end }}
           {{ last $files.valid_mime_types | quote }}
         ]
-        default-store = {{ $files.default_store | default "database" | quote }}
+        default-store = {{ $files.default_store | quote }}
         stores = {
           database = {
               enabled = {{ $files.stores.database.enabled }}
@@ -542,15 +541,15 @@ stringData:
           filesystem = {
               enabled = {{ $files.stores.filesystem.enabled }}
               type = "file-system"
-              directory = {{ $files.stores.filesystem.directory | default "/documents" | quote }}
+              directory = {{ $files.stores.filesystem.directory | quote }}
             }
           minio = {
-            enabled = {{ $files.stores.minio.enabled | default false }}
+            enabled = {{ $files.stores.minio.enabled }}
             type = "s3"
-            endpoint = {{ $files.stores.minio.endpoint | default "http://localhost:9000" | quote }}
-            access-key = {{ $files.stores.minio.access_key | default "username" | quote }}
-            secret-key = {{ $files.stores.minio.secret_key | default "password" | quote }}
-            bucket = {{ $files.stores.minio.bucket | default "docspell" | quote }}
+            endpoint = {{ $files.stores.minio.endpoint | quote }}
+            access-key = {{ $files.stores.minio.access_key | quote }}
+            secret-key = {{ $files.stores.minio.secret_key | quote }}
+            bucket = {{ $files.stores.minio.bucket | quote }}
           }
         }
       }
@@ -560,10 +559,10 @@ stringData:
         backend = "solr"
         solr = {
           url = {{ printf "http://%v:%v@%v-solr:8983/%v" .Values.solr.solrUsername (.Values.solr.solrPassword | trimAll "\"") .Release.Name .Values.solr.solrCores | quote }}
-          commit-within = {{ $full_text_search.solr.commit_within | default 1000 }}
-          log-verbose = {{ $full_text_search.solr.log_verbose | default false }}
-          def-type = {{ $full_text_search.solr.def_type | default "lucene" | quote }}
-          q-op = {{ $full_text_search.solr.q_op | default "OR" | quote }}
+          commit-within = {{ $full_text_search.solr.commit_within }}
+          log-verbose = {{ $full_text_search.solr.log_verbose }}
+          def-type = {{ $full_text_search.solr.def_type | quote }}
+          q-op = {{ $full_text_search.solr.q_op | quote }}
         }
         postgresql = {
           use-default-connection = false
@@ -578,7 +577,7 @@ stringData:
           pg-rank-normalization = [ 4 ]
         }
         migration = {
-          index-all-chunk = {{ $full_text_search.migration.index_all_chunk | default 10 }}
+          index-all-chunk = {{ $full_text_search.migration.index_all_chunk }}
         }
       }
       {{- $addons := $joex.addons }}
@@ -594,7 +593,7 @@ stringData:
             container-wait = "100 millis"
           }
           fail-fast = {{ $addons.executor_config.fail_fast }}
-          run-timeout = {{ $addons.executor_config.run_timeout | default "15 minutes" | quote }}
+          run-timeout = {{ $addons.executor_config.run_timeout | quote }}
           nix-runner {
             nix-binary = "nix"
             build-timeout = "15 minutes"
