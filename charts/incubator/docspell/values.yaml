@@ -26,12 +26,14 @@ securityContext:
 
 dsc:
   # -- You need to enable integration endpoint with HTTP Header in rest server
+  # -- If you enable allowed IPs you also need 127.0.0.1 as an entry there
   enabled: false
   # move | delete
   imported_action: move
   not_match_glob: "**/.*"
   match_glob: ""
   language: ""
+  tag: ""
 
 rest_server:
   # -- App name, shows on the top right corner
@@ -73,7 +75,7 @@ rest_server:
   download_all:
     # -- How many files to allow in a zip.
     max_files: 500
-    # --- The maximum (uncompressed) size of the zip file contents.
+    # -- The maximum (uncompressed) size of the zip file contents.
     max_size: 1400M
   openid:
     - enabled: false
@@ -143,7 +145,7 @@ rest_server:
     # -- Enable or disable debugging for e-mail related functionality
     mail_debug: false
     database_schema:
-      # --  Whether to run main database migrations.
+      # -- Whether to run main database migrations.
       run_main_migrations: true
       # -- Whether to run the fixup migrations.
       run_fixup_migrations: true
@@ -208,7 +210,7 @@ joex:
     # -- Use with care. This repairs all migrations in the database by updating their checksums and removing failed migrations.
     repair_schema: false
   # -- Enable or disable debugging for e-mail related functionality. This applies to both sending and receiving mails.
-  # mail_debug: false
+  mail_debug: false
   send_mail:
     # -- This is used as the List-Id e-mail header when mails are sent from docspell to its users
     list_id: ""

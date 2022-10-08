@@ -21,6 +21,9 @@ command:
   {{- if .Values.dsc.language }}
   - --language {{ .Values.dsc.language }}
   {{- end }}
+  {{- if .Values.dsc.tag }}
+  - --tag {{ .Values.dsc.tag }}
+  {{- end }}
   {{- if .Values.dsc.not_match_glob }}
   - --not-matches
   - {{ .Values.dsc.not_match_glob | quote }}

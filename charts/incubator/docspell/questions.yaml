@@ -50,6 +50,340 @@ questions:
           schema:
             type: string
             default: ""
+        - variable: tag
+          label: Tag
+          schema:
+            type: string
+            default: ""
+  - variable: rest_server
+    group: Container Configuration
+    label: Rest Server Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: app_name
+          label: App Name
+          description: App name, shows on the top right corner
+          schema:
+            type: string
+            default: Docspell
+        - variable: base_url
+          label: Base URL
+          description: This is the base URL this application is deployed to.
+          schema:
+            type: string
+            default: ""
+        - variable: server_opts
+          label: Server Options
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enable_http2
+                label: Enable HTTP2
+                schema:
+                  type: boolean
+                  default: false
+              - variable: max_connections
+                label: Max Connections
+                schema:
+                  type: int
+                  default: 1024
+              - variable: response_timeout
+                label: Response Timeout
+                schema:
+                  type: string
+                  default: 45s
+        - variable: max_item_page_size
+          label: Max Item Page Size
+          description: This is a hard limit to restrict the size of a batch that is returned when searching for items.
+          schema:
+            type: int
+            default: 200
+        - variable: max_note_length
+          label: Max Note Length
+          description: The number of characters to return for each item notes when searching.
+          schema:
+            type: int
+            default: 180
+        - variable: show_classification_settings
+          label: Show Classification Settings
+          description: This defines whether the classification form in the collective settings is displayed or not.
+          schema:
+            type: boolean
+            default: true
+        - variable: auth
+          label: Auth
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: session_valid
+                label: Session Valid
+                description: How long a authentication token is valid
+                schema:
+                  type: string
+                  default: 5 minutes
+              - variable: remember_me
+                label: Remember Me
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enable Remember Me
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: valid
+                      label: Valid
+                      description: How long the remember me cookie/token is valid.
+                      schema:
+                        type: string
+                        default: 30 days
+        - variable: download_all
+          label: Download
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: max_files
+                label: Max Files
+                description: How many files to allow in a zip
+                schema:
+                  type: int
+                  default: 500
+              - variable: max_size
+                label: Max Size
+                description: The maximum (uncompressed) size of the zip file contents.
+                schema:
+                  type: string
+                  default: 1400M
+        - variable: integration_endpoint
+          label: Integration Endpoint
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enable Integration Endpoint
+                schema:
+                  type: boolean
+                  default: false
+              - variable: priority
+                label: Priority
+                description: The priority to use when submitting files through this endpoint.
+                schema:
+                  type: string
+                  default: low
+                  enum:
+                    - value: low
+                      description: low
+                    - value: high
+                      description: high
+              - variable: source_name
+                label: Source Name
+                description: The name used for the item "source" property when uploaded through this endpoint.
+                schema:
+                  type: string
+                  default: integration
+              - variable: allowed_ips
+                label: Allowed IPS
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enable Allowed IPs
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: ips
+                      label: IPs
+                      schema:
+                        type: list
+                        # TODO: Check how it's rendered on GUI
+                        default: ["127.0.0.1"]
+                        items:
+                          - variable: ipEntry
+                            label: IP Entry
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+              - variable: http_basic_auth
+                label: HTTP Basic Auth
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enable HTTP Basic Auth
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: realm
+                      label: Realm
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: user
+                      label: User
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: password
+                      label: Password
+                      schema:
+                        type: string
+                        private: true
+                        default: ""
+              - variable: http_header
+                label: HTTP Header
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enable HTTP Header
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: header_name
+                      label: Header Name
+                      schema:
+                        type: string
+                        default: Docspell-Integration
+                    - variable: header_value
+                      label: Header Value
+                      schema:
+                        type: string
+                        private: true
+                        default: some-secret
+        - variable: admin_endpoint
+          label: Admin Endpoint
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: secret
+                label: Secret
+                description: Disables endpoint if empty
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+        - variable: backend
+          label: Backend
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: mail_debug
+                label: Mail Debug
+                description: Enable or disable debugging for e-mail related functionality
+                schema:
+                  type: boolean
+                  default: false
+              - variable: database_schema
+                label: Database Schema
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: run_main_migrations
+                      label: Run Main Migrations
+                      description: Whether to run main database migrations.
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: run_fixup_migrations
+                      label: Run Fixup Migrations
+                      description: Whether to run fixup database migrations.
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: repair_schema
+                      label: Repair Schema
+                      description: Use with care. This repairs all migrations in the database by updating their checksums and removing failed migrations.
+                      schema:
+                        type: boolean
+                        default: false
+              - variable: signup
+                label: Signup
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: mode
+                      label: Mode
+                      description: The mode defines if new users can signup or not.
+                      schema:
+                        type: string
+                        default: open
+                        enum:
+                          - value: open
+                            description: open
+                          - value: invite
+                            description: invite
+                          - value: closed
+                            description: closed
+                    - variable: invite_time
+                      label: Invite Time
+                      description: This is the period an invitation token is considered valid.
+                      schema:
+                        type: string
+                        default: 3 days
+  - variable: joex
+    group: Container Configuration
+    label: Job Executor Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: database_schema
+          label: Database Schema
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: run_main_migrations
+                label: Run Main Migrations
+                description: Whether to run main database migrations.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: run_fixup_migrations
+                label: Run Fixup Migrations
+                description: Whether to run fixup database migrations.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: repair_schema
+                label: Repair Schema
+                description: Use with care. This repairs all migrations in the database by updating their checksums and removing failed migrations.
+                schema:
+                  type: boolean
+                  default: false
+        - variable: mail_debug
+          label: Mail Debug
+          description: Enable or disable debugging for e-mail related functionality. This applies to both sending and receiving mails.
+          schema:
+            type: boolean
+            default: false
+        - variable: send_mail
+          label: Send Mail
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: list_id
+                label: List ID
+                description: Enable or disable debugging for e-mail related functionality. This applies to both sending and receiving mails.
+                schema:
+                  type: string
+                  default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
