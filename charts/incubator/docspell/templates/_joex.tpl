@@ -17,11 +17,9 @@ volumeMounts:
 ports:
   - containerPort: {{ .Values.service.joex.ports.joex.port }}
     name: joex
-{{/*
-TODO:
 readinessProbe:
   httpGet:
-    path: /outpost.goauthentik.io/ping
+    path: /
     port: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
@@ -29,7 +27,7 @@ readinessProbe:
   failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
 livenessProbe:
   httpGet:
-    path: /outpost.goauthentik.io/ping
+    path: /
     port: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
   initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
@@ -37,11 +35,10 @@ livenessProbe:
   failureThreshold: {{ .Values.probes.liveness.spec.failureThreshold }}
 startupProbe:
   httpGet:
-    path: /outpost.goauthentik.io/ping
+    path: /
     port: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
   initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
   failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
-  */}}
 {{- end -}}
