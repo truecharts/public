@@ -136,8 +136,12 @@ stringData:
         source-name = {{ $integration_endpoint.source_name | default "integration" | quote }}
         allowed-ips {
           enabled = {{ $integration_endpoint.allowed_ips.enabled | default false }}
-          # TODO:
-          ips = [ "127.0.0.1" ]
+          ips = [
+            {{- range initial $integration_endpoint.allowed_ips.ips }}
+            {{ . | quote }},
+            {{- end }}
+            {{ last $integration_endpoint.allowed_ips.ips | quote }}
+          ]
         }
         http-basic {
           enabled = {{ $integration_endpoint.http_basic_auth.enabled | default false }}
@@ -201,8 +205,12 @@ stringData:
         {{- $files := $server.backend.files }}
         files {
           chunk-size = {{ $files.chunk_size }}
-          # TODO:
-          valid-mime-types = [ ]
+          valid-mime-types = [
+            {{- range initial $files.valid_mime_types }}
+            {{ . | quote }},
+            {{- end }}
+            {{ last $files.valid_mime_types | quote }}
+          ]
           default-store = {{ $files.default_store | default "database" | quote }}
           stores = {
             database = {
