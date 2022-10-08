@@ -158,7 +158,7 @@ stringData:
       admin-endpoint {
         secret = {{ $server.admin_endpoint.secret | default "" | quote }}
       }
-      {{- $full_text_search := $server.full_text_search -}}
+      {{- $full_text_search := $server.full_text_search }}
       full-text-search {
         enabled = true
         backend = "solr"
@@ -547,22 +547,23 @@ stringData:
           }
         }
       }
+      {{- $full_text_search := $joex.full_text_search }}
       full-text-search {
-        enabled = false
+        enabled = true
         backend = "solr"
         solr = {
-          url = "http://localhost:8983/solr/docspell"
-          commit-within = 1000
-          log-verbose = false
-          def-type = "lucene"
-          q-op = "OR"
+          url = {{ printf "http://%v:%v@%v-solr:8983/%v" .Values.solr.solrUsername (.Values.solr.solrPassword | trimAll "\"") .Release.Name .Values.solr.solrCores | quote }}
+          commit-within = {{ $full_text_search.solr.commit_within | default 1000 }}
+          log-verbose = {{ $full_text_search.solr.log_verbose | default false }}
+          def-type = {{ $full_text_search.solr.def_type | default "lucene" | quote }}
+          q-op = {{ $full_text_search.solr.q_op | default "OR" | quote }}
         }
         postgresql = {
           use-default-connection = false
           jdbc {
-            url = "jdbc:postgresql://server:5432/db"
-            user = "pguser"
-            password = ""
+            url = {{ printf "jdbc:postgresql://%v-%v:5432/%v" .Release.Name "postgresql" .Values.postgresql.postgresqlDatabase | quote }}
+            user = {{ .Values.postgresql.postgresqlUsername | quote }}
+            password = {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | quote }}
           }
           pg-config = {
           }
@@ -570,15 +571,15 @@ stringData:
           pg-rank-normalization = [ 4 ]
         }
         migration = {
-          index-all-chunk = 10
+          index-all-chunk = {{ $full_text_search.migration.index_all_chunk | default 10 }}
         }
       }
       {{- $addons := $joex.addons }}
       addons {
-        working-dir = {{ $tmpDir }}/docspell-addons"
-        cache-dir = {{ $tmpDir }}/docspell-addon-cache"
+        working-dir = {{ $addons.working_dir }}
+        cache-dir = {{ $addons.cache_dir }}
         executor-config {
-          runner = "trivial"
+          runner = {{ $addons.executor_config.runner }}
           nspawn = {
             enabled = false
             sudo-binary = "sudo"

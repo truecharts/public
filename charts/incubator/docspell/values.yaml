@@ -417,8 +417,19 @@ joex:
       filesystem:
         enabled: false
         directory: /documents
+  full_text_search:
+    solr:
+      commit_within: 1000
+      log_verbose: false
+      def_type: lucene
+      q_op: OR
+    migration:
+      index_all_chunk: 10
   addons:
+    working_dir: /tmp/docspell-addons
+    cache_dir: /tmp/docspell-addons-cache
     executor_config:
+      runner: trivial
       fail_fast: true
       run_timeout: 15 minutes
 
