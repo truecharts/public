@@ -52,8 +52,10 @@ questions:
           label: "Log Level"
           schema:
             type: string
-            default: "info"
+            default: "auto"
             enum:
+              - value: "auto"
+                description: "auto"
               - value: "info"
                 description: "info"
               - value: "debug"
