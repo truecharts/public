@@ -351,8 +351,12 @@ stringData:
         schedule = {{ $house_keeping.update_check.schedule | default "Sun *-*-* 00:00:00 UTC" | quote }}
         sender-account = {{ $house_keeping.update_check.sender_account | default "" | quote }}
         smtp-id = {{ $house_keeping.update_check.smtp_id | default "" | quote }}
-        # TODO:
-        recipients = []
+        recipients = [
+          {{- range initial $house_keeping.update_check.recipients }}
+          {{ . | quote }},
+          {{- end }}
+          {{ last $house_keeping.update_check.recipients | quote }}
+        ]
         subject = {{ $house_keeping.update_check.subject | default "Docspeasdll {{ latestVersion }} is available" | quote }}
         body = {{ $house_keeping.update_check.body | default "You need to define a body!" | quote }}
       }
@@ -508,15 +512,23 @@ stringData:
         }
         decrypt-pdf = {
           enabled = {{ $convert.decrypt_pdf.enabled }}
-          # TODO:
-          passwords = []
+          passwords = [
+            {{- range initial $convert.decrypt_pdf.passwords }}
+            {{ . | quote }},
+            {{- end }}
+            {{ last $convert.decrypt_pdf.passwords | quote }}
+          ]
         }
       }
       {{ $files := $joex.files }}
       files {
         chunk-size = {{ $files.chunk_size }}
-        # TODO:
-        valid-mime-types = [ ]
+        valid-mime-types = [
+          {{- range initial $files.valid_mime_types }}
+          {{ . | quote }},
+          {{- end }}
+          {{ last $files.valid_mime_types | quote }}
+        ]
         default-store = {{ $files.default_store | default "database" | quote }}
         stores = {
           database = {

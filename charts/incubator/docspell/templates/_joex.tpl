@@ -18,6 +18,7 @@ ports:
   - containerPort: {{ .Values.service.joex.ports.joex.port }}
     name: joex
 {{/*
+TODO:
 readinessProbe:
   httpGet:
     path: /outpost.goauthentik.io/ping
