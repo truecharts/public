@@ -14,60 +14,63 @@ questions:
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
   - variable: secretEnv
-    group: "Container Configuration"
-    label: "Image Secrets"
+    group: Container Configuration
+    label: Image Secrets
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: FIREFLY_III_ACCESS_TOKEN
-          label: "FIREFLYIII ACCESS TOKEN"
-          description: "Acess Token for Fireflyiii."
+          label: Firefly III Access Token
+          description: Access Token for Firefly III.
           schema:
             type: string
             required: true
             default: ""
         - variable: NORDIGEN_ID
-          label: "NORDIGEN ID"
-          description: "is your Nordigen Client ID."
+          label: Nordigen ID
+          description: Your Nordigen Client ID.
           schema:
             type: string
             default: ""
         - variable: NORDIGEN_KEY
-          label: "NORDIGEN KEY"
-          description: "Is your Nordigen Client SECRET."
+          label: Nordigen Key
+          description: Your Nordigen Client SECRET.
           schema:
             type: string
+            private: true
             default: ""
         - variable: SPECTRE_APP_ID
-          label: "SPECTRE APP ID"
-          description: "Is your Spectre / Salt Edge Client ID."
+          label: Spectre App ID
+          description: Your Spectre / Salt Edge Client ID.
           schema:
             type: string
             default: ""
         - variable: SPECTRE_SECRET
-          label: "SPECTRE SECRET"
-          description: "Is your Spectre / Salt Edge Client secret."
+          label: Spectre Secret
+          description: Is your Spectre / Salt Edge Client secret.
           schema:
             type: string
+            private: true
             default: ""
   - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
+    group: Container Configuration
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: FIREFLY_III_URL
-          label: "FIREFLYIII URL"
-          description: "Url for Fireflyiii. `http(s)://` is needed."
+          label: Firefly III URL
+          description: "URL for Firefly III. `http(s)://` is needed."
           schema:
             type: string
             required: true
+            default: ""
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -75,22 +78,22 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 10580
                               required: true
 # Include{advancedPortHTTP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 8080
@@ -101,7 +104,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -114,42 +117,42 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568

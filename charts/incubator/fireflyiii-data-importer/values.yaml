@@ -3,33 +3,33 @@ image:
   pullPolicy: IfNotPresent
   tag: 0.9.16@sha256:53462b22258af5dabe98919f6c0c4ebaf7bc22c597ba840320fc208f13c3a745
 
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
 
 secretEnv:
   # User Defined
-  # FIREFLY_III_ACCESS_TOKEN: ""
-  # NORDIGEN_ID: ""
-  # NORDIGEN_KEY: ""
-  # SPECTRE_APP_ID: ""
-  # SPECTRE_SECRET: ""
+  FIREFLY_III_ACCESS_TOKEN: ""
+  NORDIGEN_ID: ""
+  NORDIGEN_KEY: ""
+  SPECTRE_APP_ID: ""
+  SPECTRE_SECRET: ""
 
 env:
   # User Defined
-  # FIREFLY_III_URL: ""
+  FIREFLY_III_URL: ""
 
 service:
   main:
     ports:
       main:
+        port: 10580
         protocol: HTTP
         targetPort: 8080
-        port: 10580
 
 portal:
   enabled: true
