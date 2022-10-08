@@ -384,6 +384,204 @@ questions:
                 schema:
                   type: string
                   default: ""
+        - variable: scheduler
+          label: Scheduler
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: pool_size
+                label: Pool Size
+                description: Number of processing allowed in parallel.
+                schema:
+                  type: int
+                  default: 1
+              - variable: counting_scheme
+                label: Counting Scheme
+                description: A counting scheme determines the ratio of how high and low priority jobs are run.
+                schema:
+                  type: string
+                  default: 4,1
+              - variable: retries
+                label: Retries
+                description: How many times a failed job should be retried until it enters failed state.
+                schema:
+                  type: int
+                  default: 2
+              - variable: retry_delay
+                label: Retry Delay
+                description: The delay until the next try is performed for a failed job.
+                schema:
+                  type: string
+                  default: 1 minute
+              - variable: log_buffer_size
+                label: Log Buffer Size
+                description: The queue size of log statements from a job.
+                schema:
+                  type: int
+                  default: 500
+              - variable: wakeup_period
+                label: Wakeup Period
+                description: If no job is left in the queue, the scheduler will wait until a notify is requested.
+                schema:
+                  type: string
+                  default: 30 minutes
+        - variable: periodic_scheduler
+          label: Periodic Scheduler
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: wakeup_period
+                label: Wakeup Period
+                description: A fallback to start looking for due periodic tasks regularly.
+                schema:
+                  type: string
+                  default: 10 minutes
+        - variable: user_tasks
+          label: User Tasks
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: scan_mailbox
+                label: Scan Mailbox
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: max_folders
+                      label: Max Folders
+                      description: A limit of how many folders to scan through.
+                      schema:
+                        type: int
+                        default: 50
+                    - variable: mail_chunk_size
+                      label: Mail Chunk Size
+                      description: How many mails (headers only) to retrieve in one chunk.
+                      schema:
+                        type: int
+                        default: 50
+                    - variable: max_mails
+                      label: Max Mails
+                      description: A limit on how many mails to process in one job run.
+                      schema:
+                        type: int
+                        default: 500
+        - variable: house_keeping
+          label: House Keeping
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: schedule
+                label: Schedule
+                description: When the house keeping tasks execute.
+                schema:
+                  type: string
+                  default: Sun *-*-* 00:00:00 UTC
+              - variable: cleanup_invites
+                label: Cleanup Invites
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enable Invite Cleanup
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: older_than
+                      label: Older Than
+                      description: The minimum age of invites to be deleted.
+                      schema:
+                        type: string
+                        default: 30 days
+              - variable: cleanup_remember_me
+                label: Cleanup Remember Me
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enable Remember Me Cleanup
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: older_than
+                      label: Older Than
+                      description: The minimum age of tokens to be deleted.
+                      schema:
+                        type: string
+                        default: 30 days
+              - variable: cleanup_jobs
+                label: Cleanup Jobs
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enable Jobs Cleanup
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: older_than
+                      label: Older Than
+                      description: The minimum age of jobs to delete.
+                      schema:
+                        type: string
+                        default: 30 days
+                    - variable: delete_batch
+                      label: Delete Batch
+                      description: This defines how many jobs are deleted in one transaction.
+                      schema:
+                        type: int
+                        default: 100
+              - variable: cleanup_downloads
+                label: Cleanup Downloads
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enable Downloads Cleanup
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: older_than
+                      label: Older Than
+                      description: The minimum age of a download file to be deleted.
+                      schema:
+                        type: string
+                        default: 14 days
+              - variable: check_nodes
+                label: Check Nodes
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enable Check Nodes
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: min_not_found
+                      label: Min Not Found
+                      description: How often the node must be unreachable, before it is removed.
+                      schema:
+                        type: int
+                        default: 2
+              - variable: integrity_check
+                label: Integrity Check
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enable Integrity Check
+                      schema:
+                        type: boolean
+                        default: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
