@@ -2,6 +2,47 @@
 
 
 
+## [home-assistant-15.0.59](https://github.com/truecharts/charts/compare/home-assistant-15.0.58...home-assistant-15.0.59) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [home-assistant-15.0.59](https://github.com/truecharts/charts/compare/home-assistant-15.0.58...home-assistant-15.0.59) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [home-assistant-15.0.58](https://github.com/truecharts/charts/compare/home-assistant-15.0.57...home-assistant-15.0.58) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
+## [home-assistant-15.0.57](https://github.com/truecharts/charts/compare/home-assistant-15.0.56...home-assistant-15.0.57) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [home-assistant-15.0.55](https://github.com/truecharts/charts/compare/home-assistant-15.0.54...home-assistant-15.0.55) (2022-09-27)
 
 ### Chore

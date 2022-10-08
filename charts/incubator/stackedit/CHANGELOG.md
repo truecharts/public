@@ -2,6 +2,38 @@
 
 
 
+## [stackedit-0.0.28](https://github.com/truecharts/charts/compare/stackedit-0.0.27...stackedit-0.0.28) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [stackedit-0.0.28](https://github.com/truecharts/charts/compare/stackedit-0.0.27...stackedit-0.0.28) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [stackedit-0.0.27](https://github.com/truecharts/charts/compare/stackedit-0.0.26...stackedit-0.0.27) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [stackedit-0.0.26](https://github.com/truecharts/charts/compare/stackedit-0.0.25...stackedit-0.0.26) (2022-09-27)
 
 ### Chore

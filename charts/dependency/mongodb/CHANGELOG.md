@@ -2,6 +2,37 @@
 
 
 
+## [mongodb-2.0.30](https://github.com/truecharts/charts/compare/mongodb-2.0.29...mongodb-2.0.30) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
+## [mongodb-2.0.29](https://github.com/truecharts/charts/compare/mongodb-2.0.28...mongodb-2.0.29) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.6.11 ([#4021](https://github.com/truecharts/charts/issues/4021))
+
+
+
+
+## [mongodb-2.0.28](https://github.com/truecharts/charts/compare/mongodb-2.0.27...mongodb-2.0.28) (2022-10-04)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#4001](https://github.com/truecharts/charts/issues/4001))
+
+
+
+
 ## [mongodb-2.0.27](https://github.com/truecharts/charts/compare/mongodb-2.0.26...mongodb-2.0.27) (2022-10-01)
 
 ### Chore

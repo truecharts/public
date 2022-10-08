@@ -2,6 +2,37 @@
 
 
 
+## [openkm-7.0.44](https://github.com/truecharts/charts/compare/openkm-7.0.43...openkm-7.0.44) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [openkm-7.0.44](https://github.com/truecharts/charts/compare/openkm-7.0.43...openkm-7.0.44) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [openkm-7.0.43](https://github.com/truecharts/charts/compare/openkm-7.0.42...openkm-7.0.43) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [openkm-7.0.41](https://github.com/truecharts/charts/compare/openkm-7.0.40...openkm-7.0.41) (2022-09-27)
 
 ### Chore

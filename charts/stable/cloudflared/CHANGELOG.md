@@ -2,6 +2,38 @@
 
 
 
+## [cloudflared-1.0.19](https://github.com/truecharts/charts/compare/cloudflared-1.0.18...cloudflared-1.0.19) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [cloudflared-1.0.19](https://github.com/truecharts/charts/compare/cloudflared-1.0.18...cloudflared-1.0.19) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [cloudflared-1.0.18](https://github.com/truecharts/charts/compare/cloudflared-1.0.17...cloudflared-1.0.18) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [cloudflared-1.0.17](https://github.com/truecharts/charts/compare/cloudflared-1.0.16...cloudflared-1.0.17) (2022-09-27)
 
 ### Chore

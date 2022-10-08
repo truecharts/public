@@ -2,6 +2,37 @@
 
 
 
+## [traccar-7.0.45](https://github.com/truecharts/charts/compare/traccar-7.0.44...traccar-7.0.45) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [traccar-7.0.45](https://github.com/truecharts/charts/compare/traccar-7.0.44...traccar-7.0.45) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [traccar-7.0.44](https://github.com/truecharts/charts/compare/traccar-7.0.43...traccar-7.0.44) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [traccar-7.0.42](https://github.com/truecharts/charts/compare/traccar-7.0.41...traccar-7.0.42) (2022-09-27)
 
 ### Chore

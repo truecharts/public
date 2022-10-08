@@ -2,6 +2,38 @@
 
 
 
+## [qdirstat-1.0.14](https://github.com/truecharts/charts/compare/qdirstat-1.0.13...qdirstat-1.0.14) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [qdirstat-1.0.14](https://github.com/truecharts/charts/compare/qdirstat-1.0.13...qdirstat-1.0.14) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [qdirstat-1.0.13](https://github.com/truecharts/charts/compare/qdirstat-1.0.12...qdirstat-1.0.13) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [qdirstat-1.0.12](https://github.com/truecharts/charts/compare/qdirstat-1.0.11...qdirstat-1.0.12) (2022-09-27)
 
 ### Chore

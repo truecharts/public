@@ -2,6 +2,39 @@
 
 
 
+## [cloudbeaver-0.0.29](https://github.com/truecharts/charts/compare/cloudbeaver-0.0.28...cloudbeaver-0.0.29) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [cloudbeaver-0.0.29](https://github.com/truecharts/charts/compare/cloudbeaver-0.0.28...cloudbeaver-0.0.29) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [cloudbeaver-0.0.28](https://github.com/truecharts/charts/compare/cloudbeaver-0.0.27...cloudbeaver-0.0.28) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+  - update docker general non-major ([#3920](https://github.com/truecharts/charts/issues/3920))
+
+
+
+
 ## [cloudbeaver-0.0.27](https://github.com/truecharts/charts/compare/cloudbeaver-0.0.26...cloudbeaver-0.0.27) (2022-09-27)
 
 ### Chore

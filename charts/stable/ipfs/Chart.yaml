@@ -1,8 +1,8 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: ipfs
-version: 3.0.38
-appVersion: "0.15.0"
+version: 3.0.41
+appVersion: "0.16.0"
 description: IPFS is a global, versioned, peer-to-peer filesystem. It combines good ideas from previous systems such Git, BitTorrent, Kademlia, SFS, and the Web. It is like a single bittorrent swarm, exchanging git objects.
 type: application
 deprecated: false
@@ -16,7 +16,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.6.4
+    version: 10.6.11
     # condition:
 maintainers:
   - email: info@truecharts.org

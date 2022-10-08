@@ -2,6 +2,47 @@
 
 
 
+## [inventree-4.0.18](https://github.com/truecharts/charts/compare/inventree-4.0.17...inventree-4.0.18) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [inventree-4.0.18](https://github.com/truecharts/charts/compare/inventree-4.0.17...inventree-4.0.18) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [inventree-4.0.17](https://github.com/truecharts/charts/compare/inventree-4.0.16...inventree-4.0.17) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
+## [inventree-4.0.16](https://github.com/truecharts/charts/compare/inventree-4.0.15...inventree-4.0.16) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [inventree-4.0.14](https://github.com/truecharts/charts/compare/inventree-4.0.13...inventree-4.0.14) (2022-09-27)
 
 ### Chore

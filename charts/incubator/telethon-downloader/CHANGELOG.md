@@ -2,6 +2,47 @@
 
 
 
+## [telethon-downloader-0.0.31](https://github.com/truecharts/charts/compare/telethon-downloader-0.0.30...telethon-downloader-0.0.31) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [telethon-downloader-0.0.31](https://github.com/truecharts/charts/compare/telethon-downloader-0.0.30...telethon-downloader-0.0.31) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [telethon-downloader-0.0.30](https://github.com/truecharts/charts/compare/telethon-downloader-0.0.29...telethon-downloader-0.0.30) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [telethon-downloader-0.0.29](https://github.com/truecharts/charts/compare/telethon-downloader-0.0.28...telethon-downloader-0.0.29) (2022-10-04)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4001](https://github.com/truecharts/charts/issues/4001))
+
+
+
+
 ## [telethon-downloader-0.0.28](https://github.com/truecharts/charts/compare/telethon-downloader-0.0.27...telethon-downloader-0.0.28) (2022-10-03)
 
 ### Chore

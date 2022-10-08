@@ -2,6 +2,49 @@
 
 
 
+## [wger-1.1.16](https://github.com/truecharts/charts/compare/wger-1.1.15...wger-1.1.16) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [wger-1.1.16](https://github.com/truecharts/charts/compare/wger-1.1.15...wger-1.1.16) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [wger-1.1.15](https://github.com/truecharts/charts/compare/wger-1.1.14...wger-1.1.15) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
+## [wger-1.1.14](https://github.com/truecharts/charts/compare/wger-1.1.13...wger-1.1.14) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+  - update docker general non-major
+
+
+
+
 ## [wger-1.1.13](https://github.com/truecharts/charts/compare/wger-1.1.12...wger-1.1.13) (2022-10-01)
 
 ### Chore

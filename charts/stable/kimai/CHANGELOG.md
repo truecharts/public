@@ -2,6 +2,37 @@
 
 
 
+## [kimai-3.0.41](https://github.com/truecharts/charts/compare/kimai-3.0.40...kimai-3.0.41) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [kimai-3.0.41](https://github.com/truecharts/charts/compare/kimai-3.0.40...kimai-3.0.41) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [kimai-3.0.40](https://github.com/truecharts/charts/compare/kimai-3.0.39...kimai-3.0.40) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [kimai-3.0.38](https://github.com/truecharts/charts/compare/kimai-3.0.37...kimai-3.0.38) (2022-09-27)
 
 ### Chore

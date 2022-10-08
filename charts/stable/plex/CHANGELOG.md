@@ -2,6 +2,46 @@
 
 
 
+## [plex-10.2.15](https://github.com/truecharts/charts/compare/plex-10.2.14...plex-10.2.15) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [plex-10.2.15](https://github.com/truecharts/charts/compare/plex-10.2.14...plex-10.2.15) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [plex-10.2.14](https://github.com/truecharts/charts/compare/plex-10.2.13...plex-10.2.14) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
+## [plex-10.2.13](https://github.com/truecharts/charts/compare/plextraktsync-1.0.5...plex-10.2.13) (2022-10-05)
+
+### Chore
+
+- update helm general non-major
+
+
+
+
 ## [plex-10.2.12](https://github.com/truecharts/charts/compare/plex-meta-manager-0.0.26...plex-10.2.12) (2022-09-30)
 
 ### Chore

@@ -2,6 +2,17 @@
 
 
 
+## [clickhouse-1.0.35](https://github.com/truecharts/charts/compare/clickhouse-1.0.34...clickhouse-1.0.35) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm chart common to v10.6.11 ([#4021](https://github.com/truecharts/charts/issues/4021))
+
+
+
+
 ## [clickhouse-1.0.34](https://github.com/truecharts/charts/compare/clickhouse-1.0.33...clickhouse-1.0.34) (2022-10-01)
 
 ### Chore

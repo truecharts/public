@@ -2,6 +2,35 @@
 
 
 
+## [novnc-3.0.35](https://github.com/truecharts/charts/compare/prusaslicer-novnc-0.0.36...novnc-3.0.35) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [novnc-3.0.35](https://github.com/truecharts/charts/compare/prusaslicer-novnc-0.0.36...novnc-3.0.35) (2022-10-07)
+
+### Chore
+
+- update helm general non-major
+
+
+
+
+## [novnc-3.0.34](https://github.com/truecharts/charts/compare/cura-novnc-0.0.28...novnc-3.0.34) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [novnc-3.0.33](https://github.com/truecharts/charts/compare/novnc-3.0.32...novnc-3.0.33) (2022-09-27)
 
 ### Chore

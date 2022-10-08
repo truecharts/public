@@ -2,6 +2,37 @@
 
 
 
+## [youtubedl-material-1.0.13](https://github.com/truecharts/charts/compare/youtubedl-material-1.0.12...youtubedl-material-1.0.13) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [youtubedl-material-1.0.13](https://github.com/truecharts/charts/compare/youtubedl-material-1.0.12...youtubedl-material-1.0.13) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [youtubedl-material-1.0.12](https://github.com/truecharts/charts/compare/youtubedl-material-1.0.11...youtubedl-material-1.0.12) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [youtubedl-material-1.0.10](https://github.com/truecharts/charts/compare/youtubedl-material-1.0.9...youtubedl-material-1.0.10) (2022-09-27)
 
 ### Chore

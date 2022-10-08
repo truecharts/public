@@ -2,6 +2,37 @@
 
 
 
+## [etesync-0.0.39](https://github.com/truecharts/charts/compare/etesync-0.0.38...etesync-0.0.39) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [etesync-0.0.39](https://github.com/truecharts/charts/compare/etesync-0.0.38...etesync-0.0.39) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [etesync-0.0.38](https://github.com/truecharts/charts/compare/etesync-0.0.37...etesync-0.0.38) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [etesync-0.0.36](https://github.com/truecharts/charts/compare/etesync-0.0.35...etesync-0.0.36) (2022-09-27)
 
 ### Chore

@@ -2,6 +2,38 @@
 
 
 
+## [pihole-6.0.44](https://github.com/truecharts/charts/compare/pihole-6.0.43...pihole-6.0.44) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [pihole-6.0.44](https://github.com/truecharts/charts/compare/pihole-6.0.43...pihole-6.0.44) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [pihole-6.0.43](https://github.com/truecharts/charts/compare/pihole-6.0.42...pihole-6.0.43) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [pihole-6.0.42](https://github.com/truecharts/charts/compare/pihole-6.0.41...pihole-6.0.42) (2022-09-27)
 
 ### Chore

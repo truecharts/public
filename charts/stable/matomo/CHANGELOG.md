@@ -2,6 +2,49 @@
 
 
 
+## [matomo-3.0.74](https://github.com/truecharts/charts/compare/matomo-3.0.72...matomo-3.0.74) (2022-10-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#4030](https://github.com/truecharts/charts/issues/4030))
+  - update helm general non-major
+
+
+
+
+## [matomo-3.0.73](https://github.com/truecharts/charts/compare/matomo-3.0.72...matomo-3.0.73) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [matomo-3.0.72](https://github.com/truecharts/charts/compare/matomo-3.0.71...matomo-3.0.72) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [matomo-3.0.71](https://github.com/truecharts/charts/compare/matomo-3.0.70...matomo-3.0.71) (2022-10-04)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#4001](https://github.com/truecharts/charts/issues/4001))
+
+
+
+
 ## [matomo-3.0.70](https://github.com/truecharts/charts/compare/matomo-3.0.69...matomo-3.0.70) (2022-10-01)
 
 ### Chore

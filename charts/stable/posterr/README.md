@@ -1,17 +1,17 @@
 # posterr
 
-Media display for Plex, sonarr and radarr
+Media display for Plex, Sonarr and Radarr.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [posterr](https://truecharts.org/docs/charts/incubator/posterr)
+For more information, please click here: [posterr](https://truecharts.org/docs/charts/stable/posterr)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/posterr>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/posterr>
 * <https://github.com/petersem/posterr>
 * <https://hub.docker.com/r/petersem/posterr/>
 
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.6.4 |
+| https://library-charts.truecharts.org | common | 10.6.11 |
 
 ## Installing the Chart
 

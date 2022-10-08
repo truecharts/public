@@ -2,6 +2,39 @@
 
 
 
+## [jitsi-0.0.38](https://github.com/truecharts/charts/compare/jitsi-0.0.36...jitsi-0.0.38) (2022-10-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#4030](https://github.com/truecharts/charts/issues/4030))
+  - update helm general non-major
+
+
+
+
+## [jitsi-0.0.37](https://github.com/truecharts/charts/compare/jitsi-0.0.36...jitsi-0.0.37) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [jitsi-0.0.36](https://github.com/truecharts/charts/compare/jitsi-0.0.35...jitsi-0.0.36) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [jitsi-0.0.35](https://github.com/truecharts/charts/compare/jitsi-0.0.34...jitsi-0.0.35) (2022-09-30)
 
 ### Chore

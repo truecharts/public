@@ -2,6 +2,49 @@
 
 
 
+## [homepage-0.0.10](https://github.com/truecharts/charts/compare/homepage-0.0.9...homepage-0.0.10) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [homepage-0.0.10](https://github.com/truecharts/charts/compare/homepage-0.0.9...homepage-0.0.10) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [homepage-0.0.9](https://github.com/truecharts/charts/compare/homepage-0.0.8...homepage-0.0.9) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
+## [homepage-0.0.8](https://github.com/truecharts/charts/compare/homepage-0.0.7...homepage-0.0.8) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+  - update docker general non-major
+
+
+
+
 ## [homepage-0.0.7](https://github.com/truecharts/charts/compare/homepage-0.0.6...homepage-0.0.7) (2022-09-27)
 
 ### Feat

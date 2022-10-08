@@ -2,6 +2,48 @@
 
 
 
+## [esphome-11.0.44](https://github.com/truecharts/charts/compare/esphome-11.0.43...esphome-11.0.44) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [esphome-11.0.44](https://github.com/truecharts/charts/compare/esphome-11.0.43...esphome-11.0.44) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [esphome-11.0.43](https://github.com/truecharts/charts/compare/esphome-11.0.42...esphome-11.0.43) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
+## [esphome-11.0.42](https://github.com/truecharts/charts/compare/esphome-11.0.41...esphome-11.0.42) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [esphome-11.0.41](https://github.com/truecharts/charts/compare/esphome-11.0.40...esphome-11.0.41) (2022-09-30)
 
 ### Chore

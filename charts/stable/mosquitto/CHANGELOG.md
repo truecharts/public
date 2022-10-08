@@ -2,6 +2,48 @@
 
 
 
+## [mosquitto-6.1.6](https://github.com/truecharts/charts/compare/mosquitto-6.1.5...mosquitto-6.1.6) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [mosquitto-6.1.6](https://github.com/truecharts/charts/compare/mosquitto-6.1.5...mosquitto-6.1.6) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [mosquitto-6.1.5](https://github.com/truecharts/charts/compare/mosquitto-6.1.4...mosquitto-6.1.5) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
+## [mosquitto-6.1.4](https://github.com/truecharts/charts/compare/mosquitto-6.1.3...mosquitto-6.1.4) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [mosquitto-6.1.3](https://github.com/truecharts/charts/compare/mosquitto-6.1.2...mosquitto-6.1.3) (2022-09-27)
 
 ### Chore

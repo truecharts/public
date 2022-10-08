@@ -2,6 +2,38 @@
 
 
 
+## [portainer-ce-1.0.3](https://github.com/truecharts/charts/compare/portainer-ce-1.0.2...portainer-ce-1.0.3) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [portainer-ce-1.0.3](https://github.com/truecharts/charts/compare/portainer-ce-1.0.2...portainer-ce-1.0.3) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [portainer-ce-1.0.2](https://github.com/truecharts/charts/compare/portainer-ce-1.0.1...portainer-ce-1.0.2) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [portainer-ce-1.0.1](https://github.com/truecharts/charts/compare/portainer-ce-1.0.0...portainer-ce-1.0.1) (2022-09-30)
 
 ### Chore

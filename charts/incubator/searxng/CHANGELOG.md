@@ -2,6 +2,39 @@
 
 
 
+## [searxng-0.0.53](https://github.com/truecharts/charts/compare/searxng-0.0.52...searxng-0.0.53) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [searxng-0.0.53](https://github.com/truecharts/charts/compare/searxng-0.0.52...searxng-0.0.53) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [searxng-0.0.52](https://github.com/truecharts/charts/compare/searxng-0.0.51...searxng-0.0.52) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+  - update docker general non-major
+
+
+
+
 ## [searxng-0.0.51](https://github.com/truecharts/charts/compare/searxng-0.0.50...searxng-0.0.51) (2022-10-01)
 
 ### Chore

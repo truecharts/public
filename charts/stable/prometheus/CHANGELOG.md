@@ -2,6 +2,69 @@
 
 
 
+## [prometheus-4.0.101](https://github.com/truecharts/charts/compare/prometheus-4.0.99...prometheus-4.0.101) (2022-10-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#4030](https://github.com/truecharts/charts/issues/4030))
+  - update helm general non-major
+
+
+
+
+## [prometheus-4.0.100](https://github.com/truecharts/charts/compare/prometheus-4.0.99...prometheus-4.0.100) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [prometheus-4.0.99](https://github.com/truecharts/charts/compare/prometheus-4.0.98...prometheus-4.0.99) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
+## [prometheus-4.0.98](https://github.com/truecharts/charts/compare/prometheus-4.0.97...prometheus-4.0.98) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [prometheus-4.0.97](https://github.com/truecharts/charts/compare/prometheus-4.0.96...prometheus-4.0.97) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4010](https://github.com/truecharts/charts/issues/4010))
+
+
+
+
+## [prometheus-4.0.96](https://github.com/truecharts/charts/compare/prometheus-4.0.95...prometheus-4.0.96) (2022-10-04)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4001](https://github.com/truecharts/charts/issues/4001))
+  - update docker general non-major
+
+
+
+
 ## [prometheus-4.0.95](https://github.com/truecharts/charts/compare/prometheus-4.0.94...prometheus-4.0.95) (2022-10-01)
 
 ### Chore

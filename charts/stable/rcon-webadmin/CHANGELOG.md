@@ -2,6 +2,38 @@
 
 
 
+## [rcon-webadmin-1.0.5](https://github.com/truecharts/charts/compare/rcon-webadmin-1.0.4...rcon-webadmin-1.0.5) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [rcon-webadmin-1.0.5](https://github.com/truecharts/charts/compare/rcon-webadmin-1.0.4...rcon-webadmin-1.0.5) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [rcon-webadmin-1.0.4](https://github.com/truecharts/charts/compare/rcon-webadmin-1.0.3...rcon-webadmin-1.0.4) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [rcon-webadmin-1.0.3](https://github.com/truecharts/charts/compare/rcon-webadmin-1.0.2...rcon-webadmin-1.0.3) (2022-09-27)
 
 ### Chore

@@ -2,6 +2,38 @@
 
 
 
+## [piaware-6.0.40](https://github.com/truecharts/charts/compare/piaware-6.0.39...piaware-6.0.40) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [piaware-6.0.40](https://github.com/truecharts/charts/compare/piaware-6.0.39...piaware-6.0.40) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [piaware-6.0.39](https://github.com/truecharts/charts/compare/piaware-6.0.38...piaware-6.0.39) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [piaware-6.0.38](https://github.com/truecharts/charts/compare/piaware-6.0.37...piaware-6.0.38) (2022-09-27)
 
 ### Chore

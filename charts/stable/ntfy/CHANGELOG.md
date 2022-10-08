@@ -2,6 +2,38 @@
 
 
 
+## [ntfy-2.0.39](https://github.com/truecharts/charts/compare/ntfy-2.0.38...ntfy-2.0.39) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [ntfy-2.0.39](https://github.com/truecharts/charts/compare/ntfy-2.0.38...ntfy-2.0.39) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [ntfy-2.0.38](https://github.com/truecharts/charts/compare/ntfy-2.0.37...ntfy-2.0.38) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [ntfy-2.0.37](https://github.com/truecharts/charts/compare/ntfy-2.0.36...ntfy-2.0.37) (2022-09-28)
 
 ### Chore

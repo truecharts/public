@@ -2,6 +2,47 @@
 
 
 
+## [snipe-it-4.0.54](https://github.com/truecharts/charts/compare/snipe-it-4.0.53...snipe-it-4.0.54) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [snipe-it-4.0.54](https://github.com/truecharts/charts/compare/snipe-it-4.0.53...snipe-it-4.0.54) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [snipe-it-4.0.53](https://github.com/truecharts/charts/compare/snipe-it-4.0.52...snipe-it-4.0.53) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
+## [snipe-it-4.0.52](https://github.com/truecharts/charts/compare/snipe-it-4.0.51...snipe-it-4.0.52) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [snipe-it-4.0.50](https://github.com/truecharts/charts/compare/snipe-it-4.0.49...snipe-it-4.0.50) (2022-09-27)
 
 ### Chore

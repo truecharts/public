@@ -2,6 +2,48 @@
 
 
 
+## [flatnotes-0.0.7](https://github.com/truecharts/charts/compare/flatnotes-0.0.6...flatnotes-0.0.7) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [flatnotes-0.0.7](https://github.com/truecharts/charts/compare/flatnotes-0.0.6...flatnotes-0.0.7) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [flatnotes-0.0.6](https://github.com/truecharts/charts/compare/flatnotes-0.0.5...flatnotes-0.0.6) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [flatnotes-0.0.5](https://github.com/truecharts/charts/compare/flatnotes-0.0.4...flatnotes-0.0.5) (2022-10-04)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update container image tccr.io/truecharts/flatnotes to v2.0.0 ([#4002](https://github.com/truecharts/charts/issues/4002))
+
+
+
+
 ## [flatnotes-0.0.4](https://github.com/truecharts/charts/compare/flatnotes-0.0.3...flatnotes-0.0.4) (2022-09-27)
 
 ### Chore

@@ -2,6 +2,38 @@
 
 
 
+## [paperless-ng-4.0.46](https://github.com/truecharts/charts/compare/paperless-ng-4.0.45...paperless-ng-4.0.46) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [paperless-ng-4.0.46](https://github.com/truecharts/charts/compare/paperless-ng-4.0.45...paperless-ng-4.0.46) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [paperless-ng-4.0.45](https://github.com/truecharts/charts/compare/paperless-ng-4.0.44...paperless-ng-4.0.45) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [paperless-ng-4.0.44](https://github.com/truecharts/charts/compare/paperless-ng-4.0.43...paperless-ng-4.0.44) (2022-09-28)
 
 ### Chore

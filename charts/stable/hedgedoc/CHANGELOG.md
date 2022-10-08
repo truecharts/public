@@ -2,6 +2,59 @@
 
 
 
+## [hedgedoc-4.0.54](https://github.com/truecharts/charts/compare/hedgedoc-4.0.52...hedgedoc-4.0.54) (2022-10-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#4030](https://github.com/truecharts/charts/issues/4030))
+  - update helm general non-major
+
+
+
+
+## [hedgedoc-4.0.53](https://github.com/truecharts/charts/compare/hedgedoc-4.0.52...hedgedoc-4.0.53) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [hedgedoc-4.0.52](https://github.com/truecharts/charts/compare/hedgedoc-4.0.51...hedgedoc-4.0.52) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
+## [hedgedoc-4.0.51](https://github.com/truecharts/charts/compare/hedgedoc-4.0.50...hedgedoc-4.0.51) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [hedgedoc-4.0.50](https://github.com/truecharts/charts/compare/hedgedoc-4.0.49...hedgedoc-4.0.50) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#4010](https://github.com/truecharts/charts/issues/4010))
+  - update docker general non-major
+
+
+
+
 ## [hedgedoc-4.0.48](https://github.com/truecharts/charts/compare/hedgedoc-4.0.47...hedgedoc-4.0.48) (2022-09-27)
 
 ### Chore

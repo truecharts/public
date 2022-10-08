@@ -2,6 +2,39 @@
 
 
 
+## [boinc-2.0.54](https://github.com/truecharts/charts/compare/boinc-2.0.53...boinc-2.0.54) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [boinc-2.0.54](https://github.com/truecharts/charts/compare/boinc-2.0.53...boinc-2.0.54) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [boinc-2.0.53](https://github.com/truecharts/charts/compare/boinc-2.0.52...boinc-2.0.53) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+  - update docker general non-major
+
+
+
+
 ## [boinc-2.0.52](https://github.com/truecharts/charts/compare/boinc-2.0.51...boinc-2.0.52) (2022-09-27)
 
 ### Chore

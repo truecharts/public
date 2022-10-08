@@ -2,6 +2,28 @@
 
 
 
+
+## [sdtd-1.0.7](https://github.com/truecharts/charts/compare/sdtd-1.0.6...sdtd-1.0.7) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [sdtd-1.0.6](https://github.com/truecharts/charts/compare/sdtd-1.0.5...sdtd-1.0.6) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [sdtd-1.0.5](https://github.com/truecharts/charts/compare/sdtd-1.0.4...sdtd-1.0.5) (2022-09-27)
 
 ### Chore

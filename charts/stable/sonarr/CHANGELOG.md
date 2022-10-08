@@ -2,6 +2,38 @@
 
 
 
+## [sonarr-11.0.39](https://github.com/truecharts/charts/compare/sonarr-11.0.38...sonarr-11.0.39) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [sonarr-11.0.39](https://github.com/truecharts/charts/compare/sonarr-11.0.38...sonarr-11.0.39) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [sonarr-11.0.38](https://github.com/truecharts/charts/compare/sonarr-11.0.37...sonarr-11.0.38) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [sonarr-11.0.37](https://github.com/truecharts/charts/compare/sonarr-11.0.36...sonarr-11.0.37) (2022-09-27)
 
 ### Chore

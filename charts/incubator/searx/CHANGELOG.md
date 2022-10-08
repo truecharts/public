@@ -2,6 +2,49 @@
 
 
 
+## [searx-0.0.40](https://github.com/truecharts/charts/compare/searx-0.0.39...searx-0.0.40) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [searx-0.0.40](https://github.com/truecharts/charts/compare/searx-0.0.39...searx-0.0.40) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [searx-0.0.39](https://github.com/truecharts/charts/compare/searx-0.0.38...searx-0.0.39) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [searx-0.0.38](https://github.com/truecharts/charts/compare/searx-0.0.37...searx-0.0.38) (2022-10-04)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#4001](https://github.com/truecharts/charts/issues/4001))
+  - update docker general non-major
+
+
+
+
 ## [searx-0.0.37](https://github.com/truecharts/charts/compare/searxng-0.0.50...searx-0.0.37) (2022-10-01)
 
 ### Chore

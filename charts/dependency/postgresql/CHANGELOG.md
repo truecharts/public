@@ -2,6 +2,37 @@
 
 
 
+## [postgresql-8.0.95](https://github.com/truecharts/charts/compare/postgresql-8.0.94...postgresql-8.0.95) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
+## [postgresql-8.0.94](https://github.com/truecharts/charts/compare/postgresql-8.0.93...postgresql-8.0.94) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.6.11 ([#4021](https://github.com/truecharts/charts/issues/4021))
+
+
+
+
+## [postgresql-8.0.93](https://github.com/truecharts/charts/compare/postgresql-8.0.92...postgresql-8.0.93) (2022-10-04)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#4001](https://github.com/truecharts/charts/issues/4001))
+
+
+
+
 ## [postgresql-8.0.92](https://github.com/truecharts/charts/compare/postgresql-8.0.91...postgresql-8.0.92) (2022-10-01)
 
 ### Chore

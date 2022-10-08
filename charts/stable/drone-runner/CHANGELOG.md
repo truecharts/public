@@ -2,6 +2,38 @@
 
 
 
+## [drone-runner-1.0.11](https://github.com/truecharts/charts/compare/drone-runner-1.0.10...drone-runner-1.0.11) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [drone-runner-1.0.11](https://github.com/truecharts/charts/compare/drone-runner-1.0.10...drone-runner-1.0.11) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [drone-runner-1.0.10](https://github.com/truecharts/charts/compare/drone-runner-1.0.9...drone-runner-1.0.10) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [drone-runner-1.0.9](https://github.com/truecharts/charts/compare/drone-runner-1.0.8...drone-runner-1.0.9) (2022-09-27)
 
 ### Chore

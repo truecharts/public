@@ -2,6 +2,38 @@
 
 
 
+## [owncloud-ocis-8.1.6](https://github.com/truecharts/charts/compare/owncloud-ocis-8.1.5...owncloud-ocis-8.1.6) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [owncloud-ocis-8.1.6](https://github.com/truecharts/charts/compare/owncloud-ocis-8.1.5...owncloud-ocis-8.1.6) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [owncloud-ocis-8.1.5](https://github.com/truecharts/charts/compare/owncloud-ocis-8.1.4...owncloud-ocis-8.1.5) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [owncloud-ocis-8.1.4](https://github.com/truecharts/charts/compare/owncloud-ocis-8.1.3...owncloud-ocis-8.1.4) (2022-09-27)
 
 ### Chore

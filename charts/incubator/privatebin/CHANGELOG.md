@@ -2,6 +2,37 @@
 
 
 
+## [privatebin-0.0.43](https://github.com/truecharts/charts/compare/privatebin-0.0.42...privatebin-0.0.43) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [privatebin-0.0.43](https://github.com/truecharts/charts/compare/privatebin-0.0.42...privatebin-0.0.43) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [privatebin-0.0.42](https://github.com/truecharts/charts/compare/privatebin-0.0.41...privatebin-0.0.42) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
 ## [privatebin-0.0.40](https://github.com/truecharts/charts/compare/privatebin-0.0.39...privatebin-0.0.40) (2022-09-27)
 
 ### Chore

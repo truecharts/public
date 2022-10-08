@@ -2,6 +2,39 @@
 
 
 
+## [batnoter-0.0.6](https://github.com/truecharts/charts/compare/batnoter-0.0.5...batnoter-0.0.6) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [batnoter-0.0.6](https://github.com/truecharts/charts/compare/batnoter-0.0.5...batnoter-0.0.6) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [batnoter-0.0.5](https://github.com/truecharts/charts/compare/batnoter-0.0.4...batnoter-0.0.5) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+  - update docker general non-major
+
+
+
+
 ## [batnoter-0.0.4](https://github.com/truecharts/charts/compare/batnoter-0.0.3...batnoter-0.0.4) (2022-09-27)
 
 ### Chore
