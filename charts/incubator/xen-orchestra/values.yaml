@@ -3,6 +3,15 @@ image:
   tag: 5.102.3@sha256:b8b08278060895a3a889709faddda505c4c426ad1fa50b4953ea8ff317ecc861
   pullPolicy: IfNotPresent
 
+command:
+  - /bin/sh
+  - -c
+  - |
+    echo "Injecting redis config..."
+    redisURI={{ printf "redis://%v:%v@%v-redis:6379/%v" .Values.redis.redisUsername .Values.redis.redisPassword .Release.Name .Values.redis.redisDatabase }}
+    sed -i "s/^uri.*redis.*$/$redisURI/" "/xo-server.toml.j2"
+    echo "Done!"
+    /run.sh
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -57,6 +66,12 @@ persistence:
   redis-data:
     enabled: true
     mountPath: "/var/lib/redis"
+
+redis:
+  enabled: true
+  existingSecret: rediscreds
+  redisUsername: xen
+  redisDatabase: "0"
 
 portal:
   enabled: true

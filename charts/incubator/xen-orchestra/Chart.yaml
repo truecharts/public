@@ -4,6 +4,10 @@ dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 10.6.11
+  - condition: redis.enabled
+    name: redis
+    repository: https://charts.truecharts.org
+    version: 3.0.92
 description: Xen-Orchestra is a Web-UI for managing your existing XenServer infrastructure.
 home: https://truecharts.org/docs/charts/stable/airsonic
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.png
