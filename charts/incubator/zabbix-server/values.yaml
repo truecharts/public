@@ -232,10 +232,10 @@ persistence:
     noMount: true
     mountPath: /etc/zabbix/web/certs
   # Java Gateway
-    javagateway_libs:
-      enabled: true
-      noMount: true
-      mountPath: /usr/sbin/zabbix_java/ext_lib
+  javagateway_libs:
+    enabled: true
+    noMount: true
+    mountPath: /usr/sbin/zabbix_java/ext_lib
   # SNMP Traps and Server
   snmp_traps:
     enabled: true
