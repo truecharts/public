@@ -4,18 +4,21 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  # readOnlyRootFilesystem: false
+  # runAsNonRoot: false
   capabilities:
     add:
       - SYS_ADMIN
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
 
 env:
-  HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+  HTTPS_PORT: "{{ .Values.service.main.ports.main.port }}"
+  # Just so it doesn't try to bind port 80
+  HTTP_PORT: "{{ add1 .Values.service.main.ports.main.port }}"
+  REDIRECT_TO_HTTPS: true
 
 probes:
   liveness:
@@ -44,6 +47,7 @@ service:
   main:
     ports:
       main:
+        procotol: HTTPS
         port: 10324
 
 persistence:
