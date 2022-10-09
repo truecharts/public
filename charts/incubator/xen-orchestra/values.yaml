@@ -8,10 +8,12 @@ command:
   - -c
   - |
     echo "Injecting redis config..."
-    redisURI={{ printf "redis://%v:%v@%v-redis:6379/%v" .Values.redis.redisUsername .Values.redis.redisPassword .Release.Name .Values.redis.redisDatabase }}
+    redisURI="{{ printf "redis://%v:%v@%v-redis:6379/%v" .Values.redis.redisUsername (.Values.redis.redisPassword | trimAll "\"") .Release.Name .Values.redis.redisDatabase }}"
     sed -i "s/^uri.*redis.*$/$redisURI/" "/xo-server.toml.j2"
     echo "Done!"
+    echo "Starting Xen Orchestra!"
     /run.sh
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
