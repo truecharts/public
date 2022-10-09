@@ -27,7 +27,7 @@ securityContext:
 dsc:
   # -- You need to enable integration endpoint with HTTP Header in rest server
   # -- If you enable allowed IPs you also need 127.0.0.1 as an entry there
-  enabled: false
+  enabled: true
   # move | delete
   imported_action: move
   not_match_glob: "**/.*"
@@ -110,7 +110,7 @@ rest_server:
       user_key: login
   oidc_auto_redirect: true
   integration_endpoint:
-    enabled: false
+    enabled: true
     # -- The priority to use when submitting files through this endpoint.
     # low | high
     priority: low

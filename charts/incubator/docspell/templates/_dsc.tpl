@@ -11,7 +11,7 @@ volumeMounts:
   - name: import
     mountPath: /import
 command:
-  - dsc
+  - /usr/local/bin/dsc
   - {{ printf "%v:%v" "http://localhost" .Values.service.main.ports.main.port | quote }}
   - watch
   - --recursive
