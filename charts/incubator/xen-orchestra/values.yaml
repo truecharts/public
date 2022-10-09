@@ -1,0 +1,35 @@
+image:
+  repository: tccr.io/truecharts/xenorchestra
+  tag: 5.102.3@sha256:b8b08278060895a3a889709faddda505c4c426ad1fa50b4953ea8ff317ecc861
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+  capabilities:
+    add:
+      - SYS_ADMIN
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10324
+
+persistence:
+  xo_data:
+    enabled: true
+    mountPath: "/var/lib/xo-server"
+  redis_data:
+    enabled: true
+    mountPath: "/var/lib/redis"
+
+portal:
+  enabled: true
