@@ -486,6 +486,17 @@ joex:
       fail_fast: true
       run_timeout: 15 minutes
 
+probes:
+  liveness:
+    type: HTTP
+    path: /api/info/version
+  readiness:
+    type: HTTP
+    path: /api/info/version
+  startup:
+    type: HTTP
+    path: /api/info/version
+
 service:
   main:
     ports:
