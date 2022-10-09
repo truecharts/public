@@ -3,13 +3,13 @@ image:
   tag: latest@sha256:f3cd34d9a891056defb409ae6ef1a2793201236c772fae25be6940b5f99ee4b1
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 secretEnv:
   TELEGRAM_BOT_TOKEN: ""
