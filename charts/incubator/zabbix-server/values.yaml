@@ -18,6 +18,16 @@ snmptrapsImage:
   tag: 6.2.3@sha256:46142f4717a8e8f27da16a82690a62f6bbb18dc5db423610faec53cedf7db8fe
   pullPolicy: IfNotPresent
 
+javagatewayImage:
+  repository: tccr.io/truecharts/zabbix-java-gateway
+  tag: 6.2.3@sha256:d29d2025016a8e8a473be48020238edb89072a4adbb92af582a93216d5a76fd1
+  pullPolicy: IfNotPresent
+
+webServiceImage:
+  repository: tccr.io/truecharts/zabbix-web-service
+  tag: 6.2.3@sha256:295b685c16794e8fd2318c3abb61bff26460fd87c66beeedc9bfeaba27b46b4a
+  pullPolicy: IfNotPresent
+
 tty: true
 
 securityContext:
@@ -34,8 +44,6 @@ zabbix:
     listen_backlog: ""
     debug_level: 3
     timeout: 4
-    # TODO: add webservice
-    web_service_url: http://localhost:10053/report
     service_manager_sync_freq: 60
     start_report_writers: 0
     start_pollers: 5
@@ -82,10 +90,8 @@ zabbix:
     export_file_size: 1G
     export_type: []
     stats_allowed_ips: []
-    # TODO: add snmp traps
-    enable_snmp_traps: false
-    # TODO: add java gateway
-    java_gateway_enabled: false
+    enable_snmp_traps: true
+    java_gateway_enabled: true
   frontend:
     server_name: My Zabbix Server
     enable_access_logs: true
@@ -129,6 +135,13 @@ zabbix:
     psk_file: ""
     allow_key: ""
     deny_key: ""
+  javagateway:
+    start_pollers: 5
+    timeout: 3
+    debug_level: info
+  webservice:
+    debug_level: 3
+    timeout: 3
 
 envFrom:
   - secretRef:
@@ -157,6 +170,13 @@ service:
       agent:
         enabled: true
         port: 10050
+  webservice:
+    type: ClusterIP
+    enabled: true
+    ports:
+      webservice:
+        enabled: true
+        port: 10053
   snmptraps:
     enabled: true
     ports:
@@ -192,24 +212,6 @@ probes:
           - -ec
           - "until zabbix_server -R ha_status; do sleep 2; done"
 
-additionalContainers:
-  #   agent:
-  #     name: agent
-  #     image: "{{ .Values.agentImage.repository }}:{{ .Values.agentImage.tag }}"
-  #     env:
-  #       - name: ZBX_HOSTNAME
-  #         value: "{{ .Release.Name }}-{{ randAlphaNum 5 }}"
-  #       - name: ZBX_SERVER_HOST
-  #         value: "localhost"
-  #       - name: ZBX_SERVER_PORT
-  #         value: "{{ .Values.service.server.ports.server.targetPort }}"
-  snmptraps:
-    name: snmptraps
-    image: "{{ .Values.snmptrapsImage.repository }}:{{ .Values.snmptrapsImage.tag }}"
-    volumeMounts:
-      - name: snmptraps
-        mountPath: "/var/lib/zabbix/snmptraps"
-
 persistence:
   # Agent2 Volumes
   agent_conf:
@@ -229,10 +231,19 @@ persistence:
     enabled: true
     noMount: true
     mountPath: /etc/zabbix/web/certs
-  # Shared
-  snmptraps:
+  # SNMP Traps
+  snmp_traps:
     enabled: true
-    mountPath: "/var/lib/zabbix/snmptraps"
+    mountPath: /var/lib/zabbix/snmptraps
+  snmp_mibs:
+    enabled: true
+    noMount: true
+    mountPath: /var/lib/zabbix/mibs
+  # Java Gateway
+    javagateway_libs:
+      enabled: true
+      noMount: true
+      mountPath: /usr/sbin/zabbix_java/ext_lib
   # Server
   # alertscripts:
   #   enabled: true
@@ -258,16 +269,9 @@ persistence:
   # sslca:
   #   enabled: true
   #   mountPath: "/var/lib/zabbix/ssl/ssl_ca"
-  # mibs:
-  #   enabled: true
-  #   mountPath: "/var/lib/zabbix/mibs"
   # export:
   #   enabled: true
   #   mountPath: "/var/lib/zabbix/export"
-  # SNMP-Traps
-  # snmp-mibs:
-  #     enabled: true
-  #     mountPath: "/var/lib/zabbix/mibs"
 
 postgresql:
   enabled: true

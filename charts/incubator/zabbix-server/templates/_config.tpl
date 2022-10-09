@@ -5,6 +5,8 @@
 {{- $commonConfigName := printf "%s-common-config" (include "tc.common.names.fullname" .) }}
 {{- $webConfigName := printf "%s-web-config" (include "tc.common.names.fullname" .) }}
 {{- $agentConfigName := printf "%s-agent-config" (include "tc.common.names.fullname" .) }}
+{{- $javagatewayConfigName := printf "%s-javagateway-config" (include "tc.common.names.fullname" .) }}
+{{- $webserviceConfigName := printf "%s-webservice-config" (include "tc.common.names.fullname" .) }}
 
 ---
 
@@ -36,7 +38,7 @@ data:
   {{- end }}
   ZBX_DEBUGLEVEL: {{ $server.debug_level | quote }}
   ZBX_TIMEOUT: {{ $server.timeout | quote }}
-  ZBX_WEBSERVICEURL: {{ $server.web_service_url }}
+  ZBX_WEBSERVICEURL: http://localhost:{{ .Values.service.webservice.ports.webservice.port }}
   ZBX_SERVICEMANAGERSYNCFREQUENCY: {{ $server.service_manager_sync_freq | quote }}
   ZBX_STARTREPORTWRITERS: {{ $server.start_report_writers | quote }}
   ZBX_STARTPOLLERS: {{ $server.start_pollers | quote }}
@@ -165,4 +167,33 @@ data:
   PHP_FPM_PM_MIN_SPARE_SERVERS: {{ $frontend.php_fpm_pm_min_spare_servers | quote }}
   PHP_FPM_PM_MAX_SPARE_SERVERS: {{ $frontend.php_fpm_pm_max_spare_servers | quote }}
   PHP_FPM_PM_MAX_REQUESTS: {{ $frontend.php_fpm_pm_max_requests | quote }}
+
+---
+
+{{- $javagateway := .Values.zabbix.javagateway -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $javagatewayConfigName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
+  ZBX_START_POLLERS: {{ $javagateway.start_pollers | quote }}
+  ZBX_TIMEOUT: {{ $javagateway.timeout | quote }}
+  ZBX_DEBUGLEVEL: {{ $javagateway.debug_level }}
+
+---
+
+{{- $webservice := .Values.zabbix.webservice -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $webserviceConfigName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
+  ZBX_LISTENPORT: {{ .Values.service.webservice.ports.webservice.port }}
+  ZBX_ALLOWEDIP: localhost
+  ZBX_DEBUGLEVEL: {{ $webservice.debug_level | quote }}
+  ZBX_TIMEOUT: {{ $webservice.timeout | quote }}
 {{- end -}}
