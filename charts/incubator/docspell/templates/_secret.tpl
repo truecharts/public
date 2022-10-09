@@ -177,7 +177,7 @@ stringData:
         enabled = true
         backend = "solr"
         solr = {
-          url = {{ printf "http://%v:%v@%v-solr:8983/solr/%v" .Values.solr.solrUsername (.Values.solr.solrPassword | trimAll "\"") .Release.Name .Values.solr.solrCores | quote }}
+          url = {{ printf "http://%v-solr:8983/solr/%v" .Release.Name .Values.solr.solrCores | quote }}
           commit-within = {{ $full_text_search.solr.commit_within }}
           log-verbose = {{ $full_text_search.solr.log_verbose }}
           def-type = {{ $full_text_search.solr.def_type | quote }}
@@ -566,7 +566,7 @@ stringData:
         enabled = true
         backend = "solr"
         solr = {
-          url = {{ printf "http://%v:%v@%v-solr:8983/solr/%v" .Values.solr.solrUsername (.Values.solr.solrPassword | trimAll "\"") .Release.Name .Values.solr.solrCores | quote }}
+          url = {{ printf "http://%v-solr:8983/solr/%v" .Release.Name .Values.solr.solrCores | quote }}
           commit-within = {{ $full_text_search.solr.commit_within }}
           log-verbose = {{ $full_text_search.solr.log_verbose }}
           def-type = {{ $full_text_search.solr.def_type | quote }}
