@@ -11,8 +11,10 @@ volumeMounts:
   - name: import
     mountPath: /import
 command: 
-  - dsc
+  - /bin/sh
+  - -c
 args:
+  - dsc
   - -d
   - {{ printf "%v:%v" "http://localhost" .Values.service.main.ports.main.port | quote }}
   - watch
