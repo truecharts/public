@@ -1,1 +1,15 @@
-{{ include "tc.common.loader.all" . }}
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{/* Render secret */}}
+{{- include "zabbix.secret" . }}
+
+{{/* Render config */}}
+{{- include "zabbix.config" . }}
+
+{{- if .Values.workerContainer.enabled -}}
+{{- $_ := set .Values.additionalContainers "worker" (include "authentik.worker" . | fromYaml) -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}
