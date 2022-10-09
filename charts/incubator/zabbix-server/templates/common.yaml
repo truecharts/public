@@ -7,9 +7,7 @@
 {{/* Render config */}}
 {{- include "zabbix.config" . }}
 
-{{- if .Values.workerContainer.enabled -}}
-{{- $_ := set .Values.additionalContainers "worker" (include "authentik.worker" . | fromYaml) -}}
-{{- end -}}
+{{- $_ := set .Values.additionalContainers "web" (include "zabbix.web" . | fromYaml) -}}
 
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}

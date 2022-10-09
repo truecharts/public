@@ -11,13 +11,15 @@ envFrom:
       name: '{{ include "tc.common.names.fullname" . }}-common-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-common-config'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-web-config'
 ports:
-  - containerPort: 8080
+  - containerPort: {{ .Values.service.main.ports.main.targetPort }}
     name: main
 readinessProbe:
   httpGet:
     path: /
-    port: 8080
+    port: {{ .Values.service.main.ports.main.targetPort }}
   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
@@ -25,7 +27,7 @@ readinessProbe:
 livenessProbe:
   httpGet:
     path: /
-    port: 8080
+    port: {{ .Values.service.main.ports.main.targetPort }}
   initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
@@ -33,7 +35,7 @@ livenessProbe:
 startupProbe:
   httpGet:
     path: /
-    port: 8080
+    port: {{ .Values.service.main.ports.main.targetPort }}
   initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}

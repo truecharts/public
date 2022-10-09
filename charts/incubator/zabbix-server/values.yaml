@@ -27,6 +27,24 @@ zabbix:
   server:
   frontend:
     server_name: My Zabbix Server
+    enable_access_logs: true
+    max_execution_time: 300
+    memory_limit: 128M
+    post_max_size: 16M
+    upload_max_file_size: 2M
+    max_input_time: 300
+    session_name: zbx_sessionid
+    access_ip_range: []
+    deny_gui_access: false
+    warning_message: Zabbix Server is under maintenance
+    # Advanced
+    sso_settings: ""
+    php_fpm_pm: dynamic
+    php_fpm_pm_max_children: 50
+    php_fpm_pm_start_servers: 5
+    php_fpm_pm_min_spare_servers: 5
+    php_fpm_pm_max_spare_servers: 35
+    php_fpm_pm_max_requests: 0
   agent:
 
 env:
@@ -41,6 +59,8 @@ envFrom:
       name: '{{ include "tc.common.names.fullname" . }}-common-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-common-config'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-server-config'
 
 service:
   main:
@@ -53,8 +73,7 @@ service:
     ports:
       server:
         enabled: true
-        port: 10212
-        targetPort: 10051
+        port: 10051
   snmptraps:
     enabled: true
     ports:
@@ -90,16 +109,6 @@ probes:
           - -ec
           - "until zabbix_server -R ha_status; do sleep 2; done"
 
-frontendConfig:
-  ZBX_MAXEXECUTIONTIME: 300
-  ZBX_MEMORYLIMIT: "128M"
-  ZBX_POSTMAXSIZE: "16M"
-  ZBX_UPLOADMAXFILESIZE: "2M"
-  ZBX_MAXINPUTTIME: 300
-  ZBX_DENY_GUI_ACCESS: false
-  ZBX_GUI_ACCESS_IP_RANGE: ""
-  ZBX_GUI_WARNING_MSG: "My Zabbix instance is currently in maintenance"
-
 additionalContainers:
   #   agent:
   #     name: agent
@@ -117,31 +126,6 @@ additionalContainers:
     volumeMounts:
       - name: snmptraps
         mountPath: "/var/lib/zabbix/snmptraps"
-  front:
-    env:
-      # History storage HTTP[S] URL. This parameter is used for Elasticsearch setup.
-      # - name: ZBX_HISTORYSTORAGEURL
-      #   value: "ELASTICSEARCHURL"
-      # Array of value types to be sent to the history storage. An example: ['uint', 'dbl']. This parameter is used for Elasticsearch setup.
-      # - name: ZBX_HISTORYSTORAGETYPES
-      #   value: "['uint', 'dbl']"
-      # User Defined
-      - name: ZBX_MAXEXECUTIONTIME
-        value: "{{ .Values.frontendConfig.ZBX_MAXEXECUTIONTIME }}"
-      - name: ZBX_MEMORYLIMIT
-        value: "{{ .Values.frontendConfig.ZBX_MEMORYLIMIT }}"
-      - name: ZBX_POSTMAXSIZE
-        value: "{{ .Values.frontendConfig.ZBX_POSTMAXSIZE }}"
-      - name: ZBX_UPLOADMAXFILESIZE
-        value: "{{ .Values.frontendConfig.ZBX_UPLOADMAXFILESIZE }}"
-      - name: ZBX_MAXINPUTTIME
-        value: "{{ .Values.frontendConfig.ZBX_MAXINPUTTIME }}"
-      - name: ZBX_DENY_GUI_ACCESS
-        value: "{{ .Values.frontendConfig.ZBX_DENY_GUI_ACCESS }}"
-      - name: ZBX_GUI_ACCESS_IP_RANGE
-        value: "{{ .Values.frontendConfig.ZBX_GUI_ACCESS_IP_RANGE }}"
-      - name: ZBX_GUI_WARNING_MSG
-        value: "{{ .Values.frontendConfig.ZBX_GUI_WARNING_MSG }}"
 
 persistence:
   # Shared
