@@ -4,15 +4,15 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-  # readOnlyRootFilesystem: false
-  # runAsNonRoot: false
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
   capabilities:
     add:
       - SYS_ADMIN
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 env:
   HTTPS_PORT: "{{ .Values.service.main.ports.main.port }}"
@@ -27,21 +27,21 @@ probes:
     spec:
       exec:
         command:
-          - healthcheck.sh
+          - /healthcheck.sh
   readiness:
     enabled: true
     custom: true
     spec:
       exec:
         command:
-          - healthcheck.sh
+          - /healthcheck.sh
   startup:
     enabled: true
     custom: true
     spec:
       exec:
         command:
-          - healthcheck.sh
+          - /healthcheck.sh
 
 service:
   main:
