@@ -17,6 +17,29 @@ podSecurityContext:
 env:
   HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
 
+probes:
+  liveness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - healthcheck.sh
+  readiness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - healthcheck.sh
+  startup:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - healthcheck.sh
+
 service:
   main:
     ports:
