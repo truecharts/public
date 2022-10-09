@@ -27,6 +27,7 @@ service:
     ports:
       main:
         port: 8765
+        protocol: HTTP
         targetPort: 80
 
 persistence:
