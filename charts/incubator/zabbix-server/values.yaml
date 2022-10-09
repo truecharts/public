@@ -231,47 +231,46 @@ persistence:
     enabled: true
     noMount: true
     mountPath: /etc/zabbix/web/certs
-  # SNMP Traps
-  snmp_traps:
-    enabled: true
-    mountPath: /var/lib/zabbix/snmptraps
-  snmp_mibs:
-    enabled: true
-    noMount: true
-    mountPath: /var/lib/zabbix/mibs
   # Java Gateway
     javagateway_libs:
       enabled: true
       noMount: true
       mountPath: /usr/sbin/zabbix_java/ext_lib
+  # SNMP Traps and Server
+  snmp_traps:
+    enabled: true
+    mountPath: /var/lib/zabbix/snmptraps
+  snmp_mibs:
+    enabled: true
+    mountPath: /var/lib/zabbix/mibs
   # Server
-  # alertscripts:
-  #   enabled: true
-  #   mountPath: "/usr/lib/zabbix/alertscripts"
-  # externalscripts:
-  #   enabled: true
-  #   mountPath: "/usr/lib/zabbix/externalscripts"
-  # modules:
-  #   enabled: true
-  #   mountPath: "/var/lib/zabbix/modules"
-  # enc:
-  #   enabled: true
-  #   mountPath: "/var/lib/zabbix/enc"
-  # ssh_keys:
-  #   enabled: true
-  #   mountPath: "/var/lib/zabbix/ssh_keys"
-  # sslcerts:
-  #   enabled: true
-  #   mountPath: "/var/lib/zabbix/ssl/certs"
-  # sslkeys:
-  #   enabled: true
-  #   mountPath: "/var/lib/zabbix/ssl/keys"
-  # sslca:
-  #   enabled: true
-  #   mountPath: "/var/lib/zabbix/ssl/ssl_ca"
-  # export:
-  #   enabled: true
-  #   mountPath: "/var/lib/zabbix/export"
+  alertscripts:
+    enabled: true
+    mountPath: "/usr/lib/zabbix/alertscripts"
+  externalscripts:
+    enabled: true
+    mountPath: "/usr/lib/zabbix/externalscripts"
+  modules:
+    enabled: true
+    mountPath: "/var/lib/zabbix/modules"
+  enc:
+    enabled: true
+    mountPath: "/var/lib/zabbix/enc"
+  ssh_keys:
+    enabled: true
+    mountPath: "/var/lib/zabbix/ssh_keys"
+  sslcerts:
+    enabled: true
+    mountPath: "/var/lib/zabbix/ssl/certs"
+  sslkeys:
+    enabled: true
+    mountPath: "/var/lib/zabbix/ssl/keys"
+  sslca:
+    enabled: true
+    mountPath: "/var/lib/zabbix/ssl/ssl_ca"
+  export:
+    enabled: true
+    mountPath: "/var/lib/zabbix/export"
 
 postgresql:
   enabled: true
