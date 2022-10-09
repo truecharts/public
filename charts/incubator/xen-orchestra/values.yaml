@@ -12,6 +12,7 @@ command:
     sed -i "s/^uri.*redis.*$/$redisURI/" "/xo-server.toml.j2"
     echo "Done!"
     echo "Starting Xen Orchestra!"
+    cat "/xo-server.toml.j2"
     /run.sh
 
 securityContext:
