@@ -25,6 +25,16 @@ podSecurityContext:
 
 zabbix:
   server:
+    # 0 means use the upstream default.
+    listen_backlog: 0
+    start_report_writers: 0
+    start_pollers: 5
+    ipmi_pollers: 0
+    start_preprocessors: 3
+    start_pollers_unreachable: 1
+    start_trappers: 5
+    start_pingers: 1
+    start_discoverers: 1
   frontend:
     server_name: My Zabbix Server
     enable_access_logs: true
