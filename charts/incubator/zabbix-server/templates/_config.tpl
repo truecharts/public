@@ -4,6 +4,7 @@
 {{- $serverConfigName := printf "%s-server-config" (include "tc.common.names.fullname" .) }}
 {{- $commonConfigName := printf "%s-common-config" (include "tc.common.names.fullname" .) }}
 {{- $webConfigName := printf "%s-web-config" (include "tc.common.names.fullname" .) }}
+{{- $agentConfigName := printf "%s-agent-config" (include "tc.common.names.fullname" .) }}
 
 ---
 
@@ -20,6 +21,7 @@ data:
   POSTGRES_DB: {{ .Values.postgresql.postgresqlDatabase }}
 
 ---
+
 {{- $server := .Values.zabbix.server -}}
 apiVersion: v1
 kind: ConfigMap
@@ -32,6 +34,10 @@ data:
   {{- if $server.listen_backlog }}
   ZBX_LISTENBACKLOG: {{ $server.listen_backlog | quote }}
   {{- end }}
+  ZBX_DEBUGLEVEL: {{ $server.debug_level | quote }}
+  ZBX_TIMEOUT: {{ $server.timeout | quote }}
+  ZBX_WEBSERVICEURL: {{ $server.web_service_url }}
+  ZBX_SERVICEMANAGERSYNCFREQUENCY: {{ $server.service_manager_sync_freq | quote }}
   ZBX_STARTREPORTWRITERS: {{ $server.start_report_writers | quote }}
   ZBX_STARTPOLLERS: {{ $server.start_pollers | quote }}
   ZBX_IPMIPOLLERS: {{ $server.ipmi_pollers | quote }}
@@ -40,64 +46,92 @@ data:
   ZBX_STARTTRAPPERS: {{ $server.start_trappers | quote }}
   ZBX_STARTPINGERS: {{ $server.start_pingers | quote }}
   ZBX_STARTDISCOVERERS: {{ $server.start_discoverers | quote }}
-{{/*
-ZBX_STARTHISTORYPOLLERS=5 # Available since 5.4.0
-ZBX_STARTHTTPPOLLERS=1
-ZBX_STARTODBCPOLLERS=1 # Available since 6.0.0
-ZBX_STARTTIMERS=1
-ZBX_STARTESCALATORS=1
-ZBX_STARTALERTERS=3 # Available since 3.4.0
-ZBX_JAVAGATEWAY=zabbix-java-gateway
-ZBX_JAVAGATEWAYPORT=10052
-ZBX_STARTJAVAPOLLERS=5
-ZBX_STARTLLDPROCESSORS=2 # Available since 4.2.0
-ZBX_STATSALLOWEDIP= # Available since 4.0.5
-ZBX_STARTVMWARECOLLECTORS=0
-ZBX_VMWAREFREQUENCY=60
-ZBX_VMWAREPERFFREQUENCY=60
-ZBX_VMWARECACHESIZE=8M
-ZBX_VMWARETIMEOUT=10
-ZBX_ENABLE_SNMP_TRAPS=false
-ZBX_SOURCEIP=
-ZBX_HOUSEKEEPINGFREQUENCY=1
-ZBX_MAXHOUSEKEEPERDELETE=5000
-ZBX_PROBLEMHOUSEKEEPINGFREQUENCY=60 # Available since 6.0.0
-ZBX_SENDERFREQUENCY=30
-ZBX_CACHESIZE=8M
-ZBX_CACHEUPDATEFREQUENCY=60
-ZBX_STARTDBSYNCERS=4
-ZBX_EXPORTFILESIZE=1G # Available since 4.0.0
-ZBX_EXPORTTYPE= # Available since 5.0.10 and 5.2.6
-ZBX_AUTOHANODENAME=fqdn # Allowed values: fqdn, hostname. Available since 6.0.0
-ZBX_HANODENAME= # Available since 6.0.0
-ZBX_AUTONODEADDRESS=fqdn # Allowed values: fqdn, hostname. Available since 6.0.0
-ZBX_NODEADDRESSPORT=10051 # Allowed to use with ZBX_AUTONODEADDRESS variable only. Available since 6.0.0
-ZBX_NODEADDRESS=localhost # Available since 6.0.0
-ZBX_HISTORYCACHESIZE=16M
-ZBX_HISTORYINDEXCACHESIZE=4M
-ZBX_HISTORYSTORAGEDATEINDEX=0 # Available since 4.0.0
-ZBX_TRENDCACHESIZE=4M
-ZBX_TRENDFUNCTIONCACHESIZE=4M
-ZBX_VALUECACHESIZE=8M
-ZBX_TRAPPERTIMEOUT=300
-ZBX_UNREACHABLEPERIOD=45
-ZBX_UNAVAILABLEDELAY=60
-ZBX_UNREACHABLEDELAY=15
-ZBX_LOGSLOWQUERIES=3000
-ZBX_STARTPROXYPOLLERS=1
-ZBX_PROXYCONFIGFREQUENCY=3600
-ZBX_PROXYDATAFREQUENCY=1
-ZBX_TLSCAFILE=
-ZBX_TLSCRLFILE=
-ZBX_TLSCERTFILE=
-ZBX_TLSKEYFILE=
-ZBX_TLSCIPHERALL= # Available since 4.4.7
-ZBX_TLSCIPHERALL13= # Available since 4.4.7
-ZBX_TLSCIPHERCERT= # Available since 4.4.7
-ZBX_TLSCIPHERCERT13= # Available since 4.4.7
-ZBX_TLSCIPHERPSK= # Available since 4.4.7
-ZBX_TLSCIPHERPSK13= # Available since 4.4.7
-*/}}
+  ZBX_STARTHISTORYPOLLERS: {{ $server.start_history_pollers | quote }}
+  ZBX_STARTHTTPPOLLERS: {{ $server.start_http_pollers | quote }}
+  ZBX_STARTODBCPOLLERS: {{ $server.start_obdc_pollers | quote }}
+  ZBX_STARTTIMERS: {{ $server.start_timers | quote }}
+  ZBX_STARTESCALATORS: {{ $server.start_escalators | quote }}
+  ZBX_STARTALERTERS: {{ $server.start_alerters | quote }}
+  ZBX_STARTJAVAPOLLERS: {{ $server.start_java_pollers | quote }}
+  ZBX_STARTVMWARECOLLECTORS: {{ $server.start_vmware_colelctors | quote }}
+  ZBX_VMWAREFREQUENCY: {{ $server.vmware_frequency | quote }}
+  ZBX_VMWAREPERFFREQUENCY: {{ $server.vmware_perf_frequency | quote }}
+  ZBX_VMWARECACHESIZE: {{ $server.vmware_cache_size }}
+  ZBX_VMWARETIMEOUT: {{ $server.vmware_timeout | quote }}
+  ZBX_HOUSEKEEPINGFREQUENCY: {{ $server.housekeeping_freq | quote }}
+  ZBX_MAXHOUSEKEEPERDELETE: {{ $server.max_housekeeper_delete | quote }}
+  ZBX_PROBLEMHOUSEKEEPINGFREQUENCY: {{ $server.problem_housekeeper_freq | quote }}
+  ZBX_SENDERFREQUENCY: {{ $server.sender_freq | quote }}
+  ZBX_CACHESIZE: {{ $server.cache_size }}
+  ZBX_CACHEUPDATEFREQUENCY: {{ $server.cache_update_freq | quote }}
+  ZBX_STARTDBSYNCERS: {{ $server.start_db_syncers | quote }}
+  ZBX_HISTORYCACHESIZE: {{ $server.history_cache_size }}
+  ZBX_HISTORYINDEXCACHESIZE: {{ $server.history_index_cache_size}}
+  ZBX_HISTORYSTORAGEDATEINDEX: {{ ternary "1" "0" $server.history_storage_date_index }}
+  ZBX_TRENDCACHESIZE: {{ $server.trend_cache_size }}
+  ZBX_TRENDFUNCTIONCACHESIZE: {{ $server.trend_function_cache_size }}
+  ZBX_VALUECACHESIZE: {{ $server.value_cache_size }}
+  ZBX_TRAPPERTIMEOUT: {{ $server.trapper_timeout | quote }}
+  ZBX_UNREACHABLEPERIOD: {{ $server.unreachable_period | quote }}
+  ZBX_UNAVAILABLEDELAY: {{ $server.unavailable_delay | quote }}
+  ZBX_UNREACHABLEDELAY: {{ $server.unreachable_delay | quote }}
+  ZBX_LOGSLOWQUERIES: {{ $server.log_slow_queries | quote }}
+  ZBX_STARTPROXYPOLLERS: {{ $server.start_proxy_pollers | quote }}
+  ZBX_PROXYCONFIGFREQUENCY: {{ $server.proxy_config_freq | quote }}
+  ZBX_PROXYDATAFREQUENCY: {{ $server.proxy_data_freq | quote }}
+  ZBX_STARTLLDPROCESSORS: {{ $server.start_lld_processors | quote }}
+  ZBX_EXPORTFILESIZE: {{ $server.export_file_size }}
+  ZBX_EXPORTTYPE: "{{ range initial $server.export_type }}{{ . }},{{ end }}{{ with last $server.export_type }}{{ . }}{{ end }}"
+  ZBX_STATSALLOWEDIP: "{{ range initial $server.stats_allowed_ips }}{{ . }},{{ end }}{{ with last $server.stats_allowed_ips }}{{ . }}{{ end }}"
+  ZBX_ENABLE_SNMP_TRAPS: {{ $server.enable_snmp_traps | quote }}
+  ZBX_JAVAGATEWAY_ENABLE: {{ $server.java_gateway_enabled | quote }}
+  {{/* TODO: add javagateway
+  ZBX_JAVAGATEWAY: zabbix-java-gateway
+  ZBX_JAVAGATEWAYPORT: 10052
+  */}}
+
+---
+
+{{- $agent := .Values.zabbix.agent -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $agentConfigName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
+  ZBX_SERVER_HOST: localhost
+  ZBX_PASSIVESERVERS: localhost
+  ZBX_ACTIVESERVERS: localhost:{{ .Values.service.server.ports.server.port }}
+  {{- if not $agent.hostname_item }}
+  ZBX_HOSTNAME: {{ $agent.hostname }}
+  {{- end }}
+  {{- if not $agent.metadata_item }}
+  ZBX_METADATA: {{ $agent.metadata }}
+  {{- end }}
+  ZBX_METADATAITEM: {{ $agent.metadata_item }}
+  ZBX_HOSTNAMEITEM: {{ $agent.hostname_item }}
+  ZBX_SERVER_PORT: {{ .Values.service.server.ports.server.port }}
+  ZBX_PASSIVE_ALLOW: {{ $agent.passive_allow | quote }}
+  ZBX_ACTIVE_ALLOW: {{ $agent.active_allow | quote }}
+  ZBX_TIMEOUT: {{ $agent.timeout | quote }}
+  ZBX_ENABLEPERSISTENTBUFFER: {{ $agent.enable_persistent_buffer | quote }}
+  ZBX_PERSISTENTBUFFERPERIOD: {{ $agent.persistent_buffer_period }}
+  ZBX_LOGREMOTECOMMANDS: {{ ternary "1" "0" $agent.log_remote_commands }}
+  ZBX_STARTAGENTS: {{ $agent.start_agents | quote }}
+  ZBX_LISTENPORT: {{ .Values.service.agent.ports.agent.port }}
+  ZBX_REFRESHACTIVECHECKS: {{ $agent.refresh_active_checks | quote }}
+  ZBX_BUFFERSEND: {{ $agent.buffer_send | quote }}
+  ZBX_BUFFERSIZE: {{ $agent.buffer_size | quote }}
+  ZBX_MAXLINESPERSECOND: {{ $agent.max_line_per_second | quote }}
+  ZBX_UNSAFEUSERPARAMETERS: {{ ternary "1" "0" $agent.unsafe_user_parameters }}
+  ZBX_TLSCONNECT: {{ $agent.tls_connect }}
+  ZBX_TLSACCEPT: {{ $agent.tls_accept }}
+  ZBX_TLSPSKIDENTITY: {{ $agent.psk_identity }}
+  ZBX_TLSPSKFILE: {{ $agent.psk_file }}
+  ZBX_ALLOWKEY: {{ $agent.allow_key }}
+  ZBX_DENYKEY: {{ $agent.deny_key }}
+
 ---
 
 {{- $frontend := .Values.zabbix.frontend -}}

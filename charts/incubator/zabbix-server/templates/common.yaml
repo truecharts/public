@@ -8,6 +8,7 @@
 {{- include "zabbix.config" . }}
 
 {{- $_ := set .Values.additionalContainers "web" (include "zabbix.web" . | fromYaml) -}}
+{{- $_ := set .Values.additionalContainers "agent2" (include "zabbix.agent2" . | fromYaml) -}}
 
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}
