@@ -10,10 +10,8 @@ securityContext:
 volumeMounts:
   - name: import
     mountPath: /import
-command:
-  - /bin/sh
-  - -c
-  - dsc
+command: dsc
+args:
   - -d
   - {{ printf "%v:%v" "http://localhost" .Values.service.main.ports.main.port | quote }}
   - watch
