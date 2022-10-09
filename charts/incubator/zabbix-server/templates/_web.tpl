@@ -6,6 +6,9 @@ securityContext:
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
+volumeMounts:
+  - name: web_certs
+    mountPath: {{ .Values.persistence.web_certs.mountPath }}
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-common-secret'

@@ -224,7 +224,11 @@ persistence:
     enabled: true
     noMount: true
     mountPath: /var/lib/zabbix/buffer
-
+  # Web
+  web_certs:
+    enabled: true
+    noMount: true
+    mountPath: /etc/zabbix/web/certs
   # Shared
   snmptraps:
     enabled: true
