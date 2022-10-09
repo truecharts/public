@@ -20,11 +20,11 @@ command:
   - --header
   - {{ printf "%v:%v" .Values.rest_server.integration_endpoint.http_header.header_name .Values.rest_server.integration_endpoint.http_header.header_value | quote }}
   {{- if .Values.dsc.language }}
-  - --language 
+  - --language
   - {{ .Values.dsc.language }}
   {{- end }}
   {{- if .Values.dsc.tag }}
-  - --tag 
+  - --tag
   - {{ .Values.dsc.tag }}
   {{- end }}
   {{- if .Values.dsc.not_match_glob }}
@@ -38,7 +38,7 @@ command:
   {{- if eq .Values.dsc.imported_action "delete" }}
   - --delete
   {{- else if eq .Values.dsc.imported_action "move" }}
-  - --move 
+  - --move
   - {{ .Values.persistence.import.mountPath }}/imported
   {{- end }}
   - {{ .Values.persistence.import.mountPath }}/docs
