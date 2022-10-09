@@ -42,13 +42,13 @@ questions:
                                   description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
-                                    default: 10324
+                                    default: 4040
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: xo_data
+        - variable: xo-data
           label: App XO Data Storage
           description: Stores the Application XO Data.
           schema:
@@ -58,7 +58,7 @@ questions:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
 # Include{persistenceRoot}
-        - variable: redis_data
+        - variable: redis-data
           label: App Redis Data Storage
           description: Stores the Application Redis Data.
           schema:

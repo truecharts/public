@@ -47,10 +47,10 @@ service:
         port: 10324
 
 persistence:
-  xo_data:
+  xo-data:
     enabled: true
     mountPath: "/var/lib/xo-server"
-  redis_data:
+  redis-data:
     enabled: true
     mountPath: "/var/lib/redis"
 
