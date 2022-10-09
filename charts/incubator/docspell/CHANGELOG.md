@@ -2,6 +2,19 @@
 
 
 
+## [docspell-0.0.4](https://github.com/truecharts/charts/compare/docspell-0.0.3...docspell-0.0.4) (2022-10-09)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Fix
+
+- fix dsc binary location ([#4044](https://github.com/truecharts/charts/issues/4044))
+
+
+
+
 ## [docspell-0.0.3](https://github.com/truecharts/charts/compare/docspell-0.0.2...docspell-0.0.3) (2022-10-09)
 
 ### Chore
