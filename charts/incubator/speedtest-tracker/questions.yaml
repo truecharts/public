@@ -1,0 +1,180 @@
+# Include{groups}
+portals:
+  open:
+# Include{portalLink}
+questions:
+# Include{global}
+# Include{controller}
+# Include{controllerDeployment}
+# Include{replicas}
+# Include{replica1}
+# Include{strategy}
+# Include{recreate}
+# Include{controllerExpert}
+# Include{controllerExpertExtraArgs}
+  - variable: secretEnv
+    group: Container Configuration
+    label: Image Secrets
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: TELEGRAM_BOT_TOKEN
+          label: Telegram Bot Token
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: TELEGRAM_CHAT_ID
+          label: Telegram Chat ID
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: SLACK_WEBHOOK
+          label: Slack Webhook
+          description: Put a slack webhook here to get slack notifications when a speedtest is run. To use discord webhooks, just append /slack to the end of your discord webhook URL
+          schema:
+            type: string
+            private: true
+            default: ""
+  - variable: env
+    group: Container Configuration
+    label: Image Environment
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: OOKLA_EULA_GDPR
+          label: Accept OOKLA EULA and GDPR
+          description: Set to 'true' to accept the Ookla EULA and privacy agreement. If this is not set, the container will not start
+          schema:
+            type: boolean
+            default: false
+        - variable: AUTH
+          label: Enable Auth
+          description: When enabled, unauthenticated users will only be able to see the graphs and tests table.
+          schema:
+            type: boolean
+            default: false
+        - variable: INFLUXDB_RETENTION
+          label: InfluxDB Retention
+          description: Sets the InfluxDB retention period
+          schema:
+            type: string
+            default: 30d
+        - variable: INFLUXDB_HOST_TAG
+          label: InfluxDB Host Tag
+          description: Sets the InfluxDB host tag value
+          schema:
+            type: string
+            default: speedtest
+# Include{containerConfig}
+# Include{serviceRoot}
+        - variable: main
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: main
+                      label: Main Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 8765
+                              required: true
+# Include{advancedPortHTTP}
+                                - variable: targetPort
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
+                                  schema:
+                                    type: int
+                                    default: 80
+# Include{serviceExpertRoot}
+            default: false
+# Include{serviceExpert}
+# Include{serviceList}
+# Include{persistenceRoot}
+        - variable: config
+          label: App Config Storage
+          description: Stores the Application Configuration.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+# Include{persistenceList}
+# Include{ingressRoot}
+        - variable: main
+          label: Main Ingress
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressExpert}
+# Include{ingressList}
+# Include{security}
+# Include{securityContextAdvancedRoot}
+              - variable: privileged
+                label: Privileged mode
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: ReadOnly Root Filesystem
+                schema:
+                  type: boolean
+                  default: false
+              - variable: allowPrivilegeEscalation
+                label: Allow Privilege Escalation
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: runAsNonRoot
+                schema:
+                  type: boolean
+                  default: false
+# Include{securityContextAdvanced}
+# Include{podSecurityContextRoot}
+        - variable: runAsUser
+          label: runAsUser
+          description: The UserID of the user running the application
+          schema:
+            type: int
+            default: 0
+        - variable: runAsGroup
+          label: runAsGroup
+          description: The groupID this App of the user running the application
+          schema:
+            type: int
+            default: 0
+        - variable: fsGroup
+          label: fsGroup
+          description: The group that should own ALL storage.
+          schema:
+            type: int
+            default: 568
+# Include{podSecurityContextAdvanced}
+# Include{resources}
+# Include{advanced}
+# Include{addons}
+# Include{codeserver}
+# Include{promtail}
+# Include{netshoot}
+# Include{vpn}
+# Include{documentation}

@@ -1,0 +1,25 @@
+apiVersion: v2
+appVersion: "10.6.2"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.6.11
+description: This app runs a speedtest check every hour and graphs the results.
+home: https://truecharts.org/docs/charts/stable/airsonic
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.png
+keywords:
+  - speedtest
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: speedtest-tracker
+sources:
+  - https://github.com/henrywhitaker3/Speedtest-Tracker
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - speedtest
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
