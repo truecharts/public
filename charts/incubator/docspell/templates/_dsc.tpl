@@ -14,6 +14,7 @@ command:
   - /bin/sh
   - -c
   - dsc
+  - -d
   - {{ printf "%v:%v" "http://localhost" .Values.service.main.ports.main.port | quote }}
   - watch
   - --recursive
