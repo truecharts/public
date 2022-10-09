@@ -2,6 +2,16 @@
 
 
 
+## [joplin-server-8.1.1](https://github.com/truecharts/charts/compare/joplin-server-8.1.0...joplin-server-8.1.1) (2022-10-09)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - fix show-if's ([#4037](https://github.com/truecharts/charts/issues/4037))
+
+
+
+
 ## [joplin-server-8.1.0](https://github.com/truecharts/charts/compare/joplin-server-8.0.42...joplin-server-8.1.0) (2022-10-08)
 
 ### Chore

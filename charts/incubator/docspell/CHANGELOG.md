@@ -7,5 +7,3 @@
 ### Feat
 
 - add docspell ([#3999](https://github.com/truecharts/charts/issues/3999))
-  
-  
