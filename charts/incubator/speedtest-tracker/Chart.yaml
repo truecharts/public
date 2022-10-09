@@ -4,25 +4,22 @@ dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 10.6.11
-description: Airsonic is a Free and Open Source community driven media server
+description: This app runs a speedtest check every hour and graphs the results.
 home: https://truecharts.org/docs/charts/stable/airsonic
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.png
 keywords:
-  - airsonic
+  - speedtest
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
     url: https://truecharts.org
-name: airsonic
+name: speedtest-tracker
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/airsonic
-  - https://github.com/airsonic/airsonic
-  - https://github.com/linuxserver/docker-airsonic
-  - https://github.com/k8s-at-home/charts/tree/master/charts/airsonic
-version: 6.0.35
+  - https://github.com/henrywhitaker3/Speedtest-Tracker
+version: 0.0.1
 annotations:
   truecharts.org/catagories: |
-    - media
+    - speedtest
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U
