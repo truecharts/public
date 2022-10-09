@@ -7,8 +7,8 @@ securityContext:
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 volumeMounts:
-  - name: web_certs
-    mountPath: {{ .Values.persistence.web_certs.mountPath }}
+  - name: webcerts
+    mountPath: {{ .Values.persistence.webcerts.mountPath }}
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-common-secret'

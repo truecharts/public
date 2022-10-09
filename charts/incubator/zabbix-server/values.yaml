@@ -43,6 +43,7 @@ zabbix:
   server:
     listen_backlog: ""
     debug_level: 3
+    load_modules: []
     timeout: 4
     service_manager_sync_freq: 60
     start_report_writers: 0
@@ -214,61 +215,61 @@ probes:
 
 persistence:
   # Agent2 Volumes
-  agent_conf:
+  agentconf:
     enabled: true
     noMount: true
     mountPath: /etc/zabbix/zabbix_agentd.d
-  agent_enc:
+  agentenc:
     enabled: true
     noMount: true
     mountPath: /var/lib/zabbix/enc
-  agent_buffer:
+  agentbuffer:
     enabled: true
     noMount: true
     mountPath: /var/lib/zabbix/buffer
   # Web
-  web_certs:
+  webcerts:
     enabled: true
     noMount: true
     mountPath: /etc/zabbix/web/certs
   # Java Gateway
-  javagateway_libs:
+  javagatewaylibs:
     enabled: true
     noMount: true
     mountPath: /usr/sbin/zabbix_java/ext_lib
   # SNMP Traps and Server
-  snmp_traps:
+  snmptraps:
     enabled: true
     mountPath: /var/lib/zabbix/snmptraps
-  snmp_mibs:
+  snmpmibs:
     enabled: true
     mountPath: /var/lib/zabbix/mibs
   # Server
-  alertscripts:
+  serveralertscripts:
     enabled: true
     mountPath: "/usr/lib/zabbix/alertscripts"
-  externalscripts:
+  serverexternalscripts:
     enabled: true
     mountPath: "/usr/lib/zabbix/externalscripts"
-  modules:
+  servermodules:
     enabled: true
     mountPath: "/var/lib/zabbix/modules"
-  enc:
+  serverenc:
     enabled: true
     mountPath: "/var/lib/zabbix/enc"
-  ssh_keys:
+  serversshkeys:
     enabled: true
     mountPath: "/var/lib/zabbix/ssh_keys"
-  sslcerts:
+  serversslcerts:
     enabled: true
     mountPath: "/var/lib/zabbix/ssl/certs"
-  sslkeys:
+  serversslkeys:
     enabled: true
     mountPath: "/var/lib/zabbix/ssl/keys"
-  sslca:
+  serversslca:
     enabled: true
     mountPath: "/var/lib/zabbix/ssl/ssl_ca"
-  export:
+  serverexport:
     enabled: true
     mountPath: "/var/lib/zabbix/export"
 

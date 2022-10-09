@@ -7,8 +7,8 @@ securityContext:
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 volumeMounts:
-  - name: javagateway_libs
-    mountPath: {{ .Values.persistence.javagateway_libs.mountPath }}
+  - name: javagatewaylibs
+    mountPath: {{ .Values.persistence.javagatewaylibs.mountPath }}
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-javagateway-config'

@@ -7,12 +7,12 @@ securityContext:
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 volumeMounts:
-  - name: agent_conf
-    mountPath: {{ .Values.persistence.agent_conf.mountPath }}
-  - name: agent_enc
-    mountPath: {{ .Values.persistence.agent_enc.mountPath }}
-  - name: agent_buffer
-    mountPath: {{ .Values.persistence.agent_buffer.mountPath }}
+  - name: agentconf
+    mountPath: {{ .Values.persistence.agentconf.mountPath }}
+  - name: agentenc
+    mountPath: {{ .Values.persistence.agentenc.mountPath }}
+  - name: agentbuffer
+    mountPath: {{ .Values.persistence.agentbuffer.mountPath }}
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-agent-config'

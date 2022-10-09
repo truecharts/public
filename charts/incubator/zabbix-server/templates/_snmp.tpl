@@ -7,10 +7,10 @@ securityContext:
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 volumeMounts:
-  - name: snmp_traps
-    mountPath: {{ .Values.persistence.snmp_traps.mountPath }}
-  - name: snmp_mibs
-    mountPath: {{ .Values.persistence.snmp_mibs.mountPath }}
+  - name: snmptraps
+    mountPath: {{ .Values.persistence.snmptraps.mountPath }}
+  - name: snmpmibs
+    mountPath: {{ .Values.persistence.snmpmibs.mountPath }}
 ports:
   - containerPort: {{ .Values.service.snmptraps.ports.snmptraps.targetPort }}
     name: snmptraps

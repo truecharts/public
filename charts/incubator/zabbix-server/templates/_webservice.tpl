@@ -1,24 +1,17 @@
-{{- define "zabbix.web" -}}
-image: {{ .Values.webImage.repository }}:{{ .Values.webImage.tag }}
-imagePullPolicy: {{ .Values.webImage.pullPolicy }}
+{{- define "zabbix.webservice" -}}
+image: {{ .Values.webServiceImage.repository }}:{{ .Values.webServiceImage.tag }}
+imagePullPolicy: {{ .Values.webServiceImage.pullPolicy }}
 securityContext:
   runAsUser: {{ .Values.podSecurityContext.runAsUser }}
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
-volumeMounts:
-  - name: web_certs
-    mountPath: {{ .Values.persistence.web_certs.mountPath }}
 envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-common-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-common-config'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-web-config'
+      name: '{{ include "tc.common.names.fullname" . }}-webservice-config'
 ports:
-  - containerPort: {{ .Values.service.main.ports.main.targetPort }}
-    name: main
+  - containerPort: {{ .Values.service.webservice.ports.webservice.port }}
+    name: webservice
 readinessProbe:
   httpGet:
     path: /

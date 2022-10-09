@@ -9,6 +9,7 @@
 
 {{- $_ := set .Values.additionalContainers "web" (include "zabbix.web" . | fromYaml) -}}
 {{- $_ := set .Values.additionalContainers "agent2" (include "zabbix.agent2" . | fromYaml) -}}
+{{- $_ := set .Values.additionalContainers "webservice" (include "zabbix.webservice" . | fromYaml) -}}
 {{- if .Values.zabbix.server.enable_snmp_traps }}
 {{- $_ := set .Values.additionalContainers "snmptraps" (include "zabbix.snmptraps" . | fromYaml) -}}
 {{- end }}

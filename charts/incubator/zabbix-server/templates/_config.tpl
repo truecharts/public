@@ -36,6 +36,7 @@ data:
   {{- if $server.listen_backlog }}
   ZBX_LISTENBACKLOG: {{ $server.listen_backlog | quote }}
   {{- end }}
+  ZBX_LOADMODULE: "{{ range initial $server.load_modules }}{{ . }},{{ end }}{{ with last $server.load_modules }}{{ . }}{{ end }}"
   ZBX_DEBUGLEVEL: {{ $server.debug_level | quote }}
   ZBX_TIMEOUT: {{ $server.timeout | quote }}
   ZBX_WEBSERVICEURL: http://localhost:{{ .Values.service.webservice.ports.webservice.port }}
