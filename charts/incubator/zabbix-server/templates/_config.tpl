@@ -24,7 +24,7 @@ data:
 
 ---
 
-{{- $server := .Values.zabbix.server -}}
+{{- $server := .Values.zabbix.server }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -95,7 +95,7 @@ data:
 
 ---
 
-{{- $agent := .Values.zabbix.agent -}}
+{{- $agent := .Values.zabbix.agent }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -137,7 +137,7 @@ data:
 
 ---
 
-{{- $frontend := .Values.zabbix.frontend -}}
+{{- $frontend := .Values.zabbix.frontend }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -171,7 +171,7 @@ data:
 
 ---
 
-{{- $javagateway := .Values.zabbix.javagateway -}}
+{{- $javagateway := .Values.zabbix.javagateway }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
