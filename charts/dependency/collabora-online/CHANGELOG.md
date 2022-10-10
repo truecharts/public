@@ -2,6 +2,16 @@
 
 
 
+## [collabora-online-12.1.52](https://github.com/truecharts/charts/compare/collabora-online-12.1.51...collabora-online-12.1.52) (2022-10-10)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.7.0 ([#4063](https://github.com/truecharts/charts/issues/4063))
+
+
+
+
 ## [collabora-online-12.1.51](https://github.com/truecharts/charts/compare/collabora-online-12.1.50...collabora-online-12.1.51) (2022-10-07)
 
 ### Chore
