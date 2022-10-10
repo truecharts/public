@@ -8,13 +8,13 @@ command:
   - -c
   - rm -f tmp/pids/server.pid && bundle exec rails s -p {{ .Values.service.main.ports.main.port }} -b '0.0.0.0'
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 envFrom:
   - secretRef:
