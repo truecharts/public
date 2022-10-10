@@ -12,8 +12,8 @@ metadata:
   labels:  {{- include "tc.common.labels" . | nindent 4 }}
 data:
   DATABASE_PATH: /data/cherry.sqlite
-  ENABLE_PUBLIC_REGISTRATION: {{ ternary "1" "0" .Values.cherry.public_registration }}
-  USE_INSECURE_COOKIE: {{ ternary "1" "0" .Values.cherry.insecure_cookie }}
+  ENABLE_PUBLIC_REGISTRATION: {{ ternary "1" "0" .Values.cherry.public_registration  | quote }}
+  USE_INSECURE_COOKIE: {{ ternary "1" "0" .Values.cherry.insecure_cookie | quote }}
   PAGE_BOOKMARK_LIMIT: {{ .Values.cherry.page_bookmark_limit | quote }}
   {{- with .Values.cherry.google_oauth_uri }}
   GOOGLE_OAUTH_REDIRECT_URI: {{ . }}
