@@ -15,5 +15,7 @@ data:
   ENABLE_PUBLIC_REGISTRATION: {{ ternary "1" "0" .Values.cherry.public_registration }}
   USE_INSECURE_COOKIE: {{ ternary "1" "0" .Values.cherry.insecure_cookie }}
   PAGE_BOOKMARK_LIMIT: {{ .Values.cherry.page_bookmark_limit | quote }}
-  GOOGLE_OAUTH_REDIRECT_URI: {{ .Values.cherry.google_oauth_uri }}
+  {{- with .Values.cherry.google_oauth_uri }}
+  GOOGLE_OAUTH_REDIRECT_URI: {{ . }}
+  {{- end }}
 {{- end -}}
