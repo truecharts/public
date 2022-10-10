@@ -2,6 +2,16 @@
 
 
 
+## [cloudcommander-0.0.30](https://github.com/truecharts/charts/compare/cloudcommander-0.0.29...cloudcommander-0.0.30) (2022-10-10)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4049](https://github.com/truecharts/charts/issues/4049))
+
+
+
+
 ## [cloudcommander-0.0.29](https://github.com/truecharts/charts/compare/cloudcommander-0.0.28...cloudcommander-0.0.29) (2022-10-07)
 
 ### Chore

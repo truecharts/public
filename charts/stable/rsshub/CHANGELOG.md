@@ -2,6 +2,17 @@
 
 
 
+## [rsshub-3.0.117](https://github.com/truecharts/charts/compare/rsshub-3.0.116...rsshub-3.0.117) (2022-10-10)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4049](https://github.com/truecharts/charts/issues/4049))
+  - update docker general non-major
+
+
+
+
 ## [rsshub-3.0.116](https://github.com/truecharts/charts/compare/rsshub-3.0.114...rsshub-3.0.116) (2022-10-08)
 
 ### Chore
