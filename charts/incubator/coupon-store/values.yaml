@@ -6,7 +6,7 @@ image:
 command:
   - bash
   - -c
-  - rm -f tmp/pids/server.pid && bundle exec rails s -p 80 -b '0.0.0.0'
+  - rm -f tmp/pids/server.pid && bundle exec rails s -p {{ .Values.service.main.ports.main.port }} -b '0.0.0.0'
 
 # securityContext:
 #   readOnlyRootFilesystem: false
@@ -25,7 +25,6 @@ service:
     ports:
       main:
         port: 10304
-        targetPort: 80
 
 postgresql:
   enabled: true
