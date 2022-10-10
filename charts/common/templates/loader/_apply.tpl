@@ -59,4 +59,6 @@ Secondary entrypoint and primary loader for the common chart
   {{ include "tc.common.scale.portal" .  | nindent 0 }}
 
   {{ include "tc.common.spawner.networkpolicy" . | nindent 0 }}
+
+  {{ include "tc.common.lib.util.crd.update" . | nindent 0 }}
 {{- end -}}

@@ -132,7 +132,6 @@ image:
 # -- Image Selector allows for easy picking a different image dict, important for the SCALE GUI
 imageSelector: "image"
 
-
 # -- Override the command(s) for the default container
 command: []
 
@@ -142,6 +141,13 @@ args: []
 # -- Add args in addition to the arguments set by default.
 # Primarily for the SCALE GUI
 extraArgs: []
+
+# -- update the CRD's on helm update
+# This does NOT include CRD's of dependencies.
+# enabled by default for optimal performance on TrueNAS SCALE
+# DEVNOTE: Also slightly alteres the install logic in a non breaking way
+# DEVNOTE 2: Disabled for now so we can test on a limited number of charts initially
+updateCRD: false
 
 # -- Set Container Timezone
 TZ: UTC
