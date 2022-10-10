@@ -1152,6 +1152,8 @@ node-exporter:
   extraArgs:
     collector.filesystem.ignored-mount-points: "^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+|var/db/system/.+|mnt/[a-zA-Z0-9-_\\.]+/ix-applications/.+)($|/)"
     collector.filesystem.ignored-fs-types: "^(autofs|binfmt_misc|cgroup|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|mqueue|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|sysfs|tracefs)$"
+    collector.netdev.device-exclude: "^veth.*$"
+    collector.netclass.ignored-devices: "^veth.*$"
     path.rootfs: /host
   extraVolumes:
     - name: host
