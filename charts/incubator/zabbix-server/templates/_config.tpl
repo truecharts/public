@@ -185,7 +185,7 @@ data:
 
 ---
 
-{{- $webservice := .Values.zabbix.webservice -}}
+{{- $webservice := .Values.zabbix.webservice }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
