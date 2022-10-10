@@ -1,0 +1,31 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: raspberrymatic
+version: 0.0.1
+appVersion: "latest"
+description: A free and non-commercial open-source operating system alternative for running a cloud-free smart-home IoT.
+type: application
+deprecated: false
+home: https://truecharts.org/docs/charts/incubator/raspberrymatic
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/raspberrymatic.png
+keywords:
+  - raspberrymatic
+  - iot
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/raspberrymatic
+  - https://github.com/jens-maus/RaspberryMatic
+  - https://github.com/jens-maus/RaspberryMatic/pkgs/container/raspberrymatic
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.6.11
+    # condition:
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - iot
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
