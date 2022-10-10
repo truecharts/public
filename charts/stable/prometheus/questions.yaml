@@ -79,6 +79,38 @@ questions:
                 schema:
                   type: boolean
                   default: false
+              - variable: additionalScrapeConfigs
+                label: "Additional Scrape Configs"
+                description: "Additional Scrape configuration from an external Secret"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: "Enable"
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: external
+                            group: "External"
+                            label: "External Secret"
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: "Secret name"
+                                  description: "Name of the secret that Prometheus should use for the additional scrape configuration"
+                                  schema:
+                                    type: string
+                                    default: ""
+                                - variable: key
+                                  label: "Secret key"
+                                  description: "Name of the key inside the secret to be used for the additional scrape configuration"
+                                  schema:
+                                    type: string
+                                    default: ""
 
   - variable: alertmanager
     group: "App Configuration"
