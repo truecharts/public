@@ -2,6 +2,16 @@
 
 
 
+## [webp-server-0.0.34](https://github.com/truecharts/charts/compare/webp-server-0.0.33...webp-server-0.0.34) (2022-10-10)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4049](https://github.com/truecharts/charts/issues/4049))
+
+
+
+
 ## [webp-server-0.0.33](https://github.com/truecharts/charts/compare/webp-server-0.0.32...webp-server-0.0.33) (2022-10-07)
 
 ### Chore

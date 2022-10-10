@@ -2,6 +2,16 @@
 
 
 
+## [livebook-0.0.30](https://github.com/truecharts/charts/compare/livebook-0.0.29...livebook-0.0.30) (2022-10-10)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4049](https://github.com/truecharts/charts/issues/4049))
+
+
+
+
 ## [livebook-0.0.29](https://github.com/truecharts/charts/compare/livebook-0.0.27...livebook-0.0.29) (2022-10-08)
 
 ### Chore
