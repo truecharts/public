@@ -22,7 +22,7 @@ data:
   {{- $solrPass = randAlphaNum 50 }}
   solr-password: {{ $solrPass | b64enc | quote }}
 {{- end }}
-  url: {{ ( printf "http://%v:%v@%v-solr:8983/%v" .Values.solr.solrUsername $solrPass .Release.Name .Values.solr.solrCores ) | b64enc | quote }}
+  url: {{ ( printf "http://%v:%v@%v-solr:8983/url/%v" .Values.solr.solrUsername $solrPass .Release.Name .Values.solr.solrCores ) | b64enc | quote }}
   plainhost: {{ ( ( printf "%v-%v" .Release.Name "solr" ) ) | b64enc | quote }}
 type: Opaque
 {{- $_ := set .Values.solr "solrPassword" ( $solrPass | quote ) }}
