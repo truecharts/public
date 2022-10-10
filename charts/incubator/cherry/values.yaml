@@ -3,6 +3,14 @@ image:
   pullPolicy: IfNotPresent
   tag: 0.0.4@sha256:9c7591a56d6a53e5c390a39fccedc7ad6c8cffc7db450ab2102aa7096ab64fa8
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-cherry-secret'
