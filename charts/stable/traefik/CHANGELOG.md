@@ -2,6 +2,20 @@
 
 
 
+## [traefik-13.4.9](https://github.com/truecharts/charts/compare/traefik-13.4.8...traefik-13.4.9) (2022-10-10)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+  ### Docs
+
+- Add basicAuth examples to docs ([#4056](https://github.com/truecharts/charts/issues/4056))
+
+
+
+
 ## [traefik-13.4.8](https://github.com/truecharts/charts/compare/traefik-13.4.7...traefik-13.4.8) (2022-10-07)
 
 ### Chore
