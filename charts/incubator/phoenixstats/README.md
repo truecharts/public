@@ -2,6 +2,8 @@
 
 Simple Chart for displaying stats from any PhoenixMiner instance. Made to go with PhoenixMiner-AMD.
 
+> **:exclamation: This Helm Chart is deprecated!**
+
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
