@@ -16,6 +16,10 @@ data:
   {{- else }}
   JWT_SECRET: {{ randAlphaNum 32 | b64enc }}
   {{- end }}
-  GOOGLE_OAUTH_CLIENT_ID: {{ .Values.cherry.google_oauth_id | b64enc }}
-  GOOGLE_OAUTH_CLIENT_SECRET: {{ .Values.cherry.google_oauth_secret | b64enc }}
+  {{- with .Values.cherry.google_oauth_id }}
+  GOOGLE_OAUTH_CLIENT_ID: {{ . | b64enc }}
+  {{- end }}
+  {{- with .Values.cherry.google_oauth_secret }}
+  GOOGLE_OAUTH_CLIENT_SECRET: {{ . | b64enc }}
+  {{- end }}
 {{- end -}}
