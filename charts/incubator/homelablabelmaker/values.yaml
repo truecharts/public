@@ -1,28 +1,23 @@
-env: {}
 image:
-  pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/homelablabelmaker
   tag: latest@sha256:a1e41adaafade429f7603b32f603bc809b0bd3ee4433ac382fd803ef979dce73
-persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+  pullPolicy: IfNotPresent
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
 service:
   main:
-    enabled: false
     ports:
       main:
-        enabled: false
+        port: 10581
+        protocol: HTTP
+        targetPort: 80
 
 portal:
-  enabled: false
+  enabled: true
