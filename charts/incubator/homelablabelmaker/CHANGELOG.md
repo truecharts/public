@@ -2,6 +2,19 @@
 
 
 
+## [homelablabelmaker-1.0.0](https://github.com/truecharts/charts/compare/homelablabelmaker-0.0.28...homelablabelmaker-1.0.0) (2022-10-10)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Fix
+
+- Cleanup to work with SCALE ([#4051](https://github.com/truecharts/charts/issues/4051))
+
+
+
+
 ## [homelablabelmaker-0.0.28](https://github.com/truecharts/charts/compare/homelablabelmaker-0.0.27...homelablabelmaker-0.0.28) (2022-10-07)
 
 ### Chore
