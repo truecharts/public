@@ -1,0 +1,45 @@
+image:
+  repository: tccr.io/truecharts/cherry
+  pullPolicy: IfNotPresent
+  tag: 0.0.4@sha256:9c7591a56d6a53e5c390a39fccedc7ad6c8cffc7db450ab2102aa7096ab64fa8
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-cherry-secret'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-cherry-configmap'
+
+cherry:
+  insecure_cookie: true
+  public_registration: true
+  page_bookmark_limit: 60
+  google_oauth_uri: ""
+  google_oauth_id: ""
+  google_oauth_secret: ""
+
+probes:
+  liveness:
+    type: HTTP
+    path: /
+  readiness:
+    type: HTTP
+    path: /
+  startup:
+    type: HTTP
+    path: /
+
+service:
+  main:
+    ports:
+      main:
+        port: 10303
+        protocol: HTTP
+        targetPort: 8000
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+portal:
+  enabled: true

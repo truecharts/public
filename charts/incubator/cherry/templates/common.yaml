@@ -1,0 +1,7 @@
+{{- include "tc.common.loader.init" . }}
+
+{{- include "cherry.configmap" . }}
+
+{{ include "cherry.secrets" . }}
+
+{{ include "tc.common.loader.apply" . }}
