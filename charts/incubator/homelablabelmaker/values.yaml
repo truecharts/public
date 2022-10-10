@@ -1,7 +1,7 @@
 image:
-  pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/homelablabelmaker
   tag: latest@sha256:a1e41adaafade429f7603b32f603bc809b0bd3ee4433ac382fd803ef979dce73
+  pullPolicy: IfNotPresent
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -10,16 +10,6 @@ securityContext:
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
-env: {}
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
 
 service:
   main:
@@ -31,5 +21,3 @@ service:
 
 portal:
   enabled: true
-
-persistence: {}
