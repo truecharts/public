@@ -2,6 +2,17 @@
 
 
 
+## [nextcloud-15.3.28](https://github.com/truecharts/charts/compare/nextcloud-15.3.27...nextcloud-15.3.28) (2022-10-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4070](https://github.com/truecharts/charts/issues/4070))
+  - update docker general non-major
+
+
+
+
 ## [nextcloud-15.3.27](https://github.com/truecharts/charts/compare/nextcloud-15.3.25...nextcloud-15.3.27) (2022-10-08)
 
 ### Chore

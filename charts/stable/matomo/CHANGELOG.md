@@ -2,6 +2,16 @@
 
 
 
+## [matomo-3.0.75](https://github.com/truecharts/charts/compare/matomo-3.0.74...matomo-3.0.75) (2022-10-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4070](https://github.com/truecharts/charts/issues/4070))
+
+
+
+
 ## [matomo-3.0.74](https://github.com/truecharts/charts/compare/matomo-3.0.72...matomo-3.0.74) (2022-10-08)
 
 ### Chore

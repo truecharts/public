@@ -2,6 +2,16 @@
 
 
 
+## [neko-0.0.44](https://github.com/truecharts/charts/compare/neko-0.0.43...neko-0.0.44) (2022-10-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4070](https://github.com/truecharts/charts/issues/4070))
+
+
+
+
 ## [neko-0.0.43](https://github.com/truecharts/charts/compare/neko-0.0.42...neko-0.0.43) (2022-10-07)
 
 ### Chore

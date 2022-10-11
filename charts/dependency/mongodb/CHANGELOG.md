@@ -2,6 +2,16 @@
 
 
 
+## [mongodb-2.0.32](https://github.com/truecharts/charts/compare/mongodb-2.0.31...mongodb-2.0.32) (2022-10-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4070](https://github.com/truecharts/charts/issues/4070))
+
+
+
+
 ## [mongodb-2.0.31](https://github.com/truecharts/charts/compare/mongodb-2.0.30...mongodb-2.0.31) (2022-10-10)
 
 ### Chore
