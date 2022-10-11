@@ -1,0 +1,26 @@
+appVolumeMounts:
+  config:
+    emptyDir: true
+    mountPath: /etc/pihole
+  dnsmasq:
+    emptyDir: true
+    mountPath: /etc/dnsmasq.d
+dhcp: false
+dhcp_port: 32003
+dnsConfig:
+  options: []
+dns_tcp_port: 32001
+dns_udp_port: 32002
+emptyDirVolumes: true
+environmentVariables: []
+extraAppVolumeMounts: []
+hostNetwork: false
+image:
+  pullPolicy: IfNotPresent
+  repository: pihole/pihole
+  tag: '2022.10'
+ownerGID: 568
+ownerUID: 568
+password: admin123
+timezone: America/Los_Angeles
+web_port: 32000
