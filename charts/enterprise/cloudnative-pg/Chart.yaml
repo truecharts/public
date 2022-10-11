@@ -1,0 +1,32 @@
+apiVersion: v2
+appVersion: "0.19"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.7.0
+  - name: cloudnative-pg
+    version: "0.15.1"
+    repository: https://cloudnative-pg.github.io/charts
+    condition: cloudnative-pg.enabled
+description: Postgres-Operator by CloudNativePG
+home: https://truecharts.org/docs/charts/enterprise/postgres-operator
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/postgres-operator.png
+keywords:
+  - postgresql
+  - postgres
+  - database
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: cloudnative-pg
+sources:
+  - https://cloudnative-pg.io
+  - https://github.com/cloudnative-pg/charts
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - database
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
