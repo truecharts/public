@@ -21,8 +21,8 @@ Like TrueNAS Scale WebUI.
 ## Prefill Tools
 
 - You can run the Prefill tools directly inside the chart's shell.
-  - [SteamPrefill](https://github.com/tpill90/steam-lancache-prefill)
-  - [BattleNetPrefill](https://github.com/tpill90/battlenet-lancache-prefill)
+- [SteamPrefill](https://github.com/tpill90/steam-lancache-prefill)
+- [BattleNetPrefill](https://github.com/tpill90/battlenet-lancache-prefill)
 
 - In order for those tools to function you will need to install a apt pkg called `unzip`. This pkg will not persist between updates. It will need to be reinstalled before updating the tools everytime.
 
@@ -30,31 +30,31 @@ Like TrueNAS Scale WebUI.
 
 :::danger
 
-Always be cautious when running unkown scripts and read them over before executing!
+Always be cautious when running unkown scripts and read them over before executing.
 
 :::
 
 ### SteamPrefill
 
 - This is a small modified update script from SteamPrefill to install the tool.
-  - Add this script to the `/data` dir and name it for ex: `install_steam.sh`.
-  - run this command on the script `chmod +x install_steam.sh` to be able to execute it from the shell.
-  - This script will create a new dir called `Steam` and grab the latest zip from `tpill90` repo for SteamPrefill and auto chmod +x for you.
-  - Then `cd Steam` if still in `/data` and execute `./SteamPrefill select-apps`.
-  - If you are not login into Steam yet, the tool will ask for:
-    - Username.
-    - Password.
-    - Steam Guard Code(if enabled on the account).
+- Add this script to the `/data` dir and name it for ex: `install_steam.sh`.
+- run this command on the script `chmod +x install_steam.sh` to be able to execute it from the shell.
+- This script will create a new dir called `Steam` and grab the latest zip from `tpill90` repo for SteamPrefill and auto chmod +x for you.
+- Then `cd Steam` if still in `/data` and execute `./SteamPrefill select-apps`.
+- If you are not login into Steam yet, the tool will ask for:
+- Username.
+- Password.
+- Steam Guard Code(if enabled on the account).
 
 - Checkout the [install_steam.sh](https://gist.github.com/Xstar97/769878e95e4c505d7339fc840b88c82e) here.
 
 ### BattleNetPrefill
 
 - This is a small modified update script from SteamPrefill to install BattleNetPrefill.
-  - Add this script to the `/data` dir and name it for ex: `install_battlenet.sh`.
-  - run this command on the script `chmod +x install_battlenet.sh` to be able to execute it from the shell.
-  - This script will create a new dir called `BattleNet` and grab the latest zip from `tpill90` repo for BattlenetPrefill and auto chmod +x for you.
-  - Then `cd BattleNet` if still in `/data` and execute `./BattleNetPrefill -h`.
+- Add this script to the `/data` dir and name it for ex: `install_battlenet.sh`.
+- run this command on the script `chmod +x install_battlenet.sh` to be able to execute it from the shell.
+- This script will create a new dir called `BattleNet` and grab the latest zip from `tpill90` repo for BattlenetPrefill and auto chmod +x for you.
+- Then `cd BattleNet` if still in `/data` and execute `./BattleNetPrefill -h`.
 
 - BattleNetPrefill doesnt require an account. But the command to prefill are a bit different.
 - In order to prefill a specific game. you need to run this command first `./BattleNetPrefill list-products` to get the product ID.
