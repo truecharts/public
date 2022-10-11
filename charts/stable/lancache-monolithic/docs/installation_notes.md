@@ -58,6 +58,6 @@ Always be cautious when running unkown scripts and read them over before executi
 
 - BattleNetPrefill doesnt require an account. But the command to prefill are a bit different.
 - In order to prefill a specific game. you need to run this command first `./BattleNetPrefill list-products` to get the product ID.
-- Then you can run `/BattleNetPrefill prefill -p PRODUCT_ID`.
+- Then you can run `./BattleNetPrefill prefill -p PRODUCT_ID`.
 
 - Checkout the [install_battlenet.sh](https://gist.github.com/Xstar97/ebb42ccbd9b00a1407e363dbd917309b) here.
