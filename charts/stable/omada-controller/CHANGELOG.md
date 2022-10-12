@@ -2,6 +2,19 @@
 
 
 
+## [omada-controller-6.1.0](https://github.com/truecharts/charts/compare/omada-controller-6.0.70...omada-controller-6.1.0) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Feat
+
+- Add additional ENV VARS ([#4080](https://github.com/truecharts/charts/issues/4080))
+
+
+
+
 ## [omada-controller-6.0.70](https://github.com/truecharts/charts/compare/omada-controller-6.0.69...omada-controller-6.0.70) (2022-10-07)
 
 ### Chore
