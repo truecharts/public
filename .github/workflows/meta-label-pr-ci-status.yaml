@@ -29,7 +29,7 @@ jobs:
 
       - name: Read the pr_number file
         id: pr_num_reader
-        uses: juliangruber/read-file-action@776c348f7f0b7fd4887b4446ef9561beb88a1fea # tag=v1.1.5
+        uses: juliangruber/read-file-action@02bbba9876a8f870efd4ad64e3b9088d3fb94d4b # tag=v1.1.6
         with:
           path: ./pr_metadata/pr_number.txt
 
