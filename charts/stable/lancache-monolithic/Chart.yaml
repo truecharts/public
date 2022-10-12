@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: lancache-monolithic
-version: 1.0.0
+version: 1.0.1
 appVersion: "latest"
 description: A monolithic lancache service capable of caching all CDNs in a single instance.
 type: application
@@ -18,7 +18,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.6.11
+    version: 10.7.0
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts

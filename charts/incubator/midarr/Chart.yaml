@@ -3,11 +3,11 @@ appVersion: "1.16.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.6.11
+    version: 10.7.0
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.95
+    version: 8.0.97
 description: Midarr is a minimal lightweight media server for enjoying your media
 home: https://truecharts.org/docs/charts/incubator/midarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/midarr.png
@@ -22,7 +22,7 @@ name: midarr
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/midarr
   - https://github.com/midarrlabs/midarr-server
-version: 0.0.3
+version: 0.0.4
 annotations:
   truecharts.org/catagories: |
     - media

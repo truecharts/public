@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: st-reborn-server
-version: 0.0.22
+version: 0.0.23
 appVersion: "1.2.0"
 description: Skyrim Together Reborn server files.
 type: application
@@ -18,7 +18,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.6.11
+    version: 10.7.0
     # condition:
 maintainers:
   - email: info@truecharts.org
