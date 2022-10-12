@@ -12,8 +12,8 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  MANAGE_HTTPS_PORT: {{ .Values.service.main.ports.main.port }}
-  PORTAL_HTTPS_PORT: {{ .Values.service.comm.ports.comm.port }}
+  MANAGE_HTTPS_PORT: "{{ .Values.service.main.ports.main.port }}"
+  PORTAL_HTTPS_PORT: "{{ .Values.service.comm.ports.comm.port }}"
 
 service:
   main:
@@ -21,7 +21,6 @@ service:
       main:
         protocol: HTTPS
         port: 8043
-        targetPort: 8043
   comm:
     enabled: true
     ports:
@@ -29,7 +28,6 @@ service:
         protocol: HTTPS
         enabled: true
         port: 8843
-        targetPort: 8843
   omada-tcp:
     enabled: true
     ports:
