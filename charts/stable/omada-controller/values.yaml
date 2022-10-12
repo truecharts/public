@@ -11,6 +11,10 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+env:
+  MANAGE_HTTPS_PORT: {{ .Values.service.main.ports.main.port }}
+  PORTAL_HTTPS_PORT: {{ .Values.service.comm.ports.comm.port }}
+
 service:
   main:
     ports:
