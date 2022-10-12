@@ -35,7 +35,7 @@ def newer_mapping(image_tags):
         if archi == 'amd64' or archi == '':
             version_tag = tag
             break
-    app_version = re.findall(app_version_regx, version_tag)
+    app_version = re.findall(app_version_regx, version_tag).pop()
     return {
         'tags': {key: f'{version_tag}'},
         'app_version': f'{app_version}',
