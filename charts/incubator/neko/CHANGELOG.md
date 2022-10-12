@@ -2,6 +2,16 @@
 
 
 
+## [neko-0.0.45](https://github.com/truecharts/charts/compare/neko-0.0.44...neko-0.0.45) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [neko-0.0.44](https://github.com/truecharts/charts/compare/neko-0.0.43...neko-0.0.44) (2022-10-11)
 
 ### Chore

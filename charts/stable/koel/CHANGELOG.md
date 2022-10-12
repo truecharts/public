@@ -2,6 +2,16 @@
 
 
 
+## [koel-3.0.50](https://github.com/truecharts/charts/compare/koel-3.0.49...koel-3.0.50) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [koel-3.0.49](https://github.com/truecharts/charts/compare/koel-3.0.48...koel-3.0.49) (2022-10-11)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [orbital-sync-0.0.13](https://github.com/truecharts/charts/compare/orbital-sync-0.0.12...orbital-sync-0.0.13) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [orbital-sync-0.0.12](https://github.com/truecharts/charts/compare/orbital-sync-0.0.11...orbital-sync-0.0.12) (2022-10-07)
 
 ### Chore

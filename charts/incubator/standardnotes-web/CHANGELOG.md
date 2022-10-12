@@ -2,6 +2,16 @@
 
 
 
+## [standardnotes-web-0.0.31](https://github.com/truecharts/charts/compare/standardnotes-web-0.0.30...standardnotes-web-0.0.31) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [standardnotes-web-0.0.30](https://github.com/truecharts/charts/compare/standardnotes-web-0.0.29...standardnotes-web-0.0.30) (2022-10-07)
 
 ### Chore

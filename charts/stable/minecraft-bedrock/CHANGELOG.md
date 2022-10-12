@@ -2,6 +2,7 @@
 
 
 
+
 ## [minecraft-bedrock-1.0.38](https://github.com/truecharts/charts/compare/minecraft-bedrock-1.0.37...minecraft-bedrock-1.0.38) (2022-10-07)
 
 ### Chore

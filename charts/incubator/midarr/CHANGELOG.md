@@ -2,6 +2,16 @@
 
 
 
+## [midarr-0.0.4](https://github.com/truecharts/charts/compare/midarr-0.0.3...midarr-0.0.4) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [midarr-0.0.3](https://github.com/truecharts/charts/compare/midarr-0.0.2...midarr-0.0.3) (2022-10-07)
 
 ### Chore

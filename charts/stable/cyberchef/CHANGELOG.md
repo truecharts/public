@@ -2,6 +2,16 @@
 
 
 
+## [cyberchef-2.0.102](https://github.com/truecharts/charts/compare/cyberchef-2.0.101...cyberchef-2.0.102) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [cyberchef-2.0.101](https://github.com/truecharts/charts/compare/cyberchef-2.0.100...cyberchef-2.0.101) (2022-10-11)
 
 ### Chore

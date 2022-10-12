@@ -2,6 +2,16 @@
 
 
 
+## [plex-10.2.16](https://github.com/truecharts/charts/compare/owi2plex-0.0.28...plex-10.2.16) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [plex-10.2.15](https://github.com/truecharts/charts/compare/plex-10.2.14...plex-10.2.15) (2022-10-07)
 
 ### Chore

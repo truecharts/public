@@ -2,6 +2,16 @@
 
 
 
+## [z80pack-0.0.30](https://github.com/truecharts/charts/compare/z80pack-0.0.29...z80pack-0.0.30) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [z80pack-0.0.29](https://github.com/truecharts/charts/compare/z80pack-0.0.28...z80pack-0.0.29) (2022-10-07)
 
 ### Chore

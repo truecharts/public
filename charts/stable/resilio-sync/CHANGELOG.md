@@ -2,6 +2,16 @@
 
 
 
+## [resilio-sync-6.0.37](https://github.com/truecharts/charts/compare/resilio-sync-6.0.36...resilio-sync-6.0.37) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [resilio-sync-6.0.36](https://github.com/truecharts/charts/compare/resilio-sync-6.0.35...resilio-sync-6.0.36) (2022-10-07)
 
 ### Chore

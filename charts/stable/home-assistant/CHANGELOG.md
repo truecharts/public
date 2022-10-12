@@ -2,6 +2,16 @@
 
 
 
+## [home-assistant-15.0.61](https://github.com/truecharts/charts/compare/home-assistant-15.0.60...home-assistant-15.0.61) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [home-assistant-15.0.60](https://github.com/truecharts/charts/compare/home-assistant-15.0.59...home-assistant-15.0.60) (2022-10-11)
 
 ### Chore

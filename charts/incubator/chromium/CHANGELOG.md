@@ -2,6 +2,16 @@
 
 
 
+## [chromium-0.0.36](https://github.com/truecharts/charts/compare/chromium-0.0.35...chromium-0.0.36) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [chromium-0.0.35](https://github.com/truecharts/charts/compare/chromium-desktop-g3-0.0.31...chromium-0.0.35) (2022-10-07)
 
 ### Chore

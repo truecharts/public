@@ -2,6 +2,16 @@
 
 
 
+## [owncloud-ocis-8.1.7](https://github.com/truecharts/charts/compare/owncloud-ocis-8.1.6...owncloud-ocis-8.1.7) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [owncloud-ocis-8.1.6](https://github.com/truecharts/charts/compare/owncloud-ocis-8.1.5...owncloud-ocis-8.1.6) (2022-10-07)
 
 ### Chore

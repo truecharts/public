@@ -2,6 +2,16 @@
 
 
 
+## [cryptpad-0.0.72](https://github.com/truecharts/charts/compare/cryptpad-0.0.71...cryptpad-0.0.72) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [cryptpad-0.0.71](https://github.com/truecharts/charts/compare/cryptpad-0.0.70...cryptpad-0.0.71) (2022-10-11)
 
 ### Chore

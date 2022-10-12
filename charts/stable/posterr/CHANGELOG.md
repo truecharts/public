@@ -2,6 +2,16 @@
 
 
 
+## [posterr-1.0.3](https://github.com/truecharts/charts/compare/posterr-1.0.2...posterr-1.0.3) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [posterr-1.0.2](https://github.com/truecharts/charts/compare/posterr-1.0.1...posterr-1.0.2) (2022-10-07)
 
 ### Chore

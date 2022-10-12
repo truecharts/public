@@ -2,6 +2,16 @@
 
 
 
+## [lancache-dns-1.0.1](https://github.com/truecharts/charts/compare/lancache-dns-1.0.0...lancache-dns-1.0.1) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [lancache-dns-1.0.0](https://github.com/truecharts/charts/compare/lancache-dns-0.0.29...lancache-dns-1.0.0) (2022-10-12)
 
 

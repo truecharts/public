@@ -2,6 +2,16 @@
 
 
 
+## [ispy-agent-dvr-2.0.51](https://github.com/truecharts/charts/compare/ispy-agent-dvr-2.0.50...ispy-agent-dvr-2.0.51) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [ispy-agent-dvr-2.0.50](https://github.com/truecharts/charts/compare/ispy-agent-dvr-2.0.49...ispy-agent-dvr-2.0.50) (2022-10-10)
 
 ### Chore

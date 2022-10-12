@@ -2,6 +2,16 @@
 
 
 
+## [chronos-1.0.7](https://github.com/truecharts/charts/compare/chronos-1.0.6...chronos-1.0.7) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [chronos-1.0.6](https://github.com/truecharts/charts/compare/chronos-1.0.5...chronos-1.0.6) (2022-10-07)
 
 ### Chore

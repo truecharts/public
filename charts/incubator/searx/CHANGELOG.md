@@ -2,6 +2,16 @@
 
 
 
+## [searx-0.0.41](https://github.com/truecharts/charts/compare/searx-0.0.40...searx-0.0.41) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [searx-0.0.40](https://github.com/truecharts/charts/compare/searx-0.0.39...searx-0.0.40) (2022-10-07)
 
 ### Chore

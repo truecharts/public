@@ -2,6 +2,16 @@
 
 
 
+## [ghost-3.0.72](https://github.com/truecharts/charts/compare/ghost-3.0.71...ghost-3.0.72) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [ghost-3.0.71](https://github.com/truecharts/charts/compare/ghost-3.0.70...ghost-3.0.71) (2022-10-07)
 
 ### Chore

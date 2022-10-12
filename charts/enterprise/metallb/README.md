@@ -23,8 +23,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.6.11 |
-| https://metallb.github.io/metallb | metallb | 0.13.5 |
+| https://library-charts.truecharts.org | common | 10.7.0 |
+| https://metallb.github.io/metallb | metallb | 0.13.6 |
 
 ## Installing the Chart
 

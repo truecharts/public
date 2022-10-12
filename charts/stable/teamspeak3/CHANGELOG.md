@@ -2,6 +2,16 @@
 
 
 
+## [teamspeak3-4.0.40](https://github.com/truecharts/charts/compare/teamspeak3-4.0.39...teamspeak3-4.0.40) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [teamspeak3-4.0.39](https://github.com/truecharts/charts/compare/teamspeak3-4.0.38...teamspeak3-4.0.39) (2022-10-07)
 
 ### Chore

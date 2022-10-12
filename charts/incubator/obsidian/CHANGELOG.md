@@ -2,6 +2,16 @@
 
 
 
+## [obsidian-0.0.32](https://github.com/truecharts/charts/compare/obsidian-0.0.31...obsidian-0.0.32) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [obsidian-0.0.31](https://github.com/truecharts/charts/compare/obsidian-0.0.30...obsidian-0.0.31) (2022-10-11)
 
 ### Chore

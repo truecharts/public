@@ -2,6 +2,16 @@
 
 
 
+## [vikunja-3.0.59](https://github.com/truecharts/charts/compare/vikunja-3.0.58...vikunja-3.0.59) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [vikunja-3.0.58](https://github.com/truecharts/charts/compare/vikunja-3.0.57...vikunja-3.0.58) (2022-10-07)
 
 ### Chore

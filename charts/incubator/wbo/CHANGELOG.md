@@ -2,6 +2,16 @@
 
 
 
+## [wbo-0.0.6](https://github.com/truecharts/charts/compare/wbo-0.0.5...wbo-0.0.6) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [wbo-0.0.5](https://github.com/truecharts/charts/compare/wbo-0.0.4...wbo-0.0.5) (2022-10-07)
 
 ### Chore

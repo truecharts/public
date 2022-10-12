@@ -2,6 +2,16 @@
 
 
 
+## [lanraragi-2.0.37](https://github.com/truecharts/charts/compare/lanraragi-2.0.36...lanraragi-2.0.37) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [lanraragi-2.0.36](https://github.com/truecharts/charts/compare/lanraragi-2.0.35...lanraragi-2.0.36) (2022-10-07)
 
 ### Chore

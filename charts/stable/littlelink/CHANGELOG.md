@@ -2,6 +2,16 @@
 
 
 
+## [littlelink-6.0.73](https://github.com/truecharts/charts/compare/littlelink-6.0.72...littlelink-6.0.73) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [littlelink-6.0.72](https://github.com/truecharts/charts/compare/littlelink-6.0.71...littlelink-6.0.72) (2022-10-07)
 
 ### Chore

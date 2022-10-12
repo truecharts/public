@@ -2,6 +2,16 @@
 
 
 
+## [cherry-0.0.3](https://github.com/truecharts/charts/compare/cherry-0.0.2...cherry-0.0.3) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [cherry-0.0.2](https://github.com/truecharts/charts/compare/cherry-0.0.1...cherry-0.0.2) (2022-10-11)
 
 ### Chore

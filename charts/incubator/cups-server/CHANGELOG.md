@@ -2,6 +2,16 @@
 
 
 
+## [cups-server-1.0.53](https://github.com/truecharts/charts/compare/cups-server-1.0.52...cups-server-1.0.53) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
 ## [cups-server-1.0.52](https://github.com/truecharts/charts/compare/cups-server-1.0.51...cups-server-1.0.52) (2022-10-10)
 
 ### Chore
