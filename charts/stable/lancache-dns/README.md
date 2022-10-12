@@ -5,13 +5,13 @@ DNS Chart service for a steam cache.
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [lancache-dns](https://truecharts.org/docs/charts/incubator/lancache-dns)
+For more information, please click here: [lancache-dns](https://truecharts.org/docs/charts/stable/lancache-dns)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/lancache-dns>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/lancache-dns>
 * <https://hub.docker.com/r/lancachenet/lancache-dns>
 * <https://github.com/lancachenet/lancache-dns>
 

@@ -2,6 +2,11 @@
 
 
 
+## [lancache-dns-1.0.0](https://github.com/truecharts/charts/compare/lancache-dns-0.0.29...lancache-dns-1.0.0) (2022-10-12)
+
+
+
+
 ## [lancache-dns-0.0.29](https://github.com/truecharts/charts/compare/lancache-dns-0.0.28...lancache-dns-0.0.29) (2022-10-07)
 
 ### Chore
