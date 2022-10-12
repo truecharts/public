@@ -39,7 +39,7 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/data/cache"
+    mountPath: "/data"
   logs:
     enabled: true
     mountPath: "/data/logs"
