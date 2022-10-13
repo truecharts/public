@@ -1,15 +1,27 @@
 image:
-  repository: aronjanosch/retrobot
+  repository: rossimo/retrobot
   pullPolicy: IfNotPresent
-  tag: 1.0.0@sha256:fbb2eb0dd1cc3003c8155ea90a78495eae88ccd45c0cf373551be9dc76a368ee
+  tag: latest@sha256:d77bf5b41d89b46294db6c7cf29a39c3ed4e6503f176057809b5c2719a78831c
+
+env:
+  MAX_WORKERS: 3
+  MAX_WORKERS_PER_GAME: 3
+  RECORDING_FRAMERATE: 30
 
 service:
   main:
+    enabled: false
     ports:
       main:
-        protocol: HTTP
-        targetPort: 10579
-        port: 10579
+        enabled: false
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
 
 persistence:
   data:
