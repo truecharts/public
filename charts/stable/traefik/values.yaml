@@ -4,6 +4,8 @@ image:
   tag: 2.9.1@sha256:e8e6da4e8c59b7bbec5a163cd608e8e62775789580e47921cc6e7fc6d33b037d
   pullPolicy: IfNotPresent
 
+updateCRD: true
+
 # -- Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x
 ingressClass:
   # true is not unit-testable yet, pending https://github.com/rancher/helm-unittest/pull/12
