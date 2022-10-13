@@ -142,10 +142,10 @@ questions:
           description: "Backup destination"
           schema:
             type: string
-            default: "local"
+            default: "local_backups"
             enum:
-              - value: "local"
-                description: "local"
+              - value: "local_backups"
+                description: "local_backups"
               - value: "s3"
                 description: "s3"
         - variable: BACKUP_MAX_SIZE
@@ -267,4 +267,8 @@ questions:
 # Include{resources}
 # Include{advanced}
 # Include{addons}
+# Include{codeserver}
+# Include{promtail}
+# Include{netshoot}
+# Include{vpn}
 # Include{documentation}

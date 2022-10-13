@@ -1,7 +1,20 @@
 image:
   repository: tccr.io/truecharts/adguard-home
-  tag: 0.107.13@sha256:0cc6c26020c2ea7c205fa77d48994f6ab008f6f6b88dd10894dd7fd842cfc14b
+  tag: 0.107.16@sha256:7ba765b5e13dc1175c0bbe0e88522f80a9854bb1a9df0fda72956b906e9cb1b6
   pullPolicy: IfNotPresent
+
+# Those args are copied from the upstream Dockerfile.
+# Only port was added. So Adguard won't change port after initial setup
+args:
+  - --no-check-update
+  - --host
+  - "0.0.0.0"
+  - --config
+  - /opt/adguardhome/conf/AdGuardHome.yaml
+  - --work-dir
+  - /opt/adguardhome/work
+  - --port
+  - "{{ .Values.service.main.ports.main.port }}"
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -11,13 +24,23 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+probes:
+  liveness:
+    type: HTTP
+    path: /
+  readiness:
+    type: HTTP
+    path: /
+  startup:
+    type: HTTP
+    path: /
+
 service:
   main:
     ports:
       main:
         port: 10232
         protocol: HTTP
-        targetPort: 3000
   dns-tcp:
     enabled: true
     ports:
@@ -33,14 +56,6 @@ service:
         protocol: UDP
         port: 53
         targetPort: 53
-  dns-http:
-    enabled: true
-    ports:
-      dns-http:
-        enabled: true
-        protocol: HTTP
-        port: 10233
-        targetPort: 80
   dns-https:
     enabled: true
     ports:

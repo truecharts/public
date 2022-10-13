@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/recipes
-  tag: 1.3.3@sha256:4a2a85292c5431e99a4ae428f423ac8c6f65f5e421e75605457f081519304c8f
+  tag: 1.4.4@sha256:c254927591d78ac45af0dc41b44fba4595c93d973366aa6643793dac5c995452
   pullPolicy: IfNotPresent
 
 nginxImage:
   repository: tccr.io/truecharts/nginx
-  tag: v1.23.1@sha256:751dcda748469474cf4f0c8f404671d6d0e6b39f26d92196aa9312d9633b5f7b
+  tag: v1.23.1@sha256:2fa71a3c0fadda3b5607142c80ace51771ed407fa92d31082cbedc25c94e38c2
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -41,7 +41,7 @@ configmap:
             location / {
               proxy_set_header Host $http_host;
               proxy_pass http://localhost:8080;
-              proxy_set_header X-Forwarded-Proto $scheme;
+              proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;
             }
           }
         }

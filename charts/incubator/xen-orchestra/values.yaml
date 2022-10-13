@@ -1,0 +1,62 @@
+image:
+  repository: tccr.io/truecharts/xenorchestra
+  tag: 5.102.3@sha256:1ed09056ef601f7e634cd06f2143a0eda36ad2ed37ddae72e8f4e44161cf0356
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+  capabilities:
+    add:
+      - SYS_ADMIN
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  HTTPS_PORT: "{{ .Values.service.main.ports.main.port }}"
+  # Just so it doesn't try to bind port 80
+  HTTP_PORT: "{{ add1 .Values.service.main.ports.main.port }}"
+  REDIRECT_TO_HTTPS: true
+
+probes:
+  liveness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /healthcheck.sh
+  readiness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /healthcheck.sh
+  startup:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /healthcheck.sh
+
+service:
+  main:
+    ports:
+      main:
+        procotol: HTTPS
+        port: 10324
+
+persistence:
+  xo-data:
+    enabled: true
+    mountPath: "/var/lib/xo-server"
+  redis-data:
+    enabled: true
+    mountPath: "/var/lib/redis"
+
+portal:
+  enabled: true

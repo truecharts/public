@@ -1,28 +1,45 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/redisinsight
-  tag: latest@sha256:d89be8436458397ab87d0e577c218165276a93995f53d489c774eb3f437f846d
-persistence: {}
+  tag: latest@sha256:4bb7112c773c4418c46e68eea8b0f935163f5e1f4c2c345e50e112c189a9d276
+
+redisinsight:
+  log_level: WARNING
+  trusted_origins: []
+  auth_prompt: false
+  auth_timer: 30
+
+env:
+  RIPORT: "{{ .Values.service.main.ports.main.port }}"
+  RIHOMEDIR: /config
+  RILOGDIR: /logs
+  RILOGLEVEL: "{{ .Values.redisinsight.log_level }}"
+  RITRUSTEDORIGINS: '{{ join "," .Values.redisinsight.trusted_origins }}'
+  RIAUTHPROMPT: "{{ .Values.redisinsight.auth_prompt }}"
+  RIAUTHTIMER: "{{ .Values.redisinsight.auth_timer }}"
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
 service:
   main:
-    enabled: false
     ports:
       main:
-        enabled: false
+        protocol: HTTP
+        port: 10579
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  logs:
+    enabled: true
+    mountPath: /logs
 
 portal:
-  enabled: false
+  enabled: true

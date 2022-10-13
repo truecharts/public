@@ -1,0 +1,107 @@
+image:
+  repository: tccr.io/truecharts/immich-server
+  tag: 1.29.5_44@sha256:8245bc309da22c436eb29a838d2292f504d77e24f4d098d6c0e65df877180ff3
+  pullPolicy: IfNotPresent
+
+imageML:
+  repository: tccr.io/truecharts/immich-ml
+  tag: 1.29.5_44@sha256:2df7b6368beb52ff1ffd946aaacc4df21f278b97ee3c592e2021118b3dcb5fec
+  pullPolicy: IfNotPresent
+
+imageWeb:
+  repository: tccr.io/truecharts/immich-web
+  tag: 1.29.5_44@sha256:c17ec4c2a174bac8fc2c58ebaedc7db70600fa2480695cf0920d54127c8bb32e
+  pullPolicy: IfNotPresent
+
+imageProxy:
+  repository: tccr.io/truecharts/immich-proxy
+  tag: 1.29.5_44@sha256:a4c24a70cc1e1bbbdecc3df371af08528430846709ef22ca16e2a923aa8da509
+  pullPolicy: IfNotPresent
+
+command:
+  - /bin/sh
+  - -c
+  - chmod +x ./start-server.sh && ./start-server.sh
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+immich:
+  public_login_page_message: Immich
+  disable_reverse_geocoding: false
+  reverse_geocoding_precision: 3
+  # simple | verbose
+  log_level: simple
+  mapbox_enable: false
+  mapbox_key: ""
+
+envFrom:
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-server-config'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-common-config'
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-immich-secret'
+
+probes:
+  liveness:
+    path: /server-info/ping
+    type: HTTP
+    port: 3001
+  readiness:
+    path: /server-info/ping
+    type: HTTP
+    port: 3001
+  startup:
+    path: /server-info/ping
+    type: HTTP
+    port: 3001
+
+# Due to https://github.com/immich-app/immich/issues/726
+hostAliases:
+  - ip: 127.0.0.1
+    hostnames:
+      - immich-web
+      - immich-server
+      - immich-machine-learning
+
+service:
+  main:
+    ports:
+      main:
+        port: 10323
+        protocol: HTTP
+
+persistence:
+  uploads:
+    enabled: true
+    mountPath: /usr/src/app/upload
+  proxy-conf:
+    enabled: true
+    noMount: true
+    type: custom
+    mountPath: /etc/nginx/
+    volumeSpec:
+      configMap:
+        name: '{{ include "tc.common.names.fullname" . }}-proxy-config'
+        items:
+          - key: nginx.conf
+            path: nginx.conf
+
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlUsername: immich
+  postgresqlDatabase: immich
+
+redis:
+  enabled: true
+  existingSecret: rediscreds
+
+portal:
+  enabled: true

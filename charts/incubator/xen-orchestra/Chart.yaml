@@ -1,0 +1,26 @@
+apiVersion: v2
+appVersion: "5.102.3"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.7.0
+description: Xen-Orchestra is a Web-UI for managing your existing XenServer infrastructure.
+home: https://truecharts.org/docs/charts/incubator/xen-orchestra
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/xen-orchestra.png
+keywords:
+  - xen-orchestra
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: xen-orchestra
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/xen-orchestra
+  - https://hub.docker.com/r/ronivay/xen-orchestra
+version: 0.0.3
+annotations:
+  truecharts.org/catagories: |
+    - management
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

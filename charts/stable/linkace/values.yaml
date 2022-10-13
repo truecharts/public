@@ -43,7 +43,7 @@ env:
   APP_URL: "http://localhost"
   APP_DEBUG: false
   BACKUP_ENABLED: false
-  BACKUP_DISK: s3
+  BACKUP_DISK: local_backups
   BACKUP_NOTIFICATION_EMAIL: your@email.com
   BACKUP_MAX_SIZE: 512
   DB_HOST:

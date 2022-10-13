@@ -1,18 +1,18 @@
 image:
   repository: tccr.io/truecharts/prometheus-operator
-  tag: 0.59.1@sha256:1b3f14930bcb7bdeb54570df94efc40d312efcbcd8c9cddd885fb6f5916e0c6e
+  tag: 0.60.0@sha256:531c340bae170c9ec50edefca8fcef2880744d80e0e359ba7f065b1c5f83a346
 
 prometheusImage:
   repository: tccr.io/truecharts/prometheus
-  tag: 2.38.0@sha256:8df8ef9137e596d63d2c9af9a0805a80c0e7cadb8e6a2491a6cdd71004d65280
+  tag: 2.39.1@sha256:6ed9e75883fd9b1d839b684bd5c207517115d42a411c85defa835964ea048885
 
 thanosImage:
   repository: tccr.io/truecharts/thanos
-  tag: 0.28.0@sha256:c7e16f0acd431eaeaff18d2f6a258cfc52dd7101adc9abaa6c32c7bbf7600b25
+  tag: 0.28.1@sha256:eaef8f71a4a29afbae2fd090afd9aa24de0db02ff65de9ff052a09df9b16be5d
 
 alertmanagerImage:
   repository: tccr.io/truecharts/alertmanager
-  tag: v0.24.0@sha256:2f7de0bb278f1a87b237a573154aae30ebc8daacbf013ab5d85bae3a8855f960
+  tag: v0.24.0@sha256:80c102c73a253e7e1f4b97a3012464b0090dfff420d75da2d20a9a74dada535d
 
 global:
   labels: {}
@@ -1152,6 +1152,8 @@ node-exporter:
   extraArgs:
     collector.filesystem.ignored-mount-points: "^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+|var/db/system/.+|mnt/[a-zA-Z0-9-_\\.]+/ix-applications/.+)($|/)"
     collector.filesystem.ignored-fs-types: "^(autofs|binfmt_misc|cgroup|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|mqueue|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|sysfs|tracefs)$"
+    collector.netdev.device-exclude: "^veth.*$"
+    collector.netclass.ignored-devices: "^veth.*$"
     path.rootfs: /host
   extraVolumes:
     - name: host

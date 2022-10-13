@@ -1,0 +1,223 @@
+# Include{groups}
+portals:
+  open:
+# Include{portalLink}
+questions:
+# Include{global}
+# Include{controller}
+# Include{controllerDeployment}
+# Include{replicas}
+# Include{replica1}
+# Include{strategy}
+# Include{recreate}
+# Include{controllerExpert}
+# Include{controllerExpertExtraArgs}
+  - variable: microbin
+    group: Container Configuration
+    label: Microbin Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: username
+          label: Username
+          description: Require username for HTTP Basic Authentication when visiting the service.
+          schema:
+            type: string
+            default: ""
+        - variable: password
+          label: Password
+          description: Require password for HTTP Basic Authentication when visiting the service.
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: title
+          label: Title
+          description: Replaces the default title in the navigation bar with your own.
+          schema:
+            type: string
+            default: ""
+        - variable: editable
+          label: Editable
+          description: Enables editable pastas.
+          schema:
+            type: boolean
+            default: true
+        - variable: syntax_highlight
+          label: Syntax Highlight
+          description: Enables syntax highlighting support.
+          schema:
+            type: boolean
+            default: true
+        - variable: hide_logo
+          label: Hide Logo
+          description: Hides the MicroBin logo from the navigation bar on every page.
+          schema:
+            type: boolean
+            default: false
+        - variable: hide_header
+          label: Hide Header
+          description: Hides the navigation bar on every page.
+          schema:
+            type: boolean
+            default: false
+        - variable: hide_footer
+          label: Hide Footer
+          description: Hides the footer on every page.
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: false
+            subquestions:
+              - variable: footer
+                label: Footer
+                description: Replaces the default footer text with your own.
+                schema:
+                  type: string
+                  default: ""
+        - variable: no_listing
+          label: No Listing
+          description: Disables the /pastalist endpoint, essentially making all pastas private.
+          schema:
+            type: boolean
+            default: false
+        - variable: private
+          label: Private
+          description: Enables private pastas. With the URL to your pasta, it will still be accessible.
+          schema:
+            type: boolean
+            default: true
+        - variable: pure_html
+          label: Pure HTML
+          description: Disables main CSS styling, just uses a few in-line stylings for the layout.
+          schema:
+            type: boolean
+            default: false
+        - variable: read_only
+          label: Read Only
+          description: Disables adding/editing/removing pastas entirely.
+          schema:
+            type: boolean
+            default: false
+        - variable: wide
+          label: Wide
+          description: Changes the maximum width of the UI from 720 pixels to 1080 pixels.
+          schema:
+            type: boolean
+            default: true
+        - variable: threads
+          label: Threads
+          description: Number of workers MicroBin is allowed to have.
+          schema:
+            type: int
+            default: 1
+# Include{containerConfig}
+# Include{serviceRoot}
+        - variable: main
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: main
+                      label: Main Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 10302
+                              required: true
+# Include{advancedPortHTTP}
+                                - variable: targetPort
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
+                                  schema:
+                                    type: int
+                                    default: 10302
+# Include{serviceExpertRoot}
+            default: false
+# Include{serviceExpert}
+# Include{serviceList}
+# Include{persistenceRoot}
+        - variable: data
+          label: App Data Storage
+          description: Stores the Application Data.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+# Include{persistenceList}
+# Include{ingressRoot}
+        - variable: main
+          label: Main Ingress
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressExpert}
+# Include{ingressList}
+# Include{security}
+# Include{securityContextAdvancedRoot}
+              - variable: privileged
+                label: Privileged mode
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: ReadOnly Root Filesystem
+                schema:
+                  type: boolean
+                  default: true
+              - variable: allowPrivilegeEscalation
+                label: Allow Privilege Escalation
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: runAsNonRoot
+                schema:
+                  type: boolean
+                  default: true
+# Include{securityContextAdvanced}
+# Include{podSecurityContextRoot}
+        - variable: runAsUser
+          label: runAsUser
+          description: The UserID of the user running the application
+          schema:
+            type: int
+            default: 568
+        - variable: runAsGroup
+          label: runAsGroup
+          description: The groupID this App of the user running the application
+          schema:
+            type: int
+            default: 568
+        - variable: fsGroup
+          label: fsGroup
+          description: The group that should own ALL storage.
+          schema:
+            type: int
+            default: 568
+# Include{podSecurityContextAdvanced}
+# Include{resources}
+# Include{advanced}
+# Include{addons}
+# Include{codeserver}
+# Include{promtail}
+# Include{netshoot}
+# Include{vpn}
+# Include{documentation}

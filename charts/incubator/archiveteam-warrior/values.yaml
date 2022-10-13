@@ -3,10 +3,7 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/archiveteam-warrior
   tag: latest@sha256:2040abe53af0995cf5659abeb38e84911484e4897e25fcdda507cb4dcab4025b
-persistence:
-  appdata:
-    enabled: true
-    mountPath: /var/run/docker.sock
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0

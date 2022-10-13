@@ -82,6 +82,12 @@ questions:
           schema:
             type: int
             default: 5
+        - variable: CONNECTION_TIMEOUT
+          label: "CONNECTION_TIMEOUT"
+          description: "How long any session can run for in milliseconds. defaults to 30000 ms or 30 seconds"
+          schema:
+            type: int
+            default: 30000
         - variable: DEFAULT_BLOCK_ADS
           label: "DEFAULT_BLOCK_ADS"
           schema:
@@ -250,4 +256,8 @@ questions:
 # Include{resources}
 # Include{advanced}
 # Include{addons}
+# Include{codeserver}
+# Include{promtail}
+# Include{netshoot}
+# Include{vpn}
 # Include{documentation}

@@ -1,0 +1,35 @@
+image:
+  repository: tccr.io/truecharts/microbin
+  tag: v1.1.1@sha256:0af550df5ac615d1c3db0d39b3c91eb440d616e1de15a5a49115e8f81ded9e07
+  pullPolicy: IfNotPresent
+
+microbin:
+  username: user
+  password: pass
+  title: Microbin
+  editable: true
+  syntax_highlight: true
+  hide_logo: false
+  hide_header: false
+  hide_footer: false
+  footer: TrueCharts
+  no_listing: false
+  private: true
+  pure_html: false
+  read_only: true
+  wide: true
+  threads: 1
+
+service:
+  main:
+    ports:
+      main:
+        port: 10302
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/app/pasta_data"
+
+portal:
+  enabled: true

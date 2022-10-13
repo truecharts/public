@@ -5,14 +5,12 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/webtop
-  tag: latest@sha256:313e14c4226ca81679fb3a10e29782c413de1607347651eef659c481335cd9f3
+  tag: latest@sha256:ccb17511b8ab7a3d370ebaad5b714ae6afbb979b21b6f05fb4601a4ca7c66ac2
 persistence:
   config:
     enabled: true
     mountPath: /config
-  pathvarrundocker-sock:
-    enabled: true
-    mountPath: /var/run/docker.sock
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0

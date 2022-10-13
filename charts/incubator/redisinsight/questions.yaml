@@ -1,5 +1,7 @@
 # Include{groups}
-portals: {}
+portals:
+  open:
+# Include{portalLink}
 questions:
 # Include{global}
 # Include{controller}
@@ -10,51 +12,162 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
+# Include{containerConfig}
+  - variable: redisinsight
+    group: Container Configuration
+    label: Redis Insight Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: trusted_origins
+          label: Trusted Origins
+          description: Configures the trusted origins of the application. ex https://app.mydomain.tld
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: origin
+                label: Trusted Origin
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+        - variable: log_level
+          label: Log Level
+          description: Configures the log level of the application.
+          schema:
+            type: string
+            required: true
+            default: WARNING
+            enum:
+              - value: DEBUG
+                description: DEBUG
+              - value: INFO
+                description: INFO
+              - value: WARNING
+                description: WARNING
+              - value: ERROR
+                description: ERROR
+              - value: CRITICAL
+                description: CRITICAL
+        - variable: auth_prompt
+          label: Auth Prompt
+          description: Enables authentication prompt that asks for authentication before opening an instance or when the user is idle.
+          schema:
+            type: boolean
+            default: false
+        - variable: auth_timer
+          label: Auth Timer
+          description: Idle timer value for authentication prompt, in minutes..
+          schema:
+            type: int
+            default: 30
+# Include{serviceRoot}
+        - variable: main
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: main
+                      label: Main Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 10579
+                              required: true
+# Include{advancedPortHTTP}
+                                - variable: targetPort
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
+                                  schema:
+                                    type: int
+                                    default: 10579
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
+# Include{persistenceRoot}
+        - variable: config
+          label: App Config Storage
+          description: Stores the Application Configuration.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: logs
+          label: App Logs Storage
+          description: Stores the Application Logs.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
 # Include{persistenceList}
+# Include{ingressRoot}
+        - variable: main
+          label: Main Ingress
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
@@ -62,4 +175,8 @@ questions:
 # Include{resources}
 # Include{advanced}
 # Include{addons}
+# Include{codeserver}
+# Include{promtail}
+# Include{netshoot}
+# Include{vpn}
 # Include{documentation}

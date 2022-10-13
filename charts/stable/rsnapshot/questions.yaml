@@ -38,7 +38,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
@@ -73,4 +73,8 @@ questions:
 # Include{resources}
 # Include{advanced}
 # Include{addons}
+# Include{codeserver}
+# Include{promtail}
+# Include{netshoot}
+# Include{vpn}
 # Include{documentation}

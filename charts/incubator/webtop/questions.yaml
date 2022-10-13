@@ -82,15 +82,6 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-        - variable: pathvarrundocker-sock
-          label: "pathvarrundocker-sock Storage"
-          description: "Docker Socket on the system, if you want to use Docker in the container"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -150,4 +141,8 @@ questions:
 # Include{resources}
 # Include{advanced}
 # Include{addons}
+# Include{codeserver}
+# Include{promtail}
+# Include{netshoot}
+# Include{vpn}
 # Include{documentation}

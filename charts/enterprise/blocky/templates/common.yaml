@@ -1,0 +1,107 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{ include "blocky.configmap" . }}
+
+{{/* Always mount the configmap, with the basic config, plus the 'blockyConfig' */}}
+{{- define "blocky.configmap.mount" -}}
+enabled: true
+type: custom
+mountPath: /app/config.yml
+subPath: config.yml
+readOnly: true
+volumeSpec:
+  configMap:
+    name: '{{ printf "%s-config" (include "tc.common.names.fullname" .) }}'
+{{- end -}}
+
+{{/* Append the general configMap volume to the volumes */}}
+{{- define "k8sgateway.configvolume" -}}
+enabled: "true"
+mountPath: "/etc/coredns"
+readOnly: true
+type: "custom"
+volumeSpec:
+  configMap:
+    name: {{ include "tc.common.names.fullname" . }}-corefile
+    items:
+    - key: Corefile
+      path: Corefile
+{{- end -}}
+
+
+{{- $_ := set .Values.persistence "tc-config" (include "blocky.configmap.mount" . | fromYaml) -}}
+
+{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/port" (.Values.service.http.ports.http.port | toString) -}}
+
+{{- if .Values.webUI.enabled -}}
+{{- $_ := set .Values.additionalContainers "frontend" (include "blocky.frontend" . | fromYaml) -}}
+{{- end -}}
+
+{{- if and .Values.k8sgateway.enabled .Values.k8sgateway.domains -}}
+{{- include "k8sgateway.configmap" . }}
+{{- $_ := set .Values.persistence "config-volume" (include "k8sgateway.configvolume" . | fromYaml) -}}
+{{- $_ := set .Values.additionalContainers "k8sgateway" (include "k8sgateway.container" . | fromYaml) -}}
+{{- end -}}
+
+{{/* Define path for api */}}
+{{- define "blocky.api" -}}
+{{- $fullname := include "tc.common.names.fullname" . -}}
+path: "/api"
+# -- Ignored if not kubeVersion >= 1.14-0
+pathType: Prefix
+service:
+  # -- Overrides the service name reference for this path
+  name: {{ printf "%s-http" $fullname }}
+  port: {{ .Values.service.http.ports.http.port }}
+{{- end -}}
+
+{{/* inject websocket path to all main ingress hosts*/}}
+{{- define "blocky.apiinjector" -}}
+{{- $path := list (include "blocky.api" . | fromYaml) -}}
+{{- if .Values.ingress.main.enabled }}
+{{- range .Values.ingress.main.hosts }}
+{{- $newpaths := list }}
+{{- $newpaths := concat .paths $path }}
+{{- $_ := set . "paths" ( deepCopy $newpaths ) -}}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{/* inject api paths in ingress */}}
+{{- include "blocky.apiinjector" . }}
+
+
+
+{{/* Define path for DoH */}}
+{{- define "blocky.doh" -}}
+{{- $fullname := include "tc.common.names.fullname" . -}}
+path: "/dns-query"
+# -- Ignored if not kubeVersion >= 1.14-0
+pathType: Prefix
+service:
+  # -- Overrides the service name reference for this path
+  name: {{ printf "%s-http" $fullname }}
+  port: {{ .Values.service.http.ports.http.port }}
+{{- end -}}
+
+{{/* inject websocket path to all main ingress hosts*/}}
+{{- define "blocky.dohinjector" -}}
+{{- $path := list (include "blocky.doh" . | fromYaml) -}}
+{{- if .Values.ingress.main.enabled }}
+{{- range .Values.ingress.main.hosts }}
+{{- $newpaths := list }}
+{{- $newpaths := concat .paths $path }}
+{{- $_ := set . "paths" ( deepCopy $newpaths ) -}}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{/* inject api paths in ingress */}}
+{{- include "blocky.dohinjector" . }}
+
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}

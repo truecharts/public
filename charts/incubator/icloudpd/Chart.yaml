@@ -1,15 +1,9 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Backup
-    - Cloud
-    - Downloaders
 apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.5.10
+    version: 10.7.0
 deprecated: false
 description: iCloudPD, syncs photos from iDevices to a single directory on TrueNAS.
 home: https://truecharts.org/docs/charts/incubator/icloudpd
@@ -30,4 +24,10 @@ sources:
   - https://github.com/Womabre/-TrueNAS-docker-templates
   - https://hub.docker.com/r/boredazfcuk/icloudpd/
 type: application
-version: 0.0.32
+version: 0.0.40
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Backup
+    - Cloud
+    - Downloaders

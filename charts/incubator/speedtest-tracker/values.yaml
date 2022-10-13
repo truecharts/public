@@ -1,0 +1,39 @@
+image:
+  repository: tccr.io/truecharts/speedtest-tracker
+  tag: latest@sha256:f3cd34d9a891056defb409ae6ef1a2793201236c772fae25be6940b5f99ee4b1
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secretEnv:
+  TELEGRAM_BOT_TOKEN: ""
+  TELEGRAM_CHAT_ID: ""
+  SLACK_WEBHOOK: ""
+
+env:
+  OOKLA_EULA_GDPR: true
+  AUTH: false
+  INFLUXDB_RETENTION: 30d
+  INFLUXDB_HOST_TAG: speedtest
+
+service:
+  main:
+    ports:
+      main:
+        port: 8765
+        protocol: HTTP
+        targetPort: 80
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+
+portal:
+  enabled: true

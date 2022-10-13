@@ -1,7 +1,5 @@
 # privatebin
 
-![Version: 0.0.38](https://img.shields.io/badge/Version-0.0.38-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.4.0](https://img.shields.io/badge/AppVersion-1.4.0-informational?style=flat-square)
-
 PrivateBin is a minimalist, open source online pastebin where the server has zero knowledge of pasted data.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
@@ -26,14 +24,14 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.78 |
-| https://library-charts.truecharts.org | common | 10.5.10 |
+| https://charts.truecharts.org/ | postgresql | 8.0.97 |
+| https://library-charts.truecharts.org | common | 10.7.0 |
 
 ## Installing the Chart
 
 ### TrueNAS SCALE
 
-To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/Installing-an-App).
+To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Installing-an-App).
 
 ### Helm
 
@@ -51,7 +49,7 @@ helm install privatebin TrueCharts/privatebin
 
 **Upgrading, Rolling Back and Uninstalling the Chart**
 
-To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/Upgrade-rollback-delete-an-App).
+To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Upgrade-rollback-delete-an-App).
 
 ### Helm
 
@@ -90,11 +88,11 @@ helm install privatebin TrueCharts/privatebin -f values.yaml
 
 #### Connecting to other charts
 
-If you need to connect this Chart to other Charts on TrueNAS SCALE, please refer to our [Linking Charts Internally](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/linking-apps) quick-start guide.
+If you need to connect this Chart to other Charts on TrueNAS SCALE, please refer to our [Linking Charts Internally](https://truecharts.org/docs/manual/SCALE%20Apps/linking-apps) quick-start guide.
 
 ## Support
 
-- Please check our [quick-start guides for TrueNAS SCALE](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/Important-MUST-READ).
+- Please check our [quick-start guides for TrueNAS SCALE](https://truecharts.org/docs/manual/SCALE%20Apps/Important-MUST-READ).
 - See the [Website](https://truecharts.org)
 - Check our [Discord](https://discord.gg/tVsPTHWTtr)
 - Open a [issue](https://github.com/truecharts/apps/issues/new/choose)
@@ -104,7 +102,7 @@ If you need to connect this Chart to other Charts on TrueNAS SCALE, please refer
 ## Sponsor TrueCharts
 
 TrueCharts can only exist due to the incredible effort of our staff.
-Please consider making a [donation](https://truecharts.org/docs/about/sponsor) or contributing back to the project any way you can!
+Please consider making a [donation](https://truecharts.org/sponsor) or contributing back to the project any way you can!
 
 ---
 

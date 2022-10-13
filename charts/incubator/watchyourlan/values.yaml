@@ -1,0 +1,50 @@
+image:
+  repository: tccr.io/truecharts/watchyourlan
+  tag: 0.7.5@sha256:6047a781b8584f44f6128b38b0cf0a6f26ed4daf4aa2d5db62a5117920d1bbe5
+  pullPolicy: IfNotPresent
+
+hostNetwork: true
+
+watchyourlan:
+  gui_ip: "0.0.0.0"
+  interfaces:
+    - enp1s0
+  theme: darkly
+  timeout: 300
+  shoutrrr_url: ""
+
+env:
+  GUIPORT: "{{ .Values.service.main.ports.main.port }}"
+  DBPATH: /data/db.sqlite
+  # User Defined
+  GUIIP: "{{ .Values.watchyourlan.gui_ip }}"
+  IFACE: '{{ join " " .Values.watchyourlan.interfaces }}'
+  THEME: "{{ .Values.watchyourlan.theme }}"
+  TIMEOUT: "{{ .Values.watchyourlan.timeout }}"
+  SHOUTRRR_URL: "{{ .Values.watchyourlan.shoutrrr_url }}"
+
+probes:
+  liveness:
+    type: HTTP
+    path: /
+  readiness:
+    type: HTTP
+    path: /
+  startup:
+    type: HTTP
+    path: /
+
+service:
+  main:
+    ports:
+      main:
+        port: 10355
+        protocol: HTTP
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+portal:
+  enabled: true

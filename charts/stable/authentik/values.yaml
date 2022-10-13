@@ -1,0 +1,258 @@
+image:
+  repository: tccr.io/truecharts/authentik
+  tag: 2022.9.0@sha256:e3ccba4164bd4f8715eba5f28e1dfeb80b090a60875732b68a1e7e857c6e27a1
+  pullPolicy: IfNotPresent
+
+geoipImage:
+  repository: tccr.io/truecharts/geoipupdate
+  tag: v4.9@sha256:ce42b4252c8cd4a9e39275fd7c3312e5df7bda0d7034df565af4362d7e0d26ce
+  pullPolicy: IfNotPresent
+
+ldapImage:
+  repository: tccr.io/truecharts/authentik-ldap
+  tag: 2022.9.0@sha256:7a105527dfd259a7d77a1516ee9729658809279101070a11172c4aa7dc398d33
+  pullPolicy: IfNotPresent
+
+proxyImage:
+  repository: tccr.io/truecharts/authentik-proxy
+  tag: 2022.9.0@sha256:b3756005a151b03de939f1c7f3034ab0ec16d18c9f11e025e60831707d5188b8
+  pullPolicy: IfNotPresent
+
+args: ["server"]
+
+podSecurityContext:
+  runAsUser: 1000
+  runAsGroup: 1000
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+workerContainer:
+  enabled: true
+
+authentik:
+  credentials:
+    password: "supersecret"
+  general:
+    disable_update_check: false
+    disable_startup_analytics: true
+    allow_user_name_change: true
+    allow_user_mail_change: true
+    allow_user_username_change: true
+    gdpr_compliance: true
+    impersonation: true
+    avatars: "gravatar"
+    token_length: 128
+    # Use single quotes for footer_links
+    footer_links: '[{"name": "Link Name", "href": "https://mylink.com"}]'
+  mail:
+    host: ""
+    port: 25
+    tls: false
+    ssl: false
+    timeout: 10
+    user: ""
+    pass: ""
+    from: ""
+  error_reporting:
+    enabled: false
+    send_pii: false
+    environment: "customer"
+  logging:
+    log_level: "info"
+  ldap:
+    tls_ciphers: "null"
+geoip:
+  enabled: false
+  account_id: ""
+  license_key: ""
+  proxy: ""
+  proxy_user_pass: ""
+  edition_ids: "GeoLite2-City"
+  frequency: 8
+  host_server: "updates.maxmind.com"
+  preserve_file_times: false
+  verbose: false
+
+outposts:
+  ldap:
+    # -- First you have to create an Outpost in the GUI. Applications > Outposts
+    enabled: false
+    # -- Host Browser by default is set to the first ingress host you set
+    # host_browser: ""
+    # -- Host should not need to be overridden. Defaults to https://localhost:9443
+    # host: ""
+    # -- As we use https://localhost:9443 it's an unsecure connection
+    # insecure: false
+    # -- Token is only needed if you accidentally deleted the token within the UI
+    # token: ""
+  proxy:
+    # -- First you have to create an Outpost in the GUI. Applications > Outposts
+    enabled: false
+    # -- Host Browser by default is set to the first ingress host you set
+    # host_browser: ""
+    # -- As we use https://localhost:9443 it's an unsecure connection
+    # insecure: false
+    # -- Host should not need to be overridden. Defaults to https://localhost:9443
+    # host: ""
+    # -- Token is only needed if you accidentally deleted the token within the UI
+    # token: ""
+
+metrics:
+  # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
+  # @default -- See values.yaml
+  enabled: false
+  serviceMonitor:
+    interval: 1m
+    scrapeTimeout: 30s
+    labels: {}
+  # -- Enable and configure Prometheus Rules for the chart under this key.
+  # @default -- See values.yaml
+  prometheusRule:
+    enabled: false
+    useDefault: true
+    labels: {}
+    # -- Configure additional rules for the chart under this key.
+    # @default -- See prometheusrules.yaml
+    rules:
+      []
+      # - alert: UnifiPollerAbsent
+      #   annotations:
+      #     description: Unifi Poller has disappeared from Prometheus service discovery.
+      #     summary: Unifi Poller is down.
+      #   expr: |
+      #     absent(up{job=~".*unifi-poller.*"} == 1)
+      #   for: 5m
+      #   labels:
+      #     severity: critical
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-authentik-secret'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-authentik-config'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-authentik-server-config'
+
+probes:
+  liveness:
+    type: HTTPS
+    path: /-/health/live/
+    port: "{{ .Values.service.main.ports.main.targetPort }}"
+  readiness:
+    type: HTTPS
+    path: /-/health/ready/
+    port: "{{ .Values.service.main.ports.main.targetPort }}"
+  startup:
+    type: HTTPS
+    path: /-/health/ready/
+    port: "{{ .Values.service.main.ports.main.targetPort }}"
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTPS
+        port: 10229
+        targetPort: 9443
+  http:
+    enabled: true
+    type: ClusterIP
+    ports:
+      http:
+        enabled: true
+        protocol: HTTP
+        port: 10230
+        targetPort: 9000
+  # LDAP Outpost Services
+  ldapldaps:
+    enabled: true
+    ports:
+      ldapldaps:
+        enabled: true
+        port: 636
+        targetPort: 6636
+  ldapldap:
+    enabled: true
+    ports:
+      ldapldap:
+        enabled: true
+        port: 389
+        targetPort: 3389
+  # Proxy Outpost Services
+  proxyhttps:
+    enabled: true
+    ports:
+      proxyhttps:
+        enabled: true
+        port: 10233
+        protocol: HTTPS
+        targetPort: 9444
+  proxyhttp:
+    enabled: true
+    type: ClusterIP
+    ports:
+      proxyhttp:
+        enabled: true
+        port: 10234
+        protocol: HTTP
+        targetPort: 9001
+  # Metrics Services
+  metrics:
+    enabled: true
+    type: ClusterIP
+    ports:
+      metrics:
+        enabled: true
+        protocol: HTTP
+        port: 10231
+        targetPort: 9301
+  ldapmetrics:
+    enabled: true
+    type: ClusterIP
+    ports:
+      ldapmetrics:
+        enabled: true
+        port: 10232
+        protocol: HTTP
+        targetPort: 9302
+  proxymetrics:
+    enabled: true
+    type: ClusterIP
+    ports:
+      proxymetrics:
+        enabled: true
+        port: 10235
+        protocol: HTTP
+        targetPort: 9303
+
+ingress:
+  proxyhttps:
+    autoLink: true
+
+persistence:
+  media:
+    enabled: true
+    mountPath: "/media"
+  templates:
+    enabled: true
+    mountPath: "/templates"
+  certs:
+    enabled: true
+    mountPath: "/certs"
+  geoip:
+    enabled: true
+    mountPath: "/geoip"
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: authentik
+  postgresqlDatabase: authentik
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+
+portal:
+  enabled: true

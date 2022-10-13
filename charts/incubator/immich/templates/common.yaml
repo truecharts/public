@@ -1,0 +1,16 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{/* Render secret */}}
+{{- include "immich.secret" . }}
+
+{{/* Render config */}}
+{{- include "immich.config" . }}
+
+{{- $_ := set .Values.additionalContainers "proxy" (include "immich.proxy" . | fromYaml) -}}
+{{- $_ := set .Values.additionalContainers "web" (include "immich.web" . | fromYaml) -}}
+{{- $_ := set .Values.additionalContainers "ml" (include "immich.ml" . | fromYaml) -}}
+{{- $_ := set .Values.additionalContainers "microservices" (include "immich.microservices" . | fromYaml) -}}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}

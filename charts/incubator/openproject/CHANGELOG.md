@@ -2,11 +2,75 @@
 
 
 
-## [openproject-0.0.32](https://github.com/truecharts/charts/compare/openproject-0.0.30...openproject-0.0.32) (2022-09-20)
+## [openproject-0.0.38](https://github.com/truecharts/charts/compare/openproject-0.0.37...openproject-0.0.38) (2022-10-12)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
+## [openproject-0.0.37](https://github.com/truecharts/charts/compare/openproject-0.0.36...openproject-0.0.37) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [openproject-0.0.37](https://github.com/truecharts/charts/compare/openproject-0.0.36...openproject-0.0.37) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [openproject-0.0.36](https://github.com/truecharts/charts/compare/openproject-0.0.35...openproject-0.0.36) (2022-10-05)
+
+### Chore
+
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
+## [openproject-0.0.34](https://github.com/truecharts/charts/compare/openproject-0.0.33...openproject-0.0.34) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
+## [openproject-0.0.33](https://github.com/truecharts/charts/compare/openproject-0.0.32...openproject-0.0.33) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
+## [openproject-0.0.32](https://github.com/truecharts/charts/compare/openproject-0.0.30...openproject-0.0.32) (2022-09-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
@@ -25,7 +89,73 @@
 
 
 
-## [openproject-0.0.32](https://github.com/truecharts/charts/compare/openproject-0.0.30...openproject-0.0.32) (2022-09-20)
+## [openttd-0.0.24](https://github.com/truecharts/charts/compare/openttd-0.0.23...openttd-0.0.24) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [openttd-0.0.24](https://github.com/truecharts/charts/compare/openttd-0.0.23...openttd-0.0.24) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [openttd-0.0.24](https://github.com/truecharts/charts/compare/openttd-0.0.23...openttd-0.0.24) (2022-09-20)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [openttd-0.0.24](https://github.com/truecharts/charts/compare/openttd-0.0.23...openttd-0.0.24) (2022-09-20)
 
 ### Chore
 
@@ -39,15 +169,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
-  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [openproject-0.0.32](https://github.com/truecharts/charts/compare/openproject-0.0.30...openproject-0.0.32) (2022-09-19)
+## [openttd-0.0.24](https://github.com/truecharts/charts/compare/openttd-0.0.23...openttd-0.0.24) (2022-09-19)
 
 ### Chore
 
@@ -60,15 +188,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
-  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [openproject-0.0.32](https://github.com/truecharts/charts/compare/openproject-0.0.30...openproject-0.0.32) (2022-09-19)
+## [openttd-0.0.24](https://github.com/truecharts/charts/compare/openttd-0.0.23...openttd-0.0.24) (2022-09-19)
 
 ### Chore
 
@@ -80,15 +206,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [openproject-0.0.32](https://github.com/truecharts/charts/compare/openproject-0.0.30...openproject-0.0.32) (2022-09-19)
+## [openttd-0.0.24](https://github.com/truecharts/charts/compare/openttd-0.0.23...openttd-0.0.24) (2022-09-19)
 
 ### Chore
 
@@ -99,15 +223,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [openproject-0.0.31](https://github.com/truecharts/charts/compare/openproject-0.0.30...openproject-0.0.31) (2022-09-17)
+## [openttd-0.0.24](https://github.com/truecharts/charts/compare/openttd-0.0.23...openttd-0.0.24) (2022-09-17)
 
 ### Chore
 
@@ -117,14 +239,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [openproject-0.0.31](https://github.com/truecharts/charts/compare/openproject-0.0.30...openproject-0.0.31) (2022-09-18)
+## [openttd-0.0.24](https://github.com/truecharts/charts/compare/openttd-0.0.23...openttd-0.0.24) (2022-09-18)
 
 ### Chore
 
@@ -132,53 +253,49 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [openproject-0.0.31](https://github.com/truecharts/charts/compare/openproject-0.0.30...openproject-0.0.31) (2022-09-16)
+## [openttd-0.0.24](https://github.com/truecharts/charts/compare/openttd-0.0.23...openttd-0.0.24) (2022-09-16)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [openproject-0.0.31](https://github.com/truecharts/charts/compare/openproject-0.0.30...openproject-0.0.31) (2022-09-16)
+## [openttd-0.0.24](https://github.com/truecharts/charts/compare/openttd-0.0.23...openttd-0.0.24) (2022-09-16)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [openproject-0.0.31](https://github.com/truecharts/charts/compare/openproject-0.0.30...openproject-0.0.31) (2022-09-15)
+## [openttd-0.0.24](https://github.com/truecharts/charts/compare/openttd-0.0.23...openttd-0.0.24) (2022-09-15)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [openproject-0.0.31](https://github.com/truecharts/charts/compare/openproject-0.0.30...openproject-0.0.31) (2022-09-15)
+## [openttd-0.0.24](https://github.com/truecharts/charts/compare/openttd-0.0.23...openttd-0.0.24) (2022-09-15)
 
 ### Chore
 
@@ -188,16 +305,7 @@
 
 
 
-## [openproject-0.0.30](https://github.com/truecharts/charts/compare/openproject-0.0.29...openproject-0.0.30) (2022-09-13)
-
-### Chore
-
-- update helm general non-major ([#3756](https://github.com/truecharts/charts/issues/3756))
-
-
-
-
-## [openproject-0.0.29](https://github.com/truecharts/charts/compare/openproject-0.0.28...openproject-0.0.29) (2022-09-12)
+## [openttd-0.0.23](https://github.com/truecharts/charts/compare/openttd-0.0.22...openttd-0.0.23) (2022-09-12)
 
 ### Chore
 
@@ -206,12 +314,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [openproject-0.0.29](https://github.com/truecharts/charts/compare/openproject-0.0.28...openproject-0.0.29) (2022-09-12)
+## [openttd-0.0.23](https://github.com/truecharts/charts/compare/openttd-0.0.22...openttd-0.0.23) (2022-09-12)
 
 ### Chore
 
@@ -219,63 +328,59 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [openproject-0.0.29](https://github.com/truecharts/charts/compare/openproject-0.0.28...openproject-0.0.29) (2022-09-11)
+## [openttd-0.0.23](https://github.com/truecharts/charts/compare/openttd-0.0.22...openttd-0.0.23) (2022-09-11)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [openproject-0.0.29](https://github.com/truecharts/charts/compare/openproject-0.0.28...openproject-0.0.29) (2022-09-11)
+## [openttd-0.0.23](https://github.com/truecharts/charts/compare/openttd-0.0.22...openttd-0.0.23) (2022-09-11)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [openproject-0.0.29](https://github.com/truecharts/charts/compare/openproject-0.0.28...openproject-0.0.29) (2022-09-11)
+## [openttd-0.0.23](https://github.com/truecharts/charts/compare/openttd-0.0.22...openttd-0.0.23) (2022-09-11)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [openproject-0.0.29](https://github.com/truecharts/charts/compare/openproject-0.0.28...openproject-0.0.29) (2022-09-11)
+## [openttd-0.0.23](https://github.com/truecharts/charts/compare/openttd-0.0.22...openttd-0.0.23) (2022-09-11)
 
 ### Chore
 
-- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+- add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [openproject-0.0.28](https://github.com/truecharts/charts/compare/openproject-0.0.27...openproject-0.0.28) (2022-09-01)
-
-### Chore
-
-- update docker general non-major ([#3649](https://github.com/truecharts/charts/issues/3649))
-
-
-
-
-## [openproject-0.0.27](https://github.com/truecharts/charts/compare/openproject-0.0.25...openproject-0.0.27) (2022-08-30)
+## [openttd-0.0.22](https://github.com/truecharts/charts/compare/openttd-0.0.20...openttd-0.0.22) (2022-08-30)
 
 ### Chore
 
@@ -286,7 +391,7 @@
 
 
 
-## [openproject-0.0.26](https://github.com/truecharts/charts/compare/openproject-0.0.25...openproject-0.0.26) (2022-08-30)
+## [openttd-0.0.21](https://github.com/truecharts/charts/compare/openttd-0.0.20...openttd-0.0.21) (2022-08-30)
 
 ### Chore
 
@@ -295,17 +400,16 @@
 
 
 
-## [openproject-0.0.25](https://github.com/truecharts/charts/compare/openproject-0.0.23...openproject-0.0.25) (2022-08-29)
+## [openttd-0.0.20](https://github.com/truecharts/charts/compare/openttd-0.0.19...openttd-0.0.20) (2022-08-29)
 
 ### Chore
 
-- update helm general non-major ([#3621](https://github.com/truecharts/charts/issues/3621))
-  - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
 
 
 
 
-## [openproject-0.0.23](https://github.com/truecharts/charts/compare/openproject-0.0.21...openproject-0.0.23) (2022-08-26)
+## [openttd-0.0.19](https://github.com/truecharts/charts/compare/openttd-0.0.17...openttd-0.0.19) (2022-08-26)
 
 ### Fix
 
@@ -314,7 +418,7 @@
 
 
 
-## [openproject-0.0.21](https://github.com/truecharts/charts/compare/openproject-0.0.20...openproject-0.0.21) (2022-08-23)
+## [openttd-0.0.17](https://github.com/truecharts/charts/compare/openttd-0.0.16...openttd-0.0.17) (2022-08-23)
 
 ### Chore
 
@@ -323,26 +427,7 @@
 
 
 
-## [openproject-0.0.20](https://github.com/truecharts/charts/compare/openproject-0.0.19...openproject-0.0.20) (2022-08-19)
-
-### Chore
-
-- update docker general non-major docker tags ([#3512](https://github.com/truecharts/charts/issues/3512))
-
-
-
-
-## [openproject-0.0.19](https://github.com/truecharts/charts/compare/openproject-0.0.18...openproject-0.0.19) (2022-08-17)
-
-### Chore
-
-- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
-  - update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
-
-
-
-
-## [openproject-0.0.18](https://github.com/truecharts/charts/compare/openproject-0.0.17...openproject-0.0.18) (2022-08-12)
+## [owi2plex-0.0.16](https://github.com/truecharts/charts/compare/owi2plex-0.0.15...owi2plex-0.0.16) (2022-08-12)
 
 ### Chore
 
@@ -356,16 +441,7 @@
 
 
 
-## [openproject-0.0.17](https://github.com/truecharts/charts/compare/openproject-0.0.16...openproject-0.0.17) (2022-08-09)
-
-### Chore
-
-- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
-
-
-
-
-## [openproject-0.0.16](https://github.com/truecharts/charts/compare/openproject-0.0.15...openproject-0.0.16) (2022-08-08)
+## [owi2plex-0.0.15](https://github.com/truecharts/charts/compare/owi2plex-0.0.14...owi2plex-0.0.15) (2022-08-08)
 
 ### Chore
 
@@ -375,21 +451,7 @@
 
 
 
-## [openproject-0.0.15](https://github.com/truecharts/apps/compare/openproject-0.0.14...openproject-0.0.15) (2022-08-01)
-
-
-
-
-## [openproject-0.0.14](https://github.com/truecharts/apps/compare/openproject-0.0.13...openproject-0.0.14) (2022-08-01)
-
-### Fix
-
-- Add DB and main service port ([#3354](https://github.com/truecharts/apps/issues/3354))
-
-
-
-
-## [openproject-0.0.13](https://github.com/truecharts/apps/compare/openproject-0.0.12...openproject-0.0.13) (2022-07-26)
+## [owi2plex-0.0.14](https://github.com/truecharts/apps/compare/owi2plex-0.0.13...owi2plex-0.0.14) (2022-07-26)
 
 ### Chore
 
@@ -399,7 +461,20 @@
 
 
 
-## [openproject-0.0.12](https://github.com/truecharts/apps/compare/openproject-0.0.11...openproject-0.0.12) (2022-07-23)
+## [owi2plex-0.0.13](https://github.com/truecharts/apps/compare/owi2plex-0.0.12...owi2plex-0.0.13) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3300](https://github.com/truecharts/apps/issues/3300))
+
+  ### Chore
+
+- add fake digest to new incubator Apps to fetch digests
+
+
+
+
+## [owi2plex-0.0.12](https://github.com/truecharts/apps/compare/owi2plex-0.0.11...owi2plex-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -410,7 +485,7 @@
 
 
 
-## [openproject-0.0.12](https://github.com/truecharts/apps/compare/openproject-0.0.11...openproject-0.0.12) (2022-07-23)
+## [owi2plex-0.0.12](https://github.com/truecharts/apps/compare/owi2plex-0.0.11...owi2plex-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -420,7 +495,7 @@
 
 
 
-## [openproject-0.0.12](https://github.com/truecharts/apps/compare/openproject-0.0.11...openproject-0.0.12) (2022-07-23)
+## [owi2plex-0.0.12](https://github.com/truecharts/apps/compare/owi2plex-0.0.11...owi2plex-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -429,7 +504,7 @@
 
 
 
-## [openproject-0.0.11]openproject-0.0.11 (2022-07-22)
+## [owi2plex-0.0.11]owi2plex-0.0.11 (2022-07-22)
 
 ### Chore
 
@@ -441,7 +516,7 @@
 
 
 
-## [openproject-0.0.10]openproject-0.0.10 (2022-07-22)
+## [owi2plex-0.0.10]owi2plex-0.0.10 (2022-07-22)
 
 ### Chore
 
@@ -451,7 +526,7 @@
 
 
 
-## [openproject-0.0.10]openproject-0.0.10 (2022-07-22)
+## [owi2plex-0.0.10]owi2plex-0.0.10 (2022-07-22)
 
 ### Chore
 

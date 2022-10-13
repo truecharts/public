@@ -2,6 +2,232 @@
 
 
 
+## [mongodb-2.0.32](https://github.com/truecharts/charts/compare/mongodb-2.0.31...mongodb-2.0.32) (2022-10-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4070](https://github.com/truecharts/charts/issues/4070))
+
+
+
+
+## [mongodb-2.0.31](https://github.com/truecharts/charts/compare/mongodb-2.0.30...mongodb-2.0.31) (2022-10-10)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.7.0 ([#4063](https://github.com/truecharts/charts/issues/4063))
+
+
+
+
+## [mongodb-2.0.30](https://github.com/truecharts/charts/compare/mongodb-2.0.29...mongodb-2.0.30) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
+## [mongodb-2.0.29](https://github.com/truecharts/charts/compare/mongodb-2.0.28...mongodb-2.0.29) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.6.11 ([#4021](https://github.com/truecharts/charts/issues/4021))
+
+
+
+
+## [mongodb-2.0.28](https://github.com/truecharts/charts/compare/mongodb-2.0.27...mongodb-2.0.28) (2022-10-04)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#4001](https://github.com/truecharts/charts/issues/4001))
+
+
+
+
+## [mongodb-2.0.27](https://github.com/truecharts/charts/compare/mongodb-2.0.26...mongodb-2.0.27) (2022-10-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3975](https://github.com/truecharts/charts/issues/3975))
+
+
+
+
+## [mongodb-2.0.26](https://github.com/truecharts/charts/compare/mongodb-2.0.25...mongodb-2.0.26) (2022-10-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.6.8
+
+
+
+
+## [mongodb-2.0.25](https://github.com/truecharts/charts/compare/mongodb-2.0.24...mongodb-2.0.25) (2022-09-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3965](https://github.com/truecharts/charts/issues/3965))
+
+
+
+
+## [mongodb-2.0.24](https://github.com/truecharts/charts/compare/mongodb-2.0.23...mongodb-2.0.24) (2022-09-29)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.6.5 ([#3946](https://github.com/truecharts/charts/issues/3946))
+
+
+
+
+## [mongodb-2.0.23](https://github.com/truecharts/charts/compare/mongodb-2.0.22...mongodb-2.0.23) (2022-09-28)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3938](https://github.com/truecharts/charts/issues/3938))
+
+
+
+
+## [mongodb-2.0.22](https://github.com/truecharts/charts/compare/mongodb-2.0.21...mongodb-2.0.22) (2022-09-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.6.4 ([#3914](https://github.com/truecharts/charts/issues/3914))
+
+
+
+
+## [mongodb-2.0.21](https://github.com/truecharts/charts/compare/mongodb-2.0.20...mongodb-2.0.21) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.6.1 ([#3893](https://github.com/truecharts/charts/issues/3893))
+
+
+
+
+## [mongodb-2.0.20](https://github.com/truecharts/charts/compare/mongodb-2.0.19...mongodb-2.0.20) (2022-09-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.6.0
+
+
+
+
+## [mongodb-2.0.19](https://github.com/truecharts/charts/compare/mongodb-2.0.17...mongodb-2.0.19) (2022-09-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3860](https://github.com/truecharts/charts/issues/3860))
+  - update helm chart common to v10.5.12
+
+
+
+
+## [mongodb-2.0.18](https://github.com/truecharts/charts/compare/mongodb-2.0.17...mongodb-2.0.18) (2022-09-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.5.12
+
+
+
+
+## [mongodb-2.0.17](https://github.com/truecharts/charts/compare/mongodb-2.0.13...mongodb-2.0.17) (2022-09-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update docker general non-major ([#3827](https://github.com/truecharts/charts/issues/3827))
+  - update helm chart common to v10.5.11 ([#3832](https://github.com/truecharts/charts/issues/3832))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [mongodb-2.0.17](https://github.com/truecharts/charts/compare/mongodb-2.0.13...mongodb-2.0.17) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm chart common to v10.5.11 ([#3832](https://github.com/truecharts/charts/issues/3832))
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update docker general non-major ([#3827](https://github.com/truecharts/charts/issues/3827))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [mongodb-2.0.15](https://github.com/truecharts/charts/compare/mongodb-2.0.13...mongodb-2.0.15) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
 ## [mongodb-2.0.15](https://github.com/truecharts/charts/compare/mongodb-2.0.13...mongodb-2.0.15) (2022-09-20)
 
 ### Chore

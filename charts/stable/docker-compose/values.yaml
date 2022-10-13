@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/docker-in-docker
   pullPolicy: IfNotPresent
-  tag: 20.10.18@sha256:0133b324afbe393181d65e0635f709dda9ed8ebe4f8aa8a2367277ac76a2077e
+  tag: 20.10.18@sha256:e955020196b2215a412f5647b7cd2bbe268df1c1b3d6a2ad550beaa783fdee44
 
 controller:
   # -- Set the controller type.
@@ -93,13 +93,6 @@ persistence:
     type: hostPath
     hostPath: /root
     mountPath: /root
-    hostPathType: ""
-    readOnly: false
-  cluster:
-    enabled: true
-    type: hostPath
-    hostPath: /cluster
-    mountPath: /cluster
     hostPathType: ""
     readOnly: false
   docker-certs-ca:

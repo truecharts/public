@@ -1,0 +1,34 @@
+apiVersion: v2
+appVersion: "1.29.5_44"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.7.0
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 8.0.97
+  - condition: redis.enabled
+    name: redis
+    repository: https://charts.truecharts.org
+    version: 3.0.94
+description: High performance self-hosted photo and video backup solution.
+home: https://truecharts.org/docs/charts/incubator/immich
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/immich.png
+keywords:
+  - photos
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: immich
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/immich
+  - https://github.com/immich-app/immich
+version: 0.0.6
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

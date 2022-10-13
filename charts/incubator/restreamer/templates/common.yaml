@@ -9,7 +9,7 @@
 {{- if .Values.restreamer.metrics.prometheus_enabled -}}
 {{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
 {{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
-{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" (.Values.service.main.ports.main.port | quote) -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/port" (.Values.service.main.ports.main.port | quote) -}}
 {{- end -}}
 
 {{/* Render the templates */}}

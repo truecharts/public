@@ -1,0 +1,29 @@
+image:
+  repository: tccr.io/truecharts/noisedash
+  tag: v0.6.5@sha256:fedd0dc06300ba834e190323a8a37c7e555efeb179dcf34a6607da969a4c3956
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+noisedash:
+  max_sample_size_in_bytes: 10737418240
+
+service:
+  main:
+    ports:
+      main:
+        port: 10328
+
+persistence:
+  samples:
+    enabled: true
+    mountPath: "/var/noisedash/samples"
+
+portal:
+  enabled: true

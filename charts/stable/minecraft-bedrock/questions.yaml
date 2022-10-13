@@ -115,14 +115,14 @@ questions:
           label: "Player idle timeout"
           schema:
             type: int
-            min: 1
+            min: 0
             required: true
             default: 30
         - variable: MAX_THREADS
           label: "Max threads"
           schema:
             type: int
-            min: 1
+            min: 0
             required: true
             default: 8
         - variable: LEVEL_NAME
@@ -285,4 +285,8 @@ questions:
 # Include{resources}
 # Include{advanced}
 # Include{addons}
+# Include{codeserver}
+# Include{promtail}
+# Include{netshoot}
+# Include{vpn}
 # Include{documentation}

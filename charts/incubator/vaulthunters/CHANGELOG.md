@@ -2,11 +2,107 @@
 
 
 
-## [vaulthunters-0.0.26](https://github.com/truecharts/charts/compare/vaulthunters-0.0.25...vaulthunters-0.0.26) (2022-09-20)
+## [vaulthunters-0.0.33](https://github.com/truecharts/charts/compare/vaulthunters-0.0.32...vaulthunters-0.0.33) (2022-10-12)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
+## [vaulthunters-0.0.32](https://github.com/truecharts/charts/compare/vaulthunters-0.0.31...vaulthunters-0.0.32) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [vaulthunters-0.0.32](https://github.com/truecharts/charts/compare/vaulthunters-0.0.31...vaulthunters-0.0.32) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [vaulthunters-0.0.31](https://github.com/truecharts/charts/compare/vaulthunters-0.0.30...vaulthunters-0.0.31) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
+## [vaulthunters-0.0.30](https://github.com/truecharts/charts/compare/vaulthunters-0.0.29...vaulthunters-0.0.30) (2022-09-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3965](https://github.com/truecharts/charts/issues/3965))
+
+
+
+
+## [vaulthunters-0.0.29](https://github.com/truecharts/charts/compare/vaulthunters-0.0.28...vaulthunters-0.0.29) (2022-09-29)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3953](https://github.com/truecharts/charts/issues/3953))
+
+
+
+
+## [vaulthunters-0.0.29](https://github.com/truecharts/charts/compare/vaulthunters-0.0.28...vaulthunters-0.0.29) (2022-09-29)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3953](https://github.com/truecharts/charts/issues/3953))
+
+
+
+
+## [vaulthunters-0.0.28](https://github.com/truecharts/charts/compare/vaulthunters-0.0.27...vaulthunters-0.0.28) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
+## [vaulthunters-0.0.27](https://github.com/truecharts/charts/compare/vaulthunters-0.0.26...vaulthunters-0.0.27) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
+## [vaulthunters-0.0.26](https://github.com/truecharts/charts/compare/vaulthunters-0.0.25...vaulthunters-0.0.26) (2022-09-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
@@ -22,11 +118,14 @@
 
 
 
-## [vaulthunters-0.0.26](https://github.com/truecharts/charts/compare/vaulthunters-0.0.25...vaulthunters-0.0.26) (2022-09-20)
+## [vaulthunters-0.0.26](https://github.com/truecharts/charts/compare/vaulthunters-0.0.25...vaulthunters-0.0.26) (2022-09-21)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
@@ -41,7 +140,7 @@
 
 
 
-## [vaulthunters-0.0.26](https://github.com/truecharts/charts/compare/vaulthunters-0.0.25...vaulthunters-0.0.26) (2022-09-19)
+## [valetudo-mapper-0.0.25](https://github.com/truecharts/charts/compare/valetudo-mapper-0.0.23...valetudo-mapper-0.0.25) (2022-09-21)
 
 ### Chore
 
@@ -53,13 +152,22 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - refactor Services SCALE GUI
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [vaulthunters-0.0.26](https://github.com/truecharts/charts/compare/vaulthunters-0.0.25...vaulthunters-0.0.26) (2022-09-19)
+## [valetudo-mapper-0.0.25](https://github.com/truecharts/charts/compare/valetudo-mapper-0.0.23...valetudo-mapper-0.0.25) (2022-09-20)
 
 ### Chore
 
@@ -70,13 +178,22 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - refactor Services SCALE GUI
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [vaulthunters-0.0.26](https://github.com/truecharts/charts/compare/vaulthunters-0.0.25...vaulthunters-0.0.26) (2022-09-19)
+## [valetudo-mapper-0.0.25](https://github.com/truecharts/charts/compare/valetudo-mapper-0.0.23...valetudo-mapper-0.0.25) (2022-09-20)
 
 ### Chore
 
@@ -86,13 +203,22 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - refactor Services SCALE GUI
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [vaulthunters-0.0.26](https://github.com/truecharts/charts/compare/vaulthunters-0.0.25...vaulthunters-0.0.26) (2022-09-17)
+## [valetudo-mapper-0.0.25](https://github.com/truecharts/charts/compare/valetudo-mapper-0.0.23...valetudo-mapper-0.0.25) (2022-09-19)
 
 ### Chore
 
@@ -101,13 +227,22 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - refactor Services SCALE GUI
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [vaulthunters-0.0.26](https://github.com/truecharts/charts/compare/vaulthunters-0.0.25...vaulthunters-0.0.26) (2022-09-18)
+## [valetudo-mapper-0.0.25](https://github.com/truecharts/charts/compare/valetudo-mapper-0.0.23...valetudo-mapper-0.0.25) (2022-09-19)
 
 ### Chore
 
@@ -115,54 +250,155 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [vaulthunters-0.0.26](https://github.com/truecharts/charts/compare/vaulthunters-0.0.25...vaulthunters-0.0.26) (2022-09-16)
+## [valetudo-mapper-0.0.25](https://github.com/truecharts/charts/compare/valetudo-mapper-0.0.23...valetudo-mapper-0.0.25) (2022-09-19)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [vaulthunters-0.0.26](https://github.com/truecharts/charts/compare/vaulthunters-0.0.25...vaulthunters-0.0.26) (2022-09-16)
+## [valetudo-mapper-0.0.25](https://github.com/truecharts/charts/compare/valetudo-mapper-0.0.23...valetudo-mapper-0.0.25) (2022-09-18)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [vaulthunters-0.0.26](https://github.com/truecharts/charts/compare/vaulthunters-0.0.25...vaulthunters-0.0.26) (2022-09-15)
+## [valetudo-mapper-0.0.25](https://github.com/truecharts/charts/compare/valetudo-mapper-0.0.23...valetudo-mapper-0.0.25) (2022-09-18)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [vaulthunters-0.0.26](https://github.com/truecharts/charts/compare/vaulthunters-0.0.25...vaulthunters-0.0.26) (2022-09-15)
+## [valetudo-mapper-0.0.25](https://github.com/truecharts/charts/compare/valetudo-mapper-0.0.23...valetudo-mapper-0.0.25) (2022-09-16)
 
 ### Chore
 
-- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [vaulthunters-0.0.25](https://github.com/truecharts/charts/compare/vaulthunters-0.0.24...vaulthunters-0.0.25) (2022-09-12)
+## [valetudo-mapper-0.0.25](https://github.com/truecharts/charts/compare/valetudo-mapper-0.0.23...valetudo-mapper-0.0.25) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [valetudo-mapper-0.0.25](https://github.com/truecharts/charts/compare/valetudo-mapper-0.0.23...valetudo-mapper-0.0.25) (2022-09-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [valetudo-mapper-0.0.25](https://github.com/truecharts/charts/compare/valetudo-mapper-0.0.23...valetudo-mapper-0.0.25) (2022-09-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [valetudo-mapper-0.0.24](https://github.com/truecharts/charts/compare/valetudo-mapper-0.0.23...valetudo-mapper-0.0.24) (2022-09-12)
 
 ### Chore
 
@@ -176,7 +412,7 @@
 
 
 
-## [vaulthunters-0.0.25](https://github.com/truecharts/charts/compare/vaulthunters-0.0.24...vaulthunters-0.0.25) (2022-09-12)
+## [valetudo-mapper-0.0.24](https://github.com/truecharts/charts/compare/valetudo-mapper-0.0.23...valetudo-mapper-0.0.24) (2022-09-12)
 
 ### Chore
 
@@ -184,6 +420,39 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [valetudo-mapper-0.0.24](https://github.com/truecharts/charts/compare/valetudo-mapper-0.0.23...valetudo-mapper-0.0.24) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [valetudo-mapper-0.0.24](https://github.com/truecharts/charts/compare/valetudo-mapper-0.0.23...valetudo-mapper-0.0.24) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [valetudo-mapper-0.0.24](https://github.com/truecharts/charts/compare/valetudo-mapper-0.0.23...valetudo-mapper-0.0.24) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
@@ -193,32 +462,7 @@
 
 ### Chore
 
-- Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
-
-
-
-
-## [vaulthunters-0.0.25](https://github.com/truecharts/charts/compare/vaulthunters-0.0.24...vaulthunters-0.0.25) (2022-09-11)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
-
-
-
-
-## [vaulthunters-0.0.25](https://github.com/truecharts/charts/compare/vaulthunters-0.0.24...vaulthunters-0.0.25) (2022-09-11)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
-
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 

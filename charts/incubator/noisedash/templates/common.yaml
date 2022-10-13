@@ -1,0 +1,21 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{- define "noisedash.configvolume" -}}
+enabled: true
+mountPath: /var/noisedash/config
+type: custom
+readOnly: true
+volumeSpec:
+  configMap:
+    name: {{ include "tc.common.names.fullname" . }}-noisedash-config
+    items:
+    - key: default.json
+      path: default.json
+{{- end -}}
+
+{{- include "noisedash.config" . -}}
+{{- $_ := set .Values.persistence "noisedash-config" (include "noisedash.configvolume" . | fromYaml) -}}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}

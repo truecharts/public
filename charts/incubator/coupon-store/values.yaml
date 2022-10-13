@@ -1,0 +1,36 @@
+image:
+  repository: tccr.io/truecharts/coupon-store
+  tag: 1.1.1@sha256:0278a5d3d3afbe1c39cf2422aa2b9f6f746944b99910cccd87cedbd2bac4f161
+  pullPolicy: IfNotPresent
+
+command:
+  - bash
+  - -c
+  - rm -f tmp/pids/server.pid && bundle exec rails s -p {{ .Values.service.main.ports.main.port }} -b '0.0.0.0'
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-couponstore-secret'
+
+service:
+  main:
+    ports:
+      main:
+        port: 10304
+
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlUsername: coupon-store
+  postgresqlDatabase: coupon-store
+
+portal:
+  enabled: true

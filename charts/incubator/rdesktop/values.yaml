@@ -3,14 +3,12 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rdesktop
-  tag: latest@sha256:d8392e26f15847f865a461c09fc50ef3ab441655f877e270e4d933e9b75ffd33
+  tag: latest@sha256:ddf1840a114ff289620e9397d96b03171cad007de63f5305e817f84f868a4d4d
 persistence:
   config:
     enabled: true
     mountPath: /config
-  pathvarrundocker-sock:
-    enabled: true
-    mountPath: /var/run/docker.sock
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0

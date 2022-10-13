@@ -2,7 +2,135 @@
 
 
 
-## [truecommand-11.0.32](https://github.com/truecharts/charts/compare/truecommand-11.0.31...truecommand-11.0.32) (2022-09-20)
+## [truecommand-11.0.37](https://github.com/truecharts/charts/compare/truecommand-11.0.36...truecommand-11.0.37) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
+## [truecommand-11.0.36](https://github.com/truecharts/charts/compare/truecommand-11.0.35...truecommand-11.0.36) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [tsmuxer-1.0.13](https://github.com/truecharts/charts/compare/tsmuxer-1.0.12...tsmuxer-1.0.13) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [tsmuxer-1.0.12](https://github.com/truecharts/charts/compare/tsmuxer-1.0.11...tsmuxer-1.0.12) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
+## [tsmuxer-1.0.11](https://github.com/truecharts/charts/compare/tsmuxer-1.0.10...tsmuxer-1.0.11) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
+## [tsmuxer-1.0.10](https://github.com/truecharts/charts/compare/tsmuxer-1.0.9...tsmuxer-1.0.10) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
+## [tsmuxer-1.0.9](https://github.com/truecharts/charts/compare/tsmuxer-1.0.8...tsmuxer-1.0.9) (2022-09-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [tsmuxer-1.0.9](https://github.com/truecharts/charts/compare/tsmuxer-1.0.8...tsmuxer-1.0.9) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [tsmuxer-1.0.9](https://github.com/truecharts/charts/compare/tsmuxer-1.0.8...tsmuxer-1.0.9) (2022-09-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [tsmuxer-1.0.9](https://github.com/truecharts/charts/compare/tsmuxer-1.0.8...tsmuxer-1.0.9) (2022-09-20)
 
 ### Chore
 
@@ -22,7 +150,7 @@
 
 
 
-## [truecommand-11.0.32](https://github.com/truecharts/charts/compare/truecommand-11.0.31...truecommand-11.0.32) (2022-09-20)
+## [tsmuxer-1.0.9](https://github.com/truecharts/charts/compare/tsmuxer-1.0.8...tsmuxer-1.0.9) (2022-09-20)
 
 ### Chore
 
@@ -41,7 +169,7 @@
 
 
 
-## [truecommand-11.0.32](https://github.com/truecharts/charts/compare/truecommand-11.0.31...truecommand-11.0.32) (2022-09-19)
+## [tsmuxer-1.0.9](https://github.com/truecharts/charts/compare/tsmuxer-1.0.8...tsmuxer-1.0.9) (2022-09-19)
 
 ### Chore
 
@@ -59,7 +187,7 @@
 
 
 
-## [truecommand-11.0.32](https://github.com/truecharts/charts/compare/truecommand-11.0.31...truecommand-11.0.32) (2022-09-19)
+## [tsmuxer-1.0.9](https://github.com/truecharts/charts/compare/tsmuxer-1.0.8...tsmuxer-1.0.9) (2022-09-19)
 
 ### Chore
 
@@ -76,7 +204,7 @@
 
 
 
-## [truecommand-11.0.32](https://github.com/truecharts/charts/compare/truecommand-11.0.31...truecommand-11.0.32) (2022-09-19)
+## [tsmuxer-1.0.9](https://github.com/truecharts/charts/compare/tsmuxer-1.0.8...tsmuxer-1.0.9) (2022-09-19)
 
 ### Chore
 
@@ -92,7 +220,7 @@
 
 
 
-## [truecommand-11.0.32](https://github.com/truecharts/charts/compare/truecommand-11.0.31...truecommand-11.0.32) (2022-09-17)
+## [tsmuxer-1.0.9](https://github.com/truecharts/charts/compare/tsmuxer-1.0.8...tsmuxer-1.0.9) (2022-09-17)
 
 ### Chore
 
@@ -107,7 +235,7 @@
 
 
 
-## [truecommand-11.0.32](https://github.com/truecharts/charts/compare/truecommand-11.0.31...truecommand-11.0.32) (2022-09-18)
+## [tsmuxer-1.0.9](https://github.com/truecharts/charts/compare/tsmuxer-1.0.8...tsmuxer-1.0.9) (2022-09-18)
 
 ### Chore
 
@@ -120,7 +248,7 @@
 
 
 
-## [truecommand-11.0.32](https://github.com/truecharts/charts/compare/truecommand-11.0.31...truecommand-11.0.32) (2022-09-16)
+## [tsmuxer-1.0.9](https://github.com/truecharts/charts/compare/tsmuxer-1.0.8...tsmuxer-1.0.9) (2022-09-16)
 
 ### Chore
 
@@ -132,7 +260,7 @@
 
 
 
-## [truecommand-11.0.32](https://github.com/truecharts/charts/compare/truecommand-11.0.31...truecommand-11.0.32) (2022-09-16)
+## [tsmuxer-1.0.9](https://github.com/truecharts/charts/compare/tsmuxer-1.0.8...tsmuxer-1.0.9) (2022-09-16)
 
 ### Chore
 
@@ -143,7 +271,7 @@
 
 
 
-## [truecommand-11.0.32](https://github.com/truecharts/charts/compare/truecommand-11.0.31...truecommand-11.0.32) (2022-09-15)
+## [tsmuxer-1.0.9](https://github.com/truecharts/charts/compare/tsmuxer-1.0.8...tsmuxer-1.0.9) (2022-09-15)
 
 ### Chore
 
@@ -153,7 +281,7 @@
 
 
 
-## [truecommand-11.0.32](https://github.com/truecharts/charts/compare/truecommand-11.0.31...truecommand-11.0.32) (2022-09-15)
+## [tsmuxer-1.0.9](https://github.com/truecharts/charts/compare/tsmuxer-1.0.8...tsmuxer-1.0.9) (2022-09-15)
 
 ### Chore
 
@@ -162,7 +290,7 @@
 
 
 
-## [truecommand-11.0.31](https://github.com/truecharts/charts/compare/truecommand-11.0.30...truecommand-11.0.31) (2022-09-12)
+## [tsmuxer-1.0.8](https://github.com/truecharts/charts/compare/tsmuxer-1.0.7...tsmuxer-1.0.8) (2022-09-12)
 
 ### Chore
 
@@ -176,7 +304,7 @@
 
 
 
-## [truecommand-11.0.31](https://github.com/truecharts/charts/compare/truecommand-11.0.30...truecommand-11.0.31) (2022-09-12)
+## [tsmuxer-1.0.8](https://github.com/truecharts/charts/compare/tsmuxer-1.0.7...tsmuxer-1.0.8) (2022-09-12)
 
 ### Chore
 
@@ -189,7 +317,7 @@
 
 
 
-## [truecommand-11.0.31](https://github.com/truecharts/charts/compare/truecommand-11.0.30...truecommand-11.0.31) (2022-09-11)
+## [tsmuxer-1.0.8](https://github.com/truecharts/charts/compare/tsmuxer-1.0.7...tsmuxer-1.0.8) (2022-09-11)
 
 ### Chore
 
@@ -201,7 +329,7 @@
 
 
 
-## [truecommand-11.0.31](https://github.com/truecharts/charts/compare/truecommand-11.0.30...truecommand-11.0.31) (2022-09-11)
+## [tsmuxer-1.0.8](https://github.com/truecharts/charts/compare/tsmuxer-1.0.7...tsmuxer-1.0.8) (2022-09-11)
 
 ### Chore
 
@@ -212,7 +340,7 @@
 
 
 
-## [truecommand-11.0.31](https://github.com/truecharts/charts/compare/truecommand-11.0.30...truecommand-11.0.31) (2022-09-11)
+## [tsmuxer-1.0.8](https://github.com/truecharts/charts/compare/tsmuxer-1.0.7...tsmuxer-1.0.8) (2022-09-11)
 
 ### Chore
 
@@ -222,7 +350,7 @@
 
 
 
-## [truecommand-11.0.31](https://github.com/truecharts/charts/compare/truecommand-11.0.30...truecommand-11.0.31) (2022-09-11)
+## [tsmuxer-1.0.8](https://github.com/truecharts/charts/compare/tsmuxer-1.0.7...tsmuxer-1.0.8) (2022-09-11)
 
 ### Chore
 
@@ -231,7 +359,7 @@
 
 
 
-## [truecommand-11.0.30](https://github.com/truecharts/charts/compare/truecommand-11.0.28...truecommand-11.0.30) (2022-08-30)
+## [tsmuxer-1.0.7](https://github.com/truecharts/charts/compare/tsmuxer-1.0.5...tsmuxer-1.0.7) (2022-08-30)
 
 ### Chore
 
@@ -242,7 +370,7 @@
 
 
 
-## [truecommand-11.0.29](https://github.com/truecharts/charts/compare/truecommand-11.0.28...truecommand-11.0.29) (2022-08-30)
+## [tsmuxer-1.0.6](https://github.com/truecharts/charts/compare/tsmuxer-1.0.5...tsmuxer-1.0.6) (2022-08-30)
 
 ### Chore
 
@@ -251,7 +379,7 @@
 
 
 
-## [truecommand-11.0.28](https://github.com/truecharts/charts/compare/truecommand-11.0.27...truecommand-11.0.28) (2022-08-29)
+## [tsmuxer-1.0.5](https://github.com/truecharts/charts/compare/tsmuxer-1.0.4...tsmuxer-1.0.5) (2022-08-29)
 
 ### Chore
 
@@ -260,7 +388,7 @@
 
 
 
-## [truecommand-11.0.27](https://github.com/truecharts/charts/compare/truecommand-11.0.26...truecommand-11.0.27) (2022-08-23)
+## [tsmuxer-1.0.4](https://github.com/truecharts/charts/compare/tsmuxer-1.0.3...tsmuxer-1.0.4) (2022-08-23)
 
 ### Chore
 
@@ -269,7 +397,7 @@
 
 
 
-## [truecommand-11.0.26](https://github.com/truecharts/charts/compare/truecommand-11.0.25...truecommand-11.0.26) (2022-08-12)
+## [tsmuxer-1.0.3](https://github.com/truecharts/charts/compare/tsmuxer-1.0.2...tsmuxer-1.0.3) (2022-08-12)
 
 ### Chore
 
@@ -283,16 +411,7 @@
 
 
 
-## [truecommand-11.0.25](https://github.com/truecharts/charts/compare/truecommand-11.0.24...truecommand-11.0.25) (2022-08-10)
-
-### Chore
-
-- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
-
-
-
-
-## [truecommand-11.0.24](https://github.com/truecharts/charts/compare/truecommand-11.0.23...truecommand-11.0.24) (2022-08-08)
+## [tsmuxer-1.0.2](https://github.com/truecharts/charts/compare/tsmuxer-1.0.1...tsmuxer-1.0.2) (2022-08-08)
 
 ### Chore
 
@@ -302,7 +421,7 @@
 
 
 
-## [truecommand-11.0.23](https://github.com/truecharts/apps/compare/truecommand-11.0.22...truecommand-11.0.23) (2022-07-26)
+## [tsmuxer-1.0.1](https://github.com/truecharts/apps/compare/tsmuxer-1.0.0...tsmuxer-1.0.1) (2022-07-26)
 
 ### Chore
 
@@ -312,47 +431,29 @@
 
 
 
-## [truecommand-11.0.22](https://github.com/truecharts/apps/compare/truecommand-11.0.21...truecommand-11.0.22) (2022-07-25)
+## [tsmuxer-1.0.0](https://github.com/truecharts/apps/compare/tsmuxer-0.0.13...tsmuxer-1.0.0) (2022-07-23)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
-  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+  ### Feat
+
+- move some apps to stable ([#3281](https://github.com/truecharts/apps/issues/3281))
 
 
 
 
-## [truecommand-11.0.22](https://github.com/truecharts/apps/compare/truecommand-11.0.21...truecommand-11.0.22) (2022-07-25)
+## [tsmuxer-1.0.0](https://github.com/truecharts/apps/compare/tsmuxer-0.0.13...tsmuxer-1.0.0) (2022-07-23)
 
-### Chore
+### Feat
 
-- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
-
-
-
-
-## [truecommand-11.0.21](https://github.com/truecharts/apps/compare/truecommand-11.0.20...truecommand-11.0.21) (2022-07-23)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
+- move some apps to stable ([#3281](https://github.com/truecharts/apps/issues/3281))
 
 
 
 
-## [truecommand-11.0.21](https://github.com/truecharts/apps/compare/truecommand-11.0.20...truecommand-11.0.21) (2022-07-23)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
-
-
-
-
-## [truecommand-11.0.21](https://github.com/truecharts/apps/compare/truecommand-11.0.20...truecommand-11.0.21) (2022-07-23)
+## [tsmuxer-0.0.14](https://github.com/truecharts/apps/compare/tsmuxer-0.0.13...tsmuxer-0.0.14) (2022-07-23)
 
 ### Chore
 
@@ -361,7 +462,7 @@
 
 
 
-## [truecommand-11.0.20](https://github.com/truecharts/apps/compare/truecommand-11.0.18...truecommand-11.0.20) (2022-07-22)
+## [tsmuxer-0.0.13](https://github.com/truecharts/apps/compare/tsmuxer-0.0.11...tsmuxer-0.0.13) (2022-07-22)
 
 ### Chore
 
@@ -370,7 +471,7 @@
 
 
 
-## [truecommand-11.0.18](https://github.com/truecharts/apps/compare/truecommand-11.0.17...truecommand-11.0.18) (2022-07-19)
+## [tsmuxer-0.0.11](https://github.com/truecharts/apps/compare/tsmuxer-0.0.10...tsmuxer-0.0.11) (2022-07-19)
 
 ### Chore
 
@@ -378,7 +479,7 @@
 
 
 
-## [truecommand-11.0.17](https://github.com/truecharts/apps/compare/truecommand-11.0.16...truecommand-11.0.17) (2022-07-14)
+## [tsmuxer-0.0.10](https://github.com/truecharts/apps/compare/tsmuxer-0.0.9...tsmuxer-0.0.10) (2022-07-14)
 
 ### Fix
 
@@ -386,7 +487,7 @@
 
 
 
-## [truecommand-11.0.16](https://github.com/truecharts/apps/compare/truecommand-11.0.14...truecommand-11.0.16) (2022-07-14)
+## [tsmuxer-0.0.9](https://github.com/truecharts/apps/compare/tsmuxer-0.0.7...tsmuxer-0.0.9) (2022-07-14)
 
 ### Fix
 
@@ -394,7 +495,59 @@
 
 
 
-## [truecommand-11.0.14](https://github.com/truecharts/apps/compare/truecommand-11.0.12...truecommand-11.0.14) (2022-07-12)
+## [tsmuxer-0.0.7](https://github.com/truecharts/apps/compare/tsmuxer-0.0.5...tsmuxer-0.0.7) (2022-07-12)
+
+### Chore
+
+- update icons ([#3156](https://github.com/truecharts/apps/issues/3156))
+- bump to cleanup old docs and use correct icon urls
+
+
+
+## [tsmuxer-0.0.5](https://github.com/truecharts/apps/compare/tsmuxer-0.0.4...tsmuxer-0.0.5) (2022-07-12)
+
+### Chore
+
+- bump to regenerate documentation
+
+
+
+<a name="tsmuxer-0.0.4"></a>
+### [tsmuxer-0.0.4](https://github.com/truecharts/apps/compare/tsmuxer-0.0.3...tsmuxer-0.0.4) (2022-07-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+
+
+
+<a name="tsmuxer-0.0.3"></a>
+### [tsmuxer-0.0.3](https://github.com/truecharts/apps/compare/tsmuxer-0.0.2...tsmuxer-0.0.3) (2022-07-11)
+
+#### Chore
+
+* move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
+* add markdownlint and cpell config files (and apply some linting) ([#3140](https://github.com/truecharts/apps/issues/3140))
+
+
+
+<a name="tsmuxer-0.0.2"></a>
+### [tsmuxer-0.0.2](https://github.com/truecharts/apps/compare/tsmuxer-0.0.1...tsmuxer-0.0.2) (2022-07-09)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
+
+
+
+<a name="tsmuxer-0.0.1"></a>
+### tsmuxer-0.0.1 (2022-07-05)
+
+#### Feat
+
+* add 8 apps (jlesage apps) ([#3070](https://github.com/truecharts/apps/issues/3070))
+d-11.0.14](https://github.com/truecharts/apps/compare/truecommand-11.0.12...truecommand-11.0.14) (2022-07-12)
 
 ### Chore
 

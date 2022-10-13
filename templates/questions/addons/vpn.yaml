@@ -1,0 +1,185 @@
+        - variable: vpn
+          label: VPN
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: Type
+                schema:
+                  type: string
+                  default: disabled
+                  enum:
+                    - value: disabled
+                      description: disabled
+                    - value: openvpn
+                      description: OpenVPN
+                    - value: wireguard
+                      description: Wireguard
+                    - value: tailscale
+                      description: Tailscale
+              - variable: openvpn
+                label: OpenVPN Settings
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "openvpn"]]
+                  attrs:
+                    - variable: username
+                      label: Authentication Username (Optional)
+                      description: Authentication Username, Optional
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: password
+                      label: Authentication Password
+                      description: Authentication Credentials
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: tailscale
+                label: Tailscale Settings
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "tailscale"]]
+                  attrs:
+                    - variable: authkey
+                      label: Authentication Key
+                      description: Provide an auth key to automatically authenticate the node as your user account.
+                      schema:
+                        type: string
+                        private: true
+                        default: ""
+                    - variable: accept_dns
+                      label: Accept DNS
+                      description: Accept DNS configuration from the admin console.
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: userspace
+                      label: Userspace
+                      description: Userspace Networking mode allows running Tailscale where you do not have access to create a VPN tunnel device.
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: routes
+                      label: Routes
+                      description: Expose physical subnet routes to your entire Tailscale network.
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: dest_ip
+                      label: Destination IP
+                      description: Tells the DNAT mechanism which Destination IP to set in the IP header, and where to send packets that are matched.
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: sock5_server
+                      label: Sock5 Server
+                      description: Sock5 Server
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: extra_args
+                      label: Extra Args
+                      description: Extra Args
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: daemon_extra_args
+                      label: Tailscale Daemon Extra Args
+                      description: Tailscale Daemon Extra Args
+                      schema:
+                        type: string
+                        default: ""
+              - variable: killSwitch
+                label: Enable Killswitch
+                schema:
+                  type: boolean
+                  show_if: [["type", "!=", "disabled"]]
+                  default: true
+              - variable: excludedNetworks_IPv4
+                label: Killswitch Excluded IPv4 networks
+                description: List of Killswitch Excluded IPv4 Addresses
+                schema:
+                  type: list
+                  show_if: [["type", "!=", "disabled"]]
+                  default: []
+                  items:
+                    - variable: networkv4
+                      label: IPv4 Network
+                      schema:
+                        type: string
+                        required: true
+              - variable: excludedNetworks_IPv6
+                label: Killswitch Excluded IPv6 networks
+                description: "List of Killswitch Excluded IPv6 Addresses"
+                schema:
+                  type: list
+                  show_if: [["type", "!=", "disabled"]]
+                  default: []
+                  items:
+                    - variable: networkv6
+                      label: IPv6 Network
+                      schema:
+                        type: string
+                        required: true
+              - variable: configFile
+                label: VPN Config File Location
+                schema:
+                  type: dict
+                  show_if: [["type", "!=", "disabled"]]
+                  attrs:
+                    - variable: enabled
+                      label: Enabled
+                      schema:
+                        type: boolean
+                        default: true
+                        hidden: true
+                    - variable: type
+                      label: Type
+                      schema:
+                        type: string
+                        default: hostPath
+                        hidden: true
+                    - variable: hostPathType
+                      label: hostPathType
+                      schema:
+                        type: string
+                        default: File
+                        hidden: true
+                    - variable: noMount
+                      label: noMount
+                      schema:
+                        type: boolean
+                        default: true
+                        hidden: true
+                    - variable: hostPath
+                      label: Full Path to File
+                      description: "Path to your local VPN config file for example: /mnt/tank/vpn.conf or /mnt/tank/vpn.ovpn"
+                      schema:
+                        type: string
+                        default: ""
+              - variable: envList
+                label: VPN Environment Variables
+                schema:
+                  type: list
+                  show_if: [["type", "!=", "disabled"]]
+                  default: []
+                  items:
+                    - variable: envItem
+                      label: Environment Variable
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: Name
+                            schema:
+                              type: string
+                              required: true
+                          - variable: value
+                            label: Value
+                            schema:
+                              type: string
+                              required: true

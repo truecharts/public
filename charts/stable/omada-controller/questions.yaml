@@ -15,8 +15,8 @@ questions:
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -24,28 +24,28 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 8043
                               required: true
 # Include{advancedPortHTTPS}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 8043
         - variable: comm
-          label: "Omada Controller User HTTPS portal"
-          description: "Omada Controller User HTTPS portal"
+          label: Omada Controller User HTTPS portal
+          description: Omada Controller User HTTPS portal
           schema:
             additional_attrs: true
             type: dict
@@ -53,28 +53,28 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: comm
-                      label: "TCP Service Port Configuration"
+                      label: TCP Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 8843
                               required: true
 # Include{advancedPortHTTPS}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 8843
         - variable: omada-tcp
-          label: "Omada TCP"
-          description: "Omada TCP"
+          label: Omada TCP
+          description: Omada TCP
           schema:
             additional_attrs: true
             type: dict
@@ -82,92 +82,92 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: omada-tcp1
-                      label: "Omada TCP 1"
-                      description: "Omada Controller or EAP Discovery Utility manages Omada devices before Omada Controller v5.x."
+                      label: Omada TCP 1
+                      description: Omada Controller or EAP Discovery Utility manages Omada devices before Omada Controller v5.x.
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 29811
                               required: true
 # Include{advancedPortTCP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 29811
                     - variable: omada-tcp2
-                      label: "Omada TCP 2"
-                      description: "Omada Controller or EAP Discovery Utility manages Omada devices before Omada Controller v5.x."
+                      label: Omada TCP 2
+                      description: Omada Controller or EAP Discovery Utility manages Omada devices before Omada Controller v5.x.
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 29812
                               required: true
 # Include{advancedPortTCP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 29812
                     - variable: omada-tcp3
-                      label: "Omada TCP 3"
-                      description: "Omada Controller upgrades Omada devices before Omada Controller v5.x."
+                      label: Omada TCP 3
+                      description: Omada Controller upgrades Omada devices before Omada Controller v5.x.
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 29813
                               required: true
 # Include{advancedPortTCP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 29813
                     - variable: omada-tcp4
-                      label: "Omada TCP 4"
-                      description: "Omada Controller or EAP Discovery Utility adopts Omada devices since Omada Controller v5.x."
+                      label: Omada TCP 4
+                      description: Omada Controller or EAP Discovery Utility adopts Omada devices since Omada Controller v5.x.
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 29814
                               required: true
 # Include{advancedPortTCP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 29814
         - variable: omada-udp
-          label: "Omada UDP"
-          description: "Omada UDP"
+          label: Omada UDP
+          description: Omada UDP
           schema:
             additional_attrs: true
             type: dict
@@ -175,23 +175,23 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: omada-udp1
-                      label: "Omada UDP 1"
-                      description: "Omada Controller or EAP Discovery Utility discovers Omada devices."
+                      label: Omada UDP 1
+                      description: Omada Controller or EAP Discovery Utility discovers Omada devices.
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 29810
                               required: true
 # Include{advancedPortUDP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 29810
@@ -201,8 +201,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: data
-          label: "App data Storage"
-          description: "Stores the Application data."
+          label: App data Storage
+          description: Stores the Application data.
           schema:
             additional_attrs: true
             type: dict
@@ -210,8 +210,8 @@ questions:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
         - variable: work
-          label: "App working Storage"
-          description: "Stores the Application data between resets."
+          label: App working Storage
+          description: Stores the Application data between resets.
           schema:
             additional_attrs: true
             type: dict
@@ -221,7 +221,17 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressExpert}
+        - variable: comm
+          label: Comm Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -234,42 +244,42 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
@@ -277,4 +287,8 @@ questions:
 # Include{resources}
 # Include{advanced}
 # Include{addons}
+# Include{codeserver}
+# Include{promtail}
+# Include{netshoot}
+# Include{vpn}
 # Include{documentation}

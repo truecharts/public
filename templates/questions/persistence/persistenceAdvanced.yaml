@@ -3,7 +3,7 @@
                 schema:
                   show_if: [["type", "=", "pvc"]]
                   type: string
-                  default: 999Gi
+                  default: 256Gi
               - variable: hostPathType
                 label: (Advanced) hostPath Type
                 schema:

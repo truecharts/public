@@ -1,0 +1,69 @@
+image:
+  repository: tccr.io/truecharts/dashy
+  tag: 2.1.1@sha256:af98a41b869093127d81421fb6fc2ba46ea1a230be6c3b04819e5ba1377be32b
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+dashy:
+  # Enable config file mount from host path
+  enabled: false
+  configFileHostPath: ""
+  configFileHostReadOnly: true
+
+# Leave empty if you plan to use config file from host path
+dashyConfig:
+  {}
+  # pageInfo:
+  #   title: Home Lab
+
+env:
+  NODE_ENV: production
+
+probes:
+  liveness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - node
+          - /app/services/healthcheck
+  readiness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - node
+          - /app/services/healthcheck
+  startup:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - node
+          - /app/services/healthcheck
+
+service:
+  main:
+    ports:
+      main:
+        port: 10310
+        protocol: HTTP
+        targetPort: 80
+
+persistence:
+  icons:
+    enabled: true
+    mountPath: /app/public/item-icons
+
+portal:
+  enabled: true

@@ -2,7 +2,69 @@
 
 
 
-## [xware-0.0.24](https://github.com/truecharts/charts/compare/xware-0.0.22...xware-0.0.24) (2022-09-20)
+## [xware-0.0.29](https://github.com/truecharts/charts/compare/xware-0.0.28...xware-0.0.29) (2022-10-12)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4071](https://github.com/truecharts/charts/issues/4071))
+
+
+
+
+## [yacreaderlibraryserver-0.0.28](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.27...yacreaderlibraryserver-0.0.28) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [yacreaderlibraryserver-0.0.28](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.27...yacreaderlibraryserver-0.0.28) (2022-10-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
+## [yacreaderlibraryserver-0.0.27](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.26...yacreaderlibraryserver-0.0.27) (2022-10-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update helm general non-major
+
+
+
+
+## [yacreaderlibraryserver-0.0.26](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.25...yacreaderlibraryserver-0.0.26) (2022-09-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3918](https://github.com/truecharts/charts/issues/3918))
+
+
+
+
+## [yacreaderlibraryserver-0.0.25](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.24...yacreaderlibraryserver-0.0.25) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+
+
+
+
+## [yacreaderlibraryserver-0.0.24](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.23...yacreaderlibraryserver-0.0.24) (2022-09-22)
 
 ### Chore
 
@@ -19,17 +81,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - refactor Services SCALE GUI
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [xware-0.0.24](https://github.com/truecharts/charts/compare/xware-0.0.22...xware-0.0.24) (2022-09-20)
+## [yacreaderlibraryserver-0.0.24](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.23...yacreaderlibraryserver-0.0.24) (2022-09-21)
 
 ### Chore
 
@@ -45,17 +103,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - refactor Services SCALE GUI
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
 
 
 
 
-## [xware-0.0.24](https://github.com/truecharts/charts/compare/xware-0.0.22...xware-0.0.24) (2022-09-19)
+## [yacreaderlibraryserver-0.0.24](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.23...yacreaderlibraryserver-0.0.24) (2022-09-21)
 
 ### Chore
 
@@ -70,17 +124,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+  - refactor Services SCALE GUI
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
 
 
 
 
-## [xware-0.0.24](https://github.com/truecharts/charts/compare/xware-0.0.22...xware-0.0.24) (2022-09-19)
+## [yacreaderlibraryserver-0.0.24](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.23...yacreaderlibraryserver-0.0.24) (2022-09-20)
 
 ### Chore
 
@@ -94,17 +144,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - refactor Services SCALE GUI
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [xware-0.0.24](https://github.com/truecharts/charts/compare/xware-0.0.22...xware-0.0.24) (2022-09-19)
+## [yacreaderlibraryserver-0.0.24](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.23...yacreaderlibraryserver-0.0.24) (2022-09-20)
 
 ### Chore
 
@@ -117,17 +163,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - refactor Services SCALE GUI
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [xware-0.0.24](https://github.com/truecharts/charts/compare/xware-0.0.22...xware-0.0.24) (2022-09-18)
+## [yacreaderlibraryserver-0.0.24](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.23...yacreaderlibraryserver-0.0.24) (2022-09-19)
 
 ### Chore
 
@@ -139,17 +181,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - refactor Services SCALE GUI
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [xware-0.0.24](https://github.com/truecharts/charts/compare/xware-0.0.22...xware-0.0.24) (2022-09-18)
+## [yacreaderlibraryserver-0.0.24](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.23...yacreaderlibraryserver-0.0.24) (2022-09-19)
 
 ### Chore
 
@@ -160,17 +198,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - refactor Services SCALE GUI
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [xware-0.0.24](https://github.com/truecharts/charts/compare/xware-0.0.22...xware-0.0.24) (2022-09-16)
+## [yacreaderlibraryserver-0.0.24](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.23...yacreaderlibraryserver-0.0.24) (2022-09-19)
 
 ### Chore
 
@@ -180,17 +214,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - refactor Services SCALE GUI
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [xware-0.0.24](https://github.com/truecharts/charts/compare/xware-0.0.22...xware-0.0.24) (2022-09-16)
+## [yacreaderlibraryserver-0.0.24](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.23...yacreaderlibraryserver-0.0.24) (2022-09-17)
 
 ### Chore
 
@@ -199,17 +229,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - refactor Services SCALE GUI
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [xware-0.0.24](https://github.com/truecharts/charts/compare/xware-0.0.22...xware-0.0.24) (2022-09-15)
+## [yacreaderlibraryserver-0.0.24](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.23...yacreaderlibraryserver-0.0.24) (2022-09-18)
 
 ### Chore
 
@@ -217,34 +243,54 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [xware-0.0.24](https://github.com/truecharts/charts/compare/xware-0.0.22...xware-0.0.24) (2022-09-15)
+## [yacreaderlibraryserver-0.0.24](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.23...yacreaderlibraryserver-0.0.24) (2022-09-16)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [xware-0.0.23](https://github.com/truecharts/charts/compare/xware-0.0.22...xware-0.0.23) (2022-09-12)
+## [yacreaderlibraryserver-0.0.24](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.23...yacreaderlibraryserver-0.0.24) (2022-09-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [yacreaderlibraryserver-0.0.24](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.23...yacreaderlibraryserver-0.0.24) (2022-09-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [yacreaderlibraryserver-0.0.24](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.23...yacreaderlibraryserver-0.0.24) (2022-09-15)
+
+### Chore
+
+- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
+
+
+
+
+## [yacreaderlibraryserver-0.0.23](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.22...yacreaderlibraryserver-0.0.23) (2022-09-12)
 
 ### Chore
 
@@ -259,7 +305,7 @@
 
 
 
-## [xware-0.0.23](https://github.com/truecharts/charts/compare/xware-0.0.22...xware-0.0.23) (2022-09-12)
+## [yacreaderlibraryserver-0.0.23](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.22...yacreaderlibraryserver-0.0.23) (2022-09-12)
 
 ### Chore
 
@@ -273,7 +319,7 @@
 
 
 
-## [xware-0.0.23](https://github.com/truecharts/charts/compare/xware-0.0.22...xware-0.0.23) (2022-09-11)
+## [yacreaderlibraryserver-0.0.23](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.22...yacreaderlibraryserver-0.0.23) (2022-09-11)
 
 ### Chore
 
@@ -286,7 +332,7 @@
 
 
 
-## [xware-0.0.23](https://github.com/truecharts/charts/compare/xware-0.0.22...xware-0.0.23) (2022-09-11)
+## [yacreaderlibraryserver-0.0.23](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.22...yacreaderlibraryserver-0.0.23) (2022-09-11)
 
 ### Chore
 
@@ -298,7 +344,7 @@
 
 
 
-## [xware-0.0.23](https://github.com/truecharts/charts/compare/xware-0.0.22...xware-0.0.23) (2022-09-11)
+## [yacreaderlibraryserver-0.0.23](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.22...yacreaderlibraryserver-0.0.23) (2022-09-11)
 
 ### Chore
 
@@ -309,7 +355,7 @@
 
 
 
-## [xware-0.0.23](https://github.com/truecharts/charts/compare/xware-0.0.22...xware-0.0.23) (2022-09-11)
+## [yacreaderlibraryserver-0.0.23](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.22...yacreaderlibraryserver-0.0.23) (2022-09-11)
 
 ### Chore
 
@@ -319,7 +365,7 @@
 
 
 
-## [xware-0.0.22](https://github.com/truecharts/charts/compare/xware-0.0.20...xware-0.0.22) (2022-08-30)
+## [yacreaderlibraryserver-0.0.22](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.20...yacreaderlibraryserver-0.0.22) (2022-08-30)
 
 ### Chore
 
@@ -330,7 +376,7 @@
 
 
 
-## [xware-0.0.21](https://github.com/truecharts/charts/compare/xware-0.0.20...xware-0.0.21) (2022-08-30)
+## [yacreaderlibraryserver-0.0.21](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.20...yacreaderlibraryserver-0.0.21) (2022-08-30)
 
 ### Chore
 
@@ -339,7 +385,7 @@
 
 
 
-## [xware-0.0.20](https://github.com/truecharts/charts/compare/xware-0.0.19...xware-0.0.20) (2022-08-29)
+## [yacreaderlibraryserver-0.0.20](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.19...yacreaderlibraryserver-0.0.20) (2022-08-29)
 
 ### Chore
 
@@ -348,7 +394,7 @@
 
 
 
-## [xware-0.0.19](https://github.com/truecharts/charts/compare/xware-0.0.17...xware-0.0.19) (2022-08-26)
+## [yacreaderlibraryserver-0.0.19](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.17...yacreaderlibraryserver-0.0.19) (2022-08-26)
 
 ### Fix
 
@@ -357,7 +403,7 @@
 
 
 
-## [xware-0.0.17](https://github.com/truecharts/charts/compare/xware-0.0.16...xware-0.0.17) (2022-08-23)
+## [yacreaderlibraryserver-0.0.17](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.16...yacreaderlibraryserver-0.0.17) (2022-08-23)
 
 ### Chore
 
@@ -366,7 +412,7 @@
 
 
 
-## [xware-0.0.16](https://github.com/truecharts/charts/compare/xware-0.0.15...xware-0.0.16) (2022-08-12)
+## [yacreaderlibraryserver-0.0.16](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.15...yacreaderlibraryserver-0.0.16) (2022-08-12)
 
 ### Chore
 
@@ -380,7 +426,7 @@
 
 
 
-## [xware-0.0.15](https://github.com/truecharts/charts/compare/xware-0.0.14...xware-0.0.15) (2022-08-08)
+## [yacreaderlibraryserver-0.0.15](https://github.com/truecharts/charts/compare/yacreaderlibraryserver-0.0.14...yacreaderlibraryserver-0.0.15) (2022-08-08)
 
 ### Chore
 
@@ -390,7 +436,7 @@
 
 
 
-## [xware-0.0.14](https://github.com/truecharts/apps/compare/xware-0.0.13...xware-0.0.14) (2022-07-26)
+## [yacreaderlibraryserver-0.0.14](https://github.com/truecharts/apps/compare/yacreaderlibraryserver-0.0.13...yacreaderlibraryserver-0.0.14) (2022-07-26)
 
 ### Chore
 
@@ -400,7 +446,7 @@
 
 
 
-## [xware-0.0.13](https://github.com/truecharts/apps/compare/xware-0.0.12...xware-0.0.13) (2022-07-25)
+## [yacreaderlibraryserver-0.0.13](https://github.com/truecharts/apps/compare/yacreaderlibraryserver-0.0.12...yacreaderlibraryserver-0.0.13) (2022-07-25)
 
 ### Chore
 
@@ -413,7 +459,7 @@
 
 
 
-## [xware-0.0.12](https://github.com/truecharts/apps/compare/xware-0.0.11...xware-0.0.12) (2022-07-23)
+## [yacreaderlibraryserver-0.0.12](https://github.com/truecharts/apps/compare/yacreaderlibraryserver-0.0.11...yacreaderlibraryserver-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -424,7 +470,7 @@
 
 
 
-## [xware-0.0.12](https://github.com/truecharts/apps/compare/xware-0.0.11...xware-0.0.12) (2022-07-23)
+## [yacreaderlibraryserver-0.0.12](https://github.com/truecharts/apps/compare/yacreaderlibraryserver-0.0.11...yacreaderlibraryserver-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -434,7 +480,7 @@
 
 
 
-## [xware-0.0.12](https://github.com/truecharts/apps/compare/xware-0.0.11...xware-0.0.12) (2022-07-23)
+## [yacreaderlibraryserver-0.0.12](https://github.com/truecharts/apps/compare/yacreaderlibraryserver-0.0.11...yacreaderlibraryserver-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -443,7 +489,7 @@
 
 
 
-## [xware-0.0.11]xware-0.0.11 (2022-07-22)
+## [yacreaderlibraryserver-0.0.11]yacreaderlibraryserver-0.0.11 (2022-07-22)
 
 ### Chore
 
@@ -455,7 +501,7 @@
 
 
 
-## [xware-0.0.10]xware-0.0.10 (2022-07-22)
+## [yacreaderlibraryserver-0.0.10]yacreaderlibraryserver-0.0.10 (2022-07-22)
 
 ### Chore
 
@@ -465,7 +511,7 @@
 
 
 
-## [xware-0.0.10]xware-0.0.10 (2022-07-22)
+## [yacreaderlibraryserver-0.0.10]yacreaderlibraryserver-0.0.10 (2022-07-22)
 
 ### Chore
 

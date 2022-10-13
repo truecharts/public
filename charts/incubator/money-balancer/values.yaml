@@ -1,0 +1,35 @@
+image:
+  repository: tccr.io/truecharts/money-balancer
+  pullPolicy: IfNotPresent
+  tag: 1.2.0@sha256:67c25c13ca672fcdfa85881911c2c2c757f682a2f57b8a2f291fe36b2aed32ca
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-moneybalancer-secret'
+
+probes:
+  liveness:
+    type: HTTP
+    path: /
+  readiness:
+    type: HTTP
+    path: /
+  startup:
+    type: HTTP
+    path: /
+
+service:
+  main:
+    ports:
+      main:
+        port: 10302
+        protocol: HTTP
+        targetPort: 8000
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+portal:
+  enabled: true

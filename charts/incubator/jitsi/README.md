@@ -1,7 +1,5 @@
 # jitsi
 
-![Version: 0.0.32](https://img.shields.io/badge/Version-0.0.32-informational?style=flat-square) ![AppVersion: 7648](https://img.shields.io/badge/AppVersion-7648-informational?style=flat-square)
-
 Jitsi is a set of open-source projects that allows you to easily build and deploy secure video conferencing solutions
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
@@ -25,13 +23,13 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.5.10 |
+| https://library-charts.truecharts.org | common | 10.7.0 |
 
 ## Installing the Chart
 
 ### TrueNAS SCALE
 
-To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/Installing-an-App).
+To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Installing-an-App).
 
 ### Helm
 
@@ -49,7 +47,7 @@ helm install jitsi TrueCharts/jitsi
 
 **Upgrading, Rolling Back and Uninstalling the Chart**
 
-To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/Upgrade-rollback-delete-an-App).
+To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Upgrade-rollback-delete-an-App).
 
 ### Helm
 
@@ -88,11 +86,11 @@ helm install jitsi TrueCharts/jitsi -f values.yaml
 
 #### Connecting to other charts
 
-If you need to connect this Chart to other Charts on TrueNAS SCALE, please refer to our [Linking Charts Internally](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/linking-apps) quick-start guide.
+If you need to connect this Chart to other Charts on TrueNAS SCALE, please refer to our [Linking Charts Internally](https://truecharts.org/docs/manual/SCALE%20Apps/linking-apps) quick-start guide.
 
 ## Support
 
-- Please check our [quick-start guides for TrueNAS SCALE](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/Important-MUST-READ).
+- Please check our [quick-start guides for TrueNAS SCALE](https://truecharts.org/docs/manual/SCALE%20Apps/Important-MUST-READ).
 - See the [Website](https://truecharts.org)
 - Check our [Discord](https://discord.gg/tVsPTHWTtr)
 - Open a [issue](https://github.com/truecharts/apps/issues/new/choose)
@@ -102,7 +100,7 @@ If you need to connect this Chart to other Charts on TrueNAS SCALE, please refer
 ## Sponsor TrueCharts
 
 TrueCharts can only exist due to the incredible effort of our staff.
-Please consider making a [donation](https://truecharts.org/docs/about/sponsor) or contributing back to the project any way you can!
+Please consider making a [donation](https://truecharts.org/sponsor) or contributing back to the project any way you can!
 
 ---
 
