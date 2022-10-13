@@ -32,7 +32,7 @@ questions:
 # Include{persistenceRoot}
         - variable: data
           label: "App Data Storage"
-          description: "Stores the Application Data."
+          description: "Stores the Application Data"
           schema:
             additional_attrs: true
             type: dict
@@ -52,7 +52,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
@@ -62,7 +62,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
@@ -87,4 +87,8 @@ questions:
 # Include{resources}
 # Include{advanced}
 # Include{addons}
+# Include{codeserver}
+# Include{promtail}
+# Include{netshoot}
+# Include{vpn}
 # Include{documentation}
