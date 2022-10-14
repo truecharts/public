@@ -55,6 +55,8 @@ persistence:
 redis:
   enabled: true
   existingSecret: "rediscreds"
+  redisUsername: grist
+  redisDatabase: "0"
 
 portal:
   enabled: true
