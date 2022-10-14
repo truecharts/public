@@ -5,13 +5,13 @@ High performance self-hosted photo and video backup solution.
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [immich](https://truecharts.org/docs/charts/incubator/immich)
+For more information, please click here: [immich](https://truecharts.org/docs/charts/stable/immich)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/immich>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/immich>
 * <https://github.com/immich-app/immich>
 
 ## Requirements

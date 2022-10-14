@@ -2,6 +2,15 @@
 
 
 
+## [immich-1.0.0](https://github.com/truecharts/charts/compare/immich-0.0.6...immich-1.0.0) (2022-10-14)
+
+### Feat
+
+- Move to Stable ([#4094](https://github.com/truecharts/charts/issues/4094))
+
+
+
+
 ## [immich-0.0.6](https://github.com/truecharts/charts/compare/immich-0.0.5...immich-0.0.6) (2022-10-12)
 
 ### Chore
