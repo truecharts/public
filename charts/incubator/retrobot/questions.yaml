@@ -23,6 +23,7 @@ questions:
           schema:
             type: string
             default: ""
+            private: true
             required: true
   - variable: env
     group: Container Configuration
