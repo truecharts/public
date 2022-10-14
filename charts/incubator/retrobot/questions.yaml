@@ -10,19 +10,49 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  - variable: env
+  - variable: secretEnv
     group: "Container Configuration"
-    label: "Image Environment"
+    label: "Image Secrets"
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: DISCORD_TOKEN
-          label: "DISCORD TOKEN"
-          description: "Sets discord token"
+          label: Discord Token
+          description: Sets discord token
           schema:
             type: string
             default: ""
+            required: true
+  - variable: env
+    group: Container Configuration
+    label: Image Environment
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: MAX_WORKERS
+          label: Max Workers
+          description: -1 means Retrobot will create a worker thread for each CPU core on the host system.
+          schema:
+            type: int
+            default: -1
+            required: true
+        - variable: MAX_WORKERS_PER_GAME
+          label: Max Workers Per Game
+          description: Input assist worker threads to emulate the result of a button press for a game.
+          schema:
+            type: int
+            default: 3
+            required: true
+        - variable: RECORDING_FRAMERATE
+          label: Recording Framerate
+          description: Framerate to encode GIFs
+          schema:
+            type: int
+            default: 30
+            min: 1
+            max: 60
             required: true
 # Include{containerConfig}
 # Include{serviceExpertRoot}
@@ -31,8 +61,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: data
-          label: "App Data Storage"
-          description: "Stores the Application Data"
+          label: App Data Storage
+          description: Stores the Application Data
           schema:
             additional_attrs: true
             type: dict
@@ -44,42 +74,42 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: true
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: true
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 568
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 568
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
