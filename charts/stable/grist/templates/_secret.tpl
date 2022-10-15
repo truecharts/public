@@ -21,7 +21,7 @@ data:
   {{- end }}
   {{/* Dependencies */}}
   TYPEORM_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
-  REDIS_URL: {{ printf "redis://%v:%v@%v-redis:6379/%v" .Values.redis.redisUsername ( .Values.redis.redisPassword | trimAll "\"" ) .Release.Name "0" | b64enc }}
+  REDIS_URL: {{ printf "redis://:%v@%v-redis:6379/%v" ( .Values.redis.redisPassword | trimAll "\"" ) .Release.Name "0" | b64enc }}
   {{/* Google */}}
   {{- with .Values.grist.google.client_id }}
   GOOGLE_CLIENT_ID: {{ . }}
