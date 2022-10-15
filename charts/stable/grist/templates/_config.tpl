@@ -61,7 +61,7 @@ data:
   GRIST_HIDE_UI_ELEMENTS: {{ join "," . }}
   {{- end }}
   {{- with .Values.grist.title_suffix }}
-  GRIST_PAGE_TITLE_SUFFIX: {{ . }}
+  GRIST_PAGE_TITLE_SUFFIX: {{ . | quote }}
   {{- end }}
   {{- with .Values.grist.proxy_auth_header }}
   GRIST_PROXY_AUTH_HEADER: {{ . }}
