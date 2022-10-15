@@ -2,6 +2,19 @@
 
 
 
+## [grist-4.0.0](https://github.com/truecharts/charts/compare/grist-3.0.44...grist-4.0.0) (2022-10-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Feat
+
+- BREAKING CHANGE - rework, adds postgres and more options ([#4106](https://github.com/truecharts/charts/issues/4106))
+
+
+
+
 ## [grist-3.0.44](https://github.com/truecharts/charts/compare/grist-3.0.43...grist-3.0.44) (2022-10-12)
 
 ### Chore
