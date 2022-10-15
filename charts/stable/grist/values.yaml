@@ -12,22 +12,23 @@ podSecurityContext:
   runAsGroup: 0
 
 grist:
+  domain: ""
   default_email: user@mydomain.com
-  product: ""
+  default_product: ""
   default_locale: ""
   allowed_webhook_domains: []
   allowed_hosts: []
-  backup_delay_secs: 15
-  domain: ""
   hide_ui_elements: []
+  backup_delay_secs: 15
   max_upload_import_mb: 0
   max_upload_attachment_mb: 0
   title_suffix: " - Grist"
   proxy_auth_header: ""
+  cookie_max_age: 90
   force_login: true
+  ignore_session: false
   support_anon: false
   throttle_cpu: false
-  cookie_max_age: 90
   google:
     client_id: ""
     client_secret: ""
@@ -35,7 +36,7 @@ grist:
     drive_scope: drive.file
   forward_auth:
     header: ""
-    login_path: ""
+    login_path: /auth/login
     logout_path: ""
 
 envFrom:

@@ -48,7 +48,7 @@ data:
   {{- with .Values.grist.default_email }}
   GRIST_DEFAULT_EMAIL: {{ . }}
   {{- end }}
-  {{- with .Values.grist.product }}
+  {{- with .Values.grist.default_product }}
   GRIST_DEFAULT_PRODUCT: {{ . }}
   {{- end }}
   {{- with .Values.grist.default_locale }}
@@ -69,6 +69,7 @@ data:
   {{- with .Values.grist.cookie_max_age }}
   COOKIE_MAX_AGE: {{ . | quote }}
   {{- end }}
+  GRIST_IGNORE_SESSION: {{ .Values.grist.ignore_session | quote }}
   GRIST_FORCE_LOGIN: {{ .Values.grist.force_login | quote }}
   GRIST_SUPPORT_ANON: {{ .Values.grist.support_anon | quote }}
   GRIST_THROTTLE_CPU: {{ .Values.grist.throttle_cpu | quote }}
