@@ -2,6 +2,16 @@
 
 
 
+## [searxng-0.0.56](https://github.com/truecharts/charts/compare/searxng-0.0.55...searxng-0.0.56) (2022-10-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
 ## [searxng-0.0.55](https://github.com/truecharts/charts/compare/searxng-0.0.54...searxng-0.0.55) (2022-10-14)
 
 ### Chore

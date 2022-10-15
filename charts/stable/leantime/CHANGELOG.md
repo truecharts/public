@@ -2,6 +2,16 @@
 
 
 
+## [leantime-4.0.51](https://github.com/truecharts/charts/compare/leantime-4.0.50...leantime-4.0.51) (2022-10-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
 ## [leantime-4.0.50](https://github.com/truecharts/charts/compare/leantime-4.0.49...leantime-4.0.50) (2022-10-12)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [acestream-0.0.30](https://github.com/truecharts/charts/compare/acestream-0.0.29...acestream-0.0.30) (2022-10-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major
+
+
+
+
 ## [acestream-0.0.29](https://github.com/truecharts/charts/compare/acestream-0.0.28...acestream-0.0.29) (2022-10-12)
 
 ### Chore
