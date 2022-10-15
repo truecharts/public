@@ -36,6 +36,9 @@ data:
   GRIST_FORWARD_AUTH_LOGOUT_PATH: {{ . }}
   {{- end }}
   {{/* APP */}}
+  {{- with .Values.grist.home_url }}
+  APP_HOME_URL:
+  {{- end }}
   {{- with .Values.grist.allowed_webhook_domains }}
   ALLOWED_WEBHOOK_DOMAINS: {{ join "," . }}
   {{- end }}
@@ -69,10 +72,14 @@ data:
   {{- with .Values.grist.cookie_max_age }}
   COOKIE_MAX_AGE: {{ . | quote }}
   {{- end }}
+  {{- with .Values.grist.single_org }}
+  GRIST_SINGLE_ORG: {{ . }}
+  {{- end }}
   GRIST_IGNORE_SESSION: {{ .Values.grist.ignore_session | quote }}
   GRIST_FORCE_LOGIN: {{ .Values.grist.force_login | quote }}
   GRIST_SUPPORT_ANON: {{ .Values.grist.support_anon | quote }}
   GRIST_THROTTLE_CPU: {{ .Values.grist.throttle_cpu | quote }}
+  APP_STATIC_INCLUDE_CUSTOM_CSS: {{ .Values.grist.include_custom_css | quote }}
   GRIST_MAX_UPLOAD_ATTACHMENT_MB: {{ .Values.grist.max_upload_attachment_mb | quote }}
   GRIST_MAX_UPLOAD_IMPORT_MB: {{ .Values.grist.max_upload_import_mb | quote }}
 {{- end -}}

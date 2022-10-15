@@ -26,6 +26,18 @@ questions:
             type: string
             required: true
             default: ""
+        - variable: single_org
+          label: Single Org
+          description: Set to an org "domain" to pin client to that org
+          schema:
+            type: string
+            default: ""
+        - variable: home_url
+          label: Home URL
+          description: URL prefix for home API
+          schema:
+            type: string
+            default: ""
         - variable: default_email
           label: Default Email
           description: If set, login as this user if no other credentials presented
@@ -148,6 +160,12 @@ questions:
         - variable: throttle_cpu
           label: Throttle CPU
           description: When set to true, CPU throttling is enabled
+          schema:
+            type: boolean
+            default: false
+        - variable: include_custom_css
+          label: Include Custom CSS
+          description: Set to true to include custom.css in static pages
           schema:
             type: boolean
             default: false

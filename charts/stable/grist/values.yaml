@@ -13,6 +13,8 @@ podSecurityContext:
 
 grist:
   domain: ""
+  single_org: ""
+  home_url: ""
   default_email: user@mydomain.com
   default_product: ""
   default_locale: ""
@@ -29,6 +31,7 @@ grist:
   ignore_session: false
   support_anon: false
   throttle_cpu: false
+  include_custom_css: false
   google:
     client_id: ""
     client_secret: ""
