@@ -2,6 +2,16 @@
 
 
 
+## [lenpaste-0.0.7](https://github.com/truecharts/charts/compare/lenpaste-0.0.6...lenpaste-0.0.7) (2022-10-14)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4084](https://github.com/truecharts/charts/issues/4084))
+
+
+
+
 ## [lenpaste-0.0.6](https://github.com/truecharts/charts/compare/lenpaste-0.0.5...lenpaste-0.0.6) (2022-10-12)
 
 ### Chore

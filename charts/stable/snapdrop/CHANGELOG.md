@@ -2,6 +2,16 @@
 
 
 
+## [snapdrop-2.0.53](https://github.com/truecharts/charts/compare/snapdrop-2.0.52...snapdrop-2.0.53) (2022-10-14)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4084](https://github.com/truecharts/charts/issues/4084))
+
+
+
+
 ## [snapdrop-2.0.52](https://github.com/truecharts/charts/compare/snapdrop-2.0.51...snapdrop-2.0.52) (2022-10-12)
 
 ### Chore

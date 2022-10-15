@@ -2,6 +2,16 @@
 
 
 
+## [memcached-3.0.94](https://github.com/truecharts/charts/compare/memcached-3.0.93...memcached-3.0.94) (2022-10-14)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4084](https://github.com/truecharts/charts/issues/4084))
+
+
+
+
 ## [memcached-3.0.93](https://github.com/truecharts/charts/compare/memcached-3.0.92...memcached-3.0.93) (2022-10-11)
 
 ### Chore

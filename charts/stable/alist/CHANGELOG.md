@@ -2,6 +2,16 @@
 
 
 
+## [alist-2.0.43](https://github.com/truecharts/charts/compare/alist-2.0.42...alist-2.0.43) (2022-10-14)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4084](https://github.com/truecharts/charts/issues/4084))
+
+
+
+
 ## [alist-2.0.42](https://github.com/truecharts/charts/compare/alist-2.0.41...alist-2.0.42) (2022-10-12)
 
 ### Chore

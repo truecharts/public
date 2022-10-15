@@ -2,6 +2,16 @@
 
 
 
+## [jackett-11.0.108](https://github.com/truecharts/charts/compare/jackett-11.0.107...jackett-11.0.108) (2022-10-14)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4084](https://github.com/truecharts/charts/issues/4084))
+
+
+
+
 ## [jackett-11.0.107](https://github.com/truecharts/charts/compare/jackett-11.0.106...jackett-11.0.107) (2022-10-12)
 
 ### Chore
