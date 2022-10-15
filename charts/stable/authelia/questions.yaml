@@ -72,11 +72,6 @@ questions:
                 description: "json"
               - value: "text"
                 description: "text"
-        - variable: file_path
-          label: "Log file path"
-          schema:
-            type: string
-            default: "/config/authelia.log"
   - variable: totp
     group: "App Configuration"
     label: "TOTP Configuration"
