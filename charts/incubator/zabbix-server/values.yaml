@@ -111,8 +111,6 @@ zabbix:
     php_fpm_pm_max_spare_servers: 35
     php_fpm_pm_max_requests: 0
   agent:
-    # TODO: Give extra perms for extended host checks
-    # Also check for SA/RBAC
     enabled: true
     hostname:
       - Zabbix server
