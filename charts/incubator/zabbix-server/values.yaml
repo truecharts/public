@@ -145,7 +145,7 @@ zabbix:
     debug_level: 3
     timeout: 3
   snmptraps:
-    enabled: false
+    enabled: true
 
 envFrom:
   - secretRef:
