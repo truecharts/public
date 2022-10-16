@@ -1,4 +1,4 @@
 # Default Username/Password
 
-- **Email**: `admin@example.com`
-- **Password**: `changeme`
+- Email: `admin@example.com`
+- Password: `changeme`
