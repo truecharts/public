@@ -1,0 +1,297 @@
+image:
+  repository: tccr.io/truecharts/zabbix-server
+  tag: 6.2.3@sha256:8047806dbb02b779c1fa4dc47f96bc02f35836800ee21a260ccf2e88928c6e97
+  pullPolicy: IfNotPresent
+
+frontendImage:
+  repository: tccr.io/truecharts/zabbix-web
+  tag: 6.2.3@sha256:b58cdcfe7ab5d8d80b46f6766aea7f44f5ce2ac8c80ecf0c5450e206fd692e1d
+  pullPolicy: IfNotPresent
+
+agent2Image:
+  repository: tccr.io/truecharts/zabbix-agent2
+  tag: 6.2.3@sha256:5abdc777ae777b9941c45d4fe9c9cb73f5491550318430dffd1ab9c03af7ed60
+  pullPolicy: IfNotPresent
+
+snmptrapsImage:
+  repository: tccr.io/truecharts/zabbix-snmptraps
+  tag: 6.2.3@sha256:46142f4717a8e8f27da16a82690a62f6bbb18dc5db423610faec53cedf7db8fe
+  pullPolicy: IfNotPresent
+
+javaGatewayImage:
+  repository: tccr.io/truecharts/zabbix-java-gateway
+  tag: 6.2.3@sha256:d29d2025016a8e8a473be48020238edb89072a4adbb92af582a93216d5a76fd1
+  pullPolicy: IfNotPresent
+
+webServiceImage:
+  repository: tccr.io/truecharts/zabbix-web-service
+  tag: 6.2.3@sha256:295b685c16794e8fd2318c3abb61bff26460fd87c66beeedc9bfeaba27b46b4a
+  pullPolicy: IfNotPresent
+
+tty: true
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 1997
+  runAsGroup: 0
+
+zabbix:
+  # -- https://www.zabbix.com/documentation/current/en/manual/appendix/config/zabbix_server
+  server:
+    listen_backlog: 0
+    debug_level: 3
+    load_modules: []
+    timeout: 4
+    service_manager_sync_freq: 60
+    start_report_writers: 0
+    start_pollers: 5
+    start_ipmi_pollers: 0
+    start_preprocessors: 3
+    start_pollers_unreachable: 1
+    start_trappers: 5
+    start_pingers: 1
+    start_discoverers: 1
+    start_history_pollers: 5
+    start_http_pollers: 1
+    start_obdc_pollers: 1
+    start_timers: 1
+    start_escalators: 1
+    start_alerters: 3
+    start_java_pollers: 5
+    start_proxy_pollers: 1
+    start_db_syncers: 4
+    start_lld_processors: 2
+    start_vmware_collectors: 0
+    vmware_frequency: 60
+    vmware_perf_frequency: 60
+    vmware_cache_size: 8M
+    vmware_timeout: 10
+    housekeeping_freq: 1
+    max_housekeeper_delete: 5000
+    problem_housekeeper_freq: 60
+    cache_size: 32M
+    cache_update_freq: 60
+    history_cache_size: 16M
+    history_index_cache_size: 4M
+    history_storage_date_index: false
+    trend_cache_size: 4M
+    trend_function_cache_size: 4M
+    value_cache_size: 8M
+    trapper_timeout: 300
+    unreachable_period: 45
+    unreachable_delay: 15
+    unavailable_delay: 60
+    log_slow_queries: 3000
+    proxy_config_freq: 3600
+    proxy_data_freq: 1
+    export_file_size: 1G
+    export_type: []
+    stats_allowed_ips: []
+  frontend:
+    server_name: My Zabbix Server
+    enable_access_logs: true
+    max_execution_time: 300
+    memory_limit: 128M
+    post_max_size: 16M
+    upload_max_file_size: 2M
+    max_input_time: 300
+    session_name: zbx_sessionid
+    deny_gui_access: false
+    warning_message: Zabbix Server is under maintenance
+    access_ip_range: []
+    # Advanced
+    sso_settings: ""
+    php_fpm_pm: dynamic
+    php_fpm_pm_max_children: 50
+    php_fpm_pm_start_servers: 5
+    php_fpm_pm_min_spare_servers: 5
+    php_fpm_pm_max_spare_servers: 35
+    php_fpm_pm_max_requests: 0
+  agent:
+    enabled: true
+    hostname:
+      - Zabbix server
+    hostname_item: ""
+    metadata: ""
+    metadata_item: ""
+    timeout: 3
+    enable_persistent_buffer: false
+    persistent_buffer_period: 1h
+    refresh_active_checks: 120
+    buffer_send: 5
+    buffer_size: 100
+    unsafe_user_parameters: false
+    tls_connect: unencrypted
+    tls_accept:
+      - unencrypted
+    psk_identity: ""
+    psk_file: ""
+    allow_key: ""
+    deny_key: ""
+  javagateway:
+    enabled: true
+    start_pollers: 5
+    timeout: 3
+    debug_level: info
+  webservice:
+    enabled: true
+    debug_level: 3
+    timeout: 10
+  snmptraps:
+    enabled: true
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-common-secret'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-common-config'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-server-config'
+
+service:
+  main:
+    ports:
+      main:
+        port: 10211
+        protocol: HTTP
+        targetPort: 8080
+  server:
+    enabled: true
+    ports:
+      server:
+        enabled: true
+        port: 10051
+  javagateway:
+    enabled: true
+    ports:
+      javagateway:
+        enabled: true
+        port: 10052
+  snmptraps:
+    enabled: true
+    ports:
+      snmptraps:
+        protocol: UDP
+        enabled: true
+        port: 162
+        targetPort: 1162
+  agent:
+    type: ClusterIP
+    enabled: true
+    ports:
+      agent:
+        enabled: true
+        port: 10050
+  webservice:
+    type: ClusterIP
+    enabled: true
+    ports:
+      webservice:
+        enabled: true
+        protocol: HTTP
+        port: 10053
+
+probes:
+  liveness:
+    port: "{{ .Values.service.server.ports.server.port }}"
+  readiness:
+    port: "{{ .Values.service.server.ports.server.port }}"
+  startup:
+    port: "{{ .Values.service.server.ports.server.port }}"
+
+persistence:
+  # Server
+  serveralertscripts:
+    enabled: true
+    mountPath: "/usr/lib/zabbix/alertscripts"
+    size: 256Gi
+  serverexternalscripts:
+    enabled: true
+    mountPath: "/usr/lib/zabbix/externalscripts"
+    size: 256Gi
+  servermodules:
+    enabled: true
+    mountPath: "/var/lib/zabbix/modules"
+    size: 256Gi
+  serverenc:
+    enabled: true
+    mountPath: "/var/lib/zabbix/enc"
+    size: 256Gi
+  serversshkeys:
+    enabled: true
+    mountPath: "/var/lib/zabbix/ssh_keys"
+    size: 256Gi
+  serversslcerts:
+    enabled: true
+    mountPath: "/var/lib/zabbix/ssl/certs"
+    size: 256Gi
+  serversslkeys:
+    enabled: true
+    mountPath: "/var/lib/zabbix/ssl/keys"
+    size: 256Gi
+  serversslca:
+    enabled: true
+    mountPath: "/var/lib/zabbix/ssl/ssl_ca"
+    size: 256Gi
+  serverexport:
+    # Used with conjunction of .Values.zabbix.server.export_file_size
+    enabled: true
+    mountPath: "/var/lib/zabbix/export"
+    size: 256Gi
+  # SNMP Traps and Server
+  snmptraps:
+    enabled: true
+    mountPath: /var/lib/zabbix/snmptraps
+    size: 256Gi
+  snmpmibs:
+    enabled: true
+    mountPath: /var/lib/zabbix/mibs
+    size: 256Gi
+  # Agent2 Volumes
+  hostproc:
+    enabled: true
+    noMount: true
+    readOnly: true
+    type: hostPath
+    hostPath: /proc
+    mountPath: /host/proc
+  hostsys:
+    enabled: true
+    noMount: true
+    readOnly: true
+    type: hostPath
+    hostPath: /sys
+    mountPath: /host/sys
+  agentconf:
+    enabled: true
+    noMount: true
+    mountPath: /etc/zabbix/zabbix_agentd.d
+    size: 256Gi
+  agentenc:
+    enabled: true
+    noMount: true
+    mountPath: /var/lib/zabbix/enc
+    size: 256Gi
+  agentbuffer:
+    enabled: true
+    noMount: true
+    mountPath: /var/lib/zabbix/buffer
+    size: 256Gi
+  # Java Gateway
+  javagatewaylibs:
+    enabled: true
+    noMount: true
+    mountPath: /usr/sbin/zabbix_java/ext_lib
+    size: 256Gi
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: zabbix
+  postgresqlDatabase: zabbix
+
+portal:
+  enabled: true

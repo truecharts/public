@@ -1,0 +1,29 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{/* Render secret */}}
+{{- include "zabbix.secret" . }}
+
+{{/* Render config */}}
+{{- include "zabbix.config" . }}
+
+{{- $_ := set .Values.additionalContainers "frontend" (include "zabbix.frontend" . | fromYaml) -}}
+
+{{- if .Values.zabbix.agent.enabled -}}
+{{- $_ := set .Values.additionalContainers "agent2" (include "zabbix.agent2" . | fromYaml) -}}
+{{- end -}}
+
+{{- if .Values.zabbix.webservice.enabled -}}
+{{- $_ := set .Values.additionalContainers "webservice" (include "zabbix.webservice" . | fromYaml) -}}
+{{- end -}}
+
+{{- if .Values.zabbix.snmptraps.enabled -}}
+{{- $_ := set .Values.additionalContainers "snmptraps" (include "zabbix.snmptraps" . | fromYaml) -}}
+{{- end -}}
+
+{{- if .Values.zabbix.javagateway.enabled -}}
+{{- $_ := set .Values.additionalContainers "javagateway" (include "zabbix.javagateway" . | fromYaml) -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}
