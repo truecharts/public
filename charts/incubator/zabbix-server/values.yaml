@@ -168,26 +168,12 @@ service:
       server:
         enabled: true
         port: 10051
-  agent:
-    type: ClusterIP
-    enabled: true
-    ports:
-      agent:
-        enabled: true
-        port: 10050
   javagateway:
     enabled: true
     ports:
       javagateway:
         enabled: true
         port: 10052
-  webservice:
-    type: ClusterIP
-    enabled: true
-    ports:
-      webservice:
-        enabled: true
-        port: 10053
   snmptraps:
     enabled: true
     ports:
@@ -196,6 +182,20 @@ service:
         enabled: true
         port: 162
         targetPort: 1162
+  agent:
+    type: ClusterIP
+    enabled: true
+    ports:
+      agent:
+        enabled: true
+        port: 10050
+  webservice:
+    type: ClusterIP
+    enabled: true
+    ports:
+      webservice:
+        enabled: true
+        port: 10053
 
 probes:
   liveness:
@@ -228,55 +228,71 @@ persistence:
   serveralertscripts:
     enabled: true
     mountPath: "/usr/lib/zabbix/alertscripts"
+    size: 256Gi
   serverexternalscripts:
     enabled: true
     mountPath: "/usr/lib/zabbix/externalscripts"
+    size: 256Gi
   servermodules:
     enabled: true
     mountPath: "/var/lib/zabbix/modules"
+    size: 256Gi
   serverenc:
     enabled: true
     mountPath: "/var/lib/zabbix/enc"
+    size: 256Gi
   serversshkeys:
     enabled: true
     mountPath: "/var/lib/zabbix/ssh_keys"
+    size: 256Gi
   serversslcerts:
     enabled: true
     mountPath: "/var/lib/zabbix/ssl/certs"
+    size: 256Gi
   serversslkeys:
     enabled: true
     mountPath: "/var/lib/zabbix/ssl/keys"
+    size: 256Gi
   serversslca:
     enabled: true
     mountPath: "/var/lib/zabbix/ssl/ssl_ca"
+    size: 256Gi
   serverexport:
+    # Used with conjuction of .Values.zabbix.server.export_file_size
     enabled: true
     mountPath: "/var/lib/zabbix/export"
+    size: 256Gi
   # SNMP Traps and Server
   snmptraps:
     enabled: true
     mountPath: /var/lib/zabbix/snmptraps
+    size: 256Gi
   snmpmibs:
     enabled: true
     mountPath: /var/lib/zabbix/mibs
+    size: 256Gi
   # Agent2 Volumes
   agentconf:
     enabled: true
     noMount: true
     mountPath: /etc/zabbix/zabbix_agentd.d
+    size: 256Gi
   agentenc:
     enabled: true
     noMount: true
     mountPath: /var/lib/zabbix/enc
+    size: 256Gi
   agentbuffer:
     enabled: true
     noMount: true
     mountPath: /var/lib/zabbix/buffer
+    size: 256Gi
   # Java Gateway
   javagatewaylibs:
     enabled: true
     noMount: true
     mountPath: /usr/sbin/zabbix_java/ext_lib
+    size: 256Gi
 
 postgresql:
   enabled: true
