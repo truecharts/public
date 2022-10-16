@@ -25,6 +25,29 @@ env:
       name: mariadbcreds
       key: mariadb-password
 
+probes:
+  liveness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /bin/check-health
+  readiness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /bin/check-health
+  startup:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /bin/check-health
+
 service:
   main:
     ports:
