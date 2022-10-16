@@ -199,29 +199,11 @@ service:
 
 probes:
   liveness:
-    custom: true
-    spec:
-      exec:
-        command:
-          - /bin/bash
-          - -ec
-          - "until zabbix_server -R ha_status; do sleep 2; done"
+    port: "{{ .Values.service.server.ports.server.port }}"
   readiness:
-    custom: true
-    spec:
-      exec:
-        command:
-          - /bin/bash
-          - -ec
-          - "until zabbix_server -R ha_status; do sleep 2; done"
+    port: "{{ .Values.service.server.ports.server.port }}"
   startup:
-    custom: true
-    spec:
-      exec:
-        command:
-          - /bin/bash
-          - -ec
-          - "until zabbix_server -R ha_status; do sleep 2; done"
+    port: "{{ .Values.service.server.ports.server.port }}"
 
 persistence:
   # Server

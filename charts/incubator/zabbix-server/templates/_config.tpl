@@ -70,7 +70,7 @@ data:
   ZBX_STARTDBSYNCERS: {{ $server.start_db_syncers | quote }}
   ZBX_HISTORYCACHESIZE: {{ $server.history_cache_size }}
   ZBX_HISTORYINDEXCACHESIZE: {{ $server.history_index_cache_size}}
-  ZBX_HISTORYSTORAGEDATEINDEX: {{ ternary "1" "0" $server.history_storage_date_index }}
+  ZBX_HISTORYSTORAGEDATEINDEX: {{ ternary "1" "0" $server.history_storage_date_index | quote }}
   ZBX_TRENDCACHESIZE: {{ $server.trend_cache_size }}
   ZBX_TRENDFUNCTIONCACHESIZE: {{ $server.trend_function_cache_size }}
   ZBX_VALUECACHESIZE: {{ $server.value_cache_size }}
@@ -126,14 +126,14 @@ data:
   ZBX_TIMEOUT: {{ $agent.timeout | quote }}
   ZBX_ENABLEPERSISTENTBUFFER: {{ $agent.enable_persistent_buffer | quote }}
   ZBX_PERSISTENTBUFFERPERIOD: {{ $agent.persistent_buffer_period }}
-  ZBX_LOGREMOTECOMMANDS: {{ ternary "1" "0" $agent.log_remote_commands }}
+  ZBX_LOGREMOTECOMMANDS: {{ ternary "1" "0" $agent.log_remote_commands | quote }}
   ZBX_STARTAGENTS: {{ $agent.start_agents | quote }}
   ZBX_LISTENPORT: {{ .Values.service.agent.ports.agent.port | quote }}
   ZBX_REFRESHACTIVECHECKS: {{ $agent.refresh_active_checks | quote }}
   ZBX_BUFFERSEND: {{ $agent.buffer_send | quote }}
   ZBX_BUFFERSIZE: {{ $agent.buffer_size | quote }}
   ZBX_MAXLINESPERSECOND: {{ $agent.max_line_per_second | quote }}
-  ZBX_UNSAFEUSERPARAMETERS: {{ ternary "1" "0" $agent.unsafe_user_parameters }}
+  ZBX_UNSAFEUSERPARAMETERS: {{ ternary "1" "0" $agent.unsafe_user_parameters | quote }}
   ZBX_TLSCONNECT: {{ $agent.tls_connect }}
   ZBX_TLSACCEPT: {{ $agent.tls_accept }}
   {{- with $agent.psk_identity }}
