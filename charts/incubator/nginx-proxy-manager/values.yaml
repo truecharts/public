@@ -11,6 +11,9 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+env:
+  DISABLE_IPV6: true
+
 service:
   main:
     ports:
