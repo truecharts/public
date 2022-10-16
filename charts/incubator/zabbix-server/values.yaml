@@ -114,6 +114,7 @@ zabbix:
     php_fpm_pm_max_requests: 0
   agent:
     # TODO: Give extra perms for extended host checks
+    # Also check for SA/RBAC
     enabled: true
     hostname: Zabbix server
     hostname_item: ""
@@ -124,12 +125,10 @@ zabbix:
     timeout: 3
     enable_persistent_buffer: false
     persistent_buffer_period: 1h
-    log_remote_commands: false
     start_agents: 3
     refresh_active_checks: 120
     buffer_send: 5
     buffer_size: 100
-    max_line_per_second: 20
     unsafe_user_parameters: false
     tls_connect: unencrypted
     tls_accept: unencrypted

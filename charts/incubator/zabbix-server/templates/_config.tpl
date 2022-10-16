@@ -102,10 +102,7 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   ZBX_SERVER_HOST: localhost
-  {{/*
-  ZBX_PASSIVESERVERS: localhost
-  ZBX_ACTIVESERVERS: localhost:{{ .Values.service.server.ports.server.port }}
-  */}}
+  ZBX_SERVER_PORT: {{ .Values.service.server.ports.server.port | quote }}
   {{/* If hostname is set, hostname_item is ignored.*/}}
   {{- if not $agent.hostname_item }}
   ZBX_HOSTNAME: {{ $agent.hostname }}
@@ -122,16 +119,11 @@ data:
   {{- with $agent.metadata_item }}
   ZBX_METADATAITEM: {{ . | quote }}
   {{- end }}
-  ZBX_SERVER_PORT: {{ .Values.service.server.ports.server.port | quote }}
   ZBX_PASSIVE_ALLOW: {{ $agent.passive_allow | quote }}
   ZBX_ACTIVE_ALLOW: {{ $agent.active_allow | quote }}
   ZBX_TIMEOUT: {{ $agent.timeout | quote }}
   ZBX_ENABLEPERSISTENTBUFFER: {{ $agent.enable_persistent_buffer | quote }}
   ZBX_PERSISTENTBUFFERPERIOD: {{ $agent.persistent_buffer_period }}
-  {{/*
-  ZBX_LOGREMOTECOMMANDS: {{ ternary "1" "0" $agent.log_remote_commands | quote }}
-  ZBX_MAXLINESPERSECOND: {{ $agent.max_line_per_second | quote }}
-  */}}
   ZBX_STARTAGENTS: {{ $agent.start_agents | quote }}
   ZBX_LISTENPORT: {{ .Values.service.agent.ports.agent.port | quote }}
   ZBX_REFRESHACTIVECHECKS: {{ $agent.refresh_active_checks | quote }}
