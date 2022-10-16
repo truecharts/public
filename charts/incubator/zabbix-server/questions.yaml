@@ -38,6 +38,139 @@ questions:
                 schema:
                   type: int
                   default: 3
+        - variable: agent
+          label: Agent Configuration
+          description: Info about configuration options in https://www.zabbix.com/documentation/current/en/manual/appendix/config/zabbix_agent2
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enable Agent
+                schema:
+                  type: boolean
+                  default: true
+              - variable: hostname
+                label: Hostname
+                description: Required for active checks and must match hostnames as configured on the server.
+                schema:
+                  type: list
+                  default: ["Zabbix server"]
+                  items:
+                    - variable: hostnameEntry
+                      label: Hostname Entry
+                      schema:
+                        type: string
+                        default: ""
+              - variable: hostname_item
+                label: HostnameItem
+                description: Item used for generating Hostname if it is not defined. Ignored if Hostname is defined.
+                schema:
+                  type: string
+                  default: ""
+              - variable: metadata
+                label: HostMetadata
+                description: Optional parameter that defines host metadata.
+                schema:
+                  type: string
+                  default: ""
+              - variable: metadata_item
+                label: HostMetadataItem
+                description: Optional parameter that defines an item used for getting host metadata.
+                schema:
+                  type: string
+                  default: ""
+              - variable: timeout
+                label: Timeout
+                description: Spend no more than Timeout seconds on processing.
+                schema:
+                  type: int
+                  default: 3
+              - variable: enable_persistent_buffer
+                label: EnablePersistentBuffer
+                description: Enable usage of local persistent storage for active items.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: persistent_buffer_period
+                label: PersistentBufferPeriod
+                description: The time period for which data should be stored, when there is no connection to the server or proxy. Older data will be lost. Log data will be preserved.
+                schema:
+                  type: string
+                  default: 1h
+              - variable: refresh_active_checks
+                label: RefreshActiveChecks
+                description: How often the list of active checks is refreshed, in seconds.
+                schema:
+                  type: int
+                  default: 120
+              - variable: buffer_send
+                label: BufferSend
+                description: The time interval in seconds which determines how often values are sent from the buffer to Zabbix server.
+                schema:
+                  type: int
+                  default: 5
+              - variable: buffer_size
+                label: BufferSize
+                description: Maximum number of values in a memory buffer. The agent will send all collected data to Zabbix server or proxy if the buffer is full.
+                schema:
+                  type: int
+                  default: 100
+              - variable: unsafe_user_parameters
+                label: UnsafeUserParameters
+                description: Allow all characters to be passed in arguments to user-defined parameters.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: tls_connect
+                label: TLSConnect
+                description: How the agent should connect to Zabbix server or proxy. Used for active checks.
+                schema:
+                  type: string
+                  default: unencrypted
+                  enum:
+                    - value: unencrypted
+                      description: unencrypted
+                    - value: psk
+                      description: psk
+                    - value: cert
+                      description: cert
+              - variable: tls_accept
+                label: TLSAccept
+                description: What incoming connections to accept. Used for a passive checks. Multiple values can be specified.
+                schema:
+                  type: list
+                  default: ["unencrypted"]
+                  items:
+                    - variable: tls_accept_entry
+                      label: TLSAccept Entry
+                      schema:
+                        type: string
+                        default: ""
+              - variable: psk_identity
+                label: TLSPSKIdentity
+                description: Pre-shared key identity string, used for encrypted communications with Zabbix server.
+                schema:
+                  type: string
+                  default: ""
+              - variable: psk_file
+                label: TLSPSKFile
+                description: Full pathname of a file containing the agent pre-shared key used for encrypted communications with Zabbix components.
+                schema:
+                  type: string
+                  default: ""
+              - variable: allow_key
+                label: AllowKey
+                description: Allow execution of those item keys that match a pattern. Key pattern is a wildcard expression that supports "*" character to match any number of any characters
+                schema:
+                  type: string
+                  default: ""
+              - variable: deny_key
+                label: DenyKey
+                description: Deny execution of those item keys that match a pattern. Key pattern is a wildcard expression that supports "*" character to match any number of any characters.
+                schema:
+                  type: string
+                  default: ""
         - variable: javagateway
           label: Java Gateway Configuration
           description: Info about configuration options in https://www.zabbix.com/documentation/current/en/manual/appendix/config/zabbix_java
@@ -46,7 +179,7 @@ questions:
             type: dict
             attrs:
               - variable: enabled
-                label: Enable WebService
+                label: Enable Java Gateway
                 schema:
                   type: boolean
                   default: false

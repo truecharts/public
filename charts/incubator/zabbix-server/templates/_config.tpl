@@ -105,7 +105,7 @@ data:
   ZBX_SERVER_PORT: {{ .Values.service.server.ports.server.port | quote }}
   {{/* If hostname is set, hostname_item is ignored.*/}}
   {{- if not $agent.hostname_item }}
-  ZBX_HOSTNAME: {{ $agent.hostname }}
+  ZBX_HOSTNAME: "{{ range initial $agent.hostname }}{{ . }},{{ end }}{{ with last $agent.hostname }}{{ . }}{{ end }}"
   {{- end }}
   {{- with $agent.hostname_item }}
   ZBX_HOSTNAMEITEM: {{ . | quote }}
@@ -119,19 +119,16 @@ data:
   {{- with $agent.metadata_item }}
   ZBX_METADATAITEM: {{ . | quote }}
   {{- end }}
-  ZBX_PASSIVE_ALLOW: {{ $agent.passive_allow | quote }}
-  ZBX_ACTIVE_ALLOW: {{ $agent.active_allow | quote }}
   ZBX_TIMEOUT: {{ $agent.timeout | quote }}
   ZBX_ENABLEPERSISTENTBUFFER: {{ $agent.enable_persistent_buffer | quote }}
   ZBX_PERSISTENTBUFFERPERIOD: {{ $agent.persistent_buffer_period }}
-  ZBX_STARTAGENTS: {{ $agent.start_agents | quote }}
   ZBX_LISTENPORT: {{ .Values.service.agent.ports.agent.port | quote }}
   ZBX_REFRESHACTIVECHECKS: {{ $agent.refresh_active_checks | quote }}
   ZBX_BUFFERSEND: {{ $agent.buffer_send | quote }}
   ZBX_BUFFERSIZE: {{ $agent.buffer_size | quote }}
   ZBX_UNSAFEUSERPARAMETERS: {{ ternary "1" "0" $agent.unsafe_user_parameters | quote }}
   ZBX_TLSCONNECT: {{ $agent.tls_connect }}
-  ZBX_TLSACCEPT: {{ $agent.tls_accept }}
+  ZBX_TLSACCEPT: "{{ range initial $agent.tls_accept }}{{ . }},{{ end }}{{ with last $agent.tls_accept }}{{ . }}{{ end }}"
   {{- with $agent.psk_identity }}
   ZBX_TLSPSKIDENTITY: {{ . }}
   {{- end }}

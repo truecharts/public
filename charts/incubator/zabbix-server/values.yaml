@@ -115,22 +115,21 @@ zabbix:
     # TODO: Give extra perms for extended host checks
     # Also check for SA/RBAC
     enabled: true
-    hostname: Zabbix server
+    hostname:
+      - Zabbix server
     hostname_item: ""
     metadata: ""
     metadata_item: ""
-    passive_allow: true
-    active_allow: true
     timeout: 3
     enable_persistent_buffer: false
     persistent_buffer_period: 1h
-    start_agents: 3
     refresh_active_checks: 120
     buffer_send: 5
     buffer_size: 100
     unsafe_user_parameters: false
     tls_connect: unencrypted
-    tls_accept: unencrypted
+    tls_accept:
+      - unencrypted
     psk_identity: ""
     psk_file: ""
     allow_key: ""
@@ -143,7 +142,7 @@ zabbix:
   webservice:
     enabled: true
     debug_level: 3
-    timeout: 3
+    timeout: 10
   snmptraps:
     enabled: true
 
