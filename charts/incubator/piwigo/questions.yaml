@@ -55,6 +55,14 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
+# Include{persistenceRoot}
+        - variable: gallery
+          label: "App Image/Plugin Storage"
+          description: "Image, plugin, & theme storage for Piwigo"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
 # Include{persistenceList}
