@@ -16,13 +16,19 @@ service:
     ports:
       main:
         targetPort: 81
-        protocol: HTTP        
+        protocol: HTTP
         port: 10582
+  web:
+    enabled: true
+    ports:
       web:
         enabled: true
         targetPort: 80
-        protocol: HTTP        
+        protocol: HTTP
         port: 10583
+  websecure:
+    enabled: true
+    ports:        
       websecure:
         enabled: true
         targetPort: 443
