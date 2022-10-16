@@ -126,7 +126,9 @@ data:
   ZBX_TIMEOUT: {{ $agent.timeout | quote }}
   ZBX_ENABLEPERSISTENTBUFFER: {{ $agent.enable_persistent_buffer | quote }}
   ZBX_PERSISTENTBUFFERPERIOD: {{ $agent.persistent_buffer_period }}
+  {{/*
   ZBX_LOGREMOTECOMMANDS: {{ ternary "1" "0" $agent.log_remote_commands | quote }}
+  */}}
   ZBX_STARTAGENTS: {{ $agent.start_agents | quote }}
   ZBX_LISTENPORT: {{ .Values.service.agent.ports.agent.port | quote }}
   ZBX_REFRESHACTIVECHECKS: {{ $agent.refresh_active_checks | quote }}
