@@ -12,91 +12,31 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
+  - variable: zabbix
+    group: Container Configuration
+    label: Zabbix Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: ZBX_LOADMODULE
-          label: "ZBX_LOADMODULE"
-          description: "The variable is list of comma separated loadable Zabbix modules. It works with volume /var/lib/zabbix/modules. The syntax of the variable is dummy1.so,dummy2.so."
+        - variable: server
+          group: Container Configuration
+          label: Server Configuration
           schema:
-            type: string
-            default: ""
-        - variable: ZBX_TIMEOUT
-          label: "ZBX_TIMEOUT"
-          description: "The variable is used to specify timeout for processing checks. By default, value is 4."
-          schema:
-            type: int
-            default: 4
-  - variable: frontendConfig
-    group: "Container Configuration"
-    label: "Web Frontend Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ZBX_SERVER_NAME
-          label: "ZBX_SERVER_NAME"
-          description: "The variable is visible Zabbix installation name in right top corner of the web interface."
-          schema:
-            type: string
-            default: "Zabbix Instance"
-        - variable: ZBX_GUI_WARNING_MSG
-          label: "ZBX_GUI_WARNING_MSG"
-          description: "Zabbix instance is currently in maintenance."
-          schema:
-            type: string
-            default: "Zabbix Instance"
-        - variable: ZBX_DENY_GUI_ACCESS
-          label: "ZBX_DENY_GUI_ACCESS"
-          description: "Enable (true) maintenance mode for Zabbix web-interface."
-          schema:
-            type: boolean
-            default: false
-        - variable: ZBX_GUI_ACCESS_IP_RANGE
-          label: "ZBX_GUI_ACCESS_IP_RANGE"
-          description: "Array of IP addresses which are allowed for accessing to Zabbix web-interface during maintenance period."
-          schema:
-            type: string
-            default: ""
-        - variable: ZBX_MEMORYLIMIT
-          label: "ZBX_MEMORYLIMIT"
-          description: "The varable is PHP memory_limit option. By default, value is 128M."
-          schema:
-            type: string
-            default: "128M"
-        - variable: ZBX_POSTMAXSIZE
-          label: "ZBX_POSTMAXSIZE"
-          description: "The varable is PHP post_max_size option. By default, value is 16M."
-          schema:
-            type: string
-            default: "16M"
-        - variable: ZBX_UPLOADMAXFILESIZE
-          label: "ZBX_UPLOADMAXFILESIZE"
-          description: "The varable is PHP upload_max_filesize option. By default, value is 2M."
-          schema:
-            type: string
-            default: "2M"
-        - variable: ZBX_MAXEXECUTIONTIME
-          label: "ZBX_MAXEXECUTIONTIME"
-          description: "The varable is PHP max_execution_time option. By default, value is 300."
-          schema:
-            type: int
-            default: 300
-        - variable: ZBX_MAXINPUTTIME
-          label: "ZBX_MAXINPUTTIME"
-          description: "The varable is PHP max_input_time option. By default, value is 300."
-          schema:
-            type: int
-            default: 300
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: listen_backlog
+                label: ListenBacklog
+                description: The maximum number of pending connections in the TCP queue.
+                schema:
+                  type: int
+                  default: 0
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -104,28 +44,28 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 10211
                               required: true
 # Include{advancedPortHTTP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 8080
         - variable: server
-          label: "Server Service"
-          description: "The Server Service"
+          label: Server Service
+          description: The Server Service
           schema:
             additional_attrs: true
             type: dict
@@ -133,28 +73,57 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: server
-                      label: "Server Service Port Configuration"
+                      label: Server Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 10212
+                              default: 10051
                               required: true
-# Include{advancedPortHTTP}
+# Include{advancedPortTCP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 10051
+        - variable: javagateway
+          label: Java Gateway Service
+          description: The Java Gateway Service
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: javagateway
+                      label: Java Gateway Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 10052
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
+                                  schema:
+                                    type: int
+                                    default: 10052
         - variable: snmptraps
-          label: "SNMP Traps Service"
-          description: "SNMP Traps Service"
+          label: SNMP Traps Service
+          description: SNMP Traps Service
           schema:
             additional_attrs: true
             type: dict
@@ -162,33 +131,217 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: snmptraps
-                      label: "SNMP Traps Service Port Configuration"
+                      label: SNMP Traps Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 162
                               required: true
-# Include{advancedPortHTTP}
+# Include{advancedPortTCP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 1162
+        - variable: agent
+          label: Agent Service
+          description: Agent Service
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorClusterIP}
+# Include{serviceSelectorExtras}
+                    - variable: agent
+                      label: Agent Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 10050
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
+                                  schema:
+                                    type: int
+                                    default: 10050
+        - variable: webservice
+          label: WebService Service
+          description: WebService Service
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorClusterIP}
+# Include{serviceSelectorExtras}
+                    - variable: webservice
+                      label: WebService Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 10053
+                              required: true
+# Include{advancedPortHTTP}
+                                - variable: targetPort
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
+                                  schema:
+                                    type: int
+                                    default: 10053
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
+        - variable: serveralertscripts
+          label: Server - Alert Scripts Storage
+          description: Stores the Application Alert Scripts.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: serverexternalscripts
+          label: Server - External Scripts Storage
+          description: Stores the Application External Scripts.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: servermodules
+          label: Server - Modules Storage
+          description: Stores the Application Modules.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: serverenc
+          label: Server - Encryption Storage
+          description: Stores the Application Encryption.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: serversshkeys
+          label: Server - SSH Keys Storage
+          description: Stores the Application SSH Keys.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: serversslcerts
+          label: Server - SSL Certs Storage
+          description: Stores the Application SSL Certs.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: serversslkeys
+          label: Server - SSL Keys Storage
+          description: Stores the Application SSL Keys.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: serverexport
+          label: Server - Export Storage
+          description: Stores the Application Export.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: serversslca
+          label: Server - SSL CA Storage
+          description: Stores the Application SSL CA.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
         - variable: snmptraps
-          label: "App snmptraps Storage"
-          description: "Stores the Application snmptraps."
+          label: SNMP & Server - SNMP Traps Storage
+          description: Stores the Application SNMP Traps.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: snmpmibs
+          label: SNMP & Server - SNMP MIBS Storage
+          description: Stores the Application SNMP MIBS.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: agentconf
+          label: Agent - Configuration Storage
+          description: Stores the Application Configuration.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: agentenc
+          label: Agent - Encryption Storage
+          description: Stores the Application Encryption.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: agentbuffer
+          label: Agent - Buffer Storage
+          description: Stores the Application Buffer.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: javagatewaylibs
+          label: Java Gateway - Libs Storage
+          description: Stores the Application Libs.
           schema:
             additional_attrs: true
             type: dict
@@ -198,17 +351,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
-# Include{ingressExpert}
-        - variable: server
-          label: "Server Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -221,42 +364,42 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
-            default: 0
+            default: 1997
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568

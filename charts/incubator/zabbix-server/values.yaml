@@ -41,7 +41,7 @@ podSecurityContext:
 zabbix:
   # -- https://www.zabbix.com/documentation/current/en/manual/appendix/config/zabbix_server
   server:
-    listen_backlog: ""
+    listen_backlog: 0
     debug_level: 3
     load_modules: []
     timeout: 4
@@ -160,6 +160,7 @@ service:
     ports:
       main:
         port: 10211
+        protocol: HTTP
         targetPort: 8080
   server:
     enabled: true
@@ -194,6 +195,7 @@ service:
     ports:
       webservice:
         enabled: true
+        protocol: HTTP
         port: 10053
 
 probes:
@@ -239,7 +241,7 @@ persistence:
     mountPath: "/var/lib/zabbix/ssl/ssl_ca"
     size: 256Gi
   serverexport:
-    # Used with conjuction of .Values.zabbix.server.export_file_size
+    # Used with conjunction of .Values.zabbix.server.export_file_size
     enabled: true
     mountPath: "/var/lib/zabbix/export"
     size: 256Gi
