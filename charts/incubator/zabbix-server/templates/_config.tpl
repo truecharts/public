@@ -113,7 +113,9 @@ data:
   {{- end }}
   {{/* If metadata is set, metadata_item is ignored.*/}}
   {{- if not $agent.metadata_item }}
-  ZBX_METADATA: {{ $agent.metadata }}
+  {{- with $agent.metadata }}
+  ZBX_METADATA: {{ . }}
+  {{- end }}
   {{- end }}
   {{- with $agent.metadata_item }}
   ZBX_METADATAITEM: {{ . | quote }}
@@ -134,7 +136,9 @@ data:
   ZBX_UNSAFEUSERPARAMETERS: {{ ternary "1" "0" $agent.unsafe_user_parameters }}
   ZBX_TLSCONNECT: {{ $agent.tls_connect }}
   ZBX_TLSACCEPT: {{ $agent.tls_accept }}
-  ZBX_TLSPSKIDENTITY: {{ $agent.psk_identity }}
+  {{- with $agent.psk_identity }}
+  ZBX_TLSPSKIDENTITY: {{ . }}
+  {{- end }}
   {{- with $agent.psk_file }}
   ZBX_TLSPSKFILE: {{ . }}
   {{- end }}
