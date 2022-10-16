@@ -13,6 +13,17 @@ podSecurityContext:
 
 env:
   DISABLE_IPV6: true
+  DB_MYSQL_PORT: 3306
+  DB_MYSQL_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
+  DB_MYSQL_USER: "{{ .Values.mariadb.mariadbUsername }}"
+  DB_MYSQL_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost  
+  DB_MYSQL_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password  
 
 service:
   main:
@@ -41,10 +52,16 @@ service:
 persistence:
   data:
     enabled: true
-    mountPath: "/data"
+    mountPath: /data
   letsencrypt:
     enabled: true
-    mountPath: "/etc/letsencrypt"
+    mountPath: /etc/letsencrypt
+
+mariadb:
+  enabled: true
+  mariadbUsername: npm
+  mariadbDatabase: npm
+  existingSecret: mariadbcreds
 
 portal:
   enabled: true
