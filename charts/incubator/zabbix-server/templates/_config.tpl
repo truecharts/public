@@ -102,8 +102,10 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   ZBX_SERVER_HOST: localhost
+  {{/*
   ZBX_PASSIVESERVERS: localhost
   ZBX_ACTIVESERVERS: localhost:{{ .Values.service.server.ports.server.port }}
+  */}}
   {{/* If hostname is set, hostname_item is ignored.*/}}
   {{- if not $agent.hostname_item }}
   ZBX_HOSTNAME: {{ $agent.hostname }}
