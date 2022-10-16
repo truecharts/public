@@ -12,6 +12,18 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
+  - variable: env
+    group: Container Configuration
+    label: Image Environment
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: DISABLE_IPV6
+          label: Disable IPv6
+          schema:
+            type: boolean
+            default: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
