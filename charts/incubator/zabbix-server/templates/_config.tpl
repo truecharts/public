@@ -56,7 +56,7 @@ data:
   ZBX_STARTESCALATORS: {{ $server.start_escalators | quote }}
   ZBX_STARTALERTERS: {{ $server.start_alerters | quote }}
   ZBX_STARTJAVAPOLLERS: {{ $server.start_java_pollers | quote }}
-  ZBX_STARTVMWARECOLLECTORS: {{ $server.start_vmware_colelctors | quote }}
+  ZBX_STARTVMWARECOLLECTORS: {{ $server.start_vmware_collectors | quote }}
   ZBX_VMWAREFREQUENCY: {{ $server.vmware_frequency | quote }}
   ZBX_VMWAREPERFFREQUENCY: {{ $server.vmware_perf_frequency | quote }}
   ZBX_VMWARECACHESIZE: {{ $server.vmware_cache_size }}
