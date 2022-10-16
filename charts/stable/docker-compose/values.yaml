@@ -81,13 +81,6 @@ probes:
 persistence:
   varrun:
     enabled: false
-  mnt:
-    enabled: true
-    type: hostPath
-    hostPath: /mnt
-    mountPath: /mnt
-    hostPathType: ""
-    readOnly: false
   root:
     enabled: true
     type: hostPath
