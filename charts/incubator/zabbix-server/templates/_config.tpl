@@ -161,7 +161,7 @@ metadata:
 data:
   PHP_TZ: {{ .Values.TZ }}
   ZBX_SERVER_HOST: localhost
-  ZBX_SERVER_PORT: {{ .Values.service.server.ports.server.port }}
+  ZBX_SERVER_PORT: {{ .Values.service.server.ports.server.port | quote }}
   ZBX_SERVER_NAME: {{ $frontend.server_name }}
   ENABLE_WEB_ACCESS_LOG: {{ $frontend.enable_access_logs | quote }}
   ZBX_MAXEXECUTIONTIME: {{ $frontend.max_execution_time | quote }}
@@ -210,7 +210,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  ZBX_LISTENPORT: {{ .Values.service.webservice.ports.webservice.port }}
+  ZBX_LISTENPORT: {{ .Values.service.webservice.ports.webservice.port | quote }}
   ZBX_ALLOWEDIP: localhost
   ZBX_DEBUGLEVEL: {{ $webservice.debug_level | quote }}
   ZBX_TIMEOUT: {{ $webservice.timeout | quote }}
