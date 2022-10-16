@@ -19,11 +19,11 @@ env:
   DB_MYSQL_HOST:
     secretKeyRef:
       name: mariadbcreds
-      key: plainhost  
+      key: plainhost
   DB_MYSQL_PASSWORD:
     secretKeyRef:
       name: mariadbcreds
-      key: mariadb-password  
+      key: mariadb-password
 
 service:
   main:
@@ -42,7 +42,7 @@ service:
         port: 10583
   websecure:
     enabled: true
-    ports:        
+    ports:
       websecure:
         enabled: true
         targetPort: 443
