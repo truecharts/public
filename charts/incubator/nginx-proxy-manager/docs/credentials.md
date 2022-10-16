@@ -2,4 +2,4 @@
 
 **Email**: `admin@example.com`
 
-**Password**: `changme`
+**Password**: `changeme`
