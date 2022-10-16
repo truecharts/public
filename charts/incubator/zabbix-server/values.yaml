@@ -269,11 +269,11 @@ persistence:
     type: hostPath
     hostPath: /sys
     mountPath: /host/sys
-  agentconf:
-    enabled: true
-    noMount: true
-    mountPath: /etc/zabbix/zabbix_agentd.d
-    size: 256Gi
+  # agentconf:
+  #   enabled: true
+  #   noMount: true
+  #   mountPath: /etc/zabbix/zabbix_agentd.d
+  #   size: 256Gi
   agentenc:
     enabled: true
     noMount: true
