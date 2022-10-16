@@ -46,26 +46,26 @@ service:
         type: HTTPS
 
 env:
-  DOCKER_TLS_CERTDIR: "/certs"
+  DOCKER_TLS_CERTDIR: /certs
   COMPOSE_FILE: ""
 
 lifecycle:
   postStart:
     exec:
       command:
-        - "/bin/bash"
-        - "-c"
+        - /bin/bash
+        - -c
         - |
           if [ "${COMPOSE_FILE}" ]; then
-          counter=0;
-          while ! docker info > /dev/null 2>&1 && [[ ${counter} -lt 10 ]]; do
-          echo "docker not running yet. Waiting..." >> /proc/1/fd/1;
-          sleep 5;
-          counter=$((counter+1));
-          done
-          docker-compose -f "${COMPOSE_FILE}" up -d && echo "Loading COMPOSE_FILE at location ${COMPOSE_FILE}" >> /proc/1/fd/1;
+            counter=0;
+            while ! docker info > /dev/null 2>&1 && [[ ${counter} -lt 10 ]]; do
+              echo "docker not running yet. Waiting..." >> /proc/1/fd/1;
+              sleep 5;
+              counter=$((counter+1));
+            done
+            docker-compose -f "${COMPOSE_FILE}" up -d && echo "Loading COMPOSE_FILE at location ${COMPOSE_FILE}" >> /proc/1/fd/1;
           else
-          echo "COMPOSE_FILE not set, not auto-loading compose-file" >> /proc/1/fd/1;
+            echo "COMPOSE_FILE not set, not auto-loading compose-file" >> /proc/1/fd/1;
           fi
 probes:
   liveness:
@@ -81,31 +81,17 @@ probes:
 persistence:
   varrun:
     enabled: false
-  mnt:
-    enabled: true
-    type: hostPath
-    hostPath: /mnt
-    mountPath: /mnt
-    hostPathType: ""
-    readOnly: false
-  root:
-    enabled: true
-    type: hostPath
-    hostPath: /root
-    mountPath: /root
-    hostPathType: ""
-    readOnly: false
   docker-certs-ca:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
 
 volumeClaimTemplates:
   docker-certs-client:
     enabled: true
-    mountPath: "/certs/client"
+    mountPath: /certs/client
   docker:
     enabled: true
-    mountPath: "/var/lib/docker"
+    mountPath: /var/lib/docker
 
 portal:
   enabled: false
