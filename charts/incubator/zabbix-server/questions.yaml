@@ -20,8 +20,8 @@ questions:
       type: dict
       attrs:
         - variable: server
-          group: Container Configuration
           label: Server Configuration
+          description: Info about configuration options in https://www.zabbix.com/documentation/current/en/manual/appendix/config/zabbix_server
           schema:
             additional_attrs: true
             type: dict
@@ -32,6 +32,77 @@ questions:
                 schema:
                   type: int
                   default: 0
+              - variable: debug_level
+                label: DebugLevel
+                description: Specifies debug level
+                schema:
+                  type: int
+                  default: 3
+        - variable: javagateway
+          label: Java Gateway Configuration
+          description: Info about configuration options in https://www.zabbix.com/documentation/current/en/manual/appendix/config/zabbix_java
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enable WebService
+                schema:
+                  type: boolean
+                  default: false
+              - variable: start_pollers
+                label: Start Pollers
+                description: Number of worker threads to start.
+                schema:
+                  type: int
+                  default: 3
+              - variable: timeout
+                label: Timeout
+                description: Spend no more than Timeout seconds on processing.
+                schema:
+                  type: int
+                  default: 3
+              - variable: debug_level
+                label: DebugLevel
+                description: Specifies debug level
+                schema:
+                  type: string
+                  default: info
+        - variable: webservice
+          label: WebService Configuration
+          description: Info about configuration options in https://www.zabbix.com/documentation/current/en/manual/appendix/config/zabbix_web_service
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enable WebService
+                schema:
+                  type: boolean
+                  default: false
+              - variable: debug_level
+                label: DebugLevel
+                description: Specifies debug level
+                schema:
+                  type: int
+                  default: 3
+              - variable: timeout
+                label: Timeout
+                description: Spend no more than Timeout seconds on processing.
+                schema:
+                  type: int
+                  default: 10
+        - variable: snmptraps
+          label: SNMP Traps Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enable SNMP Traps
+                schema:
+                  type: boolean
+                  default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
