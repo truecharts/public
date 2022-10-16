@@ -86,8 +86,8 @@ data:
   ZBX_EXPORTFILESIZE: {{ $server.export_file_size }}
   ZBX_EXPORTTYPE: "{{ range initial $server.export_type }}{{ . }},{{ end }}{{ with last $server.export_type }}{{ . }}{{ end }}"
   ZBX_STATSALLOWEDIP: "{{ range initial $server.stats_allowed_ips }}{{ . }},{{ end }}{{ with last $server.stats_allowed_ips }}{{ . }}{{ end }}"
-  ZBX_ENABLE_SNMP_TRAPS: {{ $server.enable_snmp_traps | quote }}
-  ZBX_JAVAGATEWAY_ENABLE: {{ $server.java_gateway_enabled | quote }}
+  ZBX_ENABLE_SNMP_TRAPS: {{ .Values.zabbix.snmptraps.enabled | quote }}
+  ZBX_JAVAGATEWAY_ENABLE: {{ .Values.zabbix.javagateway.enabled | quote }}
   {{/* TODO: add javagateway
   ZBX_JAVAGATEWAY: zabbix-java-gateway
   ZBX_JAVAGATEWAYPORT: 10052

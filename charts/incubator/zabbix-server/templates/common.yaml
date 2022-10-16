@@ -8,14 +8,20 @@
 {{- include "zabbix.config" . }}
 
 {{- $_ := set .Values.additionalContainers "web" (include "zabbix.web" . | fromYaml) -}}
-{{- $_ := set .Values.additionalContainers "agent2" (include "zabbix.agent2" . | fromYaml) -}}
-{{- $_ := set .Values.additionalContainers "webservice" (include "zabbix.webservice" . | fromYaml) -}}
 
-{{- if .Values.zabbix.server.enable_snmp_traps -}}
+{{- if .Values.zabbix.agent.enabled -}}
+{{- $_ := set .Values.additionalContainers "agent2" (include "zabbix.agent2" . | fromYaml) -}}
+{{- end -}}
+
+{{- if .Values.zabbix.webservice.enabled -}}
+{{- $_ := set .Values.additionalContainers "webservice" (include "zabbix.webservice" . | fromYaml) -}}
+{{- end -}}
+
+{{- if .Values.zabbix.snmptraps.enabled -}}
 {{- $_ := set .Values.additionalContainers "snmptraps" (include "zabbix.snmptraps" . | fromYaml) -}}
 {{- end -}}
 
-{{- if .Values.zabbix.server.java_gateway_enabled -}}
+{{- if .Values.zabbix.javagateway.enabled -}}
 {{- $_ := set .Values.additionalContainers "javagateway" (include "zabbix.javagateway" . | fromYaml) -}}
 {{- end -}}
 
