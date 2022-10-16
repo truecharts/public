@@ -254,6 +254,20 @@ persistence:
     mountPath: /var/lib/zabbix/mibs
     size: 256Gi
   # Agent2 Volumes
+  hostproc:
+    enabled: true
+    noMount: true
+    readOnly: true
+    type: hostPath
+    hostPath: /proc
+    mountPath: /host/proc
+  hostsys:
+    enabled: true
+    noMount: true
+    readOnly: true
+    type: hostPath
+    hostPath: /sys
+    mountPath: /host/sys
   agentconf:
     enabled: true
     noMount: true

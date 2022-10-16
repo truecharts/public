@@ -6,7 +6,14 @@ securityContext:
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
+  capabilities:
+    add:
+      - SYS_TIME
 volumeMounts:
+  - name: hostsys
+    mountPath: {{ .Values.persistence.hostsys.mountPath }}
+  - name: hostproc
+    mountPath: {{ .Values.persistence.hostproc.mountPath }}
   - name: agentconf
     mountPath: {{ .Values.persistence.agentconf.mountPath }}
   - name: agentenc
