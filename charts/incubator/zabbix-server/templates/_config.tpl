@@ -33,8 +33,8 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   ZBX_LISTENPORT: {{ .Values.service.server.ports.server.port | quote }}
-  {{- if $server.listen_backlog }}
-  ZBX_LISTENBACKLOG: {{ $server.listen_backlog | quote }}
+  {{- with $server.listen_backlog }}
+  ZBX_LISTENBACKLOG: {{ . | quote }}
   {{- end }}
   ZBX_LOADMODULE: "{{ range initial $server.load_modules }}{{ . }},{{ end }}{{ with last $server.load_modules }}{{ . }}{{ end }}"
   ZBX_DEBUGLEVEL: {{ $server.debug_level | quote }}
@@ -106,14 +106,20 @@ data:
   ZBX_SERVER_HOST: localhost
   ZBX_PASSIVESERVERS: localhost
   ZBX_ACTIVESERVERS: localhost:{{ .Values.service.server.ports.server.port }}
+  {{/* If hostname is set, hostname_item is ignored.*/}}
   {{- if not $agent.hostname_item }}
   ZBX_HOSTNAME: {{ $agent.hostname }}
   {{- end }}
+  {{- with $agent.hostname_item }}
+  ZBX_HOSTNAMEITEM: {{ . | quote }}
+  {{- end }}
+  {{/* If metadata is set, metadata_item is ignored.*/}}
   {{- if not $agent.metadata_item }}
   ZBX_METADATA: {{ $agent.metadata }}
   {{- end }}
-  ZBX_METADATAITEM: {{ $agent.metadata_item }}
-  ZBX_HOSTNAMEITEM: {{ $agent.hostname_item }}
+  {{- with $agent.metadata_item }}
+  ZBX_METADATAITEM: {{ . | quote }}
+  {{- end }}
   ZBX_SERVER_PORT: {{ .Values.service.server.ports.server.port }}
   ZBX_PASSIVE_ALLOW: {{ $agent.passive_allow | quote }}
   ZBX_ACTIVE_ALLOW: {{ $agent.active_allow | quote }}
@@ -131,9 +137,15 @@ data:
   ZBX_TLSCONNECT: {{ $agent.tls_connect }}
   ZBX_TLSACCEPT: {{ $agent.tls_accept }}
   ZBX_TLSPSKIDENTITY: {{ $agent.psk_identity }}
-  ZBX_TLSPSKFILE: {{ $agent.psk_file }}
-  ZBX_ALLOWKEY: {{ $agent.allow_key }}
-  ZBX_DENYKEY: {{ $agent.deny_key }}
+  {{- with $agent.psk_file }}
+  ZBX_TLSPSKFILE: {{ . }}
+  {{- end }}
+  {{- with $agent.allow_key }}
+  ZBX_ALLOWKEY: {{ . | quote }}
+  {{- end }}
+  {{- with $agent.deny_key }}
+  ZBX_DENYKEY: {{ . | quote }}
+  {{- end }}
 
 ---
 
@@ -161,7 +173,9 @@ data:
   ZBX_GUI_ACCESS_IP_RANGE: '[{{ range initial $frontend.access_ip_range }}{{ . | quote }},{{ end }}{{ with last $frontend.access_ip_range }}{{ . | quote }}{{ end }}]'
   {{- end }}
   ZBX_GUI_WARNING_MSG: {{ $frontend.warning_message }}
-  ZBX_SSO_SETTINGS: {{ $frontend.sso_settings }}
+  {{- with $frontend.sso_settings }}
+  ZBX_SSO_SETTINGS: {{ . | quote }}
+  {{- end }}
   PHP_FPM_PM: {{ $frontend.php_fpm_pm }}
   PHP_FPM_PM_MAX_CHILDREN: {{ $frontend.php_fpm_pm_max_children | quote }}
   PHP_FPM_PM_START_SERVERS: {{ $frontend.php_fpm_pm_start_servers | quote }}

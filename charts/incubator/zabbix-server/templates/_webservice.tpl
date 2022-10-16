@@ -14,7 +14,7 @@ ports:
     name: webservice
 readinessProbe:
   httpGet:
-    path: /
+    path: /report
     port: {{ .Values.service.main.ports.main.targetPort }}
   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
@@ -22,7 +22,7 @@ readinessProbe:
   failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
 livenessProbe:
   httpGet:
-    path: /
+    path: /report
     port: {{ .Values.service.main.ports.main.targetPort }}
   initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
@@ -30,7 +30,7 @@ livenessProbe:
   failureThreshold: {{ .Values.probes.liveness.spec.failureThreshold }}
 startupProbe:
   httpGet:
-    path: /
+    path: /report
     port: {{ .Values.service.main.ports.main.targetPort }}
   initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
