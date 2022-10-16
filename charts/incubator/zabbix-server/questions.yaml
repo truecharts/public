@@ -38,6 +38,126 @@ questions:
                 schema:
                   type: int
                   default: 3
+              - variable: load_modules
+                label: LoadModule
+                description: Module to load at server startup.
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: ip_entry
+                      label: IP Entry
+                      schema:
+                        type: string
+                        default: ""
+              - variable: timeout
+                label: Timeout
+                description: Spend no more than Timeout seconds on processing.
+                schema:
+                  type: int
+                  default: 4
+              - variable: service_manager_sync_freq
+                label: ServiceManagerSyncFrequency
+                description: Determines how often Zabbix will synchronize configuration of a service manager in seconds.
+                schema:
+                  type: int
+                  default: 60
+              - variable: start_report_writers
+                label: StartReportWriters
+                description: Number of pre-forked instances of report writers.
+                schema:
+                  type: int
+                  default: 0
+              - variable: start_pollers
+                label: StartPollers
+                description: Number of pre-forked instances of pollers.
+                schema:
+                  type: int
+                  default: 5
+              - variable: start_ipmi_pollers
+                label: StartPreprocessors
+                description: Number of pre-forked instances of IPMI pollers.
+                schema:
+                  type: int
+                  default: 0
+              - variable: start_preprocessors
+                label: StartPreprocessors
+                description: Number of pre-forked instances of preprocessing workers.
+                schema:
+                  type: int
+                  default: 3
+              - variable: start_pollers_unreachable
+                label: StartPollersUnreachable
+                description: Number of pre-forked instances of pollers for unreachable hosts (including IPMI and Java).
+                schema:
+                  type: int
+                  default: 1
+              - variable: start_trappers
+                label: StartTrappers
+                description: Number of pre-forked instances of trappers.
+                schema:
+                  type: int
+                  default: 5
+              - variable: start_pingers
+                label: StartPingers
+                description: Number of pre-forked instances of ICMP pingers.
+                schema:
+                  type: int
+                  default: 1
+              - variable: start_discoverers
+                label: StartDiscoverers
+                description: Number of pre-forked instances of discoverers.
+                schema:
+                  type: int
+                  default: 1
+              - variable: start_history_pollers
+                label: StartHistoryPollers
+                description: Number of pre-forked instances of history pollers.
+                schema:
+                  type: int
+                  default: 5
+              - variable: start_http_pollers
+                label: StartHTTPPollers
+                description: Number of pre-forked instances of HTTP pollers.
+                schema:
+                  type: int
+                  default: 1
+              - variable: start_obdc_pollers
+                label: StartODBCPollers
+                description: Number of pre-forked instances of ODBC pollers.
+                schema:
+                  type: int
+                  default: 1
+              - variable: start_timers
+                label: StartTimers
+                description: Number of pre-forked instances of timers.
+                schema:
+                  type: int
+                  default: 1
+              - variable: start_escalators
+                label: StartEscalators
+                description: Number of pre-forked instances of escalators.
+                schema:
+                  type: int
+                  default: 1
+              - variable: start_alerters
+                label: StartAlerters
+                description: Number of pre-forked instances of alerters.
+                schema:
+                  type: int
+                  default: 3
+              - variable: start_java_pollers
+                label: StartJavaPollers
+                description: Number of pre-forked instances of Java pollers.
+                schema:
+                  type: int
+                  default: 5
+              - variable: start_vmware_collectors
+                label: StartVMwareCollectors
+                description: Number of pre-forked VMware collector instances.
+                schema:
+                  type: int
+                  default: 0
         - variable: frontend
           label: Frontend Configuration
           description: Info about configuration options in https://hub.docker.com/r/zabbix/zabbix-web-nginx-pgsql

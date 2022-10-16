@@ -43,7 +43,7 @@ data:
   ZBX_SERVICEMANAGERSYNCFREQUENCY: {{ $server.service_manager_sync_freq | quote }}
   ZBX_STARTREPORTWRITERS: {{ $server.start_report_writers | quote }}
   ZBX_STARTPOLLERS: {{ $server.start_pollers | quote }}
-  ZBX_IPMIPOLLERS: {{ $server.ipmi_pollers | quote }}
+  ZBX_IPMIPOLLERS: {{ $server.start_ipmi_pollers | quote }}
   ZBX_STARTPREPROCESSORS: {{ $server.start_preprocessors | quote }}
   ZBX_STARTPOLLERSUNREACHABLE: {{ $server.start_pollers_unreachable | quote }}
   ZBX_STARTTRAPPERS: {{ $server.start_trappers | quote }}
