@@ -2,6 +2,15 @@
 
 
 
+## [calibre-7.0.52](https://github.com/truecharts/charts/compare/calibre-web-11.0.50...calibre-7.0.52) (2022-10-16)
+
+### Chore
+
+- update docker general non-major ([#4108](https://github.com/truecharts/charts/issues/4108))
+
+
+
+
 ## [calibre-7.0.51](https://github.com/truecharts/charts/compare/calibre-web-11.0.48...calibre-7.0.51) (2022-10-12)
 
 ### Chore
