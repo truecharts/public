@@ -64,7 +64,6 @@ data:
   ZBX_HOUSEKEEPINGFREQUENCY: {{ $server.housekeeping_freq | quote }}
   ZBX_MAXHOUSEKEEPERDELETE: {{ $server.max_housekeeper_delete | quote }}
   ZBX_PROBLEMHOUSEKEEPINGFREQUENCY: {{ $server.problem_housekeeper_freq | quote }}
-  ZBX_SENDERFREQUENCY: {{ $server.sender_freq | quote }}
   ZBX_CACHESIZE: {{ $server.cache_size }}
   ZBX_CACHEUPDATEFREQUENCY: {{ $server.cache_update_freq | quote }}
   ZBX_STARTDBSYNCERS: {{ $server.start_db_syncers | quote }}

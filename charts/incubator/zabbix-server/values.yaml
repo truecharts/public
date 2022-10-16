@@ -61,6 +61,9 @@ zabbix:
     start_escalators: 1
     start_alerters: 3
     start_java_pollers: 5
+    start_proxy_pollers: 1
+    start_db_syncers: 4
+    start_lld_processors: 2
     start_vmware_collectors: 0
     vmware_frequency: 60
     vmware_perf_frequency: 60
@@ -69,10 +72,8 @@ zabbix:
     housekeeping_freq: 1
     max_housekeeper_delete: 5000
     problem_housekeeper_freq: 60
-    sender_freq: 30
     cache_size: 32M
     cache_update_freq: 60
-    start_db_syncers: 4
     history_cache_size: 16M
     history_index_cache_size: 4M
     history_storage_date_index: false
@@ -81,13 +82,11 @@ zabbix:
     value_cache_size: 8M
     trapper_timeout: 300
     unreachable_period: 45
-    unavailable_delay: 60
     unreachable_delay: 15
+    unavailable_delay: 60
     log_slow_queries: 3000
-    start_proxy_pollers: 1
     proxy_config_freq: 3600
     proxy_data_freq: 1
-    start_lld_processors: 2
     export_file_size: 1G
     export_type: []
     stats_allowed_ips: []

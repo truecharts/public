@@ -152,12 +152,192 @@ questions:
                 schema:
                   type: int
                   default: 5
+              - variable: start_db_syncers
+                label: StartDBSyncers
+                description: Number of pre-forked instances of history syncers.
+                schema:
+                  type: int
+                  default: 4
+              - variable: start_proxy_pollers
+                label: StartProxyPollers
+                description: Number of pre-forked instances of pollers for passive proxies1.
+                schema:
+                  type: int
+                  default: 1
+              - variable: start_lld_processors
+                label: StartLLDProcessors
+                description: Number of pre-forked instances of low-level discovery (LLD) workers.
+                schema:
+                  type: int
+                  default: 1
               - variable: start_vmware_collectors
                 label: StartVMwareCollectors
                 description: Number of pre-forked VMware collector instances.
                 schema:
                   type: int
                   default: 0
+              - variable: vmware_frequency
+                label: VMwareFrequency
+                description: Delay in seconds between data gathering from a single VMware service.
+                schema:
+                  type: int
+                  default: 60
+              - variable: vmware_perf_frequency
+                label: VMwarePerfFrequency
+                description: Delay in seconds between performance counter statistics retrieval from a single VMware service.
+                schema:
+                  type: int
+                  default: 60
+              - variable: vmware_cache_size
+                label: VMwareCacheSize
+                description: Shared memory size for storing VMware data.
+                schema:
+                  type: string
+                  default: 8M
+              - variable: vmware_timeout
+                label: VMwareTimeout
+                description: The maximum number of seconds vmware collector will wait for a response from VMware service (vCenter or ESX hypervisor).
+                schema:
+                  type: int
+                  default: 10
+              - variable: housekeeping_freq
+                label: HousekeepingFrequency
+                description: Determines how often Zabbix will perform housekeeping procedure in hours.
+                schema:
+                  type: int
+                  default: 1
+              - variable: max_housekeeper_delete
+                label: MaxHousekeeperDelete
+                description: No more than 'MaxHousekeeperDelete' rows (corresponding to [tablename], [field], [value]) will be deleted per one task in one housekeeping cycle.
+                schema:
+                  type: int
+                  default: 5000
+              - variable: problem_housekeeper_freq
+                label: ProblemHousekeepingFrequency
+                description: Determines how often Zabbix will delete problems for deleted triggers in seconds.
+                schema:
+                  type: int
+                  default: 60
+              - variable: cache_size
+                label: CacheSize
+                description: Size of configuration cache, in bytes.
+                schema:
+                  type: string
+                  default: 32M
+              - variable: cache_update_freq
+                label: CacheUpdateFrequency
+                description: Determines how often Zabbix will perform update of configuration cache in seconds.
+                schema:
+                  type: int
+                  default: 60
+              - variable: history_cache_size
+                label: HistoryCacheSize
+                description: Size of history cache, in bytes.
+                schema:
+                  type: string
+                  default: 16M
+              - variable: history_index_cache_size
+                label: HistoryIndexCacheSize
+                description: Size of history index cache, in bytes.
+                schema:
+                  type: string
+                  default: 4M
+              - variable: history_storage_date_index
+                label: HistoryStorageDateIndex
+                description: Enable preprocessing of history values in history storage to store values in different indices based on date
+                schema:
+                  type: boolean
+                  default: false
+              - variable: trend_cache_size
+                label: TrendCacheSize
+                description: Size of trend cache, in bytes.
+                schema:
+                  type: string
+                  default: 4M
+              - variable: trend_function_cache_size
+                label: TrendFunctionCacheSize
+                description: Size of trend function cache, in bytes.
+                schema:
+                  type: string
+                  default: 4M
+              - variable: value_cache_size
+                label: ValueCacheSize
+                description: Size of history value cache, in bytes.
+                schema:
+                  type: string
+                  default: 8M
+              - variable: trapper_timeout
+                label: TrapperTimeout
+                description: Specifies how many seconds trapper may spend processing new data.
+                schema:
+                  type: int
+                  default: 300
+              - variable: unreachable_period
+                label: UnreachablePeriod
+                description: Determines after how many seconds of unreachability treats a host as unavailable.
+                schema:
+                  type: int
+                  default: 45
+              - variable: unreachable_delay
+                label: UnreachableDelay
+                description: Determines how often host is checked for availability during the unreachability period in seconds.
+                schema:
+                  type: int
+                  default: 15
+              - variable: unavailable_delay
+                label: UnavailableDelay
+                description: Determines how often host is checked for availability during the unavailability period in seconds.
+                schema:
+                  type: int
+                  default: 60
+              - variable: log_slow_queries
+                label: LogSlowQueries
+                description: Determines how long a database query may take before being logged in milliseconds.
+                schema:
+                  type: int
+                  default: 3000
+              - variable: proxy_config_freq
+                label: ProxyConfigFrequency
+                description: Determines how often Zabbix server sends configuration data to a Zabbix proxy in seconds. Used only for proxies in a passive mode.
+                schema:
+                  type: int
+                  default: 3600
+              - variable: proxy_data_freq
+                label: ProxyDataFrequency
+                description: Determines how often Zabbix server requests history data from a Zabbix proxy in seconds. Used only for proxies in a passive mode.
+                schema:
+                  type: int
+                  default: 1
+              - variable: export_file_size
+                label: ExportFileSize
+                description: Maximum size per export file in bytes. Only used for rotation if ExportDir is set.
+                schema:
+                  type: string
+                  default: 1G
+              - variable: export_type
+                label: ExportType
+                description: Entity types (events, history, trends) for real-time export (all types by default).
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: type_entry
+                      label: ExportType Entry
+                      schema:
+                        type: string
+                        default: ""
+              - variable: stats_allowed_ips
+                label: StatsAllowedIP
+                description: IP addresses, optionally in CIDR notation, or DNS names of external Zabbix instances. Stats request will be accepted only from the addresses listed here.
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: stat_allowed_ip_entry
+                      label: StatsAllowedIP Entry
+                      schema:
+                        type: string
+                        default: ""
         - variable: frontend
           label: Frontend Configuration
           description: Info about configuration options in https://hub.docker.com/r/zabbix/zabbix-web-nginx-pgsql
