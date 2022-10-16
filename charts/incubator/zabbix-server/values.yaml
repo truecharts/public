@@ -100,9 +100,9 @@ zabbix:
     upload_max_file_size: 2M
     max_input_time: 300
     session_name: zbx_sessionid
-    access_ip_range: []
     deny_gui_access: false
     warning_message: Zabbix Server is under maintenance
+    access_ip_range: []
     # Advanced
     sso_settings: ""
     php_fpm_pm: dynamic
