@@ -14,8 +14,10 @@ volumeMounts:
     mountPath: {{ .Values.persistence.hostsys.mountPath }}
   - name: hostproc
     mountPath: {{ .Values.persistence.hostproc.mountPath }}
+  {{/*
   - name: agentconf
     mountPath: {{ .Values.persistence.agentconf.mountPath }}
+  */}}
   - name: agentenc
     mountPath: {{ .Values.persistence.agentenc.mountPath }}
   - name: agentbuffer
