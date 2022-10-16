@@ -35,6 +35,7 @@ securityContext:
   runAsNonRoot: false
 
 podSecurityContext:
+  # runAsUser: 1997
   runAsUser: 0
   runAsGroup: 0
 
@@ -70,7 +71,7 @@ zabbix:
     max_housekeeper_delete: 5000
     problem_housekeeper_freq: 60
     sender_freq: 30
-    cache_size: 8M
+    cache_size: 32M
     cache_update_freq: 60
     start_db_syncers: 4
     history_cache_size: 16M
@@ -78,7 +79,7 @@ zabbix:
     history_storage_date_index: false
     trend_cache_size: 4M
     trend_function_cache_size: 4M
-    value_cache_size: 4M
+    value_cache_size: 8M
     trapper_timeout: 300
     unreachable_period: 45
     unavailable_delay: 60
