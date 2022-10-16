@@ -13,8 +13,8 @@ envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-javagateway-config'
 ports:
-  - containerPort: {{ .Values.service.agent.ports.agent.port }}
-    name: agent
+  - containerPort: {{ .Values.service.javagateway.ports.javagateway.port }}
+    name: javagateway
 {{/*
 readinessProbe:
   httpGet:

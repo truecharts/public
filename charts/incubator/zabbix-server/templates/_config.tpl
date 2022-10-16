@@ -88,10 +88,8 @@ data:
   ZBX_STATSALLOWEDIP: "{{ range initial $server.stats_allowed_ips }}{{ . }},{{ end }}{{ with last $server.stats_allowed_ips }}{{ . }}{{ end }}"
   ZBX_ENABLE_SNMP_TRAPS: {{ .Values.zabbix.snmptraps.enabled | quote }}
   ZBX_JAVAGATEWAY_ENABLE: {{ .Values.zabbix.javagateway.enabled | quote }}
-  {{/* TODO: add javagateway
-  ZBX_JAVAGATEWAY: zabbix-java-gateway
-  ZBX_JAVAGATEWAYPORT: 10052
-  */}}
+  ZBX_JAVAGATEWAY: localhost
+  ZBX_JAVAGATEWAYPORT: {{ .Values.service.javagateway.ports.javagateway.port | quote }}
 
 ---
 
@@ -196,6 +194,7 @@ data:
   ZBX_START_POLLERS: {{ $javagateway.start_pollers | quote }}
   ZBX_TIMEOUT: {{ $javagateway.timeout | quote }}
   ZBX_DEBUGLEVEL: {{ $javagateway.debug_level }}
+  ZBX_LISTEN_PORT: {{ .Values.service.javagateway.ports.javagateway.port | quote }}
 
 ---
 
