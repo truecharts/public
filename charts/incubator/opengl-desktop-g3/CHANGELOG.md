@@ -2,6 +2,16 @@
 
 
 
+## [opengl-desktop-g3-0.0.31](https://github.com/truecharts/charts/compare/opengl-desktop-g3-0.0.30...opengl-desktop-g3-0.0.31) (2022-10-14)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4084](https://github.com/truecharts/charts/issues/4084))
+
+
+
+
 ## [opengl-desktop-g3-0.0.30](https://github.com/truecharts/charts/compare/opengl-desktop-g3-0.0.29...opengl-desktop-g3-0.0.30) (2022-10-12)
 
 ### Chore

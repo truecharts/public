@@ -2,6 +2,16 @@
 
 
 
+## [filestash-0.0.46](https://github.com/truecharts/charts/compare/filestash-0.0.45...filestash-0.0.46) (2022-10-14)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4084](https://github.com/truecharts/charts/issues/4084))
+
+
+
+
 ## [filestash-0.0.45](https://github.com/truecharts/charts/compare/filestash-0.0.44...filestash-0.0.45) (2022-10-12)
 
 ### Chore

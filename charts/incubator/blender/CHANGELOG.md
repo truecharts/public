@@ -2,6 +2,16 @@
 
 
 
+## [blender-0.0.38](https://github.com/truecharts/charts/compare/blender-desktop-g3-0.0.30...blender-0.0.38) (2022-10-14)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4084](https://github.com/truecharts/charts/issues/4084))
+
+
+
+
 ## [blender-0.0.37](https://github.com/truecharts/charts/compare/blender-desktop-g3-0.0.29...blender-0.0.37) (2022-10-12)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [artifactory-oss-0.0.33](https://github.com/truecharts/charts/compare/artifactory-oss-0.0.32...artifactory-oss-0.0.33) (2022-10-14)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4084](https://github.com/truecharts/charts/issues/4084))
+
+
+
+
 ## [artifactory-oss-0.0.32](https://github.com/truecharts/charts/compare/artifactory-oss-0.0.31...artifactory-oss-0.0.32) (2022-10-12)
 
 ### Chore
