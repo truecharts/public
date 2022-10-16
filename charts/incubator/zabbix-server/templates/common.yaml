@@ -7,7 +7,7 @@
 {{/* Render config */}}
 {{- include "zabbix.config" . }}
 
-{{- $_ := set .Values.additionalContainers "web" (include "zabbix.web" . | fromYaml) -}}
+{{- $_ := set .Values.additionalContainers "frontend" (include "zabbix.frontend" . | fromYaml) -}}
 
 {{- if .Values.zabbix.agent.enabled -}}
 {{- $_ := set .Values.additionalContainers "agent2" (include "zabbix.agent2" . | fromYaml) -}}

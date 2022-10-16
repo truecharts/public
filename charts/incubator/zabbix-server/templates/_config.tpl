@@ -3,7 +3,7 @@
 
 {{- $serverConfigName := printf "%s-server-config" (include "tc.common.names.fullname" .) }}
 {{- $commonConfigName := printf "%s-common-config" (include "tc.common.names.fullname" .) }}
-{{- $webConfigName := printf "%s-web-config" (include "tc.common.names.fullname" .) }}
+{{- $frontendConfigName := printf "%s-frontend-config" (include "tc.common.names.fullname" .) }}
 {{- $agentConfigName := printf "%s-agent-config" (include "tc.common.names.fullname" .) }}
 {{- $javagatewayConfigName := printf "%s-javagateway-config" (include "tc.common.names.fullname" .) }}
 {{- $webserviceConfigName := printf "%s-webservice-config" (include "tc.common.names.fullname" .) }}
@@ -120,7 +120,7 @@ data:
   {{- with $agent.metadata_item }}
   ZBX_METADATAITEM: {{ . | quote }}
   {{- end }}
-  ZBX_SERVER_PORT: {{ .Values.service.server.ports.server.port }}
+  ZBX_SERVER_PORT: {{ .Values.service.server.ports.server.port | quote }}
   ZBX_PASSIVE_ALLOW: {{ $agent.passive_allow | quote }}
   ZBX_ACTIVE_ALLOW: {{ $agent.active_allow | quote }}
   ZBX_TIMEOUT: {{ $agent.timeout | quote }}
@@ -128,7 +128,7 @@ data:
   ZBX_PERSISTENTBUFFERPERIOD: {{ $agent.persistent_buffer_period }}
   ZBX_LOGREMOTECOMMANDS: {{ ternary "1" "0" $agent.log_remote_commands }}
   ZBX_STARTAGENTS: {{ $agent.start_agents | quote }}
-  ZBX_LISTENPORT: {{ .Values.service.agent.ports.agent.port }}
+  ZBX_LISTENPORT: {{ .Values.service.agent.ports.agent.port | quote }}
   ZBX_REFRESHACTIVECHECKS: {{ $agent.refresh_active_checks | quote }}
   ZBX_BUFFERSEND: {{ $agent.buffer_send | quote }}
   ZBX_BUFFERSIZE: {{ $agent.buffer_size | quote }}
@@ -155,7 +155,7 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ $webConfigName }}
+  name: {{ $frontendConfigName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:

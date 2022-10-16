@@ -1,21 +1,18 @@
-{{- define "zabbix.web" -}}
-image: {{ .Values.webImage.repository }}:{{ .Values.webImage.tag }}
-imagePullPolicy: {{ .Values.webImage.pullPolicy }}
+{{- define "zabbix.frontend" -}}
+image: {{ .Values.frontendImage.repository }}:{{ .Values.frontendImage.tag }}
+imagePullPolicy: {{ .Values.frontendImage.pullPolicy }}
 securityContext:
   runAsUser: {{ .Values.podSecurityContext.runAsUser }}
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
-volumeMounts:
-  - name: webcerts
-    mountPath: {{ .Values.persistence.webcerts.mountPath }}
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-common-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-common-config'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-web-config'
+      name: '{{ include "tc.common.names.fullname" . }}-frontend-config'
 ports:
   - containerPort: {{ .Values.service.main.ports.main.targetPort }}
     name: main
