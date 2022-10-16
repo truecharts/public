@@ -128,13 +128,13 @@ data:
   ZBX_PERSISTENTBUFFERPERIOD: {{ $agent.persistent_buffer_period }}
   {{/*
   ZBX_LOGREMOTECOMMANDS: {{ ternary "1" "0" $agent.log_remote_commands | quote }}
+  ZBX_MAXLINESPERSECOND: {{ $agent.max_line_per_second | quote }}
   */}}
   ZBX_STARTAGENTS: {{ $agent.start_agents | quote }}
   ZBX_LISTENPORT: {{ .Values.service.agent.ports.agent.port | quote }}
   ZBX_REFRESHACTIVECHECKS: {{ $agent.refresh_active_checks | quote }}
   ZBX_BUFFERSEND: {{ $agent.buffer_send | quote }}
   ZBX_BUFFERSIZE: {{ $agent.buffer_size | quote }}
-  ZBX_MAXLINESPERSECOND: {{ $agent.max_line_per_second | quote }}
   ZBX_UNSAFEUSERPARAMETERS: {{ ternary "1" "0" $agent.unsafe_user_parameters | quote }}
   ZBX_TLSCONNECT: {{ $agent.tls_connect }}
   ZBX_TLSACCEPT: {{ $agent.tls_accept }}
