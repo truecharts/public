@@ -36,7 +36,6 @@ securityContext:
 
 podSecurityContext:
   runAsUser: 1997
-  # runAsUser: 0
   runAsGroup: 0
 
 zabbix:
@@ -137,7 +136,7 @@ zabbix:
     allow_key: ""
     deny_key: ""
   javagateway:
-    enabled: false
+    enabled: true
     start_pollers: 5
     timeout: 3
     debug_level: info
