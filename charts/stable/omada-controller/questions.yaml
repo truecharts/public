@@ -34,34 +34,6 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 8088
-                              required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 8088
-        - variable: main-secure
-          label: Omada Controller Main HTTPS portal
-          description: Omada Controller Main User HTTPS portal
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorExtras}
-                    - variable: main-secure
-                      label: HTTPS Main Service Port Configuration
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
                               default: 8043
                               required: true
 # Include{advancedPortHTTPS}
@@ -70,7 +42,7 @@ questions:
                                   description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
-                                    default: 8043
+                                    default: 443
         - variable: comm
           label: Omada Controller User HTTPS portal
           description: Omada Controller User HTTPS portal

@@ -12,16 +12,19 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  MANAGE_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
-  MANAGE_HTTPS_PORT: "{{ .Values.service.main-secure.ports.main-secure.port }}"
+  # Omada automatically redirects to that port. 
+  # Instead of consuming the external 443 port, it's better to switch internal
+  # But still give user the ability to change it.
+  MANAGE_HTTPS_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
   PORTAL_HTTPS_PORT: "{{ .Values.service.comm.ports.comm.port }}"
 
 service:
   main:
     ports:
       main:
-        protocol: HTTP
-        port: 8088
+        protocol: HTTPS
+        port: 8043
+        targetPort: 443
   comm:
     enabled: true
     ports:
@@ -29,12 +32,6 @@ service:
         protocol: HTTPS
         enabled: true
         port: 8843
-  main-secure:
-    enabled: true
-    ports:
-      main-secure:
-        protocol: HTTPS
-        port: 8043
   omada-tcp:
     enabled: true
     ports:
