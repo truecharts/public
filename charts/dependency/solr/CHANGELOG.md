@@ -2,6 +2,16 @@
 
 
 
+## [solr-0.0.67](https://github.com/truecharts/charts/compare/solr-0.0.66...solr-0.0.67) (2022-10-17)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4119](https://github.com/truecharts/charts/issues/4119))
+
+
+
+
 ## [solr-0.0.66](https://github.com/truecharts/charts/compare/solr-0.0.65...solr-0.0.66) (2022-10-15)
 
 ### Chore

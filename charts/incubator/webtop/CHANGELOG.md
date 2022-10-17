@@ -2,6 +2,16 @@
 
 
 
+## [webtop-0.0.38](https://github.com/truecharts/charts/compare/webtop-0.0.37...webtop-0.0.38) (2022-10-17)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4119](https://github.com/truecharts/charts/issues/4119))
+
+
+
+
 ## [webtop-0.0.37](https://github.com/truecharts/charts/compare/webtop-0.0.36...webtop-0.0.37) (2022-10-12)
 
 ### Chore

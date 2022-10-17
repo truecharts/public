@@ -2,6 +2,16 @@
 
 
 
+## [redis-3.0.97](https://github.com/truecharts/charts/compare/redis-3.0.96...redis-3.0.97) (2022-10-17)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4119](https://github.com/truecharts/charts/issues/4119))
+
+
+
+
 ## [redis-3.0.96](https://github.com/truecharts/charts/compare/redis-3.0.95...redis-3.0.96) (2022-10-15)
 
 ### Chore
