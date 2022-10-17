@@ -21,7 +21,12 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
+    size: 256Gi
+  gallery:
+    enabled: true
+    mountPath: /gallery
+    size: 256Gi
   varrun:
     enabled: true
 
