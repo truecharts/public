@@ -2,6 +2,16 @@
 
 
 
+## [minecraft-java-1.0.65](https://github.com/truecharts/charts/compare/minecraft-java-1.0.64...minecraft-java-1.0.65) (2022-10-18)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4120](https://github.com/truecharts/charts/issues/4120))
+
+
+
+
 ## [minecraft-java-1.0.64](https://github.com/truecharts/charts/compare/minecraft-java-1.0.63...minecraft-java-1.0.64) (2022-10-17)
 
 ### Chore
