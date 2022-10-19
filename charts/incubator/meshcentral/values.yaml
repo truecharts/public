@@ -9,6 +9,7 @@ image:
 
 command:
   - /bin/bash
+  - ls -la /home/node/meshcentral/meshcentral-data
   - cat /home/node/meshcentral/meshcentral-data/config.json
 
 securityContext:
@@ -23,9 +24,34 @@ podSecurityContext:
 # TODO: Loop through all the keys and rename KEY to _KEY if it's not set/empty
 meshcentral:
   settings:
+    mongoDbBulkOperations: true
+    # - The actual main port as seen externally on the Internet, this setting is often used when a reverse-proxy is used.
+    aliasPort: 443
+    # - When set, relayPort value is ignored. Set this to a DNS name the points to this server. When the server is accessed using the DNS name, the main web server port is used as a web relay port.
+    _relayDNS:
+      - ""
     # - Set this to the primary DNS name of this MeshCentral server.
     cert: mc.domain.com
-    mongoDbBulkOperations: true
+    # - Force MeshCentral to use the HTTPS and MPS certificates even if the name does not match the expected DNS value.
+    keepCerts: false
+    # - When enabled, only MeshCentral WAN features are enabled and agents will connect to the server using a well known DNS name.
+    WANonly: false
+    # - When enabled, only MeshCentral LAN features are enabled and agents will find the server using multicast LAN packets.
+    LANonly: false
+    # - When enabled the server is in maintenance mode, only administrators can login. Use the maintenance command in server console to change.
+    maintenanceMode: false
+    # - Duration of a session cookie in minutes. Changing this affects how often the session needs to be automatically refreshed.
+    sessionTime: 60
+    # - strict | lax | none
+    sessionSameSite: lax
+    # - Amount of time to keep various events in the database, in seconds.
+    dbExpire:
+      # - Amount of time in seconds that events are kept in the database.
+      events: 1728000
+      # - Amount of time in seconds that device power events are kept in the database.
+      powerevents: 864000
+      # - Amount of time in seconds that server statistics are kept in the database.
+      statsevents: 2592000
   domains:
     "":
       # - HTTPS URL when to get the TLS certificate that MeshAgent's will see when connecting to this server. This setting is used when a reverse proxy like Traefik is used in front of MeshCentral.
@@ -43,15 +69,25 @@ meshcentral:
       # - When set to false, this setting will disable the mobile site.
       mobileSite: true
       # - Set to true to enable IP KVM device support in this domain.
-      ipkvm: true
+      ipkvm: false
+      # - When set to true, allow new user accounts to be created from the login page.
+      newAccounts: false
+      # - When set this password will be required in order to create a new account from the login screen.
+      _newAccountsPass: ""
+      # - When set to true, users will get a CAPTCHA when creating a new account from the login screen.
+      _newAccountsCaptcha: false
+      _newAccountsUserGroups:
+        - ""
       # - The maximum number of devices a user can see on the devices page at the same time. By default all devices will show, but this may need to be limited on servers with large number of devices.
       _maxDeviceView: 1000
-      _userQuota: ""
-      _meshQuota: ""
+      _userQuota: 1048576
+      _meshQuota: 248576
       # - Requires that users add the value ?key=xxx in the URL in order to see the web site.
-      _loginKey: ""
+      _loginKey:
+        - ""
       # - Requires that agents add the value ?key=xxx in the URL in order to connect. This is not automatic and needs to be manually added in the meshagent.msh file.
-      _agentKey: ""
+      _agentKey:
+        - ""
       # - Web site .png logo file that is 450x66 in size placed in meshcentral-data that is used on the top of many pages.
       _titlePicture: ""
       # - Web site .png logo file placed in meshcentral-data that used on the login page when sitestyle is 2.
@@ -77,14 +113,15 @@ mongodb:
 persistence:
   data:
     enabled: true
-    mountPath: "/home/node/meshcentral/meshcentral-data"
+    mountPath: /home/node/meshcentral/meshcentral-data
   files:
     enabled: true
-    mountPath: "/home/node/meshcentral/meshcentral-files"
+    mountPath: /home/node/meshcentral/meshcentral-files
   configfile:
     enabled: true
     type: secret
     readOnly: true
+    # defaultMode: "0600"
     objectName: '{{ include "tc.common.names.fullname" . }}-secret'
     mountPath: /home/node/meshcentral/meshcentral-data/config.json
     subPath: config.json
