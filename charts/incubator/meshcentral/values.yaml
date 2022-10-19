@@ -10,9 +10,6 @@ image:
 command:
   - /bin/bash
   - -c
-  - pwd
-  - ls -la
-  - ls -la /home/node/meshcentral/meshcentral-data
   - cat /home/node/meshcentral/meshcentral-data/config.json
 
 securityContext:
@@ -24,6 +21,7 @@ podSecurityContext:
   runAsGroup: 0
 
 # - Values with the character _ in-front of them are ignored. Add or remove _ to disable or enable options
+# - Any service that uses port other than 443, need to be manually configured.
 # TODO: Loop through all the keys and rename KEY to _KEY if it's not set/empty
 meshcentral:
   settings:
@@ -105,6 +103,10 @@ meshcentral:
     _meshScanner: true
     # - When false, users will only be able to set remote desktop image quality to 60%, this can reduce server bandwidth usage.
     _allowHighQualityDesktop: true
+    # - When set with a valid email address, enables the MeshCentral web push notification feature. Allows administrators to send browser notifications to users even if they are not looking at the MeshCentral web site.
+    _webPush:
+      # - Server administrator email given to the FireFox and Chrome push notification services.
+      email: null
     # - Duration of a session cookie in minutes. Changing this affects how often the session needs to be automatically refreshed.
     sessionTime: 60
     # - strict | lax | none
@@ -117,6 +119,109 @@ meshcentral:
       powerevents: 864000
       # - Amount of time in seconds that server statistics are kept in the database.
       statsevents: 2592000
+    # - Execute this when the server startup is completed. The first parameter will be the server version.
+    _RunOnServerStarted: null
+    # - Execute this when the server has been updated. The first parameter will be the server version.
+    _RunOnServerUpdated: null
+    # - Execute this when the server has to restart due to an error. The first parameter will be the server version.
+    _RunOnServerError: null
+    # - When true, this server uses MeshCentral.com a push notification relay for Android notifications. Push notifications work even if the Android app is not open.
+    _publicPushNotifications: false
+    # - When true, enabled a server modules that efficiently splits a remote desktop stream to multiple browsers. Also allows slow browsers to not slow down the session for fast ones, this comes at the cost of extra server memory and processing for all remote desktop sessions.
+    _desktopMultiplex: false
+    # - If set, a user from a banned IP address will be redirected to this URL.
+    _ipBlockedUserRedirect: null
+    # - When set, only users from allowed IP address ranges can connect to the server. Example: 192.168.2.100,192.168.1.0/24
+    _userAllowedIP: null
+    # - When set, users from these denied IP address ranges will not be able to connect to the server. Example: 192.168.2.100,192.168.1.0/24
+    _userBlockedIP: null
+    # - When set, only agents from allowed IP address ranges can connect to the server. Example: 192.168.2.100,192.168.1.0/24
+    _agentAllowedIP: null
+    # - When set, agents from these denied IP address ranges will not be able to connect to the server. Example: 192.168.2.100,192.168.1.0/24
+    _agentBlockedIP: null
+    # - File path and name of the authentication log to be created. This log can be parsed by Fail2ban.
+    _authLog: null
+    # Users in this list are allowed to send and receive inter-user messages. This can be used to implement bots or other software where MeshCentral is used as data transport. See interuser websocket command in the code.
+    _InterUserMessaging:
+      - ""
+    # - Users in this list are allowed to see and manage all device groups within their domain.
+    _manageAllDeviceGroups:
+      - ""
+    # - Users in this list are allowed to manage all users in all domains.
+    _manageCrossDomain:
+      - ""
+    # - When this server is in LAN mode, you may discover this server using a multicast discovery tool. When discovery happens, the name and info fields are sent back to the discovery tool.
+    _localDiscovery:
+      name: null
+      info: null
+      # - When set, encrypts all LAN discovery traffic to agents and tools using this key. This is only useful in LAN/Hybrid mode when agents and tools user multicast to find the server.
+      key: null
+    # - When true, indicates that a TLS offloader is in front of the MeshCentral server. More typically, set this to the IP address of the reverse proxy or TLS offloader so that IP forwarding headers will be trusted. For example: 127.0.0.1,192.168.1.100
+    _tlsOffload: false
+    # - Trust forwarded headers from these IPs or domains.  Providing the magic string "CloudFlare" will cause the server to download the IP address list of trusted CloudFlare proxies directly from CloudFlare on each server start. For example: 127.0.0.1,proxy.example.com,CloudFlare
+    _trustedProxy: null
+    # - The Management Presence Server (MPS), this is the server that received Intel AMT Client Initiated Remote Access (CIRA) connections.
+    _mpsPort: 4433
+    _mpsAliasPort: null
+    _mpsAliasHost: null
+    # - When set to true, indicate that TLS is being performed by a device in front of MeshCentral.
+    _mpsTlsOffload: false
+    # - When set to true, the MPS server will only accept TLS 1.2 and 1.3 connections. Older Intel AMT devices will not be able to connect.
+    _mpsHighSecurity: false
+    # - Send syslog events over the network (RFC3164) to a target hostname:port. For example: localhost:514
+    _syslogtcp: null
+    # - The STUN servers used for WebRTC, if not specified the Google and Mozilla servers and used when the server is not in LAN mode.
+    _webrtcConfig:
+      iceServers:
+        - urls: ""
+    # - Enabled the MeshCentral built-in Crowdsec bouncer. This section is passed directly to the bouncer, all of the settings are documented at https://www.npmjs.com/package/@crowdsec/express-bouncer
+    _crowdsec:
+      # - The URL of your LAPI instance. Ex: http://localhost:8080
+      url: null
+      # - The bouncer key (generated via cscli).
+      apiKey: null
+      # - Action to perform if the CrowdSec agent can't be contacted. bypass | captcha | ban
+      failbackRemediation: ban
+    # TODO: auto backup
+    _redirects:
+      meshcommander: https://www.meshcommander.com/
+    # - This section described a policy for how many times an IP address is allowed to attempt to login incorrectly. By default it's 10 times in 10 minutes, but this can be changed here.
+    _maxInvalidLogin:
+      # - Ranges of IP addresses that are not subject to invalid login limitations. For example: 192.168.1.0/24,172.16.0.1
+      exclude: null
+      # - Time in minutes over which the a maximum number of invalid login attempts is allowed from an IP address.
+      time: 10
+      # - Maximum number of invalid login attempts from an IP address in the time period.
+      count: 10
+      # - Additional time in minute that login attempts will be denied once the invalid login limit is reached.
+      coolofftime: null
+    # - This section described a policy for how many times an IP address is allowed to attempt to perform two-factor authentication (2FA) incorrectly. By default it's 10 times in 10 minutes, but this can be changed here.
+    _maxInvalid2fa:
+      # - Ranges of IP addresses that are not subject to invalid 2FA limitations. For example: 192.168.1.0/24,172.16.0.1
+      exclude: null
+      # - Time in minutes over which the a maximum number of invalid 2FA attempts is allowed from an IP address.
+      time: 10
+      # - Maximum number of invalid 2FA attempts from an IP address in the time period.
+      count: 10
+      # - Additional time in minute that 2FA attempts will be denied once the invalid login limit is reached.
+      coolofftime: null
+    # - When present, this section will enable the Intel AMT provisioning server on the local network. This is used for Intel AMT bare-metal ACM activation.
+    _amtProvisioningServer:
+      # - Port number that provisioning server will listen to.
+      port: 9971
+      # - The agent-less device group to add Intel AMT devices to once they are activated. Must be of format: mesh/domain/id
+      deviceGroup: null
+      # - The MEBX password to set during activation. This password must be at least 8 characters long and have 1 lower, 1 upper, 1 alpha-numeric and 1 non-alpha numeric character.
+      newMebxPassword: null
+      # - The trusted FQDN or provisioning server value the remote device will have. This can be set in MEBx or using the DHCP server option 15 on the local network.
+      trustedFqdn: null
+      # - The IP address of this server. This address will be used when creating the USB setup.bin file to indicate what IP address to send the hello data to.
+      ip: null
+    _plugins:
+      enabled: true
+  # - Any settings in this section is used as default setting for all domains
+  _domaindefaults:
+    title: Default Title
   domains:
     "":
       # - HTTPS URL when to get the TLS certificate that MeshAgent's will see when connecting to this server. This setting is used when a reverse proxy like Traefik is used in front of MeshCentral.
@@ -168,6 +273,20 @@ service:
       main:
         protocol: HTTPS
         port: 10205
+  # mps:
+  #   enabled: true
+  #   ports:
+  #     mps:
+  #       enabled: true
+  #       port: 4433
+  #       targetPort: 4433
+  # amtprovisioner:
+  #   enabled: true
+  #   ports:
+  #     amtprovisioner:
+  #       enabled: true
+  #       port: 9971
+  #       targetPort: 9971
 
 mongodb:
   enabled: true
