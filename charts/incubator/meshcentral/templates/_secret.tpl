@@ -23,6 +23,10 @@
 {{- $_ := set $config.settings "sessionKey" $sessionKey }}
 {{- $_ := set $config.settings "port" .Values.service.main.ports.main.port }}
 
+{{/* Force disable some functions that are not appliable in docker */}}
+{{- $_ := set $config.settings "selfUpdate" false }}
+{{- $_ := set $config.settings "cleanNpmCacheOnUpdate" false }}
+
 ---
 
 apiVersion: v1

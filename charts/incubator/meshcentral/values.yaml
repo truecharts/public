@@ -9,6 +9,9 @@ image:
 
 command:
   - /bin/bash
+  - -c
+  - pwd
+  - ls -la
   - ls -la /home/node/meshcentral/meshcentral-data
   - cat /home/node/meshcentral/meshcentral-data/config.json
 
@@ -30,16 +33,78 @@ meshcentral:
     # - When set, relayPort value is ignored. Set this to a DNS name the points to this server. When the server is accessed using the DNS name, the main web server port is used as a web relay port.
     _relayDNS:
       - ""
+    # - Automatically downloads all agent error logs into meshcentral-data/agenterrorlogs.txt.
+    agentLogDump: false
+    # - Automatically activates and transfers any agent crash dump files to the server in meshcentral-data/coredumps.
+    agentCoreDump: false
+    # - List of non-administrator users that have access to mesh agent crash dumps.
+    _agentCoreDumpUsers:
+      - ""
+    # - When code signing an agent using authenticode, lock the agent to only allow connection to this server. (This is in testing, the default value will change to true in the future).
+    _agentSignLock: false
+    # - The time stamping server to use when code signing Windows executables. When set to false, the executables are not time stamped.
+    _agentTimeStampServer: http://timestamp.comodoca.com/authenticode
+    # - The HTTP proxy to use when contacting the time stamping server, if false, no proxy is used. By default, the npmproxy value is used.
+    _agentTimeStampProxy:
+    # - When set to true, MeshCentral will only grab the required TCP listening ports or fail. It will not try to use the next available port of it's busy.
+    _exactPorts: false
     # - Set this to the primary DNS name of this MeshCentral server.
     cert: mc.domain.com
     # - Force MeshCentral to use the HTTPS and MPS certificates even if the name does not match the expected DNS value.
     keepCerts: false
     # - When enabled, only MeshCentral WAN features are enabled and agents will connect to the server using a well known DNS name.
-    WANonly: false
+    _WANonly: false
     # - When enabled, only MeshCentral LAN features are enabled and agents will find the server using multicast LAN packets.
-    LANonly: false
+    _LANonly: false
     # - When enabled the server is in maintenance mode, only administrators can login. Use the maintenance command in server console to change.
-    maintenanceMode: false
+    _maintenanceMode: false
+    allowLoginToken: false
+    # - Controls the Strict-Transport-Security header, default is 1 year. Set to false to remove, true to force enable, or string to set a custom value. If set to null, MeshCentral will enable if a trusted certificate is set.
+    _StrictTransportSecurity: null
+    # - When enabled, the MeshCentral web site can be embedded within another website's iframe.
+    allowFraming: false
+    # - strict | lax | none
+    _cookieIpCheck: lax
+    # - When enabled, allows use of WebRTC to allow direct network traffic between the agent and browser.
+    webRTC: false
+    # - By default, a nice looking 404 error page is displayed when needed. Set this to false to disable it.
+    nice404: true
+    # - When specified, sends data to the browser at x seconds interval and expects a response from the browser.
+    _browserPing: 300
+    # - When specified, sends data to the browser at x seconds interval.
+    _browserPong: 300
+    # - Loads all agent binaries in RAM for faster agent updates.
+    _agentsInRam: false
+    # - When specified, sends data to the agent at x seconds interval and expects a response from the agent.
+    _agentPing: 300
+    # - When specified, sends data to the agent at x seconds interval.
+    _agentPong: 300
+    # - When enabled, MeshCentral will automatically monitor and manage Intel AMT devices.
+    _amtManager: true
+    # - If an agent attempts to connect to a unknown device group, automatically create a new device group and grant access to the specified user. Example: admin
+    _orphanAgentUser: null
+    # - How much time in seconds with no traffic from an agent before dropping the agent connection.
+    _agentIdleTimeout: 150
+    # - Adds a random length string to generated web pages to mitigate a BREACH attack.
+    _webPageLengthRandomization: true
+    # - Enables GZIP compression for web requests.
+    _compression: true
+    # - Enables server-side, websocket per-message deflate compression.
+    wsCompression: true
+    # - Enables agent-side, websocket per-message deflate compression. wscompression must also be true for this to work.
+    _agentWsCompression: true
+    # - Set to 1 to present the server from updating any agent.
+    _noAgentUpdate: 0
+    # - When set to 2, all agents that need to be updated will use the meshcore.js update system. With the default value of 1, the native update system is used.
+    _agentUpdateSystem: 1
+    # - Set to false to not allow temporary agents to be updated.
+    _temporaryAgentUpdate: true
+    # - Set to false to disable Intel AMT scanning on the local network, this is already disabled in WAN mode.
+    _amtScanner: true
+    # - Set to false to disable agent multicast scanning on the local network, this is already disabled in WAN mode.
+    _meshScanner: true
+    # - When false, users will only be able to set remote desktop image quality to 60%, this can reduce server bandwidth usage.
+    _allowHighQualityDesktop: true
     # - Duration of a session cookie in minutes. Changing this affects how often the session needs to be automatically refreshed.
     sessionTime: 60
     # - strict | lax | none
