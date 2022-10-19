@@ -6,11 +6,13 @@ image:
 # extraArgs:
 #   - --cert
 #   - "{{ .Values.meshcentral.settings.cert }}"
+#   - --configfile
+#   - /home/node/meshcentral/meshcentral-config/config.json
 
 command:
   - /bin/bash
   - -c
-  - cat /home/node/meshcentral/meshcentral-data/config.json
+  - cat /home/node/meshcentral/meshcentral-config/config.json
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -182,7 +184,6 @@ meshcentral:
       apiKey: null
       # - Action to perform if the CrowdSec agent can't be contacted. bypass | captcha | ban
       failbackRemediation: ban
-    # TODO: auto backup
     _redirects:
       meshcommander: https://www.meshcommander.com/
     # - This section described a policy for how many times an IP address is allowed to attempt to login incorrectly. By default it's 10 times in 10 minutes, but this can be changed here.
@@ -307,8 +308,10 @@ persistence:
     readOnly: true
     # defaultMode: "0600"
     objectName: '{{ include "tc.common.names.fullname" . }}-secret'
-    mountPath: /home/node/meshcentral/meshcentral-data/config.json
-    subPath: config.json
+    mountPath: /home/node/meshcentral/meshcentral-config
+    items:
+      - key: config.json
+        path: config.json
 
 portal:
   enabled: true
