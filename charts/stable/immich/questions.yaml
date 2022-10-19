@@ -59,6 +59,11 @@ questions:
                 description: simple
               - value: verbose
                 description: verbose
+        - variable: enable_ml
+          label: Enable Machine Learning Container
+          schema:
+            type: boolean
+            default: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
