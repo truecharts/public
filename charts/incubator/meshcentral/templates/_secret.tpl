@@ -14,7 +14,7 @@
 
 {{/* Inject some values */}}
 {{- $_ := set $config "$schema" "http://info.meshcentral.com/downloads/meshcentral-config-schema.json" }}
-{{- $_ := set $config "__comment__" "This file is generated dynamically at install time, do not attemp to modify it. On next start it will be re-generated" }}
+{{- $_ := set $config "__comment__" "This file is generated dynamically at install time, do not attempt to modify it. On next start it will be re-generated" }}
 {{- if not (hasKey $config "settings") }}
 {{- $_ := set $config "settings" dict }}
 {{- end }}
