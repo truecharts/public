@@ -3,11 +3,11 @@ appVersion: "1.8.4"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.7.0
+    version: 10.7.1
   - condition: redis.enabled
     name: redis
     repository: https://charts.truecharts.org
-    version: 3.0.94
+    version: 3.0.97
 # - condition: mongodb.enabled
 #   name: mongodb
 #   repository: https://charts.truecharts.org
