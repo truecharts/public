@@ -3,7 +3,13 @@ image:
   pullPolicy: IfNotPresent
   tag: 1.0.85@sha256:86ea102f40926709ce7bab442fc961822860aa8dd70b13b3b2e8af6e4edef2c9
 
-extraArgs: ["--cert", "{{ .Values.meshcentral.settings.cert }}"]
+# extraArgs:
+#   - --cert
+#   - "{{ .Values.meshcentral.settings.cert }}"
+
+command:
+  - /bin/bash
+  - cat /home/node/meshcentral/meshcentral-data/config.json
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -15,19 +21,19 @@ podSecurityContext:
 
 meshcentral:
   settings:
-    mongoDbBulkOperations: true
     # - Set this to the primary DNS name of this MeshCentral server.
     cert: mc.domain.com
+    mongoDbBulkOperations: true
   domains:
     "":
+      # - HTTPS URL when to get the TLS certificate that MeshAgent's will see when connecting to this server. This setting is used when a reverse proxy like Traefik is used in front of MeshCentral.
+      certUrl: https://mc.domain.com
       # - The title of this web site. All web pages will have this title.
       title: TrueCharts MeshCentral
       # - Secondary title text that is placed on the upper right on the title on many web pages.
       title2: TrueCharts MeshCentral
       # - When enabled, the server will send reduced sized web pages.
       minify: true
-      # - HTTPS URL when to get the TLS certificate that MeshAgent's will see when connecting to this server. This setting is used when a reverse proxy like Traefik is used in front of MeshCentral.
-      certUrl: https://mc.domain.com
 
 service:
   main:
@@ -56,8 +62,8 @@ persistence:
     objectName: '{{ include "tc.common.names.fullname" . }}-secret'
     mountPath: /home/node/meshcentral/meshcentral-data
     items:
-    - key: config.json
-      path: config.json
+      - key: config.json
+        path: config.json
 
 portal:
   enabled: true
