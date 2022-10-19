@@ -2,6 +2,19 @@
 
 
 
+## [wireshark-2.0.37](https://github.com/truecharts/charts/compare/wireshark-2.0.36...wireshark-2.0.37) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Fix
+
+- run privileged by default ([#4135](https://github.com/truecharts/charts/issues/4135))
+
+
+
+
 ## [wireshark-2.0.36](https://github.com/truecharts/charts/compare/wireshark-2.0.35...wireshark-2.0.36) (2022-10-19)
 
 ### Chore
