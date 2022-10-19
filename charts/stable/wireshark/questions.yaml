@@ -34,7 +34,7 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 10240
+                              default: 3000
                               required: true
 # Include{advancedPortHTTP}
                                 - variable: targetPort
