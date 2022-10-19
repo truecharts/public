@@ -3,7 +3,7 @@ image:
   pullPolicy: IfNotPresent
   tag: 1.0.85@sha256:86ea102f40926709ce7bab442fc961822860aa8dd70b13b3b2e8af6e4edef2c9
 
-extraArgs: ["--cert", "$hostname"]
+extraArgs: ["--cert", "{{ .Values.meshcentral.settings.cert }}"]
 
 securityContext:
   readOnlyRootFilesystem: false
