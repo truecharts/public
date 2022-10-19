@@ -2,6 +2,16 @@
 
 
 
+## [vaultwarden-16.0.47](https://github.com/truecharts/charts/compare/vaultwarden-16.0.46...vaultwarden-16.0.47) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [vaultwarden-16.0.46](https://github.com/truecharts/charts/compare/vaultwarden-16.0.45...vaultwarden-16.0.46) (2022-10-16)
 
 ### Chore

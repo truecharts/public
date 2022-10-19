@@ -2,6 +2,16 @@
 
 
 
+## [ztcuui-aio-1.0.14](https://github.com/truecharts/charts/compare/ztcuui-aio-1.0.13...ztcuui-aio-1.0.14) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [ztcuui-aio-1.0.13](https://github.com/truecharts/charts/compare/ztcuui-aio-1.0.12...ztcuui-aio-1.0.13) (2022-10-12)
 
 ### Chore

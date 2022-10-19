@@ -2,6 +2,16 @@
 
 
 
+## [alist-2.0.44](https://github.com/truecharts/charts/compare/alist-2.0.43...alist-2.0.44) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [alist-2.0.43](https://github.com/truecharts/charts/compare/alist-2.0.42...alist-2.0.43) (2022-10-14)
 
 ### Chore

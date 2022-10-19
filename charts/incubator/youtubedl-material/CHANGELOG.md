@@ -2,6 +2,16 @@
 
 
 
+## [youtubedl-material-1.0.15](https://github.com/truecharts/charts/compare/youtubedl-material-1.0.14...youtubedl-material-1.0.15) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [youtubedl-material-1.0.14](https://github.com/truecharts/charts/compare/youtubedl-material-1.0.13...youtubedl-material-1.0.14) (2022-10-12)
 
 ### Chore

@@ -2,6 +2,17 @@
 
 
 
+## [prometheus-4.0.109](https://github.com/truecharts/charts/compare/prometheus-4.0.108...prometheus-4.0.109) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+  - update docker general non-major ([#4128](https://github.com/truecharts/charts/issues/4128))
+
+
+
+
 ## [prometheus-4.0.108](https://github.com/truecharts/charts/compare/prometheus-4.0.107...prometheus-4.0.108) (2022-10-18)
 
 ### Chore

@@ -2,6 +2,17 @@
 
 
 
+## [digikam-4.0.43](https://github.com/truecharts/charts/compare/digikam-4.0.42...digikam-4.0.43) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+  - update docker general non-major ([#4128](https://github.com/truecharts/charts/issues/4128))
+
+
+
+
 ## [digikam-4.0.42](https://github.com/truecharts/charts/compare/digikam-4.0.41...digikam-4.0.42) (2022-10-14)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [flexget-2.0.55](https://github.com/truecharts/charts/compare/flexget-2.0.54...flexget-2.0.55) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [flexget-2.0.54](https://github.com/truecharts/charts/compare/flexget-2.0.53...flexget-2.0.54) (2022-10-16)
 
 ### Chore

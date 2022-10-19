@@ -2,6 +2,16 @@
 
 
 
+## [altitude-0.0.30](https://github.com/truecharts/charts/compare/altitude-0.0.29...altitude-0.0.30) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [altitude-0.0.29](https://github.com/truecharts/charts/compare/altitude-0.0.28...altitude-0.0.29) (2022-10-12)
 
 ### Chore

@@ -2,6 +2,20 @@
 
 
 
+## [metallb-4.0.17](https://github.com/truecharts/charts/compare/metallb-4.0.16...metallb-4.0.17) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+  ### Fix
+
+- enable crd updating ([#4068](https://github.com/truecharts/charts/issues/4068))
+
+
+
+
 ## [metallb-4.0.16](https://github.com/truecharts/charts/compare/metallb-4.0.15...metallb-4.0.16) (2022-10-12)
 
 ### Chore

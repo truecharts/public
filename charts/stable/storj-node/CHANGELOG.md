@@ -2,6 +2,16 @@
 
 
 
+## [storj-node-2.0.56](https://github.com/truecharts/charts/compare/storj-node-2.0.55...storj-node-2.0.56) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [storj-node-2.0.55](https://github.com/truecharts/charts/compare/storj-node-2.0.54...storj-node-2.0.55) (2022-10-12)
 
 ### Chore

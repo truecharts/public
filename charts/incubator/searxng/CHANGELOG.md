@@ -2,6 +2,16 @@
 
 
 
+## [searxng-0.0.57](https://github.com/truecharts/charts/compare/searxng-0.0.56...searxng-0.0.57) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [searxng-0.0.56](https://github.com/truecharts/charts/compare/searxng-0.0.55...searxng-0.0.56) (2022-10-15)
 
 ### Chore

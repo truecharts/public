@@ -2,6 +2,16 @@
 
 
 
+## [budge-2.0.50](https://github.com/truecharts/charts/compare/budge-2.0.49...budge-2.0.50) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [budge-2.0.49](https://github.com/truecharts/charts/compare/budge-2.0.48...budge-2.0.49) (2022-10-14)
 
 ### Chore

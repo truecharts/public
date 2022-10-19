@@ -2,6 +2,16 @@
 
 
 
+## [redisinsight-0.0.32](https://github.com/truecharts/charts/compare/redisinsight-0.0.31...redisinsight-0.0.32) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [redisinsight-0.0.31](https://github.com/truecharts/charts/compare/redisinsight-0.0.30...redisinsight-0.0.31) (2022-10-12)
 
 ### Chore

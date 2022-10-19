@@ -2,6 +2,16 @@
 
 
 
+## [plex-10.2.17](https://github.com/truecharts/charts/compare/plexripper-0.0.29...plex-10.2.17) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [plex-10.2.16](https://github.com/truecharts/charts/compare/owi2plex-0.0.28...plex-10.2.16) (2022-10-12)
 
 ### Chore

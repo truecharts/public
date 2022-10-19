@@ -2,6 +2,17 @@
 
 
 
+## [apprise-api-0.0.38](https://github.com/truecharts/charts/compare/apprise-api-0.0.37...apprise-api-0.0.38) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+  - update docker general non-major ([#4128](https://github.com/truecharts/charts/issues/4128))
+
+
+
+
 ## [apprise-api-0.0.37](https://github.com/truecharts/charts/compare/apprise-api-0.0.36...apprise-api-0.0.37) (2022-10-17)
 
 ### Chore

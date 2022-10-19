@@ -2,6 +2,16 @@
 
 
 
+## [minecraft-java-1.0.66](https://github.com/truecharts/charts/compare/minecraft-java-1.0.65...minecraft-java-1.0.66) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [minecraft-java-1.0.65](https://github.com/truecharts/charts/compare/minecraft-java-1.0.64...minecraft-java-1.0.65) (2022-10-18)
 
 ### Chore

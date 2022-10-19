@@ -2,6 +2,16 @@
 
 
 
+## [bazarr-11.0.42](https://github.com/truecharts/charts/compare/bazarr-11.0.41...bazarr-11.0.42) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [bazarr-11.0.41](https://github.com/truecharts/charts/compare/bazarr-11.0.40...bazarr-11.0.41) (2022-10-16)
 
 ### Chore

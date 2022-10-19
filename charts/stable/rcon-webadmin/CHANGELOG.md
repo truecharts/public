@@ -2,6 +2,16 @@
 
 
 
+## [rcon-webadmin-1.0.7](https://github.com/truecharts/charts/compare/rcon-webadmin-1.0.6...rcon-webadmin-1.0.7) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [rcon-webadmin-1.0.6](https://github.com/truecharts/charts/compare/rcon-webadmin-1.0.5...rcon-webadmin-1.0.6) (2022-10-12)
 
 ### Chore

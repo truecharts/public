@@ -2,6 +2,16 @@
 
 
 
+## [nzbget-11.0.39](https://github.com/truecharts/charts/compare/nzbget-11.0.38...nzbget-11.0.39) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [nzbget-11.0.38](https://github.com/truecharts/charts/compare/nzbget-11.0.37...nzbget-11.0.38) (2022-10-12)
 
 ### Chore

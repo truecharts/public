@@ -2,6 +2,16 @@
 
 
 
+## [noisedash-0.0.5](https://github.com/truecharts/charts/compare/noisedash-0.0.4...noisedash-0.0.5) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [noisedash-0.0.4](https://github.com/truecharts/charts/compare/noisedash-0.0.3...noisedash-0.0.4) (2022-10-12)
 
 ### Chore

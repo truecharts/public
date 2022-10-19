@@ -2,6 +2,16 @@
 
 
 
+## [kdenlive-0.0.39](https://github.com/truecharts/charts/compare/kdenlive-0.0.38...kdenlive-0.0.39) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [passwordpusherephemeral-0.0.56](https://github.com/truecharts/charts/compare/passwordpusherephemeral-0.0.55...passwordpusherephemeral-0.0.56) (2022-10-16)
 
 ### Chore

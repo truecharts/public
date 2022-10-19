@@ -2,6 +2,17 @@
 
 
 
+## [immich-1.0.1](https://github.com/truecharts/charts/compare/immich-1.0.0...immich-1.0.1) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+  - allow to disable machine-learning container ([#4132](https://github.com/truecharts/charts/issues/4132))
+
+
+
+
 ## [immich-1.0.0](https://github.com/truecharts/charts/compare/immich-0.0.6...immich-1.0.0) (2022-10-14)
 
 ### Feat

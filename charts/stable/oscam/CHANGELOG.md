@@ -2,6 +2,16 @@
 
 
 
+## [oscam-6.0.36](https://github.com/truecharts/charts/compare/oscam-6.0.35...oscam-6.0.36) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [oscam-6.0.35](https://github.com/truecharts/charts/compare/oscam-6.0.34...oscam-6.0.35) (2022-10-12)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [anki-sync-server-0.0.17](https://github.com/truecharts/charts/compare/anki-sync-server-0.0.16...anki-sync-server-0.0.17) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [anki-sync-server-0.0.16](https://github.com/truecharts/charts/compare/anki-sync-server-0.0.15...anki-sync-server-0.0.16) (2022-10-12)
 
 ### Chore
