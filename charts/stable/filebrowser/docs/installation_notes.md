@@ -7,7 +7,7 @@
 
 ## Base Url
 
-- Leave `BASEURL` field empty if you want ingress for the chart, otherwise the page loops on the loading screen 
+- Leave `BASEURL` field empty if you want ingress for the chart, otherwise the page loops on the loading screen
 
 ## Storage Access
 
