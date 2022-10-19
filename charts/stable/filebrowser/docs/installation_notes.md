@@ -2,8 +2,8 @@
 
 ## Credentials
 
-**Default Email**: `admin`
-**Default Password**: `admin`
+- **Default Email**: `admin`
+- **Default Password**: `admin`
 
 ## Base Url
 
