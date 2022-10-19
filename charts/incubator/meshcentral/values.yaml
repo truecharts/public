@@ -3,16 +3,16 @@ image:
   pullPolicy: IfNotPresent
   tag: 1.0.85@sha256:86ea102f40926709ce7bab442fc961822860aa8dd70b13b3b2e8af6e4edef2c9
 
-# extraArgs:
-#   - --cert
-#   - "{{ .Values.meshcentral.settings.cert }}"
-#   - --configfile
-#   - /home/node/meshcentral/meshcentral-config/config.json
+extraArgs:
+  - --cert
+  - "{{ .Values.meshcentral.settings.cert }}"
+  - --configfile
+  - /home/node/meshcentral/meshcentral-config/config.json
 
-command:
-  - /bin/bash
-  - -c
-  - cat /home/node/meshcentral/meshcentral-config/config.json
+# command:
+#   - /bin/bash
+#   - -c
+#   - cat /home/node/meshcentral/meshcentral-config/config.json
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -66,7 +66,7 @@ meshcentral:
     # - strict | lax | none
     _cookieIpCheck: lax
     # - When enabled, allows use of WebRTC to allow direct network traffic between the agent and browser.
-    webRTC: false
+    webRTC: true
     # - By default, a nice looking 404 error page is displayed when needed. Set this to false to disable it.
     nice404: true
     # - When specified, sends data to the browser at x seconds interval and expects a response from the browser.
@@ -267,7 +267,38 @@ meshcentral:
       _rootRedirect: ""
       # - Redirects HTTP root requests to this URL only where user is not already logged in. When in use, direct users to /login to see the normal login page.
       _unknownUserRootRedirect: ""
-
+      # - Text that will be shown on the login screen.
+      welcomeText: Welcome to TrueCharts MeshCentral
+      # - Name of the PNG or JPEG file that will be shown on the login screen. Put this file in the meshcentral-data folder and place the file name here.
+      _welcomePicture: null
+      # - When enabled, the welcomePicture will show as a fullscreen background on the login screen.
+      _welcomePictureFullScreen: false
+      # - Text that will be displayed on the top of the messenger window when no username or device name is displayed.
+      _meshMessengerTitle: TrueCharts MeshCentral
+      # - Name of a .png image file that is placed in meshcentral-data that is displayed on the top of the messenger web page. When null, the default image is displayed.
+      _meshMessengerPicture: null
+      # - Sum of: 1 = Hide header, 2 = Hide tab, 4 = Hide footer, 8 = Hide title, 16 = Hide left bar, 32 = Hide back buttons
+      _hide: 0
+      # - This is a HTML string displayed at the bottom of the web page when a user is logged in.
+      _footer: null
+      # - This is a HTML string displayed at the bottom of the web page when a user is not logged in.
+      _loginfooter: null
+      # - Allow users to save SSH, RDP, VNC device credentials on the server that can be used by any other user.
+      _allowSavingDeviceCredentials: true
+      # - This value is normally auto-detected, when set to true, MeshCentral assumes that the TLS certificate comes from a trusted CA and will insure download tools perform certificate checking.
+      _trustedCert: null
+      # When set to false, the desktop/terminal sharing link feature is not available.
+      _guestDeviceSharing:
+        # - When set, limits the maximum length of a guest session, in minutes.
+        maxSessionTime: null
+      # - Number of days a device can be inactive before it's removed. 0 disables this feature. Device group setting will override this value.
+      _autoRemoveInactiveDevices: 0
+      # - When set to true, the devices search box will match on both the server name and client name of a device.
+      _deviceSearchBarServerAndClientName: false
+      # - When set to true, MeshCentral Assistant can create it's own guest sharing links.
+      _agentSelfGuestSharing:
+        # - When set, limits the self-created guest sharing link to this number of minutes.
+        expire: null
 service:
   main:
     ports:
