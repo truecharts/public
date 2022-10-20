@@ -11,11 +11,11 @@ command:
   - --cert
   - "{{ .Values.meshcentral.settings.cert }}"
 
-command:
-  - /bin/bash
-  - -c
-  - ls /opt
-  # - cat /home/node/meshcentral/meshcentral-config/config.json
+# command:
+#   - /bin/bash
+#   - -c
+#   - ls /opt
+# - cat /home/node/meshcentral/meshcentral-config/config.json
 
 securityContext:
   readOnlyRootFilesystem: false
