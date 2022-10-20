@@ -357,6 +357,17 @@ meshcentral:
       #TODO: I'm here
       # _deviceMeshRouterLinks:
 
+probes:
+  liveness:
+    type: HTTPS
+    path: /health.ashx
+  readiness:
+    type: HTTPS
+    path: /health.ashx
+  startup:
+    type: HTTPS
+    path: /health.ashx
+
 service:
   main:
     ports:
