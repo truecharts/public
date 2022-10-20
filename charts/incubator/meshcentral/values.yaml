@@ -1,21 +1,22 @@
 image:
-  repository: tccr.io/truecharts/meshcentral
+  # repository: tccr.io/truecharts/meshcentral
+  repository: ghcr.io/ylianst/meshcentral
   pullPolicy: IfNotPresent
-  tag: 1.0.85@sha256:86ea102f40926709ce7bab442fc961822860aa8dd70b13b3b2e8af6e4edef2c9
-
-# command:
-#   - /bin/bash
-#   - -c
-#   - node /opt/meshcentral/meshcentral
-#   - --configfile
-#   - /home/node/meshcentral/meshcentral-config/config.json
-#   - --cert
-#   - "{{ .Values.meshcentral.settings.cert }}"
+  tag: 1.0.85@sha256:ec11f676414c8ab3f7ec7e84d98af54be45a0a74187e97063e09bbf930223ba5
 
 command:
   - /bin/bash
   - -c
-  - ls /opt/meshcentral
+  - node meshcentral/meshcentral
+  - --configfile
+  - /home/node/meshcentral/meshcentral-config/config.json
+  - --cert
+  - "{{ .Values.meshcentral.settings.cert }}"
+
+# command:
+#   - /bin/bash
+#   - -c
+#   - ls /opt/meshcentral/meshcentral
   # - cat /home/node/meshcentral/meshcentral-config/config.json
 
 securityContext:
