@@ -18,8 +18,9 @@
 {{- if not (hasKey $config "settings") }}
 {{- $_ := set $config "settings" dict }}
 {{- end }}
-{{- $_ := set $config.settings "mongoDB" $mongoURL }}
-{{- $_ := set $config.settings "mongoDbName" .Values.mongodb.mongodbDatabase }}
+{{/*{{- $_ := set $config.settings "mongoDB" $mongoURL }}
+{{- $_ := set $config.settings "mongoDbName" .Values.mongodb.mongodbDatabase }}*/}}
+{{- $_ := set $config.settings "mongoDB" (.Values.mongodb.url.complete | trimAll "\"") }}
 {{- $_ := set $config.settings "sessionKey" $sessionKey }}
 {{- $_ := set $config.settings "port" .Values.service.main.ports.main.port }}
 
