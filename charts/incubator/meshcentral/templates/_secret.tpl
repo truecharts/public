@@ -2,7 +2,6 @@
 {{- define "meshcentral.secret" -}}
 
 {{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
-{{- $mongoURL := printf "mongodb://%v:%v@%v" .Values.mongodb.mongodbUsername (.Values.mongodb.mongodbPassword | trimAll "\"") (.Values.mongodb.url.plainporthost | trimAll "\"") }}
 {{- $config := .Values.meshcentral }}
 
 {{- $sessionKey := "" }}
@@ -15,12 +14,13 @@
 {{/* Inject some values */}}
 {{- $_ := set $config "$schema" "http://info.meshcentral.com/downloads/meshcentral-config-schema.json" }}
 {{- $_ := set $config "__comment__" "This file is generated dynamically at install time, do not attempt to modify it. On next start it will be re-generated" }}
+
 {{- if not (hasKey $config "settings") }}
 {{- $_ := set $config "settings" dict }}
 {{- end }}
-{{/*{{- $_ := set $config.settings "mongoDB" $mongoURL }}
-{{- $_ := set $config.settings "mongoDbName" .Values.mongodb.mongodbDatabase }}*/}}
+
 {{- $_ := set $config.settings "mongoDB" (.Values.mongodb.url.complete | trimAll "\"") }}
+{{- $_ := set $config.settings "mongoDbName" .Values.mongodb.mongodbDatabase }}
 {{- $_ := set $config.settings "sessionKey" $sessionKey }}
 {{- $_ := set $config.settings "port" .Values.service.main.ports.main.port }}
 
