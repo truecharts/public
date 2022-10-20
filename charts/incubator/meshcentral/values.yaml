@@ -327,6 +327,36 @@ meshcentral:
       _agentSelfGuestSharing:
         # - When set, limits the self-created guest sharing link to this number of minutes.
         expire: null
+      # - When set, your can try click the run button to run on of these scripts on the remote device.
+      _PreconfiguredScripts:
+          # - Name of the script.
+        - name: null
+          # - The type of script. bat | ps1 | sh | agent
+          type: null
+          # - How to run this script, does not apply to agent scripts. agent | userfirst | user
+          runas: null
+          # - The command or \\r\\n separated commands to run, if set do not use the file key.
+          _cmd: null
+          # - The script file path and name, if set do not use the cmd key. This file path starts in meshcentral-data.
+          file: null
+      # - When set, you can right click on the input button in the desktop tab and instantly remotely type one of these pre-configured strings.
+      _preConfiguredRemoteInput:
+          # - Name of the text string.
+        - name: null
+          # - Text string that will be remotely typed when selected.
+          value: null
+      _altMessenging:
+          # - Name of the alternative messaging service, for example: "Jitsi".
+        - name: null
+          # - URL to the alternative messaging services, for example: "https://meet.jit.si/myserver-{0}", for a device {0}, {1}, {2}, {3} is the device id. For a user, {0} is the userid, {1} is full userid with dashes, {2} is real name with no spaces, {3} is real name with dash instead of spaces.
+          url: null
+          # - If specified, this is the URL that is used on the administrator side, for example: "https://meet.jit.si/myserver-{0}", for a device {0}, {1}, {2}, {3} is the device id. For a user, {0} is the userid, {1} is full userid with dashes, {2} is real name with no spaces, {3} is real name with dash instead of spaces.
+          localurl: null
+          # - Indicate if this button should be shown in the user or device type. If omitted, it will be displayed in both. null | user | device
+          type: null
+      #TODO: I'm here
+      # _deviceMeshRouterLinks:
+
 service:
   main:
     ports:
