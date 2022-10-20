@@ -188,6 +188,30 @@ meshcentral:
       apiKey: null
       # - Action to perform if the CrowdSec agent can't be contacted. bypass | captcha | ban
       failbackRemediation: ban
+    autobackup:
+      mongoDumpPath: /usr/bin/mongodump
+      backupIntervalHours: 24
+      keepLastDaysBackup: 10
+      _zipPassword: null
+      backupPath: /home/node/meshcentral/meshcentral-backups
+      # - Enabled automated upload of the server backups to a Google Drive account, once enabled you need to go in "My Server" tab as administrator to associate the account.
+      _googleDrive:
+        # - The name of the folder to create in the Google Drive account.
+        folderName: MeshCentral-Backups
+        # - The maximum number of files to keep in the Google Drive folder, older files will be removed if needed.
+        maxFiles: 10
+      # - Enabled automated upload of the server backups to a WebDAV account.
+      _webdav:
+        # - WebDAV account URL.
+        url: null
+        # - WebDAV account username.
+        username: null
+        # - WebDAV account password.
+        password: null
+        # - The name of the folder to create in the WebDAV account.
+        folderName: MeshCentral-Backups
+        # - The maximum number of files to keep in the WebDAV folder, older files will be removed if needed.
+        maxFiles: 10
     _redirects:
       meshcommander: https://www.meshcommander.com/
     # - This section described a policy for how many times an IP address is allowed to attempt to login incorrectly. By default it's 10 times in 10 minutes, but this can be changed here.
@@ -337,6 +361,9 @@ persistence:
   files:
     enabled: true
     mountPath: /home/node/meshcentral/meshcentral-files
+  backups:
+    enabled: true
+    mountPath: /home/node/meshcentral/meshcentral-backups
   configfile:
     enabled: true
     type: secret
