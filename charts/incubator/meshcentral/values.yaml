@@ -29,7 +29,8 @@ meshcentral:
   settings:
     mongoDbBulkOperations: true
     # - The actual main port as seen externally on the Internet, this setting is often used when a reverse-proxy is used.
-    aliasPort: 443
+    # - Remove _ if ingress is enabled
+    _aliasPort: 443
     # - When set, relayPort value is ignored. Set this to a DNS name the points to this server. When the server is accessed using the DNS name, the main web server port is used as a web relay port.
     _relayDNS:
       - ""
@@ -53,7 +54,7 @@ meshcentral:
     # - Force MeshCentral to use the HTTPS and MPS certificates even if the name does not match the expected DNS value.
     keepCerts: false
     # - When enabled, only MeshCentral WAN features are enabled and agents will connect to the server using a well known DNS name.
-    _WANonly: false
+    WANonly: true
     # - When enabled, only MeshCentral LAN features are enabled and agents will find the server using multicast LAN packets.
     _LANonly: false
     # - When enabled the server is in maintenance mode, only administrators can login. Use the maintenance command in server console to change.
