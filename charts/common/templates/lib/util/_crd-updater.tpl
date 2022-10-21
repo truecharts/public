@@ -31,7 +31,7 @@ spec:
       serviceAccountName: {{ $fullName }}-crds
       containers:
         - name: {{ $fullName }}-crds
-          image: {{ .Values.multiinitImage }}
+          image: {{ .Values.multiinitImage.repository }}:{{ .Values.multiinitImage.tag }}
           volumeMounts:
             - name: {{ $fullName }}-crds
               mountPath: /etc/crds
