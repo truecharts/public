@@ -33,7 +33,7 @@ spec:
         - name: {{ $fullName }}-crds
           image: {{ .Values.kubectlImage }}
           volumeMounts:
-            - name: crds
+            - name: {{ $fullName }}-crds
               mountPath: /etc/crds
               readOnly: true
           command: ["kubectl", "apply", "-f", "/etc/crds"]
