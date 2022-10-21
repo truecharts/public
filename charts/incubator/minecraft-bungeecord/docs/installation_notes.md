@@ -11,7 +11,6 @@
 The following sections are just _examples_ and may not represent best practices or all use cases. The only tested servers were Spigot Based variants by PaperMC, Paper version `1.19.2`, the latest current MC version.
 
 A MC limbo instance was also tested but only works with Bungeecord/Waterfall, but needs some work to be fully setup at the time these docs were merged on GH.
-___
 
 ### Bungeecord / WaterFall
 
@@ -26,13 +25,16 @@ bungeecord: true
 Then in this file `/config/paper-global.yml`:
 
 ```yml
+
 bungee-cord:
     online-mode: true
+
 ```
 
 This is a sample `config.yml` that you can create in the `/config` dir.
 
 ```yml
+
 connection_throttle: 4000
 connection_throttle_limit: 3
 timeout: 30000
@@ -95,8 +97,6 @@ online_mode: true # needs to true
 
 ```
 
-___
-
 ### Velocity
 
 Here's a sample of a `velocity.toml` that you can place in `/config` dir.
@@ -106,18 +106,23 @@ You can create a file called `secrets` in `/config` dir and apply the name to th
 The contents of the secret file:
 
 ```text
+
 MyForwardingSecet
+
 ```
 
 For every MC (Spigot) instance you want proxied by Velocity, you need to make sure `bungeecord` in `/data/spigot.yml` is set to:
 
 ```yml
+
 bungeecord: false
+
 ```
 
-Then in this file `/config/paper-global.yml`:
+Then in this file(assuming you are running paper) `/config/paper-global.yml`:
 
 ```yml
+
 bungee-cord:
     online-mode: false # needs to be `false`.
     # ....
@@ -125,9 +130,11 @@ bungee-cord:
     enabled: true
     online-mode: true
     secret: MySuperSecretFromConfig # the actual value and NOT the name of the file.
+
 ```
 
 ```toml
+
 # Config version. Do not change this
 config-version = "2.5"
 
@@ -286,8 +293,6 @@ show-plugins = false
 
 ```
 
-___
-
 :::info
 
 There's currently a known issue with `limbo server` when attemptng to connect to a `1.19.2` velocity proxy server and using `player-info-forwarding-mode = "modern"`. you can track the current issue here [issue 50](https://github.com/LOOHP/Limbo/issues/50).
@@ -297,7 +302,6 @@ Bungeecord/waterfall are _not_ affected.
 Sources:
 
 - [bungeecord | waterfall config.yml](https://www.spigotmc.org/wiki/bungeecord-configuration-guide/)
-
 - [velocity.toml](https://github.com/PaperMC/Velocity/blob/dev/3.0.0/proxy/src/main/resources/default-velocity.toml)
 
 :::
