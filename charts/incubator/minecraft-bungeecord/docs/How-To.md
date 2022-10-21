@@ -18,7 +18,7 @@ Then in this file(assuming its paper) `/config/paper-global.yml`:
 
 ```yml
 bungee-cord:
-    online-mode: true
+  online-mode: true
 ```
 
 This is a sample `config.yml` that you can create in the `/config` dir.
@@ -29,59 +29,59 @@ connection_throttle_limit: 3
 timeout: 30000
 permissions:
   default:
-  - bungeecord.command.server
-  - bungeecord.command.list
+    - bungeecord.command.server
+    - bungeecord.command.list
   admin:
-  - bungeecord.command.alert
-  - bungeecord.command.end
-  - bungeecord.command.ip
-  - bungeecord.command.reload
+    - bungeecord.command.alert
+    - bungeecord.command.end
+    - bungeecord.command.ip
+    - bungeecord.command.reload
 network_compression_threshold: 256
 servers:
   lobby:
-    motd: '&1My Lobby MC'
+    motd: "&1My Lobby MC"
     address: MY_PRIVATE_IP:25566 # Set this as your local IP, NOT 0.0.0.0 or cluster URL.
     restricted: false
   survival:
-    motd: '&1My Survival MC'
+    motd: "&1My Survival MC"
     address: MY_PRIVATE_IP:25567 # Set this as your local IP, NOT 0.0.0.0 or cluster URL.
     restricted: false
   creative:
-    motd: '&1My Creative MC'
+    motd: "&1My Creative MC"
     address: MY_PRIVATE_IP:25568 # Set this as your local IP, NOT 0.0.0.0 or cluster URL.
     restricted: false
 player_limit: -1
 prevent_proxy_connections: false
 server_connect_timeout: 5000
 remote_ping_timeout: 5000
-forge_support: false 
+forge_support: false
 remote_ping_cache: -1
 log_commands: false
 log_pings: true
 ip_forward: true # needs to be true
 disabled_commands:
-- disabledcommandhere
+  - disabledcommandhere
 groups:
   md_5:
-  - admin
+    - admin
 listeners:
-- host: 0.0.0.0:25577 # leave this as `0.0.0.0:25577`
-  query_port: 25577 # leave port as is.
-  motd: '&1Another Bungee server' # change this to whatever you like
-  max_players: 2
-  force_default_server: false
-  tab_size: 60
-  forced_hosts:
-    pvp.md-5.net: pvp
-  tab_list: GLOBAL_PING
-  bind_local_address: true # should be kept true
-  ping_passthrough: false
-  query_enabled: false
-  proxy_protocol: false
-  priorities:
-  - lobby
-  - survival
-  - creative
+  - host: 0.0.0.0:25577 # leave this as `0.0.0.0:25577`
+    query_port: 25577 # leave port as is.
+    motd: "&1Another Bungee server" # change this to whatever you like
+    max_players: 2
+    force_default_server: false
+    tab_size: 60
+    forced_hosts:
+      pvp.md-5.net: pvp
+    tab_list: GLOBAL_PING
+    bind_local_address: true # should be kept true
+    ping_passthrough: false
+    query_enabled: false
+    proxy_protocol: false
+    priorities:
+      - lobby
+      - survival
+      - creative
 online_mode: true # needs to true
 ```
 
@@ -91,11 +91,11 @@ Here's a sample of a `velocity.toml` that you can place in `/config` dir.
 
 You can create a file called `secrets` in `/config` dir and apply the name to this value like so -> `forwarding-secret-file = "./secret"`.
 
-  The contents of the secret file:
-  
-  ```text
-  MyForwardingSecet
-  ```
+The contents of the secret file:
+
+```text
+MyForwardingSecet
+```
 
 For every MC (Spigot) instance you want proxied by Velocity, you need to make sure `bungeecord` in `/data/spigot.yml` is set to:
 
@@ -160,7 +160,7 @@ forwarding-secret-file = "./secret"
 
 # Announce whether or not your server supports Forge. If you run a modded server, we
 # suggest turning this on.
-# 
+#
 # If your network runs one modpack consistently, consider using ping-passthrough = "mods"
 # instead for a nicer display in the server list.
 announce-forge = false
