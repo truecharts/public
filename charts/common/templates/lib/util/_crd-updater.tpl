@@ -31,7 +31,7 @@ spec:
       serviceAccountName: {{ $fullName }}-crds
       containers:
         - name: {{ $fullName }}-crds
-          image: {{ .Values.kubectlImage }}
+          image: {{ .Values.multiinitImage }}
           volumeMounts:
             - name: {{ $fullName }}-crds
               mountPath: /etc/crds
