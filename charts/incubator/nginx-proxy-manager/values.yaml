@@ -1,0 +1,92 @@
+image:
+  repository: tccr.io/truecharts/nginx-proxy-manager
+  pullPolicy: IfNotPresent
+  tag: 2.9.18@sha256:abfe41c880af5b7931902e02ecdc3b105aef57e19f93e0350e151787e38584c5
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  DISABLE_IPV6: true
+  DB_MYSQL_PORT: 3306
+  DB_MYSQL_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
+  DB_MYSQL_USER: "{{ .Values.mariadb.mariadbUsername }}"
+  DB_MYSQL_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  DB_MYSQL_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+
+probes:
+  liveness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /bin/check-health
+  readiness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /bin/check-health
+  startup:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /bin/check-health
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 81
+        protocol: HTTP
+        port: 10582
+  web:
+    enabled: true
+    ports:
+      web:
+        enabled: true
+        targetPort: 80
+        protocol: HTTP
+        port: 10583
+  websecure:
+    enabled: true
+    ports:
+      websecure:
+        enabled: true
+        targetPort: 443
+        protocol: HTTPS
+        port: 10584
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+    size: 256Gi
+  letsencrypt:
+    enabled: true
+    mountPath: /etc/letsencrypt
+    size: 256Gi
+
+mariadb:
+  enabled: true
+  mariadbUsername: npm
+  mariadbDatabase: npm
+  existingSecret: mariadbcreds
+
+portal:
+  enabled: true

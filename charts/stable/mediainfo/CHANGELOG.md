@@ -2,6 +2,36 @@
 
 
 
+## [mediainfo-1.0.19](https://github.com/truecharts/charts/compare/mediainfo-1.0.18...mediainfo-1.0.19) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
+## [mediainfo-1.0.18](https://github.com/truecharts/charts/compare/mediainfo-1.0.17...mediainfo-1.0.18) (2022-10-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4108](https://github.com/truecharts/charts/issues/4108))
+
+
+
+
+## [mediainfo-1.0.17](https://github.com/truecharts/charts/compare/mediainfo-1.0.16...mediainfo-1.0.17) (2022-10-15)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update container image tccr.io/truecharts/mediainfo to v22.10.1 ([#4098](https://github.com/truecharts/charts/issues/4098))
+
+
+
+
 ## [mediainfo-1.0.16](https://github.com/truecharts/charts/compare/mediainfo-1.0.15...mediainfo-1.0.16) (2022-10-12)
 
 ### Chore

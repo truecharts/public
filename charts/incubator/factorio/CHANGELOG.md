@@ -2,6 +2,26 @@
 
 
 
+## [factorio-0.0.40](https://github.com/truecharts/charts/compare/factorio-0.0.39...factorio-0.0.40) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
+## [factorio-0.0.39](https://github.com/truecharts/charts/compare/factorioservermanager-0.0.29...factorio-0.0.39) (2022-10-14)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4084](https://github.com/truecharts/charts/issues/4084))
+
+
+
+
 ## [factorio-0.0.38](https://github.com/truecharts/charts/compare/factorioservermanager-0.0.28...factorio-0.0.38) (2022-10-12)
 
 ### Chore

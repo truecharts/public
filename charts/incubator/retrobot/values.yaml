@@ -1,0 +1,35 @@
+image:
+  repository: tccr.io/truecharts/retrobot
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:76da3e92104323e34d435a9d32ed578dc780a1178b2ff9c64df1bdf1fa65b01a
+
+secretEnv:
+  DISCORD_TOKEN: ""
+
+env:
+  MAX_WORKERS: -1
+  MAX_WORKERS_PER_GAME: 3
+  RECORDING_FRAMERATE: 30
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /retrobot/data
+
+portal:
+  enabled: false

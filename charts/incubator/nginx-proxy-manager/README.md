@@ -1,18 +1,20 @@
-# immich
+# nginx-proxy-manager
 
-High performance self-hosted photo and video backup solution.
+Managing Nginx proxy hosts with a simple, powerful interface.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [immich](https://truecharts.org/docs/charts/incubator/immich)
+For more information, please click here: [nginx-proxy-manager](https://truecharts.org/docs/charts/incubator/nginx-proxy-manager)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/immich>
-* <https://github.com/immich-app/immich>
+* <https://github.com/truecharts/charts/tree/master/charts/incubator/nginx-proxy-manager>
+* <https://github.com/NginxProxyManager/nginx-proxy-manager>
+* <https://hub.docker.com/r/jc21/nginx-proxy-manager>
+* <https://nginxproxymanager.com/>
 
 ## Requirements
 
@@ -22,9 +24,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.97 |
-| https://charts.truecharts.org | redis | 3.0.94 |
-| https://library-charts.truecharts.org | common | 10.7.0 |
+| https://charts.truecharts.org/ | mariadb | 3.0.95 |
+| https://library-charts.truecharts.org | common | 10.7.1 |
 
 ## Installing the Chart
 
@@ -34,12 +35,12 @@ To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://tru
 
 ### Helm
 
-To install the chart with the release name `immich`
+To install the chart with the release name `nginx-proxy-manager`
 
 ```console
 helm repo add TrueCharts https://charts.truecharts.org
 helm repo update
-helm install immich TrueCharts/immich
+helm install nginx-proxy-manager TrueCharts/nginx-proxy-manager
 ```
 
 ## Uninstall
@@ -52,10 +53,10 @@ To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-St
 
 ### Helm
 
-To uninstall the `immich` deployment
+To uninstall the `nginx-proxy-manager` deployment
 
 ```console
-helm uninstall immich
+helm uninstall nginx-proxy-manager
 ```
 
 ## Configuration
@@ -72,9 +73,9 @@ Other values may be used from the [values.yaml](https://github.com/truecharts/li
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
 ```console
-helm install immich \
+helm install nginx-proxy-manager \
   --set env.TZ="America/New York" \
-    TrueCharts/immich
+    TrueCharts/nginx-proxy-manager
 ```
 
 #### Configure using a yaml file
@@ -82,7 +83,7 @@ helm install immich \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart.
 
 ```console
-helm install immich TrueCharts/immich -f values.yaml
+helm install nginx-proxy-manager TrueCharts/nginx-proxy-manager -f values.yaml
 ```
 
 #### Connecting to other charts

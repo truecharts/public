@@ -1,19 +1,19 @@
-# zabbix-server
+# retrobot
 
-Zabbix is an enterprise-class open source distributed monitoring solution.
+A discord bot that allows you to play old nintendo games with your friends over chat.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [zabbix-server](https://truecharts.org/docs/charts/incubator/zabbix-server)
+For more information, please click here: [retrobot](https://truecharts.org/docs/charts/incubator/retrobot)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/zabbix-server>
-* <https://hub.docker.com/r/zabbix/zabbix-server-pgsql>
-* <https://hub.docker.com/r/zabbix/zabbix-web-nginx-pgsql>
+* <https://github.com/truecharts/charts/tree/master/charts/incubator/retrobot>
+* <https://github.com/rossimo/retrobot>
+* <https://hub.docker.com/r/rossimo/retrobot>
 
 ## Requirements
 
@@ -23,8 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.97 |
-| https://library-charts.truecharts.org | common | 10.7.0 |
+| https://library-charts.truecharts.org | common | 10.7.1 |
 
 ## Installing the Chart
 
@@ -34,12 +33,12 @@ To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://tru
 
 ### Helm
 
-To install the chart with the release name `zabbix-server`
+To install the chart with the release name `retrobot`
 
 ```console
 helm repo add TrueCharts https://charts.truecharts.org
 helm repo update
-helm install zabbix-server TrueCharts/zabbix-server
+helm install retrobot TrueCharts/retrobot
 ```
 
 ## Uninstall
@@ -52,10 +51,10 @@ To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-St
 
 ### Helm
 
-To uninstall the `zabbix-server` deployment
+To uninstall the `retrobot` deployment
 
 ```console
-helm uninstall zabbix-server
+helm uninstall retrobot
 ```
 
 ## Configuration
@@ -72,9 +71,9 @@ Other values may be used from the [values.yaml](https://github.com/truecharts/li
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
 ```console
-helm install zabbix-server \
+helm install retrobot \
   --set env.TZ="America/New York" \
-    TrueCharts/zabbix-server
+    TrueCharts/retrobot
 ```
 
 #### Configure using a yaml file
@@ -82,7 +81,7 @@ helm install zabbix-server \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart.
 
 ```console
-helm install zabbix-server TrueCharts/zabbix-server -f values.yaml
+helm install retrobot TrueCharts/retrobot -f values.yaml
 ```
 
 #### Connecting to other charts

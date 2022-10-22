@@ -2,6 +2,16 @@
 
 
 
+## [plausible-1.0.27](https://github.com/truecharts/charts/compare/plausible-1.0.26...plausible-1.0.27) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [plausible-1.0.26](https://github.com/truecharts/charts/compare/plausible-1.0.25...plausible-1.0.26) (2022-10-12)
 
 ### Chore

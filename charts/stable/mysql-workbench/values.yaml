@@ -1,25 +1,36 @@
 image:
   repository: tccr.io/truecharts/mysql-workbench
   pullPolicy: IfNotPresent
-  tag: 8.0.30
+  tag: 8.0.31
 
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
-
-customCapabilities:
-  drop: []
-  add: ["IPC_LOCK"]
+  capabilities:
+    add:
+      - IPC_LOCK
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
+probes:
+  liveness:
+    type: HTTP
+    path: /
+  readiness:
+    type: HTTP
+    path: /
+  startup:
+    type: HTTP
+    path: /
 
 service:
   main:
     ports:
       main:
         targetPort: 3000
+        protocol: HTTP
         port: 10134
 
 persistence:

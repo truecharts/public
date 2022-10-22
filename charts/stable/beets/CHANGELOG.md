@@ -2,6 +2,36 @@
 
 
 
+## [beets-4.0.47](https://github.com/truecharts/charts/compare/beets-4.0.46...beets-4.0.47) (2022-10-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4139](https://github.com/truecharts/charts/issues/4139))
+
+
+
+
+## [beets-4.0.46](https://github.com/truecharts/charts/compare/beets-4.0.45...beets-4.0.46) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
+## [beets-4.0.45](https://github.com/truecharts/charts/compare/beets-4.0.44...beets-4.0.45) (2022-10-14)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4084](https://github.com/truecharts/charts/issues/4084))
+
+
+
+
 ## [beets-4.0.44](https://github.com/truecharts/charts/compare/beets-4.0.43...beets-4.0.44) (2022-10-12)
 
 ### Chore

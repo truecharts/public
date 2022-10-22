@@ -2,6 +2,36 @@
 
 
 
+## [drawio-2.0.55](https://github.com/truecharts/charts/compare/drawio-2.0.54...drawio-2.0.55) (2022-10-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4155](https://github.com/truecharts/charts/issues/4155))
+
+
+
+
+## [drawio-2.0.54](https://github.com/truecharts/charts/compare/drawio-2.0.53...drawio-2.0.54) (2022-10-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4139](https://github.com/truecharts/charts/issues/4139))
+
+
+
+
+## [drawio-2.0.53](https://github.com/truecharts/charts/compare/drawio-2.0.52...drawio-2.0.53) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [drawio-2.0.52](https://github.com/truecharts/charts/compare/drawio-2.0.51...drawio-2.0.52) (2022-10-12)
 
 ### Chore

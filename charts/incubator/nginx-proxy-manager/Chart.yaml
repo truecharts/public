@@ -1,0 +1,36 @@
+apiVersion: v2
+appVersion: "2.9.18"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.7.1
+  - condition: mariadb.enabled
+    name: mariadb
+    repository: https://charts.truecharts.org/
+    version: 3.0.95
+deprecated: false
+description: Managing Nginx proxy hosts with a simple, powerful interface.
+home: https://truecharts.org/docs/charts/incubator/nginx-proxy-manager
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/nginx-proxy-manager.png
+keywords:
+  - nginx-proxy-manager
+  - nginx
+  - reverse-proxy
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: nginx-proxy-manager
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/nginx-proxy-manager
+  - https://github.com/NginxProxyManager/nginx-proxy-manager
+  - https://hub.docker.com/r/jc21/nginx-proxy-manager
+  - https://nginxproxymanager.com/
+type: application
+version: 0.0.3
+annotations:
+  truecharts.org/catagories: |
+    - networking
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

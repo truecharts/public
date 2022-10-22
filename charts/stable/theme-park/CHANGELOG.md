@@ -2,6 +2,16 @@
 
 
 
+## [theme-park-2.0.22](https://github.com/truecharts/charts/compare/theme-park-2.0.21...theme-park-2.0.22) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [theme-park-2.0.21](https://github.com/truecharts/charts/compare/theme-park-2.0.20...theme-park-2.0.21) (2022-10-12)
 
 ### Chore

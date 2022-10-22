@@ -2,6 +2,26 @@
 
 
 
+## [miniflux-7.0.47](https://github.com/truecharts/charts/compare/miniflux-7.0.46...miniflux-7.0.47) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
+## [miniflux-7.0.46](https://github.com/truecharts/charts/compare/miniflux-7.0.45...miniflux-7.0.46) (2022-10-18)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4120](https://github.com/truecharts/charts/issues/4120))
+
+
+
+
 ## [miniflux-7.0.45](https://github.com/truecharts/charts/compare/miniflux-7.0.44...miniflux-7.0.45) (2022-10-12)
 
 ### Chore

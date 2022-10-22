@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/grist
-  tag: v0.7.9@sha256:277902644b6444f90cf81cdb04b4749377585e3e2b4cefd17f1469d5f440349a
+  tag: v1.0.3@sha256:d924a73ae31e0818331ca5d744a4103caa1ddf902dbd0c7a0e74e20cf9b953cc
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -11,50 +11,69 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-env:
-  PORT: "{{ .Values.service.main.ports.main.port }}"
-  HOME_PORT: "{{ .Values.service.api.ports.api.port }}"
-  GRIST_DEFAULT_EMAIL: "user@mydomain.com"
-  GRIST_DOMAIN: ""
-  GRIST_SUPPORT_ANON: false
-  GRIST_THROTTLE_CPU: false
-  GRIST_BACKUP_DELAY_SECS: 15
-  ALLOWED_WEBHOOK_DOMAINS: ""
-  GRIST_SANDBOX_FLAVOR: ""
-  GRIST_SANDBOX: ""
-  PYTHON_VERSION: ""
-  PYTHON_VERSION_ON_CREATION: ""
-  GOOGLE_CLIENT_ID: ""
-  GOOGLE_CLIENT_SECRET: ""
-  GOOGLE_API_KEY: ""
-  GOOGLE_DRIVE_SCOPE: ""
-  REDIS_URL:
-    secretKeyRef:
-      name: rediscreds
-      key: url
+grist:
+  domain: ""
+  single_org: ""
+  home_url: ""
+  default_email: user@mydomain.com
+  default_product: ""
+  default_locale: ""
+  allowed_webhook_domains: []
+  allowed_hosts: []
+  hide_ui_elements: []
+  backup_delay_secs: 15
+  max_upload_import_mb: 0
+  max_upload_attachment_mb: 0
+  title_suffix: " - Grist"
+  proxy_auth_header: ""
+  cookie_max_age: 90
+  force_login: true
+  ignore_session: false
+  support_anon: false
+  throttle_cpu: false
+  include_custom_css: false
+  google:
+    client_id: ""
+    client_secret: ""
+    api_key: ""
+    drive_scope: drive.file
+  forward_auth:
+    header: ""
+    login_path: /auth/login
+    logout_path: ""
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-grist-secret'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-grist-config'
 
 service:
   main:
     ports:
       main:
         port: 10163
-        targetPort: 10163
   api:
     enabled: true
     ports:
       api:
         enabled: true
         port: 10164
-        targetPort: 10164
 
 persistence:
   persist:
     enabled: true
     mountPath: "/persist"
 
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlUsername: grist
+  postgresqlDatabase: grist
+
 redis:
   enabled: true
-  existingSecret: "rediscreds"
+  existingSecret: rediscreds
 
 portal:
   enabled: true

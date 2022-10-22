@@ -2,6 +2,37 @@
 
 
 
+## [domoticz-2.0.46](https://github.com/truecharts/charts/compare/domoticz-2.0.45...domoticz-2.0.46) (2022-10-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4155](https://github.com/truecharts/charts/issues/4155))
+
+
+
+
+## [domoticz-2.0.45](https://github.com/truecharts/charts/compare/domoticz-2.0.44...domoticz-2.0.45) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+  - update docker general non-major ([#4128](https://github.com/truecharts/charts/issues/4128))
+
+
+
+
+## [domoticz-2.0.44](https://github.com/truecharts/charts/compare/domoticz-2.0.43...domoticz-2.0.44) (2022-10-14)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4084](https://github.com/truecharts/charts/issues/4084))
+
+
+
+
 ## [domoticz-2.0.43](https://github.com/truecharts/charts/compare/domoticz-2.0.42...domoticz-2.0.43) (2022-10-12)
 
 ### Chore

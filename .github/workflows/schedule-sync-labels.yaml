@@ -17,7 +17,7 @@ jobs:
           token: ${{ secrets.BOT_TOKEN }}
 
       - name: Sync Labels
-        uses: EndBug/label-sync@2155ba23e047b09a88c8a2f577fa370307d171f4 # tag=v2
+        uses: EndBug/label-sync@34787058c3498a674f22425940797579f4bd89f2 # tag=v2
         with:
           config-file: |
             https://raw.githubusercontent.com/truecharts/.github/main/.github/labels.yaml

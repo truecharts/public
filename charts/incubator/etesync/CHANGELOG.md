@@ -2,6 +2,26 @@
 
 
 
+## [etesync-0.0.43](https://github.com/truecharts/charts/compare/etesync-0.0.41...etesync-0.0.43) (2022-10-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4155](https://github.com/truecharts/charts/issues/4155))
+
+
+
+
+## [etesync-0.0.41](https://github.com/truecharts/charts/compare/etesync-0.0.40...etesync-0.0.41) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [etesync-0.0.40](https://github.com/truecharts/charts/compare/etesync-0.0.39...etesync-0.0.40) (2022-10-12)
 
 ### Chore

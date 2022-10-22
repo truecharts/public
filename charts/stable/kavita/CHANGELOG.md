@@ -2,6 +2,15 @@
 
 
 
+## [kavita-2.0.41](https://github.com/truecharts/charts/compare/kavitaemail-0.0.6...kavita-2.0.41) (2022-10-19)
+
+### Chore
+
+- update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [kavita-2.0.40](https://github.com/truecharts/charts/compare/kavita-2.0.39...kavita-2.0.40) (2022-10-12)
 
 ### Chore

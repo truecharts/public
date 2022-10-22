@@ -2,6 +2,16 @@
 
 
 
+## [adguard-home-2.0.13](https://github.com/truecharts/charts/compare/adguard-home-2.0.12...adguard-home-2.0.13) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [adguard-home-2.0.12](https://github.com/truecharts/charts/compare/adguard-home-2.0.11...adguard-home-2.0.12) (2022-10-12)
 
 ### Chore

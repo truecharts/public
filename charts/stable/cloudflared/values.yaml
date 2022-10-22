@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/cloudflared
   pullPolicy: IfNotPresent
-  tag: 2022.8.0@sha256:15b9616e22e21bb0ad5d178127d4040fb8b8c5c7eee10b58ed31d7791e82c258
+  tag: 2022.10.2@sha256:89df4943bad9e4c2136f5d8eba0f1c9f16054b0267083e791b3d7897bfaa3107
 
 extraArgs:
   ["tunnel", "--no-autoupdate", "run", "--token", "{{ .Values.env.token }}"]

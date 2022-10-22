@@ -2,6 +2,36 @@
 
 
 
+## [calibre-7.0.54](https://github.com/truecharts/charts/compare/calibre-web-11.0.51...calibre-7.0.54) (2022-10-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4139](https://github.com/truecharts/charts/issues/4139))
+
+
+
+
+## [calibre-7.0.53](https://github.com/truecharts/charts/compare/calibre-7.0.52...calibre-7.0.53) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+  - update docker general non-major ([#4128](https://github.com/truecharts/charts/issues/4128))
+
+
+
+
+## [calibre-7.0.52](https://github.com/truecharts/charts/compare/calibre-web-11.0.50...calibre-7.0.52) (2022-10-16)
+
+### Chore
+
+- update docker general non-major ([#4108](https://github.com/truecharts/charts/issues/4108))
+
+
+
+
 ## [calibre-7.0.51](https://github.com/truecharts/charts/compare/calibre-web-11.0.48...calibre-7.0.51) (2022-10-12)
 
 ### Chore

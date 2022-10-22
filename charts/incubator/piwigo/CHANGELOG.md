@@ -2,6 +2,29 @@
 
 
 
+## [piwigo-3.1.1](https://github.com/truecharts/charts/compare/piwigo-3.1.0...piwigo-3.1.1) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
+## [piwigo-3.1.0](https://github.com/truecharts/charts/compare/piwigo-3.0.37...piwigo-3.1.0) (2022-10-17)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Feat
+
+- Add persistance for Gallery dir ([#4116](https://github.com/truecharts/charts/issues/4116))
+
+
+
+
 ## [piwigo-3.0.37](https://github.com/truecharts/charts/compare/piwigo-3.0.36...piwigo-3.0.37) (2022-10-12)
 
 ### Chore

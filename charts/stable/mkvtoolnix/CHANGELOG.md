@@ -2,6 +2,26 @@
 
 
 
+## [mkvtoolnix-2.0.41](https://github.com/truecharts/charts/compare/mkvtoolnix-2.0.40...mkvtoolnix-2.0.41) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
+## [mkvtoolnix-2.0.40](https://github.com/truecharts/charts/compare/mkvtoolnix-2.0.39...mkvtoolnix-2.0.40) (2022-10-18)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update container image tccr.io/truecharts/mkvtoolnix to v22.10.1 ([#4123](https://github.com/truecharts/charts/issues/4123))
+
+
+
+
 ## [mkvtoolnix-2.0.39](https://github.com/truecharts/charts/compare/mkvtoolnix-2.0.38...mkvtoolnix-2.0.39) (2022-10-12)
 
 ### Chore

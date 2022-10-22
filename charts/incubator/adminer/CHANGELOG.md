@@ -2,6 +2,16 @@
 
 
 
+## [adminer-0.0.35](https://github.com/truecharts/charts/compare/adminer-0.0.34...adminer-0.0.35) (2022-10-19)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4122](https://github.com/truecharts/charts/issues/4122))
+
+
+
+
 ## [adminer-0.0.34](https://github.com/truecharts/charts/compare/adminer-0.0.33...adminer-0.0.34) (2022-10-12)
 
 ### Chore
