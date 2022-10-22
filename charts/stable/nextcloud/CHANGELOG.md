@@ -2,7 +2,17 @@
 
 
 
-## [nextcloud-15.3.31](https://github.com/truecharts/charts/compare/nextcloud-15.3.30...nextcloud-15.3.31) (2022-10-19)
+## [prometheus-4.0.110](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.40...prometheus-4.0.110) (2022-10-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4139](https://github.com/truecharts/charts/issues/4139))
+
+
+
+
+## [prometheus-4.0.109](https://github.com/truecharts/charts/compare/prometheus-4.0.108...prometheus-4.0.109) (2022-10-19)
 
 ### Chore
 
@@ -13,7 +23,37 @@
 
 
 
-## [nextcloud-15.3.30](https://github.com/truecharts/charts/compare/nextcloud-15.3.29...nextcloud-15.3.30) (2022-10-14)
+## [prometheus-4.0.108](https://github.com/truecharts/charts/compare/prometheus-4.0.107...prometheus-4.0.108) (2022-10-18)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4120](https://github.com/truecharts/charts/issues/4120))
+
+
+
+
+## [prometheus-4.0.107](https://github.com/truecharts/charts/compare/prometheus-4.0.106...prometheus-4.0.107) (2022-10-17)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4119](https://github.com/truecharts/charts/issues/4119))
+
+
+
+
+## [prometheus-4.0.106](https://github.com/truecharts/charts/compare/prometheus-4.0.105...prometheus-4.0.106) (2022-10-16)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4108](https://github.com/truecharts/charts/issues/4108))
+
+
+
+
+## [prometheus-4.0.105](https://github.com/truecharts/charts/compare/prometheus-4.0.104...prometheus-4.0.105) (2022-10-14)
 
 ### Chore
 
@@ -23,7 +63,7 @@
 
 
 
-## [nextcloud-15.3.29](https://github.com/truecharts/charts/compare/nextcloud-15.3.28...nextcloud-15.3.29) (2022-10-12)
+## [prometheus-4.0.104](https://github.com/truecharts/charts/compare/prometheus-4.0.103...prometheus-4.0.104) (2022-10-12)
 
 ### Chore
 
@@ -33,18 +73,28 @@
 
 
 
-## [nextcloud-15.3.28](https://github.com/truecharts/charts/compare/nextcloud-15.3.27...nextcloud-15.3.28) (2022-10-11)
+## [prometheus-4.0.103](https://github.com/truecharts/charts/compare/prometheus-4.0.102...prometheus-4.0.103) (2022-10-11)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - update docker general non-major ([#4070](https://github.com/truecharts/charts/issues/4070))
+
+
+
+
+## [prometheus-4.0.102](https://github.com/truecharts/charts/compare/prometheus-4.0.101...prometheus-4.0.102) (2022-10-10)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4049](https://github.com/truecharts/charts/issues/4049))
   - update docker general non-major
 
 
 
 
-## [nextcloud-15.3.27](https://github.com/truecharts/charts/compare/nextcloud-15.3.25...nextcloud-15.3.27) (2022-10-08)
+## [prometheus-4.0.101](https://github.com/truecharts/charts/compare/prometheus-4.0.99...prometheus-4.0.101) (2022-10-08)
 
 ### Chore
 
@@ -56,7 +106,7 @@
 
 
 
-## [nextcloud-15.3.26](https://github.com/truecharts/charts/compare/nextcloud-15.3.25...nextcloud-15.3.26) (2022-10-07)
+## [prometheus-4.0.100](https://github.com/truecharts/charts/compare/prometheus-4.0.99...prometheus-4.0.100) (2022-10-07)
 
 ### Chore
 
@@ -66,7 +116,7 @@
 
 
 
-## [nextcloud-15.3.25](https://github.com/truecharts/charts/compare/nextcloud-15.3.24...nextcloud-15.3.25) (2022-10-07)
+## [prometheus-4.0.99](https://github.com/truecharts/charts/compare/prometheus-4.0.98...prometheus-4.0.99) (2022-10-07)
 
 ### Chore
 
@@ -76,7 +126,7 @@
 
 
 
-## [nextcloud-15.3.24](https://github.com/truecharts/charts/compare/nextcloud-15.3.23...nextcloud-15.3.24) (2022-10-05)
+## [prometheus-4.0.98](https://github.com/truecharts/charts/compare/prometheus-4.0.97...prometheus-4.0.98) (2022-10-05)
 
 ### Chore
 
@@ -86,19 +136,38 @@
 
 
 
-## [nextcloud-15.3.23](https://github.com/truecharts/charts/compare/nextcloud-15.3.22...nextcloud-15.3.23) (2022-10-04)
+## [prometheus-4.0.97](https://github.com/truecharts/charts/compare/prometheus-4.0.96...prometheus-4.0.97) (2022-10-05)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
-  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+  - update docker general non-major ([#4010](https://github.com/truecharts/charts/issues/4010))
+
+
+
+
+## [prometheus-4.0.96](https://github.com/truecharts/charts/compare/prometheus-4.0.95...prometheus-4.0.96) (2022-10-04)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update docker general non-major ([#4001](https://github.com/truecharts/charts/issues/4001))
   - update docker general non-major
 
 
 
 
-## [nextcloud-15.3.22](https://github.com/truecharts/charts/compare/nextcloud-15.3.21...nextcloud-15.3.22) (2022-09-30)
+## [prometheus-4.0.95](https://github.com/truecharts/charts/compare/prometheus-4.0.94...prometheus-4.0.95) (2022-10-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3975](https://github.com/truecharts/charts/issues/3975))
+
+
+
+
+## [prometheus-4.0.94](https://github.com/truecharts/charts/compare/prometheus-4.0.93...prometheus-4.0.94) (2022-09-30)
 
 ### Chore
 
@@ -108,26 +177,16 @@
 
 
 
-## [nextcloud-15.3.21](https://github.com/truecharts/charts/compare/nextcloud-15.3.20...nextcloud-15.3.21) (2022-09-29)
+## [prometheus-4.0.93](https://github.com/truecharts/charts/compare/prometheus-4.0.92...prometheus-4.0.93) (2022-09-28)
 
 ### Chore
 
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#3953](https://github.com/truecharts/charts/issues/3953))
+- update docker general non-major ([#3938](https://github.com/truecharts/charts/issues/3938))
 
 
 
 
-## [nextcloud-15.3.21](https://github.com/truecharts/charts/compare/nextcloud-15.3.20...nextcloud-15.3.21) (2022-09-29)
-
-### Chore
-
-- update docker general non-major ([#3953](https://github.com/truecharts/charts/issues/3953))
-
-
-
-
-## [nextcloud-15.3.19](https://github.com/truecharts/charts/compare/nextcloud-15.3.18...nextcloud-15.3.19) (2022-09-27)
+## [prometheus-4.0.91](https://github.com/truecharts/charts/compare/prometheus-4.0.90...prometheus-4.0.91) (2022-09-27)
 
 ### Chore
 
@@ -137,16 +196,37 @@
 
 
 
-## [nextcloud-15.3.18](https://github.com/truecharts/charts/compare/nextcloud-16.0.0...nextcloud-15.3.18) (2022-09-25)
+## [prometheus-4.0.90](https://github.com/truecharts/charts/compare/prometheus-4.0.89...prometheus-4.0.90) (2022-09-25)
 
 ### Chore
 
-- update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3898](https://github.com/truecharts/charts/issues/3898))
 
 
 
 
-## [nextcloud-15.3.17](https://github.com/truecharts/charts/compare/nextcloud-15.3.13...nextcloud-15.3.17) (2022-09-22)
+## [prometheus-4.0.89](https://github.com/truecharts/charts/compare/prometheus-4.0.88...prometheus-4.0.89) (2022-09-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3881](https://github.com/truecharts/charts/issues/3881))
+
+
+
+
+## [prometheus-4.0.88](https://github.com/truecharts/charts/compare/prometheus-4.0.87...prometheus-4.0.88) (2022-09-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3860](https://github.com/truecharts/charts/issues/3860))
+
+
+
+
+## [prometheus-4.0.87](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.87) (2022-09-22)
 
 ### Chore
 
@@ -164,17 +244,17 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
-  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
+  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
   - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update docker general non-major ([#3827](https://github.com/truecharts/charts/issues/3827))
-  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+  - Expose prometheus configuration options in Scale GUI ([#3797](https://github.com/truecharts/charts/issues/3797))
 
 
 
 
-## [nextcloud-15.3.17](https://github.com/truecharts/charts/compare/nextcloud-15.3.13...nextcloud-15.3.17) (2022-09-21)
+## [prometheus-4.0.87](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.87) (2022-09-21)
 
 ### Chore
 
@@ -191,17 +271,17 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
+  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - update docker general non-major ([#3827](https://github.com/truecharts/charts/issues/3827))
-  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
-  - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
+  - Expose prometheus configuration options in Scale GUI ([#3797](https://github.com/truecharts/charts/issues/3797))
 
 
 
 
-## [nextcloud-15.3.16](https://github.com/truecharts/charts/compare/nextcloud-15.3.13...nextcloud-15.3.16) (2022-09-21)
+## [prometheus-4.0.86](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.86) (2022-09-21)
 
 ### Chore
 
@@ -217,16 +297,16 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+  - Expose prometheus configuration options in Scale GUI ([#3797](https://github.com/truecharts/charts/issues/3797))
 
 
 
 
-## [nextcloud-15.3.16](https://github.com/truecharts/charts/compare/nextcloud-15.3.13...nextcloud-15.3.16) (2022-09-20)
+## [prometheus-4.0.86](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.86) (2022-09-20)
 
 ### Chore
 
@@ -241,16 +321,16 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+  - Expose prometheus configuration options in Scale GUI ([#3797](https://github.com/truecharts/charts/issues/3797))
 
 
 
 
-## [nextcloud-15.3.16](https://github.com/truecharts/charts/compare/nextcloud-15.3.13...nextcloud-15.3.16) (2022-09-20)
+## [prometheus-4.0.86](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.86) (2022-09-20)
 
 ### Chore
 
@@ -264,16 +344,16 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
+  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
   - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+  - Expose prometheus configuration options in Scale GUI ([#3797](https://github.com/truecharts/charts/issues/3797))
 
 
 
 
-## [nextcloud-15.3.16](https://github.com/truecharts/charts/compare/nextcloud-15.3.13...nextcloud-15.3.16) (2022-09-19)
+## [prometheus-4.0.85](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.85) (2022-09-19)
 
 ### Chore
 
@@ -286,16 +366,15 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
   - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+  - Expose prometheus configuration options in Scale GUI ([#3797](https://github.com/truecharts/charts/issues/3797))
 
 
 
 
-## [nextcloud-15.3.16](https://github.com/truecharts/charts/compare/nextcloud-15.3.13...nextcloud-15.3.16) (2022-09-19)
+## [prometheus-4.0.85](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.85) (2022-09-19)
 
 ### Chore
 
@@ -307,16 +386,15 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+  - Expose prometheus configuration options in Scale GUI ([#3797](https://github.com/truecharts/charts/issues/3797))
 
 
 
 
-## [nextcloud-15.3.16](https://github.com/truecharts/charts/compare/nextcloud-15.3.13...nextcloud-15.3.16) (2022-09-19)
+## [prometheus-4.0.85](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.85) (2022-09-19)
 
 ### Chore
 
@@ -328,15 +406,14 @@
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
   - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
-  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
   - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+  - Expose prometheus configuration options in Scale GUI ([#3797](https://github.com/truecharts/charts/issues/3797))
 
 
 
 
-## [nextcloud-15.3.15](https://github.com/truecharts/charts/compare/nextcloud-15.3.13...nextcloud-15.3.15) (2022-09-17)
+## [prometheus-4.0.84](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.84) (2022-09-17)
 
 ### Chore
 
@@ -346,15 +423,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
   - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [nextcloud-15.3.15](https://github.com/truecharts/charts/compare/nextcloud-15.3.13...nextcloud-15.3.15) (2022-09-18)
+## [prometheus-4.0.84](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.84) (2022-09-18)
 
 ### Chore
 
@@ -362,92 +437,76 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
   - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [nextcloud-15.3.15](https://github.com/truecharts/charts/compare/nextcloud-15.3.13...nextcloud-15.3.15) (2022-09-16)
+## [prometheus-4.0.84](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.84) (2022-09-16)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
   - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [nextcloud-15.3.15](https://github.com/truecharts/charts/compare/nextcloud-15.3.13...nextcloud-15.3.15) (2022-09-16)
+## [prometheus-4.0.84](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.84) (2022-09-16)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
   - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [nextcloud-15.3.15](https://github.com/truecharts/charts/compare/nextcloud-15.3.13...nextcloud-15.3.15) (2022-09-16)
+## [prometheus-4.0.84](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.84) (2022-09-15)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
-  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
   - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [nextcloud-15.3.14](https://github.com/truecharts/charts/compare/nextcloud-15.3.13...nextcloud-15.3.14) (2022-09-15)
+## [prometheus-4.0.84](https://github.com/truecharts/charts/compare/prometheus-4.0.83...prometheus-4.0.84) (2022-09-15)
 
 ### Chore
 
 - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [nextcloud-15.3.13](https://github.com/truecharts/charts/compare/nextcloud-15.3.12...nextcloud-15.3.13) (2022-09-13)
-
-### Chore
-
-- update helm general non-major ([#3756](https://github.com/truecharts/charts/issues/3756))
-
-
-
-
-## [nextcloud-15.3.12](https://github.com/truecharts/charts/compare/nextcloud-15.3.10...nextcloud-15.3.12) (2022-09-12)
+## [prometheus-4.0.83](https://github.com/truecharts/charts/compare/prometheus-4.0.82...prometheus-4.0.83) (2022-09-15)
 
 ### Chore
 
-- Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
-  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
+- split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [nextcloud-15.3.12](https://github.com/truecharts/charts/compare/nextcloud-15.3.10...nextcloud-15.3.12) (2022-09-12)
+## [prometheus-4.0.82](https://github.com/truecharts/charts/compare/prometheus-4.0.81...prometheus-4.0.82) (2022-09-13)
+
+### Chore
+
+- update docker general non-major ([#3755](https://github.com/truecharts/charts/issues/3755))
+
+
+
+
+## [prometheus-4.0.81](https://github.com/truecharts/charts/compare/prometheus-4.0.80...prometheus-4.0.81) (2022-09-12)
 
 ### Chore
 
@@ -455,70 +514,77 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
+  - Auto-update chart README [skip ci]
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
-  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
 
 
 
 
-## [nextcloud-15.3.12](https://github.com/truecharts/charts/compare/nextcloud-15.3.10...nextcloud-15.3.12) (2022-09-12)
+## [prometheus-4.0.81](https://github.com/truecharts/charts/compare/prometheus-4.0.80...prometheus-4.0.81) (2022-09-12)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
+  - Auto-update chart README [skip ci]
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
-  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
 
 
 
 
-## [nextcloud-15.3.11](https://github.com/truecharts/charts/compare/nextcloud-15.3.10...nextcloud-15.3.11) (2022-09-11)
+## [prometheus-4.0.81](https://github.com/truecharts/charts/compare/prometheus-4.0.80...prometheus-4.0.81) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [prometheus-4.0.81](https://github.com/truecharts/charts/compare/prometheus-4.0.80...prometheus-4.0.81) (2022-09-11)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
-  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
 
 
 
 
-## [nextcloud-15.3.11](https://github.com/truecharts/charts/compare/nextcloud-15.3.10...nextcloud-15.3.11) (2022-09-11)
+## [prometheus-4.0.81](https://github.com/truecharts/charts/compare/prometheus-4.0.80...prometheus-4.0.81) (2022-09-11)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
-  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
 
 
 
 
-## [nextcloud-15.3.11](https://github.com/truecharts/charts/compare/nextcloud-15.3.10...nextcloud-15.3.11) (2022-09-11)
+## [prometheus-4.0.81](https://github.com/truecharts/charts/compare/prometheus-4.0.80...prometheus-4.0.81) (2022-09-11)
 
 ### Chore
 
 - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
-  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
 
 
 
 
-## [nextcloud-15.3.10](https://github.com/truecharts/charts/compare/nextcloud-15.3.9...nextcloud-15.3.10) (2022-09-09)
+## [prometheus-4.0.80](https://github.com/truecharts/charts/compare/prometheus-4.0.79...prometheus-4.0.80) (2022-09-10)
 
 ### Chore
 
-- doc polishing ([#3725](https://github.com/truecharts/charts/issues/3725))
+- update docker general non-major ([#3727](https://github.com/truecharts/charts/issues/3727))
 
 
 
 
-## [nextcloud-15.3.9](https://github.com/truecharts/charts/compare/nextcloud-15.3.8...nextcloud-15.3.9) (2022-09-07)
+## [prometheus-4.0.79](https://github.com/truecharts/charts/compare/prometheus-4.0.78...prometheus-4.0.79) (2022-09-07)
 
 ### Chore
 
@@ -528,7 +594,7 @@
 
 
 
-## [nextcloud-15.3.9](https://github.com/truecharts/charts/compare/nextcloud-15.3.8...nextcloud-15.3.9) (2022-09-06)
+## [prometheus-4.0.79](https://github.com/truecharts/charts/compare/prometheus-4.0.78...prometheus-4.0.79) (2022-09-06)
 
 ### Chore
 
@@ -537,7 +603,20 @@
 
 
 
-## [nextcloud-15.3.8](https://github.com/truecharts/charts/compare/nextcloud-15.3.7...nextcloud-15.3.8) (2022-09-03)
+## [prometheus-4.0.78](https://github.com/truecharts/charts/compare/prometheus-4.0.77...prometheus-4.0.78) (2022-09-05)
+
+### Chore
+
+- update docker general non-major ([#3700](https://github.com/truecharts/charts/issues/3700))
+
+  ### Fix
+
+- fix serviceaccount creation on few apps ([#3665](https://github.com/truecharts/charts/issues/3665))
+
+
+
+
+## [prometheus-4.0.77](https://github.com/truecharts/charts/compare/prometheus-4.0.76...prometheus-4.0.77) (2022-09-03)
 
 ### Chore
 
@@ -546,20 +625,25 @@
 
 
 
-## [nextcloud-15.3.7](https://github.com/truecharts/charts/compare/nextcloud-15.3.6...nextcloud-15.3.7) (2022-09-02)
+## [prometheus-4.0.76](https://github.com/truecharts/charts/compare/prometheus-4.0.75...prometheus-4.0.76) (2022-09-02)
 
 ### Chore
 
 - update docker general non-major ([#3660](https://github.com/truecharts/charts/issues/3660))
 
-  ### Docs
-
-- add more docs
 
 
 
+## [prometheus-4.0.75](https://github.com/truecharts/charts/compare/prometheus-4.0.74...prometheus-4.0.75) (2022-08-31)
 
-## [nextcloud-15.3.6](https://github.com/truecharts/charts/compare/nextcloud-15.3.4...nextcloud-15.3.6) (2022-08-30)
+### Chore
+
+- update docker general non-major ([#3640](https://github.com/truecharts/charts/issues/3640))
+
+
+
+
+## [prometheus-4.0.74](https://github.com/truecharts/charts/compare/prometheus-4.0.72...prometheus-4.0.74) (2022-08-30)
 
 ### Chore
 
@@ -570,7 +654,7 @@
 
 
 
-## [nextcloud-15.3.5](https://github.com/truecharts/charts/compare/nextcloud-15.3.4...nextcloud-15.3.5) (2022-08-30)
+## [prometheus-4.0.73](https://github.com/truecharts/charts/compare/prometheus-4.0.72...prometheus-4.0.73) (2022-08-30)
 
 ### Chore
 
@@ -579,45 +663,35 @@
 
 
 
-## [nextcloud-15.3.4](https://github.com/truecharts/charts/compare/nextcloud-15.3.3...nextcloud-15.3.4) (2022-08-30)
+## [prometheus-4.0.72](https://github.com/truecharts/charts/compare/prometheus-4.0.71...prometheus-4.0.72) (2022-08-30)
 
 ### Chore
 
-- update helm general non-major ([#3624](https://github.com/truecharts/charts/issues/3624))
+- update docker general non-major ([#3623](https://github.com/truecharts/charts/issues/3623))
 
 
 
 
-## [nextcloud-15.3.3](https://github.com/truecharts/charts/compare/nextcloud-15.3.1...nextcloud-15.3.3) (2022-08-29)
+## [prometheus-4.0.71](https://github.com/truecharts/charts/compare/prometheus-4.0.69...prometheus-4.0.71) (2022-08-29)
 
 ### Chore
 
 - update docker general non-major ([#3620](https://github.com/truecharts/charts/issues/3620))
-  - update helm general non-major ([#3621](https://github.com/truecharts/charts/issues/3621))
   - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
 
 
 
 
-## [nextcloud-15.3.1](https://github.com/truecharts/charts/compare/nextcloud-15.3.0...nextcloud-15.3.1) (2022-08-27)
+## [prometheus-4.0.69](https://github.com/truecharts/charts/compare/prometheus-4.0.68...prometheus-4.0.69) (2022-08-26)
+
+### Chore
+
+- update docker general non-major ([#3573](https://github.com/truecharts/charts/issues/3573))
 
 
 
 
-## [nextcloud-15.3.0](https://github.com/truecharts/charts/compare/nextcloud-15.2.45...nextcloud-15.3.0) (2022-08-26)
-
-### Feat
-
-- set default phone region ([#3578](https://github.com/truecharts/charts/issues/3578))
-
-  ### Fix
-
-- multiple small fixes ([#3580](https://github.com/truecharts/charts/issues/3580))
-
-
-
-
-## [nextcloud-15.2.45](https://github.com/truecharts/charts/compare/nextcloud-15.2.44...nextcloud-15.2.45) (2022-08-25)
+## [prometheus-4.0.68](https://github.com/truecharts/charts/compare/prometheus-4.0.67...prometheus-4.0.68) (2022-08-25)
 
 ### Chore
 
@@ -626,25 +700,7 @@
 
 
 
-## [nextcloud-15.2.44](https://github.com/truecharts/charts/compare/nextcloud-15.2.43...nextcloud-15.2.44) (2022-08-24)
-
-### Fix
-
-- Add port on non-ingressed installs ([#3557](https://github.com/truecharts/charts/issues/3557))
-
-
-
-
-## [nextcloud-15.2.43](https://github.com/truecharts/charts/compare/nextcloud-15.2.42...nextcloud-15.2.43) (2022-08-24)
-
-### Chore
-
-- set overwrite.cli.url ([#3541](https://github.com/truecharts/charts/issues/3541))
-
-
-
-
-## [nextcloud-15.2.42](https://github.com/truecharts/charts/compare/nextcloud-15.2.41...nextcloud-15.2.42) (2022-08-24)
+## [prometheus-4.0.67](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.29...prometheus-4.0.67) (2022-08-24)
 
 ### Chore
 
@@ -653,7 +709,7 @@
 
 
 
-## [nextcloud-15.2.41](https://github.com/truecharts/charts/compare/nextcloud-15.2.40...nextcloud-15.2.41) (2022-08-23)
+## [prometheus-4.0.66](https://github.com/truecharts/charts/compare/prometheus-4.0.65...prometheus-4.0.66) (2022-08-23)
 
 ### Chore
 
@@ -662,35 +718,52 @@
 
 
 
-## [nextcloud-15.2.40](https://github.com/truecharts/charts/compare/nextcloud-15.2.39...nextcloud-15.2.40) (2022-08-23)
+## [prometheus-4.0.65](https://github.com/truecharts/charts/compare/prometheus-4.0.64...prometheus-4.0.65) (2022-08-22)
 
 ### Chore
 
-- update docker general non-major docker tags ([#3544](https://github.com/truecharts/charts/issues/3544))
+- update docker general non-major ([#3530](https://github.com/truecharts/charts/issues/3530))
 
 
 
 
-## [nextcloud-15.2.39](https://github.com/truecharts/charts/compare/nextcloud-15.2.38...nextcloud-15.2.39) (2022-08-17)
-
-### Chore
-
-- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
-  - update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
-
-
-
-
-## [nextcloud-15.2.38](https://github.com/truecharts/charts/compare/nextcloud-15.2.37...nextcloud-15.2.38) (2022-08-14)
+## [prometheus-4.0.64](https://github.com/truecharts/charts/compare/prometheus-4.0.63...prometheus-4.0.64) (2022-08-20)
 
 ### Chore
 
-- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
+- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
 
 
 
 
-## [nextcloud-15.2.37](https://github.com/truecharts/charts/compare/nextcloud-15.2.36...nextcloud-15.2.37) (2022-08-12)
+## [prometheus-4.0.63](https://github.com/truecharts/charts/compare/prometheus-4.0.62...prometheus-4.0.63) (2022-08-19)
+
+### Chore
+
+- update docker general non-major docker tags ([#3512](https://github.com/truecharts/charts/issues/3512))
+
+
+
+
+## [prometheus-4.0.62](https://github.com/truecharts/charts/compare/prometheus-4.0.61...prometheus-4.0.62) (2022-08-18)
+
+### Chore
+
+- update docker general non-major ([#3503](https://github.com/truecharts/charts/issues/3503))
+
+
+
+
+## [prometheus-4.0.61](https://github.com/truecharts/charts/compare/prometheus-4.0.60...prometheus-4.0.61) (2022-08-17)
+
+### Chore
+
+- update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
+
+
+
+
+## [prometheus-4.0.60](https://github.com/truecharts/charts/compare/prometheus-4.0.59...prometheus-4.0.60) (2022-08-12)
 
 ### Chore
 
@@ -699,21 +772,25 @@
 
 
 
-## [nextcloud-15.2.36](https://github.com/truecharts/charts/compare/nextcloud-15.2.35...nextcloud-15.2.36) (2022-08-12)
+## [prometheus-4.0.59](https://github.com/truecharts/charts/compare/prometheus-4.0.58...prometheus-4.0.59) (2022-08-12)
 
 ### Chore
 
-- add documentation checkbox/section to all SCALE Apps
-  - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
-
-  ### Fix
-
-- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
+- update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
 
 
 
 
-## [nextcloud-15.2.35](https://github.com/truecharts/charts/compare/nextcloud-15.2.34...nextcloud-15.2.35) (2022-08-09)
+## [prometheus-4.0.58](https://github.com/truecharts/charts/compare/prometheus-4.0.57...prometheus-4.0.58) (2022-08-10)
+
+### Chore
+
+- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+
+
+
+
+## [prometheus-4.0.57](https://github.com/truecharts/charts/compare/prometheus-4.0.56...prometheus-4.0.57) (2022-08-09)
 
 ### Chore
 
@@ -722,62 +799,73 @@
 
 
 
-## [nextcloud-15.2.34](https://github.com/truecharts/charts/compare/nextcloud-15.2.33...nextcloud-15.2.34) (2022-08-09)
+## [prometheus-4.0.56](https://github.com/truecharts/charts/compare/prometheus-4.0.55...prometheus-4.0.56) (2022-08-09)
 
 ### Chore
 
 - update docker general non-major ([#3377](https://github.com/truecharts/charts/issues/3377))
 
-  ### Fix
-
-- Imaginary widescreen image preview fix ([#3401](https://github.com/truecharts/charts/issues/3401))
 
 
 
-
-## [nextcloud-15.2.33](https://github.com/truecharts/charts/compare/nextcloud-15.2.31...nextcloud-15.2.33) (2022-08-08)
+## [prometheus-4.0.55](https://github.com/truecharts/charts/compare/prometheus-4.0.53...prometheus-4.0.55) (2022-08-08)
 
 ### Chore
 
 - update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
+  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
   - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
 
-  ### Fix
-
-- sync client_max_body_size with PHP_UPLOAD_LIMIT ([#3383](https://github.com/truecharts/charts/issues/3383))
 
 
 
-
-## [nextcloud-15.2.31](https://github.com/truecharts/apps/compare/nextcloud-15.2.30...nextcloud-15.2.31) (2022-07-27)
-
-### Feat
-
-- Improved installation_notes ([#3315](https://github.com/truecharts/apps/issues/3315))
-
-  ### Fix
-
-- also apply the php var fix to UI ([#3319](https://github.com/truecharts/apps/issues/3319))
-
-
-
-
-## [nextcloud-15.2.30](https://github.com/truecharts/apps/compare/nextcloud-15.2.29...nextcloud-15.2.30) (2022-07-26)
-
-
-
-
-## [nextcloud-15.2.29](https://github.com/truecharts/apps/compare/nextcloud-15.2.28...nextcloud-15.2.29) (2022-07-26)
+## [prometheus-4.0.53](https://github.com/truecharts/apps/compare/prometheus-4.0.52...prometheus-4.0.53) (2022-07-30)
 
 ### Chore
 
-- update home links ([#3291](https://github.com/truecharts/apps/issues/3291))
+- update docker general non-major
+
+
+
+
+## [prometheus-4.0.52](https://github.com/truecharts/apps/compare/prometheus-4.0.51...prometheus-4.0.52) (2022-07-29)
+
+### Chore
+
+- update docker general non-major ([#3339](https://github.com/truecharts/apps/issues/3339))
+
+
+
+
+## [prometheus-4.0.51](https://github.com/truecharts/apps/compare/prometheus-4.0.50...prometheus-4.0.51) (2022-07-28)
+
+### Chore
+
+- update docker general non-major ([#3326](https://github.com/truecharts/apps/issues/3326))
+
+
+
+
+## [prometheus-4.0.50](https://github.com/truecharts/apps/compare/prometheus-4.0.49...prometheus-4.0.50) (2022-07-27)
+
+### Chore
+
+- update docker general non-major ([#3313](https://github.com/truecharts/apps/issues/3313))
+
+
+
+
+## [prometheus-4.0.49](https://github.com/truecharts/apps/compare/prometheus-4.0.48...prometheus-4.0.49) (2022-07-26)
+
+### Chore
+
+- update docker general non-major ([#3301](https://github.com/truecharts/apps/issues/3301))
   - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
 
 
 
 
-## [nextcloud-15.2.28](https://github.com/truecharts/apps/compare/nextcloud-15.2.27...nextcloud-15.2.28) (2022-07-25)
+## [prometheus-4.0.48](https://github.com/truecharts/apps/compare/prometheus-4.0.47...prometheus-4.0.48) (2022-07-25)
 
 ### Chore
 
@@ -787,7 +875,7 @@
 
 
 
-## [nextcloud-15.2.28](https://github.com/truecharts/apps/compare/nextcloud-15.2.27...nextcloud-15.2.28) (2022-07-25)
+## [prometheus-4.0.48](https://github.com/truecharts/apps/compare/prometheus-4.0.47...prometheus-4.0.48) (2022-07-25)
 
 ### Chore
 
@@ -796,7 +884,7 @@
 
 
 
-## [nextcloud-15.2.27](https://github.com/truecharts/apps/compare/nextcloud-15.2.26...nextcloud-15.2.27) (2022-07-25)
+## [prometheus-4.0.47](https://github.com/truecharts/apps/compare/prometheus-4.0.46...prometheus-4.0.47) (2022-07-25)
 
 ### Chore
 
@@ -805,18 +893,19 @@
 
 
 
-## [nextcloud-15.2.26](https://github.com/truecharts/apps/compare/nextcloud-15.2.25...nextcloud-15.2.26) (2022-07-23)
+## [prometheus-4.0.46](https://github.com/truecharts/apps/compare/prometheus-4.0.44...prometheus-4.0.46) (2022-07-24)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3284](https://github.com/truecharts/apps/issues/3284))
   - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
 
 
 
 
-## [nextcloud-15.2.26](https://github.com/truecharts/apps/compare/nextcloud-15.2.25...nextcloud-15.2.26) (2022-07-23)
+## [prometheus-4.0.45](https://github.com/truecharts/apps/compare/prometheus-4.0.44...prometheus-4.0.45) (2022-07-23)
 
 ### Chore
 
@@ -826,7 +915,7 @@
 
 
 
-## [nextcloud-15.2.26](https://github.com/truecharts/apps/compare/nextcloud-15.2.25...nextcloud-15.2.26) (2022-07-23)
+## [prometheus-4.0.45](https://github.com/truecharts/apps/compare/prometheus-4.0.44...prometheus-4.0.45) (2022-07-23)
 
 ### Chore
 
@@ -835,25 +924,16 @@
 
 
 
-## [nextcloud-15.2.25](https://github.com/truecharts/apps/compare/nextcloud-15.2.24...nextcloud-15.2.25) (2022-07-23)
+## [prometheus-4.0.44](https://github.com/truecharts/apps/compare/prometheus-4.0.43...prometheus-4.0.44) (2022-07-23)
 
 ### Chore
 
-- update docker general non-major ([#3276](https://github.com/truecharts/apps/issues/3276))
+- update docker general non-major ([#3272](https://github.com/truecharts/apps/issues/3272))
 
 
 
 
-## [nextcloud-15.2.24](https://github.com/truecharts/apps/compare/nextcloud-15.2.23...nextcloud-15.2.24) (2022-07-23)
-
-### Chore
-
-- update helm general non-major helm releases ([#3274](https://github.com/truecharts/apps/issues/3274))
-
-
-
-
-## [nextcloud-15.2.23](https://github.com/truecharts/apps/compare/nextcloud-15.2.21...nextcloud-15.2.23) (2022-07-22)
+## [prometheus-4.0.43](https://github.com/truecharts/apps/compare/prometheus-4.0.41...prometheus-4.0.43) (2022-07-22)
 
 ### Chore
 
@@ -863,7 +943,7 @@
 
 
 
-## [nextcloud-15.2.21](https://github.com/truecharts/apps/compare/nextcloud-15.2.20...nextcloud-15.2.21) (2022-07-22)
+## [prometheus-4.0.41](https://github.com/truecharts/apps/compare/prometheus-4.0.40...prometheus-4.0.41) (2022-07-22)
 
 ### Chore
 
@@ -871,7 +951,34 @@
 
 
 
-## [nextcloud-15.2.20](https://github.com/truecharts/apps/compare/nextcloud-15.2.19...nextcloud-15.2.20) (2022-07-20)
+## [prometheus-4.0.40](https://github.com/truecharts/apps/compare/prometheus-4.0.39...prometheus-4.0.40) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- update docker general non-major ([#3239](https://github.com/truecharts/apps/issues/3239))
+
+
+
+## [prometheus-4.0.40](https://github.com/truecharts/apps/compare/prometheus-4.0.39...prometheus-4.0.40) (2022-07-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+- update docker general non-major ([#3239](https://github.com/truecharts/apps/issues/3239))
+
+
+
+## [prometheus-4.0.40](https://github.com/truecharts/apps/compare/prometheus-4.0.39...prometheus-4.0.40) (2022-07-21)
+
+### Chore
+
+- update docker general non-major ([#3239](https://github.com/truecharts/apps/issues/3239))
+
+
+
+## [prometheus-4.0.39](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.20...prometheus-4.0.39) (2022-07-20)
 
 ### Chore
 
@@ -879,7 +986,7 @@
 
 
 
-## [nextcloud-15.2.19](https://github.com/truecharts/apps/compare/nextcloud-15.2.18...nextcloud-15.2.19) (2022-07-19)
+## [prometheus-4.0.38](https://github.com/truecharts/apps/compare/prometheus-4.0.37...prometheus-4.0.38) (2022-07-19)
 
 ### Chore
 
@@ -887,7 +994,15 @@
 
 
 
-## [nextcloud-15.2.18](https://github.com/truecharts/apps/compare/nextcloud-15.2.17...nextcloud-15.2.18) (2022-07-16)
+## [prometheus-4.0.37](https://github.com/truecharts/apps/compare/prometheus-4.0.36...prometheus-4.0.37) (2022-07-17)
+
+### Chore
+
+- update docker general non-major ([#3198](https://github.com/truecharts/apps/issues/3198))
+
+
+
+## [prometheus-4.0.36](https://github.com/truecharts/apps/compare/prometheus-4.0.35...prometheus-4.0.36) (2022-07-16)
 
 ### Chore
 
@@ -895,7 +1010,7 @@
 
 
 
-## [nextcloud-15.2.17](https://github.com/truecharts/apps/compare/nextcloud-15.2.16...nextcloud-15.2.17) (2022-07-15)
+## [prometheus-4.0.35](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.19...prometheus-4.0.35) (2022-07-15)
 
 ### Chore
 
@@ -903,7 +1018,7 @@
 
 
 
-## [nextcloud-15.2.16](https://github.com/truecharts/apps/compare/nextcloud-15.2.15...nextcloud-15.2.16) (2022-07-14)
+## [prometheus-4.0.34](https://github.com/truecharts/apps/compare/prometheus-4.0.33...prometheus-4.0.34) (2022-07-14)
 
 ### Fix
 
@@ -911,7 +1026,7 @@
 
 
 
-## [nextcloud-15.2.15](https://github.com/truecharts/apps/compare/nextcloud-15.2.13...nextcloud-15.2.15) (2022-07-14)
+## [prometheus-4.0.33](https://github.com/truecharts/apps/compare/prometheus-4.0.31...prometheus-4.0.33) (2022-07-14)
 
 ### Fix
 
@@ -919,15 +1034,7 @@
 
 
 
-## [nextcloud-15.2.13](https://github.com/truecharts/apps/compare/nextcloud-15.2.12...nextcloud-15.2.13) (2022-07-14)
-
-### Chore
-
-- update docker general non-major ([#3171](https://github.com/truecharts/apps/issues/3171))
-
-
-
-## [nextcloud-15.2.12](https://github.com/truecharts/apps/compare/nextcloud-15.2.11...nextcloud-15.2.12) (2022-07-13)
+## [prometheus-4.0.31](https://github.com/truecharts/apps/compare/prometheus-4.0.30...prometheus-4.0.31) (2022-07-13)
 
 ### Chore
 
@@ -935,7 +1042,7 @@
 
 
 
-## [nextcloud-15.2.11](https://github.com/truecharts/apps/compare/nextcloud-15.2.9...nextcloud-15.2.11) (2022-07-12)
+## [prometheus-4.0.30](https://github.com/truecharts/apps/compare/prometheus-4.0.28...prometheus-4.0.30) (2022-07-12)
 
 ### Chore
 
@@ -944,7 +1051,7 @@
 
 
 
-## [nextcloud-15.2.9](https://github.com/truecharts/apps/compare/nextcloud-15.2.8...nextcloud-15.2.9) (2022-07-12)
+## [prometheus-4.0.28](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.13...prometheus-4.0.28) (2022-07-12)
 
 ### Chore
 
@@ -952,8 +1059,8 @@
 
 
 
-<a name="nextcloud-15.2.8"></a>
-### [nextcloud-15.2.8](https://github.com/truecharts/apps/compare/nextcloud-15.2.7...nextcloud-15.2.8) (2022-07-12)
+<a name="prometheus-4.0.27"></a>
+### [prometheus-4.0.27](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.12...prometheus-4.0.27) (2022-07-12)
 
 #### Chore
 
@@ -962,36 +1069,17 @@
 
 
 
-<a name="nextcloud-15.2.7"></a>
-### [nextcloud-15.2.7](https://github.com/truecharts/apps/compare/nextcloud-15.2.6...nextcloud-15.2.7) (2022-07-11)
+<a name="prometheus-4.0.26"></a>
+### [prometheus-4.0.26](https://github.com/truecharts/apps/compare/prometheus-4.0.25...prometheus-4.0.26) (2022-07-11)
 
 #### Chore
 
 * move icons into the apps folder ([#3139](https://github.com/truecharts/apps/issues/3139))
-* add markdownlint and cpell config files (and apply some linting) ([#3140](https://github.com/truecharts/apps/issues/3140))
 
 
 
-<a name="nextcloud-15.2.6"></a>
-### [nextcloud-15.2.6](https://github.com/truecharts/apps/compare/nextcloud-15.2.5...nextcloud-15.2.6) (2022-07-11)
-
-#### Chore
-
-* update docker general non-major ([#3128](https://github.com/truecharts/apps/issues/3128))
-
-
-
-<a name="nextcloud-15.2.5"></a>
-### [nextcloud-15.2.5](https://github.com/truecharts/apps/compare/nextcloud-15.2.4...nextcloud-15.2.5) (2022-07-10)
-
-#### Fix
-
-* increase nginx fpm forwarding timeouts ([#3122](https://github.com/truecharts/apps/issues/3122))
-
-
-
-<a name="nextcloud-15.2.4"></a>
-### [nextcloud-15.2.4](https://github.com/truecharts/apps/compare/nextcloud-15.2.3...nextcloud-15.2.4) (2022-07-09)
+<a name="prometheus-4.0.25"></a>
+### [prometheus-4.0.25](https://github.com/truecharts/apps/compare/prometheus-4.0.24...prometheus-4.0.25) (2022-07-09)
 
 #### Chore
 
@@ -999,45 +1087,17 @@
 
 
 
-<a name="nextcloud-15.2.3"></a>
-### [nextcloud-15.2.3](https://github.com/truecharts/apps/compare/nextcloud-15.2.2...nextcloud-15.2.3) (2022-07-09)
+<a name="prometheus-4.0.24"></a>
+### [prometheus-4.0.24](https://github.com/truecharts/apps/compare/prometheus-4.0.23...prometheus-4.0.24) (2022-07-09)
 
-#### Fix
+#### Chore
 
-* improve upload performance and predictability ([#3109](https://github.com/truecharts/apps/issues/3109))
-
-
-
-<a name="nextcloud-15.2.2"></a>
-### [nextcloud-15.2.2](https://github.com/truecharts/apps/compare/nextcloud-15.2.1...nextcloud-15.2.2) (2022-07-08)
+* update docker general non-major ([#3106](https://github.com/truecharts/apps/issues/3106))
 
 
 
-<a name="nextcloud-15.2.1"></a>
-### [nextcloud-15.2.1](https://github.com/truecharts/apps/compare/nextcloud-15.2.0...nextcloud-15.2.1) (2022-07-08)
-
-#### Fix
-
-* fix HPB service polling url ([#3102](https://github.com/truecharts/apps/issues/3102))
-
-
-
-<a name="nextcloud-15.2.0"></a>
-### [nextcloud-15.2.0](https://github.com/truecharts/apps/compare/nextcloud-15.1.4...nextcloud-15.2.0) (2022-07-08)
-
-
-
-<a name="nextcloud-15.1.4"></a>
-### [nextcloud-15.1.4](https://github.com/truecharts/apps/compare/nextcloud-15.1.3...nextcloud-15.1.4) (2022-07-08)
-
-#### Fix
-
-* fix wrong accessip reference ([#3101](https://github.com/truecharts/apps/issues/3101))
-
-
-
-<a name="nextcloud-15.1.3"></a>
-### [nextcloud-15.1.3](https://github.com/truecharts/apps/compare/nextcloud-15.1.2...nextcloud-15.1.3) (2022-07-07)
+<a name="prometheus-4.0.23"></a>
+### [prometheus-4.0.23](https://github.com/truecharts/apps/compare/prometheus-4.0.22...prometheus-4.0.23) (2022-07-07)
 
 #### Chore
 
@@ -1045,58 +1105,26 @@
 
 
 
-<a name="nextcloud-15.1.2"></a>
-### [nextcloud-15.1.2](https://github.com/truecharts/apps/compare/nextcloud-15.1.1...nextcloud-15.1.2) (2022-07-07)
-
-#### Fix
-
-* bypass hpb domain check ([#3093](https://github.com/truecharts/apps/issues/3093))
-
-
-
-<a name="nextcloud-15.1.1"></a>
-### [nextcloud-15.1.1](https://github.com/truecharts/apps/compare/nextcloud-15.1.0...nextcloud-15.1.1) (2022-07-07)
-
-#### Fix
-
-* correct some mistakes in the migration script ([#3091](https://github.com/truecharts/apps/issues/3091))
-
-
-
-<a name="nextcloud-15.1.0"></a>
-### [nextcloud-15.1.0](https://github.com/truecharts/apps/compare/nextcloud-15.0.1...nextcloud-15.1.0) (2022-07-06)
-
-#### Feat
-
-* add Imaginary high-performance preview backend ([#3086](https://github.com/truecharts/apps/issues/3086))
-
-
-
-<a name="nextcloud-15.0.1"></a>
-### [nextcloud-15.0.1](https://github.com/truecharts/apps/compare/nextcloud-15.0.0...nextcloud-15.0.1) (2022-07-06)
-
-#### Fix
-
-* change nginx redirect options to not add port to query ([#3085](https://github.com/truecharts/apps/issues/3085))
-
-
-
-<a name="nextcloud-15.0.0"></a>
-### [nextcloud-15.0.0](https://github.com/truecharts/apps/compare/nextcloud-14.0.16...nextcloud-15.0.0) (2022-07-06)
-
-
-
-<a name="nextcloud-14.0.16"></a>
-### [nextcloud-14.0.16](https://github.com/truecharts/apps/compare/nextcloud-14.0.15...nextcloud-14.0.16) (2022-07-05)
+<a name="prometheus-4.0.22"></a>
+### [prometheus-4.0.22](https://github.com/truecharts/apps/compare/prometheus-4.0.21...prometheus-4.0.22) (2022-07-06)
 
 #### Chore
 
-* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+* update docker general non-major ([#3078](https://github.com/truecharts/apps/issues/3078))
 
 
 
-<a name="nextcloud-14.0.15"></a>
-### [nextcloud-14.0.15](https://github.com/truecharts/apps/compare/nextcloud-14.0.14...nextcloud-14.0.15) (2022-07-04)
+<a name="prometheus-4.0.21"></a>
+### [prometheus-4.0.21](https://github.com/truecharts/apps/compare/prometheus-4.0.20...prometheus-4.0.21) (2022-07-05)
+
+#### Chore
+
+* update docker general non-major ([#3071](https://github.com/truecharts/apps/issues/3071))
+
+
+
+<a name="prometheus-4.0.20"></a>
+### [prometheus-4.0.20](https://github.com/truecharts/apps/compare/prometheus-4.0.19...prometheus-4.0.20) (2022-07-04)
 
 #### Chore
 
@@ -1104,8 +1132,26 @@
 
 
 
-<a name="nextcloud-14.0.14"></a>
-### [nextcloud-14.0.14](https://github.com/truecharts/apps/compare/nextcloud-14.0.13...nextcloud-14.0.14) (2022-07-01)
+<a name="prometheus-4.0.19"></a>
+### [prometheus-4.0.19](https://github.com/truecharts/apps/compare/prometheus-4.0.18...prometheus-4.0.19) (2022-07-04)
+
+#### Chore
+
+* update docker general non-major ([#3061](https://github.com/truecharts/apps/issues/3061))
+
+
+
+<a name="prometheus-4.0.18"></a>
+### [prometheus-4.0.18](https://github.com/truecharts/apps/compare/prometheus-4.0.17...prometheus-4.0.18) (2022-07-03)
+
+#### Chore
+
+* update docker general non-major ([#3052](https://github.com/truecharts/apps/issues/3052))
+
+
+
+<a name="prometheus-4.0.17"></a>
+### [prometheus-4.0.17](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.9...prometheus-4.0.17) (2022-07-01)
 
 #### Chore
 
@@ -1113,8 +1159,8 @@
 
 
 
-<a name="nextcloud-14.0.13"></a>
-### [nextcloud-14.0.13](https://github.com/truecharts/apps/compare/nextcloud-14.0.12...nextcloud-14.0.13) (2022-06-29)
+<a name="prometheus-4.0.16"></a>
+### [prometheus-4.0.16](https://github.com/truecharts/apps/compare/prometheus-4.0.15...prometheus-4.0.16) (2022-06-29)
 
 #### Chore
 
@@ -1122,31 +1168,17 @@
 
 
 
-<a name="nextcloud-14.0.12"></a>
-### [nextcloud-14.0.12](https://github.com/truecharts/apps/compare/nextcloud-14.0.11...nextcloud-14.0.12) (2022-06-27)
+<a name="prometheus-4.0.15"></a>
+### [prometheus-4.0.15](https://github.com/truecharts/apps/compare/prometheus-4.0.14...prometheus-4.0.15) (2022-06-27)
 
 #### Chore
 
-* update docker general non-major ([#2999](https://github.com/truecharts/apps/issues/2999))
+* update docker general non-major ([#2996](https://github.com/truecharts/apps/issues/2996))
 
 
 
-<a name="nextcloud-14.0.11"></a>
-### [nextcloud-14.0.11](https://github.com/truecharts/apps/compare/nextcloud-14.0.10...nextcloud-14.0.11) (2022-06-26)
-
-#### Chore
-
-* update docker general non-major ([#2988](https://github.com/truecharts/apps/issues/2988))
-
-
-
-<a name="nextcloud-14.0.10"></a>
-### [nextcloud-14.0.10](https://github.com/truecharts/apps/compare/nextcloud-14.0.9...nextcloud-14.0.10) (2022-06-25)
-
-
-
-<a name="nextcloud-14.0.9"></a>
-### [nextcloud-14.0.9](https://github.com/truecharts/apps/compare/nextcloud-14.0.8...nextcloud-14.0.9) (2022-06-25)
+<a name="prometheus-4.0.14"></a>
+### [prometheus-4.0.14](https://github.com/truecharts/apps/compare/prometheus-4.0.13...prometheus-4.0.14) (2022-06-25)
 
 #### Chore
 
@@ -1154,8 +1186,8 @@
 
 
 
-<a name="nextcloud-14.0.8"></a>
-### [nextcloud-14.0.8](https://github.com/truecharts/apps/compare/nextcloud-14.0.7...nextcloud-14.0.8) (2022-06-25)
+<a name="prometheus-4.0.13"></a>
+### [prometheus-4.0.13](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.7...prometheus-4.0.13) (2022-06-25)
 
 #### Chore
 
@@ -1163,8 +1195,8 @@
 
 
 
-<a name="nextcloud-14.0.7"></a>
-### [nextcloud-14.0.7](https://github.com/truecharts/apps/compare/nextcloud-14.0.6...nextcloud-14.0.7) (2022-06-22)
+<a name="prometheus-4.0.12"></a>
+### [prometheus-4.0.12](https://github.com/truecharts/apps/compare/prometheus-4.0.11...prometheus-4.0.12) (2022-06-22)
 
 #### Chore
 
@@ -1173,17 +1205,45 @@
 
 
 
-<a name="nextcloud-14.0.6"></a>
-### [nextcloud-14.0.6](https://github.com/truecharts/apps/compare/nextcloud-14.0.5...nextcloud-14.0.6) (2022-06-21)
+<a name="prometheus-4.0.11"></a>
+### [prometheus-4.0.11](https://github.com/truecharts/apps/compare/prometheus-4.0.10...prometheus-4.0.11) (2022-06-21)
 
 #### Chore
 
 * update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
+* update docker general non-major ([#2931](https://github.com/truecharts/apps/issues/2931))
 
 
 
-<a name="nextcloud-14.0.5"></a>
-### [nextcloud-14.0.5](https://github.com/truecharts/apps/compare/nextcloud-14.0.4...nextcloud-14.0.5) (2022-06-14)
+<a name="prometheus-4.0.10"></a>
+### [prometheus-4.0.10](https://github.com/truecharts/apps/compare/prometheus-4.0.9...prometheus-4.0.10) (2022-06-18)
+
+#### Chore
+
+* update docker general non-major ([#2927](https://github.com/truecharts/apps/issues/2927))
+
+
+
+<a name="prometheus-4.0.9"></a>
+### [prometheus-4.0.9](https://github.com/truecharts/apps/compare/prometheus-4.0.8...prometheus-4.0.9) (2022-06-17)
+
+#### Chore
+
+* update docker general non-major ([#2917](https://github.com/truecharts/apps/issues/2917))
+
+
+
+<a name="prometheus-4.0.8"></a>
+### [prometheus-4.0.8](https://github.com/truecharts/apps/compare/prometheus-4.0.7...prometheus-4.0.8) (2022-06-15)
+
+#### Chore
+
+* update docker general non-major ([#2890](https://github.com/truecharts/apps/issues/2890))
+
+
+
+<a name="prometheus-4.0.7"></a>
+### [prometheus-4.0.7](https://github.com/truecharts/apps/compare/prometheus-4.0.6...prometheus-4.0.7) (2022-06-14)
 
 #### Chore
 
@@ -1191,8 +1251,8 @@
 
 
 
-<a name="nextcloud-14.0.4"></a>
-### [nextcloud-14.0.4](https://github.com/truecharts/apps/compare/nextcloud-14.0.3...nextcloud-14.0.4) (2022-06-14)
+<a name="prometheus-4.0.6"></a>
+### [prometheus-4.0.6](https://github.com/truecharts/apps/compare/prometheus-4.0.5...prometheus-4.0.6) (2022-06-14)
 
 #### Chore
 
@@ -1200,17 +1260,17 @@
 
 
 
-<a name="nextcloud-14.0.3"></a>
-### [nextcloud-14.0.3](https://github.com/truecharts/apps/compare/nextcloud-14.0.2...nextcloud-14.0.3) (2022-06-14)
+<a name="prometheus-4.0.5"></a>
+### [prometheus-4.0.5](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-4.0.3...prometheus-4.0.5) (2022-06-14)
 
 #### Chore
 
-* update helm general non-major helm releases ([#2873](https://github.com/truecharts/apps/issues/2873))
+* update docker general non-major ([#2872](https://github.com/truecharts/apps/issues/2872))
 
 
 
-<a name="nextcloud-14.0.2"></a>
-### [nextcloud-14.0.2](https://github.com/truecharts/apps/compare/nextcloud-14.0.1...nextcloud-14.0.2) (2022-06-11)
+<a name="prometheus-4.0.4"></a>
+### [prometheus-4.0.4](https://github.com/truecharts/apps/compare/prometheus-4.0.3...prometheus-4.0.4) (2022-06-11)
 
 #### Chore
 
@@ -1218,8 +1278,8 @@
 
 
 
-<a name="nextcloud-14.0.1"></a>
-### [nextcloud-14.0.1](https://github.com/truecharts/apps/compare/nextcloud-14.0.0...nextcloud-14.0.1) (2022-06-11)
+<a name="prometheus-4.0.3"></a>
+### [prometheus-4.0.3](https://github.com/truecharts/apps/compare/prometheus-4.0.2...prometheus-4.0.3) (2022-06-11)
 
 #### Chore
 
@@ -1227,8 +1287,47 @@
 
 
 
-<a name="nextcloud-14.0.0"></a>
-### [nextcloud-14.0.0](https://github.com/truecharts/apps/compare/nextcloud-13.0.1...nextcloud-14.0.0) (2022-06-07)
+<a name="prometheus-4.0.2"></a>
+### [prometheus-4.0.2](https://github.com/truecharts/apps/compare/prometheus-4.0.1...prometheus-4.0.2) (2022-06-09)
+
+#### Chore
+
+* update docker general non-major ([#2846](https://github.com/truecharts/apps/issues/2846))
+
+
+
+<a name="prometheus-4.0.1"></a>
+### [prometheus-4.0.1](https://github.com/truecharts/apps/compare/prometheus-4.0.0...prometheus-4.0.1) (2022-06-08)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
+
+
+
+<a name="prometheus-4.0.1"></a>
+### [prometheus-4.0.1](https://github.com/truecharts/apps/compare/prometheus-4.0.0...prometheus-4.0.1) (2022-06-08)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
+
+
+
+<a name="prometheus-4.0.1"></a>
+### [prometheus-4.0.1](https://github.com/truecharts/apps/compare/prometheus-4.0.0...prometheus-4.0.1) (2022-06-08)
+
+#### Chore
+
+* update docker general non-major ([#2839](https://github.com/truecharts/apps/issues/2839))
+
+
+
+<a name="prometheus-4.0.0"></a>
+### [prometheus-4.0.0](https://github.com/truecharts/apps/compare/prometheus-3.0.1...prometheus-4.0.0) (2022-06-07)
 
 #### Chore
 
@@ -1240,14 +1339,12 @@
 
 
 
-<a name="nextcloud-13.0.1"></a>
-### [nextcloud-13.0.1](https://github.com/truecharts/apps/compare/nextcloud-12.0.32...nextcloud-13.0.1) (2022-06-07)
+<a name="prometheus-3.0.1"></a>
+### [prometheus-3.0.1](https://github.com/truecharts/apps/compare/prometheus-2.0.77...prometheus-3.0.1) (2022-06-07)
 
 #### Chore
 
 * Auto-update chart README [skip ci]
-* sync all apps persistence configuration and always default to PVC
-* update helm general non-major helm releases ([#2838](https://github.com/truecharts/apps/issues/2838))
 * update docker general non-major ([#2831](https://github.com/truecharts/apps/issues/2831))
 
 #### Fix
@@ -1260,12 +1357,8 @@
 
 
 
-<a name="nextcloud-13.0.0"></a>
-### [nextcloud-13.0.0](https://github.com/truecharts/apps/compare/nextcloud-12.0.32...nextcloud-13.0.0) (2022-06-07)
-
-#### Chore
-
-* sync all apps persistence configuration and always default to PVC
+<a name="prometheus-3.0.0"></a>
+### [prometheus-3.0.0](https://github.com/truecharts/apps/compare/prometheus-2.0.77...prometheus-3.0.0) (2022-06-07)
 
 #### Refactor
 
@@ -1273,8 +1366,35 @@
 
 
 
-<a name="nextcloud-12.0.32"></a>
-### [nextcloud-12.0.32](https://github.com/truecharts/apps/compare/nextcloud-12.0.31...nextcloud-12.0.32) (2022-05-31)
+<a name="prometheus-2.0.77"></a>
+### [prometheus-2.0.77](https://github.com/truecharts/apps/compare/prometheus-2.0.76...prometheus-2.0.77) (2022-06-04)
+
+#### Chore
+
+* update docker general non-major ([#2826](https://github.com/truecharts/apps/issues/2826))
+
+
+
+<a name="prometheus-2.0.76"></a>
+### [prometheus-2.0.76](https://github.com/truecharts/apps/compare/prometheus-2.0.75...prometheus-2.0.76) (2022-06-03)
+
+#### Chore
+
+* update docker general non-major ([#2821](https://github.com/truecharts/apps/issues/2821))
+
+
+
+<a name="prometheus-2.0.75"></a>
+### [prometheus-2.0.75](https://github.com/truecharts/apps/compare/prometheus-2.0.74...prometheus-2.0.75) (2022-06-02)
+
+#### Chore
+
+* update docker general non-major ([#2806](https://github.com/truecharts/apps/issues/2806))
+
+
+
+<a name="prometheus-2.0.74"></a>
+### [prometheus-2.0.74](https://github.com/truecharts/apps/compare/prometheus-2.0.73...prometheus-2.0.74) (2022-05-31)
 
 #### Chore
 
@@ -1283,8 +1403,17 @@
 
 
 
-<a name="nextcloud-12.0.31"></a>
-### [nextcloud-12.0.31](https://github.com/truecharts/apps/compare/nextcloud-12.0.30...nextcloud-12.0.31) (2022-05-26)
+<a name="prometheus-2.0.73"></a>
+### [prometheus-2.0.73](https://github.com/truecharts/apps/compare/prometheus-2.0.72...prometheus-2.0.73) (2022-05-29)
+
+#### Chore
+
+* update docker general non-major ([#2762](https://github.com/truecharts/apps/issues/2762))
+
+
+
+<a name="prometheus-2.0.72"></a>
+### [prometheus-2.0.72](https://github.com/truecharts/apps/compare/prometheus-2.0.71...prometheus-2.0.72) (2022-05-26)
 
 #### Chore
 
@@ -1293,8 +1422,8 @@
 
 
 
-<a name="nextcloud-12.0.31"></a>
-### [nextcloud-12.0.31](https://github.com/truecharts/apps/compare/nextcloud-12.0.30...nextcloud-12.0.31) (2022-05-26)
+<a name="prometheus-2.0.72"></a>
+### [prometheus-2.0.72](https://github.com/truecharts/apps/compare/prometheus-2.0.71...prometheus-2.0.72) (2022-05-26)
 
 #### Chore
 
@@ -1302,26 +1431,36 @@
 
 
 
-<a name="nextcloud-12.0.30"></a>
-### [nextcloud-12.0.30](https://github.com/truecharts/apps/compare/nextcloud-12.0.29...nextcloud-12.0.30) (2022-05-24)
+<a name="prometheus-2.0.71"></a>
+### [prometheus-2.0.71](https://github.com/truecharts/apps/compare/prometheus-2.0.70...prometheus-2.0.71) (2022-05-26)
+
+#### Chore
+
+* update docker general non-major ([#2756](https://github.com/truecharts/apps/issues/2756))
+
+
+
+<a name="prometheus-2.0.70"></a>
+### [prometheus-2.0.70](https://github.com/truecharts/apps/compare/prometheus-2.0.69...prometheus-2.0.70) (2022-05-25)
+
+#### Chore
+
+* update docker general non-major ([#2745](https://github.com/truecharts/apps/issues/2745))
+
+
+
+<a name="prometheus-2.0.69"></a>
+### [prometheus-2.0.69](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-3.0.17...prometheus-2.0.69) (2022-05-24)
 
 #### Chore
 
 * update docker general non-major ([#2744](https://github.com/truecharts/apps/issues/2744))
+* update docker general non-major ([#2740](https://github.com/truecharts/apps/issues/2740))
 
 
 
-<a name="nextcloud-12.0.29"></a>
-### [nextcloud-12.0.29](https://github.com/truecharts/apps/compare/nextcloud-12.0.28...nextcloud-12.0.29) (2022-05-24)
-
-#### Chore
-
-* update container image tccr.io/truecharts/nextcloud to v24.0.0 ([#2714](https://github.com/truecharts/apps/issues/2714))
-
-
-
-<a name="nextcloud-12.0.28"></a>
-### [nextcloud-12.0.28](https://github.com/truecharts/apps/compare/nextcloud-12.0.27...nextcloud-12.0.28) (2022-05-24)
+<a name="prometheus-2.0.68"></a>
+### [prometheus-2.0.68](https://github.com/truecharts/apps/compare/prometheus-2.0.67...prometheus-2.0.68) (2022-05-24)
 
 #### Chore
 
@@ -1329,18 +1468,48 @@
 
 
 
-<a name="nextcloud-12.0.27"></a>
-### [nextcloud-12.0.27](https://github.com/truecharts/apps/compare/nextcloud-12.0.26...nextcloud-12.0.27) (2022-05-17)
+<a name="prometheus-2.0.67"></a>
+### [prometheus-2.0.67](https://github.com/truecharts/apps/compare/prometheus-2.0.66...prometheus-2.0.67) (2022-05-23)
+
+#### Chore
+
+* update docker general non-major ([#2733](https://github.com/truecharts/apps/issues/2733))
+
+
+
+<a name="prometheus-2.0.66"></a>
+### [prometheus-2.0.66](https://github.com/truecharts/apps/compare/prometheus-2.0.63...prometheus-2.0.66) (2022-05-22)
+
+#### Chore
+
+* update docker general non-major ([#2730](https://github.com/truecharts/apps/issues/2730))
+* update docker general non-major ([#2724](https://github.com/truecharts/apps/issues/2724))
+* update docker general non-major ([#2720](https://github.com/truecharts/apps/issues/2720))
+
+
+
+<a name="prometheus-2.0.63"></a>
+### [prometheus-2.0.63](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-3.0.16...prometheus-2.0.63) (2022-05-19)
+
+#### Chore
+
+* update docker general non-major ([#2711](https://github.com/truecharts/apps/issues/2711))
+
+
+
+<a name="prometheus-2.0.62"></a>
+### [prometheus-2.0.62](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-3.0.15...prometheus-2.0.62) (2022-05-18)
 
 #### Chore
 
 * Auto-update chart README [skip ci]
+* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
 * update helm general non-major helm releases
 
 
 
-<a name="nextcloud-12.0.27"></a>
-### [nextcloud-12.0.27](https://github.com/truecharts/apps/compare/nextcloud-12.0.26...nextcloud-12.0.27) (2022-05-17)
+<a name="prometheus-2.0.61"></a>
+### [prometheus-2.0.61](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-3.0.15...prometheus-2.0.61) (2022-05-17)
 
 #### Chore
 
@@ -1348,17 +1517,63 @@
 
 
 
-<a name="nextcloud-12.0.26"></a>
-### [nextcloud-12.0.26](https://github.com/truecharts/apps/compare/nextcloud-12.0.25...nextcloud-12.0.26) (2022-05-17)
+<a name="prometheus-2.0.60"></a>
+### [prometheus-2.0.60](https://github.com/truecharts/apps/compare/prometheus-2.0.59...prometheus-2.0.60) (2022-05-17)
 
 #### Chore
 
+* update docker general non-major ([#2695](https://github.com/truecharts/apps/issues/2695))
 * update helm general non-major helm releases
 
 
 
-<a name="nextcloud-12.0.25"></a>
-### [nextcloud-12.0.25](https://github.com/truecharts/apps/compare/nextcloud-12.0.24...nextcloud-12.0.25) (2022-05-10)
+<a name="prometheus-2.0.59"></a>
+### [prometheus-2.0.59](https://github.com/truecharts/apps/compare/prometheus-2.0.58...prometheus-2.0.59) (2022-05-16)
+
+#### Chore
+
+* update docker general non-major ([#2692](https://github.com/truecharts/apps/issues/2692))
+
+
+
+<a name="prometheus-2.0.58"></a>
+### [prometheus-2.0.58](https://github.com/truecharts/apps/compare/prometheus-2.0.57...prometheus-2.0.58) (2022-05-15)
+
+#### Chore
+
+* update docker general non-major ([#2686](https://github.com/truecharts/apps/issues/2686))
+
+
+
+<a name="prometheus-2.0.57"></a>
+### [prometheus-2.0.57](https://github.com/truecharts/apps/compare/prometheus-2.0.56...prometheus-2.0.57) (2022-05-14)
+
+#### Chore
+
+* update docker general non-major ([#2679](https://github.com/truecharts/apps/issues/2679))
+
+
+
+<a name="prometheus-2.0.56"></a>
+### [prometheus-2.0.56](https://github.com/truecharts/apps/compare/prometheus-2.0.55...prometheus-2.0.56) (2022-05-13)
+
+#### Chore
+
+* update docker general non-major ([#2658](https://github.com/truecharts/apps/issues/2658))
+
+
+
+<a name="prometheus-2.0.55"></a>
+### [prometheus-2.0.55](https://github.com/truecharts/apps/compare/prometheus-2.0.54...prometheus-2.0.55) (2022-05-11)
+
+#### Chore
+
+* update docker general non-major ([#2653](https://github.com/truecharts/apps/issues/2653))
+
+
+
+<a name="prometheus-2.0.54"></a>
+### [prometheus-2.0.54](https://github.com/truecharts/apps/compare/prometheus-2.0.53...prometheus-2.0.54) (2022-05-10)
 
 #### Chore
 
@@ -1366,8 +1581,53 @@
 
 
 
-<a name="nextcloud-12.0.24"></a>
-### [nextcloud-12.0.24](https://github.com/truecharts/apps/compare/nextcloud-12.0.23...nextcloud-12.0.24) (2022-05-05)
+<a name="prometheus-2.0.53"></a>
+### [prometheus-2.0.53](https://github.com/truecharts/apps/compare/prometheus-2.0.52...prometheus-2.0.53) (2022-05-10)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="prometheus-2.0.52"></a>
+### [prometheus-2.0.52](https://github.com/truecharts/apps/compare/prometheus-2.0.51...prometheus-2.0.52) (2022-05-09)
+
+#### Chore
+
+* update docker general non-major ([#2641](https://github.com/truecharts/apps/issues/2641))
+
+
+
+<a name="prometheus-2.0.51"></a>
+### [prometheus-2.0.51](https://github.com/truecharts/apps/compare/prometheus-2.0.50...prometheus-2.0.51) (2022-05-08)
+
+#### Chore
+
+* update docker general non-major ([#2639](https://github.com/truecharts/apps/issues/2639))
+
+
+
+<a name="prometheus-2.0.50"></a>
+### [prometheus-2.0.50](https://github.com/truecharts/apps/compare/prometheus-2.0.49...prometheus-2.0.50) (2022-05-06)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="prometheus-2.0.49"></a>
+### [prometheus-2.0.49](https://github.com/truecharts/apps/compare/prometheus-2.0.48...prometheus-2.0.49) (2022-05-06)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="prometheus-2.0.48"></a>
+### [prometheus-2.0.48](https://github.com/truecharts/apps/compare/prometheus-2.0.47...prometheus-2.0.48) (2022-05-05)
 
 #### Chore
 
@@ -1375,8 +1635,8 @@
 
 
 
-<a name="nextcloud-12.0.23"></a>
-### [nextcloud-12.0.23](https://github.com/truecharts/apps/compare/nextcloud-12.0.22...nextcloud-12.0.23) (2022-05-04)
+<a name="prometheus-2.0.47"></a>
+### [prometheus-2.0.47](https://github.com/truecharts/apps/compare/prometheus-2.0.46...prometheus-2.0.47) (2022-05-04)
 
 #### Chore
 
@@ -1384,17 +1644,26 @@
 
 
 
-<a name="nextcloud-12.0.22"></a>
-### [nextcloud-12.0.22](https://github.com/truecharts/apps/compare/nextcloud-12.0.21...nextcloud-12.0.22) (2022-05-04)
+<a name="prometheus-2.0.46"></a>
+### [prometheus-2.0.46](https://github.com/truecharts/apps/compare/prometheus-2.0.45...prometheus-2.0.46) (2022-04-29)
 
 #### Chore
 
-* update helm general non-major helm releases ([#2605](https://github.com/truecharts/apps/issues/2605))
+* update docker general non-major ([#2581](https://github.com/truecharts/apps/issues/2581))
 
 
 
-<a name="nextcloud-12.0.21"></a>
-### [nextcloud-12.0.21](https://github.com/truecharts/apps/compare/nextcloud-12.0.20...nextcloud-12.0.21) (2022-04-26)
+<a name="prometheus-2.0.45"></a>
+### [prometheus-2.0.45](https://github.com/truecharts/apps/compare/prometheus-2.0.44...prometheus-2.0.45) (2022-04-28)
+
+#### Chore
+
+* update docker general non-major ([#2577](https://github.com/truecharts/apps/issues/2577))
+
+
+
+<a name="prometheus-2.0.44"></a>
+### [prometheus-2.0.44](https://github.com/truecharts/apps/compare/prometheus-2.0.43...prometheus-2.0.44) (2022-04-26)
 
 #### Chore
 
@@ -1402,18 +1671,80 @@
 
 
 
-<a name="nextcloud-12.0.20"></a>
-### [nextcloud-12.0.20](https://github.com/truecharts/apps/compare/nextcloud-12.0.19...nextcloud-12.0.20) (2022-04-20)
+<a name="prometheus-2.0.43"></a>
+### [prometheus-2.0.43](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-3.0.11...prometheus-2.0.43) (2022-04-26)
 
 #### Chore
 
-* add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
+* update docker general non-major ([#2571](https://github.com/truecharts/apps/issues/2571))
+
+
+
+<a name="prometheus-2.0.42"></a>
+### [prometheus-2.0.42](https://github.com/truecharts/apps/compare/prometheus-2.0.41...prometheus-2.0.42) (2022-04-20)
+
+#### Chore
+
 * update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
 
 
 
-<a name="nextcloud-12.0.19"></a>
-### [nextcloud-12.0.19](https://github.com/truecharts/apps/compare/nextcloud-12.0.18...nextcloud-12.0.19) (2022-04-12)
+<a name="prometheus-2.0.41"></a>
+### [prometheus-2.0.41](https://github.com/truecharts/apps/compare/prometheus-2.0.40...prometheus-2.0.41) (2022-04-20)
+
+#### Chore
+
+* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+
+
+
+<a name="prometheus-2.0.40"></a>
+### [prometheus-2.0.40](https://github.com/truecharts/apps/compare/prometheus-2.0.39...prometheus-2.0.40) (2022-04-18)
+
+#### Chore
+
+* update docker general non-major ([#2502](https://github.com/truecharts/apps/issues/2502))
+
+
+
+<a name="prometheus-2.0.39"></a>
+### [prometheus-2.0.39](https://github.com/truecharts/apps/compare/prometheus-2.0.38...prometheus-2.0.39) (2022-04-17)
+
+#### Chore
+
+* update docker general non-major ([#2497](https://github.com/truecharts/apps/issues/2497))
+
+
+
+<a name="prometheus-2.0.38"></a>
+### [prometheus-2.0.38](https://github.com/truecharts/apps/compare/prometheus-2.0.37...prometheus-2.0.38) (2022-04-16)
+
+#### Chore
+
+* update docker general non-major ([#2494](https://github.com/truecharts/apps/issues/2494))
+
+
+
+<a name="prometheus-2.0.37"></a>
+### [prometheus-2.0.37](https://github.com/truecharts/apps/compare/prometheus-2.0.36...prometheus-2.0.37) (2022-04-13)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="prometheus-2.0.36"></a>
+### [prometheus-2.0.36](https://github.com/truecharts/apps/compare/prometheus-2.0.35...prometheus-2.0.36) (2022-04-12)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="prometheus-2.0.35"></a>
+### [prometheus-2.0.35](https://github.com/truecharts/apps/compare/prometheus-2.0.34...prometheus-2.0.35) (2022-04-12)
 
 #### Chore
 
@@ -1421,26 +1752,90 @@
 
 
 
-<a name="nextcloud-12.0.18"></a>
-### [nextcloud-12.0.18](https://github.com/truecharts/apps/compare/nextcloud-12.0.17...nextcloud-12.0.18) (2022-04-03)
+<a name="prometheus-2.0.34"></a>
+### [prometheus-2.0.34](https://github.com/truecharts/apps/compare/prometheus-2.0.33...prometheus-2.0.34) (2022-04-12)
+
+#### Chore
+
+* update docker general non-major ([#2478](https://github.com/truecharts/apps/issues/2478))
+
+
+
+<a name="prometheus-2.0.33"></a>
+### [prometheus-2.0.33](https://github.com/truecharts/apps/compare/prometheus-2.0.32...prometheus-2.0.33) (2022-04-09)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="prometheus-2.0.32"></a>
+### [prometheus-2.0.32](https://github.com/truecharts/apps/compare/prometheus-2.0.31...prometheus-2.0.32) (2022-04-09)
+
+#### Chore
+
+* update docker general non-major ([#2460](https://github.com/truecharts/apps/issues/2460))
+
+
+
+<a name="prometheus-2.0.31"></a>
+### [prometheus-2.0.31](https://github.com/truecharts/apps/compare/prometheus-2.0.30...prometheus-2.0.31) (2022-04-06)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="prometheus-2.0.30"></a>
+### [prometheus-2.0.30](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-3.0.9...prometheus-2.0.30) (2022-04-04)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="prometheus-2.0.29"></a>
+### [prometheus-2.0.29](https://github.com/truecharts/apps/compare/prometheus-2.0.28...prometheus-2.0.29) (2022-04-03)
 
 #### Chore
 
 * update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
+* update docker general non-major ([#2414](https://github.com/truecharts/apps/issues/2414))
 
 
 
-<a name="nextcloud-12.0.17"></a>
-### [nextcloud-12.0.17](https://github.com/truecharts/apps/compare/nextcloud-12.0.16...nextcloud-12.0.17) (2022-03-31)
+<a name="prometheus-2.0.28"></a>
+### [prometheus-2.0.28](https://github.com/truecharts/apps/compare/prometheus-2.0.27...prometheus-2.0.28) (2022-04-03)
 
 #### Chore
 
-* update helm general non-major helm releases ([#2362](https://github.com/truecharts/apps/issues/2362))
+* update docker general non-major
 
 
 
-<a name="nextcloud-12.0.16"></a>
-### [nextcloud-12.0.16](https://github.com/truecharts/apps/compare/nextcloud-12.0.14...nextcloud-12.0.16) (2022-03-31)
+<a name="prometheus-2.0.27"></a>
+### [prometheus-2.0.27](https://github.com/truecharts/apps/compare/prometheus-2.0.26...prometheus-2.0.27) (2022-04-02)
+
+#### Chore
+
+* update docker general non-major ([#2383](https://github.com/truecharts/apps/issues/2383))
+
+
+
+<a name="prometheus-2.0.26"></a>
+### [prometheus-2.0.26](https://github.com/truecharts/apps/compare/prometheus-2.0.25...prometheus-2.0.26) (2022-04-01)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="prometheus-2.0.25"></a>
+### [prometheus-2.0.25](https://github.com/truecharts/apps/compare/prometheus-2.0.23...prometheus-2.0.25) (2022-03-31)
 
 #### Chore
 
@@ -1449,8 +1844,8 @@
 
 
 
-<a name="nextcloud-12.0.14"></a>
-### [nextcloud-12.0.14](https://github.com/truecharts/apps/compare/nextcloud-12.0.13...nextcloud-12.0.14) (2022-03-30)
+<a name="prometheus-2.0.23"></a>
+### [prometheus-2.0.23](https://github.com/truecharts/apps/compare/prometheus-2.0.22...prometheus-2.0.23) (2022-03-30)
 
 #### Chore
 
@@ -1459,8 +1854,18 @@
 
 
 
-<a name="nextcloud-12.0.13"></a>
-### [nextcloud-12.0.13](https://github.com/truecharts/apps/compare/nextcloud-12.0.12...nextcloud-12.0.13) (2022-03-30)
+<a name="prometheus-2.0.22"></a>
+### [prometheus-2.0.22](https://github.com/truecharts/apps/compare/prometheus-2.0.21...prometheus-2.0.22) (2022-03-30)
+
+#### Chore
+
+* Auto-update chart README [skip ci]
+* update docker general non-major ([#2349](https://github.com/truecharts/apps/issues/2349))
+
+
+
+<a name="prometheus-2.0.21"></a>
+### [prometheus-2.0.21](https://github.com/truecharts/apps/compare/prometheus-2.0.20...prometheus-2.0.21) (2022-03-30)
 
 #### Chore
 
@@ -1468,36 +1873,17 @@
 
 
 
-<a name="nextcloud-12.0.12"></a>
-### [nextcloud-12.0.12](https://github.com/truecharts/apps/compare/nextcloud-12.0.11...nextcloud-12.0.12) (2022-03-30)
+<a name="prometheus-2.0.20"></a>
+### [prometheus-2.0.20](https://github.com/truecharts/apps/compare/prometheus-2.0.19...prometheus-2.0.20) (2022-03-30)
 
 #### Chore
 
-* Use new repo ([#2337](https://github.com/truecharts/apps/issues/2337))
 * update docker general non-major ([#2338](https://github.com/truecharts/apps/issues/2338))
 
 
 
-<a name="nextcloud-12.0.11"></a>
-### [nextcloud-12.0.11](https://github.com/truecharts/apps/compare/nextcloud-12.0.10...nextcloud-12.0.11) (2022-03-26)
-
-#### Chore
-
-* update helm general non-major helm releases ([#2290](https://github.com/truecharts/apps/issues/2290))
-
-
-
-<a name="nextcloud-12.0.10"></a>
-### [nextcloud-12.0.10](https://github.com/truecharts/apps/compare/nextcloud-12.0.9...nextcloud-12.0.10) (2022-03-26)
-
-#### Chore
-
-* bump all apps to trigger ci
-
-
-
-<a name="nextcloud-12.0.8"></a>
-### [nextcloud-12.0.8](https://github.com/truecharts/apps/compare/nextcloud-12.0.7...nextcloud-12.0.8) (2022-03-24)
+<a name="prometheus-2.0.19"></a>
+### [prometheus-2.0.19](https://github.com/truecharts/apps/compare/prometheus-2.0.18...prometheus-2.0.19) (2022-03-28)
 
 #### Chore
 
@@ -1505,8 +1891,101 @@
 
 
 
-<a name="nextcloud-12.0.4"></a>
-### [nextcloud-12.0.4](https://github.com/truecharts/apps/compare/nextcloud-12.0.3...nextcloud-12.0.4) (2022-03-15)
+<a name="prometheus-2.0.18"></a>
+### [prometheus-2.0.18](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-3.0.6...prometheus-2.0.18) (2022-03-27)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="prometheus-2.0.17"></a>
+### [prometheus-2.0.17](https://github.com/truecharts/apps/compare/prometheus-2.0.16...prometheus-2.0.17) (2022-03-26)
+
+#### Chore
+
+* bump all apps to trigger ci
+
+
+
+<a name="prometheus-2.0.15"></a>
+### [prometheus-2.0.15](https://github.com/truecharts/apps/compare/prometheus-2.0.14...prometheus-2.0.15) (2022-03-26)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="prometheus-2.0.14"></a>
+### [prometheus-2.0.14](https://github.com/truecharts/apps/compare/prometheus-2.0.13...prometheus-2.0.14) (2022-03-24)
+
+#### Chore
+
+* update docker general non-major
+
+
+
+<a name="prometheus-2.0.13"></a>
+### [prometheus-2.0.13](https://github.com/truecharts/apps/compare/prometheus-2.0.12...prometheus-2.0.13) (2022-03-24)
+
+#### Chore
+
+* update docker general non-major ([#2259](https://github.com/truecharts/apps/issues/2259))
+
+
+
+<a name="prometheus-2.0.12"></a>
+### [prometheus-2.0.12](https://github.com/truecharts/apps/compare/prometheus-2.0.11...prometheus-2.0.12) (2022-03-23)
+
+#### Chore
+
+* update docker general non-major
+* update docker general non-major
+
+
+
+<a name="prometheus-2.0.10"></a>
+### [prometheus-2.0.10](https://github.com/truecharts/apps/compare/prometheus-2.0.9...prometheus-2.0.10) (2022-03-20)
+
+#### Chore
+
+* update docker general non-major
+* update docker general non-major
+
+
+
+<a name="prometheus-2.0.8"></a>
+### [prometheus-2.0.8](https://github.com/truecharts/apps/compare/prometheus-2.0.7...prometheus-2.0.8) (2022-03-17)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2186](https://github.com/truecharts/apps/issues/2186))
+
+
+
+<a name="prometheus-2.0.7"></a>
+### [prometheus-2.0.7](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-3.0.2...prometheus-2.0.7) (2022-03-17)
+
+#### Chore
+
+* update docker general non-major ([#2198](https://github.com/truecharts/apps/issues/2198))
+* update docker general non-major ([#2196](https://github.com/truecharts/apps/issues/2196))
+
+
+
+<a name="prometheus-2.0.5"></a>
+### [prometheus-2.0.5](https://github.com/truecharts/apps/compare/prometheus-2.0.4...prometheus-2.0.5) (2022-03-15)
+
+#### Chore
+
+* update docker general non-major ([#2178](https://github.com/truecharts/apps/issues/2178))
+
+
+
+<a name="prometheus-2.0.4"></a>
+### [prometheus-2.0.4](https://github.com/truecharts/apps/compare/prometheus-2.0.3...prometheus-2.0.4) (2022-03-15)
 
 #### Chore
 
@@ -1514,8 +1993,8 @@
 
 
 
-<a name="nextcloud-12.0.3"></a>
-### [nextcloud-12.0.3](https://github.com/truecharts/apps/compare/nextcloud-12.0.2...nextcloud-12.0.3) (2022-03-08)
+<a name="prometheus-2.0.3"></a>
+### [prometheus-2.0.3](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-3.0.1...prometheus-2.0.3) (2022-03-08)
 
 #### Chore
 
@@ -1523,18 +2002,18 @@
 
 
 
-<a name="nextcloud-12.0.2"></a>
-### [nextcloud-12.0.2](https://github.com/truecharts/apps/compare/nextcloud-12.0.1...nextcloud-12.0.2) (2022-03-07)
+<a name="prometheus-2.0.2"></a>
+### [prometheus-2.0.2](https://github.com/truecharts/apps/compare/prometheus-2.0.1...prometheus-2.0.2) (2022-03-07)
 
 #### Chore
 
 * update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
-* update container image tccr.io/truecharts/nextcloud to v23.0.2 ([#2110](https://github.com/truecharts/apps/issues/2110))
+* update docker general non-major ([#2108](https://github.com/truecharts/apps/issues/2108))
 
 
 
-<a name="nextcloud-12.0.1"></a>
-### [nextcloud-12.0.1](https://github.com/truecharts/apps/compare/nextcloud-12.0.0...nextcloud-12.0.1) (2022-03-07)
+<a name="prometheus-2.0.1"></a>
+### [prometheus-2.0.1](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-3.0.0...prometheus-2.0.1) (2022-03-07)
 
 #### Chore
 
@@ -1543,23 +2022,18 @@
 
 
 
-<a name="nextcloud-12.0.0"></a>
-### [nextcloud-12.0.0](https://github.com/truecharts/apps/compare/nextcloud-11.0.33...nextcloud-12.0.0) (2022-03-03)
+<a name="prometheus-2.0.0"></a>
+### [prometheus-2.0.0](https://github.com/truecharts/apps/compare/prometheus-1.1.73...prometheus-2.0.0) (2022-03-03)
 
 #### Chore
 
-* remove fixed env from questions.yaml
 * update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
 * update docker general non-major ([#2008](https://github.com/truecharts/apps/issues/2008))
 
-#### Fix
-
-* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
 
 
-
-<a name="nextcloud-11.0.33"></a>
-### [nextcloud-11.0.33](https://github.com/truecharts/apps/compare/nextcloud-11.0.32...nextcloud-11.0.33) (2022-03-03)
+<a name="prometheus-1.1.73"></a>
+### [prometheus-1.1.73](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-2.0.23...prometheus-1.1.73) (2022-03-03)
 
 #### Chore
 
@@ -1567,18 +2041,66 @@
 
 
 
-<a name="nextcloud-11.0.32"></a>
-### [nextcloud-11.0.32](https://github.com/truecharts/apps/compare/nextcloud-11.0.31...nextcloud-11.0.32) (2022-03-02)
+<a name="prometheus-1.1.72"></a>
+### [prometheus-1.1.72](https://github.com/truecharts/apps/compare/prometheus-1.1.71...prometheus-1.1.72) (2022-03-02)
 
 #### Chore
 
-* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
 * update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
 
 
 
-<a name="nextcloud-11.0.31"></a>
-### [nextcloud-11.0.31](https://github.com/truecharts/apps/compare/nextcloud-11.0.30...nextcloud-11.0.31) (2022-02-21)
+<a name="prometheus-1.1.71"></a>
+### [prometheus-1.1.71](https://github.com/truecharts/apps/compare/prometheus-1.1.70...prometheus-1.1.71) (2022-02-28)
+
+#### Chore
+
+* update docker general non-major ([#1983](https://github.com/truecharts/apps/issues/1983))
+
+
+
+<a name="prometheus-1.1.70"></a>
+### [prometheus-1.1.70](https://github.com/truecharts/apps/compare/prometheus-1.1.69...prometheus-1.1.70) (2022-02-28)
+
+#### Chore
+
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
+<a name="prometheus-1.1.69"></a>
+### [prometheus-1.1.69](https://github.com/truecharts/apps/compare/prometheus-1.1.68...prometheus-1.1.69) (2022-02-26)
+
+#### Fix
+
+* enable hostNetworking and change port ([#1969](https://github.com/truecharts/apps/issues/1969))
+
+
+
+<a name="prometheus-1.1.68"></a>
+### [prometheus-1.1.68](https://github.com/truecharts/apps/compare/prometheus-1.1.67...prometheus-1.1.68) (2022-02-26)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+
+#### Fix
+
+* don't export node-exporter on host
+
+
+
+<a name="prometheus-1.1.67"></a>
+### [prometheus-1.1.67](https://github.com/truecharts/apps/compare/prometheus-1.1.66...prometheus-1.1.67) (2022-02-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1932](https://github.com/truecharts/apps/issues/1932))
+
+
+
+<a name="prometheus-1.1.66"></a>
+### [prometheus-1.1.66](https://github.com/truecharts/apps/compare/prometheus-1.1.65...prometheus-1.1.66) (2022-02-21)
 
 #### Chore
 
@@ -1586,18 +2108,17 @@
 
 
 
-<a name="nextcloud-11.0.30"></a>
-### [nextcloud-11.0.30](https://github.com/truecharts/apps/compare/nextcloud-11.0.29...nextcloud-11.0.30) (2022-02-21)
+<a name="prometheus-1.1.65"></a>
+### [prometheus-1.1.65](https://github.com/truecharts/apps/compare/prometheus-1.1.64...prometheus-1.1.65) (2022-02-21)
 
 #### Chore
 
 * update docker general non-major ([#1924](https://github.com/truecharts/apps/issues/1924))
-* clrearly indicate values that used only on first install ([#1909](https://github.com/truecharts/apps/issues/1909))
 
 
 
-<a name="nextcloud-11.0.29"></a>
-### [nextcloud-11.0.29](https://github.com/truecharts/apps/compare/nextcloud-11.0.28...nextcloud-11.0.29) (2022-02-15)
+<a name="prometheus-1.1.64"></a>
+### [prometheus-1.1.64](https://github.com/truecharts/apps/compare/prometheus-1.1.63...prometheus-1.1.64) (2022-02-15)
 
 #### Chore
 
@@ -1605,8 +2126,26 @@
 
 
 
-<a name="nextcloud-11.0.28"></a>
-### [nextcloud-11.0.28](https://github.com/truecharts/apps/compare/nextcloud-11.0.27...nextcloud-11.0.28) (2022-02-08)
+<a name="prometheus-1.1.63"></a>
+### [prometheus-1.1.63](https://github.com/truecharts/apps/compare/prometheus-1.1.62...prometheus-1.1.63) (2022-02-14)
+
+#### Chore
+
+* update docker general non-major ([#1895](https://github.com/truecharts/apps/issues/1895))
+
+
+
+<a name="prometheus-1.1.62"></a>
+### [prometheus-1.1.62](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-2.0.20...prometheus-1.1.62) (2022-02-10)
+
+#### Chore
+
+* update docker general non-major ([#1876](https://github.com/truecharts/apps/issues/1876))
+
+
+
+<a name="prometheus-1.1.61"></a>
+### [prometheus-1.1.61](https://github.com/truecharts/apps/compare/prometheus-1.1.60...prometheus-1.1.61) (2022-02-08)
 
 #### Chore
 
@@ -1614,17 +2153,36 @@
 
 
 
-<a name="nextcloud-11.0.27"></a>
-### [nextcloud-11.0.27](https://github.com/truecharts/apps/compare/nextcloud-11.0.26...nextcloud-11.0.27) (2022-02-06)
+<a name="prometheus-1.1.60"></a>
+### [prometheus-1.1.60](https://github.com/truecharts/apps/compare/prometheus-1.1.59...prometheus-1.1.60) (2022-02-08)
+
+#### Chore
+
+* update docker general non-major ([#1869](https://github.com/truecharts/apps/issues/1869))
+
+
+
+<a name="prometheus-1.1.59"></a>
+### [prometheus-1.1.59](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-2.0.19...prometheus-1.1.59) (2022-02-07)
+
+#### Chore
+
+* update docker general non-major ([#1863](https://github.com/truecharts/apps/issues/1863))
+
+
+
+<a name="prometheus-1.1.58"></a>
+### [prometheus-1.1.58](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-2.0.18...prometheus-1.1.58) (2022-02-06)
 
 #### Chore
 
 * update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+* update docker general non-major ([#1855](https://github.com/truecharts/apps/issues/1855))
 
 
 
-<a name="nextcloud-11.0.26"></a>
-### [nextcloud-11.0.26](https://github.com/truecharts/apps/compare/nextcloud-11.0.25...nextcloud-11.0.26) (2022-02-05)
+<a name="prometheus-1.1.57"></a>
+### [prometheus-1.1.57](https://github.com/truecharts/apps/compare/prometheus-1.1.56...prometheus-1.1.57) (2022-02-05)
 
 #### Chore
 
@@ -1633,8 +2191,17 @@
 
 
 
-<a name="nextcloud-11.0.25"></a>
-### [nextcloud-11.0.25](https://github.com/truecharts/apps/compare/nextcloud-11.0.24...nextcloud-11.0.25) (2022-02-02)
+<a name="prometheus-1.1.56"></a>
+### [prometheus-1.1.56](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-2.0.17...prometheus-1.1.56) (2022-02-03)
+
+#### Chore
+
+* update docker general non-major ([#1836](https://github.com/truecharts/apps/issues/1836))
+
+
+
+<a name="prometheus-1.1.55"></a>
+### [prometheus-1.1.55](https://github.com/truecharts/apps/compare/prometheus-1.1.54...prometheus-1.1.55) (2022-02-02)
 
 #### Chore
 
@@ -1642,8 +2209,8 @@
 
 
 
-<a name="nextcloud-11.0.24"></a>
-### [nextcloud-11.0.24](https://github.com/truecharts/apps/compare/nextcloud-11.0.23...nextcloud-11.0.24) (2022-01-31)
+<a name="prometheus-1.1.54"></a>
+### [prometheus-1.1.54](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-2.0.16...prometheus-1.1.54) (2022-01-31)
 
 #### Chore
 
@@ -1651,8 +2218,8 @@
 
 
 
-<a name="nextcloud-11.0.23"></a>
-### [nextcloud-11.0.23](https://github.com/truecharts/apps/compare/nextcloud-11.0.22...nextcloud-11.0.23) (2022-01-25)
+<a name="prometheus-1.1.53"></a>
+### [prometheus-1.1.53](https://github.com/truecharts/apps/compare/prometheus-1.1.52...prometheus-1.1.53) (2022-01-25)
 
 #### Chore
 
@@ -1660,8 +2227,26 @@
 
 
 
-<a name="nextcloud-11.0.22"></a>
-### [nextcloud-11.0.22](https://github.com/truecharts/apps/compare/nextcloud-11.0.21...nextcloud-11.0.22) (2022-01-22)
+<a name="prometheus-1.1.52"></a>
+### [prometheus-1.1.52](https://github.com/truecharts/apps/compare/prometheus-1.1.51...prometheus-1.1.52) (2022-01-24)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1787](https://github.com/truecharts/apps/issues/1787))
+
+
+
+<a name="prometheus-1.1.51"></a>
+### [prometheus-1.1.51](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-2.0.15...prometheus-1.1.51) (2022-01-24)
+
+#### Chore
+
+* update docker general non-major ([#1786](https://github.com/truecharts/apps/issues/1786))
+
+
+
+<a name="prometheus-1.1.50"></a>
+### [prometheus-1.1.50](https://github.com/truecharts/apps/compare/prometheus-1.1.49...prometheus-1.1.50) (2022-01-22)
 
 #### Chore
 
@@ -1669,8 +2254,8 @@
 
 
 
-<a name="nextcloud-11.0.21"></a>
-### [nextcloud-11.0.21](https://github.com/truecharts/apps/compare/nextcloud-11.0.20...nextcloud-11.0.21) (2022-01-22)
+<a name="prometheus-1.1.49"></a>
+### [prometheus-1.1.49](https://github.com/truecharts/apps/compare/prometheus-1.1.48...prometheus-1.1.49) (2022-01-22)
 
 #### Chore
 
@@ -1678,17 +2263,8 @@
 
 
 
-<a name="nextcloud-11.0.20"></a>
-### [nextcloud-11.0.20](https://github.com/truecharts/apps/compare/nextcloud-11.0.19...nextcloud-11.0.20) (2022-01-22)
-
-#### Chore
-
-* update helm general non-major helm releases ([#1763](https://github.com/truecharts/apps/issues/1763))
-
-
-
-<a name="nextcloud-11.0.19"></a>
-### [nextcloud-11.0.19](https://github.com/truecharts/apps/compare/nextcloud-11.0.18...nextcloud-11.0.19) (2022-01-21)
+<a name="prometheus-1.1.48"></a>
+### [prometheus-1.1.48](https://github.com/truecharts/apps/compare/prometheus-1.1.47...prometheus-1.1.48) (2022-01-21)
 
 #### Chore
 
@@ -1696,8 +2272,8 @@
 
 
 
-<a name="nextcloud-11.0.18"></a>
-### [nextcloud-11.0.18](https://github.com/truecharts/apps/compare/nextcloud-11.0.17...nextcloud-11.0.18) (2022-01-21)
+<a name="prometheus-1.1.47"></a>
+### [prometheus-1.1.47](https://github.com/truecharts/apps/compare/prometheus-1.1.46...prometheus-1.1.47) (2022-01-21)
 
 #### Chore
 
@@ -1705,8 +2281,8 @@
 
 
 
-<a name="nextcloud-11.0.17"></a>
-### [nextcloud-11.0.17](https://github.com/truecharts/apps/compare/nextcloud-11.0.16...nextcloud-11.0.17) (2022-01-21)
+<a name="prometheus-1.1.46"></a>
+### [prometheus-1.1.46](https://github.com/truecharts/apps/compare/prometheus-1.1.45...prometheus-1.1.46) (2022-01-21)
 
 #### Chore
 
@@ -1718,17 +2294,17 @@
 
 
 
-<a name="nextcloud-11.0.16"></a>
-### [nextcloud-11.0.16](https://github.com/truecharts/apps/compare/nextcloud-11.0.15...nextcloud-11.0.16) (2022-01-18)
+<a name="prometheus-1.1.45"></a>
+### [prometheus-1.1.45](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-2.0.13...prometheus-1.1.45) (2022-01-19)
 
 #### Chore
 
-* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+* update docker general non-major ([#1741](https://github.com/truecharts/apps/issues/1741))
 
 
 
-<a name="nextcloud-11.0.15"></a>
-### [nextcloud-11.0.15](https://github.com/truecharts/apps/compare/nextcloud-11.0.14...nextcloud-11.0.15) (2022-01-17)
+<a name="prometheus-1.1.43"></a>
+### [prometheus-1.1.43](https://github.com/truecharts/apps/compare/prometheus-1.1.42...prometheus-1.1.43) (2022-01-17)
 
 #### Chore
 
@@ -1736,21 +2312,17 @@
 
 
 
-<a name="nextcloud-11.0.14"></a>
-### [nextcloud-11.0.14](https://github.com/truecharts/apps/compare/nextcloud-11.0.13...nextcloud-11.0.14) (2022-01-13)
+<a name="prometheus-1.1.42"></a>
+### [prometheus-1.1.42](https://github.com/truecharts/apps/compare/prometheus-1.1.41...prometheus-1.1.42) (2022-01-13)
 
 #### Chore
 
 * update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
 
-#### Feat
-
-* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
 
 
-
-<a name="nextcloud-11.0.13"></a>
-### [nextcloud-11.0.13](https://github.com/truecharts/apps/compare/nextcloud-11.0.12...nextcloud-11.0.13) (2022-01-12)
+<a name="prometheus-1.1.41"></a>
+### [prometheus-1.1.41](https://github.com/truecharts/apps/compare/prometheus-1.1.40...prometheus-1.1.41) (2022-01-12)
 
 #### Chore
 
@@ -1758,8 +2330,8 @@
 
 
 
-<a name="nextcloud-11.0.12"></a>
-### [nextcloud-11.0.12](https://github.com/truecharts/apps/compare/nextcloud-11.0.11...nextcloud-11.0.12) (2022-01-11)
+<a name="prometheus-1.1.40"></a>
+### [prometheus-1.1.40](https://github.com/truecharts/apps/compare/prometheus-1.1.39...prometheus-1.1.40) (2022-01-11)
 
 #### Chore
 
@@ -1767,8 +2339,44 @@
 
 
 
-<a name="nextcloud-11.0.11"></a>
-### [nextcloud-11.0.11](https://github.com/truecharts/apps/compare/nextcloud-11.0.10...nextcloud-11.0.11) (2022-01-04)
+<a name="prometheus-1.1.39"></a>
+### [prometheus-1.1.39](https://github.com/truecharts/apps/compare/prometheus-1.1.38...prometheus-1.1.39) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1687](https://github.com/truecharts/apps/issues/1687))
+
+
+
+<a name="prometheus-1.1.38"></a>
+### [prometheus-1.1.38](https://github.com/truecharts/apps/compare/prometheus-1.1.37...prometheus-1.1.38) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1685](https://github.com/truecharts/apps/issues/1685))
+
+
+
+<a name="prometheus-1.1.37"></a>
+### [prometheus-1.1.37](https://github.com/truecharts/apps/compare/prometheus-1.1.36...prometheus-1.1.37) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1677](https://github.com/truecharts/apps/issues/1677))
+
+
+
+<a name="prometheus-1.1.36"></a>
+### [prometheus-1.1.36](https://github.com/truecharts/apps/compare/prometheus-1.1.35...prometheus-1.1.36) (2022-01-09)
+
+#### Fix
+
+* fix logic in tpl ([#1668](https://github.com/truecharts/apps/issues/1668))
+
+
+
+<a name="prometheus-1.1.35"></a>
+### [prometheus-1.1.35](https://github.com/truecharts/apps/compare/prometheus-1.1.34...prometheus-1.1.35) (2022-01-04)
 
 #### Chore
 
@@ -1776,8 +2384,26 @@
 
 
 
-<a name="nextcloud-11.0.10"></a>
-### [nextcloud-11.0.10](https://github.com/truecharts/apps/compare/nextcloud-11.0.9...nextcloud-11.0.10) (2021-12-28)
+<a name="prometheus-1.1.34"></a>
+### [prometheus-1.1.34](https://github.com/truecharts/apps/compare/prometheus-1.1.33...prometheus-1.1.34) (2022-01-04)
+
+#### Chore
+
+* update docker general non-major ([#1648](https://github.com/truecharts/apps/issues/1648))
+
+
+
+<a name="prometheus-1.1.33"></a>
+### [prometheus-1.1.33](https://github.com/truecharts/apps/compare/prometheus-1.1.32...prometheus-1.1.33) (2022-01-03)
+
+#### Chore
+
+* update docker general non-major ([#1646](https://github.com/truecharts/apps/issues/1646))
+
+
+
+<a name="prometheus-1.1.32"></a>
+### [prometheus-1.1.32](https://github.com/truecharts/apps/compare/prometheus-1.1.31...prometheus-1.1.32) (2021-12-28)
 
 #### Chore
 
@@ -1785,8 +2411,35 @@
 
 
 
-<a name="nextcloud-11.0.9"></a>
-### [nextcloud-11.0.9](https://github.com/truecharts/apps/compare/nextcloud-11.0.8...nextcloud-11.0.9) (2021-12-24)
+<a name="prometheus-1.1.31"></a>
+### [prometheus-1.1.31](https://github.com/truecharts/apps/compare/prometheus-1.1.30...prometheus-1.1.31) (2021-12-27)
+
+#### Chore
+
+* update docker general non-major ([#1615](https://github.com/truecharts/apps/issues/1615))
+
+
+
+<a name="prometheus-1.1.30"></a>
+### [prometheus-1.1.30](https://github.com/truecharts/apps/compare/prometheus-1.1.29...prometheus-1.1.30) (2021-12-26)
+
+#### Fix
+
+* fix default ingress on traefik ([#1614](https://github.com/truecharts/apps/issues/1614))
+
+
+
+<a name="prometheus-1.1.29"></a>
+### [prometheus-1.1.29](https://github.com/truecharts/apps/compare/prometheus-1.1.28...prometheus-1.1.29) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1609](https://github.com/truecharts/apps/issues/1609))
+
+
+
+<a name="prometheus-1.1.28"></a>
+### [prometheus-1.1.28](https://github.com/truecharts/apps/compare/prometheus-1.1.27...prometheus-1.1.28) (2021-12-24)
 
 #### Chore
 
@@ -1794,38 +2447,63 @@
 
 
 
-<a name="nextcloud-11.0.8"></a>
-### [nextcloud-11.0.8](https://github.com/truecharts/apps/compare/nextcloud-11.0.7...nextcloud-11.0.8) (2021-12-21)
+<a name="prometheus-1.1.27"></a>
+### [prometheus-1.1.27](https://github.com/truecharts/apps/compare/prometheus-1.1.26...prometheus-1.1.27) (2021-12-21)
 
 #### Chore
 
 * update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+* update docker general non-major ([#1595](https://github.com/truecharts/apps/issues/1595))
 
 
 
-<a name="nextcloud-11.0.7"></a>
-### [nextcloud-11.0.7](https://github.com/truecharts/apps/compare/nextcloud-11.0.6...nextcloud-11.0.7) (2021-12-19)
+<a name="prometheus-1.1.26"></a>
+### [prometheus-1.1.26](https://github.com/truecharts/apps/compare/prometheus-1.1.25...prometheus-1.1.26) (2021-12-20)
+
+#### Chore
+
+* update docker general non-major ([#1589](https://github.com/truecharts/apps/issues/1589))
+
+
+
+<a name="prometheus-1.1.25"></a>
+### [prometheus-1.1.25](https://github.com/truecharts/apps/compare/prometheus-1.1.24...prometheus-1.1.25) (2021-12-20)
+
+#### Chore
+
+* update docker general non-major ([#1585](https://github.com/truecharts/apps/issues/1585))
+
+
+
+<a name="prometheus-1.1.24"></a>
+### [prometheus-1.1.24](https://github.com/truecharts/apps/compare/prometheus-1.1.23...prometheus-1.1.24) (2021-12-20)
+
+#### Chore
+
+* update docker general non-major ([#1581](https://github.com/truecharts/apps/issues/1581))
+
+
+
+<a name="prometheus-1.1.23"></a>
+### [prometheus-1.1.23](https://github.com/truecharts/apps/compare/prometheus-1.1.22...prometheus-1.1.23) (2021-12-19)
 
 #### Chore
 
 * Last patch bump before RC2 branch-off
-* move `envTpl` to `env` ([#1578](https://github.com/truecharts/apps/issues/1578))
-* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
 
 
 
-<a name="nextcloud-11.0.6"></a>
-### [nextcloud-11.0.6](https://github.com/truecharts/apps/compare/nextcloud-11.0.5...nextcloud-11.0.6) (2021-12-19)
+<a name="prometheus-1.1.22"></a>
+### [prometheus-1.1.22](https://github.com/truecharts/apps/compare/prometheus-1.1.21...prometheus-1.1.22) (2021-12-19)
 
 #### Chore
 
-* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
 * update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
 
 
 
-<a name="nextcloud-11.0.5"></a>
-### [nextcloud-11.0.5](https://github.com/truecharts/apps/compare/nextcloud-11.0.4...nextcloud-11.0.5) (2021-12-19)
+<a name="prometheus-1.1.21"></a>
+### [prometheus-1.1.21](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-2.0.4...prometheus-1.1.21) (2021-12-19)
 
 #### Chore
 
@@ -1833,18 +2511,8 @@
 
 
 
-<a name="nextcloud-11.0.4"></a>
-### [nextcloud-11.0.4](https://github.com/truecharts/apps/compare/nextcloud-11.0.3...nextcloud-11.0.4) (2021-12-18)
-
-#### Chore
-
-* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
-* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
-
-
-
-<a name="nextcloud-11.0.3"></a>
-### [nextcloud-11.0.3](https://github.com/truecharts/apps/compare/nextcloud-11.0.2...nextcloud-11.0.3) (2021-12-14)
+<a name="prometheus-1.1.20"></a>
+### [prometheus-1.1.20](https://github.com/truecharts/apps/compare/prometheus-1.1.19...prometheus-1.1.20) (2021-12-14)
 
 #### Chore
 
@@ -1852,8 +2520,17 @@
 
 
 
-<a name="nextcloud-11.0.2"></a>
-### [nextcloud-11.0.2](https://github.com/truecharts/apps/compare/nextcloud-11.0.1...nextcloud-11.0.2) (2021-12-13)
+<a name="prometheus-1.1.19"></a>
+### [prometheus-1.1.19](https://github.com/truecharts/apps/compare/prometheus-1.1.18...prometheus-1.1.19) (2021-12-13)
+
+#### Chore
+
+* update docker general non-major ([#1531](https://github.com/truecharts/apps/issues/1531))
+
+
+
+<a name="prometheus-1.1.18"></a>
+### [prometheus-1.1.18](https://github.com/truecharts/apps/compare/prometheus-1.1.17...prometheus-1.1.18) (2021-12-13)
 
 #### Chore
 
@@ -1861,8 +2538,26 @@
 
 
 
-<a name="nextcloud-11.0.1"></a>
-### [nextcloud-11.0.1](https://github.com/truecharts/apps/compare/nextcloud-11.0.0...nextcloud-11.0.1) (2021-12-11)
+<a name="prometheus-1.1.17"></a>
+### [prometheus-1.1.17](https://github.com/truecharts/apps/compare/prometheus-1.1.16...prometheus-1.1.17) (2021-12-13)
+
+#### Chore
+
+* update docker general non-major ([#1522](https://github.com/truecharts/apps/issues/1522))
+
+
+
+<a name="prometheus-1.1.16"></a>
+### [prometheus-1.1.16](https://github.com/truecharts/apps/compare/prometheus-1.1.15...prometheus-1.1.16) (2021-12-12)
+
+#### Chore
+
+* update docker general non-major ([#1518](https://github.com/truecharts/apps/issues/1518))
+
+
+
+<a name="prometheus-1.1.15"></a>
+### [prometheus-1.1.15](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-2.0.0...prometheus-1.1.15) (2021-12-11)
 
 #### Chore
 
@@ -1870,17 +2565,26 @@
 
 
 
-<a name="nextcloud-11.0.0"></a>
-### [nextcloud-11.0.0](https://github.com/truecharts/apps/compare/nextcloud-10.0.16...nextcloud-11.0.0) (2021-12-11)
+<a name="prometheus-1.1.14"></a>
+### [prometheus-1.1.14](https://github.com/truecharts/apps/compare/prometheus-1.1.13...prometheus-1.1.14) (2021-12-11)
 
-#### Feat
+#### Chore
 
-* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
+* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
 
 
 
-<a name="nextcloud-10.0.16"></a>
-### [nextcloud-10.0.16](https://github.com/truecharts/apps/compare/nextcloud-10.0.15...nextcloud-10.0.16) (2021-12-07)
+<a name="prometheus-1.1.13"></a>
+### [prometheus-1.1.13](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-1.0.9...prometheus-1.1.13) (2021-12-08)
+
+#### Chore
+
+* update non-major ([#1488](https://github.com/truecharts/apps/issues/1488))
+
+
+
+<a name="prometheus-1.1.12"></a>
+### [prometheus-1.1.12](https://github.com/truecharts/apps/compare/prometheus-1.1.11...prometheus-1.1.12) (2021-12-07)
 
 #### Chore
 
@@ -1888,22 +2592,39 @@
 
 
 
-<a name="nextcloud-10.0.15"></a>
-### nextcloud-10.0.15 (2021-12-05)
+<a name="prometheus-1.1.11"></a>
+### [prometheus-1.1.11](https://github.com/truecharts/apps/compare/prometheus-1.1.10...prometheus-1.1.11) (2021-12-07)
+
+#### Chore
+
+* update non-major ([#1485](https://github.com/truecharts/apps/issues/1485))
+
+
+
+<a name="prometheus-1.1.10"></a>
+### [prometheus-1.1.10](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-1.0.8...prometheus-1.1.10) (2021-12-07)
+
+#### Chore
+
+* update non-major ([#1475](https://github.com/truecharts/apps/issues/1475))
+
+
+
+<a name="prometheus-1.1.9"></a>
+### prometheus-1.1.9 (2021-12-05)
 
 #### Chore
 
 * bump apps to generate security page
 * ensure container references are prefixed with v
 * move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
-* cleanup the ci for the security page a bit
-* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
-* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
-* update container image tccr.io/truecharts/nextcloud to v23.0.0 ([#1447](https://github.com/truecharts/apps/issues/1447))
-* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
 * update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
-* update non-major ([#1431](https://github.com/truecharts/apps/issues/1431))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
 * update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+* update non-major ([#1427](https://github.com/truecharts/apps/issues/1427))
 
 #### Fix
 
@@ -1911,8 +2632,8 @@
 
 
 
-<a name="nextcloud-10.0.14"></a>
-### [nextcloud-10.0.14](https://github.com/truecharts/apps/compare/nextcloud-10.0.13...nextcloud-10.0.14) (2021-12-05)
+<a name="prometheus-1.1.8"></a>
+### [prometheus-1.1.8](https://github.com/truecharts/apps/compare/prometheus-1.1.7...prometheus-1.1.8) (2021-12-05)
 
 #### Chore
 
@@ -1920,8 +2641,8 @@
 
 
 
-<a name="nextcloud-10.0.13"></a>
-### [nextcloud-10.0.13](https://github.com/truecharts/apps/compare/nextcloud-10.0.12...nextcloud-10.0.13) (2021-12-05)
+<a name="prometheus-1.1.7"></a>
+### [prometheus-1.1.7](https://github.com/truecharts/apps/compare/prometheus-1.1.6...prometheus-1.1.7) (2021-12-05)
 
 #### Chore
 
@@ -1929,18 +2650,17 @@
 
 
 
-<a name="nextcloud-10.0.12"></a>
-### [nextcloud-10.0.12](https://github.com/truecharts/apps/compare/nextcloud-10.0.11...nextcloud-10.0.12) (2021-12-04)
+<a name="prometheus-1.1.6"></a>
+### [prometheus-1.1.6](https://github.com/truecharts/apps/compare/prometheus-1.1.5...prometheus-1.1.6) (2021-12-04)
 
 #### Chore
 
 * bump apps to generate security page
-* cleanup the ci for the security page a bit
 
 
 
-<a name="nextcloud-10.0.11"></a>
-### [nextcloud-10.0.11](https://github.com/truecharts/apps/compare/nextcloud-10.0.10...nextcloud-10.0.11) (2021-12-04)
+<a name="prometheus-1.1.5"></a>
+### [prometheus-1.1.5](https://github.com/truecharts/apps/compare/prometheus-1.1.4...prometheus-1.1.5) (2021-12-04)
 
 #### Chore
 
@@ -1948,41 +2668,78 @@
 
 
 
-<a name="nextcloud-10.0.10"></a>
-### [nextcloud-10.0.10](https://github.com/truecharts/apps/compare/nextcloud-10.0.9...nextcloud-10.0.10) (2021-12-03)
+<a name="prometheus-1.1.4"></a>
+### [prometheus-1.1.4](https://github.com/truecharts/apps/compare/prometheus-1.1.3...prometheus-1.1.4) (2021-12-03)
 
 #### Chore
 
 * ensure container references are prefixed with v
 * move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
-* update container image tccr.io/truecharts/nextcloud to v23.0.0 ([#1447](https://github.com/truecharts/apps/issues/1447))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
 
 
 
-<a name="nextcloud-10.0.9"></a>
-### [nextcloud-10.0.9](https://github.com/truecharts/apps/compare/nextcloud-10.0.8...nextcloud-10.0.9) (2021-11-30)
-
-#### Chore
-
-* update non-major ([#1431](https://github.com/truecharts/apps/issues/1431))
-
-
-
-<a name="nextcloud-10.0.8"></a>
-### [nextcloud-10.0.8](https://github.com/truecharts/apps/compare/nextcloud-10.0.7...nextcloud-10.0.8) (2021-11-30)
+<a name="prometheus-1.1.3"></a>
+### [prometheus-1.1.3](https://github.com/truecharts/apps/compare/prometheus-1.1.2...prometheus-1.1.3) (2021-11-30)
 
 #### Chore
 
 * update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
 
+
+
+<a name="prometheus-1.1.2"></a>
+### [prometheus-1.1.2](https://github.com/truecharts/apps/compare/prometheus-1.1.1...prometheus-1.1.2) (2021-11-30)
+
+#### Chore
+
+* update non-major ([#1427](https://github.com/truecharts/apps/issues/1427))
+* update non-major deps helm releases
+
+
+
+<a name="prometheus-1.1.0"></a>
+### [prometheus-1.1.0](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-1.0.0...prometheus-1.1.0) (2021-11-25)
+
+#### Feat
+
+* add more default exporters to prometheus ([#1406](https://github.com/truecharts/apps/issues/1406))
+
+
+
+<a name="prometheus-1.0.1"></a>
+### [prometheus-1.0.1](https://github.com/truecharts/apps/compare/prometheus-1.0.0...prometheus-1.0.1) (2021-11-24)
+
+#### Chore
+
+* bump version
+
 #### Fix
 
-* move conflicting ports to 10xxx range ([#1415](https://github.com/truecharts/apps/issues/1415))
+* correctly digest pin the containers
 
 
 
-<a name="nextcloud-10.0.7"></a>
-### [nextcloud-10.0.7](https://github.com/truecharts/apps/compare/nextcloud-10.0.6...nextcloud-10.0.7) (2021-11-23)
+<a name="prometheus-1.0.0"></a>
+### [prometheus-1.0.0](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-0.0.1...prometheus-1.0.0) (2021-11-24)
+
+#### Feat
+
+* add more config options to GUI ([#1398](https://github.com/truecharts/apps/issues/1398))
+
+
+
+<a name="prometheus-0.0.10"></a>
+### [prometheus-0.0.10](https://github.com/truecharts/apps/compare/prometheus-0.0.9...prometheus-0.0.10) (2021-11-23)
+
+#### Fix
+
+* correct port reference for alertmanager
+
+
+
+<a name="prometheus-0.0.9"></a>
+### [prometheus-0.0.9](https://github.com/truecharts/apps/compare/prometheus-0.0.8...prometheus-0.0.9) (2021-11-23)
 
 #### Chore
 
@@ -1990,691 +2747,59 @@
 
 
 
-<a name="nextcloud-10.0.6"></a>
-### [nextcloud-10.0.6](https://github.com/truecharts/apps/compare/nextcloud-10.0.5...nextcloud-10.0.6) (2021-11-22)
+<a name="prometheus-0.0.8"></a>
+### [prometheus-0.0.8](https://github.com/truecharts/apps/compare/prometheus-0.0.5...prometheus-0.0.8) (2021-11-22)
 
 #### Chore
 
 * update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
-
-
-
-<a name="nextcloud-10.0.5"></a>
-### [nextcloud-10.0.5](https://github.com/truecharts/apps/compare/nextcloud-10.0.4...nextcloud-10.0.5) (2021-11-22)
-
-#### Chore
-
-* update non-major ([#1380](https://github.com/truecharts/apps/issues/1380))
-
-
-
-<a name="nextcloud-10.0.4"></a>
-### [nextcloud-10.0.4](https://github.com/truecharts/apps/compare/nextcloud-10.0.3...nextcloud-10.0.4) (2021-11-21)
+* don't allow config of promop service and remove reminants
 
 #### Fix
 
-* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
-* remove specific times for nextcloud startup probes
+* use correct port for alertmanager probe
 
 
 
-<a name="nextcloud-10.0.3"></a>
-### [nextcloud-10.0.3](https://github.com/truecharts/apps/compare/nextcloud-10.0.2...nextcloud-10.0.3) (2021-11-18)
-
-#### Chore
-
-* update non-major ([#1350](https://github.com/truecharts/apps/issues/1350))
-
-
-
-<a name="nextcloud-10.0.2"></a>
-### [nextcloud-10.0.2](https://github.com/truecharts/apps/compare/nextcloud-10.0.1...nextcloud-10.0.2) (2021-11-16)
-
-#### Chore
-
-* update non-major deps helm releases ([#1345](https://github.com/truecharts/apps/issues/1345))
-
-
-
-<a name="nextcloud-10.0.1"></a>
-### [nextcloud-10.0.1](https://github.com/truecharts/apps/compare/nextcloud-10.0.0...nextcloud-10.0.1) (2021-11-16)
-
-#### Chore
-
-* bump postgresql again
-
-
-
-<a name="nextcloud-10.0.0"></a>
-### [nextcloud-10.0.0](https://github.com/truecharts/apps/compare/nextcloud-9.0.12...nextcloud-10.0.0) (2021-11-16)
-
-#### Chore
-
-* bump postgresql on some Apps
-
-
-
-<a name="nextcloud-9.0.12"></a>
-### [nextcloud-9.0.12](https://github.com/truecharts/apps/compare/nextcloud-9.0.11...nextcloud-9.0.12) (2021-11-15)
-
-#### Chore
-
-* update non-major docker tags ([#1339](https://github.com/truecharts/apps/issues/1339))
-
-
-
-<a name="nextcloud-9.0.11"></a>
-### [nextcloud-9.0.11](https://github.com/truecharts/apps/compare/nextcloud-9.0.10...nextcloud-9.0.11) (2021-11-15)
-
-#### Chore
-
-* persistence cleanup and small bugfixes ([#1329](https://github.com/truecharts/apps/issues/1329))
-* update non-major deps helm releases ([#1338](https://github.com/truecharts/apps/issues/1338))
-
-
-
-<a name="nextcloud-9.0.10"></a>
-### [nextcloud-9.0.10](https://github.com/truecharts/apps/compare/nextcloud-9.0.9...nextcloud-9.0.10) (2021-11-14)
-
-#### Chore
-
-* fixes around the GUI refactor ([#1316](https://github.com/truecharts/apps/issues/1316))
-* move port above advanced in GUI ([#1326](https://github.com/truecharts/apps/issues/1326))
-* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
-* update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
-* update non-major ([#1327](https://github.com/truecharts/apps/issues/1327))
-
-#### Feat
-
-* use our own redis chart ([#1312](https://github.com/truecharts/apps/issues/1312))
-* use our own redis chart ([#1310](https://github.com/truecharts/apps/issues/1310))
+<a name="prometheus-0.0.5"></a>
+### [prometheus-0.0.5](https://github.com/truecharts/apps/compare/prometheus-0.0.4...prometheus-0.0.5) (2021-11-22)
 
 #### Fix
 
-* Allow spaces in paths ([#1306](https://github.com/truecharts/apps/issues/1306))
-* revert nextcloud container update due to upstream performance issues
+* migrate away services
 
 
 
-<a name="nextcloud-9.0.9"></a>
-### [nextcloud-9.0.9](https://github.com/truecharts/apps/compare/nextcloud-9.0.8...nextcloud-9.0.9) (2021-11-09)
-
-#### Chore
-
-* update non-major deps helm releases ([#1297](https://github.com/truecharts/apps/issues/1297))
-
-
-
-<a name="nextcloud-9.0.8"></a>
-### [nextcloud-9.0.8](https://github.com/truecharts/apps/compare/nextcloud-9.0.7...nextcloud-9.0.8) (2021-11-07)
-
-#### Chore
-
-* update non-major deps helm releases ([#1295](https://github.com/truecharts/apps/issues/1295))
-
-
-
-<a name="nextcloud-9.0.7"></a>
-### [nextcloud-9.0.7](https://github.com/truecharts/apps/compare/nextcloud-9.0.6...nextcloud-9.0.7) (2021-11-07)
-
-#### Chore
-
-* update non-major deps helm releases ([#1291](https://github.com/truecharts/apps/issues/1291))
-* Update label / description on admin credentials ([#1274](https://github.com/truecharts/apps/issues/1274))
-
-#### Chore
-
-* Simplify GUI for deployment, persistence and securityContext ([#1289](https://github.com/truecharts/apps/issues/1289))
-
-#### Feat
-
-* Simplify the Services GUI ([#1290](https://github.com/truecharts/apps/issues/1290))
+<a name="prometheus-0.0.4"></a>
+### [prometheus-0.0.4](https://github.com/truecharts/apps/compare/prometheus-0.0.3...prometheus-0.0.4) (2021-11-22)
 
 #### Fix
 
-* make the env-var descriptions more clear
+* correct prometheus GUI mistakes
 
 
 
-<a name="nextcloud-9.0.6"></a>
-### [nextcloud-9.0.6](https://github.com/truecharts/apps/compare/nextcloud-9.0.5...nextcloud-9.0.6) (2021-11-02)
-
-#### Chore
-
-* update non-major deps helm releases ([#1267](https://github.com/truecharts/apps/issues/1267))
-
-
-
-<a name="nextcloud-9.0.5"></a>
-### [nextcloud-9.0.5](https://github.com/truecharts/apps/compare/nextcloud-9.0.4...nextcloud-9.0.5) (2021-11-01)
+<a name="prometheus-0.0.3"></a>
+### [prometheus-0.0.3](https://github.com/truecharts/apps/compare/prometheus-0.0.2...prometheus-0.0.3) (2021-11-22)
 
 #### Chore
 
-* update non-major deps helm releases ([#1264](https://github.com/truecharts/apps/issues/1264))
+* some cleanup
 
 
 
-<a name="nextcloud-9.0.4"></a>
-### [nextcloud-9.0.4](https://github.com/truecharts/apps/compare/nextcloud-9.0.3...nextcloud-9.0.4) (2021-10-26)
-
-#### Chore
-
-* update helm chart postgresql to v5.1.4 ([#1249](https://github.com/truecharts/apps/issues/1249))
-
-
-
-<a name="nextcloud-9.0.3"></a>
-### [nextcloud-9.0.3](https://github.com/truecharts/apps/compare/nextcloud-9.0.2...nextcloud-9.0.3) (2021-10-26)
-
-#### Chore
-
-* update non-major deps helm releases ([#1247](https://github.com/truecharts/apps/issues/1247))
-
-
-
-<a name="nextcloud-9.0.2"></a>
-### [nextcloud-9.0.2](https://github.com/truecharts/apps/compare/nextcloud-9.0.1...nextcloud-9.0.2) (2021-10-26)
-
-#### Chore
-
-* update non-major deps helm releases ([#1245](https://github.com/truecharts/apps/issues/1245))
-
-
-
-<a name="nextcloud-9.0.1"></a>
-### [nextcloud-9.0.1](https://github.com/truecharts/apps/compare/nextcloud-9.0.0...nextcloud-9.0.1) (2021-10-26)
-
-#### Chore
-
-* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
-
-
-
-<a name="nextcloud-9.0.0"></a>
-### [nextcloud-9.0.0](https://github.com/truecharts/apps/compare/nextcloud-8.0.5...nextcloud-9.0.0) (2021-10-26)
-
-#### Chore
-
-* update helm chart postgresql to v5 ([#1234](https://github.com/truecharts/apps/issues/1234))
-* update non-major ([#1232](https://github.com/truecharts/apps/issues/1232))
-
-
-
-<a name="nextcloud-8.0.5"></a>
-### [nextcloud-8.0.5](https://github.com/truecharts/apps/compare/nextcloud-7.1.0...nextcloud-8.0.5) (2021-10-26)
-
-
-
-<a name="nextcloud-7.1.0"></a>
-### [nextcloud-7.1.0](https://github.com/truecharts/apps/compare/nextcloud-8.0.1...nextcloud-7.1.0) (2021-10-26)
+<a name="prometheus-0.0.2"></a>
+### [prometheus-0.0.2](https://github.com/truecharts/apps/compare/prometheus-0.0.1...prometheus-0.0.2) (2021-11-22)
 
 #### Fix
 
-* fix patch for important postgresql consumping apps
+* more thoroughly show services on SCALE
 
 
 
-<a name="nextcloud-8.0.1"></a>
-### [nextcloud-8.0.1](https://github.com/truecharts/apps/compare/nextcloud-8.0.0...nextcloud-8.0.1) (2021-10-26)
+<a name="prometheus-0.0.1"></a>
+### prometheus-0.0.1 (2021-11-22)
 
-#### Chore
+#### Add
 
-* update non-major deps helm releases
-
-
-
-<a name="nextcloud-8.0.0"></a>
-### [nextcloud-8.0.0](https://github.com/truecharts/apps/compare/nextcloud-7.0.3...nextcloud-8.0.0) (2021-10-25)
-
-#### Chore
-
-* Adapt for TrueNAS SCALE RC1
-* make admin password private ([#1219](https://github.com/truecharts/apps/issues/1219))
-
-
-
-<a name="nextcloud-7.0.3"></a>
-### [nextcloud-7.0.3](https://github.com/truecharts/apps/compare/nextcloud-7.0.0...nextcloud-7.0.3) (2021-10-20)
-
-#### Chore
-
-* bump apps, remove duplicates and move incubator to stable for RC1
-* update non-major deps helm releases ([#1213](https://github.com/truecharts/apps/issues/1213))
-
-#### Fix
-
-* reenable postgresql migration scripting and bump all to force update
-
-
-
-<a name="nextcloud-7.0.0"></a>
-### [nextcloud-7.0.0](https://github.com/truecharts/apps/compare/nextcloud-6.0.28...nextcloud-7.0.0) (2021-10-20)
-
-#### Chore
-
-* update helm chart postgresql to v4 ([#1214](https://github.com/truecharts/apps/issues/1214))
-
-#### Fix
-
-* use correct PVC storageClass when using postgresql as a dependency on SCALE ([#1212](https://github.com/truecharts/apps/issues/1212))
-
-
-
-<a name="nextcloud-6.0.28"></a>
-### [nextcloud-6.0.28](https://github.com/truecharts/apps/compare/nextcloud-6.0.27...nextcloud-6.0.28) (2021-10-20)
-
-#### Chore
-
-* bump versions to rerelease and fix icons
-
-
-
-<a name="nextcloud-6.0.27"></a>
-### [nextcloud-6.0.27](https://github.com/truecharts/apps/compare/nextcloud-6.0.26...nextcloud-6.0.27) (2021-10-19)
-
-#### Change
-
-* Project-Eclipse 3, Automatically generate item.yaml ([#1178](https://github.com/truecharts/apps/issues/1178))
-
-#### Chore
-
-* Project-Eclipse 5, move app-readme to automatic generation script ([#1181](https://github.com/truecharts/apps/issues/1181))
-* update helm chart common to v8.3.13 ([#1184](https://github.com/truecharts/apps/issues/1184))
-* update non-major ([#1174](https://github.com/truecharts/apps/issues/1174))
-
-#### Feat
-
-* Project-Eclipse 4, Add App grading annotations to Chart.yaml ([#1180](https://github.com/truecharts/apps/issues/1180))
-
-#### Refactor
-
-* Project Eclipse Part 6, move questions.yaml to root App folder ([#1182](https://github.com/truecharts/apps/issues/1182))
-
-
-
-<a name="nextcloud-6.0.26"></a>
-### [nextcloud-6.0.26](https://github.com/truecharts/apps/compare/nextcloud-6.0.25...nextcloud-6.0.26) (2021-10-19)
-
-#### Chore
-
-* Project-Eclipse part 2, adapting and cleaning changelog ([#1173](https://github.com/truecharts/apps/issues/1173))
-* update helm chart postgresql to v3.0.20 ([#1177](https://github.com/truecharts/apps/issues/1177))
-
-
-
-<a name="nextcloud-6.0.25"></a>
-### [nextcloud-6.0.25](https://github.com/truecharts/apps/compare/nextcloud-6.0.24...nextcloud-6.0.25) (2021-10-19)
-
-#### Fix
-
-* fix previous SCALE bugfix not correctly being applied
-
-
-
-<a name="nextcloud-6.0.24"></a>
-### [nextcloud-6.0.24](https://github.com/truecharts/apps/compare/nextcloud-6.0.23...nextcloud-6.0.24) (2021-10-19)
-
-#### Fix
-
-* Solve issues regarding ix_values.yaml not containing the image and tag definitions. ([#1176](https://github.com/truecharts/apps/issues/1176))
-
-
-
-<a name="nextcloud-6.0.23"></a>
-### [nextcloud-6.0.23](https://github.com/truecharts/apps/compare/nextcloud-6.0.22...nextcloud-6.0.23) (2021-10-18)
-
-#### Refactor
-
-* Project Eclipse - part 1 - remove ix_values.yaml ([#1168](https://github.com/truecharts/apps/issues/1168))
-
-
-
-<a name="nextcloud-6.0.22"></a>
-### [nextcloud-6.0.22](https://github.com/truecharts/apps/compare/nextcloud-6.0.21...nextcloud-6.0.22) (2021-10-18)
-
-#### Fix
-
-* remove regex for mountPath on `redismaster` for now ([#1167](https://github.com/truecharts/apps/issues/1167))
-
-
-
-<a name="nextcloud-6.0.21"></a>
-### [nextcloud-6.0.21](https://github.com/truecharts/apps/compare/nextcloud-6.0.20...nextcloud-6.0.21) (2021-10-17)
-
-#### Chore
-
-* update helm chart common to v8.3.10 ([#1160](https://github.com/truecharts/apps/issues/1160))
-
-#### Fix
-
-* force users using correct / prefix for mounPath ([#1156](https://github.com/truecharts/apps/issues/1156))
-
-
-
-<a name="nextcloud-6.0.20"></a>
-### [nextcloud-6.0.20](https://github.com/truecharts/apps/compare/nextcloud-6.0.19...nextcloud-6.0.20) (2021-10-13)
-
-#### Chore
-
-* update non-major deps helm releases ([#1133](https://github.com/truecharts/apps/issues/1133))
-
-
-
-<a name="nextcloud-6.0.19"></a>
-### [nextcloud-6.0.19](https://github.com/truecharts/apps/compare/nextcloud-6.0.18...nextcloud-6.0.19) (2021-10-13)
-
-#### Chore
-
-* update non-major docker tags ([#1134](https://github.com/truecharts/apps/issues/1134))
-
-
-
-<a name="nextcloud-6.0.18"></a>
-### [nextcloud-6.0.18](https://github.com/truecharts/apps/compare/nextcloud-6.0.17...nextcloud-6.0.18) (2021-10-12)
-
-#### Chore
-
-* update helm chart postgresql to v3.0.15 ([#1127](https://github.com/truecharts/apps/issues/1127))
-
-
-
-<a name="nextcloud-6.0.17"></a>
-### [nextcloud-6.0.17](https://github.com/truecharts/apps/compare/nextcloud-6.0.16...nextcloud-6.0.17) (2021-10-12)
-
-#### Chore
-
-* update non-major deps helm releases ([#1126](https://github.com/truecharts/apps/issues/1126))
-
-
-
-<a name="nextcloud-6.0.16"></a>
-### [nextcloud-6.0.16](https://github.com/truecharts/apps/compare/nextcloud-6.0.15...nextcloud-6.0.16) (2021-10-12)
-
-#### Chore
-
-* update non-major ([#1122](https://github.com/truecharts/apps/issues/1122))
-
-
-
-<a name="nextcloud-6.0.15"></a>
-### [nextcloud-6.0.15](https://github.com/truecharts/apps/compare/nextcloud-6.0.14...nextcloud-6.0.15) (2021-10-12)
-
-#### Chore
-
-* update non-major deps helm releases ([#1123](https://github.com/truecharts/apps/issues/1123))
-
-
-
-<a name="nextcloud-6.0.14"></a>
-### [nextcloud-6.0.14](https://github.com/truecharts/apps/compare/nextcloud-6.0.13...nextcloud-6.0.14) (2021-10-09)
-
-
-
-<a name="nextcloud-6.0.13"></a>
-### [nextcloud-6.0.13](https://github.com/truecharts/apps/compare/nextcloud-6.0.12...nextcloud-6.0.13) (2021-10-05)
-
-#### Chore
-
-* update non-major ([#1103](https://github.com/truecharts/apps/issues/1103))
-
-
-
-<a name="nextcloud-6.0.12"></a>
-### [nextcloud-6.0.12](https://github.com/truecharts/apps/compare/nextcloud-6.0.11...nextcloud-6.0.12) (2021-10-05)
-
-#### Chore
-
-* update non-major deps helm releases ([#1099](https://github.com/truecharts/apps/issues/1099))
-
-
-
-<a name="nextcloud-6.0.11"></a>
-### [nextcloud-6.0.11](https://github.com/truecharts/apps/compare/nextcloud-6.0.10...nextcloud-6.0.11) (2021-10-05)
-
-#### Chore
-
-* update non-major ([#1098](https://github.com/truecharts/apps/issues/1098))
-
-
-
-<a name="nextcloud-6.0.10"></a>
-### [nextcloud-6.0.10](https://github.com/truecharts/apps/compare/nextcloud-6.0.9...nextcloud-6.0.10) (2021-09-29)
-
-#### Chore
-
-* update helm chart common to v8.0.13 ([#1060](https://github.com/truecharts/apps/issues/1060))
-
-
-
-<a name="nextcloud-6.0.8"></a>
-### [nextcloud-6.0.8](https://github.com/truecharts/apps/compare/nextcloud-6.0.7...nextcloud-6.0.8) (2021-09-29)
-
-#### Chore
-
-* update bitnami/postgresql:13.4.0 docker digest to 33c276d ([#1055](https://github.com/truecharts/apps/issues/1055))
-
-
-
-<a name="nextcloud-6.0.7"></a>
-### [nextcloud-6.0.7](https://github.com/truecharts/apps/compare/nextcloud-6.0.6...nextcloud-6.0.7) (2021-09-28)
-
-#### Chore
-
-* update helm chart postgresql to v3.0.3 ([#1050](https://github.com/truecharts/apps/issues/1050))
-
-
-
-<a name="nextcloud-6.0.6"></a>
-### [nextcloud-6.0.6](https://github.com/truecharts/apps/compare/nextcloud-6.0.5...nextcloud-6.0.6) (2021-09-28)
-
-#### Chore
-
-* update helm chart postgresql to v3.0.2 ([#1049](https://github.com/truecharts/apps/issues/1049))
-
-
-
-<a name="nextcloud-6.0.5"></a>
-### [nextcloud-6.0.5](https://github.com/truecharts/apps/compare/nextcloud-6.0.4...nextcloud-6.0.5) (2021-09-28)
-
-#### Chore
-
-* update non-major ([#1048](https://github.com/truecharts/apps/issues/1048))
-* update non-major ([#1046](https://github.com/truecharts/apps/issues/1046))
-
-
-
-<a name="nextcloud-6.0.4"></a>
-### [nextcloud-6.0.4](https://github.com/truecharts/apps/compare/nextcloud-6.0.3...nextcloud-6.0.4) (2021-09-27)
-
-#### Chore
-
-* update helm chart redis to v15.4.0
-
-
-
-<a name="nextcloud-6.0.3"></a>
-### [nextcloud-6.0.3](https://github.com/truecharts/apps/compare/nextcloud-6.0.2...nextcloud-6.0.3) (2021-09-27)
-
-#### Chore
-
-* update helm chart postgresql to v3 ([#1041](https://github.com/truecharts/apps/issues/1041))
-
-
-
-<a name="nextcloud-6.0.2"></a>
-### [nextcloud-6.0.2](https://github.com/truecharts/apps/compare/nextcloud-6.0.0...nextcloud-6.0.2) (2021-09-26)
-
-#### Chore
-
-* update non-major deps helm releases ([#1040](https://github.com/truecharts/apps/issues/1040))
-
-
-
-<a name="nextcloud-6.0.0"></a>
-### [nextcloud-6.0.0](https://github.com/truecharts/apps/compare/nextcloud-5.0.6...nextcloud-6.0.0) (2021-09-26)
-
-
-
-<a name="nextcloud-5.0.6"></a>
-### [nextcloud-5.0.6](https://github.com/truecharts/apps/compare/nextcloud-5.0.5...nextcloud-5.0.6) (2021-09-21)
-
-#### Chore
-
-* update helm chart postgresql to v2.2.5 ([#1017](https://github.com/truecharts/apps/issues/1017))
-
-
-
-<a name="nextcloud-5.0.5"></a>
-### [nextcloud-5.0.5](https://github.com/truecharts/apps/compare/nextcloud-5.0.4...nextcloud-5.0.5) (2021-09-21)
-
-#### Chore
-
-* update non-major deps helm releases ([#1014](https://github.com/truecharts/apps/issues/1014))
-
-
-
-<a name="nextcloud-5.0.4"></a>
-### [nextcloud-5.0.4](https://github.com/truecharts/apps/compare/nextcloud-5.0.3...nextcloud-5.0.4) (2021-09-21)
-
-#### Chore
-
-* update non-major ([#1015](https://github.com/truecharts/apps/issues/1015))
-
-
-
-<a name="nextcloud-5.0.3"></a>
-### [nextcloud-5.0.3](https://github.com/truecharts/apps/compare/nextcloud-5.0.2...nextcloud-5.0.3) (2021-09-21)
-
-#### Chore
-
-* update non-major ([#1013](https://github.com/truecharts/apps/issues/1013))
-
-
-
-<a name="nextcloud-5.0.2"></a>
-### [nextcloud-5.0.2](https://github.com/truecharts/apps/compare/nextcloud-5.0.1...nextcloud-5.0.2) (2021-09-14)
-
-#### Chore
-
-* update non-major ([#987](https://github.com/truecharts/apps/issues/987))
-
-
-
-<a name="nextcloud-5.0.1"></a>
-### [nextcloud-5.0.1](https://github.com/truecharts/apps/compare/nextcloud-4.0.6...nextcloud-5.0.1) (2021-09-13)
-
-#### Chore
-
-* update non-major
-
-#### Feat
-
-* add new GUI and VPN support to all Apps ([#977](https://github.com/truecharts/apps/issues/977))
-* Add VPN addon and move some config to includes ([#973](https://github.com/truecharts/apps/issues/973))
-
-
-
-<a name="nextcloud-4.0.6"></a>
-### [nextcloud-4.0.6](https://github.com/truecharts/apps/compare/nextcloud-4.0.5...nextcloud-4.0.6) (2021-09-11)
-
-#### Fix
-
-* bump postgresql on nextcloud to a working version
-
-
-
-<a name="nextcloud-4.0.5"></a>
-### [nextcloud-4.0.5](https://github.com/truecharts/apps/compare/nextcloud-4.0.4...nextcloud-4.0.5) (2021-09-11)
-
-#### Fix
-
-* use correct appversion string
-
-
-
-<a name="nextcloud-4.0.4"></a>
-### [nextcloud-4.0.4](https://github.com/truecharts/apps/compare/nextcloud-4.0.3...nextcloud-4.0.4) (2021-09-11)
-
-#### Chore
-
-* update nextcloud to latest postgresql and common
-* Use bitnami instead of stock postgresql container ([#960](https://github.com/truecharts/apps/issues/960))
-* update non-major ([#962](https://github.com/truecharts/apps/issues/962))
-
-#### Feat
-
-* pin all container references to digests ([#963](https://github.com/truecharts/apps/issues/963))
-
-#### Fix
-
-* make sure podSecurityContext is included in both SCALE and Helm installs ([#956](https://github.com/truecharts/apps/issues/956))
-
-#### Refactor
-
-* change image layout to enable renovate updates of sidecarts ([#955](https://github.com/truecharts/apps/issues/955))
-
-
-
-<a name="nextcloud-4.0.3"></a>
-### [nextcloud-4.0.3](https://github.com/truecharts/apps/compare/nextcloud-4.0.2...nextcloud-4.0.3) (2021-09-10)
-
-#### Fix
-
-* repair wrong initcontainer format on nextcloud
-
-
-
-<a name="nextcloud-4.0.2"></a>
-### [nextcloud-4.0.2](https://github.com/truecharts/apps/compare/nextcloud-4.0.1...nextcloud-4.0.2) (2021-09-10)
-
-#### Fix
-
-* update common to ensure initcontainer can always be run as root
-
-
-
-<a name="nextcloud-4.0.1"></a>
-### [nextcloud-4.0.1](https://github.com/truecharts/apps/compare/nextcloud-4.0.0...nextcloud-4.0.1) (2021-09-10)
-
-#### Fix
-
-* move runAsNonRoot to container securityContext to allow root sidecarts ([#954](https://github.com/truecharts/apps/issues/954))
-
-
-
-<a name="nextcloud-4.0.0"></a>
-### [nextcloud-4.0.0](https://github.com/truecharts/apps/compare/nextcloud-3.7.16...nextcloud-4.0.0) (2021-09-09)
-
-#### Chore
-
-* update Apps containing initcontainers  -not breaking on SCALE- ([#952](https://github.com/truecharts/apps/issues/952))
-
-#### Feat
-
-* Add regex validation to resources CPU and RAM for all apps ([#935](https://github.com/truecharts/apps/issues/935))
-
-
-
-<a name="nextcloud-3.7.16"></a>
-### [nextcloud-3.7.16](https://github.com/truecharts/apps/compare/nextcloud-3.7.15...nextcloud-3.7.16) (2021-09-08)
-
-#### Revert
-
-* undo fix tryout for TRUSTED_PROXIES
-
-
-
-<a name="nextcloud-3.7.15"></a>
-### [nextcloud-3.7.15](https://github.com/truecharts/apps/compare/nextcloud-3.7.14...nextcloud-3.7.15) (2021-09-08)
-
-#### Feat
-
-* Add IPWhitelist, redirectRegex and (internal) nextcloud middlewares ([#929](https://github.com/truecharts/apps/issues/929))
-* Pre-commit and tag-appversion syncing ([#926](https://github.com/truecharts/apps/issues/926))
-
-#### Fix
-
-* Add initcontainer to force refresh TRUSTED_DOMAINS ([#930](https://github.com/truecharts/apps/issues/930))
-
-<a name="nextcloud-3.7.14"></a>
-## [nextcloud-3.7.14](https://github.com/truecharts/apps/compare/nextcloud-3.7.13...nextcloud-3.7.14) (2021-09-08)
+* add prometheus prototype ([#1379](https://github.com/truecharts/apps/issues/1379))

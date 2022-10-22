@@ -2,6 +2,19 @@
 
 
 
+## [traefik-13.4.12](https://github.com/truecharts/charts/compare/traefik-13.4.11...traefik-13.4.12) (2022-10-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Fix
+
+- fix CRD update and common update ([#4149](https://github.com/truecharts/charts/issues/4149))
+
+
+
+
 ## [traefik-13.4.11](https://github.com/truecharts/charts/compare/traefik-13.4.10...traefik-13.4.11) (2022-10-19)
 
 ### Chore

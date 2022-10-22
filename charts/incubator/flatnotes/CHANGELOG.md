@@ -2,6 +2,16 @@
 
 
 
+## [flatnotes-0.0.10](https://github.com/truecharts/charts/compare/flatnotes-0.0.9...flatnotes-0.0.10) (2022-10-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4139](https://github.com/truecharts/charts/issues/4139))
+
+
+
+
 ## [flatnotes-0.0.9](https://github.com/truecharts/charts/compare/flatnotes-0.0.8...flatnotes-0.0.9) (2022-10-19)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [stash-7.0.41](https://github.com/truecharts/charts/compare/stash-7.0.40...stash-7.0.41) (2022-10-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4139](https://github.com/truecharts/charts/issues/4139))
+
+
+
+
 ## [stash-7.0.40](https://github.com/truecharts/charts/compare/filestash-0.0.46...stash-7.0.40) (2022-10-19)
 
 ### Chore

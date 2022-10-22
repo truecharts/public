@@ -2,6 +2,16 @@
 
 
 
+## [rflood-0.0.38](https://github.com/truecharts/charts/compare/rflood-0.0.37...rflood-0.0.38) (2022-10-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4139](https://github.com/truecharts/charts/issues/4139))
+
+
+
+
 ## [rflood-0.0.37](https://github.com/truecharts/charts/compare/rflood-0.0.36...rflood-0.0.37) (2022-10-19)
 
 ### Chore

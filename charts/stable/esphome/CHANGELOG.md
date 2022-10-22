@@ -2,6 +2,16 @@
 
 
 
+## [esphome-11.0.47](https://github.com/truecharts/charts/compare/esphome-11.0.46...esphome-11.0.47) (2022-10-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4139](https://github.com/truecharts/charts/issues/4139))
+
+
+
+
 ## [esphome-11.0.46](https://github.com/truecharts/charts/compare/esphome-11.0.45...esphome-11.0.46) (2022-10-19)
 
 ### Chore

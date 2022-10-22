@@ -2,6 +2,16 @@
 
 
 
+## [wbo-0.0.8](https://github.com/truecharts/charts/compare/wbo-0.0.7...wbo-0.0.8) (2022-10-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4139](https://github.com/truecharts/charts/issues/4139))
+
+
+
+
 ## [wbo-0.0.7](https://github.com/truecharts/charts/compare/wbo-0.0.6...wbo-0.0.7) (2022-10-19)
 
 ### Chore

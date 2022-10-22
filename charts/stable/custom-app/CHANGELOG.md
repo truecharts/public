@@ -2,6 +2,16 @@
 
 
 
+## [custom-app-5.1.82](https://github.com/truecharts/charts/compare/custom-app-5.1.81...custom-app-5.1.82) (2022-10-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4139](https://github.com/truecharts/charts/issues/4139))
+
+
+
+
 ## [custom-app-5.1.81](https://github.com/truecharts/charts/compare/custom-app-5.1.80...custom-app-5.1.81) (2022-10-19)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [kitchenowl-1.0.13](https://github.com/truecharts/charts/compare/kitchenowl-1.0.12...kitchenowl-1.0.13) (2022-10-21)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4139](https://github.com/truecharts/charts/issues/4139))
+
+
+
+
 ## [kitchenowl-1.0.12](https://github.com/truecharts/charts/compare/kitchenowl-1.0.11...kitchenowl-1.0.12) (2022-10-19)
 
 ### Chore
