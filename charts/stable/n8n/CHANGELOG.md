@@ -2,6 +2,16 @@
 
 
 
+## [n8n-4.0.69](https://github.com/truecharts/charts/compare/n8n-4.0.68...n8n-4.0.69) (2022-10-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4155](https://github.com/truecharts/charts/issues/4155))
+
+
+
+
 ## [n8n-4.0.68](https://github.com/truecharts/charts/compare/n8n-4.0.67...n8n-4.0.68) (2022-10-19)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [onlyoffice-document-server-6.0.46](https://github.com/truecharts/charts/compare/onlyoffice-document-server-6.0.45...onlyoffice-document-server-6.0.46) (2022-10-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4155](https://github.com/truecharts/charts/issues/4155))
+
+
+
+
 ## [onlyoffice-document-server-6.0.45](https://github.com/truecharts/charts/compare/onlyoffice-document-server-6.0.44...onlyoffice-document-server-6.0.45) (2022-10-19)
 
 ### Chore
