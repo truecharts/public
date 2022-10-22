@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/ring-mqtt
-  tag: 5.0.5@sha256:f9c196a89c271ad0bc6e7d9604b2519af28e4f8915ea376660851d3b10f1e2ba
+  tag: 5.0.3@sha256:bf3eec51cf04e5b8e7118b5c7a1827ba9150b0c9b9ff2621910a1d7001ac462e
 
 podSecurityContext:
   runAsGroup: 0
@@ -45,16 +45,13 @@ service:
 
 probes:
   liveness:
-    type: HTTP
-    path: /-/health/live/
+    type: TCP
     port: "{{ .Values.service.rtsp.ports.rtsp.targetPort }}"
   readiness:
-    type: HTTP
-    path: /-/health/ready/
+    type: TCP
     port: "{{ .Values.service.rtsp.ports.rtsp.targetPort }}"
   startup:
-    type: HTTP
-    path: /-/health/ready/
+    type: TCP
     port: "{{ .Values.service.rtsp.ports.rtsp.targetPort }}"
 
 persistence:
