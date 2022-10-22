@@ -105,13 +105,26 @@ questions:
                         type: string
                         private: true
                         default: ""
+              - variable: relayDNS
+                label: relayDNS
+                description: When set, relayPort value is ignored. Set this to a DNS name the points to this server. When the server is accessed using the DNS name, the main web server port is used as a web relay port.
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: relayDNSEntry
+                      label: relayDNS Entry
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
         - variable: domains
           label: Section <domains>
           schema:
             additional_attrs: true
             type: dict
             attrs:
-              - variable: ""
+              - variable: '""'
                 label: Section <"">
                 schema:
                   additional_attrs: true
