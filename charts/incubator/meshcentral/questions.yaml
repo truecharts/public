@@ -151,6 +151,13 @@ questions:
                         type: string
                         required: true
                         default: TrueCharts MeshCentral
+                    - variable: welcomeText
+                      label: welcomeText
+                      description: Text that will be shown on the login screen.
+                      schema:
+                        type: string
+                        required: true
+                        default: Welcome to TrueCharts MeshCentral
                     - variable: minify
                       label: minify
                       description: When enabled, the server will send reduced sized web pages.

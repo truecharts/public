@@ -317,6 +317,10 @@ meshcentral:
       # - When set to true, users will get a CAPTCHA when creating a new account from the login screen.
       _newAccountsCaptcha: false
       _newAccountsUserGroups: []
+      # - When enabled, the username of each account is also the email address of the account.
+      userNameIsEmail: false
+      _newAccountsRights: []
+      _newAccountEmailDomains: []
       # - The maximum number of devices a user can see on the devices page at the same time. By default all devices will show, but this may need to be limited on servers with large number of devices.
       _maxDeviceView: 1000
       _userQuota: 1048576
