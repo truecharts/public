@@ -1,10 +1,11 @@
 image:
   repository: tccr.io/truecharts/pidgin
   pullPolicy: IfNotPresent
-  tag: v2.14.8
+  tag: 2.14.9
 
 securityContext:
   runAsNonRoot: false
+  readOnlyRootFilesystem: false
 
 podSecurityContext:
   runAsUser: 0

@@ -2,6 +2,16 @@
 
 
 
+## [sourcegraph-0.0.35](https://github.com/truecharts/charts/compare/sourcegraph-0.0.34...sourcegraph-0.0.35) (2022-10-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4155](https://github.com/truecharts/charts/issues/4155))
+
+
+
+
 ## [sourcegraph-0.0.34](https://github.com/truecharts/charts/compare/sourcegraph-0.0.33...sourcegraph-0.0.34) (2022-10-19)
 
 ### Chore
