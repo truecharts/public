@@ -6,9 +6,9 @@
 
 {{- $sessionKey := "" }}
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
-{{- $sessionKey = (index .data "session_key") }}
+  {{- $sessionKey = (index .data "session_key") }}
 {{- else }}
-{{- $sessionKey = randAlphaNum 32 }}
+  {{- $sessionKey = randAlphaNum 32 }}
 {{- end }}
 
 {{/* Inject some values */}}
@@ -16,7 +16,7 @@
 {{- $_ := set $config "__comment__" "This file is generated dynamically at install time, do not attempt to modify it. On next start it will be re-generated" }}
 
 {{- if not (hasKey $config "settings") }}
-{{- $_ := set $config "settings" dict }}
+  {{- $_ := set $config "settings" dict }}
 {{- end }}
 
 {{- $_ := set $config.settings "mongoDB" (.Values.mongodb.url.complete | trimAll "\"") }}
@@ -29,9 +29,14 @@
 {{- $_ := set $config.settings "cleanNpmCacheOnUpdate" false }}
 
 {{/* Disallows administrators to update the server from the My Server tab. For ANY domains defined */}}
-{{ range $domains := $config.domains }}
-{{ $_ := set $domains.myServer "Upgrade" false }}
+{{- range $domain := $config.domains }}
+  {{- if not (hasKey $domain "myServer") }}
+    {{- $_ := set $domain "myServer" dict }}
+  {{- end -}}
+  {{- $_ := set $domain.myServer "Upgrade" false }}
 {{- end }}
+
+{{- $config := (include "prune.underscored.keys" $config) }}
 
 ---
 
@@ -45,5 +50,20 @@ metadata:
 data:
   session_key: {{ $sessionKey | b64enc }}
   config.json: |
-{{- toPrettyJson $config | b64enc | nindent 4 }}
+{{- toPrettyJson (fromYaml $config) | nindent 4 }}
+{{- end }}
+
+
+{{- define "prune.underscored.keys" }}
+  {{- $values := . }}
+  {{- range $k, $v := $values }}
+    {{- if (hasPrefix "_" $k) }}
+      {{- $_ := unset $values $k }}
+    {{- else }}
+      {{- if eq (kindOf $v) "map" }}
+        {{- $v := (include "prune.underscored.keys" $v) }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- toYaml $values }}
 {{- end }}
