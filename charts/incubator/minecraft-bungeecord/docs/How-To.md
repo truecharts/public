@@ -95,7 +95,7 @@ You can create a file called **secrets** in **/config** dir and apply the name t
 The contents of the secret file:
 
 ```text
-MyForwardingSecet
+MyForwardingSecret
 ```
 
 For every MC (Spigot) instance you want proxied by Velocity, you need to make sure **bungeecord** in **/data/spigot.yml** is set to:
