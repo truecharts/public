@@ -249,6 +249,58 @@ meshcentral:
       ip: null
     _plugins:
       enabled: true
+  # - Connects MeshCentral to the SendGrid email server, allows MeshCentral to send email messages for 2FA or user notification.
+  _sendgrid:
+    # - Email address used in the messages from field.
+    from: null
+    # - The SendGrid API key.
+    apiKey: null
+    # - When set to false, the email format and DNS MX record are not checked.
+    verifyemail: true
+  _smtp:
+    # - Optional hostname of the client, this defaults to the hostname of the machine. This is useful for SMTP relays.
+    name: null
+    # - Hostname of the SMTP server.
+    host: null
+    # - SMTP server port number.
+    port: null
+    # - Email address used in the messages from field.
+    from: null
+    tls: true
+    _auth:
+      clientId: null
+      clientSecret: null
+      refreshToken: null
+    tlscertcheck: true
+    tlsstrict: true
+    # - When set to false, the email format and DNS MX record are not checked
+    verifyemail: true
+  # - Connects MeshCentral to a SMS text messaging provider, allows MeshCentral to send SMS messages for 2FA or user notification. Options: One of the following blocks
+  _sms:
+    # - twillio
+    provider: twillio
+    sid: null
+    auth: null
+    from: null
+    # # - plivo
+    # provider: plivo
+    # id: null
+    # token: null
+    # from: nyll
+    # # - telnyx
+    # provider: telnyx
+    # apikey: null
+    # from: null
+    # # - url
+    # provider: url
+    # url: "tc.common.names.fullname"
+  # - This section allow MeshCentral to send messages over user messaging networks like Telegram
+  _messaging:
+    # - Configure Telegram messaging system
+    telegram:
+      apiid: null
+      apihash: null
+      session: null
   # - Any settings in this section is used as default setting for all domains
   _domaindefaults:
     title: Default Title
@@ -738,6 +790,183 @@ meshcentral:
         id: null
         secret: null
         proxy: null
+      _httpHeaders: null
+      # - Key and values to add to the MeshAgent .msh file
+      _agentConfig:
+        - null
+      # - Key and values to add to the MeshCentral Assistant .msh file
+      _assistantConfig:
+        - null
+      # - When false, users can't set the clipboard of a remove device.
+      clipboardGet: true
+      # - When false, users can't get the clipboard of a remove device.
+      clipboardSet: true
+      # - When false, removes the local recording feature on remote desktop.
+      localSessionRecording: true
+      _sessionRecording:
+        # - When enabled, only device users with the session recording feature turned on will be recorded. When false, all users are recorded.
+        onlySelectedUsers: false
+        # - When enabled, only device user groups with the session recording feature turned on will be recorded. When false, all users are recorded.
+        onlySelectedUserGroups: false
+        # - When enabled, only device groups with the session recording feature turned on will be recorded. When false, all devices are recorded.
+        onlySelectedDeviceGroups: false
+        # - The file path where recording files are kept.
+        filepath: null
+        # - If true, automatically index remote desktop recordings so that the plays can skip to any place in the file.
+        index: false
+        # - Maximum number of recording files to keep.
+        maxRecordings: null
+        # - Maximum number of days to keep a recording.
+        maxRecordingDays: null
+        # - Maximum number of recordings in megabytes. Once exceed, remove the oldest recordings.
+        maxRecordingSizeMegabytes: null
+        # - This is an array: 1 = Terminal, 2 = Desktop, 5 = Files, 100 = Intel AMT WSMAN, 101 = Intel AMT Redirection, 200 = Messenger
+        _protocols:
+          - 1
+          - 5
+      # - When set to false, hides the username and password prompt on login screen.
+      _showPasswordLogin: true
+      # - Connects MeshCentral to the SendGrid email server, allows MeshCentral to send email messages for 2FA or user notification.
+      _sendgrid:
+        # - Email address used in the messages from field.
+        from: null
+        # - The SendGrid API key.
+        apiKey: null
+        # - When set to false, the email format and DNS MX record are not checked.
+        verifyemail: true
+      # - Connects MeshCentral to a SMTP email server, allows MeshCentral to send email messages for 2FA or user notification.
+      _smtp:
+        # - Optional hostname of the client, this defaults to the hostname of the machine. This is useful for SMTP relays.
+        name: null
+        # - Hostname of the SMTP server.
+        host: null
+        # - SMTP server port number.
+        port: null
+        # - Email address used in the messages from field.
+        from: null
+        tls: true
+        _auth:
+          clientId: null
+          clientSecret: null
+          refreshToken: null
+        tlscertcheck: true
+        tlsstrict: true
+        # - When set to false, the email format and DNS MX record are not checked
+        verifyemail: true
+      # - Makes MeshCentral send emails using the Unix sendmail command. Allows MeshCentral to send email messages for 2FA or user notification.
+      _sendmail:
+        # - Possible values are unix or windows
+        newline: unix
+        # - Path to the sendmail command
+        path: sendmail
+        # - Array or arguments to pass to sendmail
+        _args:
+          - null
+      _authStrategies:
+        _twitter:
+          # - Required, this is the URL that your SSO provider sends auth approval to.
+          callbackurl: null
+          newAccounts: false
+          newAccountsUserGroups:
+            - null
+          clientid: null
+          clientsecret: null
+          # - Then set, the user will be redirected to this URL when hitting the logout link
+          logouturl: null
+        _google:
+          # - Required, this is the URL that your SSO provider sends auth approval to.
+          callbackurl: null
+          newAccounts: false
+          newAccountsUserGroups:
+            - null
+          clientid: null
+          clientsecret: null
+          # - Then set, the user will be redirected to this URL when hitting the logout link
+          logouturl: null
+        _github:
+          # - Required, this is the URL that your SSO provider sends auth approval to.
+          callbackurl: null
+          newAccounts: false
+          newAccountsUserGroups:
+            - null
+          clientid: null
+          clientsecret: null
+          # - Then set, the user will be redirected to this URL when hitting the logout link
+          logouturl: null
+        _reddit:
+          # - Required, this is the URL that your SSO provider sends auth approval to.
+          callbackurl: null
+          newAccounts: false
+          newAccountsUserGroups:
+            - null
+          clientid: null
+          clientsecret: null
+          # - Then set, the user will be redirected to this URL when hitting the logout link
+          logouturl: null
+        _azure:
+          # - Required, this is the URL that your SSO provider sends auth approval to.
+          callbackurl: null
+          newAccounts: false
+          newAccountsUserGroups:
+            - null
+          clientid: null
+          clientsecret: null
+          tenantid: null
+          # - Then set, the user will be redirected to this URL when hitting the logout link
+          logouturl: null
+        _jumpcloud:
+          # - Required, this is the URL that your SSO provider sends auth approval to.
+          callbackurl: null
+          newAccounts: false
+          newAccountsUserGroups:
+            - null
+          entityid: null
+          idpurl: null
+          cert: null
+          # - Then set, the user will be redirected to this URL when hitting the logout link
+          logouturl: null
+        _saml:
+          # - Required, this is the URL that your SSO provider sends auth approval to.
+          callbackurl: null
+          disableRequestedAuthnContext: false
+          newAccounts: false
+          newAccountsUserGroups:
+            - null
+          newAccountsRights:
+            - null
+          entityid: null
+          idpurl: null
+          cert: null
+          # - Then set, the user will be redirected to this URL when hitting the logout link
+          logouturl: null
+        _oidc:
+          # - If set, this will be used as the authorization URL. (If set tokenURL and userInfoURL need set also)
+          authorizationURL: null
+          # - Required, this is the URL that your SSO provider sends auth approval to.
+          callbackurl: null
+          clientid: null
+          clientsecret: null
+          # - Full URL of SSO portal
+          issuer: null
+          # - If set, this will be used as the token URL. (If set authorizationURL and userInfoURL need set also)
+          tokenURL: null
+          # - If set, this will be used as the user info URL. (If set authorizationURL and tokenURL need set also)
+          userInfoURL: null
+          # - Then set, the user will be redirected to this URL when hitting the logout link
+          logouturl: null
+          newAccounts: true
+          groups:
+            # - When set, the user must be part of one of the OIDC user groups to login to MeshCentral.
+            required:
+              - null
+            # - When set, users part of these groups will be promoted with site administrator in MeshCentral, users that are not part of these groups will be demoted.
+            siteadmin:
+              - null
+            sync:
+              enabled: false
+              # - When set, limits what OIDC groups are mirrored into MeshCentral user groups.
+              filter:
+                - null
 
 probes:
   liveness:
