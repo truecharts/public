@@ -12,31 +12,50 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
+  - variable: meshcentral
+    group: Container Configuration
+    label: MeshCentral Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: hostname
-          label: "hostname"
-          description: "Hostname of your meshcentral instance, used to generate self singed certs, eg. mesh.example.com or 192.168.1.100."
+        - variable: settings
+          label: Section <settings>
           schema:
-            type: string
-            required: true
-            default: ""
-        - variable: reverseProxyUrl
-          label: "reverseProxyUrl"
-          description: "HTTPS URL on which you will reach this instance, can't be IP. eg. https://mesh.example.com/"
-          schema:
-            type: string
-            default: ""
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: aliasPort
+                label: aliasPort
+                description: The actual main port as seen externally on the Internet, this setting is often used when a reverse-proxy is used.
+                schema:
+                  type: int
+                  required: true
+                  default: 443
+              - variable: cert
+                label: cert
+                description: Set this to the primary DNS name of this MeshCentral server.
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: WANonly
+                label: WANonly
+                description: When enabled, only MeshCentral WAN features are enabled and agents will connect to the server using a well known DNS name.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: LANonly
+                label: LANonly
+                description: When enabled, only MeshCentral LAN features are enabled and agents will find the server using multicast LAN packets.
+                schema:
+                  type: boolean
+                  default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -44,22 +63,22 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 10205
                               required: true
 # Include{advancedPortHTTPS}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 10205
@@ -69,8 +88,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: data
-          label: "App Data Storage"
-          description: "Stores the Application Data."
+          label: App Data Storage
+          description: Stores the Application Data.
           schema:
             additional_attrs: true
             type: dict
@@ -78,8 +97,26 @@ questions:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
         - variable: files
-          label: "Files Storage"
-          description: "Stores the Files"
+          label: Files Storage
+          description: Stores the Files
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: web
+          label: Web Storage
+          description: Stores the Web Files. Used for web customization
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: backups
+          label: Backups Storage
+          description: Stores the Backups
           schema:
             additional_attrs: true
             type: dict
@@ -89,7 +126,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -102,42 +139,42 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568

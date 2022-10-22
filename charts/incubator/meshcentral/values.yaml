@@ -7,7 +7,7 @@ command:
   - node
   - meshcentral/meshcentral
   - --configfile
-  - /home/node/meshcentral/meshcentral-config/config.json
+  - /opt/meshcentral/meshcentral-config/config.json
   - --cert
   - "{{ .Values.meshcentral.settings.cert }}"
 
@@ -26,7 +26,6 @@ meshcentral:
   settings:
     mongoDbBulkOperations: true
     # - The actual main port as seen externally on the Internet, this setting is often used when a reverse-proxy is used.
-    # - Remove _ if ingress is enabled
     aliasPort: 443
     # - When set, relayPort value is ignored. Set this to a DNS name the points to this server. When the server is accessed using the DNS name, the main web server port is used as a web relay port.
     _relayDNS:
@@ -51,11 +50,11 @@ meshcentral:
     # - Force MeshCentral to use the HTTPS and MPS certificates even if the name does not match the expected DNS value.
     keepCerts: false
     # - When enabled, only MeshCentral WAN features are enabled and agents will connect to the server using a well known DNS name.
-    WANonly: true
+    WANonly: false
     # - When enabled, only MeshCentral LAN features are enabled and agents will find the server using multicast LAN packets.
-    _LANonly: false
+    LANonly: false
     # - When enabled the server is in maintenance mode, only administrators can login. Use the maintenance command in server console to change.
-    _maintenanceMode: false
+    maintenanceMode: false
     allowLoginToken: false
     # - Controls the Strict-Transport-Security header, default is 1 year. Set to false to remove, true to force enable, or string to set a custom value. If set to null, MeshCentral will enable if a trusted certificate is set.
     _StrictTransportSecurity: null
@@ -187,7 +186,7 @@ meshcentral:
       backupIntervalHours: 24
       keepLastDaysBackup: 10
       _zipPassword: null
-      backupPath: /home/node/meshcentral/meshcentral-backups
+      backupPath: /opt/meshcentral/meshcentral-backup
       # - Enabled automated upload of the server backups to a Google Drive account, once enabled you need to go in "My Server" tab as administrator to associate the account.
       _googleDrive:
         # - The name of the folder to create in the Google Drive account.
@@ -499,7 +498,7 @@ meshcentral:
       _ldapUserPhoneNumber: telephoneNumber
       # - The LDAP value to use for the user's image.
       _ldapUserImage: thumbnailPhoto
-      # - When set to a filename, for example /home/node/meshcentral/ldapusers.txt, MeshCentral will save the LDAP user object to this file each time a user logs in. This is used for debugging LDAP issues.
+      # - When set to a filename, for example /opt/meshcentral/meshcentral-data/ldapusers.txt, MeshCentral will save the LDAP user object to this file each time a user logs in. This is used for debugging LDAP issues.
       _ldapSaveUserToFile: null
       # - The LDAP value to use for the user's group memberships.
       _ldapUserGroups: memberOf
@@ -1000,20 +999,27 @@ mongodb:
 persistence:
   data:
     enabled: true
-    mountPath: /home/node/meshcentral/meshcentral-data
+    mountPath: /opt/meshcentral/meshcentral-data
+    size: 256Gi
   files:
     enabled: true
-    mountPath: /home/node/meshcentral/meshcentral-files
+    mountPath: /opt/meshcentral/meshcentral-files
+    size: 256Gi
+  web:
+    enabled: true
+    mountPath: /opt/meshcentral/meshcentral-web
+    size: 256Gi
   backups:
     enabled: true
-    mountPath: /home/node/meshcentral/meshcentral-backups
+    mountPath: /opt/meshcentral/meshcentral-backup
+    size: 256Gi
   configfile:
     enabled: true
     type: secret
     readOnly: true
     # defaultMode: "0600"
     objectName: '{{ include "tc.common.names.fullname" . }}-secret'
-    mountPath: /home/node/meshcentral/meshcentral-config
+    mountPath: /opt/meshcentral/meshcentral-config
     items:
       - key: config.json
         path: config.json
