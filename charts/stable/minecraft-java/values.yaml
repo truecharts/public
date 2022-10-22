@@ -27,6 +27,19 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+service:
+  main:
+    ports:
+      main:
+        port: 25565
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        port: 25575
+        targetPort: 25575
+
 secretEnv:
   RCON_PASSWORD: "secretrconpass"
 
@@ -105,19 +118,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
-
-service:
-  main:
-    ports:
-      main:
-        port: 25565
-  rcon:
-    enabled: true
-    ports:
-      rcon:
-        enabled: true
-        port: 25575
-        targetPort: 25575
 
 portal:
   enabled: false
