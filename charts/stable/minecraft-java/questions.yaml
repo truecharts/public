@@ -3,22 +3,22 @@ portals: {}
 questions:
 # Include{global}
   - variable: imageSelector
-    group: "Container Image"
-    label: "Select Image"
+    group: Container Image
+    label: Select Image
     schema:
       type: string
-      default: "image"
+      default: image
       enum:
-        - value: "image"
-          description: "Java 17 HotSpot"
-        - value: "j11Image"
-          description: "Java 11 HotSpot"
-        - value: "j11j9Image"
-          description: "Java 11 OpenJ9"
-        - value: "j8Image"
-          description: "Java 8 HotSpot"
-        - value: "j8j9Image"
-          description: "Java 8 OpenJ9"
+        - value: image
+          description: Java 17 HotSpot
+        - value: j11Image
+          description: Java 11 HotSpot
+        - value: j11j9Image
+          description: Java 11 OpenJ9
+        - value: j8Image
+          description: Java 8 HotSpot
+        - value: j8j9Image
+          description: Java 8 OpenJ9
 # Include{controller}
 # Include{controllerDeployment}
 # Include{replicas}
@@ -28,306 +28,299 @@ questions:
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: secretEnv
-    group: "Container Configuration"
-    label: "Image Secrets"
+    group: Container Configuration
+    label: Image Secrets
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: RCON_PASSWORD
-          label: "RCON_PASSWORD"
-          description: "This will only have effect in the first installation or always if OVERRIDE_SERVER_PROPERTIES is enabled"
+          label: RCON_PASSWORD
+          description: This will only have effect in the first installation or always if OVERRIDE_SERVER_PROPERTIES is enabled
           schema:
             type: string
             private: true
             default: ""
   - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
+    group: Container Configuration
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: EULA
-          label: "Minecraft Eula - Link in readme sources"
+          label: Minecraft Eula - Link in readme sources
           schema:
             type: boolean
             required: true
             default: false
         - variable: OVERRIDE_SERVER_PROPERTIES
-          label: "OVERRIDE_SERVER_PROPERTIES"
-          description: "Enable this so RCON_PASSWORD will always have effect."
+          label: Override Server Properties
+          description: Enable this so RCON_PASSWORD will always have effect.
           schema:
             type: boolean
             default: false
         - variable: VERSION
-          label: "Minecraft Version - LATEST, SNAPSHOT, or verison"
+          label: Minecraft Version - LATEST, SNAPSHOT, or verison
           schema:
             type: string
             required: true
-            default: "LATEST"
+            default: LATEST
         - variable: TYPE
-          label: "Server Type"
+          label: Server Type
           schema:
             type: string
             required: true
-            default: "VANILLA"
+            default: VANILLA
             enum:
-              - value: "VANILLA"
-                description: "Vanilla"
-              - value: "FORGE"
-                description: "Forge"
-              - value: "FABRIC"
-                description: "Fabric"
-              - value: "SPIGOT"
-                description: "Spigot"
-              - value: "BUKKIT"
-                description: "Bukkit"
-              - value: "PAPER"
-                description: "Paper"
-              - value: "AIRPLANE"
-                description: "Airplane"
-              - value: "PURPUR"
-                description: "Purpur"
-              - value: "MAGMA"
-                description: "Magma"
-              - value: "MOHIST"
-                description: "Mohist"
-              - value: "CATSERVER"
-                description: "Catserver"
-              - value: "CANYON"
-                description: "Canyon"
-              - value: "SPONGEVANILLA"
-                description: "Sponge Vanilla"
-              - value: "LIMBO"
-                description: "Limbo"
-              - value: "CRUCIBLE"
-                description: "Crucible"
-              - value: "FTBA"
-                description: "FTBA"
-              - value: "CURSEFORGE"
-                description: "Curseforge"
-              - value: "QUILT"
-                description: "Quilt"
-              - value: "PUFFERFISH"
-                description: "Pufferfish"
-              - value: "CUSTOM"
-                description: "Custom"
+              - value: VANILLA
+                description: Vanilla
+              - value: FORGE
+                description: Forge
+              - value: FABRIC
+                description: Fabric
+              - value: SPIGOT
+                description: Spigot
+              - value: BUKKIT
+                description: Bukkit
+              - value: PAPER
+                description: Paper
+              - value: AIRPLANE
+                description: Airplane
+              - value: PURPUR
+                description: Purpur
+              - value: MAGMA
+                description: Magma
+              - value: MOHIST
+                description: Mohist
+              - value: CATSERVER
+                description: Catserver
+              - value: CANYON
+                description: Canyon
+              - value: SPONGEVANILLA
+                description: Sponge Vanilla
+              - value: LIMBO
+                description: Limbo
+              - value: CRUCIBLE
+                description: Crucible
+              - value: FTBA
+                description: FTBA
+              - value: CURSEFORGE
+                description: Curseforge
+              - value: QUILT
+                description: Quilt
+              - value: PUFFERFISH
+                description: Pufferfish
+              - value: CUSTOM
+                description: Custom
         - variable: CUSTOM_SERVER
-          label: "CUSTOM SERVER"
-          description: "URL or a container path to an existing JAR file, will ONLY download once."
+          label: Custom Server
+          description: URL or a container path to an existing JAR file, will ONLY download once.
           schema:
             type: string
             default: ""
-            #required: [[TYPE, "=", "CUSTOM"]]
             show_if: [[TYPE, "=", "CUSTOM"]]
         - variable: QUILT_LOADER_VERSION
-          label: "Quilt loader version"
+          label: Quilt loader version
           schema:
             type: string
             default: "0.16.0"
             show_if: [[TYPE, "=", "QUILT"]]
         - variable: QUILT_INSTALLER_VERSION
-          label: "Quilt installer version"
+          label: Quilt installer version
           schema:
             type: string
             default: "0.4.1"
             show_if: [[TYPE, "=", "QUILT"]]
         - variable: QUILT_LAUNCHER
-          label: "Quilt launcher"
-          description: "Path to a custom launcher jar available to the container relative to `/data`."
+          label: Quilt launcher
+          description: Path to a custom launcher jar available to the container relative to /data.
           schema:
             type: string
             default: ""
             show_if: [[TYPE, "=", "QUILT"]]
         - variable: QUILT_LAUNCHER_URL
-          label: "Quilt launcher url"
-          description: "URL to a custom launcher jar"
+          label: Quilt launcher url
+          description: URL to a custom launcher jar
           schema:
             type: string
             default: ""
             show_if: [[TYPE, "=", "QUILT"]]
         - variable: PUFFERFISH_BUILD
-          label: "Pufferfish build"
-          description: "To set the actual SERVER VERSION number set the value as `build xx` for example xx is 50. set the `Version` variable as a single branch instead like `latest` or `1.18` or `1.17`"
+          label: Pufferfish build
+          description: "To set the actual SERVER VERSION number set the value as 'build xx' for example xx is 50. set the 'Version' variable as a single branch instead like 'latest' or '1.18' or '1.17'"
           schema:
             type: string
-            default: "lastSuccessfulBuild"
+            default: lastSuccessfulBuild
             show_if: [[TYPE, "=", "PUFFERFISH"]]
         - variable: FORGEVERSION
-          label: "Forge Version"
+          label: Forge Version
           schema:
             type: string
             default: ""
             show_if: [[TYPE, "=", "FORGE"]]
         - variable: FORGE_INSTALLER
-          label: "Forge Installer"
+          label: Forge Installer
           schema:
             type: string
             default: ""
             show_if: [[TYPE, "=", "FORGE"]]
         - variable: FORGE_INSTALLER_URL
-          label: "Forge Installer URL"
+          label: Forge Installer URL
           schema:
             type: string
             default: ""
             show_if: [[TYPE, "=", "FORGE"]]
         - variable: FABRIC_LOADER_VERSION
-          label: "Fabric Loader Version"
+          label: Fabric Loader Version
           schema:
             type: string
             default: ""
             show_if: [[TYPE, "=", "FABRIC"]]
         - variable: FABRIC_INSTALLER
-          label: "Fabric Installer"
+          label: Fabric Installer
           schema:
             type: string
             default: ""
             show_if: [[TYPE, "=", "FABRIC"]]
         - variable: FABRIC_INSTALLER_URL
-          label: "Fabric Installer URL"
+          label: Fabric Installer URL
           schema:
             type: string
             default: ""
             show_if: [[TYPE, "=", "FABRIC"]]
         - variable: SPIGOT_DOWNLOAD_URL
-          label: "Spigot Download URL"
+          label: Spigot Download URL
           schema:
             type: string
             default: ""
             show_if: [[TYPE, "=", "SPIGOT"]]
         - variable: BUILD_FROM_SOURCE
-          label: "Build Spigot from Source?"
+          label: Build Spigot from Source?
           schema:
             type: boolean
             default: false
             show_if: [[TYPE, "=", "SPIGOT"]]
         - variable: BUKKIT_DOWNLOAD_URL
-          label: "Bukkit Download URL"
+          label: Bukkit Download URL
           schema:
             type: string
             default: ""
             show_if: [[TYPE, "=", "BUKKIT"]]
         - variable: PAPERBUILD
-          label: "Paper Build Number"
+          label: Paper Build Number
           schema:
             type: string
             default: ""
             show_if: [[TYPE, "=", "PAPER"]]
         - variable: PAPER_DOWNLOAD_URL
-          label: "Paper Download URL"
+          label: Paper Download URL
           schema:
             type: string
             default: ""
             show_if: [[TYPE, "=", "PAPER"]]
         - variable: PACKWIZ_URL
-          label: "Packwiz URL"
+          label: Packwiz URL
           schema:
             type: string
             default: ""
             show_if: [[TYPE, "=", "PAPER"]]
         - variable: AIRPLANE_BUILD
-          label: "Airplane Build"
+          label: Airplane Build
           schema:
             type: string
-            default: "lastSuccessfulBuild"
+            default: lastSuccessfulBuild
             show_if: [[TYPE, "=", "AIRPLANE"]]
-        #- variable: USE_FLARE_FLAGS
-        #  label: "Enable to add appropriate flags for the Flare profiler"
-        #  schema:
-        #    type: boolean
-        #    default: false
-        #    show_if: [[TYPE, "=", "AIRPLANE"]]
         - variable: MAGMA_CHANNEL
-          label: "Magma Channel"
+          label: Magma Channel
           schema:
             type: string
-            default: "stable"
+            default: stable
             show_if: [[TYPE, "=", "MAGMA"]]
         - variable: MOHIST_BUILD
-          label: "Mohist Build"
+          label: Mohist Build
           schema:
             type: string
             default: ""
             show_if: [[TYPE, "=", "MOHIST"]]
         - variable: CANYON_BUILD
-          label: "Canyon Build"
+          label: Canyon Build
           schema:
             type: string
             default: ""
             show_if: [[TYPE, "=", "CANYON"]]
         - variable: SPONGEBRANCH
-          label: "Sponge Branch"
+          label: Sponge Branch
           schema:
             type: string
-            default: "STABLE"
+            default: STABLE
             show_if: [[TYPE, "=", "SPONGEVANILLA"]]
         - variable: SPONGEVERSION
-          label: "Sponge Version"
+          label: Sponge Version
           schema:
             type: string
             default: ""
             show_if: [[TYPE, "=", "SPONGEVANILLA"]]
         - variable: LIMBO_BUILD
-          label: "Limbo Build"
+          label: Limbo Build
           schema:
             type: string
-            default: "LATEST"
+            default: LATEST
             show_if: [[TYPE, "=", "LIMBO"]]
         - variable: LIMBO_SCHEMA_FILENAME
-          label: "Limbo Schema Filename"
+          label: Limbo Schema Filename
           schema:
             type: string
-            default: "default.schem"
+            default: default.schem
             show_if: [[TYPE, "=", "LIMBO"]]
         - variable: CRUCIBLE_RELEASE
-          label: "Crucible Release"
+          label: Crucible Release
           schema:
             type: string
-            default: "latest"
+            default: latest
             show_if: [[TYPE, "=", "CRUCIBLE"]]
         - variable: FTB_MODPACK_ID
-          label: "FTB Modpack ID"
+          label: FTB Modpack ID
           schema:
             type: string
             default: ""
             show_if: [[TYPE, "=", "FTBA"]]
         - variable: FTB_MODPACK_VERSION_ID
-          label: "FTB Modpack Version ID"
+          label: FTB Modpack Version ID
           schema:
             type: string
             default: ""
             show_if: [[TYPE, "=", "FTBA"]]
         - variable: CF_SERVER_MOD
-          label: "CF Server Mod"
+          label: CF Server Mod
           schema:
             type: string
             default: ""
             show_if: [[TYPE, "=", "CURSEFORGE"]]
         - variable: CF_BASE_DIR
-          label: "CF Base Dir"
+          label: CF Base Dir
           schema:
             type: string
             default: ""
             show_if: [[TYPE, "=", "CURSEFORGE"]]
         - variable: USE_MODPACK_START_SCRIPT
-          label: "Use Modpack Start Script"
+          label: Use Modpack Start Script
           schema:
             type: boolean
             default: true
             show_if: [[TYPE, "=", "CURSEFORGE"]]
         - variable: FTB_LEGACYJAVAFIXER
-          label: "Fix for \"unable to launch forgemodloader\""
+          label: Fix for <unable to launch forgemodloader>
           schema:
             type: boolean
             default: false
             show_if: [[TYPE, "=", "CURSEFORGE"]]
         - variable: DIFFICULTY
-          label: "Difficulty"
+          label: Difficulty
           schema:
             type: string
             required: true
-            default: "easy"
+            default: easy
             enum:
               - value: peaceful
                 description: Peaceful
@@ -338,192 +331,192 @@ questions:
               - value: hard
                 description: Hard
         - variable: WHITELIST
-          label: "Whitelist"
+          label: Whitelist
           schema:
             type: string
             default: ""
         - variable: OPS
-          label: "OPs"
+          label: OPs
           schema:
             type: string
             default: ""
         - variable: ICON
-          label: "URL to Server Icon"
+          label: URL to Server Icon
           schema:
             type: string
             default: ""
         - variable: MAX_PLAYERS
-          label: "Max Connected Players"
+          label: Max Connected Players
           schema:
             type: int
             required: true
             default: 20
         - variable: MAX_WORLD_SIZE
-          label: "World Border Radius in blocks"
+          label: World Border Radius in blocks
           schema:
             type: int
             required: true
             default: 10000
         - variable: ALLOW_NETHER
-          label: "Enable/Disable Nether"
+          label: Enable/Disable Nether
           schema:
             type: boolean
             default: true
         - variable: ANNOUNCE_PLAYER_ACHIEVEMENTS
-          label: "Enable/Disable Announceing Player Achievements"
+          label: Enable/Disable Announceing Player Achievements
           schema:
             type: boolean
             default: true
         - variable: ENABLE_COMMAND_BLOCK
-          label: "Enable/Disable Command Blocks"
+          label: Enable/Disable Command Blocks
           schema:
             type: boolean
             default: false
         - variable: FORCE_GAMEMODE
-          label: "Enable/Disable Force Gamemode"
+          label: Enable/Disable Force Gamemode
           schema:
             type: boolean
             default: false
         - variable: GENERATE_STRUCTURES
-          label: "Enable/Disable Generate Structures"
+          label: Enable/Disable Generate Structures
           schema:
             type: boolean
             default: true
         - variable: HARDCORE
-          label: "Enable/Disable Hardcore Mode"
+          label: Enable/Disable Hardcore Mode
           schema:
             type: boolean
             default: false
         - variable: MAX_BUILD_HEIGHT
-          label: "Max World Build Height"
+          label: Max World Build Height
           schema:
             type: int
             required: true
             default: 256
         - variable: MAX_TICK_TIME
-          label: "Max Tick Time"
+          label: Max Tick Time
           schema:
             type: int
             required: true
             default: 60000
         - variable: SPAWN_ANIMALS
-          label: "Enable/Disable Spawning Animals"
+          label: Enable/Disable Spawning Animals
           schema:
             type: boolean
             default: true
         - variable: SPAWN_MONSTERS
-          label: "Enable/Disable Spawning Monsters"
+          label: Enable/Disable Spawning Monsters
           schema:
             type: boolean
             default: true
         - variable: SPAWN_NPCS
-          label: "Enable/Disable Spawning NPCs"
+          label: Enable/Disable Spawning NPCs
           schema:
             type: boolean
             default: true
         - variable: VIEW_DISTANCE
-          label: "Server View Distance"
+          label: Server View Distance
           schema:
             type: int
             required: true
             default: 10
         - variable: SEED
-          label: "Level Seed"
+          label: Level Seed
           schema:
             type: string
             default: ""
         - variable: MODE
-          label: "Default Gamemode"
+          label: Default Gamemode
           schema:
             type: string
             required: true
-            default: "survival"
+            default: survival
             enum:
-              - value: "survival"
-                description: "Survival"
-              - value: "creative"
-                description: "Creative"
-              - value: "adventure"
-                description: "Adventure"
-              - value: "spectator"
-                description: "Spectator"
+              - value: survival
+                description: Survival
+              - value: creative
+                description: Creative
+              - value: adventure
+                description: Adventure
+              - value: spectator
+                description: Spectator
         - variable: MOTD
-          label: "Server Message of the Day"
+          label: Server Message of the Day
           schema:
             type: string
-            default: "Welcome to Minecraft on TrueNAS Scale!"
+            default: Welcome to Minecraft on TrueNAS Scale!
         - variable: PVP
-          label: "Enable/Disable PVP"
+          label: Enable/Disable PVP
           schema:
             type: boolean
             default: false
         - variable: LEVEL_TYPE
-          label: "Level Type"
+          label: Level Type
           schema:
             type: string
             required: true
-            default: "DEFAULT"
+            default: DEFAULT
         - variable: GENERATOR_SETTINGS
-          label: "Generator Settings"
+          label: Generator Settings
           schema:
             type: string
             default: ""
         - variable: LEVEL
-          label: "World Save Name"
+          label: World Save Name
           schema:
             type: string
             required: true
-            default: "world"
+            default: world
         - variable: WORLD
-          label: "URL of world download"
+          label: URL of world download
           schema:
             type: string
             default: ""
         - variable: FORCE_REDOWNLOAD
-          label: "Force redownload server files"
-          description: "Force re-download of the server file for VANILLA, FORGE, BUKKIT, SPIGOT, PAPER, CURSEFORGE, SPONGEVANILLA server types."
+          label: Force redownload server files
+          description: Force re-download of the server file for VANILLA, FORGE, BUKKIT, SPIGOT, PAPER, CURSEFORGE, SPONGEVANILLA server types.
           schema:
             type: boolean
             default: false
         - variable: ONLINE_MODE
-          label: "Enable/Disable Online Mode"
+          label: Enable/Disable Online Mode
           schema:
             type: boolean
             default: true
         - variable: advanced
-          label: "Show Advanced Server Settings"
+          label: Show Advanced Server Settings
           schema:
             type: boolean
             default: false
             show_subquestions_if: true
             subquestions:
               - variable: MEMORY
-                label: "Server Memory"
+                label: Server Memory
                 schema:
                   type: string
                   required: true
-                  default: "2048M"
+                  default: 2048M
               - variable: JVM_OPTS
-                label: "JVM Options"
+                label: JVM Options
                 schema:
                   type: string
                   default: ""
               - variable: USE_FLARE_FLAGS
-                label: "Enable to add appropriate flags for the Flare profiler"
+                label: Enable to add appropriate flags for the Flare profiler
                 description: "Only select server types can use these flags. please checkout the upstream project for more info -> https://github.com/itzg/docker-minecraft-server#enable-flare-flags"
                 schema:
                   type: boolean
                   default: false
               - variable: JVM_XX_OPTS
-                label: "JVM -X Options"
+                label: JVM -X Options
                 schema:
                   type: string
                   default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -531,28 +524,28 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 25565
                               required: true
 # Include{advancedPortTCP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 25565
         - variable: rcon
-          label: "RCON Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: RCON Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -560,22 +553,22 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: rcon
-                      label: "RCON Service Port Configuration"
+                      label: RCON Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 25575
                               required: true
 # Include{advancedPortTCP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 25575
@@ -585,8 +578,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: data
-          label: "App Data Storage"
-          description: "Stores the Application Configuration."
+          label: App Data Storage
+          description: Stores the Application Configuration.
           schema:
             additional_attrs: true
             type: dict
@@ -598,42 +591,42 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
