@@ -1,6 +1,7 @@
 # How To
 
-The following sections are just _examples_ and may not represent best practices or all use cases. The only tested servers were Spigot Based variants by PaperMC, Paper version **1.19.2**, the latest current MC version.
+The following sections are just _examples_ and may not represent best practices or all use cases.
+The only tested servers were Spigot Based variants by PaperMC, Paper version **1.19.2**, the latest current MC version.
 
 A MC limbo instance was also tested but only works with Bungeecord/Waterfall, but needs some work to manually set it up.
 
@@ -10,20 +11,20 @@ Spigot compatible server(s) need to be set **offline** by unchecking **Enable/Di
 
 Then modify a single value in **/data/spigot.yml** in each server:
 
-```yml
+```yaml
 bungeecord: true
 ```
 
 Then in this file(assuming its paper) **/config/paper-global.yml**:
 
-```yml
+```yaml
 bungee-cord:
   online-mode: true
 ```
 
 This is a sample **config.yml** that you can create in the **/config** dir.
 
-```yml
+```yaml
 connection_throttle: 4000
 connection_throttle_limit: 3
 timeout: 30000
@@ -99,13 +100,13 @@ MyForwardingSecet
 
 For every MC (Spigot) instance you want proxied by Velocity, you need to make sure **bungeecord** in **/data/spigot.yml** is set to:
 
-```yml
+```yaml
 bungeecord: false
 ```
 
 Then in this file(assuming you are running paper) **/config/paper-global.yml**:
 
-```yml
+```yaml
 bungee-cord:
     online-mode: false # needs to be `false`.
     # ....
