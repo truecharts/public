@@ -107,16 +107,53 @@ questions:
                 description: "FTBA"
               - value: "CURSEFORGE"
                 description: "Curseforge"
+              - value: "QUILT"
+                description: "Quilt"
+              - value: "PUFFERFISH"
+                description: "Pufferfish"
               - value: "CUSTOM"
                 description: "Custom"
         - variable: CUSTOM_SERVER
           label: "CUSTOM SERVER"
-          description: "URL or a container path to an existing JAR file, will ONLY download once"
+          description: "URL or a container path to an existing JAR file, will ONLY download once."
           schema:
             type: string
             default: ""
-            required: [[TYPE, "=", "CUSTOM"]]
+            #required: [[TYPE, "=", "CUSTOM"]]
             show_if: [[TYPE, "=", "CUSTOM"]]
+        - variable: QUILT_LOADER_VERSION
+          label: "Quilt loader version"
+          schema:
+            type: string
+            default: "0.16.0"
+            show_if: [[TYPE, "=", "QUILT"]]
+        - variable: QUILT_INSTALLER_VERSION
+          label: "Quilt installer version"
+          schema:
+            type: string
+            default: "0.4.1"
+            show_if: [[TYPE, "=", "QUILT"]]
+        - variable: QUILT_LAUNCHER
+          label: "Quilt launcher"
+          description: "Path to a custom launcher jar available to the container relative to `/data`."
+          schema:
+            type: string
+            default: ""
+            show_if: [[TYPE, "=", "QUILT"]]
+        - variable: QUILT_LAUNCHER_URL
+          label: "Quilt launcher url"
+          description: "URL to a custom launcher jar"
+          schema:
+            type: string
+            default: ""
+            show_if: [[TYPE, "=", "QUILT"]]
+        - variable: PUFFERFISH_BUILD
+          label: "Pufferfish build"
+          description: "To set the actual SERVER VERSION number set the value as `build xx` for example xx is 50. set the `Version` variable as a single branch instead like `latest` or `1.18` or `1.17`"
+          schema:
+            type: string
+            default: "lastSuccessfulBuild"
+            show_if: [[TYPE, "=", "PUFFERFISH"]]
         - variable: FORGEVERSION
           label: "Forge Version"
           schema:
@@ -195,12 +232,12 @@ questions:
             type: string
             default: "lastSuccessfulBuild"
             show_if: [[TYPE, "=", "AIRPLANE"]]
-        - variable: USE_FLARE_FLAGS
-          label: "Enable to add appropriate flags for the Flare profiler"
-          schema:
-            type: boolean
-            default: false
-            show_if: [[TYPE, "=", "AIRPLANE"]]
+        #- variable: USE_FLARE_FLAGS
+        #  label: "Enable to add appropriate flags for the Flare profiler"
+        #  schema:
+        #    type: boolean
+        #    default: false
+        #    show_if: [[TYPE, "=", "AIRPLANE"]]
         - variable: MAGMA_CHANNEL
           label: "Magma Channel"
           schema:
@@ -471,6 +508,12 @@ questions:
                 schema:
                   type: string
                   default: ""
+              - variable: USE_FLARE_FLAGS
+                label: "Enable to add appropriate flags for the Flare profiler"
+                description: "Only select server types can use these flags. please checkout the upstream project for more info -> https://github.com/itzg/docker-minecraft-server#enable-flare-flags"
+                schema:
+                  type: boolean
+                  default: false
               - variable: JVM_XX_OPTS
                 label: "JVM -X Options"
                 schema:
