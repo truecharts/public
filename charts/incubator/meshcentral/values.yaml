@@ -26,6 +26,7 @@ podSecurityContext:
   runAsGroup: 0
 
 # - Values with the character _ in-front of them are ignored. Add or remove _ to disable or enable options
+# - More in-depth info for each options can be found here: https://github.com/Ylianst/MeshCentral/blob/master/meshcentral-config-schema.json
 # - Any service that uses port other than 443, need to be manually configured.
 # TODO: Loop through all the keys and rename KEY to _KEY if it's not set/empty
 meshcentral:
@@ -67,7 +68,7 @@ meshcentral:
     _StrictTransportSecurity: null
     # - When enabled, the MeshCentral web site can be embedded within another website's iframe.
     allowFraming: false
-    # - strict | lax | none
+    # - Options: strict | lax | none
     _cookieIpCheck: lax
     # - When enabled, allows use of WebRTC to allow direct network traffic between the agent and browser.
     webRTC: false
@@ -115,7 +116,7 @@ meshcentral:
       email: null
     # - Duration of a session cookie in minutes. Changing this affects how often the session needs to be automatically refreshed.
     sessionTime: 60
-    # - strict | lax | none
+    # - Options: strict | lax | none
     sessionSameSite: lax
     # - Amount of time to keep various events in the database, in seconds.
     dbExpire:
@@ -186,7 +187,7 @@ meshcentral:
       url: null
       # - The bouncer key (generated via cscli).
       apiKey: null
-      # - Action to perform if the CrowdSec agent can't be contacted. bypass | captcha | ban
+      # - Action to perform if the CrowdSec agent can't be contacted. Options: bypass | captcha | ban
       failbackRemediation: ban
     autobackup:
       mongoDumpPath: /usr/bin/mongodump
@@ -331,9 +332,9 @@ meshcentral:
       _PreconfiguredScripts:
         # - Name of the script.
         - name: null
-          # - The type of script. bat | ps1 | sh | agent
+          # - The type of script. Options: bat | ps1 | sh | agent
           type: null
-          # - How to run this script, does not apply to agent scripts. agent | userfirst | user
+          # - How to run this script, does not apply to agent scripts. Options: agent | userfirst | user
           runas: null
           # - The command or \\r\\n separated commands to run, if set do not use the file key.
           _cmd: null
@@ -352,7 +353,7 @@ meshcentral:
           url: null
           # - If specified, this is the URL that is used on the administrator side, for example: "https://meet.jit.si/myserver-{0}", for a device {0}, {1}, {2}, {3} is the device id. For a user, {0} is the userid, {1} is full userid with dashes, {2} is real name with no spaces, {3} is real name with dash instead of spaces.
           localurl: null
-          # - Indicate if this button should be shown in the user or device type. If omitted, it will be displayed in both. null | user | device
+          # - Indicate if this button should be shown in the user or device type. If omitted, it will be displayed in both. Options: null | user | device
           type: null
       deviceMeshRouterLinks:
         # - Display a RDP link in the device tab when supported
@@ -364,7 +365,7 @@ meshcentral:
         _extralinks:
           # - Name of the link to be displayed on the web site.
           - name: null
-            # - Protocol. Valid values are: custom | http | https | rdp | ssh | scp | mcrdesktop | mcrfiles.
+            # - Protocol. Valid values are: Options: custom | http | https | rdp | ssh | scp | mcrdesktop | mcrfiles.
             protocol: null
             # - The port on the remote device.
             port: null
@@ -439,7 +440,7 @@ meshcentral:
         allowaccountreset: true
       # - Number of days that a user is allowed to remember this device for when completing 2FA. Set this to 0 to remove this option.
       _twoFactorCookieDurationDays: 30
-      # - Type of user authentication to use, this can be SSPI on Windows or LDAP. If not set, username/password is used. null | sspi | ldap
+      # - Type of user authentication to use, this can be SSPI on Windows or LDAP. If not set, username/password is used. Options: null | sspi | ldap
       _auth: null
       # - The LDAP value to use as a user's unique account identifier. Use "ldapUserKey" or "ldapUserBinaryKey".
       _ldapUserKey: null
@@ -567,6 +568,177 @@ meshcentral:
         subtitle: null
         # - The filename of a image file in .png format located in meshcentral-data to display in MeshCentral Agent for Android, image should be square and from 64x64 to 128x128.
         image: null
+      # - If set, a user from a banned IP address will be redirected to this URL."
+      _ipBlockedUserRedirect: null
+      # - When set, requires that a browser request have set HTTP header to allow user login. Example: '{ "Sec-Fetch-Dest": "iframe" }'
+      _userRequiredHttpHeader: null
+      # - When set, only users from allowed IP address ranges can connect to the server. Example: "192.168.2.100,192.168.1.0/24"
+      _userAllowedIP: null
+      # - When set, users from these denied IP address ranges will not be able to connect to the server. Example: "192.168.2.100,192.168.1.0/24"
+      _userBlockedIP: null
+      # - When set, only agents from allowed IP address ranges can connect to the server. Example: "192.168.2.100,192.168.1.0/24"
+      _agentAllowedIP: null
+      # - When set, agents from these denied IP address ranges will not be able to connect to the server. Example: "192.168.2.100,192.168.1.0/24"
+      _agentBlockedIP: null
+      # - When set, idle users will be disconnected after a set amounts of minutes.
+      _userSessionIdleTimeout: null
+      # - Use this section to require user consent for this domain.
+      _userConsentFlags:
+        # - Enable desktop notification for this domain.
+        desktopnotify: false
+        # - Enable terminal notification for this domain.
+        terminalnotify: false
+        # - Enable files notification for this domain.
+        filenotify: false
+        # - Enable desktop prompt for this domain.
+        desktopprompt: false
+        # - Enable terminal user prompt for this domain.
+        terminalprompt: false
+        # - Enable files prompt for this domain.
+        fileprompt: false
+        # - Enable remote desktop privacy bar for this domain.
+        desktopprivacybar: false
+      # - When users navigate thru the web interface, the URL on top will change to point to the current screen. This allows a user to refresh or bookmark the URL and come back to the correct screen. Setting false here will disable this feature.
+      _urlSwitching: true
+      # - This is the text that will be shown in the remote desktop privacy bar. You can use {0} to display the account realname or {1} to display the account identifier in the string.
+      _desktopPrivacyBarText: null
+      _limits:
+        # - Maximum number of devices in this domain.
+        MaxDevices: null
+        # - Maximum number of devices in this domain.
+        MaxUserAccounts: null
+        # - Maximum number of user sessions that can connect to this server for this domain.
+        MaxUserSessions: null
+        # - Maximum number of agents that can connect to this server for this domain.
+        MaxAgentSessions: null
+        # - Maximum number of sessions a single user can have. Each time a user opens a new browser tab or opens a new browser on a different computer, a new user session is created.
+        MaxSingleUserSessions: null
+      # - Values that affect the files feature
+      _files:
+        # - When false, removes the 'SFTP Connect' button from the files tab unless this is the only possible option.
+        sftpConnect: true
+      # - Values that affect the terminal feature
+      _terminal:
+        # - When false, removes the 'SSH Connect' button from the terminal tab unless this is the only possible option.
+        sshConnect: true
+        # - Indicate what terminal options are available when the user clicks the right mouse button on the terminal connect button. Options: any | root | user | login
+        linuxShell: any
+        # - Indicate what string the agent must write to the shell after starting a terminal session
+        launchCommand:
+          # - String to write after opening a Linux terminal.
+          linux: alias ls=\\'ls --color=auto\\';clear\\n
+          # - String to write after opening a macOS terminal.
+          darwin: null
+          # - String to write after opening a FreeBSD terminal.
+          freebsd: null
+      # - Values that affect the desktop feature"
+      _desktop:
+        # - When set to true, the remote desktop feature is view only.
+        viewonly: false
+      # - List of local network Intel AMT scanning options offered in the user interface. For example ["LabNetwork 192.168.15.0/23", "SalesNetwork 192.168.8.0/24"].
+      _amtScanOptions:
+        - Network 192.168.1.0/24
+      # - Information passed to the AMT manager module that impacts all Intel AMT device managed within this domain.
+      _amtManager:
+        # - When set to false, MeshCentral will use TLS to connect to Intel AMT, this is not recommended.
+        TlsConnections: true
+        # - When set to false, MeshCentral will not attempt a TLS ACM activation on Intel AMT v14+
+        TlsAcmActivation: false
+        # - List of username and passwords to try when connecting to Intel AMT.
+        AdminAccounts:
+          # - Intel AMT administrator username.
+          - user: admin
+            # - Intel AMT administrator password.
+            pass: null
+        # - List of up to 4 domain suffixes to configure in Intel AMT when activating CIRA.
+        EnvironmentDetection:
+          - null
+        # - Specifies a certificate and private key to use to issue Intel AMT TLS certificates. By default the MeshCentral self-signed root certificate is used.
+        TlsRootCert:
+          # - Name of the certificate file that is in .p12 or .pfx format in meshcentral-data, use this with certpfxpass.
+          certpfx: null
+          # - Password for the file specified in certpfx.
+          certpfxpass: null
+          # - Name of the certificate file in PEM format located in meshcentral-data. Using this with keyfile.
+          certfile: null
+          # - Name of the private key file in PEM format located in meshcentral-data. Using this with certfile.
+          keyfile: null
+        # - List of WIFI profiles to setup in any managed Intel AMT device with a WIFI network interface.
+        WifiProfiles:
+          # - WIFI profile name, if not specified the SSID is used.
+          name: null
+          # - SSID of the WIFI station.
+          ssid: null
+          # - WIFI authentication. Options: wpa-psk | wpa2-psk | wpa-8021x | wpa2-802.1x | wpa3-sae-802.1x | wpa3-owe-802.1x
+          authentication: wpa2-psk
+          # - WIFI encryption. Options: ccmp-aes | tkip-rc4
+          encryption: ccmp-aes
+          # - Password on the WIFI station
+          password: null
+          # - 802.1x settings for this WIFI profile. Only required if the WIFI authentication type has 802.1x
+          _802.1x:
+            # - Identifies the authentication protocol used to authenticate the access requestor to the AAA server. Options: EAP-TLS | EAP-TTLS/MSCHAPv2 | PEAPv0/EAP-MSCHAPv2 | PEAPv1/EAP-GTC | EAP-FAST/MSCHAPv2 | EAP-FAST/GTC | EAP-MD5 | EAP-PSK | EAP-SIM | EAP-AKA | EAP-FAST/TLS | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+            authenticationProtocol: null
+            # - Determines the comparison algorithm used between the ServerCertificateName value and the subject name field of the certificate presented by the AAA server. Options: Fullname | DomainSuffix | 2 | 3
+            serverCertificateNameComparison: FullName
+            # - The name compared against the subject name field in the certificate provided by the AAA server.
+            serverCertificateName: null
+            # - Indicates the activity setting of the 802.1X module in H0 state
+            availableInS0: true
+            # - A credential used by the supplicant and AAA server to establish a mutually authenticated encrypted tunnel for confidential user authentication.
+            protectedAccessCredentialHex: null
+            # - Optional password to extract the PAC (Protected Access Credential) information from the PAC data.
+            pacPassword: null
+            # - The domain within which Username is unique.
+            domain: null
+            # - Within the domain specified by Domain, Identifies the user that is requesting access to the network.
+            username: null
+            # - The password associated with the user identified by Username and Domain.
+            password: null
+            # - A string presented to the authentication server in 802.1x protocol exchange
+            roamingIdentity: null
+            # - Timeout in seconds, in which the Intel(R) AMT will hold an authenticated 802.1X session.
+            pxeTimeoutInSeconds: 120
+        # - 802.1x settings for the Intel AMT Wired interface. If set to false, any existing 802.1x wired profile will be removed from Intel AMT.
+        _802.1x:
+          # - Identifies the authentication protocol used to authenticate the access requestor to the AAA server. Options: EAP-TLS | EAP-TTLS/MSCHAPv2 | PEAPv0/EAP-MSCHAPv2 | PEAPv1/EAP-GTC | EAP-FAST/MSCHAPv2 | EAP-FAST/GTC | EAP-MD5 | EAP-PSK | EAP-SIM | EAP-AKA | EAP-FAST/TLS | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+          authenticationProtocol: null
+          # - Determines the comparison algorithm used between the ServerCertificateName value and the subject name field of the certificate presented by the AAA server. Options: Fullname | DomainSuffix | 2 | 3
+          serverCertificateNameComparison: FullName
+          # - The name compared against the subject name field in the certificate provided by the AAA server.
+          serverCertificateName: null
+          # - Indicates the activity setting of the 802.1X module in H0 state
+          availableInS0: true
+          # - A credential used by the supplicant and AAA server to establish a mutually authenticated encrypted tunnel for confidential user authentication.
+          protectedAccessCredentialHex: null
+          # - Optional password to extract the PAC (Protected Access Credential) information from the PAC data.
+          pacPassword: null
+          # - The domain within which Username is unique.
+          domain: null
+          # - Within the domain specified by Domain, Identifies the user that is requesting access to the network.
+          username: null
+          # - The password associated with the user identified by Username and Domain.
+          password: null
+          # - A string presented to the authentication server in 802.1x protocol exchange
+          roamingIdentity: null
+          # - Timeout in seconds, in which the Intel(R) AMT will hold an authenticated 802.1X session.
+          pxeTimeoutInSeconds: 120
+      _amtAcmActivation:
+        log: null
+        # - When set to true, the certificate common name needs to match exactly the Intel AMT trusted FQDN or DHCP Option 15. If false, some flexibility may be given to the matching.
+        strictCommonName: false
+        certs:
+          certfiles: null
+          keyfile: null
+      # - This is used to create HTTP redirections. For example setting "redirects": { "example": "https://example.com" } will make it so that anyone accessing /example on the server will get redirected to the specified URL.
+      _redirects:
+        example: https://example.com
+        example1: https://example1.com
+      _yubikey:
+        id: null
+        secret: null
+        proxy: null
+
 probes:
   liveness:
     type: HTTPS
