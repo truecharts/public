@@ -29,15 +29,13 @@ meshcentral:
     # - The actual main port as seen externally on the Internet, this setting is often used when a reverse-proxy is used.
     aliasPort: 443
     # - When set, relayPort value is ignored. Set this to a DNS name the points to this server. When the server is accessed using the DNS name, the main web server port is used as a web relay port.
-    _relayDNS:
-      - ""
+    relayDNS: []
     # - Automatically downloads all agent error logs into meshcentral-data/agenterrorlogs.txt.
     agentLogDump: false
     # - Automatically activates and transfers any agent crash dump files to the server in meshcentral-data/coredumps.
     agentCoreDump: false
     # - List of non-administrator users that have access to mesh agent crash dumps.
-    _agentCoreDumpUsers:
-      - ""
+    _agentCoreDumpUsers: []
     # - When code signing an agent using authenticode, lock the agent to only allow connection to this server. (This is in testing, the default value will change to true in the future).
     _agentSignLock: false
     # - The time stamping server to use when code signing Windows executables. When set to false, the executables are not time stamped.
@@ -142,14 +140,11 @@ meshcentral:
     # - File path and name of the authentication log to be created. This log can be parsed by Fail2ban.
     _authLog: null
     # Users in this list are allowed to send and receive inter-user messages. This can be used to implement bots or other software where MeshCentral is used as data transport. See interuser websocket command in the code.
-    _InterUserMessaging:
-      - ""
+    _InterUserMessaging: []
     # - Users in this list are allowed to see and manage all device groups within their domain.
-    _manageAllDeviceGroups:
-      - ""
+    _manageAllDeviceGroups: []
     # - Users in this list are allowed to manage all users in all domains.
-    _manageCrossDomain:
-      - ""
+    _manageCrossDomain: []
     # - When this server is in LAN mode, you may discover this server using a multicast discovery tool. When discovery happens, the name and info fields are sent back to the discovery tool.
     _localDiscovery:
       name: null
@@ -321,18 +316,15 @@ meshcentral:
       _newAccountsPass: ""
       # - When set to true, users will get a CAPTCHA when creating a new account from the login screen.
       _newAccountsCaptcha: false
-      _newAccountsUserGroups:
-        - ""
+      _newAccountsUserGroups: []
       # - The maximum number of devices a user can see on the devices page at the same time. By default all devices will show, but this may need to be limited on servers with large number of devices.
       _maxDeviceView: 1000
       _userQuota: 1048576
       _meshQuota: 248576
       # - Requires that users add the value ?key=xxx in the URL in order to see the web site.
-      _loginKey:
-        - ""
+      _loginKey: []
       # - Requires that agents add the value ?key=xxx in the URL in order to connect. This is not automatic and needs to be manually added in the meshagent.msh file.
-      _agentKey:
-        - ""
+      _agentKey: []
       # - Web site .png logo file that is 450x66 in size placed in meshcentral-data that is used on the top of many pages.
       _titlePicture: ""
       # - Web site .png logo file placed in meshcentral-data that used on the login page when sitestyle is 2.
@@ -419,8 +411,7 @@ meshcentral:
             # - The local port MeshCentral Router would bind to. By default, a random available port is used.
             localport: null
             # - Array of node/<domain>/<id> or mesh/<domain>/<id> or tag:<tag> strings. When set, the link will only show up for the specified devices, device groups or device tag.
-            filter:
-              - ""
+            filter: []
       myServer:
         # - Allows administrators to backup the server from the My Server tab. This option can only enabled when the NeDB database is in use. For other databases, this option disabled and the setting is ignored.
         Backup: true
@@ -506,11 +497,9 @@ meshcentral:
       # - When set to true or set to an object, MeshCentral will synchronize LDAP user memberships to MeshCentral user groups.
       _ldapSyncWithUserGroups:
         # - When set to a string or array of strings, only LDAP membership groups that includes one of the strings will be synchronized with MeshCentral user groups.
-        filter:
-          - ""
+        filter: []
       # - A list of LDAP groups. Users must be part of at least one of these groups to allow login. If null, all users are allowed to login.
-      _ldapUserRequiredGroupMembership:
-        - null
+      _ldapUserRequiredGroupMembership: []
       # - LDAP options passed to ldapauth-fork
       _ldapOptions:
         URL: "ldap://1.2.3.4:389"
@@ -694,8 +683,7 @@ meshcentral:
             # - Intel AMT administrator password.
             pass: null
         # - List of up to 4 domain suffixes to configure in Intel AMT when activating CIRA.
-        EnvironmentDetection:
-          - null
+        EnvironmentDetection: []
         # - Specifies a certificate and private key to use to issue Intel AMT TLS certificates. By default the MeshCentral self-signed root certificate is used.
         TlsRootCert:
           # - Name of the certificate file that is in .p12 or .pfx format in meshcentral-data, use this with certpfxpass.
@@ -783,11 +771,9 @@ meshcentral:
         proxy: null
       _httpHeaders: null
       # - Key and values to add to the MeshAgent .msh file
-      _agentConfig:
-        - null
+      _agentConfig: []
       # - Key and values to add to the MeshCentral Assistant .msh file
-      _assistantConfig:
-        - null
+      _assistantConfig: []
       # - When false, users can't set the clipboard of a remove device.
       clipboardGet: true
       # - When false, users can't get the clipboard of a remove device.
@@ -851,15 +837,13 @@ meshcentral:
         # - Path to the sendmail command
         path: sendmail
         # - Array or arguments to pass to sendmail
-        _args:
-          - null
+        _args: []
       _authStrategies:
         _twitter:
           # - Required, this is the URL that your SSO provider sends auth approval to.
           callbackurl: null
           newAccounts: false
-          newAccountsUserGroups:
-            - null
+          newAccountsUserGroups: []
           clientid: null
           clientsecret: null
           # - Then set, the user will be redirected to this URL when hitting the logout link
@@ -868,8 +852,7 @@ meshcentral:
           # - Required, this is the URL that your SSO provider sends auth approval to.
           callbackurl: null
           newAccounts: false
-          newAccountsUserGroups:
-            - null
+          newAccountsUserGroups: []
           clientid: null
           clientsecret: null
           # - Then set, the user will be redirected to this URL when hitting the logout link
@@ -878,8 +861,7 @@ meshcentral:
           # - Required, this is the URL that your SSO provider sends auth approval to.
           callbackurl: null
           newAccounts: false
-          newAccountsUserGroups:
-            - null
+          newAccountsUserGroups: []
           clientid: null
           clientsecret: null
           # - Then set, the user will be redirected to this URL when hitting the logout link
@@ -888,8 +870,7 @@ meshcentral:
           # - Required, this is the URL that your SSO provider sends auth approval to.
           callbackurl: null
           newAccounts: false
-          newAccountsUserGroups:
-            - null
+          newAccountsUserGroups: []
           clientid: null
           clientsecret: null
           # - Then set, the user will be redirected to this URL when hitting the logout link
@@ -898,8 +879,7 @@ meshcentral:
           # - Required, this is the URL that your SSO provider sends auth approval to.
           callbackurl: null
           newAccounts: false
-          newAccountsUserGroups:
-            - null
+          newAccountsUserGroups: []
           clientid: null
           clientsecret: null
           tenantid: null
@@ -909,8 +889,7 @@ meshcentral:
           # - Required, this is the URL that your SSO provider sends auth approval to.
           callbackurl: null
           newAccounts: false
-          newAccountsUserGroups:
-            - null
+          newAccountsUserGroups: []
           entityid: null
           idpurl: null
           cert: null
@@ -921,10 +900,8 @@ meshcentral:
           callbackurl: null
           disableRequestedAuthnContext: false
           newAccounts: false
-          newAccountsUserGroups:
-            - null
-          newAccountsRights:
-            - null
+          newAccountsUserGroups: []
+          newAccountsRights: []
           entityid: null
           idpurl: null
           cert: null
@@ -948,16 +925,13 @@ meshcentral:
           newAccounts: true
           groups:
             # - When set, the user must be part of one of the OIDC user groups to login to MeshCentral.
-            required:
-              - null
+            required: []
             # - When set, users part of these groups will be promoted with site administrator in MeshCentral, users that are not part of these groups will be demoted.
-            siteadmin:
-              - null
+            siteadmin: []
             sync:
               enabled: false
               # - When set, limits what OIDC groups are mirrored into MeshCentral user groups.
-              filter:
-                - null
+              filter: []
 
 probes:
   liveness:
