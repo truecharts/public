@@ -5,14 +5,7 @@
 - Run the following commands in order:
 
 ```terminal
-chmod +x entrypoint.sh
-```
-
-- This is a _single_ command.
-
-```terminal
-ps aux | grep [b]ridge | awk '{print $2}' | xargs -I {} kill -9 {}
-./entrypoint.sh init
+chmod +x entrypoint.sh && ps aux | grep [b]ridge | awk '{print $2}' | xargs -I {} kill -9 {} && ./entrypoint.sh init
 ```
 
 ```terminal
