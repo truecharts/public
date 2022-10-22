@@ -477,7 +477,7 @@ questions:
           description: Force re-download of the server file for VANILLA, FORGE, BUKKIT, SPIGOT, PAPER, CURSEFORGE, SPONGEVANILLA server types.
           schema:
             type: string
-            default: false
+            default: "false"
             enum:
               - value: "false"
                 description: "False"
