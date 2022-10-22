@@ -45,14 +45,14 @@ service:
 
 probes:
   liveness:
-    type: TCP
-    port: "{{ .Values.service.rtsp.ports.rtsp.targetPort }}"
+    type: HTTP
+    port: 1883
   readiness:
-    type: TCP
-    port: "{{ .Values.service.rtsp.ports.rtsp.targetPort }}"
+    type: HTTP
+    port: 1883
   startup:
-    type: TCP
-    port: "{{ .Values.service.rtsp.ports.rtsp.targetPort }}"
+    type: HTTP
+    port: 1883
 
 persistence:
   data:
