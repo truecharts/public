@@ -48,7 +48,9 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
+  {{/* Store session_key to reuse */}}
   session_key: {{ $sessionKey | b64enc }}
+  {{/* The actual config */}}
   config.json: |
 {{- toPrettyJson (fromYaml $config) | b64enc | nindent 4 }}
 {{- end }}
