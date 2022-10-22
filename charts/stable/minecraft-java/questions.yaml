@@ -1,7 +1,5 @@
 # Include{groups}
-portals:
-  open:
-# Include{portalLink}
+portals: {}
 questions:
 # Include{global}
   - variable: imageSelector
@@ -109,6 +107,16 @@ questions:
                 description: "FTBA"
               - value: "CURSEFORGE"
                 description: "Curseforge"
+              - value: "CUSTOM"
+                description: "Custom"
+        - variable: CUSTOM_SERVER
+          label: "CUSTOM SERVER"
+          description: "URL or a container path to an existing JAR file, will ONLY download once"
+          schema:
+            type: string
+            default: ""
+            required: [[TYPE, "=", "CUSTOM"]]
+            show_if: [[TYPE, "=", "CUSTOM"]]
         - variable: FORGEVERSION
           label: "Forge Version"
           schema:
@@ -436,9 +444,10 @@ questions:
             default: ""
         - variable: FORCE_REDOWNLOAD
           label: "Force redownload server files"
+          description: "Force re-download of the server file for VANILLA, FORGE, BUKKIT, SPIGOT, PAPER, CURSEFORGE, SPONGEVANILLA server types."
           schema:
-            type: string
-            default: ""
+            type: boolean
+            default: false
         - variable: ONLINE_MODE
           label: "Enable/Disable Online Mode"
           schema:
