@@ -28,6 +28,11 @@
 {{- $_ := set $config.settings "selfUpdate" false }}
 {{- $_ := set $config.settings "cleanNpmCacheOnUpdate" false }}
 
+{{/* Disallows administrators to update the server from the My Server tab. For ANY domains defined */}}
+{{ range $domains := $config.domains }}
+{{ $_ := set $domains.myServer "Upgrade" false }}
+{{- end }}
+
 ---
 
 apiVersion: v1

@@ -427,8 +427,6 @@ meshcentral:
         Backup: true
         # - Allows administrators to restore the server from the My Server tab. This option can only enabled when the NeDB database is in use. For other databases, this option disabled and the setting is ignored.
         Restore: true
-        # - TODO: THIS SHOULD NEVER BE ENABLED IN CONTAINERIZED DEPLOYMENTS - Allows administrators to update the server from the My Server tab.
-        Upgrade: false
         # - Allows administrators to see the server crash log the server from the My Server tab.
         ErrorLog: true
         # - Allows administrators to access the server console from the My Server tab.
