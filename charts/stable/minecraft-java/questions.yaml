@@ -476,8 +476,13 @@ questions:
           label: Force redownload server files
           description: Force re-download of the server file for VANILLA, FORGE, BUKKIT, SPIGOT, PAPER, CURSEFORGE, SPONGEVANILLA server types.
           schema:
-            type: boolean
+            type: string
             default: false
+            enum:
+              - value: false
+                description: False
+              - value: true
+                description: True
         - variable: ONLINE_MODE
           label: Enable/Disable Online Mode
           schema:
