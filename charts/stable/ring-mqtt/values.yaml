@@ -45,15 +45,15 @@ service:
 
 probes:
   liveness:
-    type: TCP
+    type: HTTP
     path: /-/health/live/
     port: "{{ .Values.service.rtsp.ports.rtsp.targetPort }}"
   readiness:
-    type: TCP
+    type: HTTP
     path: /-/health/ready/
     port: "{{ .Values.service.rtsp.ports.rtsp.targetPort }}"
   startup:
-    type: TCP
+    type: HTTP
     path: /-/health/ready/
     port: "{{ .Values.service.rtsp.ports.rtsp.targetPort }}"
 
