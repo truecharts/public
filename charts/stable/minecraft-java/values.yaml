@@ -27,10 +27,24 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+service:
+  main:
+    ports:
+      main:
+        port: 25565
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        port: 25575
+        targetPort: 25575
+
 secretEnv:
   RCON_PASSWORD: "secretrconpass"
 
 env:
+  SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
   EULA: "TRUE"
   OVERRIDE_SERVER_PROPERTIES: true
   VERSION: "LATEST"
@@ -57,6 +71,11 @@ env:
   LEVEL: world
   ONLINE_MODE: true
   MEMORY: 2048M
+  # CUSTOM_SERVER: ""
+  # QUILT_LOADER_VERSION: ""
+  # QUILT_LAUNCHER: ""
+  # QUILT_LAUNCHER_URL: ""
+  # PUFFERFISH_BUILD: "lastSuccessfulBuild"
   # FORGEVERSION: ""
   # FORGE_INSTALLER: ""
   # FORGE_INSTALLER_URL: ""
@@ -70,7 +89,6 @@ env:
   # PAPER_DOWNLOAD_URL: ""
   # PACKWIZ_URL: ""
   # AIRPLANE_BUILD: "lastSuccessfulBuild"
-  # USE_FLARE_FLAGS: false
   # MAGMA_CHANNEL: "stable"
   # MOHIST_BUILD: ""
   # CANYON_BUILD: ""
@@ -91,7 +109,8 @@ env:
   # SEED: ""
   # GENERATOR_SETTINGS: ""
   # WORLD: ""
-  # FORCE_REDOWNLOAD: ""
+  # FORCE_REDOWNLOAD: false
+  # USE_FLARE_FLAGS: false
   # JVM_OPTS: ""
   # JVM_XX_OPTS: ""
 
@@ -99,20 +118,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
-
-service:
-  main:
-    ports:
-      main:
-        port: 25565
-        targetPort: 25565
-  rcon:
-    enabled: true
-    ports:
-      rcon:
-        enabled: true
-        port: 25575
-        targetPort: 25575
 
 portal:
   enabled: false
