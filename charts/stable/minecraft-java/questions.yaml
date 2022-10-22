@@ -479,10 +479,10 @@ questions:
             type: string
             default: false
             enum:
-              - value: false
-                description: False
-              - value: true
-                description: True
+              - value: "false"
+                description: "False"
+              - value: "true"
+                description: "True"
         - variable: ONLINE_MODE
           label: Enable/Disable Online Mode
           schema:
