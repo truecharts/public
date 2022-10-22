@@ -1,5 +1,5 @@
 image:
-  repository: victorrds/etesync
+  repository: tccr.io/truecharts/etesync
   pullPolicy: IfNotPresent
   tag: 0.10.0@sha256:ba5b069ac072c2300b8bc215338d4c4d76a981ff90fea81dc87fe5cec99665a2
 
@@ -41,6 +41,10 @@ env:
       name: dbcreds
       key: plainhost
   DATABASE_PORT: 5432
+  REDIS_URI:
+    secretKeyRef:
+      name: rediscreds
+      key: url
 
 secretEnv:
   # Superuser
@@ -75,6 +79,10 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: etesync
   postgresqlDatabase: etesync
+
+redis:
+  enabled: true
+  existingSecret: rediscreds
 
 portal:
   enabled: true
