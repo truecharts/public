@@ -2,6 +2,15 @@
 
 
 
+## [minecraft-bungeecord-0.0.29](https://github.com/truecharts/charts/compare/minecraft-bungeecord-0.0.28...minecraft-bungeecord-0.0.29) (2022-10-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+
+
+
 ## [minecraft-bungeecord-0.0.28](https://github.com/truecharts/charts/compare/minecraft-bungeecord-0.0.27...minecraft-bungeecord-0.0.28) (2022-10-20)
 
 ### Chore
