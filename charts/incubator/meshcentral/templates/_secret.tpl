@@ -52,7 +52,7 @@ data:
   session_key: {{ $sessionKey | b64enc }}
   {{/* The actual config */}}
   config.json: |
-{{- toPrettyJson (fromYaml $config) | b64enc | nindent 4 }}
+    {{- toPrettyJson (fromYaml $config) | b64enc | nindent 4 }}
 {{- end }}
 
 
@@ -73,5 +73,5 @@ data:
       {{- end }}
     {{- end }}
   {{- end }}
-{{- toYaml $values }}
+  {{- toYaml $values }}
 {{- end }}
