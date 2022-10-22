@@ -1,27 +1,27 @@
 # How To
 
-The following sections are just _examples_ and may not represent best practices or all use cases. The only tested servers were Spigot Based variants by PaperMC, Paper version `1.19.2`, the latest current MC version.
+The following sections are just _examples_ and may not represent best practices or all use cases. The only tested servers were Spigot Based variants by PaperMC, Paper version **1.19.2**, the latest current MC version.
 
 A MC limbo instance was also tested but only works with Bungeecord/Waterfall, but needs some work to manually set it up.
 
 ## Bungeecord / WaterFall
 
-Spigot compatible server(s) need to be set **offline** by unchecking `Enable/Disable Online Mode` in minecraft-java instance(s).
+Spigot compatible server(s) need to be set **offline** by unchecking **Enable/Disable Online Mode** in minecraft-java instance(s).
 
-Then modify a single value in `/data/spigot.yml` in each server:
+Then modify a single value in **/data/spigot.yml** in each server:
 
 ```yml
 bungeecord: true
 ```
 
-Then in this file(assuming its paper) `/config/paper-global.yml`:
+Then in this file(assuming its paper) **/config/paper-global.yml**:
 
 ```yml
 bungee-cord:
   online-mode: true
 ```
 
-This is a sample `config.yml` that you can create in the `/config` dir.
+This is a sample **config.yml** that you can create in the **/config** dir.
 
 ```yml
 connection_throttle: 4000
@@ -87,9 +87,9 @@ online_mode: true # needs to true
 
 ## Velocity
 
-Here's a sample of a `velocity.toml` that you can place in `/config` dir.
+Here's a sample of a **velocity.toml** that you can place in **/config** dir.
 
-You can create a file called `secrets` in `/config` dir and apply the name to this value like so -> `forwarding-secret-file = "./secret"`.
+You can create a file called **secrets** in **/config** dir and apply the name to this value like so -> **forwarding-secret-file = "./secret"**.
 
 The contents of the secret file:
 
@@ -97,13 +97,13 @@ The contents of the secret file:
 MyForwardingSecet
 ```
 
-For every MC (Spigot) instance you want proxied by Velocity, you need to make sure `bungeecord` in `/data/spigot.yml` is set to:
+For every MC (Spigot) instance you want proxied by Velocity, you need to make sure **bungeecord** in **/data/spigot.yml** is set to:
 
 ```yml
 bungeecord: false
 ```
 
-Then in this file(assuming you are running paper) `/config/paper-global.yml`:
+Then in this file(assuming you are running paper) **/config/paper-global.yml**:
 
 ```yml
 bungee-cord:
@@ -190,9 +190,9 @@ enable-player-address-logging = true
 [servers]
 # Configure your servers here. Each key represents the server's name, and the value
 # represents the IP address of the server to connect to.
-lobby = "10.0.0.172:25566"
-survival = "10.0.0.172:25567"
-creative = "10.0.0.172:25568"
+lobby = "MY_PRIVATE_IP:25566"
+survival = "MY_PRIVATE_IP:25567"
+creative = "MY_PRIVATE_IP:25568"
 
 # In what order we should try servers when a player logs in or is kicked from aserver.
 try = [
@@ -275,7 +275,7 @@ show-plugins = false
 
 :::info
 
-There's currently a known issue with `limbo server` when attemptng to connect to a `1.19.2` velocity proxy server and using `player-info-forwarding-mode = "modern"`. you can track the current issue here [issue 50](https://github.com/LOOHP/Limbo/issues/50).
+There's currently a known issue with **limbo server** when attemptng to connect to a **1.19.2** velocity proxy server and using **player-info-forwarding-mode = "modern"**. You can track the current issue here [issue 50](https://github.com/LOOHP/Limbo/issues/50).
 
 Bungeecord/waterfall are _not_ affected.
 
