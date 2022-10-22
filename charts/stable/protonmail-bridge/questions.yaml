@@ -13,21 +13,21 @@ questions:
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "main Service"
-          description: "The main service"
+          label: main Service
+          description: The main service
           schema:
             type: dict
             hidden: true
             attrs:
               - variable: enabled
-                label: "Enable the service"
+                label: Enable the service
                 schema:
                   type: boolean
                   default: false
                   hidden: true
         - variable: smtp
-          label: "SMTP Service"
-          description: "The smtp service"
+          label: SMTP Service
+          description: The smtp service
           schema:
             additional_attrs: true
             type: dict
@@ -35,28 +35,28 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: smtp
-                      label: "SMTP Service Port Configuration"
+                      label: SMTP Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 25
                               required: true
 # Include{advancedPortTCP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 25
         - variable: imap
-          label: "IMAP Service"
-          description: "The IMAP service"
+          label: IMAP Service
+          description: The IMAP service
           schema:
             additional_attrs: true
             type: dict
@@ -64,22 +64,22 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: imap
-                      label: "IMAP Service Port Configuration"
+                      label: IMAP Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 143
                               required: true
 # Include{advancedPortTCP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 143
@@ -89,8 +89,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+          label: App Config Storage
+          description: Stores the Application Configuration.
           schema:
             additional_attrs: true
             type: dict
@@ -102,42 +102,42 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
