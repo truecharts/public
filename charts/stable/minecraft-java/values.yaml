@@ -31,6 +31,7 @@ secretEnv:
   RCON_PASSWORD: "secretrconpass"
 
 env:
+  SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
   EULA: "TRUE"
   OVERRIDE_SERVER_PROPERTIES: true
   VERSION: "LATEST"
@@ -110,7 +111,6 @@ service:
     ports:
       main:
         port: 25565
-        targetPort: 25565
   rcon:
     enabled: true
     ports:
