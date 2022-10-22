@@ -2,6 +2,16 @@
 
 
 
+## [prusaslicer-novnc-0.0.41](https://github.com/truecharts/charts/compare/prusaslicer-novnc-0.0.40...prusaslicer-novnc-0.0.41) (2022-10-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4155](https://github.com/truecharts/charts/issues/4155))
+
+
+
+
 ## [prusaslicer-novnc-0.0.40](https://github.com/truecharts/charts/compare/prusaslicer-novnc-0.0.39...prusaslicer-novnc-0.0.40) (2022-10-19)
 
 ### Chore
