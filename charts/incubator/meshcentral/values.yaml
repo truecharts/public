@@ -329,7 +329,7 @@ meshcentral:
         expire: null
       # - When set, your can try click the run button to run on of these scripts on the remote device.
       _PreconfiguredScripts:
-          # - Name of the script.
+        # - Name of the script.
         - name: null
           # - The type of script. bat | ps1 | sh | agent
           type: null
@@ -341,12 +341,12 @@ meshcentral:
           file: null
       # - When set, you can right click on the input button in the desktop tab and instantly remotely type one of these pre-configured strings.
       _preConfiguredRemoteInput:
-          # - Name of the text string.
+        # - Name of the text string.
         - name: null
           # - Text string that will be remotely typed when selected.
           value: null
       _altMessenging:
-          # - Name of the alternative messaging service, for example: "Jitsi".
+        # - Name of the alternative messaging service, for example: "Jitsi".
         - name: null
           # - URL to the alternative messaging services, for example: "https://meet.jit.si/myserver-{0}", for a device {0}, {1}, {2}, {3} is the device id. For a user, {0} is the userid, {1} is full userid with dashes, {2} is real name with no spaces, {3} is real name with dash instead of spaces.
           url: null
@@ -354,9 +354,219 @@ meshcentral:
           localurl: null
           # - Indicate if this button should be shown in the user or device type. If omitted, it will be displayed in both. null | user | device
           type: null
-      #TODO: I'm here
-      # _deviceMeshRouterLinks:
-
+      deviceMeshRouterLinks:
+        # - Display a RDP link in the device tab when supported
+        rdp: true
+        # - Display a SSH link in the device tab when supported
+        ssh: true
+        # - Display a SCP link in the device tab when supported
+        scp: true
+        _extralinks:
+          # - Name of the link to be displayed on the web site.
+          - name: null
+            # - Protocol. Valid values are: custom | http | https | rdp | ssh | scp | mcrdesktop | mcrfiles.
+            protocol: null
+            # - The port on the remote device.
+            port: null
+            # - Target IP address. If not specified, the target of the connection is the remote device running the MeshAgent.
+            ip: null
+            # - The local port MeshCentral Router would bind to. By default, a random available port is used.
+            localport: null
+            # - Array of node/<domain>/<id> or mesh/<domain>/<id> or tag:<tag> strings. When set, the link will only show up for the specified devices, device groups or device tag.
+            filter:
+              - ""
+      myServer:
+        # - Allows administrators to backup the server from the My Server tab. This option can only enabled when the NeDB database is in use. For other databases, this option disabled and the setting is ignored.
+        Backup: true
+        # - Allows administrators to restore the server from the My Server tab. This option can only enabled when the NeDB database is in use. For other databases, this option disabled and the setting is ignored.
+        Restore: true
+        # - TODO: THIS SHOULD NEVER BE ENABLED IN CONTAINERIZED DEPLOYMENTS - Allows administrators to update the server from the My Server tab.
+        Upgrade: false
+        # - Allows administrators to see the server crash log the server from the My Server tab.
+        ErrorLog: true
+        # - Allows administrators to access the server console from the My Server tab.
+        Console: true
+        # - Allows administrators to access the server trace tab from from the My Server tab.
+        Trace: true
+      _passwordRequirements:
+        # - Minimum number of characters allowed for the account password.
+        min: null
+        # - Maximum number of characters allowed for the account password.
+        max: null
+        # - Minimum number of upper case characters required in the password.
+        upper: null
+        # - Minimum number of lower case characters required in the password.
+        lower: null
+        # - Minimum number of numeric characters required in the password.
+        numeric: null
+        # - Minimum number of non-alpha-numeric characters required in the password.
+        nonalpha: null
+        # - Number of days after which the user is required to change the account password.
+        reset: null
+        # - Set to false to disable email 2FA.
+        email2factor: true
+        # - Set to false to disable SMS 2FA.
+        sms2factor: true
+        # - Set to false to disable push notification 2FA.
+        push2factor: true
+        # - Set to false to disable one-time-password 2FA.
+        otp2factor: true
+        # - Set to false to disable user messaging 2FA.
+        msg2factor: true
+        # - Set to false to disable 2FA backup codes.
+        backupcode2factor: true
+        # - Set to false to disable single 2FA warning.
+        single2factorWarning: true
+        # - When set to true, prevents any changes to 2FA.
+        lock2factor: false
+        # - Requires that all accounts setup 2FA.
+        force2factor: false
+        # - IP addresses where 2FA login is skipped, for example: 127.0.0.1,192.168.2.0/24
+        skip2factor: null
+        # - Number of old passwords the server should remember and not allow the user to switch back to.
+        oldPasswordBan: null
+        # - Uses WildLeek to block use of the 10000 most commonly used passwords.
+        banCommonPasswords: true
+        # - Allows users to create alternative username/passwords for their account. Set to false to disallow all users, or set to a userid array to only all some users.
+        loginTokens: true
+        # - Maximum about of time the to wait for a 2FA token on the login page in seconds.
+        twoFactorTimeout:
+        # - If true and user account has FIDO key setup, 2FA login screen will automatically request FIDO 2FA.
+        autofido2fa: false
+        # - Maximum number of FIDO/YubikeyOTP hardware 2FA keys that can be setup in a user account.
+        maxfidokeys: null
+        # - If set to false, the account reset option on the login screen will not be available to users.
+        allowaccountreset: true
+      # - Number of days that a user is allowed to remember this device for when completing 2FA. Set this to 0 to remove this option.
+      _twoFactorCookieDurationDays: 30
+      # - Type of user authentication to use, this can be SSPI on Windows or LDAP. If not set, username/password is used. null | sspi | ldap
+      _auth: null
+      # - The LDAP value to use as a user's unique account identifier. Use "ldapUserKey" or "ldapUserBinaryKey".
+      _ldapUserKey: null
+      # - The LDAP value to use as a user's unique account identifier, when specified in this field, the values will be HEX converted.
+      _ldapUserBinaryKey: objectSid
+      # - The LDAP value to use for the user name, you can also compose the name by setting this value to, for example: "{{{givenName}}} {{{sn}}}"
+      _ldapUserName: displayName
+      # - The LDAP value to use for the user's email address.
+      _ldapUserEmail: mail
+      # - The LDAP value to use for the user's real name, you can also compose the name by setting this value to, for example: "{{{givenName}}} {{{sn}}}"
+      _ldapUserRealName: name
+      # - The LDAP value to use for the user's phone number.
+      _ldapUserPhoneNumber: telephoneNumber
+      # - The LDAP value to use for the user's image.
+      _ldapUserImage: thumbnailPhoto
+      # - When set to a filename, for example /home/node/meshcentral/ldapusers.txt, MeshCentral will save the LDAP user object to this file each time a user logs in. This is used for debugging LDAP issues.
+      _ldapSaveUserToFile: null
+      # - The LDAP value to use for the user's group memberships.
+      _ldapUserGroups: memberOf
+      # - When set to true or set to an object, MeshCentral will synchronize LDAP user memberships to MeshCentral user groups.
+      _ldapSyncWithUserGroups:
+        # - When set to a string or array of strings, only LDAP membership groups that includes one of the strings will be synchronized with MeshCentral user groups.
+        filter:
+          - ""
+      # - A list of LDAP groups. Users must be part of at least one of these groups to allow login. If null, all users are allowed to login.
+      _ldapUserRequiredGroupMembership:
+        - null
+      # - LDAP options passed to ldapauth-fork
+      _ldapOptions:
+        URL: "ldap://1.2.3.4:389"
+        BindDN: "CN=svc_meshcentral,CN=Users,DC=meshcentral,DC=local"
+        BindCredentials: "Password.1"
+        SearchBase: "DC=meshcentral,DC=local"
+        SearchFilter: "(sAMAccountName={{username}})"
+      # - Enabled a feature where you can set one or more invitation codes in a device group. You can then give a invitation link to users who can use it to download the agent.
+      _agentInviteCodes: false
+      # - When enabled, all newly installed MeshAgents will be instructed to no use a HTTP/HTTPS proxy even if one is configured on the remote system
+      _agentNoProxy: false
+      # - This section is used to indicate if parts of the meshagent.tag file should be used to set server-side device properties.
+      _agentTag:
+        # - Action taken if one of the lines in meshagent.tag contains ~ServerName:name. 0=Ignore, 1=Set.
+        ServerName: 0
+        # - Action taken if one of the lines in meshagent.tag contains ~ServerDesc:desc. 0=Ignore, 1=Set, 2=SetIfEmpty.
+        ServerDesc: 0
+        # - Action taken if one of the lines in meshagent.tag contains ~ServerTags:tag1,tag2,tag3. 0=Ignore, 1=Set, 2=SetIfEmpty, 3=Append.
+        ServerTags: 0
+      # - Enables the geo-location feature and device location map in the user interface, this feature is not being worked on.
+      _geoLocation: false
+      # - When enabled, activates the built-in web-based VNC client.
+      _novnc: true
+      # - When enabled, activates the built-in web-based RDP client.
+      _mstsc: false
+      # - When enabled, activates the built-in web-based SSH client.
+      _ssh: false
+      # - Path where to find custom email templates for this domain.
+      _webEmailsPath: null
+      _customUI:
+      # - This section is used to customize user consent prompts, these show up when asking if a remote session is allowed or not.
+      _consentMessages:
+        Title: null
+        Desktop: null
+        Terminal: null
+        Files: null
+        # - How long in seconds to show the user consent dialog box.
+        consentTimeout: 30
+        # - If true, user consent is accepted after the timeout.
+        autoAcceptOnTimeout: false
+      # - This section is user to customize user notifications when a remote desktop, terminal or file session is connected to a remote system.
+      _notificationMessages:
+        Title: null
+        Desktop: null
+        Terminal: null
+        Files: null
+      # - Use this section to customize the agent branding.
+      _agentCustomization:
+        # - The name of the agent as displayed to the user.
+        displayName: MeshCentral Agent
+        # - The description of the agent as displayed to the user.
+        description: Mesh Agent background service
+        # - This will be used as the path to install the agent, by default this is 'Mesh Agent' in Windows and 'meshagent' in other OS's.
+        companyName: Mesh Agent
+        # - The name of the background service, by default this is 'Mesh Agent' in Windows and 'meshagent' in other OS's but should be set to an all lower case, no space string.
+        serviceName: Mesh Agent
+        # - Text string to show in the agent installation dialog box.
+        installText: null
+        # - The filename of a image file in .png format located in meshcentral-data to display in the MeshCentral Agent installation dialog, image should be square and from 64x64 to 200x200.
+        image: null
+        # - The agent filename.
+        fileName: meshagent
+        # - Foreground text color, valid values are RBG in format 0,0,0 to 255,255,255 or format #000000 to #FFFFFF.
+        foregroundColor: null
+        # - Background color, valid values are RBG in format 0,0,0 to 255,255,255 or format #000000 to #FFFFFF.
+        backgroundColor: null
+      # - Use this section to set resource metadata of the Windows agents prior to signing. In Windows, you can right-click and select properties to view these values.
+      _agentFileInfo:
+        # - Sets the agent icon, this is the name of a .ico file with the file placed in the meshcentral-data folder.
+        icon: null
+        # - Executable file description.
+        fileDescription: null
+        # - Executable file version, in the form of 'n.n.n.n', for example: '1.2.3.4'.
+        fileVersion: null
+        # - Executable internal name.
+        internalName: null
+        # - Executable legal copyright.
+        legalCopyright: null
+        # - Executable original file name.
+        originalFilename: null
+        # - Executable product name.
+        productName: null
+        # - Executable product version. Any string format will work, but a alphabetic character is required for this value to show correctly in the Windows property box. For example: 'v1.2.3.4' will work, but '1.2.3.4' will not.
+        productVersion: null
+      # - Use this section to customize the MeshCentral Assistant.
+      _assistantCustomization:
+        # - Name to show as MeshCentral Assistant dialog title.
+        title: MeshCentral Assistant
+        # - The filename of a image file in .png format located in meshcentral-data to display in MeshCentral Assistant, image should be square and from 64x64 to 128x128.
+        image: null
+        # - The MeshCentral Assistant filename.
+        fileName: meshagent
+      # - Use this section to customize the MeshCentral Agent for Android.
+      _androidCustomization:
+        # - Displayed on top of the MeshCentral Agent for Android.
+        title: MeshCentral Agent
+        # - Subtitle displayed until the title on the toolbar.
+        subtitle: null
+        # - The filename of a image file in .png format located in meshcentral-data to display in MeshCentral Agent for Android, image should be square and from 64x64 to 128x128.
+        image: null
 probes:
   liveness:
     type: HTTPS
