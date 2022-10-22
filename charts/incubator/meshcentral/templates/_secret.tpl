@@ -59,6 +59,12 @@ data:
 {{- define "prune.underscored.keys" }}
   {{- $values := . }}
   {{- range $k, $v := $values }}
+    {{/* Prune values with empty string, used for SCALE UI mainly */}}
+    {{- if eq (kindOf $v) "string" }}
+      {{- if not $v }}
+        {{- $_ := unset $values $k }}
+      {{- end }}
+    {{- end }}
     {{- if (hasPrefix "_" $k) }}
       {{- $_ := unset $values $k }}
     {{- else }}

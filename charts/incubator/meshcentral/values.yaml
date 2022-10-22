@@ -19,7 +19,8 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# - Values with the character _ in-front of them are ignored. Add or remove _ to disable or enable options
+# - Values with the character _ in-front of them are pruned. Add or remove _ to disable or enable options
+# - Empty values (eg: "") are also pruned
 # - More in-depth info for each options can be found here: https://github.com/Ylianst/MeshCentral/blob/master/meshcentral-config-schema.json
 # - Any service that uses port other than 443, need to be manually configured.
 meshcentral:
@@ -185,7 +186,7 @@ meshcentral:
       mongoDumpPath: /usr/bin/mongodump
       backupIntervalHours: 24
       keepLastDaysBackup: 10
-      _zipPassword: null
+      zipPassword: ""
       backupPath: /opt/meshcentral/meshcentral-backup
       # - Enabled automated upload of the server backups to a Google Drive account, once enabled you need to go in "My Server" tab as administrator to associate the account.
       _googleDrive:
@@ -239,7 +240,7 @@ meshcentral:
       trustedFqdn: null
       # - The IP address of this server. This address will be used when creating the USB setup.bin file to indicate what IP address to send the hello data to.
       ip: null
-    _plugins:
+    plugins:
       enabled: true
   # - Connects MeshCentral to the SendGrid email server, allows MeshCentral to send email messages for 2FA or user notification.
   _sendgrid:

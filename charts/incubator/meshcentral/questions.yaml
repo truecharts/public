@@ -51,6 +51,123 @@ questions:
                 schema:
                   type: boolean
                   default: false
+              - variable: webRTC
+                label: webRTC
+                description: When enabled, allows use of WebRTC to allow direct network traffic between the agent and browser.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: allowFraming
+                label: allowFraming
+                description: When enabled, the MeshCentral web site can be embedded within another website's iframe.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: newAccounts
+                label: newAccounts
+                description: When set to true, allow new user accounts to be created from the login page.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: plugins
+                label: Section <plugins>
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: enabled
+                      schema:
+                        type: boolean
+                        default: true
+              - variable: autobackup
+                label: Section <autobackup>
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: backupIntervalHours
+                      label: backupIntervalHours
+                      schema:
+                        type: int
+                        required: true
+                        default: 24
+                    - variable: keepLastDaysBackup
+                      label: keepLastDaysBackup
+                      schema:
+                        type: int
+                        required: true
+                        default: 10
+                    - variable: zipPassword
+                      label: zipPassword
+                      description: Leave empty for no password
+                      schema:
+                        type: string
+                        private: true
+                        default: ""
+        - variable: domains
+          label: Section <domains>
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: ""
+                label: Section <"">
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: certUrl
+                      label: certUrl
+                      description: HTTPS URL when to get the TLS certificate that MeshAgent's will see when connecting to this server. This setting is used when a reverse proxy like Traefik is used in front of MeshCentral.
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: title
+                      label: title
+                      description: The title of this web site. All web pages will have this title.
+                      schema:
+                        type: string
+                        required: true
+                        default: TrueCharts MeshCentral
+                    - variable: title2
+                      label: title2
+                      description: Secondary title text that is placed on the upper right on the title on many web pages.
+                      schema:
+                        type: string
+                        required: true
+                        default: TrueCharts MeshCentral
+                    - variable: minify
+                      label: minify
+                      description: When enabled, the server will send reduced sized web pages.
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: localSessionRecording
+                      label: localSessionRecording
+                      description: When false, removes the local recording feature on remote desktop.
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: nightMode
+                      label: nightMode
+                      description: 0 = User selects day/night mode, 1 = Always night mode, 2 = Always day mode
+                      schema:
+                        type: int
+                        min: 0
+                        max: 2
+                        requited: true
+                        default: 0
+                    - variable: siteStyle
+                      label: siteStyle
+                      description: Valid numbers are 1 and 2, changes the style of the login page and some secondary pages.
+                      schema:
+                        type: int
+                        min: 1
+                        max: 2
+                        requited: true
+                        default: 2
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
