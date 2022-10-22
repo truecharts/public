@@ -24,6 +24,13 @@ service:
         enabled: true
         port: 25
         targetPort: 25
+  imap:
+    enabled: true
+    ports:
+      imap:
+        enabled: true
+        port: 143
+        targetPort: 143
 
 persistence:
   config:

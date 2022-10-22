@@ -26,7 +26,7 @@ questions:
                   default: false
                   hidden: true
         - variable: smtp
-          label: "smtp Service"
+          label: "SMTP Service"
           description: "The smtp service"
           schema:
             additional_attrs: true
@@ -35,7 +35,7 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: smtp
-                      label: "smtp Service Port Configuration"
+                      label: "SMTP Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -54,6 +54,35 @@ questions:
                                   schema:
                                     type: int
                                     default: 25
+        - variable: imap
+          label: "IMAP Service"
+          description: "The IMAP service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: imap
+                      label: "IMAP Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 143
+                              required: true
+# Include{advancedPortTCP}
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 143
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
