@@ -55,12 +55,19 @@ data:
     {{- toPrettyJson (fromYaml $config) | b64enc | nindent 4 }}
 {{- end }}
 
+{{/* Prunes keys that start with _ */}}
+{{/* Prunes empty lists */}}
+{{/* Prunes empty strings (Does not prune empty strings in lists) */}}
 
 {{- define "prune.underscored.keys" }}
   {{- $values := . }}
   {{- range $k, $v := $values }}
-    {{/* Prune values with empty string, used for SCALE UI mainly */}}
     {{- if eq (kindOf $v) "string" }}
+      {{- if not $v }}
+        {{- $_ := unset $values $k }}
+      {{- end }}
+    {{- end }}
+    {{- if eq (kindOf $v) "slice" }}
       {{- if not $v }}
         {{- $_ := unset $values $k }}
       {{- end }}
