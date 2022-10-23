@@ -36,7 +36,7 @@
   {{- $_ := set $domain.myServer "Upgrade" false }}
 {{- end }}
 
-{{- $config := (include "prune.underscored.keys" $config) }}
+{{- $config := (include "prune.keys" $config) }}
 
 ---
 
@@ -59,7 +59,7 @@ data:
 {{/* Prunes empty lists */}}
 {{/* Prunes empty strings (Does not prune empty strings in lists) */}}
 
-{{- define "prune.underscored.keys" }}
+{{- define "prune.keys" }}
   {{- $values := . }}
   {{- range $k, $v := $values }}
     {{- if eq (kindOf $v) "string" }}
@@ -76,7 +76,7 @@ data:
       {{- $_ := unset $values $k }}
     {{- else }}
       {{- if eq (kindOf $v) "map" }}
-        {{- $v := (include "prune.underscored.keys" $v) }}
+        {{- $v := (include "prune.keys" $v) }}
       {{- end }}
     {{- end }}
   {{- end }}
