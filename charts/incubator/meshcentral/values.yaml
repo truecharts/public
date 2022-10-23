@@ -139,7 +139,7 @@ meshcentral:
     _agentBlockedIP: null
     # - File path and name of the authentication log to be created. This log can be parsed by Fail2ban.
     _authLog: null
-    # Users in this list are allowed to send and receive inter-user messages. This can be used to implement bots or other software where MeshCentral is used as data transport. See interuser websocket command in the code.
+    # - Users in this list are allowed to send and receive inter-user messages. This can be used to implement bots or other software where MeshCentral is used as data transport. See interuser websocket command in the code.
     _InterUserMessaging: []
     # - Users in this list are allowed to see and manage all device groups within their domain.
     _manageAllDeviceGroups: []
@@ -357,7 +357,7 @@ meshcentral:
       _allowSavingDeviceCredentials: true
       # - This value is normally auto-detected, when set to true, MeshCentral assumes that the TLS certificate comes from a trusted CA and will insure download tools perform certificate checking.
       _trustedCert: null
-      # When set to false, the desktop/terminal sharing link feature is not available.
+      # - When set to false, the desktop/terminal sharing link feature is not available.
       _guestDeviceSharing:
         # - When set, limits the maximum length of a guest session, in minutes.
         maxSessionTime: null
