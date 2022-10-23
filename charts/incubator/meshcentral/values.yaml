@@ -190,13 +190,13 @@ meshcentral:
         # - The maximum number of files to keep in the Google Drive folder, older files will be removed if needed.
         maxFiles: 10
       # - Enabled automated upload of the server backups to a WebDAV account.
-      _webdav:
+      webdav:
         # - WebDAV account URL.
-        url: null
+        url: ""
         # - WebDAV account username.
-        username: null
+        username: ""
         # - WebDAV account password.
-        password: null
+        password: ""
         # - The name of the folder to create in the WebDAV account.
         folderName: MeshCentral-Backups
         # - The maximum number of files to keep in the WebDAV folder, older files will be removed if needed.

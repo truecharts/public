@@ -105,6 +105,43 @@ questions:
                         type: string
                         private: true
                         default: ""
+                    - variable: webdav
+                      label: Section <webdav>
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: url
+                            label: url
+                            description: WebDAV account URL.
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: username
+                            label: username
+                            description: WebDAV account username.
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: password
+                            label: password
+                            description: WebDAV account password.
+                            schema:
+                              type: string
+                              private: true
+                              default: ""
+                          - variable: folderName
+                            label: folderName
+                            description: The name of the folder to create in the WebDAV account.
+                            schema:
+                              type: string
+                              default: MeshCentral-Backups
+                          - variable: maxFiles
+                            label: maxFiles
+                            description: The maximum number of files to keep in the WebDAV folder, older files will be removed if needed.
+                            schema:
+                              type: int
+                              default: 10
               - variable: relayDNS
                 label: relayDNS
                 description: When set, relayPort value is ignored. Set this to a DNS name the points to this server. When the server is accessed using the DNS name, the main web server port is used as a web relay port.
@@ -125,7 +162,7 @@ questions:
             type: dict
             attrs:
               - variable: '""'
-                label: Section <"">
+                label: 'Section <"">'
                 schema:
                   additional_attrs: true
                   type: dict
