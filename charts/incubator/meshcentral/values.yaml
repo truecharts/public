@@ -84,7 +84,7 @@ meshcentral:
     # - Adds a random length string to generated web pages to mitigate a BREACH attack.
     _webPageLengthRandomization: true
     # - Enables GZIP compression for web requests.
-    _compression: true
+    compression: true
     # - Enables server-side, websocket per-message deflate compression.
     wsCompression: true
     # - Enables agent-side, websocket per-message deflate compression. wscompression must also be true for this to work.
