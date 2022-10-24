@@ -237,7 +237,7 @@ meshcentral:
       # - The IP address of this server. This address will be used when creating the USB setup.bin file to indicate what IP address to send the hello data to.
       ip: null
     plugins:
-      enabled: true
+      enabled: false
   # - Connects MeshCentral to the SendGrid email server, allows MeshCentral to send email messages for 2FA or user notification.
   _sendgrid:
     # - Email address used in the messages from field.
