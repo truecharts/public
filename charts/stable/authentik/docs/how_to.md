@@ -15,7 +15,7 @@ This guide assumes you're using Traefik as your Reverse Proxy / Ingress provider
 ## Authentik Chart Setup
 
 #### Note
->The `Authentik` chart has many options, which may enhance or break your chart depending on your setup and are beyond the scope of this guide
+> The `Authentik` chart has many options, which may enhance or break your chart depending on your setup and are beyond the scope of this guide
 
 ### Container Configuration
 
