@@ -22,6 +22,7 @@ podSecurityContext:
 # - Values with the character _ in-front of them are pruned. Add or remove _ to disable or enable options
 # - Empty values (eg: "") are also pruned
 # - More in-depth info for each options can be found here: https://github.com/Ylianst/MeshCentral/blob/master/meshcentral-config-schema.json
+# - Last sync with upstream config schema: Oct 22, 2022
 # - Any service that uses port other than 443, need to be manually configured.
 meshcentral:
   settings:
