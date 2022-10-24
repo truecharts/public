@@ -17,7 +17,7 @@ jobs:
       image: ghcr.io/truecharts/devcontainer:v2.6.0@sha256:5029ebed5c833646da3afb3a8512eba79f08cac8935a53fc1510854fec22341a
     steps:
       - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@f7f73d7965074b0f5491b7210ff51e3254d42058 # tag=v0.8.2
+        uses: yokawasa/action-setup-kube-tools@f68236fd81fdd2ab7a4c02e63467e8a0e4f33191 # tag=v0.8.3
         with:
           setup-tools: |
             helmv3
@@ -179,7 +179,7 @@ jobs:
     needs: release-scale
     steps:
       - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@f7f73d7965074b0f5491b7210ff51e3254d42058 # tag=v0.8.2
+        uses: yokawasa/action-setup-kube-tools@f68236fd81fdd2ab7a4c02e63467e8a0e4f33191 # tag=v0.8.3
         with:
           setup-tools: |
             helmv3
