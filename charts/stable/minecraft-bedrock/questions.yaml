@@ -97,6 +97,12 @@ questions:
           schema:
             type: boolean
             default: false
+        - variable: OPS
+          label: "OPS"
+          description: "To OP a player, use the XUID value, not the player's username. Multiple values accepted in this format `XUID,XUID` separated by a comma."
+          schema:
+            type: string
+            default: ""
         - variable: VIEW_DISTANCE
           label: "View distance"
           schema:
