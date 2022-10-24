@@ -4,6 +4,13 @@
 {{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
 {{- $config := .Values.meshcentral }}
 
+{{- $isScale := false }}
+{{- if hasKey .Values.global "isScale" }}
+  {{- $isScale = .Values.global.isScale }}
+{{- else }}
+  {{- $isScale = false }}
+{{- end }}
+
 {{- $sessionKey := "" }}
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
   {{- $sessionKey = (index .data "session_key") }}
@@ -36,8 +43,11 @@
   {{- $_ := set $domain.myServer "Upgrade" false }}
 {{- end }}
 
-{{- $config := (include "prune.keys" $config) }}
-
+{{- if $isScale }}
+  {{- $config = (include "prune.keys.scale" $config) }}
+{{- else }}
+  {{- $config = (include "prune.keys" $config) }}
+{{- end }}
 ---
 
 apiVersion: v1
@@ -52,31 +62,54 @@ data:
   session_key: {{ $sessionKey | b64enc }}
   {{/* The actual config */}}
   config.json: |
-    {{- toPrettyJson (fromYaml $config) | b64enc | nindent 4 }}
+    {{- toPrettyJson (fromYaml $config) | nindent 4 }}
 {{- end }}
 
 {{/* Prunes keys that start with _ */}}
-{{/* Prunes empty lists */}}
-{{/* Prunes empty strings (Does not prune empty strings in lists) */}}
 
 {{- define "prune.keys" }}
   {{- $values := . }}
   {{- range $k, $v := $values }}
-    {{- if eq (kindOf $v) "string" }}
-      {{- if not $v }}
-        {{- $_ := unset $values $k }}
-      {{- end }}
-    {{- end }}
-    {{- if eq (kindOf $v) "slice" }}
-      {{- if not $v }}
-        {{- $_ := unset $values $k }}
-      {{- end }}
-    {{- end }}
     {{- if (hasPrefix "_" $k) }}
       {{- $_ := unset $values $k }}
     {{- else }}
       {{- if eq (kindOf $v) "map" }}
         {{- $v := (include "prune.keys" $v) }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+  {{- toYaml $values }}
+{{- end }}
+
+{{/* Only on TrueNAS Scale */}}
+{{/* Prunes empty lists */}}
+{{/* Prunes int and float equal to -99 */}}
+{{/* Prunes empty strings (Does not prune empty strings in lists) */}}
+{{/* Prunes keys that start with _ */}}
+
+{{- define "prune.keys.scale" }}
+  {{- $values := . }}
+  {{- range $k, $v := $values }}
+      {{- if eq (kindOf $v) "string" }}
+        {{- if not $v }}
+          {{- $_ := unset $values $k }}
+        {{- end }}
+      {{- end }}
+      {{- if or (eq (kindOf $v) "float64") (eq (kindOf $v) "int64") }}
+        {{- if eq (int $v) -99 }}
+          {{- $_ := unset $values $k }}
+        {{- end }}
+      {{- end }}
+      {{- if eq (kindOf $v) "slice" }}
+        {{- if not $v }}
+          {{- $_ := unset $values $k }}
+        {{- end }}
+      {{- end }}
+    {{- if (hasPrefix "_" $k) }}
+      {{- $_ := unset $values $k }}
+    {{- else }}
+      {{- if eq (kindOf $v) "map" }}
+        {{- $v := (include "prune.keys.scale" $v) }}
       {{- end }}
     {{- end }}
   {{- end }}
