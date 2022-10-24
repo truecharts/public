@@ -8,7 +8,7 @@ To add multiple XUIDS, you can do so by separating each `xuid` by a comma:
 
 ![xuids](./imgs/xuids.png)
 
- Or use this 3rd party service [here](https://www.cxkes.me/xbox/xuid) to grab the XUID  of the username instead.
+Or use this 3rd party service [here](https://www.cxkes.me/xbox/xuid) to grab the XUID of the username instead.
 
 :::caution
 
