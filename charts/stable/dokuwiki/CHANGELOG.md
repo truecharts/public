@@ -2,6 +2,16 @@
 
 
 
+## [dokuwiki-3.0.69](https://github.com/truecharts/charts/compare/dokuwiki-3.0.68...dokuwiki-3.0.69) (2022-10-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4171](https://github.com/truecharts/charts/issues/4171))
+
+
+
+
 ## [dokuwiki-3.0.68](https://github.com/truecharts/charts/compare/dokuwiki-3.0.67...dokuwiki-3.0.68) (2022-10-21)
 
 ### Chore

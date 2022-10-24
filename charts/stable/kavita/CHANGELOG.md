@@ -2,6 +2,16 @@
 
 
 
+## [kavita-2.0.42](https://github.com/truecharts/charts/compare/kavita-2.0.41...kavita-2.0.42) (2022-10-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4165](https://github.com/truecharts/charts/issues/4165))
+
+
+
+
 ## [kavita-2.0.41](https://github.com/truecharts/charts/compare/kavitaemail-0.0.6...kavita-2.0.41) (2022-10-19)
 
 ### Chore

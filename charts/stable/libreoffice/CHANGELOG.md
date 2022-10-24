@@ -2,6 +2,16 @@
 
 
 
+## [libreoffice-2.0.37](https://github.com/truecharts/charts/compare/libreoffice-2.0.36...libreoffice-2.0.37) (2022-10-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4171](https://github.com/truecharts/charts/issues/4171))
+
+
+
+
 ## [libreoffice-2.0.36](https://github.com/truecharts/charts/compare/libreoffice-2.0.35...libreoffice-2.0.36) (2022-10-19)
 
 ### Chore

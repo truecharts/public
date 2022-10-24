@@ -2,6 +2,16 @@
 
 
 
+## [kasm-0.0.41](https://github.com/truecharts/charts/compare/kasm-0.0.40...kasm-0.0.41) (2022-10-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4171](https://github.com/truecharts/charts/issues/4171))
+
+
+
+
 ## [kasm-0.0.40](https://github.com/truecharts/charts/compare/kasm-0.0.39...kasm-0.0.40) (2022-10-19)
 
 ### Chore

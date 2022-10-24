@@ -2,6 +2,16 @@
 
 
 
+## [memcached-3.0.101](https://github.com/truecharts/charts/compare/memcached-3.0.100...memcached-3.0.101) (2022-10-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4165](https://github.com/truecharts/charts/issues/4165))
+
+
+
+
 ## [collabora-online-12.1.57](https://github.com/truecharts/charts/compare/collabora-online-12.1.56...collabora-online-12.1.57) (2022-10-22)
 
 ### Chore

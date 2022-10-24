@@ -2,6 +2,16 @@
 
 
 
+## [tubearchivist-es-0.0.33](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.32...tubearchivist-es-0.0.33) (2022-10-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4171](https://github.com/truecharts/charts/issues/4171))
+
+
+
+
 ## [tubearchivist-es-0.0.32](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.31...tubearchivist-es-0.0.32) (2022-10-19)
 
 ### Chore
