@@ -2,6 +2,16 @@
 
 
 
+## [xen-orchestra-0.0.7](https://github.com/truecharts/charts/compare/xen-orchestra-0.0.6...xen-orchestra-0.0.7) (2022-10-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4171](https://github.com/truecharts/charts/issues/4171))
+
+
+
+
 ## [xen-orchestra-0.0.6](https://github.com/truecharts/charts/compare/xen-orchestra-0.0.5...xen-orchestra-0.0.6) (2022-10-19)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [impostor-server-1.0.47](https://github.com/truecharts/charts/compare/impostor-server-1.0.46...impostor-server-1.0.47) (2022-10-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4171](https://github.com/truecharts/charts/issues/4171))
+
+
+
+
 ## [impostor-server-1.0.46](https://github.com/truecharts/charts/compare/impostor-server-1.0.45...impostor-server-1.0.46) (2022-10-19)
 
 ### Chore

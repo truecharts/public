@@ -63,7 +63,7 @@ helm uninstall cyberchef
 #### Available Settings
 
 Read through the values.yaml file. It has several commented out suggested values.
-Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
+Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/truecharts/library-charts/tree/main/charts/common).
 
 #### Configure using the command line
 

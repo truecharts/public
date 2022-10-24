@@ -2,6 +2,16 @@
 
 
 
+## [authentik-7.1.8](https://github.com/truecharts/charts/compare/authentik-7.1.7...authentik-7.1.8) (2022-10-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4171](https://github.com/truecharts/charts/issues/4171))
+
+
+
+
 ## [authentik-7.1.7](https://github.com/truecharts/charts/compare/authentik-7.1.6...authentik-7.1.7) (2022-10-19)
 
 ### Chore

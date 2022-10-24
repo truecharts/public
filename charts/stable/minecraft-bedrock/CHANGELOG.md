@@ -2,6 +2,15 @@
 
 
 
+## [minecraft-bedrock-1.0.41](https://github.com/truecharts/charts/compare/minecraft-bedrock-1.0.40...minecraft-bedrock-1.0.41) (2022-10-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+
+
+
 ## [minecraft-bedrock-1.0.40](https://github.com/truecharts/charts/compare/minecraft-bedrock-1.0.39...minecraft-bedrock-1.0.40) (2022-10-19)
 
 ### Chore
