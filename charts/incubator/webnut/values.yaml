@@ -1,0 +1,31 @@
+image:
+  repository: tccr.io/truecharts/webnut
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:5f57d70353cff11272786cc77d389991457a8e0b49a31701be5d921357f5078e
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secretEnv:
+  UPS_USER: monuser
+  UPS_PASSWORD: secret
+
+env:
+  UPS_HOST: "127.0.0.1"
+  UPS_PORT: 3493
+
+service:
+  main:
+    ports:
+      main:
+        port: 10585
+        protocol: HTTP
+        targetPort: 6543
+
+portal:
+  enabled: true

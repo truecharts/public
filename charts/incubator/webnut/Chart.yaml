@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.7.7
+deprecated: false
+description: webNUT (UPS network monitoring web ui).
+home: https://truecharts.org/docs/charts/incubator/webnut
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/webnut.png
+keywords:
+  - webnut
+  - ups
+  - monitoring
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: webnut
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/webnut
+  - https://hub.docker.com/r/edgd1er/webnut
+  - https://github.com/rshipp/webNUT
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - monitoring
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
