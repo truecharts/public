@@ -1,6 +1,6 @@
 # How-To
 
-This is a quick how-to or setup guide to use Authentik with TrueNAS SCALE and setup a simple Proxy Provider with `traefik` using the Embedded Outpost to use as a Traefik `forwardauth`. This guide was created with Authentik `2022.9.0` and will be updated if things dramatically change.
+This is a quick how-to or setup guide to use Authentik with TrueNAS SCALE and setup a simple Proxy Provider with `traefik` using the Embedded Outpost to use as a Traefik `forwardauth`. This guide was created with Authentik `2022.10.0` and will be updated if things dramatically change.
 This can be applied to other systems but this specific guide has been tested and created on TrueNAS SCALE and isn't guaranteed to work with any other configs.
 
 ## Requirements
@@ -64,19 +64,18 @@ If everything was done properly above, you should have the Provider you created 
 
 ![Providers](img/Providers.png)
 
-### Create Outpost
-
-- Next step is creating an `Outpost` for use with `Traefik`, I have created one already but you can create more.
+### Use Embedded Outpost
 
 ![Outposts](img/Outposts.png)
 
-- Name your `Outpost` and choose the `Application` you wish to use with `authentik`
+- Next step is simply attaching your `application` with the `authentik Embedded Outpost` that has been created automatically. Click the `Edit` button under Actions
 
-![Create-Outpost](img/Create-Outpost.png)
+![Update-Outposts](img/Update-Outpost.png)
 
-- If done correctly you should see the Health Check be ok (since mydomain.com goes nowhere but I'm logged in with the proper domain and it checks ok)
+- Name your `Outpost` and choose the `Application` you wish to use with `authentik`. Click `Update` and verify it's usage with the Healthcheck below.
 
-![Create-Outpost2](img/Create-Outpost-2.png)
+
+![Verify-Outpost](img/Verify-Outpost.png)
 
 ## Traefik ForwardAuth Setup
 
