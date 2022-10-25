@@ -2,6 +2,19 @@
 
 
 
+## [meshcentral-5.0.0](https://github.com/truecharts/charts/compare/meshcentral-4.0.16...meshcentral-5.0.0) (2022-10-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Feat
+
+- BREAKING CHANGE - Rework to add support for (almost) all configuration options ([#4137](https://github.com/truecharts/charts/issues/4137))
+
+
+
+
 ## [meshcentral-4.0.16](https://github.com/truecharts/charts/compare/meshcentral-4.0.15...meshcentral-4.0.16) (2022-10-19)
 
 ### Chore
