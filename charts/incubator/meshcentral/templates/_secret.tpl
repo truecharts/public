@@ -86,14 +86,26 @@ data:
 {{/* Prunes int and float equal to -99 */}}
 {{/* Prunes empty strings (Does not prune empty strings in lists) */}}
 {{/* Prunes keys that start with _ */}}
+{{/* Renames tcdefaultdomain variable to "" as this is the key used by MeshCentral */}}
+{{/* but SCALE GUI does not handle it well */}}
 
 {{- define "prune.keys.scale" }}
   {{- $values := . }}
+  {{- if (hasKey $values "domains") }}
+    {{- if (hasKey $values.domains "tcdefaultdomain") }}
+      {{- $defaultDomain := $values.domains.tcdefaultdomain }}
+      {{- $_ := set $values.domains "" $defaultDomain }}
+      {{- $_ := unset $values.domains "tcdefaultdomain" }}
+    {{- end }}
+  {{- end }}
   {{- range $k, $v := $values }}
       {{- if eq (kindOf $v) "string" }}
         {{- if not $v }}
           {{- $_ := unset $values $k }}
         {{- end }}
+      {{- end }}
+      {{- if eq $k "browserPing" }}
+        {{- $_ := set $values "__browserPing" (printf "%v-%v" (kindOf $v) (typeOf $v)) }}
       {{- end }}
       {{- if or (eq (kindOf $v) "float64") (eq (kindOf $v) "int64") }}
         {{- if eq (int $v) -99 }}
