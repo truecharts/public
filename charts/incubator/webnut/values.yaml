@@ -3,13 +3,13 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:5f57d70353cff11272786cc77d389991457a8e0b49a31701be5d921357f5078e
 
-# securityContext:
-#   runAsNonRoot: false
-#   readOnlyRootFilesystem: false
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 secretEnv:
   UPS_USER: monuser
