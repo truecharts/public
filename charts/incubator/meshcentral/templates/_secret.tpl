@@ -5,8 +5,8 @@
 {{- $config := .Values.meshcentral }}
 
 {{- $isScale := false }}
-{{- if hasKey .Values.global "isScale" }}
-  {{- $isScale = .Values.global.isScale }}
+{{- if hasKey .Values.global "isSCALE" }}
+  {{- $isScale = .Values.global.isSCALE }}
 {{- else }}
   {{- $isScale = false }}
 {{- end }}
