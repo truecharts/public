@@ -2,6 +2,16 @@
 
 
 
+## [cryptofolio-4.0.40](https://github.com/truecharts/charts/compare/cryptofolio-4.0.39...cryptofolio-4.0.40) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [cryptofolio-4.0.39](https://github.com/truecharts/charts/compare/cryptofolio-4.0.38...cryptofolio-4.0.39) (2022-10-19)
 
 ### Chore

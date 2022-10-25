@@ -2,6 +2,16 @@
 
 
 
+## [stationeers-0.0.31](https://github.com/truecharts/charts/compare/stationeers-0.0.30...stationeers-0.0.31) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [starmade-0.0.30](https://github.com/truecharts/charts/compare/starmade-0.0.29...starmade-0.0.30) (2022-10-19)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [blender-0.0.40](https://github.com/truecharts/charts/compare/blender-desktop-g3-0.0.33...blender-0.0.40) (2022-10-25)
+
+### Chore
+
+- update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [blender-0.0.39](https://github.com/truecharts/charts/compare/blender-desktop-g3-0.0.31...blender-0.0.39) (2022-10-19)
 
 ### Chore

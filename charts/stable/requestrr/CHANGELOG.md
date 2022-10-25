@@ -2,6 +2,16 @@
 
 
 
+## [requestrr-2.0.37](https://github.com/truecharts/charts/compare/requestrr-2.0.36...requestrr-2.0.37) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [requestrr-2.0.36](https://github.com/truecharts/charts/compare/requestrr-2.0.35...requestrr-2.0.36) (2022-10-19)
 
 ### Chore

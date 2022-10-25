@@ -2,6 +2,16 @@
 
 
 
+## [amtd-0.0.36](https://github.com/truecharts/charts/compare/amtd-0.0.35...amtd-0.0.36) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [amtd-0.0.35](https://github.com/truecharts/charts/compare/amtd-0.0.34...amtd-0.0.35) (2022-10-19)
 
 ### Chore

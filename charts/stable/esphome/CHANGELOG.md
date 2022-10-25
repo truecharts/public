@@ -2,6 +2,16 @@
 
 
 
+## [esphome-11.0.48](https://github.com/truecharts/charts/compare/esphome-11.0.47...esphome-11.0.48) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [esphome-11.0.47](https://github.com/truecharts/charts/compare/esphome-11.0.46...esphome-11.0.47) (2022-10-21)
 
 ### Chore

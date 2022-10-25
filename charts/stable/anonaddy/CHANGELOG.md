@@ -2,6 +2,16 @@
 
 
 
+## [anonaddy-9.0.56](https://github.com/truecharts/charts/compare/anonaddy-9.0.55...anonaddy-9.0.56) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [anonaddy-9.0.55](https://github.com/truecharts/charts/compare/anonaddy-9.0.54...anonaddy-9.0.55) (2022-10-21)
 
 ### Chore

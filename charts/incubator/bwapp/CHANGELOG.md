@@ -2,6 +2,16 @@
 
 
 
+## [bwapp-0.0.31](https://github.com/truecharts/charts/compare/bwapp-0.0.30...bwapp-0.0.31) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [bwapp-0.0.30](https://github.com/truecharts/charts/compare/bwapp-0.0.29...bwapp-0.0.30) (2022-10-19)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [linkding-2.0.43](https://github.com/truecharts/charts/compare/linkding-2.0.42...linkding-2.0.43) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [linkding-2.0.42](https://github.com/truecharts/charts/compare/linkding-2.0.41...linkding-2.0.42) (2022-10-19)
 
 ### Chore

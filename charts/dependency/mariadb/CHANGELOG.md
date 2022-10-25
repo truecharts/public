@@ -2,6 +2,16 @@
 
 
 
+## [mariadb-3.0.100](https://github.com/truecharts/charts/compare/mariadb-3.0.99...mariadb-3.0.100) (2022-10-23)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4165](https://github.com/truecharts/charts/issues/4165))
+
+
+
+
 ## [mariadb-3.0.99](https://github.com/truecharts/charts/compare/mariadb-3.0.98...mariadb-3.0.99) (2022-10-22)
 
 ### Chore

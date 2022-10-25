@@ -2,6 +2,15 @@
 
 
 
+## [eco-0.0.31](https://github.com/truecharts/charts/compare/deconz-8.0.44...eco-0.0.31) (2022-10-25)
+
+### Chore
+
+- update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [eco-0.0.30](https://github.com/truecharts/charts/compare/doublecommander-4.0.35...eco-0.0.30) (2022-10-19)
 
 ### Chore

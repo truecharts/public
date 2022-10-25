@@ -26,9 +26,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | clickhouse | 1.0.37 |
-| https://charts.truecharts.org/ | postgresql | 8.0.101 |
-| https://library-charts.truecharts.org | common | 10.7.1 |
+| https://charts.truecharts.org/ | clickhouse | 1.0.41 |
+| https://charts.truecharts.org/ | postgresql | 8.0.106 |
+| https://library-charts.truecharts.org | common | 10.7.7 |
 
 ## Installing the Chart
 
@@ -69,7 +69,7 @@ helm uninstall plausible
 #### Available Settings
 
 Read through the values.yaml file. It has several commented out suggested values.
-Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common).
+Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/truecharts/library-charts/tree/main/charts/common).
 
 #### Configure using the command line
 

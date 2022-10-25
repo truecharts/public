@@ -2,6 +2,26 @@
 
 
 
+## [nextcloud-15.3.34](https://github.com/truecharts/charts/compare/nextcloud-15.3.33...nextcloud-15.3.34) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
+## [nextcloud-15.3.33](https://github.com/truecharts/charts/compare/nextcloud-15.3.32...nextcloud-15.3.33) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4181](https://github.com/truecharts/charts/issues/4181))
+
+
+
+
 ## [prometheus-4.0.110](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.40...prometheus-4.0.110) (2022-10-21)
 
 ### Chore

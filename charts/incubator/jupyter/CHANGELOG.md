@@ -2,6 +2,15 @@
 
 
 
+## [jupyter-0.0.19](https://github.com/truecharts/charts/compare/cadquery-jupyter-0.0.34...jupyter-0.0.19) (2022-10-25)
+
+### Chore
+
+- update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [jupyter-0.0.18](https://github.com/truecharts/charts/compare/jupyter-0.0.17...jupyter-0.0.18) (2022-10-19)
 
 ### Chore

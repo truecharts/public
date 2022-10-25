@@ -12,31 +12,347 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
+  - variable: meshcentral
+    group: Container Configuration
+    label: MeshCentral Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: hostname
-          label: "hostname"
-          description: "Hostname of your meshcentral instance, used to generate self singed certs, eg. mesh.example.com or 192.168.1.100."
+        - variable: settings
+          label: Section <settings>
           schema:
-            type: string
-            required: true
-            default: ""
-        - variable: reverseProxyUrl
-          label: "reverseProxyUrl"
-          description: "HTTPS URL on which you will reach this instance, can't be IP. eg. https://mesh.example.com/"
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: aliasPort
+                label: aliasPort
+                description: The actual main port as seen externally on the Internet, this setting is often used when a reverse-proxy is used.
+                schema:
+                  type: int
+                  required: true
+                  default: 443
+              - variable: cert
+                label: cert
+                description: Set this to the primary DNS name of this MeshCentral server.
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: tlsOffload
+                label: tlsOffload
+                description: When true, indicates that a TLS offloader is in front of the MeshCentral server. More typically, set this to the IP address of the reverse proxy or TLS offloader so that IP forwarding headers will be trusted. For example 127.0.0.1,traefik.ix-traefik.svc.cluster.local
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: trustedProxy
+                label: trustedProxy
+                description: Trust forwarded headers from these IPs or domains.  Providing the magic string "CloudFlare" will cause the server to download the IP address list of trusted CloudFlare proxies directly from CloudFlare on each server start. For example 127.0.0.1,traefik.ix-traefik.svc.cluster.local
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: WANonly
+                label: WANonly
+                description: When enabled, only MeshCentral WAN features are enabled and agents will connect to the server using a well known DNS name.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: LANonly
+                label: LANonly
+                description: When enabled, only MeshCentral LAN features are enabled and agents will find the server using multicast LAN packets.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: webRTC
+                label: webRTC
+                description: When enabled, allows use of WebRTC to allow direct network traffic between the agent and browser.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: compression
+                label: compression
+                description: Enables GZIP compression for web requests.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: wsCompression
+                label: wsCompression
+                description: Enables server-side, websocket per-message deflate compression.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: allowFraming
+                label: allowFraming
+                description: When enabled, the MeshCentral web site can be embedded within another website's iframe.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: newAccounts
+                label: newAccounts
+                description: When set to true, allow new user accounts to be created from the login page.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: browserPing
+                label: browserPing
+                description: When specified, sends data to the browser at x seconds interval and expects a response from the browser.
+                schema:
+                  type: int
+                  default: -99
+              - variable: browserPong
+                label: browserPong
+                description: When specified, sends data to the browser at x seconds interval.
+                schema:
+                  type: int
+                  default: -99
+              - variable: agentPing
+                label: agentPing
+                description: When specified, sends data to the agent at x seconds interval and expects a response from the agent.
+                schema:
+                  type: int
+                  default: -99
+              - variable: agentPong
+                label: agentPong
+                description: When specified, sends data to the agent at x seconds interval.
+                schema:
+                  type: int
+                  default: -99
+              - variable: agentIdleTimeout
+                label: agentIdleTimeout
+                description: How much time in seconds with no traffic from an agent before dropping the agent connection.
+                schema:
+                  type: int
+                  default: -99
+              - variable: plugins
+                label: Section <plugins>
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: enabled
+                      schema:
+                        type: boolean
+                        default: false
+              - variable: autobackup
+                label: Section <autobackup>
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: backupIntervalHours
+                      label: backupIntervalHours
+                      schema:
+                        type: int
+                        required: true
+                        default: 24
+                    - variable: keepLastDaysBackup
+                      label: keepLastDaysBackup
+                      schema:
+                        type: int
+                        required: true
+                        default: 10
+                    - variable: zipPassword
+                      label: zipPassword
+                      description: Leave empty for no password
+                      schema:
+                        type: string
+                        private: true
+                        default: ""
+                    - variable: setupWebDav
+                      label: Backup to Web DAV
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: webdav
+                            label: Section <webdav>
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: url
+                                  label: url
+                                  description: WebDAV account URL.
+                                  schema:
+                                    type: string
+                                    default: ""
+                                - variable: username
+                                  label: username
+                                  description: WebDAV account username.
+                                  schema:
+                                    type: string
+                                    default: ""
+                                - variable: password
+                                  label: password
+                                  description: WebDAV account password.
+                                  schema:
+                                    type: string
+                                    private: true
+                                    default: ""
+                                - variable: folderName
+                                  label: folderName
+                                  description: The name of the folder to create in the WebDAV account.
+                                  schema:
+                                    type: string
+                                    default: MeshCentral-Backups
+                                - variable: maxFiles
+                                  label: maxFiles
+                                  description: The maximum number of files to keep in the WebDAV folder, older files will be removed if needed.
+                                  schema:
+                                    type: int
+                                    default: 10
+              - variable: relayDNS
+                label: relayDNS
+                description: When set, relayPort value is ignored. Set this to a DNS name the points to this server. When the server is accessed using the DNS name, the main web server port is used as a web relay port.
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: relayDNSEntry
+                      label: relayDNS Entry
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+        - variable: domains
+          label: Section <domains>
           schema:
-            type: string
-            default: ""
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: tcdefaultdomain
+                label: 'Section <"">'
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: certUrl
+                      label: certUrl
+                      description: HTTPS URL when to get the TLS certificate that MeshAgent's will see when connecting to this server. This setting is used when a reverse proxy like Traefik is used in front of MeshCentral.
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: title
+                      label: title
+                      description: The title of this web site. All web pages will have this title.
+                      schema:
+                        type: string
+                        required: true
+                        default: TrueCharts MeshCentral
+                    - variable: title2
+                      label: title2
+                      description: Secondary title text that is placed on the upper right on the title on many web pages.
+                      schema:
+                        type: string
+                        required: true
+                        default: TrueCharts MeshCentral
+                    - variable: welcomeText
+                      label: welcomeText
+                      description: Text that will be shown on the login screen.
+                      schema:
+                        type: string
+                        required: true
+                        default: Welcome to TrueCharts MeshCentral
+                    - variable: minify
+                      label: minify
+                      description: When enabled, the server will send reduced sized web pages.
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: localSessionRecording
+                      label: localSessionRecording
+                      description: When false, removes the local recording feature on remote desktop.
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: nightMode
+                      label: nightMode
+                      description: 0 = User selects day/night mode, 1 = Always night mode, 2 = Always day mode
+                      schema:
+                        type: int
+                        min: 0
+                        max: 2
+                        requited: true
+                        default: 0
+                    - variable: siteStyle
+                      label: siteStyle
+                      description: Valid numbers are 1 and 2, changes the style of the login page and some secondary pages.
+                      schema:
+                        type: int
+                        min: 1
+                        max: 2
+                        requited: true
+                        default: 2
+                    - variable: agentCustomization
+                      label: Section <agentCustomization>
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: displayName
+                            label: displayName
+                            description: The name of the agent as displayed to the user.
+                            schema:
+                              type: string
+                              default: MeshCentral Agent
+                          - variable: description
+                            label: description
+                            description: The description of the agent as displayed to the user.
+                            schema:
+                              type: string
+                              default: Mesh Agent Background Service
+                          - variable: companyName
+                            label: companyName
+                            description: This will be used as the path to install the agent, by default this is 'Mesh Agent' in Windows and 'meshagent' in other OS's.
+                            schema:
+                              type: string
+                              default: Mesh Agent
+                          - variable: serviceName
+                            label: serviceName
+                            description: The name of the background service, by default this is 'Mesh Agent' in Windows and 'meshagent' in other OS's but should be set to an all lower case, no space string.
+                            schema:
+                              type: string
+                              default: Mesh Agent
+                          - variable: installText
+                            label: installText
+                            description: Text string to show in the agent installation dialog box.
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: image
+                            label: image
+                            description: The filename of a image file in .png format located in meshcentral-data to display in the MeshCentral Agent installation dialog, image should be square and from 64x64 to 200x200.
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: fileName
+                            label: fileName
+                            description: The agent filename.
+                            schema:
+                              type: string
+                              default: meshagent
+                          - variable: foregroundColor
+                            label: foregroundColor
+                            description: 'Foreground text color, valid values are RBG in format 0,0,0 to 255,255,255 or format "#000000" to "#FFFFFF".'
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: backgroundColor
+                            label: backgroundColor
+                            description: 'Background color, valid values are RBG in format 0,0,0 to 255,255,255 or format "#000000" to "#FFFFFF".'
+                            schema:
+                              type: string
+                              default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -44,22 +360,22 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 10205
                               required: true
 # Include{advancedPortHTTPS}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 10205
@@ -69,8 +385,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: data
-          label: "App Data Storage"
-          description: "Stores the Application Data."
+          label: App Data Storage
+          description: Stores the Application Data.
           schema:
             additional_attrs: true
             type: dict
@@ -78,8 +394,26 @@ questions:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
         - variable: files
-          label: "Files Storage"
-          description: "Stores the Files"
+          label: Files Storage
+          description: Stores the Files
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: web
+          label: Web Storage
+          description: Stores the Web Files. Used for web customization
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: backups
+          label: Backups Storage
+          description: Stores the Backups
           schema:
             additional_attrs: true
             type: dict
@@ -89,7 +423,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -102,42 +436,42 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568

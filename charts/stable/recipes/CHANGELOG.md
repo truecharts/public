@@ -2,6 +2,16 @@
 
 
 
+## [recipes-8.0.66](https://github.com/truecharts/charts/compare/recipes-8.0.65...recipes-8.0.66) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [recipes-8.0.65](https://github.com/truecharts/charts/compare/recipes-8.0.64...recipes-8.0.65) (2022-10-21)
 
 ### Chore

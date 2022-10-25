@@ -2,6 +2,16 @@
 
 
 
+## [flextv-0.0.31](https://github.com/truecharts/charts/compare/flextv-0.0.30...flextv-0.0.31) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 
 ## [flextv-0.0.29](https://github.com/truecharts/charts/compare/flextv-0.0.28...flextv-0.0.29) (2022-10-12)
 

@@ -2,6 +2,16 @@
 
 
 
+## [umami-0.0.10](https://github.com/truecharts/charts/compare/umami-0.0.9...umami-0.0.10) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [umami-0.0.9](https://github.com/truecharts/charts/compare/umami-0.0.8...umami-0.0.9) (2022-10-19)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [homepage-0.0.14](https://github.com/truecharts/charts/compare/homepage-0.0.13...homepage-0.0.14) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [homepage-0.0.13](https://github.com/truecharts/charts/compare/homepage-0.0.12...homepage-0.0.13) (2022-10-19)
 
 ### Chore

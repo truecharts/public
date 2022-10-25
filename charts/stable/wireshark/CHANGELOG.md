@@ -2,6 +2,26 @@
 
 
 
+## [wireshark-2.0.39](https://github.com/truecharts/charts/compare/wireshark-2.0.38...wireshark-2.0.39) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
+## [wireshark-2.0.38](https://github.com/truecharts/charts/compare/wireshark-2.0.37...wireshark-2.0.38) (2022-10-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4171](https://github.com/truecharts/charts/issues/4171))
+
+
+
+
 ## [wireshark-2.0.37](https://github.com/truecharts/charts/compare/wireshark-2.0.36...wireshark-2.0.37) (2022-10-19)
 
 ### Chore

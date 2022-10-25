@@ -2,6 +2,16 @@
 
 
 
+## [mysql-workbench-2.0.39](https://github.com/truecharts/charts/compare/mysql-workbench-2.0.38...mysql-workbench-2.0.39) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [mysql-workbench-2.0.38](https://github.com/truecharts/charts/compare/mysql-workbench-2.0.37...mysql-workbench-2.0.38) (2022-10-19)
 
 ### Chore

@@ -2,6 +2,7 @@
 
 
 
+
 ## [wg-easy-1.0.31](https://github.com/truecharts/charts/compare/wg-easy-1.0.30...wg-easy-1.0.31) (2022-10-19)
 
 ### Chore

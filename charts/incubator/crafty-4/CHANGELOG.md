@@ -2,6 +2,26 @@
 
 
 
+## [crafty-4-0.0.39](https://github.com/truecharts/charts/compare/crafty-4-0.0.38...crafty-4-0.0.39) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
+## [crafty-4-0.0.38](https://github.com/truecharts/charts/compare/crafty-4-0.0.37...crafty-4-0.0.38) (2022-10-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4171](https://github.com/truecharts/charts/issues/4171))
+
+
+
+
 ## [crafty-4-0.0.37](https://github.com/truecharts/charts/compare/crafty-4-0.0.36...crafty-4-0.0.37) (2022-10-19)
 
 ### Chore

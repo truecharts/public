@@ -2,6 +2,16 @@
 
 
 
+## [leantime-4.0.55](https://github.com/truecharts/charts/compare/leantime-4.0.54...leantime-4.0.55) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [leantime-4.0.54](https://github.com/truecharts/charts/compare/leantime-4.0.53...leantime-4.0.54) (2022-10-22)
 
 ### Chore

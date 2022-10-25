@@ -2,6 +2,16 @@
 
 
 
+## [davos-4.0.37](https://github.com/truecharts/charts/compare/davos-4.0.36...davos-4.0.37) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [davos-4.0.36](https://github.com/truecharts/charts/compare/davos-4.0.35...davos-4.0.36) (2022-10-19)
 
 ### Chore

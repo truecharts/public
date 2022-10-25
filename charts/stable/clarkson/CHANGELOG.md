@@ -2,6 +2,16 @@
 
 
 
+## [clarkson-3.0.47](https://github.com/truecharts/charts/compare/clarkson-3.0.46...clarkson-3.0.47) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [clarkson-3.0.46](https://github.com/truecharts/charts/compare/clarkson-3.0.45...clarkson-3.0.46) (2022-10-19)
 
 ### Chore
