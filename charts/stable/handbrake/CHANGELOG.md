@@ -2,6 +2,16 @@
 
 
 
+## [handbrake-13.0.40](https://github.com/truecharts/charts/compare/handbrake-13.0.39...handbrake-13.0.40) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [handbrake-13.0.39](https://github.com/truecharts/charts/compare/handbrake-13.0.38...handbrake-13.0.39) (2022-10-19)
 
 ### Chore

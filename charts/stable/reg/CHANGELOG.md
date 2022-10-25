@@ -2,6 +2,16 @@
 
 
 
+## [reg-6.0.38](https://github.com/truecharts/charts/compare/dockerregistry-0.0.29...reg-6.0.38) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [reg-6.0.37](https://github.com/truecharts/charts/compare/wireguard-1.0.10...reg-6.0.37) (2022-10-19)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [go-playground-0.0.32](https://github.com/truecharts/charts/compare/go-playground-0.0.31...go-playground-0.0.32) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [go-playground-0.0.31](https://github.com/truecharts/charts/compare/go-playground-0.0.30...go-playground-0.0.31) (2022-10-24)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [kitchenowl-1.0.15](https://github.com/truecharts/charts/compare/kitchenowl-1.0.14...kitchenowl-1.0.15) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [kitchenowl-1.0.14](https://github.com/truecharts/charts/compare/kitchenowl-1.0.13...kitchenowl-1.0.14) (2022-10-22)
 
 ### Chore

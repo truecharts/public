@@ -2,6 +2,16 @@
 
 
 
+## [kimai-3.0.44](https://github.com/truecharts/charts/compare/kimai-3.0.43...kimai-3.0.44) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [kimai-3.0.43](https://github.com/truecharts/charts/compare/kimai-3.0.42...kimai-3.0.43) (2022-10-19)
 
 ### Chore

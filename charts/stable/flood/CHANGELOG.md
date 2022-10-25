@@ -2,6 +2,15 @@
 
 
 
+## [flood-6.0.40](https://github.com/truecharts/charts/compare/qflood-0.0.42...flood-6.0.40) (2022-10-25)
+
+### Chore
+
+- update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [flood-6.0.39](https://github.com/truecharts/charts/compare/flood-6.0.38...flood-6.0.39) (2022-10-19)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [autoscan-1.0.11](https://github.com/truecharts/charts/compare/autoscan-1.0.10...autoscan-1.0.11) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [autoscan-1.0.10](https://github.com/truecharts/charts/compare/autoscan-1.0.9...autoscan-1.0.10) (2022-10-19)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [retrobot-0.0.3](https://github.com/truecharts/charts/compare/retrobot-0.0.2...retrobot-0.0.3) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [retrobot-0.0.2](https://github.com/truecharts/charts/compare/retrobot-0.0.1...retrobot-0.0.2) (2022-10-19)
 
 ### Chore

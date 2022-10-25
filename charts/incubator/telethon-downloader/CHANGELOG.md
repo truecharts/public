@@ -2,6 +2,16 @@
 
 
 
+## [telethon-downloader-0.0.35](https://github.com/truecharts/charts/compare/telethon-downloader-0.0.34...telethon-downloader-0.0.35) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [telethon-downloader-0.0.34](https://github.com/truecharts/charts/compare/telethon-downloader-0.0.33...telethon-downloader-0.0.34) (2022-10-19)
 
 ### Chore

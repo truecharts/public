@@ -2,6 +2,16 @@
 
 
 
+## [meshcentral-5.0.3](https://github.com/truecharts/charts/compare/meshcentral-5.0.2...meshcentral-5.0.3) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [meshcentral-5.0.2](https://github.com/truecharts/charts/compare/meshcentral-5.0.1...meshcentral-5.0.2) (2022-10-25)
 
 ### Chore

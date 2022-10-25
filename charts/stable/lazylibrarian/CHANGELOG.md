@@ -2,6 +2,16 @@
 
 
 
+## [lazylibrarian-11.0.73](https://github.com/truecharts/charts/compare/lazylibrarian-11.0.72...lazylibrarian-11.0.73) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [lazylibrarian-11.0.72](https://github.com/truecharts/charts/compare/lazylibrarian-11.0.71...lazylibrarian-11.0.72) (2022-10-25)
 
 ### Chore

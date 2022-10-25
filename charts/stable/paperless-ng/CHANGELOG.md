@@ -2,6 +2,16 @@
 
 
 
+## [paperless-ng-4.0.49](https://github.com/truecharts/charts/compare/paperless-ng-4.0.48...paperless-ng-4.0.49) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [paperless-ng-4.0.48](https://github.com/truecharts/charts/compare/paperless-ng-4.0.47...paperless-ng-4.0.48) (2022-10-19)
 
 ### Chore

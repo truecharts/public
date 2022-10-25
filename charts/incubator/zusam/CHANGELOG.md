@@ -2,6 +2,16 @@
 
 
 
+## [zusam-0.0.19](https://github.com/truecharts/charts/compare/zusam-0.0.18...zusam-0.0.19) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [zusam-0.0.18](https://github.com/truecharts/charts/compare/zusam-0.0.17...zusam-0.0.18) (2022-10-19)
 
 ### Chore

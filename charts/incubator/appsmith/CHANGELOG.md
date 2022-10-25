@@ -2,6 +2,16 @@
 
 
 
+## [appsmith-2.0.61](https://github.com/truecharts/charts/compare/appsmith-2.0.60...appsmith-2.0.61) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [appsmith-2.0.60](https://github.com/truecharts/charts/compare/appsmith-2.0.59...appsmith-2.0.60) (2022-10-19)
 
 ### Chore

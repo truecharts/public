@@ -2,6 +2,16 @@
 
 
 
+## [portainer-ce-1.0.6](https://github.com/truecharts/charts/compare/portainer-ce-1.0.5...portainer-ce-1.0.6) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [portainer-ce-1.0.5](https://github.com/truecharts/charts/compare/portainer-ce-1.0.4...portainer-ce-1.0.5) (2022-10-19)
 
 ### Chore

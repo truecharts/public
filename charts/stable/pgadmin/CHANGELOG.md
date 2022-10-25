@@ -2,6 +2,16 @@
 
 
 
+## [pgadmin-7.0.42](https://github.com/truecharts/charts/compare/pgadmin-7.0.41...pgadmin-7.0.42) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4182](https://github.com/truecharts/charts/issues/4182))
+
+
+
+
 ## [pgadmin-7.0.41](https://github.com/truecharts/charts/compare/pgadmin-7.0.40...pgadmin-7.0.41) (2022-10-19)
 
 ### Chore
