@@ -43,6 +43,14 @@ service:
         targetPort: 8554
         port: 8554
 
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
 persistence:
   data:
     enabled: true
