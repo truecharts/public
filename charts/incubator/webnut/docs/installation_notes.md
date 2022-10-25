@@ -16,7 +16,9 @@ Go to your system shell on your node and run the following command to get the ba
 
 ![nut-scanner](./img/nut-scanner.png)
 
-This command tells me what driver to use in case that my model specifically is not listed in the driver section. NUT states you can use other drivers from the same manufacturer as long as its the same _type_ of driver. So in my case I chose a device that uses `usbhid-ups` which I got from the command above.
+This command tells me what driver to use in case that my model specifically is not listed in the driver section. 
+NUT states you can use other drivers from the same manufacturer as long as its the same _type_ of driver. 
+So in my case I chose a device that uses `usbhid-ups` which I got from the command above.
 
 ![ups-server](./img/ups-server.png)
 
