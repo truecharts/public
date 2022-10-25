@@ -104,6 +104,9 @@ data:
           {{- $_ := unset $values $k }}
         {{- end }}
       {{- end }}
+      {{- if eq $k "browserPing" }}
+        {{- $_ := set $values "__browserPing" (printf "%v-%v" (kindOf $v) (typeOf $v)) }}
+      {{- end }}
       {{- if or (eq (kindOf $v) "float64") (eq (kindOf $v) "int64") }}
         {{- if eq (int $v) -99 }}
           {{- $_ := unset $values $k }}
