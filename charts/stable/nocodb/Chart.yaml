@@ -7,7 +7,7 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.106
+    version: 8.0.107
   - condition: redis.enabled
     name: redis
     repository: https://charts.truecharts.org
@@ -27,7 +27,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/nocodb
   - https://hub.docker.com/r/nocodb/nocodb
   - https://github.com/nocodb/nocodb
-version: 3.0.54
+version: 3.0.55
 annotations:
   truecharts.org/catagories: |
     - productivity
