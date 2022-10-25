@@ -74,7 +74,6 @@ If everything was done properly above, you should have the Provider you created 
 
 - Name your `Outpost` and choose the `Application` you wish to use with `authentik`. Click `Update` and verify it's usage with the Healthcheck below.
 
-
 ![Verify-Outpost](img/Verify-Outpost.png)
 
 ## Traefik ForwardAuth Setup
