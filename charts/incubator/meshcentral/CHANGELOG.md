@@ -2,6 +2,16 @@
 
 
 
+## [meshcentral-5.0.1](https://github.com/truecharts/charts/compare/meshcentral-5.0.0...meshcentral-5.0.1) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4181](https://github.com/truecharts/charts/issues/4181))
+
+
+
+
 ## [meshcentral-5.0.0](https://github.com/truecharts/charts/compare/meshcentral-4.0.16...meshcentral-5.0.0) (2022-10-24)
 
 ### Chore

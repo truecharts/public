@@ -2,6 +2,16 @@
 
 
 
+## [mkvtoolnix-2.0.42](https://github.com/truecharts/charts/compare/mkvtoolnix-2.0.41...mkvtoolnix-2.0.42) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4181](https://github.com/truecharts/charts/issues/4181))
+
+
+
+
 ## [mkvtoolnix-2.0.41](https://github.com/truecharts/charts/compare/mkvtoolnix-2.0.40...mkvtoolnix-2.0.41) (2022-10-19)
 
 ### Chore

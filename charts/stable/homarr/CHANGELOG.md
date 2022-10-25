@@ -2,6 +2,16 @@
 
 
 
+## [homarr-2.0.45](https://github.com/truecharts/charts/compare/homarr-2.0.44...homarr-2.0.45) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4181](https://github.com/truecharts/charts/issues/4181))
+
+
+
+
 ## [homarr-2.0.44](https://github.com/truecharts/charts/compare/homarr-2.0.43...homarr-2.0.44) (2022-10-19)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [mediainfo-1.0.20](https://github.com/truecharts/charts/compare/mediainfo-1.0.19...mediainfo-1.0.20) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4181](https://github.com/truecharts/charts/issues/4181))
+
+
+
+
 ## [mediainfo-1.0.19](https://github.com/truecharts/charts/compare/mediainfo-1.0.18...mediainfo-1.0.19) (2022-10-19)
 
 ### Chore

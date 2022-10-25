@@ -2,6 +2,16 @@
 
 
 
+## [inventree-4.0.22](https://github.com/truecharts/charts/compare/inventree-4.0.21...inventree-4.0.22) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4181](https://github.com/truecharts/charts/issues/4181))
+
+
+
+
 ## [inventree-4.0.21](https://github.com/truecharts/charts/compare/inventree-4.0.20...inventree-4.0.21) (2022-10-21)
 
 ### Chore

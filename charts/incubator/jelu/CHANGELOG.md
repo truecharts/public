@@ -2,6 +2,16 @@
 
 
 
+## [jelu-0.0.39](https://github.com/truecharts/charts/compare/jelu-0.0.38...jelu-0.0.39) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4181](https://github.com/truecharts/charts/issues/4181))
+
+
+
+
 ## [jelu-0.0.38](https://github.com/truecharts/charts/compare/jelu-0.0.37...jelu-0.0.38) (2022-10-24)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [collabora-online-12.1.58](https://github.com/truecharts/charts/compare/collabora-online-12.1.57...collabora-online-12.1.58) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4181](https://github.com/truecharts/charts/issues/4181))
+
+
+
+
 
 ## [collabora-online-12.1.56](https://github.com/truecharts/charts/compare/collabora-online-12.1.55...collabora-online-12.1.56) (2022-10-21)
 

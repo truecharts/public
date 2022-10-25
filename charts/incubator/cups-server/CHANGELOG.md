@@ -2,6 +2,16 @@
 
 
 
+## [cups-server-1.0.56](https://github.com/truecharts/charts/compare/cups-server-1.0.55...cups-server-1.0.56) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4181](https://github.com/truecharts/charts/issues/4181))
+
+
+
+
 ## [cups-server-1.0.55](https://github.com/truecharts/charts/compare/cups-server-1.0.54...cups-server-1.0.55) (2022-10-19)
 
 ### Chore
