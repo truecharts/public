@@ -45,15 +45,11 @@ service:
 
 probes:
   liveness:
-    type: HTTP
-    port: 1883
+    enabled: false
   readiness:
-    type: HTTP
-    port: 1883
+    enabled: false
   startup:
-    type: HTTP
-    path: /-/health/ready/
-    port: 55123
+    enabled: false
 
 persistence:
   data:
