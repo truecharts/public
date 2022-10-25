@@ -6,7 +6,7 @@ This chart requires ingress without it you will NOT be able to access the webGUI
 
 :::
 
-## prerequisite
+## Prerequisite
 
 In order to get started, please plug in your UPS via USB to the `server` node and before modifying the `UPS service` section.
 
@@ -14,13 +14,14 @@ Go to your system shell on your node and run the following command to get the ba
 
 `nut-scanner -U`
 
-![nut-scanner](./imgs/nut-scanner.png)
+![nut-scanner](./img/nut-scanner.png)
 
 This command tells me what driver to use in case that my model specifically is not listed in the driver section.
 
-NUT states you can use other drivers from the same manufacturer as long as its the same _type_ of driver. So in my case I chose a device that uses `usbhid-ups` which I got from the command above.
+NUT states you can use other drivers from the same manufacturer as long as its the same _type_ of driver. 
+So in my case I chose a device that uses `usbhid-ups` which I got from the command above.
 
-![ups-server](./imgs/ups-server.png)
+![ups-server](./img/ups-server.png)
 
 You can change the `Monitor User` to whatever you want, I kept it default for simplicity.
 
@@ -30,10 +31,11 @@ The `UPS Mode` should be set to `Master` which means its the server and _not_ th
 
 The `port or hosthame` can be just left at `auto`.
 
-![ups-shutdown](./imgs/ups-shutdown.png)
+![ups-shutdown](./img/ups-shutdown.png)
+
 Please set an actual shutdown command, all this will do is echo `shutdown` in the console.
 
-![ups-other](./imgs/ups-other.png)
+![ups-other](./img/ups-other.png)
 
 For `Auxiliary Parameters` this is what I used:
 
@@ -42,12 +44,12 @@ LISTEN 127.0.0.1 3493
 LISTEN 0.0.0.0 3493
 ```
 
-## webNUT Installation
+## WebNUT Installation
 
-- Set `UPS USER` to the username defined for the `Monitor User`.
-- Set `UPS PASSWORD` to the password defined for the `Monitor PASSWORD`.
-- Set `UPS HOST` to the local IP of your server.
-- Set `UPS PORT` to `3493` which is typically the default port.
+- Set `UPS User` to the username defined for the `Monitor User`.
+- Set `UPS Password` to the password defined for the `Monitor Password`.
+- Set `UPS Host` to the local IP of your server.
+- Set `UPS Port` to `3493` which is typically the default port.
 
 In order to access the webGUI, you will **need** to add `ingress` otherwise it will refuse to connect.
 
