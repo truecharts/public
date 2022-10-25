@@ -8,17 +8,21 @@ This chart requires ingress without it you will NOT be able to access the webGUI
 
 ## Prerequisite
 
-In order to get started, please plug in your UPS via USB to the `server` node and before modifying the `UPS service` section.
+In order to get started, plug in your UPS via USB to the `server` node and before modifying the `UPS service` section.
 
 Go to your system shell on your node and run the following command to get the basic info for your UPS.
 
-`nut-scanner -U`
+```terminal
+
+nut-scanner -U
+
+```
 
 ![nut-scanner](./img/nut-scanner.png)
 
-This command tells me what driver to use in case that my model specifically is not listed in the driver section. 
-NUT states you can use other drivers from the same manufacturer as long as its the same _type_ of driver. 
-So in my case I chose a device that uses `usbhid-ups` which I got from the command above.
+My UPS uses the `usbhid-ups` driver from `driver = "usbhid-ups"`.
+
+For me though _my_ UPS is _not_ listed in the list, however NUT states you can use others devices of similar models from the same manufacturer as long as its uses the same driver.
 
 ![ups-server](./img/ups-server.png)
 
