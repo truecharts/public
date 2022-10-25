@@ -27,10 +27,5 @@ service:
         protocol: HTTP
         targetPort: 6543
 
-persistence:
-  config:
-    enabled: false
-    mountPath: "/app/"
-
 portal:
   enabled: true
