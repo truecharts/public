@@ -2,6 +2,16 @@
 
 
 
+## [strapi-4.0.46](https://github.com/truecharts/charts/compare/strapi-4.0.45...strapi-4.0.46) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [strapi-4.0.45](https://github.com/truecharts/charts/compare/strapi-4.0.44...strapi-4.0.45) (2022-10-25)
 
 ### Chore

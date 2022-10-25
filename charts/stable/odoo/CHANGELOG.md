@@ -2,6 +2,16 @@
 
 
 
+## [odoo-8.0.57](https://github.com/truecharts/charts/compare/odoo-8.0.56...odoo-8.0.57) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [odoo-8.0.56](https://github.com/truecharts/charts/compare/odoo-8.0.55...odoo-8.0.56) (2022-10-25)
 
 ### Chore

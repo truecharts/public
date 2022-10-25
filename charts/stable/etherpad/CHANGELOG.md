@@ -2,6 +2,16 @@
 
 
 
+## [etherpad-8.0.46](https://github.com/truecharts/charts/compare/etherpad-8.0.45...etherpad-8.0.46) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [etherpad-8.0.45](https://github.com/truecharts/charts/compare/etherpad-8.0.44...etherpad-8.0.45) (2022-10-25)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [wger-1.1.24](https://github.com/truecharts/charts/compare/wger-1.1.23...wger-1.1.24) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [wger-1.1.23](https://github.com/truecharts/charts/compare/wger-1.1.22...wger-1.1.23) (2022-10-25)
 
 ### Chore

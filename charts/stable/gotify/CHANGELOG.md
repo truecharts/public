@@ -2,6 +2,16 @@
 
 
 
+## [gotify-8.0.49](https://github.com/truecharts/charts/compare/gotify-8.0.48...gotify-8.0.49) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [gotify-8.0.48](https://github.com/truecharts/charts/compare/gotify-8.0.47...gotify-8.0.48) (2022-10-25)
 
 ### Chore

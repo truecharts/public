@@ -2,6 +2,16 @@
 
 
 
+## [teedy-7.0.47](https://github.com/truecharts/charts/compare/teedy-7.0.46...teedy-7.0.47) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [teedy-7.0.46](https://github.com/truecharts/charts/compare/teedy-7.0.45...teedy-7.0.46) (2022-10-25)
 
 ### Chore

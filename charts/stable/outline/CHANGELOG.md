@@ -2,6 +2,16 @@
 
 
 
+## [outline-3.0.53](https://github.com/truecharts/charts/compare/outline-3.0.52...outline-3.0.53) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [outline-3.0.52](https://github.com/truecharts/charts/compare/outline-3.0.51...outline-3.0.52) (2022-10-25)
 
 ### Chore

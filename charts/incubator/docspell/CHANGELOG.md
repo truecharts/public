@@ -2,6 +2,16 @@
 
 
 
+## [docspell-0.0.10](https://github.com/truecharts/charts/compare/docspell-0.0.9...docspell-0.0.10) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [docspell-0.0.9](https://github.com/truecharts/charts/compare/docspell-0.0.8...docspell-0.0.9) (2022-10-25)
 
 ### Chore

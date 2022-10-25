@@ -2,6 +2,16 @@
 
 
 
+## [baserow-3.0.52](https://github.com/truecharts/charts/compare/baserow-3.0.51...baserow-3.0.52) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [baserow-3.0.51](https://github.com/truecharts/charts/compare/baserow-3.0.50...baserow-3.0.51) (2022-10-25)
 
 ### Chore

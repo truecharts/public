@@ -2,6 +2,16 @@
 
 
 
+## [zabbix-1.0.3](https://github.com/truecharts/charts/compare/zabbix-1.0.2...zabbix-1.0.3) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [zabbix-1.0.2](https://github.com/truecharts/charts/compare/zabbix-1.0.1...zabbix-1.0.2) (2022-10-25)
 
 ### Chore

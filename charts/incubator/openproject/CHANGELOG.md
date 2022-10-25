@@ -2,6 +2,16 @@
 
 
 
+## [openproject-0.0.41](https://github.com/truecharts/charts/compare/openproject-0.0.40...openproject-0.0.41) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [openproject-0.0.40](https://github.com/truecharts/charts/compare/openproject-0.0.39...openproject-0.0.40) (2022-10-25)
 
 ### Chore

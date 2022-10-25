@@ -2,6 +2,16 @@
 
 
 
+## [grist-4.0.3](https://github.com/truecharts/charts/compare/grist-4.0.2...grist-4.0.3) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [grist-4.0.2](https://github.com/truecharts/charts/compare/grist-4.0.1...grist-4.0.2) (2022-10-25)
 
 ### Chore

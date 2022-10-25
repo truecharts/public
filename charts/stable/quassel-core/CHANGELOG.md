@@ -2,6 +2,16 @@
 
 
 
+## [quassel-core-3.0.44](https://github.com/truecharts/charts/compare/quassel-core-3.0.43...quassel-core-3.0.44) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [quassel-core-3.0.43](https://github.com/truecharts/charts/compare/quassel-core-3.0.42...quassel-core-3.0.43) (2022-10-25)
 
 ### Chore

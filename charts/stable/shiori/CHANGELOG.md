@@ -2,6 +2,16 @@
 
 
 
+## [shiori-7.0.45](https://github.com/truecharts/charts/compare/shiori-7.0.44...shiori-7.0.45) (2022-10-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major
+
+
+
+
 ## [shiori-7.0.44](https://github.com/truecharts/charts/compare/shiori-7.0.43...shiori-7.0.44) (2022-10-25)
 
 ### Chore
