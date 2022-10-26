@@ -940,20 +940,20 @@ meshcentral:
 
 probes:
   liveness:
-    type: HTTPS
+    type: HTTP
     path: /health.ashx
   readiness:
-    type: HTTPS
+    type: HTTP
     path: /health.ashx
   startup:
-    type: HTTPS
+    type: HTTP
     path: /health.ashx
 
 service:
   main:
     ports:
       main:
-        protocol: HTTPS
+        protocol: HTTP
         port: 10205
   # mps:
   #   enabled: true
