@@ -942,8 +942,8 @@ service:
   main:
     ports:
       main:
-        # - Set this to HTTP if certs are served by a proxy
-        protocol: HTTPS
+        # Only use HTTPS if meshcental handles the certs
+        protocol: HTTP
         port: 10205
   # mps:
   #   enabled: true
