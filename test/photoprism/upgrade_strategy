@@ -1,19 +1,28 @@
 #!/usr/bin/python3
 import json
 import sys
+import re
 
-from catalog_update.upgrade_strategy import semantic_versioning
+from catalog_update.upgrade_strategy import datetime_versioning
+
+
+VERSION_REG = r'2[2-9][0-1][0-9][0-3][0-9]-bullseye'
 
 
 def newer_mapping(image_tags):
     key = list(image_tags.keys())[0]
-    tags = {t: t for t in image_tags[key]}
-    version = semantic_versioning(list(tags))
+    tags = []
+    for tag in image_tags[key]:
+        match = re.fullmatch(VERSION_REG, tag)
+        if match:
+            tags.append(tag.split('-')[0])
+
+    version = datetime_versioning(list(tags), '%y%m%d')
     if not version:
         return {}
 
     return {
-        'tags': {key: tags[version]},
+        'tags': {key: f'{version}-bullseye'},
         'app_version': version,
     }
 
