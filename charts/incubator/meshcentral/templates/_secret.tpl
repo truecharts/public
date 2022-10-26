@@ -20,7 +20,6 @@
 
 {{/* Inject some values */}}
 {{- $_ := set $config "$schema" "http://info.meshcentral.com/downloads/meshcentral-config-schema.json" }}
-{{- $_ := set $config "__comment__" "This file is generated dynamically at install time, do not attempt to modify it. On next start it will be re-generated" }}
 
 {{- if not (hasKey $config "settings") }}
   {{- $_ := set $config "settings" dict }}
@@ -66,7 +65,6 @@ data:
 {{- end }}
 
 {{/* Prunes keys that start with _ */}}
-
 {{- define "prune.keys" }}
   {{- $values := . }}
   {{- range $k, $v := $values }}
@@ -88,7 +86,6 @@ data:
 {{/* Prunes keys that start with _ */}}
 {{/* Renames tcdefaultdomain variable to "" as this is the key used by MeshCentral */}}
 {{/* but SCALE GUI does not handle it well */}}
-
 {{- define "prune.keys.scale" }}
   {{- $values := . }}
   {{- if (hasKey $values "domains") }}
