@@ -113,7 +113,7 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: lint Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@f68236fd81fdd2ab7a4c02e63467e8a0e4f33191 # tag=v0.8.3
+        uses: yokawasa/action-setup-kube-tools@b7355a1ebe8184369ddddf52da35a730bb18181c # tag=v0.9.0
         with:
           setup-tools: |
             helmv3
@@ -147,7 +147,7 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: lint Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@f68236fd81fdd2ab7a4c02e63467e8a0e4f33191 # tag=v0.8.3
+        uses: yokawasa/action-setup-kube-tools@b7355a1ebe8184369ddddf52da35a730bb18181c # tag=v0.9.0
         with:
           setup-tools: |
             helmv3
@@ -181,7 +181,7 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: lint Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@f68236fd81fdd2ab7a4c02e63467e8a0e4f33191 # tag=v0.8.3
+        uses: yokawasa/action-setup-kube-tools@b7355a1ebe8184369ddddf52da35a730bb18181c # tag=v0.9.0
         with:
           setup-tools: |
             helmv3
@@ -215,7 +215,7 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: lint Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@f68236fd81fdd2ab7a4c02e63467e8a0e4f33191 # tag=v0.8.3
+        uses: yokawasa/action-setup-kube-tools@b7355a1ebe8184369ddddf52da35a730bb18181c # tag=v0.9.0
         with:
           setup-tools: |
             helmv3
@@ -249,7 +249,7 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: lint Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@f68236fd81fdd2ab7a4c02e63467e8a0e4f33191 # tag=v0.8.3
+        uses: yokawasa/action-setup-kube-tools@b7355a1ebe8184369ddddf52da35a730bb18181c # tag=v0.9.0
         with:
           setup-tools: |
             helmv3
@@ -283,7 +283,7 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: lint Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@f68236fd81fdd2ab7a4c02e63467e8a0e4f33191 # tag=v0.8.3
+        uses: yokawasa/action-setup-kube-tools@b7355a1ebe8184369ddddf52da35a730bb18181c # tag=v0.9.0
         with:
           setup-tools: |
             helmv3
