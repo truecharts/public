@@ -1,5 +1,11 @@
 # Installation instructions
 
+:::warn
+
+Ingress for this chart is **required**
+
+:::
+
 In order to be able to expose some options in the GUI,
 but also give users the option to users to **unset** those values,
 instead of using our defaults. We decided to do the following.

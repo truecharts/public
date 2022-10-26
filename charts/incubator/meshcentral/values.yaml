@@ -938,21 +938,11 @@ meshcentral:
               # - When set, limits what OIDC groups are mirrored into MeshCentral user groups.
               filter: []
 
-probes:
-  liveness:
-    type: HTTPS
-    path: /health.ashx
-  readiness:
-    type: HTTPS
-    path: /health.ashx
-  startup:
-    type: HTTPS
-    path: /health.ashx
-
 service:
   main:
     ports:
       main:
+        # - Set this to HTTP if certs are served by a proxy
         protocol: HTTPS
         port: 10205
   # mps:
@@ -997,7 +987,7 @@ persistence:
     enabled: true
     type: secret
     readOnly: true
-    # defaultMode: "0600"
+    defaultMode: "0600"
     objectName: '{{ include "tc.common.names.fullname" . }}-secret'
     mountPath: /opt/meshcentral/meshcentral-config
     items:
