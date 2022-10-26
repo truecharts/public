@@ -32,6 +32,17 @@
                       schema:
                         type: string
                         default: ""
+                    - variable: tls
+                      label: TLS
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: insecureSkipVerify
+                            label: insecureSkipVerify
+                            schema:
+                              type: boolean
+                              default: false
                     - variable: authResponseHeaders
                       label: authResponseHeaders
                       schema:
