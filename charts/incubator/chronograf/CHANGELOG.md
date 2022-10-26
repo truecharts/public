@@ -2,6 +2,16 @@
 
 
 
+## [chronograf-0.0.35](https://github.com/truecharts/charts/compare/chronograf-0.0.34...chronograf-0.0.35) (2022-10-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4189](https://github.com/truecharts/charts/issues/4189))
+
+
+
+
 ## [chronograf-0.0.34](https://github.com/truecharts/charts/compare/chronograf-0.0.33...chronograf-0.0.34) (2022-10-25)
 
 ### Chore

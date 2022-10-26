@@ -2,6 +2,16 @@
 
 
 
+## [dontstarvetogether-0.0.34](https://github.com/truecharts/charts/compare/dontstarvetogether-0.0.33...dontstarvetogether-0.0.34) (2022-10-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4189](https://github.com/truecharts/charts/issues/4189))
+
+
+
+
 ## [dontstarvetogether-0.0.33](https://github.com/truecharts/charts/compare/dontstarvetogether-0.0.32...dontstarvetogether-0.0.33) (2022-10-25)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [budge-2.0.52](https://github.com/truecharts/charts/compare/budge-2.0.51...budge-2.0.52) (2022-10-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4189](https://github.com/truecharts/charts/issues/4189))
+
+
+
+
 ## [budge-2.0.51](https://github.com/truecharts/charts/compare/budge-2.0.50...budge-2.0.51) (2022-10-25)
 
 ### Chore

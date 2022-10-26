@@ -2,6 +2,16 @@
 
 
 
+## [altitude-0.0.32](https://github.com/truecharts/charts/compare/altitude-0.0.31...altitude-0.0.32) (2022-10-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4189](https://github.com/truecharts/charts/issues/4189))
+
+
+
+
 ## [altitude-0.0.31](https://github.com/truecharts/charts/compare/altitude-0.0.30...altitude-0.0.31) (2022-10-25)
 
 ### Chore

@@ -2,6 +2,15 @@
 
 
 
+## [firefox-2.0.38](https://github.com/truecharts/charts/compare/firefox-syncserver-9.0.46...firefox-2.0.38) (2022-10-26)
+
+### Chore
+
+- update container image tccr.io/truecharts/firefox to v101.0.1 ([#4191](https://github.com/truecharts/charts/issues/4191))
+
+
+
+
 ## [firefox-2.0.37](https://github.com/truecharts/charts/compare/firefox-syncserver-9.0.44...firefox-2.0.37) (2022-10-25)
 
 ### Chore

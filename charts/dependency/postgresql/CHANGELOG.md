@@ -2,6 +2,16 @@
 
 
 
+## [postgresql-8.0.108](https://github.com/truecharts/charts/compare/postgresql-8.0.107...postgresql-8.0.108) (2022-10-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4189](https://github.com/truecharts/charts/issues/4189))
+
+
+
+
 ## [postgresql-8.0.107](https://github.com/truecharts/charts/compare/postgresql-8.0.106...postgresql-8.0.107) (2022-10-25)
 
 ### Chore

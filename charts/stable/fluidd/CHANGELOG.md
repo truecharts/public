@@ -2,6 +2,16 @@
 
 
 
+## [fluidd-2.0.45](https://github.com/truecharts/charts/compare/fluidd-2.0.44...fluidd-2.0.45) (2022-10-26)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4189](https://github.com/truecharts/charts/issues/4189))
+
+
+
+
 ## [fluidd-2.0.44](https://github.com/truecharts/charts/compare/fluidd-2.0.43...fluidd-2.0.44) (2022-10-25)
 
 ### Chore
