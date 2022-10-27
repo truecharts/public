@@ -59,6 +59,7 @@ metadata:
 data:
   {{/* Store session_key to reuse */}}
   session_key: {{ $sessionKey | b64enc }}
+  trigger_redeploy: {{ randAlpha 5 }}
   {{/* The actual config */}}
   config.json: |
     {{- toPrettyJson (fromYaml $config) | b64enc | nindent 4 }}
