@@ -2,6 +2,8 @@
 {{- define "meshcentral.secret" -}}
 
 {{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretStorageName := printf "%s-storage-secret" (include "tc.common.names.fullname" .) }}
+
 {{- $config := .Values.meshcentral }}
 
 {{- $isScale := false }}
@@ -12,7 +14,7 @@
 {{- end }}
 
 {{- $sessionKey := "" }}
-{{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
+{{- with (lookup "v1" "Secret" .Release.Namespace $secretStorageName) }}
   {{- $sessionKey = (index .data "session_key") }}
 {{- else }}
   {{- $sessionKey = randAlphaNum 32 }}
@@ -48,6 +50,20 @@
 {{- else }}
   {{- $config = (include "prune.keys" $config) }}
 {{- end }}
+
+---
+
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: {{ $secretStorageName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
+  {{/* Store session_key to reuse */}}
+  session_key: {{ $sessionKey | b64enc }}
+
 ---
 
 apiVersion: v1
@@ -58,8 +74,6 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  {{/* Store session_key to reuse */}}
-  session_key: {{ $sessionKey | b64enc }}
   {{/* The actual config */}}
   config.json: |
     {{- toPrettyJson (fromYaml $config) | b64enc | nindent 4 }}
@@ -85,8 +99,7 @@ data:
 {{/* Prunes int and float equal to -99 */}}
 {{/* Prunes empty strings (Does not prune empty strings in lists) */}}
 {{/* Prunes keys that start with _ */}}
-{{/* Renames tcdefaultdomain variable to "" as this is the key used by MeshCentral */}}
-{{/* but SCALE GUI does not handle it well */}}
+
 {{- define "prune.keys.scale" }}
   {{- $values := . }}
   {{- range $k, $v := $values }}
@@ -115,6 +128,9 @@ data:
   {{- end }}
   {{- toYaml $values }}
 {{- end }}
+
+{{/* Renames tcdefaultdomain variable to "" as this is the key used by MeshCentral */}}
+{{/* but SCALE GUI does not handle it well */}}
 
 {{- define "mergeAndrenameDefaultDomain" }}
   {{- $values := . }}
