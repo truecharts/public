@@ -1,6 +1,6 @@
 # kasm
 
-Kasm(https://www.kasmweb.com/) Workspaces is a Chart container streaming platform for delivering browser-based access to desktops, applications, and web services. Kasm uses devops-enabled Containerized Desktop Infrastructure (CDI) to create on-demand, disposable, Chart Charts that are accessible via web browser. Example use-cases include Remote Browser Isolation (RBI), Data Loss Prevention (DLP), Desktop as a Service (DaaS), Secure Remote Access Services (RAS), and Open Source Intelligence (OSINT) collections.
+Kasm Workspaces is a streaming platform for delivering browser-based access to desktops, applications, and web services.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
