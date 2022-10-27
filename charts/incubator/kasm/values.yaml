@@ -23,15 +23,15 @@ env:
 
 probes:
   liveness:
-    type: HTTP
+    type: HTTPS
     path: /
     port: "{{ .Values.service.admin.ports.admin.targetPort }}"
   readiness:
-    type: HTTP
+    type: HTTPS
     path: /
     port: "{{ .Values.service.admin.ports.admin.targetPort }}"
   startup:
-    type: HTTP
+    type: HTTPS
     path: /
     port: "{{ .Values.service.admin.ports.admin.targetPort }}"
 
@@ -47,7 +47,7 @@ service:
       admin:
         enabled: true
         port: 10351
-        protocol: HTTP
+        protocol: HTTPS
         targetPort: 3000
 
 persistence:
