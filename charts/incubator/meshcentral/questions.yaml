@@ -83,6 +83,12 @@ questions:
                 schema:
                   type: boolean
                   default: true
+              - variable: agentWsCompression
+                label: agentWsCompression
+                description: Enables agent-side, websocket per-message deflate compression. wscompression must also be true for this to work.
+                schema:
+                  type: boolean
+                  default: true
               - variable: allowFraming
                 label: allowFraming
                 description: When enabled, the MeshCentral web site can be embedded within another website's iframe.
@@ -101,6 +107,18 @@ questions:
                 schema:
                   type: boolean
                   default: true
+              - variable: agentLogDump
+                label: agentLogDump
+                description: Automatically downloads all agent error logs into meshcentral-data/agenterrorlogs.txt.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: agentCoreDump
+                label: agentCoreDump
+                description: Automatically activates and transfers any agent crash dump files to the server in meshcentral-data/coredumps.
+                schema:
+                  type: boolean
+                  default: false
               - variable: browserPing
                 label: browserPing
                 description: When specified, sends data to the browser at x seconds interval and expects a response from the browser.
@@ -131,17 +149,66 @@ questions:
                 schema:
                   type: int
                   default: -99
-              - variable: plugins
-                label: Section <plugins>
+              - variable: maxInvalidLogin
+                label: Section <maxInvalidLogin>
                 schema:
                   additional_attrs: true
                   type: dict
                   attrs:
-                    - variable: enabled
-                      label: enabled
+                    - variable: time
+                      label: time
+                      description: Time in minutes over which the a maximum number of invalid login attempts is allowed from an IP address.
                       schema:
-                        type: boolean
-                        default: false
+                        type: int
+                        default: 10
+                    - variable: count
+                      label: count
+                      description: Maximum number of invalid login attempts from an IP address in the time period.
+                      schema:
+                        type: int
+                        default: 10
+                    - variable: coolofftime
+                      label: coolofftime
+                      description: Additional time in minute that login attempts will be denied once the invalid login limit is reached.
+                      schema:
+                        type: int
+                        default: 30
+                    - variable: exclude
+                      label: exclude
+                      description: Ranges of IP addresses that are not subject to invalid login limitations. For example 192.168.1.0/24,172.16.0.1
+                      schema:
+                        type: string
+                        default: ""
+              - variable: maxInvalid2fa
+                label: Section <maxInvalid2fa>
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: time
+                      label: time
+                      description: Time in minutes over which the a maximum number of invalid 2FA attempts is allowed from an IP address.
+                      schema:
+                        type: int
+                        default: 10
+                    - variable: count
+                      label: count
+                      description: Maximum number of invalid 2FA attempts from an IP address in the time period.
+                      schema:
+                        type: int
+                        default: 10
+                    - variable: coolofftime
+                      label: coolofftime
+                      description: Additional time in minute that 2FA attempts will be denied once the invalid login limit is reached.
+                      schema:
+                        type: int
+                        default: 30
+                    - variable: exclude
+                      label: exclude
+                      description: Ranges of IP addresses that are not subject to invalid 2FA limitations. For example 192.168.1.0/24,172.16.0.1
+                      schema:
+                        type: string
+                        default: ""
               - variable: autobackup
                 label: Section <autobackup>
                 schema:
@@ -224,6 +291,17 @@ questions:
                         type: string
                         required: true
                         default: ""
+              - variable: plugins
+                label: Section <plugins>
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: enabled
+                      schema:
+                        type: boolean
+                        default: false
         - variable: domains
           label: Section <domains>
           schema:
@@ -276,6 +354,30 @@ questions:
                       schema:
                         type: boolean
                         default: true
+                    - variable: mstsc
+                      label: mstsc
+                      description: When enabled, activates the built-in web-based RDP client.
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: ssh
+                      label: ssh
+                      description: When enabled, activates the built-in web-based SSH client.
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: novnc
+                      label: novnc
+                      description: When enabled, activates the built-in web-based VNC client.
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: geoLocation
+                      label: geoLocation
+                      description: Enables the geo-location feature and device location map in the user interface, this feature is not being worked on.
+                      schema:
+                        type: boolean
+                        default: true
                     - variable: nightMode
                       label: nightMode
                       description: 0 = User selects day/night mode, 1 = Always night mode, 2 = Always day mode
@@ -294,6 +396,30 @@ questions:
                         max: 2
                         requited: true
                         default: 2
+                    - variable: deviceMeshRouterLinks
+                      label: Section <deviceMeshRouterLinks>
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: rdp
+                            label: rdp
+                            description: Display a RDP link in the device tab when supported
+                            schema:
+                              type: boolean
+                              default: true
+                          - variable: ssh
+                            label: ssh
+                            description: Display a SSH link in the device tab when supported
+                            schema:
+                              type: boolean
+                              default: true
+                          - variable: scp
+                            label: scp
+                            description: Display a SCP link in the device tab when supported
+                            schema:
+                              type: boolean
+                              default: true
                     - variable: agentCustomization
                       label: Section <agentCustomization>
                       schema:

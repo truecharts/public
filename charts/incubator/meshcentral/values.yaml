@@ -6,8 +6,6 @@ image:
 command:
   - node
   - meshcentral/meshcentral
-  - --configfile
-  - /opt/meshcentral/meshcentral-config/config.json
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -16,12 +14,6 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
-env:
-  trigger_redeploy:
-    secretKeyRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
-      key: trigger_redeploy
 
 # - Values with the character _ in-front of them are pruned. Add or remove _ to disable or enable options
 # - More in-depth info for each options can be found here: https://github.com/Ylianst/MeshCentral/blob/master/meshcentral-config-schema.json
@@ -64,7 +56,7 @@ meshcentral:
     _StrictTransportSecurity: null
     # - When enabled, the MeshCentral web site can be embedded within another website's iframe.
     allowFraming: false
-    # - Options: strict | lax | none
+    # - Options: strict | lax | none | true
     _cookieIpCheck: lax
     # - When enabled, allows use of WebRTC to allow direct network traffic between the agent and browser.
     webRTC: false
@@ -93,7 +85,7 @@ meshcentral:
     # - Enables server-side, websocket per-message deflate compression.
     wsCompression: true
     # - Enables agent-side, websocket per-message deflate compression. wscompression must also be true for this to work.
-    _agentWsCompression: true
+    agentWsCompression: true
     # - Set to 1 to present the server from updating any agent.
     _noAgentUpdate: 0
     # - When set to 2, all agents that need to be updated will use the meshcore.js update system. With the default value of 1, the native update system is used.
@@ -209,25 +201,25 @@ meshcentral:
     _redirects:
       meshcommander: https://www.meshcommander.com/
     # - This section described a policy for how many times an IP address is allowed to attempt to login incorrectly. By default it's 10 times in 10 minutes, but this can be changed here.
-    _maxInvalidLogin:
+    maxInvalidLogin:
       # - Ranges of IP addresses that are not subject to invalid login limitations. For example: 192.168.1.0/24,172.16.0.1
-      exclude: null
+      _exclude: ""
       # - Time in minutes over which the a maximum number of invalid login attempts is allowed from an IP address.
       time: 10
       # - Maximum number of invalid login attempts from an IP address in the time period.
       count: 10
       # - Additional time in minute that login attempts will be denied once the invalid login limit is reached.
-      coolofftime: null
+      coolofftime: 30
     # - This section described a policy for how many times an IP address is allowed to attempt to perform two-factor authentication (2FA) incorrectly. By default it's 10 times in 10 minutes, but this can be changed here.
-    _maxInvalid2fa:
+    maxInvalid2fa:
       # - Ranges of IP addresses that are not subject to invalid 2FA limitations. For example: 192.168.1.0/24,172.16.0.1
-      exclude: null
+      _exclude: ""
       # - Time in minutes over which the a maximum number of invalid 2FA attempts is allowed from an IP address.
       time: 10
       # - Maximum number of invalid 2FA attempts from an IP address in the time period.
       count: 10
       # - Additional time in minute that 2FA attempts will be denied once the invalid login limit is reached.
-      coolofftime: null
+      coolofftime: 30
     # - When present, this section will enable the Intel AMT provisioning server on the local network. This is used for Intel AMT bare-metal ACM activation.
     _amtProvisioningServer:
       # - Port number that provisioning server will listen to.
@@ -529,13 +521,13 @@ meshcentral:
         # - Action taken if one of the lines in meshagent.tag contains ~ServerTags:tag1,tag2,tag3. 0=Ignore, 1=Set, 2=SetIfEmpty, 3=Append.
         ServerTags: 0
       # - Enables the geo-location feature and device location map in the user interface, this feature is not being worked on.
-      _geoLocation: false
+      geoLocation: true
       # - When enabled, activates the built-in web-based VNC client.
-      _novnc: true
+      novnc: true
       # - When enabled, activates the built-in web-based RDP client.
-      _mstsc: false
+      mstsc: true
       # - When enabled, activates the built-in web-based SSH client.
-      _ssh: false
+      ssh: true
       # - Path where to find custom email templates for this domain.
       _webEmailsPath: null
       _customUI: null
@@ -995,10 +987,8 @@ persistence:
     readOnly: true
     defaultMode: "0600"
     objectName: '{{ include "tc.common.names.fullname" . }}-secret'
-    mountPath: /opt/meshcentral/meshcentral-config
-    items:
-      - key: config.json
-        path: config.json
+    mountPath: /opt/meshcentral/meshcentral-data/config.json
+    subPath: config.json
 
 portal:
   enabled: true
