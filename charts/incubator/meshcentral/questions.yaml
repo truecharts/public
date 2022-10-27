@@ -95,6 +95,12 @@ questions:
                 schema:
                   type: boolean
                   default: false
+              - variable: allowHighQualityDesktop
+                label: allowHighQualityDesktop
+                description: When false, users will only be able to set remote desktop image quality to 60%, this can reduce server bandwidth usage.
+                schema:
+                  type: boolean
+                  default: true
               - variable: browserPing
                 label: browserPing
                 description: When specified, sends data to the browser at x seconds interval and expects a response from the browser.
