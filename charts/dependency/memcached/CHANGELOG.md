@@ -7,6 +7,17 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm chart common to v10.7.8 ([#4203](https://github.com/truecharts/charts/issues/4203))
+
+
+
+
+## [memcached-3.0.103](https://github.com/truecharts/charts/compare/memcached-3.0.102...memcached-3.0.103) (2022-10-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
   - update helm chart common to v10.7.8 ([#4203](https://github.com/truecharts/charts/issues/4203))
 
 

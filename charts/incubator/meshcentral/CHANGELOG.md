@@ -2,6 +2,19 @@
 
 
 
+## [meshcentral-5.0.8](https://github.com/truecharts/charts/compare/meshcentral-5.0.7...meshcentral-5.0.8) (2022-10-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Fix
+
+- remove --cert from run command ([#4205](https://github.com/truecharts/charts/issues/4205))
+
+
+
+
 ## [meshcentral-5.0.7](https://github.com/truecharts/charts/compare/meshcentral-5.0.6...meshcentral-5.0.7) (2022-10-26)
 
 ### Chore

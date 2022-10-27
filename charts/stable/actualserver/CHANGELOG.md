@@ -4,6 +4,15 @@
 
 ## [actualserver-1.0.0](https://github.com/truecharts/charts/compare/actualserver-0.0.34...actualserver-1.0.0) (2022-10-27)
 
+### Chore
+
+- Auto-update chart README [skip ci]
+
+
+
+
+## [actualserver-1.0.0](https://github.com/truecharts/charts/compare/actualserver-0.0.34...actualserver-1.0.0) (2022-10-27)
+
 
 
 
