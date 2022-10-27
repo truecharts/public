@@ -1,36 +1,30 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/crafty-4
   tag: latest@sha256:ab9217bf6fc3a8e2a660c65ba72d39d904497cb8770be07bb519a581bb665932
-persistence:
-  backupfiles:
-    enabled: true
-    mountPath: /crafty/backups
-  config:
-    enabled: true
-    mountPath: /crafty/app/config
-  importfolder:
-    enabled: true
-    mountPath: /crafty/import
-  serverfiles:
-    enabled: true
-    mountPath: /crafty/servers
-  serverlogs:
-    enabled: true
-    mountPath: /crafty/logs
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
 service:
   main:
     ports:
       main:
-        port: 8443
+        port: 10586
         protocol: HTTP
+        targetPort: 8000
+  sub:
+    enabled: true
+    ports:
+      sub:
+        enabled: true
+        port: 8443
+        protocol: HTTPS
         targetPort: 8443
   minecraftports:
     enabled: true
@@ -56,6 +50,23 @@ service:
         port: 8123
         protocol: TCP
         targetPort: 8123
+
+persistence:
+  backupfiles:
+    enabled: true
+    mountPath: /crafty/backups
+  config:
+    enabled: true
+    mountPath: /crafty/app/config
+  importfolder:
+    enabled: true
+    mountPath: /crafty/import
+  serverfiles:
+    enabled: true
+    mountPath: /crafty/servers
+  serverlogs:
+    enabled: true
+    mountPath: /crafty/logs
 
 portal:
   enabled: true
