@@ -19,15 +19,28 @@ secretEnv:
   DOCKER_HUB_USERNAME: ""
 
 env:
-  KASM_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
+  KASM_PORT: "{{ .Values.service.main.ports.main.port }}"
+
+probes:
+  liveness:
+    type: HTTP
+    path: /
+    port: "{{ .Values.service.admin.ports.admin.targetPort }}"
+  readiness:
+    type: HTTP
+    path: /
+    port: "{{ .Values.service.admin.ports.admin.targetPort }}"
+  startup:
+    type: HTTP
+    path: /
+    port: "{{ .Values.service.admin.ports.admin.targetPort }}"
 
 service:
   main:
     ports:
       main:
         port: 10350
-        protocol: HTTP
-        targetPort: 443
+        protocol: HTTPS
   admin:
     enabled: true
     ports:

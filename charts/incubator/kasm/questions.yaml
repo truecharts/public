@@ -2,6 +2,13 @@
 portals:
   open:
 # Include{portalLink}
+  admin:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$variable-service.admin.ports.admin.port"
 questions:
 # Include{global}
 # Include{controller}
@@ -56,13 +63,13 @@ questions:
                               type: int
                               default: 10350
                               required: true
-# Include{advancedPortHTTP}
+# Include{advancedPortHTTPS}
                                 - variable: targetPort
                                   label: Target Port
                                   description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
-                                    default: 443
+                                    default: 10350
         - variable: admin
           label: Admin Service
           description: The Admin service
