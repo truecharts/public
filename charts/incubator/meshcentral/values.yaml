@@ -8,8 +8,6 @@ command:
   - meshcentral/meshcentral
   - --configfile
   - /opt/meshcentral/meshcentral-config/config.json
-  - --cert
-  - "{{ .Values.meshcentral.settings.cert }}"
 
 securityContext:
   readOnlyRootFilesystem: false
