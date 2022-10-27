@@ -50,7 +50,7 @@ meshcentral:
     # - When enabled, only MeshCentral LAN features are enabled and agents will find the server using multicast LAN packets.
     LANonly: false
     # - When enabled the server is in maintenance mode, only administrators can login. Use the maintenance command in server console to change.
-    maintenanceMode: false
+    maintenanceMode: ""
     allowLoginToken: false
     # - Controls the Strict-Transport-Security header, default is 1 year. Set to false to remove, true to force enable, or string to set a custom value. If set to null, MeshCentral will enable if a trusted certificate is set.
     _StrictTransportSecurity: null
