@@ -43,7 +43,8 @@
 {{- end }}
 
 {{- if $isScale }}
-  {{- $config = (include "prune.keys.scale" $config) }}
+  {{- $config = (include "mergeAndrenameDefaultDomain" $config) }}
+  {{- $config = (include "prune.keys.scale" (fromYaml $config)) }}
 {{- else }}
   {{- $config = (include "prune.keys" $config) }}
 {{- end }}
@@ -88,13 +89,6 @@ data:
 {{/* but SCALE GUI does not handle it well */}}
 {{- define "prune.keys.scale" }}
   {{- $values := . }}
-  {{- if (hasKey $values "domains") }}
-    {{- if (hasKey $values.domains "tcdefaultdomain") }}
-      {{- $defaultDomain := $values.domains.tcdefaultdomain }}
-      {{- $_ := set $values.domains "" $defaultDomain }}
-      {{- $_ := unset $values.domains "tcdefaultdomain" }}
-    {{- end }}
-  {{- end }}
   {{- range $k, $v := $values }}
       {{- if eq (kindOf $v) "string" }}
         {{- if not $v }}
@@ -119,5 +113,14 @@ data:
       {{- end }}
     {{- end }}
   {{- end }}
+  {{- toYaml $values }}
+{{- end }}
+
+{{- define "mergeAndrenameDefaultDomain" }}
+  {{- $values := . }}
+  {{- $defaultDomain := index $values.domains "" }}
+  {{- $computedDomain := mergeOverwrite $defaultDomain $values.domains.tcdefaultdomain }}
+  {{- $_ := set $values.domains "" $computedDomain }}
+  {{- $_ := unset $values.domains "tcdefaultdomain" }}
   {{- toYaml $values }}
 {{- end }}
