@@ -17,12 +17,6 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-env:
-  trigger_redeploy:
-    secretKeyRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
-      key: trigger_redeploy
-
 # - Values with the character _ in-front of them are pruned. Add or remove _ to disable or enable options
 # - More in-depth info for each options can be found here: https://github.com/Ylianst/MeshCentral/blob/master/meshcentral-config-schema.json
 # - Check for this chart's specific info in our webpage https://truecharts.org
