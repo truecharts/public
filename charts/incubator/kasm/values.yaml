@@ -14,15 +14,12 @@ securityContext:
   allowPrivilegeEscalation: true
   privileged: true
 
-security:
-  PUID: 0
-
 secretEnv:
   DOCKER_HUB_PASSWORD: ""
   DOCKER_HUB_USERNAME: ""
 
 env:
-  KASM_PORT: "{{ .Values.service.main.ports.main.port }}"
+  KASM_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
 
 service:
   main:
@@ -30,6 +27,7 @@ service:
       main:
         port: 10350
         protocol: HTTP
+        targetPort: 443
   admin:
     enabled: true
     ports:
