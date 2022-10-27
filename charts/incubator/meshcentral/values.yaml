@@ -774,7 +774,9 @@ meshcentral:
         proxy: null
       _httpHeaders: null
       # - Key and values to add to the MeshAgent .msh file
-      _agentConfig: []
+      agentConfig:
+        # - Needed if you use traefik https://github.com/traefik/traefik/issues/4487
+        - webSocketMaskOverride=1
       # - Key and values to add to the MeshCentral Assistant .msh file
       _assistantConfig: []
       # - When false, users can't set the clipboard of a remove device.
