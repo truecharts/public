@@ -3,13 +3,6 @@ image:
   repository: tccr.io/truecharts/kasm
   tag: 1.1.0@sha256:fe25f667de3f1e4c1d5774c9108216dc433ea621516df8e9138eeb517858aeca
 
-secretEnv:
-  DOCKER_HUB_PASSWORD: ""
-  DOCKER_HUB_USERNAME: ""
-
-env:
-  KASM_PORT: "{{ .Values.service.main.ports.main.port }}"
-
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
@@ -20,6 +13,16 @@ securityContext:
   runAsNonRoot: false
   allowPrivilegeEscalation: true
   privileged: true
+
+security:
+  PUID: 0
+
+secretEnv:
+  DOCKER_HUB_PASSWORD: ""
+  DOCKER_HUB_USERNAME: ""
+
+env:
+  KASM_PORT: "{{ .Values.service.main.ports.main.port }}"
 
 service:
   main:
@@ -40,8 +43,8 @@ persistence:
   data:
     enabled: true
     mountPath: /opt
-  # varrun:
-  #   enabled: true
+  varrun:
+    enabled: true
 
 portal:
   enabled: true
