@@ -2,6 +2,16 @@
 
 
 
+## [synapse-4.0.55](https://github.com/truecharts/charts/compare/synapse-4.0.54...synapse-4.0.55) (2022-10-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4201](https://github.com/truecharts/charts/issues/4201))
+
+
+
+
 ## [synapse-4.0.54](https://github.com/truecharts/charts/compare/synapse-4.0.53...synapse-4.0.54) (2022-10-25)
 
 ### Chore

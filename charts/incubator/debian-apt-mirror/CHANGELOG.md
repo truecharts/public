@@ -2,6 +2,16 @@
 
 
 
+## [debian-apt-mirror-0.0.32](https://github.com/truecharts/charts/compare/debian-apt-mirror-0.0.31...debian-apt-mirror-0.0.32) (2022-10-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4201](https://github.com/truecharts/charts/issues/4201))
+
+
+
+
 ## [debian-apt-mirror-0.0.31](https://github.com/truecharts/charts/compare/debian-apt-mirror-0.0.30...debian-apt-mirror-0.0.31) (2022-10-25)
 
 ### Chore

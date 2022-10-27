@@ -2,6 +2,16 @@
 
 
 
+## [logitech-media-server-4.0.50](https://github.com/truecharts/charts/compare/logitech-media-server-4.0.49...logitech-media-server-4.0.50) (2022-10-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4201](https://github.com/truecharts/charts/issues/4201))
+
+
+
+
 ## [logitech-media-server-4.0.49](https://github.com/truecharts/charts/compare/logitech-media-server-4.0.48...logitech-media-server-4.0.49) (2022-10-26)
 
 ### Chore

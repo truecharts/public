@@ -2,6 +2,16 @@
 
 
 
+## [koel-3.0.55](https://github.com/truecharts/charts/compare/koel-3.0.54...koel-3.0.55) (2022-10-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4201](https://github.com/truecharts/charts/issues/4201))
+
+
+
+
 ## [koel-3.0.54](https://github.com/truecharts/charts/compare/koel-3.0.53...koel-3.0.54) (2022-10-25)
 
 ### Chore

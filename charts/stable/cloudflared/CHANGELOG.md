@@ -2,6 +2,16 @@
 
 
 
+## [cloudflared-1.0.24](https://github.com/truecharts/charts/compare/cloudflareddns-1.0.31...cloudflared-1.0.24) (2022-10-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4201](https://github.com/truecharts/charts/issues/4201))
+
+
+
+
 ## [cloudflared-1.0.23](https://github.com/truecharts/charts/compare/cloudflared-1.0.22...cloudflared-1.0.23) (2022-10-25)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [troddit-0.0.37](https://github.com/truecharts/charts/compare/troddit-0.0.36...troddit-0.0.37) (2022-10-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4201](https://github.com/truecharts/charts/issues/4201))
+
+
+
+
 ## [troddit-0.0.36](https://github.com/truecharts/charts/compare/troddit-0.0.35...troddit-0.0.36) (2022-10-25)
 
 ### Chore

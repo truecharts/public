@@ -2,6 +2,11 @@
 
 
 
+## [webnut-1.0.0](https://github.com/truecharts/charts/compare/webnut-0.0.1...webnut-1.0.0) (2022-10-27)
+
+
+
+
 ## [webnut-0.0.1]webnut-0.0.1 (2022-10-25)
 
 ### Feat

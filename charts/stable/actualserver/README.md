@@ -5,13 +5,13 @@ Actual is a super fast privacy-focused app for managing your finances.
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [actualserver](https://truecharts.org/docs/charts/incubator/actualserver)
+For more information, please click here: [actualserver](https://truecharts.org/docs/charts/stable/actualserver)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/actualserver>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/actualserver>
 * <https://github.com/Kippenhof/docker-templates>
 * <https://hub.docker.com/r/kippenhof/actual-server>
 

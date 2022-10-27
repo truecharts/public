@@ -2,6 +2,16 @@
 
 
 
+## [plex-10.2.20](https://github.com/truecharts/charts/compare/plextraktsync-1.0.13...plex-10.2.20) (2022-10-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4201](https://github.com/truecharts/charts/issues/4201))
+
+
+
+
 ## [plex-10.2.19](https://github.com/truecharts/charts/compare/plextraktsync-1.0.12...plex-10.2.19) (2022-10-25)
 
 ### Chore
