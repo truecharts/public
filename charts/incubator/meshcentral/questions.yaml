@@ -50,6 +50,12 @@ questions:
                 schema:
                   type: string
                   default: ""
+              - variable: maintenanceMode
+                label: maintenanceMode
+                description: When enabled the server is in maintenance mode, only administrators can login. Use the maintenance command in server console to change.
+                schema:
+                  type: string
+                  default: ""
               - variable: WANonly
                 label: WANonly
                 description: When enabled, only MeshCentral WAN features are enabled and agents will connect to the server using a well known DNS name.
