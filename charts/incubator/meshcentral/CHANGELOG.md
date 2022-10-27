@@ -2,6 +2,19 @@
 
 
 
+## [meshcentral-5.0.9](https://github.com/truecharts/charts/compare/meshcentral-5.0.8...meshcentral-5.0.9) (2022-10-27)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Fix
+
+- whops ([#4207](https://github.com/truecharts/charts/issues/4207))
+
+
+
+
 ## [meshcentral-5.0.8](https://github.com/truecharts/charts/compare/meshcentral-5.0.7...meshcentral-5.0.8) (2022-10-27)
 
 ### Chore
