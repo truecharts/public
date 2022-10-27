@@ -1,43 +1,56 @@
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/kasm
-  tag: latest@sha256:73ea3cf977959343c4d6812e234ebc99453c6934f512f7bda51a38ffe965c562
+  tag: 1.1.0@sha256:fe25f667de3f1e4c1d5774c9108216dc433ea621516df8e9138eeb517858aeca
 
-env:
+secretEnv:
   DOCKER_HUB_PASSWORD: ""
   DOCKER_HUB_USERNAME: ""
-  KASM_PORT: ""
+
+env:
+  KASM_PORT: "{{ .Values.service.main.ports.main.port }}"
 
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+  fsGroup: 0
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+  allowPrivilegeEscalation: true
+  privileged: true
+
+probes:
+  liveness:
+    type: HTTP
+    path: /
+  readiness:
+    type: HTTP
+    path: /
+  startup:
+    type: HTTP
+    path: /
 
 service:
   main:
     ports:
       main:
-        port: 3000
+        port: 10350
+        protocol: HTTP
+  admin:
+    ports:
+      admin:
+        port: 10351
         protocol: HTTP
         targetPort: 3000
-  port6333:
-    enabled: true
-    ports:
-      port6333:
-        enabled: true
-        port: 6333
-        protocol: TCP
-        targetPort: 6333
 
 persistence:
-  pathopt:
+  opt:
     enabled: true
     mountPath: /opt
-  pathprofiles:
+  varrun:
     enabled: true
-    mountPath: /profiles
 
 portal:
   enabled: true

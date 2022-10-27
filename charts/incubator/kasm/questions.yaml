@@ -12,30 +12,25 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  - variable: env
+  - variable: secretEnv
     group: Container Configuration
-    label: Image Environment
+    label: Image Secrets
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: KASM_PORT
-          label: KASM_PORT
-          description: Specify the port you bind to the outside for Kasm Workspaces.
-          schema:
-            type: string
-            default: ""
         - variable: DOCKER_HUB_USERNAME
-          label: DOCKER_HUB_USERNAME
+          label: Docker Hub Username
           description: Optionally specify a DockerHub Username to pull private images.
           schema:
             type: string
             default: ""
         - variable: DOCKER_HUB_PASSWORD
-          label: DOCKER_HUB_PASSWORD
+          label: Docker Hub Password
           description: Optionally specify a DockerHub password to pull private images.
           schema:
             type: string
+            private: true
             default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
@@ -59,7 +54,7 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 3000
+                              default: 10350
                               required: true
 # Include{advancedPortHTTP}
                                 - variable: targetPort
@@ -67,18 +62,18 @@ questions:
                                   description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
-                                    default: 3000
-        - variable: port6333
-          label: 'port6333 service'
-          description: Kasm Workspaces interface. (https)
+                                    default: 10350
+        - variable: admin
+          label: Admin Service
+          description: The Admin service
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: port6333
-                      label: port6333 Service Port Configuration
+                    - variable: admin
+                      label: Admin Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
@@ -88,32 +83,23 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 6333
+                              default: 10351
                               required: true
-# Include{advancedPortTCP}
+# Include{advancedPortHTTP}
                                 - variable: targetPort
                                   label: Target Port
                                   description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
-                                    default: 6333
+                                    default: 3000
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: pathopt
-          label: pathopt Storage
-          description: Docker and installation storage. (requires mntcacheappdatapath or direct disk mount)
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-# Include{persistenceAdvanced}
-        - variable: pathprofiles
-          label: pathprofiles Storage
-          description: Optionally specify a path for persistent profile storage.
+        - variable: opt
+          label: opt Storage
+          description: /opt Storage
           schema:
             additional_attrs: true
             type: dict
@@ -139,7 +125,7 @@ questions:
                 label: Privileged mode
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: readOnlyRootFilesystem
                 label: ReadOnly Root Filesystem
                 schema:
@@ -149,7 +135,7 @@ questions:
                 label: Allow Privilege Escalation
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: runAsNonRoot
                 label: runAsNonRoot
                 schema:
@@ -174,7 +160,7 @@ questions:
           description: The group that should own ALL storage.
           schema:
             type: int
-            default: 568
+            default: 0
 # Include{podSecurityContextAdvanced}
 # Include{resources}
 # Include{advanced}
