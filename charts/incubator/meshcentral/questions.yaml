@@ -37,18 +37,21 @@ questions:
                 description: Set this to the primary DNS name of this MeshCentral server.
                 schema:
                   type: string
+                  required: true
                   default: ""
               - variable: tlsOffload
                 label: tlsOffload
                 description: When true, indicates that a TLS offloader is in front of the MeshCentral server. More typically, set this to the IP address of the reverse proxy or TLS offloader so that IP forwarding headers will be trusted. For example traefik.ix-traefik.svc.cluster.local
                 schema:
                   type: string
+                  required: true
                   default: ""
               - variable: trustedProxy
                 label: trustedProxy
                 description: Trust forwarded headers from these IPs or domains.  Providing the magic string "CloudFlare" will cause the server to download the IP address list of trusted CloudFlare proxies directly from CloudFlare on each server start. For example traefik.ix-traefik.svc.cluster.local
                 schema:
                   type: string
+                  required: true
                   default: ""
               - variable: WANonly
                 label: WANonly
@@ -121,30 +124,35 @@ questions:
                 description: When specified, sends data to the browser at x seconds interval and expects a response from the browser.
                 schema:
                   type: int
+                  required: true
                   default: -99
               - variable: browserPong
                 label: browserPong
                 description: When specified, sends data to the browser at x seconds interval.
                 schema:
                   type: int
+                  required: true
                   default: -99
               - variable: agentPing
                 label: agentPing
                 description: When specified, sends data to the agent at x seconds interval and expects a response from the agent.
                 schema:
                   type: int
+                  required: true
                   default: -99
               - variable: agentPong
                 label: agentPong
                 description: When specified, sends data to the agent at x seconds interval.
                 schema:
                   type: int
+                  required: true
                   default: -99
               - variable: agentIdleTimeout
                 label: agentIdleTimeout
                 description: How much time in seconds with no traffic from an agent before dropping the agent connection.
                 schema:
                   type: int
+                  required: true
                   default: -99
               - variable: maxInvalidLogin
                 label: Section <maxInvalidLogin>
@@ -157,18 +165,21 @@ questions:
                       description: Time in minutes over which the a maximum number of invalid login attempts is allowed from an IP address.
                       schema:
                         type: int
+                        required: true
                         default: 10
                     - variable: count
                       label: count
                       description: Maximum number of invalid login attempts from an IP address in the time period.
                       schema:
                         type: int
+                        required: true
                         default: 10
                     - variable: coolofftime
                       label: coolofftime
                       description: Additional time in minute that login attempts will be denied once the invalid login limit is reached.
                       schema:
                         type: int
+                        required: true
                         default: 30
                     - variable: exclude
                       label: exclude
@@ -187,18 +198,21 @@ questions:
                       description: Time in minutes over which the a maximum number of invalid 2FA attempts is allowed from an IP address.
                       schema:
                         type: int
+                        required: true
                         default: 10
                     - variable: count
                       label: count
                       description: Maximum number of invalid 2FA attempts from an IP address in the time period.
                       schema:
                         type: int
+                        required: true
                         default: 10
                     - variable: coolofftime
                       label: coolofftime
                       description: Additional time in minute that 2FA attempts will be denied once the invalid login limit is reached.
                       schema:
                         type: int
+                        required: true
                         default: 30
                     - variable: exclude
                       label: exclude
@@ -231,8 +245,9 @@ questions:
                         type: string
                         private: true
                         default: ""
-                    - variable: setupWebDav
+                    - variable: _setupWebDav
                       label: Backup to Web DAV
+                      description: Enabled automated upload of the server backups to a WebDAV account.
                       schema:
                         type: boolean
                         default: false
@@ -299,6 +314,73 @@ questions:
                       schema:
                         type: boolean
                         default: false
+              - variable: _setupMessaging
+                label: Setup Messaging
+                description: This section allow MeshCentral to send messages over user messaging networks like Discord
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: messaging
+                      label: Section <messaging>
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: _setupTelegram
+                            label: Setup Telegram
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: telegram
+                                  label: telegram
+                                  description: Configure Telegram messaging system
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: apiid
+                                        label: apiid
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: apihash
+                                        label: apihash
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: session
+                                        label: session
+                                        schema:
+                                          type: string
+                                          default: ""
+                          - variable: _setupDiscord
+                            label: Setup Discord
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: discord
+                                  label: discord
+                                  description: Configure Discord messaging system
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: serverurl
+                                        label: serverurl
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: token
+                                        label: token
+                                        schema:
+                                          type: string
+                                          default: ""
         - variable: domains
           label: Section <domains>
           schema:
@@ -316,7 +398,7 @@ questions:
                       description: HTTPS URL when to get the TLS certificate that MeshAgent's will see when connecting to this server. This setting is used when a reverse proxy like Traefik is used in front of MeshCentral.
                       schema:
                         type: string
-                        # required: true
+                        required: true
                         default: ""
                     - variable: title
                       label: title
@@ -324,14 +406,14 @@ questions:
                       schema:
                         type: string
                         required: true
-                        default: TrueCharts MeshCentral
+                        default: MeshCentral
                     - variable: title2
                       label: title2
                       description: Secondary title text that is placed on the upper right on the title on many web pages.
                       schema:
                         type: string
                         required: true
-                        default: TrueCharts MeshCentral
+                        default: TrueCharts
                     - variable: welcomeText
                       label: welcomeText
                       description: Text that will be shown on the login screen.
@@ -417,66 +499,74 @@ questions:
                             schema:
                               type: boolean
                               default: true
-                    - variable: agentCustomization
-                      label: Section <agentCustomization>
+                    - variable: _setupAgentCustomization
+                      label: Setup Agent Customization
+                      description: Use this section to customize the agent branding.
                       schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: displayName
-                            label: displayName
-                            description: The name of the agent as displayed to the user.
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: agentCustomization
+                            label: Section <agentCustomization>
                             schema:
-                              type: string
-                              default: MeshCentral Agent
-                          - variable: description
-                            label: description
-                            description: The description of the agent as displayed to the user.
-                            schema:
-                              type: string
-                              default: Mesh Agent Background Service
-                          - variable: companyName
-                            label: companyName
-                            description: This will be used as the path to install the agent, by default this is 'Mesh Agent' in Windows and 'meshagent' in other OS's.
-                            schema:
-                              type: string
-                              default: Mesh Agent
-                          - variable: serviceName
-                            label: serviceName
-                            description: The name of the background service, by default this is 'Mesh Agent' in Windows and 'meshagent' in other OS's but should be set to an all lower case, no space string.
-                            schema:
-                              type: string
-                              default: Mesh Agent
-                          - variable: installText
-                            label: installText
-                            description: Text string to show in the agent installation dialog box.
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: image
-                            label: image
-                            description: The filename of a image file in .png format located in meshcentral-data to display in the MeshCentral Agent installation dialog, image should be square and from 64x64 to 200x200.
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: fileName
-                            label: fileName
-                            description: The agent filename.
-                            schema:
-                              type: string
-                              default: meshagent
-                          - variable: foregroundColor
-                            label: foregroundColor
-                            description: 'Foreground text color, valid values are RBG in format 0,0,0 to 255,255,255 or format "#000000" to "#FFFFFF".'
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: backgroundColor
-                            label: backgroundColor
-                            description: 'Background color, valid values are RBG in format 0,0,0 to 255,255,255 or format "#000000" to "#FFFFFF".'
-                            schema:
-                              type: string
-                              default: ""
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: displayName
+                                  label: displayName
+                                  description: The name of the agent as displayed to the user.
+                                  schema:
+                                    type: string
+                                    default: MeshCentral Agent
+                                - variable: description
+                                  label: description
+                                  description: The description of the agent as displayed to the user.
+                                  schema:
+                                    type: string
+                                    default: Mesh Agent Background Service
+                                - variable: companyName
+                                  label: companyName
+                                  description: This will be used as the path to install the agent, by default this is 'Mesh Agent' in Windows and 'meshagent' in other OS's.
+                                  schema:
+                                    type: string
+                                    default: Mesh Agent
+                                - variable: serviceName
+                                  label: serviceName
+                                  description: The name of the background service, by default this is 'Mesh Agent' in Windows and 'meshagent' in other OS's but should be set to an all lower case, no space string.
+                                  schema:
+                                    type: string
+                                    default: Mesh Agent
+                                - variable: installText
+                                  label: installText
+                                  description: Text string to show in the agent installation dialog box.
+                                  schema:
+                                    type: string
+                                    default: ""
+                                - variable: image
+                                  label: image
+                                  description: The filename of a image file in .png format located in meshcentral-data to display in the MeshCentral Agent installation dialog, image should be square and from 64x64 to 200x200.
+                                  schema:
+                                    type: string
+                                    default: ""
+                                - variable: fileName
+                                  label: fileName
+                                  description: The agent filename.
+                                  schema:
+                                    type: string
+                                    default: meshagent
+                                - variable: foregroundColor
+                                  label: foregroundColor
+                                  description: 'Foreground text color, valid values are RBG in format 0,0,0 to 255,255,255 or format "#000000" to "#FFFFFF".'
+                                  schema:
+                                    type: string
+                                    default: ""
+                                - variable: backgroundColor
+                                  label: backgroundColor
+                                  description: 'Background color, valid values are RBG in format 0,0,0 to 255,255,255 or format "#000000" to "#FFFFFF".'
+                                  schema:
+                                    type: string
+                                    default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
