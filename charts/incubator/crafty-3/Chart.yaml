@@ -1,8 +1,3 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - GameServers
-    - Other
 apiVersion: v2
 appVersion: "latest"
 dependencies:
@@ -10,7 +5,7 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 10.7.7
 deprecated: false
-description: "An Appication to run all your minecraft servers From without a hustle."
+description: An Appication to run all your minecraft servers From without a hustle.
 home: https://truecharts.org/docs/charts/incubator/crafty-3
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/crafty-3.png
 keywords:
@@ -28,4 +23,9 @@ sources:
   - https://gitlab.com/crafty-controller/crafty-web
   - https://hub.docker.com/r/freddy0/crafty-container
 type: application
-version: 0.0.31
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - GameServers
+    - minecraft
+version: 0.0.32

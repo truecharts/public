@@ -36,15 +36,15 @@ questions:
                               type: int
                               default: 1800
                               required: true
-# Include{advancedPortHTTP}
+# Include{advancedPortHTTPS}
                                 - variable: targetPort
                                   label: "Target Port"
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
                                     default: 8000
-        - variable: minecraftports
-          label: 'minecraftports service'
+        - variable: minecraft-1
+          label: 'minecraft-1 service'
           description: "Container Port 25500-25600 yes, 100 ports for 100 possible Servers"
           schema:
             additional_attrs: true
@@ -52,8 +52,8 @@ questions:
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: minecraftports
-                      label: "minecraftports Service Port Configuration"
+                    - variable: minecraft-1
+                      label: "minecraft-1 Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -71,7 +71,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 25500
+                                    default: 25565
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -88,7 +88,7 @@ questions:
 # Include{persistenceAdvanced}
         - variable: server-files
           label: "server-files Storage"
-          description: "Minecraft server FilesDo not use this path in the web UI only use minecraftservers"
+          description: "Minecraft server Files.(Do not use this path in the web UI only use minecraftservers)"
           schema:
             additional_attrs: true
             type: dict
