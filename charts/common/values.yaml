@@ -24,7 +24,7 @@ tailscaleImage:
   # -- Specify the Tailscale image
   repository: tailscale/tailscale
   # -- Specify the Tailscale image tag
-  tag: v1.33.61@sha256:97d440aa0b0daf1187b32a7660663de204a1de0308f61fd3aaff515c18ed8d51
+  tag: v1.33.92@sha256:a58545b4c94e7d9fed947f8d32750f8253ee639fc431a7eaea97f28c957268bc
   # -- Specify the Tailscale image pull policy
   pullPolicy: IfNotPresent
 
@@ -72,7 +72,7 @@ multiinitImage:
   # -- Specify the multi-init image
   repository: tccr.io/truecharts/multi-init
   # -- Specify the redis image tag
-  tag: 1.0.0@sha256:122039a163f8791d409f55f8af5100928241c1c4bc3d55f6c9cbd58a9ef5049b
+  tag: 1.1.0@sha256:4337af9c2b79b8d571e4ada3c76de55aff8302632cce91b52af860d4a6607742
   # -- Specify the redis image pull policy
   pullPolicy: IfNotPresent
 
