@@ -8,8 +8,6 @@ command:
   - meshcentral/meshcentral
   - --configfile
   - /opt/meshcentral/meshcentral-config/config.json
-  - --cert
-  - "{{ .Values.meshcentral.settings.cert }}"
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -18,6 +16,12 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
+env:
+  trigger_redeploy:
+    secretKeyRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
+      key: trigger_redeploy
 
 # - Values with the character _ in-front of them are pruned. Add or remove _ to disable or enable options
 # - More in-depth info for each options can be found here: https://github.com/Ylianst/MeshCentral/blob/master/meshcentral-config-schema.json
@@ -776,7 +780,9 @@ meshcentral:
         proxy: null
       _httpHeaders: null
       # - Key and values to add to the MeshAgent .msh file
-      _agentConfig: []
+      agentConfig:
+        # - Needed if you use traefik https://github.com/traefik/traefik/issues/4487
+        - webSocketMaskOverride=1
       # - Key and values to add to the MeshCentral Assistant .msh file
       _assistantConfig: []
       # - When false, users can't set the clipboard of a remove device.

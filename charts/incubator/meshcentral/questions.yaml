@@ -37,21 +37,21 @@ questions:
                 description: Set this to the primary DNS name of this MeshCentral server.
                 schema:
                   type: string
-                  required: true
+                  # required: true
                   default: ""
               - variable: tlsOffload
                 label: tlsOffload
                 description: When true, indicates that a TLS offloader is in front of the MeshCentral server. More typically, set this to the IP address of the reverse proxy or TLS offloader so that IP forwarding headers will be trusted. For example 127.0.0.1,traefik.ix-traefik.svc.cluster.local
                 schema:
                   type: string
-                  required: true
+                  # required: true
                   default: ""
               - variable: trustedProxy
                 label: trustedProxy
                 description: Trust forwarded headers from these IPs or domains.  Providing the magic string "CloudFlare" will cause the server to download the IP address list of trusted CloudFlare proxies directly from CloudFlare on each server start. For example 127.0.0.1,traefik.ix-traefik.svc.cluster.local
                 schema:
                   type: string
-                  required: true
+                  # required: true
                   default: ""
               - variable: WANonly
                 label: WANonly
@@ -95,6 +95,12 @@ questions:
                 schema:
                   type: boolean
                   default: false
+              - variable: allowHighQualityDesktop
+                label: allowHighQualityDesktop
+                description: When false, users will only be able to set remote desktop image quality to 60%, this can reduce server bandwidth usage.
+                schema:
+                  type: boolean
+                  default: true
               - variable: browserPing
                 label: browserPing
                 description: When specified, sends data to the browser at x seconds interval and expects a response from the browser.
@@ -235,7 +241,7 @@ questions:
                       description: HTTPS URL when to get the TLS certificate that MeshAgent's will see when connecting to this server. This setting is used when a reverse proxy like Traefik is used in front of MeshCentral.
                       schema:
                         type: string
-                        required: true
+                        # required: true
                         default: ""
                     - variable: title
                       label: title
