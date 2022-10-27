@@ -99,7 +99,6 @@ data:
 {{/* Prunes int and float equal to -99 */}}
 {{/* Prunes empty strings (Does not prune empty strings in lists) */}}
 {{/* Prunes keys that start with _ */}}
-
 {{- define "prune.keys.scale" }}
   {{- $values := . }}
   {{- range $k, $v := $values }}
@@ -131,7 +130,6 @@ data:
 
 {{/* Renames tcdefaultdomain variable to "" as this is the key used by MeshCentral */}}
 {{/* but SCALE GUI does not handle it well */}}
-
 {{- define "mergeAndrenameDefaultDomain" }}
   {{- $values := . }}
   {{- $defaultDomain := index $values.domains "" }}
