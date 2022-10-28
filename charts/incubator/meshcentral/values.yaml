@@ -18,7 +18,7 @@ podSecurityContext:
 # - Values with the character _ in-front of them are pruned. Add or remove _ to disable or enable options
 # - More in-depth info for each options can be found here: https://github.com/Ylianst/MeshCentral/blob/master/meshcentral-config-schema.json
 # - Check for this chart's specific info in our webpage https://truecharts.org
-# - Last sync with upstream config schema: Oct 22, 2022
+# - Last sync with upstream config schema: Oct 29, 2022
 # - Any service that uses port other than 443, need to be manually configured.
 meshcentral:
   settings:
@@ -290,6 +290,12 @@ meshcentral:
       serverurl: ""
       # - A Discord bot token that MeshCentral will use to login to Discord.
       token: ""
+    # - Configure XMPP messaging system
+    _xmpp:
+      service: ""
+      credentials:
+        username: ""
+        password: ""
 
   # - Any settings in this section is used as default setting for all domains
   _domaindefaults:

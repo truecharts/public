@@ -381,6 +381,42 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
+                          - variable: _setupXMPP
+                            label: Setup XMPP
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: xmpp
+                                  label: xmpp
+                                  description: Configure XMPP messaging system
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: service
+                                        label: service
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: credentials
+                                        label: credentials
+                                        schema:
+                                          additional_attrs: true
+                                          type: dict
+                                          attrs:
+                                            - variable: username
+                                              label: username
+                                              schema:
+                                                type: string
+                                                default: ""
+                                            - variable: password
+                                              label: password
+                                              schema:
+                                                type: string
+                                                private: true
+                                                default: ""
         - variable: domains
           label: Section <domains>
           schema:
