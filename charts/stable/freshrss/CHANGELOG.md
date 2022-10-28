@@ -2,6 +2,16 @@
 
 
 
+## [freshrss-11.0.42](https://github.com/truecharts/charts/compare/freshrss-11.0.41...freshrss-11.0.42) (2022-10-28)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4218](https://github.com/truecharts/charts/issues/4218))
+
+
+
+
 ## [freshrss-11.0.41](https://github.com/truecharts/charts/compare/freshrss-11.0.40...freshrss-11.0.41) (2022-10-25)
 
 ### Chore

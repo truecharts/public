@@ -2,6 +2,16 @@
 
 
 
+## [rust-0.0.32](https://github.com/truecharts/charts/compare/rustpad-0.0.31...rust-0.0.32) (2022-10-28)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4218](https://github.com/truecharts/charts/issues/4218))
+
+
+
+
 ## [rust-0.0.31](https://github.com/truecharts/charts/compare/rustpad-0.0.30...rust-0.0.31) (2022-10-25)
 
 ### Chore

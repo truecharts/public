@@ -2,6 +2,16 @@
 
 
 
+## [vertex-0.0.79](https://github.com/truecharts/charts/compare/vertex-0.0.78...vertex-0.0.79) (2022-10-28)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4218](https://github.com/truecharts/charts/issues/4218))
+
+
+
+
 ## [vertex-0.0.78](https://github.com/truecharts/charts/compare/vertex-0.0.77...vertex-0.0.78) (2022-10-27)
 
 ### Chore

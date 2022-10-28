@@ -2,6 +2,16 @@
 
 
 
+## [umami-0.0.13](https://github.com/truecharts/charts/compare/umami-0.0.12...umami-0.0.13) (2022-10-28)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4218](https://github.com/truecharts/charts/issues/4218))
+
+
+
+
 ## [umami-0.0.12](https://github.com/truecharts/charts/compare/umami-0.0.11...umami-0.0.12) (2022-10-27)
 
 ### Chore
