@@ -2,6 +2,15 @@
 
 
 
+## [dillinger-2.0.38](https://github.com/truecharts/charts/compare/dillinger-2.0.37...dillinger-2.0.38) (2022-10-28)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+
+
+
 ## [dillinger-2.0.37](https://github.com/truecharts/charts/compare/dillinger-2.0.36...dillinger-2.0.37) (2022-10-25)
 
 ### Chore
