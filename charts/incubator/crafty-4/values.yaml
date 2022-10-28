@@ -1,14 +1,14 @@
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/crafty-4
-  tag: latest@sha256:ab9217bf6fc3a8e2a660c65ba72d39d904497cb8770be07bb519a581bb665932
+  tag: 4.0.16@sha256:6325ffbb4ee84693dc571f714a43ca0620e70d7f718771360599bd0bfc99b650
 
 # podSecurityContext:
 #   runAsGroup: 1000
 #   runAsUser: 1000
 
-# securityContext:
-#   readOnlyRootFilesystem: false
+securityContext:
+  readOnlyRootFilesystem: false
 
 service:
   main:
