@@ -62,9 +62,27 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
+        - variable: config
+          label: App Config Storage
+          description: Stores the Application Config.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
         - variable: samples
           label: App Samples Storage
           description: Stores the Application Samples.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: db
+          label: App DB Storage
+          description: Stores the Application DB.
           schema:
             additional_attrs: true
             type: dict
