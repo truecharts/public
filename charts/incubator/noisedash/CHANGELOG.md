@@ -2,6 +2,15 @@
 
 
 
+## [noisedash-0.0.7](https://github.com/truecharts/charts/compare/noisedash-0.0.6...noisedash-0.0.7) (2022-10-28)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+
+
+
 ## [noisedash-0.0.6](https://github.com/truecharts/charts/compare/noisedash-0.0.5...noisedash-0.0.6) (2022-10-25)
 
 ### Chore
