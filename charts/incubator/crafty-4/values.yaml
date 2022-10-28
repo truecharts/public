@@ -8,7 +8,7 @@ podSecurityContext:
   runAsUser: 568
 
 securityContext:
-  readOnlyRootFilesystem: true
+  readOnlyRootFilesystem: false
   runAsNonRoot: true
 
 service:
