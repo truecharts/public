@@ -4,12 +4,12 @@ image:
   tag: latest@sha256:75ac777350226503b066eba4f63bea3185809794994f37ccb6dcc216e1f56e62
 
 podSecurityContext:
-  runAsGroup: 1000
-  runAsUser: 1000
+  runAsGroup: 0
+  runAsUser: 0
 
 securityContext:
   readOnlyRootFilesystem: false
-  runAsNonRoot: true
+  runAsNonRoot: false
 
 service:
   main:
