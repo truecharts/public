@@ -2,6 +2,16 @@
 
 
 
+## [collabora-online-12.1.61](https://github.com/truecharts/charts/compare/collabora-online-12.1.60...collabora-online-12.1.61) (2022-10-28)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.7.10
+
+
+
+
 ## [memcached-3.0.104](https://github.com/truecharts/charts/compare/memcached-3.0.103...memcached-3.0.104) (2022-10-28)
 
 ### Chore

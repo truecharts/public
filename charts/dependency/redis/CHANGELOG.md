@@ -2,6 +2,16 @@
 
 
 
+## [redis-3.0.106](https://github.com/truecharts/charts/compare/redis-3.0.105...redis-3.0.106) (2022-10-28)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.7.10
+
+
+
+
 
 ## [redis-3.0.104](https://github.com/truecharts/charts/compare/redis-3.0.103...redis-3.0.104) (2022-10-27)
 
