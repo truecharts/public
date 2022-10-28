@@ -11,13 +11,6 @@ securityContext:
 #   runAsUser: 0
 #   runAsGroup: 0
 
-secretEnv:
-  DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
-  DB_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-
 env:
   DB_CONNECTION: pgsql
   DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
@@ -25,6 +18,11 @@ env:
     secretKeyRef:
       name: dbcreds
       key: plainhost
+  DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
   DB_PORT: 5432
 
 service:
