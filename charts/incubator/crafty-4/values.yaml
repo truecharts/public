@@ -10,6 +10,17 @@ podSecurityContext:
 securityContext:
   readOnlyRootFilesystem: false
 
+probes:
+  liveness:
+    type: HTTP
+    path: /
+  readiness:
+    type: HTTP
+    path: /
+  startup:
+    type: HTTP
+    path: /
+
 service:
   main:
     ports:
