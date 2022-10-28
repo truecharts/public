@@ -71,6 +71,15 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
+        - variable: db
+          label: App DB Storage
+          description: Stores the Application DB.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
