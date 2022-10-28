@@ -13,7 +13,6 @@ podSecurityContext:
 
 noisedash:
   max_sample_size_in_bytes: 10737418240
-#  SUPPRESS_NO_CONFIG_WARNING: true
 
 service:
   main:
@@ -22,9 +21,6 @@ service:
         port: 10328
 
 persistence:
-  #  config:
-  #    enabled: true
-  #    mountPath: /var/noisedash/config/
   db:
     enabled: true
     mountPath: /var/noisedash/db
