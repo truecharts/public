@@ -4,12 +4,28 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-  #   readOnlyRootFilesystem: false
+  readOnlyRootFilesystem: false
   runAsNonRoot: true
 
 # podSecurityContext:
 #   runAsUser: 0
 #   runAsGroup: 0
+
+secretEnv:
+  DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+
+env:
+  DB_CONNECTION: pgsql
+  DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  DB_PORT: 5432
 
 service:
   main:
@@ -22,7 +38,13 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
+
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlDatabase: speedtest_tracker
+  postgresqlUsername: speedtest_tracker
 
 portal:
   enabled: true
