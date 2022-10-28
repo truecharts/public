@@ -3,9 +3,9 @@ image:
   repository: tccr.io/truecharts/crafty-4
   tag: 4.0.16@sha256:6325ffbb4ee84693dc571f714a43ca0620e70d7f718771360599bd0bfc99b650
 
-# podSecurityContext:
-#   runAsGroup: 1000
-#   runAsUser: 1000
+podSecurityContext:
+  runAsGroup: 1000
+  runAsUser: 1000
 
 securityContext:
   readOnlyRootFilesystem: false
