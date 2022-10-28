@@ -2,6 +2,16 @@
 
 
 
+## [cyberchef-2.0.114](https://github.com/truecharts/charts/compare/cyberchef-2.0.113...cyberchef-2.0.114) (2022-10-28)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4218](https://github.com/truecharts/charts/issues/4218))
+
+
+
+
 ## [cyberchef-2.0.113](https://github.com/truecharts/charts/compare/cyberchef-2.0.112...cyberchef-2.0.113) (2022-10-27)
 
 ### Chore

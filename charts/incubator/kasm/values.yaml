@@ -1,40 +1,61 @@
-env:
-  DOCKER_HUB_PASSWORD: ""
-  DOCKER_HUB_USERNAME: ""
-  KASM_PORT: ""
-  UMASK: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/kasm
-  tag: latest@sha256:73ea3cf977959343c4d6812e234ebc99453c6934f512f7bda51a38ffe965c562
-persistence:
-  pathopt:
-    enabled: true
-    mountPath: /opt
-  pathprofiles:
-    enabled: true
-    mountPath: /profiles
+  tag: 1.11.0@sha256:fe25f667de3f1e4c1d5774c9108216dc433ea621516df8e9138eeb517858aeca
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+  fsGroup: 0
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+  allowPrivilegeEscalation: true
+  privileged: true
+
+secretEnv:
+  DOCKER_HUB_PASSWORD: ""
+  DOCKER_HUB_USERNAME: ""
+
+env:
+  KASM_PORT: "{{ .Values.service.main.ports.main.port }}"
+
+probes:
+  liveness:
+    type: HTTPS
+    path: /
+    port: "{{ .Values.service.admin.ports.admin.targetPort }}"
+  readiness:
+    type: HTTPS
+    path: /
+    port: "{{ .Values.service.admin.ports.admin.targetPort }}"
+  startup:
+    type: HTTPS
+    path: /
+    port: "{{ .Values.service.admin.ports.admin.targetPort }}"
+
 service:
   main:
     ports:
       main:
-        port: 3000
-        protocol: HTTP
-        targetPort: 3000
-  port6333:
+        port: 10350
+        protocol: HTTPS
+  admin:
     enabled: true
     ports:
-      port6333:
+      admin:
         enabled: true
-        port: 6333
-        protocol: TCP
-        targetPort: 6333
+        port: 10351
+        protocol: HTTPS
+        targetPort: 3000
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /opt
+  varrun:
+    enabled: true
 
 portal:
   enabled: true

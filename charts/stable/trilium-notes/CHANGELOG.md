@@ -2,6 +2,16 @@
 
 
 
+## [trilium-notes-5.0.44](https://github.com/truecharts/charts/compare/trilium-notes-5.0.43...trilium-notes-5.0.44) (2022-10-28)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4218](https://github.com/truecharts/charts/issues/4218))
+
+
+
+
 ## [trilium-notes-5.0.43](https://github.com/truecharts/charts/compare/trilium-notes-5.0.42...trilium-notes-5.0.43) (2022-10-25)
 
 ### Chore

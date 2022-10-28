@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/ylianst/meshcentral
   pullPolicy: IfNotPresent
-  tag: 1.0.90@sha256:cee9aafd5750e7f6c2d7938dc13fe04567bfbfc1b05146f3853d8c2911160a0a
+  tag: 1.0.91@sha256:82366832df2a91ae6553492c01b12fbef4dee8318ef841b7a1860c87d9109ed7
 
 command:
   - node
@@ -280,10 +280,17 @@ meshcentral:
   # - This section allow MeshCentral to send messages over user messaging networks like Telegram
   _messaging:
     # - Configure Telegram messaging system
-    telegram:
-      apiid: null
-      apihash: null
-      session: null
+    _telegram:
+      apiid: ""
+      apihash: ""
+      session: ""
+    # - Configure Discord messaging system
+    _discord:
+      # - An optional HTTP link to the discord server the user must join to get notifications.
+      serverurl: ""
+      # - A Discord bot token that MeshCentral will use to login to Discord.
+      token: ""
+
   # - Any settings in this section is used as default setting for all domains
   _domaindefaults:
     title: Default Title
@@ -292,9 +299,9 @@ meshcentral:
       # - HTTPS URL when to get the TLS certificate that MeshAgent's will see when connecting to this server. This setting is used when a reverse proxy like Traefik is used in front of MeshCentral.
       certUrl: https://mc.domain.com
       # - The title of this web site. All web pages will have this title.
-      title: TrueCharts MeshCentral
+      title: MeshCentral
       # - Secondary title text that is placed on the upper right on the title on many web pages.
-      title2: TrueCharts MeshCentral
+      title2: TrueCharts
       # - When enabled, the server will send reduced sized web pages.
       minify: true
       # - 0 = User selects day/night mode, 1 = Always night mode, 2 = Always day mode

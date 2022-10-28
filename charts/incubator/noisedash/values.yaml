@@ -21,9 +21,12 @@ service:
         port: 10328
 
 persistence:
+  db:
+    enabled: true
+    mountPath: /var/noisedash/db
   samples:
     enabled: true
-    mountPath: "/var/noisedash/samples"
+    mountPath: /var/noisedash/samples
 
 portal:
   enabled: true
