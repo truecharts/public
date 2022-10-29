@@ -2,6 +2,16 @@
 
 
 
+## [memcached-3.0.107](https://github.com/truecharts/charts/compare/memcached-3.0.106...memcached-3.0.107) (2022-10-29)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.7.11 ([#4232](https://github.com/truecharts/charts/issues/4232))
+
+
+
+
 
 ## [memcached-3.0.105](https://github.com/truecharts/charts/compare/memcached-3.0.104...memcached-3.0.105) (2022-10-28)
 
