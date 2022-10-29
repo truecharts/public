@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/speedtest-tracker
-  tag: latest@sha256:415ff67401643e0ac53146e3025f8970e629c34f872fdc433491d61198292f8d
+  tag: latest@sha256:20a1812252cbda90d9b7a06d32247c28477f2d73fd8295323a8117242dbc3a1a
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -11,29 +11,38 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secretEnv:
-  TELEGRAM_BOT_TOKEN: ""
-  TELEGRAM_CHAT_ID: ""
-  SLACK_WEBHOOK: ""
-
 env:
-  OOKLA_EULA_GDPR: true
-  AUTH: false
-  INFLUXDB_RETENTION: 30d
-  INFLUXDB_HOST_TAG: speedtest
+  DB_CONNECTION: pgsql
+  DB_PORT: 5432
+  DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  DB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
 
 service:
   main:
     ports:
       main:
         port: 8765
-        protocol: HTTP
-        targetPort: 80
+        protocol: HTTPS
+        targetPort: 443
 
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
+
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlDatabase: speedtest_tracker
+  postgresqlUsername: speedtest_tracker
 
 portal:
   enabled: true
