@@ -1,6 +1,6 @@
 # crafty-4
 
-Crafty 4 is the next iteration of our Minecraft Server Wrapper / Controller / Launcher. Boasting a clean new look, rebuilt from the ground up. Crafty 4 brings a whole host of new features such as Bedrock support. With SteamCMD support on the way!
+Crafty 4 is the next iteration of our Minecraft Server Wrapper / Controller / Launcher.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
@@ -13,7 +13,7 @@ For more information, please click here: [crafty-4](https://truecharts.org/docs/
 
 * <https://github.com/truecharts/charts/tree/master/charts/incubator/crafty-4>
 * <https://craftycontrol.com/>
-* <https://registry.hub.docker.com/r/registry.gitlab.com/crafty-controller/crafty-4>
+* <https://gitlab.com/crafty-controller/crafty-4>
 
 ## Requirements
 

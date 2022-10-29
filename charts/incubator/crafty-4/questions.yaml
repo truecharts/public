@@ -15,8 +15,8 @@ questions:
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -24,109 +24,138 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 8443
+                              default: 10586
                               required: true
 # Include{advancedPortHTTP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
-                                    default: 8443
-        - variable: minecraftports
-          label: 'minecraftports service'
-          description: "Container Port 25500-25600 yes, 100 ports for 100 possible Servers"
+                                    default: 8000
+        - variable: sub
+          label: Sub Service
+          description: The Sub service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: minecraftports
-                      label: "minecraftports Service Port Configuration"
+                    - variable: sub
+                      label: Sub Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 8443
+                              required: true
+# Include{advancedPortHTTPS}
+                                - variable: targetPort
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
+                                  schema:
+                                    type: int
+                                    default: 8443
+        - variable: minecraft
+          label: Minecraft Service
+          description: Container Port 25500
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: minecraft
+                      label: Minecraft Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 25500
                               required: true
 # Include{advancedPortTCP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 25500
-        - variable: portfordynmap
-          label: 'portfordynmap service'
-          description: "Dynmap Port"
+        - variable: dynmap
+          label: DynMap service
+          description: DynMap Port
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: portfordynmap
-                      label: "portfordynmap Service Port Configuration"
+                    - variable: dynmap
+                      label: DynMap Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 8123
                               required: true
 # Include{advancedPortTCP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 8123
-        - variable: portforbedrock
-          label: 'portforbedrock service'
-          description: "Bedrock server port"
+        - variable: bedrock
+          label: Bedrock Service
+          description: Bedrock Server Port
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: portforbedrock
-                      label: "portforbedrock Service Port Configuration"
+                    - variable: bedrock
+                      label: Bedrock Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 19132
                               required: true
 # Include{advancedPortUDP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 19132
@@ -135,18 +164,18 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: serverfiles
-          label: "serverfiles Storage"
-          description: "Path to the minecraft server folders"
+        - variable: config
+          label: Config Storage
+          description: Path to the persistent Crafty files
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-        - variable: backupfiles
-          label: "backupfiles Storage"
-          description: "Server Backups"
+        - variable: serverfiles
+          label: Server Files Storage
+          description: Path to the minecraft server folders
           schema:
             additional_attrs: true
             type: dict
@@ -154,26 +183,26 @@ questions:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
         - variable: serverlogs
-          label: "serverlogs Storage"
-          description: "Logs"
+          label: Server Logs Storage
+          description: Logs
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-        - variable: config
-          label: "config Storage"
-          description: "Path to the persistent Crafty files"
+        - variable: import
+          label: Import Folder Storage
+          description: Import existing Mincecraft Servers
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-        - variable: importfolder
-          label: "importfolder Storage"
-          description: "Import existing Mincecraft Servers"
+        - variable: backup
+          label: Backup Storage
+          description: Server Backups
           schema:
             additional_attrs: true
             type: dict
@@ -183,7 +212,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -196,42 +225,42 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
-            default: 0
+            default: 1000
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
-            default: 0
+            default: 1000
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568

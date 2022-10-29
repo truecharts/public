@@ -1,61 +1,80 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/crafty-4
-  tag: latest@sha256:ab9217bf6fc3a8e2a660c65ba72d39d904497cb8770be07bb519a581bb665932
-persistence:
-  backupfiles:
+  tag: 4.0.16@sha256:6325ffbb4ee84693dc571f714a43ca0620e70d7f718771360599bd0bfc99b650
+
+podSecurityContext:
+  runAsGroup: 1000
+  runAsUser: 1000
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+probes:
+  liveness:
+    type: HTTP
+    path: /
+  readiness:
+    type: HTTP
+    path: /
+  startup:
+    type: HTTP
+    path: /
+
+service:
+  main:
+    ports:
+      main:
+        port: 10586
+        protocol: HTTP
+        targetPort: 8000
+  sub:
     enabled: true
-    mountPath: /crafty/backups
+    ports:
+      sub:
+        enabled: true
+        port: 8443
+        protocol: HTTPS
+        targetPort: 8443
+  bedrock:
+    enabled: true
+    ports:
+      bedrock:
+        enabled: true
+        port: 19132
+        protocol: UDP
+        targetPort: 19132
+  dynmap:
+    enabled: true
+    ports:
+      dynmap:
+        enabled: true
+        port: 8123
+        targetPort: 8123
+  minecraft:
+    enabled: true
+    ports:
+      minecraft:
+        enabled: true
+        port: 25500
+        targetPort: 25500
+
+persistence:
   config:
     enabled: true
     mountPath: /crafty/app/config
-  importfolder:
-    enabled: true
-    mountPath: /crafty/import
   serverfiles:
     enabled: true
     mountPath: /crafty/servers
   serverlogs:
     enabled: true
     mountPath: /crafty/logs
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-service:
-  main:
-    ports:
-      main:
-        port: 8443
-        protocol: HTTP
-        targetPort: 8443
-  minecraftports:
+  import:
     enabled: true
-    ports:
-      minecraftports:
-        enabled: true
-        port: 25500
-        protocol: TCP
-        targetPort: 25500
-  portforbedrock:
+    mountPath: /crafty/import
+  backup:
     enabled: true
-    ports:
-      portforbedrock:
-        enabled: true
-        port: 19132
-        protocol: UDP
-        targetPort: 19132
-  portfordynmap:
-    enabled: true
-    ports:
-      portfordynmap:
-        enabled: true
-        port: 8123
-        protocol: TCP
-        targetPort: 8123
+    mountPath: /crafty/backups
 
 portal:
   enabled: true

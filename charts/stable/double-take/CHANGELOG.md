@@ -2,6 +2,16 @@
 
 
 
+## [double-take-2.0.42](https://github.com/truecharts/charts/compare/double-take-2.0.41...double-take-2.0.42) (2022-10-29)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4230](https://github.com/truecharts/charts/issues/4230))
+
+
+
+
 ## [double-take-2.0.41](https://github.com/truecharts/charts/compare/double-take-2.0.40...double-take-2.0.41) (2022-10-25)
 
 ### Chore
