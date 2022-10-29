@@ -1,6 +1,6 @@
 # speedtest-tracker
 
-This app runs a speedtest check every hour and graphs the results.
+A self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
@@ -12,7 +12,7 @@ For more information, please click here: [speedtest-tracker](https://truecharts.
 ## Source Code
 
 * <https://github.com/truecharts/charts/tree/master/charts/incubator/speedtest-tracker>
-* <https://github.com/henrywhitaker3/Speedtest-Tracker>
+* <https://github.com/alexjustesen/speedtest-tracker>
 
 ## Requirements
 
@@ -22,6 +22,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
+| https://charts.truecharts.org/ | postgresql | 8.0.48 |
 | https://library-charts.truecharts.org | common | 10.7.7 |
 
 ## Installing the Chart
