@@ -2,6 +2,19 @@
 
 
 
+## [meshcentral-5.0.16](https://github.com/truecharts/charts/compare/meshcentral-5.0.15...meshcentral-5.0.16) (2022-10-29)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Feat
+
+- allow additiional custom config on UI ([#4228](https://github.com/truecharts/charts/issues/4228))
+
+
+
+
 ## [meshcentral-5.0.15](https://github.com/truecharts/charts/compare/meshcentral-5.0.14...meshcentral-5.0.15) (2022-10-29)
 
 ### Chore
