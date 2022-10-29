@@ -2,6 +2,15 @@
 
 
 
+## [crafty-4-0.0.41](https://github.com/truecharts/charts/compare/crafty-4-0.0.40...crafty-4-0.0.41) (2022-10-29)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+
+
+
 ## [crafty-4-0.0.40](https://github.com/truecharts/charts/compare/crafty-4-0.0.39...crafty-4-0.0.40) (2022-10-28)
 
 ### Chore
