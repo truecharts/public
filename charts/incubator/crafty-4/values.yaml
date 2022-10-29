@@ -25,17 +25,17 @@ service:
   main:
     ports:
       main:
-        port: 10586
-        protocol: HTTP
-        targetPort: 8000
+        port: 8443
+        protocol: HTTPS
+        targetPort: 8443
   sub:
     enabled: true
     ports:
       sub:
         enabled: true
-        port: 8443
+        port: 10586
         protocol: HTTPS
-        targetPort: 8443
+        targetPort: 8000
   bedrock:
     enabled: true
     ports:
@@ -49,7 +49,7 @@ service:
     ports:
       dynmap:
         enabled: true
-        port: 8123
+        port: 8124
         targetPort: 8123
   minecraft:
     enabled: true
