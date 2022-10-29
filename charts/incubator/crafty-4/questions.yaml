@@ -34,7 +34,7 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 8443
+                              default: 10586
                               required: true
 # Include{advancedPortHTTPS}
                                 - variable: targetPort
@@ -63,7 +63,7 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 10586
+                              default: 10587
                               required: true
 # Include{advancedPortHTTPS}
                                 - variable: targetPort

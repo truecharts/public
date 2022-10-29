@@ -12,20 +12,20 @@ securityContext:
 
 probes:
   liveness:
-    type: HTTP
+    type: HTTPS
     path: /
   readiness:
-    type: HTTP
+    type: HTTPS
     path: /
   startup:
-    type: HTTP
+    type: HTTPS
     path: /
 
 service:
   main:
     ports:
       main:
-        port: 8443
+        port: 10586
         protocol: HTTPS
         targetPort: 8443
   sub:
@@ -33,7 +33,7 @@ service:
     ports:
       sub:
         enabled: true
-        port: 10586
+        port: 10587
         protocol: HTTPS
         targetPort: 8000
   bedrock:
