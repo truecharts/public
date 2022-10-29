@@ -2,6 +2,16 @@
 
 
 
+## [clamav-3.0.47](https://github.com/truecharts/charts/compare/clamav-3.0.46...clamav-3.0.47) (2022-10-29)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4230](https://github.com/truecharts/charts/issues/4230))
+
+
+
+
 ## [clamav-3.0.46](https://github.com/truecharts/charts/compare/clamav-3.0.45...clamav-3.0.46) (2022-10-25)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [jellyfin-11.0.43](https://github.com/truecharts/charts/compare/jellyfin-11.0.42...jellyfin-11.0.43) (2022-10-29)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4230](https://github.com/truecharts/charts/issues/4230))
+
+
+
+
 ## [jellyfin-11.0.42](https://github.com/truecharts/charts/compare/jellyfin-11.0.41...jellyfin-11.0.42) (2022-10-25)
 
 ### Chore

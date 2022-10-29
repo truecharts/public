@@ -2,6 +2,16 @@
 
 
 
+## [fireshare-0.0.38](https://github.com/truecharts/charts/compare/fireshare-0.0.37...fireshare-0.0.38) (2022-10-29)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4230](https://github.com/truecharts/charts/issues/4230))
+
+
+
+
 ## [fireshare-0.0.37](https://github.com/truecharts/charts/compare/fireshare-0.0.36...fireshare-0.0.37) (2022-10-25)
 
 ### Chore

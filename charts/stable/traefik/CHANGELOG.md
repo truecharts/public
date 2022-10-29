@@ -2,6 +2,16 @@
 
 
 
+## [traefik-13.4.15](https://github.com/truecharts/charts/compare/traefik-13.4.14...traefik-13.4.15) (2022-10-29)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4230](https://github.com/truecharts/charts/issues/4230))
+
+
+
+
 ## [traefik-13.4.14](https://github.com/truecharts/charts/compare/traefik-13.4.13...traefik-13.4.14) (2022-10-28)
 
 ### Chore

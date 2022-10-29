@@ -2,6 +2,16 @@
 
 
 
+## [rimgo-0.0.93](https://github.com/truecharts/charts/compare/rimgo-0.0.92...rimgo-0.0.93) (2022-10-29)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4230](https://github.com/truecharts/charts/issues/4230))
+
+
+
+
 ## [rimgo-0.0.92](https://github.com/truecharts/charts/compare/rimgo-0.0.91...rimgo-0.0.92) (2022-10-28)
 
 ### Chore
