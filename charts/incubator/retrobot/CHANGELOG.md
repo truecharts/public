@@ -2,6 +2,16 @@
 
 
 
+## [retrobot-0.0.4](https://github.com/truecharts/charts/compare/retrobot-0.0.3...retrobot-0.0.4) (2022-10-29)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4230](https://github.com/truecharts/charts/issues/4230))
+
+
+
+
 ## [retrobot-0.0.3](https://github.com/truecharts/charts/compare/retrobot-0.0.2...retrobot-0.0.3) (2022-10-25)
 
 ### Chore

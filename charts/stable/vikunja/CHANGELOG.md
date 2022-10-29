@@ -2,6 +2,16 @@
 
 
 
+## [vikunja-3.0.67](https://github.com/truecharts/charts/compare/vikunja-3.0.66...vikunja-3.0.67) (2022-10-29)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4230](https://github.com/truecharts/charts/issues/4230))
+
+
+
+
 ## [vikunja-3.0.66](https://github.com/truecharts/charts/compare/vikunja-3.0.65...vikunja-3.0.66) (2022-10-28)
 
 ### Chore
