@@ -6,6 +6,10 @@ Ingress for this chart is **required**
 
 :::
 
+In both Native Helm and TrueNAS Scale, keys that start with `_` are **unset**.
+
+## TrueNAS Scale
+
 In order to be able to expose some options in the GUI,
 but also give users the option to users to **unset** those values,
 instead of using our defaults. We decided to do the following.
@@ -20,9 +24,12 @@ We will **unset** every option (key) that has:
 
 The above will only be applied when installed in TrueNAS Scale as an App
 
-Native Helm users won't be affected with the above.
+::: note
 
-In both Native Helm and TrueNAS Scale, keys that start with `_` are **unset**.
+When you make a change in the UI, you need to manually stop and re-start the app
+for the change to take effect.
+
+:::
 
 For SCALE users, you can add additional configuration options that are not exposed in the UI
 by using the `Additional MeshCentral Configuration` section.
@@ -71,3 +78,7 @@ Set like this:
 Please use the exact casing as in the [MeshCentral's json schema](https://github.com/Ylianst/MeshCentral/blob/master/meshcentral-config-schema.json).
 
 :::
+
+## Native Helm
+
+Native Helm users won't be affected with the above.
