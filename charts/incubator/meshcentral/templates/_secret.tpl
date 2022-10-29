@@ -18,6 +18,9 @@
   {{- if .Values.additional_meshcentral }}
     {{- $mc_custom = (include "render.custom.scale.values" $mc_custom) }}
     {{- $mc_custom_merged := dict }}
+    {{/* We created a new unique section# for each key we parsed */}}
+    {{/* And we merge them here, as without it we would have multiple */}}
+    {{/* same top level keys */}}
     {{- range $section := (fromYaml $mc_custom) }}
       {{- $mc_custom_merged = mergeOverwrite $mc_custom_merged $section }}
     {{- end }}
@@ -151,7 +154,8 @@ data:
   {{- toYaml $values }}
 {{- end }}
 
-
+{{/* Takes a list of dicts with a value and a  */}}
+{{/* key formatted in dot notaion and converts it to yaml */}}
 {{- define "render.custom.scale.values" }}
   {{- $values := . }}
   {{- $section := 1 }}
@@ -164,6 +168,5 @@ data:
       {{- $indent = (add 2 (int $indent)) }}
     {{- end -}}
     {{- printf " %v" $item.value }}
-    {{ "" }}
   {{- end }}
 {{- end }}
