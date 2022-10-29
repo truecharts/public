@@ -23,3 +23,23 @@ The above will only be applied when installed in TrueNAS Scale as an App
 Native Helm users won't be affected with the above.
 
 In both Native Helm and TrueNAS Scale, keys that start with `_` are **unset**.
+
+For SCALE users, you can add additional configuration options that are not exposed in the UI
+by using the `Additional MeshCentral Configuration` section.
+
+However, if you think an option would be used by a lot of users, it would be best to ask us to expose it.
+
+For example to set this:
+
+```json
+"settings": {
+  "sms": {
+    "provider": "twillio"
+  }
+}
+```
+
+- Key: `settigns.sms.provider`
+- Value: `twillio`
+
+Please use the exact casing as in the [MeshCentral's json schema](https://github.com/Ylianst/MeshCentral/blob/master/meshcentral-config-schema.json).

@@ -5,12 +5,24 @@
 {{- $secretStorageName := printf "%s-storage-secret" (include "tc.common.names.fullname" .) }}
 
 {{- $config := .Values.meshcentral }}
+{{- $mc_custom := .Values.additional_meshcentral }}
 
 {{- $isScale := false }}
 {{- if hasKey .Values.global "isSCALE" }}
   {{- $isScale = .Values.global.isSCALE }}
 {{- else }}
   {{- $isScale = false }}
+{{- end }}
+
+{{- if $isScale }}
+  {{- if .Values.additional_meshcentral }}
+    {{- $mc_custom = (include "render.custom.scale.values" $mc_custom) }}
+    {{- $mc_custom_merged := dict }}
+    {{- range $section := (fromYaml $mc_custom) }}
+      {{- $mc_custom_merged = mergeOverwrite $mc_custom_merged $section }}
+    {{- end }}
+    {{- $config = mergeOverwrite $config $mc_custom_merged }}
+  {{- end }}
 {{- end }}
 
 {{- $sessionKey := "" }}
@@ -40,7 +52,7 @@
 {{- range $domain := $config.domains }}
   {{- if not (hasKey $domain "myServer") }}
     {{- $_ := set $domain "myServer" dict }}
-  {{- end -}}
+  {{- end }}
   {{- $_ := set $domain.myServer "Upgrade" false }}
 {{- end }}
 
@@ -137,4 +149,21 @@ data:
   {{- $_ := set $values.domains "" $computedDomain }}
   {{- $_ := unset $values.domains "tcdefaultdomain" }}
   {{- toYaml $values }}
+{{- end }}
+
+
+{{- define "render.custom.scale.values" }}
+  {{- $values := . }}
+  {{- $section := 1 }}
+  {{- range $item := $values }}
+    {{- $indent := 2 }}
+    {{- printf "section%v" $section | nindent 0 }}:
+    {{- $section = (add 1 (int $section)) }}
+    {{- range (split "." $item.key) }}
+      {{- . | nindent (int $indent) }}:
+      {{- $indent = (add 2 (int $indent)) }}
+    {{- end -}}
+    {{- printf " %v" $item.value }}
+    {{ "" }}
+  {{- end }}
 {{- end }}

@@ -603,6 +603,31 @@ questions:
                                   schema:
                                     type: string
                                     default: ""
+  - variable: additional_meshcentral
+    group: Container Configuration
+    label: Additional MeshCentral Configuration
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: entry
+          label: Key - Value Pair
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: key
+                label: Key
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: value
+                label: Value
+                schema:
+                  type: string
+                  required: true
+                  default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
