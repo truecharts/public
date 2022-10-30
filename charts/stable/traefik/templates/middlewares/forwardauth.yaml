@@ -27,10 +27,8 @@ spec:
     {{- if $middlewareData.trustForwardHeader }}
     trustForwardHeader: true
     {{- end }}
-    {{- if ( hasKey $middlewareData "tls" ) }}
+    {{- with $middlewareData.tls }}
     tls:
-      {{- if ( hasKey $middlewareData.tls "insecureSkipVerify" ) }}
-      insecureSkipVerify: {{ $middlewareData.tls.insecureSkipVerify }}
-      {{- end }}
-    {{ end }}
+      insecureSkipVerify: {{ default false .insecureSkipVerify }}
+    {{- end }}
 {{ end }}
