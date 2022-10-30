@@ -18,6 +18,24 @@ service:
         port: 10265
         targetPort: 8080
 
+netbox:
+  # - This is a list of valid fully-qualified domain names (FQDNs) for the NetBox server. NetBox will not permit write
+  # - access to the server via any other hostnames. The first FQDN in the list will be treated as the preferred name.
+  allowed_hosts:
+    - "127.0.0.1"
+  # - Specify one or more name and email address tuples representing NetBox administrators. These people will be notified of
+  # - application errors (assuming correct email settings are provided).
+  admins:
+    - name: John Doe
+      email: jdoe@example.com
+  # - Enable any desired validators for local account passwords below. For a list of included validators, please see the
+  # - Django documentation at https://docs.djangoproject.com/en/stable/topics/auth/passwords/#password-validation.
+  auth_password_validators:
+    - name: django.contrib.auth.password_validation.MinimumLengthValidator
+      options:
+        - key: min_length
+          value: 10
+
 persistence:
   config:
     enabled: true

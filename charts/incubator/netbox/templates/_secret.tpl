@@ -22,18 +22,12 @@ metadata:
 data:
   secret_key: {{ $secret_key | b64enc }}
 stringData:
-  config.py:
-    #########################
-    #                       #
-    #   Required settings   #
-    #                       #
-    #########################
-
-    # This is a list of valid fully-qualified domain names (FQDNs) for the NetBox server. NetBox will not permit write
-    # access to the server via any other hostnames. The first FQDN in the list will be treated as the preferred name.
-    #
-    # Example: ALLOWED_HOSTS = ['netbox.example.com', 'netbox.internal.local']
-    ALLOWED_HOSTS = []
+  config.py: |
+    ALLOWED_HOSTS = [
+        {{- range .Values.netbox.allowed_hosts }}
+        {{ . | squote }},
+        {{- end }}
+    ]
 
     DATABASE = {
         'NAME': '{{ .Values.postgresql.postgresqlDatabase }}',
@@ -51,19 +45,35 @@ stringData:
             'PASSWORD': '{{ .Values.redis.redisPassword | trimAll "\"" | b64enc }}',
             'DATABASE': 0,
             'SSL': False,
-            # 'INSECURE_SKIP_TLS_VERIFY': False,
-        },
-        'caching': {
+          },
+          'caching': {
             'HOST': '{{ printf "%v-%v" .Release.Name "redis" }}',
             'PORT': 6379,
             'PASSWORD': '{{ .Values.redis.redisPassword | trimAll "\"" | b64enc }}',
             'DATABASE': 1,
             'SSL': False,
-            # 'INSECURE_SKIP_TLS_VERIFY': False,
-        }
+          }
     }
 
     SECRET_KEY = '{{ $secret_key }}'
 
+    ADMINS = [
+        {{- range .Values.netbox.admins }}
+        ({{ .name | squote }},{{ .email | squote }}),
+        {{- end }}
+    ]
 
+    AUTH_PASSWORD_VALIDATORS = [
+        {{- range .Values.netbox.auth_password_validators }}
+        {
+            'NAME': {{ .name | squote }},
+            'OPTIONS': {
+                {{- range .options }}
+                {{ .key | squote }}: {{ .value }},
+                {{- end }}
+            }
+
+        },
+        {{- end }}
+    ]
 {{- end }}
