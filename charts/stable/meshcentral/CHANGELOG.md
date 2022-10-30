@@ -2,6 +2,15 @@
 
 
 
+## [meshcentral-6.0.1](https://github.com/truecharts/charts/compare/meshcentral-6.0.0...meshcentral-6.0.1) (2022-10-30)
+
+### Feat
+
+- Move to Stable ([#4237](https://github.com/truecharts/charts/issues/4237))
+
+
+
+
 ## [meshcentral-6.0.0](https://github.com/truecharts/charts/compare/meshcentral-5.0.16...meshcentral-6.0.0) (2022-10-29)
 
 ### Chore
