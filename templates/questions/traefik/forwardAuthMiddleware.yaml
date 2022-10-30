@@ -27,11 +27,6 @@
                       schema:
                         type: boolean
                         default: false
-                    - variable: authResponseHeadersRegex
-                      label: authResponseHeadersRegex
-                      schema:
-                        type: string
-                        default: ""
                     - variable: tls
                       label: TLS
                       schema:
@@ -43,6 +38,11 @@
                             schema:
                               type: boolean
                               default: false
+                    - variable: authResponseHeadersRegex
+                      label: authResponseHeadersRegex
+                      schema:
+                        type: string
+                        default: ""
                     - variable: authResponseHeaders
                       label: authResponseHeaders
                       schema:
