@@ -2,6 +2,16 @@
 
 
 
+## [minio-3.0.71](https://github.com/truecharts/charts/compare/minio-console-3.0.51...minio-3.0.71) (2022-10-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4238](https://github.com/truecharts/charts/issues/4238))
+
+
+
+
 ## [minio-3.0.70](https://github.com/truecharts/charts/compare/minio-console-3.0.50...minio-3.0.70) (2022-10-25)
 
 ### Chore

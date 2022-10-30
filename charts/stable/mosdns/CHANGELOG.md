@@ -2,6 +2,16 @@
 
 
 
+## [mosdns-2.0.43](https://github.com/truecharts/charts/compare/mosdns-2.0.42...mosdns-2.0.43) (2022-10-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4238](https://github.com/truecharts/charts/issues/4238))
+
+
+
+
 ## [mosdns-2.0.42](https://github.com/truecharts/charts/compare/mosdns-2.0.41...mosdns-2.0.42) (2022-10-25)
 
 ### Chore

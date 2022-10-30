@@ -2,6 +2,16 @@
 
 
 
+## [mediaelch-0.0.33](https://github.com/truecharts/charts/compare/mediaelch-0.0.32...mediaelch-0.0.33) (2022-10-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4238](https://github.com/truecharts/charts/issues/4238))
+
+
+
+
 ## [mediaelch-0.0.32](https://github.com/truecharts/charts/compare/mediaelch-0.0.31...mediaelch-0.0.32) (2022-10-29)
 
 ### Chore

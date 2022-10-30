@@ -2,6 +2,16 @@
 
 
 
+## [lazylibrarian-11.0.75](https://github.com/truecharts/charts/compare/lazylibrarian-11.0.74...lazylibrarian-11.0.75) (2022-10-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4238](https://github.com/truecharts/charts/issues/4238))
+
+
+
+
 ## [lazylibrarian-11.0.74](https://github.com/truecharts/charts/compare/lazylibrarian-11.0.73...lazylibrarian-11.0.74) (2022-10-27)
 
 ### Chore

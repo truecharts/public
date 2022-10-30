@@ -2,6 +2,16 @@
 
 
 
+## [code-server-4.0.47](https://github.com/truecharts/charts/compare/openvscode-server-2.0.47...code-server-4.0.47) (2022-10-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4238](https://github.com/truecharts/charts/issues/4238))
+
+
+
+
 ## [code-server-4.0.46](https://github.com/truecharts/charts/compare/code-server-4.0.45...code-server-4.0.46) (2022-10-27)
 
 ### Chore

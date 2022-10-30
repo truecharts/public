@@ -2,6 +2,17 @@
 
 
 
+## [authentik-7.2.3](https://github.com/truecharts/charts/compare/authentik-7.2.2...authentik-7.2.3) (2022-10-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - increase healthcheck timeout in attempt to fix an issue for some users ([#4242](https://github.com/truecharts/charts/issues/4242))
+  - update docker general non-major ([#4238](https://github.com/truecharts/charts/issues/4238))
+
+
+
+
 ## [authentik-7.2.2](https://github.com/truecharts/charts/compare/authentik-7.2.1...authentik-7.2.2) (2022-10-25)
 
 ### Chore

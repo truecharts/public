@@ -2,6 +2,16 @@
 
 
 
+## [qinglong-2.0.52](https://github.com/truecharts/charts/compare/qinglong-2.0.51...qinglong-2.0.52) (2022-10-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4238](https://github.com/truecharts/charts/issues/4238))
+
+
+
+
 ## [qinglong-2.0.51](https://github.com/truecharts/charts/compare/qinglong-2.0.50...qinglong-2.0.51) (2022-10-25)
 
 ### Chore

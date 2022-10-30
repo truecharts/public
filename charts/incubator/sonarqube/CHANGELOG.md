@@ -2,6 +2,16 @@
 
 
 
+## [sonarqube-0.0.36](https://github.com/truecharts/charts/compare/sonarqube-0.0.35...sonarqube-0.0.36) (2022-10-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4238](https://github.com/truecharts/charts/issues/4238))
+
+
+
+
 ## [sonarqube-0.0.35](https://github.com/truecharts/charts/compare/sonarqube-0.0.34...sonarqube-0.0.35) (2022-10-25)
 
 ### Chore

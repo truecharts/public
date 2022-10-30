@@ -2,6 +2,16 @@
 
 
 
+## [authelia-11.0.61](https://github.com/truecharts/charts/compare/authelia-11.0.60...authelia-11.0.61) (2022-10-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4238](https://github.com/truecharts/charts/issues/4238))
+
+
+
+
 ## [authelia-11.0.60](https://github.com/truecharts/charts/compare/authelia-11.0.59...authelia-11.0.60) (2022-10-25)
 
 ### Chore
