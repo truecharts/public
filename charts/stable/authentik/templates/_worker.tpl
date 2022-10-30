@@ -28,7 +28,7 @@ readinessProbe:
       - /lifecycle/ak
       - healthcheck
   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
-  timeoutSeconds: 10
+  timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
   failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
 livenessProbe:
@@ -37,7 +37,7 @@ livenessProbe:
       - /lifecycle/ak
       - healthcheck
   initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
-  timeoutSeconds: 10
+  timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
   failureThreshold: {{ .Values.probes.liveness.spec.failureThreshold }}
 startupProbe:
