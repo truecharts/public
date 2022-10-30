@@ -29,6 +29,6 @@ spec:
     {{- end }}
     {{- with $middlewareData.tls }}
     tls:
-      insecureSkipVerify: {{ default false .insecureSkipVerify }}
+      insecureSkipVerify: {{ .insecureSkipVerify | default false }}
     {{- end }}
 {{ end }}
