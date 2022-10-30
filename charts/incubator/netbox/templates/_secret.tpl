@@ -57,14 +57,16 @@ stringData:
 
     SECRET_KEY = '{{ $secret_key }}'
 
+    {{- with .Values.netbox.admins }}
     ADMINS = [
-        {{- range .Values.netbox.admins }}
+        {{- range . }}
         ({{ .name | squote }},{{ .email | squote }}),
         {{- end }}
     ]
 
+    {{- with .Values.netbox.auth_password_validators }}
     AUTH_PASSWORD_VALIDATORS = [
-        {{- range .Values.netbox.auth_password_validators }}
+        {{- range . }}
         {
             'NAME': {{ .name | squote }},
             'OPTIONS': {
@@ -76,4 +78,23 @@ stringData:
         },
         {{- end }}
     ]
+    {{- end }}
+
+    CORS_ORIGIN_ALLOW_ALL = {{ ternary "True" "False" .Values.netbox.cors_origin_allow_all }}
+
+    {{- with .Values.netbox.cors_origin_whitelist }}
+    CORS_ORIGIN_WHITELIST = [
+        {{- range . }}
+        {{ . | squote }},
+        {{- end }}
+    ]
+    {{- end }}
+
+    {{- with .Values.netbox.cors_origin_regex_whitelist }}
+    CORS_ORIGIN_REGEX_WHITELIST = [
+        {{- range . }}
+        {{ . }},
+        {{- end }}
+    ]
+    {{- end }}
 {{- end }}

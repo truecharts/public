@@ -25,16 +25,24 @@ netbox:
     - "127.0.0.1"
   # - Specify one or more name and email address tuples representing NetBox administrators. These people will be notified of
   # - application errors (assuming correct email settings are provided).
-  admins:
-    - name: John Doe
-      email: jdoe@example.com
+  admins: []
+    # - name: John Doe
+    #   email: jdoe@example.com
   # - Enable any desired validators for local account passwords below. For a list of included validators, please see the
   # - Django documentation at https://docs.djangoproject.com/en/stable/topics/auth/passwords/#password-validation.
-  auth_password_validators:
-    - name: django.contrib.auth.password_validation.MinimumLengthValidator
-      options:
-        - key: min_length
-          value: 10
+  auth_password_validators: []
+    # - name: django.contrib.auth.password_validation.MinimumLengthValidator
+    #   options:
+    #     - key: min_length
+    #       value: 10
+  # - API Cross-Origin Resource Sharing (CORS) settings. If CORS_ORIGIN_ALLOW_ALL is set to True, all origins will be
+  # - allowed. Otherwise, define a list of allowed origins using either CORS_ORIGIN_WHITELIST or
+  # - CORS_ORIGIN_REGEX_WHITELIST. For more information, see https://github.com/ottoyiu/django-cors-headers
+  cors_origin_allow_all: false
+  cors_origin_whitelist: []
+    # - "127.0.0.1"
+  cors_origin_regex_whitelist: []
+    # - r'^(https?://)?(\w+\.)?example\.com$'
 
 persistence:
   config:
