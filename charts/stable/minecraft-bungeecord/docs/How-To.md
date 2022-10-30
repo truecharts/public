@@ -3,8 +3,6 @@
 The following sections are just _examples_ and may not represent best practices or all use cases.
 The only tested servers were Spigot Based variants by PaperMC, Paper version **1.19.2**, the latest current MC version.
 
-A MC limbo instance was also tested but only works with Bungeecord/Waterfall, but needs some work to manually set it up.
-
 ## Bungeecord / WaterFall
 
 Spigot compatible server(s) need to be set **offline** by unchecking **Enable/Disable Online Mode** in minecraft-java instance(s).
@@ -41,15 +39,7 @@ network_compression_threshold: 256
 servers:
   lobby:
     motd: "&1My Lobby MC"
-    address: MY_PRIVATE_IP:25566 # Set this as your local IP, NOT 0.0.0.0 or cluster URL.
-    restricted: false
-  survival:
-    motd: "&1My Survival MC"
-    address: MY_PRIVATE_IP:25567 # Set this as your local IP, NOT 0.0.0.0 or cluster URL.
-    restricted: false
-  creative:
-    motd: "&1My Creative MC"
-    address: MY_PRIVATE_IP:25568 # Set this as your local IP, NOT 0.0.0.0 or cluster URL.
+    address: MY_PRIVATE_IP:25566 # Set this as your local IP, or cluster URL `minecraft-java.ix-minecraft-java.svc.cluster.local`
     restricted: false
 player_limit: -1
 prevent_proxy_connections: false
@@ -88,9 +78,7 @@ online_mode: true # needs to true
 
 ## Velocity
 
-Here's a sample of a **velocity.toml** that you can place in **/config** dir.
-
-You can create a file called **secrets** in **/config** dir and apply the name to this value like so -> **forwarding-secret-file = "./secret"**.
+Create a file called **secrets** in **/config** dir and apply the name to this value like so -> **forwarding-secret-file = "secret"**.
 
 The contents of the secret file:
 
@@ -113,8 +101,10 @@ bungee-cord:
     velocity:
     enabled: true
     online-mode: true
-    secret: MySuperSecretFromConfig # the actual value and NOT the name of the file.
+    secret: MyForwardingSecret # the actual value and NOT the name of the file.
 ```
+
+Here's a sample of a **velocity.toml** that you can place in **/config** dir.
 
 ```toml
 # Config version. Do not change this
@@ -157,7 +147,7 @@ player-info-forwarding-mode = "modern"
 
 # If you are using modern or BungeeGuard IP forwarding, configure a file that contains a unique secret here.
 # The file is expected to be UTF-8 encoded and not empty.
-forwarding-secret-file = "./secret"
+forwarding-secret-file = "secret"
 
 # Announce whether or not your server supports Forge. If you run a modded server, we
 # suggest turning this on.
@@ -191,9 +181,7 @@ enable-player-address-logging = true
 [servers]
 # Configure your servers here. Each key represents the server's name, and the value
 # represents the IP address of the server to connect to.
-lobby = "MY_PRIVATE_IP:25566"
-survival = "MY_PRIVATE_IP:25567"
-creative = "MY_PRIVATE_IP:25568"
+lobby = "MY_PRIVATE_IP:25566" #  cluster urls do work too -> `minecraft-java.ix-minecraft-java.svc.cluster.local`
 
 # In what order we should try servers when a player logs in or is kicked from aserver.
 try = [
@@ -204,12 +192,6 @@ try = [
 # Configure your forced hosts here.
 "lobby.mydomain.com" = [
     "lobby"
-]
-"survival.mydomain.com" = [
-    "survival"
-]
-"creative.mydomain.com" = [
-    "creative"
 ]
 
 [advanced]
