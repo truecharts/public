@@ -4,5 +4,8 @@
 {{/* Render config */}}
 {{- include "netbox.config" . }}
 
+{{- $_ := set .Values.additionalContainers "worker" (include "netbox.worker" . | fromYaml) -}}
+{{- $_ := set .Values.additionalContainers "housekeeper" (include "netbox.housekeeper" . | fromYaml) -}}
+
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}

@@ -3,13 +3,13 @@ image:
   tag: 3.3.6@sha256:4084b61c588dd2f15d117f30017a5c15fd03c3de38ed49e3241c48bce54048d7
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:
@@ -21,7 +21,7 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: /config
+    mountPath: /etc/netbox/config
   reports:
     enabled: true
     mountPath: /etc/netbox/reports
@@ -39,7 +39,6 @@ persistence:
     objectName: '{{ include "tc.common.names.fullname" . }}-secret'
     mountPath: /etc/netbox/config/config.py
     subPath: config.py
-
 
 postgresql:
   enabled: true
