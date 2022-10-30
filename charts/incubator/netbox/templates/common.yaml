@@ -1,9 +1,6 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.common.loader.init" . }}
 
-{{/* Render secret */}}
-{{- include "netbox.secret" . }}
-
 {{/* Render config */}}
 {{- include "netbox.config" . }}
 

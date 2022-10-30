@@ -18,16 +18,28 @@ service:
         port: 10265
         targetPort: 8080
 
-# persistence:
-#   config:
-#     enabled: true
-#     mountPath: "/config"
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  reports:
+    enabled: true
+    mountPath: /etc/netbox/reports
+  scripts:
+    enabled: true
+    mountPath: /etc/netbox/scripts
+  media:
+    enabled: true
+    mountPath: /opt/netbox/netbox/media
+  configfile:
+    enabled: true
+    type: secret
+    readOnly: true
+    defaultMode: "0600"
+    objectName: '{{ include "tc.common.names.fullname" . }}-secret'
+    mountPath: /etc/netbox/config/config.py
+    subPath: config.py
 
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-netbox-secret'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-netbox-config'
 
 postgresql:
   enabled: true
