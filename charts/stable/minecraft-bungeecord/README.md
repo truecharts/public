@@ -5,13 +5,13 @@ A Spigot BungeeCord server.
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [minecraft-bungeecord](https://truecharts.org/docs/charts/incubator/minecraft-bungeecord)
+For more information, please click here: [minecraft-bungeecord](https://truecharts.org/docs/charts/stable/minecraft-bungeecord)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/minecraft-bungeecord>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/minecraft-bungeecord>
 * <https://hub.docker.com/r/itzg/bungeecord>
 * <https://github.com/itzg/docker-bungeecord>
 
