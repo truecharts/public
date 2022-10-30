@@ -63,6 +63,7 @@ stringData:
         ({{ .name | squote }},{{ .email | squote }}),
         {{- end }}
     ]
+    {{- end }}
 
     {{- with .Values.netbox.auth_password_validators }}
     AUTH_PASSWORD_VALIDATORS = [
@@ -97,4 +98,34 @@ stringData:
         {{- end }}
     ]
     {{- end }}
+
+    DEBUG = {{ ternary "True" "False" .Values.netbox.debug }}
+
+    {{- if .Values.netbox.email }}
+    {{- if .Values.netbox.email.server }}
+    EMAIL = {
+        {{- with .Values.netbox.email.server }}
+        'SERVER': {{ . | squote }},
+        {{- end }}
+        {{- with .Values.netbox.email.port }}
+        'PORT': {{ . }},
+        {{- end }}
+        {{- with .Values.netbox.email.username }}
+        'USERNAME': {{ . | squote }},
+        {{- end }}
+        {{- with .Values.netbox.email.password }}
+        'PASSWORD': {{ . | squote }},
+        {{- end }}
+        'USE_SSL': {{ ternary "True" "False" .Values.netbox.email.use_ssl }},
+        'USE_TLS': {{ ternary "True" "False" .Values.netbox.email.use_tls }},
+        {{- with .Values.netbox.email.timeout }}
+        'TIMEOUT': {{ . }},
+        {{- end }}
+        {{- with .Values.netbox.email.from_email }}
+        'FROM_EMAIL': {{ . | squote }},
+        {{- end }}
+    }
+    {{- end }}
+    {{- end }}
+
 {{- end }}

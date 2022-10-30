@@ -43,6 +43,16 @@ netbox:
     # - "127.0.0.1"
   cors_origin_regex_whitelist: []
     # - r'^(https?://)?(\w+\.)?example\.com$'
+  debug: false
+  email:
+    server: localhost
+    port: 25
+    username: ""
+    password: ""
+    use_ssl: false
+    use_tls: false
+    timeout: 10
+    from_email: ""
 
 persistence:
   config:
