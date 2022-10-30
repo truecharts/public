@@ -128,4 +128,47 @@ stringData:
     {{- end }}
     {{- end }}
 
+    {{- with .Values.netbox.exempt_view_permissions }}
+    EXEMPT_VIEW_PERMISSIONS = [
+        {{- range . }}
+        {{ . | squote }},
+        {{- end }}
+    ]
+    {{- end }}
+
+    {{- with .Values.netbox.http_proxies }}
+    HTTP_PROXIES = {
+        {{- range $k, $v := . }}
+        {{ $k | squote }}: {{ $v | squote }},
+        {{- end }}
+    }
+    {{- end }}
+
+    {{- with .Values.netbox.internal_ips }}
+    INTERNAL_IPS = (
+        {{- range . }}
+        {{ . | squote }},
+        {{- end }}
+    )
+    {{- end }}
+
+    {{- with .Values.netbox.logging }}
+    LOGGING = {
+        {{- range . }}
+        {{- end }}
+    }
+    {{- end }}
+
+    LOGIN_PERSISTENCE = {{ ternary "True" "False" .Values.netbox.login_persistence }}
+
+    LOGIN_REQUIRED = {{ ternary "True" "False" .Values.netbox.login_required }}
+
+    {{- with .Values.netbox.login_timeout }}
+    LOGIN_TIMEOUT = {{ . }}
+    {{- end }}
+
+    METRICS_ENABLED = {{ ternary "True" "False" .Values.netbox.metrics }}
+
+    TIME_ZONE = {{ .Values.TZ | squote }}
+
 {{- end }}

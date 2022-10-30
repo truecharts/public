@@ -45,14 +45,44 @@ netbox:
     # - r'^(https?://)?(\w+\.)?example\.com$'
   debug: false
   email:
-    server: localhost
-    port: 25
+    server: ""
+    port: 587
     username: ""
     password: ""
     use_ssl: false
-    use_tls: false
+    use_tls: true
     timeout: 10
     from_email: ""
+  # - Exempt certain models from the enforcement of view permissions. Models listed here will be viewable by all users and
+  # - by anonymous users. List models in the form `<app>.<model>`. Add '*' to this list to exempt all models.
+  exempt_view_permissions: []
+    # - dcim.site
+    # - dcim.region
+    # - ipam.prefix
+  # - HTTP proxies NetBox should use when sending outbound HTTP requests (e.g. for webhooks).
+  http_proxies: {}
+    # http: http://10.10.1.10:3128
+    # https: http://10.10.1.10:1080
+  # - IP addresses recognized as internal to the system. The debugging toolbar will be available only to clients accessing
+  # - NetBox from an internal IP.
+  internal_ips:
+    - "127.0.0.1"
+    - ::1
+  # - Enable custom logging. Please see the Django documentation for detailed guidance on configuring custom logs:
+  # - https://docs.djangoproject.com/en/stable/topics/logging/
+  # TODO:
+  logging: {}
+  # - Automatically reset the lifetime of a valid session upon each authenticated request. Enables users to remain
+  # - authenticated to NetBox indefinitely.
+  login_persistence: false
+  # - Setting this to True will permit only authenticated users to access any part of NetBox. By default, anonymous users
+  # - are permitted to access most data in NetBox but not make any changes.
+  login_required: true
+  # - The length of time (in seconds) for which a user will remain logged into the web UI before being prompted to
+  # - re-authenticate. (Default: 1209600 [14 days])
+  login_timeout: 1209600
+  # - Expose Prometheus monitoring metrics at the HTTP endpoint '/metrics'
+  metrics: false
 
 persistence:
   config:
