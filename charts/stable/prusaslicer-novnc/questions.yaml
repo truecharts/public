@@ -47,7 +47,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 6080
+                              default: 16080
                               required: true
 # Include{advancedPortTCP}
                                 - variable: targetPort
