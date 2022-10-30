@@ -2,6 +2,19 @@
 
 
 
+## [xen-orchestra-0.0.9](https://github.com/truecharts/charts/compare/xen-orchestra-0.0.8...xen-orchestra-0.0.9) (2022-10-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Fix
+
+- fix UI ([#4241](https://github.com/truecharts/charts/issues/4241))
+
+
+
+
 ## [xen-orchestra-0.0.8](https://github.com/truecharts/charts/compare/xen-orchestra-0.0.7...xen-orchestra-0.0.8) (2022-10-25)
 
 ### Chore

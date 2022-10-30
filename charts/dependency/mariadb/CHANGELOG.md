@@ -2,7 +2,17 @@
 
 
 
-## [mariadb-3.0.106](https://github.com/truecharts/charts/compare/mariadb-3.0.105...mariadb-3.0.106) (2022-10-29)
+## [collabora-online-12.1.63](https://github.com/truecharts/charts/compare/collabora-online-12.1.62...collabora-online-12.1.63) (2022-10-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.7.12
+
+
+
+
+## [collabora-online-12.1.62](https://github.com/truecharts/charts/compare/collabora-online-12.1.61...collabora-online-12.1.62) (2022-10-29)
 
 ### Chore
 
@@ -12,17 +22,7 @@
 
 
 
-## [mariadb-3.0.105](https://github.com/truecharts/charts/compare/mariadb-3.0.104...mariadb-3.0.105) (2022-10-29)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#4230](https://github.com/truecharts/charts/issues/4230))
-
-
-
-
-## [mariadb-3.0.104](https://github.com/truecharts/charts/compare/mariadb-3.0.103...mariadb-3.0.104) (2022-10-28)
+## [collabora-online-12.1.61](https://github.com/truecharts/charts/compare/collabora-online-12.1.60...collabora-online-12.1.61) (2022-10-28)
 
 ### Chore
 
@@ -32,7 +32,7 @@
 
 
 
-## [mariadb-3.0.103](https://github.com/truecharts/charts/compare/mariadb-3.0.102...mariadb-3.0.103) (2022-10-28)
+## [memcached-3.0.104](https://github.com/truecharts/charts/compare/memcached-3.0.103...memcached-3.0.104) (2022-10-28)
 
 ### Chore
 
@@ -42,7 +42,7 @@
 
 
 
-## [mariadb-3.0.102](https://github.com/truecharts/charts/compare/mariadb-3.0.101...mariadb-3.0.102) (2022-10-27)
+## [memcached-3.0.103](https://github.com/truecharts/charts/compare/memcached-3.0.102...memcached-3.0.103) (2022-10-27)
 
 ### Chore
 
@@ -53,7 +53,7 @@
 
 
 
-## [mariadb-3.0.102](https://github.com/truecharts/charts/compare/mariadb-3.0.101...mariadb-3.0.102) (2022-10-27)
+## [memcached-3.0.103](https://github.com/truecharts/charts/compare/memcached-3.0.102...memcached-3.0.103) (2022-10-27)
 
 ### Chore
 
@@ -63,7 +63,7 @@
 
 
 
-## [mariadb-3.0.101](https://github.com/truecharts/charts/compare/mariadb-3.0.100...mariadb-3.0.101) (2022-10-26)
+## [memcached-3.0.102](https://github.com/truecharts/charts/compare/memcached-3.0.101...memcached-3.0.102) (2022-10-26)
 
 ### Chore
 
@@ -73,7 +73,7 @@
 
 
 
-## [mariadb-3.0.100](https://github.com/truecharts/charts/compare/mariadb-3.0.99...mariadb-3.0.100) (2022-10-23)
+## [memcached-3.0.101](https://github.com/truecharts/charts/compare/memcached-3.0.100...memcached-3.0.101) (2022-10-23)
 
 ### Chore
 
@@ -83,7 +83,7 @@
 
 
 
-## [mariadb-3.0.99](https://github.com/truecharts/charts/compare/mariadb-3.0.98...mariadb-3.0.99) (2022-10-22)
+## [collabora-online-12.1.57](https://github.com/truecharts/charts/compare/collabora-online-12.1.56...collabora-online-12.1.57) (2022-10-22)
 
 ### Chore
 
@@ -93,7 +93,7 @@
 
 
 
-## [mariadb-3.0.98](https://github.com/truecharts/charts/compare/mariadb-3.0.97...mariadb-3.0.98) (2022-10-21)
+## [collabora-online-12.1.56](https://github.com/truecharts/charts/compare/collabora-online-12.1.55...collabora-online-12.1.56) (2022-10-21)
 
 ### Chore
 
@@ -103,7 +103,7 @@
 
 
 
-## [clickhouse-1.0.39](https://github.com/truecharts/charts/compare/clickhouse-1.0.38...clickhouse-1.0.39) (2022-10-21)
+## [collabora-online-12.1.55](https://github.com/truecharts/charts/compare/collabora-online-12.1.54...collabora-online-12.1.55) (2022-10-21)
 
 ### Chore
 
@@ -113,7 +113,7 @@
 
 
 
-## [clickhouse-1.0.38](https://github.com/truecharts/charts/compare/clickhouse-1.0.37...clickhouse-1.0.38) (2022-10-21)
+## [collabora-online-12.1.54](https://github.com/truecharts/charts/compare/collabora-online-12.1.53...collabora-online-12.1.54) (2022-10-21)
 
 ### Chore
 
@@ -123,7 +123,7 @@
 
 
 
-## [clickhouse-1.0.37](https://github.com/truecharts/charts/compare/clickhouse-1.0.36...clickhouse-1.0.37) (2022-10-15)
+## [collabora-online-12.1.53](https://github.com/truecharts/charts/compare/collabora-online-12.1.52...collabora-online-12.1.53) (2022-10-15)
 
 ### Chore
 
@@ -133,7 +133,7 @@
 
 
 
-## [clickhouse-1.0.36](https://github.com/truecharts/charts/compare/clickhouse-1.0.35...clickhouse-1.0.36) (2022-10-10)
+## [collabora-online-12.1.52](https://github.com/truecharts/charts/compare/collabora-online-12.1.51...collabora-online-12.1.52) (2022-10-10)
 
 ### Chore
 
@@ -143,7 +143,7 @@
 
 
 
-## [clickhouse-1.0.35](https://github.com/truecharts/charts/compare/clickhouse-1.0.34...clickhouse-1.0.35) (2022-10-07)
+## [collabora-online-12.1.51](https://github.com/truecharts/charts/compare/collabora-online-12.1.50...collabora-online-12.1.51) (2022-10-07)
 
 ### Chore
 
@@ -154,17 +154,7 @@
 
 
 
-## [clickhouse-1.0.34](https://github.com/truecharts/charts/compare/clickhouse-1.0.33...clickhouse-1.0.34) (2022-10-01)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#3975](https://github.com/truecharts/charts/issues/3975))
-
-
-
-
-## [clickhouse-1.0.33](https://github.com/truecharts/charts/compare/clickhouse-1.0.32...clickhouse-1.0.33) (2022-10-01)
+## [collabora-online-12.1.50](https://github.com/truecharts/charts/compare/collabora-online-12.1.49...collabora-online-12.1.50) (2022-10-01)
 
 ### Chore
 
@@ -174,8 +164,16 @@
 
 
 
+## [collabora-online-12.1.49](https://github.com/truecharts/charts/compare/collabora-online-12.1.48...collabora-online-12.1.49) (2022-09-29)
 
-## [clickhouse-1.0.31](https://github.com/truecharts/charts/compare/clickhouse-1.0.30...clickhouse-1.0.31) (2022-09-26)
+### Chore
+
+- update helm chart common to v10.6.5 ([#3946](https://github.com/truecharts/charts/issues/3946))
+
+
+
+
+## [collabora-online-12.1.47](https://github.com/truecharts/charts/compare/collabora-online-12.1.46...collabora-online-12.1.47) (2022-09-26)
 
 ### Chore
 
@@ -185,7 +183,7 @@
 
 
 
-## [memcached-3.0.83](https://github.com/truecharts/charts/compare/memcached-3.0.82...memcached-3.0.83) (2022-09-25)
+## [collabora-online-12.1.46](https://github.com/truecharts/charts/compare/collabora-online-12.1.45...collabora-online-12.1.46) (2022-09-25)
 
 ### Chore
 
@@ -195,17 +193,7 @@
 
 
 
-## [memcached-3.0.82](https://github.com/truecharts/charts/compare/memcached-3.0.81...memcached-3.0.82) (2022-09-25)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#3881](https://github.com/truecharts/charts/issues/3881))
-
-
-
-
-## [memcached-3.0.81](https://github.com/truecharts/charts/compare/memcached-3.0.79...memcached-3.0.81) (2022-09-24)
+## [collabora-online-12.1.45](https://github.com/truecharts/charts/compare/collabora-online-12.1.43...collabora-online-12.1.45) (2022-09-24)
 
 ### Chore
 
@@ -217,7 +205,7 @@
 
 
 
-## [memcached-3.0.80](https://github.com/truecharts/charts/compare/memcached-3.0.79...memcached-3.0.80) (2022-09-22)
+## [collabora-online-12.1.44](https://github.com/truecharts/charts/compare/collabora-online-12.1.43...collabora-online-12.1.44) (2022-09-22)
 
 ### Chore
 
@@ -227,7 +215,7 @@
 
 
 
-## [memcached-3.0.79](https://github.com/truecharts/charts/compare/memcached-3.0.76...memcached-3.0.79) (2022-09-22)
+## [collabora-online-12.1.43](https://github.com/truecharts/charts/compare/collabora-online-12.1.41...collabora-online-12.1.43) (2022-09-22)
 
 ### Chore
 
@@ -245,14 +233,13 @@
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
   - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
-  - update docker general non-major ([#3839](https://github.com/truecharts/charts/issues/3839))
   - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [memcached-3.0.79](https://github.com/truecharts/charts/compare/memcached-3.0.76...memcached-3.0.79) (2022-09-22)
+## [collabora-online-12.1.43](https://github.com/truecharts/charts/compare/collabora-online-12.1.41...collabora-online-12.1.43) (2022-09-21)
 
 ### Chore
 
@@ -268,7 +255,6 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3839](https://github.com/truecharts/charts/issues/3839))
   - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
   - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
@@ -276,7 +262,7 @@
 
 
 
-## [memcached-3.0.78](https://github.com/truecharts/charts/compare/memcached-3.0.76...memcached-3.0.78) (2022-09-21)
+## [collabora-online-12.1.43](https://github.com/truecharts/charts/compare/collabora-online-12.1.41...collabora-online-12.1.43) (2022-09-21)
 
 ### Chore
 
@@ -298,7 +284,7 @@
 
 
 
-## [memcached-3.0.78](https://github.com/truecharts/charts/compare/memcached-3.0.76...memcached-3.0.78) (2022-09-20)
+## [collabora-online-12.1.43](https://github.com/truecharts/charts/compare/collabora-online-12.1.41...collabora-online-12.1.43) (2022-09-20)
 
 ### Chore
 
@@ -319,8 +305,27 @@
 
 
 
+## [collabora-online-12.1.43](https://github.com/truecharts/charts/compare/collabora-online-12.1.41...collabora-online-12.1.43) (2022-09-20)
 
-## [memcached-3.0.78](https://github.com/truecharts/charts/compare/memcached-3.0.76...memcached-3.0.78) (2022-09-19)
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - refactor Services SCALE GUI
+  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
+  - update docker general non-major ([#3787](https://github.com/truecharts/charts/issues/3787))
+  - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
+
+
+
+
+## [collabora-online-12.1.43](https://github.com/truecharts/charts/compare/collabora-online-12.1.41...collabora-online-12.1.43) (2022-09-19)
 
 ### Chore
 
@@ -339,7 +344,7 @@
 
 
 
-## [memcached-3.0.78](https://github.com/truecharts/charts/compare/memcached-3.0.76...memcached-3.0.78) (2022-09-19)
+## [collabora-online-12.1.43](https://github.com/truecharts/charts/compare/collabora-online-12.1.41...collabora-online-12.1.43) (2022-09-19)
 
 ### Chore
 
@@ -357,7 +362,7 @@
 
 
 
-## [memcached-3.0.78](https://github.com/truecharts/charts/compare/memcached-3.0.76...memcached-3.0.78) (2022-09-19)
+## [collabora-online-12.1.43](https://github.com/truecharts/charts/compare/collabora-online-12.1.41...collabora-online-12.1.43) (2022-09-19)
 
 ### Chore
 
@@ -374,7 +379,7 @@
 
 
 
-## [memcached-3.0.77](https://github.com/truecharts/charts/compare/memcached-3.0.76...memcached-3.0.77) (2022-09-17)
+## [collabora-online-12.1.42](https://github.com/truecharts/charts/compare/collabora-online-12.1.41...collabora-online-12.1.42) (2022-09-17)
 
 ### Chore
 
@@ -389,7 +394,7 @@
 
 
 
-## [memcached-3.0.77](https://github.com/truecharts/charts/compare/memcached-3.0.76...memcached-3.0.77) (2022-09-18)
+## [collabora-online-12.1.42](https://github.com/truecharts/charts/compare/collabora-online-12.1.41...collabora-online-12.1.42) (2022-09-18)
 
 ### Chore
 
@@ -402,7 +407,7 @@
 
 
 
-## [memcached-3.0.77](https://github.com/truecharts/charts/compare/memcached-3.0.76...memcached-3.0.77) (2022-09-16)
+## [collabora-online-12.1.42](https://github.com/truecharts/charts/compare/collabora-online-12.1.41...collabora-online-12.1.42) (2022-09-16)
 
 ### Chore
 
@@ -414,7 +419,7 @@
 
 
 
-## [memcached-3.0.77](https://github.com/truecharts/charts/compare/memcached-3.0.76...memcached-3.0.77) (2022-09-16)
+## [collabora-online-12.1.42](https://github.com/truecharts/charts/compare/collabora-online-12.1.41...collabora-online-12.1.42) (2022-09-16)
 
 ### Chore
 
@@ -425,7 +430,7 @@
 
 
 
-## [memcached-3.0.77](https://github.com/truecharts/charts/compare/memcached-3.0.76...memcached-3.0.77) (2022-09-16)
+## [collabora-online-12.1.42](https://github.com/truecharts/charts/compare/collabora-online-12.1.41...collabora-online-12.1.42) (2022-09-16)
 
 ### Chore
 
@@ -435,42 +440,17 @@
 
 
 
-## [memcached-3.0.76](https://github.com/truecharts/charts/compare/memcached-3.0.75...memcached-3.0.76) (2022-09-13)
+## [mariadb-3.0.73](https://github.com/truecharts/charts/compare/mariadb-3.0.72...mariadb-3.0.73) (2022-09-13)
 
 ### Chore
 
 - update helm chart common to v10.5.10
+  - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
 
 
 
 
-## [memcached-3.0.75](https://github.com/truecharts/charts/compare/memcached-3.0.74...memcached-3.0.75) (2022-09-13)
-
-### Chore
-
-- update docker general non-major ([#3755](https://github.com/truecharts/charts/issues/3755))
-
-
-
-
-## [memcached-3.0.74](https://github.com/truecharts/charts/compare/memcached-3.0.73...memcached-3.0.74) (2022-09-12)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
-
-
-
-
-## [memcached-3.0.74](https://github.com/truecharts/charts/compare/memcached-3.0.73...memcached-3.0.74) (2022-09-12)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
-[mariadb-3.0.72](https://github.com/truecharts/charts/compare/mariadb-3.0.71...mariadb-3.0.72) (2022-09-11)
+## [mariadb-3.0.72](https://github.com/truecharts/charts/compare/mariadb-3.0.71...mariadb-3.0.72) (2022-09-11)
 
 ### Chore
 
