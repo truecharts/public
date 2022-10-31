@@ -109,12 +109,13 @@ persistence:
 postgresql:
   enabled: true
   existingSecret: dbcreds
-  postgresqlUsername: authentik
-  postgresqlDatabase: authentik
+  postgresqlUsername: netbox
+  postgresqlDatabase: netbox
 
 redis:
   enabled: true
   existingSecret: rediscreds
+  redisUsername: netbox
 
 portal:
   enabled: true
