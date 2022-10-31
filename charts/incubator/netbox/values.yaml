@@ -60,9 +60,11 @@ netbox:
     # - dcim.region
     # - ipam.prefix
   # - HTTP proxies NetBox should use when sending outbound HTTP requests (e.g. for webhooks).
-  http_proxies: {}
-    # http: http://10.10.1.10:3128
-    # https: http://10.10.1.10:1080
+  http_proxies:
+    - key: http
+      url: http://10.10.1.10:3128
+    - key: https
+      url: http://10.10.1.10:1080
   # - IP addresses recognized as internal to the system. The debugging toolbar will be available only to clients accessing
   # - NetBox from an internal IP.
   internal_ips:
@@ -83,6 +85,56 @@ netbox:
   login_timeout: 1209600
   # - Expose Prometheus monitoring metrics at the HTTP endpoint '/metrics'
   metrics: false
+  # - By default uploaded media is stored on the local filesystem. Using Django-storages is also supported. Provide the
+  # - class path of the storage driver in storage_backend and any configuration options in storage_config. For example:
+  storage_backend: ""
+  # storage_backend: storages.backends.s3boto3.S3Boto3Storage
+  storage_config: []
+    # - key: AWS_ACCESS_KEY_ID
+    #   value: KeyID
+    # - key: AWS_SECRET_ACCESS_KEY
+    #   value: Secret
+    # - key: AWS_STORAGE_BUCKET_NAME
+    #   value: netbox
+    # - key: AWS_S3_REGION_NAME
+    #   value: eu-west-1
+  # - Enable installed plugins. Add the name of each plugin to the list.
+  plugins:
+    - plugin1
+    - plugin2
+  # - Plugins configuration settings. These settings are used by various plugins that the user may have installed.
+  plugin_config: []
+    # - plugin_name: plugin1
+    #   config:
+    #     - key: foo
+    #       value: bar
+    #     - key: fizz
+    #       value: bizz
+  # - Maximum execution time for background tasks, in seconds.
+  rq_default_timeout: 300
+  # - The name to use for the session cookie.
+  session_cookie_name: sessionid
+  # - The name to use for the csrf token cookie.
+  csrf_cookie_name: csrftoken
+  # - Remote authentication support
+  remote_auth:
+    enabled: false
+    backend: netbox.authentication.RemoteUserBackend
+    header: header
+    auto_create_user: false
+    default_groups: []
+    default_permissions:
+      - key: dcim.change_site
+        value: None
+  # - Date/time formatting. See the following link for supported formats:
+  # - https://docs.djangoproject.com/en/stable/ref/templates/builtins/#date
+  date_time:
+    date_format: N j, Y
+    short_date_format: Y-m-d
+    time_format: g:i a
+    short_time_format: H:i:s
+    date_time_format: N j, Y g:i a
+    short_date_time_format: Y-m-d H:i
 
 persistence:
   config:

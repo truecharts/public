@@ -138,8 +138,8 @@ stringData:
 
     {{- with .Values.netbox.http_proxies }}
     HTTP_PROXIES = {
-        {{- range $k, $v := . }}
-        {{ $k | squote }}: {{ $v | squote }},
+        {{- range . }}
+        {{ .key | squote }}: {{ .url | squote }},
         {{- end }}
     }
     {{- end }}
@@ -171,4 +171,102 @@ stringData:
 
     TIME_ZONE = {{ .Values.TZ | squote }}
 
+    MEDIA_ROOT = '/opt/netbox/netbox/media'
+    REPORTS_ROOT = '/opt/netbox/netbox/reports'
+    SCRIPTS_ROOT = '/opt/netbox/netbox/scripts'
+
+    {{- with .Values.netbox.storage_backend }}
+    STORAGE_BACKEND = {{ . | squote }}
+    {{- end }}
+
+    {{- with .Values.netbox.storage_config }}
+    STORAGE_CONFIG = {
+        {{- range . }}
+        {{ .key | squote }}: {{ .value | squote }},
+        {{- end }}
+    }
+    {{- end }}
+
+    {{- with .Values.netbox.plugins }}
+    PLUGINS = [
+        {{- range . }}
+        {{ . | squote }},
+        {{- end }}
+    ]
+    {{- end }}
+
+    {{- with .Values.netbox.plugin_config }}
+    PLUGINS_CONFIG = {
+        {{- range . }}
+        {{ .plugin_name | squote }}: {
+            {{- range .config }}
+            {{ .key | squote }}: {{ .value | squote }},
+            {{- end }}
+        }
+        {{- end }}
+    }
+    {{- end }}
+
+    {{- with .Values.netbox.rq_default_timeout }}
+    RQ_DEFAULT_TIMEOUT = {{ . }}
+    {{- end }}
+
+    {{- with .Values.netbox.session_cookie_name }}
+    SESSION_COOKIE_NAME = {{ . | squote }}
+    {{- end }}
+
+    {{- with .Values.netbox.csrf_cookie_name }}
+    CSRF_COOKIE_NAME = {{ . | squote }}
+    {{- end }}
+
+    RELEASE_CHECK_URL = 'https://api.github.com/repos/netbox-community/netbox/releases'
+
+    {{- with .Values.netbox.remote_auth }}
+    {{- if .enabled }}
+    REMOTE_AUTH_ENABLED = True
+    {{- with .backend }}
+    REMOTE_AUTH_BACKEND = {{ . | squote }}
+    {{- end }}
+    {{- with .header }}
+    REMOTE_AUTH_HEADER = {{ . | squote }}
+    {{- end }}
+    REMOTE_AUTH_AUTO_CREATE_USER = {{ ternary "True" "False" .auto_create_user }}
+    {{- with .default_groups }}
+    REMOTE_AUTH_DEFAULT_GROUPS = [
+        {{- range . }}
+        {{ . | squote }},
+        {{- end }}
+    ]
+    {{- end }}
+    {{- with .default_permissions }}
+    REMOTE_AUTH_DEFAULT_PERMISSIONS = {
+        {{- range . }}
+        {{ .key | squote }}: {{ if eq .value "None" }}{{ .value }}{{ else }}{{ .value | squote }}{{ end }},
+        {{- end }}
+    }
+    {{- end }}
+    {{- end }}
+    {{- end }}
+    SESSION_FILE_PATH = None
+
+    {{- with .Values.netbox.date_time }}
+    {{- with .date_format }}
+    DATE_FORMAT = {{ . | squote }}
+    {{- end }}
+    {{- with .short_date_format }}
+    SHORT_DATE_FORMAT = {{ . | squote }}
+    {{- end }}
+    {{- with .time_format }}
+    TIME_FORMAT = {{ . | squote }}
+    {{- end }}
+    {{- with .shot_time_format }}
+    SHORT_TIME_FORMAT = {{ . | squote }}
+    {{- end }}
+    {{- with .date_time_format }}
+    DATETIME_FORMAT = {{ . | squote }}
+    {{- end }}
+    {{- with .short_date_time_format }}
+    SHORT_DATETIME_FORMAT = {{ . | squote }}
+    {{- end }}
+    {{- end }}
 {{- end }}
