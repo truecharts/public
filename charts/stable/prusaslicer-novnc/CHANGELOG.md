@@ -2,6 +2,15 @@
 
 
 
+## [prusaslicer-novnc-1.0.0](https://github.com/truecharts/charts/compare/prusaslicer-novnc-0.0.43...prusaslicer-novnc-1.0.0) (2022-10-31)
+
+### Feat
+
+- Move to stable ([#4246](https://github.com/truecharts/charts/issues/4246))
+
+
+
+
 ## [prusaslicer-novnc-0.0.43](https://github.com/truecharts/charts/compare/prusaslicer-novnc-0.0.42...prusaslicer-novnc-0.0.43) (2022-10-29)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [convos-0.0.35](https://github.com/truecharts/charts/compare/convos-0.0.34...convos-0.0.35) (2022-10-31)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4249](https://github.com/truecharts/charts/issues/4249))
+
+
+
+
 ## [convos-0.0.34](https://github.com/truecharts/charts/compare/convos-0.0.33...convos-0.0.34) (2022-10-25)
 
 ### Chore

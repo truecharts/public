@@ -2,6 +2,16 @@
 
 
 
+## [tsmuxer-1.0.17](https://github.com/truecharts/charts/compare/tsmuxer-1.0.16...tsmuxer-1.0.17) (2022-10-31)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update container image jlesage/tsmuxer to v22.10.1 ([#4250](https://github.com/truecharts/charts/issues/4250))
+
+
+
+
 ## [tsmuxer-1.0.16](https://github.com/truecharts/charts/compare/tsmuxer-1.0.15...tsmuxer-1.0.16) (2022-10-25)
 
 ### Chore

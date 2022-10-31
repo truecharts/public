@@ -2,6 +2,16 @@
 
 
 
+## [actualserver-1.0.1](https://github.com/truecharts/charts/compare/actualserver-1.0.0...actualserver-1.0.1) (2022-10-31)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update container image tccr.io/truecharts/actualserver to v22.10.25 ([#4251](https://github.com/truecharts/charts/issues/4251))
+
+
+
+
 ## [actualserver-1.0.0](https://github.com/truecharts/charts/compare/actualserver-0.0.34...actualserver-1.0.0) (2022-10-27)
 
 ### Chore

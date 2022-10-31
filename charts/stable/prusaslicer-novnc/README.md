@@ -5,13 +5,13 @@ Enjoy Prusaslicer directly in your browser with this easy to use Chart Chart.
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [prusaslicer-novnc](https://truecharts.org/docs/charts/incubator/prusaslicer-novnc)
+For more information, please click here: [prusaslicer-novnc](https://truecharts.org/docs/charts/stable/prusaslicer-novnc)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/prusaslicer-novnc>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/prusaslicer-novnc>
 * <https://www.prusa3d.com/prusaslicer/>
 * <https://hub.docker.com/r/mikeah/prusaslicer-novnc>
 

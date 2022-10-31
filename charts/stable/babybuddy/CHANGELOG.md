@@ -2,6 +2,16 @@
 
 
 
+## [babybuddy-8.0.64](https://github.com/truecharts/charts/compare/babybuddy-8.0.63...babybuddy-8.0.64) (2022-10-31)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4249](https://github.com/truecharts/charts/issues/4249))
+
+
+
+
 ## [babybuddy-8.0.63](https://github.com/truecharts/charts/compare/babybuddy-8.0.62...babybuddy-8.0.63) (2022-10-25)
 
 ### Chore

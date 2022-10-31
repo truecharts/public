@@ -2,6 +2,16 @@
 
 
 
+## [wikijs-7.0.51](https://github.com/truecharts/charts/compare/wikijs-7.0.50...wikijs-7.0.51) (2022-10-31)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4249](https://github.com/truecharts/charts/issues/4249))
+
+
+
+
 ## [wikijs-7.0.50](https://github.com/truecharts/charts/compare/wikijs-7.0.49...wikijs-7.0.50) (2022-10-25)
 
 ### Chore

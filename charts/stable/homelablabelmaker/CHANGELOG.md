@@ -2,6 +2,15 @@
 
 
 
+## [homelablabelmaker-1.1.0](https://github.com/truecharts/charts/compare/homelablabelmaker-1.0.3...homelablabelmaker-1.1.0) (2022-10-31)
+
+### Feat
+
+- Move to Stable ([#4253](https://github.com/truecharts/charts/issues/4253))
+
+
+
+
 ## [homelablabelmaker-1.0.3](https://github.com/truecharts/charts/compare/homelablabelmaker-1.0.2...homelablabelmaker-1.0.3) (2022-10-25)
 
 ### Chore
