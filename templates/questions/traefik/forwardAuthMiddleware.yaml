@@ -34,7 +34,10 @@
                         type: dict
                         attrs:
                           - variable: insecureSkipVerify
-                            label: insecureSkipVerify
+                            label: insecureSkipVerify (expert)
+                            description: >-
+                              This disables all TLS certificate validation on communications with the authentication endpoint.
+                              This could be a security risk and should only be used if you know what you are doing.
                             schema:
                               type: boolean
                               default: false
