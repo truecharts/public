@@ -45,14 +45,14 @@ stringData:
             'PASSWORD': '{{ .Values.redis.redisPassword | trimAll "\"" | b64enc }}',
             'DATABASE': 0,
             'SSL': False,
-          },
-          'caching': {
+        },
+        'caching': {
             'HOST': 'redis://:{{ printf "%v-%v" .Release.Name "redis" }}',
             'PORT': 6379,
             'PASSWORD': '{{ .Values.redis.redisPassword | trimAll "\"" | b64enc }}',
             'DATABASE': 1,
             'SSL': False,
-          }
+        }
     }
 
     SECRET_KEY = '{{ $secret_key }}'
