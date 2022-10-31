@@ -60,11 +60,11 @@ netbox:
     # - dcim.region
     # - ipam.prefix
   # - HTTP proxies NetBox should use when sending outbound HTTP requests (e.g. for webhooks).
-  http_proxies:
-    - key: http
-      url: http://10.10.1.10:3128
-    - key: https
-      url: http://10.10.1.10:1080
+  http_proxies: []
+    # - key: http
+    #   url: http://10.10.1.10:3128
+    # - key: https
+    #   url: http://10.10.1.10:1080
   # - IP addresses recognized as internal to the system. The debugging toolbar will be available only to clients accessing
   # - NetBox from an internal IP.
   internal_ips:
@@ -99,9 +99,9 @@ netbox:
     # - key: AWS_S3_REGION_NAME
     #   value: eu-west-1
   # - Enable installed plugins. Add the name of each plugin to the list.
-  plugins:
-    - plugin1
-    - plugin2
+  plugins: []
+    # - plugin1
+    # - plugin2
   # - Plugins configuration settings. These settings are used by various plugins that the user may have installed.
   plugin_config: []
     # - plugin_name: plugin1
@@ -117,15 +117,15 @@ netbox:
   # - The name to use for the csrf token cookie.
   csrf_cookie_name: csrftoken
   # - Remote authentication support
-  remote_auth:
-    enabled: false
-    backend: netbox.authentication.RemoteUserBackend
-    header: header
-    auto_create_user: false
-    default_groups: []
-    default_permissions:
-      - key: dcim.change_site
-        value: None
+  remote_auth: {}
+    # enabled: false
+    # backend: netbox.authentication.RemoteUserBackend
+    # header: header
+    # auto_create_user: false
+    # default_groups: []
+    # default_permissions:
+    #   - key: dcim.change_site
+    #     value: None
   # - Date/time formatting. See the following link for supported formats:
   # - https://docs.djangoproject.com/en/stable/ref/templates/builtins/#date
   date_time:
@@ -167,7 +167,6 @@ postgresql:
 redis:
   enabled: true
   existingSecret: rediscreds
-  redisUsername: netbox
 
 portal:
   enabled: true
