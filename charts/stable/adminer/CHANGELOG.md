@@ -2,6 +2,15 @@
 
 
 
+## [adminer-1.0.0](https://github.com/truecharts/charts/compare/adminer-0.0.38...adminer-1.0.0) (2022-10-31)
+
+### Feat
+
+- Move to Stable ([#4254](https://github.com/truecharts/charts/issues/4254))
+
+
+
+
 ## [adminer-0.0.38](https://github.com/truecharts/charts/compare/adminer-0.0.37...adminer-0.0.38) (2022-10-29)
 
 ### Chore
