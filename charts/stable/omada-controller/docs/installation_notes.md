@@ -11,7 +11,7 @@ Our chart by default runs on interal port `443` however those not running `Ingre
 
 ## Finding APs / Omada Discovery Utility
 
-By default the `omada-controller` chart doesn't support discovery by APs on the same network. 
+By default the `omada-controller` chart doesn't support discovery by APs on the same network.
 
 **The solution**
 
