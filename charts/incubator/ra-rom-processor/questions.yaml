@@ -47,7 +47,6 @@ questions:
           description: "Amount of time between each script run | #s or #m or #h or #d  s = seconds, m = minutes, h = hours, d = days."
           schema:
             type: string
-            show_if: [[AutoStart, =, "true"]]
             default: 1h
         - variable: DeDupe
           label: DeDupe
@@ -66,7 +65,6 @@ questions:
           description: Number of concurrent threads to increase download speeds.
           schema:
             type: int
-            show_if: [[AquireRomSets, =, "true"]]
             default: 5
         - variable: EnableUnsupportedPlatforms
           label: Enable Unsupported Platforms
