@@ -2,6 +2,16 @@
 
 
 
+## [homer-2.0.46](https://github.com/truecharts/charts/compare/homer-2.0.45...homer-2.0.46) (2022-11-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4260](https://github.com/truecharts/charts/issues/4260))
+
+
+
+
 ## [homer-2.0.45](https://github.com/truecharts/charts/compare/homer-2.0.44...homer-2.0.45) (2022-10-25)
 
 ### Chore

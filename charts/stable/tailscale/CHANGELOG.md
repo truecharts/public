@@ -2,6 +2,16 @@
 
 
 
+## [tailscale-1.1.16](https://github.com/truecharts/charts/compare/tailscale-1.1.15...tailscale-1.1.16) (2022-11-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4260](https://github.com/truecharts/charts/issues/4260))
+
+
+
+
 ## [tailscale-1.1.15](https://github.com/truecharts/charts/compare/tailscale-1.1.14...tailscale-1.1.15) (2022-10-29)
 
 ### Chore

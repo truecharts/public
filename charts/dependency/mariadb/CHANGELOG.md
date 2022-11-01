@@ -2,6 +2,16 @@
 
 
 
+## [mariadb-3.0.108](https://github.com/truecharts/charts/compare/mariadb-3.0.107...mariadb-3.0.108) (2022-11-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4260](https://github.com/truecharts/charts/issues/4260))
+
+
+
+
 ## [collabora-online-12.1.63](https://github.com/truecharts/charts/compare/collabora-online-12.1.62...collabora-online-12.1.63) (2022-10-30)
 
 ### Chore

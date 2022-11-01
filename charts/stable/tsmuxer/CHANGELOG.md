@@ -2,6 +2,16 @@
 
 
 
+## [tsmuxer-1.0.18](https://github.com/truecharts/charts/compare/tsmuxer-1.0.17...tsmuxer-1.0.18) (2022-11-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4260](https://github.com/truecharts/charts/issues/4260))
+
+
+
+
 ## [tsmuxer-1.0.17](https://github.com/truecharts/charts/compare/tsmuxer-1.0.16...tsmuxer-1.0.17) (2022-10-31)
 
 ### Chore

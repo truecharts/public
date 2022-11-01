@@ -2,6 +2,16 @@
 
 
 
+## [obs-ndi-0.0.35](https://github.com/truecharts/charts/compare/obs-ndi-0.0.34...obs-ndi-0.0.35) (2022-11-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4260](https://github.com/truecharts/charts/issues/4260))
+
+
+
+
 ## [obs-ndi-0.0.34](https://github.com/truecharts/charts/compare/obs-ndi-0.0.33...obs-ndi-0.0.34) (2022-10-25)
 
 ### Chore
