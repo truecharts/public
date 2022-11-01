@@ -15,6 +15,14 @@ env:
   VIRTUAL_HOST: ""
   VIRTUAL_PORT: "{{ .Values.service.main.ports.main.port }}"
 
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
 service:
   main:
     ports:
