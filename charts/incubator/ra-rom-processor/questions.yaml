@@ -88,50 +88,10 @@ questions:
             default: true
         - variable: skyscraperLanguagePreference
           label: Skyscaper Language
+          description: "Set to preferred language for Metadata, for more info -> https://github.com/muldjord/skyscraper/blob/master/docs/LANGUAGES.md#list-of-supported-languages"
           schema:
             type: string
             default: en
-            enum:
-              - value: en
-                description: English
-              - value: es
-                description: Spanish
-              - value: de
-                description: German
-              - value: fr
-                description: French
-              - value: zh
-                description: Chinese
-              - value: ko
-                description: Korean
-              - value: da
-                description: Danish
-              - value: fi
-                description: Finnish
-              - value: hu
-                description: Hungarian
-              - value: hu
-                description: Italian
-              - value: ja
-                description: Japanese
-              - value: nl
-                description: Dutch
-              - value: "no"
-                description: Norwegian
-              - value: pl
-                description: Polish
-              - value: pt
-                description: Portuguese
-              - value: ru
-                description: Russian
-              - value: sk
-                description: Slovakian
-              - value: sv
-                description: Swedish
-              - value: cz
-                description: Czech
-              - value: tr
-                description: Turkish
 # Include{containerConfig}
 # Include{serviceExpertRoot}
             default: false
