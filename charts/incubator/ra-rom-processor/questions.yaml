@@ -47,42 +47,42 @@ questions:
           description: #s or #m or #h or #d  s = seconds, m = minutes, h = hours, d = days  Amount of time between each script run, when AUTOSTART is enabled
           schema:
             type: string
-            default: "1h"
+            default: 1h
             show_if: [[AutoStart, =, true]]
         - variable: DeDupe
           label: DeDupe
-          description: If checked this setting further reduces the final ROMs list per platform, by removing duplicates with the priority of USA  Europe  World  Japan, and then by shortest filename when multiples exist
+          description: If checked this setting further reduces the final ROMs list per platform, by removing duplicates.
           schema:
             type: boolean
             default: false
         - variable: AquireRomSets
           label: Aquire Rom Sets
-          description: Enabling this will have the script attempt to pull valid ROM sets from archive.org for processing
+          description: Enabling this will have the script attempt to pull valid ROM sets from archive.org for processing.
           schema:
             type: boolean
             default: false
         - variable: ConcurrentDownloadThreads
           label: Concurrent Download Threads
-          description: Number of concurrent threads to increase download speed... only aplicable if AquireRomSets is enabled (true)
+          description: Number of concurrent threads to increase download speeds.
           schema:
             type: int
             default: 5
             show_if: [[AquireRomSets, =, true]]
         - variable: EnableUnsupportedPlatforms
           label: Enable Unsupported Platforms
-          description: Enabling this will allow the script to import and scrape ROMs for platforms without RA hashes, no dedupingvalidation is performed
+          description: Enabling this will allow the script to import and scrape ROMs for platforms without RA hashes.
           schema:
             type: boolean
             default: false
         - variable: ScrapeMetadata
           label: Scrape Metadata
-          description: Enabling this will allow the script to process the ROMs with skyscraper
+          description: Enabling this will allow the script to process the ROMs with skyscraper.
           schema:
             type: boolean
             default: false
         - variable: keepBackupsOfImportedRoms
           label: keep Backups Of Imported Roms
-          description: If unchecked this setting will only keep a single copy of each ROM, reduces the required amount of storage space...
+          description: If unchecked this setting will only keep a single copy of each ROM, reduces the required amount of storage space.
           schema:
             type: boolean
             default: true
@@ -214,13 +214,13 @@ questions:
           description: The UserID of the user running the application
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: runAsGroup
           label: runAsGroup
           description: The groupID this App of the user running the application
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: fsGroup
           label: fsGroup
           description: The group that should own ALL storage.
