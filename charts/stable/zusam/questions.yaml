@@ -24,22 +24,20 @@ questions:
           schema:
             type: string
             required: true
-            default: 
+            default: ""
         - variable: INIT_GROUP
           label: Init Group
-          description: 
           schema:
             type: string
             required: true
-            default: 
+            default: ""
         - variable: INIT_PASSWORD
           label: Init Password
-          description: 
           schema:
             type: string
             required: true
             private: true
-            default: 
+            default: ""
   - variable: env
     group: Container Configuration
     label: Image Environment
@@ -52,7 +50,7 @@ questions:
           description: DOMAIN is used to generate urls
           schema:
             type: string
-            default: 
+            default: ""
         - variable: LANG
           label: Language
           schema:
@@ -140,13 +138,13 @@ questions:
                 label: Mailer Username
                 schema:
                   type: string
-                  default: 
+                  default: ""
               - variable: mailer_password
                 label: Mailer Passowrd
                 schema:
                   type: string
                   private: true
-                  default: 
+                  default: ""
               - variable: mailer_port
                 label: Mailer Port
                 schema:
@@ -156,7 +154,7 @@ questions:
                 label: Mailer Host
                 schema:
                   type: string
-                  default: 
+                  default: ""
               - variable: mailer_transport
                 label: Mailer Transport
                 schema:
