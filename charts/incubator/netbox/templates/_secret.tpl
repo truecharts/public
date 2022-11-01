@@ -32,7 +32,7 @@ stringData:
     DATABASE = {
         'NAME': '{{ .Values.postgresql.postgresqlDatabase }}',
         'USER': '{{ .Values.postgresql.postgresqlUsername }}',
-        'PASSWORD': '{{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}',
+        'PASSWORD': '{{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}',
         'HOST': '{{ printf "%v-%v" .Release.Name "postgresql" }}',
         'PORT': '5432',
         'CONN_MAX_AGE': '300',
