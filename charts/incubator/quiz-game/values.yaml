@@ -11,23 +11,12 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-env:
-  VIRTUAL_HOST: ""
-  VIRTUAL_PORT: "{{ .Values.service.main.ports.main.port }}"
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-
 service:
   main:
     ports:
       main:
         protocol: HTTP
+        targetPort: 80
         port: 10588
 
 persistence:
