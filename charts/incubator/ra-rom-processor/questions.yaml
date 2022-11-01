@@ -19,13 +19,13 @@ questions:
       attrs:
         - variable: ScreenscraperUsername
           label: Screenscraper Username
-          description: Username for httpsscreenscraper.fr
+          description: Username for `screenscraper.fr`.
           schema:
             type: string
             default: ""
         - variable: ScreenscraperPassword
           label: Screenscraper Password
-          description: Password for httpsscreenscraper.fr
+          description: Password for `screenscraper.fr`.
           schema:
             type: string
             default: ""
@@ -48,7 +48,7 @@ questions:
           schema:
             type: string
             default: 1h
-            show_if: [[AutoStart, =, true]]
+            show_if: [[AutoStart, =, "true"]]
         - variable: DeDupe
           label: DeDupe
           description: If checked this setting further reduces the final ROMs list per platform, by removing duplicates.
@@ -67,7 +67,7 @@ questions:
           schema:
             type: int
             default: 5
-            show_if: [[AquireRomSets, =, true]]
+            show_if: [[AquireRomSets, =, "true"]]
         - variable: EnableUnsupportedPlatforms
           label: Enable Unsupported Platforms
           description: Enabling this will allow the script to import and scrape ROMs for platforms without RA hashes.
