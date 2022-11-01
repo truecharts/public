@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "3.6.8"
+appVersion: "4.4.5"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -21,11 +21,9 @@ maintainers:
     url: https://truecharts.org
 name: strapi
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/strapi
-  - https://hub.docker.com/r/strapi/strapi
-  - https://github.com/strapi/strapi
-  - https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/installation/docker.html#creating-a-strapi-project
-version: 4.0.46
+  - https://hub.docker.com/r/naskio/strapi
+  - https://github.com/naskio/docker-strapi
+version: 5.0.0
 annotations:
   truecharts.org/catagories: |
     - media
