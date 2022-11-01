@@ -2,6 +2,15 @@
 
 
 
+## [youtubedl-material-1.1.0](https://github.com/truecharts/charts/compare/youtubedl-material-1.0.16...youtubedl-material-1.1.0) (2022-11-01)
+
+### Feat
+
+- Move to Stable ([#4263](https://github.com/truecharts/charts/issues/4263))
+
+
+
+
 ## [youtubedl-material-1.0.16](https://github.com/truecharts/charts/compare/youtubedl-material-1.0.15...youtubedl-material-1.0.16) (2022-10-25)
 
 ### Chore

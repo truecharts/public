@@ -5,13 +5,13 @@ YoutubeDL-Material is a Material Design frontend for youtube-dl.
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [youtubedl-material](https://truecharts.org/docs/charts/incubator/youtubedl-material)
+For more information, please click here: [youtubedl-material](https://truecharts.org/docs/charts/stable/youtubedl-material)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/youtubedl-material>
+* <https://github.com/truecharts/charts/tree/master/charts/stable/youtubedl-material>
 * <https://hub.docker.com/r/tzahi12345/youtubedl-material>
 * <https://github.com/Tzahi12345/YoutubeDL-Material>
 
