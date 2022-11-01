@@ -18,7 +18,6 @@ readinessProbe:
   httpGet:
     path: /docs
     port: {{ .Values.service.api.ports.api.targetPort }}
-    {{/* port: {{ .Values.service.api.ports.api.targetPort }} */}}
   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
@@ -27,7 +26,6 @@ livenessProbe:
   httpGet:
     path: /docs
     port: {{ .Values.service.api.ports.api.targetPort }}
-    {{/* port: {{ .Values.service.api.ports.api.targetPort }} */}}
   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
@@ -36,7 +34,6 @@ startupProbe:
   httpGet:
     path: /docs
     port: {{ .Values.service.api.ports.api.targetPort }}
-    {{/* port: {{ .Values.service.api.ports.api.targetPort }} */}}
   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
