@@ -40,16 +40,16 @@ stringData:
 
     REDIS = {
         'tasks': {
-            'HOST': 'redis://:{{ printf "%v-%v" .Release.Name "redis" }}',
+            'HOST': '{{ printf "%v-%v" .Release.Name "redis" }}',
             'PORT': 6379,
-            'PASSWORD': '{{ .Values.redis.redisPassword | trimAll "\"" | b64enc }}',
+            'PASSWORD': '{{ .Values.redis.redisPassword | trimAll "\"" }}',
             'DATABASE': 0,
             'SSL': False,
         },
         'caching': {
-            'HOST': 'redis://:{{ printf "%v-%v" .Release.Name "redis" }}',
+            'HOST': '{{ printf "%v-%v" .Release.Name "redis" }}',
             'PORT': 6379,
-            'PASSWORD': '{{ .Values.redis.redisPassword | trimAll "\"" | b64enc }}',
+            'PASSWORD': '{{ .Values.redis.redisPassword | trimAll "\"" }}',
             'DATABASE': 1,
             'SSL': False,
         }
