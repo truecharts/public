@@ -2,6 +2,11 @@
 
 
 
+## [retrobot-1.0.0](https://github.com/truecharts/charts/compare/retrobot-0.0.4...retrobot-1.0.0) (2022-11-01)
+
+
+
+
 ## [retrobot-0.0.4](https://github.com/truecharts/charts/compare/retrobot-0.0.3...retrobot-0.0.4) (2022-10-29)
 
 ### Chore
