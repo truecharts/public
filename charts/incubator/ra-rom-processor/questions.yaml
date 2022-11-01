@@ -47,8 +47,8 @@ questions:
           description: "Amount of time between each script run | #s or #m or #h or #d  s = seconds, m = minutes, h = hours, d = days."
           schema:
             type: string
+            show_if: [[AutoStart, =, "true"]]
             default: 1h
-            # show_if: [[AutoStart, =, "true"]]
         - variable: DeDupe
           label: DeDupe
           description: If checked this setting further reduces the final ROMs list per platform, by removing duplicates.
@@ -66,8 +66,8 @@ questions:
           description: Number of concurrent threads to increase download speeds.
           schema:
             type: int
+            show_if: [[AquireRomSets, =, "true"]]
             default: 5
-            # show_if: [[AquireRomSets, =, "true"]]
         - variable: EnableUnsupportedPlatforms
           label: Enable Unsupported Platforms
           description: Enabling this will allow the script to import and scrape ROMs for platforms without RA hashes.
