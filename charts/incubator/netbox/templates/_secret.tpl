@@ -35,7 +35,7 @@ stringData:
         'PASSWORD': '{{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}',
         'HOST': '{{ printf "%v-%v" .Release.Name "postgresql" }}',
         'PORT': '5432',
-        'CONN_MAX_AGE': '300',
+        'CONN_MAX_AGE': 300,
     }
 
     REDIS = {
