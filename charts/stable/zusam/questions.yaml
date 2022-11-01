@@ -13,233 +13,230 @@ questions:
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: secretEnv
-    group: "Container Configuration"
-    label: "Image Secrets"
+    group: Container Configuration
+    label: Image Secrets
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: INIT_USER
-          label: "INIT_USER"
-          description: ""
+          label: Init User
           schema:
             type: string
             required: true
             default: ""
         - variable: INIT_GROUP
-          label: "INIT_GROUP"
-          description: ""
+          label: Init Group
           schema:
             type: string
             required: true
             default: ""
         - variable: INIT_PASSWORD
-          label: "INIT_PASSWORD"
-          description: ""
+          label: Init Password
           schema:
             type: string
             required: true
             private: true
             default: ""
   - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
+    group: Container Configuration
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: DOMAIN
-          label: "DOMAIN"
-          description: "DOMAIN is used to generate urls"
+          label: Domain
+          description: DOMAIN is used to generate urls
           schema:
             type: string
             default: ""
         - variable: LANG
-          label: "LANG"
+          label: Language
           schema:
             type: string
             required: true
-            default: "en"
+            default: en
         - variable: ALLOW_BOTS
-          label: "ALLOW_BOTS"
+          label: Allow Bots
           schema:
             type: boolean
             default: false
         - variable: ALLOW_VIDEO_UPLOAD
-          label: "ALLOW_VIDEO_UPLOAD"
+          label: Allow Video Upload
           schema:
             type: boolean
             default: true
         - variable: ALLOW_IMAGE_UPLOAD
-          label: "ALLOW_IMAGE_UPLOAD"
+          label: Allow Image Upload
           schema:
             type: boolean
             default: true
         - variable: ALLOW_PDF_UPLOAD
-          label: "ALLOW_PDF_UPLOAD"
+          label: Allow PDF Upload
           schema:
             type: boolean
             default: true
         - variable: ALLOW_AUDIO_UPLOAD
-          label: "ALLOW_AUDIO_UPLOAD"
+          label: Allow Audio Upload
           schema:
             type: boolean
             default: true
         - variable: IDLE_HOURS
-          label: "IDLE_HOURS"
-          description: "IDLE_HOURS indicate hours during which heavy operations can occur"
+          label: Idle Hours
+          description: Indicate hours during which heavy operations can occur
           schema:
             type: string
             required: true
-            default: "01-07"
+            default: 01-07
         - variable: VIDEO_CONVERSION_THREADS
-          label: "VIDEO_CONVERSION_THREADS"
-          description: "Number of threads to use for video conversion"
+          label: Video Coversion Threads
+          description: Number of threads to use for video conversion
           schema:
             type: int
             required: true
             default: 1
         - variable: VIDEO_FORMAT_NOT_CONVERTED
-          label: "VIDEO_FORMAT_NOT_CONVERTED"
-          description: "VIDEO_FORMAT_NOT_CONVERTED is a comma (',') separated list"
+          label: Video Format Not Converted
+          description: VIDEO_FORMAT_NOT_CONVERTED is a comma (',') separated list
           schema:
             type: string
             required: true
-            default: "video/mp4"
+            default: video/mp4
         - variable: VIDEO_SIZE_NOT_CONVERTED
-          label: "VIDEO_SIZE_NOT_CONVERTED"
-          description: "VIDEO_SIZE_NOT_CONVERTED is in Mo"
+          label: Video Size Not Converted
+          description: VIDEO_SIZE_NOT_CONVERTED is in Mo
           schema:
             type: int
             required: true
             default: 10
         - variable: MAX_TASK_LOCK_DURATION
-          label: "MAX_TASK_LOCK_DURATION"
-          description: "This is the time in seconds before it considers the task as stalled and clears the lock"
+          label: Max Task Lock Duration
+          description: This is the time in seconds before it considers the task as stalled and clears the lock
           schema:
             type: int
             required: true
             default: 14400
         - variable: ALLOW_EMAIL
-          label: "ALLOW_EMAIL"
+          label: Allow Email
           schema:
             type: boolean
             default: false
             show_subquestions_if: true
             subquestions:
               - variable: MAILER_DSN
-                label: "MAILER_DSN"
+                label: Mailer DSN
                 schema:
                   type: string
-                  default: "null://localhost"
+                  default: null://localhost
               - variable: mailer_auth_mode
-                label: "mailer_auth_mode"
+                label: Mailer Auth Mode
                 schema:
                   type: string
-                  default: "cram-md5"
+                  default: cram-md5
               - variable: mailer_username
-                label: "mailer_username"
+                label: Mailer Username
                 schema:
                   type: string
                   default: ""
               - variable: mailer_password
-                label: "mailer_password"
+                label: Mailer Passowrd
                 schema:
                   type: string
                   private: true
                   default: ""
               - variable: mailer_port
-                label: "mailer_port"
+                label: Mailer Port
                 schema:
                   type: int
                   default: 587
               - variable: mailer_host
-                label: "mailer_host"
+                label: Mailer Host
                 schema:
                   type: string
                   default: ""
               - variable: mailer_transport
-                label: "mailer_transport"
+                label: Mailer Transport
                 schema:
                   type: string
-                  default: "smtp"
+                  default: smtp
               - variable: mailer_encryption
-                label: "mailer_encryption"
+                label: Mailer Encryption
                 schema:
                   type: string
-                  default: "tls"
+                  default: tls
         - variable: enable_cron_config
-          label: "Configure Cron"
+          label: Configure Cron
           schema:
             type: boolean
             default: false
             show_subquestions_if: true
             subquestions:
               - variable: CRON_CONVERT_IMAGES
-                label: "CRON_CONVERT_IMAGES"
-                description: "Task execution intervals in seconds"
+                label: CRON Convert Images
+                description: Task execution intervals in seconds
                 schema:
                   type: int
                   default: 60
               - variable: CRON_CONVERT_VIDEO
-                label: "CRON_CONVERT_VIDEO"
-                description: "Task execution intervals in seconds"
+                label: CRON Convert Video
+                description: Task execution intervals in seconds
                 schema:
                   type: int
                   default: 3600
               - variable: CRON_NOTIFICATION_EMAILS
-                label: "CRON_NOTIFICATION_EMAILS"
-                description: "Task execution intervals in seconds"
+                label: CRON Notification Emails
+                description: Task execution intervals in seconds
                 schema:
                   type: int
                   default: 3600
               - variable: CRON_COMPRESS_GIFS
-                label: "CRON_COMPRESS_GIFS"
-                description: "Task execution intervals in seconds"
+                label: CRON Compress GIFs
+                description: Task execution intervals in seconds
                 schema:
                   type: int
                   default: 3600
               - variable: CRON_BOT_ACTIVATE
-                label: "CRON_BOT_ACTIVATE"
-                description: "Task execution intervals in seconds"
+                label: CRON Bot Activate
+                description: Task execution intervals in seconds
                 schema:
                   type: int
                   default: 3600
               - variable: CRON_CLEAN_CACHE
-                label: "CRON_CLEAN_CACHE"
-                description: "Task execution intervals in seconds"
+                label: CRON Clean Cache
+                description: Task execution intervals in seconds
                 schema:
                   type: int
                   default: 86400
               - variable: CRON_CLEAN_NOTIFICATIONS
-                label: "CRON_CLEAN_NOTIFICATIONS"
-                description: "Task execution intervals in seconds"
+                label: CRON Clean Notifications
+                description: Task execution intervals in seconds
                 schema:
                   type: int
                   default: 604800
               - variable: CRON_CLEAN_FILES
-                label: "CRON_CLEAN_FILES"
-                description: "Task execution intervals in seconds"
+                label: CRON Clean Files
+                description: Task execution intervals in seconds
                 schema:
                   type: int
                   default: 604800
               - variable: CRON_CLEAN_MESSAGES
-                label: "CRON_CLEAN_MESSAGES"
-                description: "Task execution intervals in seconds"
+                label: CRON Clean Messages
+                description: Task execution intervals in seconds
                 schema:
                   type: int
                   default: 604800
               - variable: CRON_CLEAN_GROUPS
-                label: "CRON_CLEAN_GROUPS"
-                description: "Task execution intervals in seconds"
+                label: CRON Clean Groups
+                description: Task execution intervals in seconds
                 schema:
                   type: int
                   default: 2592000
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -247,22 +244,22 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 10283
                               required: true
 # Include{advancedPortHTTP}
                                 - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
+                                  label: Target Port
+                                  description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
                                     default: 8080
@@ -272,8 +269,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: data
-          label: "App Data Storage"
-          description: "Stores the Application Data."
+          label: App Data Storage
+          description: Stores the Application Data.
           schema:
             additional_attrs: true
             type: dict
@@ -283,7 +280,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -296,42 +293,42 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
