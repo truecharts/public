@@ -2,6 +2,16 @@
 
 
 
+## [mealie-11.0.0](https://github.com/truecharts/charts/compare/mealie-10.0.10...mealie-11.0.0) (2022-11-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - use API_PORT variable to change api port ([#4270](https://github.com/truecharts/charts/issues/4270))
+
+
+
+
 ## [mealie-10.0.10](https://github.com/truecharts/charts/compare/mealie-10.0.9...mealie-10.0.10) (2022-10-25)
 
 ### Chore
