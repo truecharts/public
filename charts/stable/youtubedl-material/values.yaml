@@ -31,8 +31,8 @@ env:
   ytdl_subscriptions_check_interval: 86400
   ytdl_subscriptions_redownload_fresh_uploads: false
   ytdl_allow_theme_change: true
-  ytdl_default_theme: "default"
-  ytdl_title_top: "YoutubeDL-Material"
+  ytdl_default_theme: default
+  ytdl_title_top: YoutubeDL-Material
   ytdl_file_manager_enabled: true
   ytdl_enable_downloads_manager: true
   ytdl_allow_quality_select: true
@@ -53,10 +53,10 @@ env:
   ytdl_include_metadata: true
   ytdl_max_concurrent_downloads: 5
   ytdl_download_rate_limit: ""
-  ytdl_default_downloader: "yt-dlp"
+  ytdl_default_downloader: yt-dlp
   ytdl_use_default_downloading_agent: true
   ytdl_custom_downloading_agent: ""
-  ytdl_logger_level: "debug"
+  ytdl_logger_level: debug
   ytdl_jwt_expiration: 86400
   ytdl_allow_advanced_download: false
   ytdl_use_cookies: false
@@ -70,23 +70,23 @@ service:
 persistence:
   appdata:
     enabled: true
-    mountPath: "/app/appdata"
+    mountPath: /app/appdata
   users:
     enabled: true
-    mountPath: "/app/users"
+    mountPath: /app/users
   subscriptions:
     enabled: true
-    mountPath: "/app/subscriptions"
+    mountPath: /app/subscriptions
   audio:
     enabled: true
-    mountPath: "/app/audio"
+    mountPath: /app/audio
   video:
     enabled: true
-    mountPath: "/app/video"
+    mountPath: /app/video
 
 mongodb:
   enabled: true
-  existingSecret: "mongodbcreds"
+  existingSecret: mongodbcreds
   mongodbUsername: ytdl_material
   # DB name seems to be harcoded in their app
   mongodbDatabase: ytdl_material
