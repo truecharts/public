@@ -13,6 +13,19 @@ questions:
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: BASE_URL
+          label: "Base url"
+          description: "set hostname `https://search.mydomain.com`"
+          schema:
+            type: string
+            default: "http://0.0.0.0:8080"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -49,8 +62,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: "config Storage"
-          description: "Contain config files"
+          label: App Config Storage
+          description: Stores the Application Configuration.
           schema:
             additional_attrs: true
             type: dict

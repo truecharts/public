@@ -20,11 +20,17 @@ questions:
       type: dict
       attrs:
         - variable: INSTANCE_NAME
-          label: "INSTANCE_NAME"
+          label: "Instance Name"
           description: "Your SearXNG instance name"
           schema:
             type: string
-            default: ""
+            default: "SearXng"
+        - variable: BASE_URL
+          label: "Base url"
+          description: "set base url like so `https://search.mydomain.com`"
+          schema:
+            type: string
+            default: "http://0.0.0.0:8080"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -62,8 +68,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: "config Storage"
-          description: "SearXNGs config location"
+          label: App Config Storage
+          description: Stores the Application Configuration.
           schema:
             additional_attrs: true
             type: dict
