@@ -13,19 +13,6 @@ questions:
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
-  - variable: env
-    group: Container Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: VIRTUAL_HOST
-          label: Virtual Host
-          description: web portal. ex -> quiz.mydomain.com
-          schema:
-            type: string
-            default: ""
 # Include{serviceRoot}
         - variable: main
           label: Main Service
@@ -55,7 +42,7 @@ questions:
                                   description: The internal(!) port on the container the Application runs on
                                   schema:
                                     type: int
-                                    default: 10588
+                                    default: 80
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -112,13 +99,13 @@ questions:
           description: The UserID of the user running the application
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: runAsGroup
           label: runAsGroup
           description: The groupID this App of the user running the application
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: fsGroup
           label: fsGroup
           description: The group that should own ALL storage.

@@ -2,6 +2,16 @@
 
 
 
+## [solr-0.0.81](https://github.com/truecharts/charts/compare/solr-0.0.80...solr-0.0.81) (2022-11-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.7.13 ([#4268](https://github.com/truecharts/charts/issues/4268))
+
+
+
+
 ## [solr-0.0.80](https://github.com/truecharts/charts/compare/solr-0.0.79...solr-0.0.80) (2022-11-01)
 
 ### Chore

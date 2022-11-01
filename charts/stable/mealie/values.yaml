@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/mealie-frontend
-  tag: v1.0.0beta@sha256:be031b8c1c6a1698f18e7750a1482ca85f6c311bbb594cf8da46d0e206b0729a
+  tag: v1.0.0beta@sha256:4158c31d037c2ece8931d2e2b120654b6f658b020f9273e8a2cc289d9e715552
   pullPolicy: IfNotPresent
 
 apiImage:
   repository: tccr.io/truecharts/mealie-api
-  tag: v1.0.0beta@sha256:4dad1521060d896c2e4782f57ca48007e831b2df497746637eb8f2d6a4a23c90
+  tag: v1.0.0beta@sha256:1a3b047474f908ae97a78d0f679892aa0f1bbea1e97abaf57c115df1b33d398a
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -72,13 +72,13 @@ envFrom:
 probes:
   liveness:
     type: HTTP
-    path: "/"
+    path: /
   readiness:
     type: HTTP
-    path: "/"
+    path: /
   startup:
     type: HTTP
-    path: "/"
+    path: /
 
 service:
   main:
@@ -95,16 +95,15 @@ service:
         enabled: true
         protocol: HTTP
         port: 10019
-        targetPort: 9000
 
 persistence:
   data:
     enabled: true
-    mountPath: "/app/data"
+    mountPath: /app/data
 
 postgresql:
   enabled: true
-  existingSecret: "dbcreds"
+  existingSecret: dbcreds
   postgresqlUsername: mealie
   postgresqlDatabase: mealie
 
