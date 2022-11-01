@@ -10,123 +10,173 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  - variable: env
+  - variable: secretEnv
     group: "Container Configuration"
-    label: "Image Environment"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: ScreenscraperUsername
+          label: Screenscraper Username
+          description: Username for httpsscreenscraper.fr
+          schema:
+            type: string
+            default: ""
+        - variable: ScreenscraperPassword
+          label: Screenscraper Password
+          description: Password for httpsscreenscraper.fr
+          schema:
+            type: string
+            default: ""
+  - variable: env
+    group: Container Configuration
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: AutoStart
-          label: "AutoStart"
-          description: "true = Enabled  Runs script automatically on startup"
+          label: Auto Start
+          description: If checked runs script automatically on startup
           schema:
-            type: string
-            default: ""
+            type: boolean
+            default: false
         - variable: ScriptInterval
-          label: "ScriptInterval"
-          description: "#s or #m or #h or #d  s = seconds, m = minutes, h = hours, d = days  Amount of time between each script run, when AUTOSTART is enabled"
+          label: Script Interval
+          description: #s or #m or #h or #d  s = seconds, m = minutes, h = hours, d = days  Amount of time between each script run, when AUTOSTART is enabled
           schema:
             type: string
-            default: ""
+            default: "1h"
+            show_if: [[AutoStart, =, true]]
         - variable: DeDupe
-          label: "DeDupe"
-          description: "true = Enabled  This setting further reduces the final ROMs list per platrom, by removing duplicates with the priority of USA  Europe  World  Japan, and then by shortest filename when multiples exist"
+          label: DeDupe
+          description: If checked this setting further reduces the final ROMs list per platform, by removing duplicates with the priority of USA  Europe  World  Japan, and then by shortest filename when multiples exist
           schema:
-            type: string
-            default: ""
+            type: boolean
+            default: false
         - variable: AquireRomSets
-          label: "AquireRomSets"
-          description: "true = Enabled  Enabling this will have the script attempt to pull valid ROM sets from archive.org for processing"
+          label: Aquire Rom Sets
+          description: Enabling this will have the script attempt to pull valid ROM sets from archive.org for processing
           schema:
-            type: string
-            default: ""
+            type: boolean
+            default: false
         - variable: ConcurrentDownloadThreads
-          label: "ConcurrentDownloadThreads"
-          description: "Number of concurrent threads to increase download speed... only aplicable if AquireRomSets is enabled (true)"
+          label: Concurrent Download Threads
+          description: Number of concurrent threads to increase download speed... only aplicable if AquireRomSets is enabled (true)
           schema:
-            type: string
-            default: ""
+            type: int
+            default: 5
+            show_if: [[AquireRomSets, =, true]]
         - variable: EnableUnsupportedPlatforms
-          label: "EnableUnsupportedPlatforms"
-          description: "true = Enabled  Enabling this will allow the script to import and scrape ROMs for platforms without RA hashes, no dedupingvalidation is performed"
+          label: Enable Unsupported Platforms
+          description: Enabling this will allow the script to import and scrape ROMs for platforms without RA hashes, no dedupingvalidation is performed
           schema:
-            type: string
-            default: ""
+            type: boolean
+            default: false
         - variable: ScrapeMetadata
-          label: "ScrapeMetadata"
-          description: "true = Enabled  Enabling this will allow the script to process the ROMs with skyscraper"
+          label: Scrape Metadata
+          description: Enabling this will allow the script to process the ROMs with skyscraper
           schema:
-            type: string
-            default: ""
+            type: boolean
+            default: false
         - variable: keepBackupsOfImportedRoms
-          label: "keepBackupsOfImportedRoms"
-          description: "false = Enabled  This setting will only keep a single copy of each ROM, reduces the required amount of storage space..."
+          label: keep Backups Of Imported Roms
+          description: If unchecked this setting will only keep a single copy of each ROM, reduces the required amount of storage space...
           schema:
-            type: string
-            default: ""
+            type: boolean
+            default: true
         - variable: skyscraperLanguagePreference
-          label: "skyscraperLanguagePreference"
-          description: "Set to preferred language for Metadata, for more info visit httpsgithub.commuldjordskyscraperblobmasterdocsLANGUAGES.md#list-of-supported-languages"
+          label: Skyscaper Language
+          description: Set to preferred language for Metadata.
           schema:
             type: string
-            default: ""
-        - variable: ScreenscraperUsername
-          label: "ScreenscraperUsername"
-          description: "Username for httpsscreenscraper.fr"
-          schema:
-            type: string
-            default: ""
-        - variable: ScreenscraperPassword
-          label: "ScreenscraperPassword"
-          description: "Password for httpsscreenscraper.fr"
-          schema:
-            type: string
-            default: ""
+            default: en
+            enum:
+              - value: en
+                description: English
+              - value: es
+                description: Spanish
+              - value: de
+                description: German
+              - value: fr
+                description: French
+              - value: zh
+                description: Chinese
+              - value: ko
+                description: Korean
+              - value: da
+                description: Danish
+              - value: fi
+                description: Finnish
+              - value: hu
+                description: Hungarian
+              - value: hu
+                description: Italian
+              - value: ja
+                description: Japanese
+              - value: nl
+                description: Dutch
+              - value: "no"
+                description: Norwegian
+              - value: pl
+                description: Polish
+              - value: pt
+                description: Portuguese
+              - value: ru
+                description: Russian
+              - value: sk
+                description: Slovakian
+              - value: sv
+                description: Swedish
+              - value: cz
+                description: Czech
+              - value: tr
+                description: Turkish
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: "config Storage"
-          description: "Container Path config"
+          label: App Config Storage
+          description: Stores the Application Configuration.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-        - variable: hostpathforcache
-          label: "hostpathforcache Storage"
-          description: "cache location for skyscraper."
+        - variable: cache
+          label: App Cache Storage
+          description: Stores the Application Cache.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-        - variable: hostpathforinput
-          label: "hostpathforinput Storage"
-          description: " Place ROMs to be processed in this directory"
+        - variable: input
+          label: App Input Storage
+          description: Stores the Application Input.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-        - variable: hostpathforoutput
-          label: "hostpathforoutput Storage"
-          description: "ROMs that have been processed will end up here"
+        - variable: output
+          label: App Output Storage
+          description: Stores the Application Output.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-        - variable: hostpathforbackup
-          label: "hostpathforbackup Storage"
-          description: "Processed ROMs are backed up to this directory"
+        - variable: backup
+          label: App Backup Storage
+          description: Stores the Application Backup.
           schema:
             additional_attrs: true
             type: dict
@@ -138,42 +188,42 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
