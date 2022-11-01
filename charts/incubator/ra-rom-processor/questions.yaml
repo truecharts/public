@@ -22,13 +22,13 @@ questions:
           description: Username for screenscraper.fr.
           schema:
             type: string
-            default:
+            default: ""
         - variable: ScreenscraperPassword
           label: Screenscraper Password
           description: Password for screenscraper.fr.
           schema:
             type: string
-            default:
+            default: ""
   - variable: env
     group: Container Configuration
     label: Image Environment
@@ -88,7 +88,6 @@ questions:
             default: true
         - variable: skyscraperLanguagePreference
           label: Skyscaper Language
-          description: Set to preferred language for Metadata.
           schema:
             type: string
             default: en
