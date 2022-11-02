@@ -2,6 +2,16 @@
 
 
 
+## [pixapop-3.0.38](https://github.com/truecharts/charts/compare/pixapop-3.0.37...pixapop-3.0.38) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [pixapop-3.0.37](https://github.com/truecharts/charts/compare/pixapop-3.0.36...pixapop-3.0.37) (2022-10-25)
 
 ### Chore

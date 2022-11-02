@@ -2,6 +2,16 @@
 
 
 
+## [sdtd-1.0.12](https://github.com/truecharts/charts/compare/sdtd-1.0.11...sdtd-1.0.12) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [sdtd-1.0.11](https://github.com/truecharts/charts/compare/sdtd-1.0.10...sdtd-1.0.11) (2022-10-26)
 
 ### Chore

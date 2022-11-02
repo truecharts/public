@@ -2,6 +2,16 @@
 
 
 
+## [speedtest-tracker-0.1.1](https://github.com/truecharts/charts/compare/speedtest-tracker-0.1.0...speedtest-tracker-0.1.1) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [speedtest-tracker-0.1.0](https://github.com/truecharts/charts/compare/speedtest-tracker-0.0.6...speedtest-tracker-0.1.0) (2022-10-29)
 
 ### Chore

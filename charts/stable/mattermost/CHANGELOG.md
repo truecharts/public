@@ -2,6 +2,16 @@
 
 
 
+## [mattermost-3.0.54](https://github.com/truecharts/charts/compare/mattermost-3.0.53...mattermost-3.0.54) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [mattermost-3.0.53](https://github.com/truecharts/charts/compare/mattermost-3.0.52...mattermost-3.0.53) (2022-10-25)
 
 ### Chore

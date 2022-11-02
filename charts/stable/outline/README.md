@@ -22,9 +22,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.107 |
-| https://charts.truecharts.org | redis | 3.0.102 |
-| https://library-charts.truecharts.org | common | 10.7.7 |
+| https://charts.truecharts.org/ | postgresql | 8.0.114 |
+| https://charts.truecharts.org | redis | 3.0.111 |
+| https://library-charts.truecharts.org | common | 10.7.13 |
 
 ## Installing the Chart
 

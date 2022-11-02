@@ -2,6 +2,16 @@
 
 
 
+## [sheetable-0.0.26](https://github.com/truecharts/charts/compare/sheetable-0.0.25...sheetable-0.0.26) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [sheetable-0.0.25](https://github.com/truecharts/charts/compare/sheetable-0.0.24...sheetable-0.0.25) (2022-10-25)
 
 ### Chore

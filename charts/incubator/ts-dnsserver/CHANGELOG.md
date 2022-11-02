@@ -2,6 +2,17 @@
 
 
 
+## [ts-dnsserver-0.0.45](https://github.com/truecharts/charts/compare/ts-dnsserver-0.0.44...ts-dnsserver-0.0.45) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+  - update docker general non-major ([#4280](https://github.com/truecharts/charts/issues/4280))
+
+
+
+
 ## [ts-dnsserver-0.0.44](https://github.com/truecharts/charts/compare/ts-dnsserver-0.0.43...ts-dnsserver-0.0.44) (2022-10-30)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [counterstrike2d-0.0.33](https://github.com/truecharts/charts/compare/counterstrike2d-0.0.32...counterstrike2d-0.0.33) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [counterstrike2d-0.0.32](https://github.com/truecharts/charts/compare/counterstrike2d-0.0.31...counterstrike2d-0.0.32) (2022-10-26)
 
 ### Chore

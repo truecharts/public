@@ -2,6 +2,16 @@
 
 
 
+## [filebrowser-2.0.43](https://github.com/truecharts/charts/compare/filebrowser-2.0.42...filebrowser-2.0.43) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [filebrowser-2.0.42](https://github.com/truecharts/charts/compare/filebrowser-2.0.41...filebrowser-2.0.42) (2022-10-25)
 
 ### Chore

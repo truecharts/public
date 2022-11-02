@@ -2,6 +2,16 @@
 
 
 
+## [inventree-4.0.28](https://github.com/truecharts/charts/compare/inventree-4.0.27...inventree-4.0.28) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [inventree-4.0.27](https://github.com/truecharts/charts/compare/inventree-4.0.26...inventree-4.0.27) (2022-10-28)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [piwigo-3.1.3](https://github.com/truecharts/charts/compare/piwigo-3.1.2...piwigo-3.1.3) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [piwigo-3.1.2](https://github.com/truecharts/charts/compare/piwigo-3.1.1...piwigo-3.1.2) (2022-10-25)
 
 ### Chore

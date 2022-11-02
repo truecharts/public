@@ -2,6 +2,16 @@
 
 
 
+## [minio-3.0.72](https://github.com/truecharts/charts/compare/minio-3.0.71...minio-3.0.72) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [minio-3.0.71](https://github.com/truecharts/charts/compare/minio-console-3.0.51...minio-3.0.71) (2022-10-30)
 
 ### Chore

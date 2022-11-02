@@ -2,6 +2,15 @@
 
 
 
+## [redm-0.0.33](https://github.com/truecharts/charts/compare/redmine-3.0.62...redm-0.0.33) (2022-11-02)
+
+### Chore
+
+- update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [redm-0.0.32](https://github.com/truecharts/charts/compare/redmine-3.0.60...redm-0.0.32) (2022-10-26)
 
 ### Chore

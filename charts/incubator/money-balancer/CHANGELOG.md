@@ -2,6 +2,16 @@
 
 
 
+## [money-balancer-0.0.7](https://github.com/truecharts/charts/compare/money-balancer-0.0.6...money-balancer-0.0.7) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [money-balancer-0.0.6](https://github.com/truecharts/charts/compare/money-balancer-0.0.5...money-balancer-0.0.6) (2022-10-25)
 
 ### Chore

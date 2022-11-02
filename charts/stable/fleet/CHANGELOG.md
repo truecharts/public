@@ -2,6 +2,16 @@
 
 
 
+## [fleet-3.0.46](https://github.com/truecharts/charts/compare/fleet-3.0.45...fleet-3.0.46) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [fleet-3.0.45](https://github.com/truecharts/charts/compare/fleet-3.0.44...fleet-3.0.45) (2022-11-01)
 
 ### Chore

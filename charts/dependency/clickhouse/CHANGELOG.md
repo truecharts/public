@@ -2,6 +2,16 @@
 
 
 
+## [clickhouse-1.0.48](https://github.com/truecharts/charts/compare/clickhouse-1.0.47...clickhouse-1.0.48) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4280](https://github.com/truecharts/charts/issues/4280))
+
+
+
+
 ## [clickhouse-1.0.47](https://github.com/truecharts/charts/compare/clickhouse-1.0.46...clickhouse-1.0.47) (2022-11-01)
 
 ### Chore

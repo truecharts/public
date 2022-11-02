@@ -2,6 +2,16 @@
 
 
 
+## [suistartpage-0.0.32](https://github.com/truecharts/charts/compare/suistartpage-0.0.31...suistartpage-0.0.32) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [suistartpage-0.0.31](https://github.com/truecharts/charts/compare/suistartpage-0.0.30...suistartpage-0.0.31) (2022-10-25)
 
 ### Chore
