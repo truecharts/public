@@ -42,12 +42,14 @@ questions:
           schema:
             type: boolean
             default: false
-        - variable: ScriptInterval
-          label: Script Interval
-          description: "Amount of time between each script run | #s or #m or #h or #d  s = seconds, m = minutes, h = hours, d = days."
-          schema:
-            type: string
-            default: 1h
+            show_subquestions_if: true
+            subquestions:
+              - variable: ScriptInterval
+                label: Script Interval
+                description: "Amount of time between each script run | #s or #m or #h or #d  s = seconds, m = minutes, h = hours, d = days."
+                schema:
+                  type: string
+                  default: 1h
         - variable: DeDupe
           label: DeDupe
           description: If checked this setting further reduces the final ROMs list per platform, by removing duplicates.
@@ -60,12 +62,14 @@ questions:
           schema:
             type: boolean
             default: false
-        - variable: ConcurrentDownloadThreads
-          label: Concurrent Download Threads
-          description: Number of concurrent threads to increase download speeds.
-          schema:
-            type: int
-            default: 5
+            show_subquestions_if: true
+            subquestions:
+              - variable: ConcurrentDownloadThreads
+                label: Concurrent Download Threads
+                description: Number of concurrent threads to increase download speeds.
+                schema:
+                  type: int
+                  default: 5
         - variable: EnableUnsupportedPlatforms
           label: Enable Unsupported Platforms
           description: Enabling this will allow the script to import and scrape ROMs for platforms without RA hashes.
