@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: firefox
-version: 2.0.38
+version: 2.0.39
 appVersion: "101.0.1"
 description: Firefox Browser, also known as Mozilla Firefox or simply Firefox,
 type: application
@@ -16,7 +16,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.7.7
+    version: 10.7.13
     # condition:
 maintainers:
   - email: info@truecharts.org
