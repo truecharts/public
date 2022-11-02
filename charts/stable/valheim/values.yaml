@@ -62,6 +62,7 @@ service:
 ingress:
   supervisor:
     autoLink: true
+    nameOverride: supervisor
 
 persistence:
   config:

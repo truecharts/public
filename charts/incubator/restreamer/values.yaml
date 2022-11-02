@@ -148,6 +148,7 @@ service:
 ingress:
   https:
     autoLink: true
+    nameOverride: https
 
 persistence:
   # CORE_DB_DIR

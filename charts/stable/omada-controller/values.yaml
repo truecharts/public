@@ -63,6 +63,7 @@ service:
 ingress:
   comm:
     autoLink: true
+    nameOverride: comm
 
 persistence:
   data:

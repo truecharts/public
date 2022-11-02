@@ -30,6 +30,7 @@ service:
 ingress:
   http:
     autoLink: true
+    nameOverride: http
 
 persistence:
   nginx:
