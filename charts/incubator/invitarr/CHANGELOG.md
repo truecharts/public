@@ -2,6 +2,15 @@
 
 
 
+## [invitarr-0.0.33](https://github.com/truecharts/charts/compare/invitarr-0.0.32...invitarr-0.0.33) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+
+
+
 ## [invitarr-0.0.32](https://github.com/truecharts/charts/compare/invitarr-0.0.31...invitarr-0.0.32) (2022-11-02)
 
 ### Chore
