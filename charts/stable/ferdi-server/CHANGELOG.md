@@ -2,6 +2,16 @@
 
 
 
+## [ferdi-server-3.0.46](https://github.com/truecharts/charts/compare/ferdi-server-3.0.45...ferdi-server-3.0.46) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [ferdi-server-3.0.45](https://github.com/truecharts/charts/compare/ferdi-server-3.0.44...ferdi-server-3.0.45) (2022-10-25)
 
 ### Chore

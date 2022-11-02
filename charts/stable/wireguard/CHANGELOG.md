@@ -2,6 +2,16 @@
 
 
 
+## [wireguard-1.0.13](https://github.com/truecharts/charts/compare/wireguard-1.0.12...wireguard-1.0.13) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [wireguard-1.0.12](https://github.com/truecharts/charts/compare/wireguard-1.0.11...wireguard-1.0.12) (2022-10-25)
 
 ### Chore

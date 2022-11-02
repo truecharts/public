@@ -2,6 +2,16 @@
 
 
 
+## [ser2sock-6.0.41](https://github.com/truecharts/charts/compare/ser2sock-6.0.40...ser2sock-6.0.41) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [ser2sock-6.0.40](https://github.com/truecharts/charts/compare/ser2sock-6.0.39...ser2sock-6.0.40) (2022-10-25)
 
 ### Chore

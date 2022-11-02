@@ -2,6 +2,17 @@
 
 
 
+## [synclounge-2.0.53](https://github.com/truecharts/charts/compare/synclounge-2.0.52...synclounge-2.0.53) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+  - update docker general non-major ([#4280](https://github.com/truecharts/charts/issues/4280))
+
+
+
+
 ## [synclounge-2.0.52](https://github.com/truecharts/charts/compare/synclounge-2.0.51...synclounge-2.0.52) (2022-10-27)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [gitea-9.0.28](https://github.com/truecharts/charts/compare/gitea-9.0.27...gitea-9.0.28) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [gitea-9.0.27](https://github.com/truecharts/charts/compare/gitea-9.0.26...gitea-9.0.27) (2022-10-25)
 
 ### Chore

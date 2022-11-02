@@ -2,6 +2,16 @@
 
 
 
+## [mediainfo-1.0.22](https://github.com/truecharts/charts/compare/mediainfo-1.0.21...mediainfo-1.0.22) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [mediainfo-1.0.21](https://github.com/truecharts/charts/compare/mediainfo-1.0.20...mediainfo-1.0.21) (2022-10-25)
 
 ### Chore

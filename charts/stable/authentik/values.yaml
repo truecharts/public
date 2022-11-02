@@ -10,12 +10,12 @@ geoipImage:
 
 ldapImage:
   repository: tccr.io/truecharts/authentik-ldap
-  tag: 2022.10.0@sha256:e74f11c050f1914b7fa28e7fd986bb358cdaf114f8c9f20d2734da04922c3429
+  tag: 2022.10.1@sha256:c00c5092b65d3dbb661a6f047fe4081c8837950785167c47f1ac902b0f7890af
   pullPolicy: IfNotPresent
 
 proxyImage:
   repository: tccr.io/truecharts/authentik-proxy
-  tag: 2022.10.0@sha256:c4b50b180991c373ad3880d102068b0acbc938901a3a2492576e134bf41edd3b
+  tag: 2022.10.1@sha256:a3effec8ef8f2e8c5ac8e616fed122e87b949062d158c4831b9353a12b6898cf
   pullPolicy: IfNotPresent
 
 args: ["server"]

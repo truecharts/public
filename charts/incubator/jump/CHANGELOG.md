@@ -2,6 +2,16 @@
 
 
 
+## [jump-0.0.44](https://github.com/truecharts/charts/compare/jump-0.0.43...jump-0.0.44) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [jump-0.0.43](https://github.com/truecharts/charts/compare/jump-0.0.42...jump-0.0.43) (2022-10-25)
 
 ### Chore

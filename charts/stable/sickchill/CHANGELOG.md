@@ -2,6 +2,16 @@
 
 
 
+## [sickchill-3.0.56](https://github.com/truecharts/charts/compare/sickchill-3.0.55...sickchill-3.0.56) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [sickchill-3.0.55](https://github.com/truecharts/charts/compare/sickchill-3.0.54...sickchill-3.0.55) (2022-10-28)
 
 ### Chore

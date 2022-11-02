@@ -2,6 +2,16 @@
 
 
 
+## [phoenixstats-0.1.4](https://github.com/truecharts/charts/compare/phoenixstats-0.1.3...phoenixstats-0.1.4) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [phoenixstats-0.1.3](https://github.com/truecharts/charts/compare/phoenixstats-0.1.2...phoenixstats-0.1.3) (2022-10-25)
 
 ### Chore

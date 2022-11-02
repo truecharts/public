@@ -1,6 +1,6 @@
 # ra-rom-processor
 
-RA ROM Processor is a Chart Chart that is used to download/orgainze/process/verify/dedupe/scrape a ROMs library automatically by matching ROMs to the RetroAchievement.org website Hash database.
+Download / Orgainze / Process / Verify / Dedupe / Scrape a ROMs library automatically by matching ROMs to the RetroAchievement.org database.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
@@ -24,7 +24,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.7.7 |
+| https://library-charts.truecharts.org | common | 10.7.13 |
 
 ## Installing the Chart
 

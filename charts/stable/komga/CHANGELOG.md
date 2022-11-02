@@ -2,6 +2,26 @@
 
 
 
+## [komga-6.0.47](https://github.com/truecharts/charts/compare/komga-6.0.46...komga-6.0.47) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
+## [komga-6.0.46](https://github.com/truecharts/charts/compare/komga-6.0.45...komga-6.0.46) (2022-11-01)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4260](https://github.com/truecharts/charts/issues/4260))
+
+
+
+
 ## [komga-6.0.45](https://github.com/truecharts/charts/compare/komga-6.0.44...komga-6.0.45) (2022-10-25)
 
 ### Chore

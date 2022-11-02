@@ -1,6 +1,6 @@
 # searx
 
-Searx is a free internet metasearch engine which aggregates results from more than 70 search services. Users are neither tracked nor profiled. Additionally, searx can be used over Tor for online anonymity.
+Meta search engine which aggregates results from more than 70 search services.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.7.7 |
+| https://library-charts.truecharts.org | common | 10.7.13 |
 
 ## Installing the Chart
 

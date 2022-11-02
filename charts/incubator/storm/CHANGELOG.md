@@ -2,6 +2,15 @@
 
 
 
+## [storm-0.0.32](https://github.com/truecharts/charts/compare/insurgencysandstorm-0.0.32...storm-0.0.32) (2022-11-02)
+
+### Chore
+
+- update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
 ## [storm-0.0.31](https://github.com/truecharts/charts/compare/storm-0.0.30...storm-0.0.31) (2022-10-25)
 
 ### Chore

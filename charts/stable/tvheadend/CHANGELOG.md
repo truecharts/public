@@ -2,6 +2,26 @@
 
 
 
+## [tvheadend-12.0.48](https://github.com/truecharts/charts/compare/tvheadend-12.0.47...tvheadend-12.0.48) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
+## [tvheadend-12.0.47](https://github.com/truecharts/charts/compare/tvheadend-12.0.46...tvheadend-12.0.47) (2022-10-31)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4249](https://github.com/truecharts/charts/issues/4249))
+
+
+
+
 ## [tvheadend-12.0.46](https://github.com/truecharts/charts/compare/tvheadend-12.0.45...tvheadend-12.0.46) (2022-10-25)
 
 ### Chore
