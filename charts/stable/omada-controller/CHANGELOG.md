@@ -2,6 +2,19 @@
 
 
 
+## [omada-controller-6.3.0](https://github.com/truecharts/charts/compare/omada-controller-6.2.2...omada-controller-6.3.0) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Docs
+
+- Add Installation Notes ([#4278](https://github.com/truecharts/charts/issues/4278))
+
+
+
+
 ## [omada-controller-6.2.2](https://github.com/truecharts/charts/compare/omada-controller-6.2.1...omada-controller-6.2.2) (2022-10-25)
 
 ### Chore
