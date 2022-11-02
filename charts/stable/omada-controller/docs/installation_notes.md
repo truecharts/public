@@ -23,3 +23,5 @@ By default the `omada-controller` chart doesn't support discovery by APs on the 
 ## DHCP Option 138
 
 As well, the `Omada-Controller` supports using DHCP to inform your APs of the location of the controller. This can be done using the `Omada` software or another DHCP server such as `OPNsense`. This has been tested by users (see [TP-Link Reddit](https://www.reddit.com/r/TPLink_Omada/comments/wv8nsi/omada_sdn_controller_eap_discovery_across/) for more info) but there's a reference guide available in the official [Omada SDN Software Controller](https://www.tp-link.com/us/user-guides/omada-sdn-software-controller/chapter-3-manage-omada-managed-devices-and-sites.html#ug-sub-title-2) users guide.
+
+![DHCP-Option-138](img/dhcp-option-138.png)
