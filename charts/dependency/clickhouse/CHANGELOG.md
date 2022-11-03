@@ -2,6 +2,16 @@
 
 
 
+## [clickhouse-1.0.49](https://github.com/truecharts/charts/compare/clickhouse-1.0.48...clickhouse-1.0.49) (2022-11-03)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.7.14
+
+
+
+
 ## [clickhouse-1.0.48](https://github.com/truecharts/charts/compare/clickhouse-1.0.47...clickhouse-1.0.48) (2022-11-02)
 
 ### Chore
