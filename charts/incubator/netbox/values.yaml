@@ -152,8 +152,8 @@ persistence:
   configfile:
     enabled: true
     type: secret
-    readOnly: true
-    defaultMode: "0700"
+    # readOnly: true
+    # defaultMode: "0700"
     objectName: '{{ include "tc.common.names.fullname" . }}-secret'
     mountPath: /etc/netbox/config/config.py
     subPath: config.py

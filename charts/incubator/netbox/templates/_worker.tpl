@@ -22,7 +22,7 @@ volumeMounts:
     mountPath: /opt/netbox/netbox/media
   - name: configfile
     mountPath: /etc/netbox/config/config.py
-    readOnly: true
+    {{/*readOnly: true*/}}
     subPath: config.py
 {{/*readinessProbe:
   exec:
