@@ -2,6 +2,16 @@
 
 
 
+## [storj-node-2.0.60](https://github.com/truecharts/charts/compare/storj-node-2.0.59...storj-node-2.0.60) (2022-11-03)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4286](https://github.com/truecharts/charts/issues/4286))
+
+
+
+
 ## [storj-node-2.0.59](https://github.com/truecharts/charts/compare/storj-node-2.0.58...storj-node-2.0.59) (2022-11-02)
 
 ### Chore

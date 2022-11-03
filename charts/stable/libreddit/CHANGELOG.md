@@ -2,6 +2,16 @@
 
 
 
+## [libreddit-1.0.34](https://github.com/truecharts/charts/compare/libreddit-1.0.33...libreddit-1.0.34) (2022-11-03)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4286](https://github.com/truecharts/charts/issues/4286))
+
+
+
+
 ## [libreddit-1.0.33](https://github.com/truecharts/charts/compare/libreddit-1.0.32...libreddit-1.0.33) (2022-11-02)
 
 ### Chore

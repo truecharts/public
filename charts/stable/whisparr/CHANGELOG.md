@@ -2,6 +2,16 @@
 
 
 
+## [whisparr-1.0.12](https://github.com/truecharts/charts/compare/whisparr-1.0.11...whisparr-1.0.12) (2022-11-03)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4286](https://github.com/truecharts/charts/issues/4286))
+
+
+
+
 ## [whisparr-1.0.11](https://github.com/truecharts/charts/compare/whisparr-1.0.10...whisparr-1.0.11) (2022-11-02)
 
 ### Chore

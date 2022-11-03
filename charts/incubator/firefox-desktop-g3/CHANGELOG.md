@@ -2,6 +2,16 @@
 
 
 
+## [firefox-desktop-g3-0.0.38](https://github.com/truecharts/charts/compare/firefox-desktop-g3-0.0.37...firefox-desktop-g3-0.0.38) (2022-11-03)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4286](https://github.com/truecharts/charts/issues/4286))
+
+
+
+
 ## [firefox-desktop-g3-0.0.37](https://github.com/truecharts/charts/compare/firefox-desktop-g3-0.0.36...firefox-desktop-g3-0.0.37) (2022-11-02)
 
 ### Chore

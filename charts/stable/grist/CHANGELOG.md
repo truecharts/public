@@ -2,6 +2,16 @@
 
 
 
+## [grist-4.0.5](https://github.com/truecharts/charts/compare/grist-4.0.4...grist-4.0.5) (2022-11-03)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4286](https://github.com/truecharts/charts/issues/4286))
+
+
+
+
 ## [grist-4.0.4](https://github.com/truecharts/charts/compare/grist-4.0.3...grist-4.0.4) (2022-11-02)
 
 ### Chore

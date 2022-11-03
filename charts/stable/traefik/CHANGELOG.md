@@ -2,6 +2,19 @@
 
 
 
+## [traefik-13.5.0](https://github.com/truecharts/charts/compare/traefik-13.4.16...traefik-13.5.0) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Feat
+
+- add support for insecureForwardAuth ([#4247](https://github.com/truecharts/charts/issues/4247))
+
+
+
+
 ## [traefik-13.4.16](https://github.com/truecharts/charts/compare/traefik-13.4.15...traefik-13.4.16) (2022-11-02)
 
 ### Chore
