@@ -24,7 +24,7 @@ tailscaleImage:
   # -- Specify the Tailscale image
   repository: tailscale/tailscale
   # -- Specify the Tailscale image tag
-  tag: v1.33.116@sha256:7c01a28597ad723b270cb3e74ff2ff111a46916fecf5029581cb5cd24991b406
+  tag: v1.33.132@sha256:45c62aeb0359f6514be4e2136d2dd6b43e85dab1d7e26ecf44d4623e4e3950b1
   # -- Specify the Tailscale image pull policy
   pullPolicy: IfNotPresent
 
@@ -54,7 +54,7 @@ codeserverImage:
   # -- Specify the code-server image
   repository: tccr.io/truecharts/code-server
   # -- Specify the code-server image tag
-  tag: 4.8.1@sha256:90d177d75a17843f5604349ee2b537daeeb5cffa6346335ad7f802843e0f7fef
+  tag: 4.8.2@sha256:e5f8ac63174c08e769cbfb7ec17cf3db236e7b4212cca31c25d695b1c73bc7bb
   # -- Specify the code-server image pull policy
   pullPolicy: IfNotPresent
 
