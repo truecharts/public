@@ -2,6 +2,16 @@
 
 
 
+## [sickchill-3.0.57](https://github.com/truecharts/charts/compare/sickchill-3.0.56...sickchill-3.0.57) (2022-11-03)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4289](https://github.com/truecharts/charts/issues/4289))
+
+
+
+
 ## [sickchill-3.0.56](https://github.com/truecharts/charts/compare/sickchill-3.0.55...sickchill-3.0.56) (2022-11-02)
 
 ### Chore
