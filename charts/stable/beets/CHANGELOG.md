@@ -2,6 +2,16 @@
 
 
 
+## [beets-4.0.51](https://github.com/truecharts/charts/compare/beets-4.0.50...beets-4.0.51) (2022-11-04)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4293](https://github.com/truecharts/charts/issues/4293))
+
+
+
+
 ## [beets-4.0.50](https://github.com/truecharts/charts/compare/beets-4.0.49...beets-4.0.50) (2022-11-02)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [redisinsight-0.0.35](https://github.com/truecharts/charts/compare/redisinsight-0.0.34...redisinsight-0.0.35) (2022-11-03)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4289](https://github.com/truecharts/charts/issues/4289))
+
+
+
+
 ## [redisinsight-0.0.34](https://github.com/truecharts/charts/compare/redisinsight-0.0.33...redisinsight-0.0.34) (2022-11-02)
 
 ### Chore

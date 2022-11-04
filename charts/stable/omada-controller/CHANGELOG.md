@@ -2,6 +2,19 @@
 
 
 
+## [omada-controller-6.3.2](https://github.com/truecharts/charts/compare/omada-controller-6.3.1...omada-controller-6.3.2) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Docs
+
+- Add DHCP Option 138 for APs ([#4285](https://github.com/truecharts/charts/issues/4285))
+
+
+
+
 ## [omada-controller-6.3.1](https://github.com/truecharts/charts/compare/omada-controller-6.3.0...omada-controller-6.3.1) (2022-11-02)
 
 ### Chore

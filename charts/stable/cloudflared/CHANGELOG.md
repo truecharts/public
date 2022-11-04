@@ -2,6 +2,15 @@
 
 
 
+## [cloudflared-1.0.26](https://github.com/truecharts/charts/compare/cloudflareddns-1.0.32...cloudflared-1.0.26) (2022-11-03)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+
+
+
 ## [cloudflared-1.0.25](https://github.com/truecharts/charts/compare/cloudflared-1.0.24...cloudflared-1.0.25) (2022-11-02)
 
 ### Chore
