@@ -37,9 +37,9 @@ netbox:
   allowed_hosts:
     - "127.0.0.1"
   # - URL schemes that are allowed within links in NetBox
-  allowed_urls_schemes:
-    - file
-    - ftp
+  allowed_urls_schemes: []
+    # - file
+    # - ftp
   # - Specify one or more name and email address tuples representing NetBox administrators. These people will be notified of
   # - application errors (assuming correct email settings are provided).
   admins: []
@@ -184,8 +184,8 @@ persistence:
     enabled: true
     type: secret
     objectName: '{{ include "tc.common.names.fullname" . }}-secret'
-    mountPath: /etc/netbox/config/config.py
-    subPath: 01-config.py
+    mountPath: /etc/netbox/config/01-config.py
+    subPath: config.py
 
 postgresql:
   enabled: true

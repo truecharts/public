@@ -19,6 +19,6 @@ volumeMounts:
   - name: media
     mountPath: /opt/netbox/netbox/media
   - name: configfile
-    mountPath: /etc/netbox/config/config.py
-    subPath: 01-config.py
+    mountPath: /etc/netbox/config/01-config.py
+    subPath: config.py
 {{- end -}}
