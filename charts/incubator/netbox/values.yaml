@@ -167,7 +167,7 @@ persistence:
     type: secret
     objectName: '{{ include "tc.common.names.fullname" . }}-secret'
     mountPath: /etc/netbox/config/config.py
-    subPath: config.py
+    subPath: 01-config.py
 
 postgresql:
   enabled: true
