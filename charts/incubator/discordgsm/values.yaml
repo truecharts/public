@@ -1,0 +1,24 @@
+image:
+  repository: discordgsm/discord-game-server-monitor
+  pullPolicy: IfNotPresent
+  tag: 2.6.0@sha256:dde285597299fdc99e6ced8d24f738a4a782677a39dc868f76f47edb6792fce1
+
+discordgsm:
+  APP_TOKEN: ""
+  # WHITELIST_GUILDS: "ID1;ID2"
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 8000
+        port: 10589
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /app/data
+
+portal:
+  enabled: false
