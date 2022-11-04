@@ -2,6 +2,16 @@
 
 
 
+## [filezilla-4.0.53](https://github.com/truecharts/charts/compare/filezilla-4.0.52...filezilla-4.0.53) (2022-11-04)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4293](https://github.com/truecharts/charts/issues/4293))
+
+
+
+
 ## [filezilla-4.0.52](https://github.com/truecharts/charts/compare/filezilla-4.0.51...filezilla-4.0.52) (2022-11-02)
 
 ### Chore
