@@ -83,19 +83,20 @@ initContainers:
           fi
           chmod 770 /misskey/files
         fi
-        echo "s/POSTGRES_HOST/$POSTGRES_HOST/"
-        echo "s/POSTGRES_PASSWORD/$POSTGRES_PASSWORD/"
-        echo "s/REDIS_HOST/$REDIS_HOST/"
-        echo "s/REDIS_HOST_PASSWORD/$REDIS_HOST_PASSWORD/"
+        echo $POSTGRES_HOST
+        echo $POSTGRES_PASSWORD
+        cp /var/misskey/.config/default.yml /misskey/.config/
         sed -i "s/POSTGRES_HOST/$POSTGRES_HOST/" /misskey/.config/default.yml
         sed -i "s/POSTGRES_PASSWORD/$POSTGRES_PASSWORD/" /misskey/.config/default.yml
         sed -i "s/REDIS_HOST/$REDIS_HOST/" /misskey/.config/default.yml
-        sed -i "s/REDIS_HOST_PASSWORD/$REDIS_HOST_PASSWORD/" /misskey/.config/default.yml
+        sed -i "s/REDIS_PASSWORD/$REDIS_HOST_PASSWORD/" /misskey/.config/default.yml
         EOF
 
     volumeMounts:
       - name: files
         mountPath: "/misskey/files"
+      - name: misskeyconfig-src
+        mountPath: "/var/misskey/.config"
       - name: misskeyconfig
         mountPath: "/misskey/.config"
 
@@ -131,10 +132,13 @@ env:
 #      name: misskeyconfig
 
 persistence:
-  misskeyconfig:
+  misskeyconfig-src:
     enabled: true
     type: configMap
     objectName: misskeyconfig
+    mountPath: "/var/misskey/.config"
+  misskeyconfig:
+    enabled: true
     mountPath: "/misskey/.config"
   files:
     enabled: true
