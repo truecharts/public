@@ -2,6 +2,16 @@
 
 
 
+## [adminer-1.0.2](https://github.com/truecharts/charts/compare/adminer-1.0.1...adminer-1.0.2) (2022-11-04)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4293](https://github.com/truecharts/charts/issues/4293))
+
+
+
+
 ## [adminer-1.0.1](https://github.com/truecharts/charts/compare/adminer-1.0.0...adminer-1.0.1) (2022-11-02)
 
 ### Chore

@@ -2,6 +2,7 @@
 
 
 
+
 ## [mongodb-2.0.50](https://github.com/truecharts/charts/compare/mongodb-2.0.49...mongodb-2.0.50) (2022-11-03)
 
 ### Chore
