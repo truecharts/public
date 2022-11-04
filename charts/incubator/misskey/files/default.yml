@@ -55,15 +55,15 @@ port: 3000 # A port that your Misskey server should listen.
 #───┘ PostgreSQL configuration └────────────────────────────────
 
 db:
-  host: localhost
+  host: <POSTGRESQL_DB_HOST>
   port: 5432
 
   # Database name
-  db: misskey
+  db: "{{ .Values.postgresql.postgresqlDatabase }}"
 
   # Auth
-  user: example-misskey-user
-  pass: example-misskey-pass
+  user: "{{ .Values.postgresql.postgresqlUsername }}"
+  pass: <POSTGRESQL_DB_PASSWORD>
 
   # Whether disable Caching queries
   #disableCache: true
@@ -76,9 +76,9 @@ db:
 #───┘ Redis configuration └─────────────────────────────────────
 
 redis:
-  host: localhost
+  host: <REDIS_HOST>
   port: 6379
-  #pass: example-pass
+  pass: <REDIS_PASSWORD>
   #prefix: example-prefix
   #db: 1
 

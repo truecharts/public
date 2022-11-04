@@ -1,7 +1,6 @@
-Release misskey has been cancelled.
 NAME: misskey
-LAST DEPLOYED: Fri Nov  4 10:30:45 2022
-NAMESPACE: default
+LAST DEPLOYED: Thu Nov  3 23:35:58 2022
+new-namespace1238273848: default
 STATUS: pending-install
 REVISION: 1
 TEST SUITE: None
@@ -44,7 +43,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   labels:
-    helm.sh/chart: misskey-0.0.1
+    helm.sh/chart: misskey-0.0.0
     app.kubernetes.io/name: misskey
     app.kubernetes.io/instance: misskey
     helm-revision: "1"
@@ -52,11 +51,11 @@ metadata:
     app.kubernetes.io/managed-by: Helm
   name: dbcreds
 data:
-  postgresql-password: "Sm5YeXBhb1RmS08zVGtncnNmWVE5Z0xtZnV0UGk0M04wbTFZYjRDRHJvMFVqUWpBQ3I="
-  postgresql-postgres-password: "MXhHd2JVemRCVFdFbnFkQU93VElvMG9ONE9FbE5qdUVuZ1NLRmlCbVVLakpTREJxY3o="
-  url: "cG9zdGdyZXNxbDovL21pc3NrZXk6Sm5YeXBhb1RmS08zVGtncnNmWVE5Z0xtZnV0UGk0M04wbTFZYjRDRHJvMFVqUWpBQ3JAbWlzc2tleS1wb3N0Z3Jlc3FsOjU0MzIvbWlzc2tleQ=="
-  url-noql: "cG9zdGdyZXM6Ly9taXNza2V5OkpuWHlwYW9UZktPM1RrZ3JzZllROWdMbWZ1dFBpNDNOMG0xWWI0Q0RybzBValFqQUNyQG1pc3NrZXktcG9zdGdyZXNxbDo1NDMyL21pc3NrZXk="
-  urlnossl: "cG9zdGdyZXNxbDovL21pc3NrZXk6Sm5YeXBhb1RmS08zVGtncnNmWVE5Z0xtZnV0UGk0M04wbTFZYjRDRHJvMFVqUWpBQ3JAbWlzc2tleS1wb3N0Z3Jlc3FsOjU0MzIvbWlzc2tleT9zc2xtb2RlPWRpc2FibGU="
+  postgresql-password: "YldSamM3eExMYklPcWZiYXVGdWZlUEVhV2VjelpuWXhpVnZBdEY4QlFEcXl2NFFOZ0w="
+  postgresql-postgres-password: "S3BhdU9NTHRGUGt3NGU0TmN6aWhzblBKcUFvNjhhNWpHSFdncFoyQ3RrTTNQT1N4WWs="
+  url: "cG9zdGdyZXNxbDovL21pc3NrZXk6YldSamM3eExMYklPcWZiYXVGdWZlUEVhV2VjelpuWXhpVnZBdEY4QlFEcXl2NFFOZ0xAbWlzc2tleS1wb3N0Z3Jlc3FsOjU0MzIvbWlzc2tleQ=="
+  url-noql: "cG9zdGdyZXM6Ly9taXNza2V5OmJXUmpjN3hMTGJJT3FmYmF1RnVmZVBFYVdlY3pabll4aVZ2QXRGOEJRRHF5djRRTmdMQG1pc3NrZXktcG9zdGdyZXNxbDo1NDMyL21pc3NrZXk="
+  urlnossl: "cG9zdGdyZXNxbDovL21pc3NrZXk6YldSamM3eExMYklPcWZiYXVGdWZlUEVhV2VjelpuWXhpVnZBdEY4QlFEcXl2NFFOZ0xAbWlzc2tleS1wb3N0Z3Jlc3FsOjU0MzIvbWlzc2tleT9zc2xtb2RlPWRpc2FibGU="
   plainporthost: "bWlzc2tleS1wb3N0Z3Jlc3Fs"
   plainhost: "bWlzc2tleS1wb3N0Z3Jlc3Fs"
   jdbc: "amRiYzpwb3N0Z3Jlc3FsOi8vbWlzc2tleS1wb3N0Z3Jlc3FsOjU0MzIvbWlzc2tleQ=="
@@ -67,7 +66,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   labels:
-    helm.sh/chart: misskey-0.0.1
+    helm.sh/chart: misskey-0.0.0
     app.kubernetes.io/name: misskey
     app.kubernetes.io/instance: misskey
     helm-revision: "1"
@@ -75,9 +74,9 @@ metadata:
     app.kubernetes.io/managed-by: Helm
   name: rediscreds
 data:
-  redis-password: "N29vWWtVTkxIVml2eExtNGlCWmNlV0lVTkxqa05xamZRdjYzSDNJWGUwRmdyY3VDQ0E="
-  url: "cmVkaXM6Ly88bmlsPjo3b29Za1VOTEhWaXZ4TG00aUJaY2VXSVVOTGprTnFqZlF2NjNIM0lYZTBGZ3JjdUNDQUBtaXNza2V5LXJlZGlzOjYzNzkvMA=="
-  plainhostpass: "PG5pbD46N29vWWtVTkxIVml2eExtNGlCWmNlV0lVTkxqa05xamZRdjYzSDNJWGUwRmdyY3VDQ0FAbWlzc2tleS1yZWRpcw=="
+  redis-password: "SWNRbUlnNzkwR050cWZveDdYNVRpaFlDb3ZsaGl2ODdZdEtBR3ZSRzhuUURDTVZoSTg="
+  url: "cmVkaXM6Ly88bmlsPjpJY1FtSWc3OTBHTnRxZm94N1g1VGloWUNvdmxoaXY4N1l0S0FHdlJHOG5RRENNVmhJOEBtaXNza2V5LXJlZGlzOjYzNzkvMA=="
+  plainhostpass: "PG5pbD46SWNRbUlnNzkwR050cWZveDdYNVRpaFlDb3ZsaGl2ODdZdEtBR3ZSRzhuUURDTVZoSThAbWlzc2tleS1yZWRpcw=="
   plainporthost: "bWlzc2tleS1yZWRpczo2Mzc5"
   plainhost: "bWlzc2tleS1yZWRpcw=="
 type: Opaque
@@ -228,7 +227,10 @@ data:
     #───┘ PostgreSQL configuration └────────────────────────────────
 
     db:
-      host: "POSTGRES_HOST"
+      host:
+        secretKeyRef:
+          name: dbcreds
+          key: plainporthost
       port: 5432
 
       # Database name
@@ -236,7 +238,10 @@ data:
 
       # Auth
       user: "misskey"
-      pass: "POSTGRES_PASSWORD"
+      pass:
+        secretKeyRef:
+          name: dbcreds
+          key: postgresql-password
 
       # Whether disable Caching queries
       #disableCache: true
@@ -249,9 +254,15 @@ data:
     #───┘ Redis configuration └─────────────────────────────────────
 
     redis:
-      host: "REDIS_HOST"
+      host:
+        secretKeyRef:
+          name: rediscreds
+          key: plainhost
       port: 6379
-      pass: "REDIS_HOST_PASSWORD"
+      pass:
+        secretKeyRef:
+          name: rediscreds
+          key: redis-password
       #prefix: example-prefix
       #db: 1
 
@@ -344,7 +355,7 @@ apiVersion: v1
 metadata:
   name: misskey-files
   labels:
-    helm.sh/chart: misskey-0.0.1
+    helm.sh/chart: misskey-0.0.0
     app.kubernetes.io/name: misskey
     app.kubernetes.io/instance: misskey
     helm-revision: "1"
@@ -420,7 +431,7 @@ metadata:
     app.kubernetes.io/name: misskey
     app.kubernetes.io/version: 12.119.0
     helm-revision: "1"
-    helm.sh/chart: misskey-0.0.1
+    helm.sh/chart: misskey-0.0.0
   annotations:
 spec:
   type: ClusterIP
@@ -446,9 +457,9 @@ metadata:
     app.kubernetes.io/name: misskey
     app.kubernetes.io/version: 12.119.0
     helm-revision: "1"
-    helm.sh/chart: misskey-0.0.1
+    helm.sh/chart: misskey-0.0.0
   annotations:
-    rollme: K5bKO
+    rollme: U7aBm
 spec:
   revisionHistoryLimit: 3
   replicas: 1
@@ -566,10 +577,6 @@ spec:
               fi
               chmod 770 /misskey/files
             fi
-            sed -i "s/POSTGRES_HOST/$POSTGRES_HOST" /misskey/.config
-            sed -i "s/POSTGRES_PASSWORD/$POSTGRES_PASSWORD" /misskey/.config
-            sed -i "s/REDIS_HOST/$REDIS_HOST" /misskey/.config
-            sed -i "s/REDIS_HOST_PASSWORD/$REDIS_HOST_PASSWORD" /misskey/.config
             EOF
           image: 'misskey/misskey:latest'
           name: prestart
@@ -737,7 +744,7 @@ metadata:
     helm-revision: "1"
     helm.sh/chart: postgresql-8.0.114
   annotations:
-    rollme: PeO0G
+    rollme: cR1QH
 spec:
   revisionHistoryLimit: 3
   replicas: 1
@@ -926,7 +933,7 @@ metadata:
     helm-revision: "1"
     helm.sh/chart: redis-3.0.111
   annotations:
-    rollme: GvCj5
+    rollme: EZZXf
 spec:
   revisionHistoryLimit: 3
   replicas: 1

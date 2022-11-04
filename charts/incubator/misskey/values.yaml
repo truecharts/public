@@ -38,6 +38,31 @@ initContainers:
       runAsUser: 0
       runAsGroup: 0
       privileged: true
+    env:
+      # IP used for exposing misskey
+      # Often the service or nodePort IP
+      # Defaults to the main serviceName for CI purposes.
+      #NODE_ENV: development
+      - name: POSTGRES_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: postgresql-password
+      - name: POSTGRES_HOST
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: plainporthost
+      - name: REDIS_HOST
+        valueFrom:
+          secretKeyRef:
+            name: rediscreds
+            key: plainhost
+      - name: REDIS_HOST_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: rediscreds
+            key: redis-password
     command:
       - "/bin/sh"
       - "-c"
@@ -58,6 +83,14 @@ initContainers:
           fi
           chmod 770 /misskey/files
         fi
+        echo "s/POSTGRES_HOST/$POSTGRES_HOST/"
+        echo "s/POSTGRES_PASSWORD/$POSTGRES_PASSWORD/"
+        echo "s/REDIS_HOST/$REDIS_HOST/"
+        echo "s/REDIS_HOST_PASSWORD/$REDIS_HOST_PASSWORD/"
+        sed -i "s/POSTGRES_HOST/$POSTGRES_HOST/" /misskey/.config/default.yml
+        sed -i "s/POSTGRES_PASSWORD/$POSTGRES_PASSWORD/" /misskey/.config/default.yml
+        sed -i "s/REDIS_HOST/$REDIS_HOST/" /misskey/.config/default.yml
+        sed -i "s/REDIS_HOST_PASSWORD/$REDIS_HOST_PASSWORD/" /misskey/.config/default.yml
         EOF
 
     volumeMounts:
@@ -65,7 +98,6 @@ initContainers:
         mountPath: "/misskey/files"
       - name: misskeyconfig
         mountPath: "/misskey/.config"
-        readOnly: true
 
 url: "https://localhost:3000"
 env:
@@ -104,7 +136,6 @@ persistence:
     type: configMap
     objectName: misskeyconfig
     mountPath: "/misskey/.config"
-    readOnly: true
   files:
     enabled: true
     mountPath: "/misskey/files"
