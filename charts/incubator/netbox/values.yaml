@@ -11,17 +11,16 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# https://github.com/netbox-community/netbox/pull/10825
-# probes:
-#   liveness:
-#     type: HTTP
-#     path: /healthcheck
-#   readiness:
-#     type: HTTP
-#     path: /healthcheck
-#   startup:
-#     type: HTTP
-#     path: /healthcheck
+probes:
+  liveness:
+    type: HTTP
+    path: /login
+  readiness:
+    type: HTTP
+    path: /login
+  startup:
+    type: HTTP
+    path: /login
 
 service:
   main:
