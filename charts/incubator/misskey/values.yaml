@@ -1,3 +1,128 @@
-url: https://example.tld/
-image: misskey/misskey
-environment: production
+#url: https://localhost:3000/
+#image: misskey/misskey
+#environment: production
+
+image:
+  repository: misskey/misskey
+  pullPolicy: IfNotPresent
+  tag: latest
+
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 33
+
+
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+        targetPort: 3000
+
+hostAliases:
+  - ip: '{{ .Values.env.AccessIP | default "127.0.0.1" }}'
+    hostnames:
+      - "{{ if .Values.ingress.main.enabled }}{{ with (first .Values.ingress.main.hosts) }}{{ .host }}{{ end }}{{ else }}placeholder.fakedomain.dns{{ end }}"
+
+
+initContainers:
+  prestart:
+    image: '{{ include "tc.common.images.selector" . }}'
+    securityContext:
+      runAsUser: 0
+      runAsGroup: 0
+      privileged: true
+    command:
+      - "/bin/sh"
+      - "-c"
+      - |
+        /bin/bash <<'EOF'
+        echo "Forcing permissions on userdata folder..."
+        if nfs4xdr_getfacl && nfs4xdr_getfacl | grep -qv "Failed to get NFSv4 ACL"; then
+          echo "NFSv4 ACLs detected, Trying to override permissions using nfs4_setfacl..."
+          nfs4_setfacl -R -a A:g:33:RWX "/misskey/files"
+        else
+          echo "No NFSv4 ACLs detected, trying to override permissions using chown/chmod..."
+          echo "checking ownership..."
+          if [ $(stat -c %g .) -eq 33 ]; then
+            echo "Ownership already set to 33, skipping..."
+          else
+            echo "Changing ownership to group 33..."
+            chown -R :33 "/misskey/files"
+          fi
+          chmod 770 /misskey/files
+        fi
+        EOF
+
+    volumeMounts:
+      - name: files
+        mountPath: "/misskey/files"
+      - name: misskeyconfig
+        mountPath: "/misskey/.config"
+        readOnly: true
+
+url: "https://localhost:3000"
+env:
+  # IP used for exposing misskey
+  # Often the service or nodePort IP
+  # Defaults to the main serviceName for CI purposes.
+  #NODE_ENV: development
+  NODE_ENV: production
+  AccessIP:
+  POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
+  POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  POSTGRES_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainporthost
+  REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  REDIS_HOST_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
+
+#envFrom:
+#  - configMapRef:
+#      name: misskeyconfig
+
+persistence:
+  misskeyconfig:
+    enabled: true
+    type: configMap
+    objectName: misskeyconfig
+    mountPath: "/misskey/.config"
+    readOnly: true
+  files:
+    enabled: true
+    mountPath: "/misskey/files"
+  varrun:
+    enabled: true
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: misskey
+  postgresqlDatabase: misskey
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+
+portal:
+  enabled: true
+
+hpb:
+  enabled: false
