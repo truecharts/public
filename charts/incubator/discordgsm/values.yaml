@@ -11,6 +11,14 @@ discordgsm:
   APP_TOKEN: ""
   # WHITELIST_GUILDS: "ID1;ID2"
 
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 service:
   main:
     ports:
