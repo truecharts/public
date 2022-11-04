@@ -65,6 +65,14 @@ stringData:
     ]
     {{- end }}
 
+    {{- with .Values.netbox.allowed_urls_schemes}}
+    ALLOWED_URL_SCHEMES = [
+        {{- range . }}
+        {{ . | squote }},
+        {{- end }}
+    ]
+    {{- end }}
+
     {{- with .Values.netbox.auth_password_validators }}
     AUTH_PASSWORD_VALIDATORS = [
         {{- range . }}
@@ -80,6 +88,28 @@ stringData:
         {{- end }}
     ]
     {{- end }}
+
+    {{- with .Values.netbox.banner.top }}
+    BANNER_TOP = {{ . | squote }}
+    {{- end }}
+
+    {{- with .Values.netbox.banner.bottom }}
+    BANNER_BOTTOM = {{ . | squote }}
+    {{- end }}
+
+    {{- with .Values.netbox.banner.login }}
+    BANNER_LOGIN = {{ . | squote }}
+    {{- end }}
+
+    {{- if or .Values.netbox.retention.changelog (eq (int .Values.netbox.retention.changelog) 0) }}
+    CHANGELOG_RETENTION = {{ .Values.netbox.retention.changelog }}
+    {{- end }}
+
+    {{- if or .Values.netbox.retention.job_result (eq (int .Values.netbox.retention.job_result) 0) }}
+    JOBRESULT_RETENTION = {{ .Values.netbox.retention.job_result }}
+    {{- end }}
+
+    PREFER_IPV4 = {{ ternary "True" "False" .Values.netbox.prefer_ipv4 }}
 
     CORS_ORIGIN_ALLOW_ALL = {{ ternary "True" "False" .Values.netbox.cors_origin_allow_all }}
 

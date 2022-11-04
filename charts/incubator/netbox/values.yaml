@@ -36,6 +36,10 @@ netbox:
   # - access to the server via any other hostnames. The first FQDN in the list will be treated as the preferred name.
   allowed_hosts:
     - "127.0.0.1"
+  # - URL schemes that are allowed within links in NetBox
+  allowed_urls_schemes:
+    - file
+    - ftp
   # - Specify one or more name and email address tuples representing NetBox administrators. These people will be notified of
   # - application errors (assuming correct email settings are provided).
   admins: []
@@ -48,6 +52,20 @@ netbox:
     #   options:
     #     - key: min_length
     #       value: 10
+  banner:
+    # - Optionally display a persistent banner at the top of every page.
+    top: ""
+    # - Optionally display a persistent banner at the bottom of every page.
+    bottom: ""
+    # - Text to include on the login page above the login form. HTML is allowed
+    login: ""
+  retention:
+    # - Maximum number of days to retain logged changes. Set to 0 to retain changes indefinitely.
+    changelog: 90
+    # - Maximum number of days to retain job results (scripts and reports). Set to 0 to retain job results in the database indefinitely.
+    job_result: 90
+  # - When determining the primary IP address for a device, IPv6 is preferred over IPv4 by default.
+  prefer_ipv4: false
   # - API Cross-Origin Resource Sharing (CORS) settings. If CORS_ORIGIN_ALLOW_ALL is set to True, all origins will be
   # - allowed. Otherwise, define a list of allowed origins using either CORS_ORIGIN_WHITELIST or
   # - CORS_ORIGIN_REGEX_WHITELIST. For more information, see https://github.com/ottoyiu/django-cors-headers
