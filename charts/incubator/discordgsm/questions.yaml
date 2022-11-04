@@ -75,6 +75,15 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
+        - variable: npm
+          label: App NPM Storage
+          description: Stores the Application NPM.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressList}
 # Include{security}

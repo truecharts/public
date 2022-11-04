@@ -31,6 +31,9 @@ persistence:
   config:
     enabled: true
     mountPath: /app/data
+  npm:
+    enabled: true
+    mountPath: /.npm
 
 portal:
   enabled: true
