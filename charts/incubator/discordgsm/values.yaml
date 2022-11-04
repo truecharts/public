@@ -3,14 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: 2.6.0@sha256:dde285597299fdc99e6ced8d24f738a4a782677a39dc868f76f47edb6792fce1
 
-extraArgs:
-  - npm
-  - start
-
-discordgsm:
-  APP_TOKEN: "-1"
-  # WHITELIST_GUILDS: "ID1;ID2"
-
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
@@ -21,19 +13,15 @@ podSecurityContext:
 
 service:
   main:
+    enabled: false
     ports:
       main:
-        protocol: HTTP
-        targetPort: 8000
-        port: 10589
+        enabled: false
 
 persistence:
   config:
     enabled: true
     mountPath: /app/data
-  npm:
-    enabled: true
-    mountPath: /.npm
 
 portal:
   enabled: true

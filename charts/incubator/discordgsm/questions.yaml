@@ -31,36 +31,6 @@ questions:
           schema:
             type: string
             default: ""
-# Include{serviceRoot}
-        - variable: main
-          label: Main Service
-          description: The Primary service on which the healthcheck runs, often the webUI
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: main
-                      label: Main Service Port Configuration
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
-                              default: 10589
-                              required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 8000
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -69,15 +39,6 @@ questions:
         - variable: config
           label: App Config Storage
           description: Stores the Application Configuration.
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-# Include{persistenceAdvanced}
-        - variable: npm
-          label: App NPM Storage
-          description: Stores the Application NPM.
           schema:
             additional_attrs: true
             type: dict
