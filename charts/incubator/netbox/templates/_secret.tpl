@@ -111,6 +111,72 @@ stringData:
 
     PREFER_IPV4 = {{ ternary "True" "False" .Values.netbox.prefer_ipv4 }}
 
+    ENFORCE_GLOBAL_UNIQUE = {{ ternary "True" "False" .Values.netbox.enforce_global_unique }}
+
+    GRAPHQL_ENABLED = {{ ternary "True" "False" .Values.netbox.graphql_enabled }}
+
+    {{- with .Values.netbox.maps_url }}
+    MAPS_URL = {{ . | squote }}
+    {{- end }}
+
+    {{- if or .Values.netbox.max_page_size (eq (int .Values.netbox.max_page_size) 0) }}
+    MAX_PAGE_SIZE = {{ .Values.netbox.max_page_size }}
+    {{- end }}
+
+    {{- if or .Values.netbox.paginate_count (eq (int .Values.netbox.paginate_count) 0) }}
+    PAGINATE_COUNT = {{ .Values.netbox.paginate_count }}
+    {{- end }}
+
+    {{- with .Values.netbox.powerfeed.default_amperage }}
+    POWERFEED_DEFAULT_AMPERAGE = {{ . }}
+    {{- end }}
+
+    {{- with .Values.netbox.powerfeed.default_max_utilization }}
+    POWERFEED_DEFAULT_MAX_UTILIZATION = {{ . }}
+    {{- end }}
+
+    {{- with .Values.netbox.powerfeed.default_voltage }}
+    POWERFEED_DEFAULT_VOLTAGE = {{ . }}
+    {{- end }}
+
+    {{- with .Values.netbox.rack.elevation_default_unit_height }}
+    RACK_ELEVATION_DEFAULT_UNIT_HEIGHT = {{ . }}
+    {{- end }}
+
+    {{- with .Values.netbox.rack.elevation_default_unit_width }}
+    RACK_ELEVATION_DEFAULT_UNIT_WIDTH = {{ . }}
+    {{- end }}
+
+    {{- with .Values.netbox.napalm.username }}
+    NAPALM_USERNAME = {{ . | squote }}
+    {{- end }}
+
+    {{- with .Values.netbox.napalm.password }}
+    NAPALM_PASSWORD = {{ . | squote }}
+    {{- end }}
+
+    {{- with .Values.netbox.napalm.timeout }}
+    NAPALM_TIMEOUT = {{ . }}
+    {{- end }}
+
+    {{- with .Values.netbox.napalm.args }}
+    NAPALM_ARGS = {
+        {{- range . }}
+        {{ .arg | squote }}: {{ .value | squote }},
+        {{- end }}
+    }
+    {{- end }}
+
+    {{- with .Values.netbox.csrf_trusted_origin }}
+    CSRF_TRUSTED_ORIGINS = [
+      {{ . | squote }},
+    ]
+    {{- end }}
+
+    {{- with .Values.netbox.csrf_cookie_name }}
+    CSRF_COOKIE_NAME = {{ . | squote }}
+    {{- end }}
+
     CORS_ORIGIN_ALLOW_ALL = {{ ternary "True" "False" .Values.netbox.cors_origin_allow_all }}
 
     {{- with .Values.netbox.cors_origin_whitelist }}
@@ -182,13 +248,6 @@ stringData:
     )
     {{- end }}
 
-    {{- with .Values.netbox.logging }}
-    LOGGING = {
-        {{- range . }}
-        {{- end }}
-    }
-    {{- end }}
-
     LOGIN_PERSISTENCE = {{ ternary "True" "False" .Values.netbox.login_persistence }}
 
     LOGIN_REQUIRED = {{ ternary "True" "False" .Values.netbox.login_required }}
@@ -226,7 +285,7 @@ stringData:
     {{- end }}
 
     {{/*
-    TODO: Template plugins here, so it's easier to config on UI
+    TODO: Consider template plugins here, so it's easier to config on UI
     https://github.com/netbox-community/netbox/wiki/Plugins
     */}}
     {{- with .Values.netbox.plugin_config }}
@@ -247,10 +306,6 @@ stringData:
 
     {{- with .Values.netbox.session_cookie_name }}
     SESSION_COOKIE_NAME = {{ . | squote }}
-    {{- end }}
-
-    {{- with .Values.netbox.csrf_cookie_name }}
-    CSRF_COOKIE_NAME = {{ . | squote }}
     {{- end }}
 
     RELEASE_CHECK_URL = 'https://api.github.com/repos/netbox-community/netbox/releases'

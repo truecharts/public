@@ -37,17 +37,20 @@ netbox:
   allowed_hosts:
     - "127.0.0.1"
   # - URL schemes that are allowed within links in NetBox
-  allowed_urls_schemes: []
+  allowed_urls_schemes:
+    []
     # - file
     # - ftp
   # - Specify one or more name and email address tuples representing NetBox administrators. These people will be notified of
   # - application errors (assuming correct email settings are provided).
-  admins: []
+  admins:
+    []
     # - name: John Doe
     #   email: jdoe@example.com
   # - Enable any desired validators for local account passwords below. For a list of included validators, please see the
   # - Django documentation at https://docs.djangoproject.com/en/stable/topics/auth/passwords/#password-validation.
-  auth_password_validators: []
+  auth_password_validators:
+    []
     # - name: django.contrib.auth.password_validation.MinimumLengthValidator
     #   options:
     #     - key: min_length
@@ -66,13 +69,17 @@ netbox:
     job_result: 90
   # - When determining the primary IP address for a device, IPv6 is preferred over IPv4 by default.
   prefer_ipv4: false
+  # - Enforcement of unique IP space can be toggled on a per-VRF basis. To enforce unique IP space within the global table
+  enforce_global_unique: true
   # - API Cross-Origin Resource Sharing (CORS) settings. If CORS_ORIGIN_ALLOW_ALL is set to True, all origins will be
   # - allowed. Otherwise, define a list of allowed origins using either CORS_ORIGIN_WHITELIST or
   # - CORS_ORIGIN_REGEX_WHITELIST. For more information, see https://github.com/ottoyiu/django-cors-headers
   cors_origin_allow_all: false
-  cors_origin_whitelist: []
+  cors_origin_whitelist:
+    []
     # - "127.0.0.1"
-  cors_origin_regex_whitelist: []
+  cors_origin_regex_whitelist:
+    []
     # - r'^(https?://)?(\w+\.)?example\.com$'
   debug: false
   email:
@@ -86,12 +93,14 @@ netbox:
     from_email: ""
   # - Exempt certain models from the enforcement of view permissions. Models listed here will be viewable by all users and
   # - by anonymous users. List models in the form `<app>.<model>`. Add '*' to this list to exempt all models.
-  exempt_view_permissions: []
+  exempt_view_permissions:
+    []
     # - dcim.site
     # - dcim.region
     # - ipam.prefix
   # - HTTP proxies NetBox should use when sending outbound HTTP requests (e.g. for webhooks).
-  http_proxies: []
+  http_proxies:
+    []
     # - key: http
     #   url: http://10.10.1.10:3128
     # - key: https
@@ -101,10 +110,6 @@ netbox:
   internal_ips:
     - "127.0.0.1"
     - ::1
-  # - Enable custom logging. Please see the Django documentation for detailed guidance on configuring custom logs:
-  # - https://docs.djangoproject.com/en/stable/topics/logging/
-  # TODO:
-  logging: {}
   # - Automatically reset the lifetime of a valid session upon each authenticated request. Enables users to remain
   # - authenticated to NetBox indefinitely.
   login_persistence: false
@@ -116,11 +121,50 @@ netbox:
   login_timeout: 1209600
   # - Expose Prometheus monitoring metrics at the HTTP endpoint '/metrics'
   metrics: false
+  # - Enable GraphQL API.
+  graphql_enabled: true
+  # - Maps provider
+  maps_url: https://maps.google.com/?q=
+  # - An API consumer can request an arbitrary number of objects =by appending the "limit" parameter to the URL (e.g.
+  # - "?limit=1000"). This setting defines the maximum limit. Setting it to 0 or None will allow an API consumer to request
+  # - all objects by specifying "?limit=0".
+  max_page_size: 1000
+  # - Determine how many objects to display per page within a list. (Default: 50)
+  paginate_count: 50
+  powerfeed:
+    # - The default value for the amperage field when creating new power feeds.
+    default_amperage: 15
+    # - The default value (percentage) for the max_utilization field when creating new power feeds.
+    default_max_utilization: 80
+    # - The default value for the voltage field when creating new power feeds.
+    default_voltage: 120
+  # - Rack elevation size defaults, in pixels. For best results, the ratio of width to height should be roughly 10:1.
+  rack:
+    elevation_default_unit_height: 22
+    elevation_default_unit_width: 220
+  # - Credentials that NetBox will uses to authenticate to devices when connecting via NAPALM.
+  napalm:
+    username: ""
+    password: ""
+    timeout: 30
+    # - NAPALM optional arguments (see http://napalm.readthedocs.io/en/latest/support/#optional-arguments).
+    args:
+      []
+      # - arg: allow_agent
+      #   value: "False"
+  # - Cross-Site-Request-Forgery-Attack settings. If Netbox is sitting behind a reverse proxy, you might need to set this
+  csrf_trusted_origin: []
+    # - https://netbox.mydomain.com
+  # - The name to use for the session cookie.
+  session_cookie_name: sessionid
+  # - The name to use for the csrf token cookie.
+  csrf_cookie_name: csrftoken
   # - By default uploaded media is stored on the local filesystem. Using Django-storages is also supported. Provide the
   # - class path of the storage driver in storage_backend and any configuration options in storage_config. For example:
   storage_backend: ""
   # storage_backend: storages.backends.s3boto3.S3Boto3Storage
-  storage_config: []
+  storage_config:
+    []
     # - key: AWS_ACCESS_KEY_ID
     #   value: KeyID
     # - key: AWS_SECRET_ACCESS_KEY
@@ -130,11 +174,13 @@ netbox:
     # - key: AWS_S3_REGION_NAME
     #   value: eu-west-1
   # - Enable installed plugins. Add the name of each plugin to the list.
-  plugins: []
+  plugins:
+    []
     # - plugin1
     # - plugin2
   # - Plugins configuration settings. These settings are used by various plugins that the user may have installed.
-  plugin_config: []
+  plugin_config:
+    []
     # - plugin_name: plugin1
     #   config:
     #     - key: foo
@@ -143,12 +189,9 @@ netbox:
     #       value: bizz
   # - Maximum execution time for background tasks, in seconds.
   rq_default_timeout: 300
-  # - The name to use for the session cookie.
-  session_cookie_name: sessionid
-  # - The name to use for the csrf token cookie.
-  csrf_cookie_name: csrftoken
   # - Remote authentication support
-  remote_auth: {}
+  remote_auth:
+    {}
     # enabled: false
     # backend: netbox.authentication.RemoteUserBackend
     # header: header
@@ -166,6 +209,8 @@ netbox:
     short_time_format: H:i:s
     date_time_format: N j, Y g:i a
     short_date_time_format: Y-m-d H:i
+  # TODO:
+  ldap: {}
 
 persistence:
   config:
