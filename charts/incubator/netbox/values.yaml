@@ -153,7 +153,8 @@ netbox:
       # - arg: allow_agent
       #   value: "False"
   # - Cross-Site-Request-Forgery-Attack settings. If Netbox is sitting behind a reverse proxy, you might need to set this
-  csrf_trusted_origin: []
+  csrf_trusted_origin:
+    []
     # - https://netbox.mydomain.com
   # - The name to use for the session cookie.
   session_cookie_name: sessionid
