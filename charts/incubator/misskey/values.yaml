@@ -38,6 +38,31 @@ initContainers:
       runAsUser: 0
       runAsGroup: 0
       privileged: true
+    env:
+      # IP used for exposing misskey
+      # Often the service or nodePort IP
+      # Defaults to the main serviceName for CI purposes.
+      #NODE_ENV: development
+      - name: POSTGRES_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: postgresql-password
+      - name: POSTGRES_HOST
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: plainporthost
+      - name: REDIS_HOST
+        valueFrom:
+          secretKeyRef:
+            name: rediscreds
+            key: plainhost
+      - name: REDIS_HOST_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: rediscreds
+            key: redis-password
     command:
       - "/bin/sh"
       - "-c"
@@ -58,14 +83,22 @@ initContainers:
           fi
           chmod 770 /misskey/files
         fi
+        echo $POSTGRES_HOST
+        echo $POSTGRES_PASSWORD
+        cp /var/misskey/.config/default.yml /misskey/.config/
+        sed -i "s/POSTGRES_HOST/$POSTGRES_HOST/" /misskey/.config/default.yml
+        sed -i "s/POSTGRES_PASSWORD/$POSTGRES_PASSWORD/" /misskey/.config/default.yml
+        sed -i "s/REDIS_HOST/$REDIS_HOST/" /misskey/.config/default.yml
+        sed -i "s/REDIS_PASSWORD/$REDIS_HOST_PASSWORD/" /misskey/.config/default.yml
         EOF
 
     volumeMounts:
       - name: files
         mountPath: "/misskey/files"
+      - name: misskeyconfig-src
+        mountPath: "/var/misskey/.config"
       - name: misskeyconfig
         mountPath: "/misskey/.config"
-        readOnly: true
 
 url: "https://localhost:3000"
 env:
@@ -99,12 +132,14 @@ env:
 #      name: misskeyconfig
 
 persistence:
-  misskeyconfig:
+  misskeyconfig-src:
     enabled: true
     type: configMap
     objectName: misskeyconfig
+    mountPath: "/var/misskey/.config"
+  misskeyconfig:
+    enabled: true
     mountPath: "/misskey/.config"
-    readOnly: true
   files:
     enabled: true
     mountPath: "/misskey/files"
