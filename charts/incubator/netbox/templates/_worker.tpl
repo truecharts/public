@@ -22,13 +22,11 @@ volumeMounts:
     mountPath: /opt/netbox/netbox/media
   - name: configfile
     mountPath: /etc/netbox/config/config.py
-    {{/*readOnly: true*/}}
     subPath: config.py
 {{/*readinessProbe:
   exec:
     command:
-      - /lifecycle/ak
-      - healthcheck
+      - TODO: find a healthcheck
   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
@@ -36,8 +34,7 @@ volumeMounts:
 livenessProbe:
   exec:
     command:
-      - /lifecycle/ak
-      - healthcheck
+      - TODO: find a healthcheck
   initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
@@ -45,8 +42,7 @@ livenessProbe:
 startupProbe:
   exec:
     command:
-      - /lifecycle/ak
-      - healthcheck
+      - TODO: find a healthcheck
   initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}

@@ -11,11 +11,24 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+# https://github.com/netbox-community/netbox/pull/10825
+# probes:
+#   liveness:
+#     type: HTTP
+#     path: /healthcheck
+#   readiness:
+#     type: HTTP
+#     path: /healthcheck
+#   startup:
+#     type: HTTP
+#     path: /healthcheck
+
 service:
   main:
     ports:
       main:
         port: 10265
+        protocol: HTTP
         targetPort: 8080
 
 netbox:
@@ -152,8 +165,6 @@ persistence:
   configfile:
     enabled: true
     type: secret
-    # readOnly: true
-    # defaultMode: "0700"
     objectName: '{{ include "tc.common.names.fullname" . }}-secret'
     mountPath: /etc/netbox/config/config.py
     subPath: config.py

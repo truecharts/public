@@ -195,6 +195,10 @@ stringData:
     ]
     {{- end }}
 
+    {{/*
+    TODO: Template plugins here, so it's easier to config on UI
+    https://github.com/netbox-community/netbox/wiki/Plugins
+    */}}
     {{- with .Values.netbox.plugin_config }}
     PLUGINS_CONFIG = {
         {{- range . }}
