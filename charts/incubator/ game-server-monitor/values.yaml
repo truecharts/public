@@ -11,25 +11,29 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+gameservermonitor:
+  POSTGRES_SSL_MODE: disable
+  DATABASE_URL: ""
+  # APP_TOKEN: "DISCORD_BOT_TOKEN"
+
 service:
   main:
-    enabled: false
     ports:
       main:
-        enabled: false
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+        protocol: HTTP
+        targetPort: 8000
+        port: 10589
 
 persistence:
   config:
     enabled: true
     mountPath: /app/data
+
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlDatabase: game_server_monitor
+  postgresqlUsername: game_server_monitor
 
 portal:
   enabled: true
