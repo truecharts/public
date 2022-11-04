@@ -2,6 +2,16 @@
 
 
 
+## [syncthing-11.0.45](https://github.com/truecharts/charts/compare/syncthing-11.0.44...syncthing-11.0.45) (2022-11-03)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4286](https://github.com/truecharts/charts/issues/4286))
+
+
+
+
 ## [syncthing-11.0.44](https://github.com/truecharts/charts/compare/syncthing-11.0.43...syncthing-11.0.44) (2022-11-02)
 
 ### Chore

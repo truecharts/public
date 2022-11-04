@@ -2,6 +2,16 @@
 
 
 
+## [fireflyiii-16.0.55](https://github.com/truecharts/charts/compare/fireflyiii-16.0.54...fireflyiii-16.0.55) (2022-11-03)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4286](https://github.com/truecharts/charts/issues/4286))
+
+
+
+
 ## [fireflyiii-16.0.54](https://github.com/truecharts/charts/compare/fireflyiii-16.0.53...fireflyiii-16.0.54) (2022-11-02)
 
 ### Chore
