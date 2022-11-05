@@ -47,7 +47,7 @@ data:
     #   You need to set Certificate in 'https' section.
 
     # To use option 1, uncomment below line.
-    port: 3000 # A port that your Misskey server should listen.
+    port: {{ .Values.service.main.ports.main.targetPort }} # A port that your Misskey server should listen.
 
     # To use option 2, uncomment below lines.
     #port: 443
@@ -114,7 +114,7 @@ data:
     # ONCE YOU HAVE STARTED THE INSTANCE, DO NOT CHANGE THE
     # ID SETTINGS AFTER THAT!
 
-    id: "aid"
+    id: {{ .Values.misskey.id }}
     #   ┌─────────────────────┐
     #───┘ Other configuration └─────────────────────────────────────
 
@@ -169,4 +169,4 @@ data:
 
     # Upload or download file size limits (bytes)
     #maxFileSize: 262144000
-    url: {{ .Values.url }}
+    url: {{ .Values.misskey.url }}

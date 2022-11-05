@@ -1,7 +1,3 @@
-#url: https://localhost:3000/
-#image: misskey/misskey
-#environment: production
-
 image:
   repository: misskey/misskey
   pullPolicy: IfNotPresent
@@ -100,7 +96,11 @@ initContainers:
       - name: misskeyconfig
         mountPath: "/misskey/.config"
 
-url: "https://localhost:3000"
+misskey:
+  # Final accessible URL seen by a user. ONCE YOU HAVE STARTED THE INSTANCE, DO NOT CHANGE THE URL SETTINGS AFTER THAT!
+  url: "https://example.tld/"
+  id: "aid"
+
 env:
   # IP used for exposing misskey
   # Often the service or nodePort IP

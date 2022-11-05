@@ -12,6 +12,35 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
+  - variable: misskey
+    group: "Container Configuration"
+    label: "Misskey Configuration"
+      schema:
+        additional_attrs: true
+        type: dict
+        attrs:
+          - variable: url
+            label: "Final Accessible URL"
+            description: "Final accessible URL seen by a user. ONCE YOU HAVE STARTED THE INSTANCE, DO NOT CHANGE THE URL SETTINGS AFTER THAT!"
+            schema:
+              type: string
+              required: true
+          - variable: id
+            label: "ID Generation Method"
+            description: "Select the ID generation method. DO NOT CHANGE AFTER INSTANCE IS STARTED!"
+            schema:
+              type: string
+              enum:
+                - value: "aid"
+                  description: "Short, Millisecond accuracy"
+                - value: "meid"
+                  description: "Similar to ObjectID, Millisecond accuracy"
+                - value: "ulid"
+                  description: "Millisecond accuracy"
+                - value: "objectid"
+                  description: "This is left for backward compatibility"
+              default: "aid"
+              required: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -23,24 +52,37 @@ questions:
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 3000
+                              required: true
 # Include{advancedPortHTTP}
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: html
-          label: "App html Storage"
-          description: "Stores the Application html."
+        - variable: misskeyconfig
+          label: "App configuration storage"
+          description: "Stores the Application configuration files."
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
-        - variable: data
-          label: "UserData Storage"
-          description: "Stores the User Data."
+        - variable: files
+          label: "Misskey file Storage"
+          description: "Stores the Application file data."
           schema:
             additional_attrs: true
             type: dict
