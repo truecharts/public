@@ -5,7 +5,7 @@ image:
 
 initContainers:
   init:
-    image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
+    image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
     command: ["/config/init/init.sh"]
     volumeMounts:
       - name: init

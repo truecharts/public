@@ -39,7 +39,7 @@ persistence:
 
 initContainers:
   1-create-init-config-file:
-    image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
+    image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
     volumeMounts:
       - name: config
         mountPath: "/config"
