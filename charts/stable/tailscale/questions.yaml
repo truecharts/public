@@ -24,6 +24,12 @@ questions:
             type: string
             private: true
             default: ""
+        - variable: auth_once
+          label: Auth Once
+          description: Only attempt to log in if not already logged in.
+          schema:
+            type: boolean
+            default: true
         - variable: userspace
           label: Userspace
           description: Userspace Networking mode allows running Tailscale where you don't have access to create a VPN tunnel device. *Required for Exit Node/Accessing Local Routes* See <a href="https://truecharts.org/docs/charts/stable/tailscale/How-To-Guide/">How-To-Guide</a> for more info
@@ -50,6 +56,13 @@ questions:
             default: ""
         - variable: sock5_server
           label: Sock5 Server
+          description: The address on which to listen for SOCKS5 proxying into the tailscale net.
+          schema:
+            type: string
+            default: ""
+        - variable: outbound_http_proxy_listen
+          label: Outbound HTTP Proxy Listen
+          description: The address on which to listen for HTTP proxying into the tailscale net.
           schema:
             type: string
             default: ""
