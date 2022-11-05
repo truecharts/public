@@ -2,6 +2,16 @@
 
 
 
+## [hammond-2.0.41](https://github.com/truecharts/charts/compare/hammond-2.0.40...hammond-2.0.41) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [hammond-2.0.40](https://github.com/truecharts/charts/compare/hammond-2.0.39...hammond-2.0.40) (2022-11-02)
 
 ### Chore

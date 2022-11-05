@@ -2,6 +2,16 @@
 
 
 
+## [openkm-7.0.50](https://github.com/truecharts/charts/compare/openkm-7.0.49...openkm-7.0.50) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [openkm-7.0.49](https://github.com/truecharts/charts/compare/openkm-7.0.48...openkm-7.0.49) (2022-11-02)
 
 ### Chore

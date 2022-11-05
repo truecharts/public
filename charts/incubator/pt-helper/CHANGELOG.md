@@ -2,6 +2,16 @@
 
 
 
+## [pt-helper-0.0.34](https://github.com/truecharts/charts/compare/pt-helper-0.0.33...pt-helper-0.0.34) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [pt-helper-0.0.33](https://github.com/truecharts/charts/compare/pt-helper-0.0.32...pt-helper-0.0.33) (2022-11-02)
 
 ### Chore

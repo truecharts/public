@@ -2,6 +2,16 @@
 
 
 
+## [custom-app-5.1.94](https://github.com/truecharts/charts/compare/custom-app-5.1.93...custom-app-5.1.94) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [custom-app-5.1.93](https://github.com/truecharts/charts/compare/custom-app-5.1.92...custom-app-5.1.93) (2022-11-05)
 
 ### Chore

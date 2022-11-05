@@ -2,6 +2,16 @@
 
 
 
+## [traefik-13.5.1](https://github.com/truecharts/charts/compare/traefik-13.5.0...traefik-13.5.1) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [traefik-13.5.0](https://github.com/truecharts/charts/compare/traefik-13.4.16...traefik-13.5.0) (2022-11-02)
 
 ### Chore

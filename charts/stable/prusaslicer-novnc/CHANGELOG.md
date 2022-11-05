@@ -2,6 +2,16 @@
 
 
 
+## [prusaslicer-novnc-1.0.3](https://github.com/truecharts/charts/compare/prusaslicer-novnc-1.0.2...prusaslicer-novnc-1.0.3) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [prusaslicer-novnc-1.0.2](https://github.com/truecharts/charts/compare/prusaslicer-novnc-1.0.1...prusaslicer-novnc-1.0.2) (2022-11-05)
 
 ### Chore

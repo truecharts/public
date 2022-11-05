@@ -2,6 +2,16 @@
 
 
 
+## [cloudbeaver-0.0.36](https://github.com/truecharts/charts/compare/cloudbeaver-0.0.35...cloudbeaver-0.0.36) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [cloudbeaver-0.0.35](https://github.com/truecharts/charts/compare/cloudbeaver-0.0.34...cloudbeaver-0.0.35) (2022-11-02)
 
 ### Chore

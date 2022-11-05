@@ -2,6 +2,16 @@
 
 
 
+## [guacamole-client-4.0.52](https://github.com/truecharts/charts/compare/guacamole-client-4.0.51...guacamole-client-4.0.52) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [guacamole-client-4.0.51](https://github.com/truecharts/charts/compare/guacamole-client-4.0.50...guacamole-client-4.0.51) (2022-11-02)
 
 ### Chore

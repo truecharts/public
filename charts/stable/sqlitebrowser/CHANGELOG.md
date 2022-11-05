@@ -2,6 +2,16 @@
 
 
 
+## [sqlitebrowser-3.0.39](https://github.com/truecharts/charts/compare/sqlitebrowser-3.0.38...sqlitebrowser-3.0.39) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [sqlitebrowser-3.0.38](https://github.com/truecharts/charts/compare/sqlitebrowser-3.0.37...sqlitebrowser-3.0.38) (2022-11-02)
 
 ### Chore

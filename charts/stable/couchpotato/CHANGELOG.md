@@ -2,6 +2,16 @@
 
 
 
+## [couchpotato-2.0.39](https://github.com/truecharts/charts/compare/couchpotato-2.0.38...couchpotato-2.0.39) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [couchpotato-2.0.38](https://github.com/truecharts/charts/compare/couchpotato-2.0.37...couchpotato-2.0.38) (2022-11-02)
 
 ### Chore

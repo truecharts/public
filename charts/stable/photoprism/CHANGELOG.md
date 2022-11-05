@@ -2,6 +2,16 @@
 
 
 
+## [photoprism-10.0.55](https://github.com/truecharts/charts/compare/photoprism-10.0.54...photoprism-10.0.55) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [photoprism-10.0.54](https://github.com/truecharts/charts/compare/photoprism-10.0.53...photoprism-10.0.54) (2022-11-03)
 
 ### Chore

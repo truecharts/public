@@ -2,6 +2,16 @@
 
 
 
+## [minisatip-2.0.39](https://github.com/truecharts/charts/compare/minisatip-2.0.38...minisatip-2.0.39) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [minisatip-2.0.38](https://github.com/truecharts/charts/compare/minisatip-2.0.37...minisatip-2.0.38) (2022-11-02)
 
 ### Chore

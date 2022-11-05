@@ -2,6 +2,16 @@
 
 
 
+## [ffmpeg-mkvdts2ac3-0.0.33](https://github.com/truecharts/charts/compare/ffmpeg-mkvdts2ac3-0.0.32...ffmpeg-mkvdts2ac3-0.0.33) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [ffmpeg-mkvdts2ac3-0.0.32](https://github.com/truecharts/charts/compare/ffmpeg-mkvdts2ac3-0.0.31...ffmpeg-mkvdts2ac3-0.0.32) (2022-11-02)
 
 ### Chore

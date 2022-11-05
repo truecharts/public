@@ -2,6 +2,16 @@
 
 
 
+## [putty-1.0.19](https://github.com/truecharts/charts/compare/putty-1.0.18...putty-1.0.19) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [putty-1.0.18](https://github.com/truecharts/charts/compare/putty-1.0.17...putty-1.0.18) (2022-11-02)
 
 ### Chore

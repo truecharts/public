@@ -2,6 +2,20 @@
 
 
 
+## [tailscale-1.1.21](https://github.com/truecharts/charts/compare/tailscale-1.1.19...tailscale-1.1.21) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+  ### Fix
+
+- switch to the new golang binary ([#4307](https://github.com/truecharts/charts/issues/4307))
+
+
+
+
 ## [tailscale-1.1.19](https://github.com/truecharts/charts/compare/tailscale-1.1.18...tailscale-1.1.19) (2022-11-04)
 
 ### Chore

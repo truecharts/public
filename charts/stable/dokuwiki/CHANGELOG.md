@@ -2,6 +2,16 @@
 
 
 
+## [dokuwiki-3.0.75](https://github.com/truecharts/charts/compare/dokuwiki-3.0.74...dokuwiki-3.0.75) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [dokuwiki-3.0.74](https://github.com/truecharts/charts/compare/dokuwiki-3.0.73...dokuwiki-3.0.74) (2022-11-05)
 
 ### Chore

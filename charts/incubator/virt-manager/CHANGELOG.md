@@ -2,6 +2,16 @@
 
 
 
+## [virt-manager-0.0.93](https://github.com/truecharts/charts/compare/virt-manager-0.0.92...virt-manager-0.0.93) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [virt-manager-0.0.92](https://github.com/truecharts/charts/compare/virt-manager-0.0.91...virt-manager-0.0.92) (2022-11-05)
 
 ### Chore

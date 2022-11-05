@@ -2,6 +2,16 @@
 
 
 
+## [core-keeper-dedicated-server-0.0.36](https://github.com/truecharts/charts/compare/core-keeper-dedicated-server-0.0.35...core-keeper-dedicated-server-0.0.36) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [core-keeper-dedicated-server-0.0.35](https://github.com/truecharts/charts/compare/core-keeper-dedicated-server-0.0.34...core-keeper-dedicated-server-0.0.35) (2022-11-02)
 
 ### Chore
