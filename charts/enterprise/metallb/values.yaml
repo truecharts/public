@@ -3,10 +3,6 @@ image:
   tag: upstream
   pullPolicy: IfNotPresent
 
-metallb:
-  crds:
-    validationFailurePolicy: Ignore
-
 ipAddressPools: []
 L2Advertisements: []
 #   - name: l2adv
