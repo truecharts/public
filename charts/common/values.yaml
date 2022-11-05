@@ -66,6 +66,12 @@ ubuntuImage:
   # -- Specify the redis image pull policy
   pullPolicy: IfNotPresent
 
+# -- Used to inject our own operator manifests into SCALE
+manifests:
+  enabled: true
+  version: 1
+  metalLBVersion: "0.13.7"
+
 global:
   # -- Set an override for the prefix of the fullname
   nameOverride:
