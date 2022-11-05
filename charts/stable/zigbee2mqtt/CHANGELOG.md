@@ -2,6 +2,16 @@
 
 
 
+## [zigbee2mqtt-4.0.45](https://github.com/truecharts/charts/compare/zigbee2mqtt-4.0.44...zigbee2mqtt-4.0.45) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4301](https://github.com/truecharts/charts/issues/4301))
+
+
+
+
 ## [zigbee2mqtt-4.0.44](https://github.com/truecharts/charts/compare/zigbee2mqtt-4.0.43...zigbee2mqtt-4.0.44) (2022-11-03)
 
 ### Chore

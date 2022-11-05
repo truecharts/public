@@ -2,6 +2,16 @@
 
 
 
+## [rstudio-0.0.39](https://github.com/truecharts/charts/compare/rstudio-0.0.38...rstudio-0.0.39) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4301](https://github.com/truecharts/charts/issues/4301))
+
+
+
+
 ## [rstudio-0.0.38](https://github.com/truecharts/charts/compare/rstudio-0.0.37...rstudio-0.0.38) (2022-11-02)
 
 ### Chore

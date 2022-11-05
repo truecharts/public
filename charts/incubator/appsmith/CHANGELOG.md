@@ -2,6 +2,16 @@
 
 
 
+## [appsmith-2.0.64](https://github.com/truecharts/charts/compare/appsmith-2.0.63...appsmith-2.0.64) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4301](https://github.com/truecharts/charts/issues/4301))
+
+
+
+
 ## [appsmith-2.0.63](https://github.com/truecharts/charts/compare/appsmith-2.0.62...appsmith-2.0.63) (2022-11-02)
 
 ### Chore

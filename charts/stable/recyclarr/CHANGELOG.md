@@ -2,6 +2,16 @@
 
 
 
+## [recyclarr-1.0.12](https://github.com/truecharts/charts/compare/recyclarr-1.0.11...recyclarr-1.0.12) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4301](https://github.com/truecharts/charts/issues/4301))
+
+
+
+
 ## [recyclarr-1.0.11](https://github.com/truecharts/charts/compare/recyclarr-1.0.10...recyclarr-1.0.11) (2022-11-02)
 
 ### Chore

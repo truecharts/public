@@ -2,6 +2,16 @@
 
 
 
+## [domoticz-2.0.50](https://github.com/truecharts/charts/compare/domoticz-2.0.49...domoticz-2.0.50) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4301](https://github.com/truecharts/charts/issues/4301))
+
+
+
+
 ## [domoticz-2.0.49](https://github.com/truecharts/charts/compare/domoticz-2.0.48...domoticz-2.0.49) (2022-11-02)
 
 ### Chore
