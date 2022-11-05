@@ -12,7 +12,7 @@ before chart installation.
   {{- end -}}
 {{- end }}
 - name: prepare
-  image: {{ .Values.multiinitImage.repository }}:{{ .Values.multiinitImage.tag }}
+  image: {{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}
   securityContext:
     runAsUser: 0
   resources:
