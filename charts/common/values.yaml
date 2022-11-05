@@ -75,6 +75,14 @@ multiinitImage:
   tag: 1.1.0@sha256:a239973213923260c6993eb97bd4f98471ec076dddf74a08f6d10fa413e6c5b5
   # -- Specify the redis image pull policy
   pullPolicy: IfNotPresent
+  
+ubuntuImage:
+  # -- Specify the multi-init image
+  repository: tccr.io/truecharts/ubuntu
+  # -- Specify the redis image tag
+  tag: jammy-20221101@sha256:0c22cb66d04dc51fd49ad6b6133426efe7ac0c76a259bbc7ec9ea331a1e628ba
+  # -- Specify the redis image pull policy
+  pullPolicy: IfNotPresent
 
 global:
   # -- Set an override for the prefix of the fullname
