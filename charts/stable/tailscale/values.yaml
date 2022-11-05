@@ -81,8 +81,6 @@ service:
         enabled: false
 
 persistence:
-  varrun:
-    enabled: false
   config:
     enabled: true
     mountPath: /var/lib

@@ -26,6 +26,7 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   TS_KUBE_SECRET: {{ $secretName | squote }}
+  TS_SOCKET: /var/run/tailscale/tailscaled.sock
   TS_USERSPACE: {{ .Values.tailscale.userspace | quote }}
   TS_ACCEPT_DNS: {{ .Values.tailscale.accept_dns | quote }}
   TS_AUTH_ONCE: {{ .Values.tailscale.auth_once | quote }}
