@@ -90,26 +90,11 @@ before chart installation.
       echo "Automatically correcting permissions..."
       {{- if and ( .Values.addons.vpn.configFile.enabled ) ( ne .Values.addons.vpn.type "disabled" ) ( ne .Values.addons.vpn.type "tailscale" ) }}
       echo "Automatically correcting permissions for vpn config file..."
-      if nfs4xdr_getfacl && nfs4xdr_getfacl | grep -qv "Failed to get NFSv4 ACL"; then
-        echo "NFSv4 ACLs detected, using nfs4_setfacl to set permissions..."
-        nfs4_setfacl -a A::568:RWX /vpn/vpn.conf || echo "Setting user permissions failed..."
-        nfs4_setfacl -a A:g:568:RWX /vpn/vpn.conf || echo "Setting group permissions failed..."
-      else
-        echo "No NFSv4 ACLs detected, trying chown/chmod..."
-        chown -R 568:568 /vpn/vpn.conf || echo "Setting ownership failed..."
-        chmod -R g+w /vpn/vpn.conf || echo "Setting group permissions failed..."
-      fi
+      /usr/bin/nfs4xdr_winacl -a chown -O 568 -G 568 -r -c /vpn/vpn.conf -p /vpn/vpn.conf
       {{- end }}
       {{- range $_, $hpm := $hostPathMounts }}
       echo "Automatically correcting permissions for {{ $hpm.mountPath }}..."
-      if nfs4xdr_getfacl && nfs4xdr_getfacl | grep -qv "Failed to get NFSv4 ACL"; then
-        echo "NFSv4 ACLs detected, using nfs4_setfacl to set permissions..."
-        nfs4_setfacl -R -a A:g:{{ $group }}:RWX {{ tpl $hpm.mountPath $ | squote }} || echo "Setting group permissions failed..."
-      else
-        echo "No NFSv4 ACLs detected, trying chown/chmod..."
-        chown -R :{{ $group }} {{ tpl $hpm.mountPath $ | squote }} || echo "Setting group ownership failed..."
-        chmod -R g+rwx {{ tpl $hpm.mountPath $ | squote }} || echo "Setting group permissions failed..."
-      fi
+      /usr/bin/nfs4xdr_winacl -a chown -G {{ $group }} -r -c {{ tpl $hpm.mountPath $ | squote }} -p {{ tpl $hpm.mountPath $ | squote }}
       {{- end }}
       {{- if .Values.postgresql.enabled }}
       {{- $pghost := printf "%v-%v" .Release.Name "postgresql" }}
