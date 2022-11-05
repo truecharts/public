@@ -25,8 +25,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  {{/* TS_KUBE_SECRET: {{ $secretName | squote */}}
-  TS_AUTH_KEY: TESTINGNOW
+  TS_KUBE_SECRET: {{ $secretName | squote }}
   TS_USERSPACE: {{ .Values.tailscale.userspace | quote }}
   TS_ACCEPT_DNS: {{ .Values.tailscale.accept_dns | quote }}
   TS_AUTH_ONCE: {{ .Values.tailscale.auth_once | quote }}
