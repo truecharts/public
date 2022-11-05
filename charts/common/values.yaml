@@ -57,7 +57,7 @@ codeserverImage:
   tag: 4.8.2@sha256:e5f8ac63174c08e769cbfb7ec17cf3db236e7b4212cca31c25d695b1c73bc7bb
   # -- Specify the code-server image pull policy
   pullPolicy: IfNotPresent
-  
+
 ubuntuImage:
   # -- Specify the multi-init image
   repository: tccr.io/truecharts/ubuntu
@@ -1018,12 +1018,14 @@ addons:
       authkey: ""
       # As a sidecar, it should only need to run in userspace
       userspace: true
+      auth_once: true
       accept_dns: false
       routes: ""
       dest_ip: ""
       sock5_server: ""
       extra_args: ""
       daemon_extra_args: ""
+      outbound_http_proxy_listen: ""
       # -- Annotations for tailscale sidecar
       annotations: {}
 

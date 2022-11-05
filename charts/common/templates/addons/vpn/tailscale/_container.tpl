@@ -7,9 +7,8 @@ name: tailscale
 image: "{{ .Values.tailscaleImage.repository }}:{{ .Values.tailscaleImage.tag }}"
 imagePullPolicy: {{ .Values.tailscaleImage.pullPolicy }}
 
-command: ["ash", "/tailscale/run.sh"]
-
-tty: true
+command:
+  - /usr/local/bin/containerboot
 
 securityContext:
 {{- if .Values.addons.vpn.tailscale.userspace }}
@@ -32,12 +31,20 @@ envFrom:
       name: {{ $secretName }}
 
 env:
-  - name: TS_KUBE_SECRET
-    value: {{ $secretName }}
+  - name: TS_SOCKET
+    value: /var/run/tailscale/tailscaled.sock
+  - name: TS_STATE_DIR
+    value: /var/lib/tailscale
+  - name: TS_AUTH_ONCE
+    value: {{ .Values.addons.vpn.tailscale.auth_once | quote }}
   - name: TS_USERSPACE
     value: {{ .Values.addons.vpn.tailscale.userspace | quote }}
   - name: TS_ACCEPT_DNS
     value: {{ .Values.addons.vpn.tailscale.accept_dns | quote }}
+    {{- with .Values.addons.vpn.tailscale.outbound_http_proxy_listen }}
+  - name: TS_OUTBOUND_HTTP_PROXY_LISTEN
+    value: {{ . }}
+    {{- end }}
     {{- with .Values.addons.vpn.tailscale.routes }}
   - name: TS_ROUTES
     value: {{ . }}
@@ -78,6 +85,8 @@ env:
 volumeMounts:
   - mountPath: {{ .Values.persistence.shared.mountPath }}
     name: shared
+  - mountPath: /var/lib/tailscale
+    name: {{ printf "%v-%v" .Release.Name "tailscale" }}
 {{- with .Values.addons.vpn.livenessProbe }}
 livenessProbe:
   {{- toYaml . | nindent 2 }}
