@@ -57,24 +57,6 @@ codeserverImage:
   tag: 4.8.2@sha256:e5f8ac63174c08e769cbfb7ec17cf3db236e7b4212cca31c25d695b1c73bc7bb
   # -- Specify the code-server image pull policy
   pullPolicy: IfNotPresent
-
-# -- alpine specific configuration
-# @default -- See below
-alpineImage:
-  # -- Specify the Alpine image
-  repository: tccr.io/truecharts/alpine
-  # -- Specify the Alpine image tag
-  tag: 3.16.2@sha256:71198b13ca5eaa344c6bd2bd0c1a29fb084772433c2811bcf9a78b77838b87fa
-  # -- Specify the Alpine image pull policy
-  pullPolicy: IfNotPresent
-
-multiinitImage:
-  # -- Specify the multi-init image
-  repository: tccr.io/truecharts/multi-init
-  # -- Specify the redis image tag
-  tag: 1.1.0@sha256:a239973213923260c6993eb97bd4f98471ec076dddf74a08f6d10fa413e6c5b5
-  # -- Specify the redis image pull policy
-  pullPolicy: IfNotPresent
   
 ubuntuImage:
   # -- Specify the multi-init image
