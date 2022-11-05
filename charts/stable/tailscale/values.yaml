@@ -79,9 +79,6 @@ service:
 persistence:
   varrun:
     enabled: true
-  config:
-    enabled: true
-    mountPath: /var/lib
   tun:
     enabled: true
     type: hostPath
