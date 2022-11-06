@@ -65,15 +65,15 @@ data:
     #───┘ PostgreSQL configuration └────────────────────────────────
 
     db:
-      host: "POSTGRES_HOST"
+      host: {{ printf "%v-%v" .Release.Name "postgresql" }}
       port: 5432
 
       # Database name
-      db: "{{ .Values.postgresql.postgresqlDatabase }}"
+      db: {{ .Values.postgresql.postgresqlDatabase }}
 
       # Auth
-      user: "{{ .Values.postgresql.postgresqlUsername }}"
-      pass: "POSTGRES_PASSWORD"
+      user: {{ .Values.postgresql.postgresqlUsername }}
+      pass: {{ .Values.postgresql.postgresqlPassword }}
 
       # Whether disable Caching queries
       #disableCache: true
@@ -86,9 +86,9 @@ data:
     #───┘ Redis configuration └─────────────────────────────────────
 
     redis:
-      host: "REDIS_HOST"
+      host: {{ printf "%v-%v" .Release.Name "redis" }}
       port: 6379
-      pass: "REDIS_PASSWORD"
+      pass: {{ .Values.redis.redisPassword }}
       #prefix: example-prefix
       #db: 1
 

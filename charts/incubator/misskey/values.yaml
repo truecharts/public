@@ -2,7 +2,7 @@ image:
   repository: tccr.io/truecharts/misskey
   pullPolicy: IfNotPresent
   tag: 12.119.0@sha256:e16467a28e7cee4442e29216a292dd725f28c3789fb1da050359c7842c2c0eec
-  
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -18,58 +18,6 @@ service:
       main:
         port: 3003
 
-initContainers:
-  prestart:
-    image: '{{ include "tc.common.images.selector" . }}'
-    securityContext:
-      runAsUser: 0
-      runAsGroup: 0
-      privileged: true
-    env:
-      # IP used for exposing misskey
-      # Often the service or nodePort IP
-      # Defaults to the main serviceName for CI purposes.
-      - name: POSTGRES_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: postgresql-password
-      - name: POSTGRES_HOST
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: plainporthost
-      - name: REDIS_HOST
-        valueFrom:
-          secretKeyRef:
-            name: rediscreds
-            key: plainhost
-      - name: REDIS_HOST_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: rediscreds
-            key: redis-password
-    # inject postgres/redis secrets into config file
-    command:
-      - "/bin/sh"
-      - "-c"
-      - |
-        /bin/bash <<'EOF'
-        cp /var/misskey/.config/default.yml /misskey/.config/
-        sed -i "s/POSTGRES_HOST/$POSTGRES_HOST/" /misskey/.config/default.yml
-        sed -i "s/POSTGRES_PASSWORD/$POSTGRES_PASSWORD/" /misskey/.config/default.yml
-        sed -i "s/REDIS_HOST/$REDIS_HOST/" /misskey/.config/default.yml
-        sed -i "s/REDIS_PASSWORD/$REDIS_HOST_PASSWORD/" /misskey/.config/default.yml
-        EOF
-
-    volumeMounts:
-      - name: files
-        mountPath: "/misskey/files"
-      - name: misskeyconfig-src
-        mountPath: "/var/misskey/.config"
-      - name: misskeyconfig
-        mountPath: "/misskey/.config"
-
 misskey:
   # Final accessible URL seen by a user. ONCE YOU HAVE STARTED THE INSTANCE, DO NOT CHANGE THE URL SETTINGS AFTER THAT!
   url: "https://example.tld/"
@@ -77,40 +25,14 @@ misskey:
   id: "aid"
 
 env:
-  # IP used for exposing misskey
-  # Often the service or nodePort IP
-  # Defaults to the main serviceName for CI purposes.
   # NODE_ENV = production | development
   NODE_ENV: production
-  AccessIP:
-  POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
-  POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  POSTGRES_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  POSTGRES_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainporthost
-  REDIS_HOST:
-    secretKeyRef:
-      name: rediscreds
-      key: plainhost
-  REDIS_HOST_PASSWORD:
-    secretKeyRef:
-      name: rediscreds
-      key: redis-password
 
 persistence:
-  misskeyconfig-src:
+  misskeyconfig:
     enabled: true
     type: configMap
     objectName: misskeyconfig
-    mountPath: "/var/misskey/.config"
-  # contains final config file with db secrets
-  misskeyconfig:
-    enabled: true
     mountPath: "/misskey/.config"
   files:
     enabled: true
