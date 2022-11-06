@@ -61,9 +61,9 @@ spec:
             - |
               /bin/bash <<'EOF'
               echo "installing metallb backend..."
-              kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v{{ .Values.manifests.metalLBVersion}}/config/manifests/metallb-native.yaml
+              kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v{{ .Values.manifests.metalLBVersion}}/config/manifests/metallb-native.yaml || echo "Failed applying metallb manifest..."
               echo "installing other manifests..."
-              kubectl apply -f /etc/manifests
+              kubectl apply -f /etc/manifests || echo "Failed applying other manifests..."
               EOF
       volumes:
         - name: {{ $fullName }}-manifests
