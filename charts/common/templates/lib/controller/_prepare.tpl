@@ -90,11 +90,11 @@ before chart installation.
       echo "Automatically correcting permissions..."
       {{- if and ( .Values.addons.vpn.configFile.enabled ) ( ne .Values.addons.vpn.type "disabled" ) ( ne .Values.addons.vpn.type "tailscale" ) }}
       echo "Automatically correcting permissions for vpn config file..."
-      /usr/bin/nfs4xdr_winacl -a chown -O 568 -G 568 -c /vpn/vpn.conf -p /vpn/vpn.conf
+      /usr/bin/nfs4xdr_winacl -a chown -O 568 -G 568 -c /vpn/vpn.conf -p /vpn/vpn.conf || echo "Failed setting permissions..."
       {{- end }}
       {{- range $_, $hpm := $hostPathMounts }}
       echo "Automatically correcting permissions for {{ $hpm.mountPath }}..."
-      /usr/bin/nfs4xdr_winacl -a chown -G {{ $group }} -r -c {{ tpl $hpm.mountPath $ | squote }} -p {{ tpl $hpm.mountPath $ | squote }}
+      /usr/bin/nfs4xdr_winacl -a chown -G {{ $group }} -r -c {{ tpl $hpm.mountPath $ | squote }} -p {{ tpl $hpm.mountPath $ | squote }} || echo "Failed setting permissions..."
       {{- end }}
       {{- if .Values.postgresql.enabled }}
       {{- $pghost := printf "%v-%v" .Release.Name "postgresql" }}
