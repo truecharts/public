@@ -1,6 +1,6 @@
 # joplin-server
 
-This server allows you to sync any Joplin client
+Allows you to sync any Joplin client.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
