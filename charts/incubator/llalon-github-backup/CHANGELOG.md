@@ -2,6 +2,16 @@
 
 
 
+## [llalon-github-backup-0.0.34](https://github.com/truecharts/charts/compare/llalon-github-backup-0.0.33...llalon-github-backup-0.0.34) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
 ## [llalon-github-backup-0.0.33](https://github.com/truecharts/charts/compare/llalon-github-backup-0.0.32...llalon-github-backup-0.0.33) (2022-11-05)
 
 ### Chore

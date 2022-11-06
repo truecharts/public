@@ -2,6 +2,16 @@
 
 
 
+## [linkace-4.0.58](https://github.com/truecharts/charts/compare/linkace-4.0.57...linkace-4.0.58) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
 ## [linkace-4.0.57](https://github.com/truecharts/charts/compare/linkace-4.0.56...linkace-4.0.57) (2022-11-05)
 
 ### Chore

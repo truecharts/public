@@ -2,6 +2,16 @@
 
 
 
+## [deconz-8.0.48](https://github.com/truecharts/charts/compare/deconz-8.0.47...deconz-8.0.48) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
 ## [deconz-8.0.47](https://github.com/truecharts/charts/compare/deconz-8.0.46...deconz-8.0.47) (2022-11-05)
 
 ### Chore

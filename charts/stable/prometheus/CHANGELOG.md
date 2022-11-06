@@ -2,6 +2,18 @@
 
 
 
+## [prometheus-4.0.126](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.43...prometheus-4.0.126) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+  - update docker general non-major ([#4312](https://github.com/truecharts/charts/issues/4312))
+
+
+
+
 ## [prometheus-4.0.125](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.43...prometheus-4.0.125) (2022-11-06)
 
 ### Chore

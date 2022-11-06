@@ -2,6 +2,16 @@
 
 
 
+## [raspberrymatic-0.0.4](https://github.com/truecharts/charts/compare/raspberrymatic-0.0.3...raspberrymatic-0.0.4) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
 ## [raspberrymatic-0.0.3](https://github.com/truecharts/charts/compare/raspberrymatic-0.0.2...raspberrymatic-0.0.3) (2022-11-05)
 
 ### Chore

@@ -1,12 +1,11 @@
+{{- define "metallb.peers" -}}
 {{- range .Values.Peers }}
-{{- if $.Release.IsInstall  }}
-{{- fail "Please only add MetalLB configuration after initial installation" }}
-{{- end }}
 ---
 apiVersion: metallb.io/v1beta2
 kind: BGPPeer
 metadata:
   name: {{ .name }}
+  namespace: metallb-system
 spec:
   {{- with .password }}
   password: {{ . }}
@@ -49,3 +48,4 @@ spec:
   {{- end }}
   {{- end }}
 {{- end }}
+{{- end -}}

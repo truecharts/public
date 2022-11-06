@@ -2,6 +2,16 @@
 
 
 
+## [webnut-1.0.4](https://github.com/truecharts/charts/compare/webnut-1.0.3...webnut-1.0.4) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
 ## [webnut-1.0.3](https://github.com/truecharts/charts/compare/webnut-1.0.2...webnut-1.0.3) (2022-11-05)
 
 ### Chore

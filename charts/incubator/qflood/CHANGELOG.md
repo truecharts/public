@@ -2,6 +2,16 @@
 
 
 
+## [qflood-0.0.46](https://github.com/truecharts/charts/compare/qflood-0.0.45...qflood-0.0.46) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
 ## [qflood-0.0.45](https://github.com/truecharts/charts/compare/qflood-0.0.44...qflood-0.0.45) (2022-11-05)
 
 ### Chore

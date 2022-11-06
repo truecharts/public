@@ -2,6 +2,16 @@
 
 
 
+## [jellyseerr-2.0.43](https://github.com/truecharts/charts/compare/jellyseerr-2.0.42...jellyseerr-2.0.43) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
 ## [jellyseerr-2.0.42](https://github.com/truecharts/charts/compare/jellyseerr-2.0.41...jellyseerr-2.0.42) (2022-11-05)
 
 ### Chore

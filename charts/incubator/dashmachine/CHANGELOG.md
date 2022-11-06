@@ -2,6 +2,16 @@
 
 
 
+## [dashmachine-0.0.34](https://github.com/truecharts/charts/compare/dashmachine-0.0.33...dashmachine-0.0.34) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
 ## [dashmachine-0.0.33](https://github.com/truecharts/charts/compare/dashmachine-0.0.32...dashmachine-0.0.33) (2022-11-05)
 
 ### Chore

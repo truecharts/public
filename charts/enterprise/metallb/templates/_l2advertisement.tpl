@@ -1,12 +1,11 @@
+{{- define "metallb.l2adv" -}}
 {{- range .Values.L2Advertisements }}
-{{- if $.Release.IsInstall  }}
-{{- fail "Please only add MetalLB configuration after initial installation" }}
-{{- end }}
 ---
 apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
 metadata:
   name: {{ .name }}
+  namespace: metallb-system
 spec:
   ipAddressPools:
   {{- range .addressPools }}
@@ -20,3 +19,4 @@ spec:
     {{- end }}
   {{- end }}
 {{- end }}
+{{- end -}}

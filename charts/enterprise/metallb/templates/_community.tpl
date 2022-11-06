@@ -1,12 +1,11 @@
+{{- define "metallb.comm" -}}
 {{- if .Values.Communities }}
-{{- if $.Release.IsInstall  }}
-{{- fail "Please only add MetalLB configuration after initial installation" }}
-{{- end }}
 ---
 apiVersion: metallb.io/v1beta1
 kind: Community
 metadata:
   name: communities
+  namespace: metallb-system
 spec:
   communities:
   {{- range .Values.Communities }}
@@ -14,3 +13,4 @@ spec:
       value: {{ .value }}
   {{- end }}
 {{- end }}
+{{- end -}}
