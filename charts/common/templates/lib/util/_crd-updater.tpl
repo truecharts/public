@@ -36,7 +36,13 @@ spec:
             - name: {{ $fullName }}-crds
               mountPath: /etc/crds
               readOnly: true
-          command: ["kubectl", "apply", "-f", "/etc/crds"]
+          command:
+            - "/bin/sh"
+            - "-c"
+            - |
+              /bin/bash <<'EOF'
+              kubectl apply -f /etc/crds || echo "failed applying CRDs..."
+              EOF
       volumes:
         - name: {{ $fullName }}-crds
           configMap:
