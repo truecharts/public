@@ -2,6 +2,16 @@
 
 
 
+## [tdarr-node-2.0.43](https://github.com/truecharts/charts/compare/tdarr-node-2.0.42...tdarr-node-2.0.43) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
 ## [tdarr-node-2.0.42](https://github.com/truecharts/charts/compare/tdarr-node-2.0.41...tdarr-node-2.0.42) (2022-11-05)
 
 ### Chore

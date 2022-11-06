@@ -2,6 +2,16 @@
 
 
 
+## [lychee-13.0.55](https://github.com/truecharts/charts/compare/lychee-13.0.54...lychee-13.0.55) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
 ## [lychee-13.0.54](https://github.com/truecharts/charts/compare/lychee-13.0.53...lychee-13.0.54) (2022-11-05)
 
 ### Chore

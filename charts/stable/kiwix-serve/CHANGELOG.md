@@ -2,6 +2,16 @@
 
 
 
+## [kiwix-serve-1.0.12](https://github.com/truecharts/charts/compare/kiwix-serve-1.0.11...kiwix-serve-1.0.12) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
 ## [kiwix-serve-1.0.11](https://github.com/truecharts/charts/compare/kiwix-serve-1.0.10...kiwix-serve-1.0.11) (2022-11-05)
 
 ### Chore

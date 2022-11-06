@@ -2,6 +2,16 @@
 
 
 
+## [unmanic-3.0.41](https://github.com/truecharts/charts/compare/unmanic-3.0.40...unmanic-3.0.41) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
 ## [unmanic-3.0.40](https://github.com/truecharts/charts/compare/unmanic-3.0.39...unmanic-3.0.40) (2022-11-05)
 
 ### Chore

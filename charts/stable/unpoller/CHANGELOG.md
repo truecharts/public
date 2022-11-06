@@ -2,6 +2,16 @@
 
 
 
+## [unpoller-3.0.44](https://github.com/truecharts/charts/compare/unpoller-3.0.43...unpoller-3.0.44) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
 ## [unpoller-3.0.43](https://github.com/truecharts/charts/compare/unpoller-3.0.42...unpoller-3.0.43) (2022-11-05)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [firefox-2.0.41](https://github.com/truecharts/charts/compare/firefox-2.0.40...firefox-2.0.41) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
 ## [firefox-2.0.40](https://github.com/truecharts/charts/compare/firefox-desktop-g3-0.0.38...firefox-2.0.40) (2022-11-05)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [farmos-0.0.36](https://github.com/truecharts/charts/compare/farmos-0.0.35...farmos-0.0.36) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
 ## [farmos-0.0.35](https://github.com/truecharts/charts/compare/farmos-0.0.34...farmos-0.0.35) (2022-11-05)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [recyclarr-1.0.14](https://github.com/truecharts/charts/compare/recyclarr-1.0.13...recyclarr-1.0.14) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
 ## [recyclarr-1.0.13](https://github.com/truecharts/charts/compare/recyclarr-1.0.12...recyclarr-1.0.13) (2022-11-05)
 
 ### Chore

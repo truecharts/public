@@ -2,6 +2,16 @@
 
 
 
+## [joplin-server-8.1.9](https://github.com/truecharts/charts/compare/joplin-server-8.1.8...joplin-server-8.1.9) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
 ## [joplin-server-8.1.8](https://github.com/truecharts/charts/compare/joplin-server-8.1.7...joplin-server-8.1.8) (2022-11-05)
 
 ### Chore

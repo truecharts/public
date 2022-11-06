@@ -2,6 +2,16 @@
 
 
 
+## [pwndrop-2.0.40](https://github.com/truecharts/charts/compare/pwndrop-2.0.39...pwndrop-2.0.40) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
 ## [pwndrop-2.0.39](https://github.com/truecharts/charts/compare/pwndrop-2.0.38...pwndrop-2.0.39) (2022-11-05)
 
 ### Chore

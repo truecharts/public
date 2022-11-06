@@ -2,6 +2,16 @@
 
 
 
+## [dashy-0.0.10](https://github.com/truecharts/charts/compare/dashy-0.0.9...dashy-0.0.10) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
 ## [dashy-0.0.9](https://github.com/truecharts/charts/compare/dashy-0.0.8...dashy-0.0.9) (2022-11-05)
 
 ### Chore

@@ -2,6 +2,7 @@
 
 
 
+
 ## [livebook-0.0.36](https://github.com/truecharts/charts/compare/livebook-0.0.35...livebook-0.0.36) (2022-11-05)
 
 ### Chore
