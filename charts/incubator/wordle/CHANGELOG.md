@@ -2,6 +2,16 @@
 
 
 
+## [wordle-0.0.37](https://github.com/truecharts/charts/compare/wordle-0.0.36...wordle-0.0.37) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4312](https://github.com/truecharts/charts/issues/4312))
+
+
+
+
 ## [wordle-0.0.36](https://github.com/truecharts/charts/compare/wordle-0.0.35...wordle-0.0.36) (2022-11-05)
 
 ### Chore
