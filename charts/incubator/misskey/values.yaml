@@ -23,6 +23,16 @@ misskey:
   url: "https://example.tld/"
   # ID generation method. 'aid' recommended.
   id: "aid"
+  other:
+    signToActivityPubGet: false
+    maxFileSize: 262144000
+    clusterLimit: 1
+    deliverJobConcurrency: 128
+    inboxJobConcurrency: 16
+    deliverJobPerSec: 128
+    inboxJobPerSec: 16
+    deliverJobMaxAttempts: 12
+    inboxJobMaxAttempts: 8
 
 env:
   # NODE_ENV = production | development

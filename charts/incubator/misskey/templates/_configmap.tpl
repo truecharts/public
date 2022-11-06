@@ -16,7 +16,7 @@ data:
     #───┘ URL └─────────────────────────────────────────────────────
 
     # Final accessible URL seen by a user.
-    # url: https://example.tld/
+    url: {{ .Values.misskey.url }}
 
     # ONCE YOU HAVE STARTED THE INSTANCE, DO NOT CHANGE THE
     # URL SETTINGS AFTER THAT!
@@ -126,19 +126,19 @@ data:
     #disableHsts: true
 
     # Number of worker processes
-    #clusterLimit: 1
+    clusterLimit: {{ .Values.misskey.other.clusterLimit }}
 
     # Job concurrency per worker
-    # deliverJobConcurrency: 128
-    # inboxJobConcurrency: 16
+    deliverJobConcurrency: {{ .Values.misskey.other.deliverJobConcurrency }}
+    inboxJobConcurrency: {{ .Values.misskey.other.inboxJobConcurrency }}
 
     # Job rate limiter
-    # deliverJobPerSec: 128
-    # inboxJobPerSec: 16
+    deliverJobPerSec: {{ .Values.misskey.other.deliverJobPerSec }}
+    inboxJobPerSec: {{ .Values.misskey.other.inboxJobPerSec }}
 
     # Job attempts
-    # deliverJobMaxAttempts: 12
-    # inboxJobMaxAttempts: 8
+    deliverJobMaxAttempts: {{ .Values.misskey.other.deliverJobMaxAttempts }}
+    inboxJobMaxAttempts: {{ .Values.misskey.other.inboxJobMaxAttempts }}
 
     # IP address family used for outgoing request (ipv4, ipv6 or dual)
     #outgoingAddressFamily: ipv4
@@ -165,15 +165,14 @@ data:
     #mediaProxy: https://example.com/proxy
 
     # Sign to ActivityPub GET request (default: false)
-    #signToActivityPubGet: true
+    signToActivityPubGet: {{ .Values.misskey.other.signToActivityPubGet }}
 
     #allowedPrivateNetworks: [
     #  '127.0.0.1/32'
     #]
 
     # Upload or download file size limits (bytes)
-    #maxFileSize: 262144000
-    url: {{ .Values.misskey.url }}
+    maxFileSize: {{ .Values.misskey.other.maxFileSize }}
 
 
 {{- end -}}
