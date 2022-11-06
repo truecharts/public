@@ -2,8 +2,6 @@ image:
   repository: misskey/misskey
   pullPolicy: IfNotPresent
   tag: 12.119.0@sha256:a7beecb59b5089068463ca3847ac34dcb8445108da75ed8f56822f670053aa31
-
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -12,7 +10,6 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
   fsGroup: 33
-
 
 service:
   main:
