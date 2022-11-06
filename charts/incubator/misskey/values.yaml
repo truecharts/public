@@ -38,7 +38,6 @@ initContainers:
       # IP used for exposing misskey
       # Often the service or nodePort IP
       # Defaults to the main serviceName for CI purposes.
-      #NODE_ENV: development
       - name: POSTGRES_PASSWORD
         valueFrom:
           secretKeyRef:
@@ -105,7 +104,6 @@ env:
   # IP used for exposing misskey
   # Often the service or nodePort IP
   # Defaults to the main serviceName for CI purposes.
-  #NODE_ENV: development
   NODE_ENV: production
   AccessIP:
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
@@ -126,10 +124,6 @@ env:
     secretKeyRef:
       name: rediscreds
       key: redis-password
-
-#envFrom:
-#  - configMapRef:
-#      name: misskeyconfig
 
 persistence:
   misskeyconfig-src:
