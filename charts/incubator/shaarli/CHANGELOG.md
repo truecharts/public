@@ -2,6 +2,26 @@
 
 
 
+## [shaarli-0.0.33](https://github.com/truecharts/charts/compare/shaarli-0.0.32...shaarli-0.0.33) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
+## [shaarli-0.0.32](https://github.com/truecharts/charts/compare/shaarli-0.0.31...shaarli-0.0.32) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [shaarli-0.0.31](https://github.com/truecharts/charts/compare/shaarli-0.0.30...shaarli-0.0.31) (2022-11-02)
 
 ### Chore

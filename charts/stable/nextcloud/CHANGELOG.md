@@ -2,6 +2,29 @@
 
 
 
+## [nextcloud-16.0.2](https://github.com/truecharts/charts/compare/nextcloud-16.0.1...nextcloud-16.0.2) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
+## [nextcloud-16.0.1](https://github.com/truecharts/charts/compare/nextcloud-15.3.37...nextcloud-16.0.1) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+  - update container image tccr.io/truecharts/nextcloud-fpm to v25.0.1 ([#4142](https://github.com/truecharts/charts/issues/4142))
+
+
+
+
+
 ## [nextcloud-15.3.37](https://github.com/truecharts/charts/compare/nextcloud-15.3.36...nextcloud-15.3.37) (2022-11-02)
 
 ### Chore

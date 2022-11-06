@@ -3,9 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.33.141@sha256:726ff19a7be12e9b88fd582edea075020833ebe707751194ee5dc82583a330e6
 
-command: ["ash", "/tailscale/run.sh"]
-
-tty: true
+command:
+  - /usr/local/bin/containerboot
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -29,32 +28,32 @@ rbac:
       - apiGroups:
           - ""
         resources:
-          - "secrets"
+          - secrets
         verbs:
-          - "create"
+          - create
       - apiGroups:
           - ""
         resources:
-          - "secrets"
+          - secrets
         resourceNames:
           - '{{ printf "%s-tailscale-secret" (include "tc.common.names.fullname" .) }}'
         verbs:
-          - "get"
-          - "update"
+          - get
+          - update
 
 envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-tailscale-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-tailscale-config'
 
 tailscale:
-  authkey: "supersecret"
+  authkey: supersecret
+  auth_once: true
   userspace: true
   accept_dns: false
   routes: ""
   dest_ip: ""
   sock5_server: ""
+  outbound_http_proxy_listen: ""
   extra_args: ""
   daemon_extra_args: ""
   hostname: ""
@@ -79,10 +78,7 @@ service:
 
 persistence:
   varrun:
-    enabled: false
-  config:
     enabled: true
-    mountPath: "/var/lib"
   tun:
     enabled: true
     type: hostPath

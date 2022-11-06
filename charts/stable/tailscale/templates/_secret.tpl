@@ -14,6 +14,7 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{- with .Values.tailscale.authkey }}
-  TS_AUTH_KEY: {{ . | b64enc }}
+  {{/* Name of the authkey is crucial, don't change it */}}
+  authkey: {{ . | b64enc }}
   {{- end }}
 {{- end }}

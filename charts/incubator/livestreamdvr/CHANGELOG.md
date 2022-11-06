@@ -2,7 +2,27 @@
 
 
 
-## [livestreamdvr-0.0.31](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.30...livestreamdvr-0.0.31) (2022-11-02)
+## [livebook-0.0.37](https://github.com/truecharts/charts/compare/livebook-0.0.36...livebook-0.0.37) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
+## [livebook-0.0.36](https://github.com/truecharts/charts/compare/livebook-0.0.35...livebook-0.0.36) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
+## [livebook-0.0.35](https://github.com/truecharts/charts/compare/livebook-0.0.34...livebook-0.0.35) (2022-11-02)
 
 ### Chore
 
@@ -12,7 +32,17 @@
 
 
 
-## [livestreamdvr-0.0.30](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.29...livestreamdvr-0.0.30) (2022-10-25)
+## [livebook-0.0.34](https://github.com/truecharts/charts/compare/livebook-0.0.33...livebook-0.0.34) (2022-10-28)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4218](https://github.com/truecharts/charts/issues/4218))
+
+
+
+
+## [livebook-0.0.33](https://github.com/truecharts/charts/compare/livebook-0.0.32...livebook-0.0.33) (2022-10-25)
 
 ### Chore
 
@@ -22,7 +52,7 @@
 
 
 
-## [livestreamdvr-0.0.29](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.28...livestreamdvr-0.0.29) (2022-10-19)
+## [livebook-0.0.32](https://github.com/truecharts/charts/compare/livebook-0.0.31...livebook-0.0.32) (2022-10-19)
 
 ### Chore
 
@@ -32,7 +62,7 @@
 
 
 
-## [livestreamdvr-0.0.28](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.27...livestreamdvr-0.0.28) (2022-10-12)
+## [livebook-0.0.31](https://github.com/truecharts/charts/compare/livebook-0.0.30...livebook-0.0.31) (2022-10-12)
 
 ### Chore
 
@@ -42,18 +72,29 @@
 
 
 
-## [livestreamdvr-0.0.27](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.26...livestreamdvr-0.0.27) (2022-10-07)
+## [livebook-0.0.30](https://github.com/truecharts/charts/compare/livebook-0.0.29...livebook-0.0.30) (2022-10-10)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4049](https://github.com/truecharts/charts/issues/4049))
+
+
+
+
+## [livebook-0.0.29](https://github.com/truecharts/charts/compare/livebook-0.0.27...livebook-0.0.29) (2022-10-08)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - update docker general non-major ([#4030](https://github.com/truecharts/charts/issues/4030))
   - update helm general non-major
 
 
 
 
-## [livestreamdvr-0.0.27](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.26...livestreamdvr-0.0.27) (2022-10-07)
+## [livebook-0.0.28](https://github.com/truecharts/charts/compare/livebook-0.0.27...livebook-0.0.28) (2022-10-07)
 
 ### Chore
 
@@ -63,7 +104,7 @@
 
 
 
-## [livestreamdvr-0.0.26](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.25...livestreamdvr-0.0.26) (2022-10-05)
+## [livebook-0.0.27](https://github.com/truecharts/charts/compare/livebook-0.0.26...livebook-0.0.27) (2022-10-05)
 
 ### Chore
 
@@ -74,7 +115,7 @@
 
 
 
-## [livestreamdvr-0.0.25](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.24...livestreamdvr-0.0.25) (2022-09-27)
+## [livebook-0.0.26](https://github.com/truecharts/charts/compare/livebook-0.0.25...livebook-0.0.26) (2022-09-27)
 
 ### Chore
 
@@ -84,7 +125,7 @@
 
 
 
-## [livestreamdvr-0.0.24](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.23...livestreamdvr-0.0.24) (2022-09-25)
+## [livebook-0.0.25](https://github.com/truecharts/charts/compare/livebook-0.0.24...livebook-0.0.25) (2022-09-25)
 
 ### Chore
 
@@ -94,7 +135,7 @@
 
 
 
-## [livestreamdvr-0.0.23](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.22...livestreamdvr-0.0.23) (2022-09-22)
+## [livebook-0.0.24](https://github.com/truecharts/charts/compare/livebook-0.0.23...livebook-0.0.24) (2022-09-22)
 
 ### Chore
 
@@ -118,7 +159,7 @@
 
 
 
-## [livestreamdvr-0.0.23](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.22...livestreamdvr-0.0.23) (2022-09-21)
+## [livebook-0.0.24](https://github.com/truecharts/charts/compare/livebook-0.0.23...livebook-0.0.24) (2022-09-21)
 
 ### Chore
 
@@ -141,7 +182,7 @@
 
 
 
-## [livestreamdvr-0.0.23](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.22...livestreamdvr-0.0.23) (2022-09-21)
+## [livebook-0.0.24](https://github.com/truecharts/charts/compare/livebook-0.0.23...livebook-0.0.24) (2022-09-21)
 
 ### Chore
 
@@ -163,7 +204,7 @@
 
 
 
-## [livestreamdvr-0.0.23](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.22...livestreamdvr-0.0.23) (2022-09-20)
+## [livebook-0.0.24](https://github.com/truecharts/charts/compare/livebook-0.0.23...livebook-0.0.24) (2022-09-20)
 
 ### Chore
 
@@ -184,7 +225,7 @@
 
 
 
-## [livestreamdvr-0.0.23](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.22...livestreamdvr-0.0.23) (2022-09-20)
+## [livebook-0.0.24](https://github.com/truecharts/charts/compare/livebook-0.0.23...livebook-0.0.24) (2022-09-20)
 
 ### Chore
 
@@ -204,7 +245,7 @@
 
 
 
-## [livestreamdvr-0.0.23](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.22...livestreamdvr-0.0.23) (2022-09-19)
+## [livebook-0.0.24](https://github.com/truecharts/charts/compare/livebook-0.0.23...livebook-0.0.24) (2022-09-19)
 
 ### Chore
 
@@ -223,7 +264,7 @@
 
 
 
-## [livestreamdvr-0.0.23](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.22...livestreamdvr-0.0.23) (2022-09-19)
+## [livebook-0.0.24](https://github.com/truecharts/charts/compare/livebook-0.0.23...livebook-0.0.24) (2022-09-19)
 
 ### Chore
 
@@ -241,7 +282,7 @@
 
 
 
-## [livestreamdvr-0.0.23](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.22...livestreamdvr-0.0.23) (2022-09-19)
+## [livebook-0.0.24](https://github.com/truecharts/charts/compare/livebook-0.0.23...livebook-0.0.24) (2022-09-19)
 
 ### Chore
 
@@ -258,7 +299,7 @@
 
 
 
-## [livestreamdvr-0.0.23](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.22...livestreamdvr-0.0.23) (2022-09-17)
+## [livebook-0.0.24](https://github.com/truecharts/charts/compare/livebook-0.0.23...livebook-0.0.24) (2022-09-17)
 
 ### Chore
 
@@ -274,7 +315,7 @@
 
 
 
-## [livestreamdvr-0.0.23](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.22...livestreamdvr-0.0.23) (2022-09-18)
+## [livebook-0.0.24](https://github.com/truecharts/charts/compare/livebook-0.0.23...livebook-0.0.24) (2022-09-18)
 
 ### Chore
 
@@ -288,7 +329,7 @@
 
 
 
-## [livestreamdvr-0.0.23](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.22...livestreamdvr-0.0.23) (2022-09-16)
+## [livebook-0.0.24](https://github.com/truecharts/charts/compare/livebook-0.0.23...livebook-0.0.24) (2022-09-16)
 
 ### Chore
 
@@ -301,7 +342,7 @@
 
 
 
-## [livestreamdvr-0.0.23](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.22...livestreamdvr-0.0.23) (2022-09-16)
+## [livebook-0.0.24](https://github.com/truecharts/charts/compare/livebook-0.0.23...livebook-0.0.24) (2022-09-16)
 
 ### Chore
 
@@ -313,7 +354,7 @@
 
 
 
-## [livestreamdvr-0.0.23](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.22...livestreamdvr-0.0.23) (2022-09-15)
+## [livebook-0.0.24](https://github.com/truecharts/charts/compare/livebook-0.0.23...livebook-0.0.24) (2022-09-15)
 
 ### Chore
 
@@ -324,7 +365,7 @@
 
 
 
-## [livestreamdvr-0.0.23](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.22...livestreamdvr-0.0.23) (2022-09-15)
+## [livebook-0.0.24](https://github.com/truecharts/charts/compare/livebook-0.0.23...livebook-0.0.24) (2022-09-15)
 
 ### Chore
 
@@ -334,7 +375,7 @@
 
 
 
-## [livestreamdvr-0.0.22](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.21...livestreamdvr-0.0.22) (2022-09-12)
+## [livebook-0.0.23](https://github.com/truecharts/charts/compare/livebook-0.0.22...livebook-0.0.23) (2022-09-12)
 
 ### Chore
 
@@ -343,13 +384,12 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [livestreamdvr-0.0.22](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.21...livestreamdvr-0.0.22) (2022-09-12)
+## [livebook-0.0.23](https://github.com/truecharts/charts/compare/livebook-0.0.22...livebook-0.0.23) (2022-09-12)
 
 ### Chore
 
@@ -357,59 +397,54 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [livestreamdvr-0.0.22](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.21...livestreamdvr-0.0.22) (2022-09-11)
+## [livebook-0.0.23](https://github.com/truecharts/charts/compare/livebook-0.0.22...livebook-0.0.23) (2022-09-11)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [livestreamdvr-0.0.22](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.21...livestreamdvr-0.0.22) (2022-09-11)
+## [livebook-0.0.23](https://github.com/truecharts/charts/compare/livebook-0.0.22...livebook-0.0.23) (2022-09-11)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [livestreamdvr-0.0.22](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.21...livestreamdvr-0.0.22) (2022-09-11)
+## [livebook-0.0.23](https://github.com/truecharts/charts/compare/livebook-0.0.22...livebook-0.0.23) (2022-09-11)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
-  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [livestreamdvr-0.0.22](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.21...livestreamdvr-0.0.22) (2022-09-11)
+## [livebook-0.0.23](https://github.com/truecharts/charts/compare/livebook-0.0.22...livebook-0.0.23) (2022-09-11)
 
 ### Chore
 
-- add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [livestreamdvr-0.0.21](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.19...livestreamdvr-0.0.21) (2022-08-30)
+## [livebook-0.0.22](https://github.com/truecharts/charts/compare/livebook-0.0.20...livebook-0.0.22) (2022-08-30)
 
 ### Chore
 
@@ -420,7 +455,7 @@
 
 
 
-## [livestreamdvr-0.0.20](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.19...livestreamdvr-0.0.20) (2022-08-30)
+## [livebook-0.0.21](https://github.com/truecharts/charts/compare/livebook-0.0.20...livebook-0.0.21) (2022-08-30)
 
 ### Chore
 
@@ -429,7 +464,7 @@
 
 
 
-## [livestreamdvr-0.0.19](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.18...livestreamdvr-0.0.19) (2022-08-29)
+## [livebook-0.0.20](https://github.com/truecharts/charts/compare/livebook-0.0.19...livebook-0.0.20) (2022-08-29)
 
 ### Chore
 
@@ -438,7 +473,7 @@
 
 
 
-## [livestreamdvr-0.0.18](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.16...livestreamdvr-0.0.18) (2022-08-26)
+## [livebook-0.0.19](https://github.com/truecharts/charts/compare/livebook-0.0.17...livebook-0.0.19) (2022-08-26)
 
 ### Fix
 
@@ -447,7 +482,7 @@
 
 
 
-## [livestreamdvr-0.0.16](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.15...livestreamdvr-0.0.16) (2022-08-23)
+## [livebook-0.0.17](https://github.com/truecharts/charts/compare/livebook-0.0.16...livebook-0.0.17) (2022-08-23)
 
 ### Chore
 
@@ -456,7 +491,7 @@
 
 
 
-## [livestreamdvr-0.0.15](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.14...livestreamdvr-0.0.15) (2022-08-12)
+## [livebook-0.0.16](https://github.com/truecharts/charts/compare/livebook-0.0.15...livebook-0.0.16) (2022-08-12)
 
 ### Chore
 
@@ -470,7 +505,7 @@
 
 
 
-## [livestreamdvr-0.0.14](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.13...livestreamdvr-0.0.14) (2022-08-08)
+## [livebook-0.0.15](https://github.com/truecharts/charts/compare/livebook-0.0.14...livebook-0.0.15) (2022-08-08)
 
 ### Chore
 
@@ -480,7 +515,7 @@
 
 
 
-## [livestreamdvr-0.0.13](https://github.com/truecharts/apps/compare/livestreamdvr-0.0.12...livestreamdvr-0.0.13) (2022-07-26)
+## [livebook-0.0.14](https://github.com/truecharts/apps/compare/livebook-0.0.13...livebook-0.0.14) (2022-07-26)
 
 ### Chore
 
@@ -490,7 +525,20 @@
 
 
 
-## [livestreamdvr-0.0.12](https://github.com/truecharts/apps/compare/livestreamdvr-0.0.11...livestreamdvr-0.0.12) (2022-07-23)
+## [livebook-0.0.13](https://github.com/truecharts/apps/compare/livebook-0.0.12...livebook-0.0.13) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3300](https://github.com/truecharts/apps/issues/3300))
+
+  ### Chore
+
+- add fake digest to new incubator Apps to fetch digests
+
+
+
+
+## [livebook-0.0.12](https://github.com/truecharts/apps/compare/livebook-0.0.11...livebook-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -501,7 +549,7 @@
 
 
 
-## [livestreamdvr-0.0.12](https://github.com/truecharts/apps/compare/livestreamdvr-0.0.11...livestreamdvr-0.0.12) (2022-07-23)
+## [livebook-0.0.12](https://github.com/truecharts/apps/compare/livebook-0.0.11...livebook-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -511,7 +559,7 @@
 
 
 
-## [livestreamdvr-0.0.12](https://github.com/truecharts/apps/compare/livestreamdvr-0.0.11...livestreamdvr-0.0.12) (2022-07-23)
+## [livebook-0.0.12](https://github.com/truecharts/apps/compare/livebook-0.0.11...livebook-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -520,7 +568,34 @@
 
 
 
-## [livestreamdvr-0.0.11]livestreamdvr-0.0.11 (2022-07-22)
+## [livebook-0.0.11]livebook-0.0.11 (2022-07-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Bump all charts to generate config and container references due to huge increase of repository
+  - Move Dev to incubator and some cleanup
+
+
+
+
+## [livebook-0.0.10]livebook-0.0.10 (2022-07-22)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Move Dev to incubator and some cleanup
+
+
+
+
+## [livebook-0.0.10]livebook-0.0.10 (2022-07-22)
+
+### Chore
+
+- Move Dev to incubator and some cleanup
+treamdvr-0.0.11]livestreamdvr-0.0.11 (2022-07-22)
 
 ### Chore
 
