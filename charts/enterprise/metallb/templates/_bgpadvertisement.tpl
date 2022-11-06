@@ -1,12 +1,11 @@
+{{- define "metallb.bgpadv" -}}
 {{- range .Values.BGPAdvertisements }}
-{{- if $.Release.IsInstall  }}
-{{- fail "Please only add MetalLB configuration after initial installation" }}
-{{- end }}
 ---
 apiVersion: metallb.io/v1beta1
 kind: BGPAdvertisement
 metadata:
-  name: {{ .name }}
+  name: {{ $.Release.Name }}-{{ .name }}
+  namespace: metallb-system
 spec:
   ipAddressPools:
   {{- range .addressPools }}
@@ -31,3 +30,4 @@ spec:
     {{- end }}
   {{- end }}
 {{- end }}
+{{- end -}}

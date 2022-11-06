@@ -1,12 +1,11 @@
+{{- define "metallb.pool" -}}
 {{- range .Values.ipAddressPools }}
-{{- if $.Release.IsInstall  }}
-{{- fail "Please only add MetalLB configuration after initial installation" }}
-{{- end }}
 ---
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
-  name: {{ .name }}
+  name: {{ $.Release.Name }}-{{ .name }}
+  namespace: metallb-system
 spec:
   addresses:
     {{- range .addresses }}
@@ -15,3 +14,4 @@ spec:
   autoAssign: {{ .autoAssign | default true }}
   avoidBuggyIPs: {{ .avoidBuggyIPs | default false }}
 {{- end }}
+{{- end -}}
