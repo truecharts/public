@@ -9,6 +9,10 @@ controller:
 service:
   main:
     enabled: false
+    ports:
+      main:
+        enabled: false
+        port: 9999
 
 updateCRD: false
 
