@@ -1,5 +1,5 @@
-{{- define "metallb.wait" -}}
-{{- $fullName := include "tc.common.names.fullname" . -}}
+{{- define "metallb.wait" }}
+{{- $fullName := include "tc.common.names.fullname" . }}
 ---
 apiVersion: batch/v1
 kind: Job
@@ -65,4 +65,4 @@ metadata:
     "helm.sh/hook": pre-install, pre-upgrade
     "helm.sh/hook-weight": "-2"
     "helm.sh/hook-delete-policy": hook-succeeded,before-hook-creation
-{{- end -}}
+{{- end }}

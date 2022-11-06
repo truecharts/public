@@ -4,7 +4,7 @@
 apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
 metadata:
-  name: {{ $.Release.Name }}-{{ .name }}
+  name: {{ .name }}
   namespace: metallb-system
 spec:
   ipAddressPools:
