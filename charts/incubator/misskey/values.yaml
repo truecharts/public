@@ -1,7 +1,7 @@
 image:
   repository: misskey/misskey
   pullPolicy: IfNotPresent
-  tag: latest
+  tag: 12.119.0
 
 
 securityContext:
@@ -58,6 +58,7 @@ initContainers:
           secretKeyRef:
             name: rediscreds
             key: redis-password
+    # Modify mount permissions and inject postgres/redis secrets into config file
     command:
       - "/bin/sh"
       - "-c"
@@ -78,8 +79,6 @@ initContainers:
           fi
           chmod 770 /misskey/files
         fi
-        echo $POSTGRES_HOST
-        echo $POSTGRES_PASSWORD
         cp /var/misskey/.config/default.yml /misskey/.config/
         sed -i "s/POSTGRES_HOST/$POSTGRES_HOST/" /misskey/.config/default.yml
         sed -i "s/POSTGRES_PASSWORD/$POSTGRES_PASSWORD/" /misskey/.config/default.yml
@@ -98,12 +97,14 @@ initContainers:
 misskey:
   # Final accessible URL seen by a user. ONCE YOU HAVE STARTED THE INSTANCE, DO NOT CHANGE THE URL SETTINGS AFTER THAT!
   url: "https://example.tld/"
+  # ID generation method. 'aid' recommended.
   id: "aid"
 
 env:
   # IP used for exposing misskey
   # Often the service or nodePort IP
   # Defaults to the main serviceName for CI purposes.
+  # NODE_ENV = production | development
   NODE_ENV: production
   AccessIP:
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
@@ -131,6 +132,7 @@ persistence:
     type: configMap
     objectName: misskeyconfig
     mountPath: "/var/misskey/.config"
+  # contains final config file with db secrets
   misskeyconfig:
     enabled: true
     mountPath: "/misskey/.config"
