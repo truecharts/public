@@ -90,7 +90,7 @@ before chart installation.
       echo "Automatically correcting permissions..."
       {{- if and ( .Values.addons.vpn.configFile.enabled ) ( ne .Values.addons.vpn.type "disabled" ) ( ne .Values.addons.vpn.type "tailscale" ) }}
       echo "Automatically correcting permissions for vpn config file..."
-      /usr/bin/nfs4xdr_winacl -a chown -O 568 -G 568 -r -c /vpn/vpn.conf -p /vpn/vpn.conf
+      /usr/bin/nfs4xdr_winacl -a chown -O 568 -G 568 -c /vpn/vpn.conf -p /vpn/vpn.conf
       {{- end }}
       {{- range $_, $hpm := $hostPathMounts }}
       echo "Automatically correcting permissions for {{ $hpm.mountPath }}..."
