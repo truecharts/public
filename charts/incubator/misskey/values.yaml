@@ -1,7 +1,8 @@
 image:
-  repository: tccr.io/misskey/misskey
+  repository: tccr.io/truecharts/misskey
   pullPolicy: IfNotPresent
-  tag: 12.119.0@sha256:a7beecb59b5089068463ca3847ac34dcb8445108da75ed8f56822f670053aa31
+  tag: 12.119.0@sha256:e16467a28e7cee4442e29216a292dd725f28c3789fb1da050359c7842c2c0eec
+  
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
