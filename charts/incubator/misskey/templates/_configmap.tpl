@@ -73,7 +73,7 @@ data:
 
       # Auth
       user: {{ .Values.postgresql.postgresqlUsername }}
-      pass: {{ .Values.postgresql.postgresqlPassword }}
+      pass: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
 
       # Whether disable Caching queries
       #disableCache: true
@@ -88,7 +88,7 @@ data:
     redis:
       host: {{ printf "%v-%v" .Release.Name "redis" }}
       port: 6379
-      pass: {{ .Values.redis.redisPassword }}
+      pass: {{ .Values.redis.redisPassword | trimAll "\"" }}
       #prefix: example-prefix
       #db: 1
 
