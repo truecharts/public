@@ -1,3 +1,7 @@
+{{/* Define the configmap */}}
+{{- define "misskey.configmap" -}}
+
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -170,3 +174,6 @@ data:
     # Upload or download file size limits (bytes)
     #maxFileSize: 262144000
     url: {{ .Values.misskey.url }}
+
+
+{{- end -}}
