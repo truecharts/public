@@ -40,7 +40,7 @@ questions:
                   description: "This is left for backward compatibility"
               default: "aid"
               required: true
-          -variable: other
+          - variable: other
             label: "Other Configuration"
             schema:
               type: dict
@@ -95,7 +95,6 @@ questions:
                   schema:
                     type: int
                     default: 8
-
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
