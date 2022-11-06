@@ -17,8 +17,9 @@ deprecated: false
 description: "Misskey is an open source, decentralized social media platform that's free forever!"
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/misskey.png
 keywords:
-  - misskey
+  - Misskey
   - Social
+  - Friend
   - Social Media
   - Fediverse
   - ActivityPub
@@ -32,5 +33,9 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/misskey
   - https://github.com/misskey-dev/misskey/
   - https://hub.docker.com/r/misskey/misskey/
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Social
 type: application
-version: 0.0.0
+version: 0.1.0
