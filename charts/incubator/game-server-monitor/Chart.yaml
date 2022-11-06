@@ -3,11 +3,11 @@ appVersion: "2.6.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.7.13
+    version: 10.8.0
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.114
+    version: 8.0.118
 description: A discord bot that monitors your game server and tracks the live data of your game servers.
 home: https://truecharts.org/docs/charts/incubator/game-server-monitor
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/game-server-monitor.png

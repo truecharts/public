@@ -13,7 +13,7 @@ podSecurityContext:
 
 gameservermonitor:
   POSTGRES_SSL_MODE: disable
-  DATABASE_URL: ""
+  DATABASE_URL: "postgres://{{ .Values.postgresql.postgresqlUsername }}:{{ .Values.postgresql.postgresqlPassword }}@{{ .Values.postgresql.DB_HOST }}:5432/{{ .Values.postgresql.postgresqlDatabase }}"
   # APP_TOKEN: "DISCORD_BOT_TOKEN"
 
 service:
