@@ -2,6 +2,19 @@
 
 
 
+## [cloudflared-1.0.29](https://github.com/truecharts/charts/compare/cloudflared-1.0.28...cloudflared-1.0.29) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+
+  ### Fix
+
+- remove persistence on GUI aswell ([#4324](https://github.com/truecharts/charts/issues/4324))
+
+
+
+
 ## [cloudflared-1.0.28](https://github.com/truecharts/charts/compare/cloudflareddns-1.0.33...cloudflared-1.0.28) (2022-11-06)
 
 ### Chore

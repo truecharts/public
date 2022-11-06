@@ -7,6 +7,16 @@
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+
+
+
+
+## [airsonic-6.0.42](https://github.com/truecharts/charts/compare/airsonic-advanced-4.0.48...airsonic-6.0.42) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
 
 
 
