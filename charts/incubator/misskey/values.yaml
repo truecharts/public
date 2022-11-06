@@ -1,5 +1,5 @@
 image:
-  repository: misskey/misskey
+  repository: tccr.io/misskey/misskey
   pullPolicy: IfNotPresent
   tag: 12.119.0@sha256:a7beecb59b5089068463ca3847ac34dcb8445108da75ed8f56822f670053aa31
 securityContext:
@@ -15,14 +15,7 @@ service:
   main:
     ports:
       main:
-        port: 3000
-        targetPort: 3000
-
-hostAliases:
-  - ip: '{{ .Values.env.AccessIP | default "127.0.0.1" }}'
-    hostnames:
-      - "{{ if .Values.ingress.main.enabled }}{{ with (first .Values.ingress.main.hosts) }}{{ .host }}{{ end }}{{ else }}placeholder.fakedomain.dns{{ end }}"
-
+        port: 3003
 
 initContainers:
   prestart:
@@ -55,27 +48,12 @@ initContainers:
           secretKeyRef:
             name: rediscreds
             key: redis-password
-    # Modify mount permissions and inject postgres/redis secrets into config file
+    # inject postgres/redis secrets into config file
     command:
       - "/bin/sh"
       - "-c"
       - |
         /bin/bash <<'EOF'
-        echo "Forcing permissions on userdata folder..."
-        if nfs4xdr_getfacl && nfs4xdr_getfacl | grep -qv "Failed to get NFSv4 ACL"; then
-          echo "NFSv4 ACLs detected, Trying to override permissions using nfs4_setfacl..."
-          nfs4_setfacl -R -a A:g:33:RWX "/misskey/files"
-        else
-          echo "No NFSv4 ACLs detected, trying to override permissions using chown/chmod..."
-          echo "checking ownership..."
-          if [ $(stat -c %g .) -eq 33 ]; then
-            echo "Ownership already set to 33, skipping..."
-          else
-            echo "Changing ownership to group 33..."
-            chown -R :33 "/misskey/files"
-          fi
-          chmod 770 /misskey/files
-        fi
         cp /var/misskey/.config/default.yml /misskey/.config/
         sed -i "s/POSTGRES_HOST/$POSTGRES_HOST/" /misskey/.config/default.yml
         sed -i "s/POSTGRES_PASSWORD/$POSTGRES_PASSWORD/" /misskey/.config/default.yml
@@ -136,8 +114,6 @@ persistence:
   files:
     enabled: true
     mountPath: "/misskey/files"
-  varrun:
-    enabled: true
 
 postgresql:
   enabled: true
@@ -151,6 +127,3 @@ redis:
 
 portal:
   enabled: true
-
-hpb:
-  enabled: false
