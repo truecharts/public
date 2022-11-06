@@ -2,6 +2,16 @@
 
 
 
+## [kdenlive-0.0.46](https://github.com/truecharts/charts/compare/kdenlive-0.0.45...kdenlive-0.0.46) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4312](https://github.com/truecharts/charts/issues/4312))
+
+
+
+
 ## [kdenlive-0.0.45](https://github.com/truecharts/charts/compare/kdenlive-0.0.44...kdenlive-0.0.45) (2022-11-05)
 
 ### Chore

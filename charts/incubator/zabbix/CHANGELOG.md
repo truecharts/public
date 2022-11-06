@@ -2,6 +2,16 @@
 
 
 
+## [zabbix-1.0.6](https://github.com/truecharts/charts/compare/zabbix-1.0.5...zabbix-1.0.6) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4312](https://github.com/truecharts/charts/issues/4312))
+
+
+
+
 ## [zabbix-1.0.5](https://github.com/truecharts/charts/compare/zabbix-1.0.4...zabbix-1.0.5) (2022-11-05)
 
 ### Chore
