@@ -4,7 +4,7 @@
 apiVersion: metallb.io/v1beta2
 kind: BGPPeer
 metadata:
-  name: {{ $.Release.name}}-{{ .name }}
+  name: {{ $.Release.Name }}-{{ .name }}
   namespace: metallb-system
 spec:
   {{- with .password }}

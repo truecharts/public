@@ -4,7 +4,7 @@
 apiVersion: metallb.io/v1beta1
 kind: Community
 metadata:
-  name: {{ $.Release.name}}-communities
+  name: {{ $.Release.Name }}-communities
   namespace: metallb-system
 spec:
   communities:
