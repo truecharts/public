@@ -2,6 +2,16 @@
 
 
 
+## [freshrss-11.0.45](https://github.com/truecharts/charts/compare/freshrss-11.0.44...freshrss-11.0.45) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [freshrss-11.0.44](https://github.com/truecharts/charts/compare/freshrss-11.0.43...freshrss-11.0.44) (2022-11-04)
 
 ### Chore

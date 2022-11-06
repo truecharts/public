@@ -2,6 +2,16 @@
 
 
 
+## [trango-0.0.33](https://github.com/truecharts/charts/compare/trango-0.0.32...trango-0.0.33) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [trango-0.0.32](https://github.com/truecharts/charts/compare/trango-0.0.31...trango-0.0.32) (2022-11-02)
 
 ### Chore

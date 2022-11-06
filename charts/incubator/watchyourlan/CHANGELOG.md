@@ -2,6 +2,16 @@
 
 
 
+## [watchyourlan-0.0.9](https://github.com/truecharts/charts/compare/watchyourlan-0.0.8...watchyourlan-0.0.9) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [watchyourlan-0.0.8](https://github.com/truecharts/charts/compare/watchyourlan-0.0.7...watchyourlan-0.0.8) (2022-11-02)
 
 ### Chore

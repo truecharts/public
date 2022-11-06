@@ -2,6 +2,16 @@
 
 
 
+## [dashdot-1.0.60](https://github.com/truecharts/charts/compare/dashdot-1.0.59...dashdot-1.0.60) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [dashdot-1.0.59](https://github.com/truecharts/charts/compare/dashdot-1.0.58...dashdot-1.0.59) (2022-11-02)
 
 ### Chore

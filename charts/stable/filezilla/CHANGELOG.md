@@ -2,6 +2,16 @@
 
 
 
+## [filezilla-4.0.54](https://github.com/truecharts/charts/compare/filezilla-4.0.53...filezilla-4.0.54) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [filezilla-4.0.53](https://github.com/truecharts/charts/compare/filezilla-4.0.52...filezilla-4.0.53) (2022-11-04)
 
 ### Chore

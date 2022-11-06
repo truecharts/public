@@ -50,6 +50,12 @@
                         type: string
                         private: true
                         default: ""
+                    - variable: auth_once
+                      label: Auth Once
+                      description: Only attempt to log in if not already logged in.
+                      schema:
+                        type: boolean
+                        default: true
                     - variable: accept_dns
                       label: Accept DNS
                       description: Accept DNS configuration from the admin console.
@@ -76,7 +82,13 @@
                         default: ""
                     - variable: sock5_server
                       label: Sock5 Server
-                      description: Sock5 Server
+                      description: The address on which to listen for SOCKS5 proxying into the tailscale net.
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: outbound_http_proxy_listen
+                      label: Outbound HTTP Proxy Listen
+                      description: The address on which to listen for HTTP proxying into the tailscale net.
                       schema:
                         type: string
                         default: ""

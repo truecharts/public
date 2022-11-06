@@ -2,6 +2,16 @@
 
 
 
+## [lidarr-11.0.40](https://github.com/truecharts/charts/compare/lidarr-11.0.39...lidarr-11.0.40) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [lidarr-11.0.39](https://github.com/truecharts/charts/compare/lidarr-11.0.38...lidarr-11.0.39) (2022-11-02)
 
 ### Chore

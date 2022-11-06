@@ -2,6 +2,16 @@
 
 
 
+## [chronograf-0.0.37](https://github.com/truecharts/charts/compare/chronograf-0.0.36...chronograf-0.0.37) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [chronograf-0.0.36](https://github.com/truecharts/charts/compare/chronograf-0.0.35...chronograf-0.0.36) (2022-11-02)
 
 ### Chore

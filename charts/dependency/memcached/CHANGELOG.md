@@ -2,6 +2,28 @@
 
 
 
+## [memcached-3.0.116](https://github.com/truecharts/charts/compare/memcached-3.0.115...memcached-3.0.116) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4312](https://github.com/truecharts/charts/issues/4312))
+
+
+
+
+## [memcached-3.0.115](https://github.com/truecharts/charts/compare/memcached-3.0.113...memcached-3.0.115) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm chart common to v10.8.0 ([#4305](https://github.com/truecharts/charts/issues/4305))
+  - update helm chart common to v10.7.19 ([#4305](https://github.com/truecharts/charts/issues/4305))
+
+
+
+
+
 ## [redis-3.0.113](https://github.com/truecharts/charts/compare/redis-3.0.112...redis-3.0.113) (2022-11-04)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [apt-cacher-ng-1.0.11](https://github.com/truecharts/charts/compare/apt-cacher-ng-1.0.10...apt-cacher-ng-1.0.11) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [apt-cacher-ng-1.0.10](https://github.com/truecharts/charts/compare/apt-cacher-ng-1.0.9...apt-cacher-ng-1.0.10) (2022-11-02)
 
 ### Chore

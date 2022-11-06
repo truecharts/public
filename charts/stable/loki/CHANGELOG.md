@@ -2,6 +2,16 @@
 
 
 
+## [loki-5.0.48](https://github.com/truecharts/charts/compare/loki-5.0.47...loki-5.0.48) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [loki-5.0.47](https://github.com/truecharts/charts/compare/loki-5.0.46...loki-5.0.47) (2022-11-02)
 
 ### Chore

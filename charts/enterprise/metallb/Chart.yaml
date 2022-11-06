@@ -10,10 +10,7 @@ keywords:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.7.13
-  - name: metallb
-    repository: https://metallb.github.io/metallb
-    version: 0.13.7
+    version: 10.8.0
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
@@ -25,7 +22,7 @@ sources:
   - https://github.com/metallb/metallb
   - https://metallb.universe.tf
 type: application
-version: 4.0.19
+version: 4.0.21
 annotations:
   truecharts.org/catagories: |
     - core

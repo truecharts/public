@@ -2,6 +2,16 @@
 
 
 
+## [n8n-4.0.76](https://github.com/truecharts/charts/compare/n8n-4.0.75...n8n-4.0.76) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [n8n-4.0.75](https://github.com/truecharts/charts/compare/n8n-4.0.74...n8n-4.0.75) (2022-11-03)
 
 ### Chore

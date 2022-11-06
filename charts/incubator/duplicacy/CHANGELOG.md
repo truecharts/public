@@ -2,6 +2,16 @@
 
 
 
+## [duplicacy-0.0.40](https://github.com/truecharts/charts/compare/duplicacy-0.0.39...duplicacy-0.0.40) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [duplicacy-0.0.39](https://github.com/truecharts/charts/compare/duplicacy-0.0.38...duplicacy-0.0.39) (2022-11-02)
 
 ### Chore

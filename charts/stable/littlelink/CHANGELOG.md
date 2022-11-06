@@ -2,6 +2,26 @@
 
 
 
+## [littlelink-6.0.84](https://github.com/truecharts/charts/compare/littlelink-6.0.83...littlelink-6.0.84) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
+## [littlelink-6.0.83](https://github.com/truecharts/charts/compare/littlelink-6.0.82...littlelink-6.0.83) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4301](https://github.com/truecharts/charts/issues/4301))
+
+
+
+
 ## [littlelink-6.0.82](https://github.com/truecharts/charts/compare/littlelink-6.0.81...littlelink-6.0.82) (2022-11-04)
 
 ### Chore

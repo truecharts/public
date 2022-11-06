@@ -2,6 +2,16 @@
 
 
 
+## [piaware-6.0.45](https://github.com/truecharts/charts/compare/piaware-6.0.44...piaware-6.0.45) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
 ## [piaware-6.0.44](https://github.com/truecharts/charts/compare/piaware-6.0.43...piaware-6.0.44) (2022-11-02)
 
 ### Chore
