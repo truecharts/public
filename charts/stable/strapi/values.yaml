@@ -12,9 +12,9 @@ podSecurityContext:
   runAsGroup: 0
 
 secretEnv:
-  JWT_SECRET: 1234567890
-  ADMIN_JWT_SECRET: 01234567890
-  APP_KEYS: 12340987
+  JWT_SECRET: "my_jwt_secret"
+  ADMIN_JWT_SECRET: "my_admin_jwt_secret"
+  APP_KEYS: "my_app_keys"
 
 env:
   DATABASE_CLIENT: "postgres"
