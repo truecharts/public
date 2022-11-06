@@ -1,0 +1,12 @@
+image:
+  repository: subchart-repo
+  pullPolicy: IfNotPresent
+  tag: v1.0.0
+
+manifests:
+  enabled: false
+
+updateCRD: false
+
+portal:
+  enabled: false
