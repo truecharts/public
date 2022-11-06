@@ -55,7 +55,7 @@ jobs:
         run: |
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
           parthreads=$(($(nproc) * 2))
-          parallel -j ${parthreads} .github/scripts/gen-docs.sh '2>&1' ::: ${CHARTS[@]}
+          # parallel -j ${parthreads} .github/scripts/gen-docs.sh '2>&1' ::: ${CHARTS[@]}
 
       - name: Fix Pre-Commit issues
         shell: bash
@@ -218,6 +218,11 @@ jobs:
         run: |
           git config user.name "truecharts-bot"
           git config user.email "bot@truecharts.org"
+
+      - name: Collect changes
+        id: collect-changes
+        uses: ./.github/actions/collect-changes
+
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@98bccfd32b0f76149d188912ac8e45ddd3f8695f # tag=v1.4.1
