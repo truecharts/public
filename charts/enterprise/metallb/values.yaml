@@ -3,6 +3,21 @@ image:
   tag: upstream
   pullPolicy: IfNotPresent
 
+controller:
+  enabled: false
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+updateCRD: false
+
+portal:
+  enabled: false
+
 ipAddressPools: []
 L2Advertisements: []
 #   - name: l2adv
