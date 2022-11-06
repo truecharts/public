@@ -15,6 +15,14 @@ updateCRD: false
 portal:
   enabled: false
 
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
 ipAddressPools: []
 #   - name: example
 #     autoAssign: true
