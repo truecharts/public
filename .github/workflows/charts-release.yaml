@@ -224,6 +224,7 @@ jobs:
         with:
           charts_dir: charts/*
           charts_repo_url: https://charts.truecharts.org
+          config: .github/cr.yaml
         env:
           CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
           CR_SKIP_EXISTING: "true"
