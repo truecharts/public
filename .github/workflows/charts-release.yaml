@@ -181,6 +181,13 @@ jobs:
           ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
           fetch-depth: 0
           
+      - name: Configure Git
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
+        run: |
+          git config user.name "truecharts-bot"
+          git config user.email "bot@truecharts.org"
+          
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@98bccfd32b0f76149d188912ac8e45ddd3f8695f # tag=v1.4.1
         if: |
