@@ -36,12 +36,18 @@ spec:
             - name: {{ $fullName }}-crds
               mountPath: /etc/crds
               readOnly: true
-          command: ["kubectl", "apply", "-f", "/etc/crds"]
+          command:
+            - "/bin/sh"
+            - "-c"
+            - |
+              /bin/bash <<'EOF'
+              kubectl apply -f /etc/crds || echo "failed applying CRDs..."
+              EOF
       volumes:
         - name: {{ $fullName }}-crds
           configMap:
             name: {{ $fullName }}-crds
-      restartPolicy: OnFailure
+      restartPolicy: Never
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
