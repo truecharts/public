@@ -1,7 +1,7 @@
 # Installation Notes
 
 - To set the variable `App Base Url` correctly:
-  - if you are accessing it _without_ ingress/domain -> `http://IP:PORT`.
+  - If you are accessing it _without_ ingress/domain -> `http://IP:PORT`.
   - If ingress is enabled, set it to `https://app.mydomain.tld:443`.
   - No matter which option you choose it **must** end with the correct `:PORT`.
 
