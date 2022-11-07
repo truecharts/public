@@ -2,6 +2,17 @@
 
 
 
+## [authelia-11.0.65](https://github.com/truecharts/charts/compare/authelia-11.0.64...authelia-11.0.65) (2022-11-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [authelia-11.0.65](https://github.com/truecharts/charts/compare/authelia-11.0.64...authelia-11.0.65) (2022-11-06)
 
 ### Chore

@@ -2,6 +2,18 @@
 
 
 
+## [booksonic-air-6.0.58](https://github.com/truecharts/charts/compare/booksonic-air-6.0.56...booksonic-air-6.0.58) (2022-11-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#4331](https://github.com/truecharts/charts/issues/4331))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [booksonic-air-6.0.57](https://github.com/truecharts/charts/compare/booksonic-air-6.0.56...booksonic-air-6.0.57) (2022-11-06)
 
 ### Chore

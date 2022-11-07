@@ -2,6 +2,17 @@
 
 
 
+## [homebridge-1.0.46](https://github.com/truecharts/charts/compare/homebridge-1.0.45...homebridge-1.0.46) (2022-11-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [homebridge-1.0.46](https://github.com/truecharts/charts/compare/homebridge-1.0.45...homebridge-1.0.46) (2022-11-06)
 
 ### Chore

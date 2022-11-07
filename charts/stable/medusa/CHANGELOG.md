@@ -2,6 +2,18 @@
 
 
 
+## [medusa-3.0.60](https://github.com/truecharts/charts/compare/medusa-3.0.58...medusa-3.0.60) (2022-11-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#4331](https://github.com/truecharts/charts/issues/4331))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [medusa-3.0.59](https://github.com/truecharts/charts/compare/medusa-3.0.58...medusa-3.0.59) (2022-11-06)
 
 ### Chore

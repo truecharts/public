@@ -2,6 +2,17 @@
 
 
 
+## [shlink-4.0.55](https://github.com/truecharts/charts/compare/shlink-web-client-3.0.43...shlink-4.0.55) (2022-11-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [shlink-4.0.55](https://github.com/truecharts/charts/compare/shlink-web-client-3.0.43...shlink-4.0.55) (2022-11-06)
 
 ### Chore

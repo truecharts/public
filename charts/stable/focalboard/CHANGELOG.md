@@ -2,6 +2,17 @@
 
 
 
+## [focalboard-9.0.56](https://github.com/truecharts/charts/compare/focalboard-9.0.55...focalboard-9.0.56) (2022-11-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [focalboard-9.0.56](https://github.com/truecharts/charts/compare/focalboard-9.0.55...focalboard-9.0.56) (2022-11-06)
 
 ### Chore

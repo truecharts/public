@@ -2,6 +2,17 @@
 
 
 
+## [meshroom-2.0.42](https://github.com/truecharts/charts/compare/meshroom-2.0.41...meshroom-2.0.42) (2022-11-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [meshroom-2.0.42](https://github.com/truecharts/charts/compare/meshroom-2.0.41...meshroom-2.0.42) (2022-11-06)
 
 ### Chore
