@@ -1186,6 +1186,8 @@ postgresql:
   existingSecret: "dbcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   url: {}
+  manifests:
+    enabled: false
 
 # -- Redis dependency configuration
 # @default -- See below
@@ -1194,6 +1196,8 @@ redis:
   existingSecret: "rediscreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   url: {}
+  manifests:
+    enabled: false
 
 # -- mariadb dependency configuration
 # @default -- See below
@@ -1202,6 +1206,8 @@ mariadb:
   existingSecret: "mariadbcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   url: {}
+  manifests:
+    enabled: false
 
 # -- mongodb dependency configuration
 # @default -- See below
@@ -1210,6 +1216,8 @@ mongodb:
   existingSecret: "mongodbcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   url: {}
+  manifests:
+    enabled: false
 
 # -- clickhouse dependency configuration
 # @default -- See below
@@ -1218,6 +1226,8 @@ clickhouse:
   existingSecret: "clickhousecreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   url: {}
+  manifests:
+    enabled: false
 
 # -- solr dependency configuration
 # @default -- See below
@@ -1226,3 +1236,5 @@ solr:
   existingSecret: "solrcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   url: {}
+  manifests:
+    enabled: false
