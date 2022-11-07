@@ -2,6 +2,17 @@
 
 
 
+## [protonmail-bridge-7.0.5](https://github.com/truecharts/charts/compare/protonmail-bridge-7.0.4...protonmail-bridge-7.0.5) (2022-11-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [protonmail-bridge-7.0.5](https://github.com/truecharts/charts/compare/protonmail-bridge-7.0.4...protonmail-bridge-7.0.5) (2022-11-06)
 
 ### Chore

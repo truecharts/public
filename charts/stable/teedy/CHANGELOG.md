@@ -2,6 +2,17 @@
 
 
 
+## [teedy-7.0.51](https://github.com/truecharts/charts/compare/teedy-docs-0.0.35...teedy-7.0.51) (2022-11-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [teedy-7.0.51](https://github.com/truecharts/charts/compare/teedy-docs-0.0.35...teedy-7.0.51) (2022-11-06)
 
 ### Chore

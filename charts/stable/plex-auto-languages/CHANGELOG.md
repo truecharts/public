@@ -2,6 +2,17 @@
 
 
 
+## [plex-auto-languages-1.0.16](https://github.com/truecharts/charts/compare/plex-auto-languages-1.0.15...plex-auto-languages-1.0.16) (2022-11-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [plex-auto-languages-1.0.16](https://github.com/truecharts/charts/compare/plex-auto-languages-1.0.15...plex-auto-languages-1.0.16) (2022-11-06)
 
 ### Chore

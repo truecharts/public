@@ -2,6 +2,17 @@
 
 
 
+## [friendica-4.0.63](https://github.com/truecharts/charts/compare/friendica-4.0.62...friendica-4.0.63) (2022-11-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [friendica-4.0.63](https://github.com/truecharts/charts/compare/friendica-4.0.62...friendica-4.0.63) (2022-11-06)
 
 ### Chore

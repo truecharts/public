@@ -2,6 +2,17 @@
 
 
 
+## [pvk-ii-0.0.36](https://github.com/truecharts/charts/compare/pvk-ii-0.0.35...pvk-ii-0.0.36) (2022-11-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [pvk-ii-0.0.36](https://github.com/truecharts/charts/compare/pvk-ii-0.0.35...pvk-ii-0.0.36) (2022-11-06)
 
 ### Chore

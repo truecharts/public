@@ -2,6 +2,17 @@
 
 
 
+## [dupeguru-1.0.23](https://github.com/truecharts/charts/compare/dupeguru-1.0.22...dupeguru-1.0.23) (2022-11-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [dupeguru-1.0.23](https://github.com/truecharts/charts/compare/dupeguru-1.0.22...dupeguru-1.0.23) (2022-11-06)
 
 ### Chore

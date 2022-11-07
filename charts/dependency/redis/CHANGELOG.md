@@ -2,6 +2,15 @@
 
 
 
+## [redis-3.0.118](https://github.com/truecharts/charts/compare/redis-3.0.117...redis-3.0.118) (2022-11-07)
+
+### Chore
+
+- update docker general non-major ([#4331](https://github.com/truecharts/charts/issues/4331))
+
+
+
+
 
 ## [redis-3.0.116](https://github.com/truecharts/charts/compare/redis-3.0.114...redis-3.0.116) (2022-11-05)
 

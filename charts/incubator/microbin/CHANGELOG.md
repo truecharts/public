@@ -2,6 +2,17 @@
 
 
 
+## [microbin-0.0.10](https://github.com/truecharts/charts/compare/microbin-0.0.9...microbin-0.0.10) (2022-11-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [microbin-0.0.10](https://github.com/truecharts/charts/compare/microbin-0.0.9...microbin-0.0.10) (2022-11-06)
 
 ### Chore
