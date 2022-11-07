@@ -41,7 +41,7 @@ spec:
             - "-c"
             - |
               /bin/bash <<'EOF'
-              kubectl apply -f /etc/crds || echo "failed applying CRDs..."
+              kubectl apply --server-side --force-conflicts  -f /etc/crds || echo "failed applying CRDs..."
               EOF
       volumes:
         - name: {{ $fullName }}-crds
