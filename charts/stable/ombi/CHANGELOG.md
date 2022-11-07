@@ -2,6 +2,16 @@
 
 
 
+## [ombi-11.0.59](https://github.com/truecharts/charts/compare/ombi-11.0.58...ombi-11.0.59) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [ombi-11.0.58](https://github.com/truecharts/charts/compare/ombi-11.0.56...ombi-11.0.58) (2022-11-06)
 
 ### Chore

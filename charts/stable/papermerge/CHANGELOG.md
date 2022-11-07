@@ -2,6 +2,16 @@
 
 
 
+## [papermerge-3.0.48](https://github.com/truecharts/charts/compare/papermerge-3.0.47...papermerge-3.0.48) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [papermerge-3.0.47](https://github.com/truecharts/charts/compare/papermerge-3.0.46...papermerge-3.0.47) (2022-11-06)
 
 ### Chore

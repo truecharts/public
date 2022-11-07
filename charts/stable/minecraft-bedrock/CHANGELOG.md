@@ -2,6 +2,16 @@
 
 
 
+## [minecraft-bedrock-1.0.46](https://github.com/truecharts/charts/compare/minecraft-bedrock-1.0.45...minecraft-bedrock-1.0.46) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [minecraft-bedrock-1.0.45](https://github.com/truecharts/charts/compare/minecraft-bedrock-1.0.44...minecraft-bedrock-1.0.45) (2022-11-06)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [wifi-card-0.0.39](https://github.com/truecharts/charts/compare/wifi-card-0.0.38...wifi-card-0.0.39) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [wifi-card-0.0.38](https://github.com/truecharts/charts/compare/wifi-card-0.0.37...wifi-card-0.0.38) (2022-11-06)
 
 ### Chore

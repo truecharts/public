@@ -2,6 +2,16 @@
 
 
 
+## [impostor-server-1.0.52](https://github.com/truecharts/charts/compare/impostor-server-1.0.51...impostor-server-1.0.52) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [impostor-server-1.0.51](https://github.com/truecharts/charts/compare/impostor-server-1.0.50...impostor-server-1.0.51) (2022-11-06)
 
 ### Chore

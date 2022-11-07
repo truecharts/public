@@ -2,6 +2,16 @@
 
 
 
+## [blender-0.0.46](https://github.com/truecharts/charts/compare/blender-0.0.45...blender-0.0.46) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [blender-0.0.45](https://github.com/truecharts/charts/compare/blender-desktop-g3-0.0.36...blender-0.0.45) (2022-11-06)
 
 ### Chore

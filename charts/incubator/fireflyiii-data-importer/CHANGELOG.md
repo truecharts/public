@@ -2,6 +2,16 @@
 
 
 
+## [fireflyiii-data-importer-0.0.8](https://github.com/truecharts/charts/compare/fireflyiii-data-importer-0.0.7...fireflyiii-data-importer-0.0.8) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [fireflyiii-data-importer-0.0.7](https://github.com/truecharts/charts/compare/fireflyiii-data-importer-0.0.6...fireflyiii-data-importer-0.0.7) (2022-11-06)
 
 ### Chore

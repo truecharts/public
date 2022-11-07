@@ -2,6 +2,16 @@
 
 
 
+## [openspeedtest-1.0.45](https://github.com/truecharts/charts/compare/openspeedtest-1.0.44...openspeedtest-1.0.45) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [openspeedtest-1.0.44](https://github.com/truecharts/charts/compare/openspeedtest-1.0.43...openspeedtest-1.0.44) (2022-11-06)
 
 ### Chore

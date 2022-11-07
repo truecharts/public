@@ -2,6 +2,16 @@
 
 
 
+## [invitarr-0.0.36](https://github.com/truecharts/charts/compare/invitarr-0.0.35...invitarr-0.0.36) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [invitarr-0.0.35](https://github.com/truecharts/charts/compare/invitarr-0.0.34...invitarr-0.0.35) (2022-11-06)
 
 ### Chore

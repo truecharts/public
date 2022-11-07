@@ -2,6 +2,16 @@
 
 
 
+## [kasm-1.0.5](https://github.com/truecharts/charts/compare/kasm-1.0.4...kasm-1.0.5) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [kasm-1.0.4](https://github.com/truecharts/charts/compare/kasm-1.0.3...kasm-1.0.4) (2022-11-06)
 
 ### Chore

@@ -2,6 +2,16 @@
 
 
 
+## [grocy-11.0.60](https://github.com/truecharts/charts/compare/grocy-11.0.59...grocy-11.0.60) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [grocy-11.0.59](https://github.com/truecharts/charts/compare/grocy-11.0.58...grocy-11.0.59) (2022-11-06)
 
 ### Chore

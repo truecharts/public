@@ -2,6 +2,16 @@
 
 
 
+## [jenkins-0.1.20](https://github.com/truecharts/charts/compare/jenkins-0.1.19...jenkins-0.1.20) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [jenkins-0.1.19](https://github.com/truecharts/charts/compare/jenkins-0.1.18...jenkins-0.1.19) (2022-11-06)
 
 ### Chore

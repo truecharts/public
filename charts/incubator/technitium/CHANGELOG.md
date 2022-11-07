@@ -2,6 +2,16 @@
 
 
 
+## [technitium-1.0.46](https://github.com/truecharts/charts/compare/technitium-1.0.45...technitium-1.0.46) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [technitium-1.0.45](https://github.com/truecharts/charts/compare/technitium-1.0.44...technitium-1.0.45) (2022-11-06)
 
 ### Chore

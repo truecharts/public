@@ -24,9 +24,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.118 |
-| https://charts.truecharts.org/ | solr | 0.0.86 |
-| https://library-charts.truecharts.org | common | 10.8.0 |
+| https://charts.truecharts.org/ | postgresql | 8.0.119 |
+| https://charts.truecharts.org/ | solr | 0.0.87 |
+| https://library-charts.truecharts.org | common | 10.8.1 |
 
 ## Installing the Chart
 

@@ -2,6 +2,16 @@
 
 
 
+## [deluge-11.0.44](https://github.com/truecharts/charts/compare/deluge-11.0.43...deluge-11.0.44) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [deluge-11.0.43](https://github.com/truecharts/charts/compare/deluge-11.0.42...deluge-11.0.43) (2022-11-06)
 
 ### Chore

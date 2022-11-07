@@ -2,6 +2,16 @@
 
 
 
+## [ddns-go-2.0.47](https://github.com/truecharts/charts/compare/ddns-go-2.0.46...ddns-go-2.0.47) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [ddns-go-2.0.46](https://github.com/truecharts/charts/compare/ddns-go-2.0.45...ddns-go-2.0.46) (2022-11-06)
 
 ### Chore

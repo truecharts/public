@@ -2,6 +2,16 @@
 
 
 
+## [airsonic-advanced-4.0.49](https://github.com/truecharts/charts/compare/airsonic-advanced-4.0.48...airsonic-advanced-4.0.49) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [airsonic-advanced-4.0.48](https://github.com/truecharts/charts/compare/airsonic-advanced-4.0.47...airsonic-advanced-4.0.48) (2022-11-06)
 
 ### Chore

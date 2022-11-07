@@ -2,6 +2,16 @@
 
 
 
+## [omada-controller-6.3.5](https://github.com/truecharts/charts/compare/omada-controller-6.3.4...omada-controller-6.3.5) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [omada-controller-6.3.4](https://github.com/truecharts/charts/compare/omada-controller-6.3.3...omada-controller-6.3.4) (2022-11-06)
 
 ### Chore

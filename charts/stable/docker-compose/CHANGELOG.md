@@ -2,6 +2,16 @@
 
 
 
+## [docker-compose-3.0.9](https://github.com/truecharts/charts/compare/docker-compose-3.0.8...docker-compose-3.0.9) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [docker-compose-3.0.8](https://github.com/truecharts/charts/compare/docker-compose-3.0.7...docker-compose-3.0.8) (2022-11-06)
 
 ### Chore

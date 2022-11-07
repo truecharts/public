@@ -2,6 +2,16 @@
 
 
 
+## [post-recording-0.0.35](https://github.com/truecharts/charts/compare/post-recording-0.0.34...post-recording-0.0.35) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [post-recording-0.0.34](https://github.com/truecharts/charts/compare/post-recording-0.0.33...post-recording-0.0.34) (2022-11-06)
 
 ### Chore

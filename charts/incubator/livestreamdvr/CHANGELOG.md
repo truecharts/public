@@ -2,6 +2,16 @@
 
 
 
+## [livestreamdvr-0.0.34](https://github.com/truecharts/charts/compare/livestreamdvr-0.0.33...livestreamdvr-0.0.34) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [livebook-0.0.37](https://github.com/truecharts/charts/compare/livebook-0.0.36...livebook-0.0.37) (2022-11-06)
 
 ### Chore

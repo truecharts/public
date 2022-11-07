@@ -2,6 +2,16 @@
 
 
 
+## [homelablabelmaker-1.1.4](https://github.com/truecharts/charts/compare/homelablabelmaker-1.1.3...homelablabelmaker-1.1.4) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [homelablabelmaker-1.1.3](https://github.com/truecharts/charts/compare/homelablabelmaker-1.1.2...homelablabelmaker-1.1.3) (2022-11-06)
 
 ### Chore

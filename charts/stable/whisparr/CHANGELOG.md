@@ -2,6 +2,16 @@
 
 
 
+## [whisparr-1.0.15](https://github.com/truecharts/charts/compare/whisparr-1.0.14...whisparr-1.0.15) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [whisparr-1.0.14](https://github.com/truecharts/charts/compare/whisparr-1.0.13...whisparr-1.0.14) (2022-11-06)
 
 ### Chore

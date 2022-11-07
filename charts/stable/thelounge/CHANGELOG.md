@@ -2,6 +2,16 @@
 
 
 
+## [thelounge-6.0.42](https://github.com/truecharts/charts/compare/thelounge-6.0.41...thelounge-6.0.42) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [thelounge-6.0.41](https://github.com/truecharts/charts/compare/thelounge-6.0.40...thelounge-6.0.41) (2022-11-06)
 
 ### Chore

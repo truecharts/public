@@ -2,6 +2,16 @@
 
 
 
+## [sourcegraph-0.0.42](https://github.com/truecharts/charts/compare/sourcegraph-0.0.41...sourcegraph-0.0.42) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [sourcegraph-0.0.41](https://github.com/truecharts/charts/compare/sourcegraph-0.0.40...sourcegraph-0.0.41) (2022-11-06)
 
 ### Chore

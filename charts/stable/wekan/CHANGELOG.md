@@ -2,6 +2,16 @@
 
 
 
+## [wekan-5.0.23](https://github.com/truecharts/charts/compare/wekan-5.0.22...wekan-5.0.23) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [wekan-5.0.22](https://github.com/truecharts/charts/compare/wekan-5.0.21...wekan-5.0.22) (2022-11-06)
 
 ### Chore

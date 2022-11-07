@@ -2,6 +2,16 @@
 
 
 
+## [fileflows-2.0.55](https://github.com/truecharts/charts/compare/fileflows-2.0.54...fileflows-2.0.55) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [fileflows-2.0.54](https://github.com/truecharts/charts/compare/fileflows-2.0.53...fileflows-2.0.54) (2022-11-06)
 
 ### Chore

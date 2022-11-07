@@ -2,6 +2,16 @@
 
 
 
+## [debian-bullseye-0.0.36](https://github.com/truecharts/charts/compare/debian-bullseye-0.0.35...debian-bullseye-0.0.36) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [debian-bullseye-0.0.35](https://github.com/truecharts/charts/compare/debian-bullseye-0.0.34...debian-bullseye-0.0.35) (2022-11-06)
 
 ### Chore
