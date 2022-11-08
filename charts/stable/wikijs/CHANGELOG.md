@@ -9,6 +9,20 @@
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [wikijs-7.0.56](https://github.com/truecharts/charts/compare/wikijs-7.0.54...wikijs-7.0.56) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
   - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
 

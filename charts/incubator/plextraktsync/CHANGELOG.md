@@ -9,6 +9,21 @@
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update docker general non-major ([#4343](https://github.com/truecharts/charts/issues/4343))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [plextraktsync-1.0.22](https://github.com/truecharts/charts/compare/plextraktsync-1.0.20...plextraktsync-1.0.22) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
   - update docker general non-major ([#4343](https://github.com/truecharts/charts/issues/4343))
   - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))

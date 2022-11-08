@@ -9,6 +9,20 @@
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [authelia-11.0.66](https://github.com/truecharts/charts/compare/authelia-11.0.64...authelia-11.0.66) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
   - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
 

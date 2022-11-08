@@ -9,6 +9,21 @@
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update docker general non-major ([#4343](https://github.com/truecharts/charts/issues/4343))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [strapi-5.0.1](https://github.com/truecharts/charts/compare/strapi-4.0.49...strapi-5.0.1) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
   - update docker general non-major ([#4343](https://github.com/truecharts/charts/issues/4343))
   - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
