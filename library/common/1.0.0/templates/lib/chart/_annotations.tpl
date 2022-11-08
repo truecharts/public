@@ -1,5 +1,6 @@
 {{/*
 These annotations will be shared on all objects
+Rendered under ".metadata.annotations"
 */}}
 {{- define "ix.common.annotations" -}}
   {{- with .Values.global.annotations -}}
@@ -10,7 +11,8 @@ These annotations will be shared on all objects
 {{- end -}}
 
 {{/*
-These annotations will be applied to all workload "spec" objects
+These annotations will be applied to all "workload" "spec" objects
+Rendered under ".spec.template.metadata.annotations"
 */}}
 {{- define "ix.common.annotations.workload.spec" -}}
   {{- if .Values.ixExternalInterfacesConfigurationNames }}
@@ -19,7 +21,8 @@ k8s.v1.cni.cncf.io/networks: {{ join ", " .Values.ixExternalInterfacesConfigurat
 {{- end -}}
 
 {{/*
-These annotations will be applied to all workload objects
+These annotations will be applied to all "workload" objects
+Rendered under ".metadata.annotations"
 */}}
 {{- define "ix.common.annotations.workload" -}}
 rollme: {{ randAlphaNum 5 | quote }}

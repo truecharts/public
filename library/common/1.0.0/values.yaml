@@ -1,7 +1,16 @@
 global:
-  # -- Set additional global annotations. Helm templates can be used.
+  # -- Sets an override for the suffix of the full name (Applies to current chart and all sub-charts)
+  nameOverride: ""
+  # -- Sets additional global annotations. Helm templates can be used.
   annotations: {}
 
+# -- Sets an override for the suffix of the full name (Applies to current chart only)
+nameOverride: ""
+
 ixExternalInterfacesConfigurationNames: []
-  # - iface1
-  # - iface2
+  # - interface1
+  # - interface2
+
+controller:
+  # Valid options are: deployment | daemonset | statefulset
+  type: deployment
