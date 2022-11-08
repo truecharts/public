@@ -37,11 +37,8 @@
     // Setup datasources for github actions
     {
       "matchManagers": ["github-actions"],
+      "excludePackageNames": ["stefanzweifel/git-auto-commit-action"],
       "automerge": true,
-    },
-    {
-      "matchManagers": ["github-actions"],
-      "excludePackageNames": ["stefanzweifel/git-auto-commit-action"]
     },
     //
     // helm deps

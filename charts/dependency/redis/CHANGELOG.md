@@ -2,6 +2,34 @@
 
 
 
+## [redis-3.0.120](https://github.com/truecharts/charts/compare/redis-3.0.119...redis-3.0.120) (2022-11-07)
+
+### Chore
+
+- update helm chart common to v10.9.1 ([#4339](https://github.com/truecharts/charts/issues/4339))
+
+
+
+
+## [redis-3.0.119](https://github.com/truecharts/charts/compare/redis-3.0.118...redis-3.0.119) (2022-11-07)
+
+### Chore
+
+- update helm chart common to v10.9.0 ([#4337](https://github.com/truecharts/charts/issues/4337))
+
+
+
+
+## [redis-3.0.118](https://github.com/truecharts/charts/compare/redis-3.0.117...redis-3.0.118) (2022-11-07)
+
+### Chore
+
+- update docker general non-major ([#4331](https://github.com/truecharts/charts/issues/4331))
+
+
+
+
+
 ## [redis-3.0.116](https://github.com/truecharts/charts/compare/redis-3.0.114...redis-3.0.116) (2022-11-05)
 
 ### Chore
