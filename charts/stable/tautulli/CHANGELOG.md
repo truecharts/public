@@ -10,6 +10,22 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+  - update docker general non-major ([#4347](https://github.com/truecharts/charts/issues/4347))
+
+
+
+
+## [tautulli-11.0.49](https://github.com/truecharts/charts/compare/tautulli-11.0.46...tautulli-11.0.49) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
   - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
   - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
   - update docker general non-major ([#4347](https://github.com/truecharts/charts/issues/4347))

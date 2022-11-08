@@ -2,6 +2,21 @@
 
 
 
+## [linkace-4.0.60](https://github.com/truecharts/charts/compare/linkace-4.0.58...linkace-4.0.60) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [logitech-media-server-4.0.58](https://github.com/truecharts/charts/compare/logitech-media-server-4.0.56...logitech-media-server-4.0.58) (2022-11-08)
 
 ### Chore

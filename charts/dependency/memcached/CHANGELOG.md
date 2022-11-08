@@ -2,6 +2,15 @@
 
 
 
+## [memcached-3.0.120](https://github.com/truecharts/charts/compare/memcached-3.0.119...memcached-3.0.120) (2022-11-08)
+
+### Chore
+
+- update helm chart common to v10.9.3 ([#4348](https://github.com/truecharts/charts/issues/4348))
+
+
+
+
 ## [memcached-3.0.119](https://github.com/truecharts/charts/compare/memcached-3.0.118...memcached-3.0.119) (2022-11-07)
 
 ### Chore
