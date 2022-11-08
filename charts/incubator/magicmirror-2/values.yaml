@@ -20,6 +20,14 @@ env:
   # UMASK:
   # DATA_PERM:
 
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
 service:
   main:
     ports:
