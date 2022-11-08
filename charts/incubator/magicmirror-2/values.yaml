@@ -22,11 +22,38 @@ env:
 
 probes:
   liveness:
-    enabled: false
+    custom: true
+    enabled: true
+    spec:
+      failureThreshold: 5
+      httpGet:
+        path: /
+        port: main
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      timeoutSeconds: 10
   readiness:
-    enabled: false
+    custom: true
+    enabled: true
+    spec:
+      failureThreshold: 5
+      httpGet:
+        path: /
+        port: main
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      timeoutSeconds: 10
   startup:
-    enabled: false
+    custom: true
+    enabled: true
+    spec:
+      failureThreshold: 5
+      httpGet:
+        path: /
+        port: main
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      timeoutSeconds: 10
 
 service:
   main:
