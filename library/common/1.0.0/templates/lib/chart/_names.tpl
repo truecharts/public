@@ -38,6 +38,25 @@ Create a default fully qualified app name.
   {{- trunc 63 $name | trimSuffix "-" -}}
 {{- end -}}
 
+{{/* Create chart name and version as used by the chart label */}}
+{{- define "ix.common.names.chart" -}}
+  {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
+{{- end -}}
+
+{{/*
+Create the "name" + "." + "namespace" fqdn
+*/}}
+{{- define "ix.common.names.fqdn" -}}
+  {{- printf "%s.%s" (include "tc.common.names.fullname" .) .Release.Namespace | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
+{{- end -}}
+
+{{/*
+Create the "fqdn" + "." + "svc.cluster.local"
+*/}}
+{{- define "ix.common.names.fqdn.cluster" -}}
+  {{- printf "%s.%s" (include "ix.common.names.fqdn" .) ".svc.cluster.local" -}}
+{{- end -}}
+
 {{/*
 Return the properly cased vresion of the controller type
 */}}
@@ -51,18 +70,4 @@ Return the properly cased vresion of the controller type
   {{- else -}}
     {{- fail (printf "Not a valid controller.type (%s)" .Values.controller.type) -}}
   {{- end -}}
-{{- end -}}
-
-{{/*
-Create the "name" + "." + "namespace" fqdn
-*/}}
-{{- define "ix.common.names.fqdn" -}}
-  {{- printf "%s.%s" (include "tc.common.names.fullname" .) .Release.Namespace | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
-{{- end -}}
-
-{{/*
-Create the "fqdn" + "." + "svc.cluster.local"
-*/}}
-{{- define "ix.common.names.fqdn" -}}
-  {{- printf "%s.%s" (include "ix.common.names.fqdn" .) ".svc.cluster.local" -}}
 {{- end -}}
