@@ -7,7 +7,7 @@ nameOverride applies only to the current chart
 {{/*
 Expand ther name of the chart
 */}}
-{{- define "ix.common.names.name" -}}
+{{- define "ix.v1.common.names.name" -}}
   {{- $globalNameOverride := "" -}}
   {{- if hasKey .Values "global" -}}
     {{/* Set to global.nameOverride if set, else set to empty */}}
@@ -20,8 +20,8 @@ Expand ther name of the chart
 {{/*
 Create a default fully qualified app name.
 */}}
-{{- define "ix.common.names.fullname" -}}
-  {{- $name := include "ix.common.names.name" . -}}
+{{- define "ix.v1.common.names.fullname" -}}
+  {{- $name := include "ix.v1.common.names.name" . -}}
   {{- $globalFullNameOverride := "" -}}
   {{- if hasKey .Values "global" -}}
     {{- $globalFullNameOverride = (default $globalFullNameOverride .Values.global.fullnameOverride) -}}
@@ -39,28 +39,28 @@ Create a default fully qualified app name.
 {{- end -}}
 
 {{/* Create chart name and version as used by the chart label */}}
-{{- define "ix.common.names.chart" -}}
+{{- define "ix.v1.common.names.chart" -}}
   {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 {{/*
 Create the "name" + "." + "namespace" fqdn
 */}}
-{{- define "ix.common.names.fqdn" -}}
-  {{- printf "%s.%s" (include "tc.common.names.fullname" .) .Release.Namespace | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
+{{- define "ix.v1.common.names.fqdn" -}}
+  {{- printf "%s.%s" (include "ix.v1.common.names.fullname" .) .Release.Namespace | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 {{/*
 Create the "fqdn" + "." + "svc.cluster.local"
 */}}
-{{- define "ix.common.names.fqdn.cluster" -}}
-  {{- printf "%s.%s" (include "ix.common.names.fqdn" .) ".svc.cluster.local" -}}
+{{- define "ix.v1.common.names.fqdn.cluster" -}}
+  {{- printf "%s.%s" (include "ix.v1.common.names.fqdn" .) "svc.cluster.local" -}}
 {{- end -}}
 
 {{/*
 Return the properly cased vresion of the controller type
 */}}
-{{- define "ix.common.names.controllerType" -}}
+{{- define "ix.v1.common.names.controllerType" -}}
   {{- if eq .Values.controller.type "deployment" -}}
     {{- print "Deployment" -}}
   {{- else if eq .Values.controller.type "daemonset" -}}
