@@ -3,6 +3,8 @@ global:
   nameOverride: ""
   # -- Sets additional global annotations. Helm templates can be used.
   annotations: {}
+  # -- Set additional global labels. Helm templates can be used.
+  labels: {}
 
 # -- Sets an override for the suffix of the full name (Applies to current chart only)
 nameOverride: ""

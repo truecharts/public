@@ -1,0 +1,10 @@
+name: common-test
+version: 1.0.0
+apiVersion: v2
+appVersion: v1.0.0
+kubeVersion: '>=1.16.0-0'
+type: application
+dependencies:
+  - name: common
+    repository: file://../common/1.0.0
+    version: 1.0.0

@@ -1,0 +1,12 @@
+suite: test
+templates:
+  - common.yaml
+tests:
+  - it: default should pass
+    asserts:
+      - hasDocuments:
+          count: 1
+      - documentIndex: 0
+        equal:
+          path: name
+          value: test
