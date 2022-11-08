@@ -2,6 +2,19 @@
 
 
 
+## [synapse-4.0.61](https://github.com/truecharts/charts/compare/synapse-4.0.59...synapse-4.0.61) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [synapse-4.0.60](https://github.com/truecharts/charts/compare/synapse-4.0.59...synapse-4.0.60) (2022-11-07)
 
 ### Chore

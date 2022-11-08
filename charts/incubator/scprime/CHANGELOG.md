@@ -2,6 +2,19 @@
 
 
 
+## [scprime-0.0.36](https://github.com/truecharts/charts/compare/scprime-0.0.34...scprime-0.0.36) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
 ## [scprime-0.0.35](https://github.com/truecharts/charts/compare/scprime-0.0.34...scprime-0.0.35) (2022-11-07)
 
 ### Chore

@@ -2,6 +2,7 @@
 
 
 
+
 ## [openaudible-0.0.12](https://github.com/truecharts/charts/compare/openaudible-0.0.11...openaudible-0.0.12) (2022-11-07)
 
 ### Chore

@@ -2,6 +2,7 @@
 
 
 
+
 ## [midarr-0.0.11](https://github.com/truecharts/charts/compare/midarr-0.0.10...midarr-0.0.11) (2022-11-07)
 
 ### Chore

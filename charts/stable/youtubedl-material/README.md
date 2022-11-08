@@ -23,8 +23,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org | mongodb | 2.0.55 |
-| https://library-charts.truecharts.org | common | 10.8.1 |
+| https://charts.truecharts.org | mongodb | 2.0.58 |
+| https://library-charts.truecharts.org | common | 10.9.1 |
 
 ## Installing the Chart
 
