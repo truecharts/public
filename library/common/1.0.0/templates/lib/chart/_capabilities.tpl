@@ -1,16 +1,22 @@
 {{/*
-Return the appropriate apiVersion for controllers
+Return the appropriate apiVersion for deployment
 */}}
-{{- define "ix.v1.common.capabilities.controller.apiVersion" -}}
-  {{- if eq .Values.controller.type "deployment" -}}
+{{- define "ix.v1.common.capabilities.deployment.apiVersion" -}}
     {{- print "apps/v1" -}}
-  {{- else if eq .Values.controller.type "daemonset" -}}
+{{- end -}}
+
+{{/*
+Return the appropriate apiVersion for statefulset
+*/}}
+{{- define "ix.v1.common.capabilities.statefulset.apiVersion" -}}
     {{- print "apps/v1" -}}
-  {{- else if eq .Values.controller.type "statefulset" -}}
+{{- end -}}
+
+{{/*
+Return the appropriate apiVersion for daemonset
+*/}}
+{{- define "ix.v1.common.capabilities.daemonset.apiVersion" -}}
     {{- print "apps/v1" -}}
-  {{- else -}}
-    {{- fail (printf "Not a valid controller.type (%s)" .Values.controller.type) -}}
-  {{- end -}}
 {{- end -}}
 
 {{/*

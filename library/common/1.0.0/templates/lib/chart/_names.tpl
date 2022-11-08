@@ -58,6 +58,7 @@ Create the "fqdn" + "." + "svc.cluster.local"
 {{- end -}}
 
 {{/*
+TODO: See if it's needed
 Return the properly cased vresion of the controller type
 */}}
 {{- define "ix.v1.common.names.controllerType" -}}
