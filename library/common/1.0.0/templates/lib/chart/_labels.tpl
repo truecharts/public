@@ -18,4 +18,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- define "ix.v1.common.labels.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "ix.v1.common.names.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+{{/* TODO: Check why those are needed (ported from the current common) */}}
+app: {{ include "ix.v1.common.names.name" . }}
+release: {{ .Release.Name }}
 {{- end -}}
