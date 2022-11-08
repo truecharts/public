@@ -15,86 +15,86 @@ questions:
   - variable: misskey
     group: "Container Configuration"
     label: "Misskey Configuration"
-      schema:
-        type: dict
-        attrs:
-          - variable: url
-            label: "Final Accessible URL"
-            description: "Final accessible URL seen by a user. ONCE YOU HAVE STARTED THE INSTANCE, DO NOT CHANGE THE URL SETTINGS AFTER THAT!"
-            schema:
-              type: string
-              required: true
-          - variable: id
-            label: "ID Generation Method"
-            description: "Select the ID generation method. DO NOT CHANGE AFTER INSTANCE IS STARTED!"
-            schema:
-              type: string
-              enum:
-                - value: "aid"
-                  description: "Short, Millisecond accuracy"
-                - value: "meid"
-                  description: "Similar to ObjectID, Millisecond accuracy"
-                - value: "ulid"
-                  description: "Millisecond accuracy"
-                - value: "objectid"
-                  description: "This is left for backward compatibility"
-              default: "aid"
-              required: true
-          - variable: other
-            label: "Other Configuration"
-            schema:
-              type: dict
-              attrs:
-                - variable: signToActivityPubGet
-                  label: "Sign to ActivityPub GET Request"
-                  schema:
-                    type: boolean
-                    default: false
-                - variable: maxFileSize
-                  label: "Max file upload/download size (bytes)"
-                  schema:
-                    type: int
-                    default: 262144000
-                - variable: clusterLimit
-                  label: "Cluster Limit"
-                  description: "Number of worker processes for server"
-                  schema:
-                    type: int
-                    default: 1
-                - variable: deliverJobConcurrency
-                  label: "Deliver Job Concurrency"
-                  description: "Job concurrency per worker"
-                  schema:
-                    type: int
-                    default: 128
-                - variable: inboxJobConcurrency
-                  label: "Inbox Job Concurrency"
-                  description: "Inbox job concurrency per worker"
-                  schema:
-                    type: int
-                    default: 16
-                - variable: deliverJobPerSec
-                  label: "Deliver Jobs Per Second"
-                  description: "Job rate limiter"
-                  schema:
-                    type: int
-                    default: 128
-                - variable: inboxJobPerSec
-                  label: "Inbox Jobs Per Second"
-                  description: "Inbox job rate limiter"
-                  schema:
-                    type: int
-                    default: 16
-                - variable: deliverJobMaxAttempts
-                  label: "Max Deliver Job Attempts"
-                  schema:
-                    type: int
-                    default: 12
-                - variable: inboxJobMaxAttempts
-                  label: "Max Inbox Job Attempts"
-                  schema:
-                    type: int
-                    default: 8
+    schema:
+      type: dict
+      attrs:
+        - variable: url
+          label: "Final Accessible URL"
+          description: "Final accessible URL seen by a user. ONCE YOU HAVE STARTED THE INSTANCE, DO NOT CHANGE THE URL SETTINGS AFTER THAT!"
+          schema:
+            type: string
+            required: true
+        - variable: id
+          label: "ID Generation Method"
+          description: "Select the ID generation method. DO NOT CHANGE AFTER INSTANCE IS STARTED!"
+          schema:
+            type: string
+            enum:
+              - value: "aid"
+                description: "Short, Millisecond accuracy"
+              - value: "meid"
+                description: "Similar to ObjectID, Millisecond accuracy"
+              - value: "ulid"
+                description: "Millisecond accuracy"
+              - value: "objectid"
+                description: "This is left for backward compatibility"
+            default: "aid"
+            required: true
+        - variable: other
+          label: "Other Configuration"
+          schema:
+            type: dict
+            attrs:
+              - variable: signToActivityPubGet
+                label: "Sign to ActivityPub GET Request"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: maxFileSize
+                label: "Max file upload/download size (bytes)"
+                schema:
+                  type: int
+                  default: 262144000
+              - variable: clusterLimit
+                label: "Cluster Limit"
+                description: "Number of worker processes for server"
+                schema:
+                  type: int
+                  default: 1
+              - variable: deliverJobConcurrency
+                label: "Deliver Job Concurrency"
+                description: "Job concurrency per worker"
+                schema:
+                  type: int
+                  default: 128
+              - variable: inboxJobConcurrency
+                label: "Inbox Job Concurrency"
+                description: "Inbox job concurrency per worker"
+                schema:
+                  type: int
+                  default: 16
+              - variable: deliverJobPerSec
+                label: "Deliver Jobs Per Second"
+                description: "Job rate limiter"
+                schema:
+                  type: int
+                  default: 128
+              - variable: inboxJobPerSec
+                label: "Inbox Jobs Per Second"
+                description: "Inbox job rate limiter"
+                schema:
+                  type: int
+                  default: 16
+              - variable: deliverJobMaxAttempts
+                label: "Max Deliver Job Attempts"
+                schema:
+                  type: int
+                  default: 12
+              - variable: inboxJobMaxAttempts
+                label: "Max Inbox Job Attempts"
+                schema:
+                  type: int
+                  default: 8
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
