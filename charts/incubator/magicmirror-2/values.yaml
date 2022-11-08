@@ -7,9 +7,8 @@ env:
   DATA_DIR: "/magicmirror2"
   FORCE_UPDATE: false
   FORCE_UPDATE_MODULES: false
-  # UID:
-  # GID:
-  # GID:
+  UID: "{{ .Values.security.PUID }}"
+  GID: "{{ .Values.podSecurityContext.fsGroup }}"
   # UMASK:
   # DATA_PERM:
 
