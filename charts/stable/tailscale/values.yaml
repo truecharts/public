@@ -1,7 +1,7 @@
 image:
   repository: tailscale/tailscale
   pullPolicy: IfNotPresent
-  tag: v1.33.141@sha256:726ff19a7be12e9b88fd582edea075020833ebe707751194ee5dc82583a330e6
+  tag: v1.33.149@sha256:eb6b8668aa9351317b723c810d89e6af6c1803842cd38528d88dc251c41e9b55
 
 command:
   - /usr/local/bin/containerboot
@@ -40,6 +40,7 @@ rbac:
         verbs:
           - get
           - update
+          - patch
 
 envFrom:
   - configMapRef:

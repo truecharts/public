@@ -2,6 +2,24 @@
 
 
 
+## [promtail-3.0.77](https://github.com/truecharts/charts/compare/promtail-3.0.76...promtail-3.0.77) (2022-11-07)
+
+### Chore
+
+- update helm chart common to v10.9.1 ([#4339](https://github.com/truecharts/charts/issues/4339))
+
+
+
+
+## [promtail-3.0.76](https://github.com/truecharts/charts/compare/promtail-3.0.75...promtail-3.0.76) (2022-11-07)
+
+### Chore
+
+- update helm chart common to v10.9.0 ([#4337](https://github.com/truecharts/charts/issues/4337))
+
+
+
+
 ## [redis-3.0.117](https://github.com/truecharts/charts/compare/redisinsight-0.0.37...redis-3.0.117) (2022-11-06)
 
 ### Chore
