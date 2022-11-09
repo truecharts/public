@@ -2,6 +2,15 @@
 
 
 
+## [clickhouse-1.0.58](https://github.com/truecharts/charts/compare/clickhouse-1.0.57...clickhouse-1.0.58) (2022-11-09)
+
+### Chore
+
+- update helm chart common to v10.9.5
+
+
+
+
 ## [clickhouse-1.0.57](https://github.com/truecharts/charts/compare/clickhouse-1.0.56...clickhouse-1.0.57) (2022-11-08)
 
 ### Chore
