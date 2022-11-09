@@ -26,7 +26,7 @@ service:
         enabled: false
 
 installContainers:
-  initConfig:
+  initconfig:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
       - name: root
