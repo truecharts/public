@@ -62,11 +62,11 @@ TODO: See if it's needed
 Return the properly cased vresion of the controller type
 */}}
 {{- define "ix.v1.common.names.controllerType" -}}
-  {{- if eq .Values.controller.type "deployment" -}}
+  {{- if eq (.Values.controller.type | lower) "deployment" -}}
     {{- print "Deployment" -}}
-  {{- else if eq .Values.controller.type "daemonset" -}}
+  {{- else if eq (.Values.controller.type | lower) "daemonset" -}}
     {{- print "DaemonSet" -}}
-  {{- else if eq .Values.controller.type "statefulset"  -}}
+  {{- else if eq (.Values.controller.type | lower) "statefulset"  -}}
     {{- print "StatefulSet" -}}
   {{- else -}}
     {{- fail (printf "Not a valid controller.type (%s)" .Values.controller.type) -}}
