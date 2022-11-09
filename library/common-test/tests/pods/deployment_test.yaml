@@ -200,3 +200,137 @@ tests:
           documentIndex: *deploymentDoc
           path: spec.template.metadata.labels.test
           value: some_value
+
+  - it: should pass with added emptyDir volume
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: emptyDir
+          sizeLimit: 1Gi
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: volume1
+            emptyDir:
+              sizeLimit: 1Gi
+
+  - it: should pass with added emptyDir volume and no sizeLimit
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: emptyDir
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: volume1
+            emptyDir: {}
+
+  - it: should pass with added emptyDir volume memory backed with sizeLimit
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: emptyDir
+          medium: Memory
+          sizeLimit: 1Gi
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: volume1
+            emptyDir:
+              medium: Memory
+              sizeLimit: 1Gi
+
+  - it: should pass with added emptyDir volume memory backed with sizeLimit via tpl
+    set:
+      some_medium: Memory
+      some_size: 1Gi
+      persistence:
+        volume1:
+          enabled: true
+          type: emptyDir
+          medium: "{{ .Values.some_medium }}"
+          sizeLimit: "{{ .Values.some_size }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: volume1
+            emptyDir:
+              medium: Memory
+              sizeLimit: 1Gi
+
+  - it: should pass with added emptyDir volume memory backed and no sizeLimit
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: emptyDir
+          medium: Memory
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: volume1
+            emptyDir:
+              medium: Memory
+
+  - it: should pass with added nfs
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: nfs
+          server: some.server.local
+          path: /nfs/path
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: volume1
+            nfs:
+              server: some.server.local
+              path: /nfs/path
+
+  - it: should pass with added hostPath
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: hostpath
+          hostPath: /mnt/pool/test
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: volume1
+            hostPath:
+              path: /mnt/pool/test
+
+  - it: should pass with added hostPath and hostPathType set via tpl
+    set:
+      some_key: Directory
+      persistence:
+        volume1:
+          enabled: true
+          type: hostpath
+          hostPathType: "{{ .Values.some_key }}"
+          hostPath: /mnt/pool/test
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: volume1
+            hostPath:
+              path: /mnt/pool/test
+              type: Directory
+
+TODO: configmap
+TODO: secret
+TODO: PVC
+TODO: ports

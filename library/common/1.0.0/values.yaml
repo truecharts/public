@@ -74,3 +74,154 @@ service:
         # -- Specify the nodePort value NodePort service types.
         # [[ref]](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
         nodePort:
+
+# -- Configure persistence for the chart here.
+# Additional items can be added by adding a dictionary key similar to the 'pvc-example' key.
+# @default -- See below
+persistence:
+  # TODO: Move examples to documentation instead of here
+  pvc-example:
+    # -- Enables or disables the persistence item
+    enabled: false
+    # -- Sets the persistence type
+    # Valid options are: pvc | emptyDir | secret | configMap | hostPath | custom
+    type: pvc
+    # -- Sets an override for the suffix of this volume
+    nameOverride: ""
+    annotationsList: []
+    # - name: somename
+    #   value: somevalue
+    # -- Add annotations to PVC object
+    annotations: {}
+    # -- If you want to reuse an existing claim, the name of the existing PVC can be passed here.
+    existingClaim: ""
+    # -- force the complete PVC name
+    # Will not add any prefix or suffix
+    forceName: ""
+  # -- Example of a hostPath mount
+  # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath)
+  # @default -- See below
+  host-dev:
+    enabled: false
+    type: hostPath
+    # -- Which path on the host should be mounted.
+    hostPath: /dev
+    # -- Automatic set permissions using chown and chmod
+    setPermissions: false
+    # -- Where to mount the path in the main container.
+    # Defaults to the value of `hostPath`
+    mountPath: # /myDev
+    # -- Specifying a hostPathType adds a check before trying to mount the path.
+    # See Kubernetes documentation for options.
+    hostPathType: ""
+    # -- Specify if the path should be mounted read-only.
+    readOnly: true
+
+  # -- Example of a configmap mount
+  # @default -- See below
+  configmap-example:
+    enabled: false
+    type: configMap
+    # -- Specify the name of the configmap object to be mounted. Helm templates can be used.
+    objectName: myconfig-map
+    # -- Where to mount the volume in the main container.
+    # Defaults to `/<name_of_the_volume>`,
+    # setting to '-' creates the volume but disables the volumeMount.
+    mountPath:  # /custom-mount
+    # -- Specify if the volume should be mounted read-only.
+    readOnly: false
+
+  # -- Example of a secret mount
+  # @default -- See below
+  secret-example:
+    enabled: false
+    type: secret
+    # -- Specify the name of the secret object to be mounted. Helm templates can be used.
+    objectName: mysecret
+    # -- Where to mount the volume in the main container.
+    # Defaults to `/<name_of_the_volume>`,
+    # setting to '-' creates the volume but disables the volumeMount.
+    mountPath: # /custom-mount
+    # -- Specify if the volume should be mounted read-only.
+    readOnly: false
+    # -- define the default mount mode for the secret
+    defaultMode: 0644
+    # -- Define the secret items to be mounted
+    items:
+      - key: username
+        path: my-group/my-username
+
+  # -- Example of a nfs mount
+  # @default -- See below
+  nfs-example:
+    enabled: false
+    type: nfs
+    # -- Specify the name of the secret object to be mounted
+    server: 192.168.10.10
+    # -- define the default mount path on the nfs server
+    path: "/somepath"
+    # -- Where to mount the volume in the main container.
+    # Defaults to `/<name_of_the_volume>`,
+    # setting to '-' creates the volume but disables the volumeMount.
+    mountPath:  # /custom-mount
+    # -- Specify if the volume should be mounted read-only.
+    readOnly: false
+
+  # -- Create an emptyDir volume to for /dev/shm
+  # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
+  # @default -- See below
+  shm:
+    # TODO: discuss if we enable it by default
+    enabled: false
+    type: emptyDir
+    mountPath: /dev/shm
+    # -- Set the medium to "Memory" to mount a tmpfs (RAM-backed filesystem) instead
+    # of the storage medium that backs the node.
+    medium: Memory
+    # -- If the `SizeMemoryBackedVolumes` feature gate is enabled, you can
+    # specify a size for memory backed volumes.
+    sizeLimit: # 1Gi
+
+  # -- Create an emptyDir volume to share between all containers for temporary storage
+  # @default -- See below
+  temp:
+    # TODO: discuss if we enable it by default
+    enabled: false
+    type: emptyDir
+    mountPath: /tmp
+    # -- Set the medium to "Memory" to mount a tmpfs (RAM-backed filesystem) instead
+    # of the storage medium that backs the node.
+    medium:  # Memory
+    # -- If the `SizeMemoryBackedVolumes` feature gate is enabled, you can
+    # specify a size for memory backed volumes.
+    sizeLimit: # 1Gi
+
+  # -- Create an emptyDir volume to share between all containers
+  # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
+  # @default -- See below
+  varlogs:
+    # TODO: discuss if we enable it by default
+    enabled: false
+    type: emptyDir
+    mountPath: /var/logs
+    # -- Set the medium to "Memory" to mount a tmpfs (RAM-backed filesystem) instead
+    # of the storage medium that backs the node.
+    medium:  # Memory
+    # -- If the `SizeMemoryBackedVolumes` feature gate is enabled, you can
+    # specify a size for memory backed volumes.
+    sizeLimit: # 1Gi
+
+  # -- Create an emptyDir volume to share between all containers
+  # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
+  # @default -- See below
+  shared:
+    # TODO: discuss if we enable it by default
+    enabled: false
+    type: emptyDir
+    mountPath: /shared
+    # -- Set the medium to "Memory" to mount a tmpfs (RAM-backed filesystem) instead
+    # of the storage medium that backs the node.
+    medium:  # Memory
+    # -- If the `SizeMemoryBackedVolumes` feature gate is enabled, you can
+    # specify a size for memory backed volumes.
+    sizeLimit:  # 1Gi

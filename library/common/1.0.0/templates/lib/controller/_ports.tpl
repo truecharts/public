@@ -1,5 +1,5 @@
 {{/*
-Ports included in the controller.
+Ports included by the controller.
 */}}
 {{- define "ix.v1.common.controller.ports" -}}
   {{ $ports := list }}
@@ -11,7 +11,6 @@ Ports included in the controller.
       {{- end -}}
     {{- end -}}
   {{- end -}}
-
 
 {{/*
 Render the list of ports
