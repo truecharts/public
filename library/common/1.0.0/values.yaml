@@ -46,3 +46,31 @@ controller:
     surge:
     # -- Set statefulset RollingUpdate partition
     partition:
+
+# -- Configure the services for the chart here.
+# Additional services can be added by adding a dictionary key similar to the 'main' service.
+# @default -- See below
+service:
+  main:
+    # -- Enables or disables the service
+    enabled: true
+    # -- Configure the Service port information here.
+    # Additional ports can be added by adding a dictionary key similar to the 'main' port.
+    # @default -- See below
+    ports:
+      main:
+        # -- Enables or disables the port
+        enabled: true
+        # -- The port number (Default port is required if enabled: true)
+        port:
+        # -- Port protocol.
+        # Support values are `HTTP`, `HTTPS`, `TCP` and `UDP`.
+        # HTTPS and HTTPS spawn a TCP service and get used for internal URL and name generation
+        protocol: HTTP
+        # -- Specify a service targetPort if you wish to differ the service port from the application port.
+        # If `targetPort` is specified, this port number is used in the container definition instead of
+        # the `port` value. Therefore named ports are not supported for this field.
+        targetPort:
+        # -- Specify the nodePort value NodePort service types.
+        # [[ref]](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
+        nodePort:

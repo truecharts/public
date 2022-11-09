@@ -8,10 +8,10 @@ apiVersion: {{ include "ix.v1.common.capabilities.deployment.apiVersion" $ }}
 kind: Deployment
 metadata:
   name: {{ include "ix.v1.common.names.fullname" . }}
-  {{- with (merge (default dict .Values.controller.labels) (include "ix.v1.common.labels" $ | fromYaml)) }}
+  {{- with (mustMerge (default dict .Values.controller.labels) (include "ix.v1.common.labels" $ | fromYaml)) }}
   labels: {{- tpl (toYaml .) $ | nindent 4 }}
   {{- end }}
-  {{- with (merge (default dict .Values.controller.annotations) (include "ix.v1.common.annotations" $ | fromYaml) (include "ix.v1.common.annotations.workload" $ | fromYaml)) }}
+  {{- with (mustMerge (default dict .Values.controller.annotations) (include "ix.v1.common.annotations" $ | fromYaml) (include "ix.v1.common.annotations.workload" $ | fromYaml)) }}
   annotations: {{- tpl (toYaml .) $ | nindent 4 }}
   {{- end }}
 spec:
