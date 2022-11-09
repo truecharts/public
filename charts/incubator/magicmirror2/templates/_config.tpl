@@ -13,7 +13,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  config.json: |
+  config.js: |
     /* Magic Mirror Config Sample
     *
     * By Michael Teeuw http://michaelteeuw.nl

@@ -47,8 +47,8 @@ persistence:
   configfile:
     enabled: true
     type: custom
-    mountPath: /magicmirror2/config/config.json
-    subPath: config.json
+    mountPath: /magicmirror2/config/config.js
+    subPath: config.js
     defaultMode: "0770"
     volumeSpec:
       configMap:
