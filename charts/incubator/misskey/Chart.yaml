@@ -1,0 +1,41 @@
+apiVersion: v2
+appVersion: "12.119.0"
+home: https://misskey-hub.net
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.7.13
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 8.0.114
+  - condition: redis.enabled
+    name: redis
+    repository: https://charts.truecharts.org
+    version: 3.0.111
+deprecated: false
+description: "Misskey is an open source, decentralized social media platform that's free forever!"
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/misskey.png
+keywords:
+  - Misskey
+  - Social
+  - Friend
+  - Social Media
+  - Fediverse
+  - ActivityPub
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: misskey
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/misskey
+  - https://github.com/misskey-dev/misskey/
+  - https://hub.docker.com/r/misskey/misskey/
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Social
+type: application
+version: 0.0.1
