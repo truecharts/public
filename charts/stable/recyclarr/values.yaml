@@ -25,6 +25,14 @@ service:
       main:
         enabled: false
 
+installContainers:
+  initConfig:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: root
+        mountPath: "/"
+    command: ["recyclarr", "create-config"]
+
 persistence:
   config:
     enabled: true
