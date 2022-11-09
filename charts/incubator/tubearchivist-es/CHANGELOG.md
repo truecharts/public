@@ -2,7 +2,24 @@
 
 
 
-## [tubearchivist-es-0.0.39](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.37...tubearchivist-es-0.0.39) (2022-11-08)
+## [tubearchivist-redisjson-0.0.38](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.35...tubearchivist-redisjson-0.0.38) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4349](https://github.com/truecharts/charts/issues/4349))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [tubearchivist-redisjson-0.0.37](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.35...tubearchivist-redisjson-0.0.37) (2022-11-08)
 
 ### Chore
 
@@ -17,7 +34,7 @@
 
 
 
-## [tubearchivist-es-0.0.39](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.37...tubearchivist-es-0.0.39) (2022-11-08)
+## [tubearchivist-redisjson-0.0.37](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.35...tubearchivist-redisjson-0.0.37) (2022-11-08)
 
 ### Chore
 
@@ -31,7 +48,7 @@
 
 
 
-## [tubearchivist-es-0.0.39](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.37...tubearchivist-es-0.0.39) (2022-11-08)
+## [tubearchivist-redisjson-0.0.37](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.35...tubearchivist-redisjson-0.0.37) (2022-11-08)
 
 ### Chore
 
@@ -44,7 +61,7 @@
 
 
 
-## [tubearchivist-es-0.0.38](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.37...tubearchivist-es-0.0.38) (2022-11-07)
+## [tubearchivist-redisjson-0.0.36](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.35...tubearchivist-redisjson-0.0.36) (2022-11-07)
 
 ### Chore
 
@@ -55,7 +72,7 @@
 
 
 
-## [tubearchivist-es-0.0.38](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.37...tubearchivist-es-0.0.38) (2022-11-06)
+## [tubearchivist-redisjson-0.0.36](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.35...tubearchivist-redisjson-0.0.36) (2022-11-06)
 
 ### Chore
 
@@ -65,7 +82,7 @@
 
 
 
-## [tubearchivist-es-0.0.37](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.36...tubearchivist-es-0.0.37) (2022-11-06)
+## [tubearchivist-redisjson-0.0.35](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.34...tubearchivist-redisjson-0.0.35) (2022-11-06)
 
 ### Chore
 
@@ -75,7 +92,7 @@
 
 
 
-## [tubearchivist-es-0.0.36](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.35...tubearchivist-es-0.0.36) (2022-11-05)
+## [tubearchivist-redisjson-0.0.34](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.33...tubearchivist-redisjson-0.0.34) (2022-11-05)
 
 ### Chore
 
@@ -85,7 +102,7 @@
 
 
 
-## [tubearchivist-es-0.0.35](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.34...tubearchivist-es-0.0.35) (2022-11-02)
+## [tubearchivist-redisjson-0.0.33](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.32...tubearchivist-redisjson-0.0.33) (2022-11-02)
 
 ### Chore
 
@@ -95,7 +112,17 @@
 
 
 
-## [tubearchivist-es-0.0.34](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.33...tubearchivist-es-0.0.34) (2022-10-25)
+## [tubearchivist-redisjson-0.0.32](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.31...tubearchivist-redisjson-0.0.32) (2022-10-29)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4230](https://github.com/truecharts/charts/issues/4230))
+
+
+
+
+## [tubearchivist-redisjson-0.0.31](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.30...tubearchivist-redisjson-0.0.31) (2022-10-25)
 
 ### Chore
 
@@ -105,17 +132,7 @@
 
 
 
-## [tubearchivist-es-0.0.33](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.32...tubearchivist-es-0.0.33) (2022-10-24)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#4171](https://github.com/truecharts/charts/issues/4171))
-
-
-
-
-## [tubearchivist-es-0.0.32](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.31...tubearchivist-es-0.0.32) (2022-10-19)
+## [tubearchivist-redisjson-0.0.30](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.29...tubearchivist-redisjson-0.0.30) (2022-10-19)
 
 ### Chore
 
@@ -125,7 +142,7 @@
 
 
 
-## [tubearchivist-es-0.0.31](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.30...tubearchivist-es-0.0.31) (2022-10-12)
+## [tubearchivist-redisjson-0.0.29](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.28...tubearchivist-redisjson-0.0.29) (2022-10-12)
 
 ### Chore
 
@@ -135,7 +152,7 @@
 
 
 
-## [tubearchivist-es-0.0.30](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.29...tubearchivist-es-0.0.30) (2022-10-07)
+## [tubearchivist-redisjson-0.0.28](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.27...tubearchivist-redisjson-0.0.28) (2022-10-07)
 
 ### Chore
 
@@ -146,7 +163,7 @@
 
 
 
-## [tubearchivist-es-0.0.30](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.29...tubearchivist-es-0.0.30) (2022-10-07)
+## [tubearchivist-redisjson-0.0.28](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.27...tubearchivist-redisjson-0.0.28) (2022-10-07)
 
 ### Chore
 
@@ -156,7 +173,7 @@
 
 
 
-## [tubearchivist-es-0.0.29](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.28...tubearchivist-es-0.0.29) (2022-10-05)
+## [tubearchivist-redisjson-0.0.27](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.26...tubearchivist-redisjson-0.0.27) (2022-10-05)
 
 ### Chore
 
@@ -167,7 +184,7 @@
 
 
 
-## [tubearchivist-es-0.0.28](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.27...tubearchivist-es-0.0.28) (2022-09-27)
+## [tubearchivist-redisjson-0.0.26](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.25...tubearchivist-redisjson-0.0.26) (2022-09-27)
 
 ### Chore
 
@@ -177,7 +194,7 @@
 
 
 
-## [tubearchivist-es-0.0.27](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.26...tubearchivist-es-0.0.27) (2022-09-25)
+## [tubearchivist-redisjson-0.0.25](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.24...tubearchivist-redisjson-0.0.25) (2022-09-25)
 
 ### Chore
 
@@ -187,7 +204,7 @@
 
 
 
-## [tubearchivist-es-0.0.26](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.24...tubearchivist-es-0.0.26) (2022-09-22)
+## [tubearchivist-redisjson-0.0.24](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.23...tubearchivist-redisjson-0.0.24) (2022-09-22)
 
 ### Chore
 
@@ -205,13 +222,12 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
 
 
 
 
-## [tubearchivist-es-0.0.26](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.24...tubearchivist-es-0.0.26) (2022-09-21)
+## [tubearchivist-redisjson-0.0.24](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.23...tubearchivist-redisjson-0.0.24) (2022-09-21)
 
 ### Chore
 
@@ -228,13 +244,12 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
 
 
 
 
-## [tubearchivist-es-0.0.26](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.24...tubearchivist-es-0.0.26) (2022-09-21)
+## [tubearchivist-redisjson-0.0.24](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.23...tubearchivist-redisjson-0.0.24) (2022-09-21)
 
 ### Chore
 
@@ -250,13 +265,12 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
 
 
 
 
-## [tubearchivist-es-0.0.26](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.24...tubearchivist-es-0.0.26) (2022-09-20)
+## [tubearchivist-redisjson-0.0.24](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.23...tubearchivist-redisjson-0.0.24) (2022-09-20)
 
 ### Chore
 
@@ -271,13 +285,12 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
 
 
 
 
-## [tubearchivist-es-0.0.26](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.24...tubearchivist-es-0.0.26) (2022-09-20)
+## [tubearchivist-redisjson-0.0.24](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.23...tubearchivist-redisjson-0.0.24) (2022-09-20)
 
 ### Chore
 
@@ -291,13 +304,12 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
 
 
 
 
-## [tubearchivist-es-0.0.25](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.24...tubearchivist-es-0.0.25) (2022-09-19)
+## [tubearchivist-redisjson-0.0.24](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.23...tubearchivist-redisjson-0.0.24) (2022-09-19)
 
 ### Chore
 
@@ -315,7 +327,7 @@
 
 
 
-## [tubearchivist-es-0.0.25](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.24...tubearchivist-es-0.0.25) (2022-09-19)
+## [tubearchivist-redisjson-0.0.24](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.23...tubearchivist-redisjson-0.0.24) (2022-09-19)
 
 ### Chore
 
@@ -332,7 +344,7 @@
 
 
 
-## [tubearchivist-es-0.0.25](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.24...tubearchivist-es-0.0.25) (2022-09-19)
+## [tubearchivist-redisjson-0.0.24](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.23...tubearchivist-redisjson-0.0.24) (2022-09-19)
 
 ### Chore
 
@@ -348,7 +360,7 @@
 
 
 
-## [tubearchivist-es-0.0.25](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.24...tubearchivist-es-0.0.25) (2022-09-17)
+## [tubearchivist-redisjson-0.0.24](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.23...tubearchivist-redisjson-0.0.24) (2022-09-17)
 
 ### Chore
 
@@ -363,7 +375,7 @@
 
 
 
-## [tubearchivist-es-0.0.25](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.24...tubearchivist-es-0.0.25) (2022-09-18)
+## [tubearchivist-redisjson-0.0.24](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.23...tubearchivist-redisjson-0.0.24) (2022-09-18)
 
 ### Chore
 
@@ -376,7 +388,7 @@
 
 
 
-## [tubearchivist-es-0.0.25](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.24...tubearchivist-es-0.0.25) (2022-09-16)
+## [tubearchivist-redisjson-0.0.24](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.23...tubearchivist-redisjson-0.0.24) (2022-09-16)
 
 ### Chore
 
@@ -388,7 +400,7 @@
 
 
 
-## [tubearchivist-es-0.0.25](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.24...tubearchivist-es-0.0.25) (2022-09-16)
+## [tubearchivist-redisjson-0.0.24](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.23...tubearchivist-redisjson-0.0.24) (2022-09-16)
 
 ### Chore
 
@@ -399,7 +411,7 @@
 
 
 
-## [tubearchivist-es-0.0.25](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.24...tubearchivist-es-0.0.25) (2022-09-15)
+## [tubearchivist-redisjson-0.0.24](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.23...tubearchivist-redisjson-0.0.24) (2022-09-15)
 
 ### Chore
 
@@ -409,7 +421,7 @@
 
 
 
-## [tubearchivist-es-0.0.25](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.24...tubearchivist-es-0.0.25) (2022-09-15)
+## [tubearchivist-redisjson-0.0.24](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.23...tubearchivist-redisjson-0.0.24) (2022-09-15)
 
 ### Chore
 
@@ -418,7 +430,7 @@
 
 
 
-## [tubearchivist-es-0.0.24](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.23...tubearchivist-es-0.0.24) (2022-09-12)
+## [tubearchivist-redisjson-0.0.23](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.22...tubearchivist-redisjson-0.0.23) (2022-09-12)
 
 ### Chore
 
@@ -434,7 +446,7 @@
 
 
 
-## [tubearchivist-es-0.0.24](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.23...tubearchivist-es-0.0.24) (2022-09-12)
+## [tubearchivist-redisjson-0.0.23](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.22...tubearchivist-redisjson-0.0.23) (2022-09-12)
 
 ### Chore
 
@@ -449,7 +461,7 @@
 
 
 
-## [tubearchivist-es-0.0.24](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.23...tubearchivist-es-0.0.24) (2022-09-11)
+## [tubearchivist-redisjson-0.0.23](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.22...tubearchivist-redisjson-0.0.23) (2022-09-11)
 
 ### Chore
 
@@ -463,7 +475,7 @@
 
 
 
-## [tubearchivist-es-0.0.24](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.23...tubearchivist-es-0.0.24) (2022-09-11)
+## [tubearchivist-redisjson-0.0.23](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.22...tubearchivist-redisjson-0.0.23) (2022-09-11)
 
 ### Chore
 
@@ -476,7 +488,7 @@
 
 
 
-## [tubearchivist-es-0.0.24](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.23...tubearchivist-es-0.0.24) (2022-09-11)
+## [tubearchivist-redisjson-0.0.23](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.22...tubearchivist-redisjson-0.0.23) (2022-09-11)
 
 ### Chore
 
@@ -488,7 +500,7 @@
 
 
 
-## [tubearchivist-es-0.0.24](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.23...tubearchivist-es-0.0.24) (2022-09-11)
+## [tubearchivist-redisjson-0.0.23](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.22...tubearchivist-redisjson-0.0.23) (2022-09-11)
 
 ### Chore
 
@@ -499,7 +511,7 @@
 
 
 
-## [tubearchivist-es-0.0.23](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.21...tubearchivist-es-0.0.23) (2022-08-30)
+## [tubearchivist-redisjson-0.0.22](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.20...tubearchivist-redisjson-0.0.22) (2022-08-30)
 
 ### Chore
 
@@ -510,7 +522,7 @@
 
 
 
-## [tubearchivist-es-0.0.22](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.21...tubearchivist-es-0.0.22) (2022-08-30)
+## [tubearchivist-redisjson-0.0.21](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.20...tubearchivist-redisjson-0.0.21) (2022-08-30)
 
 ### Chore
 
@@ -519,7 +531,7 @@
 
 
 
-## [tubearchivist-es-0.0.21](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.20...tubearchivist-es-0.0.21) (2022-08-29)
+## [tubearchivist-redisjson-0.0.20](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.19...tubearchivist-redisjson-0.0.20) (2022-08-29)
 
 ### Chore
 
@@ -528,7 +540,7 @@
 
 
 
-## [tubearchivist-es-0.0.20](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.18...tubearchivist-es-0.0.20) (2022-08-26)
+## [tubearchivist-redisjson-0.0.19](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.17...tubearchivist-redisjson-0.0.19) (2022-08-26)
 
 ### Fix
 
@@ -537,7 +549,7 @@
 
 
 
-## [tubearchivist-es-0.0.18](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.17...tubearchivist-es-0.0.18) (2022-08-23)
+## [tubearchivist-redisjson-0.0.17](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.16...tubearchivist-redisjson-0.0.17) (2022-08-23)
 
 ### Chore
 
@@ -546,16 +558,7 @@
 
 
 
-## [tubearchivist-es-0.0.17](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.16...tubearchivist-es-0.0.17) (2022-08-20)
-
-### Chore
-
-- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
-
-
-
-
-## [tubearchivist-es-0.0.16](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.15...tubearchivist-es-0.0.16) (2022-08-12)
+## [tubearchivist-redisjson-0.0.16](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.15...tubearchivist-redisjson-0.0.16) (2022-08-12)
 
 ### Chore
 
@@ -569,7 +572,7 @@
 
 
 
-## [tubearchivist-es-0.0.15](https://github.com/truecharts/charts/compare/tubearchivist-es-0.0.14...tubearchivist-es-0.0.15) (2022-08-08)
+## [tubearchivist-redisjson-0.0.15](https://github.com/truecharts/charts/compare/tubearchivist-redisjson-0.0.14...tubearchivist-redisjson-0.0.15) (2022-08-08)
 
 ### Chore
 
@@ -579,7 +582,7 @@
 
 
 
-## [tubearchivist-es-0.0.14](https://github.com/truecharts/apps/compare/tubearchivist-es-0.0.13...tubearchivist-es-0.0.14) (2022-07-26)
+## [tubearchivist-redisjson-0.0.14](https://github.com/truecharts/apps/compare/tubearchivist-redisjson-0.0.13...tubearchivist-redisjson-0.0.14) (2022-07-26)
 
 ### Chore
 
@@ -589,7 +592,7 @@
 
 
 
-## [tubearchivist-es-0.0.13](https://github.com/truecharts/apps/compare/tubearchivist-es-0.0.12...tubearchivist-es-0.0.13) (2022-07-25)
+## [tubearchivist-redisjson-0.0.13](https://github.com/truecharts/apps/compare/tubearchivist-redisjson-0.0.12...tubearchivist-redisjson-0.0.13) (2022-07-25)
 
 ### Chore
 
@@ -602,7 +605,7 @@
 
 
 
-## [tubearchivist-es-0.0.12](https://github.com/truecharts/apps/compare/tubearchivist-es-0.0.11...tubearchivist-es-0.0.12) (2022-07-23)
+## [tubearchivist-redisjson-0.0.12](https://github.com/truecharts/apps/compare/tubearchivist-redisjson-0.0.11...tubearchivist-redisjson-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -613,7 +616,7 @@
 
 
 
-## [tubearchivist-es-0.0.12](https://github.com/truecharts/apps/compare/tubearchivist-es-0.0.11...tubearchivist-es-0.0.12) (2022-07-23)
+## [tubearchivist-redisjson-0.0.12](https://github.com/truecharts/apps/compare/tubearchivist-redisjson-0.0.11...tubearchivist-redisjson-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -623,7 +626,7 @@
 
 
 
-## [tubearchivist-es-0.0.12](https://github.com/truecharts/apps/compare/tubearchivist-es-0.0.11...tubearchivist-es-0.0.12) (2022-07-23)
+## [tubearchivist-redisjson-0.0.12](https://github.com/truecharts/apps/compare/tubearchivist-redisjson-0.0.11...tubearchivist-redisjson-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -632,7 +635,7 @@
 
 
 
-## [tubearchivist-es-0.0.11]tubearchivist-es-0.0.11 (2022-07-22)
+## [tubearchivist-redisjson-0.0.11]tubearchivist-redisjson-0.0.11 (2022-07-22)
 
 ### Chore
 
@@ -644,7 +647,7 @@
 
 
 
-## [tubearchivist-es-0.0.10]tubearchivist-es-0.0.10 (2022-07-22)
+## [tubearchivist-redisjson-0.0.10]tubearchivist-redisjson-0.0.10 (2022-07-22)
 
 ### Chore
 
@@ -654,7 +657,7 @@
 
 
 
-## [tubearchivist-es-0.0.10]tubearchivist-es-0.0.10 (2022-07-22)
+## [tubearchivist-redisjson-0.0.10]tubearchivist-redisjson-0.0.10 (2022-07-22)
 
 ### Chore
 

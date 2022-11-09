@@ -2,6 +2,7 @@
 
 
 
+
 ## [fossil-4.0.42](https://github.com/truecharts/charts/compare/fossil-4.0.40...fossil-4.0.42) (2022-11-08)
 
 ### Chore
