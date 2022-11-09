@@ -169,7 +169,7 @@ data:
 
     allowedPrivateNetworks: [
       '127.0.0.1/32',
-    {{-range .Values.misskey.other.allowedPrivateNetworks }}
+    {{- range .Values.misskey.other.allowedPrivateNetworks }}
       {{ . | squote }},
     {{- end }}
     ]
