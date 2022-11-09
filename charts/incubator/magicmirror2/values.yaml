@@ -50,6 +50,7 @@ persistence:
     mountPath: /magicmirror2/config/config.json
     subPath: config.json
     readOnly: true
+    defaultMode: "0770"
     volumeSpec:
       configMap:
         name: '{{ printf "%s-magicmirror-config" (include "tc.common.names.fullname" .) }}'
