@@ -33,12 +33,12 @@ data:
                                                             // or IPv4 range of 192.168.3.0 --> 192.168.3.15 use CIDR format :
                                                             // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.3.0/28"],
 
-      useHttps: false, 		// Support HTTPS or not, default "false" will use HTTP
+      useHttps: false, // Support HTTPS or not, default "false" will use HTTP
 
       language: {{ .Values.magicmirror.language | quote }},
       timeFormat: {{ .Values.magicmirror.time_format | trimAll "\"" }},
       units: {{ .Values.magicmirror.units | quote }},
-      serverOnly:  "true" ,
+      serverOnly: "true",
 
       modules: [
         {
@@ -60,7 +60,8 @@ data:
             calendars: [
               {
                 symbol: "calendar-check",
-                url: "webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics"					}
+                url: "webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics"
+              }
             ]
           }
         },
