@@ -8,9 +8,14 @@ securityContext:
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 command:
-  - /opt/netbox/venv/bin/python
-  - /opt/netbox/netbox/manage.py
-  - rqworker
+  - /bin/bash
+  - -c
+  - |
+    until $(curl --output /dev/null --silent --head --fail http://127.0.0.1:8080); do
+      echo "Waiting for the main netbox container..."
+      sleep 5
+    done
+    /opt/netbox/venv/bin/python /opt/netbox/netbox/manage.py rqworker
 volumeMounts:
   - name: config
     mountPath: /etc/netbox/config
