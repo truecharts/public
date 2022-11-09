@@ -24,6 +24,7 @@ misskey:
   # ID generation method. 'aid' recommended.
   id: "aid"
   other:
+    disableHSTS: false
     signToActivityPubGet: false
     maxFileSize: 262144000
     clusterLimit: 1
@@ -33,6 +34,9 @@ misskey:
     inboxJobPerSec: 16
     deliverJobMaxAttempts: 12
     inboxJobMaxAttempts: 8
+    allowedPrivateNetworks:
+      - 127.0.0.1/32
+
 
 env:
   # NODE_ENV = production | development

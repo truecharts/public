@@ -123,7 +123,7 @@ data:
     #───┘ Other configuration └─────────────────────────────────────
 
     # Whether disable HSTS
-    #disableHsts: true
+    disableHsts: {{ .Values.misskey.other.disableHSTS }}
 
     # Number of worker processes
     clusterLimit: {{ .Values.misskey.other.clusterLimit }}
@@ -167,9 +167,12 @@ data:
     # Sign to ActivityPub GET request (default: false)
     signToActivityPubGet: {{ .Values.misskey.other.signToActivityPubGet }}
 
-    #allowedPrivateNetworks: [
-    #  '127.0.0.1/32'
-    #]
+    allowedPrivateNetworks: [
+      '127.0.0.1/32',
+    {{-range .Values.misskey.other.allowedPrivateNetworks }}
+      {{ . | squote }},
+    {{- end }}
+    ]
 
     # Upload or download file size limits (bytes)
     maxFileSize: {{ .Values.misskey.other.maxFileSize }}
