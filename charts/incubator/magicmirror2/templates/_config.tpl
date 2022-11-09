@@ -36,7 +36,7 @@ data:
       useHttps: false, 		// Support HTTPS or not, default "false" will use HTTP
 
       language: {{ .Values.magicmirror.language | quote }},
-      timeFormat: {{ .Values.magicmirror.time_format }},
+      timeFormat: {{ .Values.magicmirror.time_format | trimAll "\"" }},
       units: {{ .Values.magicmirror.units | quote }},
       serverOnly:  "true" ,
 
