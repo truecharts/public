@@ -36,6 +36,25 @@ tests:
           documentIndex: *deploymentDoc
           path: spec.revisionHistoryLimit
           value: 3
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.replicas
+          value: 1
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.strategy.type
+          value: Recreate
+      - isNull:
+          documentIndex: *deploymentDoc
+          path: spec.strategy.rollingUpdate
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.selector.matchLabels
+          value:
+            app: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/name: common-test
+            release: RELEASE-NAME
 
   - it: should pass with nameOverride
     set:
@@ -58,17 +77,22 @@ tests:
 
   - it: should pass with controller and global labels
     set:
+      some_key: some_value
       controller.labels:
-        controllerkey: controllervalue
+        controller_key: controller_value
+        controller_key2: "{{ .Values.some_key }}"
       global.labels:
-        globalkey: globalvalue
+        global_key: global_value
+        global_key2: "{{ .Values.some_key }}"
     asserts:
       - equal:
           documentIndex: *deploymentDoc
           path: metadata.labels
           value:
-            controllerkey: controllervalue
-            globalkey: globalvalue
+            controller_key: controller_value
+            controller_key2: some_value
+            global_key: global_value
+            global_key2: some_value
             app: common-test
             app.kubernetes.io/instance: RELEASE-NAME
             app.kubernetes.io/managed-by: Helm
@@ -80,22 +104,50 @@ tests:
 
   - it: should pass with controller and global annotations
     set:
+      some_key: some_value
       controller.annotations:
-        controllerkey: controllervalue
+        controller_key: controller_value
+        controller_key2: "{{ .Values.some_key }}"
       global.annotations:
-        globalkey: globalvalue
+        global_key: global_value
+        global_key2: "{{ .Values.some_key }}"
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: metadata.annotations.controllerkey
-          value: controllervalue
+          path: metadata.annotations.controller_key
+          value: controller_value
       - equal:
           documentIndex: *deploymentDoc
-          path: metadata.annotations.globalkey
-          value: globalvalue
+          path: metadata.annotations.controller_key2
+          value: some_value
+      - equal:
+          documentIndex: *deploymentDoc
+          path: metadata.annotations.global_key
+          value: global_value
+      - equal:
+          documentIndex: *deploymentDoc
+          path: metadata.annotations.global_key2
+          value: some_value
       - isNotEmpty:
           documentIndex: *deploymentDoc
           path: metadata.annotations.rollme
+
+  - it: should pass with controller strategy changed and rollingUpdate strategies set
+    set:
+      controller.strategy: RollingUpdate
+      controller.rollingUpdate.unavailable: 2
+      controller.rollingUpdate.surge: 3
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.strategy.type
+          value: RollingUpdate
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.strategy.rollingUpdate
+          value:
+            maxUnavailable: 2
+            maxSurge: 3
 
   - it: should pass with controller disabled
     set:
@@ -103,3 +155,45 @@ tests:
     asserts:
       - hasDocuments:
           count: 0
+
+  - it: should pass with controller strategy changed
+    set:
+      controller.strategy: RollingUpdate
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.strategy.type
+          value: RollingUpdate
+      - isNull:
+          documentIndex: *deploymentDoc
+          path: spec.strategy.rollingUpdate
+
+  - it: should pass with podAnnotations set
+    set:
+      some_key: some_value2
+      podAnnotations.test: some_value
+      podAnnotations.test2: "{{ .Values.some_key }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.metadata.annotations.test2
+          value: some_value2
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.metadata.annotations.test
+          value: some_value
+
+  - it: should pass with podLabels set
+    set:
+      some_key: some_value2
+      podLabels.test: some_value
+      podLabels.test2: "{{ .Values.some_key }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.metadata.labels.test2
+          value: some_value2
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.metadata.labels.test
+          value: some_value

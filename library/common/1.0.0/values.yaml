@@ -9,6 +9,12 @@ global:
 # -- Sets an override for the suffix of the full name (Applies to current chart only)
 nameOverride: ""
 
+# -- Set annotations on the pod. Helm templates can be used.
+podAnnotations: {}
+
+# -- Set labels on the pod. Helm templates can be used.
+podLabels: {}
+
 ixExternalInterfacesConfigurationNames: []
   # - interface1
   # - interface2
@@ -19,9 +25,24 @@ controller:
   # -- Set the controller type.
   # Valid options are: deployment | daemonset | statefulset
   type: deployment
-  # -- Set labels on the deployment/statefulset/daemonset
+  # -- Set labels on the deployment/statefulset/daemonset. Helm templates can be used.
   labels: {}
-  # -- Set  annotations on the deployment/statefulset/daemonset
+  # -- Set  annotations on the deployment/statefulset/daemonset. Helm templates can be used.
   annotations: {}
   # -- Revision history limit
   revisionHistoryLimit: 3
+  # -- Number of desired pods
+  replicas: 1
+  # -- Set the controller upgrade strategy
+  # For Deployments, valid values are Recreate (default) and RollingUpdate.
+  # For StatefulSets, valid values are OnDelete and RollingUpdate (default).
+  # DaemonSets ignore this.
+  strategy: ""
+  # -- Set rollingUpdate strategies
+  rollingUpdate:
+    # -- Set deployment RollingUpdate max unavailable
+    unavailable:
+    # -- Set deployment RollingUpdate max surge
+    surge:
+    # -- Set statefulset RollingUpdate partition
+    partition:
