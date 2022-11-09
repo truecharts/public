@@ -13,7 +13,19 @@ podSecurityContext:
 
 gameservermonitor:
   POSTGRES_SSL_MODE: disable
-  DATABASE_URL: "postgres://{{ .Values.postgresql.postgresqlUsername }}:{{ .Values.postgresql.postgresqlPassword }}@{{ .Values.postgresql.DB_HOST }}:5432/{{ .Values.postgresql.postgresqlDatabase }}"
+  DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_PASS:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  DB_PORT: "5432"
+  DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  # postgres://USER:PASS@HOST:PORT/DB_NAME
+  DATABASE_URL: "postgres://{{ .Values.gameservermonitor.DB_USER }}:{{ .Values.gameservermonitor.DB_PASS }}@{{ .Values.gameservermonitor.DB_HOST }}:{{ .Values.gameservermonitor.DB_PORT }}/{{ .Values.gameservermonitor.DB_DATABASE }}"
   # APP_TOKEN: "DISCORD_BOT_TOKEN"
 
 service:
