@@ -12,29 +12,30 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  DATA_DIR: "/magicmirror2"
-  FORCE_UPDATE: false
-  FORCE_UPDATE_MODULES: false
+  DATA_DIR: /magicmirror2
   UID: "{{ .Values.security.PUID }}"
   GID: "{{ .Values.podSecurityContext.fsGroup }}"
-  # UMASK:
-  # DATA_PERM:
+  FORCE_UPDATE: false
+  FORCE_UPDATE_MODULES: false
 
 probes:
   liveness:
-    enabled: false
+    type: HTTP
+    path: /
   readiness:
-    enabled: false
+    type: HTTP
+    path: /
   startup:
-    enabled: false
+    type: HTTP
+    path: /
 
 service:
   main:
     ports:
       main:
+        port: 10590
         protocol: HTTP
         targetPort: 8080
-        port: 10590
 
 persistence:
   config:
