@@ -2,10 +2,10 @@
 {{- define "magicmirror.config" -}}
 
 {{- $configName := printf "%s-magicmirror-config" (include "tc.common.names.fullname" .) }}
+{{- $configEnvName := printf "%s-magicmirror-env" (include "tc.common.names.fullname" .) }}
 
 ---
 
-{{/* This configmap are loaded on both main authentik container and worker */}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -34,17 +34,11 @@ data:
                                                             // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.3.0/28"],
 
       useHttps: false, 		// Support HTTPS or not, default "false" will use HTTP
-      httpsPrivateKey: "", 	// HTTPS private key path, only require when useHttps is true
-      httpsCertificate: "", 	// HTTPS Certificate path, only require when useHttps is true
 
-      language: "en",
-      timeFormat: 24,
-      units: "metric",
+      language: {{ .Values.magicmirror.language | quote }},
+      timeFormat: {{ .Values.magicmirror.time_format }},
+      units: {{ .Values.magicmirror.units | quote }},
       serverOnly:  "true" ,
-              // local for armv6l processors, default
-              //   starts serveronly and then starts chrome browser
-              // false, default for all  NON-armv6l devices
-              // true, force serveronly mode, because you want to.. no UI on this device
 
       modules: [
         {
@@ -115,3 +109,19 @@ data:
 
     /*************** DO NOT EDIT THE LINE BELOW ***************/
     if (typeof module !== "undefined") {module.exports = config;}
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $configEnvName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
+  DATA_DIR: /magicmirror2
+  UID: {{ .Values.security.PUID | quote }}
+  GID: {{ .Values.podSecurityContext.fsGroup | quote }}
+  FORCE_UPDATE: {{ .Values.magicmirror.force_update | quote }}
+  FORCE_UPDATE_MODULES: {{ .Values.magicmirror.force_update_modules | quote }}
+{{- end -}}

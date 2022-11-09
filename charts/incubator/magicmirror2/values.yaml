@@ -11,12 +11,16 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-env:
-  DATA_DIR: /magicmirror2
-  UID: "{{ .Values.security.PUID }}"
-  GID: "{{ .Values.podSecurityContext.fsGroup }}"
-  FORCE_UPDATE: false
-  FORCE_UPDATE_MODULES: false
+magicmirror:
+  force_update: false
+  force_update_modules: false
+  language: en
+  time_format: 24
+  units: metrics
+
+envFrom:
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-magicmirror-env'
 
 probes:
   liveness:
