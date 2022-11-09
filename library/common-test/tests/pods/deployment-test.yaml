@@ -17,6 +17,25 @@ tests:
           documentIndex: *deploymentDoc
           path: metadata.name
           value: RELEASE-NAME-common-test
+      - equal:
+          documentIndex: *deploymentDoc
+          path: metadata.labels
+          value:
+            app: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/version: v1.0.0
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            release: RELEASE-NAME
+      - isNotEmpty:
+          documentIndex: *deploymentDoc
+          path: metadata.annotations.rollme
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.revisionHistoryLimit
+          value: 3
 
   - it: should pass with nameOverride
     set:
@@ -36,6 +55,47 @@ tests:
           documentIndex: *deploymentDoc
           path: metadata.name
           value: RELEASE-NAME-globalOverrodeName
+
+  - it: should pass with controller and global labels
+    set:
+      controller.labels:
+        controllerkey: controllervalue
+      global.labels:
+        globalkey: globalvalue
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: metadata.labels
+          value:
+            controllerkey: controllervalue
+            globalkey: globalvalue
+            app: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/version: v1.0.0
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            release: RELEASE-NAME
+
+  - it: should pass with controller and global annotations
+    set:
+      controller.annotations:
+        controllerkey: controllervalue
+      global.annotations:
+        globalkey: globalvalue
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: metadata.annotations.controllerkey
+          value: controllervalue
+      - equal:
+          documentIndex: *deploymentDoc
+          path: metadata.annotations.globalkey
+          value: globalvalue
+      - isNotEmpty:
+          documentIndex: *deploymentDoc
+          path: metadata.annotations.rollme
 
   - it: should pass with controller disabled
     set:
