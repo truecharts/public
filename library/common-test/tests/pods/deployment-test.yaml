@@ -36,3 +36,10 @@ tests:
           documentIndex: *deploymentDoc
           path: metadata.name
           value: RELEASE-NAME-globalOverrodeName
+
+  - it: should pass with controller disabled
+    set:
+      controller.enabled: false
+    asserts:
+      - hasDocuments:
+          count: 0
