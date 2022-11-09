@@ -6,6 +6,9 @@ tests:
     asserts:
       - hasDocuments:
           count: 1
+      - containsDocument:
+          kind: Deployment
+          apiVersion: apps/v1
       - documentIndex: &deploymentDoc 0
         isKind:
           of: Deployment
