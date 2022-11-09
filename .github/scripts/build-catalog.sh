@@ -80,12 +80,13 @@ patch_apps() {
     cp -rf ${target}/SCALE/migrations/* ${target}/migrations 2>/dev/null || :
     rm -rf ${target}/SCALE 2>/dev/null || :
     touch ${target}/values.yaml
-    # Remove documentation that is not required for the App to install
+    # Remove content that is not required for the App to install
     rm -rf ${target}/security.md
     rm -rf ${target}/helm-values.md
     rm -rf ${target}/CONFIG.md
     rm -rf ${target}/docs
     rm -rf ${target}/icon.png
+    rm -rf ${target}/ci
     # Generate item.yaml
     cat ${target}/Chart.yaml | grep "icon" >> catalog/${train}/${chartname}/item.yaml
     sed -i "s|^icon:|icon_url:|g" catalog/${train}/${chartname}/item.yaml
