@@ -29,8 +29,8 @@ installContainers:
   initconfig:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
-      - name: root
-        mountPath: "/"
+      - name: config
+        mountPath: "/config"
     command: ["recyclarr", "create-config"]
 
 persistence:
