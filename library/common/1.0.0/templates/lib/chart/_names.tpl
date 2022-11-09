@@ -59,7 +59,7 @@ Create the "fqdn" + "." + "svc.cluster.local"
 
 {{/*
 TODO: See if it's needed
-Return the properly cased vresion of the controller type
+Return the properly cased version of the controller type
 */}}
 {{- define "ix.v1.common.names.controllerType" -}}
   {{- if eq (.Values.controller.type | lower) "deployment" -}}

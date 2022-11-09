@@ -1,0 +1,38 @@
+suite: pod deployment
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    asserts:
+      - hasDocuments:
+          count: 1
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - equal:
+          documentIndex: *deploymentDoc
+          path: apiVersion
+          value: apps/v1
+      - equal:
+          documentIndex: *deploymentDoc
+          path: metadata.name
+          value: RELEASE-NAME-common-test
+
+  - it: should pass with nameOverride
+    set:
+      nameOverride: overrodeName
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: metadata.name
+          value: RELEASE-NAME-overrodeName
+
+  - it: should pass with global.nameOverride
+    set:
+      nameOverride: overrodeName
+      global.nameOverride: globalOverrodeName
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: metadata.name
+          value: RELEASE-NAME-globalOverrodeName
