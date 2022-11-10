@@ -207,7 +207,7 @@ initContainers:
         fi
 
   2-initdb:
-    image: "{{ .Values.multiinitImage.repository }}:{{ .Values.multiinitImage.tag }}"
+    image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
     env:
       - name: POSTGRESQL_DATABASE
         value: "{{ .Values.postgresql.postgresqlDatabase }}"

@@ -1,6 +1,6 @@
 # strapi
 
-Strapi is the leading open-source headless CMS. JavaScript, fully customizable and developer-first.
+Open-source headless CMS. JavaScript, fully customizable and developer-first.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
@@ -12,9 +12,9 @@ For more information, please click here: [strapi](https://truecharts.org/docs/ch
 ## Source Code
 
 * <https://github.com/truecharts/charts/tree/master/charts/stable/strapi>
-* <https://hub.docker.com/r/strapi/strapi>
-* <https://github.com/strapi/strapi>
-* <https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/installation/docker.html#creating-a-strapi-project>
+* <https://truecharts.org/docs/charts/stable/strapi>
+* <https://hub.docker.com/r/naskio/strapi>
+* <https://github.com/naskio/docker-strapi>
 
 ## Requirements
 
@@ -24,8 +24,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.107 |
-| https://library-charts.truecharts.org | common | 10.7.7 |
+| https://charts.truecharts.org/ | postgresql | 8.0.122 |
+| https://library-charts.truecharts.org | common | 10.9.4 |
 
 ## Installing the Chart
 

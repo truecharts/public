@@ -1,6 +1,6 @@
 # joplin-server
 
-This server allows you to sync any Joplin client
+Allows you to sync any Joplin client.
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
@@ -24,8 +24,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | postgresql | 8.0.107 |
-| https://library-charts.truecharts.org | common | 10.7.7 |
+| https://charts.truecharts.org/ | postgresql | 8.0.122 |
+| https://library-charts.truecharts.org | common | 10.9.4 |
 
 ## Installing the Chart
 

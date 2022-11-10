@@ -12,13 +12,13 @@ securityContext:
 
 probes:
   liveness:
-    type: HTTP
+    type: HTTPS
     path: /
   readiness:
-    type: HTTP
+    type: HTTPS
     path: /
   startup:
-    type: HTTP
+    type: HTTPS
     path: /
 
 service:
@@ -26,16 +26,16 @@ service:
     ports:
       main:
         port: 10586
-        protocol: HTTP
-        targetPort: 8000
+        protocol: HTTPS
+        targetPort: 8443
   sub:
     enabled: true
     ports:
       sub:
         enabled: true
-        port: 8443
+        port: 10587
         protocol: HTTPS
-        targetPort: 8443
+        targetPort: 8000
   bedrock:
     enabled: true
     ports:
@@ -49,7 +49,7 @@ service:
     ports:
       dynmap:
         enabled: true
-        port: 8123
+        port: 8124
         targetPort: 8123
   minecraft:
     enabled: true

@@ -44,7 +44,7 @@ spec:
                     secretKeyRef:
                       name: fireflyiii-secrets
                       key: STATIC_CRON_TOKEN
-              image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
+              image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
               args:
               - curl
               - "http://{{ $jobName }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}/api/v1/cron/$(STATIC_CRON_TOKEN)"
