@@ -24,6 +24,8 @@ data:
 stringData:
   config.py: |
     ALLOWED_HOSTS = [
+        '127.0.0.1',
+        '::1',
         {{- range .Values.netbox.allowed_hosts }}
         {{ . | squote }},
         {{- end }}
@@ -242,6 +244,8 @@ stringData:
 
     {{- with .Values.netbox.internal_ips }}
     INTERNAL_IPS = (
+        '127.0.0.1',
+        '::1',
         {{- range . }}
         {{ . | squote }},
         {{- end }}

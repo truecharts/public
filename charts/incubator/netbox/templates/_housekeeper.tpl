@@ -8,7 +8,14 @@ securityContext:
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 command:
-  - /opt/netbox/housekeeping.sh
+  - /bin/bash
+  - -c
+  - |
+    until $(curl --output /dev/null --silent --head --fail http://127.0.0.1:8080/metrics); do
+      echo "Waiting for the main netbox container..."
+      sleep 5
+    done
+    /opt/netbox/housekeeping.sh
 volumeMounts:
   - name: config
     mountPath: /etc/netbox/config

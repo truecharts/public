@@ -31,23 +31,25 @@ service:
         targetPort: 8080
 
 netbox:
-  # - This is a list of valid fully-qualified domain names (FQDNs) for the NetBox server. NetBox will not permit write
-  # - access to the server via any other hostnames. The first FQDN in the list will be treated as the preferred name.
+  # -- This is a list of valid fully-qualified domain names (FQDNs) for the NetBox server. NetBox will not permit write
+  # access to the server via any other hostnames. The first FQDN in the list will be treated as the preferred name.
+  # 127.0.0.1 added automatically
   allowed_hosts:
-    - "127.0.0.1"
+    []
+    # - netbox.example.com
   # - URL schemes that are allowed within links in NetBox
   allowed_urls_schemes:
     []
     # - file
     # - ftp
-  # - Specify one or more name and email address tuples representing NetBox administrators. These people will be notified of
-  # - application errors (assuming correct email settings are provided).
+  # -- Specify one or more name and email address tuples representing NetBox administrators. These people will be notified of
+  # application errors (assuming correct email settings are provided).
   admins:
     []
     # - name: John Doe
     #   email: jdoe@example.com
-  # - Enable any desired validators for local account passwords below. For a list of included validators, please see the
-  # - Django documentation at https://docs.djangoproject.com/en/stable/topics/auth/passwords/#password-validation.
+  # -- Enable any desired validators for local account passwords below. For a list of included validators, please see the
+  # Django documentation at https://docs.djangoproject.com/en/stable/topics/auth/passwords/#password-validation.
   auth_password_validators:
     []
     # - name: django.contrib.auth.password_validation.MinimumLengthValidator
@@ -55,20 +57,20 @@ netbox:
     #     - key: min_length
     #       value: 10
   banner:
-    # - Optionally display a persistent banner at the top of every page.
+    # -- Optionally display a persistent banner at the top of every page.
     top: ""
-    # - Optionally display a persistent banner at the bottom of every page.
+    # -- Optionally display a persistent banner at the bottom of every page.
     bottom: ""
-    # - Text to include on the login page above the login form. HTML is allowed
+    # -- Text to include on the login page above the login form. HTML is allowed
     login: ""
   retention:
-    # - Maximum number of days to retain logged changes. Set to 0 to retain changes indefinitely.
+    # -- Maximum number of days to retain logged changes. Set to 0 to retain changes indefinitely.
     changelog: 90
-    # - Maximum number of days to retain job results (scripts and reports). Set to 0 to retain job results in the database indefinitely.
+    # -- Maximum number of days to retain job results (scripts and reports). Set to 0 to retain job results in the database indefinitely.
     job_result: 90
-  # - When determining the primary IP address for a device, IPv6 is preferred over IPv4 by default.
+  # -- When determining the primary IP address for a device, IPv6 is preferred over IPv4 by default.
   prefer_ipv4: false
-  # - Enforcement of unique IP space can be toggled on a per-VRF basis. To enforce unique IP space within the global table
+  # -- Enforcement of unique IP space can be toggled on a per-VRF basis. To enforce unique IP space within the global table
   enforce_global_unique: true
   # - API Cross-Origin Resource Sharing (CORS) settings. If CORS_ORIGIN_ALLOW_ALL is set to True, all origins will be
   # - allowed. Otherwise, define a list of allowed origins using either CORS_ORIGIN_WHITELIST or
@@ -90,8 +92,8 @@ netbox:
     use_tls: true
     timeout: 10
     from_email: ""
-  # - Exempt certain models from the enforcement of view permissions. Models listed here will be viewable by all users and
-  # - by anonymous users. List models in the form `<app>.<model>`. Add '*' to this list to exempt all models.
+  # -- Exempt certain models from the enforcement of view permissions. Models listed here will be viewable by all users and
+  # by anonymous users. List models in the form `<app>.<model>`. Add '*' to this list to exempt all models.
   exempt_view_permissions:
     []
     # - dcim.site
@@ -104,25 +106,26 @@ netbox:
     #   url: http://10.10.1.10:3128
     # - key: https
     #   url: http://10.10.1.10:1080
-  # - IP addresses recognized as internal to the system. The debugging toolbar will be available only to clients accessing
-  # - NetBox from an internal IP.
+  # -- IP addresses recognized as internal to the system. The debugging toolbar will be available only to clients accessing
+  # NetBox from an internal IP. (127.0.0.1 and ::1) added automatically
   internal_ips:
-    - "127.0.0.1"
-    - ::1
-  # - Automatically reset the lifetime of a valid session upon each authenticated request. Enables users to remain
-  # - authenticated to NetBox indefinitely.
+    []
+    # - "10.10.10.5"
+  # -- Automatically reset the lifetime of a valid session upon each authenticated request. Enables users to remain
+  # authenticated to NetBox indefinitely.
   login_persistence: false
-  # - Setting this to True will permit only authenticated users to access any part of NetBox. By default, anonymous users
-  # - are permitted to access most data in NetBox but not make any changes.
+  # -- Setting this to True will permit only authenticated users to access any part of NetBox. By default, anonymous users
+  # are permitted to access most data in NetBox but not make any changes.
   login_required: true
-  # - The length of time (in seconds) for which a user will remain logged into the web UI before being prompted to
-  # - re-authenticate. (Default: 1209600 [14 days])
+  # -- The length of time (in seconds) for which a user will remain logged into the web UI before being prompted to
+  # re-authenticate. (Default: 1209600 [14 days])
   login_timeout: 1209600
-  # - Expose Prometheus monitoring metrics at the HTTP endpoint '/metrics'
-  metrics: false
-  # - Enable GraphQL API.
+  # -- Expose Prometheus monitoring metrics at the HTTP endpoint '/metrics'
+  # TODO: Add service Monitor
+  metrics: true
+  # -- Enable GraphQL API.
   graphql_enabled: true
-  # - Maps provider
+  # -- Maps provider
   maps_url: https://maps.google.com/?q=
   # - An API consumer can request an arbitrary number of objects =by appending the "limit" parameter to the URL (e.g.
   # - "?limit=1000"). This setting defines the maximum limit. Setting it to 0 or None will allow an API consumer to request
