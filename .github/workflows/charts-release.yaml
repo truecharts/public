@@ -102,7 +102,7 @@ jobs:
                 sed -i '1d' "website/docs/charts/${train}/${chart}/CHANGELOG.md"
                 cat ${chart}/app-changelog.md | cat - "website/docs/charts/${train}/${chart}/CHANGELOG.md" > temp && mv temp "website/docs/charts/${train}/${chart}/CHANGELOG.md"
                 sed -i '1s/^/# Changelog\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md"
-                rm ${chart}/app-changelog.md || echo "app-changelog not found..."
+                rm -rf ${chart}/app-changelog.md || echo "app-changelog not found..."
               fi
           done
 
