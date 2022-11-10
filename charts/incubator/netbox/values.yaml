@@ -14,13 +14,13 @@ podSecurityContext:
 probes:
   liveness:
     type: HTTP
-    path: /metrics
+    path: /login
   readiness:
     type: HTTP
-    path: /metrics
+    path: /login
   startup:
     type: HTTP
-    path: /metrics
+    path: /login
     # Gives some time for app to run db migrations
     initialDelaySeconds: 60
 
@@ -122,9 +122,6 @@ netbox:
   # -- The length of time (in seconds) for which a user will remain logged into the web UI before being prompted to
   # re-authenticate. (Default: 1209600 [14 days])
   login_timeout: 1209600
-  # -- Expose Prometheus monitoring metrics at the HTTP endpoint '/metrics'
-  # TODO: Add service Monitor
-  metrics: true
   # -- Enable GraphQL API.
   graphql_enabled: true
   # -- Maps provider
@@ -208,6 +205,33 @@ netbox:
     short_time_format: H:i:s
     date_time_format: N j, Y g:i a
     short_date_time_format: Y-m-d H:i
+
+metrics:
+  # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
+  # @default -- See values.yaml
+  enabled: false
+  serviceMonitor:
+    interval: 1m
+    scrapeTimeout: 30s
+    labels: {}
+  # -- Enable and configure Prometheus Rules for the chart under this key.
+  # @default -- See values.yaml
+  prometheusRule:
+    enabled: false
+    labels: {}
+    # -- Configure additionial rules for the chart under this key.
+    # @default -- See prometheusrules.yaml
+    rules:
+      []
+      # - alert: UnifiPollerAbsent
+      #   annotations:
+      #     description: Unifi Poller has disappeared from Prometheus service discovery.
+      #     summary: Unifi Poller is down.
+      #   expr: |
+      #     absent(up{job=~".*unifi-poller.*"} == 1)
+      #   for: 5m
+      #   labels:
+      #     severity: critical
 
 persistence:
   config:

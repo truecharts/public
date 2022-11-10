@@ -260,7 +260,7 @@ stringData:
     LOGIN_TIMEOUT = {{ . }}
     {{- end }}
 
-    METRICS_ENABLED = {{ ternary "True" "False" .Values.netbox.metrics }}
+    METRICS_ENABLED = {{ ternary "True" "False" .Values.metrics.enabled }}
 
     TIME_ZONE = {{ .Values.TZ | squote }}
 
