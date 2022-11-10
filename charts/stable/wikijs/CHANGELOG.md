@@ -2,6 +2,15 @@
 
 
 
+## [wikijs-8.0.0](https://github.com/truecharts/charts/compare/wikijs-7.0.58...wikijs-8.0.0) (2022-11-10)
+
+### Chore
+
+- Major Change to GUI
+
+
+
+
 ## [wikijs-7.0.58](https://github.com/truecharts/charts/compare/wikijs-7.0.54...wikijs-7.0.58) (2022-11-10)
 
 ### Chore

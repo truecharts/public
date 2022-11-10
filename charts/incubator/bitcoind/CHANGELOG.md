@@ -2,7 +2,26 @@
 
 
 
-## [bitcoind-0.0.38](https://github.com/truecharts/charts/compare/bitcoind-0.0.35...bitcoind-0.0.38) (2022-11-08)
+## [bitcoin-node-1.0.0](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.34...bitcoin-node-1.0.0) (2022-11-10)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Major Change to GUI
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4349](https://github.com/truecharts/charts/issues/4349))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [bitcoin-node-0.0.37](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.34...bitcoin-node-0.0.37) (2022-11-08)
 
 ### Chore
 
@@ -19,7 +38,7 @@
 
 
 
-## [bitcoind-0.0.37](https://github.com/truecharts/charts/compare/bitcoind-0.0.35...bitcoind-0.0.37) (2022-11-08)
+## [bitcoin-node-0.0.36](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.34...bitcoin-node-0.0.36) (2022-11-08)
 
 ### Chore
 
@@ -34,7 +53,7 @@
 
 
 
-## [bitcoind-0.0.37](https://github.com/truecharts/charts/compare/bitcoind-0.0.35...bitcoind-0.0.37) (2022-11-08)
+## [bitcoin-node-0.0.36](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.34...bitcoin-node-0.0.36) (2022-11-08)
 
 ### Chore
 
@@ -48,7 +67,7 @@
 
 
 
-## [bitcoind-0.0.37](https://github.com/truecharts/charts/compare/bitcoind-0.0.35...bitcoind-0.0.37) (2022-11-08)
+## [bitcoin-node-0.0.36](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.34...bitcoin-node-0.0.36) (2022-11-08)
 
 ### Chore
 
@@ -61,7 +80,7 @@
 
 
 
-## [bitcoind-0.0.36](https://github.com/truecharts/charts/compare/bitcoind-0.0.35...bitcoind-0.0.36) (2022-11-07)
+## [bitcoin-node-0.0.35](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.34...bitcoin-node-0.0.35) (2022-11-07)
 
 ### Chore
 
@@ -72,7 +91,7 @@
 
 
 
-## [bitcoind-0.0.36](https://github.com/truecharts/charts/compare/bitcoind-0.0.35...bitcoind-0.0.36) (2022-11-06)
+## [bitcoin-node-0.0.35](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.34...bitcoin-node-0.0.35) (2022-11-06)
 
 ### Chore
 
@@ -82,7 +101,7 @@
 
 
 
-## [bitcoind-0.0.35](https://github.com/truecharts/charts/compare/bitcoind-0.0.34...bitcoind-0.0.35) (2022-11-06)
+## [bitcoin-node-0.0.34](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.33...bitcoin-node-0.0.34) (2022-11-06)
 
 ### Chore
 
@@ -92,7 +111,7 @@
 
 
 
-## [bitcoind-0.0.34](https://github.com/truecharts/charts/compare/bitcoind-0.0.33...bitcoind-0.0.34) (2022-11-05)
+## [bitcoin-node-0.0.33](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.32...bitcoin-node-0.0.33) (2022-11-05)
 
 ### Chore
 
@@ -102,7 +121,7 @@
 
 
 
-## [bitcoind-0.0.33](https://github.com/truecharts/charts/compare/bitcoind-0.0.32...bitcoind-0.0.33) (2022-11-02)
+## [bitcoin-node-0.0.32](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.31...bitcoin-node-0.0.32) (2022-11-02)
 
 ### Chore
 
@@ -112,7 +131,7 @@
 
 
 
-## [bitcoind-0.0.32](https://github.com/truecharts/charts/compare/bitcoind-0.0.31...bitcoind-0.0.32) (2022-10-25)
+## [bitcoin-node-0.0.31](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.30...bitcoin-node-0.0.31) (2022-10-25)
 
 ### Chore
 
@@ -122,7 +141,7 @@
 
 
 
-## [bitcoind-0.0.31](https://github.com/truecharts/charts/compare/bitcoind-0.0.30...bitcoind-0.0.31) (2022-10-19)
+## [bitcoin-node-0.0.30](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.29...bitcoin-node-0.0.30) (2022-10-19)
 
 ### Chore
 
@@ -132,7 +151,7 @@
 
 
 
-## [bitcoind-0.0.30](https://github.com/truecharts/charts/compare/bitcoind-0.0.29...bitcoind-0.0.30) (2022-10-12)
+## [bitcoin-node-0.0.29](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.28...bitcoin-node-0.0.29) (2022-10-12)
 
 ### Chore
 
@@ -142,7 +161,7 @@
 
 
 
-## [bitcoind-0.0.29](https://github.com/truecharts/charts/compare/bitcoind-0.0.28...bitcoind-0.0.29) (2022-10-07)
+## [bitcoin-node-0.0.28](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.27...bitcoin-node-0.0.28) (2022-10-07)
 
 ### Chore
 
@@ -153,7 +172,7 @@
 
 
 
-## [bitcoind-0.0.29](https://github.com/truecharts/charts/compare/bitcoind-0.0.28...bitcoind-0.0.29) (2022-10-07)
+## [bitcoin-node-0.0.28](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.27...bitcoin-node-0.0.28) (2022-10-07)
 
 ### Chore
 
@@ -163,7 +182,7 @@
 
 
 
-## [bitcoind-0.0.28](https://github.com/truecharts/charts/compare/bitcoind-0.0.27...bitcoind-0.0.28) (2022-10-05)
+## [bitcoin-node-0.0.27](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.26...bitcoin-node-0.0.27) (2022-10-05)
 
 ### Chore
 
@@ -174,7 +193,7 @@
 
 
 
-## [bitcoind-0.0.27](https://github.com/truecharts/charts/compare/bitcoind-0.0.26...bitcoind-0.0.27) (2022-09-27)
+## [bitcoin-node-0.0.26](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.25...bitcoin-node-0.0.26) (2022-09-27)
 
 ### Chore
 
@@ -184,7 +203,7 @@
 
 
 
-## [bitcoind-0.0.26](https://github.com/truecharts/charts/compare/bitcoind-0.0.25...bitcoind-0.0.26) (2022-09-25)
+## [bitcoin-node-0.0.25](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.24...bitcoin-node-0.0.25) (2022-09-25)
 
 ### Chore
 
@@ -194,7 +213,7 @@
 
 
 
-## [bitcoind-0.0.25](https://github.com/truecharts/charts/compare/bitcoind-0.0.23...bitcoind-0.0.25) (2022-09-22)
+## [bitcoin-node-0.0.24](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.23...bitcoin-node-0.0.24) (2022-09-22)
 
 ### Chore
 
@@ -212,14 +231,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [bitcoind-0.0.25](https://github.com/truecharts/charts/compare/bitcoind-0.0.23...bitcoind-0.0.25) (2022-09-21)
+## [bitcoin-node-0.0.24](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.23...bitcoin-node-0.0.24) (2022-09-21)
 
 ### Chore
 
@@ -236,14 +254,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [bitcoind-0.0.25](https://github.com/truecharts/charts/compare/bitcoind-0.0.23...bitcoind-0.0.25) (2022-09-21)
+## [bitcoin-node-0.0.24](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.23...bitcoin-node-0.0.24) (2022-09-21)
 
 ### Chore
 
@@ -259,14 +276,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [bitcoind-0.0.25](https://github.com/truecharts/charts/compare/bitcoind-0.0.23...bitcoind-0.0.25) (2022-09-20)
+## [bitcoin-node-0.0.24](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.23...bitcoin-node-0.0.24) (2022-09-20)
 
 ### Chore
 
@@ -281,14 +297,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [bitcoind-0.0.25](https://github.com/truecharts/charts/compare/bitcoind-0.0.23...bitcoind-0.0.25) (2022-09-20)
+## [bitcoin-node-0.0.24](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.23...bitcoin-node-0.0.24) (2022-09-20)
 
 ### Chore
 
@@ -302,14 +317,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [bitcoind-0.0.25](https://github.com/truecharts/charts/compare/bitcoind-0.0.23...bitcoind-0.0.25) (2022-09-19)
+## [bitcoin-node-0.0.24](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.23...bitcoin-node-0.0.24) (2022-09-19)
 
 ### Chore
 
@@ -322,14 +336,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [bitcoind-0.0.25](https://github.com/truecharts/charts/compare/bitcoind-0.0.23...bitcoind-0.0.25) (2022-09-19)
+## [bitcoin-node-0.0.24](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.23...bitcoin-node-0.0.24) (2022-09-19)
 
 ### Chore
 
@@ -341,14 +354,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [bitcoind-0.0.25](https://github.com/truecharts/charts/compare/bitcoind-0.0.23...bitcoind-0.0.25) (2022-09-19)
+## [bitcoin-node-0.0.24](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.23...bitcoin-node-0.0.24) (2022-09-19)
 
 ### Chore
 
@@ -359,14 +371,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [bitcoind-0.0.24](https://github.com/truecharts/charts/compare/bitcoind-0.0.23...bitcoind-0.0.24) (2022-09-17)
+## [bitcoin-node-0.0.24](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.23...bitcoin-node-0.0.24) (2022-09-17)
 
 ### Chore
 
@@ -382,7 +393,7 @@
 
 
 
-## [bitcoind-0.0.24](https://github.com/truecharts/charts/compare/bitcoind-0.0.23...bitcoind-0.0.24) (2022-09-18)
+## [bitcoin-node-0.0.24](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.23...bitcoin-node-0.0.24) (2022-09-18)
 
 ### Chore
 
@@ -396,7 +407,7 @@
 
 
 
-## [bitcoind-0.0.24](https://github.com/truecharts/charts/compare/bitcoind-0.0.23...bitcoind-0.0.24) (2022-09-16)
+## [bitcoin-node-0.0.24](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.23...bitcoin-node-0.0.24) (2022-09-16)
 
 ### Chore
 
@@ -409,7 +420,7 @@
 
 
 
-## [bitcoind-0.0.24](https://github.com/truecharts/charts/compare/bitcoind-0.0.23...bitcoind-0.0.24) (2022-09-16)
+## [bitcoin-node-0.0.24](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.23...bitcoin-node-0.0.24) (2022-09-16)
 
 ### Chore
 
@@ -421,7 +432,7 @@
 
 
 
-## [bitcoind-0.0.24](https://github.com/truecharts/charts/compare/bitcoind-0.0.23...bitcoind-0.0.24) (2022-09-15)
+## [bitcoin-node-0.0.24](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.23...bitcoin-node-0.0.24) (2022-09-15)
 
 ### Chore
 
@@ -432,7 +443,7 @@
 
 
 
-## [bitcoind-0.0.24](https://github.com/truecharts/charts/compare/bitcoind-0.0.23...bitcoind-0.0.24) (2022-09-15)
+## [bitcoin-node-0.0.24](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.23...bitcoin-node-0.0.24) (2022-09-15)
 
 ### Chore
 
@@ -442,7 +453,7 @@
 
 
 
-## [bitcoind-0.0.23](https://github.com/truecharts/charts/compare/bitcoind-0.0.22...bitcoind-0.0.23) (2022-09-12)
+## [bitcoin-node-0.0.23](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.22...bitcoin-node-0.0.23) (2022-09-12)
 
 ### Chore
 
@@ -451,12 +462,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [bitcoind-0.0.23](https://github.com/truecharts/charts/compare/bitcoind-0.0.22...bitcoind-0.0.23) (2022-09-12)
+## [bitcoin-node-0.0.23](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.22...bitcoin-node-0.0.23) (2022-09-12)
 
 ### Chore
 
@@ -464,54 +476,59 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [bitcoind-0.0.23](https://github.com/truecharts/charts/compare/bitcoind-0.0.22...bitcoind-0.0.23) (2022-09-11)
+## [bitcoin-node-0.0.23](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.22...bitcoin-node-0.0.23) (2022-09-11)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [bitcoind-0.0.23](https://github.com/truecharts/charts/compare/bitcoind-0.0.22...bitcoind-0.0.23) (2022-09-11)
+## [bitcoin-node-0.0.23](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.22...bitcoin-node-0.0.23) (2022-09-11)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [bitcoind-0.0.23](https://github.com/truecharts/charts/compare/bitcoind-0.0.22...bitcoind-0.0.23) (2022-09-11)
+## [bitcoin-node-0.0.23](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.22...bitcoin-node-0.0.23) (2022-09-11)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
+  - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [bitcoind-0.0.23](https://github.com/truecharts/charts/compare/bitcoind-0.0.22...bitcoind-0.0.23) (2022-09-11)
+## [bitcoin-node-0.0.23](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.22...bitcoin-node-0.0.23) (2022-09-11)
 
 ### Chore
 
-- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+- add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
 
 
-## [bitcoind-0.0.22](https://github.com/truecharts/charts/compare/bitcoind-0.0.21...bitcoind-0.0.22) (2022-08-30)
+## [bitcoin-node-0.0.22](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.21...bitcoin-node-0.0.22) (2022-08-30)
 
 ### Chore
 
@@ -520,7 +537,7 @@
 
 
 
-## [bitcoind-0.0.21](https://github.com/truecharts/charts/compare/bitcoind-0.0.20...bitcoind-0.0.21) (2022-08-30)
+## [bitcoin-node-0.0.21](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.20...bitcoin-node-0.0.21) (2022-08-30)
 
 ### Chore
 
@@ -529,7 +546,7 @@
 
 
 
-## [bitcoind-0.0.20](https://github.com/truecharts/charts/compare/bitcoind-0.0.19...bitcoind-0.0.20) (2022-08-29)
+## [bitcoin-node-0.0.20](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.19...bitcoin-node-0.0.20) (2022-08-29)
 
 ### Chore
 
@@ -538,7 +555,7 @@
 
 
 
-## [bitcoind-0.0.19](https://github.com/truecharts/charts/compare/bitcoind-0.0.17...bitcoind-0.0.19) (2022-08-26)
+## [bitcoin-node-0.0.19](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.17...bitcoin-node-0.0.19) (2022-08-26)
 
 ### Fix
 
@@ -547,7 +564,7 @@
 
 
 
-## [bitcoind-0.0.17](https://github.com/truecharts/charts/compare/bitcoind-0.0.16...bitcoind-0.0.17) (2022-08-23)
+## [bitcoin-node-0.0.17](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.16...bitcoin-node-0.0.17) (2022-08-23)
 
 ### Chore
 
@@ -556,7 +573,7 @@
 
 
 
-## [bitcoind-0.0.16](https://github.com/truecharts/charts/compare/bitcoind-0.0.15...bitcoind-0.0.16) (2022-08-12)
+## [bitcoin-node-0.0.16](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.15...bitcoin-node-0.0.16) (2022-08-12)
 
 ### Chore
 
@@ -570,7 +587,7 @@
 
 
 
-## [bitcoind-0.0.15](https://github.com/truecharts/charts/compare/bitcoind-0.0.14...bitcoind-0.0.15) (2022-08-08)
+## [bitcoin-node-0.0.15](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.14...bitcoin-node-0.0.15) (2022-08-08)
 
 ### Chore
 
@@ -580,7 +597,7 @@
 
 
 
-## [bitcoind-0.0.14](https://github.com/truecharts/apps/compare/bitcoind-0.0.13...bitcoind-0.0.14) (2022-07-26)
+## [bitcoin-node-0.0.14](https://github.com/truecharts/apps/compare/bitcoin-node-0.0.13...bitcoin-node-0.0.14) (2022-07-26)
 
 ### Chore
 
@@ -590,7 +607,7 @@
 
 
 
-## [bitcoind-0.0.13](https://github.com/truecharts/apps/compare/bitcoind-0.0.12...bitcoind-0.0.13) (2022-07-25)
+## [bitcoin-node-0.0.13](https://github.com/truecharts/apps/compare/bitcoin-node-0.0.12...bitcoin-node-0.0.13) (2022-07-25)
 
 ### Chore
 
@@ -603,7 +620,7 @@
 
 
 
-## [bitcoind-0.0.12](https://github.com/truecharts/apps/compare/bitcoind-0.0.11...bitcoind-0.0.12) (2022-07-23)
+## [bitcoin-node-0.0.12](https://github.com/truecharts/apps/compare/bitcoin-node-0.0.11...bitcoin-node-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -621,7 +638,7 @@
 
 
 
-## [bitcoind-0.0.12](https://github.com/truecharts/apps/compare/bitcoind-0.0.11...bitcoind-0.0.12) (2022-07-23)
+## [bitcoin-node-0.0.12](https://github.com/truecharts/apps/compare/bitcoin-node-0.0.11...bitcoin-node-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -638,7 +655,7 @@
 
 
 
-## [bitcoind-0.0.12](https://github.com/truecharts/apps/compare/bitcoind-0.0.11...bitcoind-0.0.12) (2022-07-23)
+## [bitcoin-node-0.0.12](https://github.com/truecharts/apps/compare/bitcoin-node-0.0.11...bitcoin-node-0.0.12) (2022-07-23)
 
 ### Chore
 
@@ -657,8 +674,8 @@
 
 
 
-<a name="bitcoind-0.0.5"></a>
-### [bitcoind-0.0.5](https://github.com/truecharts/apps/compare/bitcoind-0.0.4...bitcoind-0.0.5) (2022-05-05)
+<a name="bitcoin-node-0.0.5"></a>
+### [bitcoin-node-0.0.5](https://github.com/truecharts/apps/compare/bitcoin-node-0.0.4...bitcoin-node-0.0.5) (2022-05-05)
 
 #### Chore
 
@@ -666,8 +683,8 @@
 
 
 
-<a name="bitcoind-0.0.4"></a>
-### [bitcoind-0.0.4](https://github.com/truecharts/apps/compare/bitcoind-0.0.3...bitcoind-0.0.4) (2022-04-26)
+<a name="bitcoin-node-0.0.4"></a>
+### [bitcoin-node-0.0.4](https://github.com/truecharts/apps/compare/bitcoin-node-0.0.3...bitcoin-node-0.0.4) (2022-04-26)
 
 #### Chore
 
@@ -675,18 +692,19 @@
 
 
 
-<a name="bitcoind-0.0.3"></a>
-### [bitcoind-0.0.3](https://github.com/truecharts/apps/compare/bitcoind-0.0.2...bitcoind-0.0.3) (2022-04-20)
+<a name="bitcoin-node-0.0.3"></a>
+### [bitcoin-node-0.0.3](https://github.com/truecharts/apps/compare/bitcoin-node-0.0.2...bitcoin-node-0.0.3) (2022-04-20)
 
 #### Chore
 
+* Auto-update chart README [skip ci]
 * add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
 * update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
 
 
 
-<a name="bitcoind-0.0.2"></a>
-### [bitcoind-0.0.2](https://github.com/truecharts/apps/compare/bitcoind-0.0.1...bitcoind-0.0.2) (2022-04-12)
+<a name="bitcoin-node-0.0.2"></a>
+### [bitcoin-node-0.0.2](https://github.com/truecharts/apps/compare/bitcoin-node-0.0.1...bitcoin-node-0.0.2) (2022-04-12)
 
 #### Chore
 
@@ -699,8 +717,8 @@
 
 
 
-<a name="bitcoind-0.0.1"></a>
-### bitcoind-0.0.1 (2022-04-07)
+<a name="bitcoin-node-0.0.1"></a>
+### bitcoin-node-0.0.1 (2022-04-07)
 
 #### Feat
 

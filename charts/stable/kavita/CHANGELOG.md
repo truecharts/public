@@ -2,6 +2,15 @@
 
 
 
+## [kavita-3.0.0](https://github.com/truecharts/charts/compare/kavita-2.0.50...kavita-3.0.0) (2022-11-10)
+
+### Chore
+
+- Major Change to GUI
+
+
+
+
 ## [kavita-2.0.50](https://github.com/truecharts/charts/compare/kavita-2.0.46...kavita-2.0.50) (2022-11-10)
 
 ### Chore

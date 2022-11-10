@@ -2,6 +2,7 @@
 
 
 
+
 ## [money-balancer-0.0.12](https://github.com/truecharts/charts/compare/money-balancer-0.0.9...money-balancer-0.0.12) (2022-11-08)
 
 ### Chore
