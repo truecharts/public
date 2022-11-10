@@ -1,0 +1,78 @@
+suite: deployment controller test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - equal:
+          documentIndex: *deploymentDoc
+          path: apiVersion
+          value: apps/v1
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.revisionHistoryLimit
+          value: 3
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.replicas
+          value: 1
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.strategy.type
+          value: Recreate
+      - isNull:
+          documentIndex: *deploymentDoc
+          path: spec.strategy.rollingUpdate
+
+  - it: should pass with controller strategy changed and rollingUpdate strategies set
+    set:
+      controller.strategy: RollingUpdate
+      controller.rollingUpdate.unavailable: 2
+      controller.rollingUpdate.surge: 3
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.strategy.type
+          value: RollingUpdate
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.strategy.rollingUpdate
+          value:
+            maxUnavailable: 2
+            maxSurge: 3
+
+  - it: should pass with controller disabled
+    set:
+      controller.enabled: false
+    asserts:
+      - hasDocuments:
+          count: 0
+
+  - it: should pass with controller strategy changed
+    set:
+      controller.strategy: RollingUpdate
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.strategy.type
+          value: RollingUpdate
+      - isNull:
+          documentIndex: *deploymentDoc
+          path: spec.strategy.rollingUpdate
+
+  - it: should fail with wrong controller
+    set:
+      controller.type: not_valid_controller
+    asserts:
+      - failedTemplate:
+          errorMessage: Not a valid controller.type (not_valid_controller)
+
+  - it: should fail with wrong strategy
+    set:
+      controller.strategy: not_valid_strategy
+    asserts:
+      - failedTemplate:
+          errorMessage: Not a valid strategy type for Deployment (not_valid_strategy)

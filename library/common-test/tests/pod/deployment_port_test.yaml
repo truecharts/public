@@ -1,0 +1,13 @@
+suite: deployment port test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    asserts:
+      - hasDocuments:
+          count: 1
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+
+TODO: ports

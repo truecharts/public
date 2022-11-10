@@ -1,0 +1,71 @@
+suite: deployment label test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - equal:
+          documentIndex: *deploymentDoc
+          path: metadata.labels
+          value:
+            app: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/version: v1.0.0
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            release: RELEASE-NAME
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.selector.matchLabels
+          value:
+            app: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/name: common-test
+            release: RELEASE-NAME
+
+  - it: should pass with controller and global labels
+    set:
+      some_key: some_value
+      controller.labels:
+        controller_key: controller_value
+        controller_key2: "{{ .Values.some_key }}"
+      global.labels:
+        global_key: global_value
+        global_key2: "{{ .Values.some_key }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: metadata.labels
+          value:
+            controller_key: controller_value
+            controller_key2: some_value
+            global_key: global_value
+            global_key2: some_value
+            app: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/version: v1.0.0
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            release: RELEASE-NAME
+
+  - it: should pass with podLabels set
+    set:
+      some_key: some_value2
+      podLabels.test: some_value
+      podLabels.test2: "{{ .Values.some_key }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.metadata.labels.test2
+          value: some_value2
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.metadata.labels.test
+          value: some_value
