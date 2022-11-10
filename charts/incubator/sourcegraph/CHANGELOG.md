@@ -2,6 +2,15 @@
 
 
 
+## [sourcegraph-1.0.0](https://github.com/truecharts/charts/compare/sourcegraph-0.0.45...sourcegraph-1.0.0) (2022-11-10)
+
+### Chore
+
+- Major Change to GUI
+
+
+
+
 ## [sourcegraph-0.0.45](https://github.com/truecharts/charts/compare/sourcegraph-0.0.41...sourcegraph-0.0.45) (2022-11-10)
 
 ### Chore

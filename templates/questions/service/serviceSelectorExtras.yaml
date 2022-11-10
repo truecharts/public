@@ -10,6 +10,7 @@
                 schema:
                   type: boolean
                   default: false
+                  hidden: true
                   show_subquestions_if: true
                   subquestions:
                     - variable: externalIPs
@@ -17,6 +18,7 @@
                       description: "External IP's"
                       schema:
                         type: list
+                        hidden: true
                         default: []
                         items:
                           - variable: externalIP
@@ -29,6 +31,7 @@
                       schema:
                         type: string
                         default: SingleStack
+                        hidden: true
                         enum:
                           - value: SingleStack
                             description: SingleStack
@@ -42,6 +45,7 @@
                       schema:
                         type: list
                         default: []
+                        hidden: true
                         items:
                           - variable: ipFamily
                             label: IP Family

@@ -2,6 +2,7 @@
 
 
 
+
 ## [facturascripts-0.0.37](https://github.com/truecharts/charts/compare/facturascripts-0.0.34...facturascripts-0.0.37) (2022-11-08)
 
 ### Chore

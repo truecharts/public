@@ -2,6 +2,7 @@
 
 
 
+
 ## [gotify-8.0.55](https://github.com/truecharts/charts/compare/gotify-8.0.52...gotify-8.0.55) (2022-11-08)
 
 ### Chore

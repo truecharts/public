@@ -2,6 +2,15 @@
 
 
 
+## [passwordpusherephemeral-1.0.0](https://github.com/truecharts/charts/compare/passwordpusherephemeral-0.0.81...passwordpusherephemeral-1.0.0) (2022-11-10)
+
+### Chore
+
+- Major Change to GUI
+
+
+
+
 ## [passwordpusherephemeral-0.0.81](https://github.com/truecharts/charts/compare/passwordpusherephemeral-0.0.75...passwordpusherephemeral-0.0.81) (2022-11-10)
 
 ### Chore

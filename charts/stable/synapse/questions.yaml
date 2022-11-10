@@ -14,7 +14,7 @@ questions:
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
   - variable: synapse
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Synapse Configuration"
     schema:
       additional_attrs: true
@@ -27,7 +27,7 @@ questions:
             type: boolean
             default: false
   - variable: matrix
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Matrix Configuration"
     schema:
       additional_attrs: true
@@ -286,7 +286,7 @@ questions:
                             type: boolean
                             default: false
         - variable: logging
-          group: "Container Configuration"
+          group: "App Configuration"
           label: "Logging Configuration"
           schema:
             additional_attrs: true
@@ -309,7 +309,7 @@ questions:
                   type: string
                   default: "WARNING"
   - variable: mail
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Mail Configuration"
     schema:
       additional_attrs: true
@@ -354,7 +354,7 @@ questions:
                   type: boolean
                   default: true
   - variable: coturn
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Coturn Configuration"
     schema:
       additional_attrs: true

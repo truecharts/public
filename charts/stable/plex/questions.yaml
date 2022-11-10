@@ -14,7 +14,7 @@ questions:
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: plex
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Plex Configuration"
     schema:
       additional_attrs: true
@@ -42,7 +42,7 @@ questions:
             type: boolean
             default: true
   - variable: env
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Image Environment"
     schema:
       additional_attrs: true

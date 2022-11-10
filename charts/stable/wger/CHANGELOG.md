@@ -2,6 +2,19 @@
 
 
 
+## [wger-2.0.0](https://github.com/truecharts/charts/compare/wger-1.1.37...wger-2.0.0) (2022-11-10)
+
+### Chore
+
+- Major Change to GUI
+
+  ### Fix
+
+- change container config label
+
+
+
+
 ## [wger-1.1.37](https://github.com/truecharts/charts/compare/wger-1.1.31...wger-1.1.37) (2022-11-10)
 
 ### Chore

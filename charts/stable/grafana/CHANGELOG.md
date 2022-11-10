@@ -2,7 +2,7 @@
 
 
 
-## [grafana-4.0.91](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.35...grafana-4.0.91) (2022-11-10)
+## [gotify-9.0.0](https://github.com/truecharts/charts/compare/gotify-8.0.52...gotify-9.0.0) (2022-11-10)
 
 ### Chore
 
@@ -13,34 +13,36 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - update docker general non-major ([#4366](https://github.com/truecharts/charts/issues/4366))
+  - Major Change to GUI
   - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
-  - update docker general non-major ([#4343](https://github.com/truecharts/charts/issues/4343))
+  - update helm general non-major ([#4349](https://github.com/truecharts/charts/issues/4349))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+  ### Fix
+
+- change container config label
+
+
+
+
+## [gotify-8.0.55](https://github.com/truecharts/charts/compare/gotify-8.0.52...gotify-8.0.55) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
   - update helm general non-major ([#4349](https://github.com/truecharts/charts/issues/4349))
   - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
 
 
 
 
-## [grafana-4.0.90](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.35...grafana-4.0.90) (2022-11-08)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
-  - update docker general non-major ([#4343](https://github.com/truecharts/charts/issues/4343))
-  - update helm general non-major ([#4349](https://github.com/truecharts/charts/issues/4349))
-  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
-
-
-
-
-## [grafana-4.0.89](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.35...grafana-4.0.89) (2022-11-08)
+## [gotify-8.0.54](https://github.com/truecharts/charts/compare/gotify-8.0.52...gotify-8.0.54) (2022-11-08)
 
 ### Chore
 
@@ -50,13 +52,12 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
-  - update docker general non-major ([#4343](https://github.com/truecharts/charts/issues/4343))
   - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
 
 
 
 
-## [grafana-4.0.89](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.35...grafana-4.0.89) (2022-11-08)
+## [gotify-8.0.54](https://github.com/truecharts/charts/compare/gotify-8.0.52...gotify-8.0.54) (2022-11-08)
 
 ### Chore
 
@@ -65,13 +66,12 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
-  - update docker general non-major ([#4343](https://github.com/truecharts/charts/issues/4343))
   - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
 
 
 
 
-## [grafana-4.0.89](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.35...grafana-4.0.89) (2022-11-08)
+## [gotify-8.0.54](https://github.com/truecharts/charts/compare/gotify-8.0.52...gotify-8.0.54) (2022-11-08)
 
 ### Chore
 
@@ -79,13 +79,12 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
-  - update docker general non-major ([#4343](https://github.com/truecharts/charts/issues/4343))
   - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
 
 
 
 
-## [grafana-4.0.88](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.35...grafana-4.0.88) (2022-11-07)
+## [gotify-8.0.53](https://github.com/truecharts/charts/compare/gotify-8.0.52...gotify-8.0.53) (2022-11-07)
 
 ### Chore
 
@@ -96,7 +95,7 @@
 
 
 
-## [grafana-4.0.88](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.35...grafana-4.0.88) (2022-11-06)
+## [gotify-8.0.53](https://github.com/truecharts/charts/compare/gotify-8.0.52...gotify-8.0.53) (2022-11-06)
 
 ### Chore
 
@@ -106,7 +105,7 @@
 
 
 
-## [grafana-4.0.87](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.34...grafana-4.0.87) (2022-11-06)
+## [gotify-8.0.52](https://github.com/truecharts/charts/compare/gotify-8.0.51...gotify-8.0.52) (2022-11-06)
 
 ### Chore
 
@@ -116,7 +115,7 @@
 
 
 
-## [grafana-4.0.86](https://github.com/truecharts/charts/compare/grafana-4.0.85...grafana-4.0.86) (2022-11-05)
+## [gotify-8.0.51](https://github.com/truecharts/charts/compare/gotify-8.0.50...gotify-8.0.51) (2022-11-05)
 
 ### Chore
 
@@ -126,69 +125,27 @@
 
 
 
-## [grafana-4.0.85](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.33...grafana-4.0.85) (2022-11-05)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#4301](https://github.com/truecharts/charts/issues/4301))
-
-
-
-
-## [grafana-4.0.84](https://github.com/truecharts/charts/compare/grafana-4.0.83...grafana-4.0.84) (2022-11-02)
+## [gotify-8.0.50](https://github.com/truecharts/charts/compare/gotify-8.0.49...gotify-8.0.50) (2022-11-02)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
-  - update docker general non-major ([#4280](https://github.com/truecharts/charts/issues/4280))
 
 
 
 
-## [grafana-4.0.83](https://github.com/truecharts/charts/compare/grafana-4.0.82...grafana-4.0.83) (2022-11-01)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#4260](https://github.com/truecharts/charts/issues/4260))
-
-
-
-
-## [grafana-4.0.82](https://github.com/truecharts/charts/compare/grafana-4.0.81...grafana-4.0.82) (2022-10-29)
+## [gotify-8.0.49](https://github.com/truecharts/charts/compare/gotify-8.0.48...gotify-8.0.49) (2022-10-25)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
-  - update docker general non-major ([#4230](https://github.com/truecharts/charts/issues/4230))
+  - update helm general non-major
 
 
 
 
-## [grafana-4.0.81](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.32...grafana-4.0.81) (2022-10-27)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - update docker general non-major ([#4201](https://github.com/truecharts/charts/issues/4201))
-
-
-
-
-## [grafana-4.0.81](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.32...grafana-4.0.81) (2022-10-27)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#4201](https://github.com/truecharts/charts/issues/4201))
-
-
-
-
-## [grafana-4.0.80](https://github.com/truecharts/charts/compare/grafana-4.0.79...grafana-4.0.80) (2022-10-25)
+## [gotify-8.0.48](https://github.com/truecharts/charts/compare/gotify-8.0.47...gotify-8.0.48) (2022-10-25)
 
 ### Chore
 
@@ -198,37 +155,7 @@
 
 
 
-## [grafana-4.0.79](https://github.com/truecharts/charts/compare/grafana-4.0.78...grafana-4.0.79) (2022-10-25)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#4181](https://github.com/truecharts/charts/issues/4181))
-
-
-
-
-## [grafana-4.0.78](https://github.com/truecharts/charts/compare/grafana-4.0.77...grafana-4.0.78) (2022-10-22)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#4155](https://github.com/truecharts/charts/issues/4155))
-
-
-
-
-## [grafana-4.0.77](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.31...grafana-4.0.77) (2022-10-21)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#4139](https://github.com/truecharts/charts/issues/4139))
-
-
-
-
-## [grafana-4.0.76](https://github.com/truecharts/charts/compare/grafana-4.0.75...grafana-4.0.76) (2022-10-19)
+## [gotify-8.0.47](https://github.com/truecharts/charts/compare/gotify-8.0.46...gotify-8.0.47) (2022-10-19)
 
 ### Chore
 
@@ -238,27 +165,7 @@
 
 
 
-## [grafana-4.0.75](https://github.com/truecharts/charts/compare/grafana-4.0.74...grafana-4.0.75) (2022-10-16)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#4108](https://github.com/truecharts/charts/issues/4108))
-
-
-
-
-## [grafana-4.0.74](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.30...grafana-4.0.74) (2022-10-14)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#4084](https://github.com/truecharts/charts/issues/4084))
-
-
-
-
-## [grafana-4.0.73](https://github.com/truecharts/charts/compare/grafana-4.0.72...grafana-4.0.73) (2022-10-12)
+## [gotify-8.0.46](https://github.com/truecharts/charts/compare/gotify-8.0.45...gotify-8.0.46) (2022-10-12)
 
 ### Chore
 
@@ -268,17 +175,7 @@
 
 
 
-## [grafana-4.0.72](https://github.com/truecharts/charts/compare/grafana-4.0.71...grafana-4.0.72) (2022-10-10)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#4049](https://github.com/truecharts/charts/issues/4049))
-
-
-
-
-## [grafana-4.0.71](https://github.com/truecharts/charts/compare/grafana-4.0.70...grafana-4.0.71) (2022-10-07)
+## [gotify-8.0.45](https://github.com/truecharts/charts/compare/gotify-8.0.44...gotify-8.0.45) (2022-10-07)
 
 ### Chore
 
@@ -289,7 +186,7 @@
 
 
 
-## [grafana-4.0.71](https://github.com/truecharts/charts/compare/grafana-4.0.70...grafana-4.0.71) (2022-10-07)
+## [gotify-8.0.45](https://github.com/truecharts/charts/compare/gotify-8.0.44...gotify-8.0.45) (2022-10-07)
 
 ### Chore
 
@@ -299,59 +196,17 @@
 
 
 
-## [grafana-4.0.70](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.28...grafana-4.0.70) (2022-10-07)
+## [gotify-8.0.44](https://github.com/truecharts/charts/compare/gotify-8.0.43...gotify-8.0.44) (2022-10-05)
 
 ### Chore
 
-- Auto-update chart README [skip ci]
-  - update docker general non-major
-
-
-
-
-## [grafana-4.0.69](https://github.com/truecharts/charts/compare/grafana-4.0.68...grafana-4.0.69) (2022-10-05)
-
-### Chore
-
-- Auto-update chart README [skip ci]
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
   - update helm general non-major
 
 
 
 
-## [grafana-4.0.68](https://github.com/truecharts/charts/compare/grafana-4.0.67...grafana-4.0.68) (2022-10-04)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
-  - update docker general non-major ([#4001](https://github.com/truecharts/charts/issues/4001))
-
-
-
-
-## [grafana-4.0.67](https://github.com/truecharts/charts/compare/grafana-4.0.66...grafana-4.0.67) (2022-10-01)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#3975](https://github.com/truecharts/charts/issues/3975))
-
-
-
-
-## [grafana-4.0.66](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.27...grafana-4.0.66) (2022-09-30)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#3965](https://github.com/truecharts/charts/issues/3965))
-  - update docker general non-major ([#3920](https://github.com/truecharts/charts/issues/3920))
-
-
-
-
-## [grafana-4.0.65](https://github.com/truecharts/charts/compare/grafana-4.0.64...grafana-4.0.65) (2022-09-27)
+## [gotify-8.0.42](https://github.com/truecharts/charts/compare/gotify-8.0.41...gotify-8.0.42) (2022-09-27)
 
 ### Chore
 
@@ -361,7 +216,7 @@
 
 
 
-## [grafana-4.0.64](https://github.com/truecharts/charts/compare/grafana-4.0.63...grafana-4.0.64) (2022-09-25)
+## [gotify-8.0.41](https://github.com/truecharts/charts/compare/gotify-8.0.40...gotify-8.0.41) (2022-09-25)
 
 ### Chore
 
@@ -371,17 +226,7 @@
 
 
 
-## [grafana-4.0.63](https://github.com/truecharts/charts/compare/grafana-4.0.62...grafana-4.0.63) (2022-09-24)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#3860](https://github.com/truecharts/charts/issues/3860))
-
-
-
-
-## [grafana-4.0.62](https://github.com/truecharts/charts/compare/grafana-4.0.58...grafana-4.0.62) (2022-09-22)
+## [gotify-8.0.40](https://github.com/truecharts/charts/compare/gotify-8.0.39...gotify-8.0.40) (2022-09-22)
 
 ### Chore
 
@@ -399,20 +244,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
-  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
-  ### Fix
-
-- pre-create tmp dir ([#3831](https://github.com/truecharts/charts/issues/3831))
 
 
 
-
-## [grafana-4.0.62](https://github.com/truecharts/charts/compare/grafana-4.0.58...grafana-4.0.62) (2022-09-21)
+## [gotify-8.0.40](https://github.com/truecharts/charts/compare/gotify-8.0.39...gotify-8.0.40) (2022-09-21)
 
 ### Chore
 
@@ -429,20 +267,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
-  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
-  ### Fix
-
-- pre-create tmp dir ([#3831](https://github.com/truecharts/charts/issues/3831))
 
 
 
-
-## [grafana-4.0.61](https://github.com/truecharts/charts/compare/grafana-4.0.58...grafana-4.0.61) (2022-09-21)
+## [gotify-8.0.40](https://github.com/truecharts/charts/compare/gotify-8.0.39...gotify-8.0.40) (2022-09-21)
 
 ### Chore
 
@@ -458,16 +289,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
-  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [grafana-4.0.61](https://github.com/truecharts/charts/compare/grafana-4.0.58...grafana-4.0.61) (2022-09-20)
+## [gotify-8.0.40](https://github.com/truecharts/charts/compare/gotify-8.0.39...gotify-8.0.40) (2022-09-20)
 
 ### Chore
 
@@ -482,16 +310,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
-  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [grafana-4.0.61](https://github.com/truecharts/charts/compare/grafana-4.0.58...grafana-4.0.61) (2022-09-20)
+## [gotify-8.0.40](https://github.com/truecharts/charts/compare/gotify-8.0.39...gotify-8.0.40) (2022-09-20)
 
 ### Chore
 
@@ -505,16 +330,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3818](https://github.com/truecharts/charts/issues/3818))
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
-  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [grafana-4.0.60](https://github.com/truecharts/charts/compare/grafana-4.0.58...grafana-4.0.60) (2022-09-19)
+## [gotify-8.0.40](https://github.com/truecharts/charts/compare/gotify-8.0.39...gotify-8.0.40) (2022-09-19)
 
 ### Chore
 
@@ -527,15 +349,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
-  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [grafana-4.0.60](https://github.com/truecharts/charts/compare/grafana-4.0.58...grafana-4.0.60) (2022-09-19)
+## [gotify-8.0.40](https://github.com/truecharts/charts/compare/gotify-8.0.39...gotify-8.0.40) (2022-09-19)
 
 ### Chore
 
@@ -547,15 +367,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [grafana-4.0.60](https://github.com/truecharts/charts/compare/grafana-4.0.58...grafana-4.0.60) (2022-09-19)
+## [gotify-8.0.40](https://github.com/truecharts/charts/compare/gotify-8.0.39...gotify-8.0.40) (2022-09-19)
 
 ### Chore
 
@@ -566,15 +384,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [grafana-4.0.59](https://github.com/truecharts/charts/compare/grafana-4.0.58...grafana-4.0.59) (2022-09-17)
+## [gotify-8.0.40](https://github.com/truecharts/charts/compare/gotify-8.0.39...gotify-8.0.40) (2022-09-17)
 
 ### Chore
 
@@ -584,14 +400,13 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - refactor Services SCALE GUI
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [grafana-4.0.59](https://github.com/truecharts/charts/compare/grafana-4.0.58...grafana-4.0.59) (2022-09-18)
+## [gotify-8.0.40](https://github.com/truecharts/charts/compare/gotify-8.0.39...gotify-8.0.40) (2022-09-18)
 
 ### Chore
 
@@ -599,53 +414,49 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [grafana-4.0.59](https://github.com/truecharts/charts/compare/grafana-4.0.58...grafana-4.0.59) (2022-09-16)
+## [gotify-8.0.40](https://github.com/truecharts/charts/compare/gotify-8.0.39...gotify-8.0.40) (2022-09-16)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [grafana-4.0.59](https://github.com/truecharts/charts/compare/grafana-4.0.58...grafana-4.0.59) (2022-09-16)
+## [gotify-8.0.40](https://github.com/truecharts/charts/compare/gotify-8.0.39...gotify-8.0.40) (2022-09-16)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [grafana-4.0.59](https://github.com/truecharts/charts/compare/grafana-4.0.58...grafana-4.0.59) (2022-09-15)
+## [gotify-8.0.40](https://github.com/truecharts/charts/compare/gotify-8.0.39...gotify-8.0.40) (2022-09-15)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
-  - update docker general non-major ([#3772](https://github.com/truecharts/charts/issues/3772))
   - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
   - split serviceSelector ([#3751](https://github.com/truecharts/charts/issues/3751))
 
 
 
 
-## [grafana-4.0.59](https://github.com/truecharts/charts/compare/grafana-4.0.58...grafana-4.0.59) (2022-09-15)
+## [gotify-8.0.40](https://github.com/truecharts/charts/compare/gotify-8.0.39...gotify-8.0.40) (2022-09-15)
 
 ### Chore
 
@@ -655,7 +466,16 @@
 
 
 
-## [grafana-4.0.58](https://github.com/truecharts/charts/compare/grafana-4.0.57...grafana-4.0.58) (2022-09-12)
+## [gotify-8.0.39](https://github.com/truecharts/charts/compare/gotify-8.0.38...gotify-8.0.39) (2022-09-13)
+
+### Chore
+
+- update helm general non-major ([#3756](https://github.com/truecharts/charts/issues/3756))
+
+
+
+
+## [gotify-8.0.38](https://github.com/truecharts/charts/compare/gotify-8.0.36...gotify-8.0.38) (2022-09-12)
 
 ### Chore
 
@@ -664,13 +484,14 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
   - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
 
 
 
 
-## [grafana-4.0.58](https://github.com/truecharts/charts/compare/grafana-4.0.57...grafana-4.0.58) (2022-09-12)
+## [gotify-8.0.38](https://github.com/truecharts/charts/compare/gotify-8.0.36...gotify-8.0.38) (2022-09-12)
 
 ### Chore
 
@@ -678,26 +499,28 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
   - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
 
 
 
 
-## [grafana-4.0.58](https://github.com/truecharts/charts/compare/grafana-4.0.57...grafana-4.0.58) (2022-09-11)
+## [gotify-8.0.38](https://github.com/truecharts/charts/compare/gotify-8.0.36...gotify-8.0.38) (2022-09-12)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
+  - update docker general non-major ([#3743](https://github.com/truecharts/charts/issues/3743))
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
   - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
 
 
 
 
-## [grafana-4.0.58](https://github.com/truecharts/charts/compare/grafana-4.0.57...grafana-4.0.58) (2022-09-11)
+## [gotify-8.0.37](https://github.com/truecharts/charts/compare/gotify-8.0.36...gotify-8.0.37) (2022-09-11)
 
 ### Chore
 
@@ -709,7 +532,7 @@
 
 
 
-## [grafana-4.0.58](https://github.com/truecharts/charts/compare/grafana-4.0.57...grafana-4.0.58) (2022-09-11)
+## [gotify-8.0.37](https://github.com/truecharts/charts/compare/gotify-8.0.36...gotify-8.0.37) (2022-09-11)
 
 ### Chore
 
@@ -720,7 +543,7 @@
 
 
 
-## [grafana-4.0.58](https://github.com/truecharts/charts/compare/grafana-4.0.57...grafana-4.0.58) (2022-09-11)
+## [gotify-8.0.37](https://github.com/truecharts/charts/compare/gotify-8.0.36...gotify-8.0.37) (2022-09-11)
 
 ### Chore
 
@@ -730,25 +553,7 @@
 
 
 
-## [grafana-4.0.57](https://github.com/truecharts/charts/compare/grafana-4.0.56...grafana-4.0.57) (2022-09-05)
-
-### Chore
-
-- update docker general non-major ([#3700](https://github.com/truecharts/charts/issues/3700))
-
-
-
-
-## [grafana-4.0.56](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.23...grafana-4.0.56) (2022-09-01)
-
-### Chore
-
-- update docker general non-major ([#3649](https://github.com/truecharts/charts/issues/3649))
-
-
-
-
-## [grafana-4.0.55](https://github.com/truecharts/charts/compare/grafana-4.0.53...grafana-4.0.55) (2022-08-30)
+## [gotify-8.0.36](https://github.com/truecharts/charts/compare/gotify-8.0.34...gotify-8.0.36) (2022-08-30)
 
 ### Chore
 
@@ -759,7 +564,7 @@
 
 
 
-## [grafana-4.0.54](https://github.com/truecharts/charts/compare/grafana-4.0.53...grafana-4.0.54) (2022-08-30)
+## [gotify-8.0.35](https://github.com/truecharts/charts/compare/gotify-8.0.34...gotify-8.0.35) (2022-08-30)
 
 ### Chore
 
@@ -768,43 +573,17 @@
 
 
 
-## [grafana-4.0.53](https://github.com/truecharts/charts/compare/grafana-4.0.52...grafana-4.0.53) (2022-08-30)
+## [gotify-8.0.34](https://github.com/truecharts/charts/compare/gotify-8.0.32...gotify-8.0.34) (2022-08-29)
 
 ### Chore
 
-- update docker general non-major ([#3623](https://github.com/truecharts/charts/issues/3623))
+- update helm general non-major ([#3621](https://github.com/truecharts/charts/issues/3621))
+  - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
 
 
 
 
-## [grafana-4.0.52](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.19...grafana-4.0.52) (2022-08-29)
-
-### Chore
-
-- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
-
-
-
-
-## [grafana-4.0.51](https://github.com/truecharts/charts/compare/grafana-4.0.50...grafana-4.0.51) (2022-08-26)
-
-### Chore
-
-- update docker general non-major ([#3573](https://github.com/truecharts/charts/issues/3573))
-
-
-
-
-## [grafana-4.0.50](https://github.com/truecharts/charts/compare/grafana-4.0.49...grafana-4.0.50) (2022-08-25)
-
-### Chore
-
-- update docker general non-major ([#3561](https://github.com/truecharts/charts/issues/3561))
-
-
-
-
-## [grafana-4.0.49](https://github.com/truecharts/charts/compare/grafana-4.0.48...grafana-4.0.49) (2022-08-23)
+## [gotify-8.0.32](https://github.com/truecharts/charts/compare/gotify-8.0.31...gotify-8.0.32) (2022-08-23)
 
 ### Chore
 
@@ -813,57 +592,21 @@
 
 
 
-## [grafana-4.0.48](https://github.com/truecharts/charts/compare/grafana-4.0.47...grafana-4.0.48) (2022-08-23)
+## [gotify-8.0.31](https://github.com/truecharts/charts/compare/gotify-8.0.30...gotify-8.0.31) (2022-08-17)
 
 ### Chore
 
-- update docker general non-major docker tags ([#3544](https://github.com/truecharts/charts/issues/3544))
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
 
 
 
 
-## [grafana-4.0.47](https://github.com/truecharts/charts/compare/grafana-4.0.46...grafana-4.0.47) (2022-08-20)
-
-### Chore
-
-- update docker general non-major docker tags ([#3518](https://github.com/truecharts/charts/issues/3518))
-
-
-
-
-## [grafana-4.0.46](https://github.com/truecharts/charts/compare/grafana-4.0.45...grafana-4.0.46) (2022-08-17)
-
-### Chore
-
-- update docker general non-major ([#3478](https://github.com/truecharts/charts/issues/3478))
-
-
-
-
-## [grafana-4.0.45](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.16...grafana-4.0.45) (2022-08-14)
-
-### Chore
-
-- update docker general non-major docker tags ([#3465](https://github.com/truecharts/charts/issues/3465))
-
-
-
-
-## [grafana-4.0.44](https://github.com/truecharts/charts/compare/grafana-4.0.43...grafana-4.0.44) (2022-08-12)
-
-### Chore
-
-- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
-
-
-
-
-## [grafana-4.0.43](https://github.com/truecharts/charts/compare/grafana-4.0.42...grafana-4.0.43) (2022-08-12)
+## [gotify-8.0.30](https://github.com/truecharts/charts/compare/gotify-8.0.29...gotify-8.0.30) (2022-08-12)
 
 ### Chore
 
 - add documentation checkbox/section to all SCALE Apps
-  - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
+  - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
 
   ### Fix
 
@@ -872,27 +615,26 @@
 
 
 
-## [grafana-4.0.42](https://github.com/truecharts/charts/compare/grafana-image-renderer-0.0.15...grafana-4.0.42) (2022-08-10)
+## [gotify-8.0.29](https://github.com/truecharts/charts/compare/gotify-8.0.28...gotify-8.0.29) (2022-08-09)
 
 ### Chore
 
-- update docker general non-major ([#3421](https://github.com/truecharts/charts/issues/3421))
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
 
 
 
 
-## [grafana-4.0.41](https://github.com/truecharts/charts/compare/grafana-4.0.39...grafana-4.0.41) (2022-08-08)
+## [gotify-8.0.28](https://github.com/truecharts/charts/compare/gotify-8.0.27...gotify-8.0.28) (2022-08-08)
 
 ### Chore
 
 - update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
-  - update docker general non-major ([#3356](https://github.com/truecharts/charts/issues/3356))
   - replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
 
 
 
 
-## [grafana-4.0.39](https://github.com/truecharts/apps/compare/grafana-4.0.38...grafana-4.0.39) (2022-07-28)
+## [gotify-8.0.27](https://github.com/truecharts/apps/compare/gotify-8.0.26...gotify-8.0.27) (2022-07-28)
 
 ### Chore
 
@@ -901,7 +643,7 @@
 
 
 
-## [grafana-4.0.38](https://github.com/truecharts/apps/compare/grafana-image-renderer-0.0.13...grafana-4.0.38) (2022-07-26)
+## [gotify-8.0.26](https://github.com/truecharts/apps/compare/gotify-8.0.25...gotify-8.0.26) (2022-07-26)
 
 ### Chore
 
@@ -911,7 +653,7 @@
 
 
 
-## [grafana-4.0.37](https://github.com/truecharts/apps/compare/grafana-4.0.36...grafana-4.0.37) (2022-07-25)
+## [gotify-8.0.25](https://github.com/truecharts/apps/compare/gotify-8.0.24...gotify-8.0.25) (2022-07-25)
 
 ### Chore
 
@@ -921,7 +663,7 @@
 
 
 
-## [grafana-4.0.37](https://github.com/truecharts/apps/compare/grafana-4.0.36...grafana-4.0.37) (2022-07-25)
+## [gotify-8.0.25](https://github.com/truecharts/apps/compare/gotify-8.0.24...gotify-8.0.25) (2022-07-25)
 
 ### Chore
 
@@ -930,19 +672,18 @@
 
 
 
-## [grafana-4.0.36](https://github.com/truecharts/apps/compare/grafana-4.0.34...grafana-4.0.36) (2022-07-24)
+## [gotify-8.0.24](https://github.com/truecharts/apps/compare/gotify-8.0.23...gotify-8.0.24) (2022-07-23)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - update docker general non-major ([#3284](https://github.com/truecharts/apps/issues/3284))
   - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
 
 
 
 
-## [grafana-4.0.35](https://github.com/truecharts/apps/compare/grafana-4.0.34...grafana-4.0.35) (2022-07-23)
+## [gotify-8.0.24](https://github.com/truecharts/apps/compare/gotify-8.0.23...gotify-8.0.24) (2022-07-23)
 
 ### Chore
 
@@ -952,7 +693,7 @@
 
 
 
-## [grafana-4.0.35](https://github.com/truecharts/apps/compare/grafana-4.0.34...grafana-4.0.35) (2022-07-23)
+## [gotify-8.0.24](https://github.com/truecharts/apps/compare/gotify-8.0.23...gotify-8.0.24) (2022-07-23)
 
 ### Chore
 
@@ -961,16 +702,16 @@
 
 
 
-## [grafana-4.0.34](https://github.com/truecharts/apps/compare/grafana-image-renderer-0.0.11...grafana-4.0.34) (2022-07-23)
+## [gotify-8.0.23](https://github.com/truecharts/apps/compare/gotify-8.0.22...gotify-8.0.23) (2022-07-23)
 
 ### Chore
 
-- update docker general non-major ([#3275](https://github.com/truecharts/apps/issues/3275))
+- update helm general non-major helm releases ([#3274](https://github.com/truecharts/apps/issues/3274))
 
 
 
 
-## [grafana-4.0.33](https://github.com/truecharts/apps/compare/grafana-image-renderer-0.0.10...grafana-4.0.33) (2022-07-22)
+## [gotify-8.0.22](https://github.com/truecharts/apps/compare/gotify-8.0.20...gotify-8.0.22) (2022-07-22)
 
 ### Chore
 
@@ -979,34 +720,15 @@
 
 
 
-## [grafana-4.0.31](https://github.com/truecharts/apps/compare/grafana-4.0.30...grafana-4.0.31) (2022-07-21)
+## [gotify-8.0.20](https://github.com/truecharts/apps/compare/gotify-8.0.19...gotify-8.0.20) (2022-07-20)
 
 ### Chore
 
-- Auto-update chart README [skip ci]
-- Auto-update chart README [skip ci]
-- update docker general non-major ([#3239](https://github.com/truecharts/apps/issues/3239))
+- update docker general non-major ([#3222](https://github.com/truecharts/apps/issues/3222))
 
 
 
-## [grafana-4.0.31](https://github.com/truecharts/apps/compare/grafana-4.0.30...grafana-4.0.31) (2022-07-21)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-- update docker general non-major ([#3239](https://github.com/truecharts/apps/issues/3239))
-
-
-
-## [grafana-4.0.31](https://github.com/truecharts/apps/compare/grafana-4.0.30...grafana-4.0.31) (2022-07-21)
-
-### Chore
-
-- update docker general non-major ([#3239](https://github.com/truecharts/apps/issues/3239))
-
-
-
-## [grafana-4.0.30](https://github.com/truecharts/apps/compare/grafana-4.0.29...grafana-4.0.30) (2022-07-19)
+## [gotify-8.0.19](https://github.com/truecharts/apps/compare/gotify-8.0.18...gotify-8.0.19) (2022-07-19)
 
 ### Chore
 
@@ -1014,15 +736,7 @@
 
 
 
-## [grafana-4.0.29](https://github.com/truecharts/apps/compare/grafana-4.0.28...grafana-4.0.29) (2022-07-17)
-
-### Chore
-
-- update container image tccr.io/truecharts/grafana to v9.0.3 ([#3186](https://github.com/truecharts/apps/issues/3186))
-
-
-
-## [grafana-4.0.28](https://github.com/truecharts/apps/compare/grafana-4.0.27...grafana-4.0.28) (2022-07-14)
+## [gotify-8.0.18](https://github.com/truecharts/apps/compare/gotify-8.0.17...gotify-8.0.18) (2022-07-14)
 
 ### Fix
 
@@ -1030,7 +744,7 @@
 
 
 
-## [grafana-4.0.27](https://github.com/truecharts/apps/compare/grafana-4.0.25...grafana-4.0.27) (2022-07-14)
+## [gotify-8.0.17](https://github.com/truecharts/apps/compare/gotify-8.0.15...gotify-8.0.17) (2022-07-14)
 
 ### Fix
 
@@ -1038,7 +752,7 @@
 
 
 
-## [grafana-4.0.25](https://github.com/truecharts/apps/compare/grafana-4.0.23...grafana-4.0.25) (2022-07-12)
+## [gotify-8.0.15](https://github.com/truecharts/apps/compare/gotify-8.0.13...gotify-8.0.15) (2022-07-12)
 
 ### Chore
 
@@ -1047,7 +761,7 @@
 
 
 
-## [grafana-4.0.23](https://github.com/truecharts/apps/compare/grafana-4.0.22...grafana-4.0.23) (2022-07-12)
+## [gotify-8.0.13](https://github.com/truecharts/apps/compare/gotify-8.0.12...gotify-8.0.13) (2022-07-12)
 
 ### Chore
 
@@ -1055,18 +769,17 @@
 
 
 
-<a name="grafana-4.0.22"></a>
-### [grafana-4.0.22](https://github.com/truecharts/apps/compare/grafana-4.0.21...grafana-4.0.22) (2022-07-12)
+<a name="gotify-8.0.12"></a>
+### [gotify-8.0.12](https://github.com/truecharts/apps/compare/gotify-8.0.11...gotify-8.0.12) (2022-07-12)
 
 #### Chore
 
 * update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
-* update docker general non-major ([#3150](https://github.com/truecharts/apps/issues/3150))
 
 
 
-<a name="grafana-4.0.21"></a>
-### [grafana-4.0.21](https://github.com/truecharts/apps/compare/grafana-4.0.20...grafana-4.0.21) (2022-07-11)
+<a name="gotify-8.0.11"></a>
+### [gotify-8.0.11](https://github.com/truecharts/apps/compare/gotify-8.0.10...gotify-8.0.11) (2022-07-11)
 
 #### Chore
 
@@ -1074,27 +787,26 @@
 
 
 
-<a name="grafana-4.0.20"></a>
-### [grafana-4.0.20](https://github.com/truecharts/apps/compare/grafana-4.0.19...grafana-4.0.20) (2022-07-09)
+<a name="gotify-8.0.10"></a>
+### [gotify-8.0.10](https://github.com/truecharts/apps/compare/gotify-8.0.9...gotify-8.0.10) (2022-07-09)
 
 #### Chore
 
-* combine some ports ([#3096](https://github.com/truecharts/apps/issues/3096))
 * update helm general non-major helm releases ([#3113](https://github.com/truecharts/apps/issues/3113))
 
 
 
-<a name="grafana-4.0.19"></a>
-### [grafana-4.0.19](https://github.com/truecharts/apps/compare/grafana-4.0.18...grafana-4.0.19) (2022-07-09)
+<a name="gotify-8.0.9"></a>
+### [gotify-8.0.9](https://github.com/truecharts/apps/compare/gotify-8.0.8...gotify-8.0.9) (2022-07-05)
 
 #### Chore
 
-* update docker general non-major ([#3106](https://github.com/truecharts/apps/issues/3106))
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
 
 
 
-<a name="grafana-4.0.18"></a>
-### [grafana-4.0.18](https://github.com/truecharts/apps/compare/grafana-4.0.17...grafana-4.0.18) (2022-07-04)
+<a name="gotify-8.0.8"></a>
+### [gotify-8.0.8](https://github.com/truecharts/apps/compare/gotify-8.0.7...gotify-8.0.8) (2022-07-04)
 
 #### Chore
 
@@ -1102,44 +814,8 @@
 
 
 
-<a name="grafana-4.0.17"></a>
-### [grafana-4.0.17](https://github.com/truecharts/apps/compare/grafana-4.0.16...grafana-4.0.17) (2022-07-04)
-
-#### Chore
-
-* update docker general non-major ([#3061](https://github.com/truecharts/apps/issues/3061))
-
-
-
-<a name="grafana-4.0.16"></a>
-### [grafana-4.0.16](https://github.com/truecharts/apps/compare/grafana-4.0.15...grafana-4.0.16) (2022-07-01)
-
-#### Chore
-
-* update docker general non-major ([#3015](https://github.com/truecharts/apps/issues/3015))
-
-
-
-<a name="grafana-4.0.15"></a>
-### [grafana-4.0.15](https://github.com/truecharts/apps/compare/grafana-4.0.14...grafana-4.0.15) (2022-06-30)
-
-#### Fix
-
-* change some common references to tc.common ([#3019](https://github.com/truecharts/apps/issues/3019))
-
-
-
-<a name="grafana-4.0.14"></a>
-### [grafana-4.0.14](https://github.com/truecharts/apps/compare/grafana-4.0.13...grafana-4.0.14) (2022-06-27)
-
-#### Chore
-
-* update docker general non-major ([#2999](https://github.com/truecharts/apps/issues/2999))
-
-
-
-<a name="grafana-4.0.13"></a>
-### [grafana-4.0.13](https://github.com/truecharts/apps/compare/grafana-4.0.12...grafana-4.0.13) (2022-06-25)
+<a name="gotify-8.0.7"></a>
+### [gotify-8.0.7](https://github.com/truecharts/apps/compare/gotify-8.0.6...gotify-8.0.7) (2022-06-25)
 
 #### Chore
 
@@ -1147,17 +823,8 @@
 
 
 
-<a name="grafana-4.0.12"></a>
-### [grafana-4.0.12](https://github.com/truecharts/apps/compare/grafana-4.0.11...grafana-4.0.12) (2022-06-25)
-
-#### Chore
-
-* update docker general non-major ([#2960](https://github.com/truecharts/apps/issues/2960))
-
-
-
-<a name="grafana-4.0.11"></a>
-### [grafana-4.0.11](https://github.com/truecharts/apps/compare/grafana-4.0.10...grafana-4.0.11) (2022-06-22)
+<a name="gotify-8.0.6"></a>
+### [gotify-8.0.6](https://github.com/truecharts/apps/compare/gotify-8.0.5...gotify-8.0.6) (2022-06-22)
 
 #### Chore
 
@@ -1165,36 +832,35 @@
 
 
 
-<a name="grafana-4.0.10"></a>
-### [grafana-4.0.10](https://github.com/truecharts/apps/compare/grafana-4.0.9...grafana-4.0.10) (2022-06-21)
+<a name="gotify-8.0.5"></a>
+### [gotify-8.0.5](https://github.com/truecharts/apps/compare/gotify-8.0.4...gotify-8.0.5) (2022-06-21)
 
 #### Chore
 
 * update helm general non-major helm releases ([#2943](https://github.com/truecharts/apps/issues/2943))
-* update docker general non-major ([#2931](https://github.com/truecharts/apps/issues/2931))
 
 
 
-<a name="grafana-4.0.9"></a>
-### [grafana-4.0.9](https://github.com/truecharts/apps/compare/grafana-4.0.8...grafana-4.0.9) (2022-06-18)
-
-#### Chore
-
-* update docker general non-major ([#2927](https://github.com/truecharts/apps/issues/2927))
-
-
-
-<a name="grafana-4.0.8"></a>
-### [grafana-4.0.8](https://github.com/truecharts/apps/compare/grafana-4.0.7...grafana-4.0.8) (2022-06-15)
+<a name="gotify-8.0.4"></a>
+### [gotify-8.0.4](https://github.com/truecharts/apps/compare/gotify-8.0.3...gotify-8.0.4) (2022-06-17)
 
 #### Chore
 
-* update docker general non-major ([#2890](https://github.com/truecharts/apps/issues/2890))
+* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
 
 
 
-<a name="grafana-4.0.7"></a>
-### [grafana-4.0.7](https://github.com/truecharts/apps/compare/grafana-4.0.6...grafana-4.0.7) (2022-06-14)
+<a name="gotify-8.0.3"></a>
+### [gotify-8.0.3](https://github.com/truecharts/apps/compare/gotify-8.0.2...gotify-8.0.3) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2887](https://github.com/truecharts/apps/issues/2887))
+
+
+
+<a name="gotify-8.0.2"></a>
+### [gotify-8.0.2](https://github.com/truecharts/apps/compare/gotify-8.0.1...gotify-8.0.2) (2022-06-14)
 
 #### Chore
 
@@ -1202,17 +868,8 @@
 
 
 
-<a name="grafana-4.0.6"></a>
-### [grafana-4.0.6](https://github.com/truecharts/apps/compare/grafana-4.0.5...grafana-4.0.6) (2022-06-14)
-
-#### Chore
-
-* update docker general non-major ([#2872](https://github.com/truecharts/apps/issues/2872))
-
-
-
-<a name="grafana-4.0.5"></a>
-### [grafana-4.0.5](https://github.com/truecharts/apps/compare/grafana-4.0.4...grafana-4.0.5) (2022-06-11)
+<a name="gotify-8.0.1"></a>
+### [gotify-8.0.1](https://github.com/truecharts/apps/compare/gotify-8.0.0...gotify-8.0.1) (2022-06-11)
 
 #### Chore
 
@@ -1220,26 +877,12 @@
 
 
 
-<a name="grafana-4.0.4"></a>
-### [grafana-4.0.4](https://github.com/truecharts/apps/compare/grafana-4.0.3...grafana-4.0.4) (2022-06-11)
+<a name="gotify-8.0.0"></a>
+### [gotify-8.0.0](https://github.com/truecharts/apps/compare/gotify-7.0.1...gotify-8.0.0) (2022-06-07)
 
 #### Chore
 
-* update docker general non-major ([#2848](https://github.com/truecharts/apps/issues/2848))
-
-
-
-<a name="grafana-4.0.3"></a>
-### [grafana-4.0.3](https://github.com/truecharts/apps/compare/grafana-4.0.2...grafana-4.0.3) (2022-06-09)
-
-#### Chore
-
-* update docker general non-major ([#2846](https://github.com/truecharts/apps/issues/2846))
-
-
-
-<a name="grafana-4.0.2"></a>
-### [grafana-4.0.2](https://github.com/truecharts/apps/compare/grafana-4.0.1...grafana-4.0.2) (2022-06-07)
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
 
 #### Fix
 
@@ -1247,13 +890,14 @@
 
 
 
-<a name="grafana-4.0.1"></a>
-### [grafana-4.0.1](https://github.com/truecharts/apps/compare/grafana-3.0.62...grafana-4.0.1) (2022-06-07)
+<a name="gotify-7.0.1"></a>
+### [gotify-7.0.1](https://github.com/truecharts/apps/compare/gotify-6.0.23...gotify-7.0.1) (2022-06-07)
 
 #### Chore
 
 * Auto-update chart README [skip ci]
 * sync all apps persistence configuration and always default to PVC
+* update helm general non-major helm releases ([#2838](https://github.com/truecharts/apps/issues/2838))
 
 #### Fix
 
@@ -1265,8 +909,8 @@
 
 
 
-<a name="grafana-4.0.0"></a>
-### [grafana-4.0.0](https://github.com/truecharts/apps/compare/grafana-3.0.62...grafana-4.0.0) (2022-06-07)
+<a name="gotify-7.0.0"></a>
+### [gotify-7.0.0](https://github.com/truecharts/apps/compare/gotify-6.0.23...gotify-7.0.0) (2022-06-07)
 
 #### Chore
 
@@ -1278,45 +922,17 @@
 
 
 
-<a name="grafana-3.0.62"></a>
-### [grafana-3.0.62](https://github.com/truecharts/apps/compare/grafana-3.0.61...grafana-3.0.62) (2022-06-04)
-
-#### Chore
-
-* update docker general non-major ([#2826](https://github.com/truecharts/apps/issues/2826))
-
-
-
-<a name="grafana-3.0.61"></a>
-### [grafana-3.0.61](https://github.com/truecharts/apps/compare/grafana-3.0.60...grafana-3.0.61) (2022-06-03)
-
-#### Chore
-
-* update docker general non-major ([#2821](https://github.com/truecharts/apps/issues/2821))
-
-
-
-<a name="grafana-3.0.60"></a>
-### [grafana-3.0.60](https://github.com/truecharts/apps/compare/grafana-3.0.59...grafana-3.0.60) (2022-06-02)
-
-#### Chore
-
-* update docker general non-major ([#2806](https://github.com/truecharts/apps/issues/2806))
-
-
-
-<a name="grafana-3.0.59"></a>
-### [grafana-3.0.59](https://github.com/truecharts/apps/compare/grafana-3.0.58...grafana-3.0.59) (2022-05-31)
+<a name="gotify-6.0.23"></a>
+### [gotify-6.0.23](https://github.com/truecharts/apps/compare/gotify-6.0.22...gotify-6.0.23) (2022-05-31)
 
 #### Chore
 
 * update helm general non-major helm releases ([#2803](https://github.com/truecharts/apps/issues/2803))
-* update docker general non-major ([#2791](https://github.com/truecharts/apps/issues/2791))
 
 
 
-<a name="grafana-3.0.58"></a>
-### [grafana-3.0.58](https://github.com/truecharts/apps/compare/grafana-3.0.57...grafana-3.0.58) (2022-05-26)
+<a name="gotify-6.0.22"></a>
+### [gotify-6.0.22](https://github.com/truecharts/apps/compare/gotify-6.0.21...gotify-6.0.22) (2022-05-26)
 
 #### Chore
 
@@ -1325,8 +941,8 @@
 
 
 
-<a name="grafana-3.0.58"></a>
-### [grafana-3.0.58](https://github.com/truecharts/apps/compare/grafana-3.0.57...grafana-3.0.58) (2022-05-26)
+<a name="gotify-6.0.22"></a>
+### [gotify-6.0.22](https://github.com/truecharts/apps/compare/gotify-6.0.21...gotify-6.0.22) (2022-05-26)
 
 #### Chore
 
@@ -1334,26 +950,8 @@
 
 
 
-<a name="grafana-3.0.57"></a>
-### [grafana-3.0.57](https://github.com/truecharts/apps/compare/grafana-3.0.56...grafana-3.0.57) (2022-05-26)
-
-#### Chore
-
-* update docker general non-major ([#2756](https://github.com/truecharts/apps/issues/2756))
-
-
-
-<a name="grafana-3.0.56"></a>
-### [grafana-3.0.56](https://github.com/truecharts/apps/compare/grafana-3.0.55...grafana-3.0.56) (2022-05-24)
-
-#### Chore
-
-* update docker general non-major ([#2744](https://github.com/truecharts/apps/issues/2744))
-
-
-
-<a name="grafana-3.0.55"></a>
-### [grafana-3.0.55](https://github.com/truecharts/apps/compare/grafana-3.0.54...grafana-3.0.55) (2022-05-24)
+<a name="gotify-6.0.21"></a>
+### [gotify-6.0.21](https://github.com/truecharts/apps/compare/gotify-6.0.20...gotify-6.0.21) (2022-05-24)
 
 #### Chore
 
@@ -1361,37 +959,18 @@
 
 
 
-<a name="grafana-3.0.54"></a>
-### [grafana-3.0.54](https://github.com/truecharts/apps/compare/grafana-3.0.53...grafana-3.0.54) (2022-05-20)
-
-#### Chore
-
-* update docker general non-major ([#2720](https://github.com/truecharts/apps/issues/2720))
-
-
-
-<a name="grafana-3.0.53"></a>
-### [grafana-3.0.53](https://github.com/truecharts/apps/compare/grafana-3.0.51...grafana-3.0.53) (2022-05-18)
+<a name="gotify-6.0.20"></a>
+### [gotify-6.0.20](https://github.com/truecharts/apps/compare/gotify-6.0.19...gotify-6.0.20) (2022-05-17)
 
 #### Chore
 
 * Auto-update chart README [skip ci]
-* update docker general non-major ([#2706](https://github.com/truecharts/apps/issues/2706))
 * update helm general non-major helm releases
 
 
 
-<a name="grafana-3.0.52"></a>
-### [grafana-3.0.52](https://github.com/truecharts/apps/compare/grafana-3.0.51...grafana-3.0.52) (2022-05-17)
-
-#### Chore
-
-* update helm general non-major helm releases
-
-
-
-<a name="grafana-3.0.51"></a>
-### [grafana-3.0.51](https://github.com/truecharts/apps/compare/grafana-3.0.50...grafana-3.0.51) (2022-05-17)
+<a name="gotify-6.0.20"></a>
+### [gotify-6.0.20](https://github.com/truecharts/apps/compare/gotify-6.0.19...gotify-6.0.20) (2022-05-17)
 
 #### Chore
 
@@ -1399,53 +978,17 @@
 
 
 
-<a name="grafana-3.0.50"></a>
-### [grafana-3.0.50](https://github.com/truecharts/apps/compare/grafana-3.0.49...grafana-3.0.50) (2022-05-16)
+<a name="gotify-6.0.19"></a>
+### [gotify-6.0.19](https://github.com/truecharts/apps/compare/gotify-6.0.18...gotify-6.0.19) (2022-05-17)
 
 #### Chore
 
-* update docker general non-major ([#2692](https://github.com/truecharts/apps/issues/2692))
+* update helm general non-major helm releases
 
 
 
-<a name="grafana-3.0.49"></a>
-### [grafana-3.0.49](https://github.com/truecharts/apps/compare/grafana-3.0.48...grafana-3.0.49) (2022-05-15)
-
-#### Chore
-
-* update docker general non-major ([#2686](https://github.com/truecharts/apps/issues/2686))
-
-
-
-<a name="grafana-3.0.48"></a>
-### [grafana-3.0.48](https://github.com/truecharts/apps/compare/grafana-3.0.47...grafana-3.0.48) (2022-05-14)
-
-#### Chore
-
-* update docker general non-major ([#2679](https://github.com/truecharts/apps/issues/2679))
-
-
-
-<a name="grafana-3.0.47"></a>
-### [grafana-3.0.47](https://github.com/truecharts/apps/compare/grafana-3.0.46...grafana-3.0.47) (2022-05-13)
-
-#### Chore
-
-* update docker general non-major ([#2658](https://github.com/truecharts/apps/issues/2658))
-
-
-
-<a name="grafana-3.0.46"></a>
-### [grafana-3.0.46](https://github.com/truecharts/apps/compare/grafana-3.0.45...grafana-3.0.46) (2022-05-11)
-
-#### Chore
-
-* update docker general non-major ([#2653](https://github.com/truecharts/apps/issues/2653))
-
-
-
-<a name="grafana-3.0.45"></a>
-### [grafana-3.0.45](https://github.com/truecharts/apps/compare/grafana-3.0.44...grafana-3.0.45) (2022-05-10)
+<a name="gotify-6.0.18"></a>
+### [gotify-6.0.18](https://github.com/truecharts/apps/compare/gotify-6.0.17...gotify-6.0.18) (2022-05-10)
 
 #### Chore
 
@@ -1453,53 +996,8 @@
 
 
 
-<a name="grafana-3.0.44"></a>
-### [grafana-3.0.44](https://github.com/truecharts/apps/compare/grafana-3.0.43...grafana-3.0.44) (2022-05-10)
-
-#### Chore
-
-* update docker general non-major
-
-
-
-<a name="grafana-3.0.43"></a>
-### [grafana-3.0.43](https://github.com/truecharts/apps/compare/grafana-3.0.42...grafana-3.0.43) (2022-05-09)
-
-#### Chore
-
-* update docker general non-major ([#2641](https://github.com/truecharts/apps/issues/2641))
-
-
-
-<a name="grafana-3.0.42"></a>
-### [grafana-3.0.42](https://github.com/truecharts/apps/compare/grafana-3.0.41...grafana-3.0.42) (2022-05-08)
-
-#### Chore
-
-* update docker general non-major ([#2639](https://github.com/truecharts/apps/issues/2639))
-
-
-
-<a name="grafana-3.0.41"></a>
-### [grafana-3.0.41](https://github.com/truecharts/apps/compare/grafana-3.0.40...grafana-3.0.41) (2022-05-06)
-
-#### Chore
-
-* update docker general non-major
-
-
-
-<a name="grafana-3.0.40"></a>
-### [grafana-3.0.40](https://github.com/truecharts/apps/compare/grafana-3.0.39...grafana-3.0.40) (2022-05-06)
-
-#### Chore
-
-* update docker general non-major
-
-
-
-<a name="grafana-3.0.39"></a>
-### [grafana-3.0.39](https://github.com/truecharts/apps/compare/grafana-3.0.38...grafana-3.0.39) (2022-05-05)
+<a name="gotify-6.0.17"></a>
+### [gotify-6.0.17](https://github.com/truecharts/apps/compare/gotify-6.0.16...gotify-6.0.17) (2022-05-05)
 
 #### Chore
 
@@ -1507,35 +1005,17 @@
 
 
 
-<a name="grafana-3.0.38"></a>
-### [grafana-3.0.38](https://github.com/truecharts/apps/compare/grafana-3.0.37...grafana-3.0.38) (2022-05-04)
+<a name="gotify-6.0.16"></a>
+### [gotify-6.0.16](https://github.com/truecharts/apps/compare/gotify-6.0.15...gotify-6.0.16) (2022-05-04)
 
 #### Chore
 
-* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+* update helm general non-major helm releases ([#2605](https://github.com/truecharts/apps/issues/2605))
 
 
 
-<a name="grafana-3.0.37"></a>
-### [grafana-3.0.37](https://github.com/truecharts/apps/compare/grafana-3.0.36...grafana-3.0.37) (2022-04-29)
-
-#### Chore
-
-* update docker general non-major ([#2581](https://github.com/truecharts/apps/issues/2581))
-
-
-
-<a name="grafana-3.0.36"></a>
-### [grafana-3.0.36](https://github.com/truecharts/apps/compare/grafana-3.0.35...grafana-3.0.36) (2022-04-28)
-
-#### Chore
-
-* update docker general non-major ([#2577](https://github.com/truecharts/apps/issues/2577))
-
-
-
-<a name="grafana-3.0.35"></a>
-### [grafana-3.0.35](https://github.com/truecharts/apps/compare/grafana-3.0.34...grafana-3.0.35) (2022-04-26)
+<a name="gotify-6.0.15"></a>
+### [gotify-6.0.15](https://github.com/truecharts/apps/compare/gotify-6.0.14...gotify-6.0.15) (2022-04-26)
 
 #### Chore
 
@@ -1543,72 +1023,18 @@
 
 
 
-<a name="grafana-3.0.34"></a>
-### [grafana-3.0.34](https://github.com/truecharts/apps/compare/grafana-3.0.33...grafana-3.0.34) (2022-04-26)
-
-#### Chore
-
-* update docker general non-major ([#2571](https://github.com/truecharts/apps/issues/2571))
-
-
-
-<a name="grafana-3.0.33"></a>
-### [grafana-3.0.33](https://github.com/truecharts/apps/compare/grafana-3.0.32...grafana-3.0.33) (2022-04-20)
-
-#### Chore
-
-* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
-
-
-
-<a name="grafana-3.0.32"></a>
-### [grafana-3.0.32](https://github.com/truecharts/apps/compare/grafana-3.0.31...grafana-3.0.32) (2022-04-20)
+<a name="gotify-6.0.14"></a>
+### [gotify-6.0.14](https://github.com/truecharts/apps/compare/gotify-6.0.13...gotify-6.0.14) (2022-04-20)
 
 #### Chore
 
 * add missing quote on description ([#2515](https://github.com/truecharts/apps/issues/2515))
-* update docker general non-major ([#2522](https://github.com/truecharts/apps/issues/2522))
+* update helm general non-major helm releases ([#2524](https://github.com/truecharts/apps/issues/2524))
 
 
 
-<a name="grafana-3.0.31"></a>
-### [grafana-3.0.31](https://github.com/truecharts/apps/compare/grafana-3.0.30...grafana-3.0.31) (2022-04-18)
-
-#### Chore
-
-* update docker general non-major ([#2502](https://github.com/truecharts/apps/issues/2502))
-
-
-
-<a name="grafana-3.0.30"></a>
-### [grafana-3.0.30](https://github.com/truecharts/apps/compare/grafana-3.0.29...grafana-3.0.30) (2022-04-17)
-
-#### Chore
-
-* update docker general non-major ([#2497](https://github.com/truecharts/apps/issues/2497))
-
-
-
-<a name="grafana-3.0.29"></a>
-### [grafana-3.0.29](https://github.com/truecharts/apps/compare/grafana-3.0.28...grafana-3.0.29) (2022-04-16)
-
-#### Chore
-
-* update docker general non-major ([#2494](https://github.com/truecharts/apps/issues/2494))
-
-
-
-<a name="grafana-3.0.28"></a>
-### [grafana-3.0.28](https://github.com/truecharts/apps/compare/grafana-3.0.27...grafana-3.0.28) (2022-04-12)
-
-#### Chore
-
-* update docker general non-major
-
-
-
-<a name="grafana-3.0.27"></a>
-### [grafana-3.0.27](https://github.com/truecharts/apps/compare/grafana-3.0.26...grafana-3.0.27) (2022-04-12)
+<a name="gotify-6.0.13"></a>
+### [gotify-6.0.13](https://github.com/truecharts/apps/compare/gotify-6.0.12...gotify-6.0.13) (2022-04-12)
 
 #### Chore
 
@@ -1616,111 +1042,54 @@
 
 
 
-<a name="grafana-3.0.26"></a>
-### [grafana-3.0.26](https://github.com/truecharts/apps/compare/grafana-3.0.25...grafana-3.0.26) (2022-04-12)
+<a name="gotify-6.0.12"></a>
+### [gotify-6.0.12](https://github.com/truecharts/apps/compare/gotify-6.0.11...gotify-6.0.12) (2022-04-03)
 
 #### Chore
 
-* update docker general non-major ([#2478](https://github.com/truecharts/apps/issues/2478))
-
-
-
-<a name="grafana-3.0.25"></a>
-### [grafana-3.0.25](https://github.com/truecharts/apps/compare/grafana-3.0.24...grafana-3.0.25) (2022-04-09)
-
-#### Chore
-
-* update docker general non-major ([#2460](https://github.com/truecharts/apps/issues/2460))
-
-
-
-<a name="grafana-3.0.24"></a>
-### [grafana-3.0.24](https://github.com/truecharts/apps/compare/grafana-3.0.23...grafana-3.0.24) (2022-04-06)
-
-#### Chore
-
-* update docker general non-major
-
-
-
-<a name="grafana-3.0.23"></a>
-### [grafana-3.0.23](https://github.com/truecharts/apps/compare/grafana-3.0.22...grafana-3.0.23) (2022-04-04)
-
-#### Chore
-
-* update docker general non-major
-
-
-
-<a name="grafana-3.0.22"></a>
-### [grafana-3.0.22](https://github.com/truecharts/apps/compare/grafana-3.0.21...grafana-3.0.22) (2022-04-03)
-
-#### Chore
-
-* Auto-update chart README [skip ci]
 * update helm general non-major helm releases ([#2410](https://github.com/truecharts/apps/issues/2410))
-* update docker general non-major ([#2414](https://github.com/truecharts/apps/issues/2414))
 
 
 
-<a name="grafana-3.0.20"></a>
-### [grafana-3.0.20](https://github.com/truecharts/apps/compare/grafana-3.0.19...grafana-3.0.20) (2022-04-01)
-
-#### Chore
-
-* update docker general non-major
-
-
-
-<a name="grafana-3.0.19"></a>
-### [grafana-3.0.19](https://github.com/truecharts/apps/compare/grafana-3.0.17...grafana-3.0.19) (2022-03-31)
+<a name="gotify-6.0.11"></a>
+### [gotify-6.0.11](https://github.com/truecharts/apps/compare/gotify-6.0.10...gotify-6.0.11) (2022-03-31)
 
 #### Chore
 
-* update docker general non-major ([#2357](https://github.com/truecharts/apps/issues/2357))
+* update helm general non-major helm releases ([#2362](https://github.com/truecharts/apps/issues/2362))
+
+
+
+<a name="gotify-6.0.10"></a>
+### [gotify-6.0.10](https://github.com/truecharts/apps/compare/gotify-6.0.9...gotify-6.0.10) (2022-03-31)
+
+#### Chore
+
 * update helm general non-major helm releases ([#2361](https://github.com/truecharts/apps/issues/2361))
 
 
 
-<a name="grafana-3.0.17"></a>
-### [grafana-3.0.17](https://github.com/truecharts/apps/compare/grafana-3.0.16...grafana-3.0.17) (2022-03-30)
+<a name="gotify-6.0.9"></a>
+### [gotify-6.0.9](https://github.com/truecharts/apps/compare/gotify-6.0.8...gotify-6.0.9) (2022-03-30)
 
 #### Chore
 
-* Auto-update chart README [skip ci]
+* Use new repo ([#2337](https://github.com/truecharts/apps/issues/2337))
 * update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
 
 
 
-<a name="grafana-3.0.16"></a>
-### [grafana-3.0.16](https://github.com/truecharts/apps/compare/grafana-3.0.15...grafana-3.0.16) (2022-03-30)
+<a name="gotify-6.0.8"></a>
+### [gotify-6.0.8](https://github.com/truecharts/apps/compare/gotify-6.0.7...gotify-6.0.8) (2022-03-26)
 
 #### Chore
 
-* update docker general non-major ([#2347](https://github.com/truecharts/apps/issues/2347))
+* update helm general non-major helm releases ([#2290](https://github.com/truecharts/apps/issues/2290))
 
 
 
-<a name="grafana-3.0.15"></a>
-### [grafana-3.0.15](https://github.com/truecharts/apps/compare/grafana-3.0.14...grafana-3.0.15) (2022-03-30)
-
-#### Chore
-
-* update docker general non-major ([#2338](https://github.com/truecharts/apps/issues/2338))
-
-
-
-<a name="grafana-3.0.14"></a>
-### [grafana-3.0.14](https://github.com/truecharts/apps/compare/grafana-3.0.13...grafana-3.0.14) (2022-03-28)
-
-#### Chore
-
-* update docker general non-major
-
-
-
-<a name="grafana-3.0.13"></a>
-### [grafana-3.0.13](https://github.com/truecharts/apps/compare/grafana-3.0.12...grafana-3.0.13) (2022-03-26)
+<a name="gotify-6.0.7"></a>
+### [gotify-6.0.7](https://github.com/truecharts/apps/compare/gotify-6.0.6...gotify-6.0.7) (2022-03-26)
 
 #### Chore
 
@@ -1728,84 +1097,27 @@
 
 
 
-<a name="grafana-3.0.11"></a>
-### [grafana-3.0.11](https://github.com/truecharts/apps/compare/grafana-3.0.10...grafana-3.0.11) (2022-03-26)
+<a name="gotify-6.0.2"></a>
+### [gotify-6.0.2](https://github.com/truecharts/apps/compare/gotify-6.0.1...gotify-6.0.2) (2022-03-08)
 
 #### Chore
 
-* update docker general non-major
+* update helm general non-major helm releases ([#2116](https://github.com/truecharts/apps/issues/2116))
 
 
 
-<a name="grafana-3.0.10"></a>
-### [grafana-3.0.10](https://github.com/truecharts/apps/compare/grafana-3.0.9...grafana-3.0.10) (2022-03-24)
-
-#### Chore
-
-* update docker general non-major
-
-
-
-<a name="grafana-3.0.9"></a>
-### [grafana-3.0.9](https://github.com/truecharts/apps/compare/grafana-3.0.8...grafana-3.0.9) (2022-03-24)
-
-#### Chore
-
-* update docker general non-major ([#2259](https://github.com/truecharts/apps/issues/2259))
-* update docker general non-major
-
-
-
-<a name="grafana-3.0.7"></a>
-### [grafana-3.0.7](https://github.com/truecharts/apps/compare/grafana-3.0.6...grafana-3.0.7) (2022-03-20)
-
-#### Chore
-
-* update docker general non-major
-* update docker general non-major
-
-
-
-<a name="grafana-3.0.5"></a>
-### [grafana-3.0.5](https://github.com/truecharts/apps/compare/grafana-3.0.4...grafana-3.0.5) (2022-03-17)
-
-#### Chore
-
-* update docker general non-major ([#2198](https://github.com/truecharts/apps/issues/2198))
-* update docker general non-major ([#2196](https://github.com/truecharts/apps/issues/2196))
-
-
-
-<a name="grafana-3.0.3"></a>
-### [grafana-3.0.3](https://github.com/truecharts/apps/compare/grafana-3.0.2...grafana-3.0.3) (2022-03-15)
-
-#### Chore
-
-* update docker general non-major ([#2178](https://github.com/truecharts/apps/issues/2178))
-
-
-
-<a name="grafana-3.0.2"></a>
-### [grafana-3.0.2](https://github.com/truecharts/apps/compare/grafana-3.0.1...grafana-3.0.2) (2022-03-07)
+<a name="gotify-6.0.1"></a>
+### [gotify-6.0.1](https://github.com/truecharts/apps/compare/gotify-6.0.0...gotify-6.0.1) (2022-03-07)
 
 #### Chore
 
 * update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
-
-
-
-<a name="grafana-3.0.1"></a>
-### [grafana-3.0.1](https://github.com/truecharts/apps/compare/grafana-3.0.0...grafana-3.0.1) (2022-03-07)
-
-#### Chore
-
-* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
 * Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
 
 
 
-<a name="grafana-3.0.0"></a>
-### [grafana-3.0.0](https://github.com/truecharts/apps/compare/grafana-2.0.45...grafana-3.0.0) (2022-03-03)
+<a name="gotify-6.0.0"></a>
+### [gotify-6.0.0](https://github.com/truecharts/apps/compare/gotify-5.0.36...gotify-6.0.0) (2022-03-03)
 
 #### Chore
 
@@ -1815,11 +1127,12 @@
 #### Fix
 
 * BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+* fix TZ being wrongly defined in common and remove its references from some remaining Apps ([#2005](https://github.com/truecharts/apps/issues/2005))
 
 
 
-<a name="grafana-2.0.45"></a>
-### [grafana-2.0.45](https://github.com/truecharts/apps/compare/grafana-2.0.44...grafana-2.0.45) (2022-03-02)
+<a name="gotify-5.0.36"></a>
+### [gotify-5.0.36](https://github.com/truecharts/apps/compare/gotify-5.0.35...gotify-5.0.36) (2022-03-02)
 
 #### Chore
 
@@ -1828,8 +1141,8 @@
 
 
 
-<a name="grafana-2.0.44"></a>
-### [grafana-2.0.44](https://github.com/truecharts/apps/compare/grafana-2.0.43...grafana-2.0.44) (2022-02-21)
+<a name="gotify-5.0.35"></a>
+### [gotify-5.0.35](https://github.com/truecharts/apps/compare/gotify-5.0.34...gotify-5.0.35) (2022-02-21)
 
 #### Chore
 
@@ -1837,17 +1150,8 @@
 
 
 
-<a name="grafana-2.0.43"></a>
-### [grafana-2.0.43](https://github.com/truecharts/apps/compare/grafana-2.0.42...grafana-2.0.43) (2022-02-21)
-
-#### Chore
-
-* update docker general non-major ([#1924](https://github.com/truecharts/apps/issues/1924))
-
-
-
-<a name="grafana-2.0.42"></a>
-### [grafana-2.0.42](https://github.com/truecharts/apps/compare/grafana-2.0.41...grafana-2.0.42) (2022-02-15)
+<a name="gotify-5.0.34"></a>
+### [gotify-5.0.34](https://github.com/truecharts/apps/compare/gotify-5.0.33...gotify-5.0.34) (2022-02-15)
 
 #### Chore
 
@@ -1855,26 +1159,8 @@
 
 
 
-<a name="grafana-2.0.41"></a>
-### [grafana-2.0.41](https://github.com/truecharts/apps/compare/grafana-2.0.40...grafana-2.0.41) (2022-02-14)
-
-#### Chore
-
-* update docker general non-major ([#1895](https://github.com/truecharts/apps/issues/1895))
-
-
-
-<a name="grafana-2.0.40"></a>
-### [grafana-2.0.40](https://github.com/truecharts/apps/compare/grafana-2.0.39...grafana-2.0.40) (2022-02-10)
-
-#### Chore
-
-* update docker general non-major ([#1876](https://github.com/truecharts/apps/issues/1876))
-
-
-
-<a name="grafana-2.0.39"></a>
-### [grafana-2.0.39](https://github.com/truecharts/apps/compare/grafana-2.0.38...grafana-2.0.39) (2022-02-08)
+<a name="gotify-5.0.33"></a>
+### [gotify-5.0.33](https://github.com/truecharts/apps/compare/gotify-5.0.32...gotify-5.0.33) (2022-02-08)
 
 #### Chore
 
@@ -1882,46 +1168,26 @@
 
 
 
-<a name="grafana-2.0.38"></a>
-### [grafana-2.0.38](https://github.com/truecharts/apps/compare/grafana-2.0.37...grafana-2.0.38) (2022-02-08)
-
-#### Chore
-
-* update docker general non-major ([#1869](https://github.com/truecharts/apps/issues/1869))
-
-
-
-<a name="grafana-2.0.37"></a>
-### [grafana-2.0.37](https://github.com/truecharts/apps/compare/grafana-2.0.36...grafana-2.0.37) (2022-02-06)
+<a name="gotify-5.0.32"></a>
+### [gotify-5.0.32](https://github.com/truecharts/apps/compare/gotify-5.0.31...gotify-5.0.32) (2022-02-06)
 
 #### Chore
 
 * update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
-* update docker general non-major ([#1855](https://github.com/truecharts/apps/issues/1855))
 
 
 
-<a name="grafana-2.0.36"></a>
-### [grafana-2.0.36](https://github.com/truecharts/apps/compare/grafana-2.0.35...grafana-2.0.36) (2022-02-05)
+<a name="gotify-5.0.31"></a>
+### [gotify-5.0.31](https://github.com/truecharts/apps/compare/gotify-5.0.30...gotify-5.0.31) (2022-02-05)
 
 #### Chore
 
 * update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
-* update docker general non-major ([#1849](https://github.com/truecharts/apps/issues/1849))
 
 
 
-<a name="grafana-2.0.35"></a>
-### [grafana-2.0.35](https://github.com/truecharts/apps/compare/grafana-2.0.34...grafana-2.0.35) (2022-02-03)
-
-#### Chore
-
-* update docker general non-major ([#1836](https://github.com/truecharts/apps/issues/1836))
-
-
-
-<a name="grafana-2.0.34"></a>
-### [grafana-2.0.34](https://github.com/truecharts/apps/compare/grafana-2.0.33...grafana-2.0.34) (2022-02-02)
+<a name="gotify-5.0.30"></a>
+### [gotify-5.0.30](https://github.com/truecharts/apps/compare/gotify-5.0.29...gotify-5.0.30) (2022-02-02)
 
 #### Chore
 
@@ -1929,17 +1195,8 @@
 
 
 
-<a name="grafana-2.0.33"></a>
-### [grafana-2.0.33](https://github.com/truecharts/apps/compare/grafana-2.0.32...grafana-2.0.33) (2022-01-31)
-
-#### Chore
-
-* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
-
-
-
-<a name="grafana-2.0.32"></a>
-### [grafana-2.0.32](https://github.com/truecharts/apps/compare/grafana-2.0.31...grafana-2.0.32) (2022-01-25)
+<a name="gotify-5.0.29"></a>
+### [gotify-5.0.29](https://github.com/truecharts/apps/compare/gotify-5.0.28...gotify-5.0.29) (2022-01-25)
 
 #### Chore
 
@@ -1947,17 +1204,8 @@
 
 
 
-<a name="grafana-2.0.31"></a>
-### [grafana-2.0.31](https://github.com/truecharts/apps/compare/grafana-2.0.30...grafana-2.0.31) (2022-01-24)
-
-#### Chore
-
-* update docker general non-major ([#1786](https://github.com/truecharts/apps/issues/1786))
-
-
-
-<a name="grafana-2.0.30"></a>
-### [grafana-2.0.30](https://github.com/truecharts/apps/compare/grafana-2.0.29...grafana-2.0.30) (2022-01-22)
+<a name="gotify-5.0.28"></a>
+### [gotify-5.0.28](https://github.com/truecharts/apps/compare/gotify-5.0.27...gotify-5.0.28) (2022-01-22)
 
 #### Chore
 
@@ -1965,39 +1213,21 @@
 
 
 
-<a name="grafana-2.0.29"></a>
-### [grafana-2.0.29](https://github.com/truecharts/apps/compare/grafana-2.0.28...grafana-2.0.29) (2022-01-22)
+<a name="gotify-5.0.27"></a>
+### [gotify-5.0.27](https://github.com/truecharts/apps/compare/gotify-5.0.26...gotify-5.0.27) (2022-01-22)
 
 #### Chore
 
-* update docker general non-major ([#1764](https://github.com/truecharts/apps/issues/1764))
+* update helm general non-major helm releases ([#1763](https://github.com/truecharts/apps/issues/1763))
 
 
 
-<a name="grafana-2.0.28"></a>
-### [grafana-2.0.28](https://github.com/truecharts/apps/compare/grafana-2.0.27...grafana-2.0.28) (2022-01-21)
+<a name="gotify-5.0.26"></a>
+### [gotify-5.0.26](https://github.com/truecharts/apps/compare/gotify-5.0.25...gotify-5.0.26) (2022-01-21)
 
 #### Chore
 
 * update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
-
-
-
-<a name="grafana-2.0.27"></a>
-### [grafana-2.0.27](https://github.com/truecharts/apps/compare/grafana-2.0.26...grafana-2.0.27) (2022-01-21)
-
-#### Chore
-
-* update docker general non-major ([#1757](https://github.com/truecharts/apps/issues/1757))
-
-
-
-<a name="grafana-2.0.26"></a>
-### [grafana-2.0.26](https://github.com/truecharts/apps/compare/grafana-2.0.25...grafana-2.0.26) (2022-01-21)
-
-#### Chore
-
-* update docker general non-major ([#1751](https://github.com/truecharts/apps/issues/1751))
 
 #### Fix
 
@@ -2005,17 +1235,8 @@
 
 
 
-<a name="grafana-2.0.25"></a>
-### [grafana-2.0.25](https://github.com/truecharts/apps/compare/grafana-2.0.24...grafana-2.0.25) (2022-01-19)
-
-#### Chore
-
-* update docker general non-major ([#1741](https://github.com/truecharts/apps/issues/1741))
-
-
-
-<a name="grafana-2.0.24"></a>
-### [grafana-2.0.24](https://github.com/truecharts/apps/compare/grafana-2.0.23...grafana-2.0.24) (2022-01-18)
+<a name="gotify-5.0.25"></a>
+### [gotify-5.0.25](https://github.com/truecharts/apps/compare/gotify-5.0.24...gotify-5.0.25) (2022-01-18)
 
 #### Chore
 
@@ -2023,8 +1244,8 @@
 
 
 
-<a name="grafana-2.0.23"></a>
-### [grafana-2.0.23](https://github.com/truecharts/apps/compare/grafana-2.0.22...grafana-2.0.23) (2022-01-17)
+<a name="gotify-5.0.24"></a>
+### [gotify-5.0.24](https://github.com/truecharts/apps/compare/gotify-5.0.23...gotify-5.0.24) (2022-01-17)
 
 #### Chore
 
@@ -2032,8 +1253,8 @@
 
 
 
-<a name="grafana-2.0.22"></a>
-### [grafana-2.0.22](https://github.com/truecharts/apps/compare/grafana-2.0.21...grafana-2.0.22) (2022-01-13)
+<a name="gotify-5.0.23"></a>
+### [gotify-5.0.23](https://github.com/truecharts/apps/compare/gotify-5.0.22...gotify-5.0.23) (2022-01-13)
 
 #### Chore
 
@@ -2045,8 +1266,8 @@
 
 
 
-<a name="grafana-2.0.21"></a>
-### [grafana-2.0.21](https://github.com/truecharts/apps/compare/grafana-2.0.20...grafana-2.0.21) (2022-01-12)
+<a name="gotify-5.0.22"></a>
+### [gotify-5.0.22](https://github.com/truecharts/apps/compare/gotify-5.0.21...gotify-5.0.22) (2022-01-12)
 
 #### Chore
 
@@ -2054,8 +1275,8 @@
 
 
 
-<a name="grafana-2.0.20"></a>
-### [grafana-2.0.20](https://github.com/truecharts/apps/compare/grafana-2.0.19...grafana-2.0.20) (2022-01-11)
+<a name="gotify-5.0.21"></a>
+### [gotify-5.0.21](https://github.com/truecharts/apps/compare/gotify-5.0.20...gotify-5.0.21) (2022-01-11)
 
 #### Chore
 
@@ -2063,26 +1284,8 @@
 
 
 
-<a name="grafana-2.0.19"></a>
-### [grafana-2.0.19](https://github.com/truecharts/apps/compare/grafana-2.0.18...grafana-2.0.19) (2022-01-10)
-
-#### Chore
-
-* update docker general non-major ([#1685](https://github.com/truecharts/apps/issues/1685))
-
-
-
-<a name="grafana-2.0.18"></a>
-### [grafana-2.0.18](https://github.com/truecharts/apps/compare/grafana-2.0.17...grafana-2.0.18) (2022-01-10)
-
-#### Chore
-
-* update docker general non-major ([#1677](https://github.com/truecharts/apps/issues/1677))
-
-
-
-<a name="grafana-2.0.17"></a>
-### [grafana-2.0.17](https://github.com/truecharts/apps/compare/grafana-2.0.16...grafana-2.0.17) (2022-01-04)
+<a name="gotify-5.0.20"></a>
+### [gotify-5.0.20](https://github.com/truecharts/apps/compare/gotify-5.0.19...gotify-5.0.20) (2022-01-04)
 
 #### Chore
 
@@ -2090,82 +1293,37 @@
 
 
 
-<a name="grafana-2.0.16"></a>
-### [grafana-2.0.16](https://github.com/truecharts/apps/compare/grafana-2.0.15...grafana-2.0.16) (2022-01-04)
+<a name="gotify-5.0.19"></a>
+### [gotify-5.0.19](https://github.com/truecharts/apps/compare/gotify-5.0.18...gotify-5.0.19) (2021-12-28)
 
 #### Chore
 
-* update docker general non-major ([#1648](https://github.com/truecharts/apps/issues/1648))
-
-
-
-<a name="grafana-2.0.15"></a>
-### [grafana-2.0.15](https://github.com/truecharts/apps/compare/grafana-2.0.14...grafana-2.0.15) (2022-01-03)
-
-#### Chore
-
-* update docker general non-major ([#1646](https://github.com/truecharts/apps/issues/1646))
-
-
-
-<a name="grafana-2.0.14"></a>
-### [grafana-2.0.14](https://github.com/truecharts/apps/compare/grafana-2.0.13...grafana-2.0.14) (2021-12-28)
-
-#### Chore
-
-* move `port` up in gui ([#1620](https://github.com/truecharts/apps/issues/1620))
 * update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
 
 
 
-<a name="grafana-2.0.13"></a>
-### [grafana-2.0.13](https://github.com/truecharts/apps/compare/grafana-2.0.12...grafana-2.0.13) (2021-12-27)
-
-#### Chore
-
-* update docker general non-major ([#1615](https://github.com/truecharts/apps/issues/1615))
-
-
-
-<a name="grafana-2.0.12"></a>
-### [grafana-2.0.12](https://github.com/truecharts/apps/compare/grafana-2.0.11...grafana-2.0.12) (2021-12-24)
-
-#### Chore
-
-* update docker general non-major ([#1607](https://github.com/truecharts/apps/issues/1607))
-
-
-
-<a name="grafana-2.0.11"></a>
-### [grafana-2.0.11](https://github.com/truecharts/apps/compare/grafana-2.0.10...grafana-2.0.11) (2021-12-21)
+<a name="gotify-5.0.18"></a>
+### [gotify-5.0.18](https://github.com/truecharts/apps/compare/gotify-5.0.17...gotify-5.0.18) (2021-12-21)
 
 #### Chore
 
 * update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
-* update docker general non-major ([#1595](https://github.com/truecharts/apps/issues/1595))
 
 
 
-<a name="grafana-2.0.10"></a>
-### [grafana-2.0.10](https://github.com/truecharts/apps/compare/grafana-2.0.9...grafana-2.0.10) (2021-12-20)
-
-#### Chore
-
-* update docker general non-major ([#1581](https://github.com/truecharts/apps/issues/1581))
-
-
-
-<a name="grafana-2.0.9"></a>
-### [grafana-2.0.9](https://github.com/truecharts/apps/compare/grafana-2.0.8...grafana-2.0.9) (2021-12-19)
+<a name="gotify-5.0.17"></a>
+### [gotify-5.0.17](https://github.com/truecharts/apps/compare/gotify-5.0.16...gotify-5.0.17) (2021-12-19)
 
 #### Chore
 
 * Last patch bump before RC2 branch-off
+* remove hidden vars/configs from `questions.yaml` after making sure they are defined in `values.yaml` ([#1577](https://github.com/truecharts/apps/issues/1577))
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
 
 
 
-<a name="grafana-2.0.8"></a>
-### [grafana-2.0.8](https://github.com/truecharts/apps/compare/grafana-2.0.7...grafana-2.0.8) (2021-12-19)
+<a name="gotify-5.0.16"></a>
+### [gotify-5.0.16](https://github.com/truecharts/apps/compare/gotify-5.0.15...gotify-5.0.16) (2021-12-19)
 
 #### Chore
 
@@ -2174,28 +1332,18 @@
 
 
 
-<a name="grafana-2.0.7"></a>
-### [grafana-2.0.7](https://github.com/truecharts/apps/compare/grafana-2.0.6...grafana-2.0.7) (2021-12-19)
-
-#### Chore
-
-* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
-
-
-
-<a name="grafana-2.0.6"></a>
-### [grafana-2.0.6](https://github.com/truecharts/apps/compare/grafana-2.0.5...grafana-2.0.6) (2021-12-18)
+<a name="gotify-5.0.15"></a>
+### [gotify-5.0.15](https://github.com/truecharts/apps/compare/gotify-5.0.14...gotify-5.0.15) (2021-12-18)
 
 #### Chore
 
 * cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
 * App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
-* update docker general non-major
 
 
 
-<a name="grafana-2.0.5"></a>
-### [grafana-2.0.5](https://github.com/truecharts/apps/compare/grafana-2.0.4...grafana-2.0.5) (2021-12-14)
+<a name="gotify-5.0.14"></a>
+### [gotify-5.0.14](https://github.com/truecharts/apps/compare/gotify-5.0.13...gotify-5.0.14) (2021-12-14)
 
 #### Chore
 
@@ -2203,8 +1351,8 @@
 
 
 
-<a name="grafana-2.0.4"></a>
-### [grafana-2.0.4](https://github.com/truecharts/apps/compare/grafana-2.0.3...grafana-2.0.4) (2021-12-13)
+<a name="gotify-5.0.13"></a>
+### [gotify-5.0.13](https://github.com/truecharts/apps/compare/gotify-5.0.12...gotify-5.0.13) (2021-12-13)
 
 #### Chore
 
@@ -2212,26 +1360,8 @@
 
 
 
-<a name="grafana-2.0.3"></a>
-### [grafana-2.0.3](https://github.com/truecharts/apps/compare/grafana-2.0.2...grafana-2.0.3) (2021-12-13)
-
-#### Chore
-
-* update docker general non-major ([#1522](https://github.com/truecharts/apps/issues/1522))
-
-
-
-<a name="grafana-2.0.2"></a>
-### [grafana-2.0.2](https://github.com/truecharts/apps/compare/grafana-2.0.1...grafana-2.0.2) (2021-12-12)
-
-#### Chore
-
-* update docker general non-major ([#1518](https://github.com/truecharts/apps/issues/1518))
-
-
-
-<a name="grafana-2.0.1"></a>
-### [grafana-2.0.1](https://github.com/truecharts/apps/compare/grafana-2.0.0...grafana-2.0.1) (2021-12-11)
+<a name="gotify-5.0.12"></a>
+### [gotify-5.0.12](https://github.com/truecharts/apps/compare/gotify-5.0.11...gotify-5.0.12) (2021-12-11)
 
 #### Chore
 
@@ -2239,35 +1369,8 @@
 
 
 
-<a name="grafana-2.0.0"></a>
-### [grafana-2.0.0](https://github.com/truecharts/apps/compare/grafana-1.0.14...grafana-2.0.0) (2021-12-11)
-
-#### Feat
-
-* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
-
-
-
-<a name="grafana-1.0.14"></a>
-### [grafana-1.0.14](https://github.com/truecharts/apps/compare/grafana-1.0.13...grafana-1.0.14) (2021-12-11)
-
-#### Chore
-
-* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
-
-
-
-<a name="grafana-1.0.13"></a>
-### [grafana-1.0.13](https://github.com/truecharts/apps/compare/grafana-1.0.12...grafana-1.0.13) (2021-12-08)
-
-#### Chore
-
-* update non-major ([#1488](https://github.com/truecharts/apps/issues/1488))
-
-
-
-<a name="grafana-1.0.12"></a>
-### [grafana-1.0.12](https://github.com/truecharts/apps/compare/grafana-1.0.11...grafana-1.0.12) (2021-12-07)
+<a name="gotify-5.0.11"></a>
+### [gotify-5.0.11](https://github.com/truecharts/apps/compare/gotify-5.0.10...gotify-5.0.11) (2021-12-07)
 
 #### Chore
 
@@ -2275,17 +1378,8 @@
 
 
 
-<a name="grafana-1.0.11"></a>
-### [grafana-1.0.11](https://github.com/truecharts/apps/compare/grafana-1.0.10...grafana-1.0.11) (2021-12-07)
-
-#### Chore
-
-* update non-major ([#1475](https://github.com/truecharts/apps/issues/1475))
-
-
-
-<a name="grafana-1.0.10"></a>
-### grafana-1.0.10 (2021-12-05)
+<a name="gotify-5.0.10"></a>
+### gotify-5.0.10 (2021-12-05)
 
 #### Chore
 
@@ -2298,17 +1392,15 @@
 * update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
 * update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
 * update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
-* update non-major ([#1427](https://github.com/truecharts/apps/issues/1427))
 
 #### Fix
 
 * fix typo in theme selection ([#1428](https://github.com/truecharts/apps/issues/1428))
-* correct storage path
 
 
 
-<a name="grafana-1.0.9"></a>
-### [grafana-1.0.9](https://github.com/truecharts/apps/compare/grafana-1.0.8...grafana-1.0.9) (2021-12-05)
+<a name="gotify-5.0.9"></a>
+### [gotify-5.0.9](https://github.com/truecharts/apps/compare/gotify-5.0.8...gotify-5.0.9) (2021-12-05)
 
 #### Chore
 
@@ -2316,8 +1408,8 @@
 
 
 
-<a name="grafana-1.0.8"></a>
-### [grafana-1.0.8](https://github.com/truecharts/apps/compare/grafana-1.0.7...grafana-1.0.8) (2021-12-05)
+<a name="gotify-5.0.8"></a>
+### [gotify-5.0.8](https://github.com/truecharts/apps/compare/gotify-5.0.7...gotify-5.0.8) (2021-12-05)
 
 #### Chore
 
@@ -2325,17 +1417,8 @@
 
 
 
-<a name="grafana-1.0.7"></a>
-### [grafana-1.0.7](https://github.com/truecharts/apps/compare/grafana-1.0.6...grafana-1.0.7) (2021-12-05)
-
-#### Fix
-
-* correct storage path
-
-
-
-<a name="grafana-1.0.6"></a>
-### [grafana-1.0.6](https://github.com/truecharts/apps/compare/grafana-1.0.5...grafana-1.0.6) (2021-12-04)
+<a name="gotify-5.0.7"></a>
+### [gotify-5.0.7](https://github.com/truecharts/apps/compare/gotify-5.0.6...gotify-5.0.7) (2021-12-04)
 
 #### Chore
 
@@ -2343,8 +1426,8 @@
 
 
 
-<a name="grafana-1.0.5"></a>
-### [grafana-1.0.5](https://github.com/truecharts/apps/compare/grafana-1.0.4...grafana-1.0.5) (2021-12-04)
+<a name="gotify-5.0.6"></a>
+### [gotify-5.0.6](https://github.com/truecharts/apps/compare/gotify-5.0.5...gotify-5.0.6) (2021-12-04)
 
 #### Chore
 
@@ -2352,8 +1435,8 @@
 
 
 
-<a name="grafana-1.0.4"></a>
-### [grafana-1.0.4](https://github.com/truecharts/apps/compare/grafana-1.0.3...grafana-1.0.4) (2021-12-03)
+<a name="gotify-5.0.5"></a>
+### [gotify-5.0.5](https://github.com/truecharts/apps/compare/gotify-5.0.4...gotify-5.0.5) (2021-12-03)
 
 #### Chore
 
@@ -2363,37 +1446,264 @@
 
 
 
-<a name="grafana-1.0.3"></a>
-### [grafana-1.0.3](https://github.com/truecharts/apps/compare/grafana-1.0.2...grafana-1.0.3) (2021-11-30)
+<a name="gotify-5.0.4"></a>
+### [gotify-5.0.4](https://github.com/truecharts/apps/compare/gotify-5.0.3...gotify-5.0.4) (2021-11-30)
 
 #### Chore
 
 * update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
 
+#### Fix
 
-
-<a name="grafana-1.0.2"></a>
-### [grafana-1.0.2](https://github.com/truecharts/apps/compare/grafana-1.0.1...grafana-1.0.2) (2021-11-30)
-
-#### Chore
-
-* update non-major ([#1427](https://github.com/truecharts/apps/issues/1427))
-* update non-major deps helm releases
+* move conflicting ports to 10xxx range ([#1415](https://github.com/truecharts/apps/issues/1415))
 
 
 
-<a name="grafana-1.0.0"></a>
-### [grafana-1.0.0](https://github.com/truecharts/apps/compare/grafana-0.0.1...grafana-1.0.0) (2021-11-24)
+<a name="gotify-5.0.3"></a>
+### [gotify-5.0.3](https://github.com/truecharts/apps/compare/gotify-5.0.2...gotify-5.0.3) (2021-11-23)
 
 #### Chore
 
-* move grafana to stable
+* update non-major deps helm releases ([#1386](https://github.com/truecharts/apps/issues/1386))
 
 
 
-<a name="grafana-0.0.1"></a>
-### grafana-0.0.1 (2021-11-23)
+<a name="gotify-5.0.2"></a>
+### [gotify-5.0.2](https://github.com/truecharts/apps/compare/gotify-5.0.1...gotify-5.0.2) (2021-11-22)
 
-#### Add
+#### Chore
 
-* Add grafana to incubator Apps ([#1391](https://github.com/truecharts/apps/issues/1391))
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+
+#### Fix
+
+* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
+
+
+
+<a name="gotify-5.0.1"></a>
+### [gotify-5.0.1](https://github.com/truecharts/apps/compare/gotify-5.0.0...gotify-5.0.1) (2021-11-16)
+
+#### Chore
+
+* update non-major deps helm releases ([#1345](https://github.com/truecharts/apps/issues/1345))
+
+
+
+<a name="gotify-5.0.0"></a>
+### [gotify-5.0.0](https://github.com/truecharts/apps/compare/gotify-4.0.10...gotify-5.0.0) (2021-11-16)
+
+#### Chore
+
+* update helm chart postgresql to v6 ([#1343](https://github.com/truecharts/apps/issues/1343))
+
+
+
+<a name="gotify-4.0.10"></a>
+### [gotify-4.0.10](https://github.com/truecharts/apps/compare/gotify-4.0.9...gotify-4.0.10) (2021-11-15)
+
+#### Chore
+
+* persistence cleanup and small bugfixes ([#1329](https://github.com/truecharts/apps/issues/1329))
+* update non-major deps helm releases ([#1338](https://github.com/truecharts/apps/issues/1338))
+
+
+
+<a name="gotify-4.0.9"></a>
+### [gotify-4.0.9](https://github.com/truecharts/apps/compare/gotify-4.0.8...gotify-4.0.9) (2021-11-14)
+
+#### Chore
+
+* fixes around the GUI refactor ([#1316](https://github.com/truecharts/apps/issues/1316))
+* move port above advanced in GUI ([#1326](https://github.com/truecharts/apps/issues/1326))
+* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
+* update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
+
+#### Fix
+
+* split udp and tcp ports ([#1321](https://github.com/truecharts/apps/issues/1321))
+* sync securityContext from values to questions ([#1323](https://github.com/truecharts/apps/issues/1323))
+
+
+
+<a name="gotify-4.0.8"></a>
+### [gotify-4.0.8](https://github.com/truecharts/apps/compare/gotify-4.0.7...gotify-4.0.8) (2021-11-09)
+
+#### Chore
+
+* update non-major deps helm releases ([#1297](https://github.com/truecharts/apps/issues/1297))
+
+
+
+<a name="gotify-4.0.7"></a>
+### [gotify-4.0.7](https://github.com/truecharts/apps/compare/gotify-4.0.6...gotify-4.0.7) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1295](https://github.com/truecharts/apps/issues/1295))
+
+
+
+<a name="gotify-4.0.6"></a>
+### [gotify-4.0.6](https://github.com/truecharts/apps/compare/gotify-4.0.5...gotify-4.0.6) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1291](https://github.com/truecharts/apps/issues/1291))
+
+#### Chore
+
+* Simplify GUI for deployment, persistence and securityContext ([#1289](https://github.com/truecharts/apps/issues/1289))
+
+#### Feat
+
+* Simplify the Services GUI ([#1290](https://github.com/truecharts/apps/issues/1290))
+
+#### Fix
+
+* prevent duplicate port use and fix some questions.yaml mistakes
+
+
+
+<a name="gotify-4.0.5"></a>
+### [gotify-4.0.5](https://github.com/truecharts/apps/compare/gotify-4.0.4...gotify-4.0.5) (2021-11-02)
+
+#### Chore
+
+* update non-major deps helm releases ([#1267](https://github.com/truecharts/apps/issues/1267))
+
+
+
+<a name="gotify-4.0.4"></a>
+### [gotify-4.0.4](https://github.com/truecharts/apps/compare/gotify-4.0.3...gotify-4.0.4) (2021-11-01)
+
+#### Chore
+
+* update non-major deps helm releases ([#1264](https://github.com/truecharts/apps/issues/1264))
+
+
+
+<a name="gotify-4.0.3"></a>
+### [gotify-4.0.3](https://github.com/truecharts/apps/compare/gotify-4.0.2...gotify-4.0.3) (2021-10-26)
+
+#### Chore
+
+* update helm chart postgresql to v5.1.4 ([#1249](https://github.com/truecharts/apps/issues/1249))
+
+
+
+<a name="gotify-4.0.2"></a>
+### [gotify-4.0.2](https://github.com/truecharts/apps/compare/gotify-4.0.1...gotify-4.0.2) (2021-10-26)
+
+#### Chore
+
+* update non-major deps helm releases ([#1245](https://github.com/truecharts/apps/issues/1245))
+
+
+
+<a name="gotify-4.0.1"></a>
+### [gotify-4.0.1](https://github.com/truecharts/apps/compare/gotify-4.0.0...gotify-4.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+
+
+
+<a name="gotify-4.0.0"></a>
+### [gotify-4.0.0](https://github.com/truecharts/apps/compare/gotify-3.0.0...gotify-4.0.0) (2021-10-26)
+
+#### Chore
+
+* update helm chart postgresql to v5 ([#1234](https://github.com/truecharts/apps/issues/1234))
+* update helm chart postgresql to v4.1.0 ([#1237](https://github.com/truecharts/apps/issues/1237))
+
+
+
+<a name="gotify-3.0.0"></a>
+### [gotify-3.0.0](https://github.com/truecharts/apps/compare/gotify-2.0.1...gotify-3.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
+<a name="gotify-2.0.1"></a>
+### [gotify-2.0.1](https://github.com/truecharts/apps/compare/gotify-1.0.2...gotify-2.0.1) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
+<a name="gotify-1.0.0"></a>
+### [gotify-1.0.0](https://github.com/truecharts/apps/compare/gotify-0.0.4...gotify-1.0.0) (2021-10-20)
+
+#### Chore
+
+* update helm chart postgresql to v4 ([#1214](https://github.com/truecharts/apps/issues/1214))
+
+#### Fix
+
+* use correct PVC storageClass when using postgresql as a dependency on SCALE ([#1212](https://github.com/truecharts/apps/issues/1212))
+
+
+
+<a name="gotify-0.0.4"></a>
+### [gotify-0.0.4](https://github.com/truecharts/apps/compare/gotify-0.0.3...gotify-0.0.4) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
+<a name="gotify-0.0.3"></a>
+### [gotify-0.0.3](https://github.com/truecharts/apps/compare/gotify-0.0.2...gotify-0.0.3) (2021-10-19)
+
+#### Change
+
+* Project-Eclipse 3, Automatically generate item.yaml ([#1178](https://github.com/truecharts/apps/issues/1178))
+
+#### Chore
+
+* Project-Eclipse 5, move app-readme to automatic generation script ([#1181](https://github.com/truecharts/apps/issues/1181))
+* update helm chart common to v8.3.13 ([#1184](https://github.com/truecharts/apps/issues/1184))
+
+#### Feat
+
+* Project-Eclipse 4, Add App grading annotations to Chart.yaml ([#1180](https://github.com/truecharts/apps/issues/1180))
+
+#### Refactor
+
+* Project Eclipse Part 6, move questions.yaml to root App folder ([#1182](https://github.com/truecharts/apps/issues/1182))
+
+
+
+<a name="gotify-0.0.2"></a>
+### [gotify-0.0.2](https://github.com/truecharts/apps/compare/gotify-0.0.1...gotify-0.0.2) (2021-10-19)
+
+#### Chore
+
+* Project-Eclipse part 2, adapting and cleaning changelog ([#1173](https://github.com/truecharts/apps/issues/1173))
+* update helm chart postgresql to v3.0.20 ([#1177](https://github.com/truecharts/apps/issues/1177))
+
+
+
+<a name="gotify-0.0.1"></a>
+### gotify-0.0.1 (2021-10-19)
+
+#### Feat
+
+* Add more Apps using postgresql ([#1136](https://github.com/truecharts/apps/issues/1136))
+
+
+
+<a name="gotify-0.0.1"></a>
+### gotify-0.0.1 (2021-10-16)
+
+#### Feat
+
+* Add more Apps using postgresql

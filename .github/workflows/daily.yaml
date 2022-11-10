@@ -1,0 +1,48 @@
+name: "Daily Tasks"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-readme:
+    runs-on: ubuntu-latest
+    name: "Generate readme files"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          fetch-depth: 0
+      - name: generate readme.md
+        shell: bash
+        run: |
+          for train in stable SCALE incubator games enterprise develop non-free deprecated dependency core; do
+            for chart in charts/${train}/*; do
+              if [ -d "${chart}" ]; then
+                echo "Generating readme.md for ${train}/${chart}"
+                cp "templates/README.md.tpl" "${chart}/README.md"
+                sed -i "s/TRAINPLACEHOLDER/${train}/" "${chart}/README.md"
+                sed -i "s/CHARTPLACEHOLDER/${chartname}/" "${chart}/README.md"
+              fi
+            done
+          done
+      - name: generate HelmIgnore
+        shell: bash
+        run: |
+          for train in stable SCALE incubator games enterprise develop non-free deprecated dependency core; do
+            for chart in charts/${train}/*; do
+              if [ -d "${chart}" ]; then
+                echo "Attempting to sync HelmIgnore file for: ${chartname}"
+                rm -rf ${chart}/.helmignore
+                cp templates/chart/.helmignore ${chart}/
+              fi
+            done
+          done
+
+      - name: Commit changes
+        run: |
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Commit daily changes" || exit 0
+          git push

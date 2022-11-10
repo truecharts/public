@@ -2,6 +2,15 @@
 
 
 
+## [googlephotossync-1.0.0](https://github.com/truecharts/charts/compare/googlephotossync-0.0.48...googlephotossync-1.0.0) (2022-11-10)
+
+### Chore
+
+- Major Change to GUI
+
+
+
+
 ## [googlephotossync-0.0.48](https://github.com/truecharts/charts/compare/googlephotossync-0.0.44...googlephotossync-0.0.48) (2022-11-10)
 
 ### Chore

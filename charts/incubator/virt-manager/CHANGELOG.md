@@ -2,6 +2,19 @@
 
 
 
+## [virt-manager-1.0.0](https://github.com/truecharts/charts/compare/virt-manager-0.0.100...virt-manager-1.0.0) (2022-11-10)
+
+### Chore
+
+- Major Change to GUI
+
+  ### Fix
+
+- change container config label
+
+
+
+
 ## [virt-manager-0.0.100](https://github.com/truecharts/charts/compare/virt-manager-0.0.95...virt-manager-0.0.100) (2022-11-10)
 
 ### Chore

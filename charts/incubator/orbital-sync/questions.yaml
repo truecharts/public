@@ -11,7 +11,7 @@ questions:
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: orbital
-    group: Container Configuration
+    group: App Configuration
     label: Orbital Configuration
     schema:
       additional_attrs: true
@@ -68,7 +68,7 @@ questions:
                         private: true
                         default: ""
   - variable: env
-    group: Container Configuration
+    group: App Configuration
     label: Image Environment
     schema:
       additional_attrs: true
