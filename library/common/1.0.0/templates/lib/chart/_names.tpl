@@ -4,9 +4,7 @@ global.nameOverride applies to the current chart and all sub-charts
 nameOverride applies only to the current chart
 */}}
 
-{{/*
-Expand ther name of the chart
-*/}}
+{{/* Expand ther name of the chart */}}
 {{- define "ix.v1.common.names.name" -}}
   {{- $globalNameOverride := "" -}}
   {{- if hasKey .Values "global" -}}
@@ -17,9 +15,7 @@ Expand ther name of the chart
   {{- default .Chart.Name (default .Values.nameOverride $globalNameOverride) | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
-{{/*
-Create a default fully qualified app name.
-*/}}
+{{/* Create a default fully qualified app name. */}}
 {{- define "ix.v1.common.names.fullname" -}}
   {{- $name := include "ix.v1.common.names.name" . -}}
   {{- $globalFullNameOverride := "" -}}
@@ -43,24 +39,17 @@ Create a default fully qualified app name.
   {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
-{{/*
-Create the "name" + "." + "namespace" fqdn
-*/}}
+{{/* Create the "name" + "." + "namespace" fqdn */}}
 {{- define "ix.v1.common.names.fqdn" -}}
   {{- printf "%s.%s" (include "ix.v1.common.names.fullname" .) .Release.Namespace | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
-{{/*
-Create the "fqdn" + "." + "svc.cluster.local"
-*/}}
+{{/* Create the "fqdn" + "." + "svc.cluster.local" */}}
 {{- define "ix.v1.common.names.fqdn.cluster" -}}
   {{- printf "%s.%s" (include "ix.v1.common.names.fqdn" .) "svc.cluster.local" -}}
 {{- end -}}
 
-{{/*
-TODO: See if it's needed
-Return the properly cased version of the controller type
-*/}}
+{{/* Return the properly cased version of the controller type */}}
 {{- define "ix.v1.common.names.controllerType" -}}
   {{- if eq (.Values.controller.type | lower) "deployment" -}}
     {{- print "Deployment" -}}

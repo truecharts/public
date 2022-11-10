@@ -7,18 +7,18 @@ helm-revision: {{ .Release.Revision | quote }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
-{{- with .Values.global.labels }}
-  {{- range $k, $v := . }}
-{{ $k }}: {{ tpl $v $ | quote }}
+  {{- with .Values.global.labels }}
+    {{- range $k, $v := . }}
+      {{- $k | nindent 0 }}: {{ tpl $v $ | quote }}
     {{- end }}
-{{- end }}
+  {{- end }}
 {{- end -}}
 
 {{/* Selector labels shared across objects */}}
+{{/* TODO: Check why "app" and "release" are needed (ported from the current common) */}}
 {{- define "ix.v1.common.labels.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "ix.v1.common.names.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
-{{/* TODO: Check why those are needed (ported from the current common) */}}
 app: {{ include "ix.v1.common.names.name" . }}
 release: {{ .Release.Name }}
 {{- end -}}

@@ -175,7 +175,7 @@ tests:
     set:
       persistence.some_volume.type: nfs
       persistence.some_volume.enabled: true
-      persistence.some_volume.enabled: some_path
+      persistence.some_volume.path: some_path
     asserts:
       - failedTemplate:
           errorMessage: NFS Server not set on item some_volume

@@ -1,6 +1,4 @@
-{{/*
-Ports included by the controller.
-*/}}
+{{/* Ports included by the controller. */}}
 {{- define "ix.v1.common.controller.ports" -}}
   {{ $ports := list }}
   {{- range .Values.service -}}
@@ -12,9 +10,7 @@ Ports included by the controller.
     {{- end -}}
   {{- end -}}
 
-{{/*
-Render the list of ports
-*/}}
+{{/* Render the list of ports */}}
 {{- if $ports -}}
 {{- range $_ := $ports }}
   {{- if .enabled }}
@@ -27,6 +23,9 @@ Render the list of ports
   This is for cases where port (that container listens)
   can be dynamically configured via an env var.
   */}}
+  {{- if not .port }}
+    {{- fail (printf "Port is required on enabled services. Service: (%s)" .name) }}
+  {{- end }}
   containerPort: {{ default .port .targetPort }}
   {{- with .protocol }}
   {{- if or (eq (. | upper) "HTTP") (eq (. | upper) "HTTPS") (eq (. | upper) "TCP") }}

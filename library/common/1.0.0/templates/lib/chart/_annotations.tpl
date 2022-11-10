@@ -5,7 +5,7 @@ Rendered under ".metadata.annotations"
 {{- define "ix.v1.common.annotations" -}}
   {{- with .Values.global.annotations -}}
     {{- range $k, $v := . }}
-{{ $k }}: {{ tpl $v $ | quote }}
+      {{- $k | nindent 6 }}: {{ tpl $v $ | quote }}
     {{- end -}}
   {{- end -}}
 {{- end -}}
@@ -28,6 +28,4 @@ Rendered under ".metadata.annotations"
 rollme: {{ randAlphaNum 5 | quote }}
 {{- end -}}
 
-{{/*
-Workloads = Deployment, ReplicaSet, StatefulSet, DaemonSet, Job, CronJob, etc
-*/}}
+{{/* Workloads = Deployment, ReplicaSet, StatefulSet, DaemonSet, Job, CronJob, etc */}}

@@ -1,6 +1,4 @@
-{{/*
-Volumes included by the controller.
-*/}}
+{{/* Volumes included by the controller. */}}
 {{- define "ix.v1.common.controller.volumes" -}}
 {{- $persistenceDefault := "pvc" -}}
 {{- range $index, $persistence := .Values.persistence }}

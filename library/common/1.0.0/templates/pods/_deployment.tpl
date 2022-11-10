@@ -46,7 +46,7 @@ spec:
       labels:
         {{- include "ix.v1.common.labels.selectorLabels" . | nindent 8 }}
         {{- with .Values.podLabels }}
-        {{- tpl (toYaml .) $ | nindent 8 }}
+          {{- tpl (toYaml .) $ | nindent 8 }}
         {{- end }}
     spec:
       blabla:

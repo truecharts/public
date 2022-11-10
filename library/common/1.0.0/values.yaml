@@ -19,6 +19,27 @@ ixExternalInterfacesConfigurationNames: []
   # - interface1
   # - interface2
 
+image:
+  # -- Image repository
+  repository:
+  # -- Image tag
+  tag:
+  # -- Image pull policy
+  pullPolicy: IfNotPresent
+
+# -- Override the args for the default container
+args: []
+
+# -- Add args in addition to the arguments set by default.
+# Primarily for the SCALE GUI
+extraArgs: []
+
+# -- Determines whether containers in a pod runs with TTY enabled.
+tty: false
+
+# -- Determines whether containers in a pod runs with stdin enabled.
+stdin: false
+
 controller:
   # -- Enable the controller.
   enabled: true
