@@ -67,14 +67,14 @@ Volumes included by the controller.
   {{- else if eq ($persistence.type | lower) "hostpath" }}
   {{/* hostPath */}}
   hostPath:
-    path: {{ required "hostPath not set" $persistence.hostPath }}
+    path: {{ required (printf "hostPath not set on item %s" $index) $persistence.hostPath }}
     {{- with $persistence.hostPathType }}
     type: {{ tpl . $ }}
     {{- end }}
   {{- else if eq ($persistence.type | lower) "nfs" }}
   nfs:
-    server: {{ required "NFS Server not set" $persistence.server }}
-    path: {{ required "NFS Path not set" $persistence.path }}
+    server: {{ required (printf "NFS Server not set on item %s" $index) $persistence.server }}
+    path: {{ required (printf "NFS Path not set on item %s" $index) $persistence.path }}
   {{/* ix-volumes */}}
   {{- else if eq ($persistence.type | lower) "ix-volumes" }}
   {{/* TODO: Implement ix-volumes */}}

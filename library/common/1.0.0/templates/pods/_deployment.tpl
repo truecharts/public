@@ -49,5 +49,6 @@ spec:
         {{- tpl (toYaml .) $ | nindent 8 }}
         {{- end }}
     spec:
+      blabla:
       {{- include "ix.v1.common.controller.pod" . | nindent 6 }}
 {{- end }}
