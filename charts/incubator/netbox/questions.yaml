@@ -168,32 +168,33 @@ questions:
             type: boolean
             default: false
             show_subquestions_if: false
-        - variable: cors_origin_whitelist
-          label: CORS Origin Whitelist
-          description: Example 127.0.0.1
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: cors_origin_whitelist_entry
-                label: CORS Origin Whitelist Entry
+            subquestions:
+              - variable: cors_origin_whitelist
+                label: CORS Origin Whitelist
+                description: Example 127.0.0.1
                 schema:
-                  type: string
-                  required: true
-                  default: ""
-        - variable: cors_origin_regex_whitelist
-          label: CORS Origin Regex Whitelist
-          description: Example r'^(https?://)?(\w+\.)?example\.com$'
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: cors_origin_whitelist_entry
-                label: CORS Origin Regex Whitelist Entry
+                  type: list
+                  default: []
+                  items:
+                    - variable: cors_origin_whitelist_entry
+                      label: CORS Origin Whitelist Entry
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+              - variable: cors_origin_regex_whitelist
+                label: CORS Origin Regex Whitelist
+                description: Example r'^(https?://)?(\w+\.)?example\.com$'
                 schema:
-                  type: string
-                  required: true
-                  default: ""
+                  type: list
+                  default: []
+                  items:
+                    - variable: cors_origin_whitelist_entry
+                      label: CORS Origin Regex Whitelist Entry
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
         - variable: csrf_trusted_origin
           label: CSRF Trusted Origin
           description: Cross-Site-Request-Forgery-Attack settings. If Netbox is sitting behind a reverse proxy, you might need to set this
