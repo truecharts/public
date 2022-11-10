@@ -1,0 +1,61 @@
+suite: deployment container securityContext test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+  - it: should pass with securityContext changed
+    set:
+      securityContext:
+        runAsNonRoot: false
+        readOnlyRootFilesystem: false
+        allowPrivilegeEscalation: true
+        privileged: true
+        capabilities:
+          add:
+            - SYS_MODULE
+          drop:
+            - NET_ADMIN
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].securityContext
+          value:
+            allowPrivilegeEscalation: true
+            capabilities:
+              add:
+                - SYS_MODULE
+              drop:
+                - NET_ADMIN
+            privileged: true
+            readOnlyRootFilesystem: false
+            runAsNonRoot: false
+
+  - it: should pass with securityContext changed from tpl
+    set:
+      source:
+        addCap: SYS_MODULE
+        remCap: NET_ADMIN
+      securityContext:
+        capabilities:
+          add:
+            - "{{ .Values.source.addCap }}"
+          drop:
+            - "{{ .Values.source.remCap }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].securityContext
+          value:
+            allowPrivilegeEscalation: false
+            capabilities:
+              add:
+                - SYS_MODULE
+              drop:
+                - NET_ADMIN
+            privileged: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true

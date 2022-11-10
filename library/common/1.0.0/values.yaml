@@ -27,7 +27,6 @@ image:
   # -- Image pull policy
   pullPolicy: IfNotPresent
 
-
 # -- Override the command(s) for the default container
 command: []
 
@@ -43,6 +42,70 @@ tty: false
 
 # -- Determines whether containers in a pod runs with stdin enabled.
 stdin: false
+
+# -- Configure the Security Context for the Pod
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: OnRootMismatch
+
+# -- Configure the Security Context for the main container
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  runAsNonRoot: true
+  capabilities:
+    drop: []
+    add: []
+
+# -- Configure the lifecycle for the main container
+lifecycle: {}
+
+termination:
+  # -- Configure the path at which the file to which the main container's termination message will be written.
+  # [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)]
+  messagePath:
+  # -- Indicate how the main container's termination message should be populated.
+  # Valid options are `File` and `FallbackToLogsOnError`.
+  # [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)]
+  messagePolicy:
+  # -- Duration in seconds the pod needs to terminate gracefully
+  # [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle)]
+  gracePeriodSeconds: 10
+
+# -- Used to add SCALE GPU configuration
+scaleGPU:
+
+# -- Set Container Timezone
+TZ: UTC
+
+# -- Set the Process User ID (PUID) env-var separately
+security:
+  PUID: 568
+  UMASK: 002
+
+# -- Main environment variables. Template enabled.
+# Syntax options:
+# A) TZ: UTC
+# B) PASSWD: '{{ .Release.Name }}'
+# C) PASSWD:
+#      configMapKeyRef:
+#        name: config-map-name
+#        key: key-name
+# D) PASSWD:
+#      valueFrom:
+#        secretKeyRef:
+#          name: secret-name
+#          key: key-name
+#      ...
+# E) - name: TZ
+#      value: UTC
+# F) - name: TZ
+#      value: '{{ .Release.Name }}'
+env: {}
 
 controller:
   # -- Enable the controller.

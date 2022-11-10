@@ -1,0 +1,109 @@
+
+suite: deployment container image test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+
+  - it: should pass with tty set
+    set:
+      tty: true
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].tty
+          value: true
+
+  - it: should pass with stdin set
+    set:
+      stdin: true
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].stdin
+          value: true
+
+  - it: should pass with lifecycle set
+    set:
+      lifecycle:
+        postStart:
+          exec:
+            command:
+              - /bin/bash
+              - test
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].lifecycle
+          value:
+            postStart:
+              exec:
+                command:
+                  - /bin/bash
+                  - test
+
+  - it: should pass with lifecycle set from tpl
+    set:
+      some_key: some_value
+      lifecycle:
+        postStart:
+          exec:
+            command:
+              - /bin/bash
+              - "{{ .Values.some_key }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].lifecycle
+          value:
+            postStart:
+              exec:
+                command:
+                  - /bin/bash
+                  - some_value
+
+  - it: should pass with terminationMessagePath set
+    set:
+      termination:
+        messagePath: /tmp/log
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].terminationMessagePath
+          value: /tmp/log
+
+  - it: should pass with terminationMessagePath set from tpl
+    set:
+      some_path: /tmp/log
+      termination:
+        messagePath: "{{ .Values.some_path }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].terminationMessagePath
+          value: /tmp/log
+
+  - it: should pass with terminationMessagePolicy set
+    set:
+      termination:
+        messagePolicy: FallbackToLogsOnError
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].terminationMessagePolicy
+          value: FallbackToLogsOnError
+
+  - it: should pass with terminationMessagePolicy set from tpl
+    set:
+      some_key: FallbackToLogsOnError
+      termination:
+        messagePolicy: "{{ .Values.some_key }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].terminationMessagePolicy
+          value: FallbackToLogsOnError
