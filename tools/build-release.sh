@@ -244,36 +244,15 @@ generate_docs() {
     local train="$3"
     local chartversion="$4"
     if [[ -z "$standalone" ]]; then
-         echo "Generating Docs"
-         if [ "${chartname}" == "common" ]; then
-             helm-docs \
-                 --ignore-file=".helmdocsignore" \
-                 --output-file="README.md" \
-                 --template-files="/__w/apps/apps/templates/docs/common-README.md.gotmpl" \
-                 --chart-search-root="${chart}"
-             helm-docs \
-                 --ignore-file=".helmdocsignore" \
-                 --output-file="helm-values.md" \
-                 --template-files="/__w/apps/apps/templates/docs/common-helm-values.md.gotmpl" \
-                 --chart-search-root="${chart}"
-         else
-             helm-docs \
-                 --ignore-file=".helmdocsignore" \
-                 --output-file="README.md" \
-                 --template-files="/__w/apps/apps/templates/docs/README.md.gotmpl" \
-                 --chart-search-root="${chart}"
-             helm-docs \
-                 --ignore-file=".helmdocsignore" \
-                 --output-file="CONFIG.md" \
-                 --template-files="/__w/apps/apps/templates/docs/CONFIG.md.gotmpl" \
-                 --chart-search-root="${chart}"
-             helm-docs \
-                 --ignore-file=".helmdocsignore" \
-                 --output-file="helm-values.md" \
-                 --template-files="/__w/apps/apps/templates/docs/helm-values.md.gotmpl" \
-                 --chart-search-root="${chart}"
-         fi
-         sed -i "s/TRAINPLACEHOLDER/${train}/" "${chart}/README.md"
+    echo "Generating Docs"
+        helm-docs \
+            --ignore-file=".helmdocsignore" \
+            --output-file="CONFIG.md" \
+            --template-files="/__w/apps/apps/templates/docs/CONFIG.md.gotmpl" \
+            --chart-search-root="${chart}"
+    cp "templates/README.md.tpl" "${chart}/README.md"
+    sed -i "s/TRAINPLACEHOLDER/${train}/" "${chart}/README.md"
+    sed -i "s/CHARTPLACEHOLDER/${chartname}/" "${chart}/README.md"
     fi
     }
     export -f generate_docs
@@ -285,21 +264,14 @@ copy_docs() {
     local train="$3"
     local chartversion="$4"
     echo "Copying docs for: ${chart}"
-    if [ "${chartname}" == "common" ]; then
-        mkdir -p docs/charts/common || :
-        yes | cp -rf charts/library/common/README.md  docs/charts/common/index.md 2>/dev/null || :
-        yes | cp -rf charts/library/common/helm-values.md  docs/charts/common/helm-values.md 2>/dev/null || :
-    else
-        mkdir -p docs/charts/${train}/${chartname} || echo "chart path already exists, continuing..."
-        yes | cp -rf ${chart}/README.md docs/charts/${train}/${chartname}/index.md 2>/dev/null || :
-        yes | cp -rf ${chart}/CHANGELOG.md docs/charts/${train}/${chartname}/CHANGELOG.md 2>/dev/null || :
-        yes | cp -rf ${chart}/security.md docs/charts/${train}/${chartname}/security.md 2>/dev/null || :
-        yes | cp -rf ${chart}/CONFIG.md docs/charts/${train}/${chartname}/CONFIG.md 2>/dev/null || :
-        yes | cp -rf ${chart}/helm-values.md docs/charts/${train}/${chartname}/helm-values.md 2>/dev/null || :
-        rm docs/charts/${train}/${chartname}/LICENSE.md 2>/dev/null || :
-        yes | cp -rf ${chart}/LICENSE docs/charts/${train}/${chartname}/LICENSE.md 2>/dev/null || :
-        sed -i '1s/^/# License<br>\n\n/' docs/charts/${train}/${chartname}/LICENSE.md 2>/dev/null || :
-    fi
+    mkdir -p docs/charts/${train}/${chartname} || echo "chart path already exists, continuing..."
+    yes | cp -rf ${chart}/CHANGELOG.md docs/charts/${train}/${chartname}/CHANGELOG.md 2>/dev/null || :
+    yes | cp -rf ${chart}/security.md docs/charts/${train}/${chartname}/security.md 2>/dev/null || :
+    yes | cp -rf ${chart}/CONFIG.md docs/charts/${train}/${chartname}/CONFIG.md 2>/dev/null || :
+    yes | cp -rf ${chart}/helm-values.md docs/charts/${train}/${chartname}/helm-values.md 2>/dev/null || :
+    rm docs/charts/${train}/${chartname}/LICENSE.md 2>/dev/null || :
+    yes | cp -rf ${chart}/LICENSE docs/charts/${train}/${chartname}/LICENSE.md 2>/dev/null || :
+    sed -i '1s/^/# License<br>\n\n/' docs/charts/${train}/${chartname}/LICENSE.md 2>/dev/null || :
     }
     export -f copy_docs
 
@@ -308,7 +280,6 @@ prep_helm() {
     helm repo add truecharts https://charts.truecharts.org
     helm repo add truecharts-library https://library-charts.truecharts.org
     helm repo add bitnami https://charts.bitnami.com/bitnami
-    helm repo add metallb https://metallb.github.io/metallb
     helm repo add grafana https://grafana.github.io/helm-charts
     helm repo add prometheus https://prometheus-community.github.io/helm-charts
     helm repo update

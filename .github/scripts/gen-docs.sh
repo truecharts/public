@@ -88,12 +88,9 @@ generate_docs() {
     local train="$3"
     local chartversion="$4"
     echo "Generating Docs"
-        helm-docs \
-            --ignore-file=".helmdocsignore" \
-            --output-file="README.md" \
-            --template-files="/__w/charts/charts/templates/docs/README.md.gotmpl" \
-            --chart-search-root="${chart}"
-        sed -i "s/TRAINPLACEHOLDER/${train}/" "${chart}/README.md"
+    cp "templates/README.md.tpl" "${chart}/README.md"
+    sed -i "s/TRAINPLACEHOLDER/${train}/" "${chart}/README.md"
+    sed -i "s/CHARTPLACEHOLDER/${chartname}/" "${chart}/README.md"
     }
     export -f generate_docs
 
