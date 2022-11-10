@@ -93,7 +93,6 @@ jobs:
                 mkdir -p website/docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
                 yes | cp -rf charts/${train}/${chart}/docs/* website/docs/charts/${train}/${chart}/ 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/icon.png website/static/img/hotlink-ok/chart-icons/${chart}.png 2>/dev/null || :
-
                 # Append SCALE changelog to actual changelog
                 if [[ -f "website/docs/charts/${train}/${chart}/CHANGELOG.md" ]]; then
                    true
