@@ -163,7 +163,8 @@ netbox:
   csrf_cookie_name: csrftoken
   # -- By default uploaded media is stored on the local filesystem. Using Django-storages is also supported. Provide the
   # class path of the storage driver in storage_backend and any configuration options in storage_config. For example:
-  storage_backend: "" # storages.backends.s3boto3.S3Boto3Storage
+  # Example storages.backends.s3boto3.S3Boto3Storage
+  storage_backend: ""
   storage_config:
     []
     # - key: AWS_ACCESS_KEY_ID
