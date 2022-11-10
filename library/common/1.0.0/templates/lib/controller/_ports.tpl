@@ -18,11 +18,6 @@
   {{- if and .targetPort (kindIs "string" .targetPort) }}
     {{- fail (printf "This common library does not support named ports for targetPort. (port name: %s, targetPort: %s)" .name .targetPort) }}
   {{- end }}
-  {{/*
-  If no targetPort is given, default to port.
-  This is for cases where port (that container listens)
-  can be dynamically configured via an env var.
-  */}}
   {{- if not .port }}
     {{- fail (printf "Port is required on enabled services. Service: (%s)" .name) }}
   {{- end }}
@@ -35,11 +30,16 @@
   {{- else }}
     {{- fail (printf "Not valid <protocol> (protocl: %s)" .) }}
   {{- end }}
-  {{/* If no protocol is given, default to TCP */}}
-  {{- else }}
+  {{- else }} {{/* If no protocol is given, default to TCP */}}
   protocol: TCP
   {{- end }}
   {{- end }}
 {{- end }}
 {{- end -}}
 {{- end -}}
+
+{{/*
+If no targetPort is given, default to port.
+This is for cases where port (that container listens)
+can be dynamically configured via an env var.
+*/}}

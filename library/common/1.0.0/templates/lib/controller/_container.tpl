@@ -13,16 +13,14 @@
   {{- end }}
   {{- if or (.Values.extraArgs) (.Values.args) }}
   args:
-  {{/* args usually defined while developing the chart */}}
-  {{- with .Values.args }}
+  {{- with .Values.args }} {{/* args usually defined while developing the chart */}}
     {{- if kindIs "string" . }}
     - {{ tpl . $ }}
     {{- else }}
       {{- tpl ( toYaml . ) $ | nindent 4 }}
     {{- end }}
   {{- end }}
-  {{/* extraArgs used in cases that users wants to APPEND to args */}}
-  {{- with .Values.extraArgs }}
+  {{- with .Values.extraArgs }} {{/* extraArgs used in cases that users wants to APPEND to args */}}
     {{- if kindIs "string" . }}
     - {{ tpl . $ }}
     {{- else }}
