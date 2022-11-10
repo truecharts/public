@@ -78,8 +78,8 @@ patch_apps() {
     # Copy changelog from website
     cp -rf "website/docs/charts/${train}/${chart}/CHANGELOG.md" "${target}/CHANGELOG.md" 2>/dev/null || :
     sed -i '1d' "${target}/CHANGELOG.md"
-    sed -i '1s/^/*for the complete changelog, please refer to the website*\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md"
-    sed -i '1s/^/**Important:**\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md"
+    sed -i '1s/^/*for the complete changelog, please refer to the website*\n\n/' "${target}/CHANGELOG.md"
+    sed -i '1s/^/**Important:**\n/' "${target}/CHANGELOG.md"
     sed -i '100,$ d' "${target}/CHANGELOG.md" || :
     # Generate SCALE App description file
     cat ${target}/Chart.yaml | yq .description -r >> ${target}/app-readme.md

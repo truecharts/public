@@ -100,9 +100,11 @@ jobs:
                    touch "website/docs/charts/${train}/${chart}/CHANGELOG.md"
                 fi
                 sed -i '1d' "website/docs/charts/${train}/${chart}/CHANGELOG.md"
-                cat ${chart}/app-changelog.md | cat - "website/docs/charts/${train}/${chart}/CHANGELOG.md" > temp && mv temp "website/docs/charts/${train}/${chart}/CHANGELOG.md"
+                cat charts/${train}/${chart}/app-changelog.md | cat - "website/docs/charts/${train}/${chart}/CHANGELOG.md" > temp && mv temp "website/docs/charts/${train}/${chart}/CHANGELOG.md"
                 sed -i '1s/^/# Changelog\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md"
-                rm -rf ${chart}/app-changelog.md || echo "app-changelog not found..."
+                rm -rf charts/${train}/${chart}/app-changelog.md || echo "app-changelog not found..."
+                # Prevent changelog bloat
+                sed -i '3000,$ d' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || :
               fi
           done
 
