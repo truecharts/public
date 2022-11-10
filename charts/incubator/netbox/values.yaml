@@ -21,6 +21,8 @@ probes:
   startup:
     type: HTTP
     path: /metrics
+    # Gives some time for app to run db migrations
+    initialDelaySeconds: 60
 
 service:
   main:
