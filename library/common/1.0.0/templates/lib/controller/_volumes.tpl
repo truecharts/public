@@ -3,24 +3,20 @@
 {{- $persistenceDefault := "pvc" -}}
 {{- range $index, $persistence := .Values.persistence }}
 {{- if $persistence.enabled }}
-  {{/* If persistence type is not defined, fallback to $persistenceDefault */}}
-  {{- if not $persistence.type }}
+  {{- if not $persistence.type }} {{/* If persistence type is not defined, fallback to $persistenceDefault */}}
     {{ $_ := set $persistence "type" $persistenceDefault }}
   {{- end }}
 - name: {{ tpl ( toString $index ) $ }}
-  {{/* PVC */}}
-  {{- if eq ($persistence.type | lower) "pvc" }}
+  {{- if eq ($persistence.type | lower) "pvc" }} {{/* PVC */}}
     {{- $pvcName := (include "ix.v1.common.names.fullname" $) -}}
-    {{- if $persistence.existingClaim }}
-      {{/* Always prefer existingClaim if it set */}}
+    {{- if $persistence.existingClaim }} {{/* Always prefer existingClaim if it set */}}
       {{- $pvcName = $persistence.existingClaim -}}
-    {{- else -}}
-      {{/* Otherwise refer to the PVC name */}}
+    {{- else -}} {{/* Else use nameOverride */}}
       {{- if $persistence.nameOverride -}}
         {{- if not (eq $persistence.nameOverride "-") -}}
           {{- $pvcName = (printf "%s-%s" (include "ix.v1.common.names.fullname" $) $persistence.nameOverride) -}}
         {{- end -}}
-      {{- else -}}
+      {{- else -}} {{/* Else refer to the PVC name */}}
         {{- $pvcName = (printf "%s-%s" (include "ix.v1.common.names.fullname" $) $index) -}}
       {{- end -}}
       {{- if $persistence.forceName -}}
@@ -29,16 +25,11 @@
     {{- end }}
   persistentVolumeClaim:
     claimName: {{ tpl $pvcName $ }}
-  {{/* emptyDir */}}
-  {{- else if eq ($persistence.type | lower) "emptydir" }}
+  {{- else if eq ($persistence.type | lower) "emptydir" }} {{/* emptyDir */}}
     {{- $emptyDir := dict -}}
     {{- with $persistence.medium -}}
         {{- $_ := set $emptyDir "medium" "Memory" -}}
     {{- end }}
-    {{/*
-    If the `SizeMemoryBackedVolumes` feature gate is enabled,
-    you can specify a size for memory backed volumes.
-    */}}
     {{- with $persistence.sizeLimit -}}
         {{- $_ := set $emptyDir "sizeLimit" . -}}
     {{- end }}
@@ -46,12 +37,11 @@
   {{- else if or (eq ($persistence.type | lower) "configmap") (eq ($persistence.type | lower) "secret") }}
     {{- $objectName := (required (printf "objectName not set for persistence item %s" $index) $persistence.objectName) }}
     {{- $objectName = tpl $objectName $ }}
-    {{/* configMap */}}
-    {{- if eq ($persistence.type | lower) "configmap" }}
+    {{- if eq ($persistence.type | lower) "configmap" }} {{/* configMap */}}
   configMap:
     name: {{ $objectName }}
-    {{- else }}
-    {{/* secret */}}
+    {{- else }} {{/* secret */}}
+
   secret:
     secretName: {{ $objectName }}
     {{- end }}
@@ -62,8 +52,7 @@
     items:
       {{- tpl (toYaml .) $ | nindent 6 }}
     {{- end }}
-  {{- else if eq ($persistence.type | lower) "hostpath" }}
-  {{/* hostPath */}}
+  {{- else if eq ($persistence.type | lower) "hostpath" }} {{/* hostPath */}}
   hostPath:
     path: {{ required (printf "hostPath not set on item %s" $index) $persistence.hostPath }}
     {{- with $persistence.hostPathType }}
@@ -73,11 +62,9 @@
   nfs:
     server: {{ required (printf "NFS Server not set on item %s" $index) $persistence.server }}
     path: {{ required (printf "NFS Path not set on item %s" $index) $persistence.path }}
-  {{/* ix-volumes */}}
-  {{- else if eq ($persistence.type | lower) "ix-volumes" }}
+  {{- else if eq ($persistence.type | lower) "ix-volumes" }} {{/* ix-volumes */}}
   {{/* TODO: Implement ix-volumes */}}
-  {{/* Custom, in case we want to add something once */}}
-  {{- else if eq ($persistence.type | lower) "custom" }}
+  {{- else if eq ($persistence.type | lower) "custom" }} {{/* Custom, in case we want to add something once */}}
     {{- tpl ( toYaml $persistence.volumeSpec ) $ | nindent 2 }}
   {{- else }}
     {{- fail (printf "Not a valid persistence.type (%s)" $persistence.type) }}
@@ -85,3 +72,9 @@
 {{- end }}
 {{- end }}
 {{- end }}
+
+{{/*
+For emptyDir:
+If the `SizeMemoryBackedVolumes` feature gate is enabled,
+you can specify a size for memory backed volumes.
+*/}}

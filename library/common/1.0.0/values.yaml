@@ -27,6 +27,10 @@ image:
   # -- Image pull policy
   pullPolicy: IfNotPresent
 
+
+# -- Override the command(s) for the default container
+command: []
+
 # -- Override the args for the default container
 args: []
 
