@@ -35,7 +35,7 @@
   stdin: {{ . }}
   {{- end }}
   {{- with .Values.securityContext }}
-  securityContext:
+  securityContext: {{/* TODO: Add validation for runAsNonRoot / runAsUser|runAsGroup 0*/}}
     {{- tpl (toYaml .) $ | nindent 4 }}
   {{- end }}
   {{- with .Values.lifecycle }}
@@ -62,15 +62,13 @@
     - name: NVIDIA_DRIVER_CAPABILITIES
       value: "all"
    {{- end }}
-   {{- if and (not .Values.podSecurityContext.runAsUser) (or .Values.security.PUID (eq (.Values.security.PUID | int) 0)) }} {{/* If root user and a PUID is set, set PUID and related envs */}}
+   {{- if and (or (not .Values.podSecurityContext.runAsUser) (not .Values.podSecurityContext.runAsGroup))  (or .Values.security.PUID (eq (.Values.security.PUID | int) 0)) }} {{/* If root user or root group and a PUID is set, set PUID and related envs */}}
     - name: PUID
       value: {{ tpl (toYaml .Values.security.PUID) $ | quote }}
     - name: USER_ID
       value: {{ tpl (toYaml .Values.security.PUID) $ | quote }}
     - name: UID
       value: {{ tpl (toYaml .Values.security.PUID) $ | quote }}
-   {{- end }}
-   {{- if and (not .Values.podSecurityContext.runAsGroup) (or .Values.security.PUID (eq (.Values.security.PUID | int) 0)) }} {{/* If root group and a PUID is set link PGID and related envs to fsGroup */}}
     - name: PGID
       value: {{ tpl (toYaml .Values.podSecurityContext.fsGroup) $ | quote }}
     - name: GROUP_ID
@@ -87,6 +85,7 @@
       {{- $name := $k }}
       {{- $value := $v }}
       {{- if kindIs "int" $name }}
+        {{/*TODO: write tests*/}}
         {{- $name = required (printf "Environment Variables as a list of dicts, require a name field (%s)" $name) $value.name }}
       {{- end }}
     - name: {{ $name | quote }}
@@ -94,6 +93,7 @@
         {{- if hasKey $value "value" }}
           {{- $value = $value.value }}
         {{- else if hasKey $value "valueFrom" }}
+        {{/*TODO: write tests*/}}
       valueFrom: {{- tpl (toYaml $value.valueFrom) $ | nindent 8 }}
         {{- else }}
       valueFrom: {{- tpl (toYaml $value) $ | nindent 8 }}

@@ -66,6 +66,70 @@ tests:
             - name: S6_READ_ONLY_ROOT
               value: "1"
 
+  - it: should pass with envs changed because run as user root
+    set:
+      podSecurityContext:
+        runAsUser: 0
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: UTC
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: void
+            - name: PUID
+              value: "568"
+            - name: USER_ID
+              value: "568"
+            - name: UID
+              value: "568"
+            - name: PGID
+              value: "568"
+            - name: GROUP_ID
+              value: "568"
+            - name: GID
+              value: "568"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+
+  - it: should pass with envs changed because run as group root
+    set:
+      podSecurityContext:
+        runAsGroup: 0
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: UTC
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: void
+            - name: PUID
+              value: "568"
+            - name: USER_ID
+              value: "568"
+            - name: UID
+              value: "568"
+            - name: PGID
+              value: "568"
+            - name: GROUP_ID
+              value: "568"
+            - name: GID
+              value: "568"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+
   - it: should pass with envs changed because run as user root and PUID 0
     set:
       podSecurityContext:
@@ -91,13 +155,21 @@ tests:
               value: "0"
             - name: UID
               value: "0"
+            - name: PGID
+              value: "568"
+            - name: GROUP_ID
+              value: "568"
+            - name: GID
+              value: "568"
             - name: S6_READ_ONLY_ROOT
               value: "1"
 
-  - it: should pass with envs changed because run as user root
+  - it: should pass with envs changed because run as group root and PUID 0
     set:
       podSecurityContext:
-        runAsUser: 0
+        runAsGroup: 0
+      security:
+        PUID: 0
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -112,15 +184,21 @@ tests:
             - name: NVIDIA_VISIBLE_DEVICES
               value: void
             - name: PUID
-              value: "568"
+              value: "0"
             - name: USER_ID
-              value: "568"
+              value: "0"
             - name: UID
+              value: "0"
+            - name: PGID
+              value: "568"
+            - name: GROUP_ID
+              value: "568"
+            - name: GID
               value: "568"
             - name: S6_READ_ONLY_ROOT
               value: "1"
 
-  - it: should pass with envs changed because run as group root and fsGroup 0
+  - it: should pass with envs changed because run as group root and fsGroup 0 and PUID 0
     set:
       podSecurityContext:
         runAsGroup: 0
@@ -140,39 +218,17 @@ tests:
               value: "2"
             - name: NVIDIA_VISIBLE_DEVICES
               value: void
+            - name: PUID
+              value: "0"
+            - name: USER_ID
+              value: "0"
+            - name: UID
+              value: "0"
             - name: PGID
               value: "0"
             - name: GROUP_ID
               value: "0"
             - name: GID
               value: "0"
-            - name: S6_READ_ONLY_ROOT
-              value: "1"
-
-  - it: should pass with envs changed because run as group root
-    set:
-      podSecurityContext:
-        runAsGroup: 0
-      security:
-        PUID: 0
-    asserts:
-      - equal:
-          documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].env
-          value:
-            - name: TZ
-              value: UTC
-            - name: UMASK
-              value: "2"
-            - name: UMASK_SET
-              value: "2"
-            - name: NVIDIA_VISIBLE_DEVICES
-              value: void
-            - name: PGID
-              value: "568"
-            - name: GROUP_ID
-              value: "568"
-            - name: GID
-              value: "568"
             - name: S6_READ_ONLY_ROOT
               value: "1"
