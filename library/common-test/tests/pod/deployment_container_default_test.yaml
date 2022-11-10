@@ -20,12 +20,14 @@ tests:
       - isNull:
           documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].args
-      - isNull:
+      - equal:
           documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].tty
-      - isNull:
+          value: false
+      - equal:
           documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].stdin
+          value: false
       - isNull:
           documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].lifecycle

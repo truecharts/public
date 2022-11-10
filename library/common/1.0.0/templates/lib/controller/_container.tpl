@@ -28,11 +28,15 @@
     {{- end }}
   {{- end }}
   {{- end }}
-  {{- with .Values.tty }}
-  tty: {{ . }}
+  {{- if .Values.tty }}
+  tty: true
+  {{- else }}
+  tty: false
   {{- end }}
-  {{- with .Values.stdin }}
-  stdin: {{ . }}
+  {{- if .Values.stdin }}
+  stdin: true
+  {{- else }}
+  stdin: false
   {{- end }}
   {{- with .Values.securityContext }}
   securityContext: {{/* TODO: Add validation for runAsNonRoot / runAsUser|runAsGroup 0*/}}
