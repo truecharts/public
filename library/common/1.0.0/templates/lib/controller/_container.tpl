@@ -115,5 +115,5 @@
 
 {{/*
 The "tpl (toYaml somepath) $" is used to expand template content (if any)
-Cases like this are when we set this based on other values on the chart.
+Cases like this are when we set these values on another tpl file with template
 */}}
