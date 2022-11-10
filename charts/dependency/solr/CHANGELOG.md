@@ -2,6 +2,15 @@
 
 
 
+## [solr-0.0.93](https://github.com/truecharts/charts/compare/solr-0.0.92...solr-0.0.93) (2022-11-10)
+
+### Chore
+
+- update docker general non-major ([#4366](https://github.com/truecharts/charts/issues/4366))
+
+
+
+
 ## [solr-0.0.92](https://github.com/truecharts/charts/compare/solr-0.0.91...solr-0.0.92) (2022-11-09)
 
 ### Chore
