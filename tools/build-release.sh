@@ -244,13 +244,7 @@ generate_docs() {
     local train="$3"
     local chartversion="$4"
     if [[ -z "$standalone" ]]; then
-    echo "Generating Docs"
-        helm-docs \
-            --ignore-file=".helmdocsignore" \
-            --output-file="CONFIG.md" \
-            --template-files="/__w/apps/apps/templates/docs/CONFIG.md.gotmpl" \
-            --chart-search-root="${chart}"
-    fi
+
     }
     export -f generate_docs
 
