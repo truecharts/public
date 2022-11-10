@@ -2,6 +2,215 @@
 
 
 
+## [prometheus-4.0.131](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.44...prometheus-4.0.131) (2022-11-10)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update docker general non-major ([#4343](https://github.com/truecharts/charts/issues/4343))
+  - update helm general non-major ([#4349](https://github.com/truecharts/charts/issues/4349))
+  - update docker general non-major ([#4355](https://github.com/truecharts/charts/issues/4355))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+  - update docker general non-major ([#4366](https://github.com/truecharts/charts/issues/4366))
+
+
+
+
+## [prometheus-4.0.130](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.44...prometheus-4.0.130) (2022-11-09)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update docker general non-major ([#4355](https://github.com/truecharts/charts/issues/4355))
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update docker general non-major ([#4343](https://github.com/truecharts/charts/issues/4343))
+  - update helm general non-major ([#4349](https://github.com/truecharts/charts/issues/4349))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [prometheus-4.0.129](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.44...prometheus-4.0.129) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update docker general non-major ([#4343](https://github.com/truecharts/charts/issues/4343))
+  - update helm general non-major ([#4349](https://github.com/truecharts/charts/issues/4349))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [prometheus-4.0.128](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.44...prometheus-4.0.128) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update docker general non-major ([#4343](https://github.com/truecharts/charts/issues/4343))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [prometheus-4.0.128](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.44...prometheus-4.0.128) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update docker general non-major ([#4343](https://github.com/truecharts/charts/issues/4343))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [prometheus-4.0.128](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.44...prometheus-4.0.128) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update docker general non-major ([#4343](https://github.com/truecharts/charts/issues/4343))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [prometheus-4.0.127](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.44...prometheus-4.0.127) (2022-11-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [prometheus-4.0.127](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.44...prometheus-4.0.127) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [prometheus-4.0.126](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.43...prometheus-4.0.126) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+  - update docker general non-major ([#4312](https://github.com/truecharts/charts/issues/4312))
+
+
+
+
+## [prometheus-4.0.125](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.43...prometheus-4.0.125) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4312](https://github.com/truecharts/charts/issues/4312))
+
+
+
+
+## [prometheus-4.0.124](https://github.com/truecharts/charts/compare/prometheus-4.0.123...prometheus-4.0.124) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
+## [prometheus-4.0.123](https://github.com/truecharts/charts/compare/prometheus-4.0.122...prometheus-4.0.123) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4301](https://github.com/truecharts/charts/issues/4301))
+
+
+
+
+## [prometheus-4.0.122](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.42...prometheus-4.0.122) (2022-11-03)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4289](https://github.com/truecharts/charts/issues/4289))
+
+
+
+
+## [prometheus-4.0.121](https://github.com/truecharts/charts/compare/prometheus-4.0.120...prometheus-4.0.121) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+  - update docker general non-major ([#4280](https://github.com/truecharts/charts/issues/4280))
+
+
+
+
+## [prometheus-4.0.120](https://github.com/truecharts/charts/compare/prometheus-4.0.119...prometheus-4.0.120) (2022-10-31)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4249](https://github.com/truecharts/charts/issues/4249))
+
+
+
+
+## [prometheus-4.0.119](https://github.com/truecharts/charts/compare/prometheus-4.0.118...prometheus-4.0.119) (2022-10-30)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#4238](https://github.com/truecharts/charts/issues/4238))
+
+
+
+
 ## [prometheus-4.0.118](https://github.com/truecharts/charts/compare/prometheus-4.0.117...prometheus-4.0.118) (2022-10-29)
 
 ### Chore

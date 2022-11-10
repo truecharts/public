@@ -4,9 +4,13 @@ image:
   tag: 2022.10.3@sha256:20455e880d8b5d5a2d83c632c53f83b0924e86e6f0bb587f55d854b188b65742
 
 extraArgs:
-  ["tunnel", "--no-autoupdate", "run", "--token", "{{ .Values.env.token }}"]
+  - tunnel
+  - --no-autoupdate
+  - run
+  - --token
+  - "{{ .Values.cloudflared.token }}"
 
-env:
+cloudflared:
   token: ""
 
 securityContext:
@@ -18,11 +22,10 @@ podSecurityContext:
 
 service:
   main:
+    enabled: false
     ports:
       main:
-        protocol: HTTP
-        targetPort: 6969
-        port: 6969
+        enabled: false
 
 probes:
   liveness:

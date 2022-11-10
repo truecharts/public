@@ -2,7 +2,120 @@
 
 
 
-## [wireshark-2.0.39](https://github.com/truecharts/charts/compare/wireshark-2.0.38...wireshark-2.0.39) (2022-10-25)
+## [wireshark-2.0.47](https://github.com/truecharts/charts/compare/wireshark-2.0.43...wireshark-2.0.47) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4349](https://github.com/truecharts/charts/issues/4349))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+  - update docker general non-major ([#4347](https://github.com/truecharts/charts/issues/4347))
+
+
+
+
+## [wireshark-2.0.46](https://github.com/truecharts/charts/compare/wireshark-2.0.43...wireshark-2.0.46) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+  - update docker general non-major ([#4347](https://github.com/truecharts/charts/issues/4347))
+
+
+
+
+## [wireshark-2.0.46](https://github.com/truecharts/charts/compare/wireshark-2.0.43...wireshark-2.0.46) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+  - update docker general non-major ([#4347](https://github.com/truecharts/charts/issues/4347))
+
+
+
+
+## [wireshark-2.0.45](https://github.com/truecharts/charts/compare/wireshark-2.0.43...wireshark-2.0.45) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [wireshark-2.0.44](https://github.com/truecharts/charts/compare/wireshark-2.0.43...wireshark-2.0.44) (2022-11-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [wireshark-2.0.44](https://github.com/truecharts/charts/compare/wireshark-2.0.43...wireshark-2.0.44) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [wireguard-1.0.15](https://github.com/truecharts/charts/compare/wireguard-1.0.14...wireguard-1.0.15) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
+
+
+
+
+## [wireguard-1.0.14](https://github.com/truecharts/charts/compare/wireguard-1.0.13...wireguard-1.0.14) (2022-11-05)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
+
+
+
+
+## [wireguard-1.0.13](https://github.com/truecharts/charts/compare/wireguard-1.0.12...wireguard-1.0.13) (2022-11-02)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4261](https://github.com/truecharts/charts/issues/4261))
+
+
+
+
+## [wireguard-1.0.12](https://github.com/truecharts/charts/compare/wireguard-1.0.11...wireguard-1.0.12) (2022-10-25)
 
 ### Chore
 
@@ -12,30 +125,7 @@
 
 
 
-## [wireshark-2.0.38](https://github.com/truecharts/charts/compare/wireshark-2.0.37...wireshark-2.0.38) (2022-10-24)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - update docker general non-major ([#4171](https://github.com/truecharts/charts/issues/4171))
-
-
-
-
-## [wireshark-2.0.37](https://github.com/truecharts/charts/compare/wireshark-2.0.36...wireshark-2.0.37) (2022-10-19)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-
-  ### Fix
-
-- run privileged by default ([#4135](https://github.com/truecharts/charts/issues/4135))
-
-
-
-
-## [wireshark-2.0.36](https://github.com/truecharts/charts/compare/wireshark-2.0.35...wireshark-2.0.36) (2022-10-19)
+## [wireguard-1.0.11](https://github.com/truecharts/charts/compare/wireguard-1.0.10...wireguard-1.0.11) (2022-10-19)
 
 ### Chore
 
@@ -45,7 +135,7 @@
 
 
 
-## [wireshark-2.0.35](https://github.com/truecharts/charts/compare/wireshark-2.0.34...wireshark-2.0.35) (2022-10-12)
+## [wireguard-1.0.10](https://github.com/truecharts/charts/compare/wireguard-1.0.9...wireguard-1.0.10) (2022-10-12)
 
 ### Chore
 
@@ -55,7 +145,7 @@
 
 
 
-## [wireshark-2.0.34](https://github.com/truecharts/charts/compare/wireshark-2.0.33...wireshark-2.0.34) (2022-10-07)
+## [wireguard-1.0.9](https://github.com/truecharts/charts/compare/wireguard-1.0.8...wireguard-1.0.9) (2022-10-07)
 
 ### Chore
 
@@ -66,7 +156,7 @@
 
 
 
-## [wireshark-2.0.34](https://github.com/truecharts/charts/compare/wireshark-2.0.33...wireshark-2.0.34) (2022-10-07)
+## [wireguard-1.0.9](https://github.com/truecharts/charts/compare/wireguard-1.0.8...wireguard-1.0.9) (2022-10-07)
 
 ### Chore
 
@@ -76,7 +166,7 @@
 
 
 
-## [wireshark-2.0.33](https://github.com/truecharts/charts/compare/wireshark-2.0.32...wireshark-2.0.33) (2022-10-05)
+## [wireguard-1.0.8](https://github.com/truecharts/charts/compare/wireguard-1.0.7...wireguard-1.0.8) (2022-10-05)
 
 ### Chore
 
@@ -87,7 +177,7 @@
 
 
 
-## [wireshark-2.0.32](https://github.com/truecharts/charts/compare/wireshark-2.0.31...wireshark-2.0.32) (2022-09-27)
+## [wireguard-1.0.7](https://github.com/truecharts/charts/compare/wireguard-1.0.6...wireguard-1.0.7) (2022-09-27)
 
 ### Chore
 
@@ -97,7 +187,7 @@
 
 
 
-## [wireshark-2.0.31](https://github.com/truecharts/charts/compare/wireshark-2.0.30...wireshark-2.0.31) (2022-09-25)
+## [wireguard-1.0.6](https://github.com/truecharts/charts/compare/wireguard-1.0.5...wireguard-1.0.6) (2022-09-25)
 
 ### Chore
 
@@ -107,7 +197,7 @@
 
 
 
-## [wireshark-2.0.30](https://github.com/truecharts/charts/compare/wireshark-2.0.29...wireshark-2.0.30) (2022-09-22)
+## [wireguard-1.0.5](https://github.com/truecharts/charts/compare/wireguard-1.0.4...wireguard-1.0.5) (2022-09-22)
 
 ### Chore
 
@@ -130,7 +220,7 @@
 
 
 
-## [wireshark-2.0.30](https://github.com/truecharts/charts/compare/wireshark-2.0.29...wireshark-2.0.30) (2022-09-21)
+## [wireguard-1.0.5](https://github.com/truecharts/charts/compare/wireguard-1.0.4...wireguard-1.0.5) (2022-09-21)
 
 ### Chore
 
@@ -152,7 +242,7 @@
 
 
 
-## [wireshark-2.0.30](https://github.com/truecharts/charts/compare/wireshark-2.0.29...wireshark-2.0.30) (2022-09-21)
+## [wireguard-1.0.5](https://github.com/truecharts/charts/compare/wireguard-1.0.4...wireguard-1.0.5) (2022-09-21)
 
 ### Chore
 
@@ -173,7 +263,7 @@
 
 
 
-## [wireshark-2.0.30](https://github.com/truecharts/charts/compare/wireshark-2.0.29...wireshark-2.0.30) (2022-09-20)
+## [wireguard-1.0.5](https://github.com/truecharts/charts/compare/wireguard-1.0.4...wireguard-1.0.5) (2022-09-20)
 
 ### Chore
 
@@ -193,7 +283,7 @@
 
 
 
-## [wireshark-2.0.30](https://github.com/truecharts/charts/compare/wireshark-2.0.29...wireshark-2.0.30) (2022-09-20)
+## [wireguard-1.0.5](https://github.com/truecharts/charts/compare/wireguard-1.0.4...wireguard-1.0.5) (2022-09-20)
 
 ### Chore
 
@@ -212,7 +302,7 @@
 
 
 
-## [wireshark-2.0.30](https://github.com/truecharts/charts/compare/wireshark-2.0.29...wireshark-2.0.30) (2022-09-19)
+## [wireguard-1.0.5](https://github.com/truecharts/charts/compare/wireguard-1.0.4...wireguard-1.0.5) (2022-09-19)
 
 ### Chore
 
@@ -230,7 +320,7 @@
 
 
 
-## [wireshark-2.0.30](https://github.com/truecharts/charts/compare/wireshark-2.0.29...wireshark-2.0.30) (2022-09-19)
+## [wireguard-1.0.5](https://github.com/truecharts/charts/compare/wireguard-1.0.4...wireguard-1.0.5) (2022-09-19)
 
 ### Chore
 
@@ -247,7 +337,7 @@
 
 
 
-## [wireshark-2.0.30](https://github.com/truecharts/charts/compare/wireshark-2.0.29...wireshark-2.0.30) (2022-09-19)
+## [wireguard-1.0.5](https://github.com/truecharts/charts/compare/wireguard-1.0.4...wireguard-1.0.5) (2022-09-19)
 
 ### Chore
 
@@ -263,7 +353,7 @@
 
 
 
-## [wireshark-2.0.30](https://github.com/truecharts/charts/compare/wireshark-2.0.29...wireshark-2.0.30) (2022-09-17)
+## [wireguard-1.0.5](https://github.com/truecharts/charts/compare/wireguard-1.0.4...wireguard-1.0.5) (2022-09-17)
 
 ### Chore
 
@@ -278,7 +368,7 @@
 
 
 
-## [wireshark-2.0.30](https://github.com/truecharts/charts/compare/wireshark-2.0.29...wireshark-2.0.30) (2022-09-18)
+## [wireguard-1.0.5](https://github.com/truecharts/charts/compare/wireguard-1.0.4...wireguard-1.0.5) (2022-09-18)
 
 ### Chore
 
@@ -291,7 +381,7 @@
 
 
 
-## [wireshark-2.0.30](https://github.com/truecharts/charts/compare/wireshark-2.0.29...wireshark-2.0.30) (2022-09-16)
+## [wireguard-1.0.5](https://github.com/truecharts/charts/compare/wireguard-1.0.4...wireguard-1.0.5) (2022-09-16)
 
 ### Chore
 
@@ -303,7 +393,7 @@
 
 
 
-## [wireshark-2.0.30](https://github.com/truecharts/charts/compare/wireshark-2.0.29...wireshark-2.0.30) (2022-09-16)
+## [wireguard-1.0.5](https://github.com/truecharts/charts/compare/wireguard-1.0.4...wireguard-1.0.5) (2022-09-16)
 
 ### Chore
 
@@ -314,7 +404,7 @@
 
 
 
-## [wireshark-2.0.30](https://github.com/truecharts/charts/compare/wireshark-2.0.29...wireshark-2.0.30) (2022-09-15)
+## [wireguard-1.0.5](https://github.com/truecharts/charts/compare/wireguard-1.0.4...wireguard-1.0.5) (2022-09-15)
 
 ### Chore
 
@@ -324,7 +414,7 @@
 
 
 
-## [wireshark-2.0.30](https://github.com/truecharts/charts/compare/wireshark-2.0.29...wireshark-2.0.30) (2022-09-15)
+## [wireguard-1.0.5](https://github.com/truecharts/charts/compare/wireguard-1.0.4...wireguard-1.0.5) (2022-09-15)
 
 ### Chore
 
@@ -333,7 +423,7 @@
 
 
 
-## [wireshark-2.0.29](https://github.com/truecharts/charts/compare/wireshark-2.0.28...wireshark-2.0.29) (2022-09-12)
+## [wireguard-1.0.4](https://github.com/truecharts/charts/compare/wireguard-1.0.3...wireguard-1.0.4) (2022-09-12)
 
 ### Chore
 
@@ -347,7 +437,7 @@
 
 
 
-## [wireshark-2.0.29](https://github.com/truecharts/charts/compare/wireshark-2.0.28...wireshark-2.0.29) (2022-09-12)
+## [wireguard-1.0.4](https://github.com/truecharts/charts/compare/wireguard-1.0.3...wireguard-1.0.4) (2022-09-12)
 
 ### Chore
 
@@ -355,39 +445,6 @@
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
   - Auto-update chart README [skip ci]
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
-
-
-
-
-## [wireshark-2.0.29](https://github.com/truecharts/charts/compare/wireshark-2.0.28...wireshark-2.0.29) (2022-09-11)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
-
-
-
-
-## [wireshark-2.0.29](https://github.com/truecharts/charts/compare/wireshark-2.0.28...wireshark-2.0.29) (2022-09-11)
-
-### Chore
-
-- Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
-
-
-
-
-## [wireshark-2.0.29](https://github.com/truecharts/charts/compare/wireshark-2.0.28...wireshark-2.0.29) (2022-09-11)
-
-### Chore
-
-- Auto-update chart README [skip ci]
   - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 
@@ -397,7 +454,32 @@
 
 ### Chore
 
-- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [wireguard-1.0.4](https://github.com/truecharts/charts/compare/wireguard-1.0.3...wireguard-1.0.4) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
+
+
+
+## [wireguard-1.0.4](https://github.com/truecharts/charts/compare/wireguard-1.0.3...wireguard-1.0.4) (2022-09-11)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
+
 
 
 

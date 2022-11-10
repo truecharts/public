@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/strapi
-  tag: v3.6.8@sha256:a36075a1a9cc9802e77772f765b189ff1f4216c11de80fb1c36b1a44551cdcc6
-  pullPolicy: IfNotPresent
+  tag: 4.4.7@sha256:2c134e8c45ac3f51086eebab0b7c31edda1c37534ee3c514c562755293f4d26e
+  pullPolicy: Always
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -11,21 +11,29 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+secretEnv:
+  JWT_SECRET: "my_jwt_secret"
+  ADMIN_JWT_SECRET: "my_admin_jwt_secret"
+  APP_KEYS: "my_app_keys"
+
 env:
   DATABASE_CLIENT: "postgres"
   DATABASE_PORT: 5432
   DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
-  DATABASE_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
-  NODE_ENV: "production"
-  EXTRA_ARGS: ""
   DATABASE_HOST:
     secretKeyRef:
       name: dbcreds
       key: plainhost
+  DATABASE_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
   DATABASE_PASSWORD:
     secretKeyRef:
       name: dbcreds
       key: postgresql-password
+  # STRAPI_LICENSE
+  NODE_ENV: "production"
+  STRAPI_DISABLE_UPDATE_NOTIFICATION: true
+  FAST_REFRESH: false
+  EXTRA_ARGS: ""
 
 service:
   main:

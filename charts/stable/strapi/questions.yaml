@@ -15,7 +15,37 @@ questions:
 # Include{recreate}
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
-  # Docker specific env
+  - variable: secretEnv
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: JWT_SECRET
+          label: Jwt Secret
+          description: The secret used to sign the JWT for the Users-Permissions plugin.
+          schema:
+            type: string
+            private: true
+            required: true
+            default: ""
+        - variable: ADMIN_JWT_SECRET
+          label: Admin Jwt Secret
+          description: The secret used to sign the JWT for the Admin panel.
+          schema:
+            type: string
+            private: true
+            required: true
+            default: ""
+        - variable: APP_KEYS
+          label: App Keys
+          description: The secret keys used to sign the session cookies.
+          schema:
+            type: string
+            private: true
+            required: true
+            default: ""
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -24,16 +54,34 @@ questions:
       type: dict
       attrs:
         - variable: NODE_ENV
-          label: "Node Environment"
-          description: "Sets Node's Environment"
+          label: Node Environment
+          description: Sets Node's Environment
           schema:
             type: string
-            default: "production"
+            default: production
             enum:
-              - value: "production"
-                description: "Production"
-              - value: "develop"
-                description: "Development"
+              - value: production
+                description: Production
+              - value: development
+                description: Development
+        - variable: STRAPI_LICENSE
+          label: Strapi License
+          description: The license key to activate the Enterprise Edition.
+          schema:
+            type: string
+            default: ""
+        - variable: STRAPI_DISABLE_UPDATE_NOTIFICATION
+          label: Strapi Disable Update Notifications
+          description: Don't show the notification message about updating Strapi.
+          schema:
+            type: boolean
+            default: true
+        - variable: FAST_REFRESH
+          label: Fast Refresh
+          description: enable "Fast Refresh" for near-instant feedback.
+          schema:
+            type: boolean
+            default: false
         - variable: EXTRA_ARGS
           label: "Extra Args (Leave empty for default)"
           description: "Pass extra args to the strapi new"

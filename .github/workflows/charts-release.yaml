@@ -13,11 +13,13 @@ on:
 jobs:
   release-scale:
     runs-on: ubuntu-latest
+    outputs:
+      ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
     container:
       image: ghcr.io/truecharts/devcontainer:v2.6.0@sha256:5029ebed5c833646da3afb3a8512eba79f08cac8935a53fc1510854fec22341a
     steps:
       - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@692cfc1cce1355da8eece58a8f17335af07d106c # tag=v0.9.1
+        uses: yokawasa/action-setup-kube-tools@b91bb02bc122bd84ac7bbea5f25ed6b0f2ec6275 # tag=v0.9.2
         with:
           setup-tools: |
             helmv3
@@ -106,7 +108,7 @@ jobs:
         id: create-commit
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
-        uses: stefanzweifel/git-auto-commit-action@49620cd3ed21ee620a48530e81dba0d139c9cb80 # tag=v4
+        uses: stefanzweifel/git-auto-commit-action@49620cd3ed21ee620a48530e81dba0d139c9cb80 # v4
         with:
           file_pattern: charts/**/
           commit_message: "chore: Auto-update chart README [skip ci]"
@@ -171,15 +173,15 @@ jobs:
           git push
           cd -
           rm -rf catalog
-
-  release-helm:
+          
+  release-helm-important:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/truecharts/devcontainer:v2.6.0@sha256:5029ebed5c833646da3afb3a8512eba79f08cac8935a53fc1510854fec22341a
     needs: release-scale
     steps:
       - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@692cfc1cce1355da8eece58a8f17335af07d106c # tag=v0.9.1
+        uses: yokawasa/action-setup-kube-tools@b91bb02bc122bd84ac7bbea5f25ed6b0f2ec6275 # tag=v0.9.2
         with:
           setup-tools: |
             helmv3
@@ -189,7 +191,6 @@ jobs:
         run: |
           wget -O /tmp/helm-docs.deb  https://github.com/k8s-at-home/helm-docs/releases/download/v0.1.1/helm-docs_0.1.1_Linux_x86_64.deb
           sudo dpkg -i /tmp/helm-docs.deb
-
       - name: Prep Helm
         run: |
           helm repo add truecharts https://charts.truecharts.org
@@ -199,12 +200,12 @@ jobs:
           helm repo add grafana https://grafana.github.io/helm-charts
           helm repo add prometheus https://prometheus-community.github.io/helm-charts
           helm repo update
-
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
+          ref: ${{needs.release-scale.outputs.ref}}
 
       - name: Fix Pre-Commit issues
         shell: bash
@@ -213,16 +214,133 @@ jobs:
           pre-commit run --all ||:
           # Fix sh files to always be executable
           find . -name '*.sh' | xargs chmod +x
-
       - name: Configure Git
         run: |
           git config user.name "truecharts-bot"
           git config user.email "bot@truecharts.org"
+      - name: Run chart-releaser for dependency apps
+        uses: helm/chart-releaser-action@98bccfd32b0f76149d188912ac8e45ddd3f8695f # tag=v1.4.1
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
+        with:
+          charts_dir: charts/dependency
+          charts_repo_url: https://charts.truecharts.org
+        env:
+          CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
+          CR_SKIP_EXISTING: "true"
 
-      - name: Run chart-releaser
+      - name: Run chart-releaser for enterprise apps
+        uses: helm/chart-releaser-action@98bccfd32b0f76149d188912ac8e45ddd3f8695f # tag=v1.4.1
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
+        with:
+          charts_dir: charts/enterprise
+          charts_repo_url: https://charts.truecharts.org
+        env:
+          CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
+          CR_SKIP_EXISTING: "true"
+          
+  release-helm-stable:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/truecharts/devcontainer:v2.6.0@sha256:5029ebed5c833646da3afb3a8512eba79f08cac8935a53fc1510854fec22341a
+    needs: ["release-scale", "release-helm-important"]
+    steps:
+      - name: Install Kubernetes tools
+        uses: yokawasa/action-setup-kube-tools@b91bb02bc122bd84ac7bbea5f25ed6b0f2ec6275 # tag=v0.9.2
+        with:
+          setup-tools: |
+            helmv3
+          helm: "3.8.0"
+
+      - name: Install helm-docs
+        run: |
+          wget -O /tmp/helm-docs.deb  https://github.com/k8s-at-home/helm-docs/releases/download/v0.1.1/helm-docs_0.1.1_Linux_x86_64.deb
+          sudo dpkg -i /tmp/helm-docs.deb
+      - name: Prep Helm
+        run: |
+          helm repo add truecharts https://charts.truecharts.org
+          helm repo add truecharts-library https://library-charts.truecharts.org
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo add metallb https://metallb.github.io/metallb
+          helm repo add grafana https://grafana.github.io/helm-charts
+          helm repo add prometheus https://prometheus-community.github.io/helm-charts
+          helm repo update
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          fetch-depth: 0
+          ref: ${{needs.release-scale.outputs.ref}}
+
+      - name: Fix Pre-Commit issues
+        shell: bash
+        run: |
+          echo "Running pre-commit test-and-cleanup..."
+          pre-commit run --all ||:
+          # Fix sh files to always be executable
+          find . -name '*.sh' | xargs chmod +x
+      - name: Configure Git
+        run: |
+          git config user.name "truecharts-bot"
+          git config user.email "bot@truecharts.org"
+      - name: Run chart-releaser for stable
         uses: helm/chart-releaser-action@98bccfd32b0f76149d188912ac8e45ddd3f8695f # tag=v1.4.1
         with:
-          charts_dir: charts/*
+          charts_dir: charts/stable
+          charts_repo_url: https://charts.truecharts.org
+        env:
+          CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
+          CR_SKIP_EXISTING: "true"
+          
+  release-helm-incubator:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/truecharts/devcontainer:v2.6.0@sha256:5029ebed5c833646da3afb3a8512eba79f08cac8935a53fc1510854fec22341a
+    needs: ["release-scale", "release-helm-stable", "release-helm-important"]
+    steps:
+      - name: Install Kubernetes tools
+        uses: yokawasa/action-setup-kube-tools@b91bb02bc122bd84ac7bbea5f25ed6b0f2ec6275 # tag=v0.9.2
+        with:
+          setup-tools: |
+            helmv3
+          helm: "3.8.0"
+
+      - name: Install helm-docs
+        run: |
+          wget -O /tmp/helm-docs.deb  https://github.com/k8s-at-home/helm-docs/releases/download/v0.1.1/helm-docs_0.1.1_Linux_x86_64.deb
+          sudo dpkg -i /tmp/helm-docs.deb
+      - name: Prep Helm
+        run: |
+          helm repo add truecharts https://charts.truecharts.org
+          helm repo add truecharts-library https://library-charts.truecharts.org
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo add metallb https://metallb.github.io/metallb
+          helm repo add grafana https://grafana.github.io/helm-charts
+          helm repo add prometheus https://prometheus-community.github.io/helm-charts
+          helm repo update
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          fetch-depth: 0
+          ref: ${{needs.release-scale.outputs.ref}}
+
+      - name: Fix Pre-Commit issues
+        shell: bash
+        run: |
+          echo "Running pre-commit test-and-cleanup..."
+          pre-commit run --all ||:
+          # Fix sh files to always be executable
+          find . -name '*.sh' | xargs chmod +x
+      - name: Configure Git
+        run: |
+          git config user.name "truecharts-bot"
+          git config user.email "bot@truecharts.org"
+      - name: Run chart-releaser for stable
+        uses: helm/chart-releaser-action@98bccfd32b0f76149d188912ac8e45ddd3f8695f # tag=v1.4.1
+        with:
+          charts_dir: charts/incubator
           charts_repo_url: https://charts.truecharts.org
         env:
           CR_TOKEN: "${{ secrets.BOT_TOKEN }}"

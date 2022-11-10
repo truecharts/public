@@ -1,38 +1,31 @@
-env:
-  AquireRomSets: ""
-  AutoStart: ""
-  ConcurrentDownloadThreads: ""
-  DeDupe: ""
-  EnableUnsupportedPlatforms: ""
-  ScrapeMetadata: ""
-  ScreenscraperPassword: ""
-  ScreenscraperUsername: ""
-  ScriptInterval: ""
-  keepBackupsOfImportedRoms: ""
-  skyscraperLanguagePreference: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/ra-rom-processor
-  tag: latest@sha256:e6df104362b18154597944eba0729b4de7437a5ed9bff9d821ac3d9f662a8ee2
-persistence:
-  config:
-    enabled: true
-    mountPath: /config
-  hostpathforbackup:
-    enabled: true
-    mountPath: /backup
-  hostpathforcache:
-    enabled: true
-    mountPath: /cache
-  hostpathforinput:
-    enabled: true
-    mountPath: /input
-  hostpathforoutput:
-    enabled: true
-    mountPath: /output
+  tag: latest@sha256:b09ae7bfeb775816d19a82ca5d76a4a0b3eb01119f6c1d19338a8bbc1a1a3070
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+secretEnv:
+  ScreenscraperPassword: ""
+  ScreenscraperUsername: ""
+
+env:
+  AquireRomSets: false
+  AutoStart: false
+  ConcurrentDownloadThreads: 1
+  DeDupe: false
+  EnableUnsupportedPlatforms: false
+  ScrapeMetadata: false
+  ScriptInterval: "1h"
+  keepBackupsOfImportedRoms: true
+  skyscraperLanguagePreference: "en"
+
 probes:
   liveness:
     enabled: false
@@ -40,15 +33,30 @@ probes:
     enabled: false
   startup:
     enabled: false
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  cache:
+    enabled: true
+    mountPath: /cache
+  input:
+    enabled: true
+    mountPath: /input
+  output:
+    enabled: true
+    mountPath: /output
+  backup:
+    enabled: true
+    mountPath: /backup
 
 portal:
   enabled: false

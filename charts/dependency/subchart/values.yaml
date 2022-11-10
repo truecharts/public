@@ -1,0 +1,28 @@
+image:
+  repository: tccr.io/truecharts/ubuntu
+  pullPolicy: IfNotPresent
+  tag: jammy-20221101
+
+manifests:
+  enabled: false
+
+updateCRD: false
+
+portal:
+  enabled: false
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+        port: 9999
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false

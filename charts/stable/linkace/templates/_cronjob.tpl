@@ -42,7 +42,7 @@ spec:
               env:
                 - name: CRON_TOKEN
                   value: {{ .Values.secret.CRON_TOKEN }}
-              image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
+              image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
               args:
               - curl
               - "http://{{ $jobName }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}/cron/$(CRON_TOKEN)"

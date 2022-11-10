@@ -1,11 +1,10 @@
 image:
   repository: tailscale/tailscale
   pullPolicy: IfNotPresent
-  tag: v1.33.104@sha256:433c42a3822e814d7a3ff0cf2cae97f3af62174252328d50dfc315e9e35e901e
+  tag: v1.33.158@sha256:81c72e39a98bff7186675edd1664c16333f473444f90af527c182862818abc0a
 
-command: ["ash", "/tailscale/run.sh"]
-
-tty: true
+command:
+  - /usr/local/bin/containerboot
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -29,32 +28,33 @@ rbac:
       - apiGroups:
           - ""
         resources:
-          - "secrets"
+          - secrets
         verbs:
-          - "create"
+          - create
       - apiGroups:
           - ""
         resources:
-          - "secrets"
+          - secrets
         resourceNames:
           - '{{ printf "%s-tailscale-secret" (include "tc.common.names.fullname" .) }}'
         verbs:
-          - "get"
-          - "update"
+          - get
+          - update
+          - patch
 
 envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-tailscale-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-tailscale-config'
 
 tailscale:
-  authkey: "supersecret"
+  authkey: supersecret
+  auth_once: true
   userspace: true
   accept_dns: false
   routes: ""
   dest_ip: ""
   sock5_server: ""
+  outbound_http_proxy_listen: ""
   extra_args: ""
   daemon_extra_args: ""
   hostname: ""
@@ -79,10 +79,7 @@ service:
 
 persistence:
   varrun:
-    enabled: false
-  config:
     enabled: true
-    mountPath: "/var/lib"
   tun:
     enabled: true
     type: hostPath
