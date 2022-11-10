@@ -78,11 +78,6 @@ chart_runner(){
       train=$(basename $(dirname "${1}"))
       SCALESUPPORT=$(cat ${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
       helm dependency build "${1}" --skip-refresh || (sleep 10 && helm dependency build "${1}" --skip-refresh) || (sleep 10 && helm dependency build "${1}" --skip-refresh)
-      sync_tag "${1}" "${chartname}" "$train" "${chartversion}" || echo "Tag sync failed..."
-      # create_changelog "${1}" "${chartname}" "$train" "${chartversion}" || echo "changelog generation failed..."
-      # generate_docs "${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs generation failed..."
-      #copy_docs "${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs Copy failed..."
-      #package_chart "${1}"
       if [[ "${SCALESUPPORT}" == "true" ]]; then
         clean_apps "${1}" "${chartname}" "$train" "${chartversion}"
         copy_apps "${1}" "${chartname}" "$train" "${chartversion}"
@@ -133,61 +128,6 @@ clean_catalog() {
     }
 export -f clean_catalog
 
-gen_dh_cat() {
-    rm -rf dh_catalog/*.*
-    rm -rf dh_catalog/*
-    cp -rf catalog/* dh_catalog
-    cd dh_catalog
-    find ./ -type f -name *.yaml -exec sed -i 's/tccr.io/dh.tccr.io/gI' {} \;
-    cd -
-   }
-export -f gen_dh_cat
-
-# Designed to ensure the appversion in Chart.yaml is in sync with the primary Chart tag if found
-# Also makes sure that home link is pointing to the correct url
-sync_tag() {
-    local chart="$1"
-    local chartname="$2"
-    local train="$3"
-    local chartversion="$4"
-    echo "Attempting to sync primary tag with appversion for: ${chartname}"
-    local tag="$(cat ${chart}/values.yaml | grep '^  tag: ' | awk -F" " '{ print $2 }' | head -1)"
-    tag="${tag%%@*}"
-    tag="${tag:-auto}"
-    tag=$(echo $tag | sed "s/release-//g")
-    tag=$(echo $tag | sed "s/release_//g")
-    tag=$(echo $tag | sed "s/version-//g")
-    tag=$(echo $tag | sed "s/version_//g")
-    tag="${tag#*V.}"
-    tag="${tag#*v-}"
-    tag="${tag#*v}"
-    tag="${tag%-*}"
-    tag="${tag:0:10}"
-    tag="${tag%-}"
-    tag="${tag%_}"
-    tag="${tag%.}"
-    echo "Updating tag of ${chartname} to ${tag}..."
-    sed -i -e "s|appVersion: .*|appVersion: \"${tag}\"|" "${chart}/Chart.yaml"
-    echo "Updating icon of ${chartname}..."
-    sed -i -e "s|icon: .*|icon: https:\/\/truecharts.org\/img\/hotlink-ok\/chart-icons\/${chartname}.png|" "${chart}/Chart.yaml"
-    echo "Updating home of ${chartname}..."
-    sed -i -e "s|home: .*|home: https:\/\/truecharts.org\/docs\/charts\/${train}\/${chartname}|" "${chart}/Chart.yaml"
-    echo "Attempting to update sources of ${chartname}..."
-    echo "Using go-yq verion: <$(go-yq -V)>"
-    # Get all sources (except truecharts)
-    curr_sources=$(go-yq '.sources[] | select(. != "https://github.com/truecharts*")' "${chart}/Chart.yaml")
-    # Empty sources list in-place
-    go-yq -i 'del(.sources.[])' "${chart}/Chart.yaml"
-    # Add truechart source
-    tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" go-yq -i '.sources += env(tcsource)' "${chart}/Chart.yaml"
-    # Add the rest of the sources
-    while IFS= read -r line; do
-        src="$line" go-yq -i '.sources += env(src)' "${chart}/Chart.yaml"
-    done <<< "$curr_sources"
-    echo "Sources of ${chartname} updated!"
-    }
-export -f sync_tag
-
 pre_commit() {
     if [[ -z "$standalone" ]]; then
       echo "Running pre-commit test-and-cleanup..."
@@ -237,16 +177,6 @@ copy_general_docs() {
     sed -i '1s/^/# NOTICE<br>\n\n/' docs/about/legal/NOTICE.md
     }
     export -f copy_general_docs
-
-generate_docs() {
-    local chart="$1"
-    local chartname="$2"
-    local train="$3"
-    local chartversion="$4"
-    if [[ -z "$standalone" ]]; then
-
-    }
-    export -f generate_docs
 
 
 copy_docs() {
@@ -349,21 +279,6 @@ upload_catalog() {
     rm -rf catalog
 }
 export -f upload_catalog
-
-upload_dhcatalog() {
-    echo "Uploading DH-Catalog..."
-    cd dh_catalog
-    git config user.name "TrueCharts-Bot"
-    git config user.email "bot@truecharts.org"
-    git add --all
-    git commit -sm "Commit new Chart releases for TrueCharts" || exit 0
-    git push
-    cd -
-    rm -rf dh_catalog
-}
-export -f upload_dhcatalog
-
-
 
 parse_command_line() {
     while :; do
@@ -494,57 +409,5 @@ lookup_changed_charts() {
     cut -d '/' -f "$fields" <<< "$changed_files" | uniq | filter_charts
 }
 export -f lookup_changed_charts
-
-package_chart() {
-    local chart="$1"
-    local args=("$chart" --package-path .cr-release-packages)
-    if [[ -n "$config" ]]; then
-        args+=(--config "$config")
-    fi
-
-    if [[ -z "$standalone" ]]; then
-    echo "Packaging chart '$chart'..."
-    cr package "${args[@]}"
-    fi
-}
-export -f package_chart
-
-release_charts() {
-    local args=(-o "$owner" -r "$repo" -c "$(git rev-parse HEAD)")
-    if [[ -n "$config" ]]; then
-        args+=(--config "$config")
-    fi
-
-    if [[ -z "$standalone" ]]; then
-    echo 'Releasing charts...'
-    cr upload "${args[@]}"
-    fi
-}
-export -f release_charts
-
-update_index() {
-    local args=(-o "$owner" -r "$repo" -c "$charts_repo_url")
-    if [[ -n "$config" ]]; then
-        args+=(--config "$config")
-    fi
-
-    if [[ -z "$standalone" ]]; then
-    echo 'Updating charts repo index...'
-    cr index "${args[@]}"
-    fi
-}
-export -f update_index
-
-upload_index() {
-  cd .cr-index
-  git config user.name "TrueCharts-Bot"
-  git config user.email "bot@truecharts.org"
-  git add --all
-  git commit -sm "Commit released Helm Chart and docs for TrueCharts" || exit 0
-  git push
-  cd -
-  rm -rf .cr-index
-}
-export -f upload_index
 
 main "$@"
