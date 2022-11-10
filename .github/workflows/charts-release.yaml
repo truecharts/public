@@ -25,18 +25,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - name: Install helm-docs
-        run: |
-          wget -O /tmp/helm-docs.deb  https://github.com/k8s-at-home/helm-docs/releases/download/v0.1.1/helm-docs_0.1.1_Linux_x86_64.deb
-          sudo dpkg -i /tmp/helm-docs.deb
-
       - name: Prep Helm
         run: |
           helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo add grafana https://grafana.github.io/helm-charts
+
           helm repo add prometheus https://prometheus-community.github.io/helm-charts
           helm repo update
 
@@ -97,7 +91,6 @@ jobs:
                 echo "copying docs to website for ${chart}"
                 rm -rf website/docs/charts/*/${chart}
                 mkdir -p website/docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
-                yes | cp -rf charts/${train}/${chart}/README.md website/docs/charts/${train}/${chart}/index.md 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/CHANGELOG.md website/docs/charts/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/docs/* website/docs/charts/${train}/${chart}/ 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/icon.png website/static/img/hotlink-ok/chart-icons/${chart}.png 2>/dev/null || :
@@ -173,7 +166,7 @@ jobs:
           git push
           cd -
           rm -rf catalog
-          
+
   release-helm-important:
     runs-on: ubuntu-latest
     container:
@@ -187,17 +180,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - name: Install helm-docs
-        run: |
-          wget -O /tmp/helm-docs.deb  https://github.com/k8s-at-home/helm-docs/releases/download/v0.1.1/helm-docs_0.1.1_Linux_x86_64.deb
-          sudo dpkg -i /tmp/helm-docs.deb
       - name: Prep Helm
         run: |
           helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo add grafana https://grafana.github.io/helm-charts
+
           helm repo add prometheus https://prometheus-community.github.io/helm-charts
           helm repo update
       - name: Checkout
@@ -239,7 +227,7 @@ jobs:
         env:
           CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
           CR_SKIP_EXISTING: "true"
-          
+
   release-helm-stable:
     runs-on: ubuntu-latest
     container:
@@ -253,17 +241,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - name: Install helm-docs
-        run: |
-          wget -O /tmp/helm-docs.deb  https://github.com/k8s-at-home/helm-docs/releases/download/v0.1.1/helm-docs_0.1.1_Linux_x86_64.deb
-          sudo dpkg -i /tmp/helm-docs.deb
       - name: Prep Helm
         run: |
           helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo add grafana https://grafana.github.io/helm-charts
+
           helm repo add prometheus https://prometheus-community.github.io/helm-charts
           helm repo update
       - name: Checkout
@@ -292,7 +275,7 @@ jobs:
         env:
           CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
           CR_SKIP_EXISTING: "true"
-          
+
   release-helm-incubator:
     runs-on: ubuntu-latest
     container:
@@ -315,8 +298,8 @@ jobs:
           helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo add grafana https://grafana.github.io/helm-charts
+
+
           helm repo add prometheus https://prometheus-community.github.io/helm-charts
           helm repo update
       - name: Checkout

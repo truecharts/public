@@ -5,6 +5,11 @@
                         type: string
                         default: websecure
                         required: true
+                    - variable: ingressClassName
+                      label: (Advanced/Optional) IngressClass Name
+                      schema:
+                        type: string
+                        default: ""
                     - variable: middlewares
                       label: Traefik Middlewares
                       description: Add previously created Traefik Middlewares to this Ingress
