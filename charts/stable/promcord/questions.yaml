@@ -3,6 +3,14 @@ portals: {}
 questions:
 # Include{global}
 # Include{controller}
+# Include{controllerDeployment}
+# Include{replicas}
+# Include{replica1}
+# Include{strategy}
+# Include{recreate}
+# Include{controllerExpert}
+# Include{controllerExpertExtraArgs}
+# Include{containerConfig}
   - variable: secretEnv
     group: "App Configuration"
     label: "Image Secrets"
@@ -18,7 +26,6 @@ questions:
             required: true
             private: true
             default: "REPLACETHIS"
-# Include{containerConfig}
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
