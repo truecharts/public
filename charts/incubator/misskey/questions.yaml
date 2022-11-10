@@ -31,13 +31,13 @@ questions:
             type: string
             enum:
               - value: aid
-                description: Short, Millisecond accuracy
+                description: (aid) Short, Millisecond accuracy
               - value: meid
-                description: Similar to ObjectID, Millisecond accuracy
+                description: (meid) Similar to ObjectID, Millisecond accuracy
               - value: ulid
-                description: Millisecond accuracy
+                description: (ulid) Millisecond accuracy
               - value: objectid
-                description: This is left for backward compatibility
+                description: (objectid) This is left for backward compatibility
             default: aid
             required: true
         - variable: other
@@ -157,15 +157,6 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: misskeyconfig
-          label: App configuration storage
-          description: Stores the Application configuration files.
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: files
           label: Misskey file Storage
           description: Stores the Application file data.
