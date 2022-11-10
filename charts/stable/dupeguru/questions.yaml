@@ -14,7 +14,7 @@ questions:
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: secretEnv
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Image Secrets"
     schema:
       additional_attrs: true
@@ -28,7 +28,7 @@ questions:
             private: true
             default: ""
   - variable: dupeguru
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "DupeGuru Configuration"
     schema:
       additional_attrs: true

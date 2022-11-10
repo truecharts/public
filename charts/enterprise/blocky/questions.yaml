@@ -13,7 +13,7 @@ questions:
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: webUI
-    group: Container Configuration
+    group: App Configuration
     label: WebUI Configuration
     schema:
       additional_attrs: true
@@ -32,7 +32,7 @@ questions:
             type: string
             default: "http://127.0.0.1:4000"
   - variable: overrideDefaults
-    group: Container Configuration
+    group: App Configuration
     label: Override Default Upstreams
     description: Overrides the predefined DNS server upstream list
     schema:
@@ -53,7 +53,7 @@ questions:
                   required: true
                   default: ""
   - variable: upstreams
-    group: Container Configuration
+    group: App Configuration
     label: Upstreams Groups
     description: Refer to
       <br /><a href="https://0xerr0r.github.io/blocky/configuration/#upstream-configuration" target="_blank" rel="noopener noreferrer">https://0xerr0r.github.io/blocky/configuration/#upstream-configuration</a>
@@ -87,7 +87,7 @@ questions:
                         required: true
                         default: ""
   - variable: bootstrapDns
-    group: Container Configuration
+    group: App Configuration
     label: Bootstrap DNS
     description: Used to resolve upstream DoH and DoT servers that are specified as hostnames.
       <br />Refer to <a href="https://0xerr0r.github.io/blocky/configuration/#bootstrap-dns-configuration" target="_blank" rel="noopener noreferrer">https://0xerr0r.github.io/blocky/configuration/#bootstrap-dns-configuration</a>
@@ -113,7 +113,7 @@ questions:
                   required: true
                   default: ""
   - variable: filtering
-    group: Container Configuration
+    group: App Configuration
     label: Filtering
     description: Define one or more DNS query types; all queries with these types will be dropped
       <br />Refer to <a href="https://0xerr0r.github.io/blocky/configuration/#filtering" target="_blank" rel="noopener noreferrer">https://0xerr0r.github.io/blocky/configuration/#filtering</a>
@@ -134,7 +134,7 @@ questions:
                   required: true
                   default: ""
   - variable: customDNS
-    group: Container Configuration
+    group: App Configuration
     label: Custom DNS
     description: Define your own domain name to IP mappings.
       <br />Refer to <a href="https://0xerr0r.github.io/blocky/configuration/#custom-dns" target="_blank" rel="noopener noreferrer">https://0xerr0r.github.io/blocky/configuration/#custom-dns</a>
@@ -201,7 +201,7 @@ questions:
                         required: true
                         default: ""
   - variable: clientLookup
-    group: Container Configuration
+    group: App Configuration
     label: Client Lookup
     description: Blocky can try to resolve a user-friendly client name from the IP address or server URL (DoT and DoH)
       <br />Refer to <a href="https://0xerr0r.github.io/blocky/configuration/#client-name-lookup" target="_blank" rel="noopener noreferrer">https://0xerr0r.github.io/blocky/configuration/#client-name-lookup</a>
@@ -257,7 +257,7 @@ questions:
                               required: true
                               default: ""
   - variable: caching
-    group: Container Configuration
+    group: App Configuration
     label: Caching
     description: Refer to
       <br /><a href="https://0xerr0r.github.io/blocky/configuration/#caching" target="_blank" rel="noopener noreferrer">https://0xerr0r.github.io/blocky/configuration/#caching</a>
@@ -306,7 +306,7 @@ questions:
             type: string
             default: 30m
   - variable: conditional
-    group: Container Configuration
+    group: App Configuration
     label: Conditional
     description: Define which DNS resolver(s) should be used for queries for the particular domain
       <br />Refer to <a href="https://0xerr0r.github.io/blocky/configuration/#conditional-dns-resolution" target="_blank" rel="noopener noreferrer">https://0xerr0r.github.io/blocky/configuration/#conditional-dns-resolution</a>
@@ -363,7 +363,7 @@ questions:
                         required: true
                         default: ""
   - variable: blocking
-    group: Container Configuration
+    group: App Configuration
     label: Blocking
     description: Each black or whitelist can be either a path to the local file or a URL to download. All Urls must be grouped to a group name.
       <br />Refer to <a href="https://0xerr0r.github.io/blocky/configuration/#blocking-and-whitelisting" target="_blank" rel="noopener noreferrer">https://0xerr0r.github.io/blocky/configuration/#blocking-and-whitelisting</a>
@@ -516,7 +516,7 @@ questions:
                               required: true
                               default: ""
   - variable: hostsFile
-    group: Container Configuration
+    group: App Configuration
     label: Hosts File
     description: You can enable resolving of entries, located in local hosts file.
       <br />Refer to <a href="https://0xerr0r.github.io/blocky/configuration/#hosts-file" target="_blank" rel="noopener noreferrer">https://0xerr0r.github.io/blocky/configuration/#hosts-file</a>
@@ -547,7 +547,7 @@ questions:
                   type: string
                   default: 30m
   - variable: k8sgateway
-    group: Container Configuration
+    group: App Configuration
     label: k8s-Gateway Configuration
     schema:
       additional_attrs: true

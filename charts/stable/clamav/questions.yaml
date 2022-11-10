@@ -11,7 +11,7 @@ questions:
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: env
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Image Environment"
     schema:
       additional_attrs: true
@@ -48,7 +48,7 @@ questions:
             type: int
             default: 1
   - variable: clamav
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "ClamAV Cron Configuration"
     schema:
       additional_attrs: true

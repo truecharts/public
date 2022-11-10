@@ -13,7 +13,7 @@ questions:
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: meshcentral
-    group: Container Configuration
+    group: App Configuration
     label: MeshCentral Configuration
     schema:
       additional_attrs: true
@@ -604,7 +604,7 @@ questions:
                                     type: string
                                     default: ""
   - variable: additional_meshcentral
-    group: Container Configuration
+    group: App Configuration
     label: Additional MeshCentral Configuration
     schema:
       type: list

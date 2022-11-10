@@ -4,7 +4,7 @@ questions:
 # Include{global}
 # Include{controller}
   - variable: secretEnv
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Secret Image Environment"
     schema:
       additional_attrs: true
@@ -18,7 +18,7 @@ questions:
             default: ""
             required: true
   - variable: env
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Image Environment"
     schema:
       additional_attrs: true

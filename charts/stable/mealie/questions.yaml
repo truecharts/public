@@ -13,7 +13,7 @@ questions:
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: mealie_frontend
-    group: Container Configuration
+    group: App Configuration
     label: Mealie Frontend Configuration
     schema:
       additional_attrs: true
@@ -110,7 +110,7 @@ questions:
                   type: string
                   default: "#EF5350"
   - variable: mealie_backend
-    group: Container Configuration
+    group: App Configuration
     label: Mealie Backend Configuration
     schema:
       additional_attrs: true

@@ -13,7 +13,7 @@ questions:
 # Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: dsc
-    group: Container Configuration
+    group: App Configuration
     label: DSC Configuration
     schema:
       additional_attrs: true
@@ -58,7 +58,7 @@ questions:
                   type: string
                   default: ""
   - variable: rest_server
-    group: Container Configuration
+    group: App Configuration
     label: Rest Server Configuration
     schema:
       additional_attrs: true
@@ -338,7 +338,7 @@ questions:
                         type: string
                         default: 3 days
   - variable: joex
-    group: Container Configuration
+    group: App Configuration
     label: Job Executor Configuration
     schema:
       additional_attrs: true
