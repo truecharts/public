@@ -250,9 +250,6 @@ generate_docs() {
             --output-file="CONFIG.md" \
             --template-files="/__w/apps/apps/templates/docs/CONFIG.md.gotmpl" \
             --chart-search-root="${chart}"
-    cp "templates/README.md.tpl" "${chart}/README.md"
-    sed -i "s/TRAINPLACEHOLDER/${train}/" "${chart}/README.md"
-    sed -i "s/CHARTPLACEHOLDER/${chartname}/" "${chart}/README.md"
     fi
     }
     export -f generate_docs
