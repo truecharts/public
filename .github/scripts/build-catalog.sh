@@ -55,8 +55,6 @@ patch_apps() {
     local chartversion="$4"
     local target="catalog/${train}/${chartname}/${chartversion}"
     echo "Applying SCALE patches for Chart: ${chartname}"
-    sed -i '100,$ d' ${target}/CHANGELOG.md || :
-    mv ${target}/app-changelog.md ${target}/CHANGELOG.md 2>/dev/null || :
     # Temporary fix to prevent the UI from bugging out on 21.08
     mv ${target}/values.yaml ${target}/ix_values.yaml 2>/dev/null || :
     touch ${target}/values.yaml
@@ -77,6 +75,12 @@ patch_apps() {
     sed -i "s|^icon:|icon_url:|g" catalog/${train}/${chartname}/item.yaml
     echo "categories:" >> catalog/${train}/${chartname}/item.yaml
     cat ${target}/Chart.yaml | yq '.annotations."truecharts.org/catagories"' -r >> catalog/${train}/${chartname}/item.yaml
+    # Copy changelog from website
+    cp -rf "website/docs/charts/${train}/${chart}/CHANGELOG.md" "${target}/CHANGELOG.md" 2>/dev/null || :
+    sed -i '1d' "${target}/CHANGELOG.md"
+    sed -i '1s/^/*for the complete changelog, please refer to the website*\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md"
+    sed -i '1s/^/**Important:**\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md"
+    sed -i '100,$ d' "${target}/CHANGELOG.md" || :
     # Generate SCALE App description file
     cat ${target}/Chart.yaml | yq .description -r >> ${target}/app-readme.md
     echo "" >> ${target}/app-readme.md
