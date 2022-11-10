@@ -280,7 +280,16 @@ stringData:
     }
     {{- end }}
 
-    {{- with .Values.netbox.plugins }}
+    {{- $enabled_plugins := list -}}
+    {{- with .Values.netbox.plugin_config -}}
+      {{- range . -}}
+        {{- if .enabled -}}
+          {{- $enabled_plugins = append $enabled_plugins .plugin_name -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- with $enabled_plugins }}
     PLUGINS = [
         {{- range . }}
         {{ . | squote }},
@@ -295,11 +304,13 @@ stringData:
     {{- with .Values.netbox.plugin_config }}
     PLUGINS_CONFIG = {
         {{- range . }}
+        {{- if .enabled }}
         {{ .plugin_name | squote }}: {
             {{- range .config }}
             {{ .key | squote }}: {{ .value | squote }},
             {{- end }}
         }
+        {{- end }}
         {{- end }}
     }
     {{- end }}

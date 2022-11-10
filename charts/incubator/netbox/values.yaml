@@ -14,13 +14,13 @@ podSecurityContext:
 probes:
   liveness:
     type: HTTP
-    path: /login
+    path: /metrics
   readiness:
     type: HTTP
-    path: /login
+    path: /metrics
   startup:
     type: HTTP
-    path: /login
+    path: /metrics
 
 service:
   main:
@@ -127,45 +127,44 @@ netbox:
   graphql_enabled: true
   # -- Maps provider
   maps_url: https://maps.google.com/?q=
-  # - An API consumer can request an arbitrary number of objects =by appending the "limit" parameter to the URL (e.g.
-  # - "?limit=1000"). This setting defines the maximum limit. Setting it to 0 or None will allow an API consumer to request
-  # - all objects by specifying "?limit=0".
+  # -- An API consumer can request an arbitrary number of objects =by appending the "limit" parameter to the URL (e.g.
+  # "?limit=1000"). This setting defines the maximum limit. Setting it to 0 or None will allow an API consumer to request
+  # all objects by specifying "?limit=0".
   max_page_size: 1000
-  # - Determine how many objects to display per page within a list. (Default: 50)
+  # -- Determine how many objects to display per page within a list. (Default: 50)
   paginate_count: 50
   powerfeed:
-    # - The default value for the amperage field when creating new power feeds.
+    # -- The default value for the amperage field when creating new power feeds.
     default_amperage: 15
-    # - The default value (percentage) for the max_utilization field when creating new power feeds.
+    # -- The default value (percentage) for the max_utilization field when creating new power feeds.
     default_max_utilization: 80
-    # - The default value for the voltage field when creating new power feeds.
+    # -- The default value for the voltage field when creating new power feeds.
     default_voltage: 120
-  # - Rack elevation size defaults, in pixels. For best results, the ratio of width to height should be roughly 10:1.
+  # -- Rack elevation size defaults, in pixels. For best results, the ratio of width to height should be roughly 10:1.
   rack:
     elevation_default_unit_height: 22
     elevation_default_unit_width: 220
-  # - Credentials that NetBox will uses to authenticate to devices when connecting via NAPALM.
+  # -- Credentials that NetBox will uses to authenticate to devices when connecting via NAPALM.
   napalm:
     username: ""
     password: ""
     timeout: 30
-    # - NAPALM optional arguments (see http://napalm.readthedocs.io/en/latest/support/#optional-arguments).
+    # -- NAPALM optional arguments (see http://napalm.readthedocs.io/en/latest/support/#optional-arguments).
     args:
       []
       # - arg: allow_agent
       #   value: "False"
-  # - Cross-Site-Request-Forgery-Attack settings. If Netbox is sitting behind a reverse proxy, you might need to set this
+  # -- Cross-Site-Request-Forgery-Attack settings. If Netbox is sitting behind a reverse proxy, you might need to set this
   csrf_trusted_origin:
     []
     # - https://netbox.mydomain.com
-  # - The name to use for the session cookie.
+  # -- The name to use for the session cookie.
   session_cookie_name: sessionid
-  # - The name to use for the csrf token cookie.
+  # -- The name to use for the csrf token cookie.
   csrf_cookie_name: csrftoken
-  # - By default uploaded media is stored on the local filesystem. Using Django-storages is also supported. Provide the
-  # - class path of the storage driver in storage_backend and any configuration options in storage_config. For example:
-  storage_backend: ""
-  # storage_backend: storages.backends.s3boto3.S3Boto3Storage
+  # -- By default uploaded media is stored on the local filesystem. Using Django-storages is also supported. Provide the
+  # class path of the storage driver in storage_backend and any configuration options in storage_config. For example:
+  storage_backend: ""  # storages.backends.s3boto3.S3Boto3Storage
   storage_config:
     []
     # - key: AWS_ACCESS_KEY_ID
@@ -176,23 +175,18 @@ netbox:
     #   value: netbox
     # - key: AWS_S3_REGION_NAME
     #   value: eu-west-1
-  # - Enable installed plugins. Add the name of each plugin to the list.
-  plugins:
-    []
-    # - plugin1
-    # - plugin2
-  # - Plugins configuration settings. These settings are used by various plugins that the user may have installed.
+  # -- Plugins configuration settings. These settings are used by various plugins that the user may have installed.
   plugin_config:
-    []
     # - plugin_name: plugin1
+    #   enabled: false
     #   config:
     #     - key: foo
     #       value: bar
     #     - key: fizz
     #       value: bizz
-  # - Maximum execution time for background tasks, in seconds.
+  # -- Maximum execution time for background tasks, in seconds.
   rq_default_timeout: 300
-  # - Remote authentication support
+  # -- Remote authentication support
   remote_auth:
     {}
     # enabled: false
@@ -203,8 +197,8 @@ netbox:
     # default_permissions:
     #   - key: dcim.change_site
     #     value: None
-  # - Date/time formatting. See the following link for supported formats:
-  # - https://docs.djangoproject.com/en/stable/ref/templates/builtins/#date
+  # -- Date/time formatting. See the following link for supported formats:
+  # https://docs.djangoproject.com/en/stable/ref/templates/builtins/#date
   date_time:
     date_format: N j, Y
     short_date_format: Y-m-d

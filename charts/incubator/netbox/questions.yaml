@@ -194,6 +194,31 @@ questions:
                   type: string
                   required: true
                   default: ""
+        - variable: csrf_trusted_origin
+          label: CSRF Trusted Origin
+          description: Cross-Site-Request-Forgery-Attack settings. If Netbox is sitting behind a reverse proxy, you might need to set this
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: csrf_trusted_origin_entry
+                label: CSRF Trusted Origin Entry
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+        - variable: csrf_cookie_name
+          label: CSRF Cookie Name
+          description: The name to use for the csrf token cookie.
+          schema:
+            type: string
+            default: csrftoken
+        - variable: session_cookie_name
+          label: Session Cookie Name
+          description: The name to use for the session cookie.
+          schema:
+            type: string
+            default: sessionid
         - variable: email
           label: Email
           schema:
@@ -322,6 +347,302 @@ questions:
           schema:
             type: string
             default: https://maps.google.com/?q=
+        - variable: max_page_size
+          label: Max Page Size
+          description: This setting defines the maximum limit of objects an API can request. Setting it to 0 or None will allow an API consumer to request all objects.
+          schema:
+            type: int
+            default: 1000
+        - variable: paginate_count
+          label: Paginate Count
+          description: Determine how many objects to display per page within a list.
+          schema:
+            type: int
+            default: 50
+        - variable: powerfeed
+          label: Power Feed
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: default_amperage
+                label: Default Amperage
+                description: The default value for the amperage field when creating new power feeds.
+                schema:
+                  type: int
+                  default: 15
+              - variable: default_max_utilization
+                label: Default Max Utilization
+                description: The default value (percentage) for the max_utilization field when creating new power feeds.
+                schema:
+                  type: int
+                  default: 80
+              - variable: default_voltage
+                label: Default Voltage
+                description: The default value for the voltage field when creating new power feeds.
+                schema:
+                  type: int
+                  default: 120
+        - variable: rack
+          label: Rack
+          description: Rack elevation size defaults, in pixels. For best results, the ratio of width to height should be roughly 10:1.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: elevation_default_unit_height
+                label: Elevation Default Unit Height
+                schema:
+                  type: int
+                  default: 22
+              - variable: elevation_default_unit_width
+                label: Elevation Default Unit Width
+                schema:
+                  type: int
+                  default: 220
+        - variable: napalm
+          label: Napalm
+          description: Credentials that NetBox will uses to authenticate to devices when connecting via NAPALM.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: username
+                label: Username
+                schema:
+                  type: string
+                  default: ""
+              - variable: password
+                label: Password
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: timeout
+                label: Timeout
+                schema:
+                  type: int
+                  default: 30
+              - variable: args
+                label: Args
+                description: NAPALM optional arguments (see http://napalm.readthedocs.io/en/latest/support/#optional-arguments).
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: arg_entry
+                      label: Arg Entry
+                      schema:
+                        type: dict
+                        additional_attrs: true
+                        attrs:
+                          - variable: arg
+                            label: Arg
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: value
+                            label: Value
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+        - variable: storage_backend
+          label: Storage Backend
+          description: By default uploaded media is stored on the local filesystem. Using Django-storages is also supported. Provide the class path of the storage driver in storage_backend and any configuration options in storage_config.
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: storage_config
+          label: Storage Config
+          schema:
+            show_if: [["storage_backend", "!=", ""]]
+            type: list
+            default: []
+            items:
+              - variable: storage_config_entry
+                label: Storage Config Entry
+                schema:
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: key
+                      label: Key
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: value
+                      label: Value
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+        - variable: rq_default_timeout
+          label: RQ Default Timeout
+          description: Maximum execution time for background tasks, in seconds.
+          schema:
+            type: int
+            required: true
+            default: 300
+        - variable: remote_auth
+          label: Remote Auth
+          description: Remote authentication support
+          schema:
+            type: dict
+            additional_attrs: true
+            attrs:
+              - variable: enabled
+                label: Enabled
+                schema:
+                  type: boolean
+                  default: false
+              - variable: backend
+                label: Backend
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: header
+                label: Header
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: auto_create_user
+                label: Auto Create User
+                schema:
+                  type: boolean
+                  default: false
+              - variable: default_groups
+                label: Default Groups
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: default_group_entry
+                      label: Default Group
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+              - variable: default_permissions
+                label: Default Permissions
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: default_permissions_entry
+                      label: Default Permission Entry
+                      schema:
+                        type: dict
+                        additional_attrs: true
+                        attrs:
+                          - variable: key
+                            label: Key
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: value
+                            label: Value
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+        - variable: date_time
+          label: Date Time
+          description: Date/time formatting. See the following link for supported formats https://docs.djangoproject.com/en/stable/ref/templates/builtins/#date
+          schema:
+            type: dict
+            additional_attrs: true
+            attrs:
+              - variable: date_format
+                label: Date Format
+                schema:
+                  type: string
+                  required: true
+                  default: N j, Y
+              - variable: short_date_format
+                label: Short Date Format
+                schema:
+                  type: string
+                  required: true
+                  default: Y-m-d
+              - variable: time_format
+                label: Time Format
+                schema:
+                  type: string
+                  required: true
+                  default: g:i a
+              - variable: short_time_format
+                label: Short Time Format
+                schema:
+                  type: string
+                  required: true
+                  default: H:i:s
+              - variable: date_time_format
+                label: Date Time Format
+                schema:
+                  type: string
+                  required: true
+                  default: N j, Y g:i a
+              - variable: short_date_time_format
+                label: Short Date Time Format
+                schema:
+                  type: string
+                  required: true
+                  default: Y-m-d H:i
+        - variable: plugins_config
+          label: Plugins Config
+          description: Plugins configuration settings. These settings are used by various plugins that the user may have installed.
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: plugin_entry
+                label: Plugin Entry
+                schema:
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: plugin_name
+                      label: Plugin Name
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: enabled
+                      label: Enable Plugin
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: config
+                      label: Config
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: config_entry
+                            label: Config Entry
+                            schema:
+                              type: dict
+                              additional_attrs: true
+                              attrs:
+                                - variable: key
+                                  label: Key
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: ""
+                                - variable: value
+                                  label: Value
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -361,6 +682,33 @@ questions:
         - variable: config
           label: App Config Storage
           description: Stores the Application Configuration.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: reports
+          label: App Reports Storage
+          description: Stores the Application Reports.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: scripts
+          label: App Scripts Storage
+          description: Stores the Application Scripts.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceAdvanced}
+        - variable: media
+          label: App Media Storage
+          description: Stores the Application Media.
           schema:
             additional_attrs: true
             type: dict
