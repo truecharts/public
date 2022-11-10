@@ -1,0 +1,34 @@
+apiVersion: v2
+appVersion: "10.6.2"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 10.9.4
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 8.0.122
+  - condition: redis.enabled
+    name: redis
+    repository: https://charts.truecharts.org
+    version: 3.0.121
+description: NetBox is the leading solution for modeling and documenting modern networks.
+home: https://truecharts.org/docs/charts/stable/airsonic
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.png
+keywords:
+  - network
+  - netbox
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: netbox
+sources:
+  - https://github.com/netbox-community/netbox-docker
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - network
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
