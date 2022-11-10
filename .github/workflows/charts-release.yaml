@@ -44,14 +44,14 @@ jobs:
         id: collect-changes
         uses: ./.github/actions/collect-changes
 
-      - name: Generate README for changed charts
+      - name: Generate Changelog
         shell: bash
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
           parthreads=$(($(nproc) * 2))
-          parallel -j ${parthreads} .github/scripts/gen-docs.sh '2>&1' ::: ${CHARTS[@]}
+          parallel -j ${parthreads} .github/scripts/changelog.sh '2>&1' ::: ${CHARTS[@]}
 
       - name: Fix Pre-Commit issues
         shell: bash
@@ -91,9 +91,19 @@ jobs:
                 echo "copying docs to website for ${chart}"
                 rm -rf website/docs/charts/*/${chart}
                 mkdir -p website/docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
-                yes | cp -rf charts/${train}/${chart}/CHANGELOG.md website/docs/charts/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/docs/* website/docs/charts/${train}/${chart}/ 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/icon.png website/static/img/hotlink-ok/chart-icons/${chart}.png 2>/dev/null || :
+
+                # Append SCALE changelog to actual changelog
+                if [[ -f "website/docs/charts/${train}/${chart}/CHANGELOG.md" ]]; then
+                   true
+                else
+                   touch "website/docs/charts/${train}/${chart}/CHANGELOG.md"
+                fi
+                sed -i '1d' "website/docs/charts/${train}/${chart}/CHANGELOG.md"
+                cat ${chart}/app-changelog.md | cat - "website/docs/charts/${train}/${chart}/CHANGELOG.md" > temp && mv temp "website/docs/charts/${train}/${chart}/CHANGELOG.md"
+                sed -i '1s/^/# Changelog\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md"
+                rm ${chart}/app-changelog.md || echo "app-changelog not found..."
               fi
           done
 
