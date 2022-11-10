@@ -25,11 +25,6 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - name: Install helm-docs
-        run: |
-          wget -O /tmp/helm-docs.deb  https://github.com/k8s-at-home/helm-docs/releases/download/v0.1.1/helm-docs_0.1.1_Linux_x86_64.deb
-          sudo dpkg -i /tmp/helm-docs.deb
-
       - name: Prep Helm
         run: |
           helm repo add truecharts https://charts.truecharts.org
@@ -185,16 +180,11 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - name: Install helm-docs
-        run: |
-          wget -O /tmp/helm-docs.deb  https://github.com/k8s-at-home/helm-docs/releases/download/v0.1.1/helm-docs_0.1.1_Linux_x86_64.deb
-          sudo dpkg -i /tmp/helm-docs.deb
       - name: Prep Helm
         run: |
           helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo add metallb https://metallb.github.io/metallb
           helm repo add grafana https://grafana.github.io/helm-charts
           helm repo add prometheus https://prometheus-community.github.io/helm-charts
           helm repo update
@@ -251,16 +241,11 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - name: Install helm-docs
-        run: |
-          wget -O /tmp/helm-docs.deb  https://github.com/k8s-at-home/helm-docs/releases/download/v0.1.1/helm-docs_0.1.1_Linux_x86_64.deb
-          sudo dpkg -i /tmp/helm-docs.deb
       - name: Prep Helm
         run: |
           helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo add metallb https://metallb.github.io/metallb
           helm repo add grafana https://grafana.github.io/helm-charts
           helm repo add prometheus https://prometheus-community.github.io/helm-charts
           helm repo update
@@ -313,7 +298,7 @@ jobs:
           helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo add metallb https://metallb.github.io/metallb
+
           helm repo add grafana https://grafana.github.io/helm-charts
           helm repo add prometheus https://prometheus-community.github.io/helm-charts
           helm repo update
