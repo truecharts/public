@@ -7,5 +7,3 @@
 ### Feat
 
 - add netbox ([#4248](https://github.com/truecharts/charts/issues/4248))
-  
-  
