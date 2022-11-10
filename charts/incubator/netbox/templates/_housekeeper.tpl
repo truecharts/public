@@ -13,7 +13,7 @@ command:
   - |
     echo "Starting housekeeper..."
     until $(curl --output /dev/null --silent --head --fail http://127.0.0.1:8080/login); do
-      echo "Waiting for the main netbox container..."
+      echo "Housekeeper: Waiting for the main netbox container..."
       sleep 5
     done
     /opt/netbox/housekeeping.sh
