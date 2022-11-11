@@ -2,12 +2,12 @@
 questions:
 # Include{global}
 # Include{controller}
-# Include{controllerStatefullset}
+
 # Include{replicas}
 # Include{replica1}
-# Include{strategy}
-# Include{recreate}
-# Include{controllerExpert}
+
+
+
 # Include{controllerExpertExtraArgs}
   - variable: secretEnv
     group: "App Configuration"
@@ -243,7 +243,7 @@ questions:
                 schema:
                   type: boolean
                   default: false
-# Include{securityContextAdvanced}
+
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -268,7 +268,7 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{promtail}
-# Include{netshoot}
+
+
 # Include{vpn}
 # Include{documentation}

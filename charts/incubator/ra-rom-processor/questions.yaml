@@ -3,12 +3,12 @@ portals: {}
 questions:
 # Include{global}
 # Include{controller}
-# Include{controllerDeployment}
+
 # Include{replicas}
 # Include{replica1}
-# Include{strategy}
-# Include{recreate}
-# Include{controllerExpert}
+
+
+
 # Include{controllerExpertExtraArgs}
   - variable: secretEnv
     group: App Configuration
@@ -146,7 +146,7 @@ questions:
 # Include{persistenceBasic}
 # Include{persistenceAdvanced}
 # Include{persistenceList}
-# Include{ingressList}
+
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -169,7 +169,7 @@ questions:
                 schema:
                   type: boolean
                   default: false
-# Include{securityContextAdvanced}
+
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: runAsUser
@@ -194,7 +194,7 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{promtail}
-# Include{netshoot}
+
+
 # Include{vpn}
 # Include{documentation}
