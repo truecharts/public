@@ -21,6 +21,25 @@ tests:
             - /bin/bash
             - test
 
+  - it: should pass with command block set
+    set:
+      command:
+        - /bin/bash
+        - -c
+        - |
+          echo "works!"
+          exit
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].command
+          value:
+            - /bin/bash
+            - -c
+            - |
+              echo "works!"
+              exit
+
   - it: should pass with command set from tpl
     set:
       some_key: some_value
