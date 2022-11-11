@@ -7,6 +7,14 @@ tests:
       - documentIndex: &deploymentDoc 0
         isKind:
           of: Deployment
+  - it: should pass with injectFixedEnvs false
+    set:
+      injectFixedEnvs: false
+    asserts:
+      - isNull:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+
   - it: should pass with TZ and UMASK changed
     set:
       TZ: ETC
