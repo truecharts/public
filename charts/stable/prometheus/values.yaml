@@ -1,8 +1,4 @@
 image:
-  repository: tccr.io/truecharts/prometheus-operator
-  tag: 0.60.1@sha256:6e54f352e82c827ea14dd94dc2afa28433d3ba5275b6b90ffdc8a96ccd6c6b4f
-
-prometheusImage:
   repository: tccr.io/truecharts/prometheus
   tag: 2.40.1@sha256:157d18ec7bc21ca7cfff98fef241385c15ede781def81b4afcc376cda7df7539
 
@@ -17,6 +13,9 @@ alertmanagerImage:
 global:
   labels: {}
 
+controller:
+  enabled: false
+
 service:
   main:
     selector:
@@ -26,14 +25,6 @@ service:
       main:
         port: 10086
         targetPort: 9090
-        protocol: HTTP
-  promop:
-    enabled: true
-    ports:
-      promop:
-        enabled: true
-        port: 10089
-        targetPort: 8080
         protocol: HTTP
   alertmanager:
     enabled: true
@@ -211,71 +202,6 @@ probes:
         path: "/metrics"
         port: promop
         scheme: HTTP
-
-operator:
-  enabled: true
-  ## Create a servicemonitor for the operator
-  ##
-  serviceMonitor:
-    ## @param operator.serviceMonitor.enabled Creates a ServiceMonitor to monitor Prometheus Operator
-    ##
-    enabled: true
-    ## @param operator.serviceMonitor.interval Scrape interval (use by default, falling back to Prometheus' default)
-    ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#endpoint
-    ##
-    interval: ""
-    ## @param operator.serviceMonitor.metricRelabelings Metric relabeling
-    ## ref: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#metric_relabel_configs
-    ##
-    metricRelabelings: []
-    ## @param operator.serviceMonitor.relabelings Relabel configs
-    ## ref: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config
-    ##
-    relabelings: []
-
-  ## @param operator.logLevel Log level for Prometheus Operator
-  ##
-  logLevel: info
-  ## @param operator.logFormat Log format for Prometheus Operator
-  ##
-  logFormat: logfmt
-
-  configReloaderResources: {}
-  ## @param operator.kubeletService.enabled If true, the operator will create and maintain a service for scraping kubelets
-  ## @param operator.kubeletService.namespace Namespace to deploy the kubelet service
-  ##
-  kubeletService:
-    enabled: true
-    namespace: kube-system
-
-  ## Prometheus Configmap-reload image to use for reloading configmaps
-  ## defaults to Bitnami Prometheus Operator (ref: https://hub.docker.com/r/tccr.io/truecharts/prometheus-operator/tags/)
-  ##
-  prometheusConfigReloader:
-    containerSecurityContext:
-      enabled: true
-      readOnlyRootFilesystem: false
-      allowPrivilegeEscalation: false
-      runAsNonRoot: true
-      capabilities:
-        drop:
-          - ALL
-
-    livenessProbe:
-      enabled: true
-      initialDelaySeconds: 10
-      periodSeconds: 10
-      timeoutSeconds: 5
-      failureThreshold: 6
-      successThreshold: 1
-
-    readinessProbe:
-      enabled: true
-      initialDelaySeconds: 15
-      periodSeconds: 20
-      timeoutSeconds: 5
-      failureThreshold: 6
-      successThreshold: 1
 
 ####
 ## Prometheus Config (Spawned by Operator)
