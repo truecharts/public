@@ -128,7 +128,7 @@ Return the proper Prometheus Operator Reloader image name
 Return the proper Prometheus Image name
 */}}
 {{- define "kube-prometheus.prometheus.image" -}}
-{{ printf "%s:%s" .Values.prometheusImage.repository (default .Chart.AppVersion .Values.prometheusImage.tag) | quote }}
+{{ printf "%s:%s" .Values.image.repository (default .Chart.AppVersion .Values.image.tag) | quote }}
 {{- end -}}
 
 {{/*
