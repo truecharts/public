@@ -203,6 +203,55 @@ probes:
         port: promop
         scheme: HTTP
 
+operator:
+  ## Create a servicemonitor for the operator
+  ##
+  serviceMonitor:
+    ## @param operator.serviceMonitor.enabled Creates a ServiceMonitor to monitor Prometheus Operator
+    ##
+    enabled: false
+    ## @param operator.serviceMonitor.interval Scrape interval (use by default, falling back to Prometheus' default)
+    ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#endpoint
+    ##
+    interval: ""
+    ## @param operator.serviceMonitor.metricRelabelings Metric relabeling
+    ## ref: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#metric_relabel_configs
+    ##
+    metricRelabelings: []
+    ## @param operator.serviceMonitor.relabelings Relabel configs
+    ## ref: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config
+    ##
+    relabelings: []
+
+  ## Prometheus Configmap-reload image to use for reloading configmaps
+  ## defaults to Bitnami Prometheus Operator (ref: https://hub.docker.com/r/tccr.io/truecharts/prometheus-operator/tags/)
+  ##
+  prometheusConfigReloader:
+    containerSecurityContext:
+      enabled: true
+      readOnlyRootFilesystem: false
+      allowPrivilegeEscalation: false
+      runAsNonRoot: true
+      capabilities:
+        drop:
+          - ALL
+
+    livenessProbe:
+      enabled: true
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      timeoutSeconds: 5
+      failureThreshold: 6
+      successThreshold: 1
+
+    readinessProbe:
+      enabled: true
+      initialDelaySeconds: 15
+      periodSeconds: 20
+      timeoutSeconds: 5
+      failureThreshold: 6
+      successThreshold: 1
+
 ####
 ## Prometheus Config (Spawned by Operator)
 ####
