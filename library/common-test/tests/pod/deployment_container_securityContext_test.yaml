@@ -59,3 +59,73 @@ tests:
             privileged: false
             readOnlyRootFilesystem: true
             runAsNonRoot: true
+
+  - it: should fail with securityContext changed, runAsNonRoot true and runAsUser 0
+    set:
+      securityContext:
+        runAsNonRoot: true
+      podSecurityContext:
+        runAsUser: 0
+    asserts:
+      - failedTemplate:
+          errorMessage: You are trying to run as root (user or group), but runAsNonRoot is set to true
+
+  - it: should fail with securityContext changed, runAsNonRoot true and runAsGroup 0
+    set:
+      securityContext:
+        runAsNonRoot: true
+      podSecurityContext:
+        runAsUser: 0
+    asserts:
+      - failedTemplate:
+          errorMessage: You are trying to run as root (user or group), but runAsNonRoot is set to true
+
+  - it: should fail with securityContext changed and runAsNonRoot set to a non-bool value
+    set:
+      securityContext:
+        runAsNonRoot: non-bool
+    asserts:
+      - failedTemplate:
+          errorMessage: One or more of the following are not set as booleans (runAsNonRoot, privileged, readOnlyRootFilesystem, allowPrivilegeEscalation)
+
+  - it: should fail with securityContext changed and privileged set to a non-bool value
+    set:
+      securityContext:
+        privileged: non-bool
+    asserts:
+      - failedTemplate:
+          errorMessage: One or more of the following are not set as booleans (runAsNonRoot, privileged, readOnlyRootFilesystem, allowPrivilegeEscalation)
+
+  - it: should fail with securityContext changed and readOnlyRootFilesystem set to a non-bool value
+    set:
+      securityContext:
+        readOnlyRootFilesystem: non-bool
+    asserts:
+      - failedTemplate:
+          errorMessage: One or more of the following are not set as booleans (runAsNonRoot, privileged, readOnlyRootFilesystem, allowPrivilegeEscalation)
+
+  - it: should fail with securityContext changed and allowPrivilegeEscalation set to a non-bool value
+    set:
+      securityContext:
+        allowPrivilegeEscalation: non-bool
+    asserts:
+      - failedTemplate:
+          errorMessage: One or more of the following are not set as booleans (runAsNonRoot, privileged, readOnlyRootFilesystem, allowPrivilegeEscalation)
+
+  - it: should fail with securityContext changed and capabilities.add is not a list
+    set:
+      securityContext:
+        capabilities:
+          add: non-a-list
+    asserts:
+      - failedTemplate:
+          errorMessage: Either <add> or <drop> capabilities is not a list.
+
+  - it: should fail with securityContext changed and capabilities.drop is not a list
+    set:
+      securityContext:
+        capabilities:
+          drop: non-a-list
+    asserts:
+      - failedTemplate:
+          errorMessage: Either <add> or <drop> capabilities is not a list.

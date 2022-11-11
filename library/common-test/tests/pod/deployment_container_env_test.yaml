@@ -70,6 +70,8 @@ tests:
     set:
       podSecurityContext:
         runAsUser: 0
+      securityContext:
+        runAsNonRoot: false
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -102,6 +104,8 @@ tests:
     set:
       podSecurityContext:
         runAsGroup: 0
+      securityContext:
+        runAsNonRoot: false
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -134,6 +138,8 @@ tests:
     set:
       podSecurityContext:
         runAsUser: 0
+      securityContext:
+        runAsNonRoot: false
       security:
         PUID: 0
     asserts:
@@ -168,6 +174,8 @@ tests:
     set:
       podSecurityContext:
         runAsGroup: 0
+      securityContext:
+        runAsNonRoot: false
       security:
         PUID: 0
     asserts:
@@ -203,6 +211,8 @@ tests:
       podSecurityContext:
         runAsGroup: 0
         fsGroup: 0
+      securityContext:
+        runAsNonRoot: false
       security:
         PUID: 0
     asserts:

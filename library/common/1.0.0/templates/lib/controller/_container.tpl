@@ -39,8 +39,8 @@
   stdin: false
   {{- end }}
   {{- with .Values.securityContext }}
-  securityContext: {{/* TODO: Add validation for runAsNonRoot / runAsUser|runAsGroup 0*/}}
-    {{- tpl (toYaml .) $ | nindent 4 }}
+  securityContext:
+    {{- include "ix.v1.common.controller.securityContext" $ | nindent 4 }}
   {{- end }}
   {{- with .Values.lifecycle }}
   lifecycle:
@@ -85,6 +85,7 @@
       value: "1"
    {{- end }}
    {{- with .Values.env }}
+   {{/*TODO: Remove some ways to set envs, not need to have a ton of them, only those that are needed*/}}
     {{- range $k, $v := . }}
       {{- $name := $k }}
       {{- $value := $v }}
