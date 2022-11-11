@@ -37,12 +37,6 @@ questions:
                               default: 7000
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 7000
         - variable: cli
           label: "CLI Service"
           description: "Logitech Media Server Telnet Command Line Interface"

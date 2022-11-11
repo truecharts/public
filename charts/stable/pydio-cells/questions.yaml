@@ -78,12 +78,6 @@ questions:
                               default: 10150
                               required: true
 # Include{advancedPortHTTPS}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 10150
         - variable: gprc
           label: "gprc Service"
           description: "The gprc service."
@@ -107,12 +101,6 @@ questions:
                               default: 33060
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 33060
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

@@ -130,12 +130,6 @@ questions:
                               default: 10086
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9090
         - variable: alertmanager
           label: "alertmanager Service"
           description: "alertmanager service "
@@ -159,12 +153,6 @@ questions:
                               default: 10087
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9093
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

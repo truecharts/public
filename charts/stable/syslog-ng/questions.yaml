@@ -35,12 +35,6 @@ questions:
                               default: 6601
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 6601
         - variable: syslog-udp
           label: "syslog-udp Service"
           description: "The syslog-udp service."
@@ -64,12 +58,6 @@ questions:
                               default: 5514
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 5514
         - variable: syslog-tls
           label: "syslog-tls Service"
           description: "The syslog-tls service."
@@ -93,12 +81,6 @@ questions:
                               default: 6514
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 6514
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

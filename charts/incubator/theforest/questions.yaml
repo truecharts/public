@@ -82,12 +82,6 @@ questions:
                               default: 8766
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8766
         - variable: gameport
           label: 'gameport service'
           description: "Container Port 27015"
@@ -111,12 +105,6 @@ questions:
                               default: 27015
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 27015
         - variable: steamqueryport
           label: 'steamqueryport service'
           description: "Container Port 27016"
@@ -140,12 +128,6 @@ questions:
                               default: 27016
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 27016
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

@@ -62,12 +62,6 @@ questions:
                               default: 9015
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8080
         - variable: tcpgameport
           label: 'tcpgameport service'
           description: "Container Port 3979"
@@ -91,12 +85,6 @@ questions:
                               default: 3979
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 3979
         - variable: udpgameport
           label: 'udpgameport service'
           description: "Container Port 3979"
@@ -120,12 +108,6 @@ questions:
                               default: 3979
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 3979
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

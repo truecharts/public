@@ -35,12 +35,6 @@ questions:
                               default: 4242
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 4242
         - variable: ident
           label: "ident Service"
           description: "The ident service."
@@ -64,12 +58,6 @@ questions:
                               default: 10113
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 10113
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

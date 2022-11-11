@@ -127,12 +127,6 @@ questions:
                               default: 9010
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9010
         - variable: supervisor
           label: "supervisor Service"
           description: "The supervisor service"
@@ -156,12 +150,6 @@ questions:
                               default: 9011
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9011
         - variable: valheim
           label: "valheim Service"
           description: "The valheim Game service"
@@ -185,12 +173,6 @@ questions:
                               default: 2456
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 2456
                     - variable: valheim2
                       label: "valheim-2 Service Port Configuration"
                       schema:
@@ -205,12 +187,6 @@ questions:
                               default: 2457
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 2457
                     - variable: valheim3
                       label: "valheim-3 Service Port Configuration"
                       schema:
@@ -225,12 +201,6 @@ questions:
                               default: 2458
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 2458
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

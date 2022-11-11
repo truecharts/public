@@ -37,12 +37,6 @@ questions:
                               default: 8082
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 80
         - variable: homebridgeport
           label: 'homebridgeport service'
           schema:
@@ -65,12 +59,6 @@ questions:
                               default: 51826
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 51826
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

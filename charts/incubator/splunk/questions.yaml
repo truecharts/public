@@ -56,12 +56,6 @@ questions:
                               default: 8000
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8000
         - variable: management
           label: 'management service'
           description: "HTTPS API"
@@ -85,12 +79,6 @@ questions:
                               default: 8089
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8089
         - variable: dataingest
           label: 'dataingest service'
           description: "SplunkTCP input"
@@ -114,12 +102,6 @@ questions:
                               default: 9997
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9997
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

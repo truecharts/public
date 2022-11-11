@@ -123,12 +123,6 @@ questions:
                               default: 3310
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 3310
         - variable: milter
           label:  "Milter Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -152,12 +146,6 @@ questions:
                               default: 7357
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 7357
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

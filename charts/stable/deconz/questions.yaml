@@ -83,12 +83,6 @@ questions:
                               default: 10008
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 10008
         - variable: websocket
           label: "websocket Service"
           description: "The websocket service"
@@ -112,12 +106,6 @@ questions:
                               default: 10001
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 10001
         - variable: vnc
           label: "vnc Service"
           description: "The vnc service"
@@ -141,12 +129,6 @@ questions:
                               default: 10002
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 10002
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

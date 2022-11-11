@@ -210,12 +210,6 @@ questions:
                         type: dict
                         attrs:
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9000
                           - variable: port
                             label: "Entrypoints Port"
                             schema:
@@ -244,11 +238,6 @@ questions:
                               default: 9080
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
                                 - variable: redirectPort
                                   label: "Redirect to Port"
                                   schema:
@@ -273,11 +262,6 @@ questions:
                               default: 9443
                               required: true
 # Include{advancedPortHTTPS}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
                                 - variable: redirectPort
                                   label: "Redirect to Port"
                                   schema:

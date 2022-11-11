@@ -50,12 +50,6 @@ questions:
                               default: 10146
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8080
         - variable: comm
           label: "comm Service"
           description: "The comm service."
@@ -79,12 +73,6 @@ questions:
                               default: 50000
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 50000
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

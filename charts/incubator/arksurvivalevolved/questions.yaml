@@ -114,12 +114,6 @@ questions:
                               default: 7777
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 7777
         - variable: udp2
           label: "udp2 service"
           description: "Container Port 7778"
@@ -143,12 +137,6 @@ questions:
                               default: 7778
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 7778
         - variable: udpsteam
           label: "udpsteam service"
           description: "Container Port 27015"
@@ -172,12 +160,6 @@ questions:
                               default: 27015
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 27015
         - variable: rcontcp
           label: "rcontcp service"
           description: "Container Port 27020"
@@ -201,12 +183,6 @@ questions:
                               default: 27020
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 27020
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

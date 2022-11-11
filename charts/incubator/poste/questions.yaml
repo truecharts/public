@@ -37,12 +37,6 @@ questions:
                               default: 8280
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 80
         - variable: port25
           label: 'port25 service'
           description: "Container Port "
@@ -66,12 +60,6 @@ questions:
                               default: 25
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25
         - variable: pop3port
           label: 'pop3port service'
           description: "POP3"
@@ -95,12 +83,6 @@ questions:
                               default: 110
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 110
         - variable: imap
           label: 'imap service'
           description: "IMAP"
@@ -124,12 +106,6 @@ questions:
                               default: 143
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 143
         - variable: containerhttps
           label: 'containerhttps service'
           description: "HTTPS"
@@ -153,12 +129,6 @@ questions:
                               default: 443
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 443
         - variable: containersmtps
           label: 'containersmtps service'
           description: "SMTPS"
@@ -182,12 +152,6 @@ questions:
                               default: 465
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 465
         - variable: containermsa
           label: 'containermsa service'
           description: "MSA"
@@ -211,12 +175,6 @@ questions:
                               default: 587
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 587
         - variable: containerimaps
           label: 'containerimaps service'
           description: "IMAPS"
@@ -240,12 +198,6 @@ questions:
                               default: 993
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 993
         - variable: containerpop3s
           label: 'containerpop3s service'
           description: "POP3S"
@@ -269,12 +221,6 @@ questions:
                               default: 995
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 995
         - variable: externalsievef
           label: 'externalsievef service'
           description: "When you are going to use clients with ability to manage Sieve filters externally, you need also publish port 4190"
@@ -298,12 +244,6 @@ questions:
                               default: 4190
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 4190
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

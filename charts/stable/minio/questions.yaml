@@ -74,12 +74,6 @@ questions:
                               default: 10107
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 10107
         - variable: api
           label: "API Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -103,12 +97,6 @@ questions:
                               default: 10106
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 10106
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

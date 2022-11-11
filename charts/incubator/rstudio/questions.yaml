@@ -62,12 +62,6 @@ questions:
                               default: 8787
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8787
         - variable: hostport2
           label: 'hostport2 service'
           description: "Required for shiny server"
@@ -91,12 +85,6 @@ questions:
                               default: 3838
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 3838
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

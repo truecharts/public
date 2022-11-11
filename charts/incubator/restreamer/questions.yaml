@@ -611,12 +611,6 @@ questions:
                               default: 8080
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 8080
         - variable: https
           label: HTTPS Service
           description: The HTTPS service
@@ -640,12 +634,6 @@ questions:
                               default: 8081
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 8081
         - variable: rtmp
           label: RTmP Service
           description: The RTmP service for live streaming
@@ -669,12 +657,6 @@ questions:
                               default: 1935
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 1935
         - variable: rtmps
           label: RTMP Secure Service
           description: The RTMP service for live streaming
@@ -698,12 +680,6 @@ questions:
                               default: 1936
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 1936
         - variable: srt
           label: SRT Data Service
           description: The SRT service for data
@@ -727,12 +703,6 @@ questions:
                               default: 6000
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 6000
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

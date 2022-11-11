@@ -56,12 +56,6 @@ questions:
                               default: 9981
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9981
         - variable: hostrhp2port
           label: 'hostrhp2port service'
           description: "Container Port 9982"
@@ -85,12 +79,6 @@ questions:
                               default: 9982
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9982
         - variable: hostrhp3port
           label: 'hostrhp3port service'
           description: "Container Port 9983"
@@ -114,12 +102,6 @@ questions:
                               default: 9983
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9983
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

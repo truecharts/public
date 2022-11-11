@@ -56,12 +56,6 @@ questions:
                               default: 4711
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 4711
         - variable: porttcp
           label: 'porttcp service'
           description: "Client to client transfers"
@@ -85,12 +79,6 @@ questions:
                               default: 4662
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 4662
         - variable: portudp
           label: 'portudp service'
           description: "Extended aMule protocol, Queue Rating, File Reask Ping"
@@ -114,12 +102,6 @@ questions:
                               default: 4672
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 4672
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

@@ -323,12 +323,6 @@ questions:
                               default: 10018
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 3000
         - variable: api
           label: API Service
           description: The API Service
@@ -352,12 +346,6 @@ questions:
                               default: 10019
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 10019
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

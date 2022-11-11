@@ -95,12 +95,6 @@ questions:
                               default: 7777
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 7777
         - variable: beacon
           label: "Beacon Service"
           description: "The beacon service"
@@ -124,12 +118,6 @@ questions:
                               default: 15000
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 15000
         - variable: query
           label: "Query Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -153,12 +141,6 @@ questions:
                               default: 15777
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 15777
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

@@ -34,12 +34,6 @@ questions:
                               default: 1812
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 1812
         - variable: accounting
           label: "accounting Service"
           description: "The administration service"
@@ -63,12 +57,6 @@ questions:
                               default: 1813
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 1813
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

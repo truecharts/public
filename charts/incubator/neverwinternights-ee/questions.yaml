@@ -164,12 +164,6 @@ questions:
                               default: 5121
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 5121
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

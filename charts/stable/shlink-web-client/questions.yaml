@@ -55,12 +55,6 @@ questions:
                         type: dict
                         attrs:
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 80
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"

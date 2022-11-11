@@ -94,12 +94,6 @@ questions:
                               default: 3001
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 3001
         - variable: udpgameport
           label: 'udpgameport service'
           description: "UDP Game Port"
@@ -123,12 +117,6 @@ questions:
                               default: 3000
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 3000
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

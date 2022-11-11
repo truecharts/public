@@ -50,12 +50,6 @@ questions:
                               default: 10110
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8000
         - variable: smtp
           label: "smtp Service"
           description: "The smtp service"
@@ -79,12 +73,6 @@ questions:
                               default: 25
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

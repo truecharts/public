@@ -67,12 +67,6 @@ questions:
                               default: 9089
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 80
         - variable: dns
           label: "DNS Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -96,12 +90,6 @@ questions:
                               default: 53
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 53
         - variable: dns-tcp
           label: "DNS-TCP Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -125,12 +113,6 @@ questions:
                               default: 53
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 53
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

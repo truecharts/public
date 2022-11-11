@@ -37,12 +37,6 @@ questions:
                               default: 5555
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 5555
         - variable: ldapport
           label: 'ldapport service'
           description: "Container LDAP Port"
@@ -66,12 +60,6 @@ questions:
                               default: 389
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 389
         - variable: ldapsport
           label: 'ldapsport service'
           description: "Container LDAPS Port"
@@ -95,12 +83,6 @@ questions:
                               default: 636
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 636
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

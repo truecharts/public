@@ -37,12 +37,6 @@ questions:
                               default: 9001
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9001
         - variable: api
           label: 'API service'
           description: "Container Port API"
@@ -66,12 +60,6 @@ questions:
                               default: 5001
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 5001
         - variable: sub
           label: 'Sub service'
           description: "Container Port Sub"
@@ -95,12 +83,6 @@ questions:
                               default: 1044
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 1044
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

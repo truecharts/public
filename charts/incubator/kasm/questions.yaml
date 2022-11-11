@@ -64,12 +64,6 @@ questions:
                               default: 10350
                               required: true
 # Include{advancedPortHTTPS}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 10350
         - variable: admin
           label: Admin Service
           description: The Admin service
@@ -93,12 +87,6 @@ questions:
                               default: 10351
                               required: true
 # Include{advancedPortHTTPS}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 3000
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

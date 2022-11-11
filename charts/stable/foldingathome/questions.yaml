@@ -37,12 +37,6 @@ questions:
                               default: 7396
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 7396
         - variable: control
           label: "Control Service"
           description: "The control service."
@@ -66,12 +60,6 @@ questions:
                               default: 36330
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 36330
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

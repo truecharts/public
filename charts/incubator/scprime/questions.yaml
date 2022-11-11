@@ -50,12 +50,6 @@ questions:
                               default: 4282
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 4282
         - variable: hostapiaddress
           label: 'hostapiaddress service'
           description: "Open this port in your firewall and forward to your server."
@@ -79,12 +73,6 @@ questions:
                               default: 4283
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 4283
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

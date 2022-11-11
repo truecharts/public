@@ -37,12 +37,6 @@ questions:
                               default: 10155
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 10155
         - variable: unencrypted-tcp
           label: "Unencrypted Transfers"
           description: "Used for unencrypted transfers."
@@ -66,12 +60,6 @@ questions:
                               default: 21248
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 21248
         - variable: encrypted-tcp
           label: "Encrypted Transfers"
           description: "Used for unencrypted transfers."
@@ -95,12 +83,6 @@ questions:
                               default: 21249
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 21249
         - variable: search-udp
           label: "Unencrypted Transfers"
           description: "Used for searching."
@@ -124,12 +106,6 @@ questions:
                               default: 21248
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 21248
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

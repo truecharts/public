@@ -147,12 +147,6 @@ questions:
                               default: 5380
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 5380
         - variable: dns-udp
           label: "DNS-UDP Service"
           description: "DNS-UDP Service"
@@ -176,12 +170,6 @@ questions:
                               default: 53
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 53
         - variable: dns-tcp
           label: "DNS-TCP Service"
           description: "DNS-TCP Service"
@@ -205,12 +193,6 @@ questions:
                               default: 53
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 53
         - variable: dns-tls
           label: "DNS-TLS Service"
           description: "DNS-TLS Service"
@@ -234,12 +216,6 @@ questions:
                               default: 853
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 853
         - variable: dns-cert
           label: "DNS-over-HTTPS Certbot Service"
           description: "DNS-over-HTTPS Certbot Service"
@@ -263,12 +239,6 @@ questions:
                               default: 10202
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 80
         - variable: dns-https
           label: "DNS-over-HTTPS Service"
           description: "DNS-over-HTTPS Service"
@@ -292,12 +262,6 @@ questions:
                               default: 10203
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 443
         - variable: dns-https-proxy
           label: "DNS-over-HTTPS Reverse Proxy Service"
           description: "DNS-over-HTTPS Reverse Proxy Service"
@@ -321,12 +285,6 @@ questions:
                               default: 10204
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8053
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

@@ -50,12 +50,6 @@ questions:
                               default: 9981
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9981
         - variable: htsp
           label: "HTSP Service"
           description: "HTSP service"
@@ -79,12 +73,6 @@ questions:
                               default: 9982
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9982
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

@@ -88,12 +88,6 @@ questions:
                               default: 7777
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 7777
         - variable: queryport
           label: 'queryport service'
           description: "UDP Query Port (if you need another port, please delete this entry and create a new UDP Port with the corresponding port number, also dont forget to change the port in your game settings file)"
@@ -117,12 +111,6 @@ questions:
                               default: 27015
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 27015
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

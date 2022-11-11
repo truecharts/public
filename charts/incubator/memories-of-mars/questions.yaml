@@ -88,12 +88,6 @@ questions:
                               default: 7777
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 7777
         - variable: beaconport
           label: 'beaconport service'
           description: "UDP Beacon Port"
@@ -117,12 +111,6 @@ questions:
                               default: 15000
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 15000
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

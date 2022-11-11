@@ -112,12 +112,6 @@ questions:
                               default: 27015
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 27015
         - variable: cubeport
           label: 'cubeport service'
           description: "UDP Cube Port (if you need another port, please delete this entry and create a new UDP Port with the required port number, also dont forget to click an Show more settings ... and change the port number"
@@ -141,12 +135,6 @@ questions:
                               default: 27018
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 27018
         - variable: queryport
           label: 'queryport service'
           description: "UDP Query Port (if you need another port, please delete this entry and create a new UDP Port with the required port number, also dont forget to click an Show more settings ... and change the port number"
@@ -170,12 +158,6 @@ questions:
                               default: 27016
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 27016
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

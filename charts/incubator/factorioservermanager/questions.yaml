@@ -37,12 +37,6 @@ questions:
                               default: 8888
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 80
         - variable: factorioport
           label: 'factorioport service'
           schema:
@@ -65,12 +59,6 @@ questions:
                               default: 34197
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 34197
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

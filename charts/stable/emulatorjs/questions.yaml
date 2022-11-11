@@ -37,12 +37,6 @@ questions:
                               default: 10130
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 3000
         - variable: front
           label: "Front Service"
           description: "The front service"
@@ -66,12 +60,6 @@ questions:
                               default: 10124
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 80
         - variable: ipfs
           label: "ipfs Service"
           description: "The ipfs service."
@@ -95,12 +83,6 @@ questions:
                               default: 10138
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 4001
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

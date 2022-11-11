@@ -77,12 +77,6 @@ questions:
                                     type: int
                                     min: 9000
                                     max: 65535
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8080
         - variable: agent
           label: "Agent Service"
           description: "Agent Service"
@@ -106,12 +100,6 @@ questions:
                               default: 50000
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 50000
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

@@ -457,12 +457,6 @@ questions:
                               default: 10229
                               required: true
 # Include{advancedPortHTTPS}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 9443
         - variable: ldapldaps
           label: LDAPS Service
           description: The LDAPS service.
@@ -486,12 +480,6 @@ questions:
                               default: 636
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 6636
         - variable: ldapldap
           label: LDAP Service
           description: The LDAPS service.
@@ -515,12 +503,6 @@ questions:
                               default: 389
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 3389
         - variable: proxyhttps
           label: Proxy HTTPS Service
           description: The Proxy HTTPS service.
@@ -544,12 +526,6 @@ questions:
                               default: 10233
                               required: true
 # Include{advancedPortHTTPS}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 9444
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

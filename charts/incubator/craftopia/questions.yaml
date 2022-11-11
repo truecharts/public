@@ -82,12 +82,6 @@ questions:
                               default: 8787
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8787
         - variable: udpgameport
           label: 'udpgameport service'
           description: "UDP Game Port (if you need another port, please delete this entry and create a new UDP Port with the required port number, also dont forget to change your server settings file)"
@@ -111,12 +105,6 @@ questions:
                               default: 8787
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8787
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

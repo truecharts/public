@@ -37,12 +37,6 @@ questions:
                               default: 8091
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8091
         - variable: ws
           label: "WebSocket Service"
           description: "WebSocket Service"
@@ -66,12 +60,6 @@ questions:
                               default: 10046
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 3000
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

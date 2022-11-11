@@ -168,12 +168,6 @@ questions:
                               default: 25565
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25577
         - variable: rcon
           label: "RCON Service"
           description: "RCON service"
@@ -197,12 +191,6 @@ questions:
                               default: 25578
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25578
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

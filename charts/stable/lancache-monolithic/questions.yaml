@@ -84,12 +84,6 @@ questions:
                               default: 10279
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 80
         - variable: https
           label: "HTTPS"
           description: "HTTPS Service"
@@ -113,12 +107,6 @@ questions:
                               default: 10280
                               required: true
 # Include{advancedPortHTTPS}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 443
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

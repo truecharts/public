@@ -37,12 +37,6 @@ questions:
                               default: 7080
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 7080
         - variable: adminconsolepo
           label: 'adminconsolepo service'
           description: "This is SourceGraphs Admin Console WebUI port you can access via a web browser"
@@ -66,12 +60,6 @@ questions:
                               default: 2633
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 2633
         - variable: grafanaport
           label: 'grafanaport service'
           description: "This is SourceGraphs Grafana Port you can access via a web browser"
@@ -95,12 +83,6 @@ questions:
                               default: 3370
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 3370
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

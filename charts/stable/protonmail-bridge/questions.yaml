@@ -48,12 +48,6 @@ questions:
                               default: 25
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 25
         - variable: imap
           label: IMAP Service
           description: The IMAP service
@@ -77,12 +71,6 @@ questions:
                               default: 143
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 143
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

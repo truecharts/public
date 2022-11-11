@@ -57,12 +57,6 @@ questions:
                               default: 10122
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 4040
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

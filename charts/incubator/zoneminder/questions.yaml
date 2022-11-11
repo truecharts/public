@@ -38,12 +38,6 @@ questions:
                               default: 10292
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 443
         - variable: zmninja
           label: 'zmninja service'
           schema:
@@ -66,12 +60,6 @@ questions:
                               default: 10293
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9000
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

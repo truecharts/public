@@ -62,12 +62,6 @@ questions:
                               default: 6901
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 6901
         - variable: vncport
           label: 'vncport service'
           description: "Container Port 5901"
@@ -91,12 +85,6 @@ questions:
                               default: 5905
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 5901
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

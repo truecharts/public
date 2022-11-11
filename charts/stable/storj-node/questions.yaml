@@ -84,12 +84,6 @@ questions:
                               default: 14002
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 14002
         - variable: coretcp
           label: "Core TCP Service"
           description: "Core TCP Service"
@@ -113,12 +107,6 @@ questions:
                               default: 28967
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 28967
         - variable: coreudp
           label: "Core UDP Service"
           description: "Core UDP Service"
@@ -142,12 +130,6 @@ questions:
                               default: 28967
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 28967
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

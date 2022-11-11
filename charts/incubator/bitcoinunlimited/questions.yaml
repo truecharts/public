@@ -37,12 +37,6 @@ questions:
                               default: 8332
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8332
         - variable: communicationp
           label: 'communicationp service'
           description: "Main Port Used"
@@ -66,12 +60,6 @@ questions:
                               default: 8333
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8333
         - variable: testnetrpcport
           label: 'testnetrpcport service'
           description: "Testnet RPC Port"
@@ -95,12 +83,6 @@ questions:
                               default: 18332
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 18332
         - variable: testnetcommuni
           label: 'testnetcommuni service'
           description: "Testnet Communication Port"
@@ -124,12 +106,6 @@ questions:
                               default: 18333
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 18333
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

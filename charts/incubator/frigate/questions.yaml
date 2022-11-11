@@ -38,12 +38,6 @@ questions:
                               editable: true
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 5000
         - variable: rtmp
           label: "RTMP Service"
           description: "The service on which nodes connect to."
@@ -68,12 +62,6 @@ questions:
                               editable: true
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 1935
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

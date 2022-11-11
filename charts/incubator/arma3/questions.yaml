@@ -88,12 +88,6 @@ questions:
                               default: 2302
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 2302
         - variable: udpgameport
           label: 'udpgameport service'
           description: "Same as TCP Game Port"
@@ -117,12 +111,6 @@ questions:
                               default: 2302
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 2302
         - variable: udpsteamquerry
           label: 'udpsteamquerry service'
           description: "UDP Game Port 1"
@@ -146,12 +134,6 @@ questions:
                               default: 2303
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 2303
         - variable: udpsteammaster
           label: 'udpsteammaster service'
           description: "UDP Game Port 2"
@@ -175,12 +157,6 @@ questions:
                               default: 2304
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 2304
         - variable: udpvonport
           label: 'udpvonport service'
           description: "UDP Game Port 3"
@@ -204,12 +180,6 @@ questions:
                               default: 2305
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 2305
         - variable: udpbattleyetra
           label: 'udpbattleyetra service'
           description: "UDP Game Port 4"
@@ -233,12 +203,6 @@ questions:
                               default: 2306
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 2306
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

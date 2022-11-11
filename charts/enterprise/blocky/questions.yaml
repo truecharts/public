@@ -663,12 +663,6 @@ questions:
                               default: 10315
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 80
         - variable: dnstcp
           label: DNS TCP Service
           description: The DNS TCP service
@@ -692,12 +686,6 @@ questions:
                               default: 53
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 53
         - variable: dnsudp
           label: DNS UDP Service
           description: The DNS UDP service
@@ -721,12 +709,6 @@ questions:
                               default: 53
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 53
         - variable: dot
           label: DoT Service
           description: "DNS-over-TLS service"
@@ -750,12 +732,6 @@ questions:
                               default: 853
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 853
         - variable: http
           label: HTTP and Metrics Service
           description: "service for things like metrics, pprof, API, DoH etc"
@@ -779,12 +755,6 @@ questions:
                               default: 4000
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 4000
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

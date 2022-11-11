@@ -685,12 +685,6 @@ questions:
                               default: 10211
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 8080
         - variable: server
           label: Server Service
           description: The Server Service
@@ -714,12 +708,6 @@ questions:
                               default: 10051
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 10051
         - variable: javagateway
           label: Java Gateway Service
           description: The Java Gateway Service
@@ -743,12 +731,6 @@ questions:
                               default: 10052
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 10052
         - variable: snmptraps
           label: SNMP Traps Service
           description: SNMP Traps Service
@@ -772,12 +754,6 @@ questions:
                               default: 162
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 1162
         - variable: agent
           label: Agent Service
           description: Agent Service
@@ -801,12 +777,6 @@ questions:
                               default: 10050
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 10050
         - variable: webservice
           label: WebService Service
           description: WebService Service
@@ -830,12 +800,6 @@ questions:
                               default: 10053
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 10053
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

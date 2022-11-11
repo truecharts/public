@@ -37,12 +37,6 @@ questions:
                               default: 10292
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8080
         - variable: api
           label: "API Service"
           description: "API Service"
@@ -66,12 +60,6 @@ questions:
                               default: 27123
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 27123
                     - variable: https
                       label: "https Service Port Configuration"
                       schema:
@@ -86,12 +74,6 @@ questions:
                               default: 27124
                               required: true
 # Include{advancedPortHTTPS}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 27124
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

@@ -37,12 +37,6 @@ questions:
                               default: 10193
                               required: true
 # Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 10193
         - variable: bt-udp1
           label: "bt-udp1 Service"
           description: "The bt-udp service"
@@ -66,12 +60,6 @@ questions:
                               default: 22037
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 22037
         - variable: bt-udp2
           label: "bt-udp2 Service"
           description: "The bt-udp service"
@@ -95,12 +83,6 @@ questions:
                               default: 22027
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 22027
         - variable: data
           label: "data Service"
           description: "The data service"
@@ -124,12 +106,6 @@ questions:
                               default: 22330
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 22330
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

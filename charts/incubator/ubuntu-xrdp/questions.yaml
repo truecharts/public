@@ -37,12 +37,6 @@ questions:
                               default: 3389
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 3389
         - variable: tcpport1
           label: 'tcpport1 service'
           schema:
@@ -65,12 +59,6 @@ questions:
                               default: 6080
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 6080
         - variable: tcpport2
           label: 'tcpport2 service'
           schema:
@@ -93,12 +81,6 @@ questions:
                               default: 5900
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 5900
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

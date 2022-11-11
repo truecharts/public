@@ -88,12 +88,6 @@ questions:
                               default: 9600
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9600
         - variable: udp
           label: 'udp service'
           description: "Container Port 9600"
@@ -117,12 +111,6 @@ questions:
                               default: 9600
                               required: true
 # Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9600
         - variable: tcp2
           label: 'tcp2 service'
           description: "Container Port 8081"
@@ -146,12 +134,6 @@ questions:
                               default: 8081
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8081
         - variable: stracker
           label: 'stracker service'
           description: "Only needed if you installed Stacker (Webserver Address http[IPOFYOURSERVER]50041)."
@@ -175,12 +157,6 @@ questions:
                               default: 50041
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 50041
         - variable: assetto
           label: 'assetto service'
           description: "Only needed if you installed Assetto-Server-Manager (Webserver Address http[IPOFYOURSERVER]8771)."
@@ -204,12 +180,6 @@ questions:
                               default: 8772
                               required: true
 # Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8772
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
