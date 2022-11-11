@@ -209,8 +209,6 @@ jobs:
           CR_SKIP_EXISTING: "true"
       - name: Run chart-releaser for enterprise apps
         uses: helm/chart-releaser-action@98bccfd32b0f76149d188912ac8e45ddd3f8695f # tag=v1.4.1
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
           charts_dir: charts/enterprise
           charts_repo_url: https://charts.truecharts.org
@@ -218,8 +216,6 @@ jobs:
           CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
           CR_SKIP_EXISTING: "true"
       - name: Run chart-releaser for stable
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         uses: helm/chart-releaser-action@98bccfd32b0f76149d188912ac8e45ddd3f8695f # tag=v1.4.1
         with:
           charts_dir: charts/stable
@@ -228,8 +224,6 @@ jobs:
           CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
           CR_SKIP_EXISTING: "true"
       - name: Run chart-releaser for stable
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         uses: helm/chart-releaser-action@98bccfd32b0f76149d188912ac8e45ddd3f8695f # tag=v1.4.1
         with:
           charts_dir: charts/incubator
