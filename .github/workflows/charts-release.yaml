@@ -158,6 +158,14 @@ jobs:
           cd -
           rm -rf catalog
           
+      - name: set git author
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
+        shell: bash
+        run: |
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+        
       - name: Run chart-releaser for dependency apps
         uses: helm/chart-releaser-action@98bccfd32b0f76149d188912ac8e45ddd3f8695f # tag=v1.4.1
         if: |
@@ -191,6 +199,4 @@ jobs:
                 fi
               fi
           done
-          git config user.name "TrueCharts-Bot"
-          git config user.email "bot@truecharts.org"
           git push --tags
