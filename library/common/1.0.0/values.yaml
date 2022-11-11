@@ -79,6 +79,10 @@ termination:
 # -- Used to add SCALE GPU configuration
 scaleGPU:
 
+# -- Set specific NVIDIA Capabilities
+nvidiaCaps:
+  - all
+
 # -- Set Container Timezone
 TZ: UTC
 
@@ -95,6 +99,7 @@ security:
 #      configMapKeyRef | secretKeyRef:
 #        name: object-name | "{{ .Values.objectName }}"
 #        key: key-name | "{{ .Values.some_key }}"
+#        optional: false (ony with secretKeyRef)
 env: {}
 
 controller:

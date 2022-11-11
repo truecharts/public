@@ -1,6 +1,8 @@
 {{/* Environment Variables included by the container */}}
 {{- define "ix.v1.common.container.envVars" -}}
-{{- with .Values.env -}}
+{{- $envs := .envs -}}
+{{- $root := .root -}}
+{{- with $envs -}}
   {{- range $k, $v := . -}}
     {{- $name := $k -}}
     {{- $value := $v -}}
@@ -10,7 +12,7 @@
 - name: {{ $name | quote }}
     {{- if not (kindIs "map" $value) }}
       {{- if or (kindIs "string" $value) }} {{/* Single values are parsed as string (eg. int, bool) */}}
-        {{- $value = tpl $value $ }} {{/* Expand Value */}}
+        {{- $value = tpl $value $root }} {{/* Expand Value */}}
       {{- end }}
   value: {{ quote $value }}
     {{- else if kindIs "map" $value }} {{/* If value is a dict... */}}
@@ -33,9 +35,17 @@
       {{- else }}
         {{- fail "Not a valid valueFrom reference. Valid options are (configMapKeyRef and secretKeyRef)" -}}
       {{- end }}
-      name: {{ tpl (required (printf "<name> for the keyRef is not defined in (%s)" $name) $value.name) $ }} {{/* Expand name and key */}}
-      key: {{ tpl (required (printf "<key> for the keyRef is not defined in (%s)" $name) $value.key) $ }}
+      name: {{ tpl (required (printf "<name> for the keyRef is not defined in (%s)" $name) $value.name) $root }} {{/* Expand name and key */}}
+      key: {{ tpl (required (printf "<key> for the keyRef is not defined in (%s)" $name) $value.key) $root }}
     {{- end }}
   {{- end }}
 {{- end }}
 {{- end -}}
+
+{{/*
+A custom dict is expected with envs and root.
+It's designed to work for mainContainer AND initContainers.
+Calling this from an initContainer, wouldn't work, as it would have a different "root" context,
+and "tpl" on "$" would cause erors.
+That's why the custom dict is expected.
+*/}}

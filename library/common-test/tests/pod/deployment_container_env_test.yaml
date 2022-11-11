@@ -563,3 +563,44 @@ tests:
                   optional: false
                   name: some_name
                   key: some_key
+
+  - it: should pass with envs defined with scaleGPU
+    set:
+      scaleGPU: true
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_DRIVER_CAPABILITIES
+              value: "all"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+
+  - it: should pass with envs defined with scaleGPU and custom capabilities
+    set:
+      scaleGPU: true
+      nvidiaCaps:
+        - compute
+        - utility
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_DRIVER_CAPABILITIES
+              value: "compute,utility"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"

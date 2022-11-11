@@ -8,6 +8,27 @@ tests:
         isKind:
           of: Deployment
 
+  - it: should pass with command set single value
+    set:
+      command: entrypoint.sh
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].command
+          value:
+            - entrypoint.sh
+
+  - it: should pass with command set single value from tpl
+    set:
+      cmd: entrypoint.sh
+      command: "{{ .Values.cmd }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].command
+          value:
+            - entrypoint.sh
+
   - it: should pass with command set
     set:
       command:
@@ -54,6 +75,27 @@ tests:
             - /bin/bash
             - some_value
 
+  - it: should pass with args set with single value
+    set:
+      args: --worker
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].args
+          value:
+            - --worker
+
+  - it: should pass with args set with single value from tpl
+    set:
+      some_arg: --worker
+      args: "{{ .Values.some_arg }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].args
+          value:
+            - --worker
+
   - it: should pass with args set
     set:
       args:
@@ -80,6 +122,27 @@ tests:
           value:
             - --port
             - "9000"
+
+  - it: should pass with extraArgs set single value
+    set:
+      extraArgs: --worker
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].args
+          value:
+            - --worker
+
+  - it: should pass with extraArgs set single value from tpl
+    set:
+      some_extra_arg: --worker
+      extraArgs: "{{ .Values.some_extra_arg }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].args
+          value:
+            - --worker
 
   - it: should pass with extraArgs set
     set:
@@ -144,4 +207,30 @@ tests:
             - --port
             - "9000"
             - --photos
+            - /photos
+
+  - it: should pass with args and extraArgs set - single values
+    set:
+      args: --path
+      extraArgs: /photos
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].args
+          value:
+            - --path
+            - /photos
+
+  - it: should pass with args and extraArgs set from tpl - single values
+    set:
+      some_arg: --path
+      some_path: /photos
+      args: "{{ .Values.some_arg }}"
+      extraArgs: "{{ .Values.some_path }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].args
+          value:
+            - --path
             - /photos

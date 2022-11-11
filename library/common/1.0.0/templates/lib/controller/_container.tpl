@@ -3,30 +3,20 @@
 - name: {{ include "ix.v1.common.names.fullname" . }}
   image: {{/* TODO: */}}
   imagePullPolicy: {{ .Values.image.pullPolicy }}
-  {{- with .Values.command }}
+  {{- if .Values.command }}
   command:
-    {{- if kindIs "string" . }}
-    - {{ tpl . $ }}
-    {{- else }}
-      {{- tpl (toYaml .) $ | nindent 4 }}
-    {{- end }}
+  {{- $context := dict -}} {{/* Create a new context and pass it to envVars include, so tpl can work. */}}
+  {{- $_ := set $context "commands" .Values.command -}}
+  {{- $_ := set $context "root" $ -}}
+    {{- include "ix.v1.common.container.command" $context | nindent 4 }}
   {{- end }}
   {{- if or (.Values.extraArgs) (.Values.args) }}
   args:
-  {{- with .Values.args }} {{/* args usually defined while developing the chart */}}
-    {{- if kindIs "string" . }}
-    - {{ tpl . $ }}
-    {{- else }}
-      {{- tpl (toYaml .) $ | nindent 4 }}
-    {{- end }}
-  {{- end }}
-  {{- with .Values.extraArgs }} {{/* extraArgs used in cases that users wants to APPEND to args */}}
-    {{- if kindIs "string" . }}
-    - {{ tpl . $ }}
-    {{- else }}
-      {{- tpl (toYaml .) $ | nindent 4 }}
-    {{- end }}
-  {{- end }}
+  {{- $context := dict -}} {{/* Create a new context and pass it to envVars include, so tpl can work. */}}
+  {{- $_ := set $context "args" .Values.args -}}
+  {{- $_ := set $context "extraArgs" .Values.extraArgs -}}
+  {{- $_ := set $context "root" $ -}}
+    {{- include "ix.v1.common.container.args" $context | nindent 4 }}
   {{- end }}
   {{- if .Values.tty }}
   tty: true
@@ -60,9 +50,9 @@
   {{- if not (.Values.scaleGPU) }}
     - name: NVIDIA_VISIBLE_DEVICES
       value: "void"
-  {{- else }} {{/* TODO: Discuss if we want to pass specific capabilites */}}
+  {{- else }}
     - name: NVIDIA_DRIVER_CAPABILITIES
-      value: "all"
+      value: {{ join "," .Values.nvidiaCaps | quote }}
   {{- end }}
   {{- if and (or (not .Values.podSecurityContext.runAsUser) (not .Values.podSecurityContext.runAsGroup))  (or .Values.security.PUID (eq (.Values.security.PUID | int) 0)) }} {{/* If root user or root group and a PUID is set, set PUID and related envs */}}
     - name: PUID
@@ -82,7 +72,10 @@
     - name: S6_READ_ONLY_ROOT
       value: "1"
   {{- end }}
-  {{- include "ix.v1.common.container.envVars" . | nindent 4 }}
+  {{- $context := dict -}} {{/* Create a new context and pass it to envVars include, so tpl can work. */}}
+  {{- $_ := set $context "envs" .Values.env -}}
+  {{- $_ := set $context "root" $ -}}
+  {{- include "ix.v1.common.container.envVars" $context | nindent 4 }}
 {{- end -}}
 
 {{/*
