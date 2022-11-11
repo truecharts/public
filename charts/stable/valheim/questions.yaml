@@ -224,6 +224,7 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressList}
         - variable: supervisor
           label: "supervisor Ingress"
           schema:
@@ -233,6 +234,7 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
