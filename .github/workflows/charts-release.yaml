@@ -223,7 +223,7 @@ jobs:
         env:
           CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
           CR_SKIP_EXISTING: "true"
-      - name: Run chart-releaser for stable
+      - name: Run chart-releaser for incubator
         uses: helm/chart-releaser-action@98bccfd32b0f76149d188912ac8e45ddd3f8695f # tag=v1.4.1
         with:
           charts_dir: charts/incubator
