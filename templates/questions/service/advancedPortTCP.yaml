@@ -1,14 +1,21 @@
-                          - variable: protocol
-                            label: Port Type
+                          - variable: advanced
+                            label: Show Advanced Settings
                             schema:
-                              type: string
-                              default: TCP
-                              enum:
-                                - value: HTTP
-                                  description: HTTP
-                                - value: HTTPS
-                                  description: HTTPS
-                                - value: TCP
-                                  description: TCP
-                                - value: UDP
-                                  description: UDP
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: Port Type
+                                  schema:
+                                    type: string
+                                    default: TCP
+                                    enum:
+                                      - value: HTTP
+                                        description: HTTP
+                                      - value: HTTPS
+                                        description: HTTPS
+                                      - value: TCP
+                                        description: TCP
+                                      - value: UDP
+                                        description: UDP
