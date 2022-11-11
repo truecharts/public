@@ -1,5 +1,5 @@
-{{/* Ports included by the controller. */}}
-{{- define "ix.v1.common.controller.ports" -}}
+{{/* Ports included by the container. */}}
+{{- define "ix.v1.common.container.ports" -}}
   {{ $ports := list }}
   {{- range .Values.service -}}
     {{- if .enabled -}}
