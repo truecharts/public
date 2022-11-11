@@ -209,7 +209,7 @@ spec:
     key: {{ .Values.prometheus.additionalAlertRelabelConfigsExternal.key }}
   {{- end }}
 {{- include "kube-prometheus.imagePullSecrets" . | indent 2 }}
-  {{- if or .Values.prometheus.containers .Values.prometheus.thanos.create .Values.prometheus.containerSecurityContext.enabled}}
+  {{- if or .Values.prometheus.containers .Values.prometheus.thanos.create .Values.prometheus.containerSecurityContext.enabled .Values.prometheus.containerSecurityContext.enabled .Values.operator.prometheusConfigReloader.containerSecurityContext.enabled }}
   containers:
     {{- if .Values.prometheus.thanos.create }}
     - name: thanos-sidecar
@@ -319,6 +319,41 @@ spec:
         successThreshold: {{ .Values.prometheus.readinessProbe.successThreshold }}
       {{- end }}
     {{- end }}
+    {{- if or .Values.operator.prometheusConfigReloader.containerSecurityContext.enabled .Values.operator.prometheusConfigReloader.livenessProbe.enabled .Values.operator.prometheusConfigReloader.readinessProbe.enabled }}
+    ## This monkey patching is needed until the securityContexts are
+    ## directly patchable via the CRD.
+    ## ref: https://github.com/prometheus-operator/prometheus-operator/issues/3947
+    ## currently implemented with strategic merge
+    ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/user-guides/strategic-merge-patch.md
+    - name: config-reloader
+      {{- if .Values.operator.prometheusConfigReloader.containerSecurityContext.enabled }}
+      securityContext: {{- omit .Values.operator.prometheusConfigReloader.containerSecurityContext "enabled" | toYaml | nindent 8 }}
+      {{- end }}
+      {{- if .Values.operator.prometheusConfigReloader.livenessProbe.enabled }}
+      livenessProbe:
+        tcpSocket:
+          port: reloader-web
+        initialDelaySeconds: {{ .Values.operator.prometheusConfigReloader.livenessProbe.initialDelaySeconds }}
+        periodSeconds: {{ .Values.operator.prometheusConfigReloader.livenessProbe.periodSeconds }}
+        timeoutSeconds: {{ .Values.operator.prometheusConfigReloader.livenessProbe.timeoutSeconds }}
+        failureThreshold: {{ .Values.operator.prometheusConfigReloader.livenessProbe.failureThreshold }}
+        successThreshold: {{ .Values.operator.prometheusConfigReloader.livenessProbe.successThreshold }}
+      {{- end }}
+      {{- if .Values.operator.prometheusConfigReloader.readinessProbe.enabled }}
+      readinessProbe:
+        tcpSocket:
+          port: reloader-web
+        initialDelaySeconds: {{ .Values.operator.prometheusConfigReloader.readinessProbe.initialDelaySeconds }}
+        periodSeconds: {{ .Values.operator.prometheusConfigReloader.readinessProbe.periodSeconds }}
+        timeoutSeconds: {{ .Values.operator.prometheusConfigReloader.readinessProbe.timeoutSeconds }}
+        failureThreshold: {{ .Values.operator.prometheusConfigReloader.readinessProbe.failureThreshold }}
+        successThreshold: {{ .Values.operator.prometheusConfigReloader.readinessProbe.successThreshold }}
+      {{- end }}
+    {{- end }}
+    {{- if .Values.prometheus.containers }}
+    {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.containers "context" $) | nindent 4 }}
+    {{- end }}
+  {{- end }}
   {{- if .Values.prometheus.priorityClassName }}
   priorityClassName: {{ .Values.prometheus.priorityClassName }}
   {{- end }}

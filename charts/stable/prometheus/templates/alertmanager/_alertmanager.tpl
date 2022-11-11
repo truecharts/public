@@ -95,7 +95,7 @@ spec:
   volumeMounts: {{- include "tc.common.tplvalues.render" (dict "value" .Values.alertmanager.volumeMounts "context" $) | nindent 4 }}
   {{- end }}
 {{- include "kube-prometheus.imagePullSecrets" . | indent 2 }}
-  {{- if or .Values.alertmanager.containers .Values.alertmanager.containerSecurityContext.enabled }}
+  {{- if or .Values.alertmanager.containers .Values.alertmanager.containerSecurityContext.enabled .Values.operator.prometheusConfigReloader.containerSecurityContext.enabled }}
   containers:
     {{- if or .Values.alertmanager.containerSecurityContext.enabled .Values.alertmanager.livenessProbe.enabled .Values.alertmanager.readinessProbe.enabled }}
     ## This monkey patching is needed until the securityContexts are
@@ -130,6 +130,37 @@ spec:
         timeoutSeconds: {{ .Values.alertmanager.readinessProbe.timeoutSeconds }}
         failureThreshold: {{ .Values.alertmanager.readinessProbe.failureThreshold }}
         successThreshold: {{ .Values.alertmanager.readinessProbe.successThreshold }}
+      {{- end }}
+    {{- end }}
+    {{- if or .Values.operator.prometheusConfigReloader.containerSecurityContext.enabled .Values.operator.prometheusConfigReloader.livenessProbe.enabled .Values.operator.prometheusConfigReloader.readinessProbe.enabled }}
+    ## This monkey patching is needed until the securityContexts are
+    ## directly patchable via the CRD.
+    ## ref: https://github.com/prometheus-operator/prometheus-operator/issues/3947
+    ## currently implemented with strategic merge
+    ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/user-guides/strategic-merge-patch.md
+    - name: config-reloader
+      {{- if .Values.operator.prometheusConfigReloader.containerSecurityContext.enabled }}
+      securityContext: {{- omit .Values.operator.prometheusConfigReloader.containerSecurityContext "enabled" | toYaml | nindent 8 }}
+      {{- end }}
+      {{- if .Values.operator.prometheusConfigReloader.livenessProbe.enabled }}
+      livenessProbe:
+        tcpSocket:
+          port: reloader-web
+        initialDelaySeconds: {{ .Values.operator.prometheusConfigReloader.livenessProbe.initialDelaySeconds }}
+        periodSeconds: {{ .Values.operator.prometheusConfigReloader.livenessProbe.periodSeconds }}
+        timeoutSeconds: {{ .Values.operator.prometheusConfigReloader.livenessProbe.timeoutSeconds }}
+        failureThreshold: {{ .Values.operator.prometheusConfigReloader.livenessProbe.failureThreshold }}
+        successThreshold: {{ .Values.operator.prometheusConfigReloader.livenessProbe.successThreshold }}
+      {{- end }}
+      {{- if .Values.operator.prometheusConfigReloader.readinessProbe.enabled }}
+      readinessProbe:
+        tcpSocket:
+          port: reloader-web
+        initialDelaySeconds: {{ .Values.operator.prometheusConfigReloader.readinessProbe.initialDelaySeconds }}
+        periodSeconds: {{ .Values.operator.prometheusConfigReloader.readinessProbe.periodSeconds }}
+        timeoutSeconds: {{ .Values.operator.prometheusConfigReloader.readinessProbe.timeoutSeconds }}
+        failureThreshold: {{ .Values.operator.prometheusConfigReloader.readinessProbe.failureThreshold }}
+        successThreshold: {{ .Values.operator.prometheusConfigReloader.readinessProbe.successThreshold }}
       {{- end }}
     {{- end }}
     {{- if .Values.alertmanager.containers }}
