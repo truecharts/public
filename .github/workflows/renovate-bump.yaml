@@ -83,7 +83,7 @@ jobs:
               tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" go-yq -i '.sources += env(tcsource)' "${chart}/Chart.yaml"
               # Add the rest of the sources
               while IFS= read -r line; do
-                  src="$line" go-yq -i '.sources += env(src)' "${chart}/Chart.yaml"
+                src="$line" go-yq -i '.sources += env(src)' "${chart}/Chart.yaml" || echo "src set error"
               done <<< "$curr_sources"
               echo "Sources of ${chartname} updated!"
               }
