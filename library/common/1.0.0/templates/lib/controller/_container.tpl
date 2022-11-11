@@ -38,10 +38,8 @@
   {{- else }}
   stdin: false
   {{- end }}
-  {{- with .Values.securityContext }}
   securityContext:
-    {{- include "ix.v1.common.controller.securityContext" $ | nindent 4 }}
-  {{- end }}
+    {{- include "ix.v1.common.controller.securityContext" . | nindent 4 }}
   {{- with .Values.lifecycle }}
   lifecycle:
     {{- tpl (toYaml .) $ | nindent 4 }}
