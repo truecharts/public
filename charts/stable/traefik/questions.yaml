@@ -209,7 +209,6 @@ questions:
                         additional_attrs: true
                         type: dict
                         attrs:
-# Include{advancedPortHTTP}
                           - variable: port
                             label: "Entrypoints Port"
                             schema:
@@ -237,7 +236,13 @@ questions:
                               type: int
                               default: 9080
                               required: true
-# Include{advancedPortHTTP}
+                          - variable: advanced
+                            label: Show Advanced Settings
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
                                 - variable: redirectPort
                                   label: "Redirect to Port"
                                   schema:
@@ -261,7 +266,13 @@ questions:
                               type: int
                               default: 9443
                               required: true
-# Include{advancedPortHTTPS}
+                          - variable: advanced
+                            label: Show Advanced Settings
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
                                 - variable: redirectPort
                                   label: "Redirect to Port"
                                   schema:

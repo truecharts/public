@@ -55,7 +55,8 @@
                     - value: Memory
                       description: Memory
               - variable: size
-                label: Size quotum of Storage
+                label: Size quotum of Storage (Do NOT REDUCE after installation)
+                description: This value can ONLY be INCREASED after the installation
                 schema:
                   show_if: [["type", "=", "pvc"]]
                   type: string
