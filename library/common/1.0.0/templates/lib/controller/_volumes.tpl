@@ -16,7 +16,7 @@
         {{- if not (eq $persistence.nameOverride "-") -}}
           {{- $pvcName = (printf "%s-%s" (include "ix.v1.common.names.fullname" $) $persistence.nameOverride) -}}
         {{- end -}}
-      {{- else -}} {{/* Else refer to the PVC name */}}
+      {{- else -}} {{/* Else generate the PVC name from fullname + volume name */}}
         {{- $pvcName = (printf "%s-%s" (include "ix.v1.common.names.fullname" $) $index) -}}
       {{- end -}}
       {{- if $persistence.forceName -}}
@@ -26,31 +26,40 @@
   persistentVolumeClaim:
     claimName: {{ tpl $pvcName $ }}
   {{- else if eq ($persistence.type | lower) "emptydir" }} {{/* emptyDir */}}
-    {{- $emptyDir := dict -}}
-    {{- with $persistence.medium -}}
-        {{- $_ := set $emptyDir "medium" "Memory" -}}
+    {{- if not (or $persistence.medium $persistence.sizeLimit) }}
+  emptyDir: {}
+    {{- else }}
+  emptyDir:
+      {{- with $persistence.medium }}
+      {{- if eq ((tpl . $) | lower) "memory" }}
+    medium: Memory
+        {{- else }}
+          {{- fail "You can only set medium as (Memory)" }}
+        {{- end }}
+      {{- end }}
+      {{- with $persistence.sizeLimit }}
+    sizeLimit: {{ tpl . $ }}
+      {{- end }}
     {{- end }}
-    {{- with $persistence.sizeLimit -}}
-        {{- $_ := set $emptyDir "sizeLimit" . -}}
-    {{- end }}
-  emptyDir: {{- tpl (toYaml $emptyDir) $ | nindent 4 }}
   {{- else if or (eq ($persistence.type | lower) "configmap") (eq ($persistence.type | lower) "secret") }}
-    {{- $objectName := (required (printf "objectName not set for persistence item %s" $index) $persistence.objectName) }}
+    {{- $objectName := (required (printf "objectName not set for persistence item %s" (toString $index)) $persistence.objectName) }}
     {{- $objectName = tpl $objectName $ }}
     {{- if eq ($persistence.type | lower) "configmap" }} {{/* configMap */}}
   configMap:
     name: {{ $objectName }}
     {{- else }} {{/* secret */}}
-
   secret:
     secretName: {{ $objectName }}
     {{- end }}
     {{- with $persistence.defaultMode }}
-    defaultMode: {{ tpl . $ }}
+    defaultMode: {{ tpl (toString .) $ }}
     {{- end }}
     {{- with $persistence.items }}
     items:
-      {{- tpl (toYaml .) $ | nindent 6 }}
+      {{- range . }}
+      - key: {{ tpl (required (printf "No key was given for persistence item %s" (toString $index)) .key) $ }}
+        path: {{ tpl (required (printf "No path was given for persistence item %s" (toString $index)) .path) $ }}
+      {{- end }}
     {{- end }}
   {{- else if eq ($persistence.type | lower) "hostpath" }} {{/* hostPath */}}
   hostPath:

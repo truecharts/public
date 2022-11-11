@@ -89,6 +89,17 @@ tests:
             emptyDir:
               medium: Memory
 
+  - it: should fail with added emptyDir and non Memory medium
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: emptyDir
+          medium: not_memory
+    asserts:
+      - failedTemplate:
+          errorMessage: You can only set medium as (Memory)
+
   - it: should pass with added nfs
     set:
       persistence:
@@ -306,6 +317,32 @@ tests:
               secretName: some_object_name
               defaultMode: 644
 
+  - it: should fail with added secret and no key on items
+    set:
+      persistence:
+        some_volume:
+          type: secret
+          enabled: true
+          objectName: some_object_name
+          items:
+            - path: some_path
+    asserts:
+      - failedTemplate:
+          errorMessage: No key was given for persistence item some_volume
+
+  - it: should fail with added secret and no path on items
+    set:
+      persistence:
+        some_volume:
+          type: secret
+          enabled: true
+          objectName: some_object_name
+          items:
+            - key: some_key
+    asserts:
+      - failedTemplate:
+          errorMessage: No path was given for persistence item some_volume
+
   - it: should pass with added secret and items
     set:
       persistence:
@@ -316,6 +353,29 @@ tests:
           items:
             - key: some_key
               path: some_path
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            secret:
+              secretName: some_object_name
+              items:
+                - key: some_key
+                  path: some_path
+
+  - it: should pass with added secret and items from tpl
+    set:
+      key: some_key
+      path: some_path
+      persistence:
+        some_volume:
+          type: secret
+          enabled: true
+          objectName: some_object_name
+          items:
+            - key: "{{ .Values.key }}"
+              path: "{{ .Values.path }}"
     asserts:
       - equal:
           path: spec.template.spec.volumes[0]
@@ -432,6 +492,55 @@ tests:
           items:
             - key: some_key
               path: some_path
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            configMap:
+              name: some_object_name
+              items:
+                - key: some_key
+                  path: some_path
+
+  - it: should fail with added configMap and no key on items
+    set:
+      persistence:
+        some_volume:
+          type: configMap
+          enabled: true
+          objectName: some_object_name
+          items:
+            - path: some_path
+    asserts:
+      - failedTemplate:
+          errorMessage: No key was given for persistence item some_volume
+
+  - it: should fail with added configMap and no path on items
+    set:
+      persistence:
+        some_volume:
+          type: configMap
+          enabled: true
+          objectName: some_object_name
+          items:
+            - key: some_key
+    asserts:
+      - failedTemplate:
+          errorMessage: No path was given for persistence item some_volume
+
+  - it: should pass with added configMap and items from tpl
+    set:
+      key: some_key
+      path: some_path
+      persistence:
+        some_volume:
+          type: configMap
+          enabled: true
+          objectName: some_object_name
+          items:
+            - key: "{{ .Values.key }}"
+              path: "{{ .Values.path }}"
     asserts:
       - equal:
           path: spec.template.spec.volumes[0]
