@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
 # Include{serviceRoot}
@@ -36,7 +32,6 @@ questions:
                               type: int
                               default: 10292
                               required: true
-
         - variable: api
           label: "API Service"
           description: "API Service"
@@ -59,7 +54,6 @@ questions:
                               type: int
                               default: 27123
                               required: true
-
                     - variable: https
                       label: "https Service Port Configuration"
                       schema:
@@ -73,7 +67,6 @@ questions:
                               type: int
                               default: 27124
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -87,7 +80,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: config
           label: "config Storage"
           description: "This is the location for the internal data."
@@ -96,7 +88,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -108,8 +99,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -132,7 +121,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -157,7 +145,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

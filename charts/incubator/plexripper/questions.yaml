@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
 # Include{serviceRoot}
@@ -36,7 +32,6 @@ questions:
                               type: int
                               default: 7000
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -50,7 +45,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: downloadfolder
           label: "downloadfolder Storage"
           description: "Container Path downloads"
@@ -59,7 +53,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: moviedestinationfolder
           label: "moviedestinationfolder Storage"
           description: "Container Path movies"
@@ -68,7 +61,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: tv-showdestinationfolder
           label: "tv-showdestinationfolder Storage"
           description: "Container Path tvshows"
@@ -77,7 +69,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -89,8 +80,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -113,7 +102,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -138,7 +126,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

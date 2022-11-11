@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
   - variable: secretEnv
     group: "App Configuration"
@@ -83,7 +79,6 @@ questions:
                               type: int
                               default: 14002
                               required: true
-
         - variable: coretcp
           label: "Core TCP Service"
           description: "Core TCP Service"
@@ -106,7 +101,6 @@ questions:
                               type: int
                               default: 28967
                               required: true
-
         - variable: coreudp
           label: "Core UDP Service"
           description: "Core UDP Service"
@@ -129,7 +123,6 @@ questions:
                               type: int
                               default: 28967
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -143,7 +136,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: storage
           label: "File Storage"
           description: "File Storage"
@@ -152,7 +144,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -164,8 +155,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -188,7 +177,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -213,7 +201,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

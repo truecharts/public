@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
   - variable: env
     group: "App Configuration"
@@ -81,7 +77,6 @@ questions:
                               type: int
                               default: 2221
                               required: true
-
         - variable: ftpport
           label: 'ftpport service'
           schema:
@@ -103,7 +98,6 @@ questions:
                               type: int
                               default: 2121
                               required: true
-
         - variable: sftpport
           label: 'sftpport service'
           schema:
@@ -125,7 +119,6 @@ questions:
                               type: int
                               default: 2022
                               required: true
-
         - variable: passiveports
           label: 'passiveports service'
           schema:
@@ -147,7 +140,6 @@ questions:
                               type: int
                               default: 50000
                               required: true
-
         - variable: webdavport
           label: 'webdavport service'
           schema:
@@ -169,7 +161,6 @@ questions:
                               type: int
                               default: 10080
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -182,7 +173,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: backupdirectory
           label: "backupdirectory Storage"
           schema:
@@ -190,7 +180,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: configpath
           label: "configpath Storage"
           schema:
@@ -198,7 +187,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: shareaccess
           label: "shareaccess Storage"
           schema:
@@ -206,7 +194,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -218,8 +205,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -242,7 +227,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -267,7 +251,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

@@ -2,12 +2,8 @@
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
   - variable: clickhouseDatabase
@@ -67,7 +63,6 @@ questions:
                               type: int
                               default: 8123
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -84,7 +79,6 @@ questions:
             hidden: true
             attrs:
 # Include{persistenceBasic}
-
         - variable: config-server
           label: Server Configuration Storage
           description: Files with Server Settings Adjustments
@@ -93,7 +87,6 @@ questions:
             hidden: true
             attrs:
 # Include{persistenceBasic}
-
         - variable: config-users
           label: Users Configuration Storage
           description: Files with Users Settings Adjustments
@@ -102,9 +95,7 @@ questions:
             hidden: true
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -127,7 +118,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -152,7 +142,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

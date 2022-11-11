@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
 # Include{serviceRoot}
@@ -36,7 +32,6 @@ questions:
                               type: int
                               default: 10130
                               required: true
-
         - variable: front
           label: "Front Service"
           description: "The front service"
@@ -59,7 +54,6 @@ questions:
                               type: int
                               default: 10124
                               required: true
-
         - variable: ipfs
           label: "ipfs Service"
           description: "The ipfs service."
@@ -82,7 +76,6 @@ questions:
                               type: int
                               default: 10138
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -96,7 +89,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: data
           label: "App Data Storage"
           description: "Stores the Application Data."
@@ -105,7 +97,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -117,7 +108,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
         - variable: front
           label: "Front Ingress"
           schema:
@@ -127,8 +117,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -151,7 +139,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -176,7 +163,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

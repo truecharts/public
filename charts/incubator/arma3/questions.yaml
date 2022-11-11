@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
   - variable: secretEnv
     group: "App Configuration"
@@ -87,7 +83,6 @@ questions:
                               type: int
                               default: 2302
                               required: true
-
         - variable: udpgameport
           label: 'udpgameport service'
           description: "Same as TCP Game Port"
@@ -110,7 +105,6 @@ questions:
                               type: int
                               default: 2302
                               required: true
-
         - variable: udpsteamquerry
           label: 'udpsteamquerry service'
           description: "UDP Game Port 1"
@@ -133,7 +127,6 @@ questions:
                               type: int
                               default: 2303
                               required: true
-
         - variable: udpsteammaster
           label: 'udpsteammaster service'
           description: "UDP Game Port 2"
@@ -156,7 +149,6 @@ questions:
                               type: int
                               default: 2304
                               required: true
-
         - variable: udpvonport
           label: 'udpvonport service'
           description: "UDP Game Port 3"
@@ -179,7 +171,6 @@ questions:
                               type: int
                               default: 2305
                               required: true
-
         - variable: udpbattleyetra
           label: 'udpbattleyetra service'
           description: "UDP Game Port 4"
@@ -202,7 +193,6 @@ questions:
                               type: int
                               default: 2306
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -216,7 +206,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: serverfiles
           label: "serverfiles Storage"
           description: "Container Path serverdataserverfiles"
@@ -225,7 +214,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: profiles
           label: "profiles Storage"
           description: "serverdata.localshare"
@@ -234,7 +222,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -246,8 +233,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -270,7 +255,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -295,7 +279,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

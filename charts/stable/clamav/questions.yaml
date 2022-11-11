@@ -3,12 +3,8 @@ portals: {}
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
   - variable: env
     group: "App Configuration"
@@ -122,7 +118,6 @@ questions:
                               type: int
                               default: 3310
                               required: true
-
         - variable: milter
           label:  "Milter Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -145,7 +140,6 @@ questions:
                               type: int
                               default: 7357
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -159,7 +153,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: scandir
           label: "App Scan Dir Storage"
           description: "Stores the Application Scan Directory. (By default set to readOnly)"
@@ -168,7 +161,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: logs
           label: "App Logs Storage"
           description: "Stores the Application Logs."
@@ -177,7 +169,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -189,8 +180,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -213,7 +202,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -238,7 +226,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
   - variable: env
     group: "App Configuration"
@@ -55,7 +51,6 @@ questions:
                               type: int
                               default: 4711
                               required: true
-
         - variable: porttcp
           label: 'porttcp service'
           description: "Client to client transfers"
@@ -78,7 +73,6 @@ questions:
                               type: int
                               default: 4662
                               required: true
-
         - variable: portudp
           label: 'portudp service'
           description: "Extended aMule protocol, Queue Rating, File Reask Ping"
@@ -101,7 +95,6 @@ questions:
                               type: int
                               default: 4672
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -115,7 +108,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: storageincomplete
           label: "storageincomplete Storage"
           description: "This is the location for incomplete downloads."
@@ -124,7 +116,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: storageconfig
           label: "storageconfig Storage"
           description: "This is the location for the internal data."
@@ -133,7 +124,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -145,8 +135,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -169,7 +157,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -194,7 +181,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

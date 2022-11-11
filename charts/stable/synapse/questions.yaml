@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
   - variable: synapse
@@ -388,7 +384,6 @@ questions:
                               type: int
                               default: 8008
                               required: true
-
         - variable: federation
           label: "federation Service"
           description: "The federation service"
@@ -411,7 +406,6 @@ questions:
                               type: int
                               default: 8448
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -425,7 +419,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: media
           label: "App Media Storage"
           description: "Stores the Application Media."
@@ -434,7 +427,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: uploads
           label: "App Upload Storage"
           description: "Stores the Application Upload."
@@ -443,7 +435,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -455,8 +446,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -479,7 +468,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -504,7 +492,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

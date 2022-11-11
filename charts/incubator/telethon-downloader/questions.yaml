@@ -3,12 +3,8 @@ portals: {}
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
   - variable: env
     group: "App Configuration"
@@ -60,7 +56,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: pathwatch
           label: "pathwatch Storage"
           description: "Container Path watch"
@@ -69,7 +64,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: config
           label: "config Storage"
           description: "Container Path config"
@@ -78,9 +72,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -103,7 +95,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -128,7 +119,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

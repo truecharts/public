@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
   - variable: secretEnv
     group: "App Configuration"
@@ -81,7 +77,6 @@ questions:
                               type: int
                               default: 10140
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -95,7 +90,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: consume
           label: "To-be consumed Document Storage"
           description: "This where your documents should go to be consumed."
@@ -104,7 +98,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: media
           label: "App Document Storage"
           description: "This is where your documents and thumbnails are stored."
@@ -113,7 +106,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -125,8 +117,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -149,7 +139,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -174,7 +163,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

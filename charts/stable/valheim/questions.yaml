@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
   - variable: secretEnv
     group: "App Configuration"
@@ -126,7 +122,6 @@ questions:
                               type: int
                               default: 9010
                               required: true
-
         - variable: supervisor
           label: "supervisor Service"
           description: "The supervisor service"
@@ -149,7 +144,6 @@ questions:
                               type: int
                               default: 9011
                               required: true
-
         - variable: valheim
           label: "valheim Service"
           description: "The valheim Game service"
@@ -172,7 +166,6 @@ questions:
                               type: int
                               default: 2456
                               required: true
-
                     - variable: valheim2
                       label: "valheim-2 Service Port Configuration"
                       schema:
@@ -186,7 +179,6 @@ questions:
                               type: int
                               default: 2457
                               required: true
-
                     - variable: valheim3
                       label: "valheim-3 Service Port Configuration"
                       schema:
@@ -200,7 +192,6 @@ questions:
                               type: int
                               default: 2458
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -214,7 +205,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: backups
           label: "App backups Storage"
           description: "Stores the Application backups."
@@ -223,7 +213,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -235,7 +224,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
         - variable: supervisor
           label: "supervisor Ingress"
           schema:
@@ -245,8 +233,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -269,7 +255,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -294,7 +279,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
   - variable: webUI
     group: App Configuration
@@ -662,7 +658,6 @@ questions:
                               type: int
                               default: 10315
                               required: true
-
         - variable: dnstcp
           label: DNS TCP Service
           description: The DNS TCP service
@@ -685,7 +680,6 @@ questions:
                               type: int
                               default: 53
                               required: true
-
         - variable: dnsudp
           label: DNS UDP Service
           description: The DNS UDP service
@@ -708,7 +702,6 @@ questions:
                               type: int
                               default: 53
                               required: true
-
         - variable: dot
           label: DoT Service
           description: "DNS-over-TLS service"
@@ -731,7 +724,6 @@ questions:
                               type: int
                               default: 853
                               required: true
-
         - variable: http
           label: HTTP and Metrics Service
           description: "service for things like metrics, pprof, API, DoH etc"
@@ -754,7 +746,6 @@ questions:
                               type: int
                               default: 4000
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -770,8 +761,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -794,7 +783,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: runAsUser
@@ -820,7 +808,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

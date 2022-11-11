@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
   - variable: env
     group: "App Configuration"
@@ -79,7 +75,6 @@ questions:
                               type: int
                               default: 9016
                               required: true
-
         - variable: tcp1
           label: 'tcp1 service'
           description: "Container Port 30110"
@@ -102,7 +97,6 @@ questions:
                               type: int
                               default: 30110
                               required: true
-
         - variable: tcp2
           label: 'tcp2 service'
           description: "Container Port 30120"
@@ -125,7 +119,6 @@ questions:
                               type: int
                               default: 30120
                               required: true
-
         - variable: udp1
           label: 'udp1 service'
           description: "Container Port 30110"
@@ -148,7 +141,6 @@ questions:
                               type: int
                               default: 30110
                               required: true
-
         - variable: udp2
           label: 'udp2 service'
           description: "Container Port 30120"
@@ -171,7 +163,6 @@ questions:
                               type: int
                               default: 30120
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -185,7 +176,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -197,8 +187,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -221,7 +209,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -246,7 +233,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

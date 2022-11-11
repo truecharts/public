@@ -3,12 +3,8 @@ questions:
   # Portal
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
 # Include{serviceRoot}
@@ -34,7 +30,6 @@ questions:
                               type: int
                               default: 10011
                               required: true
-
         - variable: voice
           label: "Voice Service"
           description: "The voice service of teamspeak3"
@@ -57,7 +52,6 @@ questions:
                               type: int
                               default: 9987
                               required: true
-
         - variable: files
           label: "Server File Transport Service"
           description: "The file transport service of teamspeak3"
@@ -80,7 +74,6 @@ questions:
                               type: int
                               default: 30033
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -94,9 +87,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -119,7 +110,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -144,7 +134,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

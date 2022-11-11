@@ -20,12 +20,8 @@ questions:
         - value: j8j9Image
           description: Java 8 OpenJ9
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
   - variable: secretEnv
     group: App Configuration
@@ -541,7 +537,6 @@ questions:
                               type: int
                               default: 25565
                               required: true
-
         - variable: rcon
           label: RCON Service
           description: The Primary service on which the healthcheck runs, often the webUI
@@ -564,7 +559,6 @@ questions:
                               type: int
                               default: 25575
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -578,9 +572,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -603,7 +595,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: runAsUser
@@ -628,7 +619,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

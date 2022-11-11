@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
 # Include{serviceRoot}
@@ -36,7 +32,6 @@ questions:
                               type: int
                               default: 10155
                               required: true
-
         - variable: unencrypted-tcp
           label: "Unencrypted Transfers"
           description: "Used for unencrypted transfers."
@@ -59,7 +54,6 @@ questions:
                               type: int
                               default: 21248
                               required: true
-
         - variable: encrypted-tcp
           label: "Encrypted Transfers"
           description: "Used for unencrypted transfers."
@@ -82,7 +76,6 @@ questions:
                               type: int
                               default: 21249
                               required: true
-
         - variable: search-udp
           label: "Unencrypted Transfers"
           description: "Used for searching."
@@ -105,7 +98,6 @@ questions:
                               type: int
                               default: 21248
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -119,7 +111,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -131,8 +122,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -155,7 +144,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -180,7 +168,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

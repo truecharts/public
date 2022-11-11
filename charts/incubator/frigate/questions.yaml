@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
 # Include{serviceRoot}
@@ -37,7 +33,6 @@ questions:
                               default: 5000
                               editable: true
                               required: true
-
         - variable: rtmp
           label: "RTMP Service"
           description: "The service on which nodes connect to."
@@ -61,7 +56,6 @@ questions:
                               default: 1935
                               editable: true
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -75,7 +69,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: cache
           label: "Video Cache in Memory"
           description: "Stores the cached video data."
@@ -84,7 +77,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: cache
           label: "App Transcode cache"
           description: "Stores the Application Transcode cache."
@@ -93,7 +85,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -105,7 +96,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
         - variable: rtmp
           label: "RTMP Ingress"
           schema:
@@ -115,8 +105,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -139,7 +127,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -164,7 +151,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

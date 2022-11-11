@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
 # Include{serviceRoot}
@@ -36,7 +32,6 @@ questions:
                               type: int
                               default: 10586
                               required: true
-
         - variable: sub
           label: Sub Service
           description: The Sub service on which the healthcheck runs, often the webUI
@@ -59,7 +54,6 @@ questions:
                               type: int
                               default: 10587
                               required: true
-
         - variable: minecraft
           label: Minecraft Service
           description: Container Port 25500
@@ -82,7 +76,6 @@ questions:
                               type: int
                               default: 25500
                               required: true
-
         - variable: dynmap
           label: DynMap service
           description: DynMap Port
@@ -105,7 +98,6 @@ questions:
                               type: int
                               default: 8123
                               required: true
-
         - variable: bedrock
           label: Bedrock Service
           description: Bedrock Server Port
@@ -128,7 +120,6 @@ questions:
                               type: int
                               default: 19132
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -142,7 +133,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: serverfiles
           label: Server Files Storage
           description: Path to the minecraft server folders
@@ -151,7 +141,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: serverlogs
           label: Server Logs Storage
           description: Logs
@@ -160,7 +149,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: import
           label: Import Folder Storage
           description: Import existing Mincecraft Servers
@@ -169,7 +157,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: backup
           label: Backup Storage
           description: Server Backups
@@ -178,7 +165,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -190,8 +176,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -214,7 +198,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: runAsUser
@@ -239,7 +222,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

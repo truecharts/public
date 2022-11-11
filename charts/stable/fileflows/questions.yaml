@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
   # Docker specific env
 # Include{containerConfig}
@@ -37,7 +33,6 @@ questions:
                               type: int
                               default: 10242
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -51,7 +46,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: logs
           label: "App Logs Storage"
           description: "Stores the Application Logs."
@@ -60,7 +54,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: temp
           label: "App Temp Storage"
           description: "Stores the Application Temp."
@@ -69,7 +62,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: media
           label: "App Media Storage"
           description: "Stores the Application Data."
@@ -78,7 +70,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -90,8 +81,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -114,7 +103,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -139,7 +127,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

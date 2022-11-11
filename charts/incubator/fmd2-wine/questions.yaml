@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
   - variable: env
     group: "App Configuration"
@@ -49,7 +45,6 @@ questions:
                               type: int
                               default: 6080
                               required: true
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -63,7 +58,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: appluamodulespath
           label: "appluamodulespath Storage"
           description: "Container Path appFMD2lua"
@@ -72,7 +66,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: data
           label: "data Storage"
           description: "Container Path appFMD2data"
@@ -81,7 +74,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: appwineconfig
           label: "appwineconfig Storage"
           description: "Container Path config.wine"
@@ -90,7 +82,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
         - variable: appuserdata
           label: "appuserdata Storage"
           description: "Container Path appFMD2userdata"
@@ -99,7 +90,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -111,8 +101,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -135,7 +123,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -160,7 +147,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}
