@@ -221,18 +221,331 @@ tests:
       - failedTemplate:
           errorMessage: objectName not set for persistence item some_volume
 
-  - it: should pass with added configmap
+  - it: should pass with added secret
+    set:
+      persistence:
+        some_volume:
+          type: secret
+          enabled: true
+          objectName: some_object_name
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            secret:
+              secretName: some_object_name
+
+  - it: should pass with added secret and defaultMode as int
+    set:
+      persistence:
+        some_volume:
+          type: secret
+          enabled: true
+          objectName: some_object_name
+          defaultMode: 777
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            secret:
+              secretName: some_object_name
+              defaultMode: 777
+
+  - it: should pass with added secret and defaultMode as string
+    set:
+      persistence:
+        some_volume:
+          type: secret
+          enabled: true
+          objectName: some_object_name
+          defaultMode: "777"
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            secret:
+              secretName: some_object_name
+              defaultMode: 777
+
+  - it: should pass with added secret and defaultMode as int from tpl
+    set:
+      mode: 644
+      persistence:
+        some_volume:
+          type: secret
+          enabled: true
+          objectName: some_object_name
+          defaultMode: "{{ .Values.mode }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            secret:
+              secretName: some_object_name
+              defaultMode: 644
+
+  - it: should pass with added secret and defaultMode as string from tpl
+    set:
+      mode: "644"
+      persistence:
+        some_volume:
+          type: secret
+          enabled: true
+          objectName: some_object_name
+          defaultMode: "{{ .Values.mode }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            secret:
+              secretName: some_object_name
+              defaultMode: 644
+
+  - it: should pass with added secret and items
+    set:
+      persistence:
+        some_volume:
+          type: secret
+          enabled: true
+          objectName: some_object_name
+          items:
+            - key: some_key
+              path: some_path
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            secret:
+              secretName: some_object_name
+              items:
+                - key: some_key
+                  path: some_path
+
+  - it: should fail with not set objectName on configMap
     set:
       persistence:
         some_volume:
           type: configMap
           enabled: true
-          objectName: some_name
     asserts:
       - failedTemplate:
           errorMessage: objectName not set for persistence item some_volume
 
+  - it: should pass with added configMap
+    set:
+      persistence:
+        some_volume:
+          type: configMap
+          enabled: true
+          objectName: some_object_name
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            configMap:
+              name: some_object_name
 
-# TODO: configmap
-# TODO: secret
-# TODO: PVC
+  - it: should pass with added configMap and defaultMode as int
+    set:
+      persistence:
+        some_volume:
+          type: configMap
+          enabled: true
+          objectName: some_object_name
+          defaultMode: 777
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            configMap:
+              name: some_object_name
+              defaultMode: 777
+
+  - it: should pass with added configMap and defaultMode as string
+    set:
+      persistence:
+        some_volume:
+          type: configMap
+          enabled: true
+          objectName: some_object_name
+          defaultMode: "777"
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            configMap:
+              name: some_object_name
+              defaultMode: 777
+
+  - it: should pass with added configMap and defaultMode as int from tpl
+    set:
+      mode: 644
+      persistence:
+        some_volume:
+          type: configMap
+          enabled: true
+          objectName: some_object_name
+          defaultMode: "{{ .Values.mode }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            configMap:
+              name: some_object_name
+              defaultMode: 644
+
+  - it: should pass with added configMap and defaultMode as string from tpl
+    set:
+      mode: "644"
+      persistence:
+        some_volume:
+          type: configMap
+          enabled: true
+          objectName: some_object_name
+          defaultMode: "{{ .Values.mode }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            configMap:
+              name: some_object_name
+              defaultMode: 644
+
+  - it: should pass with added configMap and items
+    set:
+      persistence:
+        some_volume:
+          type: configMap
+          enabled: true
+          objectName: some_object_name
+          items:
+            - key: some_key
+              path: some_path
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            configMap:
+              name: some_object_name
+              items:
+                - key: some_key
+                  path: some_path
+
+  - it: should pass with added PVC
+    set:
+      persistence:
+        some_volume:
+          type: pvc
+          enabled: true
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            persistentVolumeClaim:
+              claimName: RELEASE-NAME-common-test-some_volume
+
+  - it: should pass with added PVC and existingClaim
+    set:
+      persistence:
+        some_volume:
+          type: pvc
+          enabled: true
+          existingClaim: some_existing_claim
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            persistentVolumeClaim:
+              claimName: some_existing_claim
+
+  - it: should pass with added PVC and existingClaim from tpl
+    set:
+      claim: some_existing_claim
+      persistence:
+        some_volume:
+          type: pvc
+          enabled: true
+          existingClaim: "{{ .Values.claim }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            persistentVolumeClaim:
+              claimName: some_existing_claim
+
+  - it: should pass with added PVC and nameOverride
+    set:
+      persistence:
+        some_volume:
+          type: pvc
+          enabled: true
+          nameOverride: some_claim
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            persistentVolumeClaim:
+              claimName: RELEASE-NAME-common-test-some_claim
+
+  - it: should pass with added PVC and nameOverride from tpl
+    set:
+      claim: some_claim
+      persistence:
+        some_volume:
+          type: pvc
+          enabled: true
+          nameOverride: "{{ .Values.claim }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            persistentVolumeClaim:
+              claimName: RELEASE-NAME-common-test-some_claim
+
+  - it: should pass with added PVC and forceName
+    set:
+      persistence:
+        some_volume:
+          type: pvc
+          enabled: true
+          forceName: forced_name
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            persistentVolumeClaim:
+              claimName: forced_name
+
+  - it: should pass with added PVC and forceName from tpl
+    set:
+      claim: forced_name
+      persistence:
+        some_volume:
+          type: pvc
+          enabled: true
+          forceName: "{{ .Values.claim }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: some_volume
+            persistentVolumeClaim:
+              claimName: forced_name
