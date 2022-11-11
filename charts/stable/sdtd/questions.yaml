@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
   - variable: secretEnv
     group: "App Configuration"
@@ -113,7 +109,6 @@ questions:
                               type: int
                               default: 26900
                               required: true
-# Include{advancedPortTCP}
         - variable: steammasterser
           label: 'steammasterser service'
           description: "Container Port 26900"
@@ -136,7 +131,6 @@ questions:
                               type: int
                               default: 26900
                               required: true
-# Include{advancedPortUDP}
         - variable: steamcommunica
           label: 'steamcommunica service'
           description: "Container Port 26901"
@@ -159,7 +153,6 @@ questions:
                               type: int
                               default: 26901
                               required: true
-# Include{advancedPortUDP}
         - variable: raknet
           label: 'raknet service'
           description: "Container Port 26902"
@@ -182,7 +175,6 @@ questions:
                               type: int
                               default: 26902
                               required: true
-# Include{advancedPortUDP}
         - variable: unet
           label: 'unet service'
           description: "Container Port "
@@ -205,7 +197,6 @@ questions:
                               type: int
                               default: 26903
                               required: true
-# Include{advancedPortUDP}
         - variable: webbasecontrol
           label: 'webbasecontrol service'
           description: "Container Port 8080"
@@ -228,7 +219,6 @@ questions:
                               type: int
                               default: 8080
                               required: true
-# Include{advancedPortTCP}
         - variable: webpanel
           label: 'webpanel service'
           description: "Container Port 8082"
@@ -251,7 +241,6 @@ questions:
                               type: int
                               default: 8082
                               required: true
-# Include{advancedPortTCP}
         - variable: registeringats
           label: 'registeringats service'
           description: "Should be in the range 27015 - 27030, dont forget to set also a different Container Port if you change this value."
@@ -274,7 +263,6 @@ questions:
                               type: int
                               default: 27015
                               required: true
-# Include{advancedPortUDP}
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -288,7 +276,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: serverfiles
           label: "serverfiles Storage"
           description: "Container Path serverdataserverfiles"
@@ -297,7 +284,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -309,8 +295,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -333,7 +317,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -358,7 +341,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
   - variable: dsc
     group: App Configuration
@@ -608,7 +604,6 @@ questions:
                               type: int
                               default: 10320
                               required: true
-# Include{advancedPortHTTP}
         - variable: joex
           label: Joex Service
           description: Joex Service
@@ -631,12 +626,10 @@ questions:
                               type: int
                               default: 10321
                               required: true
-# Include{advancedPortHTTP}
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-# Include{persistenceAdvanced}
         - variable: import
           label: Import Storage
           description: Mounted to DSC container at /import
@@ -645,7 +638,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -657,8 +649,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -681,7 +671,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: runAsUser
@@ -706,7 +695,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

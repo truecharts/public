@@ -6,12 +6,8 @@ questions:
   # Portal
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
   - variable: secretEnv
     group: "App Configuration"
@@ -255,7 +251,6 @@ questions:
                               type: int
                               default: 10268
                               required: true
-# Include{advancedPortHTTP}
         - variable: vnc
           label: "VNC Service"
           description: "VNC Service"
@@ -278,7 +273,6 @@ questions:
                               type: int
                               default: 10269
                               required: true
-# Include{advancedPortTCP}
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -292,7 +286,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: storage
           label: "App Storage Storage"
           description: "Stores the Application Storage."
@@ -301,7 +294,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: watch
           label: "App Watch Storage"
           description: "Stores the Application Watch."
@@ -310,7 +302,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: output
           label: "App Output Storage"
           description: "Stores the Application Output."
@@ -319,7 +310,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -331,8 +321,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -355,7 +343,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -380,7 +367,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

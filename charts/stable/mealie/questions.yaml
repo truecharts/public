@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
   - variable: mealie_frontend
     group: App Configuration
@@ -322,7 +318,6 @@ questions:
                               type: int
                               default: 10018
                               required: true
-# Include{advancedPortHTTP}
         - variable: api
           label: API Service
           description: The API Service
@@ -345,7 +340,6 @@ questions:
                               type: int
                               default: 10019
                               required: true
-# Include{advancedPortHTTP}
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -359,7 +353,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -371,8 +364,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -395,7 +386,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: runAsUser
@@ -420,7 +410,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

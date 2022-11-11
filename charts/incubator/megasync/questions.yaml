@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
   - variable: env
     group: "App Configuration"
@@ -61,7 +57,6 @@ questions:
                               type: int
                               default: 8080
                               required: true
-# Include{advancedPortTCP}
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -75,7 +70,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: hostpath
           label: "hostpath Storage"
           description: "Read only (This container was mainly created to backup files to MEGA, if you also want to sync files from and to MEGA please create a new path entry to the preferred share on the server - its strongly recommended to do that in mnt... within the container)"
@@ -84,7 +78,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -96,8 +89,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -120,7 +111,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -145,7 +135,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

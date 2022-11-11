@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
 # Include{serviceRoot}
@@ -36,7 +32,6 @@ questions:
                               type: int
                               default: 8443
                               required: true
-# Include{advancedPortHTTPS}
         - variable: comm
           label: "Unifi Device Communication Service"
           description: "Unifi Device Communication Service"
@@ -59,7 +54,6 @@ questions:
                               type: int
                               default: 8080
                               required: true
-# Include{advancedPortTCP}
         - variable: stun
           label: "STUN Device Communication Service"
           description: "STUN Device Communication Service"
@@ -82,7 +76,6 @@ questions:
                               type: int
                               default: 3478
                               required: true
-# Include{advancedPortUDP}
         - variable: speedtest
           label: "Speedtest Service"
           description: "Speedtest Service"
@@ -105,7 +98,6 @@ questions:
                               type: int
                               default: 6789
                               required: true
-# Include{advancedPortTCP}
         - variable: guestportal
           label: "Guest Portal Service"
           description: "Guest Portal Service"
@@ -128,7 +120,6 @@ questions:
                               type: int
                               default: 8880
                               required: true
-# Include{advancedPortHTTP}
                     - variable: websecure
                       label: "Secure Web Service Port Configuration"
                       schema:
@@ -142,7 +133,6 @@ questions:
                               type: int
                               default: 8843
                               required: true
-# Include{advancedPortHTTPS}
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -156,7 +146,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -168,8 +157,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -192,7 +179,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -217,7 +203,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

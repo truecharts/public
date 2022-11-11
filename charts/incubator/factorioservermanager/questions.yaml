@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
 # Include{serviceRoot}
@@ -36,7 +32,6 @@ questions:
                               type: int
                               default: 8888
                               required: true
-# Include{advancedPortHTTP}
         - variable: factorioport
           label: 'factorioport service'
           schema:
@@ -58,7 +53,6 @@ questions:
                               type: int
                               default: 34197
                               required: true
-# Include{advancedPortUDP}
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -71,7 +65,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: fsmmods
           label: "fsmmods Storage"
           description: "(can be left as it is)"
@@ -80,7 +73,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: config
           label: "config Storage"
           description: "(can be left as it is)"
@@ -89,7 +81,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -101,8 +92,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -125,7 +114,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -150,7 +138,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

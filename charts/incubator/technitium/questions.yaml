@@ -9,12 +9,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
   - variable: secretEnv
     group: "App Configuration"
@@ -146,7 +142,6 @@ questions:
                               type: int
                               default: 5380
                               required: true
-# Include{advancedPortHTTP}
         - variable: dns-udp
           label: "DNS-UDP Service"
           description: "DNS-UDP Service"
@@ -169,7 +164,6 @@ questions:
                               type: int
                               default: 53
                               required: true
-# Include{advancedPortUDP}
         - variable: dns-tcp
           label: "DNS-TCP Service"
           description: "DNS-TCP Service"
@@ -192,7 +186,6 @@ questions:
                               type: int
                               default: 53
                               required: true
-# Include{advancedPortTCP}
         - variable: dns-tls
           label: "DNS-TLS Service"
           description: "DNS-TLS Service"
@@ -215,7 +208,6 @@ questions:
                               type: int
                               default: 853
                               required: true
-# Include{advancedPortTCP}
         - variable: dns-cert
           label: "DNS-over-HTTPS Certbot Service"
           description: "DNS-over-HTTPS Certbot Service"
@@ -238,7 +230,6 @@ questions:
                               type: int
                               default: 10202
                               required: true
-# Include{advancedPortTCP}
         - variable: dns-https
           label: "DNS-over-HTTPS Service"
           description: "DNS-over-HTTPS Service"
@@ -261,7 +252,6 @@ questions:
                               type: int
                               default: 10203
                               required: true
-# Include{advancedPortTCP}
         - variable: dns-https-proxy
           label: "DNS-over-HTTPS Reverse Proxy Service"
           description: "DNS-over-HTTPS Reverse Proxy Service"
@@ -284,7 +274,6 @@ questions:
                               type: int
                               default: 10204
                               required: true
-# Include{advancedPortTCP}
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -298,7 +287,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -310,7 +298,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
         - variable: dns-https-proxy
           label: "DNS-over-HTTPS Reverse Proxy"
           schema:
@@ -320,8 +307,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -344,7 +329,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -369,7 +353,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}

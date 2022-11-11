@@ -3,12 +3,8 @@ portals: {}
 questions:
 # Include{global}
 # Include{controller}
-
 # Include{replicas}
 # Include{replica1}
-
-
-
 # Include{controllerExpertExtraArgs}
   - variable: env
     group: "App Configuration"
@@ -94,7 +90,6 @@ questions:
                               type: int
                               default: 7777
                               required: true
-# Include{advancedPortUDP}
         - variable: beacon
           label: "Beacon Service"
           description: "The beacon service"
@@ -117,7 +112,6 @@ questions:
                               type: int
                               default: 15000
                               required: true
-# Include{advancedPortUDP}
         - variable: query
           label: "Query Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -140,7 +134,6 @@ questions:
                               type: int
                               default: 15777
                               required: true
-# Include{advancedPortUDP}
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -154,9 +147,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
-
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -179,7 +170,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -204,7 +194,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-
-
 # Include{vpn}
 # Include{documentation}
