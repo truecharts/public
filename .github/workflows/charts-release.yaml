@@ -157,6 +157,7 @@ jobs:
           git push
           cd -
           rm -rf catalog
+          
       - name: Run chart-releaser for dependency apps
         uses: helm/chart-releaser-action@98bccfd32b0f76149d188912ac8e45ddd3f8695f # tag=v1.4.1
         if: |
@@ -167,67 +168,29 @@ jobs:
         env:
           CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
           CR_SKIP_EXISTING: "true"
-
-  release-helm:
-    runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/truecharts/devcontainer:v2.6.0@sha256:5029ebed5c833646da3afb3a8512eba79f08cac8935a53fc1510854fec22341a
-    needs: release-scale
-    steps:
-      - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@b91bb02bc122bd84ac7bbea5f25ed6b0f2ec6275 # tag=v0.9.2
-        with:
-          setup-tools: |
-            helmv3
-          helm: "3.8.0"
-
-      - name: Prep Helm
-        run: |
-          helm repo add truecharts https://charts.truecharts.org
-          helm repo add truecharts-library https://library-charts.truecharts.org
-          helm repo add bitnami https://charts.bitnami.com/bitnami
-
-          helm repo add prometheus https://prometheus-community.github.io/helm-charts
-          helm repo update
-      - name: Checkout
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
-        with:
-          token: ${{ secrets.BOT_TOKEN }}
-          fetch-depth: 0
-
-      - name: Fix Pre-Commit issues
+          
+      - name: Tag App Releases
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         shell: bash
         run: |
-          echo "Running pre-commit test-and-cleanup..."
-          pre-commit run --all ||:
-          # Fix sh files to always be executable
-          find . -name '*.sh' | xargs chmod +x
-      - name: Configure Git
-        run: |
-          git config user.name "truecharts-bot"
+          #!/bin/bash
+          CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
+          echo "Removing Chart Docs prior to regeneration..."
+          mkdir -p website/static/img/hotlink-ok/chart-icons || echo "chart-icons path already exists, continuing..."
+          for i in "${CHARTS[@]}"
+          do
+              IFS='/' read -r -a chart_parts <<< "$i"
+              if [ -f "charts/${chart_parts[0]}"/"${chart_parts[1]}/Chart.yaml" ]; then
+                train=${chart_parts[0]}
+                chart=${chart_parts[1]}
+                if [ "${train}" != "dependency" ]; then
+                  echo "creating tag for ${chart}"
+                  version=$(cat charts/${train}/${chart}/Chart.yaml | grep '^version: ' | awk -F" " '{ print $2 }' | head -1)
+                  git tag ${chart}-${version}
+                fi
+              fi
+          done
+          git config user.name "TrueCharts-Bot"
           git config user.email "bot@truecharts.org"
-
-      - name: Run chart-releaser for enterprise apps
-        uses: helm/chart-releaser-action@98bccfd32b0f76149d188912ac8e45ddd3f8695f # tag=v1.4.1
-        with:
-          charts_dir: charts/enterprise
-          charts_repo_url: https://charts.truecharts.org
-        env:
-          CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
-          CR_SKIP_EXISTING: "true"
-      - name: Run chart-releaser for stable
-        uses: helm/chart-releaser-action@98bccfd32b0f76149d188912ac8e45ddd3f8695f # tag=v1.4.1
-        with:
-          charts_dir: charts/stable
-          charts_repo_url: https://charts.truecharts.org
-        env:
-          CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
-          CR_SKIP_EXISTING: "true"
-      - name: Run chart-releaser for incubator
-        uses: helm/chart-releaser-action@98bccfd32b0f76149d188912ac8e45ddd3f8695f # tag=v1.4.1
-        with:
-          charts_dir: charts/incubator
-          charts_repo_url: https://charts.truecharts.org
-        env:
-          CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
-          CR_SKIP_EXISTING: "true"
+          git push --tags
