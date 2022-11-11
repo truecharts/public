@@ -27,6 +27,14 @@ tests:
           documentIndex: *deploymentDoc
           path: spec.strategy.rollingUpdate
 
+  - it: should pass with controller disabled
+    set:
+      controller:
+        enabled: false
+    asserts:
+      - hasDocuments:
+          count: 0
+
   - it: should pass with controller strategy changed and rollingUpdate strategies set
     set:
       controller:
@@ -45,14 +53,6 @@ tests:
           value:
             maxUnavailable: 2
             maxSurge: 3
-
-  - it: should pass with controller disabled
-    set:
-      controller:
-        enabled: false
-    asserts:
-      - hasDocuments:
-          count: 0
 
   - it: should pass with controller strategy changed
     set:
@@ -73,6 +73,7 @@ tests:
         type: not_valid_controller
     asserts:
       - failedTemplate:
+          documentIndex: *deploymentDoc
           errorMessage: Not a valid controller.type (not_valid_controller)
 
   - it: should fail with wrong strategy
@@ -81,4 +82,5 @@ tests:
         strategy: not_valid_strategy
     asserts:
       - failedTemplate:
+          documentIndex: *deploymentDoc
           errorMessage: Not a valid strategy type for Deployment (not_valid_strategy)

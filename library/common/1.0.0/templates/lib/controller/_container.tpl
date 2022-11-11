@@ -39,7 +39,7 @@
   stdin: false
   {{- end }}
   securityContext:
-    {{- include "ix.v1.common.controller.securityContext" . | nindent 4 }}
+    {{- include "ix.v1.common.container.securityContext" . | nindent 4 }}
   {{- with .Values.lifecycle }}
   lifecycle:
     {{- tpl (toYaml .) $ | nindent 4 }}
@@ -82,31 +82,41 @@
     - name: S6_READ_ONLY_ROOT
       value: "1"
    {{- end }}
-   {{- with .Values.env }}
-   {{/*TODO: Remove some ways to set envs, not need to have a ton of them, only those that are needed*/}}
-    {{- range $k, $v := . }}
-      {{- $name := $k }}
-      {{- $value := $v }}
-      {{- if kindIs "int" $name }}
-        {{/*TODO: write tests*/}}
-        {{- $name = required (printf "Environment Variables as a list of dicts, require a name field (%s)" $name) $value.name }}
+   {{- with .Values.env -}}
+    {{- range $k, $v := . -}}
+      {{- $name := $k -}}
+      {{- $value := $v -}}
+      {{- if kindIs "int" $name -}}
+        {{- fail "Environment Variables as a list is not supported. Use key-value format." -}}
       {{- end }}
     - name: {{ $name | quote }}
-      {{- if kindIs "map" $value }}
-        {{- if hasKey $value "value" }}
-          {{- $value = $value.value }}
-        {{- else if hasKey $value "valueFrom" }}
-        {{/*TODO: write tests*/}}
-      valueFrom: {{- tpl (toYaml $value.valueFrom) $ | nindent 8 }}
-        {{- else }}
-      valueFrom: {{- tpl (toYaml $value) $ | nindent 8 }}
-        {{- end }}
-      {{- end }}
       {{- if not (kindIs "map" $value) }}
-        {{- if kindIs "string" $value }}
-          {{- $value = tpl $value $ }}
+        {{- if or (kindIs "string" $value) }} {{/* Single values are parsed as string (eg. int, bool) */}}
+          {{- $value = tpl $value $ }} {{/* Expand Value */}}
         {{- end }}
       value: {{ quote $value }}
+      {{- else if kindIs "map" $value }} {{/* If value is a dict... */}}
+      valueFrom:
+        {{- if hasKey $value "configMapKeyRef" }} {{/* And contains configMapRef... */}}
+        configMapKeyRef:
+          {{- $_ := set $value "name" $value.configMapKeyRef.name -}} {{/* Extract name and key */}}
+          {{- $_ := set $value "key" $value.configMapKeyRef.key -}}
+        {{- else if hasKey $value "secretKeyRef" }} {{/* And contains secretpRef... */}}
+        secretKeyRef:
+          {{- $_ := set $value "name" $value.secretKeyRef.name -}} {{/* Extract name and key */}}
+          {{- $_ := set $value "key" $value.secretKeyRef.key -}}
+          {{- if (hasKey $value.secretKeyRef "optional") }}
+            {{- if (kindIs "bool" $value.secretKeyRef.optional) }}
+          optional: {{ $value.secretKeyRef.optional }}
+            {{- else }}
+              {{- fail (printf "<optional> in secretKeyRef must be a boolean on Environment Variable (%s)" $name) -}}
+            {{- end }}
+          {{- end }}
+        {{- else }}
+          {{ fail "Not a valid valueFrom reference. Valid options are (configMapKeyRef and secretKeyRef)"}}
+        {{- end }}
+          name: {{ tpl (required (printf "<name> for the keyRef is not defined in (%s)" $name) $value.name) $ }} {{/* Expand name and key */}}
+          key: {{ tpl (required (printf "<key> for the keyRef is not defined in (%s)" $name) $value.key) $ }}
       {{- end }}
     {{- end }}
   {{- end }}

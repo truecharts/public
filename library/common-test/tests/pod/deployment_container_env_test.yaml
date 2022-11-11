@@ -242,3 +242,324 @@ tests:
               value: "0"
             - name: S6_READ_ONLY_ROOT
               value: "1"
+
+  - it: should fail with envs defined as a list
+    set:
+      env:
+        - name: some_name
+          value: some_value
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: Environment Variables as a list is not supported. Use key-value format.
+
+  - it: should fail with envs defined with an invalid keyRef
+    set:
+      env:
+        ENVVAR:
+          invalidKeyRef:
+            name: blabla
+            key: blbla
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: Not a valid valueFrom reference. Valid options are (configMapKeyRef and secretKeyRef)
+
+  - it: should fail with envs defined without a name in configMapKeyRef
+    set:
+      env:
+        ENVVAR:
+          configMapKeyRef:
+            key: some_key
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: <name> for the keyRef is not defined in (ENVVAR)
+
+  - it: should fail with envs defined without a name in secretKeyRef
+    set:
+      env:
+        ENVVAR:
+          secretKeyRef:
+            key: some_key
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: <name> for the keyRef is not defined in (ENVVAR)
+
+  - it: should fail with envs defined without a key in configMapKeyRef
+    set:
+      env:
+        ENVVAR:
+          configMapKeyRef:
+            name: some_name
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: <key> for the keyRef is not defined in (ENVVAR)
+
+  - it: should fail with envs defined without a key in secretKeyRef
+    set:
+      env:
+        ENVVAR:
+          secretKeyRef:
+            name: some_name
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: <key> for the keyRef is not defined in (ENVVAR)
+
+  - it: should fail with envs defined with a non-bool <optional> in secretKeyRef
+    set:
+      env:
+        ENVVAR:
+          secretKeyRef:
+            name: some_name
+            key: some_key
+            optional: non-bool
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: <optional> in secretKeyRef must be a boolean on Environment Variable (ENVVAR)
+
+  - it: should pass with envs defined with int value
+    set:
+      env:
+        ENVVAR: 123
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              value: "123"
+
+  - it: should pass with envs defined with bool value
+    set:
+      env:
+        ENVVAR: true
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              value: "true"
+
+  - it: should pass with envs defined with string value
+    set:
+      env:
+        ENVVAR: "some_value"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              value: "some_value"
+
+  - it: should pass with envs defined with valueFrom configMapKeyRef
+    set:
+      env:
+        ENVVAR:
+          configMapKeyRef:
+            name: some_name
+            key: some_key
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              valueFrom:
+                configMapKeyRef:
+                  name: some_name
+                  key: some_key
+
+  - it: should pass with envs defined with valueFrom secretKeyRef
+    set:
+      env:
+        ENVVAR:
+          secretKeyRef:
+            name: some_name
+            key: some_key
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              valueFrom:
+                secretKeyRef:
+                  name: some_name
+                  key: some_key
+
+  - it: should pass with envs defined with valueFrom configMapKeyRef from tpl
+    set:
+      name: some_name
+      key: some_key
+      env:
+        ENVVAR:
+          configMapKeyRef:
+            name: "{{ .Values.name }}"
+            key: "{{ .Values.key }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              valueFrom:
+                configMapKeyRef:
+                  name: some_name
+                  key: some_key
+
+  - it: should pass with envs defined with valueFrom secretKeyRef from tpl
+    set:
+      name: some_name
+      key: some_key
+      env:
+        ENVVAR:
+          secretKeyRef:
+            name: "{{ .Values.name }}"
+            key: "{{ .Values.key }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              valueFrom:
+                secretKeyRef:
+                  name: some_name
+                  key: some_key
+
+  - it: should pass with envs defined with valueFrom secretKeyRef with <optional> true
+    set:
+      env:
+        ENVVAR:
+          secretKeyRef:
+            name: some_name
+            key: some_key
+            optional: true
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              valueFrom:
+                secretKeyRef:
+                  optional: true
+                  name: some_name
+                  key: some_key
+
+  - it: should pass with envs defined with valueFrom secretKeyRef with <optional> false
+    set:
+      env:
+        ENVVAR:
+          secretKeyRef:
+            name: some_name
+            key: some_key
+            optional: false
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              valueFrom:
+                secretKeyRef:
+                  optional: false
+                  name: some_name
+                  key: some_key

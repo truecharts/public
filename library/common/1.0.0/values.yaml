@@ -87,24 +87,14 @@ security:
   PUID: 568
   UMASK: 002
 
-# -- Main environment variables. Template enabled.
+# -- Main environment variables. Helm Template enabled.
 # Syntax options:
 # A) TZ: UTC
-# B) PASSWD: '{{ .Release.Name }}'
-# C) PASSWD:
-#      configMapKeyRef:
-#        name: config-map-name
-#        key: key-name
-# D) PASSWD:
-#      valueFrom:
-#        secretKeyRef:
-#          name: secret-name
-#          key: key-name
-#      ...
-# E) - name: TZ
-#      value: UTC
-# F) - name: TZ
-#      value: '{{ .Release.Name }}'
+# B) ENV_VAR: "{{ .Release.Name }}"
+# C) ENV_VAR:
+#      configMapKeyRef | secretKeyRef:
+#        name: object-name | "{{ .Values.objectName }}"
+#        key: key-name | "{{ .Values.some_key }}"
 env: {}
 
 controller:

@@ -8,6 +8,7 @@ tests:
         isKind:
           of: Deployment
       - isNull:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volume
 
   - it: should pass with added emptyDir volume
@@ -19,6 +20,7 @@ tests:
           sizeLimit: 1Gi
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: volume1
@@ -33,6 +35,7 @@ tests:
           type: emptyDir
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: volume1
@@ -48,6 +51,7 @@ tests:
           sizeLimit: 1Gi
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: volume1
@@ -67,6 +71,7 @@ tests:
           sizeLimit: "{{ .Values.some_size }}"
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: volume1
@@ -83,6 +88,7 @@ tests:
           medium: Memory
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: volume1
@@ -98,6 +104,7 @@ tests:
           medium: not_memory
     asserts:
       - failedTemplate:
+          documentIndex: *deploymentDoc
           errorMessage: You can only set medium as (Memory)
 
   - it: should pass with added nfs
@@ -110,6 +117,7 @@ tests:
           path: /nfs/path
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: volume1
@@ -126,6 +134,7 @@ tests:
           hostPath: /mnt/pool/test
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: volume1
@@ -143,6 +152,7 @@ tests:
           hostPath: /mnt/pool/test
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: volume1
@@ -158,6 +168,7 @@ tests:
           enabled: true
     asserts:
       - failedTemplate:
+          documentIndex: *deploymentDoc
           errorMessage: Not a valid persistence.type (not_valid_persistence)
 
   - it: should fail with not set objectName on configMaps
@@ -168,6 +179,7 @@ tests:
           enabled: true
     asserts:
       - failedTemplate:
+          documentIndex: *deploymentDoc
           errorMessage: objectName not set for persistence item some_volume
 
   - it: should fail with not set objectName on secrets
@@ -178,6 +190,7 @@ tests:
           enabled: true
     asserts:
       - failedTemplate:
+          documentIndex: *deploymentDoc
           errorMessage: objectName not set for persistence item some_volume
 
   - it: should fail with not set path on hostPath
@@ -188,6 +201,7 @@ tests:
           enabled: true
     asserts:
       - failedTemplate:
+          documentIndex: *deploymentDoc
           errorMessage: hostPath not set on item some_volume
 
   - it: should fail with not set server on nfs
@@ -199,6 +213,7 @@ tests:
           path: some_path
     asserts:
       - failedTemplate:
+          documentIndex: *deploymentDoc
           errorMessage: NFS Server not set on item some_volume
 
   - it: should fail with not set path on nfs
@@ -210,6 +225,7 @@ tests:
           server: some_server
     asserts:
       - failedTemplate:
+          documentIndex: *deploymentDoc
           errorMessage: NFS Path not set on item some_volume
 
   - it: should fail with not set objectName on secret
@@ -220,6 +236,7 @@ tests:
           enabled: true
     asserts:
       - failedTemplate:
+          documentIndex: *deploymentDoc
           errorMessage: objectName not set for persistence item some_volume
 
   - it: should fail with not set objectName on configmap
@@ -230,6 +247,7 @@ tests:
           enabled: true
     asserts:
       - failedTemplate:
+          documentIndex: *deploymentDoc
           errorMessage: objectName not set for persistence item some_volume
 
   - it: should pass with added secret
@@ -241,6 +259,7 @@ tests:
           objectName: some_object_name
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume
@@ -257,6 +276,7 @@ tests:
           defaultMode: 777
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume
@@ -274,6 +294,7 @@ tests:
           defaultMode: "777"
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume
@@ -292,6 +313,7 @@ tests:
           defaultMode: "{{ .Values.mode }}"
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume
@@ -310,6 +332,7 @@ tests:
           defaultMode: "{{ .Values.mode }}"
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume
@@ -328,6 +351,7 @@ tests:
             - path: some_path
     asserts:
       - failedTemplate:
+          documentIndex: *deploymentDoc
           errorMessage: No key was given for persistence item some_volume
 
   - it: should fail with added secret and no path on items
@@ -341,6 +365,7 @@ tests:
             - key: some_key
     asserts:
       - failedTemplate:
+          documentIndex: *deploymentDoc
           errorMessage: No path was given for persistence item some_volume
 
   - it: should pass with added secret and items
@@ -355,6 +380,7 @@ tests:
               path: some_path
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume
@@ -378,6 +404,7 @@ tests:
               path: "{{ .Values.path }}"
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume
@@ -395,6 +422,7 @@ tests:
           enabled: true
     asserts:
       - failedTemplate:
+          documentIndex: *deploymentDoc
           errorMessage: objectName not set for persistence item some_volume
 
   - it: should pass with added configMap
@@ -406,6 +434,7 @@ tests:
           objectName: some_object_name
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume
@@ -422,6 +451,7 @@ tests:
           defaultMode: 777
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume
@@ -439,6 +469,7 @@ tests:
           defaultMode: "777"
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume
@@ -457,6 +488,7 @@ tests:
           defaultMode: "{{ .Values.mode }}"
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume
@@ -475,6 +507,7 @@ tests:
           defaultMode: "{{ .Values.mode }}"
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume
@@ -494,6 +527,7 @@ tests:
               path: some_path
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume
@@ -514,6 +548,7 @@ tests:
             - path: some_path
     asserts:
       - failedTemplate:
+          documentIndex: *deploymentDoc
           errorMessage: No key was given for persistence item some_volume
 
   - it: should fail with added configMap and no path on items
@@ -527,6 +562,7 @@ tests:
             - key: some_key
     asserts:
       - failedTemplate:
+          documentIndex: *deploymentDoc
           errorMessage: No path was given for persistence item some_volume
 
   - it: should pass with added configMap and items from tpl
@@ -543,6 +579,7 @@ tests:
               path: "{{ .Values.path }}"
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume
@@ -560,6 +597,7 @@ tests:
           enabled: true
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume
@@ -575,6 +613,7 @@ tests:
           existingClaim: some_existing_claim
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume
@@ -591,6 +630,7 @@ tests:
           existingClaim: "{{ .Values.claim }}"
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume
@@ -606,6 +646,7 @@ tests:
           nameOverride: some_claim
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume
@@ -622,6 +663,7 @@ tests:
           nameOverride: "{{ .Values.claim }}"
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume
@@ -637,6 +679,7 @@ tests:
           forceName: forced_name
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume
@@ -653,6 +696,7 @@ tests:
           forceName: "{{ .Values.claim }}"
     asserts:
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.volumes[0]
           value:
             name: some_volume

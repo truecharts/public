@@ -1,5 +1,5 @@
 {{/* Security Context included by the container */}}
-{{- define "ix.v1.common.controller.securityContext" -}}
+{{- define "ix.v1.common.container.securityContext" -}}
 {{- $secContext := .Values.securityContext -}}
 {{- $podSecContext := .Values.podSecurityContext -}}
 {{/* Check that they are set as booleans to prevent typos */}}

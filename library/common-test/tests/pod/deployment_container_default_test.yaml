@@ -38,6 +38,7 @@ tests:
           documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].terminationMessagePolicy
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].securityContext
           value:
             allowPrivilegeEscalation: false
@@ -48,6 +49,7 @@ tests:
             readOnlyRootFilesystem: true
             runAsNonRoot: true
       - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].env
           value:
             - name: TZ
