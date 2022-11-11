@@ -24,7 +24,8 @@ tests:
   - it: should pass with global.nameOverride
     set:
       nameOverride: overrodeName
-      global.nameOverride: globalOverrodeName
+      global:
+        nameOverride: globalOverrodeName
     asserts:
       - equal:
           documentIndex: *deploymentDoc

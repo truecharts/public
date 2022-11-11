@@ -14,12 +14,14 @@ tests:
   - it: should pass with controller and global annotations
     set:
       some_key: some_value
-      controller.annotations:
-        controller_key: controller_value
-        controller_key2: "{{ .Values.some_key }}"
-      global.annotations:
-        global_key: global_value
-        global_key2: "{{ .Values.some_key }}"
+      controller:
+        annotations:
+          controller_key: controller_value
+          controller_key2: "{{ .Values.some_key }}"
+      global:
+        annotations:
+          global_key: global_value
+          global_key2: "{{ .Values.some_key }}"
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -44,8 +46,9 @@ tests:
   - it: should pass with podAnnotations set
     set:
       some_key: some_value2
-      podAnnotations.test: some_value
-      podAnnotations.test2: "{{ .Values.some_key }}"
+      podAnnotations:
+        test: some_value
+        test2: "{{ .Values.some_key }}"
     asserts:
       - equal:
           documentIndex: *deploymentDoc

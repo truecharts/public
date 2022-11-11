@@ -141,53 +141,97 @@ tests:
 
   - it: should fail with wrong persistence type
     set:
-      persistence.some_volume.type: not_valid_persistence
-      persistence.some_volume.enabled: true
+      persistence:
+        some_volume:
+          type: not_valid_persistence
+          enabled: true
     asserts:
       - failedTemplate:
           errorMessage: Not a valid persistence.type (not_valid_persistence)
 
   - it: should fail with not set objectName on configMaps
     set:
-      persistence.some_volume.type: configMap
-      persistence.some_volume.enabled: true
+      persistence:
+        some_volume:
+          type: configMap
+          enabled: true
     asserts:
       - failedTemplate:
           errorMessage: objectName not set for persistence item some_volume
 
   - it: should fail with not set objectName on secrets
     set:
-      persistence.some_volume.type: secret
-      persistence.some_volume.enabled: true
+      persistence:
+        some_volume:
+          type: secret
+          enabled: true
     asserts:
       - failedTemplate:
           errorMessage: objectName not set for persistence item some_volume
 
   - it: should fail with not set path on hostPath
     set:
-      persistence.some_volume.type: hostPath
-      persistence.some_volume.enabled: true
+      persistence:
+        some_volume:
+          type: hostPath
+          enabled: true
     asserts:
       - failedTemplate:
           errorMessage: hostPath not set on item some_volume
 
   - it: should fail with not set server on nfs
     set:
-      persistence.some_volume.type: nfs
-      persistence.some_volume.enabled: true
-      persistence.some_volume.path: some_path
+      persistence:
+        some_volume:
+          type: nfs
+          enabled: true
+          path: some_path
     asserts:
       - failedTemplate:
           errorMessage: NFS Server not set on item some_volume
 
   - it: should fail with not set path on nfs
     set:
-      persistence.some_volume.type: nfs
-      persistence.some_volume.enabled: true
-      persistence.some_volume.server: some_server
+      persistence:
+        some_volume:
+          type: nfs
+          enabled: true
+          server: some_server
     asserts:
       - failedTemplate:
           errorMessage: NFS Path not set on item some_volume
+
+  - it: should fail with not set objectName on secret
+    set:
+      persistence:
+        some_volume:
+          type: secret
+          enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: objectName not set for persistence item some_volume
+
+  - it: should fail with not set objectName on configmap
+    set:
+      persistence:
+        some_volume:
+          type: configMap
+          enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: objectName not set for persistence item some_volume
+
+  - it: should pass with added configmap
+    set:
+      persistence:
+        some_volume:
+          type: configMap
+          enabled: true
+          objectName: some_name
+    asserts:
+      - failedTemplate:
+          errorMessage: objectName not set for persistence item some_volume
+
 
 # TODO: configmap
 # TODO: secret

@@ -31,12 +31,14 @@ tests:
   - it: should pass with controller and global labels
     set:
       some_key: some_value
-      controller.labels:
-        controller_key: controller_value
-        controller_key2: "{{ .Values.some_key }}"
-      global.labels:
-        global_key: global_value
-        global_key2: "{{ .Values.some_key }}"
+      controller:
+        labels:
+          controller_key: controller_value
+          controller_key2: "{{ .Values.some_key }}"
+      global:
+        labels:
+          global_key: global_value
+          global_key2: "{{ .Values.some_key }}"
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -58,8 +60,9 @@ tests:
   - it: should pass with podLabels set
     set:
       some_key: some_value2
-      podLabels.test: some_value
-      podLabels.test2: "{{ .Values.some_key }}"
+      podLabels:
+        test: some_value
+        test2: "{{ .Values.some_key }}"
     asserts:
       - equal:
           documentIndex: *deploymentDoc

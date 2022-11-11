@@ -29,9 +29,11 @@ tests:
 
   - it: should pass with controller strategy changed and rollingUpdate strategies set
     set:
-      controller.strategy: RollingUpdate
-      controller.rollingUpdate.unavailable: 2
-      controller.rollingUpdate.surge: 3
+      controller:
+        strategy: RollingUpdate
+        rollingUpdate:
+          unavailable: 2
+          surge: 3
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -46,14 +48,16 @@ tests:
 
   - it: should pass with controller disabled
     set:
-      controller.enabled: false
+      controller:
+        enabled: false
     asserts:
       - hasDocuments:
           count: 0
 
   - it: should pass with controller strategy changed
     set:
-      controller.strategy: RollingUpdate
+      controller:
+        strategy: RollingUpdate
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -65,14 +69,16 @@ tests:
 
   - it: should fail with wrong controller
     set:
-      controller.type: not_valid_controller
+      controller:
+        type: not_valid_controller
     asserts:
       - failedTemplate:
           errorMessage: Not a valid controller.type (not_valid_controller)
 
   - it: should fail with wrong strategy
     set:
-      controller.strategy: not_valid_strategy
+      controller:
+        strategy: not_valid_strategy
     asserts:
       - failedTemplate:
           errorMessage: Not a valid strategy type for Deployment (not_valid_strategy)
