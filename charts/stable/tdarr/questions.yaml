@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 8265
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: comm
           label: "Comm Service"
           description: "The service on which nodes connect to."
@@ -59,7 +59,7 @@ questions:
                               type: int
                               default: 8266
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -95,7 +95,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: server
           label: "App Server Data Storage"
           description: "Stores the Application's Server Data."
@@ -104,7 +104,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: logs
           label: "App Logs Storage"
           description: "Stores the Application Logs."
@@ -113,7 +113,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: transcode-cache
           label: "App Transcode cache"
           description: "Stores the Application Transcode cache."
@@ -122,7 +122,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: media
           label: "App Media"
           description: "Stores the Application Media."
@@ -131,7 +131,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

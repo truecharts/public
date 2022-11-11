@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 8000
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -50,7 +50,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: configurationfiles
           label: "configurationfiles Storage"
           description: "Configuration Files"
@@ -59,7 +59,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: homedirectory
           label: "homedirectory Storage"
           description: "Home Directory for Backuppc (SSH Keys)"
@@ -68,7 +68,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: logs
           label: "logs Storage"
           description: "Logs"
@@ -77,7 +77,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

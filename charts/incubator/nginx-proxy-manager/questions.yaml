@@ -48,7 +48,7 @@ questions:
                               type: int
                               default: 10582
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: web
           label: Web Entrypoint Configuration
           schema:
@@ -70,7 +70,7 @@ questions:
                               type: int
                               default: 10583
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: websecure
           label: Web Secure Entrypoint Configuration
           schema:
@@ -92,7 +92,7 @@ questions:
                               type: int
                               default: 10584
                               required: true
-# Include{advancedPortHTTPS}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -106,7 +106,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: letsencrypt
           label: App Letsencrypt Storage
           description: Stores the Application Letsencrypt.
@@ -115,7 +115,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 
 # Include{security}

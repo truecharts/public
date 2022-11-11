@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 7396
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: control
           label: "Control Service"
           description: "The control service."
@@ -59,7 +59,7 @@ questions:
                               type: int
                               default: 36330
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -73,7 +73,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

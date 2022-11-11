@@ -80,7 +80,7 @@ questions:
                               type: int
                               default: 10185
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -94,7 +94,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: covers
           label: "App Covers Storage"
           description: "Stores the Application Covers."
@@ -103,7 +103,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: searchindex
           label: "App Search Index Storage"
           description: "Stores the Application Search Index."
@@ -112,7 +112,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

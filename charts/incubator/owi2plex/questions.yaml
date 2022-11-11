@@ -23,7 +23,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: owi2plex
           label: "owi2plex Storage"
           description: "mntuserappdataowi2plexoutput folder"
@@ -32,7 +32,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: tvh
           label: "tvh Storage"
           description: "mntuserappdatatvheadenddatain case move to TVHeadend is enabled u need to mount this."
@@ -41,7 +41,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 
 # Include{security}

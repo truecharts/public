@@ -83,7 +83,7 @@ questions:
                               type: int
                               default: 10279
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: https
           label: "HTTPS"
           description: "HTTPS Service"
@@ -106,7 +106,7 @@ questions:
                               type: int
                               default: 10280
                               required: true
-# Include{advancedPortHTTPS}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -120,7 +120,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: logs
           label: "App logs Storage"
           description: "Stores the Application logs."
@@ -129,7 +129,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 3000
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: port2
           label: 'port2 service'
           description: "Port 2"
@@ -59,7 +59,7 @@ questions:
                               type: int
                               default: 3001
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -73,7 +73,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: blockpath
           label: "blockpath Storage"
           description: "Block Path"
@@ -82,7 +82,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: customizepath
           label: "customizepath Storage"
           description: "Customize Path"
@@ -91,7 +91,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: data
           label: "data Storage"
           description: "Data Path"
@@ -100,7 +100,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: datastorepath
           label: "datastorepath Storage"
           description: "Datastore Path"
@@ -109,7 +109,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: configpath
           label: "configpath Storage"
           description: "Config Path"
@@ -118,7 +118,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

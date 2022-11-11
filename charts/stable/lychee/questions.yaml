@@ -157,7 +157,7 @@ questions:
                               type: int
                               default: 10017
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -171,7 +171,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: sym
           label: "App sym Storage"
           description: "Stores the Application sym."
@@ -180,7 +180,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: uploads
           label: "App Uploads Storage"
           description: "Stores the Application Uploads."
@@ -189,7 +189,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

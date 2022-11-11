@@ -266,7 +266,7 @@ questions:
                               type: int
                               default: 10222
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -280,7 +280,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: cache
           label: "App Cache Storage"
           description: "Stores the Application Cache."
@@ -289,7 +289,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

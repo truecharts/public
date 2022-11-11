@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 4040
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: tcpport1
           label: 'tcpport1 service'
           schema:
@@ -58,7 +58,7 @@ questions:
                               type: int
                               default: 222
                               required: true
-# Include{advancedPortTCP}
+
         - variable: tcpport2
           label: 'tcpport2 service'
           schema:
@@ -80,7 +80,7 @@ questions:
                               type: int
                               default: 25
                               required: true
-# Include{advancedPortTCP}
+
         - variable: tcpport3
           label: 'tcpport3 service'
           schema:
@@ -102,7 +102,7 @@ questions:
                               type: int
                               default: 465
                               required: true
-# Include{advancedPortTCP}
+
         - variable: tcpport4
           label: 'tcpport4 service'
           schema:
@@ -124,7 +124,7 @@ questions:
                               type: int
                               default: 587
                               required: true
-# Include{advancedPortTCP}
+
         - variable: tcpport5
           label: 'tcpport5 service'
           schema:
@@ -146,7 +146,7 @@ questions:
                               type: int
                               default: 110
                               required: true
-# Include{advancedPortTCP}
+
         - variable: tcpport6
           label: 'tcpport6 service'
           schema:
@@ -168,7 +168,7 @@ questions:
                               type: int
                               default: 995
                               required: true
-# Include{advancedPortTCP}
+
         - variable: tcpport7
           label: 'tcpport7 service'
           schema:
@@ -190,7 +190,7 @@ questions:
                               type: int
                               default: 143
                               required: true
-# Include{advancedPortTCP}
+
         - variable: tcpport8
           label: 'tcpport8 service'
           schema:
@@ -212,7 +212,7 @@ questions:
                               type: int
                               default: 993
                               required: true
-# Include{advancedPortTCP}
+
         - variable: tcpport9
           label: 'tcpport9 service'
           schema:
@@ -234,7 +234,7 @@ questions:
                               type: int
                               default: 119
                               required: true
-# Include{advancedPortTCP}
+
         - variable: tcpport10
           label: 'tcpport10 service'
           schema:
@@ -256,7 +256,7 @@ questions:
                               type: int
                               default: 563
                               required: true
-# Include{advancedPortTCP}
+
         - variable: tcpport11
           label: 'tcpport11 service'
           schema:
@@ -278,7 +278,7 @@ questions:
                               type: int
                               default: 389
                               required: true
-# Include{advancedPortTCP}
+
         - variable: tcpport12
           label: 'tcpport12 service'
           schema:
@@ -300,7 +300,7 @@ questions:
                               type: int
                               default: 636
                               required: true
-# Include{advancedPortTCP}
+
         - variable: tcpport13
           label: 'tcpport13 service'
           schema:
@@ -322,7 +322,7 @@ questions:
                               type: int
                               default: 8001
                               required: true
-# Include{advancedPortTCP}
+
         - variable: tcpport14
           label: 'tcpport14 service'
           schema:
@@ -344,7 +344,7 @@ questions:
                               type: int
                               default: 4443
                               required: true
-# Include{advancedPortTCP}
+
         - variable: tcpport15
           label: 'tcpport15 service'
           schema:
@@ -366,7 +366,7 @@ questions:
                               type: int
                               default: 5222
                               required: true
-# Include{advancedPortTCP}
+
         - variable: tcpport16
           label: 'tcpport16 service'
           schema:
@@ -388,7 +388,7 @@ questions:
                               type: int
                               default: 5223
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -401,7 +401,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

@@ -309,7 +309,7 @@ questions:
                               type: int
                               default: 10253
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -323,7 +323,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: users
           label: App Users Storage
           description: Stores the Application Users.
@@ -332,7 +332,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: subscriptions
           label: App Subscriptions Storage
           description: Stores the Application Subscriptions.
@@ -341,7 +341,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: audio
           label: App Audio Storage
           description: Stores the Application Audio.
@@ -350,7 +350,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: video
           label: App Video Storage
           description: Stores the Application Video.
@@ -359,7 +359,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

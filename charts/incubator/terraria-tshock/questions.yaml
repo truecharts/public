@@ -49,7 +49,7 @@ questions:
                               type: int
                               default: 9014
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: tcp
           label: 'tcp service'
           description: "Container Port 7777"
@@ -72,7 +72,7 @@ questions:
                               type: int
                               default: 7777
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -86,7 +86,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

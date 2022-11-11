@@ -78,7 +78,7 @@ questions:
                               type: int
                               default: 5800
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -92,7 +92,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: backupsfrom
           label: "backupsfrom Storage"
           description: "This is the location for backups (source)."
@@ -101,7 +101,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: config
           label: "config Storage"
           description: "This is the location for the internal data."
@@ -110,7 +110,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

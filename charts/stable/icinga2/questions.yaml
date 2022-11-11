@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 10114
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: https
           label: "https Service"
           description: "The https service"
@@ -59,7 +59,7 @@ questions:
                               type: int
                               default: 10115
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: api
           label: "api Service"
           description: "The api service"
@@ -82,7 +82,7 @@ questions:
                               type: int
                               default: 10116
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -96,7 +96,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: data
           label: "App data Storage"
           description: "Stores the Application data."
@@ -105,7 +105,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: web
           label: "App web Storage"
           description: "Stores the Application web data."
@@ -114,7 +114,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: ssmtp
           label: "App ssmtp Storage"
           description: "Stores the Application ssmtp Configuration."
@@ -123,7 +123,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

@@ -55,7 +55,7 @@ questions:
                               type: int
                               default: 6901
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: webuivnc
           label: 'webuivnc service'
           schema:
@@ -77,7 +77,7 @@ questions:
                               type: int
                               default: 5901
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -91,7 +91,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: storageprojects
           label: "storageprojects Storage"
           description: "Used to share projects with the host."
@@ -100,7 +100,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

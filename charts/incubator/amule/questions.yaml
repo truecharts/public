@@ -55,7 +55,7 @@ questions:
                               type: int
                               default: 4711
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: porttcp
           label: 'porttcp service'
           description: "Client to client transfers"
@@ -78,7 +78,7 @@ questions:
                               type: int
                               default: 4662
                               required: true
-# Include{advancedPortTCP}
+
         - variable: portudp
           label: 'portudp service'
           description: "Extended aMule protocol, Queue Rating, File Reask Ping"
@@ -101,7 +101,7 @@ questions:
                               type: int
                               default: 4672
                               required: true
-# Include{advancedPortUDP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -115,7 +115,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: storageincomplete
           label: "storageincomplete Storage"
           description: "This is the location for incomplete downloads."
@@ -124,7 +124,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: storageconfig
           label: "storageconfig Storage"
           description: "This is the location for the internal data."
@@ -133,7 +133,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

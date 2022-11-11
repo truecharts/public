@@ -167,7 +167,7 @@ questions:
                               type: int
                               default: 25565
                               required: true
-# Include{advancedPortTCP}
+
         - variable: rcon
           label: "RCON Service"
           description: "RCON service"
@@ -190,7 +190,7 @@ questions:
                               type: int
                               default: 25578
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -204,7 +204,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: server
           label: "App Server Storage"
           description: "Stores the Application Server."
@@ -213,7 +213,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: plugins
           label: "App Plugins Storage"
           description: "Stores the Application Plugins."
@@ -222,7 +222,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 
 # Include{security}

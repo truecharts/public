@@ -72,7 +72,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: watchfolder
           label: "watchfolder Storage"
           description: "This location contains .ts files that need converting watch"
@@ -81,7 +81,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: backupfolder
           label: "backupfolder Storage"
           description: "Optional, only used if DELETETS is set to 2  backup"
@@ -90,7 +90,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 
 # Include{security}

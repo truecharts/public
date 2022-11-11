@@ -388,7 +388,7 @@ questions:
                               type: int
                               default: 8008
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: federation
           label: "federation Service"
           description: "The federation service"
@@ -411,7 +411,7 @@ questions:
                               type: int
                               default: 8448
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -425,7 +425,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: media
           label: "App Media Storage"
           description: "Stores the Application Media."
@@ -434,7 +434,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: uploads
           label: "App Upload Storage"
           description: "Stores the Application Upload."
@@ -443,7 +443,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

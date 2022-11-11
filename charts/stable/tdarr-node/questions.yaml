@@ -52,7 +52,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: logs
           label: "App logs Storage"
           description: "Stores the Application logs."
@@ -61,7 +61,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: transcode-cache
           label: "App Transcode cache"
           description: "Stores the Application Transcode cache.(Both Node and Server must have access to the SAME cache directory)"
@@ -70,7 +70,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: media
           label: "App Media"
           description: "Stores the Application Media.(Both Node and Server must have access to the SAME media directory)"
@@ -79,7 +79,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

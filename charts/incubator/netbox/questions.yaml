@@ -668,7 +668,7 @@ questions:
                               type: int
                               default: 10265
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -682,7 +682,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: reports
           label: App Reports Storage
           description: Stores the Application Reports.
@@ -691,7 +691,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: scripts
           label: App Scripts Storage
           description: Stores the Application Scripts.
@@ -700,7 +700,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: media
           label: App Media Storage
           description: Stores the Application Media.
@@ -709,7 +709,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

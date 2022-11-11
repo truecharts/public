@@ -66,7 +66,7 @@ questions:
                               type: int
                               default: 10238
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -80,7 +80,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: cache
           label: "App Cache Storage"
           description: "Stores the Application Cache."
@@ -89,7 +89,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: logs
           label: "App Logs Storage"
           description: "Stores the Application Logs."
@@ -98,7 +98,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: rclone
           label: "App Rclone Storage"
           description: "Stores the Application Rclone."
@@ -107,7 +107,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

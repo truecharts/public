@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 4567
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -50,7 +50,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: library
           label: "library Storage"
           description: "(Optional) Path to where your Downloads should be stored.Default is in Appdata folder."
@@ -59,7 +59,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: local-library
           label: "local-library Storage"
           description: "(Optional) You can add your local Library here.Should work like standard Tachiyomi.(httpstachiyomi.orghelpguideslocal-manga)"
@@ -68,7 +68,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

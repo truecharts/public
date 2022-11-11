@@ -98,7 +98,7 @@ questions:
                               type: int
                               default: 10054
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: myjd
           label: "MyJDownloader"
           description: "Port used by MyJDownloader mobile applications and browser extensions to establish a direct connect to the JDownloader"
@@ -121,7 +121,7 @@ questions:
                               type: int
                               default: 3129
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: vnc
           label: "VNC Service"
           description: "The VNC service"
@@ -144,7 +144,7 @@ questions:
                               type: int
                               default: 10056
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -158,7 +158,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: output
           label: "App Output Storage"
           description: "Stores the Application Output."
@@ -167,7 +167,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

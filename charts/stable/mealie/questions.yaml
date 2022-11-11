@@ -322,7 +322,7 @@ questions:
                               type: int
                               default: 10018
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: api
           label: API Service
           description: The API Service
@@ -345,7 +345,7 @@ questions:
                               type: int
                               default: 10019
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -359,7 +359,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

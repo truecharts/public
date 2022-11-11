@@ -105,7 +105,7 @@ questions:
                               type: int
                               default: 5555
                               required: true
-# Include{advancedPortUDP}
+
         - variable: queryport
           label: 'queryport service'
           description: "UDP Query Port (if you need another port delete this entry and create a new Port mapping with the same Port for the Host and Container Port, also dont forget to change the QueryPort value in the Game Parameters!)"
@@ -128,7 +128,7 @@ questions:
                               type: int
                               default: 27015
                               required: true
-# Include{advancedPortUDP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -141,7 +141,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: serverfiles
           label: "serverfiles Storage"
           schema:
@@ -149,7 +149,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

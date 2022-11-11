@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 10188
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -50,7 +50,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: torrents
           label: "App Torrent Storage"
           description: "transmission torrent directory"
@@ -59,7 +59,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: btbackup
           label: "App BT Backup Storage"
           description: "qBittorrent torrent directory"
@@ -68,7 +68,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

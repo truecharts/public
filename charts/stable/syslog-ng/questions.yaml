@@ -34,7 +34,7 @@ questions:
                               type: int
                               default: 6601
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: syslog-udp
           label: "syslog-udp Service"
           description: "The syslog-udp service."
@@ -57,7 +57,7 @@ questions:
                               type: int
                               default: 5514
                               required: true
-# Include{advancedPortUDP}
+
         - variable: syslog-tls
           label: "syslog-tls Service"
           description: "The syslog-tls service."
@@ -80,7 +80,7 @@ questions:
                               type: int
                               default: 6514
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -94,7 +94,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

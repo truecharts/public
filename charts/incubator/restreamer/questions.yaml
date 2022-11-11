@@ -610,7 +610,7 @@ questions:
                               type: int
                               default: 8080
                               required: true
-# Include{advancedPortTCP}
+
         - variable: https
           label: HTTPS Service
           description: The HTTPS service
@@ -633,7 +633,7 @@ questions:
                               type: int
                               default: 8081
                               required: true
-# Include{advancedPortTCP}
+
         - variable: rtmp
           label: RTmP Service
           description: The RTmP service for live streaming
@@ -656,7 +656,7 @@ questions:
                               type: int
                               default: 1935
                               required: true
-# Include{advancedPortTCP}
+
         - variable: rtmps
           label: RTMP Secure Service
           description: The RTMP service for live streaming
@@ -679,7 +679,7 @@ questions:
                               type: int
                               default: 1936
                               required: true
-# Include{advancedPortTCP}
+
         - variable: srt
           label: SRT Data Service
           description: The SRT service for data
@@ -702,7 +702,7 @@ questions:
                               type: int
                               default: 6000
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -716,7 +716,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: data
           label: App Data Storage
           description: Stores the Application Data.
@@ -725,7 +725,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

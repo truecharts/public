@@ -53,7 +53,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: icsexportfolder
           label: "icsexportfolder Storage"
           description: "Folder into which you can place ics files to be imported.  And which downloaded ics files will be placed into.  If unmapped, downloads will still work."
@@ -62,7 +62,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 
 # Include{security}

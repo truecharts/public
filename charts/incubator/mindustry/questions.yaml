@@ -67,7 +67,7 @@ questions:
                               type: int
                               default: 6567
                               required: true
-# Include{advancedPortTCP}
+
         - variable: udpgameport
           label: 'udpgameport service'
           description: "Container Port 6567"
@@ -90,7 +90,7 @@ questions:
                               type: int
                               default: 6567
                               required: true
-# Include{advancedPortUDP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -104,7 +104,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

@@ -87,7 +87,7 @@ questions:
                               type: int
                               default: 10890
                               required: true
-# Include{advancedPortUDP}
+
         - variable: masterserver
           label: 'masterserver service'
           description: "Container Port 27016"
@@ -110,7 +110,7 @@ questions:
                               type: int
                               default: 27016
                               required: true
-# Include{advancedPortUDP}
+
         - variable: authentication
           label: 'authentication service'
           description: "Container Port 8766"
@@ -133,7 +133,7 @@ questions:
                               type: int
                               default: 8766
                               required: true
-# Include{advancedPortUDP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -147,7 +147,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: serverfiles
           label: "serverfiles Storage"
           description: "Container Path serverdataserverfiles"
@@ -156,7 +156,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: token
           label: "token Storage"
           description: "Put your created clustertoken.txt in the Cluster1 subfolder."
@@ -165,7 +165,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

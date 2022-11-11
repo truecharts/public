@@ -23,7 +23,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: restorepath
           label: "restorepath Storage"
           description: "Container Path srvrestore"
@@ -32,7 +32,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: backuppath
           label: "backuppath Storage"
           description: "Container Path srvbackup"
@@ -41,7 +41,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: data
           label: "data Storage"
           description: "Container Path srvdata"
@@ -50,7 +50,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 
 # Include{security}

@@ -49,7 +49,7 @@ questions:
                               type: int
                               default: 6080
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -63,7 +63,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: appluamodulespath
           label: "appluamodulespath Storage"
           description: "Container Path appFMD2lua"
@@ -72,7 +72,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: data
           label: "data Storage"
           description: "Container Path appFMD2data"
@@ -81,7 +81,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: appwineconfig
           label: "appwineconfig Storage"
           description: "Container Path config.wine"
@@ -90,7 +90,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: appuserdata
           label: "appuserdata Storage"
           description: "Container Path appFMD2userdata"
@@ -99,7 +99,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

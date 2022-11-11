@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 8280
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: port25
           label: 'port25 service'
           description: "Container Port "
@@ -59,7 +59,7 @@ questions:
                               type: int
                               default: 25
                               required: true
-# Include{advancedPortTCP}
+
         - variable: pop3port
           label: 'pop3port service'
           description: "POP3"
@@ -82,7 +82,7 @@ questions:
                               type: int
                               default: 110
                               required: true
-# Include{advancedPortTCP}
+
         - variable: imap
           label: 'imap service'
           description: "IMAP"
@@ -105,7 +105,7 @@ questions:
                               type: int
                               default: 143
                               required: true
-# Include{advancedPortTCP}
+
         - variable: containerhttps
           label: 'containerhttps service'
           description: "HTTPS"
@@ -128,7 +128,7 @@ questions:
                               type: int
                               default: 443
                               required: true
-# Include{advancedPortTCP}
+
         - variable: containersmtps
           label: 'containersmtps service'
           description: "SMTPS"
@@ -151,7 +151,7 @@ questions:
                               type: int
                               default: 465
                               required: true
-# Include{advancedPortTCP}
+
         - variable: containermsa
           label: 'containermsa service'
           description: "MSA"
@@ -174,7 +174,7 @@ questions:
                               type: int
                               default: 587
                               required: true
-# Include{advancedPortTCP}
+
         - variable: containerimaps
           label: 'containerimaps service'
           description: "IMAPS"
@@ -197,7 +197,7 @@ questions:
                               type: int
                               default: 993
                               required: true
-# Include{advancedPortTCP}
+
         - variable: containerpop3s
           label: 'containerpop3s service'
           description: "POP3S"
@@ -220,7 +220,7 @@ questions:
                               type: int
                               default: 995
                               required: true
-# Include{advancedPortTCP}
+
         - variable: externalsievef
           label: 'externalsievef service'
           description: "When you are going to use clients with ability to manage Sieve filters externally, you need also publish port 4190"
@@ -243,7 +243,7 @@ questions:
                               type: int
                               default: 4190
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -257,7 +257,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

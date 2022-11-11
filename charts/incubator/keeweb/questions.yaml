@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 8003
                               required: true
-# Include{advancedPortHTTPS}
+
         - variable: http
           label: HTTP Service
           description: The HTTP service
@@ -59,7 +59,7 @@ questions:
                               type: int
                               default: 8004
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -73,7 +73,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

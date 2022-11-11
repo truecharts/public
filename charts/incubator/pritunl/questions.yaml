@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 443
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: http
           label: 'http service'
           description: "Container Port 80. Only used for LetsEncrypt."
@@ -59,7 +59,7 @@ questions:
                               type: int
                               default: 80
                               required: true
-# Include{advancedPortTCP}
+
         - variable: vpntcp
           label: 'vpntcp service'
           description: "Container Port 1194tcp"
@@ -82,7 +82,7 @@ questions:
                               type: int
                               default: 1194
                               required: true
-# Include{advancedPortTCP}
+
         - variable: vpnudp
           label: 'vpnudp service'
           description: "Container Port 1194udp"
@@ -105,7 +105,7 @@ questions:
                               type: int
                               default: 1194
                               required: true
-# Include{advancedPortUDP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -119,7 +119,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

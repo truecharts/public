@@ -82,7 +82,7 @@ questions:
                               type: int
                               default: 10355
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: true
 # Include{serviceExpert}
@@ -96,7 +96,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

@@ -55,7 +55,7 @@ questions:
                               type: int
                               default: 1787
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -69,7 +69,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: tempscratchdisk
           label: "tempscratchdisk Storage"
           description: "This must be fast, local disk."
@@ -78,7 +78,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: logs
           label: "logs Storage"
           description: "Logfiles will be written into this directory. Set environment variable "
@@ -87,7 +87,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: config
           label: "config Storage"
           description: "System configuration is written into this directory."
@@ -96,7 +96,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

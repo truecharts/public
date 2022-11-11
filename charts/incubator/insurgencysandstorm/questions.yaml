@@ -99,7 +99,7 @@ questions:
                               type: int
                               default: 27102
                               required: true
-# Include{advancedPortUDP}
+
         - variable: queryport
           label: 'queryport service'
           description: "Container Port 27131"
@@ -122,7 +122,7 @@ questions:
                               type: int
                               default: 27131
                               required: true
-# Include{advancedPortUDP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -136,7 +136,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: serverfiles
           label: "serverfiles Storage"
           description: "Container Path serverdataserverfiles"
@@ -145,7 +145,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

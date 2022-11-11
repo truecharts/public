@@ -37,7 +37,7 @@ questions:
                               type: int
                               default: 10292
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: zmninja
           label: 'zmninja service'
           schema:
@@ -59,7 +59,7 @@ questions:
                               type: int
                               default: 10293
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -72,7 +72,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: datapath
           label: "datapath Storage"
           schema:
@@ -80,7 +80,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

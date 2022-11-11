@@ -87,7 +87,7 @@ questions:
                               type: int
                               default: 7777
                               required: true
-# Include{advancedPortUDP}
+
         - variable: beaconport
           label: 'beaconport service'
           description: "UDP Beacon Port"
@@ -110,7 +110,7 @@ questions:
                               type: int
                               default: 15000
                               required: true
-# Include{advancedPortUDP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -124,7 +124,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: serverfiles
           label: "serverfiles Storage"
           description: "Container Path serverdataserverfiles"
@@ -133,7 +133,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

@@ -73,7 +73,7 @@ questions:
                               type: int
                               default: 8080
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -87,7 +87,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: datapath
           label: "datapath Storage"
           description: "Main data path to your TrueNAS shares (if you want to get access to a disk mounted through UnassignedDevices change the Host and Container Path to mnt and change the Access Mode to ReadWrite Slave, if you want to get system level access change the Host Path to  and the Container Path to mnt, you will then find the mounted path in Kruser in mnt)."
@@ -96,7 +96,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

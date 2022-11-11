@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 10157
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -50,7 +50,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: library
           label: "App Library Storage"
           description: "Switch this to HostPath (Simple) and mount your library"
@@ -59,7 +59,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: remote
           label: "App Remote Library Storage"
           description: "Stores files from remote library until they are finished"
@@ -68,7 +68,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

@@ -81,7 +81,7 @@ questions:
                               type: int
                               default: 10140
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -95,7 +95,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: consume
           label: "To-be consumed Document Storage"
           description: "This where your documents should go to be consumed."
@@ -104,7 +104,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: media
           label: "App Document Storage"
           description: "This is where your documents and thumbnails are stored."
@@ -113,7 +113,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

@@ -47,7 +47,7 @@ questions:
                               type: int
                               default: 25
                               required: true
-# Include{advancedPortTCP}
+
         - variable: imap
           label: IMAP Service
           description: The IMAP service
@@ -70,7 +70,7 @@ questions:
                               type: int
                               default: 143
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -84,7 +84,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 
 # Include{security}

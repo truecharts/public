@@ -82,7 +82,7 @@ questions:
                               type: int
                               default: 10008
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: websocket
           label: "websocket Service"
           description: "The websocket service"
@@ -105,7 +105,7 @@ questions:
                               type: int
                               default: 10001
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: vnc
           label: "vnc Service"
           description: "The vnc service"
@@ -128,7 +128,7 @@ questions:
                               type: int
                               default: 10002
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -142,7 +142,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

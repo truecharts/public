@@ -50,7 +50,7 @@ questions:
                               type: int
                               default: 6800
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: listen
           label: "Listen Service"
           description: ""
@@ -73,7 +73,7 @@ questions:
                               type: int
                               default: 6888
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -87,7 +87,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

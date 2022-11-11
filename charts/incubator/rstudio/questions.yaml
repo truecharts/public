@@ -61,7 +61,7 @@ questions:
                               type: int
                               default: 8787
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: hostport2
           label: 'hostport2 service'
           description: "Required for shiny server"
@@ -84,7 +84,7 @@ questions:
                               type: int
                               default: 3838
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -98,7 +98,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

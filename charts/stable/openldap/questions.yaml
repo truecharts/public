@@ -170,7 +170,7 @@ questions:
                               type: int
                               default: 389
                               required: true
-# Include{advancedPortTCP}
+
         - variable: ldaps
           label: "ldaps Service"
           description: "The ldaps service"
@@ -193,7 +193,7 @@ questions:
                               type: int
                               default: 636
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -210,7 +210,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: slapd
           label: "App slapd Storage"
           description: "Stores the Application slapd."
@@ -219,7 +219,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{security}
 # Include{securityContextAdvancedRoot}

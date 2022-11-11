@@ -331,7 +331,7 @@ questions:
                               type: int
                               default: 10102
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: ws
           label: "WebSocket Service"
           description: "WebSocket Service"
@@ -354,7 +354,7 @@ questions:
                               type: int
                               default: 3012
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -368,7 +368,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

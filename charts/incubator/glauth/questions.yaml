@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 5555
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: ldapport
           label: 'ldapport service'
           description: "Container LDAP Port"
@@ -59,7 +59,7 @@ questions:
                               type: int
                               default: 389
                               required: true
-# Include{advancedPortTCP}
+
         - variable: ldapsport
           label: 'ldapsport service'
           description: "Container LDAPS Port"
@@ -82,7 +82,7 @@ questions:
                               type: int
                               default: 636
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -96,7 +96,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

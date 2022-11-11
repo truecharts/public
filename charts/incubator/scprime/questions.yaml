@@ -49,7 +49,7 @@ questions:
                               type: int
                               default: 4282
                               required: true
-# Include{advancedPortTCP}
+
         - variable: hostapiaddress
           label: 'hostapiaddress service'
           description: "Open this port in your firewall and forward to your server."
@@ -72,7 +72,7 @@ questions:
                               type: int
                               default: 4283
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -86,7 +86,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: storage
           label: "storage Storage"
           description: "Path where shared folders are located.&lt;br&gt;Container Path storage"
@@ -95,7 +95,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

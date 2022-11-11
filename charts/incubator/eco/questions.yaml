@@ -93,7 +93,7 @@ questions:
                               type: int
                               default: 3001
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: udpgameport
           label: 'udpgameport service'
           description: "UDP Game Port"
@@ -116,7 +116,7 @@ questions:
                               type: int
                               default: 3000
                               required: true
-# Include{advancedPortUDP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -130,7 +130,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: serverfiles
           label: "serverfiles Storage"
           description: "Container Path serverdataserverfiles"
@@ -139,7 +139,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

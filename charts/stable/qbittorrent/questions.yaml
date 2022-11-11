@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 10095
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: torrent
           label: "TCP Torrent Service"
           description: "Torrent service"
@@ -59,7 +59,7 @@ questions:
                               type: int
                               default: 6881
                               required: true
-# Include{advancedPortTCP}
+
         - variable: torrentudp
           label: "UDP Torrent Service"
           description: "Torrent service"
@@ -82,7 +82,7 @@ questions:
                               type: int
                               default: 6881
                               required: true
-# Include{advancedPortUDP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -96,7 +96,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

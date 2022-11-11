@@ -77,7 +77,7 @@ questions:
                               type: int
                               default: 10150
                               required: true
-# Include{advancedPortHTTPS}
+
         - variable: gprc
           label: "gprc Service"
           description: "The gprc service."
@@ -100,7 +100,7 @@ questions:
                               type: int
                               default: 33060
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -114,7 +114,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: logs
           label: "Logs Storage"
           description: "Stores the Logs"
@@ -123,7 +123,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: services
           label: "Services Storage"
           description: "Stores the Services"
@@ -132,7 +132,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

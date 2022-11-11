@@ -81,7 +81,7 @@ questions:
                               type: int
                               default: 2221
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: ftpport
           label: 'ftpport service'
           schema:
@@ -103,7 +103,7 @@ questions:
                               type: int
                               default: 2121
                               required: true
-# Include{advancedPortTCP}
+
         - variable: sftpport
           label: 'sftpport service'
           schema:
@@ -125,7 +125,7 @@ questions:
                               type: int
                               default: 2022
                               required: true
-# Include{advancedPortTCP}
+
         - variable: passiveports
           label: 'passiveports service'
           schema:
@@ -147,7 +147,7 @@ questions:
                               type: int
                               default: 50000
                               required: true
-# Include{advancedPortTCP}
+
         - variable: webdavport
           label: 'webdavport service'
           schema:
@@ -169,7 +169,7 @@ questions:
                               type: int
                               default: 10080
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -182,7 +182,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: backupdirectory
           label: "backupdirectory Storage"
           schema:
@@ -190,7 +190,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: configpath
           label: "configpath Storage"
           schema:
@@ -198,7 +198,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: shareaccess
           label: "shareaccess Storage"
           schema:
@@ -206,7 +206,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

@@ -85,7 +85,7 @@ questions:
                               type: int
                               default: 9200
                               required: true
-# Include{advancedPortHTTPS}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -99,7 +99,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
@@ -108,7 +108,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

@@ -61,7 +61,7 @@ questions:
                               type: int
                               default: 9023
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: udpgameport
           label: 'udpgameport service'
           description: "UDP Game Port (If you need another port delete this Entry and create a new UDP port mapping with the corresponding port  also dont forget to set the right port in your server configuration file!)"
@@ -84,7 +84,7 @@ questions:
                               type: int
                               default: 14159
                               required: true
-# Include{advancedPortUDP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -97,7 +97,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: serverfiles
           label: "serverfiles Storage"
           schema:
@@ -105,7 +105,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

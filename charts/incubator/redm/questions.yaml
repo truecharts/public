@@ -79,7 +79,7 @@ questions:
                               type: int
                               default: 9016
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: tcp1
           label: 'tcp1 service'
           schema:
@@ -101,7 +101,7 @@ questions:
                               type: int
                               default: 30110
                               required: true
-# Include{advancedPortTCP}
+
         - variable: tcp2
           label: 'tcp2 service'
           schema:
@@ -123,7 +123,7 @@ questions:
                               type: int
                               default: 30120
                               required: true
-# Include{advancedPortTCP}
+
         - variable: udp1
           label: 'udp1 service'
           schema:
@@ -145,7 +145,7 @@ questions:
                               type: int
                               default: 30110
                               required: true
-# Include{advancedPortUDP}
+
         - variable: udp2
           label: 'udp2 service'
           schema:
@@ -167,7 +167,7 @@ questions:
                               type: int
                               default: 30120
                               required: true
-# Include{advancedPortUDP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -180,7 +180,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

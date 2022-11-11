@@ -48,7 +48,7 @@ questions:
                               type: int
                               default: 18080
                               required: true
-# Include{advancedPortTCP}
+
         - variable: port2
           label: 'port2 service'
           schema:
@@ -70,7 +70,7 @@ questions:
                               type: int
                               default: 18081
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -83,7 +83,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: containerdir2
           label: "containerdir2 Storage"
           schema:
@@ -91,7 +91,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: blockchainstorage
           label: "blockchainstorage Storage"
           schema:
@@ -99,7 +99,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

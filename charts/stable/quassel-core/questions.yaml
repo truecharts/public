@@ -34,7 +34,7 @@ questions:
                               type: int
                               default: 4242
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: ident
           label: "ident Service"
           description: "The ident service."
@@ -57,7 +57,7 @@ questions:
                               type: int
                               default: 10113
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

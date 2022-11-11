@@ -58,7 +58,7 @@ questions:
                               type: int
                               default: 2202
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: admin
           label: "Admin Service"
           description: "Admin Service"
@@ -81,7 +81,7 @@ questions:
                               type: int
                               default: 2203
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -95,7 +95,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: books
           label: "App Books Storage"
           description: "Stores the Application Books."
@@ -104,7 +104,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: comics
           label: "App Comics Storage"
           description: "Stores the Application Comics."
@@ -113,7 +113,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: files
           label: "App Raw Files Storage"
           description: "Stores the Application Raw Files."
@@ -122,7 +122,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

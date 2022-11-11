@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 10169
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: https
           label: "https Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -59,7 +59,7 @@ questions:
                               type: int
                               default: 10170
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -73,7 +73,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: addons
           label: "App addons Storage"
           description: "Stores the Application addons."
@@ -82,7 +82,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: userdata
           label: "App userdata Storage"
           description: "Stores the Application userdata."
@@ -91,7 +91,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

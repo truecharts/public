@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 10292
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: api
           label: "API Service"
           description: "API Service"
@@ -59,7 +59,7 @@ questions:
                               type: int
                               default: 27123
                               required: true
-# Include{advancedPortHTTP}
+
                     - variable: https
                       label: "https Service Port Configuration"
                       schema:
@@ -73,7 +73,7 @@ questions:
                               type: int
                               default: 27124
                               required: true
-# Include{advancedPortHTTPS}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -87,7 +87,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: config
           label: "config Storage"
           description: "This is the location for the internal data."
@@ -96,7 +96,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

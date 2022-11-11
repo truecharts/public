@@ -684,7 +684,7 @@ questions:
                               type: int
                               default: 10211
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: server
           label: Server Service
           description: The Server Service
@@ -707,7 +707,7 @@ questions:
                               type: int
                               default: 10051
                               required: true
-# Include{advancedPortTCP}
+
         - variable: javagateway
           label: Java Gateway Service
           description: The Java Gateway Service
@@ -730,7 +730,7 @@ questions:
                               type: int
                               default: 10052
                               required: true
-# Include{advancedPortTCP}
+
         - variable: snmptraps
           label: SNMP Traps Service
           description: SNMP Traps Service
@@ -753,7 +753,7 @@ questions:
                               type: int
                               default: 162
                               required: true
-# Include{advancedPortTCP}
+
         - variable: agent
           label: Agent Service
           description: Agent Service
@@ -776,7 +776,7 @@ questions:
                               type: int
                               default: 10050
                               required: true
-# Include{advancedPortTCP}
+
         - variable: webservice
           label: WebService Service
           description: WebService Service
@@ -799,7 +799,7 @@ questions:
                               type: int
                               default: 10053
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -813,7 +813,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: serverexternalscripts
           label: Server - External Scripts Storage
           description: Stores the Application External Scripts.
@@ -822,7 +822,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: servermodules
           label: Server - Modules Storage
           description: Stores the Application Modules.
@@ -831,7 +831,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: serverenc
           label: Server - Encryption Storage
           description: Stores the Application Encryption.
@@ -840,7 +840,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: serversshkeys
           label: Server - SSH Keys Storage
           description: Stores the Application SSH Keys.
@@ -849,7 +849,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: serversslcerts
           label: Server - SSL Certs Storage
           description: Stores the Application SSL Certs.
@@ -858,7 +858,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: serversslkeys
           label: Server - SSL Keys Storage
           description: Stores the Application SSL Keys.
@@ -867,7 +867,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: serverexport
           label: Server - Export Storage
           description: Stores the Application Export.
@@ -876,7 +876,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: serversslca
           label: Server - SSL CA Storage
           description: Stores the Application SSL CA.
@@ -885,7 +885,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: snmptraps
           label: SNMP & Server - SNMP Traps Storage
           description: Stores the Application SNMP Traps.
@@ -894,7 +894,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: snmpmibs
           label: SNMP & Server - SNMP MIBS Storage
           description: Stores the Application SNMP MIBS.
@@ -903,7 +903,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: agentconf
           label: Agent - Configuration Storage
           description: Stores the Application Configuration.
@@ -912,7 +912,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: agentenc
           label: Agent - Encryption Storage
           description: Stores the Application Encryption.
@@ -921,7 +921,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: agentbuffer
           label: Agent - Buffer Storage
           description: Stores the Application Buffer.
@@ -930,7 +930,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: javagatewaylibs
           label: Java Gateway - Libs Storage
           description: Stores the Application Libs.
@@ -939,7 +939,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

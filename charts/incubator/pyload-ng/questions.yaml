@@ -49,7 +49,7 @@ questions:
                               type: int
                               default: 8000
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: port9666
           label: 'port9666 service'
           description: "ClicknLoad port."
@@ -72,7 +72,7 @@ questions:
                               type: int
                               default: 9666
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -86,7 +86,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: pathdownloads
           label: "pathdownloads Storage"
           description: "Destination of pyLoad downloads"
@@ -95,7 +95,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

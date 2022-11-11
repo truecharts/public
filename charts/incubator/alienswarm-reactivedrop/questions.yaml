@@ -93,7 +93,7 @@ questions:
                               type: int
                               default: 27015
                               required: true
-# Include{advancedPortUDP}
+
         - variable: tcprconport
           label: 'tcprconport service'
           description: "TCP RCON Port (not required)"
@@ -116,7 +116,7 @@ questions:
                               type: int
                               default: 27015
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -130,7 +130,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: serverfiles
           label: "serverfiles Storage"
           description: "Container Path serverdataserverfiles"
@@ -139,7 +139,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

@@ -55,7 +55,7 @@ questions:
                               type: int
                               default: 6901
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: vncport
           label: 'vncport service'
           description: "default 5901"
@@ -78,7 +78,7 @@ questions:
                               type: int
                               default: 5901
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -92,7 +92,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: boincdatadir
           label: "boincdatadir Storage"
           description: "BOINC data location if solo crunching (not needed if pool crunching) mntuserappdataboinc"
@@ -101,7 +101,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

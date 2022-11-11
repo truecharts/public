@@ -103,7 +103,7 @@ questions:
                               type: int
                               default: 10161
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -117,7 +117,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: protected-media
           label: "App Protected Media Storage"
           description: "Stores the Application Protected Media."
@@ -126,7 +126,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: logs
           label: "App Log Storage"
           description: "Stores the Application Logs."
@@ -135,7 +135,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

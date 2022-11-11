@@ -67,7 +67,7 @@ questions:
                               type: int
                               default: 8388
                               required: true
-# Include{advancedPortTCP}
+
         - variable: portudp
           label: 'portudp service'
           description: "Container Port 8388"
@@ -90,7 +90,7 @@ questions:
                               type: int
                               default: 8388
                               required: true
-# Include{advancedPortUDP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

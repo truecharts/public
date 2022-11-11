@@ -97,7 +97,7 @@ questions:
                               type: int
                               default: 53
                               required: true
-# Include{advancedPortTCP}
+
         - variable: dns
           label: "DNS Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -120,7 +120,7 @@ questions:
                               type: int
                               default: 53
                               required: true
-# Include{advancedPortUDP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

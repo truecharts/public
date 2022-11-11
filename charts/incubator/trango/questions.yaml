@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 7755
                               required: true
-# Include{advancedPortTCP}
+
         - variable: hostport2
           label: 'hostport2 service'
           description: "Container Port 443"
@@ -59,7 +59,7 @@ questions:
                               type: int
                               default: 5533
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -73,7 +73,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

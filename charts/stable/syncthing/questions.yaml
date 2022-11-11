@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 8384
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: listeners
           label: "Syncthing Listening Service"
           description: "This service is used to process incoming connections directly to this Syncthing instance"
@@ -59,7 +59,7 @@ questions:
                               type: int
                               default: 22000
                               required: true
-# Include{advancedPortTCP}
+
         - variable: listeners-udp
           label: "Syncthing Listening Service"
           description: "This service is used to process incoming connections directly to this Syncthing instance"
@@ -82,7 +82,7 @@ questions:
                               type: int
                               default: 22000
                               required: true
-# Include{advancedPortUDP}
+
         - variable: discovery
           label: "Syncthing Listening Service"
           description: "This service is used to process incoming connections directly to this Syncthing instance"
@@ -105,7 +105,7 @@ questions:
                               type: int
                               default: 21027
                               required: true
-# Include{advancedPortUDP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -119,7 +119,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

@@ -93,7 +93,7 @@ questions:
                               type: int
                               default: 27000
                               required: true
-# Include{advancedPortTCP}
+
         - variable: hostport2
           label: 'hostport2 service'
           description: "Container Port 27000"
@@ -116,7 +116,7 @@ questions:
                               type: int
                               default: 27000
                               required: true
-# Include{advancedPortUDP}
+
         - variable: hostport3
           label: 'hostport3 service'
           description: "Container Port 27003"
@@ -139,7 +139,7 @@ questions:
                               type: int
                               default: 27003
                               required: true
-# Include{advancedPortUDP}
+
         - variable: hostport4
           label: 'hostport4 service'
           description: "Container Port 27020"
@@ -162,7 +162,7 @@ questions:
                               type: int
                               default: 27020
                               required: true
-# Include{advancedPortUDP}
+
         - variable: hostport5
           label: 'hostport5 service'
           description: "Container Port 27021"
@@ -185,7 +185,7 @@ questions:
                               type: int
                               default: 27021
                               required: true
-# Include{advancedPortUDP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -199,7 +199,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: serverfiles
           label: "serverfiles Storage"
           description: "Container Path serverdataserverfiles"
@@ -208,7 +208,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

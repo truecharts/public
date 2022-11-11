@@ -87,7 +87,7 @@ questions:
                               type: int
                               default: 9600
                               required: true
-# Include{advancedPortTCP}
+
         - variable: udp
           label: 'udp service'
           description: "Container Port 9600"
@@ -110,7 +110,7 @@ questions:
                               type: int
                               default: 9600
                               required: true
-# Include{advancedPortUDP}
+
         - variable: tcp2
           label: 'tcp2 service'
           description: "Container Port 8081"
@@ -133,7 +133,7 @@ questions:
                               type: int
                               default: 8081
                               required: true
-# Include{advancedPortTCP}
+
         - variable: stracker
           label: 'stracker service'
           description: "Only needed if you installed Stacker (Webserver Address http[IPOFYOURSERVER]50041)."
@@ -156,7 +156,7 @@ questions:
                               type: int
                               default: 50041
                               required: true
-# Include{advancedPortTCP}
+
         - variable: assetto
           label: 'assetto service'
           description: "Only needed if you installed Assetto-Server-Manager (Webserver Address http[IPOFYOURSERVER]8771)."
@@ -179,7 +179,7 @@ questions:
                               type: int
                               default: 8772
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -193,7 +193,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: serverfiles
           label: "serverfiles Storage"
           description: "Container Path serverdataserverfiles"
@@ -202,7 +202,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

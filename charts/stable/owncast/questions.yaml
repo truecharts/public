@@ -39,7 +39,7 @@ questions:
                               type: int
                               default: 10088
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: rtmp
           label: "rtmp Service"
           description: "The rtmp service"
@@ -62,7 +62,7 @@ questions:
                               type: int
                               default: 1935
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -76,7 +76,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 10586
                               required: true
-# Include{advancedPortHTTPS}
+
         - variable: sub
           label: Sub Service
           description: The Sub service on which the healthcheck runs, often the webUI
@@ -59,7 +59,7 @@ questions:
                               type: int
                               default: 10587
                               required: true
-# Include{advancedPortHTTPS}
+
         - variable: minecraft
           label: Minecraft Service
           description: Container Port 25500
@@ -82,7 +82,7 @@ questions:
                               type: int
                               default: 25500
                               required: true
-# Include{advancedPortTCP}
+
         - variable: dynmap
           label: DynMap service
           description: DynMap Port
@@ -105,7 +105,7 @@ questions:
                               type: int
                               default: 8123
                               required: true
-# Include{advancedPortTCP}
+
         - variable: bedrock
           label: Bedrock Service
           description: Bedrock Server Port
@@ -128,7 +128,7 @@ questions:
                               type: int
                               default: 19132
                               required: true
-# Include{advancedPortUDP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -142,7 +142,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: serverfiles
           label: Server Files Storage
           description: Path to the minecraft server folders
@@ -151,7 +151,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: serverlogs
           label: Server Logs Storage
           description: Logs
@@ -160,7 +160,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: import
           label: Import Folder Storage
           description: Import existing Mincecraft Servers
@@ -169,7 +169,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: backup
           label: Backup Storage
           description: Server Backups
@@ -178,7 +178,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

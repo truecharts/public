@@ -23,7 +23,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: guide2go
           label: "guide2go Storage"
           description: "mntuserappdataguide2gooutput folder or where u can place your existing .json files"
@@ -32,7 +32,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: tvh
           label: "tvh Storage"
           description: "mntuserappdatatvheadenddatain case move to TVHeadend is enabled u need to mount this."
@@ -41,7 +41,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 
 # Include{security}

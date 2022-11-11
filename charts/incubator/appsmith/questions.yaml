@@ -49,7 +49,7 @@ questions:
                               type: int
                               default: 10217
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: supervisor
           label: "Supervisor Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -72,7 +72,7 @@ questions:
                               type: int
                               default: 10218
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -86,7 +86,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

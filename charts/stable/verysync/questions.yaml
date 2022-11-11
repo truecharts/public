@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 10193
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: bt-udp1
           label: "bt-udp1 Service"
           description: "The bt-udp service"
@@ -59,7 +59,7 @@ questions:
                               type: int
                               default: 22037
                               required: true
-# Include{advancedPortUDP}
+
         - variable: bt-udp2
           label: "bt-udp2 Service"
           description: "The bt-udp service"
@@ -82,7 +82,7 @@ questions:
                               type: int
                               default: 22027
                               required: true
-# Include{advancedPortUDP}
+
         - variable: data
           label: "data Service"
           description: "The data service"
@@ -105,7 +105,7 @@ questions:
                               type: int
                               default: 22330
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -119,7 +119,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: sync
           label: "App Sync Storage"
           description: "Stores the Application Sync."
@@ -128,7 +128,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

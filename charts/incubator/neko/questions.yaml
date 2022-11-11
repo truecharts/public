@@ -133,7 +133,7 @@ questions:
                               type: int
                               default: 10294
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: mux-udp
           label: "mux-udp service"
           schema:
@@ -155,7 +155,7 @@ questions:
                               type: int
                               default: 52100
                               required: true
-# Include{advancedPortUDP}
+
         - variable: mux-tcp
           label: "mux-tcp service"
           schema:
@@ -177,7 +177,7 @@ questions:
                               type: int
                               default: 52100
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

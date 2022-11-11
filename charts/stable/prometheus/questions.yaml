@@ -129,7 +129,7 @@ questions:
                               type: int
                               default: 10086
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: alertmanager
           label: "alertmanager Service"
           description: "alertmanager service "
@@ -152,7 +152,7 @@ questions:
                               type: int
                               default: 10087
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

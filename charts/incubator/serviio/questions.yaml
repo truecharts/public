@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 23423
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: hostport2
           label: 'hostport2 service'
           description: "Container Port 8895"
@@ -59,7 +59,7 @@ questions:
                               type: int
                               default: 8895
                               required: true
-# Include{advancedPortTCP}
+
         - variable: hostport3
           label: 'hostport3 service'
           description: "Container Port 23523"
@@ -82,7 +82,7 @@ questions:
                               type: int
                               default: 23523
                               required: true
-# Include{advancedPortTCP}
+
         - variable: hostport5
           label: 'hostport5 service'
           description: "Container Port 23424"
@@ -105,7 +105,7 @@ questions:
                               type: int
                               default: 23424
                               required: true
-# Include{advancedPortTCP}
+
         - variable: hostport6
           label: 'hostport6 service'
           description: "Container Port 23524"
@@ -128,7 +128,7 @@ questions:
                               type: int
                               default: 23524
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -142,7 +142,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: hostpath2
           label: "hostpath2 Storage"
           description: "Container Path optserviiolibrary"
@@ -151,7 +151,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: hostpath3
           label: "hostpath3 Storage"
           description: "Container Path optserviioplugins"
@@ -160,7 +160,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: hostpath4
           label: "hostpath4 Storage"
           description: "Container Path optserviiolog"
@@ -169,7 +169,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

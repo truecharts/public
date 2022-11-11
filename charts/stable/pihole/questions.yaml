@@ -66,7 +66,7 @@ questions:
                               type: int
                               default: 9089
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: dns
           label: "DNS Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -89,7 +89,7 @@ questions:
                               type: int
                               default: 53
                               required: true
-# Include{advancedPortUDP}
+
         - variable: dns-tcp
           label: "DNS-TCP Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -112,7 +112,7 @@ questions:
                               type: int
                               default: 53
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -126,7 +126,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: dnsmasq
           label: "App dnsmasq.d Storage"
           description: "Stores the Application dnsmasq.d."
@@ -135,7 +135,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

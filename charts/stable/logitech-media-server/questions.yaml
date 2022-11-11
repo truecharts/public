@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 7000
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: cli
           label: "CLI Service"
           description: "Logitech Media Server Telnet Command Line Interface"
@@ -158,7 +158,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

@@ -60,7 +60,7 @@ questions:
                               type: int
                               default: 1883
                               required: true
-# Include{advancedPortTCP}
+
         - variable: websockets
           label: "WebSockets Service"
           description: "WebSockets Service"
@@ -83,7 +83,7 @@ questions:
                               type: int
                               default: 9001
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -97,7 +97,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: configinc
           label: "App config Storage"
           description: "Stores the Application Configuration."
@@ -106,7 +106,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

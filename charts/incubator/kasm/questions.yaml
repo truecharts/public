@@ -63,7 +63,7 @@ questions:
                               type: int
                               default: 10350
                               required: true
-# Include{advancedPortHTTPS}
+
         - variable: admin
           label: Admin Service
           description: The Admin service
@@ -86,7 +86,7 @@ questions:
                               type: int
                               default: 10351
                               required: true
-# Include{advancedPortHTTPS}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -100,7 +100,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

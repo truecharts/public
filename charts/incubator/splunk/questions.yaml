@@ -55,7 +55,7 @@ questions:
                               type: int
                               default: 8000
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: management
           label: 'management service'
           description: "HTTPS API"
@@ -78,7 +78,7 @@ questions:
                               type: int
                               default: 8089
                               required: true
-# Include{advancedPortTCP}
+
         - variable: dataingest
           label: 'dataingest service'
           description: "SplunkTCP input"
@@ -101,7 +101,7 @@ questions:
                               type: int
                               default: 9997
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -115,7 +115,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: configpersist
           label: "configpersist Storage"
           description: "For config and app data persistence"
@@ -124,7 +124,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: appcredspersist
           label: "appcredspersist Storage"
           description: "For passwordencryption persistence"
@@ -133,7 +133,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

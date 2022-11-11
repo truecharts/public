@@ -55,7 +55,7 @@ questions:
                               type: int
                               default: 3000
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: hostportfor808
           label: 'hostportfor808 service'
           description: "Container Port 8080"
@@ -78,7 +78,7 @@ questions:
                               type: int
                               default: 8080
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -92,7 +92,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

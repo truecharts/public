@@ -94,7 +94,7 @@ questions:
                               type: int
                               default: 51821
                               required: true
-# Include{advancedPortTCP}
+
         - variable: vpn
           label: "Wireguard Internal"
           description: "Wireguard Internal Port"
@@ -118,7 +118,7 @@ questions:
                               type: int
                               default: 51820
                               required: true
-# Include{advancedPortUDP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -132,7 +132,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 10232
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: dns-tcp
           label: dns-tcp Service
           description: dns-tcp service
@@ -59,7 +59,7 @@ questions:
                               type: int
                               default: 53
                               required: true
-# Include{advancedPortTCP}
+
         - variable: dns-udp
           label: dns-udp Service
           description: dns-udp service
@@ -82,7 +82,7 @@ questions:
                               type: int
                               default: 53
                               required: true
-# Include{advancedPortUDP}
+
         - variable: dns-https
           label: dns-https Service
           description: The dns-https service.
@@ -105,7 +105,7 @@ questions:
                               type: int
                               default: 10234
                               required: true
-# Include{advancedPortHTTPS}
+
         - variable: dns-https-udp
           label: dns-https-udp Service
           description: The dns-https-udp service.
@@ -128,7 +128,7 @@ questions:
                               type: int
                               default: 10234
                               required: true
-# Include{advancedPortUDP}
+
         - variable: dns-crypt
           label: dns-crypt Service
           description: The dns-crypt service.
@@ -151,7 +151,7 @@ questions:
                               type: int
                               default: 5443
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: dns-crypt-udp
           label: dns-crypt-udp Service
           description: The dns-crypt-udp service.
@@ -174,7 +174,7 @@ questions:
                               type: int
                               default: 5443
                               required: true
-# Include{advancedPortUDP}
+
         - variable: dns-quic-udp-1
           label: dns-quic-udp-1 Service
           description: The dns-quic-udp-1 service.
@@ -197,7 +197,7 @@ questions:
                               type: int
                               default: 784
                               required: true
-# Include{advancedPortUDP}
+
                     - variable: dns-quic-udp-2
                       label: dns-quic-udp-2 Service Port Configuration
                       schema:
@@ -211,7 +211,7 @@ questions:
                               type: int
                               default: 853
                               required: true
-# Include{advancedPortUDP}
+
                     - variable: dns-quic-udp-3
                       label: dns-quic-udp-3 Service Port Configuration
                       schema:
@@ -225,7 +225,7 @@ questions:
                               type: int
                               default: 8853
                               required: true
-# Include{advancedPortUDP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -239,7 +239,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: data
           label: App Data Storage
           description: Stores the Application Data.
@@ -248,7 +248,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

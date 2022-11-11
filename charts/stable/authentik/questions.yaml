@@ -456,7 +456,7 @@ questions:
                               type: int
                               default: 10229
                               required: true
-# Include{advancedPortHTTPS}
+
         - variable: ldapldaps
           label: LDAPS Service
           description: The LDAPS service.
@@ -479,7 +479,7 @@ questions:
                               type: int
                               default: 636
                               required: true
-# Include{advancedPortTCP}
+
         - variable: ldapldap
           label: LDAP Service
           description: The LDAPS service.
@@ -502,7 +502,7 @@ questions:
                               type: int
                               default: 389
                               required: true
-# Include{advancedPortTCP}
+
         - variable: proxyhttps
           label: Proxy HTTPS Service
           description: The Proxy HTTPS service.
@@ -525,7 +525,7 @@ questions:
                               type: int
                               default: 10233
                               required: true
-# Include{advancedPortHTTPS}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -539,7 +539,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: templates
           label: App Templates Storage
           description: Stores the Application Templates.
@@ -548,7 +548,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: certs
           label: App Certs Storage
           description: Stores the Application Certs.
@@ -557,7 +557,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: geoip
           label: App GeoIP Storage
           description: Stores the Application GeoIP.
@@ -566,7 +566,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

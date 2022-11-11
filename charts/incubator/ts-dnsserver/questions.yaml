@@ -36,7 +36,7 @@ questions:
                               type: int
                               default: 5380
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: dnsport
           label: 'dnsport service'
           description: "Container Port 53"
@@ -59,7 +59,7 @@ questions:
                               type: int
                               default: 53
                               required: true
-# Include{advancedPortUDP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -73,7 +73,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

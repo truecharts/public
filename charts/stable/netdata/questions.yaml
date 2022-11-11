@@ -60,7 +60,7 @@ questions:
                               type: int
                               default: 19999
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -74,7 +74,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: lib
           label: "App lib Storage"
           description: "Contains the alarm log and the Netdata instance guid."
@@ -83,7 +83,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: cache
           label: "App cache Storage"
           description: "Contains the db files for the collected metrics"
@@ -92,7 +92,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

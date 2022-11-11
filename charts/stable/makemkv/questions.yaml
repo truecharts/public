@@ -146,7 +146,7 @@ questions:
                               type: int
                               default: 10180
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: vnc
           label: "VNC Service"
           description: "VNC Service"
@@ -169,7 +169,7 @@ questions:
                               type: int
                               default: 10181
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -183,7 +183,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: storage
           label: "App Storage"
           description: "Application Storage."
@@ -192,7 +192,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: output
           label: "App Output Storage"
           description: "Stores the Application Output."
@@ -201,7 +201,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

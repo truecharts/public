@@ -56,7 +56,7 @@ questions:
                               type: int
                               default: 10122
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -70,7 +70,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: music
           label: "App Music Storage"
           description: "Stores the Application Music."
@@ -79,7 +79,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: podcasts
           label: "App Podcasts Storage"
           description: "Stores the Application Podcast."
@@ -88,7 +88,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: playlist
           label: "App Playlist Storage"
           description: "Stores the Application Playlist."
@@ -97,7 +97,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

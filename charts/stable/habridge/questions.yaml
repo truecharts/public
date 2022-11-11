@@ -49,7 +49,7 @@ questions:
                               type: int
                               default: 10146
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: comm
           label: "comm Service"
           description: "The comm service."
@@ -72,7 +72,7 @@ questions:
                               type: int
                               default: 50000
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -86,7 +86,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

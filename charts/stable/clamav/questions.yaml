@@ -122,7 +122,7 @@ questions:
                               type: int
                               default: 3310
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: milter
           label:  "Milter Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -145,7 +145,7 @@ questions:
                               type: int
                               default: 7357
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -159,7 +159,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: scandir
           label: "App Scan Dir Storage"
           description: "Stores the Application Scan Directory. (By default set to readOnly)"
@@ -168,7 +168,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: logs
           label: "App Logs Storage"
           description: "Stores the Application Logs."
@@ -177,7 +177,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

@@ -105,7 +105,7 @@ questions:
                               type: int
                               default: 2302
                               required: true
-# Include{advancedPortTCP}
+
         - variable: udpgameport
           label: 'udpgameport service'
           description: "Same as TCP Game Port"
@@ -128,7 +128,7 @@ questions:
                               type: int
                               default: 2302
                               required: true
-# Include{advancedPortUDP}
+
         - variable: udpsteamquerry
           label: 'udpsteamquerry service'
           description: "UDP Game Port 1"
@@ -151,7 +151,7 @@ questions:
                               type: int
                               default: 2303
                               required: true
-# Include{advancedPortUDP}
+
         - variable: udpsteammaster
           label: 'udpsteammaster service'
           description: "UDP Game Port 2"
@@ -174,7 +174,7 @@ questions:
                               type: int
                               default: 2304
                               required: true
-# Include{advancedPortUDP}
+
         - variable: udpvonport
           label: 'udpvonport service'
           description: "UDP Game Port 3"
@@ -197,7 +197,7 @@ questions:
                               type: int
                               default: 2305
                               required: true
-# Include{advancedPortUDP}
+
         - variable: udpbattleyetra
           label: 'udpbattleyetra service'
           description: "UDP Game Port 4"
@@ -220,7 +220,7 @@ questions:
                               type: int
                               default: 2306
                               required: true
-# Include{advancedPortUDP}
+
         - variable: tcpmariadb
           label: 'tcpmariadb service'
           description: "Not required, only if you want to connect to the database from outside. Delete if you allready have a MariaDB container running."
@@ -243,7 +243,7 @@ questions:
                               type: int
                               default: 3306
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -257,7 +257,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: serverfiles
           label: "serverfiles Storage"
           description: "Container Path serverdataserverfiles"
@@ -266,7 +266,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: profiles
           label: "profiles Storage"
           description: "serverdata.localshare"
@@ -275,7 +275,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

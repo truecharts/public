@@ -83,7 +83,7 @@ questions:
                               type: int
                               default: 14002
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: coretcp
           label: "Core TCP Service"
           description: "Core TCP Service"
@@ -106,7 +106,7 @@ questions:
                               type: int
                               default: 28967
                               required: true
-# Include{advancedPortHTTP}
+
         - variable: coreudp
           label: "Core UDP Service"
           description: "Core UDP Service"
@@ -129,7 +129,7 @@ questions:
                               type: int
                               default: 28967
                               required: true
-# Include{advancedPortHTTP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -143,7 +143,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
         - variable: storage
           label: "File Storage"
           description: "File Storage"
@@ -152,7 +152,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

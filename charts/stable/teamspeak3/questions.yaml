@@ -34,7 +34,7 @@ questions:
                               type: int
                               default: 10011
                               required: true
-# Include{advancedPortTCP}
+
         - variable: voice
           label: "Voice Service"
           description: "The voice service of teamspeak3"
@@ -57,7 +57,7 @@ questions:
                               type: int
                               default: 9987
                               required: true
-# Include{advancedPortUDP}
+
         - variable: files
           label: "Server File Transport Service"
           description: "The file transport service of teamspeak3"
@@ -80,7 +80,7 @@ questions:
                               type: int
                               default: 30033
                               required: true
-# Include{advancedPortTCP}
+
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -94,7 +94,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
+
 # Include{persistenceList}
 
 # Include{security}
