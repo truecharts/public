@@ -16,11 +16,17 @@
       {{- end }}
   value: {{ quote $value }}
     {{- else if kindIs "map" $value }} {{/* If value is a dict... */}}
+      {{- if hasKey $value "valueFrom" }}
+        {{- fail "Please remove <valueFrom> and use directly configMapKeyRef or secretKeyRef" }}
+      {{- end }}
   valueFrom:
       {{- if hasKey $value "configMapKeyRef" }} {{/* And contains configMapRef... */}}
     configMapKeyRef:
         {{- $_ := set $value "name" $value.configMapKeyRef.name -}} {{/* Extract name and key */}}
         {{- $_ := set $value "key" $value.configMapKeyRef.key -}}
+        {{- if hasKey $value.configMapKeyRef "optional" }}
+          {{- fail "<optional> is not supported in configMapRefKey" }}
+        {{- end }}
       {{- else if hasKey $value "secretKeyRef" }} {{/* And contains secretpRef... */}}
     secretKeyRef:
         {{- $_ := set $value "name" $value.secretKeyRef.name -}} {{/* Extract name and key */}}

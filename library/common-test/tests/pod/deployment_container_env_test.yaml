@@ -330,6 +330,33 @@ tests:
           documentIndex: *deploymentDoc
           errorMessage: <optional> in secretKeyRef must be a boolean on Environment Variable (ENVVAR)
 
+  - it: should fail with envs defined with valueFrom key
+    set:
+      env:
+        ENVVAR:
+          valueFrom:
+            secretKeyRef:
+              name: some_name
+              key: some_key
+              optional: non-bool
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: Please remove <valueFrom> and use directly configMapKeyRef or secretKeyRef
+
+  - it: should fail with envs defined with optional in configMapKeyRef
+    set:
+      env:
+        ENVVAR:
+          configMapKeyRef:
+            name: some_name
+            key: some_key
+            optional: non-bool
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: <optional> is not supported in configMapRefKey
+
   - it: should pass with envs defined with int value
     set:
       env:
