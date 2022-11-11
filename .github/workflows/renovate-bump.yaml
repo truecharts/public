@@ -41,7 +41,9 @@ jobs:
             - 'charts/games/**'
       - name: Filter filter-output
         run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
-      - name: Bump
+
+      - name: Bump and Sync
+        shell: bash
         run: |
           # Designed to ensure the appversion in Chart.yaml is in sync with the primary Chart tag if found
           # Also makes sure that home link is pointing to the correct url
@@ -86,7 +88,6 @@ jobs:
               echo "Sources of ${chartname} updated!"
               }
           export -f sync_tag
-
 
           # The actual script
           APPS=$(jq --raw-output '.changed_files | fromjson | .[] |= sub("(?<filepath>(?<first_directory>(?<root1>[\/]?)[^\/]+\/)(?<second_directory>(?<root2>[\/]?)[^\/]+\/)(?<third_directory>(?<root3>[\/]?)[^\/]+)(?<extra_paths>.+))"; "\(.third_directory)") | unique' changes.json  |  jq -r '.[]')
