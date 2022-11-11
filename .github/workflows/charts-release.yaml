@@ -157,6 +157,16 @@ jobs:
           git push
           cd -
           rm -rf catalog
+      - name: Run chart-releaser for dependency apps
+        uses: helm/chart-releaser-action@98bccfd32b0f76149d188912ac8e45ddd3f8695f # tag=v1.4.1
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
+        with:
+          charts_dir: charts/dependency
+          charts_repo_url: https://charts.truecharts.org
+        env:
+          CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
+          CR_SKIP_EXISTING: "true"
 
   release-helm:
     runs-on: ubuntu-latest
@@ -197,16 +207,6 @@ jobs:
           git config user.name "truecharts-bot"
           git config user.email "bot@truecharts.org"
 
-      - name: Run chart-releaser for dependency apps
-        uses: helm/chart-releaser-action@98bccfd32b0f76149d188912ac8e45ddd3f8695f # tag=v1.4.1
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
-        with:
-          charts_dir: charts/dependency
-          charts_repo_url: https://charts.truecharts.org
-        env:
-          CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
-          CR_SKIP_EXISTING: "true"
       - name: Run chart-releaser for enterprise apps
         uses: helm/chart-releaser-action@98bccfd32b0f76149d188912ac8e45ddd3f8695f # tag=v1.4.1
         with:
