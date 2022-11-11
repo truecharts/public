@@ -16,7 +16,7 @@ jobs:
     outputs:
       ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
     container:
-      image: ghcr.io/truecharts/devcontainer:v2.6.0@sha256:5029ebed5c833646da3afb3a8512eba79f08cac8935a53fc1510854fec22341a
+      image: ghcr.io/truecharts/devcontainer:3.0.0@sha256:49b51eaada54ba2a1f217562647d018a8ddf0b9209f4bd2fabf96ead83bb9514
     steps:
       - name: Install Kubernetes tools
         uses: yokawasa/action-setup-kube-tools@b91bb02bc122bd84ac7bbea5f25ed6b0f2ec6275 # tag=v0.9.2
@@ -161,7 +161,7 @@ jobs:
   release-helm:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/truecharts/devcontainer:v2.6.0@sha256:5029ebed5c833646da3afb3a8512eba79f08cac8935a53fc1510854fec22341a
+      image: ghcr.io/truecharts/devcontainer:3.0.0@sha256:49b51eaada54ba2a1f217562647d018a8ddf0b9209f4bd2fabf96ead83bb9514
     needs: release-scale
     steps:
       - name: Install Kubernetes tools
