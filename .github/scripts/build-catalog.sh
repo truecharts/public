@@ -3,6 +3,9 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+cache_path="${cache_path:-'./tgz_cache'}"
+mkdir -p "$cache_path"
+
 include_questions(){
     local chart="$1"
     local chartname="$2"
