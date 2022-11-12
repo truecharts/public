@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "0.38.0"
+appVersion: "0.39.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -7,11 +7,11 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 8.0.124
+    version: 9.0.5
   - condition: solr.enabled
     name: solr
     repository: https://charts.truecharts.org/
-    version: 0.0.92
+    version: 1.0.5
 description: Docspell is a personal document organizer.
 home: https://truecharts.org/docs/charts/incubator/docspell
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/docspell.png
@@ -28,7 +28,7 @@ sources:
   - https://github.com/eikek/docspell
   - https://docspell.org/docs/install/docker/
   - https://docspell.org/docs/configure/defaults/
-version: 1.0.4
+version: 2.0.0
 annotations:
   truecharts.org/catagories: |
     - productivity
