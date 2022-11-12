@@ -52,7 +52,7 @@ for idx in $(eval echo "{0..$length}"); do
 
             repo_url="$repo/index.yaml"
             echo "🤖 Calculating URL..."
-            # At the time of writing this, only 1 url existed (.urls[0]).
+            # At the time of writing this, only 1 url existed (.urls[0]) pointing to the actual tgz.
             # Extract url from repo_url. It's under .entries.DEP_NAME.urls. We filter the specific version first (.version)
             dep_url=$(curl -s "$repo_url" | v="$version" n="$name" go-yq '.entries.[env(n)].[] | select (.version == env(v)) | .urls.[0]')
 
