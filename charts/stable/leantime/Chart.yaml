@@ -3,11 +3,11 @@ appVersion: "2.2.10"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.9.4
+    version: 10.9.7
   - condition: mariadb.enabled
     name: mariadb
     repository: https://charts.truecharts.org/
-    version: 3.0.119
+    version: 3.0.122
 description: "Straightforward open source project management system to make your ideas reality."
 home: https://truecharts.org/docs/charts/stable/leantime
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/leantime.png
@@ -25,7 +25,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/leantime
   - https://leantime.io/
   - https://hub.docker.com/r/nicholaswilde/leantime
-version: 5.0.3
+version: 5.0.4
 annotations:
   truecharts.org/catagories: |
     - management
