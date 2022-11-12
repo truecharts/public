@@ -141,7 +141,7 @@ jobs:
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
-          charts_ath="charts'}"
+          charts_ath="charts"
           for changed in ${CHARTS[@]; do
             .github/scripts/fetch_helm_deps.sh "${changed}"
           done
