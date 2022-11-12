@@ -8,7 +8,7 @@ command -v go-yq >/dev/null 2>&1 || {
 
 # define defaults
 cache_path=${cache_path:-./tgz_cache}
-charts_ath=${charts_ath:-./charts}
+charts_path=${charts_path:-./charts}
 
 mkdir -p "$cache_path"
 
@@ -20,12 +20,12 @@ trains=(
 )
 
 download_deps() {
-local charttrain="$1"
+local chart_train="$1"
 
-deps=$(go-yq '.dependencies' "$charts_ath/$charttrain/Chart.yaml")
+deps=$(go-yq '.dependencies' "$charts_path/$chart_train/Chart.yaml")
 length=$(echo "$deps" | go-yq '. | length')
 
-echo "🔨 Processing <$charts_ath/$charttrain>... Dependencies: $length"
+echo "🔨 Processing <$charts_path/$chart_train>... Dependencies: $length"
 echo ""
 
 for idx in $(eval echo "{0..$length}"); do
@@ -56,7 +56,7 @@ for idx in $(eval echo "{0..$length}"); do
             wget --quiet "$dep_url" -P "$cache_path/"
             if [ ! $? ]; then
                 echo "❌ wget encountered an error..."
-                helm dependency build "$charts_ath/$charttrain/Chart.yaml" || helm dependency update "$charts_ath/$charttrain/Chart.yaml" || exit 1
+                helm dependency build "$charts_path/$chart_train/Chart.yaml" || helm dependency update "$charts_path/$chart_train/Chart.yaml" || exit 1
             fi
 
             if [ -f "$cache_path/$name-$version.tgz" ]; then
@@ -64,14 +64,14 @@ for idx in $(eval echo "{0..$length}"); do
             else
                 echo "❌ Failed to download dependency"
                 # Try helm dependency build/update or otherwise fail fast if a dep fails to download...
-                helm dependency build "$charts_ath/$charttrain/Chart.yaml" || helm dependency update "$charts_ath/$charttrain/Chart.yaml" || exit 1
+                helm dependency build "$charts_path/$chart_train/Chart.yaml" || helm dependency update "$charts_path/$chart_train/Chart.yaml" || exit 1
             fi
         fi
         echo ""
 
-        mkdir -p "$charts_ath/$charttrain/charts"
-        echo "📝 Copying dependency <$name-$version.tgz> to <$charts_ath/$charttrain/charts>..."
-        cp "$cache_path/$name-$version.tgz" "$charttrain/charts"
+        mkdir -p "$charts_path/$chart_train/charts"
+        echo "📝 Copying dependency <$name-$version.tgz> to <$charts_path/$chart_train/charts>..."
+        cp "$cache_path/$name-$version.tgz" "$chart_train/charts"
 
         if [ -f "$cache_path/$name-$version.tgz" ]; then
             echo "✅ Dependency copied!"
@@ -79,16 +79,16 @@ for idx in $(eval echo "{0..$length}"); do
         else
             echo "❌ Failed to copy dependency"
             # Try helm dependency build/update or otherwise fail fast if a dep fails to copy...
-            helm dependency build "$charts_ath/$charttrain/Chart.yaml" || helm dependency update "$charts_ath/$charttrain/Chart.yaml" || exit 1
+            helm dependency build "$charts_path/$chart_train/Chart.yaml" || helm dependency update "$charts_path/$chart_train/Chart.yaml" || exit 1
         fi
     fi
 done
 }
 export -f download_deps
 
-if [ -z "$1" ]; then 
+if [ -z "$1" ]; then
   for train in "${trains[@]}"; do
-      for chart in $(ls "$charts_ath/$train"); do
+      for chart in $(ls "$charts_path/$train"); do
         download_deps "${train}/${chart}"
       done
   done
