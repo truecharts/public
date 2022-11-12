@@ -14,7 +14,6 @@ index_cache=${index_cache:-./index_cache}
 echo "🧹 Cleaning index cache..."
 rm -rf "$index_cache"
 
-
 mkdir -p "$cache_path"
 
 trains=(
@@ -67,7 +66,6 @@ for idx in $(eval echo "{0..$length}"); do
 
                 mkdir -p $index_cache/$repo_dir
                 wget --quiet "$repo_url" -O "$index_cache/$repo_dir/index.yaml"
-
                 if [ ! $? ]; then
                     echo "❌ wget encountered an error..."
                     exit 1
