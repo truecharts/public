@@ -19,69 +19,79 @@ trains=(
     "dependency"
 )
 
-for train in "${trains[@]}"; do
-    for chart in $(ls "$charts_ath/$train"); do
-        deps=$(go-yq '.dependencies' "$charts_ath/$train/$chart/Chart.yaml")
-        length=$(echo "$deps" | go-yq '. | length')
+download_deps() {
+local charttrain="$1"
 
-        echo "🔨 Processing <$chart>... Dependencies: $length"
+deps=$(go-yq '.dependencies' "$charts_ath/$charttrain/Chart.yaml")
+length=$(echo "$deps" | go-yq '. | length')
+
+echo "🔨 Processing <$charts_ath/$charttrain>... Dependencies: $length"
+echo ""
+
+for idx in $(eval echo "{0..$length}"); do
+    curr_dep=$(echo "$deps" | pos="$idx" go-yq '.[env(pos)]')
+
+    if [ ! "$curr_dep" == null ]; then
+        name=$(echo "$curr_dep" | go-yq '.name')
+        version=$(echo "$curr_dep" | go-yq '.version')
+        repo=$(echo "$curr_dep" | go-yq '.repository')
+
+        echo "**********"
+        echo "🔗 Dependency: $name"
+        echo "🆚 Version: $version"
+        echo "🏠 Repository: $repo"
         echo ""
 
-        for idx in $(eval echo "{0..$length}"); do
-            curr_dep=$(echo "$deps" | pos="$idx" go-yq '.[env(pos)]')
+        if [ -f "$cache_path/$name-$version.tgz" ]; then
+            echo "✅ Dependency exists in cache..."
+        else
+            echo "🤷‍♂️ Dependency does not exists in cache..."
 
-            if [ ! "$curr_dep" == null ]; then
-                name=$(echo "$curr_dep" | go-yq '.name')
-                version=$(echo "$curr_dep" | go-yq '.version')
-                repo=$(echo "$curr_dep" | go-yq '.repository')
+            repo_url="$repo/index.yaml"
+            echo "🤖 Calculating URL..."
+            dep_url=$(curl -s "$repo_url" | v="$version" n="$name" go-yq '.entries.[env(n)].[] | select (.version == env(v)) | .urls.[0]')
 
-                echo "**********"
-                echo "🔗 Dependency: $name"
-                echo "🆚 Version: $version"
-                echo "🏠 Repository: $repo"
-                echo ""
-
-                if [ -f "$cache_path/$name-$version.tgz" ]; then
-                    echo "✅ Dependency exists in cache..."
-                else
-                    echo "🤷‍♂️ Dependency does not exists in cache..."
-
-                    repo_url="$repo/index.yaml"
-                    echo "🤖 Calculating URL..."
-                    dep_url=$(curl -s "$repo_url" | v="$version" n="$name" go-yq '.entries.[env(n)].[] | select (.version == env(v)) | .urls.[0]')
-
-                    echo ""
-                    echo "⏬ Downloading dependency $name-$version from $dep_url..."
-                    wget --quiet "$dep_url" -P "$cache_path/"
-                    if [ ! $? ]; then
-                        echo "❌ wget encountered an error..."
-                        helm dependency build "$charts_ath/$train/$chart/Chart.yaml" || helm dependency update "$charts_ath/$train/$chart/Chart.yaml" || exit 1
-                    fi
-
-                    if [ -f "$cache_path/$name-$version.tgz" ]; then
-                        echo "✅ Dependency Downloaded!"
-                    else
-                        echo "❌ Failed to download dependency"
-                        # Try helm dependency build/update or otherwise fail fast if a dep fails to download...
-                        helm dependency build "$charts_ath/$train/$chart/Chart.yaml" || helm dependency update "$charts_ath/$train/$chart/Chart.yaml" || exit 1
-                    fi
-                fi
-                echo ""
-
-                mkdir -p "$charts_ath/$train/$chart/charts"
-                echo "📝 Copying dependency <$name-$version.tgz> to <$charts_ath/$train/$chart/charts>..."
-                cp "$cache_path/$name-$version.tgz" "$charts_ath/$train/$chart/charts"
-
-                if [ -f "$cache_path/$name-$version.tgz" ]; then
-                    echo "✅ Dependency copied!"
-                    echo ""
-                else
-                    echo "❌ Failed to copy dependency"
-                    # Try helm dependency build/update or otherwise fail fast if a dep fails to copy...
-                    ehelm dependency build "$charts_ath/$train/$chart/Chart.yaml" || helm dependency update "$charts_ath/$train/$chart/Chart.yaml" || exit 1
-                fi
+            echo ""
+            echo "⏬ Downloading dependency $name-$version from $dep_url..."
+            wget --quiet "$dep_url" -P "$cache_path/"
+            if [ ! $? ]; then
+                echo "❌ wget encountered an error..."
+                helm dependency build "$charts_ath/$charttrain/Chart.yaml" || helm dependency update "$charts_ath/$charttrain/Chart.yaml" || exit 1
             fi
-        done
-        echo "----------"
-    done
+
+            if [ -f "$cache_path/$name-$version.tgz" ]; then
+                echo "✅ Dependency Downloaded!"
+            else
+                echo "❌ Failed to download dependency"
+                # Try helm dependency build/update or otherwise fail fast if a dep fails to download...
+                helm dependency build "$charts_ath/$charttrain/Chart.yaml" || helm dependency update "$charts_ath/$charttrain/Chart.yaml" || exit 1
+            fi
+        fi
+        echo ""
+
+        mkdir -p "$charts_ath/$charttrain/charts"
+        echo "📝 Copying dependency <$name-$version.tgz> to <$charts_ath/$charttrain/charts>..."
+        cp "$cache_path/$name-$version.tgz" "$charttrain/charts"
+
+        if [ -f "$cache_path/$name-$version.tgz" ]; then
+            echo "✅ Dependency copied!"
+            echo ""
+        else
+            echo "❌ Failed to copy dependency"
+            # Try helm dependency build/update or otherwise fail fast if a dep fails to copy...
+            helm dependency build "$charts_ath/$charttrain/Chart.yaml" || helm dependency update "$charts_ath/$charttrain/Chart.yaml" || exit 1
+        fi
+    fi
+done
+}
+export -f download_deps
+
+if [ -z "$1" ]; then 
+  for train in "${trains[@]}"; do
+      for chart in $(ls "$charts_ath/$train"); do
+        download_deps "${train}/${chart}"
+      done
+  done
+else
+  download_deps "$1"
 done
