@@ -15,16 +15,6 @@ Secondary entrypoint and primary loader for the common chart
     {{- include "tc.common.addon.vpn" . }}
   {{- end -}}
 
-  {{- /* Enable promtail add-on if required */ -}}
-  {{- if .Values.addons.promtail.enabled }}
-    {{- include "tc.common.addon.promtail" . }}
-  {{- end -}}
-
-  {{- /* Enable netshoot add-on if required */ -}}
-  {{- if .Values.addons.netshoot.enabled }}
-    {{- include "tc.common.addon.netshoot" . }}
-  {{- end -}}
-
   {{- /* Build the configmaps */ -}}
   {{ include "tc.common.spawner.configmap" . | nindent 0 }}
 
