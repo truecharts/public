@@ -7,7 +7,7 @@ command -v go-yq >/dev/null 2>&1 || {
 }
 
 # define defaults
-cache_path=${cache_path:-'./tgz_cache'}"
+cache_path="${cache_path:-'./tgz_cache'}"
 charts_ath="${charts_ath:-'../../charts'}"
 
 mkdir -p "$cache_path"
