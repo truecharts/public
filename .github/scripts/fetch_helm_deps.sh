@@ -6,11 +6,11 @@ command -v go-yq >/dev/null 2>&1 || {
     exit 1
 }
 
-cache_path="./tgz_cache"
+# define defaults
+cache_path=${cache_path:-'./tgz_cache'}"
+charts_ath="${charts_ath:-'../../charts'}"
 
 mkdir -p "$cache_path"
-
-charts_ath="../../charts"
 
 trains=(
     "enterprise"
