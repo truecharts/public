@@ -108,75 +108,6 @@ copy_apps() {
 }
 export -f copy_apps
 
-download_deps() {
-local chart="$1"
-local chartname="$2"
-local train="$3"
-local chartversion="$4"
-
-deps=$(go-yq '.dependencies' "$chart/Chart.yaml")
-length=$(echo "$deps" | go-yq '. | length')
-
-echo "🔨 Processing <$chartname>... Dependencies: $length"
-echo ""
-
-for idx in $(eval echo "{0..$length}"); do
-    curr_dep=$(echo "$deps" | pos="$idx" go-yq '.[env(pos)]')
-
-    if [ ! "$curr_dep" == null ]; then
-        name=$(echo "$curr_dep" | go-yq '.name')
-        version=$(echo "$curr_dep" | go-yq '.version')
-        repo=$(echo "$curr_dep" | go-yq '.repository')
-
-        echo "**********"
-        echo "🔗 Dependency: $name"
-        echo "🆚 Version: $version"
-        echo "🏠 Repository: $repo"
-        echo ""
-
-        if [ -f "$cache_path/$name-$version.tgz" ]; then
-            echo "✅ Dependency exists in cache..."
-        else
-            echo "🤷‍♂️ Dependency does not exists in cache..."
-
-            repo_url="$repo/index.yaml"
-            echo "🤖 Calculating URL..."
-            dep_url=$(curl -s "$repo_url" | v="$version" n="$name" go-yq '.entries.[env(n)].[] | select (.version == env(v)) | .urls.[0]')
-
-            echo ""
-            echo "⏬ Downloading dependency $name-$version from $dep_url..."
-            wget --quiet "$dep_url" -P "$cache_path/"
-            if [ ! $? ]; then
-                echo "❌ wget encountered an error..."
-                helm dependency build "$chart/Chart.yaml" || helm dependency update "$chart/Chart.yaml" || exit 1
-            fi
-
-            if [ -f "$cache_path/$name-$version.tgz" ]; then
-                echo "✅ Dependency Downloaded!"
-            else
-                echo "❌ Failed to download dependency"
-                # Try helm dependency build/update or otherwise fail fast if a dep fails to download...
-                helm dependency build "$chart/Chart.yaml" || helm dependency update "$chart/Chart.yaml" || exit 1
-            fi
-        fi
-        echo ""
-
-        mkdir -p "$chart/charts"
-        echo "📝 Copying dependency <$name-$version.tgz> to <$chart/charts>..."
-        cp "$cache_path/$name-$version.tgz" "$chart/charts"
-
-        if [ -f "$cache_path/$name-$version.tgz" ]; then
-            echo "✅ Dependency copied!"
-            echo ""
-        else
-            echo "❌ Failed to copy dependency"
-            # Try helm dependency build/update or otherwise fail fast if a dep fails to copy...
-            ehelm dependency build "$chart/Chart.yaml" || helm dependency update "$chart/Chart.yaml" || exit 1
-        fi
-    fi
-done
-}
-export -f download_deps
 
 if [[ -d "charts/${1}" ]]; then
     echo "Start processing charts/${1} ..."
@@ -184,7 +115,6 @@ if [[ -d "charts/${1}" ]]; then
     chartname=$(basename charts/${1})
     train=$(basename $(dirname "charts/${1}"))
     SCALESUPPORT=$(cat charts/${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
-    download_deps "charts/${1}" "${chartname}" "$train" "${chartversion}"
     helm dependency build "charts/${1}" --skip-refresh || (sleep 10 && helm dependency build "charts/${1}" --skip-refresh) || (sleep 10 && helm dependency build "charts/${1}" --skip-refresh)
     if [[ "${SCALESUPPORT}" == "true" ]]; then
       clean_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
