@@ -44,6 +44,7 @@ for idx in $(eval echo "{0..$length}"); do
         version=$(echo "$curr_dep" | go-yq '.version')
         repo=$(echo "$curr_dep" | go-yq '.repository')
 
+        # Remove http:// or https:// from url to create a dir name
         repo_dir="${repo#http://}"
         repo_dir="${repo#https://}"
 
@@ -63,7 +64,9 @@ for idx in $(eval echo "{0..$length}"); do
                 echo "✅ Index for <$repo> exists!"
             else
                 echo "⏬ Index for <$repo> is missing. Downloading from <$repo_url>..."
-                wget --quiet "$repo_url" -P "$index_cache/$repo_dir"
+
+                mkdir -p $index_cache/$repo_dir
+                wget --quiet "$repo_url" -O "$index_cache/$repo_dir/index.yaml"
 
                 if [ ! $? ]; then
                     echo "❌ wget encountered an error..."
