@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/rcon-webadmin
-  tag: latest@sha256:1a43f3e778887d61fbdc037c0ead3ffc71fbaf7eb4537ef8b73236772cb2fb8c
+  repository: itzg/rcon
+  tag: 0.14.1-1@sha256:4bec01981dc95e14f54c243ced5db23591c67e5a63d474a3f4f8acda72ce5a28
 
 podSecurityContext:
   runAsGroup: 0
@@ -25,6 +25,8 @@ rcon:
   rwa_server_name: minecraft
   rwa_rcon_host: ""
   rwa_rcon_port: 25575
+  # RWA_WEBSOCKET_URL_SSL
+  # RWA_WEBSOCKET_URL
   rwa_restrict_commands:
     - command1
     - command2
