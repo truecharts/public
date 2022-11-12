@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: fireflyiii-data-importer
-version: 1.0.3
+version: 1.0.4
 appVersion: "0.9.16"
 description: Firefly III Data Importer.
 type: application
@@ -20,7 +20,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.9.4
+    version: 10.9.7
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
