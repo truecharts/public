@@ -180,9 +180,9 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: db
-          label: App DB Storage
-          description: Stores the Application DB.
+        - variable: config
+          label: App Config Storage
+          description: Stores the Application Configuration.
           schema:
             additional_attrs: true
             type: dict
