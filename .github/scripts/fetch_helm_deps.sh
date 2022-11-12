@@ -11,7 +11,9 @@ cache_path=${cache_path:-./tgz_cache}
 charts_path=${charts_path:-./charts}
 # Do NOT persist this directory, in order to always have the latest index for this run.
 index_cache=${index_cache:-./index_cache}
+echo "🧹 Cleaning index cache..."
 rm -rf "$index_cache"
+
 
 mkdir -p "$cache_path"
 
