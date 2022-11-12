@@ -27,7 +27,7 @@ deps=$(go-yq '.dependencies' "$charts_path/$train_chart/Chart.yaml")
 # Find how many deps exist, so we can loop through them
 length=$(echo "$deps" | go-yq '. | length')
 
-echo "🔨 Processing <$charts_path/$train_chart>... Dependencies: $length"
+echo "🤖🔨 Processing <$charts_path/$train_chart>... Dependencies: $length"
 echo ""
 
 for idx in $(eval echo "{0..$length}"); do
@@ -52,12 +52,30 @@ for idx in $(eval echo "{0..$length}"); do
             echo "✅ Dependency exists in cache..."
         else
             echo "🤷‍♂️ Dependency does not exists in cache..."
-
             repo_url="$repo/index.yaml"
-            echo "🤖 Calculating URL..."
+
+            if [ -f "$cache_path/$repo_dir/index.yaml" ]; then
+                echo "✅ Index for <$repo> exists!"
+            else
+                echo "⏬ Index for <$repo> is missing. Downloading from <$repo_url>..."
+                wget --quiet "$repo_url" -P "$cache_path/$repo_dir"
+
+                if [ ! $? ]; then
+                    echo "❌ wget encountered an error..."
+                    exit 1
+                fi
+
+                if [ -f "$cache_path/$repo_dir/index.yaml" ]; then
+                    echo "✅ Downloaded index for <$repo>!"
+                else
+                    echo "❌ Failed to download index for <$repo> from <$repo_url>"
+                    exit 1
+                fi
+            fi
+
             # At the time of writing this, only 1 url existed (.urls[0]) pointing to the actual tgz.
             # Extract url from repo_url. It's under .entries.DEP_NAME.urls. We filter the specific version first (.version)
-            dep_url=$(curl -s "$repo_url" | v="$version" n="$name" go-yq '.entries.[env(n)].[] | select (.version == env(v)) | .urls.[0]')
+            dep_url=$(v="$version" n="$name" go-yq '.entries.[env(n)].[] | select (.version == env(v)) | .urls.[0]' "$cache_path/$repo_dir/index.yaml")
 
             echo ""
             echo "⏬ Downloading dependency $name-$version from $dep_url..."
