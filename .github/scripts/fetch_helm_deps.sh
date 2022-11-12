@@ -71,7 +71,7 @@ for idx in $(eval echo "{0..$length}"); do
 
         mkdir -p "$charts_path/$chart_train/charts"
         echo "📝 Copying dependency <$name-$version.tgz> to <$charts_path/$chart_train/charts>..."
-        cp "$cache_path/$name-$version.tgz" "$chart_train/charts"
+        cp "$cache_path/$name-$version.tgz" "$charts_path/$chart_train/charts"
 
         if [ -f "$cache_path/$name-$version.tgz" ]; then
             echo "✅ Dependency copied!"
