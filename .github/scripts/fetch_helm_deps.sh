@@ -9,6 +9,9 @@ command -v go-yq >/dev/null 2>&1 || {
 # define defaults
 cache_path=${cache_path:-./tgz_cache}
 charts_path=${charts_path:-./charts}
+# Do NOT persist this directory, in order to always have the latest index for this run.
+index_cache=${index_cache:-./index_cache}
+rm -rf "$index_cache"
 
 mkdir -p "$cache_path"
 
@@ -52,20 +55,20 @@ for idx in $(eval echo "{0..$length}"); do
             echo "✅ Dependency exists in cache..."
         else
             echo "🤷‍♂️ Dependency does not exists in cache..."
-            repo_url="$repo/index.yaml"
 
-            if [ -f "$cache_path/$repo_dir/index.yaml" ]; then
+            repo_url="$repo/index.yaml"
+            if [ -f "$index_cache/$repo_dir/index.yaml" ]; then
                 echo "✅ Index for <$repo> exists!"
             else
                 echo "⏬ Index for <$repo> is missing. Downloading from <$repo_url>..."
-                wget --quiet "$repo_url" -P "$cache_path/$repo_dir"
+                wget --quiet "$repo_url" -P "$index_cache/$repo_dir"
 
                 if [ ! $? ]; then
                     echo "❌ wget encountered an error..."
                     exit 1
                 fi
 
-                if [ -f "$cache_path/$repo_dir/index.yaml" ]; then
+                if [ -f "$index_cache/$repo_dir/index.yaml" ]; then
                     echo "✅ Downloaded index for <$repo>!"
                 else
                     echo "❌ Failed to download index for <$repo> from <$repo_url>"
@@ -75,7 +78,7 @@ for idx in $(eval echo "{0..$length}"); do
 
             # At the time of writing this, only 1 url existed (.urls[0]) pointing to the actual tgz.
             # Extract url from repo_url. It's under .entries.DEP_NAME.urls. We filter the specific version first (.version)
-            dep_url=$(v="$version" n="$name" go-yq '.entries.[env(n)].[] | select (.version == env(v)) | .urls.[0]' "$cache_path/$repo_dir/index.yaml")
+            dep_url=$(v="$version" n="$name" go-yq '.entries.[env(n)].[] | select (.version == env(v)) | .urls.[0]' "$index_cache/$repo_dir/index.yaml")
 
             echo ""
             echo "⏬ Downloading dependency $name-$version from $dep_url..."
