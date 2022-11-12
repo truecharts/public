@@ -83,6 +83,7 @@ for idx in $(eval echo "{0..$length}"); do
         fi
     fi
 done
+echo "--------"
 }
 export -f download_deps
 
