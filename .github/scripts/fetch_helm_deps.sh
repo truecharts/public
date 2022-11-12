@@ -22,13 +22,16 @@ trains=(
 download_deps() {
 local train_chart="$1"
 
+# Extract dependencies for the Chart
 deps=$(go-yq '.dependencies' "$charts_path/$train_chart/Chart.yaml")
+# Find how many deps exist, so we can loop through them
 length=$(echo "$deps" | go-yq '. | length')
 
 echo "🔨 Processing <$charts_path/$train_chart>... Dependencies: $length"
 echo ""
 
 for idx in $(eval echo "{0..$length}"); do
+    # Retrieve info for the dep in the current index..
     curr_dep=$(echo "$deps" | pos="$idx" go-yq '.[env(pos)]')
 
     if [ ! "$curr_dep" == null ]; then
@@ -49,6 +52,8 @@ for idx in $(eval echo "{0..$length}"); do
 
             repo_url="$repo/index.yaml"
             echo "🤖 Calculating URL..."
+            # At the time of writing this, only 1 url existed (.urls[0]).
+            # Extract url from repo_url. It's under .entries.DEP_NAME.urls. We filter the specific version first (.version)
             dep_url=$(curl -s "$repo_url" | v="$version" n="$name" go-yq '.entries.[env(n)].[] | select (.version == env(v)) | .urls.[0]')
 
             echo ""
