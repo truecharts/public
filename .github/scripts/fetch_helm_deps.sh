@@ -51,7 +51,7 @@ for train in "${trains[@]}"; do
                     dep_url=$(curl -s "$repo_url" | v="$version" n="$name" go-yq '.entries.[env(n)].[] | select (.version == env(v)) | .urls.[0]')
 
                     echo ""
-                    echo "⬇️ Downloading dependency $name-$version from $dep_url..."
+                    echo "⏬ Downloading dependency $name-$version from $dep_url..."
                     wget --quiet "$dep_url" -P "$cache_path/"
                     if [ ! $? ]; then
                         echo "❌ wget encountered an error..."
@@ -69,7 +69,7 @@ for train in "${trains[@]}"; do
                 echo ""
 
                 mkdir -p "$charts_ath/$train/$chart/charts"
-                echo "Copying dependency <$name-$version.tgz> to <$charts_ath/$train/$chart/charts>..."
+                echo "📝 Copying dependency <$name-$version.tgz> to <$charts_ath/$train/$chart/charts>..."
                 cp "$cache_path/$name-$version.tgz" "$charts_ath/$train/$chart/charts"
 
                 if [ -f "$cache_path/$name-$version.tgz" ]; then
