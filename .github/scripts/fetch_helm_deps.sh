@@ -55,15 +55,15 @@ for train in "${trains[@]}"; do
                     wget --quiet "$dep_url" -P "$cache_path/"
                     if [ ! $? ]; then
                         echo "❌ wget encountered an error..."
-                        exit 1
+                        helm dependency build "$charts_ath/$train/$chart/Chart.yaml" || helm dependency update "$charts_ath/$train/$chart/Chart.yaml" || exit 1
                     fi
 
                     if [ -f "$cache_path/$name-$version.tgz" ]; then
                         echo "✅ Dependency Downloaded!"
                     else
                         echo "❌ Failed to download dependency"
-                        # Fail fast if a dep fails to download...
-                        exit 1
+                        # Try helm dependency build/update or otherwise fail fast if a dep fails to download...
+                        helm dependency build "$charts_ath/$train/$chart/Chart.yaml" || helm dependency update "$charts_ath/$train/$chart/Chart.yaml" || exit 1
                     fi
                 fi
                 echo ""
@@ -77,8 +77,8 @@ for train in "${trains[@]}"; do
                     echo ""
                 else
                     echo "❌ Failed to copy dependency"
-                    # Fail fast if a dep fails to copy...
-                    exit 1
+                    # Try helm dependency build/update or otherwise fail fast if a dep fails to copy...
+                    ehelm dependency build "$charts_ath/$train/$chart/Chart.yaml" || helm dependency update "$charts_ath/$train/$chart/Chart.yaml" || exit 1
                 fi
             fi
         done
