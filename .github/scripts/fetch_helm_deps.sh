@@ -3,7 +3,7 @@ cache_path="./tgz_cache"
 
 mkdir -p "$cache_path"
 
-charts_ath="./charts"
+charts_ath="../../charts"
 
 trains=(
     "enterprise"
@@ -45,7 +45,11 @@ for train in "${trains[@]}"; do
 
                     echo ""
                     echo "⬇️ Downloading dependency $name-$version from $dep_url..."
-                    wget --quiet "$dep_url" -P "$cache_path/" || exit 1
+                    wget --quiet "$dep_url" -P "$cache_path/"
+                    if [ ! $? ]; then
+                        echo "❌ wget encountered an error..."
+                        exit 1
+                    fi
 
                     if [ -f "$cache_path/$name-$version.tgz" ]; then
                         echo "✅ Dependency Downloaded!"
