@@ -1,4 +1,11 @@
 #!/bin/bash
+
+# require go-yq
+command -v go-yq >/dev/null 2>&1 || {
+    printf >&2 "%s\n" "❌ go-yq (https://github.com/mikefarah/yq) is not installed. Aborting."
+    exit 1
+}
+
 cache_path="./tgz_cache"
 
 mkdir -p "$cache_path"
