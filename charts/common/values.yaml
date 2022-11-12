@@ -1116,45 +1116,6 @@ addons:
               pathType: Prefix
       tls: []
 
-
-  # -- The common library supports adding a promtail add-on to to access logs and ship them to loki. It can be configured under this key.
-  # @default -- See values.yaml
-  promtail:
-    # -- Enable running a promtail container in the pod
-    enabled: false
-    # -- Set any environment variables for promtail here
-    env: {}
-    # -- All variables specified here will be added to the promtail sidecar container
-    # See the documentation of the promtail image for all config values
-    envList: []
-      # - name: someenv
-      #  value: somevalue
-    # -- Set promtail command line arguments
-    args: []
-    # -- The URL to Loki
-    loki: ""
-    # -- The paths to logs on the volume
-    logs: []
-    # - name: log
-    #   path: /config/logs/*.log
-
-    securityContext:
-      runAsUser: 0
-
-  # -- The common library supports adding a netshoot add-on to troubleshoot network issues within a Pod. It can be configured under this key.
-  # @default -- See values.yaml
-  netshoot:
-    # -- Enable running a netshoot container in the pod
-    enabled: false
-
-    # -- Set any environment variables for netshoot here
-    env: {}
-    # -- All variables specified here will be added to the netshoot sidecar container
-    # See the documentation of the netshoot image for all config values
-    envList: []
-      # - name: someenv
-      #  value: somevalue
-
 ##
 # This section contains some-preconfig for frequently used dependencies
 ##
