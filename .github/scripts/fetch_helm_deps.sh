@@ -78,7 +78,7 @@ for idx in $(eval echo "{0..$length}"); do
         echo "📝 Copying dependency <$name-$version.tgz> to <$charts_path/$train_chart/charts>..."
         cp "$cache_path/$name-$version.tgz" "$charts_path/$train_chart/charts"
 
-        if [ -f "$cache_path/$name-$version.tgz" ]; then
+        if [ -f "$charts_path/$train_chart/charts/$name-$version.tgz" ]; then
             echo "✅ Dependency copied!"
             echo ""
         else
