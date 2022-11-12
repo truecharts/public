@@ -94,4 +94,4 @@ if [ -z "$1" ]; then
   done
 else
   download_deps "$1"
-done
+fi
