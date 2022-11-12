@@ -29,7 +29,6 @@ volumeSpec:
       path: Corefile
 {{- end -}}
 
-
 {{- $_ := set .Values.persistence "tc-config" (include "blocky.configmap.mount" . | fromYaml) -}}
 
 {{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
@@ -73,8 +72,6 @@ service:
 {{/* inject api paths in ingress */}}
 {{- include "blocky.apiinjector" . }}
 
-
-
 {{/* Define path for DoH */}}
 {{- define "blocky.doh" -}}
 {{- $fullname := include "tc.common.names.fullname" . -}}
@@ -102,6 +99,7 @@ service:
 {{/* inject api paths in ingress */}}
 {{- include "blocky.dohinjector" . }}
 
+{{- include "blocky.servicemonitor" . -}}
 
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}
