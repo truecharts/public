@@ -33,6 +33,9 @@
 {{- with $serverIngressURLPort }}
   {{- $adv = append $adv . -}}
 {{- end }}
+{{- with .Values.plex.additionalAdvertiseURL }}
+  {{- $adv = append $adv . -}}
+{{- end }}
 
 {{- $_ := set .Values.env "ADVERTISE_IP" (join "," $adv) }}
 
