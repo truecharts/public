@@ -79,4 +79,17 @@ data:
       quality: {{ .Values.frigate.birdseye.quality | default 8 }}
       model: {{ .Values.frigate.birdseye.mode | default "objects" }}
     {{- end }}
+
+    {{- if .Values.frigate.ffmpeg.enabled }}
+    ffmpeg:
+      global_args: {{ .Values.frigate.ffmpeg.global_args | default "-hide_banner -loglevel warning" }}
+      input_args: {{ .Values.frigate.ffmpeg.input_args | default "-avoid_negative_ts make_zero -fflags +genpts+discardcorrupt -rtsp_transport tcp -timeout 5000000 -use_wallclock_as_timestamps 1" }}
+      {{- with .Values.frigate.ffmpeg.hwaccel_args }}
+      hwaccel_args: {{ join " " . }}
+      {{- end }}
+      output_args:
+        detect: {{ .Values.frigate.ffmpeg.output_args.detect | default "-f rawvideo -pix_fmt yuv420p" }}
+        record: {{ .Values.frigate.ffmpeg.output_args.detect | default "-f segment -segment_time 10 -segment_format mp4 -reset_timestamps 1 -strftime 1 -c copy -an" }}
+        rtmp: {{ .Values.frigate.ffmpeg.output_args.detect | default "-c copy -f flv" }}
+    {{- end }}
 {{- end }}

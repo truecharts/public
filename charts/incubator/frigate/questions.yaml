@@ -293,19 +293,21 @@ questions:
                             description: Motion
                           - value: continuous
                             description: Continuous
-        - variable: enable_ffmpeg
-          label: Enable ffmpeg Configuration
+
+        - variable: ffmpeg
+          label: ffmpeg
           schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: ffmpeg
-                label: ffmpeg
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enabled
+                description: Enable it to add the configuration in the config file
                 schema:
-                  additional_attrs: true
-                  type: dict
-                  attrs:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
                     - variable: global_args
                       label: Global Args
                       schema:
@@ -355,6 +357,13 @@ questions:
                               type: string
                               required: true
                               default: -c copy -f flv
+
+
+
+
+
+
+
         - variable: detect
           label: Detect
           schema:

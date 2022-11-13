@@ -14,6 +14,7 @@ podSecurityContext:
 global:
   isSCALE: true
 
+# -- In most cases the "enabled" key is only used internally to "render" or not the configuration
 frigate:
   mqtt:
     host: mqtt.server.com
@@ -83,22 +84,23 @@ frigate:
     # - continuous - all cameras are included always
     mode: objects
 
-  # -- Optional: ffmpeg configuration
   ffmpeg:
-    # -- Optional: global ffmpeg args (default: shown below)
+    # -- Enable it to add the configuration in the config file
+    enabled: true
+    # -- Optional: global ffmpeg args
     global_args: -hide_banner -loglevel warning
-    # -- Optional: global hwaccel args (default: shown below)
+    # -- Optional: global input args
+    input_args: -avoid_negative_ts make_zero -fflags +genpts+discardcorrupt -rtsp_transport tcp -timeout 5000000 -use_wallclock_as_timestamps 1
+    # -- Optional: global hwaccel args
     # - NOTE: See hardware acceleration docs for your specific device
     hwaccel_args: []
-    # -- Optional: global input args (default: shown below)
-    input_args: -avoid_negative_ts make_zero -fflags +genpts+discardcorrupt -rtsp_transport tcp -timeout 5000000 -use_wallclock_as_timestamps 1
     # -- Optional: global output args
     output_args:
-      # -- Optional: output args for detect streams (default: shown below)
+      # -- Optional: output args for detect streams
       detect: -f rawvideo -pix_fmt yuv420p
-      # -- Optional: output args for record streams (default: shown below)
+      # -- Optional: output args for record streams
       record: -f segment -segment_time 10 -segment_format mp4 -reset_timestamps 1 -strftime 1 -c copy -an
-      # -- Optional: output args for rtmp streams (default: shown below)
+      # -- Optional: output args for rtmp streams
       rtmp: -c copy -f flv
 
   # -- Optional: Detect configuration
