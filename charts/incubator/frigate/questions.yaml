@@ -699,35 +699,42 @@ questions:
                         additional_attrs: true
                         type: dict
                         attrs:
-                          - variable: days
-                            label: Days
-                            description: |
-                              Number of days to retain recordings regardless of events
-                              NOTE: This should be set to 0 and retention should be defined in events section below if you only want to retain recordings of events.
+                          - variable: render_config
+                            label: Render Retain Config
                             schema:
-                              type: int
-                              required: true
-                              default: 0
-                          - variable: mode
-                            label: Mode
-                            description: |
-                              Mode for retention.
-                              All - save all recording segments regardless of activity
-                              Motion - save all recordings segments with any detected motion
-                              Active Objects - save all recording segments with active/moving objects
-                              NOTE: This mode only applies when the days setting above is greater than 0
-                            schema:
-                              type: string
-                              show_if: [["days", "!=", 0]]
-                              required: true
-                              default: all
-                              enum:
-                                - value: all
-                                  description: All
-                                - value: motion
-                                  description: Motion
-                                - value: active_objects
-                                  description: Active Objects
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: days
+                                  label: Days
+                                  description: |
+                                    Number of days to retain recordings regardless of events
+                                    NOTE: This should be set to 0 and retention should be defined in events section below if you only want to retain recordings of events.
+                                  schema:
+                                    type: int
+                                    required: true
+                                    default: 0
+                                - variable: mode
+                                  label: Mode
+                                  description: |
+                                    Mode for retention.
+                                    All - save all recording segments regardless of activity
+                                    Motion - save all recordings segments with any detected motion
+                                    Active Objects - save all recording segments with active/moving objects
+                                    NOTE: This mode only applies when the days setting above is greater than 0
+                                  schema:
+                                    type: string
+                                    show_if: [["days", "!=", 0]]
+                                    required: true
+                                    default: all
+                                    enum:
+                                      - value: all
+                                        description: All
+                                      - value: motion
+                                        description: Motion
+                                      - value: active_objects
+                                        description: Active Objects
                     - variable: events
                       label: Events
                       description: Event recording settings
@@ -782,6 +789,144 @@ questions:
                               additional_attrs: true
                               type: dict
                               attrs:
+                                - variable: render_config
+                                  label: Render Retain Config
+                                  schema:
+                                    type: boolean
+                                    default: false
+                                    show_subquestions_if: true
+                                    subquestions:
+                                      - variable: default
+                                        label: Default
+                                        description: Default retention days
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 10
+                                      - variable: mode
+                                        label: Mode
+                                        description: |
+                                          Mode for retention.
+                                          All - save all recording segments for events regardless of activity
+                                          Motion - save all recordings segments for events with any detected motion
+                                          Active Objects - save all recording segments for event with active/moving objects
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: motion
+                                          enum:
+                                            - value: all
+                                              description: All
+                                            - value: motion
+                                              description: Motion
+                                            - value: active_objects
+                                              description: Active Objects
+                                      - variable: objects
+                                        label: Objects
+                                        description: Per object retention days
+                                        schema:
+                                          type: list
+                                          default: []
+                                          items:
+                                            - variable: objects_entry
+                                              label: Objects Entry
+                                              schema:
+                                                additional_attrs: true
+                                                type: dict
+                                                attrs:
+                                                  - variable: object
+                                                    label: Object
+                                                    description: For example Person
+                                                    schema:
+                                                      type: string
+                                                      required: true
+                                                      default: ""
+                                                  - variable: days
+                                                    label: Retention Days
+                                                    description: Retention days for the object
+                                                    schema:
+                                                      type: int
+                                                      required: true
+                                                      default: 15
+        - variable: snapshots
+          label: Snapshots
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: render_config
+                label: Render Configuration
+                description: Enable it to add the configuration in the config file
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: enabled
+                      label: Enabled
+                      description: |
+                        Optional: Enable writing jpg snapshot to /media/frigate/clips
+                        This value can be set via MQTT and will be updated in startup based on retained value
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: clean_copy
+                      label: Clean Copy
+                      description: Save a clean PNG copy of the snapshot image
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: timestamp
+                      label: Timestamp
+                      description: Print a timestamp on the snapshots
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: bounding_box
+                      label: Bounding Box
+                      description: Draw bounding box on the snapshots
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: crop
+                      label: Crop
+                      description: Crop the snapshot
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: height
+                      label: Height
+                      description: Height to resize the snapshot to
+                      schema:
+                        type: int
+                        "null": true
+                    - variable: required_zones
+                      label: Required Zones
+                      description: Restrict recordings to objects that entered any of the listed zones
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: zone_entry
+                            label: Zone Entry
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                    - variable: retain
+                      label: Retain
+                      description: Retention settings for recordings of events
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: render_config
+                            label: Render Retain Config
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
                                 - variable: default
                                   label: Default
                                   description: Default retention days
@@ -789,24 +934,6 @@ questions:
                                     type: int
                                     required: true
                                     default: 10
-                                - variable: mode
-                                  label: Mode
-                                  description: |
-                                    Mode for retention.
-                                    All - save all recording segments for events regardless of activity
-                                    Motion - save all recordings segments for events with any detected motion
-                                    Active Objects - save all recording segments for event with active/moving objects
-                                  schema:
-                                    type: string
-                                    required: true
-                                    default: motion
-                                    enum:
-                                      - value: all
-                                        description: All
-                                      - value: motion
-                                        description: Motion
-                                      - value: active_objects
-                                        description: Active Objects
                                 - variable: objects
                                   label: Objects
                                   description: Per object retention days
@@ -834,6 +961,59 @@ questions:
                                                 type: int
                                                 required: true
                                                 default: 15
+        - variable: rtmp
+          label: RTMP
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: render_config
+                label: Render Configuration
+                description: Enable it to add the configuration in the config file
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: enabled
+                      label: Enabled
+                      description: Enable the RTMP stream
+                      schema:
+                        type: boolean
+                        default: true
+        - variable: live
+          label: Live
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: render_config
+                label: Render Configuration
+                description: Enable it to add the configuration in the config file
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: height
+                      label: Height
+                      description: |
+                        Set the height of the live stream.
+                        This must be less than or equal to the height of the detect stream. Lower resolutions
+                        reduce bandwidth required for viewing the live stream. Width is computed to match known aspect ratio.
+                      schema:
+                        type: int
+                        default: 720
+                    - variable: quality
+                      label: Quality
+                      description: |
+                        Set the encode quality of the live stream
+                        1 is the highest quality, and 31 is the lowest. Lower quality feeds utilize less CPU resources.
+                      schema:
+                        type: int
+                        min: 1
+                        max: 31
+                        default: 8
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

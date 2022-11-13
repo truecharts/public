@@ -15,6 +15,8 @@ global:
   isSCALE: true
 
 # -- In most cases the "enabled" key is only used internally to "render" or not the configuration
+# - Some parts of the config bellow are slightly modified so they can be added on SCALE UI. Mainly lists.
+# - Do not blindly copy paste configuration from upstream.
 frigate:
   mqtt:
     host: mqtt.server.com
@@ -227,6 +229,8 @@ frigate:
     expire_interval: 60
     # -- Optional: Retention settings for recording
     retain:
+      # -- Render retain config
+      render_config: false
       # -- Optional: Number of days to retain recordings regardless of events
       # - NOTE: This should be set to 0 and retention should be defined in events section below
       # - if you only want to retain recordings of events.
@@ -250,6 +254,8 @@ frigate:
       required_zones: []
       # -- Optional: Retention settings for recordings of events
       retain:
+        # -- Render retain config
+        render_config: false
         # -- Required: Default retention days
         default: 10
         # -- Optional: Mode for retention.
@@ -262,44 +268,44 @@ frigate:
           - object: person
             days: 15
 
-
-  # -- Optional: Configuration for the jpg snapshots written to the clips directory for each event
-  # - NOTE: Can be overridden at the camera level
   snapshots:
-    # -- Optional: Enable writing jpg snapshot to /media/frigate/clips (default: shown below)
+    # -- Enable it to add the configuration in the config file
+    render_config: true
+    # -- Optional: Enable writing jpg snapshot to /media/frigate/clips
     # - This value can be set via MQTT and will be updated in startup based on retained value
-    enabled: False
-    # -- Optional: save a clean PNG copy of the snapshot image (default: shown below)
-    clean_copy: True
-    # -- Optional: print a timestamp on the snapshots (default: shown below)
-    timestamp: False
-    # -- Optional: draw bounding box on the snapshots (default: shown below)
-    bounding_box: False
-    # -- Optional: crop the snapshot (default: shown below)
-    crop: False
+    enabled: false
+    # -- Optional: Save a clean PNG copy of the snapshot image
+    clean_copy: true
+    # -- Optional: print a timestamp on the snapshots
+    timestamp: false
+    # -- Optional: draw bounding box on the snapshots
+    bounding_box: false
+    # -- Optional: crop the snapshot
+    crop: false
     # -- Optional: height to resize the snapshot to (default: original size)
-    height: 175
+    height:
     # -- Optional: Restrict snapshots to objects that entered any of the listed zones (default: no required zones)
     required_zones: []
     # -- Optional: Camera override for retention settings (default: global values)
     retain:
+      # -- Render retain config
+      render_config: false
       # -- Required: Default retention days (default: shown below)
       default: 10
       # -- Optional: Per object retention days
       objects:
-        person: 15
+        - object: person
+          days: 15
 
-
-  # -- Optional: RTMP configuration
-  # - NOTE: Can be overridden at the camera level
   rtmp:
-    # - Optional: Enable the RTMP stream (default: True)
+    # -- Enable it to add the configuration in the config file
+    render_config: true
+    # - Optional: Enable the RTMP stream
     enabled: True
 
-
-  # -- Optional: Live stream configuration for WebUI
-  # - NOTE: Can be overridden at the camera level
   live:
+    # -- Enable it to add the configuration in the config file
+    render_config: true
     # -- Optional: Set the height of the live stream. (default: 720)
     # - This must be less than or equal to the height of the detect stream. Lower resolutions
     # - reduce bandwidth required for viewing the live stream. Width is computed to match known aspect ratio.

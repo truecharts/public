@@ -12,7 +12,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  config.yml: |
+  config.yml:
     database:
       path: /db/frigate.db
     mqtt:
@@ -179,9 +179,11 @@ data:
     record:
       enable: {{ ternary "True" "False" .Values.frigate.record.enabled }}
       expire_interval: {{ .Values.frigate.record.expire_interval | default 60 }}
+      {{- if .Values.frigate.record.retain.render_config }}
       retain:
         days: {{ .Values.frigate.record.retain.days | default 0 }}
         mode: {{ .Values.frigate.record.retain.mode | default "all" }}
+      {{- end }}
       events:
         pre_capture: {{ .Values.frigate.record.events.pre_capture | default 5 }}
         post_capture: {{ .Values.frigate.record.events.post_capture | default 5 }}
@@ -197,6 +199,7 @@ data:
           - {{ . }}
           {{- end }}
         {{- end }}
+        {{- if .Values.frigate.record.events.retain.render_config }}
         retain:
           default: {{ .Values.frigate.record.events.retain.default | default 10 }}
           mode: {{ .Values.frigate.record.events.retain.mode | default "motion" }}
@@ -206,6 +209,41 @@ data:
             {{ .object }}: {{ .days }}
           {{- end }}
           {{- end }}
+        {{- end }}
     {{- end }}
 
+    {{- if .Values.frigate.snapshots.render_config }}
+    snapshots:
+      enabled: {{ ternary "True" "False" .Values.frigate.snapshots.enabled }}
+      clean_copy: {{ ternary "True" "False" .Values.frigate.snapshots.clean_copy }}
+      timestamp: {{ ternary "True" "False" .Values.frigate.snapshots.timestamp }}
+      bounding_box: {{ ternary "True" "False" .Values.frigate.snapshots.bounding_box }}
+      crop: {{ ternary "True" "False" .Values.frigate.snapshots.crop }}
+      {{- with .Values.frigate.snapshots.height }}
+      height: {{ . }}
+      {{- end }}
+      {{- with .Values.frigate.snapshots.required_zones }}
+      required_zones:
+        {{- range . }}
+        - {{ . }}
+        {{- end }}
+      {{- end }}
+      {{- if .Values.frigate.snapshots.retain.render_config }}
+      retain:
+        default: {{ .Values.frigate.snapshots.retain.default | default 10 }}
+        {{- with .Values.frigate.snapshots.retain.objects }}
+        objects:
+        {{- range . }}
+          {{ .object }}: {{ .days }}
+        {{- end }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
+
+    {{- if .Values.frigate.rtmp.render_config }}
+    rtmp:
+      enabled: {{ ternary "True" "False" .Values.frigate.rtmp.enabled }}
+      height: {{ .Values.frigate.live.height | default 720 }}
+      quality: {{ .Values.frigate.live.height | default 8 }}
+    {{- end }}
 {{- end }}
