@@ -1,11 +1,9 @@
 frigate:
   mqtt:
-    host: mqtt.server.com
+    host: localhost
     port: 1883
     topic_prefix: frigate
     client_id: frigate
-    user: mqtt_user
-    password: password
     stats_interval: 60
 
   detectors:
