@@ -12,19 +12,12 @@ podSecurityContext:
   runAsGroup: 0
 
 gsm:
-  POSTGRES_SSL_MODE: disable
-  DB_PASS:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  DB_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  DB_PORT: "5432"
-  # postgres://USER:PASS@HOST:PORT/DB_NAME
-  DATABASE_URL: "postgres://{{ .Values.postgresql.postgresqlUsername }}:{{ .Values.gsm.DB_PASS }}@{{ .Values.gsm.DB_HOST }}:{{ .Values.gsm.DB_PORT }}/{{ .Values.postgresql.postgresqlDatabase }}"
-  # APP_TOKEN: "DISCORD_BOT_TOKEN"
+  # POSTGRES_SSL_MODE: disable
+  app_token: "DISCORD_BOT_TOKEN"
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-gsm-secret'
 
 service:
   main:
