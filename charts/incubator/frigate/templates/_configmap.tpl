@@ -42,4 +42,26 @@ data:
     {{- end }}
     {{- end }}
 
+    {{- if .Values.frigate.model.enabled }}
+    model:
+      {{- with .Values.frigate.model.path }}
+      path: {{ . }}
+      {{- end }}
+      {{- with .Values.frigate.model.labelmap_path }}
+      path: {{ . }}
+      {{- end }}
+      width: {{ .Values.frigate.model.width | default 320 }}
+      height: {{ .Values.frigate.model.height | default 320 }}
+      {{- with .Values.frigate.model.labelmap }}
+      labelmap:
+        {{- range . }}
+        {{- if (kindIs "string" .model) }}
+        {{ .model | trimAll "\"" }}: {{ .name }}
+        {{- else }}
+        {{ .model }}: {{ .name }}
+        {{- end }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
+
 {{- end }}

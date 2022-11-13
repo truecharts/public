@@ -1,0 +1,15 @@
+frigate:
+  mqtt:
+    host: mqtt.server.com
+    port: 1883
+    topic_prefix: frigate
+    client_id: frigate
+    user: mqtt_user
+    password: password
+    stats_interval: 60
+  detectors:
+    enabled: true
+    config:
+      - name: cpu
+        type: cpu
+        num_threads: 3

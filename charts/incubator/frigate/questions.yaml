@@ -115,7 +115,60 @@ questions:
                             type: int
                             show_if: [["type", "=", "cpu"]]
                             default: 3
-
+        - variable: model
+          label: Model
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enabled
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: path
+                      label: Path
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: labelmap_path
+                      label: Label Map Path
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: width
+                      label: Width
+                      schema:
+                        type: int
+                        default: 320
+                    - variable: height
+                      label: Height
+                      schema:
+                        type: int
+                        default: 320
+                    - variable: labelmap
+                      label: LabelMap Configuration
+                      type: list
+                      default: []
+                      items:
+                        - variable: labelmap_entry
+                          label: LabelMap Entry
+                          schema:
+                            additional_attrs: true
+                            type: dict
+                            attrs:
+                              - variable: model
+                                label: Model
+                                schema:
+                                  type: string
+                                  default: ""
+                              - variable: name
+                                label: Name
+                                schema:
+                                  type: string
+                                  default: ""
 
 
 
