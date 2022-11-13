@@ -351,6 +351,4 @@ data:
         {{- end }} {{/* end with ui */}}
     {{- end }} {{/* end range cameras */}}
 
-
-
 {{- end }}

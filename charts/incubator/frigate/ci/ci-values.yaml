@@ -7,12 +7,14 @@ frigate:
     user: mqtt_user
     password: password
     stats_interval: 60
+
   detectors:
     enabled: true
     config:
       - name: cpu
         type: cpu
         num_threads: 3
+
   cameras:
     - camera_name: ci
       ffmpeg:
