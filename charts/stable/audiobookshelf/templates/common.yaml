@@ -3,6 +3,10 @@
 
 {{/* Render secrets for audiobookshelf */}}
 {{- include "audiobookshelf.secrets" . }}
-
+{{- if .Values.ingress.main.enabled }}
+  {{- if .Values.disableMiddlewares }}
+    {{- $_ := set .Values.ingress.main "enableFixedMiddlewares" false }}
+  {{- end }}
+{{- end }}
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}
