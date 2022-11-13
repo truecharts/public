@@ -8,7 +8,9 @@ Ingress for this chart is **required**
 
 In both Native Helm and TrueNAS Scale, keys that start with `_` are **unset**.
 
-## TrueNAS Scale
+## Configuration
+
+### TrueNAS Scale
 
 In order to be able to expose some options in the GUI,
 but also give users the option to users to **unset** those values,
@@ -79,6 +81,33 @@ Please use the exact casing as in the [MeshCentral's json schema](https://github
 
 :::
 
-## Native Helm
+### Native Helm
 
 Native Helm users won't be affected with the above.
+
+## Hardcoded values
+
+We hardcoded some values, so the chart/app can work correctly based on how it's written.
+Those values are:
+
+```json
+{
+  "$schema": "http://info.meshcentral.com/downloads/meshcentral-config-schema.json",
+  "settings": {
+    "mongoDB": "actual-generated-mongodb-url",
+    "mongoDbName": "actual-mongodb-name",
+    "sessionKey": "32char-long-random-generated-key",
+    "port": "to-the-same-port-as-your-main-service",
+    "selfUpdate": false,
+    "cleanNpmCacheOnUpdate": false
+  },
+  "domains": {
+    // This applies to ALL domains
+    "": {
+      "myServer": {
+        "Upgrade": false
+      }
+    }
+  }
+}
+```
