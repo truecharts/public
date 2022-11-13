@@ -14,6 +14,13 @@ podSecurityContext:
 gsm:
   app_token: "DISCORD_BOT_TOKEN"
   whitelist_guilds: []
+  app_activity_type: 3
+  app_activity_name: ""
+  app_presence_advertise: false
+  task_query_server: 60
+  command_query_public: false
+  command_query_cooldown: 5
+  web_api_enable: false
 
 envFrom:
   - secretRef:
