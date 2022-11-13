@@ -95,12 +95,14 @@ questions:
                       description: Object detection model input width
                       schema:
                         type: int
+                        required: true
                         default: 320
                     - variable: height
                       label: Height
                       description: Object detection model input height
                       schema:
                         type: int
+                        required: true
                         default: 320
         - variable: enable_logger
           label: Enable Logger Configuration
@@ -120,6 +122,7 @@ questions:
                       description: Default log verbosity
                       schema:
                         type: string
+                        required: true
                         default: info
                     # - variable: logs
                     #   label: logs
@@ -145,12 +148,14 @@ questions:
                 description: Width of the output resolution
                 schema:
                   type: int
+                  required: true
                   default: 1280
               - variable: height
                 label: Height
                 description: Height of the output resolution
                 schema:
                   type: int
+                  required: true
                   default: 720
               - variable: quality
                 label: Quality
@@ -159,6 +164,7 @@ questions:
                   type: int
                   min: 1
                   max: 31
+                  required: true
                   default: 8
               - variable: mode
                 label: Mode
@@ -169,6 +175,7 @@ questions:
                   continuous - All cameras are included always
                 schema:
                   type: string
+                  required: true
                   default: objects
                   enum:
                     - value: objects
@@ -177,6 +184,68 @@ questions:
                       description: motion
                     - value: continuous
                       description: continuous
+        - variable: enable_ffmpeg
+          label: Enable ffmpeg Configuration
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: ffmpeg
+                label: ffmpeg
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: global_args
+                      label: Global Args
+                      schema:
+                        type: string
+                        required: true
+                        default: -hide_banner -loglevel warning
+                    - variable: input_args
+                      label: Input Args
+                      schema:
+                        type: string
+                        required: true
+                        default: -avoid_negative_ts make_zero -fflags +genpts+discardcorrupt -rtsp_transport tcp -timeout 5000000 -use_wallclock_as_timestamps 1
+                    - variable: hwaccel_args
+                      label: HW Acceleration Args
+                      description: See hardware acceleration docs for your specific device
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: hw_accel_arg
+                            label: HW Acceleration Arg
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                    - variable: output_args
+                      label: Output Args
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: detect
+                            label: Detect
+                            schema:
+                              type: string
+                              required: true
+                              default: -f rawvideo -pix_fmt yuv420p
+                          - variable: record
+                            label: Record
+                            schema:
+                              type: string
+                              required: true
+                              default: -f segment -segment_time 10 -segment_format mp4 -reset_timestamps 1 -strftime 1 -c copy -an
+                          - variable: rtmp
+                            label: RTMP
+                            schema:
+                              type: string
+                              required: true
+                              default: -c copy -f flv
 
   - variable: additional_frigate
     group: App Configuration

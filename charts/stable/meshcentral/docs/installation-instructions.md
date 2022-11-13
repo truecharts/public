@@ -99,7 +99,7 @@ Those values are:
     "sessionKey": "32char-long-random-generated-key",
     "port": "to-the-same-port-as-your-main-service",
     "selfUpdate": false,
-    "cleanNpmCacheOnUpdate": false,
+    "cleanNpmCacheOnUpdate": false
   },
   "domains": {
     // This applies to ALL domains

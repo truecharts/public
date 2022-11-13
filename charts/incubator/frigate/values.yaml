@@ -71,6 +71,7 @@ frigate:
     logs:
     # TODO: Needs to be able to add additional keys
       frigate.event: debug
+
   # -- Optional: birdseye configuration
   # - NOTE: Can (enabled, mode) be overridden at the camera level
   birdseye:
@@ -88,6 +89,7 @@ frigate:
     # - motion - cameras are included if motion was detected in the last 30 seconds
     # - continuous - all cameras are included always
     mode: objects
+
   # -- Optional: ffmpeg configuration
   ffmpeg:
     # -- Optional: global ffmpeg args (default: shown below)
