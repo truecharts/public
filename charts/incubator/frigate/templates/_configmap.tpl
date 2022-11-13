@@ -55,13 +55,19 @@ data:
       {{- with .Values.frigate.model.labelmap }}
       labelmap:
         {{- range . }}
-        {{- if (kindIs "string" .model) }}
-        {{ .model | trimAll "\"" }}: {{ .name }}
-        {{- else }}
         {{ .model }}: {{ .name }}
-        {{- end }}
         {{- end }}
       {{- end }}
     {{- end }}
 
+    {{- if .Values.frigate.logger.enabled }}
+    logger:
+      default: {{ .Values.frigate.logger.default | default "info" }}
+      {{- with .Values.frigate.logger.logs }}
+      logs:
+        {{- range . }}
+        {{ .component }}: {{ .verbosity }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
 {{- end }}

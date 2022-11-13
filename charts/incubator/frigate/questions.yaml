@@ -73,6 +73,7 @@ questions:
             attrs:
               - variable: enabled
                 label: Enabled
+                description: Enable it to add the configuration in the config file
                 schema:
                   type: boolean
                   default: false
@@ -123,6 +124,7 @@ questions:
             attrs:
               - variable: enabled
                 label: Enabled
+                description: Enable it to add the configuration in the config file
                 schema:
                   type: boolean
                   default: false
@@ -169,76 +171,76 @@ questions:
                                 schema:
                                   type: string
                                   default: ""
-
-
-
-
-        - variable: enable_models
-          label: Enable Model Configuration
+        - variable: logger
+          label: Logger
           schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: model
-                label: Model
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enabled
+                description: Enable it to add the configuration in the config file
                 schema:
-                  additional_attrs: true
-                  type: dict
-                  attrs:
-                    - variable: path
-                      label: Path
-                      description: Path to the model
-                      schema:
-                        type: string
-                        default: ""
-                    - variable: labelmap_path
-                      label: Label Map Path
-                      description: Path to the labelmap
-                      schema:
-                        type: string
-                        default: ""
-                    - variable: width
-                      label: Width
-                      description: Object detection model input width
-                      schema:
-                        type: int
-                        required: true
-                        default: 320
-                    - variable: height
-                      label: Height
-                      description: Object detection model input height
-                      schema:
-                        type: int
-                        required: true
-                        default: 320
-        - variable: enable_logger
-          label: Enable Logger Configuration
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: logger
-                label: Logger
-                schema:
-                  additional_attrs: true
-                  type: dict
-                  attrs:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
                     - variable: default
-                      label: default
-                      description: Default log verbosity
+                      label: Default Log Verbosity
                       schema:
                         type: string
                         required: true
                         default: info
-                    # - variable: logs
-                    #   label: logs
-                    #   description: Component specific logger overrides
-                    #   schema:
-                    #     additional_attrs:
-                    #     type: dict
-                    #     attrs:
+                        enum:
+                          - value: info
+                            description: Info
+                          - value: debug
+                            description: Debug
+                          - value: warning
+                            description: Warning
+                          - value: error
+                            description: Error
+                          - value: critical
+                            description: Critical
+                    - variable: logs
+                      label: Component Specific Logs
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: component_entry
+                            label: Component Specific Log Entry
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: component
+                                  label: Component
+                                  description: Find out the available components here https://docs.frigate.video/configuration/advanced/#logger
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: ""
+                                - variable: verbosity
+                                  label: Default Log Verbosity
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: info
+                                    enum:
+                                      - value: info
+                                        description: Info
+                                      - value: debug
+                                        description: Debug
+                                      - value: warning
+                                        description: Warning
+                                      - value: error
+                                        description: Error
+                                      - value: critical
+                                        description: Critical
+
+
+
         - variable: birdseye
           label: Birds Eye
           schema:

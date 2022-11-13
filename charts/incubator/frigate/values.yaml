@@ -27,6 +27,7 @@ frigate:
     stats_interval: 60
 
   detectors:
+    # Enable it to add the configuration in the config file
     enabled: true
     config:
       # -- Required: Name of the detector
@@ -39,7 +40,8 @@ frigate:
       #   num_threads: 3
 
   model:
-    enabled: true
+    # Enable it to add the configuration in the config file
+    enabled: false
     # -- Optional: Path to the model
     path: /edgetpu_model.tflite
     # -- Optional: Path to the labelmap
@@ -55,14 +57,15 @@ frigate:
       - model: 3
         name: vehicle
 
-  # -- Optional: logger verbosity settings
   logger:
+    # Enable it to add the configuration in the config file
+    enabled: true
     # -- Optional: Default log verbosity (default: shown below)
     default: info
     # -- Optional: Component specific logger overrides
     logs:
-    # TODO: Needs to be able to add additional keys
-      frigate.event: debug
+      - component: frigate.event
+        verbosity: debug
 
   # -- Optional: birdseye configuration
   # - NOTE: Can (enabled, mode) be overridden at the camera level
