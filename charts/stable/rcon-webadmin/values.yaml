@@ -63,7 +63,7 @@ service:
         targetPort: 4327
 
 persistence:
-  config:
+  db:
     enabled: true
     mountPath: /opt/rcon-web-admin/db
 
