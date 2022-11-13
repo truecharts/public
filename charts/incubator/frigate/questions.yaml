@@ -455,7 +455,6 @@ questions:
                                           type: int
                                           "null": true
                                           required: true
-                                          default: null
                                       - variable: objects
                                         label: Objects
                                         schema:
@@ -479,7 +478,6 @@ questions:
                                                     schema:
                                                       type: int
                                                       required: true
-                                                      default: null
         - variable: objects
           label: Objects
           schema:
@@ -548,35 +546,30 @@ questions:
                                   schema:
                                     type: int
                                     "null": true
-                                    default: null
                                 - variable: max_area
                                   label: Max Area
                                   description: Maximum width*height of the bounding box for the detected object
                                   schema:
                                     type: int
                                     "null": true
-                                    default: null
                                 - variable: min_ratio
                                   label: Min Ratio
                                   description: Minimum width/height of the bounding box for the detected object
                                   schema:
                                     type: int
                                     "null": true
-                                    default: null
                                 - variable: min_score
                                   label: Min Score
                                   description: Minimum score for the object to initiate tracking
                                   schema:
                                     type: int
                                     "null": true
-                                    default: null
                                 - variable: threshold
                                   label: Threshold
                                   description: Minimum decimal percentage for tracked object's computed score to be considered a true positive
                                   schema:
                                     type: int
                                     "null": true
-                                    default: null
                                 - variable: mask
                                   label: Mask
                                   description: |
