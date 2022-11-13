@@ -70,4 +70,13 @@ data:
         {{- end }}
       {{- end }}
     {{- end }}
+
+    {{- if .Values.frigate.birdseye.enabled }}
+    birdseye:
+      enabled: true
+      width: {{ .Values.frigate.birdseye.width | default 1280 }}
+      height: {{ .Values.frigate.birdseye.height | default 720 }}
+      quality: {{ .Values.frigate.birdseye.quality | default 8 }}
+      model: {{ .Values.frigate.birdseye.mode | default "objects" }}
+    {{- end }}
 {{- end }}

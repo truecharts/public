@@ -18,18 +18,18 @@ frigate:
   mqtt:
     host: mqtt.server.com
     port: 1883
-    # - NOTE: Must be unique if you are running multiple instances
+    # -- NOTE: Must be unique if you are running multiple instances
     topic_prefix: frigate
-    # - NOTE: Must be unique if you are running multiple instances
+    # -- NOTE: Must be unique if you are running multiple instances
     client_id: frigate
     user: mqtt_user
     password: password
     stats_interval: 60
 
   detectors:
-    # Enable it to add the configuration in the config file
+    # -- Enable it to add the configuration in the config file
     enabled: true
-    config:
+    config: []
       # -- Required: Name of the detector
       # - name: coral
       #   # -- Valid values are 'edgetpu' (requires device property below) and 'cpu'.
@@ -40,7 +40,7 @@ frigate:
       #   num_threads: 3
 
   model:
-    # Enable it to add the configuration in the config file
+    # -- Enable it to add the configuration in the config file
     enabled: false
     # -- Optional: Path to the model
     path: /edgetpu_model.tflite
@@ -50,15 +50,15 @@ frigate:
     width: 320
     # -- Required: Object detection model input height
     height: 320
-    # Optional: Label name modifications. These are merged into the standard labelmap.
-    labelmap:
-      - model: "2"
-        name: vehicle
-      - model: 3
-        name: vehicle
+    # -- Optional: Label name modifications.
+    labelmap: []
+      # - model: "2"
+      #   name: vehicle
+      # - model: 3
+      #   name: vehicle
 
   logger:
-    # Enable it to add the configuration in the config file
+    # -- Enable it to add the configuration in the config file
     enabled: true
     # -- Optional: Default log verbosity (default: shown below)
     default: info
@@ -67,16 +67,14 @@ frigate:
       - component: frigate.event
         verbosity: debug
 
-  # -- Optional: birdseye configuration
-  # - NOTE: Can (enabled, mode) be overridden at the camera level
   birdseye:
-    # -- Optional: Enable birdseye view (default: shown below)
+    # -- Enable it to add the configuration in the config file
     enabled: true
-    # -- Optional: Width of the output resolution (default: shown below)
+    # -- Optional: Width of the output resolution
     width: 1280
-    # -- Optional: Height of the output resolution (default: shown below)
+    # -- Optional: Height of the output resolution
     height: 720
-    # -- Optional: Encoding quality of the mpeg1 feed (default: shown below)
+    # -- Optional: Encoding quality of the mpeg1 feed
     # - 1 is the highest quality, and 31 is the lowest. Lower quality feeds utilize less CPU resources.
     quality: 8
     # -- Optional: Mode of the view. Available options are: objects, motion, and continuous

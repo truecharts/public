@@ -238,9 +238,6 @@ questions:
                                         description: Error
                                       - value: critical
                                         description: Critical
-
-
-
         - variable: birdseye
           label: Birds Eye
           schema:
@@ -249,51 +246,53 @@ questions:
             attrs:
               - variable: enabled
                 label: Enabled
-                description: Enable birdseye view
+                description: Enable it to add the configuration in the config file
                 schema:
                   type: boolean
                   default: true
-              - variable: width
-                label: Width
-                description: Width of the output resolution
-                schema:
-                  type: int
-                  required: true
-                  default: 1280
-              - variable: height
-                label: Height
-                description: Height of the output resolution
-                schema:
-                  type: int
-                  required: true
-                  default: 720
-              - variable: quality
-                label: Quality
-                description: Encoding quality of the mpeg1 feed. Where 1 is the highest quality, and 31 is the lowest. Lower quality feeds utilize less CPU resources.
-                schema:
-                  type: int
-                  min: 1
-                  max: 31
-                  required: true
-                  default: 8
-              - variable: mode
-                label: Mode
-                description: |
-                  Mode of the view.
-                  objects - Cameras are included if they have had a tracked object within the last 30 seconds
-                  motion - Cameras are included if motion was detected in the last 30 seconds
-                  continuous - All cameras are included always
-                schema:
-                  type: string
-                  required: true
-                  default: objects
-                  enum:
-                    - value: objects
-                      description: objects
-                    - value: motion
-                      description: motion
-                    - value: continuous
-                      description: continuous
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: width
+                      label: Width
+                      description: Width of the output resolution
+                      schema:
+                        type: int
+                        required: true
+                        default: 1280
+                    - variable: height
+                      label: Height
+                      description: Height of the output resolution
+                      schema:
+                        type: int
+                        required: true
+                        default: 720
+                    - variable: quality
+                      label: Quality
+                      description: Encoding quality of the mpeg1 feed. Where 1 is the highest quality, and 31 is the lowest. Lower quality feeds utilize less CPU resources.
+                      schema:
+                        type: int
+                        min: 1
+                        max: 31
+                        required: true
+                        default: 8
+                    - variable: mode
+                      label: Mode
+                      description: |
+                        Mode of the view.
+                        Objects - Cameras are included if they have had a tracked object within the last 30 seconds.
+                        Motion - Cameras are included if motion was detected in the last 30 seconds.
+                        Continuous - All cameras are included always.
+                      schema:
+                        type: string
+                        required: true
+                        default: objects
+                        enum:
+                          - value: objects
+                            description: Objects
+                          - value: motion
+                            description: Motion
+                          - value: continuous
+                            description: Continuous
         - variable: enable_ffmpeg
           label: Enable ffmpeg Configuration
           schema:
