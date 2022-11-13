@@ -342,6 +342,7 @@ data:
           {{- end }}
         {{- end }} {{/* end with mqtt */}}
         {{- end }} {{/* end if mqtt.render_config */}}
+        {{- if .ui.render_config }}
         {{- with .ui }}
         ui:
           {{- if or .order (eq (int .order) 0) }}
@@ -349,6 +350,7 @@ data:
           {{- end }}
           dashboard: {{ ternary "True" "False" .dashboard }}
         {{- end }} {{/* end with ui */}}
+        {{- end }} {{/* end if ui.render_config */}}
     {{- end }} {{/* end range cameras */}}
 
 {{- end }}
