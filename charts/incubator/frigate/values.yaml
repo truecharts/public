@@ -172,14 +172,13 @@ frigate:
       #     # - Checks based on the bottom center of the bounding box of the object
       #     mask: 0,0,1000,0,1000,200,0,200
 
-  # -- Optional: Motion configuration
-  # - NOTE: Can be overridden at the camera level
   motion:
-    # -- Optional: The threshold passed to cv2.threshold to determine if a pixel is different enough to be counted as motion. (default: shown below)
+    render_config: false
+    # -- Optional: The threshold passed to cv2.threshold to determine if a pixel is different enough to be counted as motion.
     # - Increasing this value will make motion detection less sensitive and decreasing it will make motion detection more sensitive.
     # - The value should be between 1 and 255.
     threshold: 25
-    # -- Optional: Minimum size in pixels in the resized motion image that counts as motion (default: 30)
+    # -- Optional: Minimum size in pixels in the resized motion image that counts as motion
     # - Increasing this value will prevent smaller areas of motion from being detected. Decreasing will
     # - make motion detection more sensitive to smaller moving objects.
     # - As a rule of thumb:
@@ -187,11 +186,11 @@ frigate:
     # - 30 - medium sensitivity
     # - 50 - low sensitivity
     contour_area: 30
-    # -- Optional: Alpha value passed to cv2.accumulateWeighted when averaging the motion delta across multiple frames (default: shown below)
+    # -- Optional: Alpha value passed to cv2.accumulateWeighted when averaging the motion delta across multiple frames
     # - Higher values mean the current frame impacts the delta a lot, and a single raindrop may register as motion.
     # - Too low and a fast moving person wont be detected as motion.
     delta_alpha: 0.2
-    # -- Optional: Alpha value passed to cv2.accumulateWeighted when averaging frames to determine the background (default: shown below)
+    # -- Optional: Alpha value passed to cv2.accumulateWeighted when averaging frames to determine the background
     # - Higher values mean the current frame impacts the average a lot, and a new object will be averaged into the background faster.
     # - Low values will cause things like moving shadows to be detected as motion for longer.
     # - https://www.geeksforgeeks.org/background-subtraction-in-an-image-using-concept-of-running-average/
@@ -203,12 +202,14 @@ frigate:
     # -- Optional: motion mask
     # - NOTE: see docs for more detailed info on creating masks
     mask: 0,900,1080,900,1080,1920,0,1920
-    # -- Optional: improve contrast (default: shown below)
+    # -- Optional: improve contrast
     # - Enables dynamic contrast improvement. This should help improve night detections at the cost of making motion detection more sensitive
     # - for daytime.
     improve_contrast: False
-    # -- Optional: Delay when updating camera motion through MQTT from ON -> OFF (default: shown below).
+    # -- Optional: Delay when updating camera motion through MQTT from ON -> OFF
     mqtt_off_delay: 30
+
+
   # -- Optional: Record configuration
   # - NOTE: Can be overridden at the camera level
   record:
@@ -262,6 +263,8 @@ frigate:
         # -- Optional: Per object retention days
         objects:
           person: 15
+
+
   # -- Optional: Configuration for the jpg snapshots written to the clips directory for each event
   # - NOTE: Can be overridden at the camera level
   snapshots:
@@ -287,11 +290,15 @@ frigate:
       # -- Optional: Per object retention days
       objects:
         person: 15
+
+
   # -- Optional: RTMP configuration
   # - NOTE: Can be overridden at the camera level
   rtmp:
     # - Optional: Enable the RTMP stream (default: True)
     enabled: True
+
+
   # -- Optional: Live stream configuration for WebUI
   # - NOTE: Can be overridden at the camera level
   live:
@@ -302,6 +309,8 @@ frigate:
     # -- Optional: Set the encode quality of the live stream (default: shown below)
     # - 1 is the highest quality, and 31 is the lowest. Lower quality feeds utilize less CPU resources.
     quality: 8
+
+
   # -- Optional: in-feed timestamp style configuration
   # - NOTE: Can be overridden at the camera level
   timestamp_style:
@@ -325,6 +334,8 @@ frigate:
     # - "solid" (solid background in inverse color of font)
     # - "shadow" (shadow for font)
     effect: None
+
+
   # -- Required
   cameras:
     # -- Required: name of the camera

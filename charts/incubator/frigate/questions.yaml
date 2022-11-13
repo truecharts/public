@@ -495,7 +495,7 @@ questions:
                   show_subquestions_if: true
                   subquestions:
                     - variable: track
-                      label: Traci
+                      label: Track
                       description: Objects to track from labelmap.txt
                       schema:
                         type: list
@@ -585,6 +585,89 @@ questions:
                                   schema:
                                     type: string
                                     default: ""
+        - variable: motion
+          label: Motion
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: render_config
+                label: Render Configuration
+                description: Enable it to add the configuration in the config file
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: threshold
+                      label: Threshold
+                      description: |
+                        The threshold passed to cv2.threshold to determine if a pixel is different enough to be counted as motion.
+                        Increasing this value will make motion detection less sensitive and decreasing it will make motion detection more sensitive.
+                      schema:
+                        type: int
+                        min: 1
+                        max: 255
+                        default: 25
+                    - variable: contour_area
+                      label: Contour Area
+                      description: |
+                        Minimum size in pixels in the resized motion image that counts as motion
+                        Increasing this value will prevent smaller areas of motion from being detected. Decreasing will
+                        make motion detection more sensitive to smaller moving objects.
+                        As a rule of thumb:
+                        15 - high sensitivity
+                        30 - medium sensitivity
+                        50 - low sensitivity
+                      schema:
+                        type: int
+                        default: 30
+                    - variable: delta_alpha
+                      label: Delta Alpha
+                      description: |
+                        Alpha value passed to cv2.accumulateWeighted when averaging the motion delta across multiple frames
+                        Higher values mean the current frame impacts the delta a lot, and a single raindrop may register as motion.
+                        Too low and a fast moving person wont be detected as motion.
+                      schema:
+                        type: int
+                        default: 0.2
+                    - variable: frame_alpha
+                      label: Frame Alpha
+                      description: |
+                        Alpha value passed to cv2.accumulateWeighted when averaging frames to determine the background
+                        Higher values mean the current frame impacts the average a lot, and a new object will be averaged into the background faster.
+                        Low values will cause things like moving shadows to be detected as motion for longer.
+                        https://www.geeksforgeeks.org/background-subtraction-in-an-image-using-concept-of-running-average
+                      schema:
+                        type: int
+                        default: 0.2
+                    - variable: frame_height
+                      label: Frame Height
+                      description: |
+                        Height of the resized motion frame
+                        This operates as an efficient blur alternative. Higher values will result in more granular motion detection at the expense
+                        of higher CPU usage. Lower values result in less CPU, but small changes may not register as motion.
+                      schema:
+                        type: int
+                        default: 50
+                    - variable: mask
+                      label: Mask
+                      description: See docs for more detailed info on creating masks
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: mask
+                      label: Mask
+                      description: Improve contrast. Enables dynamic contrast improvement. This should help improve night detections at the cost of making motion detection more sensitive for daytime.
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: mqtt_off_delay
+                      label: MQTT Off Delay
+                      description: Delay when updating camera motion through MQTT from ON -> OFF
+                      schema:
+                        type: int
+                        default: 30
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

@@ -160,4 +160,19 @@ data:
         {{- end }}
       {{- end }}
     {{- end }}
+
+    {{- if .Values.frigate.motion.render_config }}
+    motion:
+      threshold: {{ .Values.frigate.motion.threshold | default 25 }}
+      contour_area: {{ .Values.frigate.motion.contour_area | default 30 }}
+      delta_alpha: {{ .Values.frigate.motion.delta_alpha | default 0.2 }}
+      frame_alpha: {{ .Values.frigate.motion.frame_alpha | default 0.2 }}
+      frame_height: {{ .Values.frigate.motion.frame_height | default 50 }}
+      {{- with .Values.frigate.motion.mask }}
+      mask: {{ . }}
+      {{- end }}
+      improve_contrast: {{ ternary "True" "False" .Values.frigate.motion.improve_contrast }}
+      mqtt_off_delay: {{ .Values.frigate.motion.mqtt_off_delay | default 30 }}
+    {{- end }}
+
 {{- end }}
