@@ -402,12 +402,6 @@ frigate:
         # -- Optional: Whether or not to show the camera in the Frigate UI (default: shown below)
         dashboard: True
 
-additional_frigate:
-  - key: ffmpeg.hwaccel
-    value: '["arg1","arg2"]'
-  - key: somekey.lol.ok1
-    value: value1
-
 ingress:
   rtmp:
     autoLink: true
