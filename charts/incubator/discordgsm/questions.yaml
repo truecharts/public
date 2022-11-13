@@ -21,13 +21,14 @@ questions:
           description: Discord Bot Token.
           schema:
             type: string
-            default:
+            default: ""
             required: true
         - variable: whitelist_guilds
           label: Whitelist Guilds
           description: Discord Guild ID
           schema:
             type: list
+            required: true
             default: []
             items:
               - variable: whitelist_guild_entry
