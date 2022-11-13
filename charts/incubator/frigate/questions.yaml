@@ -65,6 +65,61 @@ questions:
                   type: string
                   private: true
                   default: ""
+        - variable: detectors
+          label: Detectors
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enabled
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: config
+                      label: Detectors Configuration
+                      type: list
+                      default: []
+                      items:
+                        - variable: name
+                          label: Name
+                          description: Name of the detector
+                          schema:
+                            type: string
+                            required: true
+                            default: ""
+                        - variable: type
+                          label: Type
+                          description: Name of the detector
+                          schema:
+                            type: string
+                            required: true
+                            default: cpu
+                            enum:
+                              - value: cpu
+                                description: CPU
+                              - value: edgetpu
+                                description: Edge TPU
+                        - variable: device
+                          label: Device
+                          description: Device name as defined here - https://coral.ai/docs/edgetpu/multiple-edgetpu/#using-the-tensorflow-lite-python-api
+                          schema:
+                            type: string
+                            default: ""
+                        - variable: num_threads
+                          label: Number of Threads
+                          description: This value is only used for CPU types
+                          schema:
+                            type: int
+                            show_if: [["type", "=", "cpu"]]
+                            default: 3
+
+
+
+
+
         - variable: enable_models
           label: Enable Model Configuration
           schema:

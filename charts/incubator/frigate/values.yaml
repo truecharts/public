@@ -14,40 +14,29 @@ podSecurityContext:
 global:
   isSCALE: true
 
-# -- Values with the character _ in-front of them are pruned. Add or remove _ to disable or enable options
-# - Additionally, On TrueNAS Scale, we also prune: empty strings, empty lists, "-99" int's
 frigate:
   mqtt:
-    # -- Required: host name
     host: mqtt.server.com
-    # -- Optional: port (default: shown below)
     port: 1883
-    # -- Optional: topic prefix (default: shown below)
     # - NOTE: Must be unique if you are running multiple instances
     topic_prefix: frigate
-    # -- Optional: client id (default: shown below)
     # - NOTE: Must be unique if you are running multiple instances
     client_id: frigate
-    # -- Optional: user
     user: mqtt_user
-    # -- Optional: password
-    # - NOTE: MQTT password can be specified with an environment variables that must begin with 'FRIGATE_'.
     password: password
-    # -- Optional: Interval in seconds for publishing stats (default: shown below)
     stats_interval: 60
 
-  # TODO: Needs to be able to add additional keys-- Optional: Detectors configuration. Defaults to a single CPU detector
   detectors:
-    # -- Required: name of the detector
-    coral:
-      # -- Required: type of the detector
-      # - Valid values are 'edgetpu' (requires device property below) and 'cpu'.
-      type: edgetpu
-      # -- Optional: device name as defined here: https://coral.ai/docs/edgetpu/multiple-edgetpu/#using-the-tensorflow-lite-python-api
-      device: usb
-      # - Optional: num_threads value passed to the tflite.Interpreter (default: shown below)
-      # - This value is only used for CPU types
-      num_threads: 3
+    enabled: true
+    config:
+      # -- Required: Name of the detector
+      # - name: coral
+      #   # -- Valid values are 'edgetpu' (requires device property below) and 'cpu'.
+      #   type: edgetpu
+      #   # -- Device name as defined here: https://coral.ai/docs/edgetpu/multiple-edgetpu/#using-the-tensorflow-lite-python-api
+      #   device: usb
+      #   # -- This value is only used for CPU types
+      #   num_threads: 3
 
   # -- Optional: model modifications
   model:
