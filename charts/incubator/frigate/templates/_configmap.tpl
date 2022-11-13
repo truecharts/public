@@ -175,4 +175,37 @@ data:
       mqtt_off_delay: {{ .Values.frigate.motion.mqtt_off_delay | default 30 }}
     {{- end }}
 
+    {{- if .Values.frigate.record.render_config }}
+    record:
+      enable: {{ ternary "True" "False" .Values.frigate.record.enabled }}
+      expire_interval: {{ .Values.frigate.record.expire_interval | default 60 }}
+      retain:
+        days: {{ .Values.frigate.record.retain.days | default 0 }}
+        mode: {{ .Values.frigate.record.retain.mode | default "all" }}
+      events:
+        pre_capture: {{ .Values.frigate.record.events.pre_capture | default 5 }}
+        post_capture: {{ .Values.frigate.record.events.post_capture | default 5 }}
+        {{- with .Values.frigate.record.events.objects }}
+        objects:
+          {{- range . }}
+          - {{ . }}
+          {{- end }}
+        {{- end }}
+        {{- with .Values.frigate.record.events.required_zones }}
+        required_zones:
+          {{- range . }}
+          - {{ . }}
+          {{- end }}
+        {{- end }}
+        retain:
+          default: {{ .Values.frigate.record.events.retain.default | default 10 }}
+          mode: {{ .Values.frigate.record.events.retain.mode | default "motion" }}
+          {{- with .Values.frigate.record.events.retain.objects }}
+          objects:
+          {{- range . }}
+            {{ .object }}: {{ .days }}
+          {{- end }}
+          {{- end }}
+    {{- end }}
+
 {{- end }}
