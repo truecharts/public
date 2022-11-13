@@ -9,15 +9,11 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-# Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}
-# Include{strategy}
-# Include{recreate}
-# Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: secretEnv
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Image Secrets"
     schema:
       additional_attrs: true
@@ -32,7 +28,7 @@ questions:
             private: true
             required: true
   - variable: env
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Image Environment"
     schema:
       additional_attrs: true
@@ -146,13 +142,6 @@ questions:
                               type: int
                               default: 5380
                               required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 5380
         - variable: dns-udp
           label: "DNS-UDP Service"
           description: "DNS-UDP Service"
@@ -175,13 +164,6 @@ questions:
                               type: int
                               default: 53
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 53
         - variable: dns-tcp
           label: "DNS-TCP Service"
           description: "DNS-TCP Service"
@@ -204,13 +186,6 @@ questions:
                               type: int
                               default: 53
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 53
         - variable: dns-tls
           label: "DNS-TLS Service"
           description: "DNS-TLS Service"
@@ -233,13 +208,6 @@ questions:
                               type: int
                               default: 853
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 853
         - variable: dns-cert
           label: "DNS-over-HTTPS Certbot Service"
           description: "DNS-over-HTTPS Certbot Service"
@@ -262,13 +230,6 @@ questions:
                               type: int
                               default: 10202
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 80
         - variable: dns-https
           label: "DNS-over-HTTPS Service"
           description: "DNS-over-HTTPS Service"
@@ -291,13 +252,6 @@ questions:
                               type: int
                               default: 10203
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 443
         - variable: dns-https-proxy
           label: "DNS-over-HTTPS Reverse Proxy Service"
           description: "DNS-over-HTTPS Reverse Proxy Service"
@@ -320,13 +274,6 @@ questions:
                               type: int
                               default: 10204
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8053
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -340,7 +287,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -352,7 +298,7 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
+# Include{ingressList}
         - variable: dns-https-proxy
           label: "DNS-over-HTTPS Reverse Proxy"
           schema:
@@ -362,7 +308,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
@@ -386,7 +331,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-# Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -411,7 +355,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{promtail}
-# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

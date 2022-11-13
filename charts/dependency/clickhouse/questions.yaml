@@ -2,12 +2,8 @@
 questions:
 # Include{global}
 # Include{controller}
-# Include{controllerStatefullset}
 # Include{replicas}
 # Include{replica1}
-# Include{strategy}
-# Include{recreate}
-# Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
   - variable: clickhouseDatabase
@@ -67,13 +63,6 @@ questions:
                               type: int
                               default: 8123
                               required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8123
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -90,7 +79,6 @@ questions:
             hidden: true
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: config-server
           label: Server Configuration Storage
           description: Files with Server Settings Adjustments
@@ -99,7 +87,6 @@ questions:
             hidden: true
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: config-users
           label: Users Configuration Storage
           description: Files with Users Settings Adjustments
@@ -108,9 +95,7 @@ questions:
             hidden: true
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
-# Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -133,7 +118,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-# Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -158,7 +142,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{promtail}
-# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

@@ -5,15 +5,11 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-# Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}
-# Include{strategy}
-# Include{recreate}
-# Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: env
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Image Environment"
     schema:
       additional_attrs: true
@@ -55,13 +51,6 @@ questions:
                               type: int
                               default: 4711
                               required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 4711
         - variable: porttcp
           label: 'porttcp service'
           description: "Client to client transfers"
@@ -84,13 +73,6 @@ questions:
                               type: int
                               default: 4662
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 4662
         - variable: portudp
           label: 'portudp service'
           description: "Extended aMule protocol, Queue Rating, File Reask Ping"
@@ -113,13 +95,6 @@ questions:
                               type: int
                               default: 4672
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 4672
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -133,7 +108,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: storageincomplete
           label: "storageincomplete Storage"
           description: "This is the location for incomplete downloads."
@@ -142,7 +116,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: storageconfig
           label: "storageconfig Storage"
           description: "This is the location for the internal data."
@@ -151,7 +124,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -163,7 +135,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
@@ -187,7 +158,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-# Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -212,7 +182,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{promtail}
-# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

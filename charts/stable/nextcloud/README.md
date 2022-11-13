@@ -23,10 +23,10 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | collabora-online | 12.1.69 |
-| https://charts.truecharts.org/ | postgresql | 8.0.118 |
-| https://charts.truecharts.org | redis | 3.0.116 |
-| https://library-charts.truecharts.org | common | 10.8.0 |
+| https://charts.truecharts.org/ | collabora-online | 12.1.73 |
+| https://charts.truecharts.org/ | postgresql | 8.0.122 |
+| https://charts.truecharts.org | redis | 3.0.121 |
+| https://library-charts.truecharts.org | common | 10.9.4 |
 
 ## Installing the Chart
 

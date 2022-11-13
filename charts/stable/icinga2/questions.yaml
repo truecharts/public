@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-# Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}
-# Include{strategy}
-# Include{recreate}
-# Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
 # Include{serviceRoot}
@@ -36,13 +32,6 @@ questions:
                               type: int
                               default: 10114
                               required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 80
         - variable: https
           label: "https Service"
           description: "The https service"
@@ -65,13 +54,6 @@ questions:
                               type: int
                               default: 10115
                               required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 443
         - variable: api
           label: "api Service"
           description: "The api service"
@@ -94,13 +76,6 @@ questions:
                               type: int
                               default: 10116
                               required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 5665
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -114,7 +89,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: data
           label: "App data Storage"
           description: "Stores the Application data."
@@ -123,7 +97,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: web
           label: "App web Storage"
           description: "Stores the Application web data."
@@ -132,7 +105,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: ssmtp
           label: "App ssmtp Storage"
           description: "Stores the Application ssmtp Configuration."
@@ -141,7 +113,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -153,7 +124,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
@@ -177,7 +147,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-# Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -202,7 +171,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{promtail}
-# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

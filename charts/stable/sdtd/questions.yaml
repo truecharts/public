@@ -5,15 +5,11 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-# Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}
-# Include{strategy}
-# Include{recreate}
-# Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: secretEnv
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Image Secrets"
     schema:
       additional_attrs: true
@@ -33,7 +29,7 @@ questions:
             private: true
             default: ""
   - variable: env
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Image Environment"
     schema:
       additional_attrs: true
@@ -113,13 +109,6 @@ questions:
                               type: int
                               default: 26900
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 26900
         - variable: steammasterser
           label: 'steammasterser service'
           description: "Container Port 26900"
@@ -142,13 +131,6 @@ questions:
                               type: int
                               default: 26900
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 26900
         - variable: steamcommunica
           label: 'steamcommunica service'
           description: "Container Port 26901"
@@ -171,13 +153,6 @@ questions:
                               type: int
                               default: 26901
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 26901
         - variable: raknet
           label: 'raknet service'
           description: "Container Port 26902"
@@ -200,13 +175,6 @@ questions:
                               type: int
                               default: 26902
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 26902
         - variable: unet
           label: 'unet service'
           description: "Container Port "
@@ -229,13 +197,6 @@ questions:
                               type: int
                               default: 26903
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 26903
         - variable: webbasecontrol
           label: 'webbasecontrol service'
           description: "Container Port 8080"
@@ -258,13 +219,6 @@ questions:
                               type: int
                               default: 8080
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8080
         - variable: webpanel
           label: 'webpanel service'
           description: "Container Port 8082"
@@ -287,13 +241,6 @@ questions:
                               type: int
                               default: 8082
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8082
         - variable: registeringats
           label: 'registeringats service'
           description: "Should be in the range 27015 - 27030, dont forget to set also a different Container Port if you change this value."
@@ -316,13 +263,6 @@ questions:
                               type: int
                               default: 27015
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 27015
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -336,7 +276,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: serverfiles
           label: "serverfiles Storage"
           description: "Container Path serverdataserverfiles"
@@ -345,7 +284,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -357,7 +295,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
@@ -381,7 +318,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-# Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -406,7 +342,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{promtail}
-# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

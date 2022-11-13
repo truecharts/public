@@ -11,12 +11,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-# Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}
-# Include{strategy}
-# Include{recreate}
-# Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
   - variable: ingressClass
@@ -209,13 +205,6 @@ questions:
                         additional_attrs: true
                         type: dict
                         attrs:
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9000
                           - variable: port
                             label: "Entrypoints Port"
                             schema:
@@ -243,12 +232,13 @@ questions:
                               type: int
                               default: 9080
                               required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
+                          - variable: advanced
+                            label: Show Advanced Settings
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
                                 - variable: redirectPort
                                   label: "Redirect to Port"
                                   schema:
@@ -272,12 +262,13 @@ questions:
                               type: int
                               default: 9443
                               required: true
-# Include{advancedPortHTTPS}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
+                          - variable: advanced
+                            label: Show Advanced Settings
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
                                 - variable: redirectPort
                                   label: "Redirect to Port"
                                   schema:
@@ -372,7 +363,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
@@ -396,7 +386,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-# Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -421,7 +410,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{promtail}
-# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

@@ -27,6 +27,12 @@ probes:
   startup:
     enabled: false
 
+configmap:
+  config:
+    enabled: true
+    data:
+      placeholderdata: "something"
+
 ipAddressPools: []
 #   - name: example
 #     autoAssign: true

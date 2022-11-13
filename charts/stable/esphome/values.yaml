@@ -22,9 +22,8 @@ service:
         targetPort: 6052
 
 env:
-  {}
-  # ESPHOME_DASHBOARD_USE_PING: true
-  # ESPHOME_DASHBOARD_RELATIVE_URL: "/"
+  ESPHOME_DASHBOARD_USE_PING: false
+  ESPHOME_DASHBOARD_RELATIVE_URL: /
   # ESPHOME_QUICKWIZARD:
   # ESPHOME_IS_HASSIO:
   # DISABLE_HA_AUTHENTICATION:
@@ -34,10 +33,10 @@ env:
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
   platformio:
     enabled: true
-    mountPath: "/.platformio"
+    mountPath: /.platformio
 
 portal:
   enabled: true

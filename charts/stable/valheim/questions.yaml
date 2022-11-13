@@ -5,15 +5,11 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-# Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}
-# Include{strategy}
-# Include{recreate}
-# Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: secretEnv
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Image Secrets"
     schema:
       additional_attrs: true
@@ -40,7 +36,7 @@ questions:
             private: true
             default: "REPLACETHIS"
   - variable: env
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Image Environment"
     schema:
       additional_attrs: true
@@ -126,13 +122,6 @@ questions:
                               type: int
                               default: 9010
                               required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9010
         - variable: supervisor
           label: "supervisor Service"
           description: "The supervisor service"
@@ -155,13 +144,6 @@ questions:
                               type: int
                               default: 9011
                               required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9011
         - variable: valheim
           label: "valheim Service"
           description: "The valheim Game service"
@@ -184,13 +166,6 @@ questions:
                               type: int
                               default: 2456
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 2456
                     - variable: valheim2
                       label: "valheim-2 Service Port Configuration"
                       schema:
@@ -204,13 +179,6 @@ questions:
                               type: int
                               default: 2457
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 2457
                     - variable: valheim3
                       label: "valheim-3 Service Port Configuration"
                       schema:
@@ -224,13 +192,6 @@ questions:
                               type: int
                               default: 2458
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 2458
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -244,7 +205,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: backups
           label: "App backups Storage"
           description: "Stores the Application backups."
@@ -253,7 +213,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -265,7 +224,7 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
+# Include{ingressList}
         - variable: supervisor
           label: "supervisor Ingress"
           schema:
@@ -275,7 +234,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
@@ -299,7 +257,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-# Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -324,7 +281,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{promtail}
-# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

@@ -1,12 +1,12 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: 25.0.1@sha256:8c2568db638cf6af85ecc4d6112e35227c7106c9abe8283b25614b36949c231c
+  tag: 25.0.1@sha256:1247be4cd25cc96d6c2cb25b2df399808858b0a6307c31b1143d1055b0cf028a
 
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: 1.23.2@sha256:36765afbe9febebd9fe10e0f13f37e52d27abaef4d88c87c31a22f12c8bcc651
+  tag: 1.23.2@sha256:bccb50c802843309ef33ea7b67dc06186c87773728fd037c4ef4ce70e4edae28
 
 imaginaryImage:
   repository: h2non/imaginary

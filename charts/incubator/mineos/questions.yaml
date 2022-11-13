@@ -5,16 +5,12 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-# Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}
-# Include{strategy}
-# Include{recreate}
-# Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
   - variable: secretEnv
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Image Secrets"
     schema:
       additional_attrs: true
@@ -36,7 +32,7 @@ questions:
             required: true
             default: ""
   - variable: env
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Image Environment"
     schema:
       additional_attrs: true
@@ -71,13 +67,6 @@ questions:
                               type: int
                               default: 10278
                               required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 10278
         - variable: minecraft-java-tcp
           label: "Minecraft Java Service"
           description: "Minecraft Java Service"
@@ -100,13 +89,6 @@ questions:
                               type: int
                               default: 25565
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25565
                     - variable: mc-port-2-tcp
                       label: "MC Port 2 TCP"
                       schema:
@@ -120,13 +102,6 @@ questions:
                               type: int
                               default: 25566
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25566
                     - variable: mc-port-3-tcp
                       label: "MC Port 3 TCP"
                       schema:
@@ -140,13 +115,6 @@ questions:
                               type: int
                               default: 25567
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25567
                     - variable: mc-port-4-tcp
                       label: "MC Port 4 TCP"
                       schema:
@@ -160,13 +128,6 @@ questions:
                               type: int
                               default: 25568
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25568
                     - variable: mc-port-5-tcp
                       label: "MC Port 5 TCP"
                       schema:
@@ -180,13 +141,6 @@ questions:
                               type: int
                               default: 25569
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25569
                     - variable: mc-port-6-tcp
                       label: "MC Port 6 TCP"
                       schema:
@@ -200,14 +154,6 @@ questions:
                               type: int
                               default: 25570
                               required: true
-# Include{advancedPortTCP}
-                                    max: 65535
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25570
         - variable: minecraft-java-udp
           label: "Minecraft Java Service"
           description: "Minecraft Java Service"
@@ -230,13 +176,6 @@ questions:
                               type: int
                               default: 25565
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25565
                     - variable: mc-port-2-udp
                       label: "MC Port 2 UDP"
                       schema:
@@ -250,13 +189,6 @@ questions:
                               type: int
                               default: 25566
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25566
                     - variable: mc-port-3-udp
                       label: "MC Port 3 UDP"
                       schema:
@@ -270,13 +202,6 @@ questions:
                               type: int
                               default: 25567
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25567
                     - variable: mc-port-4-udp
                       label: "MC Port 4 UDP"
                       schema:
@@ -290,13 +215,6 @@ questions:
                               type: int
                               default: 25568
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25568
                     - variable: mc-port-5-udp
                       label: "MC Port 5 UDP"
                       schema:
@@ -310,13 +228,6 @@ questions:
                               type: int
                               default: 25569
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25569
                     - variable: mc-port-6-udp
                       label: "MC Port 6 UDP"
                       schema:
@@ -330,14 +241,6 @@ questions:
                               type: int
                               default: 25570
                               required: true
-# Include{advancedPortUDP}
-                                    max: 65535
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25570
         - variable: minecraft-br
           label: "Minecraft Bedrock Service"
           description: "Minecraft Bedrock Service"
@@ -360,13 +263,6 @@ questions:
                               type: int
                               default: 19132
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 19132
                     - variable: br-port-2-udp
                       label: "MC Port 2 UDP"
                       schema:
@@ -380,13 +276,6 @@ questions:
                               type: int
                               default: 19133
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 19133
                     - variable: br-port-3-udp
                       label: "MC Port 3 UDP"
                       schema:
@@ -400,14 +289,6 @@ questions:
                               type: int
                               default: 19134
                               required: true
-# Include{advancedPortUDP}
-                                    max: 65535
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 19134
                     - variable: br-port-4-udp
                       label: "MC Port 4 UDP"
                       schema:
@@ -421,13 +302,6 @@ questions:
                               type: int
                               default: 19135
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 19135
                     - variable: br-port-5-udp
                       label: "MC Port 5 UDP"
                       schema:
@@ -441,13 +315,6 @@ questions:
                               type: int
                               default: 19136
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 19136
                     - variable: br-port-6-udp
                       label: "MC Port 6 UDP"
                       schema:
@@ -461,13 +328,6 @@ questions:
                               type: int
                               default: 19137
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 19137
         - variable: minecraft-rcon
           label: "Minecraft RCON Service"
           description: "Minecraft RCON Service"
@@ -490,14 +350,6 @@ questions:
                               type: int
                               default: 25575
                               required: true
-# Include{advancedPortTCP}
-                                    max: 65535
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25575
                     - variable: mc-rcon-2
                       label: "MC Port 2 RCON"
                       schema:
@@ -511,14 +363,6 @@ questions:
                               type: int
                               default: 25576
                               required: true
-# Include{advancedPortTCP}
-                                    max: 65535
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25576
                     - variable: mc-rcon-3
                       label: "MC Port 3 RCON"
                       schema:
@@ -532,13 +376,6 @@ questions:
                               type: int
                               default: 25577
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25577
                     - variable: mc-rcon-4
                       label: "MC Port 4 RCON"
                       schema:
@@ -552,13 +389,6 @@ questions:
                               type: int
                               default: 25578
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25578
                     - variable: mc-rcon-5
                       label: "MC Port 1 RCON"
                       schema:
@@ -572,13 +402,6 @@ questions:
                               type: int
                               default: 25579
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25579
                     - variable: mc-rcon-6
                       label: "MC Port 6 RCON"
                       schema:
@@ -592,14 +415,6 @@ questions:
                               type: int
                               default: 25580
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25580
-
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -613,7 +428,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -625,7 +439,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
@@ -649,7 +462,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-# Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -674,7 +486,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{promtail}
-# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

@@ -3,12 +3,8 @@ questions:
   # Portal
 # Include{global}
 # Include{controller}
-# Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}
-# Include{strategy}
-# Include{recreate}
-# Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
 # Include{serviceRoot}
@@ -34,13 +30,6 @@ questions:
                               type: int
                               default: 10011
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 10011
         - variable: voice
           label: "Voice Service"
           description: "The voice service of teamspeak3"
@@ -63,13 +52,6 @@ questions:
                               type: int
                               default: 9987
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9987
         - variable: files
           label: "Server File Transport Service"
           description: "The file transport service of teamspeak3"
@@ -92,13 +74,6 @@ questions:
                               type: int
                               default: 30033
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 30033
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -112,9 +87,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
-# Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
@@ -137,7 +110,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-# Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -162,7 +134,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{promtail}
-# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

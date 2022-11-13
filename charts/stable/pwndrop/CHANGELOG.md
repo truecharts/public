@@ -2,7 +2,110 @@
 
 
 
-## [pwndrop-2.0.40](https://github.com/truecharts/charts/compare/pwndrop-2.0.39...pwndrop-2.0.40) (2022-11-06)
+## [pydio-cells-5.0.0](https://github.com/truecharts/charts/compare/pydio-cells-4.0.48...pydio-cells-5.0.0) (2022-11-10)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Major Change to GUI
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4349](https://github.com/truecharts/charts/issues/4349))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+  ### Fix
+
+- change container config label
+
+
+
+
+## [pydio-cells-4.0.51](https://github.com/truecharts/charts/compare/pydio-cells-4.0.48...pydio-cells-4.0.51) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4349](https://github.com/truecharts/charts/issues/4349))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [pydio-cells-4.0.50](https://github.com/truecharts/charts/compare/pydio-cells-4.0.48...pydio-cells-4.0.50) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [pydio-cells-4.0.50](https://github.com/truecharts/charts/compare/pydio-cells-4.0.48...pydio-cells-4.0.50) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [pydio-cells-4.0.50](https://github.com/truecharts/charts/compare/pydio-cells-4.0.48...pydio-cells-4.0.50) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [pydio-cells-4.0.49](https://github.com/truecharts/charts/compare/pydio-cells-4.0.48...pydio-cells-4.0.49) (2022-11-07)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [pydio-cells-4.0.49](https://github.com/truecharts/charts/compare/pydio-cells-4.0.48...pydio-cells-4.0.49) (2022-11-06)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [pydio-cells-4.0.48](https://github.com/truecharts/charts/compare/pydio-cells-4.0.47...pydio-cells-4.0.48) (2022-11-06)
 
 ### Chore
 
@@ -12,7 +115,7 @@
 
 
 
-## [pwndrop-2.0.39](https://github.com/truecharts/charts/compare/pwndrop-2.0.38...pwndrop-2.0.39) (2022-11-05)
+## [pydio-cells-4.0.47](https://github.com/truecharts/charts/compare/pydio-cells-4.0.46...pydio-cells-4.0.47) (2022-11-05)
 
 ### Chore
 
@@ -22,7 +125,7 @@
 
 
 
-## [pwndrop-2.0.38](https://github.com/truecharts/charts/compare/pwndrop-2.0.37...pwndrop-2.0.38) (2022-11-02)
+## [pydio-cells-4.0.46](https://github.com/truecharts/charts/compare/pydio-cells-4.0.45...pydio-cells-4.0.46) (2022-11-02)
 
 ### Chore
 
@@ -32,7 +135,7 @@
 
 
 
-## [pwndrop-2.0.37](https://github.com/truecharts/charts/compare/pwndrop-2.0.36...pwndrop-2.0.37) (2022-10-25)
+## [pydio-cells-4.0.45](https://github.com/truecharts/charts/compare/pydio-cells-4.0.44...pydio-cells-4.0.45) (2022-10-25)
 
 ### Chore
 
@@ -42,7 +145,7 @@
 
 
 
-## [pwndrop-2.0.36](https://github.com/truecharts/charts/compare/pwndrop-2.0.35...pwndrop-2.0.36) (2022-10-19)
+## [pydio-cells-4.0.44](https://github.com/truecharts/charts/compare/pydio-cells-4.0.43...pydio-cells-4.0.44) (2022-10-19)
 
 ### Chore
 
@@ -52,7 +155,7 @@
 
 
 
-## [pwndrop-2.0.35](https://github.com/truecharts/charts/compare/pwndrop-2.0.34...pwndrop-2.0.35) (2022-10-12)
+## [pydio-cells-4.0.43](https://github.com/truecharts/charts/compare/pydio-cells-4.0.42...pydio-cells-4.0.43) (2022-10-12)
 
 ### Chore
 
@@ -62,7 +165,7 @@
 
 
 
-## [pwndrop-2.0.34](https://github.com/truecharts/charts/compare/pwndrop-2.0.33...pwndrop-2.0.34) (2022-10-07)
+## [pydio-cells-4.0.42](https://github.com/truecharts/charts/compare/pydio-cells-4.0.41...pydio-cells-4.0.42) (2022-10-07)
 
 ### Chore
 
@@ -73,7 +176,7 @@
 
 
 
-## [pwndrop-2.0.34](https://github.com/truecharts/charts/compare/pwndrop-2.0.33...pwndrop-2.0.34) (2022-10-07)
+## [pydio-cells-4.0.42](https://github.com/truecharts/charts/compare/pydio-cells-4.0.41...pydio-cells-4.0.42) (2022-10-07)
 
 ### Chore
 
@@ -83,18 +186,17 @@
 
 
 
-## [pwndrop-2.0.33](https://github.com/truecharts/charts/compare/pwndrop-2.0.32...pwndrop-2.0.33) (2022-10-05)
+## [pydio-cells-4.0.41](https://github.com/truecharts/charts/compare/pydio-cells-4.0.40...pydio-cells-4.0.41) (2022-10-05)
 
 ### Chore
 
-- Auto-update chart README [skip ci]
-  - split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
+- split addons in smaller templates ([#3979](https://github.com/truecharts/charts/issues/3979))
   - update helm general non-major
 
 
 
 
-## [pwndrop-2.0.32](https://github.com/truecharts/charts/compare/pwndrop-2.0.31...pwndrop-2.0.32) (2022-09-27)
+## [pydio-cells-4.0.39](https://github.com/truecharts/charts/compare/pydio-cells-4.0.38...pydio-cells-4.0.39) (2022-09-27)
 
 ### Chore
 
@@ -104,7 +206,7 @@
 
 
 
-## [pwndrop-2.0.31](https://github.com/truecharts/charts/compare/pwndrop-2.0.30...pwndrop-2.0.31) (2022-09-25)
+## [pydio-cells-4.0.38](https://github.com/truecharts/charts/compare/pydio-cells-4.0.37...pydio-cells-4.0.38) (2022-09-25)
 
 ### Chore
 
@@ -114,7 +216,7 @@
 
 
 
-## [pwndrop-2.0.30](https://github.com/truecharts/charts/compare/pwndrop-2.0.29...pwndrop-2.0.30) (2022-09-22)
+## [pydio-cells-4.0.37](https://github.com/truecharts/charts/compare/pydio-cells-4.0.36...pydio-cells-4.0.37) (2022-09-22)
 
 ### Chore
 
@@ -138,7 +240,7 @@
 
 
 
-## [pwndrop-2.0.30](https://github.com/truecharts/charts/compare/pwndrop-2.0.29...pwndrop-2.0.30) (2022-09-21)
+## [pydio-cells-4.0.37](https://github.com/truecharts/charts/compare/pydio-cells-4.0.36...pydio-cells-4.0.37) (2022-09-21)
 
 ### Chore
 
@@ -161,7 +263,7 @@
 
 
 
-## [pwndrop-2.0.30](https://github.com/truecharts/charts/compare/pwndrop-2.0.29...pwndrop-2.0.30) (2022-09-21)
+## [pydio-cells-4.0.37](https://github.com/truecharts/charts/compare/pydio-cells-4.0.36...pydio-cells-4.0.37) (2022-09-21)
 
 ### Chore
 
@@ -183,7 +285,7 @@
 
 
 
-## [pwndrop-2.0.30](https://github.com/truecharts/charts/compare/pwndrop-2.0.29...pwndrop-2.0.30) (2022-09-20)
+## [pydio-cells-4.0.37](https://github.com/truecharts/charts/compare/pydio-cells-4.0.36...pydio-cells-4.0.37) (2022-09-20)
 
 ### Chore
 
@@ -204,7 +306,7 @@
 
 
 
-## [pwndrop-2.0.30](https://github.com/truecharts/charts/compare/pwndrop-2.0.29...pwndrop-2.0.30) (2022-09-20)
+## [pydio-cells-4.0.37](https://github.com/truecharts/charts/compare/pydio-cells-4.0.36...pydio-cells-4.0.37) (2022-09-20)
 
 ### Chore
 
@@ -224,7 +326,7 @@
 
 
 
-## [pwndrop-2.0.30](https://github.com/truecharts/charts/compare/pwndrop-2.0.29...pwndrop-2.0.30) (2022-09-19)
+## [pydio-cells-4.0.37](https://github.com/truecharts/charts/compare/pydio-cells-4.0.36...pydio-cells-4.0.37) (2022-09-19)
 
 ### Chore
 
@@ -243,7 +345,7 @@
 
 
 
-## [pwndrop-2.0.30](https://github.com/truecharts/charts/compare/pwndrop-2.0.29...pwndrop-2.0.30) (2022-09-19)
+## [pydio-cells-4.0.37](https://github.com/truecharts/charts/compare/pydio-cells-4.0.36...pydio-cells-4.0.37) (2022-09-19)
 
 ### Chore
 
@@ -261,7 +363,7 @@
 
 
 
-## [pwndrop-2.0.30](https://github.com/truecharts/charts/compare/pwndrop-2.0.29...pwndrop-2.0.30) (2022-09-19)
+## [pydio-cells-4.0.37](https://github.com/truecharts/charts/compare/pydio-cells-4.0.36...pydio-cells-4.0.37) (2022-09-19)
 
 ### Chore
 
@@ -278,7 +380,7 @@
 
 
 
-## [pwndrop-2.0.30](https://github.com/truecharts/charts/compare/pwndrop-2.0.29...pwndrop-2.0.30) (2022-09-17)
+## [pydio-cells-4.0.37](https://github.com/truecharts/charts/compare/pydio-cells-4.0.36...pydio-cells-4.0.37) (2022-09-17)
 
 ### Chore
 
@@ -294,7 +396,7 @@
 
 
 
-## [pwndrop-2.0.30](https://github.com/truecharts/charts/compare/pwndrop-2.0.29...pwndrop-2.0.30) (2022-09-18)
+## [pydio-cells-4.0.37](https://github.com/truecharts/charts/compare/pydio-cells-4.0.36...pydio-cells-4.0.37) (2022-09-18)
 
 ### Chore
 
@@ -308,7 +410,7 @@
 
 
 
-## [pwndrop-2.0.30](https://github.com/truecharts/charts/compare/pwndrop-2.0.29...pwndrop-2.0.30) (2022-09-16)
+## [pydio-cells-4.0.37](https://github.com/truecharts/charts/compare/pydio-cells-4.0.36...pydio-cells-4.0.37) (2022-09-16)
 
 ### Chore
 
@@ -321,7 +423,7 @@
 
 
 
-## [pwndrop-2.0.30](https://github.com/truecharts/charts/compare/pwndrop-2.0.29...pwndrop-2.0.30) (2022-09-16)
+## [pydio-cells-4.0.37](https://github.com/truecharts/charts/compare/pydio-cells-4.0.36...pydio-cells-4.0.37) (2022-09-16)
 
 ### Chore
 
@@ -333,7 +435,7 @@
 
 
 
-## [pwndrop-2.0.30](https://github.com/truecharts/charts/compare/pwndrop-2.0.29...pwndrop-2.0.30) (2022-09-15)
+## [pydio-cells-4.0.37](https://github.com/truecharts/charts/compare/pydio-cells-4.0.36...pydio-cells-4.0.37) (2022-09-15)
 
 ### Chore
 
@@ -344,7 +446,7 @@
 
 
 
-## [pwndrop-2.0.30](https://github.com/truecharts/charts/compare/pwndrop-2.0.29...pwndrop-2.0.30) (2022-09-15)
+## [pydio-cells-4.0.37](https://github.com/truecharts/charts/compare/pydio-cells-4.0.36...pydio-cells-4.0.37) (2022-09-15)
 
 ### Chore
 
@@ -354,7 +456,16 @@
 
 
 
-## [pwndrop-2.0.29](https://github.com/truecharts/charts/compare/pwndrop-2.0.28...pwndrop-2.0.29) (2022-09-12)
+## [pydio-cells-4.0.36](https://github.com/truecharts/charts/compare/pydio-cells-4.0.35...pydio-cells-4.0.36) (2022-09-13)
+
+### Chore
+
+- update helm general non-major ([#3756](https://github.com/truecharts/charts/issues/3756))
+
+
+
+
+## [pydio-cells-4.0.35](https://github.com/truecharts/charts/compare/pydio-cells-4.0.34...pydio-cells-4.0.35) (2022-09-12)
 
 ### Chore
 
@@ -368,7 +479,7 @@
 
 
 
-## [pwndrop-2.0.29](https://github.com/truecharts/charts/compare/pwndrop-2.0.28...pwndrop-2.0.29) (2022-09-12)
+## [pydio-cells-4.0.35](https://github.com/truecharts/charts/compare/pydio-cells-4.0.34...pydio-cells-4.0.35) (2022-09-12)
 
 ### Chore
 
@@ -381,7 +492,7 @@
 
 
 
-## [pwndrop-2.0.29](https://github.com/truecharts/charts/compare/pwndrop-2.0.28...pwndrop-2.0.29) (2022-09-11)
+## [pydio-cells-4.0.35](https://github.com/truecharts/charts/compare/pydio-cells-4.0.34...pydio-cells-4.0.35) (2022-09-11)
 
 ### Chore
 
@@ -393,7 +504,7 @@
 
 
 
-## [pwndrop-2.0.29](https://github.com/truecharts/charts/compare/pwndrop-2.0.28...pwndrop-2.0.29) (2022-09-11)
+## [pydio-cells-4.0.35](https://github.com/truecharts/charts/compare/pydio-cells-4.0.34...pydio-cells-4.0.35) (2022-09-11)
 
 ### Chore
 
@@ -404,7 +515,7 @@
 
 
 
-## [pwndrop-2.0.29](https://github.com/truecharts/charts/compare/pwndrop-2.0.28...pwndrop-2.0.29) (2022-09-11)
+## [pydio-cells-4.0.35](https://github.com/truecharts/charts/compare/pydio-cells-4.0.34...pydio-cells-4.0.35) (2022-09-11)
 
 ### Chore
 
@@ -414,7 +525,7 @@
 
 
 
-## [pwndrop-2.0.29](https://github.com/truecharts/charts/compare/pwndrop-2.0.28...pwndrop-2.0.29) (2022-09-11)
+## [pydio-cells-4.0.35](https://github.com/truecharts/charts/compare/pydio-cells-4.0.34...pydio-cells-4.0.35) (2022-09-11)
 
 ### Chore
 
@@ -423,7 +534,7 @@
 
 
 
-## [pwndrop-2.0.28](https://github.com/truecharts/charts/compare/pwndrop-2.0.26...pwndrop-2.0.28) (2022-08-30)
+## [pydio-cells-4.0.34](https://github.com/truecharts/charts/compare/pydio-cells-4.0.32...pydio-cells-4.0.34) (2022-08-30)
 
 ### Chore
 
@@ -434,7 +545,7 @@
 
 
 
-## [pwndrop-2.0.27](https://github.com/truecharts/charts/compare/pwndrop-2.0.26...pwndrop-2.0.27) (2022-08-30)
+## [pydio-cells-4.0.33](https://github.com/truecharts/charts/compare/pydio-cells-4.0.32...pydio-cells-4.0.33) (2022-08-30)
 
 ### Chore
 
@@ -443,16 +554,17 @@
 
 
 
-## [pwndrop-2.0.26](https://github.com/truecharts/charts/compare/pwndrop-2.0.25...pwndrop-2.0.26) (2022-08-29)
+## [pydio-cells-4.0.32](https://github.com/truecharts/charts/compare/pydio-cells-4.0.30...pydio-cells-4.0.32) (2022-08-29)
 
 ### Chore
 
-- update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
+- update helm general non-major ([#3621](https://github.com/truecharts/charts/issues/3621))
+  - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
 
 
 
 
-## [pwndrop-2.0.25](https://github.com/truecharts/charts/compare/pwndrop-2.0.24...pwndrop-2.0.25) (2022-08-23)
+## [pydio-cells-4.0.30](https://github.com/truecharts/charts/compare/pydio-cells-4.0.29...pydio-cells-4.0.30) (2022-08-23)
 
 ### Chore
 
@@ -461,7 +573,16 @@
 
 
 
-## [pwndrop-2.0.24](https://github.com/truecharts/charts/compare/pwndrop-2.0.23...pwndrop-2.0.24) (2022-08-12)
+## [pydio-cells-4.0.29](https://github.com/truecharts/charts/compare/pydio-cells-4.0.28...pydio-cells-4.0.29) (2022-08-17)
+
+### Chore
+
+- update helm general non-major helm releases ([#3484](https://github.com/truecharts/charts/issues/3484))
+
+
+
+
+## [pydio-cells-4.0.28](https://github.com/truecharts/charts/compare/pydio-cells-4.0.27...pydio-cells-4.0.28) (2022-08-12)
 
 ### Chore
 
@@ -475,7 +596,16 @@
 
 
 
-## [pwndrop-2.0.23](https://github.com/truecharts/charts/compare/pwndrop-2.0.22...pwndrop-2.0.23) (2022-08-08)
+## [pydio-cells-4.0.27](https://github.com/truecharts/charts/compare/pydio-cells-4.0.26...pydio-cells-4.0.27) (2022-08-09)
+
+### Chore
+
+- update helm general non-major helm releases to v10.4.9 ([#3413](https://github.com/truecharts/charts/issues/3413))
+
+
+
+
+## [pydio-cells-4.0.26](https://github.com/truecharts/charts/compare/pydio-cells-4.0.25...pydio-cells-4.0.26) (2022-08-08)
 
 ### Chore
 
@@ -485,7 +615,7 @@
 
 
 
-## [pwndrop-2.0.22](https://github.com/truecharts/apps/compare/pwndrop-2.0.21...pwndrop-2.0.22) (2022-07-26)
+## [pydio-cells-4.0.25](https://github.com/truecharts/apps/compare/pydio-cells-4.0.24...pydio-cells-4.0.25) (2022-07-26)
 
 ### Chore
 
@@ -495,7 +625,26 @@
 
 
 
-## [pwndrop-2.0.21](https://github.com/truecharts/apps/compare/pwndrop-2.0.20...pwndrop-2.0.21) (2022-07-23)
+## [pydio-cells-4.0.24](https://github.com/truecharts/apps/compare/pydio-cells-4.0.23...pydio-cells-4.0.24) (2022-07-25)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [pydio-cells-4.0.24](https://github.com/truecharts/apps/compare/pydio-cells-4.0.23...pydio-cells-4.0.24) (2022-07-25)
+
+### Chore
+
+- update docker general non-major ([#3295](https://github.com/truecharts/apps/issues/3295))
+
+
+
+
+## [pydio-cells-4.0.23](https://github.com/truecharts/apps/compare/pydio-cells-4.0.22...pydio-cells-4.0.23) (2022-07-23)
 
 ### Chore
 
@@ -506,7 +655,7 @@
 
 
 
-## [pwndrop-2.0.21](https://github.com/truecharts/apps/compare/pwndrop-2.0.20...pwndrop-2.0.21) (2022-07-23)
+## [pydio-cells-4.0.23](https://github.com/truecharts/apps/compare/pydio-cells-4.0.22...pydio-cells-4.0.23) (2022-07-23)
 
 ### Chore
 
@@ -516,7 +665,7 @@
 
 
 
-## [pwndrop-2.0.21](https://github.com/truecharts/apps/compare/pwndrop-2.0.20...pwndrop-2.0.21) (2022-07-23)
+## [pydio-cells-4.0.23](https://github.com/truecharts/apps/compare/pydio-cells-4.0.22...pydio-cells-4.0.23) (2022-07-23)
 
 ### Chore
 
@@ -525,7 +674,16 @@
 
 
 
-## [pwndrop-2.0.20](https://github.com/truecharts/apps/compare/pwndrop-2.0.18...pwndrop-2.0.20) (2022-07-22)
+## [pydio-cells-4.0.22](https://github.com/truecharts/apps/compare/pydio-cells-4.0.21...pydio-cells-4.0.22) (2022-07-23)
+
+### Chore
+
+- update helm general non-major helm releases ([#3274](https://github.com/truecharts/apps/issues/3274))
+
+
+
+
+## [pydio-cells-4.0.21](https://github.com/truecharts/apps/compare/pydio-cells-4.0.19...pydio-cells-4.0.21) (2022-07-22)
 
 ### Chore
 
@@ -534,7 +692,7 @@
 
 
 
-## [pwndrop-2.0.18](https://github.com/truecharts/apps/compare/pwndrop-2.0.17...pwndrop-2.0.18) (2022-07-19)
+## [pydio-cells-4.0.19](https://github.com/truecharts/apps/compare/pydio-cells-4.0.18...pydio-cells-4.0.19) (2022-07-19)
 
 ### Chore
 
@@ -542,7 +700,7 @@
 
 
 
-## [pwndrop-2.0.17](https://github.com/truecharts/apps/compare/pwndrop-2.0.16...pwndrop-2.0.17) (2022-07-14)
+## [pydio-cells-4.0.18](https://github.com/truecharts/apps/compare/pydio-cells-4.0.17...pydio-cells-4.0.18) (2022-07-14)
 
 ### Fix
 
@@ -550,7 +708,7 @@
 
 
 
-## [pwndrop-2.0.16](https://github.com/truecharts/apps/compare/pwndrop-2.0.14...pwndrop-2.0.16) (2022-07-14)
+## [pydio-cells-4.0.17](https://github.com/truecharts/apps/compare/pydio-cells-4.0.15...pydio-cells-4.0.17) (2022-07-14)
 
 ### Fix
 
@@ -558,7 +716,7 @@
 
 
 
-## [pwndrop-2.0.14](https://github.com/truecharts/apps/compare/pwndrop-2.0.12...pwndrop-2.0.14) (2022-07-12)
+## [pydio-cells-4.0.15](https://github.com/truecharts/apps/compare/pydio-cells-4.0.13...pydio-cells-4.0.15) (2022-07-12)
 
 ### Chore
 
@@ -567,7 +725,7 @@
 
 
 
-## [pwndrop-2.0.12](https://github.com/truecharts/apps/compare/pwndrop-2.0.11...pwndrop-2.0.12) (2022-07-12)
+## [pydio-cells-4.0.13](https://github.com/truecharts/apps/compare/pydio-cells-4.0.12...pydio-cells-4.0.13) (2022-07-12)
 
 ### Chore
 
@@ -575,17 +733,18 @@
 
 
 
-<a name="pwndrop-2.0.11"></a>
-### [pwndrop-2.0.11](https://github.com/truecharts/apps/compare/pwndrop-2.0.10...pwndrop-2.0.11) (2022-07-12)
+<a name="pydio-cells-4.0.12"></a>
+### [pydio-cells-4.0.12](https://github.com/truecharts/apps/compare/pydio-cells-4.0.11...pydio-cells-4.0.12) (2022-07-12)
 
 #### Chore
 
 * update helm general non-major helm releases ([#3147](https://github.com/truecharts/apps/issues/3147))
+* update docker general non-major ([#3150](https://github.com/truecharts/apps/issues/3150))
 
 
 
-<a name="pwndrop-2.0.10"></a>
-### [pwndrop-2.0.10](https://github.com/truecharts/apps/compare/pwndrop-2.0.9...pwndrop-2.0.10) (2022-07-11)
+<a name="pydio-cells-4.0.11"></a>
+### [pydio-cells-4.0.11](https://github.com/truecharts/apps/compare/pydio-cells-4.0.10...pydio-cells-4.0.11) (2022-07-11)
 
 #### Chore
 
@@ -593,8 +752,8 @@
 
 
 
-<a name="pwndrop-2.0.9"></a>
-### [pwndrop-2.0.9](https://github.com/truecharts/apps/compare/pwndrop-2.0.8...pwndrop-2.0.9) (2022-07-09)
+<a name="pydio-cells-4.0.10"></a>
+### [pydio-cells-4.0.10](https://github.com/truecharts/apps/compare/pydio-cells-4.0.9...pydio-cells-4.0.10) (2022-07-09)
 
 #### Chore
 
@@ -602,8 +761,17 @@
 
 
 
-<a name="pwndrop-2.0.8"></a>
-### [pwndrop-2.0.8](https://github.com/truecharts/apps/compare/pwndrop-2.0.7...pwndrop-2.0.8) (2022-07-04)
+<a name="pydio-cells-4.0.9"></a>
+### [pydio-cells-4.0.9](https://github.com/truecharts/apps/compare/pydio-cells-4.0.8...pydio-cells-4.0.9) (2022-07-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#3075](https://github.com/truecharts/apps/issues/3075))
+
+
+
+<a name="pydio-cells-4.0.8"></a>
+### [pydio-cells-4.0.8](https://github.com/truecharts/apps/compare/pydio-cells-4.0.7...pydio-cells-4.0.8) (2022-07-04)
 
 #### Chore
 
@@ -611,8 +779,17 @@
 
 
 
-<a name="pwndrop-2.0.7"></a>
-### [pwndrop-2.0.7](https://github.com/truecharts/apps/compare/pwndrop-2.0.6...pwndrop-2.0.7) (2022-06-25)
+<a name="pydio-cells-4.0.7"></a>
+### [pydio-cells-4.0.7](https://github.com/truecharts/apps/compare/pydio-cells-4.0.6...pydio-cells-4.0.7) (2022-06-29)
+
+#### Chore
+
+* update helm general non-major Helm releases ([#3003](https://github.com/truecharts/apps/issues/3003))
+
+
+
+<a name="pydio-cells-4.0.6"></a>
+### [pydio-cells-4.0.6](https://github.com/truecharts/apps/compare/pydio-cells-4.0.5...pydio-cells-4.0.6) (2022-06-25)
 
 #### Chore
 
@@ -620,8 +797,8 @@
 
 
 
-<a name="pwndrop-2.0.6"></a>
-### [pwndrop-2.0.6](https://github.com/truecharts/apps/compare/pwndrop-2.0.5...pwndrop-2.0.6) (2022-06-22)
+<a name="pydio-cells-4.0.5"></a>
+### [pydio-cells-4.0.5](https://github.com/truecharts/apps/compare/pydio-cells-4.0.4...pydio-cells-4.0.5) (2022-06-22)
 
 #### Chore
 
@@ -629,8 +806,8 @@
 
 
 
-<a name="pwndrop-2.0.5"></a>
-### [pwndrop-2.0.5](https://github.com/truecharts/apps/compare/pwndrop-2.0.4...pwndrop-2.0.5) (2022-06-21)
+<a name="pydio-cells-4.0.4"></a>
+### [pydio-cells-4.0.4](https://github.com/truecharts/apps/compare/pydio-cells-4.0.3...pydio-cells-4.0.4) (2022-06-21)
 
 #### Chore
 
@@ -638,8 +815,17 @@
 
 
 
-<a name="pwndrop-2.0.4"></a>
-### [pwndrop-2.0.4](https://github.com/truecharts/apps/compare/pwndrop-2.0.3...pwndrop-2.0.4) (2022-06-14)
+<a name="pydio-cells-4.0.3"></a>
+### [pydio-cells-4.0.3](https://github.com/truecharts/apps/compare/pydio-cells-4.0.2...pydio-cells-4.0.3) (2022-06-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2887](https://github.com/truecharts/apps/issues/2887))
+
+
+
+<a name="pydio-cells-4.0.2"></a>
+### [pydio-cells-4.0.2](https://github.com/truecharts/apps/compare/pydio-cells-4.0.1...pydio-cells-4.0.2) (2022-06-14)
 
 #### Chore
 
@@ -647,8 +833,8 @@
 
 
 
-<a name="pwndrop-2.0.3"></a>
-### [pwndrop-2.0.3](https://github.com/truecharts/apps/compare/pwndrop-2.0.2...pwndrop-2.0.3) (2022-06-11)
+<a name="pydio-cells-4.0.1"></a>
+### [pydio-cells-4.0.1](https://github.com/truecharts/apps/compare/pydio-cells-4.0.0...pydio-cells-4.0.1) (2022-06-11)
 
 #### Chore
 
@@ -656,8 +842,12 @@
 
 
 
-<a name="pwndrop-2.0.2"></a>
-### [pwndrop-2.0.2](https://github.com/truecharts/apps/compare/pwndrop-2.0.1...pwndrop-2.0.2) (2022-06-07)
+<a name="pydio-cells-4.0.0"></a>
+### [pydio-cells-4.0.0](https://github.com/truecharts/apps/compare/pydio-cells-3.0.1...pydio-cells-4.0.0) (2022-06-07)
+
+#### Chore
+
+* update helm general major helm releases ([#2804](https://github.com/truecharts/apps/issues/2804))
 
 #### Fix
 
@@ -665,13 +855,14 @@
 
 
 
-<a name="pwndrop-2.0.1"></a>
-### [pwndrop-2.0.1](https://github.com/truecharts/apps/compare/pwndrop-1.0.19...pwndrop-2.0.1) (2022-06-07)
+<a name="pydio-cells-3.0.1"></a>
+### [pydio-cells-3.0.1](https://github.com/truecharts/apps/compare/pydio-cells-2.0.25...pydio-cells-3.0.1) (2022-06-07)
 
 #### Chore
 
 * Auto-update chart README [skip ci]
 * sync all apps persistence configuration and always default to PVC
+* update helm general non-major helm releases ([#2838](https://github.com/truecharts/apps/issues/2838))
 
 #### Fix
 
@@ -683,8 +874,8 @@
 
 
 
-<a name="pwndrop-2.0.0"></a>
-### [pwndrop-2.0.0](https://github.com/truecharts/apps/compare/pwndrop-1.0.19...pwndrop-2.0.0) (2022-06-07)
+<a name="pydio-cells-3.0.0"></a>
+### [pydio-cells-3.0.0](https://github.com/truecharts/apps/compare/pydio-cells-2.0.25...pydio-cells-3.0.0) (2022-06-07)
 
 #### Chore
 
@@ -696,8 +887,8 @@
 
 
 
-<a name="pwndrop-1.0.19"></a>
-### [pwndrop-1.0.19](https://github.com/truecharts/apps/compare/pwndrop-1.0.18...pwndrop-1.0.19) (2022-05-31)
+<a name="pydio-cells-2.0.25"></a>
+### [pydio-cells-2.0.25](https://github.com/truecharts/apps/compare/pydio-cells-2.0.24...pydio-cells-2.0.25) (2022-05-31)
 
 #### Chore
 
@@ -705,8 +896,8 @@
 
 
 
-<a name="pwndrop-1.0.18"></a>
-### [pwndrop-1.0.18](https://github.com/truecharts/apps/compare/pwndrop-1.0.17...pwndrop-1.0.18) (2022-05-26)
+<a name="pydio-cells-2.0.24"></a>
+### [pydio-cells-2.0.24](https://github.com/truecharts/apps/compare/pydio-cells-2.0.23...pydio-cells-2.0.24) (2022-05-26)
 
 #### Chore
 
@@ -715,8 +906,8 @@
 
 
 
-<a name="pwndrop-1.0.18"></a>
-### [pwndrop-1.0.18](https://github.com/truecharts/apps/compare/pwndrop-1.0.17...pwndrop-1.0.18) (2022-05-26)
+<a name="pydio-cells-2.0.24"></a>
+### [pydio-cells-2.0.24](https://github.com/truecharts/apps/compare/pydio-cells-2.0.23...pydio-cells-2.0.24) (2022-05-26)
 
 #### Chore
 
@@ -724,8 +915,8 @@
 
 
 
-<a name="pwndrop-1.0.17"></a>
-### [pwndrop-1.0.17](https://github.com/truecharts/apps/compare/pwndrop-1.0.16...pwndrop-1.0.17) (2022-05-24)
+<a name="pydio-cells-2.0.23"></a>
+### [pydio-cells-2.0.23](https://github.com/truecharts/apps/compare/pydio-cells-2.0.22...pydio-cells-2.0.23) (2022-05-24)
 
 #### Chore
 
@@ -733,8 +924,8 @@
 
 
 
-<a name="pwndrop-1.0.16"></a>
-### [pwndrop-1.0.16](https://github.com/truecharts/apps/compare/pwndrop-1.0.15...pwndrop-1.0.16) (2022-05-17)
+<a name="pydio-cells-2.0.22"></a>
+### [pydio-cells-2.0.22](https://github.com/truecharts/apps/compare/pydio-cells-2.0.21...pydio-cells-2.0.22) (2022-05-17)
 
 #### Chore
 
@@ -743,8 +934,8 @@
 
 
 
-<a name="pwndrop-1.0.16"></a>
-### [pwndrop-1.0.16](https://github.com/truecharts/apps/compare/pwndrop-1.0.15...pwndrop-1.0.16) (2022-05-17)
+<a name="pydio-cells-2.0.22"></a>
+### [pydio-cells-2.0.22](https://github.com/truecharts/apps/compare/pydio-cells-2.0.21...pydio-cells-2.0.22) (2022-05-17)
 
 #### Chore
 
@@ -752,8 +943,8 @@
 
 
 
-<a name="pwndrop-1.0.15"></a>
-### [pwndrop-1.0.15](https://github.com/truecharts/apps/compare/pwndrop-1.0.14...pwndrop-1.0.15) (2022-05-17)
+<a name="pydio-cells-2.0.21"></a>
+### [pydio-cells-2.0.21](https://github.com/truecharts/apps/compare/pydio-cells-2.0.20...pydio-cells-2.0.21) (2022-05-17)
 
 #### Chore
 
@@ -761,8 +952,8 @@
 
 
 
-<a name="pwndrop-1.0.14"></a>
-### [pwndrop-1.0.14](https://github.com/truecharts/apps/compare/pwndrop-1.0.13...pwndrop-1.0.14) (2022-05-10)
+<a name="pydio-cells-2.0.20"></a>
+### [pydio-cells-2.0.20](https://github.com/truecharts/apps/compare/pydio-cells-2.0.19...pydio-cells-2.0.20) (2022-05-10)
 
 #### Chore
 
@@ -770,8 +961,8 @@
 
 
 
-<a name="pwndrop-1.0.13"></a>
-### [pwndrop-1.0.13](https://github.com/truecharts/apps/compare/pwndrop-1.0.12...pwndrop-1.0.13) (2022-05-05)
+<a name="pydio-cells-2.0.19"></a>
+### [pydio-cells-2.0.19](https://github.com/truecharts/apps/compare/pydio-cells-2.0.18...pydio-cells-2.0.19) (2022-05-05)
 
 #### Chore
 
@@ -779,8 +970,26 @@
 
 
 
-<a name="pwndrop-1.0.12"></a>
-### [pwndrop-1.0.12](https://github.com/truecharts/apps/compare/pwndrop-1.0.11...pwndrop-1.0.12) (2022-04-26)
+<a name="pydio-cells-2.0.18"></a>
+### [pydio-cells-2.0.18](https://github.com/truecharts/apps/compare/pydio-cells-2.0.17...pydio-cells-2.0.18) (2022-05-04)
+
+#### Chore
+
+* update docker general non-major ([#2606](https://github.com/truecharts/apps/issues/2606))
+
+
+
+<a name="pydio-cells-2.0.17"></a>
+### [pydio-cells-2.0.17](https://github.com/truecharts/apps/compare/pydio-cells-2.0.16...pydio-cells-2.0.17) (2022-05-04)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2605](https://github.com/truecharts/apps/issues/2605))
+
+
+
+<a name="pydio-cells-2.0.16"></a>
+### [pydio-cells-2.0.16](https://github.com/truecharts/apps/compare/pydio-cells-2.0.15...pydio-cells-2.0.16) (2022-04-26)
 
 #### Chore
 
@@ -788,8 +997,8 @@
 
 
 
-<a name="pwndrop-1.0.11"></a>
-### [pwndrop-1.0.11](https://github.com/truecharts/apps/compare/pwndrop-1.0.10...pwndrop-1.0.11) (2022-04-20)
+<a name="pydio-cells-2.0.15"></a>
+### [pydio-cells-2.0.15](https://github.com/truecharts/apps/compare/pydio-cells-2.0.14...pydio-cells-2.0.15) (2022-04-20)
 
 #### Chore
 
@@ -798,8 +1007,8 @@
 
 
 
-<a name="pwndrop-1.0.10"></a>
-### [pwndrop-1.0.10](https://github.com/truecharts/apps/compare/pwndrop-1.0.9...pwndrop-1.0.10) (2022-04-12)
+<a name="pydio-cells-2.0.14"></a>
+### [pydio-cells-2.0.14](https://github.com/truecharts/apps/compare/pydio-cells-2.0.13...pydio-cells-2.0.14) (2022-04-12)
 
 #### Chore
 
@@ -807,8 +1016,8 @@
 
 
 
-<a name="pwndrop-1.0.9"></a>
-### [pwndrop-1.0.9](https://github.com/truecharts/apps/compare/pwndrop-1.0.8...pwndrop-1.0.9) (2022-04-03)
+<a name="pydio-cells-2.0.13"></a>
+### [pydio-cells-2.0.13](https://github.com/truecharts/apps/compare/pydio-cells-2.0.12...pydio-cells-2.0.13) (2022-04-03)
 
 #### Chore
 
@@ -816,8 +1025,17 @@
 
 
 
-<a name="pwndrop-1.0.8"></a>
-### [pwndrop-1.0.8](https://github.com/truecharts/apps/compare/pwndrop-1.0.7...pwndrop-1.0.8) (2022-03-31)
+<a name="pydio-cells-2.0.12"></a>
+### [pydio-cells-2.0.12](https://github.com/truecharts/apps/compare/pydio-cells-2.0.11...pydio-cells-2.0.12) (2022-03-31)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2362](https://github.com/truecharts/apps/issues/2362))
+
+
+
+<a name="pydio-cells-2.0.11"></a>
+### [pydio-cells-2.0.11](https://github.com/truecharts/apps/compare/pydio-cells-2.0.10...pydio-cells-2.0.11) (2022-03-31)
 
 #### Chore
 
@@ -825,17 +1043,27 @@
 
 
 
-<a name="pwndrop-1.0.7"></a>
-### [pwndrop-1.0.7](https://github.com/truecharts/apps/compare/pwndrop-1.0.6...pwndrop-1.0.7) (2022-03-30)
+<a name="pydio-cells-2.0.10"></a>
+### [pydio-cells-2.0.10](https://github.com/truecharts/apps/compare/pydio-cells-2.0.9...pydio-cells-2.0.10) (2022-03-30)
 
 #### Chore
 
+* Use new repo ([#2337](https://github.com/truecharts/apps/issues/2337))
 * update helm general non-major helm releases ([#2354](https://github.com/truecharts/apps/issues/2354))
 
 
 
-<a name="pwndrop-1.0.6"></a>
-### [pwndrop-1.0.6](https://github.com/truecharts/apps/compare/pwndrop-1.0.5...pwndrop-1.0.6) (2022-03-26)
+<a name="pydio-cells-2.0.9"></a>
+### [pydio-cells-2.0.9](https://github.com/truecharts/apps/compare/pydio-cells-2.0.8...pydio-cells-2.0.9) (2022-03-26)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2290](https://github.com/truecharts/apps/issues/2290))
+
+
+
+<a name="pydio-cells-2.0.8"></a>
+### [pydio-cells-2.0.8](https://github.com/truecharts/apps/compare/pydio-cells-2.0.7...pydio-cells-2.0.8) (2022-03-26)
 
 #### Chore
 
@@ -843,24 +1071,40 @@
 
 
 
-<a name="pwndrop-1.0.1"></a>
-### [pwndrop-1.0.1](https://github.com/truecharts/apps/compare/pwndrop-1.0.0...pwndrop-1.0.1) (2022-03-07)
+<a name="pydio-cells-2.0.3"></a>
+### [pydio-cells-2.0.3](https://github.com/truecharts/apps/compare/pydio-cells-2.0.2...pydio-cells-2.0.3) (2022-03-08)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2116](https://github.com/truecharts/apps/issues/2116))
+
+
+
+<a name="pydio-cells-2.0.2"></a>
+### [pydio-cells-2.0.2](https://github.com/truecharts/apps/compare/pydio-cells-2.0.1...pydio-cells-2.0.2) (2022-03-07)
 
 #### Chore
 
 * update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+
+
+
+<a name="pydio-cells-2.0.1"></a>
+### [pydio-cells-2.0.1](https://github.com/truecharts/apps/compare/pydio-cells-2.0.0...pydio-cells-2.0.1) (2022-03-07)
+
+#### Chore
+
+* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
 * Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
 
 
 
-<a name="pwndrop-1.0.0"></a>
-### [pwndrop-1.0.0](https://github.com/truecharts/apps/compare/pwndrop-0.0.23...pwndrop-1.0.0) (2022-03-03)
+<a name="pydio-cells-2.0.0"></a>
+### [pydio-cells-2.0.0](https://github.com/truecharts/apps/compare/pydio-cells-1.0.5...pydio-cells-2.0.0) (2022-03-03)
 
 #### Chore
 
 * remove fixed env from questions.yaml
-* remove PUID from per-app env-vars if set to 568
-* remove empty env var declaration from questions.yaml
 * update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
 
 #### Fix
@@ -869,18 +1113,66 @@
 
 
 
-<a name="pwndrop-0.0.23"></a>
-### [pwndrop-0.0.23](https://github.com/truecharts/apps/compare/pwndrop-0.0.22...pwndrop-0.0.23) (2022-03-02)
+<a name="pydio-cells-1.0.5"></a>
+### [pydio-cells-1.0.5](https://github.com/truecharts/apps/compare/pydio-cells-1.0.4...pydio-cells-1.0.5) (2022-03-02)
 
 #### Chore
 
-* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
 * update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
 
 
 
-<a name="pwndrop-0.0.22"></a>
-### [pwndrop-0.0.22](https://github.com/truecharts/apps/compare/pwndrop-0.0.21...pwndrop-0.0.22) (2022-02-21)
+<a name="pydio-cells-1.0.4"></a>
+### [pydio-cells-1.0.4](https://github.com/truecharts/apps/compare/pydio-cells-1.0.3...pydio-cells-1.0.4) (2022-02-24)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+
+#### Fix
+
+* Use different port for healthcheck ([#1949](https://github.com/truecharts/apps/issues/1949))
+
+
+
+<a name="pydio-cells-1.0.3"></a>
+### [pydio-cells-1.0.3](https://github.com/truecharts/apps/compare/pydio-cells-1.0.2...pydio-cells-1.0.3) (2022-02-23)
+
+#### Fix
+
+* fix configmap and main service ([#1943](https://github.com/truecharts/apps/issues/1943))
+
+
+
+<a name="pydio-cells-1.0.2"></a>
+### [pydio-cells-1.0.2](https://github.com/truecharts/apps/compare/pydio-cells-1.0.1...pydio-cells-1.0.2) (2022-02-22)
+
+#### Fix
+
+* Removed some double `b64enc` on autogenerated secrets, also some quotes off them. ([#1937](https://github.com/truecharts/apps/issues/1937))
+
+
+
+<a name="pydio-cells-1.0.1"></a>
+### [pydio-cells-1.0.1](https://github.com/truecharts/apps/compare/pydio-cells-1.0.0...pydio-cells-1.0.1) (2022-02-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1932](https://github.com/truecharts/apps/issues/1932))
+
+
+
+<a name="pydio-cells-1.0.0"></a>
+### [pydio-cells-1.0.0](https://github.com/truecharts/apps/compare/pydio-cells-0.0.24...pydio-cells-1.0.0) (2022-02-22)
+
+#### Feat
+
+* Add db and use official image ([#1908](https://github.com/truecharts/apps/issues/1908))
+
+
+
+<a name="pydio-cells-0.0.24"></a>
+### [pydio-cells-0.0.24](https://github.com/truecharts/apps/compare/pydio-cells-0.0.23...pydio-cells-0.0.24) (2022-02-21)
 
 #### Chore
 
@@ -888,8 +1180,8 @@
 
 
 
-<a name="pwndrop-0.0.21"></a>
-### [pwndrop-0.0.21](https://github.com/truecharts/apps/compare/pwndrop-0.0.20...pwndrop-0.0.21) (2022-02-15)
+<a name="pydio-cells-0.0.23"></a>
+### [pydio-cells-0.0.23](https://github.com/truecharts/apps/compare/pydio-cells-0.0.22...pydio-cells-0.0.23) (2022-02-15)
 
 #### Chore
 
@@ -897,8 +1189,8 @@
 
 
 
-<a name="pwndrop-0.0.20"></a>
-### [pwndrop-0.0.20](https://github.com/truecharts/apps/compare/pwndrop-0.0.19...pwndrop-0.0.20) (2022-02-08)
+<a name="pydio-cells-0.0.22"></a>
+### [pydio-cells-0.0.22](https://github.com/truecharts/apps/compare/pydio-cells-0.0.21...pydio-cells-0.0.22) (2022-02-08)
 
 #### Chore
 
@@ -906,8 +1198,8 @@
 
 
 
-<a name="pwndrop-0.0.19"></a>
-### [pwndrop-0.0.19](https://github.com/truecharts/apps/compare/pwndrop-0.0.18...pwndrop-0.0.19) (2022-02-06)
+<a name="pydio-cells-0.0.21"></a>
+### [pydio-cells-0.0.21](https://github.com/truecharts/apps/compare/pydio-cells-0.0.20...pydio-cells-0.0.21) (2022-02-06)
 
 #### Chore
 
@@ -915,8 +1207,8 @@
 
 
 
-<a name="pwndrop-0.0.18"></a>
-### [pwndrop-0.0.18](https://github.com/truecharts/apps/compare/pwndrop-0.0.17...pwndrop-0.0.18) (2022-02-05)
+<a name="pydio-cells-0.0.20"></a>
+### [pydio-cells-0.0.20](https://github.com/truecharts/apps/compare/pydio-cells-0.0.19...pydio-cells-0.0.20) (2022-02-05)
 
 #### Chore
 
@@ -924,8 +1216,17 @@
 
 
 
-<a name="pwndrop-0.0.17"></a>
-### [pwndrop-0.0.17](https://github.com/truecharts/apps/compare/pwndrop-0.0.16...pwndrop-0.0.17) (2022-02-02)
+<a name="pydio-cells-0.0.19"></a>
+### [pydio-cells-0.0.19](https://github.com/truecharts/apps/compare/pydio-cells-0.0.18...pydio-cells-0.0.19) (2022-02-03)
+
+#### Chore
+
+* update docker general non-major ([#1836](https://github.com/truecharts/apps/issues/1836))
+
+
+
+<a name="pydio-cells-0.0.18"></a>
+### [pydio-cells-0.0.18](https://github.com/truecharts/apps/compare/pydio-cells-0.0.17...pydio-cells-0.0.18) (2022-02-02)
 
 #### Chore
 
@@ -933,8 +1234,8 @@
 
 
 
-<a name="pwndrop-0.0.16"></a>
-### [pwndrop-0.0.16](https://github.com/truecharts/apps/compare/pwndrop-0.0.15...pwndrop-0.0.16) (2022-01-25)
+<a name="pydio-cells-0.0.17"></a>
+### [pydio-cells-0.0.17](https://github.com/truecharts/apps/compare/pydio-cells-0.0.16...pydio-cells-0.0.17) (2022-01-25)
 
 #### Chore
 
@@ -942,8 +1243,8 @@
 
 
 
-<a name="pwndrop-0.0.15"></a>
-### [pwndrop-0.0.15](https://github.com/truecharts/apps/compare/pwndrop-0.0.14...pwndrop-0.0.15) (2022-01-22)
+<a name="pydio-cells-0.0.16"></a>
+### [pydio-cells-0.0.16](https://github.com/truecharts/apps/compare/pydio-cells-0.0.15...pydio-cells-0.0.16) (2022-01-22)
 
 #### Chore
 
@@ -951,8 +1252,8 @@
 
 
 
-<a name="pwndrop-0.0.14"></a>
-### [pwndrop-0.0.14](https://github.com/truecharts/apps/compare/pwndrop-0.0.13...pwndrop-0.0.14) (2022-01-21)
+<a name="pydio-cells-0.0.15"></a>
+### [pydio-cells-0.0.15](https://github.com/truecharts/apps/compare/pydio-cells-0.0.14...pydio-cells-0.0.15) (2022-01-21)
 
 #### Chore
 
@@ -964,8 +1265,8 @@
 
 
 
-<a name="pwndrop-0.0.13"></a>
-### [pwndrop-0.0.13](https://github.com/truecharts/apps/compare/pwndrop-0.0.12...pwndrop-0.0.13) (2022-01-18)
+<a name="pydio-cells-0.0.14"></a>
+### [pydio-cells-0.0.14](https://github.com/truecharts/apps/compare/pydio-cells-0.0.13...pydio-cells-0.0.14) (2022-01-18)
 
 #### Chore
 
@@ -973,8 +1274,8 @@
 
 
 
-<a name="pwndrop-0.0.12"></a>
-### [pwndrop-0.0.12](https://github.com/truecharts/apps/compare/pwndrop-0.0.11...pwndrop-0.0.12) (2022-01-13)
+<a name="pydio-cells-0.0.13"></a>
+### [pydio-cells-0.0.13](https://github.com/truecharts/apps/compare/pydio-cells-0.0.12...pydio-cells-0.0.13) (2022-01-13)
 
 #### Chore
 
@@ -986,8 +1287,8 @@
 
 
 
-<a name="pwndrop-0.0.11"></a>
-### [pwndrop-0.0.11](https://github.com/truecharts/apps/compare/pwndrop-0.0.10...pwndrop-0.0.11) (2022-01-12)
+<a name="pydio-cells-0.0.12"></a>
+### [pydio-cells-0.0.12](https://github.com/truecharts/apps/compare/pydio-cells-0.0.11...pydio-cells-0.0.12) (2022-01-12)
 
 #### Chore
 
@@ -995,8 +1296,8 @@
 
 
 
-<a name="pwndrop-0.0.10"></a>
-### [pwndrop-0.0.10](https://github.com/truecharts/apps/compare/pwndrop-0.0.9...pwndrop-0.0.10) (2022-01-11)
+<a name="pydio-cells-0.0.11"></a>
+### [pydio-cells-0.0.11](https://github.com/truecharts/apps/compare/pydio-cells-0.0.10...pydio-cells-0.0.11) (2022-01-11)
 
 #### Chore
 
@@ -1004,8 +1305,8 @@
 
 
 
-<a name="pwndrop-0.0.9"></a>
-### [pwndrop-0.0.9](https://github.com/truecharts/apps/compare/pwndrop-0.0.8...pwndrop-0.0.9) (2022-01-04)
+<a name="pydio-cells-0.0.10"></a>
+### [pydio-cells-0.0.10](https://github.com/truecharts/apps/compare/pydio-cells-0.0.9...pydio-cells-0.0.10) (2022-01-04)
 
 #### Chore
 
@@ -1013,8 +1314,8 @@
 
 
 
-<a name="pwndrop-0.0.8"></a>
-### [pwndrop-0.0.8](https://github.com/truecharts/apps/compare/pwndrop-0.0.7...pwndrop-0.0.8) (2021-12-28)
+<a name="pydio-cells-0.0.9"></a>
+### [pydio-cells-0.0.9](https://github.com/truecharts/apps/compare/pydio-cells-0.0.8...pydio-cells-0.0.9) (2021-12-28)
 
 #### Chore
 
@@ -1022,8 +1323,8 @@
 
 
 
-<a name="pwndrop-0.0.7"></a>
-### [pwndrop-0.0.7](https://github.com/truecharts/apps/compare/pwndrop-0.0.6...pwndrop-0.0.7) (2021-12-21)
+<a name="pydio-cells-0.0.8"></a>
+### [pydio-cells-0.0.8](https://github.com/truecharts/apps/compare/pydio-cells-0.0.7...pydio-cells-0.0.8) (2021-12-21)
 
 #### Chore
 
@@ -1031,8 +1332,8 @@
 
 
 
-<a name="pwndrop-0.0.6"></a>
-### [pwndrop-0.0.6](https://github.com/truecharts/apps/compare/pwndrop-0.0.5...pwndrop-0.0.6) (2021-12-19)
+<a name="pydio-cells-0.0.7"></a>
+### [pydio-cells-0.0.7](https://github.com/truecharts/apps/compare/pydio-cells-0.0.6...pydio-cells-0.0.7) (2021-12-19)
 
 #### Chore
 
@@ -1040,8 +1341,8 @@
 
 
 
-<a name="pwndrop-0.0.5"></a>
-### [pwndrop-0.0.5](https://github.com/truecharts/apps/compare/pwndrop-0.0.4...pwndrop-0.0.5) (2021-12-19)
+<a name="pydio-cells-0.0.6"></a>
+### [pydio-cells-0.0.6](https://github.com/truecharts/apps/compare/pydio-cells-0.0.5...pydio-cells-0.0.6) (2021-12-19)
 
 #### Chore
 
@@ -1050,18 +1351,30 @@
 
 
 
-<a name="pwndrop-0.0.4"></a>
-### [pwndrop-0.0.4](https://github.com/truecharts/apps/compare/pwndrop-0.0.3...pwndrop-0.0.4) (2021-12-18)
+<a name="pydio-cells-0.0.5"></a>
+### [pydio-cells-0.0.5](https://github.com/truecharts/apps/compare/pydio-cells-0.0.4...pydio-cells-0.0.5) (2021-12-18)
 
 #### Chore
 
 * cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+
+
+
+<a name="pydio-cells-0.0.4"></a>
+### [pydio-cells-0.0.4](https://github.com/truecharts/apps/compare/pydio-cells-0.0.3...pydio-cells-0.0.4) (2021-12-17)
+
+#### Chore
+
 * App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
 
+#### Fix
+
+* enable secondary services on some new apps ([#1548](https://github.com/truecharts/apps/issues/1548))
 
 
-<a name="pwndrop-0.0.3"></a>
-### [pwndrop-0.0.3](https://github.com/truecharts/apps/compare/pwndrop-0.0.2...pwndrop-0.0.3) (2021-12-14)
+
+<a name="pydio-cells-0.0.3"></a>
+### [pydio-cells-0.0.3](https://github.com/truecharts/apps/compare/pydio-cells-0.0.2...pydio-cells-0.0.3) (2021-12-14)
 
 #### Chore
 
@@ -1069,8 +1382,8 @@
 
 
 
-<a name="pwndrop-0.0.2"></a>
-### [pwndrop-0.0.2](https://github.com/truecharts/apps/compare/pwndrop-0.0.1...pwndrop-0.0.2) (2021-12-13)
+<a name="pydio-cells-0.0.2"></a>
+### [pydio-cells-0.0.2](https://github.com/truecharts/apps/compare/pydio-cells-0.0.1...pydio-cells-0.0.2) (2021-12-13)
 
 #### Chore
 
@@ -1078,5 +1391,5 @@
 
 
 
-<a name="pwndrop-0.0.1"></a>
-### pwndrop-0.0.1 (2021-12-12)
+<a name="pydio-cells-0.0.1"></a>
+### pydio-cells-0.0.1 (2021-12-12)

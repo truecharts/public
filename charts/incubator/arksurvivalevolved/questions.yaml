@@ -5,15 +5,11 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-# Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}
-# Include{strategy}
-# Include{recreate}
-# Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: secretEnv
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Image Secrets"
     schema:
       additional_attrs: true
@@ -47,7 +43,7 @@ questions:
             private: true
             default: ""
   - variable: env
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Image Environment"
     schema:
       additional_attrs: true
@@ -113,13 +109,6 @@ questions:
                               type: int
                               default: 7777
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 7777
         - variable: udp2
           label: "udp2 service"
           description: "Container Port 7778"
@@ -142,13 +131,6 @@ questions:
                               type: int
                               default: 7778
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 7778
         - variable: udpsteam
           label: "udpsteam service"
           description: "Container Port 27015"
@@ -171,13 +153,6 @@ questions:
                               type: int
                               default: 27015
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 27015
         - variable: rcontcp
           label: "rcontcp service"
           description: "Container Port 27020"
@@ -200,13 +175,6 @@ questions:
                               type: int
                               default: 27020
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 27020
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -220,7 +188,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: serverfiles
           label: "serverfiles Storage"
           description: "Container Path serverdataserverfiles"
@@ -229,7 +196,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -241,7 +207,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
@@ -265,7 +230,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-# Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -290,7 +254,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{promtail}
-# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

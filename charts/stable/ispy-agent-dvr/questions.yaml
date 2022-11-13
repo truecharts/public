@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-# Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}
-# Include{strategy}
-# Include{recreate}
-# Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
 # Include{serviceRoot}
@@ -36,13 +32,6 @@ questions:
                               type: int
                               default: 10184
                               required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 8090
         - variable: turn
           label: "TURN Service"
           description: "TURN Service"
@@ -65,13 +54,6 @@ questions:
                               type: int
                               default: 3478
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 3478
         - variable: webrtc
           label: "Web RTC"
           description: "Web RTC"
@@ -95,13 +77,6 @@ questions:
                               type: int
                               default: 50000
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 50000
                     - variable: webrtc1
                       label: "Web RTC 1"
                       description: "Web RTC 1"
@@ -116,13 +91,6 @@ questions:
                               type: int
                               default: 50001
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 50001
                     - variable: webrtc2
                       label: "Web RTC 2"
                       description: "Web RTC 2"
@@ -137,13 +105,6 @@ questions:
                               type: int
                               default: 50002
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 50002
                     - variable: webrtc3
                       label: "Web RTC 3"
                       description: "Web RTC 3"
@@ -158,13 +119,6 @@ questions:
                               type: int
                               default: 50003
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 50003
                     - variable: webrtc4
                       label: "Web RTC 4"
                       description: "Web RTC 4"
@@ -179,13 +133,6 @@ questions:
                               type: int
                               default: 50004
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 50004
                     - variable: webrtc5
                       label: "Web RTC 5"
                       description: "Web RTC 5"
@@ -200,13 +147,6 @@ questions:
                               type: int
                               default: 50005
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 50005
                     - variable: webrtc6
                       label: "Web RTC 6"
                       description: "Web RTC 6"
@@ -221,13 +161,6 @@ questions:
                               type: int
                               default: 50006
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 50006
                     - variable: webrtc7
                       label: "Web RTC 7"
                       description: "Web RTC 7"
@@ -242,13 +175,6 @@ questions:
                               type: int
                               default: 50007
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 50007
                     - variable: webrtc8
                       label: "Web RTC 8"
                       description: "Web RTC 8"
@@ -263,13 +189,6 @@ questions:
                               type: int
                               default: 50008
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 50008
                     - variable: webrtc9
                       label: "Web RTC 9"
                       description: "Web RTC 9"
@@ -284,13 +203,6 @@ questions:
                               type: int
                               default: 50009
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 50009
                     - variable: webrtc10
                       label: "Web RTC 10"
                       description: "Web RTC 10"
@@ -305,13 +217,6 @@ questions:
                               type: int
                               default: 50010
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 50010
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -325,7 +230,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -337,7 +241,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
@@ -361,7 +264,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-# Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -386,7 +288,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{promtail}
-# Include{netshoot}
 # Include{vpn}
 # Include{documentation}
