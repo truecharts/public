@@ -37,7 +37,7 @@ frigate:
     stats_interval: 60
 
   # TODO: Needs to be able to add additional keys-- Optional: Detectors configuration. Defaults to a single CPU detector
-  _detectors:
+  detectors:
     # -- Required: name of the detector
     coral:
       # -- Required: type of the detector
@@ -107,6 +107,7 @@ frigate:
       record: -f segment -segment_time 10 -segment_format mp4 -reset_timestamps 1 -strftime 1 -c copy -an
       # -- Optional: output args for rtmp streams (default: shown below)
       rtmp: -c copy -f flv
+
   # -- Optional: Detect configuration
   # - NOTE: Can be overridden at the camera level
   detect:
@@ -143,6 +144,7 @@ frigate:
         # -- Optional: Object specific values
         objects:
           person: 1000
+
   # -- Optional: Object configuration
   # - NOTE: Can be overridden at the camera level
   objects:

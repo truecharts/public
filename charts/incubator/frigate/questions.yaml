@@ -246,6 +246,95 @@ questions:
                               type: string
                               required: true
                               default: -c copy -f flv
+        - variable: detect
+          label: Detect
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enabled
+                description: Enables detection for the cameras
+                schema:
+                  type: boolean
+                  default: true
+              - variable: width
+                label: Width
+                description: Width of the frame for the input with the detect role
+                schema:
+                  type: int
+                  required: true
+                  default: 1280
+              - variable: height
+                label: Height
+                description: Height of the frame for the input with the detect role
+                schema:
+                  type: int
+                  required: true
+                  default: 720
+              - variable: fps
+                label: FPS
+                description: Desired fps for your camera for the input with the detect role. Recommended value of 5. Ideally, try and reduce your FPS on the camera.
+                schema:
+                  type: int
+                  required: true
+                  default: 5
+              - variable: max_disappeared
+                label: Max Disappeared
+                description: Number of frames without a detection before frigate considers an object to be gone.
+                schema:
+                  type: int
+                  required: true
+                  default: 25
+              - variable: stationary
+                label: Stationary
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: interval
+                      label: Interval
+                      description: |
+                        Frequency for confirming stationary objects
+                        When set to 0, object detection will not confirm stationary objects until movement is detected.
+                        If set to 10, object detection will run to confirm the object still exists on every 10th frame.
+                      schema:
+                        type: int
+                        required: true
+                        default: 0
+                    - variable: threshold
+                      label: Threshold
+                      description: Number of frames without a position change for an object to be considered stationary
+                      schema:
+                        type: int
+                        required: true
+                        default: 50
+                    - variable: max_frames
+                      label: Max Frames
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: default
+                            label: Default
+                            description: Default for all object types
+                            schema:
+                              type: int
+                              required: true
+                              default: 3000
+                          - variable: objects
+                            label: Objects
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: person
+                                  label: Person
+                                  description: Default for all object types
+                                  schema:
+                                    type: int
+                                    required: true
+                                    default: 1000
 
   - variable: additional_frigate
     group: App Configuration
