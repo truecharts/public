@@ -97,7 +97,7 @@ frigate:
     input_args: -avoid_negative_ts make_zero -fflags +genpts+discardcorrupt -rtsp_transport tcp -timeout 5000000 -use_wallclock_as_timestamps 1
     # -- Optional: global hwaccel args
     # - NOTE: See hardware acceleration docs for your specific device
-    hwaccel_args: []
+    hwaccel_args: ""
     # -- Optional: global output args
     output_args:
       # -- Optional: output args for detect streams
@@ -158,22 +158,21 @@ frigate:
     # - Optional: filters to reduce false positives for specific object types
     filters: []
       # - object: person
-      #   config:
-      #     # -- Optional: Minimum width*height of the bounding box for the detected object
-      #     min_area: 5000
-      #     # -- Optional: Maximum width*height of the bounding box for the detected object
-      #     max_area: 100000
-      #     # -- Optional: Minimum width/height of the bounding box for the detected object
-      #     min_ratio: 0.5
-      #     # -- Optional: Maximum width/height of the bounding box for the detected object
-      #     max_ratio: 2.0
-      #     # -- Optional: Minimum score for the object to initiate tracking
-      #     min_score: 0.5
-      #     # -- Optional: Minimum decimal percentage for tracked object's computed score to be considered a true positive
-      #     threshold: 0.7
-      #     # -- Optional: Mask to prevent this object type from being detected in certain areas
-      #     # - Checks based on the bottom center of the bounding box of the object
-      #     mask: 0,0,1000,0,1000,200,0,200
+      #   # -- Optional: Minimum width*height of the bounding box for the detected object
+      #   min_area: 5000
+      #   # -- Optional: Maximum width*height of the bounding box for the detected object
+      #   max_area: 100000
+      #   # -- Optional: Minimum width/height of the bounding box for the detected object
+      #   min_ratio: 0.5
+      #   # -- Optional: Maximum width/height of the bounding box for the detected object
+      #   max_ratio: 2.0
+      #   # -- Optional: Minimum score for the object to initiate tracking
+      #   min_score: 0.5
+      #   # -- Optional: Minimum decimal percentage for tracked object's computed score to be considered a true positive
+      #   threshold: 0.7
+      #   # -- Optional: Mask to prevent this object type from being detected in certain areas
+      #   # - Checks based on the bottom center of the bounding box of the object
+      #   mask: 0,0,1000,0,1000,200,0,200
 
   motion:
     # -- Enable it to add the configuration in the config file
@@ -316,7 +315,7 @@ frigate:
 
   timestamp_style:
     # -- Enable it to add the configuration in the config file
-    render_config: true
+    render_config: false
     # -- Optional: Position of the timestamp
     # - "tl" (top left), "tr" (top right), "bl" (bottom left), "br" (bottom right)
     position: "tl"
@@ -338,45 +337,43 @@ frigate:
     # - "shadow" (shadow for font)
     effect: None
 
-  # -- Required
   cameras:
     # -- Required: name of the camera
-    back:
+    - camera_name: back
       # -- Required: ffmpeg settings for the camera
       ffmpeg:
         # -- Required: A list of input streams for the camera. See documentation for more information.
         inputs:
           # -- Required: the path to the stream
-          # - NOTE: path may include environment variables, which must begin with 'FRIGATE_' and be referenced in {}
-          - path: rtsp://viewer:{FRIGATE_RTSP_PASSWORD}@10.0.10.10:554/cam/realmonitor?channel=1&subtype=2
+          - path: rtsp://viewer:password@10.0.10.10:554/cam/realmonitor?channel=1&subtype=2
             # -- Required: list of roles for this stream. valid values are: detect,record,rtmp
             # - NOTICE: In addition to assigning the record, and rtmp roles,
             # - they must also be enabled in the camera config.
             roles:
               - detect
               - rtmp
-            # -- Optional: stream specific global args (default: inherit)
-            # - global_args:
-            # - Optional: stream specific hwaccel args (default: inherit)
-            # - hwaccel_args:
-            # - Optional: stream specific input args (default: inherit)
-            # - input_args:
-        # -- Optional: camera specific global args (default: inherit)
-        # global_args:
-        # -- Optional: camera specific hwaccel args (default: inherit)
-        # hwaccel_args:
-        # -- Optional: camera specific input args (default: inherit)
-        # input_args:
-        # -- Optional: camera specific output args (default: inherit)
-        # output_args:
+            # -- Optional: stream specific global args
+            global_args:
+            # - Optional: stream specific hwaccel args
+            hwaccel_args:
+            # - Optional: stream specific input args
+            input_args:
+        # -- Optional: camera specific global args
+        global_args:
+        # -- Optional: camera specific hwaccel args
+        hwaccel_args:
+        # -- Optional: camera specific input args
+        input_args:
+        # -- Optional: camera specific output args
+        output_args:
       # -- Optional: timeout for highest scoring image before allowing it
-      # - to be replaced by a newer image. (default: shown below)
+      # - to be replaced by a newer image.
       best_image_timeout: 60
       # -- Optional: zones for this camera
       zones:
         # -- Required: name of the zone
         # - NOTE: This must be different than any camera names, but can match with another zone on another camera
-        front_steps:
+        - name: front_steps
           # -- Required: List of x,y coordinates to define the polygon of the zone.
           # - NOTE: Presence in a zone is evaluated only based on the bottom center of the objects bounding box.
           coordinates: 545,1077,747,939,788,805
@@ -386,35 +383,39 @@ frigate:
           # -- Optional: Zone level object filters.
           # -NOTE: The global and camera filters are applied upstream.
           filters:
-            person:
+            - object: person
               min_area: 5000
               max_area: 100000
               threshold: 0.7
       # -- Optional: Configuration for the jpg snapshots published via MQTT
       mqtt:
-        # -- Optional: Enable publishing snapshot via mqtt for camera (default: shown below)
+        # -- Enable it to add the configuration in the config file
+        render_config: true
+        # -- Optional: Enable publishing snapshot via mqtt for camera
         # - NOTE: Only applies to publishing image data to MQTT via 'frigate/<camera_name>/<object_name>/snapshot'.
         # - All other messages will still be published.
-        enabled: True
-        # -- Optional: print a timestamp on the snapshots (default: shown below)
-        timestamp: True
-        # -- Optional: draw bounding box on the snapshots (default: shown below)
-        bounding_box: True
-        # -- Optional: crop the snapshot (default: shown below)
-        crop: True
-        # -- Optional: height to resize the snapshot to (default: shown below)
+        enabled: true
+        # -- Optional: print a timestamp on the snapshots
+        timestamp: true
+        # -- Optional: draw bounding box on the snapshots
+        bounding_box: true
+        # -- Optional: crop the snapshot
+        crop: true
+        # -- Optional: height to resize the snapshot to
         height: 270
-        # -- Optional: jpeg encode quality (default: shown below)
+        # -- Optional: jpeg encode quality
         quality: 70
-        # -- Optional: Restrict mqtt messages to objects that entered any of the listed zones (default: no required zones)
+        # -- Optional: Restrict mqtt messages to objects that entered any of the listed zones
         required_zones: []
       # -- Optional: Configuration for how camera is handled in the GUI.
       ui:
-        # -- Optional: Adjust sort order of cameras in the UI. Larger numbers come later (default: shown below)
+        # -- Enable it to add the configuration in the config file
+        render_config: true
+        # -- Optional: Adjust sort order of cameras in the UI. Larger numbers come later
         # - By default the cameras are sorted alphabetically.
         order: 0
-        # -- Optional: Whether or not to show the camera in the Frigate UI (default: shown below)
-        dashboard: True
+        # -- Optional: Whether or not to show the camera in the Frigate UI
+        dashboard: true
 
 ingress:
   rtmp:

@@ -331,15 +331,8 @@ questions:
                       label: HW Acceleration Args
                       description: See hardware acceleration docs for your specific device
                       schema:
-                        type: list
-                        default: []
-                        items:
-                          - variable: hw_accel_arg
-                            label: HW Acceleration Arg
-                            schema:
-                              type: string
-                              required: true
-                              default: ""
+                        type: string
+                        default: ""
                     - variable: output_args
                       label: Output Args
                       schema:
@@ -529,55 +522,49 @@ questions:
                         attrs:
                           - variable: object
                             label: Object
-                            description: For example Person
+                            description: For example person
                             schema:
                               type: string
                               required: true
                               default: ""
-                          - variable: config
-                            label: Object Config
+                          - variable: min_area
+                            label: Min Area
+                            description: Minimum width*height of the bounding box for the detected object
                             schema:
-                              additional_attrs: true
-                              type: dict
-                              attrs:
-                                - variable: min_area
-                                  label: Min Area
-                                  description: Minimum width*height of the bounding box for the detected object
-                                  schema:
-                                    type: int
-                                    "null": true
-                                - variable: max_area
-                                  label: Max Area
-                                  description: Maximum width*height of the bounding box for the detected object
-                                  schema:
-                                    type: int
-                                    "null": true
-                                - variable: min_ratio
-                                  label: Min Ratio
-                                  description: Minimum width/height of the bounding box for the detected object
-                                  schema:
-                                    type: int
-                                    "null": true
-                                - variable: min_score
-                                  label: Min Score
-                                  description: Minimum score for the object to initiate tracking
-                                  schema:
-                                    type: int
-                                    "null": true
-                                - variable: threshold
-                                  label: Threshold
-                                  description: Minimum decimal percentage for tracked object's computed score to be considered a true positive
-                                  schema:
-                                    type: int
-                                    "null": true
-                                - variable: mask
-                                  label: Mask
-                                  description: |
-                                    Mask to prevent this object type from being detected in certain areas
-                                    Checks based on the bottom center of the bounding box of the object
-                                  schema:
-                                    type: string
-                                    default: ""
+                              type: int
+                              "null": true
+                          - variable: max_area
+                            label: Max Area
+                            description: Maximum width*height of the bounding box for the detected object
+                            schema:
+                              type: int
+                              "null": true
+                          - variable: min_ratio
+                            label: Min Ratio
+                            description: Minimum width/height of the bounding box for the detected object
+                            schema:
+                              type: int
+                              "null": true
+                          - variable: min_score
+                            label: Min Score
+                            description: Minimum score for the object to initiate tracking
+                            schema:
+                              type: int
+                              "null": true
+                          - variable: threshold
+                            label: Threshold
+                            description: Minimum decimal percentage for tracked object's computed score to be considered a true positive
+                            schema:
+                              type: int
+                              "null": true
+                          - variable: mask
+                            label: Mask
+                            description: |
+                              Mask to prevent this object type from being detected in certain areas
+                              Checks based on the bottom center of the bounding box of the object
+                            schema:
+                              type: string
+                              default: ""
         - variable: motion
           label: Motion
           schema:
@@ -1102,6 +1089,237 @@ questions:
                             description: Solid
                           - value: shadow
                             description: Shadow
+        - variable: cameras
+          label: Cameras
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: camera_entry
+                label: Camera Entry
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: camera_name
+                      label: Camera Name
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: ffmpeg
+                      label: ffmpeg
+                      description: ffmpeg Settings for the camera
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: inputs
+                            label: Inputs
+                            description: A list of input streams for the camera. See documentation for more information.
+                            schema:
+                              type: list
+                              required: true
+                              default: []
+                              items:
+                                - variable: input_entry
+                                  label: Input Entry
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: path
+                                        label: Path
+                                        description: The path to the stream
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: roles
+                                        label: Roles
+                                        schema:
+                                          type: list
+                                          required: true
+                                          default: []
+                                          items:
+                                            - variable: role_entry
+                                              label: Role Entry
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: ""
+                                                enum:
+                                                  - value: detect
+                                                    description: Detect
+                                                  - value: rtmp
+                                                    description: RTMP
+                                                  - value: record
+                                                    description: Record
+                          - variable: global_args
+                            label: Global Args
+                            description: Camera specific global args
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: hwaccel_args
+                            label: HW Acceleration Args
+                            description: Camera specific hwaccel args
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: input_args
+                            label: Input Args
+                            description: Camera specific input args
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: output_args
+                            label: Output Args
+                            description: Camera specific output args
+                            schema:
+                              type: string
+                              default: ""
+                    - variable: best_image_timeout
+                      label: Best Image Timeout
+                      description: Timeout for highest scoring image before allowing it to be replaced by a newer image.
+                      schema:
+                        type: int
+                        required: true
+                        default: 60
+                    - variable: zones
+                      label: Zones
+                      description: Zones for this camera
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: zone_entry
+                            label: Zone Entry
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: Zone Name
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: ""
+                                - variable: coordinates
+                                  label: Coordinates
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: ""
+                                - variable: objects
+                                  label: Objects
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: object_entry
+                                        label: Object Entry
+                                        description: For example person
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                    - variable: mqtt
+                      label: MQTT
+                      description: MQTT Configuration for jpg snapshots published for this camera
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: render_config
+                            label: Render Configuration
+                            description: Enable it to add the configuration in the config file
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: enabled
+                                  label: Enabled
+                                  description: |
+                                    Enable publishing snapshot via mqtt for camera
+                                    NOTE: Only applies to publishing image data to MQTT via 'frigate/<camera_name>/<object_name>/snapshot'.
+                                    All other messages will still be published.
+                                  schema:
+                                    type: boolean
+                                    default: true
+                                - variable: timestamp
+                                  label: Timestamp
+                                  description: Print a timestamp on the snapshots
+                                  schema:
+                                    type: boolean
+                                    default: true
+                                - variable: bounding_box
+                                  label: Bounding Box
+                                  description: Draw bounding box on the snapshots
+                                  schema:
+                                    type: boolean
+                                    default: true
+                                - variable: crop
+                                  label: Crop
+                                  description: Crop the snapshot
+                                  schema:
+                                    type: boolean
+                                    default: true
+                                - variable: height
+                                  label: Height
+                                  description: Height to resize the snapshot to
+                                  schema:
+                                    type: int
+                                    required: true
+                                    default: 720
+                                - variable: quality
+                                  label: Quality
+                                  description: JPEG encode quality
+                                  schema:
+                                    type: int
+                                    required: true
+                                    default: 70
+                                - variable: required_zones
+                                  label: Required Zones
+                                  description: Restrict mqtt messages to objects that entered any of the listed zones
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: required_zone
+                                        label: Required Zone
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                    - variable: ui
+                      label: UI
+                      description: Configuration for how camera is handled in the GUI.
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: render_config
+                            label: Render Configuration
+                            description: Enable it to add the configuration in the config file
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: order
+                                  label: order
+                                  description: Adjust sort order of cameras in the UI. Larger numbers come later By default the cameras are sorted alphabetically.
+                                  schema:
+                                    "null": true
+                                    type: int
+                                - variable: dashboard
+                                  label: Dashboard
+                                  description: Whether or not to show the camera in the Frigate UI
+                                  schema:
+                                    type: boolean
+                                    default: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

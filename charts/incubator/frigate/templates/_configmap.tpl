@@ -87,7 +87,7 @@ data:
       global_args: {{ .Values.frigate.ffmpeg.global_args | default "-hide_banner -loglevel warning" }}
       input_args: {{ .Values.frigate.ffmpeg.input_args | default "-avoid_negative_ts make_zero -fflags +genpts+discardcorrupt -rtsp_transport tcp -timeout 5000000 -use_wallclock_as_timestamps 1" }}
       {{- with .Values.frigate.ffmpeg.hwaccel_args }}
-      hwaccel_args: {{ join " " . }}
+      hwaccel_args: {{ . }}
       {{- end }}
       output_args:
         detect: {{ .Values.frigate.ffmpeg.output_args.detect | default "-f rawvideo -pix_fmt yuv420p" }}
@@ -136,25 +136,25 @@ data:
       filters:
         {{- range . }}
         {{ .object }}:
-          {{- with .config.min_area }}
+          {{- with .min_area }}
           min_area: {{ . }}
           {{- end }}
-          {{- with .config.max_area }}
+          {{- with .max_area }}
           max_area: {{ . }}
           {{- end }}
-          {{- with .config.min_ratio }}
+          {{- with .min_ratio }}
           min_ratio: {{ . }}
           {{- end }}
-          {{- with .config.max_ratio }}
+          {{- with .max_ratio }}
           max_ratio: {{ . }}
           {{- end }}
-          {{- with .config.min_score }}
+          {{- with .min_score }}
           min_score: {{ . }}
           {{- end }}
-          {{- with .config.threshold }}
+          {{- with .threshold }}
           threshold: {{ . }}
           {{- end }}
-          {{- with .config.mask }}
+          {{- with .mask }}
           mask: {{ . }}
           {{- end }}
         {{- end }}
@@ -258,4 +258,99 @@ data:
       thickness: {{ .Values.frigate.timestamp_style.thickness | default 2 }}
       effect: {{ .Values.frigate.timestamp_style.effect | default "None" }}
     {{- end }}
+
+    cameras:
+    {{- range .Values.frigate.cameras }}
+      {{ .camera_name }}:
+        ffmpeg:
+          {{- with .ffmpeg }}
+          inputs:
+          {{- range .inputs }}
+            - path: {{ .path }}
+              {{- with .roles }}
+              roles:
+                {{- range . }}
+                - {{ . }}
+                {{- end }}
+              {{- end }} {{/* end with roles*/}}
+              {{- with .global_args }}
+              global_args: {{ . }}
+              {{- end }}
+              {{- with .hwaccel_args }}
+              hwaccel_args: {{ . }}
+              {{- end }}
+              {{- with .input_args }}
+              input_args: {{ . }}
+              {{- end }}
+          {{- end }} {{/* end range inputs */}}
+          {{- with .global_args }}
+          global_args: {{ . }}
+          {{- end }}
+          {{- with .hwaccel_args }}
+          hwaccel_args: {{ . }}
+          {{- end }}
+          {{- with .input_args }}
+          input_args: {{ . }}
+          {{- end }}
+          {{- with .output_args }}
+          output_args: {{ . }}
+          {{- end }}
+          {{- end }} {{/* end with ffmpeg */}}
+        best_image_timeout: {{ .best_image_timeout | default 60 }}
+        {{- with .zones }}
+        zones:
+          {{- range . }}
+          {{ .name }}:
+            coordinates: {{ required "You have to specify coordinates" .coordinates }}
+            {{- with .objects }}
+            objects:
+              {{- range . }}
+              - {{ . }}
+              {{- end }}
+            {{- end }} {{/* end with objects*/}}
+            {{- with .filters }}
+            filters:
+              {{- range . }}
+              {{ .object }}:
+                {{- with .min_area }}
+                min_area: {{ . }}
+                {{- end }}
+                {{- with .max_area }}
+                max_area: {{ . }}
+                {{- end }}
+                {{- with .threshold }}
+                threshold: {{ . }}
+                {{- end }}
+              {{- end }} {{/* end range filters */}}
+            {{- end }} {{/* end with filter */}}
+          {{- end }} {{/* end range zones */}}
+        {{- end }} {{/* end with zones */}}
+        {{- if .mqtt.render_config }}
+        {{- with .mqtt }}
+        mqtt:
+          enabled: {{ ternary "True" "False" .enabled }}
+          timestamp: {{ ternary "True" "False" .timestamp }}
+          bounding_box: {{ ternary "True" "False" .bounding_box }}
+          crop: {{ ternary "True" "False" .crop }}
+          height: {{ .height | default 270 }}
+          quality: {{ .quality | default 70 }}
+          {{- with .required_zones }}
+          required_zones:
+            {{- range . }}
+            - {{ . }}
+            {{- end }}
+          {{- end }}
+        {{- end }} {{/* end with mqtt */}}
+        {{- end }} {{/* end if mqtt.render_config */}}
+        {{- with .ui }}
+        ui:
+          {{- if or .order (eq (int .order) 0) }}
+          order: {{ .order }}
+          {{- end }}
+          dashboard: {{ ternary "True" "False" .dashboard }}
+        {{- end }} {{/* end with ui */}}
+    {{- end }} {{/* end range cameras */}}
+
+
+
 {{- end }}
