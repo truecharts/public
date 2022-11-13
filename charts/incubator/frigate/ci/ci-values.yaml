@@ -13,3 +13,11 @@ frigate:
       - name: cpu
         type: cpu
         num_threads: 3
+  cameras:
+    - camera_name: ci
+      ffmpeg:
+        inputs:
+          - path: rtsp://user:pass@localhost/cam/blabla
+            roles:
+              - detect
+              - rtmp
