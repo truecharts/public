@@ -32,7 +32,8 @@ frigate:
   detectors:
     # -- Enable it to add the configuration in the config file
     render_config: false
-    config: []
+    config:
+      []
       # -- Required: Name of the detector
       # - name: coral
       #   # -- Valid values are 'edgetpu' (requires device property below) and 'cpu'.
@@ -54,7 +55,8 @@ frigate:
     # -- Required: Object detection model input height
     height: 320
     # -- Optional: Label name modifications.
-    labelmap: []
+    labelmap:
+      []
       # - model: "2"
       #   name: vehicle
       # - model: 3
@@ -156,7 +158,8 @@ frigate:
     # - NOTE: This mask is COMBINED with the object type specific mask below
     mask: 0,0,1000,0,1000,200,0,200
     # - Optional: filters to reduce false positives for specific object types
-    filters: []
+    filters:
+      []
       # - object: person
       #   # -- Optional: Minimum width*height of the bounding box for the detected object
       #   min_area: 5000
@@ -247,7 +250,8 @@ frigate:
       # -- Optional: Number of seconds after the event to include
       post_capture: 5
       # -- Optional: Objects to save recordings for. Defaults to all
-      objects: []
+      objects:
+        []
         # - person
       # -- Optional: Restrict recordings to objects that entered any of the listed zones
       required_zones: []
