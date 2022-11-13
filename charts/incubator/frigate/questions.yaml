@@ -81,41 +81,42 @@ questions:
                   subquestions:
                     - variable: config
                       label: Detectors Configuration
-                      type: list
-                      default: []
-                      items:
-                        - variable: name
-                          label: Name
-                          description: Name of the detector
-                          schema:
-                            type: string
-                            required: true
-                            default: ""
-                        - variable: type
-                          label: Type
-                          description: Name of the detector
-                          schema:
-                            type: string
-                            required: true
-                            default: cpu
-                            enum:
-                              - value: cpu
-                                description: CPU
-                              - value: edgetpu
-                                description: Edge TPU
-                        - variable: device
-                          label: Device
-                          description: Device name as defined here - https://coral.ai/docs/edgetpu/multiple-edgetpu/#using-the-tensorflow-lite-python-api
-                          schema:
-                            type: string
-                            default: ""
-                        - variable: num_threads
-                          label: Number of Threads
-                          description: This value is only used for CPU types
-                          schema:
-                            type: int
-                            show_if: [["type", "=", "cpu"]]
-                            default: 3
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: name
+                            label: Name
+                            description: Name of the detector
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: type
+                            label: Type
+                            description: Name of the detector
+                            schema:
+                              type: string
+                              required: true
+                              default: cpu
+                              enum:
+                                - value: cpu
+                                  description: CPU
+                                - value: edgetpu
+                                  description: Edge TPU
+                          - variable: device
+                            label: Device
+                            description: Device name as defined here - https://coral.ai/docs/edgetpu/multiple-edgetpu/#using-the-tensorflow-lite-python-api
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: num_threads
+                            label: Number of Threads
+                            description: This value is only used for CPU types
+                            schema:
+                              type: int
+                              show_if: [["type", "=", "cpu"]]
+                              default: 3
         - variable: model
           label: Model
           schema:
@@ -152,25 +153,26 @@ questions:
                         default: 320
                     - variable: labelmap
                       label: LabelMap Configuration
-                      type: list
-                      default: []
-                      items:
-                        - variable: labelmap_entry
-                          label: LabelMap Entry
-                          schema:
-                            additional_attrs: true
-                            type: dict
-                            attrs:
-                              - variable: model
-                                label: Model
-                                schema:
-                                  type: string
-                                  default: ""
-                              - variable: name
-                                label: Name
-                                schema:
-                                  type: string
-                                  default: ""
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: labelmap_entry
+                            label: LabelMap Entry
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: model
+                                  label: Model
+                                  schema:
+                                    type: string
+                                    default: ""
+                                - variable: name
+                                  label: Name
+                                  schema:
+                                    type: string
+                                    default: ""
         - variable: logger
           label: Logger
           schema:
@@ -293,7 +295,6 @@ questions:
                             description: Motion
                           - value: continuous
                             description: Continuous
-
         - variable: ffmpeg
           label: ffmpeg
           schema:
@@ -453,32 +454,6 @@ questions:
                                     type: int
                                     required: true
                                     default: 1000
-
-  - variable: additional_frigate
-    group: App Configuration
-    label: Additional Frigate Configuration
-    schema:
-      type: list
-      default: []
-      items:
-        - variable: entry
-          label: Key - Value Pair
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: key
-                label: Key
-                schema:
-                  type: string
-                  required: true
-                  default: ""
-              - variable: value
-                label: Value
-                schema:
-                  type: string
-                  required: true
-                  default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
