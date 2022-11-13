@@ -23,7 +23,7 @@ gsm:
       key: plainhost
   DB_PORT: "5432"
   # postgres://USER:PASS@HOST:PORT/DB_NAME
-  DATABASE_URL: "postgres://{{ .Values.postgresql.postgresqlUsername }}:{{ .Values.gameservermonitor.DB_PASS }}@{{ .Values.gameservermonitor.DB_HOST }}:{{ .Values.gameservermonitor.DB_PORT }}/{{ .Values.postgresql.postgresqlDatabase }}"
+  DATABASE_URL: "postgres://{{ .Values.postgresql.postgresqlUsername }}:{{ .Values.gsm.DB_PASS }}@{{ .Values.gsm.DB_HOST }}:{{ .Values.gsm.DB_PORT }}/{{ .Values.postgresql.postgresqlDatabase }}"
   # APP_TOKEN: "DISCORD_BOT_TOKEN"
 
 service:
