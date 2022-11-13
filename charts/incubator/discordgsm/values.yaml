@@ -1,7 +1,7 @@
 image:
-  repository: discordgsm/discord-game-server-monitor
+  repository: tccr.io/truecharts/discord-game-server-monitor
   pullPolicy: IfNotPresent
-  tag: 2.6.0@sha256:dde285597299fdc99e6ced8d24f738a4a782677a39dc868f76f47edb6792fce1
+  tag: 2.6.0@sha256:94010f00d3a788c64710a4c986e7a3e5d3e4ffc9f8aadb0e3ab453f4e283e4f3
 
 securityContext:
   runAsNonRoot: false
@@ -11,9 +11,8 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-gameservermonitor:
+gsm:
   POSTGRES_SSL_MODE: disable
-  DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   DB_PASS:
     secretKeyRef:
       name: dbcreds
@@ -23,9 +22,8 @@ gameservermonitor:
       name: dbcreds
       key: plainhost
   DB_PORT: "5432"
-  DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
   # postgres://USER:PASS@HOST:PORT/DB_NAME
-  DATABASE_URL: "postgres://{{ .Values.gameservermonitor.DB_USER }}:{{ .Values.gameservermonitor.DB_PASS }}@{{ .Values.gameservermonitor.DB_HOST }}:{{ .Values.gameservermonitor.DB_PORT }}/{{ .Values.gameservermonitor.DB_DATABASE }}"
+  DATABASE_URL: "postgres://{{ .Values.postgresql.postgresqlUsername }}:{{ .Values.gameservermonitor.DB_PASS }}@{{ .Values.gameservermonitor.DB_HOST }}:{{ .Values.gameservermonitor.DB_PORT }}/{{ .Values.postgresql.postgresqlDatabase }}"
   # APP_TOKEN: "DISCORD_BOT_TOKEN"
 
 service:
