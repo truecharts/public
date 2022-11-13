@@ -17,4 +17,7 @@ data:
   DB_HOST: {{ printf "%v-%v" .Release.Name "postgresql" | b64enc }}
   DB_PORT: {{ printf "5432" | b64enc }}
   APP_TOKEN: {{ .Values.gsm.app_token | b64enc }}
+  {{- with .Values.gsm.whitelist_guilds }}
+  WHITELIST_GUILDS: {{ join ";" . | b64enc }}
+  {{- end }}
 {{- end }}
