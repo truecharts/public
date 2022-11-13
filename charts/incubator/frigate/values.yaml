@@ -422,6 +422,15 @@ service:
         targetPort: 1935
 
 persistence:
+  media:
+    enabled: true
+    mountPath: /media
+    size: 256Gi
+  db:
+    enabled: true
+    mountPath: /db
+    size: 256Gi
+    type: emptyDir
   cache:
     enabled: true
     mountPath: /tmp/cache
@@ -431,9 +440,6 @@ persistence:
     mountPath: /dev/shm
     type: emptyDir
     medium: Memory
-  media:
-    enabled: true
-    mountPath: /media
   frigate-config:
     enabled: true
     mountPath: /config

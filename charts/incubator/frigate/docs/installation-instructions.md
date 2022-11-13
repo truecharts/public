@@ -80,5 +80,5 @@ Those values are:
 
 ```yaml
 database:
-  path: /media/frigate/frigate.db
+  path: /db/frigate.db
 ```
