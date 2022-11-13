@@ -1,0 +1,23 @@
+image:
+  repository: ghcr.io/discordgsm/discord-game-server-monitor
+  pullPolicy: IfNotPresent
+  tag: 2.8.1@sha256:adff91b91c3647ec3a91cc605cde6b82751a6c9e290e4ccd8ee55774cc5d2ffd
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 18000
+        port: 8000
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/app/data"
+
+portal:
+  enabled: true
