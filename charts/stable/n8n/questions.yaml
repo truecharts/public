@@ -160,11 +160,13 @@ questions:
           description: "The maximum run time (in seconds) before stopping a workflow execution. Set to -1 to disable."
           schema:
             type: int
+            "null": true
         - variable: EXECUTIONS_TIMEOUT_MAX
           label: "Max Execution Timeout (Leave empty for default)"
           description: "The max execution time (in seconds) that can be set for a workflow individually"
           schema:
             type: int
+            "null": true
         - variable: EXECUTIONS_DATA_SAVE_ON_ERROR
           label: "Execution Data Save on Error"
           description: "Whether n8n saves execution data on error."
@@ -208,6 +210,7 @@ questions:
           description: "The execution age (in hours) before it is deleted"
           schema:
             type: int
+            "null": true
         - variable: EXECUTIONS_DATA_PRUNE
           label: "Execution Data Prune"
           description: "Whether to delete data of past executions on a rolling basis"
@@ -221,6 +224,7 @@ questions:
                 description: "The timeout (in seconds) after execution data has been pruned"
                 schema:
                   type: int
+                  "null": true
   - variable: n8n_security
     group: "App Configuration"
     label: "Security"
@@ -334,6 +338,7 @@ questions:
           description: "The maximum payload size in MB"
           schema:
             type: int
+            "null": true
         - variable: N8N_METRICS
           label: "Enable Metrics endpoint"
           description: "Whether to enable the metrics endpoint"
@@ -455,11 +460,13 @@ questions:
           description: "Max number of log files to keep"
           schema:
             type: int
+            "null": true
         - variable: N8N_LOG_FILE_SIZE_MAX
           label: "Max Log File Size (Leave empty for default)"
           description: "Max size of each log file in MB"
           schema:
             type: int
+            "null": true
   - variable: externalhooks
     group: "App Configuration"
     label: "External Hooks"
@@ -503,6 +510,7 @@ questions:
           description: "Your SMTP server port"
           schema:
             type: int
+            "null": true
         - variable: N8N_SMTP_USER
           label: "SMTP User"
           description: "Your SMTP username"
