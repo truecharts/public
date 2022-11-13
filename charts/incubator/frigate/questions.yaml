@@ -622,8 +622,8 @@ questions:
                         Higher values mean the current frame impacts the delta a lot, and a single raindrop may register as motion.
                         Too low and a fast moving person wont be detected as motion.
                       schema:
-                        type: int
-                        default: 0.2
+                        type: string
+                        default: "0.2"
                     - variable: frame_alpha
                       label: Frame Alpha
                       description: |
@@ -632,8 +632,8 @@ questions:
                         Low values will cause things like moving shadows to be detected as motion for longer.
                         https://www.geeksforgeeks.org/background-subtraction-in-an-image-using-concept-of-running-average
                       schema:
-                        type: int
-                        default: 0.2
+                        type: string
+                        default: "0.2"
                     - variable: frame_height
                       label: Frame Height
                       description: |
