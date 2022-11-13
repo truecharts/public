@@ -1,12 +1,8 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.common.loader.init" . }}
 
-{{/* Render secrets for audiobookshelf */}}
-{{- include "audiobookshelf.secrets" . }}
-{{- if .Values.ingress.main.enabled }}
-  {{- if .Values.disableMiddlewares }}
-    {{- $_ := set .Values.ingress.main "enableFixedMiddlewares" false }}
-  {{- end }}
-{{- end }}
+{{- $newMiddlewares :=  list "tc-opencors-headers" }}
+{{- $_ := set .Values.ingress.main "fixedMiddlewares" $newMiddlewares -}}
+
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}

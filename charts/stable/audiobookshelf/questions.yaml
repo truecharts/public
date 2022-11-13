@@ -72,12 +72,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-  - variable: disableMiddlewares
-    group: Ingress
-    label: Disable Default Traefik Middlewares (Security Risk!)
-    schema:
-      type: boolean
-      default: false
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
