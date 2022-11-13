@@ -7,6 +7,6 @@ Add your discord bot if you haven't done so and run initial commands to get star
 
 :::info
 
-checkout discordGSM supported list of game servers [here](https://discordgsm.com/guide/supported-games).
+Checkout discordGSM supported list of game servers [here](https://discordgsm.com/guide/supported-games).
 
 :::
