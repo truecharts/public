@@ -390,7 +390,7 @@ frigate:
       # -- Optional: Configuration for the jpg snapshots published via MQTT
       mqtt:
         # -- Enable it to add the configuration in the config file
-        render_config: true
+        render_config: false
         # -- Optional: Enable publishing snapshot via mqtt for camera
         # - NOTE: Only applies to publishing image data to MQTT via 'frigate/<camera_name>/<object_name>/snapshot'.
         # - All other messages will still be published.
@@ -410,7 +410,7 @@ frigate:
       # -- Optional: Configuration for how camera is handled in the GUI.
       ui:
         # -- Enable it to add the configuration in the config file
-        render_config: true
+        render_config: false
         # -- Optional: Adjust sort order of cameras in the UI. Larger numbers come later
         # - By default the cameras are sorted alphabetically.
         order: 0
