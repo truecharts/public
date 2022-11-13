@@ -120,4 +120,44 @@ data:
         {{- end }}
         {{- end }}
     {{- end }}
+
+    {{- if .Values.frigate.objects.render_config }}
+    objects:
+      {{- with .Values.frigate.objects.track }}
+      track:
+        {{- range . }}
+        - {{ . }}
+        {{- end }}
+      {{- end }}
+      {{- with .Values.frigate.objects.mask }}
+      mask: {{ . }}
+      {{- end }}
+      {{- with .Values.frigate.objects.filters }}
+      filters:
+        {{- range . }}
+        {{ .object }}:
+          {{- with .config.min_area }}
+          min_area: {{ . }}
+          {{- end }}
+          {{- with .config.max_area }}
+          max_area: {{ . }}
+          {{- end }}
+          {{- with .config.min_ratio }}
+          min_ratio: {{ . }}
+          {{- end }}
+          {{- with .config.max_ratio }}
+          max_ratio: {{ . }}
+          {{- end }}
+          {{- with .config.min_score }}
+          min_score: {{ . }}
+          {{- end }}
+          {{- with .config.threshold }}
+          threshold: {{ . }}
+          {{- end }}
+          {{- with .config.mask }}
+          mask: {{ . }}
+          {{- end }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
 {{- end }}

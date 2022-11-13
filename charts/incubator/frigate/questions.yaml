@@ -135,12 +135,12 @@ questions:
                       label: Path
                       schema:
                         type: string
-                        default: ""
+                        default: /edgetpu_model.tflite
                     - variable: labelmap_path
                       label: Label Map Path
                       schema:
                         type: string
-                        default: ""
+                        default: /labelmap.txt
                     - variable: width
                       label: Width
                       schema:
@@ -480,6 +480,111 @@ questions:
                                                       type: int
                                                       required: true
                                                       default: null
+        - variable: objects
+          label: Objects
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: render_config
+                label: Render Configuration
+                description: Enable it to add the configuration in the config file
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: track
+                      label: Traci
+                      description: Objects to track from labelmap.txt
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: track_entry
+                            label: Track Object Entry
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+              - variable: mask
+                label: Mask
+                description: |
+                  Mask to prevent all object types from being detected in certain areas
+                  Checks based on the bottom center of the bounding box of the object.
+                  This mask is COMBINED with the object type specific mask below
+                schema:
+                  type: string
+                  default: ""
+              - variable: filters
+                label: Filters
+                description: Filters to reduce false positives for specific object types
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: filter_entry
+                      label: Filter Entry
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: object
+                            label: Object
+                            description: For example Person
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: config
+                            label: Object Config
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: min_area
+                                  label: Min Area
+                                  description: Minimum width*height of the bounding box for the detected object
+                                  schema:
+                                    type: int
+                                    "null": true
+                                    default: null
+                                - variable: max_area
+                                  label: Max Area
+                                  description: Maximum width*height of the bounding box for the detected object
+                                  schema:
+                                    type: int
+                                    "null": true
+                                    default: null
+                                - variable: min_ratio
+                                  label: Min Ratio
+                                  description: Minimum width/height of the bounding box for the detected object
+                                  schema:
+                                    type: int
+                                    "null": true
+                                    default: null
+                                - variable: min_score
+                                  label: Min Score
+                                  description: Minimum score for the object to initiate tracking
+                                  schema:
+                                    type: int
+                                    "null": true
+                                    default: null
+                                - variable: threshold
+                                  label: Threshold
+                                  description: Minimum decimal percentage for tracked object's computed score to be considered a true positive
+                                  schema:
+                                    type: int
+                                    "null": true
+                                    default: null
+                                - variable: mask
+                                  label: Mask
+                                  description: |
+                                    Mask to prevent this object type from being detected in certain areas
+                                    Checks based on the bottom center of the bounding box of the object
+                                  schema:
+                                    type: string
+                                    default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
