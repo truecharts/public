@@ -1,11 +1,5 @@
 # Installation instructions
 
-:::warn
-
-Ingress for this chart is **required**
-
-:::
-
 In both Native Helm and TrueNAS Scale, keys that start with `_` are **unset**.
 
 ## Configuration
@@ -34,7 +28,7 @@ for the change to take effect.
 :::
 
 For SCALE users, you can add additional configuration options that are not exposed in the UI
-by using the `Additional MeshCentral Configuration` section.
+by using the `Additional Frigate Configuration` section.
 
 ::: tip
 
@@ -44,70 +38,47 @@ However, if you think an option would be used by a lot of users, it would be bes
 
 For example to set this:
 
-```json
-"settings": {
-  "sms": {
-    "provider": "twillio"
-  }
-}
+```yaml
+detectors:
+  coral:
+    type: edgetpu
 ```
 
 Set like this:
 
-- Key: `settigns.sms.provider`
-- Value: `twillio`
+- Key: `detectors.coral.type`
+- Value: `edgetpu`
 
 For lists:
 
-```json
-"domains": {
-  "": {
-    "newAccoutnsRights": [
-      "item1",
-      "item2"
-    ]
-  }
-}
+```yaml
+ffmpeg:
+  hwaccel_args:
+    - arg1
+    - arg2
 ```
 
 Set like this:
 
-- Key: `domains."".newAccountsRights`
-- Value: `[ "item1", "item2" ]`
+- Key: `ffmpeg.hwaccel_args`
+- Value: `[ "arg1", "arg2" ]`
 
 ::: warn
 
-Please use the exact casing as in the [MeshCentral's json schema](https://github.com/Ylianst/MeshCentral/blob/master/meshcentral-config-schema.json).
+Please use the exact casing as in the [Frigate Configuration Reference](https://docs.frigate.video/configuration/index).
 
 :::
 
 ### Native Helm
 
-Native Helm users won't be affected with the above.
+Native Helm users just add any yaml formatted config under `.Values.frigate` key.
 
 ## Hardcoded values
 
 We hardcoded some values, so the chart/app can work correctly based on how it's written.
 Those values are:
 
-```json
-{
-  "$schema": "http://info.meshcentral.com/downloads/meshcentral-config-schema.json",
-  "settings": {
-    "mongoDB": "actual-generated-mongodb-url",
-    "mongoDbName": "actual-mongodb-name",
-    "sessionKey": "32char-long-random-generated-key",
-    "port": "to-the-same-port-as-your-main-service",
-    "selfUpdate": false,
-    "cleanNpmCacheOnUpdate": false,
-  },
-  "domains": {
-    // This applies to ALL domains
-    "": {
-      "myServer": {
-        "Upgrade": false
-      }
-    }
-  }
-}
+```yaml
+database:
+  path: /media/frigate/frigate.db
 ```
