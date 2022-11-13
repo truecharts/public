@@ -1003,6 +1003,7 @@ questions:
                         reduce bandwidth required for viewing the live stream. Width is computed to match known aspect ratio.
                       schema:
                         type: int
+                        required: true
                         default: 720
                     - variable: quality
                       label: Quality
@@ -1011,9 +1012,96 @@ questions:
                         1 is the highest quality, and 31 is the lowest. Lower quality feeds utilize less CPU resources.
                       schema:
                         type: int
+                        required: true
                         min: 1
                         max: 31
                         default: 8
+        - variable: timestamp_style
+          label: Timestamp Style
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: render_config
+                label: Render Configuration
+                description: Enable it to add the configuration in the config file
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: position
+                      label: Position
+                      description: Position of the timestamp
+                      schema:
+                        type: string
+                        required: true
+                        default: tl
+                        enum:
+                          - value: tl
+                            description: Top Left
+                          - value: tr
+                            description: Top Right
+                          - value: bl
+                            description: Bottom Left
+                          - value: br
+                            description: Bottom Right
+                    - variable: format
+                      label: Format
+                      description: Format specifier conform to the Python package "datetime"
+                      schema:
+                        type: string
+                        required: true
+                        default: "%m/%d/%Y %H:%M:%S"
+                    - variable: color
+                      label: Color
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: red
+                            label: Red
+                            schema:
+                              type: int
+                              default: 255
+                              required: true
+                          - variable: green
+                            label: Green
+                            schema:
+                              type: int
+                              required: true
+                              default: 255
+                          - variable: blue
+                            label: Blue
+                            schema:
+                              type: int
+                              required: true
+                              default: 255
+                    - variable: thickness
+                      label: Thickness
+                      description: Line thickness of font
+                      schema:
+                        type: int
+                        required: true
+                        default: 2
+                    - variable: effect
+                      label: Effect
+                      description: |
+                        Effect of lettering
+                        None - No effect
+                        Solid - Solid background in inverse color of font
+                        Shadow - Shadow for font
+                      schema:
+                        type: string
+                        required: true
+                        default: None
+                        enum:
+                          - value: None
+                            description: None
+                          - value: solid
+                            description: Solid
+                          - value: shadow
+                            description: Shadow
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
