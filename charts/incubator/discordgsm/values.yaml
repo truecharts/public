@@ -12,7 +12,6 @@ podSecurityContext:
   runAsGroup: 0
 
 gsm:
-  # POSTGRES_SSL_MODE: disable
   app_token: "DISCORD_BOT_TOKEN"
   whitelist_guilds: []
 
@@ -24,9 +23,9 @@ service:
   main:
     ports:
       main:
+        port: 10589
         protocol: HTTP
         targetPort: 8000
-        port: 10589
 
 persistence:
   config:
@@ -36,8 +35,8 @@ persistence:
 postgresql:
   enabled: true
   existingSecret: dbcreds
-  postgresqlDatabase: game_server_monitor
-  postgresqlUsername: game_server_monitor
+  postgresqlDatabase: discord_gsm
+  postgresqlUsername: discord_gsm
 
 portal:
   enabled: true
