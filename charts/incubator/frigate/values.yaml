@@ -29,7 +29,7 @@ frigate:
 
   detectors:
     # -- Enable it to add the configuration in the config file
-    enabled: true
+    render_config: true
     config: []
       # -- Required: Name of the detector
       # - name: coral
@@ -42,7 +42,7 @@ frigate:
 
   model:
     # -- Enable it to add the configuration in the config file
-    enabled: false
+    render_config: false
     # -- Optional: Path to the model
     path: /edgetpu_model.tflite
     # -- Optional: Path to the labelmap
@@ -60,7 +60,7 @@ frigate:
 
   logger:
     # -- Enable it to add the configuration in the config file
-    enabled: true
+    render_config: true
     # -- Optional: Default log verbosity (default: shown below)
     default: info
     # -- Optional: Component specific logger overrides
@@ -70,6 +70,8 @@ frigate:
 
   birdseye:
     # -- Enable it to add the configuration in the config file
+    render_config: true
+    # -- Enables birdseye
     enabled: true
     # -- Optional: Width of the output resolution
     width: 1280
@@ -86,7 +88,7 @@ frigate:
 
   ffmpeg:
     # -- Enable it to add the configuration in the config file
-    enabled: true
+    render_config: true
     # -- Optional: global ffmpeg args
     global_args: -hide_banner -loglevel warning
     # -- Optional: global input args
@@ -103,26 +105,24 @@ frigate:
       # -- Optional: output args for rtmp streams
       rtmp: -c copy -f flv
 
-
-
-  # -- Optional: Detect configuration
-  # - NOTE: Can be overridden at the camera level
   detect:
-    # -- Optional: width of the frame for the input with the detect role (default: shown below)
+    # -- Enable it to add the configuration in the config file
+    render_config: true
+    # -- Enables detection for the camera.
+    # - This value can be set via MQTT and will be updated in startup based on retained value
+    enabled: true
+    # -- Optional: width of the frame for the input with the detect role
     width: 1280
-    # -- Optional: height of the frame for the input with the detect role (default: shown below)
+    # -- Optional: height of the frame for the input with the detect role
     height: 720
-    # -- Optional: desired fps for your camera for the input with the detect role (default: shown below)
+    # -- Optional: desired fps for your camera for the input with the detect role
     # - NOTE: Recommended value of 5. Ideally, try and reduce your FPS on the camera.
     fps: 5
-    # -- Optional: enables detection for the camera (default: True)
-    # - This value can be set via MQTT and will be updated in startup based on retained value
-    enabled: True
     # -- Optional: Number of frames without a detection before frigate considers an object to be gone. (default: 5x the frame rate)
     max_disappeared: 25
     # -- Optional: Configuration for stationary object tracking
     stationary:
-      # -- Optional: Frequency for confirming stationary objects (default: shown below)
+      # -- Optional: Frequency for confirming stationary objects
       # - When set to 0, object detection will not confirm stationary objects until movement is detected.
       # - If set to 10, object detection will run to confirm the object still exists on every 10th frame.
       interval: 0
@@ -135,17 +135,18 @@ frigate:
       # - WARNING: Setting these values overrides default behavior and disables stationary object tracking.
       # - There are very few situations where you would want it disabled. It is NOT recommended to
       # - copy these values from the example config into your config unless you know they are needed.
-      max_frames:
-        # -- Optional: Default for all object types (default: not set, track forever)
-        default: 3000
-        # -- Optional: Object specific values
-        objects:
-          person: 1000
+      # max_frames:
+      #   # -- Optional: Default for all object types (default: not set, track forever)
+      #   default:
+      #   # -- Optional: Object specific values
+      #   objects:
+      #     - object: person
+      #       frames: 1000
 
   # -- Optional: Object configuration
   # - NOTE: Can be overridden at the camera level
   objects:
-    # -- Optional: list of objects to track from labelmap.txt (default: shown below)
+    # -- Optional: list of objects to track from labelmap.txt
     track:
       - person
     # -- Optional: mask to prevent all object types from being detected in certain areas (default: no mask)
