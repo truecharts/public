@@ -30,6 +30,7 @@
       "matchManagers": ["helm-values"],
       "enabled": true,
       "pinDigests": true,
+      "automerge": true,
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
       "matchUpdateTypes": ["major", "minor", "patch", "digest"],
@@ -38,7 +39,7 @@
     {
       "matchManagers": ["github-actions"],
       "excludePackageNames": ["stefanzweifel/git-auto-commit-action"],
-      "automerge": true,
+      "automerge": false,
     },
     //
     // helm deps
@@ -143,7 +144,7 @@
       "matchDatasources": ["docker"],
       "updateTypes": ["major"],
       "bumpVersion": "minor",
-      "labels": ["update/docker/general/major"],
+      "labels": ["update/docker/general/major", "automerge"],
       "paths": ["charts/dependency/", "charts/SCALE/", "charts/incubator/", "charts/dev/", "charts/stable/", "templates/app/"],
       "schedule": [
         "before 8am"
@@ -159,7 +160,7 @@
         "pin",
       ],
       "bumpVersion": "patch",
-      "labels": ["update/docker/general/non-major"],
+      "labels": ["update/docker/general/non-major", "automerge"],
       "groupName": ["docker general non-major"],
       "paths": ["charts/dependency/", "charts/SCALE/",  "charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "templates/app/"],
       "schedule": [
