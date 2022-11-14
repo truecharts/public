@@ -211,7 +211,7 @@ frigate:
     # -- Optional: improve contrast
     # - Enables dynamic contrast improvement. This should help improve night detections at the cost of making motion detection more sensitive
     # - for daytime.
-    improve_contrast: False
+    improve_contrast: false
     # -- Optional: Delay when updating camera motion through MQTT from ON -> OFF
     mqtt_off_delay: 30
 
@@ -225,7 +225,7 @@ frigate:
     # - on available disk space automatically. If using recordings,
     # - you must specify retention settings for a number of days that
     # - will fit within the available disk space of your drive or Frigate will crash.
-    enabled: False
+    enabled: false
     # -- Optional: Number of minutes to wait between cleanup runs
     # - This can be used to reduce the frequency of deleting recording segments from disk if you want to minimize i/o
     expire_interval: 60
@@ -304,7 +304,7 @@ frigate:
     # -- Enable it to add the configuration in the config file
     render_config: false
     # - Optional: Enable the RTMP stream
-    enabled: True
+    enabled: true
 
   live:
     # -- Enable it to add the configuration in the config file
