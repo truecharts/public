@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "latest"
+appVersion: "0.11.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.9.7
+    version: 11.0.0
 deprecated: false
 description: NVR With Realtime Object Detection for IP Cameras
 home: https://truecharts.org/docs/charts/incubator/frigate
@@ -24,7 +24,7 @@ sources:
   - https://github.com/blakeblackshear/frigate
   - https://hub.docker.com/r/blakeblackshear/frigate
 type: application
-version: 4.0.1
+version: 5.0.0
 annotations:
   truecharts.org/catagories: |
     - nvr
