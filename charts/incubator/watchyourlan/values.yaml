@@ -5,6 +5,10 @@ image:
 
 hostNetwork: true
 
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
 watchyourlan:
   gui_ip: "0.0.0.0"
   interfaces:
