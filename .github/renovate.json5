@@ -103,9 +103,6 @@
       "bumpVersion": "major",
       "labels": ["update/docker/enterprise/major"],
       "paths": ["charts/enterprise/"],
-      "schedule": [
-        "before 8am"
-      ],
     },
     {
       "matchDatasources": ["docker"],
@@ -116,9 +113,6 @@
       "bumpVersion": "patch",
       "labels": ["update/docker/enterprise/minor"],
       "paths": ["charts/enterprise/"],
-      "schedule": [
-        "before 8am"
-      ],
     },
     {
       "matchDatasources": ["docker"],
@@ -131,9 +125,6 @@
       "bumpVersion": "patch",
       "labels": ["update/docker/enterprise/patch"],
       "paths": ["charts/enterprise/"],
-      "schedule": [
-        "before 8am"
-      ],
     },
     //
     // Tag updates for semantic tags on all but enterprise Apps
@@ -144,9 +135,6 @@
       "bumpVersion": "minor",
       "labels": ["update/docker/general/major", "automerge"],
       "paths": ["charts/dependency/", "charts/SCALE/", "charts/incubator/", "charts/dev/", "charts/stable/", "templates/app/"],
-      "schedule": [
-        "before 8am"
-      ],
     },
     {
       "matchDatasources": ["docker"],
@@ -160,9 +148,6 @@
       "bumpVersion": "patch",
       "labels": ["update/docker/general/non-major", "automerge"],
       "paths": ["charts/dependency/", "charts/SCALE/",  "charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "templates/app/"],
-      "schedule": [
-        "before 8am"
-      ],
     },
     //
     // Tag semantic version type based on regex
