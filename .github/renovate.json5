@@ -115,7 +115,6 @@
       ],
       "bumpVersion": "patch",
       "labels": ["update/docker/enterprise/minor"],
-      "groupName": ["docker enterprise  minor"],
       "paths": ["charts/enterprise/"],
       "schedule": [
         "before 8am"
@@ -131,7 +130,6 @@
       ],
       "bumpVersion": "patch",
       "labels": ["update/docker/enterprise/patch"],
-      "groupName": ["docker enterprise patch"],
       "paths": ["charts/enterprise/"],
       "schedule": [
         "before 8am"
@@ -161,7 +159,6 @@
       ],
       "bumpVersion": "patch",
       "labels": ["update/docker/general/non-major", "automerge"],
-      "groupName": ["docker general non-major"],
       "paths": ["charts/dependency/", "charts/SCALE/",  "charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "templates/app/"],
       "schedule": [
         "before 8am"
