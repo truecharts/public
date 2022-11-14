@@ -107,6 +107,13 @@ security:
 #        optional: false (ony with secretKeyRef)
 env: {}
 
+# -- Mainly used in the SCALE UI. Helm Template enabled.
+envList: []
+#   - name: SOME_ENV_VAR
+#     value: SOME_VALUE
+#   - name: SOME_ENV_VAR2
+#     value: SOME_VALUE2
+
 controller:
   # -- Enable the controller.
   enabled: true

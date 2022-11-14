@@ -11,7 +11,7 @@
 {{- else }}
 - name: NVIDIA_DRIVER_CAPABILITIES
   value: {{ join "," .Values.nvidiaCaps | quote }}
-{{- end }}
+{{- end -}}
 {{- if and (or (not .Values.podSecurityContext.runAsUser) (not .Values.podSecurityContext.runAsGroup))  (or .Values.security.PUID (eq (.Values.security.PUID | int) 0)) }} {{/* If root user or root group and a PUID is set, set PUID and related envs */}}
 - name: PUID
   value: {{ tpl (toYaml .Values.security.PUID) $ | quote }}
@@ -25,9 +25,9 @@
   value: {{ tpl (toYaml .Values.podSecurityContext.fsGroup) $ | quote }}
 - name: GID
   value: {{ tpl (toYaml .Values.podSecurityContext.fsGroup) $ | quote }}
-{{- end }}
+{{- end -}}
 {{- if or (.Values.securityContext.readOnlyRootFilesystem) (.Values.securityContext.runAsNonRoot) }} {{/* Mainly for LSIO containers, tell S6 to avoid using rootfs */}}
 - name: S6_READ_ONLY_ROOT
   value: "1"
-{{- end }}
+{{- end -}}
 {{- end -}}

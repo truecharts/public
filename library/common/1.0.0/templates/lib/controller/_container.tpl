@@ -41,13 +41,17 @@
   terminationMessagePolicy: {{ tpl . $ }}
   {{- end }}
   env:
-  {{- if .Values.injectFixedEnvs }}
-    {{- include "ix.v1.common.container.fixedEnvs" . | nindent 4 }}
-  {{- end }}
+  {{- if .Values.injectFixedEnvs -}}
+    {{- include "ix.v1.common.container.fixedEnvs" . | nindent 4 -}}
+  {{- end -}}
   {{- $context := dict -}} {{/* Create a new context and pass it to envVars include, so tpl can work. */}}
   {{- $_ := set $context "envs" .Values.env -}}
   {{- $_ := set $context "root" $ -}}
-  {{- include "ix.v1.common.container.envVars" $context | nindent 4 }}
+  {{- include "ix.v1.common.container.envVars" $context | nindent 4 -}}
+  {{- $context := dict -}} {{/* Create a new context and pass it to envList include, so tpl can work. */}}
+  {{- $_ := set $context "envList" .Values.envList -}}
+  {{- $_ := set $context "root" $ -}}
+  {{- include "ix.v1.common.container.envList" $context | nindent 4 -}}
 {{- end -}}
 
 {{/*

@@ -1,0 +1,295 @@
+suite: deployment container env test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+
+  - it: should pass with injectFixedEnvs false
+    set:
+      injectFixedEnvs: false
+    asserts:
+      - isNull:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+
+  - it: should pass with TZ and UMASK changed
+    set:
+      TZ: ETC
+      security:
+        UMASK: 3
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: ETC
+            - name: UMASK
+              value: "3"
+            - name: UMASK_SET
+              value: "3"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: void
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+
+  - it: should pass without S6_READ_ONLY_ROOT
+    set:
+      securityContext:
+        readOnlyRootFilesystem: false
+        runAsNonRoot: false
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: UTC
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: void
+
+  - it: should pass with scaleGPU set
+    set:
+      scaleGPU: true
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: UTC
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_DRIVER_CAPABILITIES
+              value: all
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+
+  - it: should pass with envs changed because run as user root
+    set:
+      podSecurityContext:
+        runAsUser: 0
+      securityContext:
+        runAsNonRoot: false
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: UTC
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: void
+            - name: PUID
+              value: "568"
+            - name: USER_ID
+              value: "568"
+            - name: UID
+              value: "568"
+            - name: PGID
+              value: "568"
+            - name: GROUP_ID
+              value: "568"
+            - name: GID
+              value: "568"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+
+  - it: should pass with envs changed because run as group root
+    set:
+      podSecurityContext:
+        runAsGroup: 0
+      securityContext:
+        runAsNonRoot: false
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: UTC
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: void
+            - name: PUID
+              value: "568"
+            - name: USER_ID
+              value: "568"
+            - name: UID
+              value: "568"
+            - name: PGID
+              value: "568"
+            - name: GROUP_ID
+              value: "568"
+            - name: GID
+              value: "568"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+
+  - it: should pass with envs changed because run as user root and PUID 0
+    set:
+      podSecurityContext:
+        runAsUser: 0
+      securityContext:
+        runAsNonRoot: false
+      security:
+        PUID: 0
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: UTC
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: void
+            - name: PUID
+              value: "0"
+            - name: USER_ID
+              value: "0"
+            - name: UID
+              value: "0"
+            - name: PGID
+              value: "568"
+            - name: GROUP_ID
+              value: "568"
+            - name: GID
+              value: "568"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+
+  - it: should pass with envs changed because run as group root and PUID 0
+    set:
+      podSecurityContext:
+        runAsGroup: 0
+      securityContext:
+        runAsNonRoot: false
+      security:
+        PUID: 0
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: UTC
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: void
+            - name: PUID
+              value: "0"
+            - name: USER_ID
+              value: "0"
+            - name: UID
+              value: "0"
+            - name: PGID
+              value: "568"
+            - name: GROUP_ID
+              value: "568"
+            - name: GID
+              value: "568"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+
+  - it: should pass with envs changed because run as group root and fsGroup 0 and PUID 0
+    set:
+      podSecurityContext:
+        runAsGroup: 0
+        fsGroup: 0
+      securityContext:
+        runAsNonRoot: false
+      security:
+        PUID: 0
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: UTC
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: void
+            - name: PUID
+              value: "0"
+            - name: USER_ID
+              value: "0"
+            - name: UID
+              value: "0"
+            - name: PGID
+              value: "0"
+            - name: GROUP_ID
+              value: "0"
+            - name: GID
+              value: "0"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+
+
+  - it: should pass with envs defined with scaleGPU
+    set:
+      scaleGPU: true
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_DRIVER_CAPABILITIES
+              value: "all"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+
+  - it: should pass with envs defined with scaleGPU and custom capabilities
+    set:
+      scaleGPU: true
+      nvidiaCaps:
+        - compute
+        - utility
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_DRIVER_CAPABILITIES
+              value: "compute,utility"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
