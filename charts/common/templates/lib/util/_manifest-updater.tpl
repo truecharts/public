@@ -15,10 +15,6 @@ spec:
   template:
     spec:
       serviceAccountName: {{ $fullName }}-manifests
-      tolerations:
-        - key: "ix-svc-start"
-          operator: "Exists"
-          effect: "NoExecute"
       containers:
         - name: {{ $fullName }}-manifests
           image: {{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}
@@ -28,7 +24,7 @@ spec:
             - |
               /bin/bash <<'EOF'
               echo "installing manifests..."
-              kubectl apply --server-side --force-conflicts -k https://github.com/truecharts/manifests/{{ if .Values.manifests.staging }}staging{{ else }}manifests{{ end }} {{ if .Values.manifests.nonBlocking }}|| echo "Manifest application failed..." {{ end }}
+              kubectl apply --server-side --force-conflicts  -k https://github.com/truecharts/manifests/{{ if .Values.manifests.staging }}staging{{ else }}manifests{{ end }} {{ if .Values.manifests.nonBlocking }} || echo "Manifest application failed..."{{ end }}
               EOF
       restartPolicy: Never
 ---

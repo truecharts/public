@@ -1,4 +1,4 @@
-{{- /* The main container included in the controller */ -}}
+{{/* The main container included in the controller */}}
 {{- define "tc.common.controller.mainContainer" -}}
 - name: {{ include "tc.common.names.fullname" . }}
   image: {{ include "tc.common.images.selector" . }}

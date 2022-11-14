@@ -9,7 +9,7 @@ Renders the Secret objects required by the chart.
       {{- include "tc.common.class.secret" $ }}
   {{- end }}
 
-  {{- /* Generate named secrets as required */ -}}
+  {{/* Generate named secrets as required */}}
   {{- range $name, $secret := .Values.secret }}
     {{- if $secret.enabled -}}
       {{- $secretValues := $secret -}}

@@ -2,7 +2,7 @@
 Renders the networkPolicy objects required by the chart.
 */}}
 {{- define "tc.common.spawner.networkpolicy" -}}
-  {{- /* Generate named networkpolicy as required */ -}}
+  {{/* Generate named networkpolicy as required */}}
   {{- range $name, $networkPolicy := .Values.networkPolicy }}
     {{- if $networkPolicy.enabled -}}
       {{- $networkPolicyValues := $networkPolicy -}}

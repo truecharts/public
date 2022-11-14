@@ -109,6 +109,15 @@ before chart installation.
         do sleep 2;
       done
       {{- end }}
+      {{- if .Values.cnpg.enabled }}
+      {{- $cnpgName := include "tc.common.names.fullname" . -}}
+      {{- $cnpgName = printf "%v-%v" $cnpgName "cnpg" -}}
+      {{- $pghost := printf "pooler-%s-rw" $cnpgName }}
+      until
+        pg_isready -U {{ .Values.cnpg.user }} -h {{ $pghost }}
+        do sleep 2
+      done
+      {{- end }}
       {{- if .Values.mariadb.enabled }}
       until
         mysqladmin -uroot -h"${MARIADB_HOST}" -p"${MARIADB_ROOT_PASSWORD}" ping \

@@ -2,7 +2,7 @@
 Renders the configMap objects required by the chart.
 */}}
 {{- define "tc.common.spawner.configmap" -}}
-  {{- /* Generate named configMaps as required */ -}}
+  {{/* Generate named configMaps as required */}}
   {{- range $name, $configmap := .Values.configmap }}
     {{- if $configmap.enabled -}}
       {{- $configmapValues := $configmap -}}

@@ -2,7 +2,7 @@
 Renders the Persistent Volume Claim objects required by the chart.
 */}}
 {{- define "tc.common.spawner.pvc" -}}
-  {{- /* Generate pvc as required */ -}}
+  {{/* Generate pvc as required */}}
   {{- range $index, $PVC := .Values.persistence }}
     {{- if and $PVC.enabled (eq (default "pvc" $PVC.type) "pvc") (not $PVC.existingClaim) -}}
       {{- $persistenceValues := $PVC -}}

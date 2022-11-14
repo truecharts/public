@@ -46,7 +46,7 @@ spec:
   {{- with $values.spec }}
   {{ tpl ( toYaml . ) $ | indent 2 }}
   {{- end }}
-  {{ include "tc.common.storage.class" ( dict "persistence" $values "global" $ ) }}
+  {{ include "tc.common.storage.storageClassName" ( dict "persistence" $values "global" $ ) }}
   {{- if $values.volumeName }}
   volumeName: {{ $values.volumeName | quote }}
   {{- end }}

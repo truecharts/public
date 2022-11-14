@@ -2,7 +2,7 @@
 Renders the configMap objects required by the chart.
 */}}
 {{- define "tc.common.spawner.rbac" -}}
-  {{- /* Generate named rbac as required */ -}}
+  {{/* Generate named rbac as required */}}
   {{- range $name, $rbac := .Values.rbac }}
     {{- if $rbac.enabled -}}
       {{- $rbacValues := $rbac -}}

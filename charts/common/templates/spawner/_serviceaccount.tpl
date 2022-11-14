@@ -2,7 +2,7 @@
 Renders the serviceAccount objects required by the chart.
 */}}
 {{- define "tc.common.spawner.serviceaccount" -}}
-  {{- /* Generate named serviceAccount as required */ -}}
+  {{/* Generate named serviceAccount as required */}}
   {{- range $name, $serviceAccount := .Values.serviceAccount }}
     {{- if $serviceAccount.enabled -}}
       {{- $saValues := $serviceAccount -}}

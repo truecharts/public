@@ -2,7 +2,7 @@
 Renders the Service objects required by the chart.
 */}}
 {{- define "tc.common.spawner.service" -}}
-  {{- /* Generate named services as required */ -}}
+  {{/* Generate named services as required */}}
   {{- range $name, $service := .Values.service }}
     {{- if $service.enabled -}}
       {{- $serviceValues := $service -}}

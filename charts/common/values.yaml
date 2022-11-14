@@ -51,8 +51,6 @@ manifests:
   enabled: true
   nonBlocking: true
   staging: false
-  version: 1
-  metalLBVersion: "0.13.7"
 
 global:
   # -- Set an override for the prefix of the fullname
@@ -119,13 +117,6 @@ args: []
 # -- Add args in addition to the arguments set by default.
 # Primarily for the SCALE GUI
 extraArgs: []
-
-# -- update the CRD's on helm update
-# This does NOT include CRD's of dependencies.
-# enabled by default for optimal performance on TrueNAS SCALE
-# DEVNOTE: Also slightly alteres the install logic in a non breaking way
-# DEVNOTE 2: Disabled for now so we can test on a limited number of charts initially
-updateCRD: false
 
 # -- Set Container Timezone
 TZ: UTC
@@ -1129,6 +1120,34 @@ postgresql:
   url: {}
   manifests:
     enabled: false
+
+cnpg:
+  enabled: false
+  # -- number of instances for both postgres and pgbouncer
+  instances: 2
+  database: "app"
+  user: "app"
+  # password:
+  # superUserPassword:
+  # -- change to supervised to disable unsupervised updates
+  # Example of rolling update strategy:
+  # - unsupervised: automated update of the primary once all
+  #                 replicas have been upgraded (default)
+  # - supervised: requires manual supervision to perform
+  #               the switchover of the primary
+  primaryUpdateStrategy: unsupervised
+  # -- enable to create extra pgbouncer for readonly access
+  acceptRO: false
+  # -- storage size for the two pvc's per instance
+  storage:
+    size: "256Gi"
+    walsize: "256Gi"
+  # -- set to enable prometheus metrics
+  monitoring:
+    enablePodMonitor: true
+  # -- contains credentials and urls output by generator
+  creds: {}
+
 
 # -- Redis dependency configuration
 # @default -- See below

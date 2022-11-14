@@ -56,6 +56,6 @@ spec:
         resources:
           requests:
             storage: {{ tpl ( $vct.size | default "999Gi" ) $ | quote }}
-        {{ include "tc.common.storage.class" ( dict "persistence" $vct "global" $) }}
+        {{ include "tc.common.storage.storageClassName" ( dict "persistence" $vct "global" $) }}
     {{- end }}
 {{- end }}

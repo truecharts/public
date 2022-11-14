@@ -1,6 +1,6 @@
-{{- /*
+{{/*
 The pod definition included in the controller.
-*/ -}}
+*/}}
 {{- define "tc.common.controller.pod" -}}
   {{- with .Values.imagePullSecrets }}
 imagePullSecrets:

@@ -8,10 +8,10 @@ Volumes included by the controller.
   {{- if eq (default "pvc" $persistence.type) "pvc" }}
     {{- $pvcName := (include "tc.common.names.fullname" $) -}}
     {{- if $persistence.existingClaim }}
-      {{- /* Always prefer an existingClaim if that is set */}}
+      {{/* Always prefer an existingClaim if that is set */}}
       {{- $pvcName = $persistence.existingClaim -}}
     {{- else -}}
-      {{- /* Otherwise refer to the PVC name */}}
+      {{/* Otherwise refer to the PVC name */}}
       {{- if $persistence.nameOverride -}}
         {{- if not (eq $persistence.nameOverride "-") -}}
           {{- $pvcName = (printf "%s-%s" (include "tc.common.names.fullname" $) $persistence.nameOverride) -}}
