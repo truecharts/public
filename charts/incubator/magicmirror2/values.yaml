@@ -12,15 +12,12 @@ podSecurityContext:
   runAsGroup: 0
 
 magicmirror:
-  force_update: false
-  force_update_modules: false
-  language: en
-  time_format: "24"
-  units: metrics
-
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-magicmirror-env'
+  FORCE_UPDATE: false
+  FORCE_UPDATE_MODULES: false
+  DATA_DIR: /magicmirror2
+  # language: en
+  # time_format: "24"
+  # units: metrics
 
 probes:
   liveness:
@@ -37,22 +34,14 @@ service:
   main:
     ports:
       main:
-        port: 10590
         protocol: HTTP
+        port: 10590
+        targetPort: 8080
 
 persistence:
   config:
     enabled: true
     mountPath: /magicmirror2
-  configfile:
-    enabled: true
-    type: custom
-    mountPath: /magicmirror2/config/config.js
-    subPath: config.js
-    defaultMode: "0770"
-    volumeSpec:
-      configMap:
-        name: '{{ printf "%s-magicmirror-config" (include "tc.common.names.fullname" .) }}'
 
 portal:
   enabled: true
