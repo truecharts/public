@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/omada-controller
-  tag: 5.5@sha256:394fa05a26de61a45f8b364c69b4253443e46e0ffd02dc68453fd020d73037e1
+  tag: 5.6@sha256:1524a2ec4b36faa37ba5e0716fccc488ed73cede848646bc528470bd292967cd
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -18,6 +18,14 @@ env:
   # When ingress is enabled, set this to 443, otherwise set it to whatever `port` is set to
   MANAGE_HTTPS_PORT: "{{ if .Values.ingress.main.enabled }}443{{ else }}{{ .Values.service.main.ports.main.port }}{{ end }}"
   PORTAL_HTTPS_PORT: "{{ .Values.service.comm.ports.comm.port }}"
+
+probes:
+  liveness:
+    port: "{{ if .Values.ingress.main.enabled }}443{{ else }}{{ .Values.service.main.ports.main.port }}{{ end }}"
+  readiness:
+    port: "{{ if .Values.ingress.main.enabled }}443{{ else }}{{ .Values.service.main.ports.main.port }}{{ end }}"
+  startup:
+    port: "{{ if .Values.ingress.main.enabled }}443{{ else }}{{ .Values.service.main.ports.main.port }}{{ end }}"
 
 service:
   main:
