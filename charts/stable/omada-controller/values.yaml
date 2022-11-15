@@ -24,7 +24,10 @@ service:
     ports:
       main:
         protocol: HTTPS
+        # Nodeport fix for Ingress users
+        nodePort: "{{ if .ingress.main.enabled }}443{{ else }}{{ .Values.service.main.ports.main.port }}{{ end }}"
         port: 8043
+
   comm:
     enabled: true
     ports:
