@@ -23,7 +23,8 @@ stringData:
   {{- with .Values.gsm.app_activity_name }}
   APP_ACTIVITY_NAME: {{ . | quote }}
   {{- end }}
-  APP_PRESENCE_ADVERTISE: {{ .Values.gsm.app_presense_advertise | quote }}
+  APP_PRESENCE_ADVERTISE: {{ .Values.gsm.app_presence_advertise | quote }}
+
   TASK_QUERY_SERVER: {{ .Values.gsm.task_query_server | quote }}
   COMMAND_QUERY_PUBLIC: {{ .Values.gsm.command_query_public | quote }}
   COMMAND_QUERY_COOLDOWN: {{ .Values.gsm.command_query_cooldown | quote }}
