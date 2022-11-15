@@ -17,6 +17,20 @@ magicmirror:
   language: en
   time_format: "24"
   units: metrics
+  ip_whitelist: []
+  alert:
+    effect: slide
+    alert_effect: jelly
+    display_time: 3500
+    position: center
+    # false or string
+    welcome_message: false
+  update_notification:
+    position: top_bar
+    config:
+      updateInterval: 600000
+      ignoreModules: []
+
 
 envFrom:
   - configMapRef:

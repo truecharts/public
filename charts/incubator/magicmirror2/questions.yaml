@@ -56,6 +56,19 @@ questions:
                 description: metrics
               - value: imperial
                 description: imperial
+        - variable: ip_whitelist
+          label: IP Whitelist
+          description: Defaults to allow all
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: ip_entry
+                label: IP Entry
+                schema:
+                  type: string
+                  required: true
+                  default: ""
 # Include{serviceRoot}
         - variable: main
           label: Main Service
