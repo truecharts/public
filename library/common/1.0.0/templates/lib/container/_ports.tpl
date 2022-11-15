@@ -16,20 +16,20 @@ ports:
   {{- range $_ := $ports }}
     {{- if .enabled }}
   - name: {{ tpl .name $ }}
-    {{- if and .targetPort (kindIs "string" .targetPort) }}
-      {{- fail (printf "This common library does not support named ports for targetPort. (port name: %s, targetPort: %s)" .name .targetPort) }}
-    {{- end }}
     {{- if not .port }}
-      {{- fail (printf "Port is required on enabled services. Service: (%s)" .name) }}
+      {{- fail (printf "Port is required on enabled services. Service (%s)" .name) }}
+    {{- end }}
+    {{- if and .targetPort (kindIs "string" .targetPort) }}
+      {{- fail (printf "This common library does not support named ports for targetPort. port name (%s), targetPort (%s)" .name .targetPort) }}
     {{- end }}
     containerPort: {{ default .port .targetPort }}
     {{- with .protocol }}
     {{- if or (eq (. | upper) "HTTP") (eq (. | upper) "HTTPS") (eq (. | upper) "TCP") }}
     protocol: TCP
     {{- else if (eq (. | upper) "UDP") }}
-    protocol: {{ . }}
+    protocol: UDP
     {{- else }}
-      {{- fail (printf "Not valid <protocol> (protocl: %s)" .) }}
+      {{- fail (printf "Not valid <protocol> (%s)" .) }}
     {{- end }}
     {{- else }} {{/* If no protocol is given, default to TCP */}}
     protocol: TCP
