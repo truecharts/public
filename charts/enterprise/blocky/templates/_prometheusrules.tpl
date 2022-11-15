@@ -1,4 +1,6 @@
+{{- define "blocky.prometheusrule" -}}
 {{- if and .Values.metrics.enabled .Values.metrics.prometheusRule.enabled }}
+---
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
@@ -16,3 +18,4 @@ spec:
         {{- toYaml . | nindent 8 }}
         {{- end }}
 {{- end }}
+{{- end -}}
