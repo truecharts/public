@@ -112,9 +112,13 @@ before chart installation.
       {{- if .Values.cnpg.enabled }}
       {{- $cnpgName := include "tc.common.names.fullname" . -}}
       {{- $cnpgName = printf "%v-%v" $cnpgName "cnpg" -}}
-      {{- $pghost := printf "pooler-%s-rw" $cnpgName }}
+      {{- $pghost := printf "%s-rw" $cnpgName }}
       until
         pg_isready -U {{ .Values.cnpg.user }} -h {{ $pghost }}
+        do sleep 2
+      done
+      until
+        pg_isready -U {{ .Values.cnpg.user }} -h pooler-{{ $pghost }}
         do sleep 2
       done
       {{- end }}
