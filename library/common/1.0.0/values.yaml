@@ -114,6 +114,13 @@ envList: []
 #   - name: SOME_ENV_VAR2
 #     value: SOME_VALUE2
 
+# Load envs from secret or configMap. Helm template enabled.
+envFrom: []
+  # - configMapRef:
+  #     name: config-map-name
+  # - secretRef:
+  #     name: secret-name
+
 controller:
   # -- Enable the controller.
   enabled: true

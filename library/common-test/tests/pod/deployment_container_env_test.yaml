@@ -180,6 +180,37 @@ tests:
             - name: ENVVAR
               value: "some_value"
 
+  - it: should pass with multiple envs defined via tpl
+    set:
+      some_string: a_string
+      some_int: 123
+      some_bool: false
+      env:
+        ENVVAR: "{{ .Values.some_string }}"
+        ENVVAR2: "{{ .Values.some_int }}"
+        ENVVAR3: "{{ .Values.some_bool }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              value: "a_string"
+            - name: ENVVAR2
+              value: "123"
+            - name: ENVVAR3
+              value: "false"
+
   - it: should pass with envs defined with valueFrom configMapKeyRef
     set:
       env:
@@ -355,3 +386,57 @@ tests:
                   optional: false
                   name: some_name
                   key: some_key
+
+  - it: should pass with multiple envs defined with valueFrom configMapKeyRef and secretKeyRef via tpl
+    set:
+      name: some_name
+      key: some_key
+      name2: some_name2
+      key2: some_key2
+      name3: some_name3
+      key3: some_key3
+      env:
+        ENVVAR:
+          configMapKeyRef:
+            name: "{{ .Values.name }}"
+            key: "{{ .Values.key }}"
+        ENVVAR2:
+          secretKeyRef:
+            name: "{{ .Values.name2 }}"
+            key: "{{ .Values.key2 }}"
+            optional: false
+        ENVVAR3:
+          secretKeyRef:
+            name: "{{ .Values.name3 }}"
+            key: "{{ .Values.key3 }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              valueFrom:
+                configMapKeyRef:
+                  name: some_name
+                  key: some_key
+            - name: ENVVAR2
+              valueFrom:
+                secretKeyRef:
+                  name: some_name2
+                  key: some_key2
+                  optional: false
+            - name: ENVVAR3
+              valueFrom:
+                secretKeyRef:
+                  name: some_name3
+                  key: some_key3

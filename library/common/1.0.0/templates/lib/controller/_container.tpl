@@ -52,6 +52,11 @@
   {{- $_ := set $context "envList" .Values.envList -}}
   {{- $_ := set $context "root" $ -}}
   {{- include "ix.v1.common.container.envList" $context | nindent 4 -}}
+  {{- $context := dict -}} {{/* Create a new context and pass it to envFrom include, so tpl can work. */}}
+  {{- $_ := set $context "envFrom" .Values.envFrom -}}
+  {{- $_ := set $context "root" $ -}}
+  {{- include "ix.v1.common.container.envFrom" $context | nindent 2 -}}
+  {{/* TODO: On helm template there are some empty lines after fixedEnvs. See if there is a quick way to prune them */}}
 {{- end -}}
 
 {{/*
