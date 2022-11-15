@@ -29,7 +29,6 @@ magicmirror:
     updateInterval: 600000
     ignoreModules: []
 
-
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-magicmirror-env'
