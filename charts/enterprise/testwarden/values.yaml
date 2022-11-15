@@ -152,14 +152,7 @@ persistence:
 cnpg:
   enabled: true
   user: vaultwarden
-  database: vaultwarden
-
-# Enabled postgres
-postgresql:
-  enabled: false
-  existingSecret: "dbcreds"
-  postgresqlUsername: vaultwarden
-  postgresqlDatabase: vaultwarden
+  database: testwarden
 
 portal:
   enabled: true
