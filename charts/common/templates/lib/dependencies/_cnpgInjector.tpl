@@ -56,7 +56,8 @@ spec:
 apiVersion: postgresql.cnpg.io/v1
 kind: Pooler
 metadata:
-  name: pooler-{{ $cnpgName }}-rw
+  {{ $poolerrwname := printf "pooler-%s-rw" $cnpgName }}
+  name: {{ $poolerrwname }}
 spec:
   cluster:
     name: {{ $cnpgName }}
@@ -77,7 +78,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      cnpg.io/poolerName: {{ $cnpgName }}-rw
+      cnpg.io/poolerName: {{ $poolerrwname }}
   podMetricsEndpoints:
   - port: metrics
 {{ end }}
@@ -86,7 +87,8 @@ spec:
 apiVersion: postgresql.cnpg.io/v1
 kind: Pooler
 metadata:
-  name: pooler-{{ $cnpgName }}-ro
+  {{ $poolerroname := printf "pooler-%s-ro" $cnpgName }}
+  name: {{ $poolerroname }}
 spec:
   cluster:
     name: {{ $cnpgName }}
@@ -107,7 +109,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      cnpg.io/poolerName: {{ $cnpgName }}-ro
+      cnpg.io/poolerName: {{ $poolerroname }}
   podMetricsEndpoints:
   - port: metrics
 {{ end }}
@@ -134,11 +136,11 @@ data:
   user-password: {{ $dbPass | b64enc | quote }}
   superuser-password: {{ $pgPass | b64enc | quote }}
 {{- end }}
-  {{- $std := ( ( printf "postgresql://%v:%v@%v-postgresql:5432/%v" .Values.postgresql.postgresqlUsername $dbPass .Release.Name .Values.postgresql.postgresqlDatabase  ) | b64enc | quote ) }}
-  {{- $nossl := ( ( printf "postgresql://%v:%v@%v-postgresql:5432/%v?sslmode=disable" .Values.postgresql.postgresqlUsername $dbPass .Release.Name .Values.postgresql.postgresqlDatabase  ) | b64enc | quote ) }}
-  {{- $porthost := ( ( printf "%v-%v:5432" .Release.Name "postgresql" ) | b64enc | quote ) }}
-  {{- $host := ( ( printf "%v-%v" .Release.Name "postgresql" ) | b64enc | quote ) }}
-  {{- $jdbc := ( ( printf "jdbc:postgresql://%v-postgresql:5432/%v" .Release.Name .Values.postgresql.postgresqlDatabase  ) | b64enc | quote ) }}
+  {{- $std := ( ( printf "postgresql://%v:%v@%v:5432/%v" .Values.cnpg.user $dbPass $poolerrwname .Values.cnpg.database  ) | b64enc | quote ) }}
+  {{- $nossl := ( ( printf "postgresql://%v:%v@%v:5432/%v?sslmode=disable" .Values.cnpg.user $dbPass $poolerrwname .Values.cnpg.database  ) | b64enc | quote ) }}
+  {{- $porthost := ( ( printf "%s:5432" $poolerrwname ) | b64enc | quote ) }}
+  {{- $host := ( ( printf "%s" $poolerrwname ) | b64enc | quote ) }}
+  {{- $jdbc := ( ( printf "jdbc:postgresql://%v:5432/%v" $poolerrwname .Values.cnpg.database  ) | b64enc | quote ) }}
 
   std: {{ $std }}
   nossl: {{ $nossl }}
