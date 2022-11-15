@@ -2,12 +2,13 @@
 {{- define "ix.v1.common.container.envFrom" -}}
 {{- $envFrom := .envFrom -}}
 {{- $root := .root -}}
-{{- if or $root.secretEnv $envFrom -}}
-  envFrom:
-  {{- if $root.secretEnv }} {{/* TODO: Write unittest once _secret.tpl is completed */}}
+{{- if or $root.Values.secretEnv $envFrom }}
+envFrom:
+{{- end -}}
+{{- if $root.Values.secretEnv }} {{/* TODO: Write unittest once _secret.tpl is completed */}}
   - secretRef:
       name: {{ include "ix.v1.common.names.fullname" . }}
-  {{- end -}}
+{{- end -}}
   {{- range $envFrom -}}
     {{- if .secretRef }}
   - secretRef:
@@ -19,7 +20,6 @@
       {{- fail "Not valid Ref or <name> key is missing in envFrom." -}}
     {{- end -}}
   {{- end -}}
-{{- end -}}
 {{- end -}}
 
 {{/*

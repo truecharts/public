@@ -40,23 +40,19 @@
   {{- with .Values.termination.messagePolicy }}
   terminationMessagePolicy: {{ tpl . $ }}
   {{- end }}
-  env:
-  {{- if .Values.injectFixedEnvs -}}
-    {{- include "ix.v1.common.container.fixedEnvs" . | nindent 4 -}}
-  {{- end -}}
   {{- $context := dict -}} {{/* Create a new context and pass it to envVars include, so tpl can work. */}}
   {{- $_ := set $context "envs" .Values.env -}}
-  {{- $_ := set $context "root" $ -}}
-  {{- include "ix.v1.common.container.envVars" $context | nindent 4 -}}
-  {{- $context := dict -}} {{/* Create a new context and pass it to envList include, so tpl can work. */}}
   {{- $_ := set $context "envList" .Values.envList -}}
   {{- $_ := set $context "root" $ -}}
-  {{- include "ix.v1.common.container.envList" $context | nindent 4 -}}
+  {{/* env and envList */}}
+  {{- include "ix.v1.common.container.envVars" $context | indent 2 -}}
   {{- $context := dict -}} {{/* Create a new context and pass it to envFrom include, so tpl can work. */}}
   {{- $_ := set $context "envFrom" .Values.envFrom -}}
   {{- $_ := set $context "root" $ -}}
-  {{- include "ix.v1.common.container.envFrom" $context | nindent 2 -}}
-  {{/* TODO: On helm template there are some empty lines after fixedEnvs. See if there is a quick way to prune them */}}
+  {{/* envFrom */}}
+  {{- include "ix.v1.common.container.envFrom" $context | indent 2 -}}
+  {{/* Ports */}}
+  {{- include "ix.v1.common.container.ports" . | indent 2 -}}
 {{- end -}}
 
 {{/*

@@ -106,20 +106,22 @@ security:
 #        key: key-name | "{{ .Values.some_key }}"
 #        optional: false (ony with secretKeyRef)
 env: {}
+  # some_env: some_value
+  # some_env2: some_value2
 
 # -- Mainly used in the SCALE UI. Helm Template enabled.
 envList: []
-#   - name: SOME_ENV_VAR
-#     value: SOME_VALUE
-#   - name: SOME_ENV_VAR2
-#     value: SOME_VALUE2
+  # - name: SOME_ENV_VAR
+  #   value: SOME_VALUE
+  # - name: SOME_ENV_VAR2
+  #   value: SOME_VALUE2
 
 # Load envs from secret or configMap. Helm template enabled.
 envFrom: []
-  # - configMapRef:
-  #     name: config-map-name
-  # - secretRef:
-  #     name: secret-name
+#   - configMapRef:
+#       name: config-map-name
+#   - secretRef:
+#       name: secret-name
 
 controller:
   # -- Enable the controller.
@@ -156,6 +158,7 @@ service:
   main:
     # -- Enables or disables the service
     enabled: true
+    # enabled: false
     # -- Configure the Service port information here.
     # Additional ports can be added by adding a dictionary key similar to the 'main' port.
     # @default -- See below
@@ -163,8 +166,9 @@ service:
       main:
         # -- Enables or disables the port
         enabled: true
+        # enabled: false
         # -- The port number (Default port is required if enabled: true)
-        port:
+        port: 2
         # -- Port protocol.
         # Support values are `HTTP`, `HTTPS`, `TCP` and `UDP`.
         # HTTPS and HTTPS spawn a TCP service and get used for internal URL and name generation
