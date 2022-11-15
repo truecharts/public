@@ -25,6 +25,11 @@ spec:
     initdb:
       database: {{ .Values.cnpg.database | default "app" }}
       owner: {{ .Values.cnpg.user | default "app" }}
+      secret:
+        name: cnpg-user
+
+  superuserSecret:
+    name: cnpg-superuser
 
   primaryUpdateStrategy: {{ .Values.cnpg.primaryUpdateStrategy | default "unsupervised" }}
 
