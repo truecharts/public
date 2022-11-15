@@ -12,20 +12,7 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  # Omada automatically redirects to that port.
-  # Instead of consuming the external 443 port, it's better to switch internal
-  # But still give user the ability to change it.
-  # When ingress is enabled, set this to 443, otherwise set it to whatever `port` is set to
-  MANAGE_HTTPS_PORT: "{{ if .Values.ingress.main.enabled }}443{{ else }}{{ .Values.service.main.ports.main.port }}{{ end }}"
   PORTAL_HTTPS_PORT: "{{ .Values.service.comm.ports.comm.port }}"
-
-probes:
-  liveness:
-    port: "{{ if .Values.ingress.main.enabled }}443{{ else }}{{ .Values.service.main.ports.main.port }}{{ end }}"
-  readiness:
-    port: "{{ if .Values.ingress.main.enabled }}443{{ else }}{{ .Values.service.main.ports.main.port }}{{ end }}"
-  startup:
-    port: "{{ if .Values.ingress.main.enabled }}443{{ else }}{{ .Values.service.main.ports.main.port }}{{ end }}"
 
 service:
   main:
