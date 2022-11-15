@@ -23,13 +23,11 @@ magicmirror:
     alert_effect: jelly
     display_time: 3500
     position: center
-    # false or string
-    welcome_message: false
+    welcome_message: ""
   update_notification:
     position: top_bar
-    config:
-      updateInterval: 600000
-      ignoreModules: []
+    updateInterval: 600000
+    ignoreModules: []
 
 
 envFrom:

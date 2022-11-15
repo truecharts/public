@@ -54,16 +54,16 @@ data:
             alert_effect: {{ .Values.magicmirror.alert.alert_effect | quote }},
             display_time: {{ .Values.magicmirror.alert.display_time }},
             position: {{ .Values.magicmirror.alert.position | quote }},
-            welcome_message: {{ .Values.magicmirror.alert.welcome_message | quote }}
+            welcome_message: {{ .Values.magicmirror.alert.welcome_message | default false | quote }}
           }
         },
         {
           module: "updatenotification",
           position: {{ .Values.magicmirror.update_notification.position | quote }},
           config: {
-            updateInterval: {{ .Values.magicmirror.update_notification.config.updateInterval }},
+            updateInterval: {{ .Values.magicmirror.update_notification.updateInterval }},
             ignoreModules: [
-              {{- range  .Values.magicmirror.update_notification.config.ignoreModules }}
+              {{- range  .Values.magicmirror.update_notification.ignoreModules }}
               {{ . | quote }},
               {{- end }}
             ]
