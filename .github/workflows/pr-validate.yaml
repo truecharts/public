@@ -65,6 +65,8 @@ jobs:
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+      - name: verbose head git commit message
+        run: echo "$(git show -s --format=%s)"
       - name: Print head git commit message
         id: get_head_commit_message
         run: echo "::set-output name=headCommitMsg::$(git show -s --format=%s)"
