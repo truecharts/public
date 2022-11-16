@@ -18,6 +18,7 @@ tests:
           enabled: true
           type: emptyDir
           sizeLimit: 1Gi
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -33,6 +34,7 @@ tests:
         volume1:
           enabled: true
           type: emptyDir
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -49,6 +51,7 @@ tests:
           type: emptyDir
           medium: Memory
           sizeLimit: 1Gi
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -69,6 +72,7 @@ tests:
           type: emptyDir
           medium: "{{ .Values.some_medium }}"
           sizeLimit: "{{ .Values.some_size }}"
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -86,6 +90,7 @@ tests:
           enabled: true
           type: emptyDir
           medium: Memory
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -102,6 +107,7 @@ tests:
           enabled: true
           type: emptyDir
           medium: not_memory
+          noMount: true
     asserts:
       - failedTemplate:
           documentIndex: *deploymentDoc
@@ -115,6 +121,7 @@ tests:
           type: nfs
           server: some.server.local
           path: /nfs/path
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -132,6 +139,7 @@ tests:
           enabled: true
           type: hostpath
           hostPath: /mnt/pool/test
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -150,6 +158,7 @@ tests:
           type: hostpath
           hostPathType: "{{ .Values.some_key }}"
           hostPath: /mnt/pool/test
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -166,6 +175,7 @@ tests:
         some_volume:
           type: not_valid_persistence
           enabled: true
+          noMount: true
     asserts:
       - failedTemplate:
           documentIndex: *deploymentDoc
@@ -177,6 +187,7 @@ tests:
         some_volume:
           type: configMap
           enabled: true
+          noMount: true
     asserts:
       - failedTemplate:
           documentIndex: *deploymentDoc
@@ -188,6 +199,7 @@ tests:
         some_volume:
           type: secret
           enabled: true
+          noMount: true
     asserts:
       - failedTemplate:
           documentIndex: *deploymentDoc
@@ -199,6 +211,7 @@ tests:
         some_volume:
           type: hostPath
           enabled: true
+          noMount: true
     asserts:
       - failedTemplate:
           documentIndex: *deploymentDoc
@@ -211,6 +224,7 @@ tests:
           type: nfs
           enabled: true
           path: some_path
+          noMount: true
     asserts:
       - failedTemplate:
           documentIndex: *deploymentDoc
@@ -223,6 +237,7 @@ tests:
           type: nfs
           enabled: true
           server: some_server
+          noMount: true
     asserts:
       - failedTemplate:
           documentIndex: *deploymentDoc
@@ -234,6 +249,7 @@ tests:
         some_volume:
           type: secret
           enabled: true
+          noMount: true
     asserts:
       - failedTemplate:
           documentIndex: *deploymentDoc
@@ -245,6 +261,7 @@ tests:
         some_volume:
           type: configMap
           enabled: true
+          noMount: true
     asserts:
       - failedTemplate:
           documentIndex: *deploymentDoc
@@ -257,6 +274,7 @@ tests:
           type: secret
           enabled: true
           objectName: some_object_name
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -274,6 +292,7 @@ tests:
           enabled: true
           objectName: some_object_name
           defaultMode: 777
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -292,6 +311,7 @@ tests:
           enabled: true
           objectName: some_object_name
           defaultMode: "777"
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -311,6 +331,7 @@ tests:
           enabled: true
           objectName: some_object_name
           defaultMode: "{{ .Values.mode }}"
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -330,6 +351,7 @@ tests:
           enabled: true
           objectName: some_object_name
           defaultMode: "{{ .Values.mode }}"
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -349,6 +371,7 @@ tests:
           objectName: some_object_name
           items:
             - path: some_path
+          noMount: true
     asserts:
       - failedTemplate:
           documentIndex: *deploymentDoc
@@ -363,6 +386,7 @@ tests:
           objectName: some_object_name
           items:
             - key: some_key
+          noMount: true
     asserts:
       - failedTemplate:
           documentIndex: *deploymentDoc
@@ -378,6 +402,7 @@ tests:
           items:
             - key: some_key
               path: some_path
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -402,6 +427,7 @@ tests:
           items:
             - key: "{{ .Values.key }}"
               path: "{{ .Values.path }}"
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -420,6 +446,7 @@ tests:
         some_volume:
           type: configMap
           enabled: true
+          noMount: true
     asserts:
       - failedTemplate:
           documentIndex: *deploymentDoc
@@ -432,6 +459,7 @@ tests:
           type: configMap
           enabled: true
           objectName: some_object_name
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -449,6 +477,7 @@ tests:
           enabled: true
           objectName: some_object_name
           defaultMode: 777
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -467,6 +496,7 @@ tests:
           enabled: true
           objectName: some_object_name
           defaultMode: "777"
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -486,6 +516,7 @@ tests:
           enabled: true
           objectName: some_object_name
           defaultMode: "{{ .Values.mode }}"
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -505,6 +536,7 @@ tests:
           enabled: true
           objectName: some_object_name
           defaultMode: "{{ .Values.mode }}"
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -525,6 +557,7 @@ tests:
           items:
             - key: some_key
               path: some_path
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -546,6 +579,7 @@ tests:
           objectName: some_object_name
           items:
             - path: some_path
+          noMount: true
     asserts:
       - failedTemplate:
           documentIndex: *deploymentDoc
@@ -560,6 +594,7 @@ tests:
           objectName: some_object_name
           items:
             - key: some_key
+          noMount: true
     asserts:
       - failedTemplate:
           documentIndex: *deploymentDoc
@@ -577,6 +612,7 @@ tests:
           items:
             - key: "{{ .Values.key }}"
               path: "{{ .Values.path }}"
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -595,6 +631,7 @@ tests:
         some_volume:
           type: pvc
           enabled: true
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -611,6 +648,7 @@ tests:
           type: pvc
           enabled: true
           existingClaim: some_existing_claim
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -628,6 +666,7 @@ tests:
           type: pvc
           enabled: true
           existingClaim: "{{ .Values.claim }}"
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -644,6 +683,7 @@ tests:
           type: pvc
           enabled: true
           nameOverride: some_claim
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -661,6 +701,7 @@ tests:
           type: pvc
           enabled: true
           nameOverride: "{{ .Values.claim }}"
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -677,6 +718,7 @@ tests:
           type: pvc
           enabled: true
           forceName: forced_name
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -694,6 +736,7 @@ tests:
           type: pvc
           enabled: true
           forceName: "{{ .Values.claim }}"
+          noMount: true
     asserts:
       - equal:
           documentIndex: *deploymentDoc

@@ -168,7 +168,7 @@ service:
         enabled: true
         # enabled: false
         # -- The port number (Default port is required if enabled: true)
-        port: 999999
+        port: 999999  # TODO:
         # -- Port protocol.
         # Support values are `HTTP`, `HTTPS`, `TCP` and `UDP`.
         # HTTPS and HTTPS spawn a TCP service and get used for internal URL and name generation
@@ -199,11 +199,25 @@ persistence:
     #   value: somevalue
     # -- Add annotations to PVC object
     annotations: {}
+    labelsList: []
+    # - name: somename
+    #   value: somevalue
+    # -- Set labels on the deployment/statefulset/daemonset
+    # -- Provide additional labels which may be required.
+    # -- Add labels to PVC object
+    labels: {}
     # -- If you want to reuse an existing claim, the name of the existing PVC can be passed here.
     existingClaim: ""
     # -- force the complete PVC name
     # Will not add any prefix or suffix
     forceName: ""
+    # -- Where to mount the volume in the main container.
+    mountPath:  # /config
+    # -- Specify if the volume should be mounted read-only.
+    readOnly: false
+    # -- Creates the volume but skips the volumeMount
+    noMount: false
+
   # -- Example of a hostPath mount
   # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath)
   # @default -- See below
@@ -331,3 +345,10 @@ persistence:
     # -- If the `SizeMemoryBackedVolumes` feature gate is enabled, you can
     # specify a size for memory backed volumes.
     sizeLimit:  # 1Gi
+
+# -- Used in conjunction with `controller.type: statefulset` to create individual disks for each instance.
+volumeClaimTemplates: {}
+# data:
+#   mountPath: /data
+#   accessMode: "ReadWriteOnce"
+#   size: 1Gi

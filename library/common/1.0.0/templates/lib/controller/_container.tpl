@@ -53,6 +53,10 @@
   {{- include "ix.v1.common.container.envFrom" $context | indent 2 -}}
   {{/* Ports */}}
   {{- include "ix.v1.common.container.ports" . | indent 2 -}}
+  {{- with (include "ix.v1.common.container.volumeMounts" . | trim) }}
+  volumeMounts:
+    {{- . | nindent 4 }}
+  {{- end -}}
 {{- end -}}
 
 {{/*
