@@ -243,6 +243,10 @@ data:
     {{- if .Values.frigate.rtmp.render_config }}
     rtmp:
       enabled: {{ ternary "True" "False" .Values.frigate.rtmp.enabled }}
+    {{- end }}
+    
+    {{- if .Values.frigate.live.render_config }}
+    live:
       height: {{ .Values.frigate.live.height | default 720 }}
       quality: {{ .Values.frigate.live.height | default 8 }}
     {{- end }}
