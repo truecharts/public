@@ -81,6 +81,10 @@ command:
     echo  "Configuring CLI url..."
     php /var/www/html/occ config:system:set overwrite.cli.url --value='{{ $accessurl }}/'
 
+    echo  "Executing standard nextcloud version migration scripts to ensure they are actually ran..."
+    php /var/www/html/occ db:add-missing-indices
+    php /var/www/html/occ db:convert-filecache-bigint
+
     {{- if .Values.imaginary.enabled }}
     echo  "Imaginary High Performance Previews enabled, enabling it on Nextcloud..."
     php /var/www/html/occ config:system:set preview_imaginary_url --value='http://127.0.0.1:9090'
