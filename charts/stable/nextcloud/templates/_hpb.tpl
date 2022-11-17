@@ -83,7 +83,6 @@ command:
 
     echo  "Executing standard nextcloud version migration scripts to ensure they are actually ran..."
     php /var/www/html/occ db:add-missing-indices
-    php /var/www/html/occ db:convert-filecache-bigint
 
     {{- if .Values.imaginary.enabled }}
     echo  "Imaginary High Performance Previews enabled, enabling it on Nextcloud..."
