@@ -54,3 +54,37 @@ jobs:
     with:
       checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
       chartChangesDetected: ${{ needs.pr-metadata.outputs.addedOrModified }}
+
+  print_head_msg:
+    name: print commit message
+    runs-on: ubuntu-latest
+    outputs:
+      head-commit-message: ${{ steps.get_head_commit_message.outputs.headCommitMsg }}
+    steps:
+      - name: Get repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: verbose head git commit message
+        run: echo "$(git show -s --format=%s)"
+      - name: Print head git commit message
+        id: get_head_commit_message
+        run: echo "::set-output name=headCommitMsg::$(git show -s --format=%s)"
+
+  automerge:
+    needs:
+      - pr-metadata
+      - catalog-test
+      - charts-test
+      - charts-lint
+      - print_head_msg
+    if: needs.print_head_msg.outputs.head-commit-message == 'Commit bumped Chart Version' 
+    name: Automerge build
+    runs-on: ubuntu-latest
+    steps:
+      - name: automerge
+        uses: pascalgn/automerge-action@eb68b061739cb9d81564f8e812d0b3c45f0fb09a # tag=v0.15.5
+        env:
+          GITHUB_TOKEN: "${{ secrets.BOT_TOKEN }}"
+          UPDATE_RETRIES: 12
+          UPDATE_RETRY_SLEEP: 60000
