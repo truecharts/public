@@ -3,9 +3,6 @@ image:
   pullPolicy: Always
   tag: latest@sha256:5cad00679feb37533f0eccf72b70c3bf7acc4b4c18fcae65e2081e7222da39ce
 
-securityContext:
-  readOnlyRootFilesystem: false
-
 service:
   main:
     ports:
