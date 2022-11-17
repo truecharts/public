@@ -35,7 +35,7 @@ jobs:
           helm repo update
 
       - name: Checkout
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
@@ -64,7 +64,7 @@ jobs:
           find . -name '*.sh' | xargs chmod +x
 
       - name: Checkout
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
@@ -125,7 +125,7 @@ jobs:
           rm -rf website
 
       - name: Checkout Catalog
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
@@ -140,8 +140,12 @@ jobs:
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
-          pip install yq
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
+          charts_path="charts"
+          for changed in ${CHARTS[@]}; do
+            .github/scripts/fetch_helm_deps.sh "${changed}"
+          done
+          pip install yq
           parthreads=$(($(nproc) * 2))
           parallel -j ${parthreads} .github/scripts/build-catalog.sh '2>&1' ::: ${CHARTS[@]}
 
@@ -157,7 +161,7 @@ jobs:
           git push
           cd -
           rm -rf catalog
-          
+
       - name: set git author
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
@@ -165,7 +169,7 @@ jobs:
         run: |
           git config user.name "TrueCharts-Bot"
           git config user.email "bot@truecharts.org"
-        
+
       - name: Run chart-releaser for dependency apps
         uses: helm/chart-releaser-action@98bccfd32b0f76149d188912ac8e45ddd3f8695f # tag=v1.4.1
         if: |
@@ -176,7 +180,7 @@ jobs:
         env:
           CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
           CR_SKIP_EXISTING: "true"
-          
+
       - name: Tag App Releases
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'

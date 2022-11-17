@@ -1,16 +1,16 @@
 image:
   repository: tccr.io/truecharts/vikunja-api
-  tag: 0.20.0@sha256:947d8fb3d230892a8794e75922745bd21f208388ac84239fe907adcdc93596db
+  tag: 0.20.1@sha256:839d6f23b3aa413e10bd252539a04866ad9b7fff3f1a6e2dac894c2674687709
   pullPolicy: IfNotPresent
 
 frontendImage:
   repository: tccr.io/truecharts/vikunja-frontend
-  tag: 0.20.0@sha256:49c1c64082d10d0c07a21c4ad1ef236f912de249e96efde8ea965c0e6e7f0739
+  tag: 0.20.1@sha256:73d6073996074450e1a1db672b9a19a462b41ec6f570df03ee480819c8d999e3
   pullPolicy: IfNotPresent
 
 nginxImage:
   repository: tccr.io/truecharts/nginx
-  tag: 1.23.2@sha256:4fcc18dd9432aa527f5ce55cca0045a1b94d6229a56671b8b6a902f0dbaa74fd
+  tag: 1.23.2@sha256:cdf55dbebc5265ecbcd65c96355edcdee0ec014f758b770adc09c2bdaa3fe95f
 
 securityContext:
   readOnlyRootFilesystem: false

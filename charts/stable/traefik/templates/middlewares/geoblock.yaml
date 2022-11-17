@@ -1,0 +1,34 @@
+{{- $values := .Values }}
+{{- $namespace := ( printf "ix-%s" .Release.Name ) }}
+{{- if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}
+{{- $namespace = "default" }}
+{{- end }}
+{{- range $index, $middlewareData := .Values.middlewares.geoBlock }}
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ $middlewareData.name }}
+  namespace: {{ $namespace }}
+spec:
+  plugin:
+    GeoBlock:
+      allowLocalRequests: {{ $middlewareData.allowLocalRequests }}
+      logLocalRequests: {{ $middlewareData.logLocalRequests }}
+      logAllowedRequests: {{ $middlewareData.logAllowedRequests }}
+      logApiRequests: {{ $middlewareData.logApiRequests }}
+      api: {{ $middlewareData.api }}
+      apiTimeoutMs: {{ $middlewareData.apiTimeoutMs }}
+      cacheSize: {{ $middlewareData.cacheSize }}
+      forceMonthlyUpdate: {{ $middlewareData.forceMonthlyUpdate }}
+      allowUnknownCountries: {{ $middlewareData.allowUnknownCountries }}
+      unknownCountryApiResponse: {{ $middlewareData.unknownCountryApiResponse }}
+      {{- if not $middlewareData.countries }}
+        {{- fail "You have to define at least one country..." }}
+      {{- end }}
+      countries:
+        {{- range $middlewareData.countries }}
+        - {{ . }}
+        {{- end }}
+{{- end }}
