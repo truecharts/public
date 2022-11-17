@@ -1,0 +1,28 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 11.0.3
+deprecated: false
+description: Channels DVR Server
+home: https://truecharts.org/docs/charts/incubator/channels-dvr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/channels-dvr.png
+keywords:
+  - channels-dvr
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: channels-dvr
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/channels-dvr
+  - https://hub.docker.com/r/fancybits/channels-dvr
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
