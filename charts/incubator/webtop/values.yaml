@@ -1,29 +1,32 @@
-env:
-  KEYBOARD: ""
-  SUBFOLDER: ""
-  UMASK: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/webtop
   tag: latest@sha256:cafa6b241a660b291df8e901d37e9b1a0ff0d9db2224a16ee886365d54b5fd73
-persistence:
-  config:
-    enabled: true
-    mountPath: /config
+
+env:
+  KEYBOARD: ""
+  SUBFOLDER: ""
+  CUSTOM_PORT: "{{ .Values.service.main.ports.main.port }}"
 
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
 service:
   main:
     ports:
       main:
-        port: 3000
-        protocol: TCP
-        targetPort: 3000
+        port: 33000
+        protocol: HTTP
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
 
 portal:
   enabled: true
