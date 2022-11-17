@@ -60,6 +60,10 @@
   probes:
     {{- . | nindent 4 }}
   {{- end -}}
+  {{- with (include "ix.v1.common.container.resources" (dict "resources" .Values.resources "SCALE" .Values.scaleGPU) | trim) }}
+  resources:
+    {{- . | nindent 4 }}
+  {{- end -}}
 {{- end -}}
 
 {{/*

@@ -58,7 +58,8 @@ tests:
 
   - it: should pass with scaleGPU set
     set:
-      scaleGPU: true
+      scaleGPU:
+        something: something
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -255,7 +256,8 @@ tests:
 
   - it: should pass with envs defined with scaleGPU
     set:
-      scaleGPU: true
+      scaleGPU:
+        something: something
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -274,7 +276,8 @@ tests:
 
   - it: should pass with envs defined with scaleGPU and custom capabilities
     set:
-      scaleGPU: true
+      scaleGPU:
+        something: something
       nvidiaCaps:
         - compute
         - utility
