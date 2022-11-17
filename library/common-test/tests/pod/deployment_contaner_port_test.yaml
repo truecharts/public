@@ -35,6 +35,18 @@ tests:
           documentIndex: *deploymentDoc
           errorMessage: Port is required on enabled services. Service (main)
 
+  - it: should fail with disabled port on enabled service
+    set:
+      service:
+        main:
+          ports:
+            main:
+              enabled: false
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: No ports are enabled for the service (main)
+
   - it: should fail with invalid protocol
     set:
       service:
@@ -108,6 +120,13 @@ tests:
               port: 443
               protocol: UDP
               targetPort: 8000
+      probes:
+        liveness:
+          enabled: false
+        readiness:
+          enabled: false
+        startup:
+          enabled: false
     asserts:
       - equal:
           documentIndex: *deploymentDoc

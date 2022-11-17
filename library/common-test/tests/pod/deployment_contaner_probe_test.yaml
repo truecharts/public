@@ -1,0 +1,706 @@
+suite: deployment container probe test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    asserts:
+      - hasDocuments:
+          count: 1
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - equal:
+          path: spec.template.spec.containers[0].probes
+          value:
+            livenessProbe:
+              httpGet:
+                path: /
+                scheme: HTTP
+                port: 999999
+              initialDelaySeconds: 10
+              failureThreshold: 5
+              timeoutSeconds: 5
+              periodSeconds: 10
+            readinessProbe:
+              httpGet:
+                path: /
+                scheme: HTTP
+                port: 999999
+              initialDelaySeconds: 10
+              failureThreshold: 5
+              timeoutSeconds: 5
+              periodSeconds: 10
+            startupProbe:
+              httpGet:
+                path: /
+                scheme: HTTP
+                port: 999999
+              initialDelaySeconds: 10
+              failureThreshold: 60
+              timeoutSeconds: 2
+              periodSeconds: 5
+
+  - it: should fail with wrong probe name
+    set:
+      probes:
+        invalid_probe_name:
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: Invalid probe name (invalid_probe_name). Valid options are (liveness, readiness, startup)
+
+  - it: should fail without commands on exec probe
+    set:
+      probes:
+        liveness:
+          type: exec
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: No commands were defined for exec type on probe (liveness)
+
+  - it: should fail without path on http(s) liveness probe
+    set:
+      probes:
+        liveness:
+          path: ""
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: <path> must be defined for HTTP/HTTPS probe types in probe (liveness)
+
+  - it: should fail without path on http(s) readiness probe
+    set:
+      probes:
+        readiness:
+          path: ""
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: <path> must be defined for HTTP/HTTPS probe types in probe (readiness)
+
+  - it: should fail without path on http(s) startup probe
+    set:
+      probes:
+        startup:
+          path: ""
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: <path> must be defined for HTTP/HTTPS probe types in probe (startup)
+
+  - it: should fail without initialDelaySeconds on non-custom probes
+    set:
+      probes:
+        liveness:
+          spec:
+            initialDelaySeconds:
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: <initialDelaySeconds> cannot be empty in probe (liveness)
+
+  - it: should fail without failureThreshold on non-custom probes
+    set:
+      probes:
+        liveness:
+          spec:
+            failureThreshold:
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: <failureThreshold> cannot be empty in probe (liveness)
+
+  - it: should fail without timeoutSeconds on non-custom probes
+    set:
+      probes:
+        liveness:
+          spec:
+            timeoutSeconds:
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: <timeoutSeconds> cannot be empty in probe (liveness)
+
+  - it: should fail without periodSeconds on non-custom probes
+    set:
+      probes:
+        liveness:
+          spec:
+            periodSeconds:
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: <periodSeconds> cannot be empty in probe (liveness)
+
+  - it: should fail when non-custom probe is defined in a disabled service
+    set:
+      service:
+        main:
+          enabled: false
+      probes:
+        liveness:
+          spec:
+            periodSeconds:
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: Only custom probes are allowed when service is disabled (liveness)
+
+  - it: should fail with invalid probe type
+    set:
+      probes:
+        liveness:
+          type: not_valid_type
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: Invalid probe type (not_valid_type) on probe (liveness)
+
+  - it: should fail with httpHeader value is defined as list
+    set:
+      probes:
+        liveness:
+          type: HTTP
+          httpHeaders:
+            some_header:
+              - list_value
+              - list_value2
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: Lists or Dicts are not allowed in httpHeaders on probe (liveness)
+
+  - it: should fail with httpHeader value is defined as dict
+    set:
+      probes:
+        liveness:
+          type: HTTP
+          httpHeaders:
+            some_header:
+              some_key:
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: Lists or Dicts are not allowed in httpHeaders on probe (liveness)
+
+  - it: should pass with with custom defined liveness probe
+    set:
+      probes:
+        liveness:
+          custom: true
+          spec:
+            httpGet:
+              path: /path
+              scheme: HTTPS
+              port: 1234
+            initialDelaySeconds: 15
+            failureThreshold: 10
+            timeoutSeconds: 10
+            periodSeconds: 15
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            httpGet:
+              path: /path
+              scheme: HTTPS
+              port: 1234
+            initialDelaySeconds: 15
+            failureThreshold: 10
+            timeoutSeconds: 10
+            periodSeconds: 15
+
+  - it: should pass with with custom defined readiness probe
+    set:
+      probes:
+        readiness:
+          custom: true
+          spec:
+            httpGet:
+              path: /path
+              scheme: HTTPS
+              port: 1234
+            initialDelaySeconds: 15
+            failureThreshold: 10
+            timeoutSeconds: 10
+            periodSeconds: 15
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.readinessProbe
+          value:
+            httpGet:
+              path: /path
+              scheme: HTTPS
+              port: 1234
+            initialDelaySeconds: 15
+            failureThreshold: 10
+            timeoutSeconds: 10
+            periodSeconds: 15
+
+  - it: should pass with with custom defined startup probe
+    set:
+      probes:
+        startup:
+          custom: true
+          spec:
+            httpGet:
+              path: /path
+              scheme: HTTPS
+              port: 1234
+            initialDelaySeconds: 15
+            failureThreshold: 10
+            timeoutSeconds: 10
+            periodSeconds: 15
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.startupProbe
+          value:
+            httpGet:
+              path: /path
+              scheme: HTTPS
+              port: 1234
+            initialDelaySeconds: 15
+            failureThreshold: 10
+            timeoutSeconds: 10
+            periodSeconds: 15
+
+  - it: should pass with with probe type AUTO and service HTTP
+    set:
+      service:
+        main:
+          ports:
+            main:
+              protocol: HTTP
+      probes:
+        liveness:
+          type: AUTO
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            httpGet:
+              path: /
+              scheme: HTTP
+              port: 999999
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+
+  - it: should pass with with probe type AUTO and service HTTPS
+    set:
+      service:
+        main:
+          ports:
+            main:
+              protocol: HTTPS
+      probes:
+        liveness:
+          type: AUTO
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            httpGet:
+              path: /
+              scheme: HTTPS
+              port: 999999
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+
+  - it: should pass with with probe type AUTO and service TCP
+    set:
+      service:
+        main:
+          ports:
+            main:
+              protocol: TCP
+      probes:
+        liveness:
+          type: AUTO
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            tcpSocket:
+              port: 999999
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+
+  - it: should pass with with probe type TCP and service TCP
+    set:
+      probes:
+        liveness:
+          type: TCP
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            tcpSocket:
+              port: 999999
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+
+  - it: should pass with with probe type AUTO and service HTTP with custom path
+    set:
+      service:
+        main:
+          ports:
+            main:
+              protocol: HTTP
+      probes:
+        liveness:
+          type: AUTO
+          path: /some_path
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            httpGet:
+              path: /some_path
+              scheme: HTTP
+              port: 999999
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+
+  - it: should pass with with probe type AUTO and service HTTP with custom port
+    set:
+      service:
+        main:
+          ports:
+            main:
+              protocol: HTTP
+      probes:
+        liveness:
+          type: AUTO
+          port: 1234
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            httpGet:
+              path: /
+              scheme: HTTP
+              port: 1234
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+
+  - it: should pass with with probe type AUTO and service HTTP with httpHeaders
+    set:
+      service:
+        main:
+          ports:
+            main:
+              protocol: HTTP
+      probes:
+        liveness:
+          type: AUTO
+          httpHeaders:
+            some_header: 1234
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            httpGet:
+              path: /
+              scheme: HTTP
+              port: 999999
+              httpHeaders:
+                - name: some_header
+                  value: 1234
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+
+  - it: should pass with with probe type HTTP with httpHeaders set from tpl
+    set:
+      some_header_value: 1234
+      probes:
+        liveness:
+          type: HTTP
+          httpHeaders:
+            some_header: "{{ .Values.some_header_value }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            httpGet:
+              path: /
+              scheme: HTTP
+              port: 999999
+              httpHeaders:
+                - name: some_header
+                  value: 1234
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+
+  - it: should pass with with probe type HTTP with multiple httpHeaders set from tpl
+    set:
+      some_header_value: 1234
+      some_header_value2: some_value
+      probes:
+        liveness:
+          type: HTTP
+          httpHeaders:
+            some_header: "{{ .Values.some_header_value }}"
+            some_header2: "{{ .Values.some_header_value2 }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            httpGet:
+              path: /
+              scheme: HTTP
+              port: 999999
+              httpHeaders:
+                - name: some_header
+                  value: 1234
+                - name: some_header2
+                  value: some_value
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+
+  - it: should pass with with probe type HTTP with path set from tpl
+    set:
+      some_path: /ping
+      probes:
+        liveness:
+          type: HTTP
+          path: "{{ .Values.some_path }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            httpGet:
+              path: /ping
+              scheme: HTTP
+              port: 999999
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+
+  - it: should pass with with probe type HTTP with port set from tpl
+    set:
+      some_port: 1234
+      probes:
+        liveness:
+          type: HTTP
+          port: "{{ .Values.some_port }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            httpGet:
+              path: /
+              scheme: HTTP
+              port: 1234
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+
+  - it: should pass with with probe type TCP with port set from tpl
+    set:
+      some_port: 1234
+      probes:
+        liveness:
+          type: TCP
+          port: "{{ .Values.some_port }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            tcpSocket:
+              port: 1234
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+
+  - it: should pass with with changed times
+    set:
+      probes:
+        liveness:
+          type: TCP
+          spec:
+            initialDelaySeconds: 15
+            failureThreshold: 10
+            timeoutSeconds: 10
+            periodSeconds: 15
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            tcpSocket:
+              port: 999999
+            initialDelaySeconds: 15
+            failureThreshold: 10
+            timeoutSeconds: 10
+            periodSeconds: 15
+
+  - it: should pass with with probe type GRPC
+    set:
+      probes:
+        liveness:
+          type: GRPC
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            grpc:
+              port: 999999
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+
+  - it: should pass with with probe type exec with multiline command
+    set:
+      probes:
+        liveness:
+          type: exec
+          command:
+            - /bin/bash
+            - -c
+            - |
+              echo "probe!"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            exec:
+              command:
+                - /bin/bash
+                - -c
+                - |
+                  echo "probe!"
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+
+  - it: should pass with with probe type exec with multiline command from tpl
+    set:
+      some_msg: probe!
+      probes:
+        liveness:
+          type: exec
+          command:
+            - /bin/bash
+            - -c
+            - |
+              echo "{{ .Values.some_msg }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            exec:
+              command:
+                - /bin/bash
+                - -c
+                - |
+                  echo "probe!"
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+
+  - it: should pass with with probe type exec single command
+    set:
+      probes:
+        liveness:
+          type: exec
+          command: env
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            exec:
+              command:
+                - env
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+
+  - it: should pass with with probe type exec single command from tpl
+    set:
+      some_command: env
+      probes:
+        liveness:
+          type: exec
+          command: "{{ .Values.some_command }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            exec:
+              command:
+                - env
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+
+
+  - it: should pass with with probe type exec single command and custom timings
+    set:
+      probes:
+        liveness:
+          type: exec
+          command: env
+          spec:
+            initialDelaySeconds: 15
+            failureThreshold: 10
+            timeoutSeconds: 10
+            periodSeconds: 15
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            exec:
+              command:
+                - env
+            initialDelaySeconds: 15
+            failureThreshold: 10
+            timeoutSeconds: 10
+            periodSeconds: 15

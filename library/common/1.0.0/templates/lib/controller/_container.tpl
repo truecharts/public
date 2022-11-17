@@ -39,21 +39,25 @@
   {{- end }}
   {{- with .Values.termination.messagePolicy }}
   terminationMessagePolicy: {{ tpl . $ }}
-  {{- end }}
+  {{- end -}}
   {{- with (include "ix.v1.common.container.envVars" (dict "envs" .Values.env "envList" .Values.envList "root" $) | trim) }}
   env:
     {{- . | nindent 4 }} {{/* env and envList */}}
-  {{- end }}
+  {{- end -}}
   {{- with (include "ix.v1.common.container.envFrom" (dict "envFrom" .Values.envFrom "root" $) | trim) }}
   envFrom:
     {{- . | nindent 4 }}
-  {{- end }}
+  {{- end -}}
   {{- with (include "ix.v1.common.container.ports" . | trim) }}
   ports:
     {{- . | nindent 4 }}
-  {{- end }}
+  {{- end -}}
   {{- with (include "ix.v1.common.container.volumeMounts" . | trim) }}
   volumeMounts:
+    {{- . | nindent 4 }}
+  {{- end -}}
+  {{- with (include "ix.v1.common.container.probes" . | trim) }}
+  probes:
     {{- . | nindent 4 }}
   {{- end -}}
 {{- end -}}

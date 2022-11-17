@@ -1,0 +1,89 @@
+
+suite: primary service utils test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    asserts:
+      - hasDocuments:
+          count: 1
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            httpGet:
+              path: /
+              port: 999999
+              scheme: HTTP
+            failureThreshold: 5
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+
+  - it: should fail with more than 1 primary services
+    set:
+      service:
+        main:
+          primary: true
+        other:
+          enabled: true
+          primary: true
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: More than one services are set as primary. This is not supported.
+
+
+  - it: should pass with no service set as primary
+    set:
+      service:
+        main:
+          primary: false
+          ports:
+            main:
+              protocol: TCP
+      probes:
+        liveness:
+          type: AUTO
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            tcpSocket:
+              port: 999999
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+
+  - it: should pass with different service set as primary
+    set:
+      service:
+        main:
+          primary: false
+        other:
+          enabled: true
+          primary: true
+          ports:
+            other:
+              enabled: true
+              protocol: TCP
+              port: 12345
+      probes:
+        liveness:
+          type: AUTO
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].probes.livenessProbe
+          value:
+            tcpSocket:
+              port: 12345
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10

@@ -5,7 +5,7 @@
 # helm plugin install https://github.com/quintush/helm-unittest
 curr_dir=${pwd}
 
-common_test_path=library/common-test
+common_test_path="library/common-test"
 
 echo "Building common..."
 helm dependency build "$common_test_path"
