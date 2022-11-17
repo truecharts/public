@@ -16,6 +16,7 @@ service:
     ports:
       main:
         port: 8089
+        protocol: HTTP
         targetPort: 8089
 
 persistence:
