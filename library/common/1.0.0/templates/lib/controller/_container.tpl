@@ -40,19 +40,18 @@
   {{- with .Values.termination.messagePolicy }}
   terminationMessagePolicy: {{ tpl . $ }}
   {{- end }}
-  {{- $context := dict -}} {{/* Create a new context and pass it to envVars include, so tpl can work. */}}
-  {{- $_ := set $context "envs" .Values.env -}}
-  {{- $_ := set $context "envList" .Values.envList -}}
-  {{- $_ := set $context "root" $ -}}
-  {{/* env and envList */}}
-  {{- include "ix.v1.common.container.envVars" $context | indent 2 -}}
-  {{- $context := dict -}} {{/* Create a new context and pass it to envFrom include, so tpl can work. */}}
-  {{- $_ := set $context "envFrom" .Values.envFrom -}}
-  {{- $_ := set $context "root" $ -}}
-  {{/* envFrom */}}
-  {{- include "ix.v1.common.container.envFrom" $context | indent 2 -}}
-  {{/* Ports */}}
-  {{- include "ix.v1.common.container.ports" . | indent 2 -}}
+  {{- with (include "ix.v1.common.container.envVars" (dict "envs" .Values.env "envList" .Values.envList "root" $) | trim) }}
+  env:
+    {{- . | nindent 4 }} {{/* env and envList */}}
+  {{- end }}
+  {{- with (include "ix.v1.common.container.envFrom" (dict "envFrom" .Values.envFrom "root" $) | trim) }}
+  envFrom:
+    {{- . | nindent 4 }}
+  {{- end }}
+  {{- with (include "ix.v1.common.container.ports" . | trim) }}
+  ports:
+    {{- . | nindent 4 }}
+  {{- end }}
   {{- with (include "ix.v1.common.container.volumeMounts" . | trim) }}
   volumeMounts:
     {{- . | nindent 4 }}
@@ -62,4 +61,9 @@
 {{/*
 The "tpl (toYaml somepath) $" is used to expand template content (if any)
 Cases like this are when we set these values on another tpl file with template
+*/}}
+{{/*
+On some includes we pass a dict with the "root" and some other values.
+This is because this named function relies on those two, to specify it's context.
+So it can work on multiple places, like additional containers and not only the main container.
 */}}

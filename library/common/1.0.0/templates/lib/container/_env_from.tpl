@@ -2,24 +2,21 @@
 {{- define "ix.v1.common.container.envFrom" -}}
 {{- $envFrom := .envFrom -}}
 {{- $root := .root -}}
-{{- if or $root.Values.secretEnv $envFrom }}
-envFrom:
-{{- end -}}
 {{- if $root.Values.secretEnv }} {{/* TODO: Write unittest once _secret.tpl is completed */}}
-  - secretRef:
-      name: {{ include "ix.v1.common.names.fullname" . }}
+- secretRef:
+    name: {{ include "ix.v1.common.names.fullname" . }}
 {{- end -}}
-  {{- range $envFrom -}}
-    {{- if .secretRef }}
-  - secretRef:
-      name: {{ tpl (required "Name is required for secretRef in envFrom." .secretRef.name) $root | quote }}
-    {{- else if .configMapRef }}
-  - configMapRef:
-      name: {{ tpl (required "Name is required for configMapRef in envFrom." .configMapRef.name) $root | quote }}
-    {{- else -}}
-      {{- fail "Not valid Ref or <name> key is missing in envFrom." -}}
-    {{- end -}}
+{{- range $envFrom -}}
+  {{- if .secretRef }}
+- secretRef:
+    name: {{ tpl (required "Name is required for secretRef in envFrom." .secretRef.name) $root | quote }}
+  {{- else if .configMapRef }}
+- configMapRef:
+    name: {{ tpl (required "Name is required for configMapRef in envFrom." .configMapRef.name) $root | quote }}
+  {{- else -}}
+    {{- fail "Not valid Ref or <name> key is missing in envFrom." -}}
   {{- end -}}
+{{- end -}}
 {{- end -}}
 
 {{/*
