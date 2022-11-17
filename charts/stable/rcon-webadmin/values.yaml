@@ -25,14 +25,14 @@ rcon:
   rwa_server_name: minecraft
   rwa_rcon_host: ""
   rwa_rcon_port: 25575
-  # RWA_WEBSOCKET_URL_SSL
-  # RWA_WEBSOCKET_URL
-  rwa_restrict_commands:
-    - command1
-    - command2
-  rwa_restrict_widgets:
-    - widget1
-    - widget2
+  rwa_websocket_url_ssl: ""
+  rwa_websocket_url: ""
+  rwa_restrict_commands: []
+    # - command1
+    # - command2
+  rwa_restrict_widgets: []
+    # - widget1
+    # - widget2
 
 env:
   RWA_ADMIN: '{{ ternary "TRUE" "FALSE" .Values.rcon.rwa_admin }}'
@@ -45,7 +45,8 @@ env:
   RWA_RCON_PORT: "{{ .Values.rcon.rwa_rcon_port }}"
   RWA_RESTRICT_COMMANDS: '{{ join "," .Values.rcon.rwa_restrict_commands }}'
   RWA_RESTRICT_WIDGETS: '{{ join "," .Values.rcon.rwa_restrict_widgets }}'
-
+  RWA_WEBSOCKET_URL_SSL: "{{ .Values.rcon.rwa_websocket_url_ssl }}"
+  RWA_WEBSOCKET_URL: "{{ .Values.rcon.rwa_websocket_url }}"
 service:
   main:
     ports:
