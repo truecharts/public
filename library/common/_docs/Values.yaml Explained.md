@@ -318,6 +318,8 @@ Specifies whether the main container in a pod runs with `TTY` enabled.
 <details>
 <summary>Show / Hide</summary>
 
+[Kubernetes docs](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#debugging)
+
 - Type: `boolean`
 - Default: `false`
 - Helm Template: ❌
@@ -343,6 +345,8 @@ Specifies whether the main container in a pod runs with `stdin` enabled.
 
 <details>
 <summary>Show / Hide</summary>
+
+[Kubernetes docs](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#debugging)
 
 - Type: `boolean`
 - Default: `false`
@@ -410,6 +414,8 @@ Specifies privileged status on securityContext for the main container
 <details>
 <summary>Show / Hide</summary>
 
+[Kubernetes docs](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context-1)
+
 - Type: `boolean`
 - Default: `false`
 - Helm Template: ❌
@@ -437,6 +443,8 @@ Specifies readOnlyRootFilesystem status on securityContext for the main containe
 
 <details>
 <summary>Show / Hide</summary>
+
+[Kubernetes docs](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context-1)
 
 - Type: `boolean`
 - Default: `true`
@@ -466,6 +474,8 @@ Specifies allowPrivilegeEscalation status on securityContext for the main contai
 <details>
 <summary>Show / Hide</summary>
 
+[Kubernetes docs](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context-1)
+
 - Type: `boolean`
 - Default: `false`
 - Helm Template: ❌
@@ -494,6 +504,8 @@ Specifies runAsNonRoot status on securityContext for the main container
 <details>
 <summary>Show / Hide</summary>
 
+[Kubernetes docs](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context-1)
+
 - Type: `boolean`
 - Default: `true`
 - Helm Template: ❌
@@ -521,6 +533,8 @@ Specifies capabilities to add or drop on securityContext for the main container
 
 <details>
 <summary>Show / Hide</summary>
+
+[Kubernetes docs](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context-1)
 
 - Type: `boolean`
 - Default:
@@ -556,6 +570,8 @@ Configure the lifecycle for the main container.
 
 <details>
 <summary>Show / Hide</summary>
+
+[Kubernetes docs](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)
 
 - Type: `dict`
 - Default: `{}`
@@ -680,7 +696,7 @@ Examples: Values.yaml
 
 ```yaml
 termination:
-  gracePeriodSeconds: File
+  gracePeriodSeconds: 10
 ```
 
 Sets gracePeriodSeconds to:
