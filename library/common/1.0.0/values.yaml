@@ -1,9 +1,10 @@
+# This file only includes the default values that are applied.
+# All values can be overridden per chart, in their values.yaml
+# For Examples and Explanation view the "Values.yaml Explained" markdown file
+
 global:
-  # -- Sets an override for the suffix of the full name (Applies to current chart and all sub-charts)
   nameOverride: ""
-  # -- Sets additional global annotations. Helm templates can be used.
   annotations: {}
-  # -- Set additional global labels. Helm templates can be used.
   labels: {}
 
 # -- Sets an override for the suffix of the full name (Applies to current chart only)
