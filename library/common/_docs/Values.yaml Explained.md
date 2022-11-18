@@ -524,8 +524,8 @@ Specifies capabilities to add or drop on securityContext for the default contain
 
 - Type: `boolean`
 - Default:
-  - add:`[]`
-  - drop:`[]`
+  - add: `[]`
+  - drop: `[]`
 - Helm Template: ✅
 
 Examples: Values.yaml
