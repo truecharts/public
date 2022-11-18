@@ -68,6 +68,7 @@ Values.yaml
 global:
   annotations:
     key: value
+    key: "{{ .Values.some.key }}"
 ```
 
 Sets `key: value` to:
@@ -95,6 +96,7 @@ Values.yaml
 global:
   labels:
     key: value
+    key: "{{ .Values.some.key }}"
 ```
 
 Sets `key: value` to:
