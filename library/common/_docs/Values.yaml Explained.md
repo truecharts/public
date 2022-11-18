@@ -1034,3 +1034,790 @@ Appends the list to:
   - spec.template.spec.containers[0].envFrom
 
 </details>
+
+## persistence
+
+Creates volumes and volumeMounts
+
+<details>
+<summary>Show / Hide</summary>
+
+Available options:
+
+```yaml
+persistence:
+  any_name_here:
+    enabled: false
+    type: pvc
+    nameOverride: ""
+    annotations: {}
+    labels: {}
+    existingClaim: ""
+    forceName: ""
+    mountPath:  # /config
+    readOnly: false
+    noMount: false
+```
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  pvc-example:
+    enabled: true
+    type: pvc
+    mountPath: /config
+    size: 1Gi
+
+persistence:
+  host-device-example:
+    enabled: true
+    type: hostPath
+    hostPath: /dev
+    mountPath: /host/dev
+
+persistence:
+  configmap-example:
+    enabled: true
+    type: configMap
+    objectName: configmap-name
+    # Either
+    mountPath: /config/config.yaml
+    subPath: config.yaml
+    # or
+    mountPath: /config
+    items:
+      - key: config.yaml
+        path: config.yaml
+
+persistence:
+  secret-example:
+    enabled: true
+    type: secret
+    objectName: secret-name
+    # Either
+    mountPath: /config/config.yaml
+    subPath: config.yaml
+    # or
+    mountPath: /config
+    items:
+      - key: config.yaml
+        path: config.yaml
+
+persistence:
+  nfs-example:
+    enabled: true
+    type: nfs
+    server: 192.168.1.10
+    path: /some-path
+    mountPath: /some-mount-path
+
+persistence:
+  emptydir-shm-example:
+    enabled: true
+    type: emptyDir
+    mountPath: /dev/shm
+    medium: Memory
+
+persistence:
+  emptydir-tmp-example:
+    enabled: true
+    type: emptyDir
+    mountPath: /tmp
+```
+
+### enabled
+
+Specifies where the volume and volumeMount will be enabled
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `boolean`
+- Default: `false`
+- Helm Template: ❌
+
+Applies to types:
+
+- `pvc`
+- `emptyDir`
+- `secret`
+- `configMap`
+- `hostPath`
+- `ix-volumes`
+- `custom`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    enabled: false
+
+persistence:
+  any_name_here:
+    enabled: true
+```
+
+</details>
+
+### type
+
+Specifies type of the volume
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `string`
+- Default: `pvc`
+- Helm Template: ❌
+
+Valid options:
+
+- `pvc`
+- `emptyDir`
+- `secret`
+- `configMap`
+- `hostPath`
+- `ix-volumes`
+- `custom`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    type: pvc
+
+persistence:
+  any_name_here:
+    type: emptyDir
+
+persistence:
+  any_name_here:
+    type: secret
+
+persistence:
+  any_name_here:
+    type: configMap
+
+persistence:
+  any_name_here:
+    type: hostPath
+
+persistence:
+  any_name_here:
+    type: custom
+```
+
+</details>
+
+### mountPath
+
+Specifies where the volume will be mounted in the container
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `string`
+- Default: `""`
+- Helm Template: ❌
+
+Applies to types:
+
+- `pvc`
+- `emptyDir`
+- `secret`
+- `configMap`
+- `hostPath`
+- `ix-volumes`
+- `custom`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    mountPath: /config
+```
+
+</details>
+
+### noMount
+
+Specifies where the volumeMount will be created.
+
+<details>
+<summary>Show / Hide</summary>
+
+When set to true, it only creates the volume, without mounting it on the main container
+
+- Type: `boolean`
+- Default: `false`
+- Helm Template: ❌
+
+Applies to types:
+
+- `pvc`
+- `emptyDir`
+- `secret`
+- `configMap`
+- `hostPath`
+- `ix-volumes`
+- `custom`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    noMount: true
+```
+
+</details>
+
+### readOnly
+
+Specifies whether the volumeMount will be readOnly.
+
+<details>
+<summary>Show / Hide</summary>
+
+When set to true, it mounts the volume to the main container as read only.
+
+- Type: `boolean`
+- Default: `false`
+- Helm Template: ❌
+
+Applies to types:
+
+- `pvc`
+- `emptyDir`
+- `secret`
+- `configMap`
+- `hostPath`
+- `ix-volumes`
+- `custom`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    readOnly: true
+```
+
+</details>
+
+### objectName
+
+Specifies the name of the configMap or secret that will be mounted.
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `string`
+- Default: `""`
+- Helm Template: ✅
+
+Applies to types:
+
+- `secret`
+- `configMap`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    objectName: "{{ .Value.some.name }}"
+
+persistence:
+  any_name_here:
+    objectName: some-name
+```
+
+</details>
+
+### defaultMode
+
+Specifies the defaultMode the secret will be mounted
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `int` or `string`
+- Default: `0644`
+- Helm Template: ✅
+
+Applies to types:
+
+- `secret`
+- `configMap`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    defaultMode: "{{ .Value.some.default.mode }}"
+
+persistence:
+  any_name_here:
+    defaultMode: 0644
+```
+
+</details>
+
+### server
+
+Specifies the nfs server address.
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `string`
+- Default: `""`
+- Helm Template: ❌
+
+Applies to types:
+
+- `nfs`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    server: "192.168.1.10"
+```
+
+</details>
+
+### path
+
+Specifies path on the nfs server.
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `string`
+- Default: `""`
+- Helm Template: ❌
+
+Applies to types:
+
+- `nfs`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    path: /some-path
+```
+
+</details>
+
+### medium
+
+Specifies medium of the emptyDir
+
+<details>
+<summary>Show / Hide</summary>
+
+If not set, uses the node's default storage.
+If set, sets the storage medium for the emptyDir
+
+- Type: `string`
+- Default: `""`
+- Helm Template: ❌
+
+Applies to types:
+
+- `emptyDir`
+
+Valid options:
+
+- ""
+- Memory
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    medium: Memory
+
+persistence:
+  any_name_here:
+    medium:
+```
+
+</details>
+
+### sizeLimit
+
+Specifies sizeLimit of the emptyDir
+
+<details>
+<summary>Show / Hide</summary>
+
+Only if the `SizeMemoryBackedVolumes` feature gate is enabled
+
+- Type: `string`
+- Default: `""`
+- Helm Template: ❌
+
+Applies to types:
+
+- `emptyDir`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    sizeLimit: 1Gi
+```
+
+</details>
+
+### size
+
+Specifies size of the pvc
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `string`
+- Default: `""`
+- Helm Template: ❌
+
+Applies to types:
+
+- `pvc`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    size: 1Gi
+```
+
+</details>
+
+### accessMode
+
+Specifies accessMode of the pvc
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `string`
+- Default: `ReadWriteOnce`
+- Helm Template: ❌
+
+Valid options:
+
+- `ReadWriteOnce`
+- `ReadOnlyMany`
+- `ReadWriteMany`
+- `ReadWriteOncePod`
+
+Applies to types:
+
+- `pvc`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    accessMode: ReadWriteOnce
+```
+
+</details>
+
+### existingClaim
+
+Specifies existingClaim for the PVC
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `string`
+- Default: `""`
+- Helm Template: ✅
+
+Applies to types:
+
+- `pvc`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    existingClaim: some-claim-name
+```
+
+</details>
+
+### nameOverride
+
+Sets an override for the suffix of this volume
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `string`
+- Default: `""`
+- Helm Template: ✅
+
+Applies to types:
+
+- `pvc`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    nameOverride: some-name
+```
+
+</details>
+
+### forceName
+
+Sets the complete name of this volume
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `string`
+- Default: `""`
+- Helm Template: ✅
+
+Applies to types:
+
+- `pvc`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    forceName: some-name
+```
+
+</details>
+
+### annotations
+
+Add annotations to the PVC object
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `dict`
+- Default: `{}`
+- Helm Template: ✅
+  - On values only
+
+Applies to types:
+
+- `pvc`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    annotations:
+      key: value
+```
+
+</details>
+
+### labels
+
+Add labels to the PVC object
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `dict`
+- Default: `{}`
+- Helm Template: ✅
+  - On values only
+
+Applies to types:
+
+- `pvc`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    labels:
+      key: value
+```
+
+</details>
+
+### hostPath
+
+Specifies the hostPath of the volume
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `string`
+- Default: `""`
+- Helm Template: ❌
+
+Applies to types:
+
+- `hostPath`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    hostPath: /some-path
+```
+
+</details>
+
+### hostPathType
+
+Specifies the hostPathType of the volume
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `string`
+- Default: `""`
+- Helm Template: ✅
+
+Valid options:
+
+- `""`
+- `DirectoryOrCreate`
+- `Directory`
+- `FileOrCreate`
+- `File`
+- `Socket`
+- `CharDevice`
+- `BlockDevice`
+
+Applies to types:
+
+- `hostPath`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    hostPathType: Directory
+```
+
+</details>
+
+### subPath
+
+Specifies the a subPath for the volumeMount
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `string`
+- Default: `""`
+- Helm Template: ✅
+
+Applies to types:
+
+- `pvc`
+- `emptyDir`
+- `secret`
+- `configMap`
+- `hostPath`
+- `ix-volumes`
+- `custom`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    subPath: target
+```
+
+</details>
+
+### items
+
+Specifies items to be mounted in the volumeMount
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `list`
+- Default: `""`
+- Helm Template: ✅
+
+Applies to types:
+
+- `configMap`
+- `secret`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    items:
+      - key: config.yaml
+        path: default.yaml
+```
+
+</details>
+
+### setPermissions
+
+Specifies whether an init container will run to chown the volume
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `boolean`
+- Default: `false`
+- Helm Template: ❌
+
+Applies to types:
+
+- `pvc`
+- `emptyDir`
+- `secret`
+- `configMap`
+- `hostPath`
+- `ix-volumes`
+- `custom`
+
+Examples: Values.yaml
+
+```yaml
+persistence:
+  any_name_here:
+    setPermissions: true
+```
+
+</details>
+
+</details> <!-- End of persistence -->
