@@ -54,19 +54,11 @@ securityContext:
     drop: []
     add: []
 
-# -- Configure the lifecycle for the main container
 lifecycle: {}
 
 termination:
-  # -- Configure the path at which the file to which the main container's termination message will be written.
-  # [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)]
-  messagePath:
-  # -- Indicate how the main container's termination message should be populated.
-  # Valid options are `File` and `FallbackToLogsOnError`.
-  # [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)]
-  messagePolicy:
-  # -- Duration in seconds the pod needs to terminate gracefully
-  # [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle)]
+  messagePath: ads
+  messagePolicy: ds
   gracePeriodSeconds: 10
 
 # -- Set the resource requests / limits for the main container.

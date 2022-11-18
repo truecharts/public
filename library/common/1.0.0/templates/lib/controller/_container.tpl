@@ -31,13 +31,13 @@
   securityContext:
     {{- include "ix.v1.common.container.securityContext" . | nindent 4 }}
   {{- with .Values.lifecycle }}
-  lifecycle:
+  lifecycle: {{/* TODO: seperate file */}}
     {{- tpl (toYaml .) $ | nindent 4 }}
   {{- end }}
-  {{- with .Values.termination.messagePath }}
+  {{- with .Values.termination.messagePath }}  {{/* TODO: seperate (termination) file */}}
   terminationMessagePath: {{ tpl . $ }}
   {{- end }}
-  {{- with .Values.termination.messagePolicy }}
+  {{- with .Values.termination.messagePolicy }}  {{/* TODO: seperate (termination) file. Check for valid options here */}}
   terminationMessagePolicy: {{ tpl . $ }}
   {{- end -}}
   {{- with (include "ix.v1.common.container.envVars" (dict "envs" .Values.env "envList" .Values.envList "root" $) | trim) }}

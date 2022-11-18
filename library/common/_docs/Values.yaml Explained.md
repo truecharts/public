@@ -356,7 +356,7 @@ stdin: true
 stdin: false
 ```
 
-Sets stin to:
+Sets stdin to:
 
 - Deployment
   - spec.template.spec.containers[0].stdin
@@ -549,3 +549,140 @@ Sets capabilities to add or drop on securityContext to:
 </details>
 
 </details> <!-- End of securityContext -->
+
+## lifecycle
+
+Configure the lifecycle for the default container.
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `dict`
+- Default: `{}`
+- Helm Template: ✅
+
+Examples: Values.yaml
+
+```yaml
+lifecycle:
+  postStart:
+    exec:
+      command:
+        - command1
+        - command2
+  preStop:
+    exec:
+      command:
+        - command1
+        - command2
+```
+
+Sets lifecycle to:
+
+- Deployment
+  - spec.template.spec.containers[0].lifecycle
+
+</details>
+
+## termination
+
+Configure the termination for the default container.
+
+<details>
+<summary>Show / Hide</summary>
+Available options:
+
+```yaml
+termination:
+  messagePath: ""
+  messagePolicy: ""
+  gracePeriodSeconds: 10
+```
+
+### messagePath
+
+Configure the path at which the file to which the default container's
+termination message will be written
+
+<details>
+<summary>Show / Hide</summary>
+
+[Kubernetes docs](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)
+
+- Type: `string`
+- Default: `""`
+- Helm Template: ✅
+
+Examples: Values.yaml
+
+```yaml
+termination:
+  messagePath: /some/path
+```
+
+Sets messagePath to:
+
+- Deployment
+  - spec.template.spec.containers[0].terminationMessagePath
+
+</details>
+
+### messagePolicy
+
+Indicate how the main container's termination message should be populated.
+
+<details>
+<summary>Show / Hide</summary>
+
+[Kubernetes docs](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)
+
+- Type: `string`
+- Default: `""`
+- Helm Template: ✅
+
+Valid options:
+
+- File
+- FallbackToLogsOnError
+
+Examples: Values.yaml
+
+```yaml
+termination:
+  messagePolicy: File
+```
+
+Sets messagePolicy to:
+
+- Deployment
+  - spec.template.spec.containers[0].terminationMessagePolicy
+
+</details>
+
+### gracePeriodSeconds
+
+Duration in seconds the pod needs to terminate gracefully
+
+<details>
+<summary>Show / Hide</summary>
+
+[Kubernetes docs](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle)
+
+- Type: `int`
+- Default: `10`
+- Helm Template: ❌
+
+Examples: Values.yaml
+
+```yaml
+termination:
+  gracePeriodSeconds: File
+```
+
+Sets gracePeriodSeconds to:
+
+- Deployment
+  - TODO:
+
+</details>
+</details> <!-- End of termination -->
