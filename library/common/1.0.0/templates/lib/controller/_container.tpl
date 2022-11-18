@@ -3,6 +3,8 @@
 - name: {{ include "ix.v1.common.names.fullname" . }}
   image: {{/* TODO: */}}
   imagePullPolicy: {{ .Values.image.pullPolicy }}
+  tty: {{ .Values.tty }}
+  stdin: {{ .Values.stdin }}
   {{- with (include "ix.v1.common.container.command" (dict "commands" .Values.command "root" $)) | trim }}
   command:
     {{- . | nindent 4 }}
@@ -11,16 +13,6 @@
   args:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- if .Values.tty }}
-  tty: true
-  {{- else }}
-  tty: false
-  {{- end }}
-  {{- if .Values.stdin }}
-  stdin: true
-  {{- else }}
-  stdin: false
-  {{- end }}
   {{- with (include "ix.v1.common.container.securityContext" .) | trim }}
   securityContext:
     {{- . | nindent 4 }}

@@ -205,7 +205,7 @@ Sets all `key: value` pairs to:
 
 ## command
 
-Override the command(s) for the default container
+Override the command(s) for the main container
 
 <details>
 <summary>Show / Hide</summary>
@@ -243,7 +243,7 @@ Coverts command to a list and sets it to:
 
 ## args
 
-Override the args for the default container
+Override the args for the main container
 
 <details>
 <summary>Show / Hide</summary>
@@ -277,7 +277,7 @@ Coverts args to a list and sets it to:
 
 ## extraArgs
 
-Appends args to the `args` for the default container.
+Appends args to the `args` for the main container.
 If no `args` are defined, `extraArgs` will still be set.
 Mainly built for the SCALE GUI
 
@@ -313,7 +313,7 @@ Coverts extraArgs to a list and appends it to:
 
 ## tty
 
-Specifies whether the default container in a pod runs with `TTY` enabled.
+Specifies whether the main container in a pod runs with `TTY` enabled.
 
 <details>
 <summary>Show / Hide</summary>
@@ -339,7 +339,7 @@ Sets tty to:
 
 ## stdin
 
-Specifies whether the default container in a pod runs with `stdin` enabled.
+Specifies whether the main container in a pod runs with `stdin` enabled.
 
 <details>
 <summary>Show / Hide</summary>
@@ -385,7 +385,7 @@ podSecurityContext:
 
 ## securityContext
 
-Configure the Security Context for the default container
+Configure the Security Context for the main container
 
 <details>
 <summary>Show / Hide</summary>
@@ -405,7 +405,7 @@ securityContext:
 
 ### privileged
 
-Specifies privileged status on securityContext for the default container
+Specifies privileged status on securityContext for the main container
 
 <details>
 <summary>Show / Hide</summary>
@@ -433,7 +433,7 @@ Sets privileged on securityContext to:
 
 ### readOnlyRootFilesystem
 
-Specifies readOnlyRootFilesystem status on securityContext for the default container
+Specifies readOnlyRootFilesystem status on securityContext for the main container
 
 <details>
 <summary>Show / Hide</summary>
@@ -461,7 +461,7 @@ Sets readOnlyRootFilesystem on securityContext to:
 
 ### allowPrivilegeEscalation
 
-Specifies allowPrivilegeEscalation status on securityContext for the default container
+Specifies allowPrivilegeEscalation status on securityContext for the main container
 
 <details>
 <summary>Show / Hide</summary>
@@ -489,7 +489,7 @@ Sets allowPrivilegeEscalation on securityContext to:
 
 ### runAsNonRoot
 
-Specifies runAsNonRoot status on securityContext for the default container
+Specifies runAsNonRoot status on securityContext for the main container
 
 <details>
 <summary>Show / Hide</summary>
@@ -517,7 +517,7 @@ Sets runAsNonRoot on securityContext to:
 
 ### capabilities
 
-Specifies capabilities to add or drop on securityContext for the default container
+Specifies capabilities to add or drop on securityContext for the main container
 
 <details>
 <summary>Show / Hide</summary>
@@ -552,7 +552,7 @@ Sets capabilities to add or drop on securityContext to:
 
 ## lifecycle
 
-Configure the lifecycle for the default container.
+Configure the lifecycle for the main container.
 
 <details>
 <summary>Show / Hide</summary>
@@ -590,7 +590,7 @@ Sets lifecycle to:
 
 ## termination
 
-Configure the termination for the default container.
+Configure the termination for the main container.
 
 <details>
 <summary>Show / Hide</summary>
@@ -605,7 +605,7 @@ termination:
 
 ### messagePath
 
-Configure the path at which the file to which the default container's
+Configure the path at which the file to which the main container's
 termination message will be written
 
 <details>
