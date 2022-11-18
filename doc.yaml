@@ -1,0 +1,106 @@
+---
+# Source: common/templates/common.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: release-name-common
+  labels:
+    app: common
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: common
+    app.kubernetes.io/version: v1
+    helm-revision: "1"
+    helm.sh/chart: common-1.0.0
+    key: value
+    release: release-name
+  annotations:
+    rollme: eT55m
+spec:
+  revisionHistoryLimit: 3
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: common
+      app.kubernetes.io/instance: release-name
+      app: common
+      release: release-name
+  template:
+    metadata:
+      annotations:
+        app.kubernetes.io/name: common
+        app.kubernetes.io/instance: release-name
+        app: common
+        release: release-name
+      labels:
+        app.kubernetes.io/name: common
+        app.kubernetes.io/instance: release-name
+        app: common
+        release: release-name
+    spec:
+      containers:
+        - name: release-name-common
+          image: 
+          imagePullPolicy: IfNotPresent
+          tty: false
+          stdin: false
+          securityContext:
+            runAsNonRoot: true
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            privileged: false
+            capabilities:
+              add: []
+              drop: []
+          env:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void" 
+            - name: S6_READ_ONLY_ROOT
+              value: "1" 
+          ports:
+            - name: main
+              containerPort: 999999
+              protocol: TCP
+          probes:
+            livenessProbe:
+              httpGet:
+                path: /
+                scheme: HTTP
+                port: 999999
+              initialDelaySeconds: 10
+              failureThreshold: 5
+              timeoutSeconds: 5
+              periodSeconds: 10
+            readinessProbe:
+              httpGet:
+                path: /
+                scheme: HTTP
+                port: 999999
+              initialDelaySeconds: 10
+              failureThreshold: 5
+              timeoutSeconds: 5
+              periodSeconds: 10
+            startupProbe:
+              httpGet:
+                path: /
+                scheme: HTTP
+                port: 999999
+              initialDelaySeconds: 10
+              failureThreshold: 60
+              timeoutSeconds: 2
+              periodSeconds: 5
+          resources:
+            limits:
+              cpu: 4000m
+              memory: 8Gi
+            requests:
+              cpu: 10m
+              memory: 50Mi

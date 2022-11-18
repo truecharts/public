@@ -2,6 +2,8 @@
 
 ## global
 
+<details open>
+<summary>Show more</summary>
 Available keys:
 
 ```yaml
@@ -12,6 +14,8 @@ global:
 ```
 
 ### nameOverride
+
+<details>
 
 Sets an override for the suffix of the full name.
 (Applies to current chart and all sub-charts)
@@ -44,7 +48,11 @@ Sets `something` to:
   - spec.template.metadata.labels.app.kubernetes.io/name
   - spec.template.metadata.labels.app.kubernetes.io/name
 
+</details>
+
 ### annotations
+
+<details>
 
 Sets additional global annotations.
 
@@ -67,7 +75,11 @@ Sets `key: value` to:
 - Deployment
   - metadata.annotations
 
+</details>
+
 ### labels
+
+<details>
 
 Set additional global labels. Helm templates can be used.
 
@@ -89,3 +101,6 @@ Sets `key: value` to:
 
 - Deployment
   - metadata.labels
+
+</details>
+</details>
