@@ -28,11 +28,7 @@ rcon:
   rwa_websocket_url_ssl: ""
   rwa_websocket_url: ""
   rwa_restrict_commands: []
-    # - command1
-    # - command2
   rwa_restrict_widgets: []
-    # - widget1
-    # - widget2
 
 env:
   RWA_ADMIN: '{{ ternary "TRUE" "FALSE" .Values.rcon.rwa_admin }}'
