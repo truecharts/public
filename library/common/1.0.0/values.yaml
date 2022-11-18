@@ -71,23 +71,17 @@ resources:
     cpu: 10m
     memory: 50Mi
 
-# -- Used to add SCALE GPU configuration
+# TODO: docs -- Used to add SCALE GPU configuration
 scaleGPU: {}  # TODO: Verify that this is the correct value returned from ref
   # gpu: 1
 
-# -- Set specific NVIDIA Capabilities
 nvidiaCaps:
   - all
 
-# -- Injects some envs based on conditions that 99% of containers use
-# See "ix.v1.common.container.fixedEnvs" for more info.
-# TODO: Discuss the default
 injectFixedEnvs: true
 
-# -- Set Container Timezone
 TZ: UTC
 
-# -- Set the Process User ID (PUID) env-var separately
 security:
   PUID: 568
   UMASK: 002

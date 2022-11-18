@@ -706,3 +706,192 @@ Sets gracePeriodSeconds to:
 
 </details>
 </details> <!-- End of termination -->
+
+## nvidiaCaps
+
+Specifies what NVIDIA capabilities will be set.
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `list`
+- Default: `["all"]`
+- Helm Template: ❌
+
+Examples: Values.yaml
+
+```yaml
+nvidiaCaps:
+  - all
+
+nvidiaCaps:
+  - compute
+  - utility
+```
+
+Converts the list to a `,` separated string and sets it to:
+
+- Deployment
+  - spec.template.spec.containers[0].env[NVIDIA_DRIVER_CAPABILITIES]
+
+</details>
+
+## injectFixedEnvs
+
+Specifies whether to inject some predefined fixed envs.
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `boolean`
+- Default: `true`
+- Helm Template: ❌
+
+Fixed envs injected:
+
+- `TZ`
+  - Equal to `.Values.TZ`
+- `UMASK`
+  - Equal to `.Values.security.UMASK`
+- `UMASK_SET`
+  - Equal to `.Values.security.UMASK`
+- `NVIDIA_VISIBLE_DEVICES`
+  - Set to `void`
+  - (Only if there are **no** `.Values.scaleGPU` set)
+- `NVIDIA_DRIVER_CAPABILITIES`
+  - Equal to `.Values.nvidiaCaps`
+  - (Only if there **are** `.Values.scaleGPU` set)
+- `PUID`
+  - Equal to `.Values.security.PUID`
+  - (Only if runs as `root` (user or group) and `PUID` is set)
+- `USER_ID`
+  - Equal to `.Values.security.PUID`
+  - (Only if runs as `root` (user or group) and `PUID` is set)
+- `UID`
+  - Equal to `.Values.security.PUID`
+  - (Only if runs as `root` (user or group) and `PUID` is set)
+- `PGID`
+  - Equal to `.Values.podSecurityContext.fsGroup`
+  - (Only if runs as `root` (user or group) and `PUID` is set)
+- `GROUP_ID`
+  - Equal to `.Values.podSecurityContext.fsGroup`
+  - (Only if runs as `root` (user or group) and `PUID` is set)
+- `GID`
+  - Equal to `.Values.podSecurityContext.fsGroup`
+  - (Only if runs as `root` (user or group) and `PUID` is set)
+- `S6_READ_ONLY_ROOT`
+  - Set to `1`
+  - (Only if runs as `root` (user) or `readOnlyRootFilesystem` is true)
+
+Examples: Values.yaml
+
+```yaml
+injectFixedEnvs: true
+
+injectFixedEnvs: false
+```
+
+Converts the list to a `,` separated string and sets it to:
+
+- Deployment
+  - spec.template.spec.containers[0].env[NVIDIA_DRIVER_CAPABILITIES]
+
+</details>
+
+## TZ
+
+Sets main container's timezone
+
+<details>
+<summary>Show / Hide</summary>
+
+Used mainly in Scale GUI
+
+- Type: `string`
+- Default: `UTC`
+- Helm Template: ✅
+
+Examples: Values.yaml
+
+```yaml
+TZ: UTC
+
+TZ: "{{ .Values.some_key }}"
+```
+
+- Deployment
+  - spec.template.spec.containers[0].env[TZ]
+
+</details>
+
+## security
+
+Sets some security related environment variables
+
+<details>
+<summary>Show / Hide</summary>
+
+Available options:
+
+```yaml
+security:
+  PUID: 568
+  UMASK: 002
+```
+
+### PUID
+
+Sets PUID for the main container
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `int`
+- Default: `568`
+- Helm Template: ✅
+
+Examples: Values.yaml
+
+```yaml
+security:
+  PUID: 568
+
+security:
+  PUID: "{{ .Values.some_key }}"
+```
+
+- Deployment
+  - spec.template.spec.containers[0].env[PUID]
+  - spec.template.spec.containers[0].env[USER_ID]
+  - spec.template.spec.containers[0].env[UID]
+
+</details>
+
+### UMASK
+
+Sets UMASK for the main container
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `int`
+- Default: `002`
+- Helm Template: ✅
+
+Examples: Values.yaml
+
+```yaml
+security:
+  UMASK: 002
+
+security:
+  UMASK: "{{ .Values.some_key }}"
+```
+
+- Deployment
+  - spec.template.spec.containers[0].env[UMASK]
+  - spec.template.spec.containers[0].env[UMASK_SET]
+
+</details>
+
+</details> <!-- End of security -->
