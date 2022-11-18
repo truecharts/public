@@ -819,6 +819,8 @@ TZ: UTC
 TZ: "{{ .Values.some_key }}"
 ```
 
+Sets it to:
+
 - Deployment
   - spec.template.spec.containers[0].env[TZ]
 
@@ -860,6 +862,8 @@ security:
   PUID: "{{ .Values.some_key }}"
 ```
 
+Sets it to:
+
 - Deployment
   - spec.template.spec.containers[0].env[PUID]
   - spec.template.spec.containers[0].env[USER_ID]
@@ -888,10 +892,145 @@ security:
   UMASK: "{{ .Values.some_key }}"
 ```
 
+Sets it to:
+
 - Deployment
   - spec.template.spec.containers[0].env[UMASK]
   - spec.template.spec.containers[0].env[UMASK_SET]
 
 </details>
-
 </details> <!-- End of security -->
+
+## env
+
+Sets env to the main container
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `dict`
+- Default: `{}`
+- Helm Template: ✅
+
+Examples: Values.yaml
+
+```yaml
+env:
+  ENV_VAR: value
+
+env:
+  ENV_VAR: "{{ .Values.some.key }}"
+
+env:
+  ENV_VAR:
+    configMapKeyRef:
+      name: configmap-name
+      key: confimap-key
+
+env:
+  ENV_VAR:
+    configMapKeyRef:
+      name: "{{ .Values.some.confimap.name }}"
+      key: "{{ .Values.some.confimap.key }}"
+
+env:
+  ENV_VAR:
+    secretKeyRef:
+      name: secret-name
+      key: secret-key
+
+env:
+  ENV_VAR:
+    secretKeyRef:
+      name: "{{ .Values.some.secret.name }}"
+      key: "{{ .Values.some.secret.key }}"
+
+env:
+  ENV_VAR:
+    secretKeyRef:
+      name: secret-name
+      key: secret-key
+      optional: false
+
+env:
+  ENV_VAR:
+    secretKeyRef:
+      name: "{{ .Values.some.secret.name }}"
+      key: "{{ .Values.some.secret.key }}"
+      optional: false
+```
+
+Sets each key in the dict to:
+
+- Deployment
+  - spec.template.spec.containers[0].env[ENV_VAR]
+
+</details>
+
+## envList
+
+Sets env to the main container
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `list`
+- Default: `[]`
+- Helm Template: ✅
+
+Examples: Values.yaml
+
+```yaml
+envList:
+  - name: ENV_VAR
+    value: value
+
+envList:
+  - name: "{{ .Values.some.name }}"
+    value: "{{ .Values.some.value }}"
+```
+
+Appends the list to:
+
+- Deployment
+  - spec.template.spec.containers[0].env
+
+</details>
+
+## envFrom
+
+Load envs from secret or configMap.
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `list`
+- Default: `[]`
+- Helm Template: ✅
+
+Examples: Values.yaml
+
+```yaml
+envFrom:
+  - configMapRef:
+      name: configmap-name
+
+envFrom:
+  - configMapRef:
+      name: "{{ .Values.some.name }}"
+
+envFrom:
+  - secretRef:
+      name: secret-name
+
+envFrom:
+  - secretRef:
+      name: "{{ .Values.some.name }}"
+```
+
+Appends the list to:
+
+- Deployment
+  - spec.template.spec.containers[0].envFrom
+
+</details>

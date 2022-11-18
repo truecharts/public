@@ -86,32 +86,11 @@ security:
   PUID: 568
   UMASK: 002
 
-# -- Main environment variables. Helm Template enabled.
-# Syntax options:
-# A) TZ: UTC
-# B) ENV_VAR: "{{ .Release.Name }}"
-# C) ENV_VAR:
-#      configMapKeyRef | secretKeyRef:
-#        name: object-name | "{{ .Values.objectName }}"
-#        key: key-name | "{{ .Values.some_key }}"
-#        optional: false (ony with secretKeyRef)
 env: {}
-  # some_env: some_value
-  # some_env2: some_value2
 
-# -- Mainly used in the SCALE UI. Helm Template enabled.
 envList: []
-  # - name: SOME_ENV_VAR
-  #   value: SOME_VALUE
-  # - name: SOME_ENV_VAR2
-  #   value: SOME_VALUE2
 
-# Load envs from secret or configMap. Helm template enabled.
 envFrom: []
-#   - configMapRef:
-#       name: config-map-name
-#   - secretRef:
-#       name: secret-name
 
 controller:
   # -- Enable the controller.
