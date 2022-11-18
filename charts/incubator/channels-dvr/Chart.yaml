@@ -1,27 +1,28 @@
 apiVersion: v2
-appVersion: "0.20.2264"
+appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 11.0.3
 deprecated: false
-description: Advanced tool to create your own TrueCharts-based App
-home: https://truecharts.org/docs/charts/stable/custom-app
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/custom-app.png
+description: Channels DVR Server
+home: https://truecharts.org/docs/charts/incubator/channels-dvr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/channels-dvr.png
 keywords:
-  - custom
+  - channels-dvr
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
     url: https://truecharts.org
-name: custom-app
+name: channels-dvr
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/custom-app
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/channels-dvr
+  - https://hub.docker.com/r/fancybits/channels-dvr
 type: application
-version: 7.0.5
+version: 0.0.1
 annotations:
   truecharts.org/catagories: |
-    - custom
+    - media
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U

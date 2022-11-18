@@ -8,25 +8,6 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SUBFOLDER
-          label: SUBFOLDER
-          description: Specify a subfolder to use with reverse proxies, IE `subfolder`
-          schema:
-            type: string
-            default: ""
-        - variable: KEYBOARD
-          label: KEYBOARD
-          description: See the keyboard layouts section for more information and options.
-          schema:
-            type: string
-            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -49,7 +30,7 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 33000
+                              default: 8089
                               required: true
 # Include{serviceExpertRoot}
             default: false
@@ -57,8 +38,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: config Storage
-          description: abc users home directory
+          label: App Config Storage
+          description: Stores the Application Configuration.
           schema:
             additional_attrs: true
             type: dict
@@ -87,7 +68,7 @@ questions:
                 label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: Allow Privilege Escalation
                 schema:
@@ -97,20 +78,20 @@ questions:
                 label: runAsNonRoot
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: runAsUser
           description: The UserID of the user running the application
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
           label: runAsGroup
           description: The groupID this App of the user running the application
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: fsGroup
           label: fsGroup
           description: The group that should own ALL storage.
