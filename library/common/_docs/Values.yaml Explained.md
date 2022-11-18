@@ -1821,3 +1821,320 @@ persistence:
 </details>
 
 </details> <!-- End of persistence -->
+
+## probes
+
+Specifies the probes for the main container
+
+<details>
+<summary>Show / Hide</summary>
+
+Available options:
+
+```yaml
+probes:
+  liveness:
+    enabled: true
+    custom: false
+    type: AUTO
+    path: "/"
+    command: []
+    httpHeaders: {}
+    spec:
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      timeoutSeconds: 5
+      failureThreshold: 5
+  readiness:
+    enabled: true
+    custom: false
+    type: AUTO
+    path: "/"
+    command: []
+    httpHeaders: {}
+    spec:
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      timeoutSeconds: 5
+      failureThreshold: 5
+  startup:
+    enabled: true
+    custom: false
+    type: AUTO
+    path: "/"
+    command: []
+    httpHeaders: {}
+    spec:
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      timeoutSeconds: 5
+      failureThreshold: 5
+```
+
+### enabled
+
+Specifies whether the probe is enabled.
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `boolean`
+- Default: `true`
+- Helm Template: ❌
+
+Applies to types:
+
+- `AUTO`
+- `TCP`
+- `HTTP`
+- `HTTPS`
+- `GRPC`
+- `exec`
+
+Examples: Values.yaml
+
+```yaml
+probe:
+  liveness:
+    enabled: true
+```
+
+</details>
+
+### custom
+
+Specifies whether a custom probe will be defined.
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `boolean`
+- Default: `false`
+- Helm Template: ❌
+
+Examples: Values.yaml
+
+```yaml
+probe:
+  liveness:
+    custom: true
+```
+
+</details>
+
+### type
+
+Specifies the type of the probe
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `string`
+- Default: `AUTO`
+- Helm Template: ❌
+
+Available options:
+
+- `AUTO`
+- `TCP`
+- `HTTP`
+- `HTTPS`
+- `GRPC`
+- `exec`
+
+Examples: Values.yaml
+
+```yaml
+probe:
+  liveness:
+    type: AUTO
+
+probe:
+  liveness:
+    type: TCP
+
+probe:
+  liveness:
+    type: HTTP
+
+probe:
+  liveness:
+    type: HTTPS
+
+probe:
+  liveness:
+    type: GRPC
+
+probe:
+  liveness:
+    type: exec
+```
+
+</details>
+
+### path
+
+Specifies the path of the HTTP(S) probe
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `string`
+- Default: `/`
+- Helm Template: ✅
+
+Applies to types:
+
+- `AUTO`
+- `HTTP`
+- `HTTPS`
+
+Examples: Values.yaml
+
+```yaml
+probe:
+  liveness:
+    path: /ping
+```
+
+</details>
+
+### command
+
+Specifies the command(s) of the exec probe
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `list` or `string`
+- Default: `[]`
+- Helm Template: ✅
+
+Applies to types:
+
+- `exec`
+
+Examples: Values.yaml
+
+```yaml
+probe:
+  liveness:
+    command: healthcheck.sh
+
+probe:
+  liveness:
+    command: "{{ .Values.some.command }}"
+
+probe:
+  liveness:
+    command:
+      - healthcheck.sh
+      - now
+
+probe:
+  liveness:
+    command:
+      - "{{ .Values.some.command }}"
+      - now
+
+probe:
+  liveness:
+    command:
+      - /bin/bash
+      - -c
+      - |
+        echo "Running healthcheck"
+```
+
+</details>
+
+### httpHeaders
+
+Specifies the httpHeader(s) of the HTTP(S) probe
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `dict`
+- Default: `{}`
+- Helm Template: ✅
+  - On Values only
+
+Applies to types:
+
+- `AUTO`
+- `HTTP`
+- `HTTPS`
+
+Examples: Values.yaml
+
+```yaml
+probe:
+  liveness:
+    httpHeaders:
+      key: value
+
+probe:
+  liveness:
+    httpHeaders:
+      key: "{{ .Values.some.value }}"
+```
+
+</details>
+
+### spec
+
+Specifies the timeouts on all probes, except on a custom probe defines the whole probe
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `dict`
+- Default:
+
+```yaml
+spec:
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 5
+```
+
+- Helm Template: ❌
+
+Applies to types:
+
+- `AUTO`
+- `TCP`
+- `HTTP`
+- `HTTPS`
+- `GRPC`
+- `exec`
+
+Examples: Values.yaml
+
+```yaml
+probe:
+  liveness:
+    spec:
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      timeoutSeconds: 5
+      failureThreshold: 5
+
+probe:
+  liveness:
+    spec:
+      httpGet:
+        path: /healthz
+        port: 8080
+        httpHeaders:
+        - name: Custom-Header
+          value: Awesome
+      initialDelaySeconds: 3
+      periodSeconds: 3
+```
+
+</details>
+
+</details> <!-- End of probes -->

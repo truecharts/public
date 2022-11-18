@@ -153,85 +153,40 @@ service:
         # [[ref]](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
         nodePort:
 
-# -- Define probes. Helm template enabled on, path, port, httpHeader values
 probes:
-  # -- Liveness probe configuration
-  # @default -- See below
   liveness:
-    # -- Enable the liveness probe
     enabled: true
-    # -- Set this to `true` if you wish to specify your own livenessProbe
     custom: false
-    # -- sets the probe type when not using a custom probe
-    # @default -- "TCP"
     type: AUTO
-    # -- If an HTTP probe is used (default for HTTP/HTTPS services) this path is used. Helm tpl enabled
-    # @default -- "/"
     path: "/"
-    # -- If an exec is used, it sets the commands. Helm tpl enabled.
     command: []
-    # -- If an HTTP probe is used (default for HTTP/HTTPS services) this headers are used
     httpHeaders: {}
-      # some_header: some_value
-    # -- The spec field contains the values for the default livenessProbe.
-    # If you selected `custom: true`, this field holds the definition of the livenessProbe.
-    # @default -- See below
     spec:
       initialDelaySeconds: 10
       periodSeconds: 10
       timeoutSeconds: 5
       failureThreshold: 5
-
-  # -- Redainess probe configuration
-  # @default -- See below
   readiness:
-    # -- Enable the readiness probe
     enabled: true
-    # -- Set this to `true` if you wish to specify your own readinessProbe
     custom: false
-    # -- sets the probe type when not using a custom probe
-    # @default -- "TCP"
     type: AUTO
-    # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
-    # @default -- "/"
     path: "/"
-    # -- If an exec is used, it sets the commands. Helm tpl enabled.
     command: []
-    # -- The spec field contains the values for the default readinessProbe.
-    # If you selected `custom: true`, this field holds the definition of the readinessProbe.
-    # @default -- See below
     spec:
       initialDelaySeconds: 10
       periodSeconds: 10
       timeoutSeconds: 5
       failureThreshold: 5
-
-  # -- Startup probe configuration
-  # @default -- See below
   startup:
-    # -- Enable the startup probe
     enabled: true
-    # -- Set this to `true` if you wish to specify your own startupProbe
     custom: false
-    # -- sets the probe type when not using a custom probe
-    # @default -- "TCP"
     type: AUTO
-    # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
-    # @default -- "/"
     path: "/"
-    # -- If an exec is used, it sets the commands. Helm tpl enabled.
     command: []
-    # -- set to override the default port without using custom startupProbe
-    # Accepts TPL
-    # @default -- ""
     port: ""
-    # -- The spec field contains the values for the default startupProbe.
-    # If you selected `custom: true`, this field holds the definition of the startupProbe.
-    # @default -- See below
     spec:
       initialDelaySeconds: 10
       timeoutSeconds: 2
-      ## This means it has a maximum of 5*30=150 seconds to start up before it fails
       periodSeconds: 5
       failureThreshold: 60
 
