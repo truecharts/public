@@ -22,9 +22,10 @@ Sets an override for the suffix of the full name.
 (Applies to current chart and all sub-charts)
 
 - Type: `string`
+- Default: `""`
 - Helm template: ❌
 
-Examples`: Values.yaml
+Examples: Values.yaml
 
 ```yaml
 global:
@@ -59,12 +60,11 @@ Sets `something` to:
 Sets additional global annotations.
 
 - Type: `dict`
+- Default: `{}`
 - Helm Template: ✅
   - On values only
 
-Examples`:
-
-Values.yaml
+Examples: Values.yaml
 
 ```yaml
 global:
@@ -88,10 +88,11 @@ Sets all `key: value` pairs to:
 Set additional global labels. Helm templates can be used.
 
 - Type: `dict`
+- Default: `{}`
 - Helm Template: ✅
   - On values only
 
-Examples`:
+Examples:
 
 Values.yaml
 
@@ -119,10 +120,10 @@ Sets an override for the suffix of the full name.
 (Applies to current chart only)
 
 - Type: `string`
-- Helm template: ❌
 - Default: `""`
+- Helm template: ❌
 
-Examples`: Values.yaml
+Examples: Values.yaml
 
 ```yaml
 nameOverride: something
@@ -156,11 +157,11 @@ Sets `something` to:
 Set annotations on the pod.
 
 - Type: `dict`
+- Default: `{}`
 - Helm Template: ✅
   - On values only
-- Default: `{}`
 
-Examples`: Values.yaml
+Examples: Values.yaml
 
 ```yaml
 podAnnotations:
@@ -183,11 +184,11 @@ Sets all `key: value` pairs to:
 Set labels on the pod.
 
 - Type: `dict`
+- Default: `{}`
 - Helm Template: ✅
   - On values only
-- Default: `{}`
 
-Examples`: Values.yaml
+Examples: Values.yaml
 
 ```yaml
 podLabels:
@@ -210,10 +211,10 @@ Sets all `key: value` pairs to:
 Override the command(s) for the default container
 
 - Type: `string` or `list`
-- Helm Template: ✅
 - Default: `[]`
+- Helm Template: ✅
 
-Examples`: Values.yaml
+Examples: Values.yaml
 
 ```yaml
 command: entrypoint.sh
@@ -248,10 +249,10 @@ Coverts command to a list and sets it to:
 Override the args for the default container
 
 - Type: `string` or `list`
-- Helm Template: ✅
 - Default: `[]`
+- Helm Template: ✅
 
-Examples`: Values.yaml
+Examples: Values.yaml
 
 ```yaml
 args: worker
@@ -284,10 +285,10 @@ If no `args` are defined, `extraArgs` will still be set.
 Mainly built for the SCALE GUI
 
 - Type: `string` or `list`
-- Helm Template: ✅
 - Default: `[]`
+- Helm Template: ✅
 
-Examples`: Values.yaml
+Examples: Values.yaml
 
 ```yaml
 extraArgs: something
@@ -318,10 +319,10 @@ Coverts extraArgs to a list and appends it to:
 Specifies whether the default container in a pod runs with `TTY` enabled.
 
 - Type: `boolean`
-- Helm Template: ❌
 - Default: `false`
+- Helm Template: ❌
 
-Examples`: Values.yaml
+Examples: Values.yaml
 
 ```yaml
 tty: true
@@ -344,10 +345,10 @@ Coverts extraArgs to a list and appends it to:
 Specifies whether the default container in a pod runs with `stdin` enabled.
 
 - Type: `boolean`
-- Helm Template: ❌
 - Default: `false`
+- Helm Template: ❌
 
-Examples`: Values.yaml
+Examples: Values.yaml
 
 ```yaml
 stdin: true
