@@ -67,11 +67,11 @@ Values.yaml
 ```yaml
 global:
   annotations:
-    key: value
-    key: "{{ .Values.some.key }}"
+    key1: value
+    key2: "{{ .Values.some.key }}"
 ```
 
-Sets `key: value` to:
+Sets all `key: value` pairs to:
 
 - Deployment
   - metadata.annotations
@@ -95,11 +95,11 @@ Values.yaml
 ```yaml
 global:
   labels:
-    key: value
-    key: "{{ .Values.some.key }}"
+    key1: value
+    key2: "{{ .Values.some.key }}"
 ```
 
-Sets `key: value` to:
+Sets all `key: value` pairs to:
 
 - Deployment
   - metadata.labels
