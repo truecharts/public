@@ -566,21 +566,25 @@ Examples: Values.yaml
 ```yaml
 lifecycle:
   postStart:
-    exec:
-      command:
-        - command1
-        - command2
+    command:
+      - command1
+      - "{{ .Values.some.key }}"
   preStop:
-    exec:
-      command:
-        - command1
-        - command2
+    command:
+      - command1
+      - "{{ .Values.some.key }}"
+
+  postStart:
+    command: some_command
+  preStop:
+    command: some_command
 ```
 
 Sets lifecycle to:
 
 - Deployment
-  - spec.template.spec.containers[0].lifecycle
+  - spec.template.spec.containers[0].lifecycle.preStop
+  - spec.template.spec.containers[0].lifecycle.postStart
 
 </details>
 

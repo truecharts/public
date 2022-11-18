@@ -57,8 +57,9 @@ securityContext:
 lifecycle: {}
 
 termination:
-  messagePath: ads
-  messagePolicy: ds
+  messagePath: ""
+  messagePolicy: ""
+  # TODO: docs / add it to the pod
   gracePeriodSeconds: 10
 
 # -- Set the resource requests / limits for the main container.

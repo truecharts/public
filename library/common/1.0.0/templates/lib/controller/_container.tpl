@@ -28,17 +28,19 @@
   {{- else }}
   stdin: false
   {{- end }}
+  {{- with (include "ix.v1.common.container.securityContext" .) | trim }}
   securityContext:
-    {{- include "ix.v1.common.container.securityContext" . | nindent 4 }}
-  {{- with .Values.lifecycle }}
-  lifecycle: {{/* TODO: seperate file */}}
-    {{- tpl (toYaml .) $ | nindent 4 }}
+    {{- . | nindent 4 }}
+  {{- end -}}
+  {{- with (include "ix.v1.common.container.lifecycle" .) | trim }}
+  lifecycle:
+    {{- . | nindent 4 }}
   {{- end }}
-  {{- with .Values.termination.messagePath }}  {{/* TODO: seperate (termination) file */}}
-  terminationMessagePath: {{ tpl . $ }}
+  {{- with (include "ix.v1.common.container.termination.messagePath" .) | trim }}
+  terminationMessagePath: {{ . }}
   {{- end }}
-  {{- with .Values.termination.messagePolicy }}  {{/* TODO: seperate (termination) file. Check for valid options here */}}
-  terminationMessagePolicy: {{ tpl . $ }}
+  {{- with (include "ix.v1.common.container.termination.messagePolicy" .) | trim }}
+  terminationMessagePolicy: {{ . }}
   {{- end -}}
   {{- with (include "ix.v1.common.container.envVars" (dict "envs" .Values.env "envList" .Values.envList "root" $) | trim) }}
   env:

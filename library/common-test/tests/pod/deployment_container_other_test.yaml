@@ -27,14 +27,44 @@ tests:
           path: spec.template.spec.containers[0].stdin
           value: true
 
-  - it: should pass with lifecycle set
+  - it: should pass with single postStart lifecycle set
     set:
       lifecycle:
         postStart:
-          exec:
-            command:
-              - /bin/bash
-              - test
+          command: some_command
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].lifecycle
+          value:
+            postStart:
+              exec:
+                command:
+                  - some_command
+
+  - it: should pass with single postStart lifecycle set from tpl
+    set:
+      some_key: some_command
+      lifecycle:
+        postStart:
+          command: "{{ .Values.some_key }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].lifecycle
+          value:
+            postStart:
+              exec:
+                command:
+                  - some_command
+
+  - it: should pass with postStart lifecycle set
+    set:
+      lifecycle:
+        postStart:
+          command:
+            - /bin/bash
+            - test
     asserts:
       - equal:
           documentIndex: *deploymentDoc
@@ -46,21 +76,89 @@ tests:
                   - /bin/bash
                   - test
 
-  - it: should pass with lifecycle set from tpl
+  - it: should pass with postStart lifecycle set from tpl
     set:
       some_key: some_value
       lifecycle:
         postStart:
-          exec:
-            command:
-              - /bin/bash
-              - "{{ .Values.some_key }}"
+          command:
+            - /bin/bash
+            - "{{ .Values.some_key }}"
     asserts:
       - equal:
           documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].lifecycle
           value:
             postStart:
+              exec:
+                command:
+                  - /bin/bash
+                  - some_value
+
+  - it: should pass with single preStop lifecycle set
+    set:
+      lifecycle:
+        preStop:
+          command: some_command
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].lifecycle
+          value:
+            preStop:
+              exec:
+                command:
+                  - some_command
+
+  - it: should pass with single preStop lifecycle set from tpl
+    set:
+      some_key: some_command
+      lifecycle:
+        preStop:
+          command: "{{ .Values.some_key }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].lifecycle
+          value:
+            preStop:
+              exec:
+                command:
+                  - some_command
+
+
+  - it: should pass with preStop lifecycle set
+    set:
+      lifecycle:
+        preStop:
+          command:
+            - /bin/bash
+            - test
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].lifecycle
+          value:
+            preStop:
+              exec:
+                command:
+                  - /bin/bash
+                  - test
+
+  - it: should pass with preStop lifecycle set from tpl
+    set:
+      some_key: some_value
+      lifecycle:
+        preStop:
+          command:
+            - /bin/bash
+            - "{{ .Values.some_key }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].lifecycle
+          value:
+            preStop:
               exec:
                 command:
                   - /bin/bash
@@ -107,3 +205,33 @@ tests:
           documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].terminationMessagePolicy
           value: FallbackToLogsOnError
+
+  - it: should fail with invalid terminationMessagePolicy
+    set:
+      some_key: invalid
+      termination:
+        messagePolicy: "{{ .Values.some_key }}"
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: Not valid option for messagePolicy
+
+  - it: should fail with no command in preStop
+    set:
+      lifecycle:
+        preStop:
+          command: ""
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: No commands were given for preStop lifecycle hook
+
+  - it: should fail with no command in postStart
+    set:
+      lifecycle:
+        postStart:
+          command: ""
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: No commands were given for postStart lifecycle hook
