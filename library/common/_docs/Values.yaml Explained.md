@@ -109,15 +109,15 @@ Sets all `key: value` pairs to:
   - metadata.labels
 
 </details>
-</details>
+</details> <!-- End of global -->
 
 ## nameOverride
 
-<details>
-<summary>Show / Hide</summary>
-
 Sets an override for the suffix of the full name.
 (Applies to current chart only)
+
+<details>
+<summary>Show / Hide</summary>
 
 - Type: `string`
 - Default: `""`
@@ -151,10 +151,10 @@ Sets `something` to:
 
 ## podAnnotations
 
+Set annotations on the pod.
+
 <details>
 <summary>Show / Hide</summary>
-
-Set annotations on the pod.
 
 - Type: `dict`
 - Default: `{}`
@@ -178,10 +178,10 @@ Sets all `key: value` pairs to:
 
 ## podLabels
 
+Set labels on the pod.
+
 <details>
 <summary>Show / Hide</summary>
-
-Set labels on the pod.
 
 - Type: `dict`
 - Default: `{}`
@@ -205,10 +205,10 @@ Sets all `key: value` pairs to:
 
 ## command
 
+Override the command(s) for the default container
+
 <details>
 <summary>Show / Hide</summary>
-
-Override the command(s) for the default container
 
 - Type: `string` or `list`
 - Default: `[]`
@@ -243,10 +243,10 @@ Coverts command to a list and sets it to:
 
 ## args
 
+Override the args for the default container
+
 <details>
 <summary>Show / Hide</summary>
-
-Override the args for the default container
 
 - Type: `string` or `list`
 - Default: `[]`
@@ -277,12 +277,12 @@ Coverts args to a list and sets it to:
 
 ## extraArgs
 
-<details>
-<summary>Show / Hide</summary>
-
 Appends args to the `args` for the default container.
 If no `args` are defined, `extraArgs` will still be set.
 Mainly built for the SCALE GUI
+
+<details>
+<summary>Show / Hide</summary>
 
 - Type: `string` or `list`
 - Default: `[]`
@@ -313,10 +313,10 @@ Coverts extraArgs to a list and appends it to:
 
 ## tty
 
+Specifies whether the default container in a pod runs with `TTY` enabled.
+
 <details>
 <summary>Show / Hide</summary>
-
-Specifies whether the default container in a pod runs with `TTY` enabled.
 
 - Type: `boolean`
 - Default: `false`
@@ -330,7 +330,7 @@ tty: true
 tty: false
 ```
 
-Coverts extraArgs to a list and appends it to:
+Sets tty to:
 
 - Deployment
   - spec.template.spec.containers[0].tty
@@ -339,10 +339,10 @@ Coverts extraArgs to a list and appends it to:
 
 ## stdin
 
+Specifies whether the default container in a pod runs with `stdin` enabled.
+
 <details>
 <summary>Show / Hide</summary>
-
-Specifies whether the default container in a pod runs with `stdin` enabled.
 
 - Type: `boolean`
 - Default: `false`
@@ -356,9 +356,196 @@ stdin: true
 stdin: false
 ```
 
-Coverts extraArgs to a list and appends it to:
+Sets stin to:
 
 - Deployment
   - spec.template.spec.containers[0].stdin
 
 </details>
+
+## podSecurityContext
+
+Configure the Security Context for the Pod
+
+<details>
+<summary>Show / Hide</summary>
+
+Available options:
+
+```yaml
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: OnRootMismatch
+```
+
+</details> <!-- End of podSecurityContext -->
+
+## securityContext
+
+Configure the Security Context for the default container
+
+<details>
+<summary>Show / Hide</summary>
+
+Available options:
+
+```yaml
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  runAsNonRoot: true
+  capabilities:
+    add: []
+    drop: []
+```
+
+### privileged
+
+Specifies privileged status on securityContext for the default container
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `boolean`
+- Default: `false`
+- Helm Template: ❌
+
+Examples: Values.yaml
+
+```yaml
+securityContext:
+  privileged: false
+
+securityContext:
+  privileged: true
+```
+
+Sets privileged on securityContext to:
+
+- Deployment
+  - spec.template.spec.containers[0].securityContext.privileged
+
+</details>
+
+### readOnlyRootFilesystem
+
+Specifies readOnlyRootFilesystem status on securityContext for the default container
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `boolean`
+- Default: `true`
+- Helm Template: ❌
+
+Examples: Values.yaml
+
+```yaml
+securityContext:
+  readOnlyRootFilesystem: false
+
+securityContext:
+  readOnlyRootFilesystem: true
+```
+
+Sets readOnlyRootFilesystem on securityContext to:
+
+- Deployment
+  - spec.template.spec.containers[0].securityContext.readOnlyRootFilesystem
+
+</details>
+
+### allowPrivilegeEscalation
+
+Specifies allowPrivilegeEscalation status on securityContext for the default container
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `boolean`
+- Default: `false`
+- Helm Template: ❌
+
+Examples: Values.yaml
+
+```yaml
+securityContext:
+  allowPrivilegeEscalation: false
+
+securityContext:
+  allowPrivilegeEscalation: true
+```
+
+Sets allowPrivilegeEscalation on securityContext to:
+
+- Deployment
+  - spec.template.spec.containers[0].securityContext.allowPrivilegeEscalation
+
+</details>
+
+### runAsNonRoot
+
+Specifies runAsNonRoot status on securityContext for the default container
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `boolean`
+- Default: `true`
+- Helm Template: ❌
+
+Examples: Values.yaml
+
+```yaml
+securityContext:
+  runAsNonRoot: false
+
+securityContext:
+  runAsNonRoot: true
+```
+
+Sets runAsNonRoot on securityContext to:
+
+- Deployment
+  - spec.template.spec.containers[0].securityContext.runAsNonRoot
+
+</details>
+
+### capabilities
+
+Specifies capabilities to add or drop on securityContext for the default container
+
+<details>
+<summary>Show / Hide</summary>
+
+- Type: `boolean`
+- Default:
+  - add:`[]`
+  - drop:`[]`
+- Helm Template: ✅
+
+Examples: Values.yaml
+
+```yaml
+  capabilities:
+    add:
+      - SYS_ADMIN
+      - "{{ .Values.some.key }}"
+    drop:
+      - NET_RAW
+      - "{{ .Values.some.key }}"
+```
+
+Sets capabilities to add or drop on securityContext to:
+
+- Deployment
+  - spec.template.spec.containers[0].securityContext.capabilities.add
+  - spec.template.spec.containers[0].securityContext.capabilities.drop
+
+</details>
+
+</details> <!-- End of securityContext -->

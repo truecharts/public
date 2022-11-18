@@ -37,7 +37,7 @@ tty: false
 
 stdin: false
 
-# -- Configure the Security Context for the Pod
+# TODO: docs
 podSecurityContext:
   runAsUser: 568
   runAsGroup: 568
@@ -45,7 +45,6 @@ podSecurityContext:
   supplementalGroups: []
   fsGroupChangePolicy: OnRootMismatch
 
-# -- Configure the Security Context for the main container
 securityContext:
   privileged: false
   readOnlyRootFilesystem: true
