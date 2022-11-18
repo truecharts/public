@@ -3,21 +3,14 @@
 - name: {{ include "ix.v1.common.names.fullname" . }}
   image: {{/* TODO: */}}
   imagePullPolicy: {{ .Values.image.pullPolicy }}
-  {{- if .Values.command }}
+  {{- with (include "ix.v1.common.container.command" (dict "commands" .Values.command "root" $)) | trim }}
   command:
-  {{- $context := dict -}} {{/* Create a new context and pass it to envVars include, so tpl can work. */}}
-  {{- $_ := set $context "commands" .Values.command -}}
-  {{- $_ := set $context "root" $ -}}
-    {{- include "ix.v1.common.container.command" $context | nindent 4 }}
-  {{- end }}
-  {{- if or (.Values.extraArgs) (.Values.args) }}
+    {{- . | nindent 4 }}
+  {{- end -}}
+  {{- with (include "ix.v1.common.container.args" (dict "args" .Values.args "extraArgs" .Values.extraArgs "root" $)) | trim }}
   args:
-  {{- $context := dict -}} {{/* Create a new context and pass it to envVars include, so tpl can work. */}}
-  {{- $_ := set $context "args" .Values.args -}}
-  {{- $_ := set $context "extraArgs" .Values.extraArgs -}}
-  {{- $_ := set $context "root" $ -}}
-    {{- include "ix.v1.common.container.args" $context | nindent 4 }}
-  {{- end }}
+    {{- . | nindent 4 }}
+  {{- end -}}
   {{- if .Values.tty }}
   tty: true
   {{- else }}

@@ -2,10 +2,12 @@
 {{- define "ix.v1.common.container.command" -}}
 {{- $commands := .commands -}}
 {{- $root := .root -}}
+{{- if $commands }}
 {{- if kindIs "string" $commands -}}
 - {{ tpl $commands $root }}
 {{- else }}
   {{- tpl (toYaml $commands) $root }}
+{{- end }}
 {{- end }}
 {{- end -}}
 
