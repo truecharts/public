@@ -16,7 +16,7 @@ service:
     ports:
       main:
         port: 9996
-        protocol: TCP
+        protocol: HTTP
         targetPort: 9996
 
 persistence:
