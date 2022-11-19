@@ -19,24 +19,28 @@ readOnlyRootFilesystem: {{ $secContext.readOnlyRootFilesystem }}
 allowPrivilegeEscalation: {{ $secContext.allowPrivilegeEscalation }}
 privileged: {{ $secContext.privileged }}
 capabilities:
-{{- if or $secContext.capabilities.add $secContext.capabilities.drop }}
-  {{- if or (not (kindIs "slice" $secContext.capabilities.add)) (not (kindIs "slice" $secContext.capabilities.drop)) }}
-    {{- fail "Either <add> or <drop> capabilities is not a list."}}
-  {{- end }}
-  {{- with $secContext.capabilities.add }}
-  add:
-    {{- range . }}
-    - {{ tpl . $ | quote }}
+  {{- if or $secContext.capabilities.add $secContext.capabilities.drop }}
+    {{- if or (not (kindIs "slice" $secContext.capabilities.add)) (not (kindIs "slice" $secContext.capabilities.drop)) }}
+      {{- fail "Either <add> or <drop> capabilities is not a list."}}
     {{- end }}
-  {{- end }}
-  {{- with $secContext.capabilities.drop }}
-  drop:
-    {{- range . }}
-    - {{ tpl . $ | quote }}
+    {{- with $secContext.capabilities.add }}
+    add:
+      {{- range . }}
+      - {{ tpl . $ | quote }}
+      {{- end }}
     {{- end }}
+    {{- with $secContext.capabilities.drop }}
+    drop:
+      {{- range . }}
+      - {{ tpl . $ | quote }}
+      {{- end }}
+    {{- end }}
+  {{- else }}
+    add: []
+    drop: []
   {{- end }}
-{{- else }}
-  add: []
-  drop: []
-{{- end }}
+{{- end -}}
+
+
+{{- define "ix.v1.common.container.podSecurityContext" -}}
 {{- end -}}
