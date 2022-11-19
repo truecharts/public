@@ -1,0 +1,697 @@
+suite: pvc test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v1.2.3
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+
+  - it: should fail with SCALE-ZFS storageClass but not scaleZFSStorageClass in global
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          type: pvc
+          storageClass: SCALE-ZFS
+          mountPath: /somepath
+    asserts:
+      - failedTemplate:
+          errorMessage: A storageClass must be defined in global.defaults.scaleZFSStorageClass
+
+  - it: should fail with invalid accessMode
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          type: pvc
+          accessMode: invalid_mode
+          mountPath: /somepath
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid <accessMode> option (invalid_mode). Valid options are ReadWriteOnce, ReadOnlyMany, ReadWriteMany and ReadWriteOncePod
+
+  - it: should pass with correct name
+    documentIndex: &pvcDoc 2
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          type: pvc
+          mountPath: /somepath
+    asserts:
+      - isKind:
+          of: PersistentVolumeClaim
+      - isAPIVersion:
+          of: v1
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test-vol1
+      - isNull:
+          path: spec.storageClassName
+      - isNull:
+          path: spec.volumeName
+
+  - it: should pass with force name defined
+    documentIndex: *pvcDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          type: pvc
+          mountPath: /somepath
+          forceName: forced_name
+    asserts:
+      - equal:
+          path: metadata.name
+          value: forced_name
+      - isNull:
+          path: spec.storageClassName
+      - isNull:
+          path: spec.volumeName
+
+  - it: should pass with force name defined from tpl
+    documentIndex: *pvcDoc
+    set:
+      some_name: forced_name
+      persistence:
+        vol1:
+          enabled: true
+          type: pvc
+          mountPath: /somepath
+          forceName: "{{ .Values.some_name }}"
+    asserts:
+      - equal:
+          path: metadata.name
+          value: forced_name
+      - isNull:
+          path: spec.storageClassName
+      - isNull:
+          path: spec.volumeName
+
+  - it: should pass with nameOverride defined
+    documentIndex: *pvcDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          type: pvc
+          mountPath: /somepath
+          nameOverride: some_name
+    asserts:
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test-some_name
+      - isNull:
+          path: spec.storageClassName
+      - isNull:
+          path: spec.volumeName
+
+  - it: should pass without type explicitly set to pvc
+    documentIndex: *pvcDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+    asserts:
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test-vol1
+      - isNull:
+          path: spec.storageClassName
+      - isNull:
+          path: spec.volumeName
+
+  - it: should pass without accessMode explicitly set to ReadWriteOnce
+    documentIndex: *pvcDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+    asserts:
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+      - isNull:
+          path: spec.storageClassName
+      - isNull:
+          path: spec.volumeName
+
+  - it: should pass with accessMode changed
+    documentIndex: *pvcDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          accessMode: ReadOnlyMany
+    asserts:
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadOnlyMany
+            resources:
+              requests:
+                storage: 1Gi
+      - isNull:
+          path: spec.storageClassName
+      - isNull:
+          path: spec.volumeName
+
+  - it: should pass with accessMode changed from tpl
+    documentIndex: *pvcDoc
+    set:
+      mode: ReadOnlyMany
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          accessMode: "{{ .Values.mode }}"
+    asserts:
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadOnlyMany
+            resources:
+              requests:
+                storage: 1Gi
+      - isNull:
+          path: spec.storageClassName
+      - isNull:
+          path: spec.volumeName
+
+  - it: should pass without size explicitly set to 1Gi
+    documentIndex: *pvcDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+    asserts:
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+      - isNull:
+          path: spec.storageClassName
+      - isNull:
+          path: spec.volumeName
+
+  - it: should pass with size changed
+    documentIndex: *pvcDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          size: 2Gi
+    asserts:
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 2Gi
+      - isNull:
+          path: spec.storageClassName
+      - isNull:
+          path: spec.volumeName
+
+  - it: should pass with size changed from tpl
+    documentIndex: *pvcDoc
+    set:
+      size: 2Gi
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          size: "{{ .Values.size }}"
+    asserts:
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 2Gi
+      - isNull:
+          path: spec.storageClassName
+      - isNull:
+          path: spec.volumeName
+
+  - it: should pass with storageClass set to SCALE-ZFS
+    documentIndex: *pvcDoc
+    set:
+      global:
+        defaults:
+          scaleZFSStorageClass: something
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          storageClass: SCALE-ZFS
+    asserts:
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+            storageClassName: something
+
+  - it: should pass with storageClass set to SCALE-ZFS from tpl
+    documentIndex: *pvcDoc
+    set:
+      key: something
+      global:
+        defaults:
+          scaleZFSStorageClass: "{{ .Values.key }}"
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          storageClass: SCALE-ZFS
+    asserts:
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+            storageClassName: something
+
+  - it: should pass with storageClass set to "-"
+    documentIndex: *pvcDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          storageClass: "-"
+    asserts:
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+            storageClassName: ""
+      - isNotNull:
+          path: spec.storageClassName
+
+  - it: should pass with storageClass set to something
+    documentIndex: *pvcDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          storageClass: something
+    asserts:
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+            storageClassName: something
+
+  - it: should pass with storageClass set to something from tpl
+    documentIndex: *pvcDoc
+    set:
+      scName: something
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          storageClass: "{{ .Values.scName }}"
+    asserts:
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+            storageClassName: something
+
+  - it: should pass with storageClass defined globally
+    documentIndex: *pvcDoc
+    set:
+      global:
+        defaults:
+          storageClass: something
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+    asserts:
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+            storageClassName: something
+
+  - it: should pass with volumeName set to something
+    documentIndex: *pvcDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          volumeName: something
+    asserts:
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+            volumeName: something
+      - isNull:
+          path: spec.storageClassName
+
+  - it: should pass with volumeName set to something from tpl
+    documentIndex: *pvcDoc
+    set:
+      vName: something
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          volumeName: "{{ .Values.vName }}"
+    asserts:
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+            volumeName: something
+      - isNull:
+          path: spec.storageClassName
+
+  - it: should pass with custom spec is applied
+    documentIndex: *pvcDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          spec:
+            some:
+              value: custom
+    asserts:
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+            some:
+              value: custom
+      - isNull:
+          path: spec.storageClassName
+      - isNull:
+          path: spec.volumeName
+
+  - it: should pass with custom spec is applied with tpl
+    documentIndex: *pvcDoc
+    set:
+      key: custom
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          spec:
+            some:
+              value: "{{ .Values.key }}"
+    asserts:
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+            some:
+              value: custom
+      - isNull:
+          path: spec.storageClassName
+      - isNull:
+          path: spec.volumeName
+
+  - it: should pass with multiple persistence enabled
+    documentIndex: *pvcDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+        vol2:
+          enabled: true
+          mountPath: /somepath
+    asserts:
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test-vol1
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+      - isNull:
+          path: spec.storageClassName
+      - isNull:
+          path: spec.volumeName
+
+  - it: should pass with multiple persistence enabled (other pvcDoc)
+    documentIndex: &otherPvcDoc 3
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+        vol2:
+          enabled: true
+          mountPath: /somepath
+    asserts:
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test-vol2
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+      - isNull:
+          path: spec.storageClassName
+      - isNull:
+          path: spec.volumeName
+
+  - it: should pass with labels
+    documentIndex: *pvcDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          labels:
+            some_key: value
+            some_key1: value1
+    asserts:
+      - equal:
+          path: metadata.labels
+          value:
+            app: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/version: *appVer
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            release: RELEASE-NAME
+            some_key: value
+            some_key1: value1
+
+  - it: should pass with labels and global labels
+    documentIndex: *pvcDoc
+    set:
+      global:
+        labels:
+          some_key2: value2
+          some_key3: value3
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          labels:
+            some_key: value
+            some_key1: value1
+    asserts:
+      - equal:
+          path: metadata.labels
+          value:
+            app: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/version: *appVer
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            release: RELEASE-NAME
+            some_key: value
+            some_key1: value1
+            some_key2: value2
+            some_key3: value3
+
+  - it: should pass with annotations
+    documentIndex: *pvcDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          annotations:
+            some_key: value
+            some_key1: value1
+    asserts:
+      - equal:
+          path: metadata.annotations
+          value:
+            some_key: value
+            some_key1: value1
+
+  - it: should pass with annotations and global annotations
+    documentIndex: *pvcDoc
+    set:
+      global:
+        annotations:
+          some_key2: value2
+          some_key3: value3
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          annotations:
+            some_key: value
+            some_key1: value1
+    asserts:
+      - equal:
+          path: metadata.annotations
+          value:
+            some_key: value
+            some_key1: value1
+            some_key2: value2
+            some_key3: value3
+
+  - it: should pass with annotations and global retain true
+    documentIndex: *pvcDoc
+    set:
+      global:
+        defaults:
+          PVCRetain: true
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          annotations:
+            some_key: value
+            some_key1: value1
+    asserts:
+      - equal:
+          path: metadata.annotations
+          value:
+            "helm.sh/resource-policy": keep
+            some_key: value
+            some_key1: value1
+
+  - it: should pass with annotations and global retain true and pvc object to false
+    documentIndex: *pvcDoc
+    set:
+      global:
+        defaults:
+          PVCRetain: true
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          retain: false
+          annotations:
+            some_key: value
+            some_key1: value1
+    asserts:
+      - equal:
+          path: metadata.annotations
+          value:
+            some_key: value
+            some_key1: value1
+
+  - it: should pass with annotations and global retain false and pvc object to true
+    documentIndex: *pvcDoc
+    set:
+      global:
+        defaults:
+          PVCRetain: false
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          retain: true
+          annotations:
+            some_key: value
+            some_key1: value1
+    asserts:
+      - equal:
+          path: metadata.annotations
+          value:
+            "helm.sh/resource-policy": keep
+            some_key: value
+            some_key1: value1

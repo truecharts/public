@@ -1,0 +1,321 @@
+
+suite: deployment dns-network test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+
+  - it: should pass with hostNetwork set
+    documentIndex: *deploymentDoc
+    set:
+      hostNetwork: true
+    asserts:
+      - equal:
+          path: spec.template.spec.hostNetwork
+          value: true
+
+  - it: should pass with hostname set
+    documentIndex: *deploymentDoc
+    set:
+      hostname: some_hostname
+    asserts:
+      - equal:
+          path: spec.template.spec.hostname
+          value: some_hostname
+
+  - it: should pass with hostname set from tpl
+    documentIndex: *deploymentDoc
+    set:
+      name: some_hostname
+      hostname: "{{ .Values.name }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.hostname
+          value: some_hostname
+
+  - it: should pass with enableServiceLinks set
+    documentIndex: *deploymentDoc
+    set:
+      enableServiceLinks: true
+    asserts:
+      - equal:
+          path: spec.template.spec.enableServiceLinks
+          value: true
+
+  - it: should fail with invalid dnsPolicy
+    set:
+      dnsPolicy: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Not valid dnsPolicy (invalid). Valid options are ClusterFirst, Default, ClusterFirstWithHostNet, None
+
+  - it: should pass with changed dnsPolicy
+    documentIndex: *deploymentDoc
+    set:
+      dnsPolicy: Default
+    asserts:
+      - equal:
+          path: spec.template.spec.dnsPolicy
+          value: Default
+
+  - it: should pass with hostNet dnsPolicy
+    documentIndex: *deploymentDoc
+    set:
+      hostNetwork: true
+    asserts:
+      - equal:
+          path: spec.template.spec.dnsPolicy
+          value: ClusterFirstWithHostNet
+
+  - it: should pass with hostNet and changed dnsPolicy
+    documentIndex: *deploymentDoc
+    set:
+      dnsPolicy: Default
+      hostNetwork: true
+    asserts:
+      - equal:
+          path: spec.template.spec.dnsPolicy
+          value: Default
+
+  - it: should fail with more than 3 nameservers
+    set:
+      dnsConfig:
+        nameservers:
+          - ns1
+          - ns2
+          - ns3
+          - ns4
+    asserts:
+      - failedTemplate:
+          errorMessage: There can be at most 3 nameservers specified in dnsConfig
+
+  - it: should fail with more than 6 domain searches
+    set:
+      dnsConfig:
+        searches:
+          - domain_search_1
+          - domain_search_2
+          - domain_search_3
+          - domain_search_4
+          - domain_search_5
+          - domain_search_6
+          - domain_search_7
+    asserts:
+      - failedTemplate:
+          errorMessage: There can be at most 6 search domains specified in dnsConfig
+
+  - it: should fail with no nameservers and dnsPolicy set to None
+    set:
+      dnsPolicy: None
+    asserts:
+      - failedTemplate:
+          errorMessage: With dnsPolicy set to None, you must specify at least 1 nameservers on dnsConfig
+
+  - it: should pass with dnsConfig defined
+    documentIndex: *deploymentDoc
+    set:
+      dnsConfig:
+        nameservers:
+          - ns1
+          - ns2
+        searches:
+          - domain_search_1
+          - domain_search_2
+        options:
+          - name: ndots
+            value: 2
+          - name: edns0
+    asserts:
+      - equal:
+          path: spec.template.spec.dnsConfig
+          value:
+            nameservers:
+              - ns1
+              - ns2
+            searches:
+              - domain_search_1
+              - domain_search_2
+            options:
+              - name: ndots
+                value: "2"
+              - name: edns0
+
+  - it: should pass with dnsConfig nameservers only
+    documentIndex: *deploymentDoc
+    set:
+      dnsConfig:
+        nameservers:
+          - ns1
+          - ns2
+          - 1.1.1.1
+    asserts:
+      - equal:
+          path: spec.template.spec.dnsConfig
+          value:
+            nameservers:
+              - ns1
+              - ns2
+              - 1.1.1.1
+
+  - it: should pass with dnsConfig searches only
+    documentIndex: *deploymentDoc
+    set:
+      dnsConfig:
+        searches:
+          - domain_search_1
+          - domain_search_2
+    asserts:
+      - equal:
+          path: spec.template.spec.dnsConfig
+          value:
+            searches:
+              - domain_search_1
+              - domain_search_2
+
+  - it: should pass with dnsConfig options only
+    documentIndex: *deploymentDoc
+    set:
+      dnsConfig:
+        options:
+          - name: ndots
+            value: 2
+          - name: edns0
+    asserts:
+      - equal:
+          path: spec.template.spec.dnsConfig
+          value:
+            options:
+              - name: ndots
+                value: "2"
+              - name: edns0
+
+  - it: should pass with dnsConfig nameservers only from tpl
+    documentIndex: *deploymentDoc
+    set:
+      ns1: ns1
+      dnsConfig:
+        nameservers:
+          - "{{ .Values.ns1 }}"
+          - ns2
+    asserts:
+      - equal:
+          path: spec.template.spec.dnsConfig
+          value:
+            nameservers:
+              - ns1
+              - ns2
+
+  - it: should pass with dnsConfig searches only from tpl
+    documentIndex: *deploymentDoc
+    set:
+      ds: domain_search_1
+      dnsConfig:
+        searches:
+          - "{{ .Values.ds }}"
+          - domain_search_2
+    asserts:
+      - equal:
+          path: spec.template.spec.dnsConfig
+          value:
+            searches:
+              - domain_search_1
+              - domain_search_2
+
+  - it: should pass with dnsConfig options only from tpl
+    documentIndex: *deploymentDoc
+    set:
+      opt1_name: ndots
+      opt1_value: 2
+      opt2_name: edns0
+      dnsConfig:
+        options:
+          - name: "{{ .Values.opt1_name }}"
+            value: "{{ .Values.opt1_value }}"
+          - name: "{{ .Values.opt2_name }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.dnsConfig
+          value:
+            options:
+              - name: ndots
+                value: "2"
+              - name: edns0
+
+  - it: should fail without ip in hostAliases
+    set:
+      hostAliases:
+        - hostnames:
+          - hostname1
+    asserts:
+      - failedTemplate:
+          errorMessage: <ip> field is required in hostAliases
+
+  - it: should fail without hostnames in hostAliases
+    set:
+      hostAliases:
+        - ip: 1.1.1.1
+    asserts:
+      - failedTemplate:
+          errorMessage: At least one <hostnames> is required in hostAliases
+
+  - it: should pass with hostAliases defined
+    documentIndex: *deploymentDoc
+    set:
+      hostAliases:
+        - ip: 1.1.1.1
+          hostnames:
+            - hostname1
+            - hostname2
+        - ip: 8.8.8.8
+          hostnames:
+            - hostname3
+            - hostname4
+    asserts:
+      - equal:
+          path: spec.template.spec.hostAliases
+          value:
+            - ip: 1.1.1.1
+              hostnames:
+                - hostname1
+                - hostname2
+            - ip: 8.8.8.8
+              hostnames:
+                - hostname3
+                - hostname4
+
+  - it: should pass with hostAliases defined from tpl
+    documentIndex: *deploymentDoc
+    set:
+      ip1: 1.1.1.1
+      ip2: 8.8.8.8
+      host1: hostname1
+      host2: hostname2
+      host3: hostname3
+      host4: hostname4
+      hostAliases:
+        - ip: "{{ .Values.ip1 }}"
+          hostnames:
+            - "{{ .Values.host1 }}"
+            - "{{ .Values.host2 }}"
+        - ip: "{{ .Values.ip2 }}"
+          hostnames:
+            - "{{ .Values.host3 }}"
+            - "{{ .Values.host4 }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.hostAliases
+          value:
+            - ip: 1.1.1.1
+              hostnames:
+                - hostname1
+                - hostname2
+            - ip: 8.8.8.8
+              hostnames:
+                - hostname3
+                - hostname4

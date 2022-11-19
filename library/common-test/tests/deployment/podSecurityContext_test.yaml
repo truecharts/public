@@ -1,0 +1,74 @@
+suite: deployment podSecurityContext test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+      - equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups: []
+
+  - it: should pass with changed podSecurity values
+    documentIndex: *deploymentDoc
+    set:
+      podSecurityContext:
+        fsGroup: 999
+        fsGroupChangePolicy: Always
+        supplementalGroups:
+          - 1000
+    asserts:
+      - equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 999
+            fsGroupChangePolicy: Always
+            supplementalGroups:
+              - 1000
+
+  - it: should fail with invalid fsGroupChangePolicy
+    set:
+      podSecurityContext:
+        fsGroupChangePolicy: invalid_policy
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid option for fsGroupChangePolicy. Valid options are <Always> and <OnRootMismatch>.
+
+  - it: should fail with empty fsGroupChangePolicy
+    set:
+      podSecurityContext:
+        fsGroupChangePolicy:
+    asserts:
+      - failedTemplate:
+          errorMessage: <fsGroupChangePolicy> key cannot be empty. Set a value or remove the key for the default (OnRootMismatch) to take effect.
+
+  - it: should fail with empty fsGroup
+    set:
+      podSecurityContext:
+        fsGroup:
+    asserts:
+      - failedTemplate:
+          errorMessage: <fsGroup> key cannot be empty. Set a value or remove the key for the default (568) to take effect.
+
+  - it: should fail with non-int fsGroup
+    set:
+      podSecurityContext:
+        fsGroup: "1000"
+    asserts:
+      - failedTemplate:
+          errorMessage: <fsGroup> key has value of ("1000"). But must be an int.
+
+  - it: should fail with empty supplementalGroups
+    set:
+      podSecurityContext:
+        supplementalGroups:
+    asserts:
+      - failedTemplate:
+          errorMessage: <supplementalGroups> key has a value (<nil>). But it must be a list. Set a list value or remove the key for the default ([]) to take effect.

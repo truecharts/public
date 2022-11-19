@@ -1,0 +1,173 @@
+suite: container in deployment env list test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+
+  - it: should fail with envList missing name
+    set:
+      envList:
+        - value: some_value
+    asserts:
+      - failedTemplate:
+          errorMessage: Please specify both name and value for environment variable
+
+  - it: should fail with envList missing value
+    set:
+      envList:
+        - name: some_name
+    asserts:
+      - failedTemplate:
+          errorMessage: Please specify both name and value for environment variable
+
+  - it: should fail with envList name as a map
+    set:
+      envList:
+        - name:
+            some_key: some_value
+          value: some_value
+    asserts:
+      - failedTemplate:
+          errorMessage: Name in envList cannot be a map or slice
+
+  - it: should fail with envList name as a slice
+    set:
+      envList:
+        - name:
+            - some_key: some_value
+          value: some_value
+    asserts:
+      - failedTemplate:
+          errorMessage: Name in envList cannot be a map or slice
+
+  - it: should fail with envList value as a map
+    set:
+      envList:
+        - name: some_name
+          value:
+            some_key: some_value
+    asserts:
+      - failedTemplate:
+          errorMessage: Value in envList cannot be a map or slice
+
+  - it: should fail with envList value as a slice
+    set:
+      envList:
+        - name: some_name
+          value:
+            - some_key: some_value
+    asserts:
+      - failedTemplate:
+          errorMessage: Value in envList cannot be a map or slice
+
+  - it: should pass with envList entry added
+    documentIndex: *deploymentDoc
+    set:
+      envList:
+        - name: some_name
+          value: some_value
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: UTC
+            - name: UMASK
+              value: "002"
+            - name: UMASK_SET
+              value: "002"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: void
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: some_name
+              value: some_value
+
+  - it: should pass with envList entries added
+    documentIndex: *deploymentDoc
+    set:
+      envList:
+        - name: some_name
+          value: some_value
+        - name: some_name2
+          value: some_value2
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: UTC
+            - name: UMASK
+              value: "002"
+            - name: UMASK_SET
+              value: "002"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: void
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: some_name
+              value: some_value
+            - name: some_name2
+              value: some_value2
+
+  - it: should pass with envList entry added from tpl
+    documentIndex: *deploymentDoc
+    set:
+      some_name: a_name
+      some_value: a_value
+      envList:
+        - name: "{{ .Values.some_name }}"
+          value: "{{ .Values.some_value }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: UTC
+            - name: UMASK
+              value: "002"
+            - name: UMASK_SET
+              value: "002"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: void
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: a_name
+              value: a_value
+
+  - it: should pass with envList entries added
+    documentIndex: *deploymentDoc
+    set:
+      some_name: a_name
+      some_value: a_value
+      some_name2: a_name2
+      some_value2: a_value2
+      envList:
+        - name: "{{ .Values.some_name }}"
+          value: "{{ .Values.some_value }}"
+        - name: "{{ .Values.some_name2 }}"
+          value: "{{ .Values.some_value2 }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: UTC
+            - name: UMASK
+              value: "002"
+            - name: UMASK_SET
+              value: "002"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: void
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: a_name
+              value: a_value
+            - name: a_name2
+              value: a_value2

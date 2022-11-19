@@ -1,0 +1,23 @@
+image:
+  repository: traefik/whoami
+  pullPolicy: IfNotPresent
+  tag: latest
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        port: 8080
+
+args:
+  - --port
+  - "8080"
+
+probes:
+  liveness:
+    enabled: true
+  readiness:
+    enabled: true
+  startup:
+    enabled: true

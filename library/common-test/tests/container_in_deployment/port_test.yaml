@@ -1,0 +1,235 @@
+suite: container in deployment port test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+
+  - it: should fail with named port
+    set:
+      service:
+        main:
+          ports:
+            main:
+              port: 443
+              targetPort: some_name
+    asserts:
+      - failedTemplate:
+          errorMessage: This common library does not support named ports for targetPort. port name (main), targetPort (some_name)
+
+  - it: should fail without port
+    set:
+      service:
+        main:
+          ports:
+            main:
+              port:
+    asserts:
+      - failedTemplate:
+          errorMessage: Port is required on enabled services. Service (main)
+
+  - it: should fail with multiple port, but none set as primary
+    set:
+      service:
+        main:
+          ports:
+            main:
+              enabled: true
+              primary: false
+              port: 65535
+            main2:
+              enabled: true
+              primary: false
+              port: 65534
+    asserts:
+      - failedTemplate:
+          errorMessage: At least one port must be set as primary in service (main)
+
+  - it: should fail without ports dict in an enabled service
+    set:
+      service:
+        other:
+          enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: At least one port is required in an enabled service (other)
+
+  - it: should fail with disabled port on enabled service
+    set:
+      service:
+        main:
+          ports:
+            main:
+              enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: No ports are enabled for the service
+
+  - it: should fail with invalid protocol
+    set:
+      service:
+        main:
+          ports:
+            main:
+              port: 443
+              protocol: NOT_VALID
+    asserts:
+      - failedTemplate:
+          errorMessage: Not valid <protocol> (NOT_VALID)
+
+  - it: should pass with only port set
+    documentIndex: *deploymentDoc
+    set:
+      service:
+        main:
+          ports:
+            main:
+              port: 443
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].ports[0]
+          value:
+            name: main
+            containerPort: 443
+            protocol: TCP
+
+  - it: should pass with port and targetPort set
+    documentIndex: *deploymentDoc
+    set:
+      service:
+        main:
+          ports:
+            main:
+              port: 443
+              targetPort: 8000
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].ports[0]
+          value:
+            name: main
+            containerPort: 8000
+            protocol: TCP
+
+  - it: should pass with port and targetPort and protocol set
+    documentIndex: *deploymentDoc
+    set:
+      service:
+        main:
+          ports:
+            main:
+              port: 443
+              protocol: TCP
+              targetPort: 8000
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].ports[0]
+          value:
+            name: main
+            containerPort: 8000
+            protocol: TCP
+
+  - it: should pass with port and targetPort and protocol UDP set
+    documentIndex: *deploymentDoc
+    set:
+      service:
+        main:
+          ports:
+            main:
+              port: 443
+              protocol: UDP
+              targetPort: 8000
+      probes:
+        liveness:
+          enabled: false
+        readiness:
+          enabled: false
+        startup:
+          enabled: false
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].ports[0]
+          value:
+            name: main
+            containerPort: 8000
+            protocol: UDP
+
+  - it: should pass with port and targetPort and protocol HTTP set
+    documentIndex: *deploymentDoc
+    set:
+      service:
+        main:
+          ports:
+            main:
+              port: 443
+              protocol: HTTP
+              targetPort: 8000
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].ports[0]
+          value:
+            name: main
+            containerPort: 8000
+            protocol: TCP
+
+  - it: should pass with port and targetPort and protocol HTTPS set
+    documentIndex: *deploymentDoc
+    set:
+      service:
+        main:
+          ports:
+            main:
+              port: 443
+              protocol: HTTPS
+              targetPort: 8000
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].ports[0]
+          value:
+            name: main
+            containerPort: 8000
+            protocol: TCP
+
+  - it: should pass with multiple port and targetPort and protocol set
+    documentIndex: *deploymentDoc
+    set:
+      service:
+        main:
+          ports:
+            main:
+              port: 443
+              protocol: HTTP
+              targetPort: 8000
+        secondary:
+          enabled: true
+          ports:
+            secondary:
+              enabled: true
+              port: 444
+              protocol: TCP
+              targetPort: 8001
+        third:
+          enabled: true
+          ports:
+            third:
+              enabled: true
+              port: 445
+              protocol: UDP
+              targetPort: 8002
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].ports
+          value:
+            - name: main
+              containerPort: 8000
+              protocol: TCP
+            - name: secondary
+              containerPort: 8001
+              protocol: TCP
+            - name: third
+              containerPort: 8002
+              protocol: UDP

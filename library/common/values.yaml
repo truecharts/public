@@ -1,0 +1,378 @@
+# This file only includes the default values that are applied.
+# All values can be overridden per chart, in their values.yaml
+# For Examples and Explanation view the "Values.yaml Explained" markdown file
+
+image:
+  repository: repo
+  tag: tag
+  pullPolicy: IfNotPresent
+
+imageSelector: ""
+
+imagePullCredentials: []
+
+command: []
+
+args: []
+
+extraArgs: []
+
+env: {}
+
+envList: []
+
+envFrom: []
+
+configmap: {}
+
+secret: {}
+
+TZ: UTC
+
+lifecycle: {}
+
+rbac:
+  main:
+    enabled: false
+    primary: true
+    clusterWide: false
+
+serviceAccount:
+  main:
+    enabled: false
+    primary: true
+
+addAnnotations:
+  traefik: true
+  metallb: true
+
+hostAliases: []
+
+hostNetwork: false
+
+hostname: ""
+
+tty: false
+
+stdin: false
+
+probes:
+  liveness:
+    enabled: true
+  readiness:
+    enabled: true
+  startup:
+    enabled: true
+
+# Used for SCALE / GUI Focused
+scaleGPU: {}
+
+# Used for SCALE / GUI Focused
+externalInterfaces: []
+
+# Used for SCALE
+scaleCerts: {}
+
+# Used for SCALE / GUI Focused
+scaleCertsList: []
+
+# Injected from middleware
+ixExternalInterfacesConfiguration: []
+# Injected from middleware
+ixExternalInterfacesConfigurationNames: []
+# Injected from middleware
+ixCertificates: []
+# Injected from middleware
+ixVolumes: []
+
+portal:
+  enabled: true
+
+# - Everything bellow needs documentation
+
+global:
+  nameOverride: ""
+  fullnameOverride: ""
+  annotations: {}
+  labels: {}
+  defaults:
+    # If not defined on per pod or in ixChartContext, assume this.
+    # Empty means NO runtimeClassName
+    runtimeClassName: ""
+    # If not defined on the the cert item, assume this
+    useRevokedCerts: false
+    # If not defined on the the cert item, assume this
+    useExpiredCerts: false
+    # If not defined on the pod, assume this
+    dnsPolicy: ClusterFirst
+    # If no restart Policy is defined, assume this
+    restartPolicy: Always
+    # If no restart Policy for job is defined, assume this
+    jobRestartPolicy: Never
+    # If no port Protocol is defined, assume this
+    portProtocol: TCP
+    # Define the minimum NodePort
+    minimumNodePort: 9000
+    # If no service Type is defined, assume this
+    serviceType: ClusterIP
+    # If no PVC Size is defined, assume this
+    PVCSize: 1Gi
+    # If no VCT Size is defined, assume this
+    VCTSize: 999Gi
+    # If no PVC type is defined, assume this
+    persistenceType: pvc
+    # If no validateHostPath key exists in the persistence item, assume this
+    validateHostPath: false
+    # If no PVC accessMode is defined, assume this
+    accessMode: ReadWriteOnce
+    # If no PVC retain key is defined, assume this
+    # Note, that this adds an annotation for helm whether to delete
+    # the resource on uninstall, manually deleting the namespace it will delete
+    # the resource no matter what this is set.
+    PVCRetain: false
+    # Define a storageClassName that will be used for all PVCs by default
+    # Leave empty to rely on the node's default storageClass
+    storageClass:
+    # When SCALE-ZFS is set for storageClass, return this name
+    scaleZFSStorageClass:
+    # Default security context used for all
+    # init/install/upgrade/additional
+    # and main containers if not specified
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: 568
+      runAsGroup: 568
+      readOnlyRootFilesystem: true
+      allowPrivilegeEscalation: false
+      privileged: false
+      capabilities:
+        add: []
+        drop:
+          - ALL
+    # Default podSecurityContext, used if
+    # no other is specified
+    podSecurityContext:
+      fsGroup: 568
+      supplementalGroups: []
+      fsGroupChangePolicy: OnRootMismatch
+    # Default Security values, if no others
+    # are specified
+    security:
+      PUID: 568
+      UMASK: "002"
+    # Whether to inject fixedEnvs on containers
+    # Can be overruled per container
+    injectFixedEnvs: true
+    # Default nvidia Caps will be assigned via
+    # environment variable (requires injectFixedEnvs)
+    nvidiaCaps:
+      - all
+    # Default Resources values, if no others
+    # are specified, use those
+    resources:
+      limits:
+        cpu: 4000m
+        memory: 8Gi
+      requests:
+        cpu: 10m
+        memory: 50Mi
+    # If no probe Type is defined, assume this
+    probeType: auto
+    # If no probe Path is defined, assume this
+    probePath: /
+    # Default probe timeouts, if no others
+    # are specified, use those
+    probes:
+      liveness:
+        spec:
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 5
+      readiness:
+        spec:
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 5
+      startup:
+        spec:
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 2
+          failureThreshold: 60
+    # Default job/cronjob values
+    job:
+      cron:
+        concurrencyPolicy: Forbid
+        failedJobsHistoryLimit: 1
+        successfulJobsHistoryLimit: 3
+      backoffLimit: 6
+      completionMode: NonIndexed
+
+# - Bellow values are needed (in addition to the default global)
+# as those are being referenced on other values in values.yaml sometimes
+
+# Default podSecurityContext for main pod
+podSecurityContext:
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: OnRootMismatch
+# Default Security values for main container
+security:
+  PUID: 568
+  UMASK: "002"
+# Default securityContext for main container
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 568
+  runAsGroup: 568
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  privileged: false
+  capabilities:
+    add: []
+    drop:
+      - ALL
+# Default resources for main container
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi
+  requests:
+    cpu: 10m
+    memory: 50Mi
+
+nameOverride: ""
+
+fullnameOverride: ""
+
+podAnnotations: {}
+
+podLabels: {}
+
+enableServiceLinks: false
+
+schedulerName: ""
+
+priorityClassName: ""
+
+dnsPolicy: ""
+
+dnsConfig: {}
+
+nodeSelector: {}
+
+runtimeClassName: ""
+
+tolerations: []
+
+# podSecurityContext:
+#   fsGroup: 568
+#   fsGroupChangePolicy: OnRootMismatch
+
+# securityContext:
+#   runAsUser: 568
+#   runAsGroup: 568
+#   privileged: false
+#   readOnlyRootFilesystem: true
+#   allowPrivilegeEscalation: false
+#   runAsNonRoot: true
+
+termination:
+  messagePath: ""
+  messagePolicy: ""
+  gracePeriodSeconds: 10
+
+controller:
+  # -- Enable the controller.
+  enabled: true
+  # -- Set the controller type.
+  # Valid options are: deployment | daemonset | statefulset
+  type: Deployment
+  # -- Set labels on the deployment/statefulset/daemonset. Helm templates can be used.
+  labels: {}
+  # -- Set  annotations on the deployment/statefulset/daemonset. Helm templates can be used.
+  annotations: {}
+  # -- Revision history limit
+  revisionHistoryLimit: 3
+  # -- Number of desired pods
+  replicas: 1
+  # -- Set the controller upgrade strategy
+  # For Deployments, valid values are Recreate (default) and RollingUpdate.
+  # For StatefulSets, valid values are OnDelete and RollingUpdate (default).
+  # DaemonSets ignore this.
+  strategy: ""
+  # -- Set rollingUpdate strategies
+  rollingUpdate:
+    # -- Set deployment RollingUpdate max unavailable
+    unavailable:
+    # -- Set deployment RollingUpdate max surge
+    surge:
+    # -- Set statefulset RollingUpdate partition
+    partition:
+
+# -- Configure the services for the chart here.
+# Additional services can be added by adding a dictionary key similar to the 'main' service.
+# @default -- See below
+service:
+  main:
+    # -- Enables or disables the service
+    enabled: true
+    # enabled: false
+    # -- Configure the Service port information here.
+    # Additional ports can be added by adding a dictionary key similar to the 'main' port.
+    # @default -- See below
+    primary: true
+    ports:
+      main:
+        # -- Enables or disables the port
+        enabled: true
+        # enabled: false
+        # -- Make this the primary port (used in probes, notes, etc...)
+        # If there is more than 1 service, make sure that only 1 port is marked as primary.
+        primary: true
+        # -- The port number (Default port is required if enabled: true)
+        port:
+        # -- Port protocol.
+        # Support values are `HTTP`, `HTTPS`, `TCP` and `UDP`.
+        # HTTPS and HTTPS spawn a TCP service and get used for internal URL and name generation
+        protocol: HTTP
+        # -- Specify a service targetPort if you wish to differ the service port from the application port.
+        # If `targetPort` is specified, this port number is used in the container definition instead of
+        # the `port` value. Therefore named ports are not supported for this field.
+        targetPort:
+        # -- Specify the nodePort value NodePort service types.
+        # [[ref]](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
+        nodePort:
+
+# TODO: Discuss if we are going to add defaults like:
+  # - /dev/shm
+persistence:
+  # -- Create an emptyDir volume dedicated to be shared between all containers
+  # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
+  shared:
+    enabled: true
+    type: emptyDir
+    mountPath: /shared
+
+  # -- Create an emptyDir volume to share between all containers
+  # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
+  varlogs:
+    enabled: true
+    type: emptyDir
+    mountPath: /var/logs
+
+  # -- Create an emptyDir volume (shared between all containers) for temporary storage
+  # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
+  tmp:
+    enabled: true
+    type: emptyDir
+    mountPath: /tmp
+
+# -- Used in conjunction with `controller.type: StatefulSet` to create individual disks for each instance.
+volumeClaimTemplates: {}
+# data:
+#   mountPath: /data
+#   accessMode: "ReadWriteOnce"
+#   size: 1Gi

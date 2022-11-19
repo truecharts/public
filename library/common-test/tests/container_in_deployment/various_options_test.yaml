@@ -1,0 +1,81 @@
+
+suite: container in deployment various options test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+
+  - it: should pass with tty set
+    documentIndex: *deploymentDoc
+    set:
+      tty: true
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].tty
+          value: true
+
+  - it: should pass with stdin set
+    documentIndex: *deploymentDoc
+    set:
+      stdin: true
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].stdin
+          value: true
+
+  - it: should pass with terminationMessagePath set
+    documentIndex: *deploymentDoc
+    set:
+      termination:
+        messagePath: /tmp/log
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].terminationMessagePath
+          value: /tmp/log
+
+  - it: should pass with terminationMessagePath set from tpl
+    documentIndex: *deploymentDoc
+    set:
+      some_path: /tmp/log
+      termination:
+        messagePath: "{{ .Values.some_path }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].terminationMessagePath
+          value: /tmp/log
+
+  - it: should pass with terminationMessagePolicy set
+    documentIndex: *deploymentDoc
+    set:
+      termination:
+        messagePolicy: FallbackToLogsOnError
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].terminationMessagePolicy
+          value: FallbackToLogsOnError
+
+  - it: should pass with terminationMessagePolicy set from tpl
+    documentIndex: *deploymentDoc
+    set:
+      some_key: FallbackToLogsOnError
+      termination:
+        messagePolicy: "{{ .Values.some_key }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].terminationMessagePolicy
+          value: FallbackToLogsOnError
+
+  - it: should fail with invalid terminationMessagePolicy
+    set:
+      some_key: invalid
+      termination:
+        messagePolicy: "{{ .Values.some_key }}"
+    asserts:
+      - failedTemplate:
+          errorMessage: Not valid option for messagePolicy (invalid). Valid options are FallbackToLogsOnError and File

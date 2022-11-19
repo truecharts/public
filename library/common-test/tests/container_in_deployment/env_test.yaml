@@ -1,0 +1,690 @@
+suite: container in deployment env test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+
+  - it: should fail with envs defined as a list
+    set:
+      env:
+        - name: some_name
+          value: some_value
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variables as a list is not supported. Use key-value format.
+
+  - it: should fail with envs defined with an invalid keyRef
+    set:
+      env:
+        ENVVAR:
+          invalidKeyRef:
+            name: blabla
+            key: blbla
+    asserts:
+      - failedTemplate:
+          errorMessage: Not a valid valueFrom reference. Valid options are (configMapKeyRef and secretKeyRef)
+
+  - it: should fail with envs defined without a name in configMapKeyRef
+    set:
+      env:
+        ENVVAR:
+          configMapKeyRef:
+            key: some_key
+    asserts:
+      - failedTemplate:
+          errorMessage: <name> for the keyRef is not defined in (ENVVAR)
+
+  - it: should fail with envs defined without a name in secretKeyRef
+    set:
+      env:
+        ENVVAR:
+          secretKeyRef:
+            key: some_key
+    asserts:
+      - failedTemplate:
+          errorMessage: <name> for the keyRef is not defined in (ENVVAR)
+
+  - it: should fail with envs defined without a key in configMapKeyRef
+    set:
+      env:
+        ENVVAR:
+          configMapKeyRef:
+            name: some_name
+    asserts:
+      - failedTemplate:
+          errorMessage: <key> for the keyRef is not defined in (ENVVAR)
+
+  - it: should fail with envs defined without a key in secretKeyRef
+    set:
+      env:
+        ENVVAR:
+          secretKeyRef:
+            name: some_name
+    asserts:
+      - failedTemplate:
+          errorMessage: <key> for the keyRef is not defined in (ENVVAR)
+
+  - it: should fail with envs defined with a non-bool <optional> in secretKeyRef
+    set:
+      env:
+        ENVVAR:
+          secretKeyRef:
+            name: some_name
+            key: some_key
+            optional: non-bool
+    asserts:
+      - failedTemplate:
+          errorMessage: <optional> in secretKeyRef must be a boolean on Environment Variable (ENVVAR)
+
+  - it: should fail with envs defined with valueFrom key
+    set:
+      env:
+        ENVVAR:
+          valueFrom:
+            secretKeyRef:
+              name: some_name
+              key: some_key
+              optional: non-bool
+    asserts:
+      - failedTemplate:
+          errorMessage: Please remove <valueFrom> and use directly configMapKeyRef or secretKeyRef
+
+  - it: should fail with envs defined with optional in configMapKeyRef
+    set:
+      env:
+        ENVVAR:
+          configMapKeyRef:
+            name: some_name
+            key: some_key
+            optional: non-bool
+    asserts:
+      - failedTemplate:
+          errorMessage: <optional> is not supported in configMapRefKey
+
+  - it: should fail with env trying to override fixedEnv
+    set:
+      env:
+        TZ: something
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (env)]
+
+  - it: should fail with env trying to override configmap
+    set:
+      env:
+        ENVVAR: something
+      configmap:
+        somename:
+          enabled: true
+          parseAsEnv: true
+          content:
+            ENVVAR: ABC
+      envFrom:
+        - configMapRef:
+            name: '{{ include "ix.v1.common.names.fullname" . }}-somename'
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (ENVVAR) on container (RELEASE-NAME-common-test) is set more than once. [to (something) on (env)] and [to (ABC) on (configmap-RELEASE-NAME-common-test-somename)]
+
+  - it: should fail with env trying to override secret
+    set:
+      env:
+        ENVVAR: something
+      secret:
+        somename:
+          enabled: true
+          parseAsEnv: true
+          content:
+            ENVVAR: ABC
+      envFrom:
+        - secretRef:
+            name: RELEASE-NAME-common-test-somename
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (ENVVAR) on container (RELEASE-NAME-common-test) is set more than once. [to (something) on (env)] and [to (ABC) on (secret-RELEASE-NAME-common-test-somename)]
+
+  - it: should fail with env trying to override envList
+    set:
+      env:
+        ENVVAR: something
+      envList:
+        - name: ENVVAR
+          value: ABC
+    asserts:
+      - failedTemplate:
+          errorMessage:  Environment Variable (ENVVAR) on container (RELEASE-NAME-common-test) is set more than once. [to (something) on (env)] and [to (ABC) on (envList)]
+
+  - it: should fail with envList trying to override fixedEnv
+    set:
+      envList:
+        - name: TZ
+          value: something
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (envList)]
+
+  - it: should fail with envList trying to override env
+    set:
+      env:
+        POSTGRES_HOST: postgres.svc.cluster.local
+      envList:
+        - name: POSTGRES_HOST
+          value: something
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (postgres.svc.cluster.local) on (env)] and [to (something) on (envList)]
+
+  - it: should fail with envList trying to override configmap
+    set:
+      envList:
+        - name: POSTGRES_HOST
+          value: something
+      configmap:
+        somename:
+          enabled: true
+          parseAsEnv: true
+          content:
+            POSTGRES_HOST: something
+      envFrom:
+        - configMapRef:
+            name: '{{ include "ix.v1.common.names.fullname" . }}-somename'
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (something) on (envList)] and [to (something) on (configmap-RELEASE-NAME-common-test-somename)]
+
+  - it: should fail with envList trying to override secret
+    set:
+      envList:
+        - name: POSTGRES_HOST
+          value: something
+      secret:
+        somename:
+          enabled: true
+          parseAsEnv: true
+          content:
+            POSTGRES_HOST: something
+      envFrom:
+        - secretRef:
+            name: RELEASE-NAME-common-test-somename
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (something) on (envList)] and [to (something) on (secret-RELEASE-NAME-common-test-somename)]
+
+  - it: should fail with configmap trying to override fixedEnv
+    set:
+      configmap:
+        somename:
+          enabled: true
+          parseAsEnv: true
+          content:
+            TZ: something
+      envFrom:
+        - configMapRef:
+            name: '{{ include "ix.v1.common.names.fullname" . }}-somename'
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (configmap-RELEASE-NAME-common-test-somename)]
+
+  - it: should fail with configmap trying to override env
+    set:
+      env:
+        POSTGRES_HOST: postgres.svc.cluster.local
+      configmap:
+        somename:
+          enabled: true
+          parseAsEnv: true
+          content:
+            POSTGRES_HOST: something
+      envFrom:
+        - configMapRef:
+            name: '{{ include "ix.v1.common.names.fullname" . }}-somename'
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (postgres.svc.cluster.local) on (env)] and [to (something) on (configmap-RELEASE-NAME-common-test-somename)]
+
+  - it: should fail with configmap trying to override envList
+    set:
+      envList:
+        - name: POSTGRES_HOST
+          value: postgres.svc.cluster.local
+      configmap:
+        somename:
+          enabled: true
+          parseAsEnv: true
+          content:
+            POSTGRES_HOST: something
+      envFrom:
+        - configMapRef:
+            name: '{{ include "ix.v1.common.names.fullname" . }}-somename'
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (postgres.svc.cluster.local) on (envList)] and [to (something) on (configmap-RELEASE-NAME-common-test-somename)]
+
+  - it: should fail with configmap trying to override secret
+    set:
+      secret:
+        somename:
+          enabled: true
+          parseAsEnv: true
+          content:
+            POSTGRES_HOST: something123
+      configmap:
+        somename:
+          enabled: true
+          parseAsEnv: true
+          content:
+            POSTGRES_HOST: something
+      envFrom:
+        - configMapRef:
+            name: '{{ include "ix.v1.common.names.fullname" . }}-somename'
+        - secretRef:
+            name: '{{ include "ix.v1.common.names.fullname" . }}-somename'
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (something) on (configmap-RELEASE-NAME-common-test-somename)] and [to (something123) on (secret-RELEASE-NAME-common-test-somename)]
+
+  - it: should fail with secret trying to override fixedEnv
+    set:
+      secret:
+        somename:
+          enabled: true
+          parseAsEnv: true
+          content:
+            TZ: something
+      envFrom:
+        - secretRef:
+            name: RELEASE-NAME-common-test-somename
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (secret-RELEASE-NAME-common-test-somename)]
+
+  - it: should fail with secret trying to override env
+    set:
+      env:
+        POSTGRES_HOST: postgres.svc.cluster.local
+      secret:
+        somename:
+          enabled: true
+          parseAsEnv: true
+          content:
+            POSTGRES_HOST: something
+      envFrom:
+        - secretRef:
+            name: RELEASE-NAME-common-test-somename
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (postgres.svc.cluster.local) on (env)] and [to (something) on (secret-RELEASE-NAME-common-test-somename)]
+
+  - it: should fail with secret trying to override envList
+    set:
+      envList:
+        - name: POSTGRES_HOST
+          value: postgres.svc.cluster.local
+      secret:
+        somename:
+          enabled: true
+          parseAsEnv: true
+          content:
+            POSTGRES_HOST: something
+      envFrom:
+        - secretRef:
+            name: RELEASE-NAME-common-test-somename
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (postgres.svc.cluster.local) on (envList)] and [to (something) on (secret-RELEASE-NAME-common-test-somename)]
+
+  - it: should fail with secret trying to override configmap
+    set:
+      configmap:
+        somename:
+          enabled: true
+          parseAsEnv: true
+          content:
+            POSTGRES_HOST: something123
+      secret:
+        somename:
+          enabled: true
+          parseAsEnv: true
+          content:
+            POSTGRES_HOST: something
+      envFrom:
+        - configMapRef:
+            name: '{{ include "ix.v1.common.names.fullname" . }}-somename'
+        - secretRef:
+            name: '{{ include "ix.v1.common.names.fullname" . }}-somename'
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (something123) on (configmap-RELEASE-NAME-common-test-somename)] and [to (something) on (secret-RELEASE-NAME-common-test-somename)]
+
+  - it: should pass with envs defined with int value
+    documentIndex: *deploymentDoc
+    set:
+      env:
+        ENVVAR: 123
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "002"
+            - name: UMASK_SET
+              value: "002"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              value: "123"
+
+  - it: should pass with envs defined with bool value
+    documentIndex: *deploymentDoc
+    set:
+      env:
+        ENVVAR: true
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "002"
+            - name: UMASK_SET
+              value: "002"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              value: "true"
+
+  - it: should pass with envs defined with string value
+    documentIndex: *deploymentDoc
+    set:
+      env:
+        ENVVAR: "some_value"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "002"
+            - name: UMASK_SET
+              value: "002"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              value: "some_value"
+
+  - it: should pass with multiple envs defined via tpl
+    documentIndex: *deploymentDoc
+    set:
+      some_string: a_string
+      some_int: 123
+      some_bool: false
+      env:
+        ENVVAR: "{{ .Values.some_string }}"
+        ENVVAR2: "{{ .Values.some_int }}"
+        ENVVAR3: "{{ .Values.some_bool }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "002"
+            - name: UMASK_SET
+              value: "002"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              value: "a_string"
+            - name: ENVVAR2
+              value: "123"
+            - name: ENVVAR3
+              value: "false"
+
+  - it: should pass with envs defined with valueFrom configMapKeyRef
+    documentIndex: *deploymentDoc
+    set:
+      env:
+        ENVVAR:
+          configMapKeyRef:
+            name: some_name
+            key: some_key
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "002"
+            - name: UMASK_SET
+              value: "002"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              valueFrom:
+                configMapKeyRef:
+                  name: some_name
+                  key: some_key
+
+  - it: should pass with envs defined with valueFrom secretKeyRef
+    documentIndex: *deploymentDoc
+    set:
+      env:
+        ENVVAR:
+          secretKeyRef:
+            name: some_name
+            key: some_key
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "002"
+            - name: UMASK_SET
+              value: "002"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              valueFrom:
+                secretKeyRef:
+                  name: some_name
+                  key: some_key
+
+  - it: should pass with envs defined with valueFrom configMapKeyRef from tpl
+    documentIndex: *deploymentDoc
+    set:
+      name: some_name
+      key: some_key
+      env:
+        ENVVAR:
+          configMapKeyRef:
+            name: "{{ .Values.name }}"
+            key: "{{ .Values.key }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "002"
+            - name: UMASK_SET
+              value: "002"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              valueFrom:
+                configMapKeyRef:
+                  name: some_name
+                  key: some_key
+
+  - it: should pass with envs defined with valueFrom secretKeyRef from tpl
+    documentIndex: *deploymentDoc
+    set:
+      name: some_name
+      key: some_key
+      env:
+        ENVVAR:
+          secretKeyRef:
+            name: "{{ .Values.name }}"
+            key: "{{ .Values.key }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "002"
+            - name: UMASK_SET
+              value: "002"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              valueFrom:
+                secretKeyRef:
+                  name: some_name
+                  key: some_key
+
+  - it: should pass with envs defined with valueFrom secretKeyRef with <optional> true
+    documentIndex: *deploymentDoc
+    set:
+      env:
+        ENVVAR:
+          secretKeyRef:
+            name: some_name
+            key: some_key
+            optional: true
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "002"
+            - name: UMASK_SET
+              value: "002"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              valueFrom:
+                secretKeyRef:
+                  optional: true
+                  name: some_name
+                  key: some_key
+
+  - it: should pass with envs defined with valueFrom secretKeyRef with <optional> false
+    documentIndex: *deploymentDoc
+    set:
+      env:
+        ENVVAR:
+          secretKeyRef:
+            name: some_name
+            key: some_key
+            optional: false
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "002"
+            - name: UMASK_SET
+              value: "002"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              valueFrom:
+                secretKeyRef:
+                  optional: false
+                  name: some_name
+                  key: some_key
+
+  - it: should pass with multiple envs defined with valueFrom configMapKeyRef and secretKeyRef via tpl
+    documentIndex: *deploymentDoc
+    set:
+      name: some_name
+      key: some_key
+      name2: some_name2
+      key2: some_key2
+      name3: some_name3
+      key3: some_key3
+      env:
+        ENVVAR:
+          configMapKeyRef:
+            name: "{{ .Values.name }}"
+            key: "{{ .Values.key }}"
+        ENVVAR2:
+          secretKeyRef:
+            name: "{{ .Values.name2 }}"
+            key: "{{ .Values.key2 }}"
+            optional: false
+        ENVVAR3:
+          secretKeyRef:
+            name: "{{ .Values.name3 }}"
+            key: "{{ .Values.key3 }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "002"
+            - name: UMASK_SET
+              value: "002"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              valueFrom:
+                configMapKeyRef:
+                  name: some_name
+                  key: some_key
+            - name: ENVVAR2
+              valueFrom:
+                secretKeyRef:
+                  name: some_name2
+                  key: some_key2
+                  optional: false
+            - name: ENVVAR3
+              valueFrom:
+                secretKeyRef:
+                  name: some_name3
+                  key: some_key3

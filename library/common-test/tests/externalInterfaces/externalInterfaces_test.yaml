@@ -1,0 +1,405 @@
+suite: external interfaces test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v1.2.3
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+
+  - it: should fail without hostInterface
+    set:
+      externalInterfaces:
+        - hostInterface: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: <hostInterface> is required when configuring External Interfaces.
+
+  - it: should fail without ipam type
+    set:
+      externalInterfaces:
+        - hostInterface: ens3s0
+          ipam: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: <ipam.type> is required. Interface (ens3s0)
+
+  - it: should fail with invalid ipam type
+    set:
+      externalInterfaces:
+        - hostInterface: ens3s0
+          ipam:
+            type: invalid_type
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid option for <ipam.type> (invalid_type). Valid options are static and dhcp. Interface (ens3s0)
+
+  - it: should fail with dhcp ipam and staticIPConfigurations
+    set:
+      externalInterfaces:
+        - hostInterface: ens3s0
+          ipam:
+            type: dhcp
+          staticIPConfigurations:
+            - 1.1.1.1
+    asserts:
+      - failedTemplate:
+          errorMessage: <staticIPConfigurations> and <staticRoutes> cannot be used with <ipam.type> of (dhcp). Interface (ens3s0)
+
+  - it: should fail with dhcp ipam and staticRoutes
+    set:
+      externalInterfaces:
+        - hostInterface: ens3s0
+          ipam:
+            type: dhcp
+          staticRoutes:
+            - gateway: 1.1.1.1
+              destination: 1.1.1.1
+    asserts:
+      - failedTemplate:
+          errorMessage: <staticIPConfigurations> and <staticRoutes> cannot be used with <ipam.type> of (dhcp). Interface (ens3s0)
+
+  - it: should fail with static ipam and no staticIPConfigurations
+    set:
+      externalInterfaces:
+        - hostInterface: ens3s0
+          ipam:
+            type: static
+          staticIPConfigurations: []
+    asserts:
+      - failedTemplate:
+          errorMessage: Static IP is required when <ipam.type> is static. Interface (ens3s0)
+
+  - it: should fail with static ipam and no staticRoutes.gateway
+    set:
+      externalInterfaces:
+        - hostInterface: ens3s0
+          ipam:
+            type: static
+          staticIPConfigurations:
+            - 1.1.1.1
+          staticRoutes:
+            - gateway: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: <destination> and <gateway> are required when <staticRoutes> are defined. Interface (ens3s0)
+
+  - it: should fail with static ipam and no staticRoutes.destination
+    set:
+      externalInterfaces:
+        - hostInterface: ens3s0
+          ipam:
+            type: static
+          staticIPConfigurations:
+            - 1.1.1.1
+          staticRoutes:
+            - gateway: 1.1.1.1
+              destination: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: <destination> and <gateway> are required when <staticRoutes> are defined. Interface (ens3s0)
+
+  - it: should fail with ixExternalInterfacesConfiguration empty
+    documentIndex: &externalInterfaceDoc 0
+    set:
+      # Only to pass validation
+      externalInterfaces:
+        - hostInterface: ens3s0
+          ipam:
+            type: dhcp
+      # Simulate the ix Injected values
+      ixExternalInterfacesConfiguration:
+        - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+    asserts:
+      - failedTemplate:
+          errorMessage: There are externalInterfaces defined, but key <ixExternalInterfaceConfigurationNames> is empty.
+
+  - it: should pass with externalInterface defined
+    documentIndex: &externalInterfaceDoc 0
+    set:
+      # Only to pass validation
+      externalInterfaces:
+        - hostInterface: ens3s0
+          ipam:
+            type: dhcp
+      # Simulate the ix Injected values
+      ixExternalInterfacesConfiguration:
+        - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfacesConfigurationNames:
+        - ix-RELEASE-NAME-0
+    asserts:
+      - hasDocuments:
+          count: 4
+      - isKind:
+          of: NetworkAttachmentDefinition
+      - isAPIVersion:
+          of: k8s.cni.cncf.io/v1
+      - equal:
+          path: spec
+          value:
+            config: '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+      - equal:
+          path: metadata.name
+          value: ix-RELEASE-NAME-0
+
+  - it: should pass with externalInterface defined (annotation check)
+    documentIndex: &deploymentDoc 1
+    set:
+      # Only to pass validation
+      externalInterfaces:
+        - hostInterface: ens3s0
+          ipam:
+            type: dhcp
+      # Simulate the ix Injected values
+      ixExternalInterfacesConfiguration:
+        - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfacesConfigurationNames:
+        - ix-RELEASE-NAME-0
+    asserts:
+      - hasDocuments:
+          count: 4
+      - isKind:
+          of: Deployment
+      - isSubset:
+          path: metadata.annotations
+          content:
+            k8s.v1.cni.cncf.io/networks: ix-RELEASE-NAME-0
+      - isNull:
+          path: metadata.annotations.rollme
+      - matchRegex:
+          path: spec.template.metadata.annotations.rollme
+          pattern: "^[a-zA-Z0-9]{5}$"
+
+  - it: should pass with externalInterface defined, multiple entries (First Doc)
+    documentIndex: *externalInterfaceDoc
+    set:
+      # Only to pass validation
+      externalInterfaces:
+        - hostInterface: ens3s0
+          ipam:
+            type: dhcp
+      # Simulate the ix Injected values
+      ixExternalInterfacesConfiguration:
+        - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+        - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-1", "type": "macvlan", "master": "ens5s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfacesConfigurationNames:
+        - ix-RELEASE-NAME-0
+    asserts:
+      - hasDocuments:
+          count: 5
+      - isKind:
+          of: NetworkAttachmentDefinition
+      - isAPIVersion:
+          of: k8s.cni.cncf.io/v1
+      - equal:
+          path: spec
+          value:
+            config: '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+      - equal:
+          path: metadata.name
+          value: ix-RELEASE-NAME-0
+
+  - it: should pass with externalInterface defined, multiple entries (Second Doc)
+    documentIndex: &otherExternalInterfaceDoc 1
+    set:
+      # Only to pass validation
+      externalInterfaces:
+        - hostInterface: ens3s0
+          ipam:
+            type: dhcp
+      # Simulate the ix Injected values
+      ixExternalInterfacesConfiguration:
+        - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+        - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-1", "type": "macvlan", "master": "ens5s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfacesConfigurationNames:
+        - ix-RELEASE-NAME-0
+        - ix-RELEASE-NAME-1
+    asserts:
+      - hasDocuments:
+          count: 5
+      - isKind:
+          of: NetworkAttachmentDefinition
+      - isAPIVersion:
+          of: k8s.cni.cncf.io/v1
+      - equal:
+          path: spec
+          value:
+            config: '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-1", "type": "macvlan", "master": "ens5s0", "ipam": {"type": "dhcp"}}'
+      - equal:
+          path: metadata.name
+          value: ix-RELEASE-NAME-1
+
+  - it: should pass with externalInterface defined,  multiple entries (annotation check)
+    documentIndex: &deploymentDoc 2
+    set:
+      # Only to pass validation
+      externalInterfaces:
+        - hostInterface: ens3s0
+          ipam:
+            type: dhcp
+      # Simulate the ix Injected values
+      ixExternalInterfacesConfiguration:
+        - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+        - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-1", "type": "macvlan", "master": "ens5s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfacesConfigurationNames:
+        - ix-RELEASE-NAME-0
+        - ix-RELEASE-NAME-1
+    asserts:
+      - hasDocuments:
+          count: 5
+      - isKind:
+          of: Deployment
+      - isSubset:
+          path: metadata.annotations
+          content:
+            k8s.v1.cni.cncf.io/networks: ix-RELEASE-NAME-0, ix-RELEASE-NAME-1
+      - isNull:
+          path: metadata.annotations.rollme
+      - matchRegex:
+          path: spec.template.metadata.annotations.rollme
+          pattern: "^[a-zA-Z0-9]{5}$"
+
+  - it: should pass with externalInterface defined and global annotations, multiple entries
+    documentIndex: &externalInterfaceDoc 0
+    set:
+      global:
+        annotations:
+          key1: value1
+          key2: value2
+      # Only to pass validation
+      externalInterfaces:
+        - hostInterface: ens3s0
+          ipam:
+            type: dhcp
+      # Simulate the ix Injected values
+      ixExternalInterfacesConfiguration:
+        - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfacesConfigurationNames:
+        - ix-RELEASE-NAME-0
+    asserts:
+      - hasDocuments:
+          count: 4
+      - isKind:
+          of: NetworkAttachmentDefinition
+      - isAPIVersion:
+          of: k8s.cni.cncf.io/v1
+      - equal:
+          path: metadata.annotations
+          value:
+            key1: value1
+            key2: value2
+
+  - it: should pass with externalInterface defined and global annotations from tpl, multiple entries
+    documentIndex: &externalInterfaceDoc 0
+    set:
+      k1: value1
+      k2: value2
+      global:
+        annotations:
+          key1: "{{ .Values.k1 }}"
+          key2: "{{ .Values.k2 }}"
+      # Only to pass validation
+      externalInterfaces:
+        - hostInterface: ens3s0
+          ipam:
+            type: dhcp
+      # Simulate the ix Injected values
+      ixExternalInterfacesConfiguration:
+        - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfacesConfigurationNames:
+        - ix-RELEASE-NAME-0
+    asserts:
+      - hasDocuments:
+          count: 4
+      - isKind:
+          of: NetworkAttachmentDefinition
+      - isAPIVersion:
+          of: k8s.cni.cncf.io/v1
+      - equal:
+          path: metadata.annotations
+          value:
+            key1: value1
+            key2: value2
+
+  - it: should pass with externalInterface defined and global labels, multiple entries
+    documentIndex: &externalInterfaceDoc 0
+    set:
+      global:
+        labels:
+          key1: value1
+          key2: value2
+      # Only to pass validation
+      externalInterfaces:
+        - hostInterface: ens3s0
+          ipam:
+            type: dhcp
+      # Simulate the ix Injected values
+      ixExternalInterfacesConfiguration:
+        - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfacesConfigurationNames:
+        - ix-RELEASE-NAME-0
+    asserts:
+      - hasDocuments:
+          count: 4
+      - isKind:
+          of: NetworkAttachmentDefinition
+      - isAPIVersion:
+          of: k8s.cni.cncf.io/v1
+      - equal:
+          path: metadata.labels
+          value:
+            app: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/version: *appVer
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            key1: value1
+            key2: value2
+            release: RELEASE-NAME
+
+  - it: should pass with externalInterface defined and global labels from tpl, multiple entries
+    documentIndex: &externalInterfaceDoc 0
+    set:
+      k1: value1
+      k2: value2
+      global:
+        labels:
+          key1: "{{ .Values.k1 }}"
+          key2: "{{ .Values.k2 }}"
+      # Only to pass validation
+      externalInterfaces:
+        - hostInterface: ens3s0
+          ipam:
+            type: dhcp
+      # Simulate the ix Injected values
+      ixExternalInterfacesConfiguration:
+        - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfacesConfigurationNames:
+        - ix-RELEASE-NAME-0
+    asserts:
+      - hasDocuments:
+          count: 4
+      - isKind:
+          of: NetworkAttachmentDefinition
+      - isAPIVersion:
+          of: k8s.cni.cncf.io/v1
+      - equal:
+          path: metadata.labels
+          value:
+            app: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/version: *appVer
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            key1: value1
+            key2: value2
+            release: RELEASE-NAME

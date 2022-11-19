@@ -1,0 +1,139 @@
+suite: container in deployment envFrom test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+
+  - it: should fail with envFrom configMapRef has empty name
+    set:
+      envFrom:
+        - configMapRef:
+            name: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Name is required for configMapRef in envFrom.
+
+  - it: should fail with envFrom secretRef has empty name
+    set:
+      envFrom:
+        - secretRef:
+            name: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Name is required for secretRef in envFrom.
+
+  - it: should fail with envFrom secretRef has missing name
+    set:
+      envFrom:
+        - secretRef:
+    asserts:
+      - failedTemplate:
+          errorMessage: Not valid Ref or <name> key is missing in envFrom.
+
+  - it: should fail with envFrom configMapRef has missing name
+    set:
+      envFrom:
+        - configMapRef:
+    asserts:
+      - failedTemplate:
+          errorMessage: Not valid Ref or <name> key is missing in envFrom.
+
+  - it: should fail with envFrom configMapRef and secretRef on the same item
+    set:
+      envFrom:
+        - configMapRef:
+            name: something
+          secretRef:
+            name: something
+    asserts:
+      - failedTemplate:
+          errorMessage: You can't define both secretRef and configMapRef on the same item.
+
+  - it: should pass with envFrom configMapRef entry added
+    documentIndex: *deploymentDoc
+    set:
+      envFrom:
+        - configMapRef:
+            name: some_name
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].envFrom
+          value:
+            - configMapRef:
+                name: some_name
+
+  - it: should pass with envFrom configMapRef entries added from tpl
+    documentIndex: *deploymentDoc
+    set:
+      some_name: a_name
+      some_name2: a_name2
+      envFrom:
+        - configMapRef:
+            name: "{{ .Values.some_name }}"
+        - configMapRef:
+            name: "{{ .Values.some_name2 }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].envFrom
+          value:
+            - configMapRef:
+                name: a_name
+            - configMapRef:
+                name: a_name2
+
+  - it: should pass with envFrom secretRef entry added
+    documentIndex: *deploymentDoc
+    set:
+      envFrom:
+        - secretRef:
+            name: some_name
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].envFrom
+          value:
+            - secretRef:
+                name: some_name
+
+  - it: should pass with envFrom secretRef entries added from tpl
+    documentIndex: *deploymentDoc
+    set:
+      some_name: a_name
+      some_name2: a_name2
+      envFrom:
+        - secretRef:
+            name: "{{ .Values.some_name }}"
+        - secretRef:
+            name: "{{ .Values.some_name2 }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].envFrom
+          value:
+            - secretRef:
+                name: a_name
+            - secretRef:
+                name: a_name2
+
+  - it: should pass with envFrom secretRef and configMapRef entries added from tpl
+    documentIndex: *deploymentDoc
+    set:
+      some_name: a_name
+      some_name2: a_name2
+      envFrom:
+        - secretRef:
+            name: "{{ .Values.some_name }}"
+        - configMapRef:
+            name: "{{ .Values.some_name2 }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].envFrom
+          value:
+            - secretRef:
+                name: a_name
+            - configMapRef:
+                name: a_name2

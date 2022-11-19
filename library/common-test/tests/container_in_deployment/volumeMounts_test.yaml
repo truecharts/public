@@ -1,0 +1,263 @@
+suite: container in deployment volumeMount test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+      - equal:
+          path: spec.template.spec.containers[0].volumeMounts
+          value:
+            - mountPath: /shared
+              name: shared
+            - mountPath: /tmp
+              name: tmp
+            - mountPath: /var/logs
+              name: varlogs
+
+  - it: should fail with no mountPath set
+    set:
+      persistence:
+        vol1:
+          enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: <mountPath> must be defined, alternatively use the <noMount> flag.
+
+  - it: should fail when mountPath does not start with /
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: relative/path/to/dir
+    asserts:
+      - failedTemplate:
+          errorMessage: Mount path (relative/path/to/dir), must start with a forward slash -> / <-
+
+  - it: should fail with empty readOnly
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /some/path
+          readOnly:
+    asserts:
+      - failedTemplate:
+          errorMessage: <readOnly> cannot be empty on item (vol1)
+
+  - it: should fail with empty mountPath
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath:
+    asserts:
+      - failedTemplate:
+          errorMessage: <mountPath> must be defined, alternatively use the <noMount> flag.
+
+  - it: should pass with enabled false
+    documentIndex: *deploymentDoc
+    set:
+      persistence:
+        vol1:
+          enabled: false
+    asserts:
+      - notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vol1
+
+  - it: should pass with noMount true
+    documentIndex: *deploymentDoc
+    set:
+      persistence:
+        vol1:
+          noMount: true
+    asserts:
+      - notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vol1
+
+  - it: should pass with mountPath set
+    documentIndex: *deploymentDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /some_path
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            mountPath: /some_path
+            name: vol1
+
+  - it: should pass with mountPath set (multiple entries)
+    documentIndex: *deploymentDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /some_path
+        vol2:
+          enabled: true
+          mountPath: /some_path2
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            mountPath: /some_path
+            name: vol1
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            mountPath: /some_path2
+            name: vol2
+
+  - it: should pass with mountPath and readOnly(true) set
+    documentIndex: *deploymentDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /some_path
+          readOnly: true
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            mountPath: /some_path
+            name: vol1
+            readOnly: true
+
+  - it: should pass with mountPath and readOnly(false) set
+    documentIndex: *deploymentDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /some_path
+          readOnly: false
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            mountPath: /some_path
+            name: vol1
+            readOnly: false
+
+  - it: should pass with mountPath and subPath set
+    documentIndex: *deploymentDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /some_path
+          subPath: config.yaml
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            mountPath: /some_path
+            name: vol1
+            subPath: config.yaml
+
+  - it: should pass with mountPath and mountPropagation set
+    documentIndex: *deploymentDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /some_path
+          mountPropagation: HostToContainer
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            mountPath: /some_path
+            name: vol1
+            mountPropagation: HostToContainer
+
+  - it: should pass with all set set
+    documentIndex: *deploymentDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /some_path
+          mountPropagation: HostToContainer
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            mountPath: /some_path
+            name: vol1
+            mountPropagation: HostToContainer
+
+  - it: should pass with all set (readonly false)
+    documentIndex: *deploymentDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /some_path
+          subPath: config.yaml
+          readOnly: false
+          mountPropagation: HostToContainer
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            mountPath: /some_path
+            name: vol1
+            subPath: config.yaml
+            readOnly: false
+            mountPropagation: HostToContainer
+
+  - it: should pass with all set (readonly true)
+    documentIndex: *deploymentDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /some_path
+          subPath: config.yaml
+          readOnly: true
+          mountPropagation: HostToContainer
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            mountPath: /some_path
+            name: vol1
+            subPath: config.yaml
+            readOnly: true
+            mountPropagation: HostToContainer
+
+  - it: should pass with all set (readonly true) from tpl
+    documentIndex: *deploymentDoc
+    set:
+      some_mount: /some_path
+      sub_path: config.yaml
+      mount_propagation: HostToContainer
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: "{{ .Values.some_mount }}"
+          subPath: "{{ .Values.sub_path }}"
+          readOnly: true
+          mountPropagation: "{{ .Values.mount_propagation }}"
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            mountPath: /some_path
+            name: vol1
+            subPath: config.yaml
+            readOnly: true
+            mountPropagation: HostToContainer

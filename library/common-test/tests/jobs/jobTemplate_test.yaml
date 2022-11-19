@@ -1,0 +1,898 @@
+suite: jobTemplate test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+
+  - it: should fail with zero value in backoffLimit in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          backoffLimit: 0
+    asserts:
+      - failedTemplate:
+          errorMessage: Zero value in <backoffLimit> (0) in <job> (job-name) is not allowed. Leave empty to use the default (6)
+
+  - it: should fail with negative value in backoffLimit in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          backoffLimit: -1
+    asserts:
+      - failedTemplate:
+          errorMessage: <backoffLimit> (-1) in <job> (job-name) must be a positive integer. Leave empty to use the default (6)
+
+  - it: should fail with zero value in ttlSecondsAfterFinished in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          ttlSecondsAfterFinished: 0
+    asserts:
+      - failedTemplate:
+          errorMessage: Zero value in <ttlSecondsAfterFinished> (0) in <job> (job-name) is not allowed.
+
+  - it: should fail with negative value in ttlSecondsAfterFinished in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          ttlSecondsAfterFinished: -1
+    asserts:
+      - failedTemplate:
+          errorMessage: <ttlSecondsAfterFinished> (-1) in <job> (job-name) must be a positive integer.
+
+  - it: should fail with zero value in activeDeadlineSeconds in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          activeDeadlineSeconds: 0
+    asserts:
+      - failedTemplate:
+          errorMessage: Zero value in <activeDeadlineSeconds> (0) in <job> (job-name) is not allowed.
+
+  - it: should fail with negative value in activeDeadlineSeconds in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          activeDeadlineSeconds: -1
+    asserts:
+      - failedTemplate:
+          errorMessage: <activeDeadlineSeconds> (-1) in <job> (job-name) must be a positive integer.
+
+  - it: should fail with zero value in parallelism in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          parallelism: 0
+    asserts:
+      - failedTemplate:
+          errorMessage: Zero value in <parallelism> (0) in <job> (job-name) is not allowed.
+
+  - it: should fail with negative value in parallelism in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          parallelism: -1
+    asserts:
+      - failedTemplate:
+          errorMessage: <parallelism> (-1) in <job> (job-name) must be a positive integer.
+
+  - it: should fail with zero value in completions in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          completions: 0
+    asserts:
+      - failedTemplate:
+          errorMessage: Zero value in <completions> (0) in <job> (job-name) is not allowed.
+
+  - it: should fail with negative value in completions in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          completions: -1
+    asserts:
+      - failedTemplate:
+          errorMessage: <completions> (-1) in <job> (job-name) must be a positive integer.
+
+  - it: should fail with invalid completionMode in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          completionMode: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid option (invalid) for <completionMode> in <job> (job-name). Valid options are NonIndexed and Indexed. Leave empty to use the default (NonIndexed)
+
+  - it: should fail without pod in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: A pod in <podSpec> is required in <job> (job-name).
+
+  - it: should fail without containers in pod in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            containers: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: At least one container in <podSpec.containers> is required in <job> (job-name).
+
+  - it: should pass with job values changed
+    documentIndex: *deploymentDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            dnsPolicy: None
+            hostname: some-hostname
+            priorityClassName: some-priorityClass
+            schedulerName: some-schedulerName
+            serviceAccountName: some-serviceAccountName
+            runtimeClassName: some-runtimeClassName
+            hostNetwork: true
+            enableServiceLinks: true
+            restartPolicy: OnFailure
+            podSecurityContext:
+              fsGroup: 0
+              fsGroupChangePolicy: Always
+              supplementalGroups:
+                - 50
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isKind:
+          of: Deployment
+      - equal:
+          path: spec.template.spec.serviceAccountName
+          value: default
+      - equal:
+          path: spec.template.spec.dnsPolicy
+          value: ClusterFirst
+      - isNull:
+          path: spec.template.spec.hostname
+      - isNull:
+          path: spec.template.spec.priorityClassName
+      - isNull:
+          path: spec.template.spec.runtimeClassName
+      - isNull:
+          path: spec.template.spec.schedulerName
+      - equal:
+          path: spec.template.spec.hostNetwork
+          value: false
+      - equal:
+          path: spec.template.spec.enableServiceLinks
+          value: false
+      - equal:
+          path: spec.template.spec.restartPolicy
+          value: Always
+      - equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups: []
+
+  - it: should pass with default in job
+    documentIndex: &jobDoc 3
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isKind:
+          of: Job
+      - isAPIVersion:
+          of: batch/v1
+      - isSubset:
+          path: spec
+          content:
+            backoffLimit: 6
+            completionMode: NonIndexed
+
+  - it: should pass with default in multiple job (1/2)
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+        other-job-name:
+          enabled: true
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isKind:
+          of: Job
+      - isAPIVersion:
+          of: batch/v1
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test-job-name
+      - isSubset:
+          path: spec
+          content:
+            backoffLimit: 6
+            completionMode: NonIndexed
+
+  - it: should pass with default in multiple job (2/2)
+    documentIndex: &otherJobDoc 4
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+        other-job-name:
+          enabled: true
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isKind:
+          of: Job
+      - isAPIVersion:
+          of: batch/v1
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test-other-job-name
+      - isSubset:
+          path: spec
+          content:
+            backoffLimit: 6
+            completionMode: NonIndexed
+
+  - it: should pass with backoffLimit set in job
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          backoffLimit: 3
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec
+          content:
+            backoffLimit: 3
+
+  - it: should pass with completionMode set in job
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          completionMode: Indexed
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec
+          content:
+            completionMode: Indexed
+
+  - it: should pass with ttlSecondsAfterFinished set in job
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          ttlSecondsAfterFinished: 150
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec
+          content:
+            ttlSecondsAfterFinished: 150
+
+  - it: should pass with activeDeadlineSeconds set in job
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          activeDeadlineSeconds: 120
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec
+          content:
+            activeDeadlineSeconds: 120
+
+  - it: should pass with parallelism set in job
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          parallelism: 5
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec
+          content:
+            parallelism: 5
+
+  - it: should pass with completions set in job
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          completions: 5
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec
+          content:
+            completions: 5
+
+  - it: should pass with default podSpec
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            enableServiceLinks: false
+            hostNetwork: false
+            restartPolicy: Never
+            securityContext:
+              fsGroup: 568
+              fsGroupChangePolicy: OnRootMismatch
+              supplementalGroups: []
+
+  - it: should pass with inherit set in serviceAccountName
+    documentIndex: &saJobDoc 4
+    set:
+      serviceAccount:
+        main:
+          enabled: true
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            serviceAccountName: inherit
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isKind:
+          of: Job
+      - isSubset:
+          path: spec.template.spec
+          content:
+            serviceAccountName: RELEASE-NAME-common-test
+
+  - it: should pass with custom serviceAccountName
+    documentIndex: &saJobDoc 4
+    set:
+      saName: custom
+      serviceAccount:
+        main:
+          enabled: true
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            serviceAccountName: "{{ .Values.saName }}"
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isKind:
+          of: Job
+      - isSubset:
+          path: spec.template.spec
+          content:
+            serviceAccountName: custom
+
+  - it: should pass with inherit set in schedulerName
+    documentIndex: *jobDoc
+    set:
+      schedulerName: somename
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            schedulerName: inherit
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            schedulerName: somename
+
+  - it: should pass with custom schedulerName
+    documentIndex: *jobDoc
+    set:
+      key: somename
+      schedulerName: main-scheduler
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            schedulerName: "{{ .Values.key }}"
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            schedulerName: somename
+
+  - it: should pass with inherit set in termination.gracePeriodSeconds
+    documentIndex: *jobDoc
+    set:
+      termination:
+        gracePeriodSeconds: 35
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            termination: inherit
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            terminationGracePeriodSeconds: 35
+
+  - it: should pass with custom termination.gracePeriodSeconds
+    documentIndex: *jobDoc
+    set:
+      key: 50
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            termination:
+              gracePeriodSeconds: 50
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            terminationGracePeriodSeconds: 50
+
+  - it: should pass with inherit set for hostNetwork
+    documentIndex: *jobDoc
+    set:
+      hostNetwork: true
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            hostNetwork: inherit
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            hostNetwork: true
+
+  - it: should pass with false on hostNetwork and true on main
+    documentIndex: *jobDoc
+    set:
+      hostNetwork: true
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            hostNetwork: false
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            hostNetwork: false
+
+  - it: should pass with inherit set for enableServiceLinks
+    documentIndex: *jobDoc
+    set:
+      enableServiceLinks: true
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            enableServiceLinks: inherit
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            enableServiceLinks: true
+
+  - it: should pass with false on enableServiceLinks and true on main
+    documentIndex: *jobDoc
+    set:
+      enableServiceLinks: true
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            enableServiceLinks: false
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            enableServiceLinks: false
+
+  - it: should pass with changed restartPolicy
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            restartPolicy: Always
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            restartPolicy: Always
+
+  - it: should pass with inherit set in priorityClassName
+    documentIndex: *jobDoc
+    set:
+      priorityClassName: somename
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            priorityClassName: inherit
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            priorityClassName: somename
+
+  - it: should pass with custom priorityClassName
+    documentIndex: *jobDoc
+    set:
+      key: somename
+      priorityClassName: main-priorityClass
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            priorityClassName: "{{ .Values.key }}"
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            priorityClassName: somename
+
+  - it: should pass with inherit set in runtimeClassName
+    documentIndex: *jobDoc
+    set:
+      global:
+        ixChartContext:
+          addNvidiaRuntimeClass: true
+          nvidiaRuntimeClassName: nvidia-runtime
+      scaleGPU:
+        gpu: somegpu
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            runtimeClassName: inherit
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            runtimeClassName: nvidia-runtime
+
+  - it: should pass with custom runtimeClassName
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            runtimeClassName: some-runtime
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            runtimeClassName: some-runtime
+
+  - it: should pass with inherit set in hostname
+    documentIndex: *jobDoc
+    set:
+      hostname: somename
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            hostname: inherit
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            hostname: somename
+
+  - it: should pass with custom hostname
+    documentIndex: *jobDoc
+    set:
+      key: somename
+      hostname: main-hostname
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            hostname: "{{ .Values.key }}"
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            hostname: somename
+
+  - it: should pass with inherit set in dnsPolicy
+    documentIndex: *jobDoc
+    set:
+      dnsPolicy: ClusterFirstWithHostNet
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            dnsPolicy: inherit
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            dnsPolicy: ClusterFirstWithHostNet
+
+  - it: should pass with custom dnsPolicy
+    documentIndex: *jobDoc
+    set:
+      dnsPolicy: ClusterFirstWithHostNet
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            dnsPolicy: None
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            dnsPolicy: None
+
+  - it: should pass with volumes added
+    documentIndex: *jobDoc
+    set:
+      persistence:
+        some-volume:
+          enabled: true
+          type: nfs
+          server: some-server
+          path: /some/path
+          mountPath: /some/path
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isKind:
+          of: Job
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: some-volume
+            nfs:
+              server: some-server
+              path: /some/path
+
+  - it: should pass with security Context changed and added gpu
+    documentIndex: *jobDoc
+    set:
+      global:
+        ixChartContext:
+          addNvidiaRuntimeClass: true
+          nvidiaRuntimeClassName: nvidia-runtime
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            podSecurityContext:
+              fsGroup: 0
+              fsGroupChangePolicy: Always
+              supplementalGroups:
+                - 50
+            containers:
+              main:
+                imageSelector: image
+                scaleGPU:
+                  gpu: nvidia
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            runtimeClassName: nvidia-runtime
+            securityContext:
+              fsGroup: 0
+              fsGroupChangePolicy: Always
+              supplementalGroups:
+                - 50
+                - 44
+
+  - it: should pass with security Context set to inherit
+    documentIndex: *jobDoc
+    set:
+      podSecurityContext:
+        fsGroup: 100
+        fsGroupChangePolicy: Always
+        supplementalGroups:
+          - 100
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            podSecurityContext: inherit
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            securityContext:
+              fsGroup: 100
+              fsGroupChangePolicy: Always
+              supplementalGroups:
+                - 100
+
+  - it: should pass with default container
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0]
+          value:
+            name: RELEASE-NAME-common-test-job-main
+            image: repo:tag
+            imagePullPolicy: IfNotPresent
+            tty: false
+            stdin: false
+            env:
+              - name: "TZ"
+                value: "UTC"
+              - name: "UMASK"
+                value: "002"
+              - name: "UMASK_SET"
+                value: "002"
+              - name: "NVIDIA_VISIBLE_DEVICES"
+                value: "void"
+              - name: "S6_READ_ONLY_ROOT"
+                value: "1"
+            securityContext:
+              runAsNonRoot: true
+              runAsUser: 568
+              runAsGroup: 568
+              readOnlyRootFilesystem: true
+              allowPrivilegeEscalation: false
+              privileged: false
+              capabilities:
+                add: []
+                drop:
+                  - "ALL"
+            resources:
+              requests:
+                cpu: 10m
+                memory: 50Mi
+              limits:
+                cpu: 4000m
+                memory: 8Gi

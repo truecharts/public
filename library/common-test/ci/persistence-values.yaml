@@ -1,0 +1,98 @@
+image:
+  repository: traefik/whoami
+  pullPolicy: IfNotPresent
+  tag: latest
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+
+args:
+  - --port
+  - '8080'
+
+probes:
+  liveness:
+    enabled: true
+  readiness:
+    enabled: true
+  startup:
+    enabled: true
+
+persistence:
+  pvc-stock:
+    enabled: true
+    type: pvc
+    mountPath: /pvcstock
+
+  pvc-size:
+    enabled: true
+    type: pvc
+    mountPath: /pvcsize
+    size: 1Gi
+
+  pvc-forcedname:
+    enabled: true
+    type: pvc
+    forceName: "testname"
+    mountPath: /pvcfn
+
+  pvc-readonly:
+    enabled: true
+    type: pvc
+    mountPath: /pvcro
+    readOnly: true
+
+  pvc-labeled:
+    enabled: true
+    labels:
+      labelexample1: labelvalue2
+    type: pvc
+    mountPath: /pvclabeled
+
+  pvc-sc-empty:
+    enabled: true
+    type: pvc
+    mountPath: /pvcscempty
+    readOnly: false
+    storageClass: ""
+
+  pvc-auto:
+    enabled: true
+    setPermissions: true
+    type: pvc
+    mountPath: /autotest
+    readOnly: false
+
+  emptydir:
+    enabled: true
+    type: emptyDir
+    mountPath: /emptydir
+
+  emptydir-mem:
+    enabled: true
+    type: emptyDir
+    mountPath: /emptydirmem
+    medium: Memory
+
+  emptydir-size:
+    enabled: true
+    type: emptyDir
+    mountPath: /emptydirsize
+    sizeLimit: 1Gi
+
+  emptydir-memsize:
+    enabled: true
+    type: emptyDir
+    mountPath: /emptydirmemsize
+    medium: Memory
+    sizeLimit: 1Gi
+
+  hostpath-stock:
+    enabled: true
+    type: hostPath
+    hostPath: /usr
+    mountPath: /hptest
+    hostPathType: ""

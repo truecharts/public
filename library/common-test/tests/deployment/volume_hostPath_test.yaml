@@ -1,0 +1,289 @@
+suite: deployment hostPath volume test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+      - isNull:
+          path: spec.template.spec.volume
+
+  - it: should fail with not set path on hostPath
+    set:
+      persistence:
+        some_volume:
+          type: hostPath
+          enabled: true
+          noMount: true
+    asserts:
+      - failedTemplate:
+          errorMessage: hostPath not set on item (some_volume)
+
+  - it: should fail with hostPath not starting with /
+    set:
+      persistence:
+        some_volume:
+          type: hostPath
+          enabled: true
+          mountPath: /some/path
+          hostPath: some/relative/path
+    asserts:
+      - failedTemplate:
+          errorMessage: Host path (some/relative/path) on item (some_volume) must start with a forward slash -> / <-
+
+  - it: should fail with ValidateHostPath globally set on and invalid hostPath (/mnt/pool)
+    set:
+      global:
+        defaults:
+          validateHostPath: true
+      persistence:
+        some_volume:
+          type: hostPath
+          enabled: true
+          noMount: true
+          hostPath: /mnt/pool
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid hostPath (/mnt/pool). Allowed hostPaths are valid paths under a given pool. e.g. /mnt/POOL/DATASET, /mnt/POOL/DATASET/DIRECTORY
+
+  - it: should fail with ValidateHostPath globally set on and invalid hostPath (/cluster/ctdb_shared_vol)
+    set:
+      global:
+        defaults:
+          validateHostPath: true
+      persistence:
+        some_volume:
+          type: hostPath
+          enabled: true
+          noMount: true
+          hostPath: /cluster/ctdb_shared_vol
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid hostPath (/cluster/ctdb_shared_vol). Allowed hostPaths are valid paths under a given pool. e.g. /mnt/POOL/DATASET, /mnt/POOL/DATASET/DIRECTORY
+
+  - it: should fail with ValidateHostPath globally set on and invalid hostPath (/not_allowed_path)
+    set:
+      global:
+        defaults:
+          validateHostPath: true
+      persistence:
+        some_volume:
+          type: hostPath
+          enabled: true
+          noMount: true
+          hostPath: /not_allowed_path
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid hostPath (/not_allowed_path). Allowed hostPaths are valid paths under a given pool. e.g. /mnt/POOL/DATASET, /mnt/POOL/DATASET/DIRECTORY
+
+  - it: should fail with ValidateHostPath set on the persistence item and invalid hostPath (/mnt/pool)
+    set:
+      persistence:
+        some_volume:
+          type: hostPath
+          enabled: true
+          noMount: true
+          hostPath: /mnt/pool
+          validateHostPath: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid hostPath (/mnt/pool). Allowed hostPaths are valid paths under a given pool. e.g. /mnt/POOL/DATASET, /mnt/POOL/DATASET/DIRECTORY
+
+  - it: should fail with ValidateHostPath set on the persistence item and invalid hostPath (/cluster/ctdb_shared_vol)
+    set:
+      persistence:
+        some_volume:
+          type: hostPath
+          enabled: true
+          noMount: true
+          hostPath: /cluster/ctdb_shared_vol
+          validateHostPath: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid hostPath (/cluster/ctdb_shared_vol). Allowed hostPaths are valid paths under a given pool. e.g. /mnt/POOL/DATASET, /mnt/POOL/DATASET/DIRECTORY
+
+  - it: should fail with ValidateHostPath set on the persistence item and invalid hostPath (/not_allowed_path)
+    set:
+      persistence:
+        some_volume:
+          type: hostPath
+          enabled: true
+          noMount: true
+          hostPath: /not_allowed_path
+          validateHostPath: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid hostPath (/not_allowed_path). Allowed hostPaths are valid paths under a given pool. e.g. /mnt/POOL/DATASET, /mnt/POOL/DATASET/DIRECTORY
+
+  - it: should fail with ValidateHostPath globally disabled but enabled on the item and invalid hostPath (/not_allowed_path)
+    set:
+      global:
+        defaults:
+          validateHostPath: false
+      persistence:
+        some_volume:
+          type: hostPath
+          enabled: true
+          noMount: true
+          hostPath: /not_allowed_path
+          validateHostPath: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid hostPath (/not_allowed_path). Allowed hostPaths are valid paths under a given pool. e.g. /mnt/POOL/DATASET, /mnt/POOL/DATASET/DIRECTORY
+
+  - it: should fail with added hostPath and invalid hostPathType set
+    documentIndex: *deploymentDoc
+    set:
+      hostType: invalid
+      persistence:
+        volume1:
+          enabled: true
+          type: hostPath
+          hostPath: /some_path
+          hostPathType: "{{ .Values.hostType }}"
+          noMount: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid <hostPathType> option (invalid) on item (volume1). Valid options are DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice and BlockDevice
+
+  - it: should pass with ValidateHostPath globally enabled but disabled on the item and not allowed path for hostPath (/not_allowed_path)
+    documentIndex: *deploymentDoc
+    set:
+      global:
+        defaults:
+          validateHostPath: true
+      persistence:
+        some_volume:
+          type: hostPath
+          enabled: true
+          noMount: true
+          hostPath: /not_allowed_path
+          validateHostPath: false
+    asserts:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: some_volume
+            hostPath:
+              path: /not_allowed_path
+
+  - it: should pass with added hostPath and validation globally enabled (/mnt/pool/dataset)
+    documentIndex: *deploymentDoc
+    set:
+      global:
+        defaults:
+          validateHostPath: true
+      persistence:
+        volume1:
+          enabled: true
+          type: hostPath
+          hostPath: /mnt/pool/test
+          noMount: true
+    asserts:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: volume1
+            hostPath:
+              path: /mnt/pool/test
+
+  - it: should pass with added hostPath and validation globally enabled (/cluster/something)
+    documentIndex: *deploymentDoc
+    set:
+      global:
+        defaults:
+          validateHostPath: true
+      persistence:
+        volume1:
+          enabled: true
+          type: hostPath
+          hostPath: /cluster/something
+          noMount: true
+    asserts:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: volume1
+            hostPath:
+              path: /cluster/something
+
+  - it: should pass with added hostPath and validation globally enabled (/sys)
+    documentIndex: *deploymentDoc
+    set:
+      global:
+        defaults:
+          validateHostPath: true
+      persistence:
+        volume1:
+          enabled: true
+          type: hostPath
+          hostPath: /sys
+          noMount: true
+    asserts:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: volume1
+            hostPath:
+              path: /sys
+
+  - it: should pass with added hostPath and validation globally enabled (/dev)
+    documentIndex: *deploymentDoc
+    set:
+      global:
+        defaults:
+          validateHostPath: true
+      persistence:
+        volume1:
+          enabled: true
+          type: hostPath
+          hostPath: /dev
+          noMount: true
+    asserts:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: volume1
+            hostPath:
+              path: /dev
+
+  - it: should pass with added hostPath
+    documentIndex: *deploymentDoc
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: hostPath
+          hostPath: /mnt/pool/test
+          noMount: true
+    asserts:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: volume1
+            hostPath:
+              path: /mnt/pool/test
+
+  - it: should pass with added hostPath and hostPathType set via tpl
+    documentIndex: *deploymentDoc
+    set:
+      some_key: Directory
+      persistence:
+        volume1:
+          enabled: true
+          type: hostPath
+          hostPathType: "{{ .Values.some_key }}"
+          hostPath: /mnt/pool/test
+          noMount: true
+    asserts:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: volume1
+            hostPath:
+              path: /mnt/pool/test
+              type: Directory

@@ -1,0 +1,238 @@
+suite: container in deployment command-arg test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+
+  - it: should pass with command set single value
+    documentIndex: *deploymentDoc
+    set:
+      command: entrypoint.sh
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].command
+          value:
+            - entrypoint.sh
+
+  - it: should pass with command set single value from tpl
+    documentIndex: *deploymentDoc
+    set:
+      cmd: entrypoint.sh
+      command: "{{ .Values.cmd }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].command
+          value:
+            - entrypoint.sh
+
+  - it: should pass with command set
+    documentIndex: *deploymentDoc
+    set:
+      command:
+        - /bin/bash
+        - test
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].command
+          value:
+            - /bin/bash
+            - test
+
+  - it: should pass with command block set
+    documentIndex: *deploymentDoc
+    set:
+      command:
+        - /bin/bash
+        - -c
+        - |
+          echo "works!"
+          exit
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].command
+          value:
+            - /bin/bash
+            - -c
+            - |
+              echo "works!"
+              exit
+
+  - it: should pass with command set from tpl
+    documentIndex: *deploymentDoc
+    set:
+      some_key: some_value
+      command:
+        - /bin/bash
+        - "{{ .Values.some_key }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].command
+          value:
+            - /bin/bash
+            - some_value
+
+  - it: should pass with args set with single value
+    documentIndex: *deploymentDoc
+    set:
+      args: --worker
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].args
+          value:
+            - --worker
+
+  - it: should pass with args set with single value from tpl
+    documentIndex: *deploymentDoc
+    set:
+      some_arg: --worker
+      args: "{{ .Values.some_arg }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].args
+          value:
+            - --worker
+
+  - it: should pass with args set
+    documentIndex: *deploymentDoc
+    set:
+      args:
+        - --port
+        - 8000
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].args
+          value:
+            - --port
+            - 8000
+
+  - it: should pass with args set from tpl
+    documentIndex: *deploymentDoc
+    set:
+      some_port: 9000
+      args:
+        - --port
+        - "{{ .Values.some_port }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].args
+          value:
+            - --port
+            - "9000"
+
+  - it: should pass with extraArgs set single value
+    documentIndex: *deploymentDoc
+    set:
+      extraArgs: --worker
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].args
+          value:
+            - --worker
+
+  - it: should pass with extraArgs set single value from tpl
+    documentIndex: *deploymentDoc
+    set:
+      some_extra_arg: --worker
+      extraArgs: "{{ .Values.some_extra_arg }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].args
+          value:
+            - --worker
+
+  - it: should pass with extraArgs set
+    documentIndex: *deploymentDoc
+    set:
+      extraArgs:
+        - --port
+        - 8000
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].args
+          value:
+            - --port
+            - 8000
+
+  - it: should pass with extraArgs set from tpl
+    documentIndex: *deploymentDoc
+    set:
+      some_port: 9000
+      extraArgs:
+        - --port
+        - "{{ .Values.some_port }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].args
+          value:
+            - --port
+            - "9000"
+
+  - it: should pass with args and extraArgs set
+    documentIndex: *deploymentDoc
+    set:
+      args:
+        - --port
+        - 8000
+      extraArgs:
+        - --photos
+        - /photos
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].args
+          value:
+            - --port
+            - 8000
+            - --photos
+            - /photos
+
+  - it: should pass with args and extraArgs set from tpl
+    documentIndex: *deploymentDoc
+    set:
+      some_port: 9000
+      some_path: /photos
+      args:
+        - --port
+        - "{{ .Values.some_port }}"
+      extraArgs:
+        - --photos
+        - "{{ .Values.some_path }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].args
+          value:
+            - --port
+            - "9000"
+            - --photos
+            - /photos
+
+  - it: should pass with args and extraArgs set - single values
+    documentIndex: *deploymentDoc
+    set:
+      args: --path
+      extraArgs: /photos
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].args
+          value:
+            - --path
+            - /photos
+
+  - it: should pass with args and extraArgs set from tpl - single values
+    documentIndex: *deploymentDoc
+    set:
+      some_arg: --path
+      some_path: /photos
+      args: "{{ .Values.some_arg }}"
+      extraArgs: "{{ .Values.some_path }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].args
+          value:
+            - --path
+            - /photos

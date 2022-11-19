@@ -1,0 +1,1213 @@
+
+suite: upgradeContainer in deployment test
+templates:
+  - common.yaml
+release:
+  upgrade: true
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+
+  - it: should pass with image defined in upgrade container
+    documentIndex: *deploymentDoc
+    set:
+      image:
+        repository: some-repo
+        tag: some-tag
+        pullPolicy: Always
+      upgradeImage:
+        repository: some-repo-upgrade
+        tag: some-tag-upgrade
+        pullPolicy: Never
+      upgradeContainers:
+        some-name:
+          imageSelector: upgradeImage
+          pullPolicy: Never
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            image: some-repo:some-tag
+            imagePullPolicy: Always
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            image: some-repo-upgrade:some-tag-upgrade
+            imagePullPolicy: Never
+
+  - it: should pass with image defined in multiple upgrade container
+    documentIndex: *deploymentDoc
+    set:
+      image:
+        repository: some-repo
+        tag: some-tag
+        pullPolicy: Always
+      initImage:
+        repository: some-repo-init
+        tag: some-tag-init
+        pullPolicy: Never
+      upgradeImage:
+        repository: some-repo-upgrade
+        tag: some-tag-upgrade
+        pullPolicy: Never
+      upgradeImage2:
+        repository: some-repo-upgrade2
+        tag: some-tag-upgrade2
+        pullPolicy: IfNotPresent
+      upgradeContainers:
+        some-name:
+          imageSelector: upgradeImage
+          pullPolicy: Never
+        some-name2:
+          imageSelector: upgradeImage2
+          pullPolicy: Never
+      initContainers:
+        some-name3:
+          imageSelector: initImage
+          pullPolicy: Never
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            image: some-repo:some-tag
+            imagePullPolicy: Always
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            image: some-repo-upgrade:some-tag-upgrade
+            imagePullPolicy: Never
+      - isSubset:
+          path: spec.template.spec.initContainers[1]
+          content:
+            image: some-repo-upgrade2:some-tag-upgrade2
+            imagePullPolicy: IfNotPresent
+      - isSubset:
+          path: spec.template.spec.initContainers[2]
+          content:
+            image: some-repo-init:some-tag-init
+            imagePullPolicy: Never
+
+  - it: should pass with tty and stdin defined in upgrade container
+    documentIndex: *deploymentDoc
+    set:
+      upgradeContainers:
+        some-name:
+          tty: true
+          stdin: true
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            tty: false
+            stdin: false
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            tty: true
+            stdin: true
+
+  - it: should pass with command and args defined in upgrade container
+    documentIndex: *deploymentDoc
+    set:
+      port: 8080
+      entrypoint: ./run.sh
+      upgradeContainers:
+        some-name:
+          command:
+            - /bin/sh
+            - -c
+            - |
+              {{ .Values.entrypoint }}
+          args:
+            - --port
+            - "{{ .Values.port }}"
+          extraArgs:
+            - --data_dir
+            - /data
+    asserts:
+      - isNotSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            command:
+              - /bin/sh
+              - -c
+              - |
+                ./run.sh
+            args:
+              - --port
+              - "8080"
+              - --data_dir
+              - /data
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            command:
+              - /bin/sh
+              - -c
+              - |
+                ./run.sh
+            args:
+              - --port
+              - "8080"
+              - --data_dir
+              - /data
+
+  - it: should pass with termination defined in upgrade container
+    documentIndex: *deploymentDoc
+    set:
+      upgradeContainers:
+        some-name:
+          termination:
+            messagePath: somePath
+            messagePolicy: File
+    asserts:
+      - isNotSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            terminationMessagePath: somePath
+            terminationMessagePolicy: File
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            terminationMessagePath: somePath
+            terminationMessagePolicy: File
+
+  - it: should pass with resources inherited from main container and modified in upgrade container
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        requests:
+          cpu: 25m
+          memory: 80Mi
+      upgradeContainers:
+        some-name:
+          resources:
+            inherit: true
+            limits:
+              cpu: 1000m
+              memory: 1Gi
+            requests:
+              memory: 120Mi
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 25m
+                memory: 80Mi
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            resources:
+              limits:
+                cpu: 1000m
+                memory: 1Gi
+              requests:
+                cpu: 25m
+                memory: 120Mi
+
+  - it: should pass with resources defined in upgrade container
+    documentIndex: *deploymentDoc
+    set:
+      upgradeContainers:
+        some-name:
+          nvidiaCaps:
+            - compute
+          scaleGPU:
+            gpu.intel.com/i915: "1"
+          resources:
+            limits:
+              cpu: 3000m
+              memory: 4Gi
+            requests:
+              cpu: 20m
+              memory: 100Mi
+    asserts:
+      - equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 44
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            resources:
+              limits:
+                cpu: 3000m
+                memory: 4Gi
+                gpu.intel.com/i915: "1"
+              requests:
+                cpu: 20m
+                memory: 100Mi
+      - notContains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: NVIDIA_DRIVER_CAPABILITIES
+            value: all
+      - contains:
+          path: spec.template.spec.initContainers[0].env
+          content:
+            name: NVIDIA_DRIVER_CAPABILITIES
+            value: compute
+
+  - it: should pass with envFrom defined in upgrade container
+    documentIndex: *deploymentDoc
+    set:
+      some_name: a_name
+      some_name2: a_name2
+      upgradeContainers:
+        some-name:
+          envFrom:
+            - configMapRef:
+                name: "{{ .Values.some_name }}"
+            - configMapRef:
+                name: "{{ .Values.some_name2 }}"
+    asserts:
+      - isNotSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            envFrom:
+              - configMapRef:
+                  name: a_name
+              - configMapRef:
+                  name: a_name2
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            envFrom:
+              - configMapRef:
+                  name: a_name
+              - configMapRef:
+                  name: a_name2
+
+  - it: should pass with env and envList defined in upgrade container
+    documentIndex: *deploymentDoc
+    set:
+      some_value: value
+      some_value2: value2
+      some_value3: value3
+      some_value4: value4
+      upgradeContainers:
+        some-name:
+          env:
+            var1: "{{ .Values.some_value }}"
+            var2: "{{ .Values.some_value2 }}"
+            var5:
+              secretKeyRef:
+                key: key
+                name: name
+          envList:
+            - name: var3
+              value: "{{ .Values.some_value3 }}"
+            - name: var4
+              value: "{{ .Values.some_value4 }}"
+    asserts:
+      - isNotSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            env:
+              - name: var1
+                value: value
+              - name: var2
+                value: value2
+              - name: var3
+                value: value3
+              - name: var4
+                value: value4
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            env:
+              - name: TZ
+                value: UTC
+              - name: UMASK
+                value: "002"
+              - name: UMASK_SET
+                value: "002"
+              - name: NVIDIA_VISIBLE_DEVICES
+                value: void
+              - name: S6_READ_ONLY_ROOT
+                value: "1"
+              - name: var1
+                value: value
+              - name: var2
+                value: value2
+              - name: var5
+                valueFrom:
+                  secretKeyRef:
+                    name: name
+                    key: key
+              - name: var3
+                value: value3
+              - name: var4
+                value: value4
+
+  - it: should pass with changed PUID/UMASK
+    documentIndex: *deploymentDoc
+    set:
+      upgradeContainers:
+        some-name:
+          securityContext:
+            runAsUser: 0
+            runAsNonRoot: false
+          security:
+            UMASK: "003"
+            PUID: 1000
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            env:
+              - name: TZ
+                value: UTC
+              - name: UMASK
+                value: "002"
+              - name: UMASK_SET
+                value: "002"
+              - name: NVIDIA_VISIBLE_DEVICES
+                value: void
+              - name: S6_READ_ONLY_ROOT
+                value: "1"
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            env:
+              - name: TZ
+                value: UTC
+              - name: UMASK
+                value: "003"
+              - name: UMASK_SET
+                value: "003"
+              - name: NVIDIA_VISIBLE_DEVICES
+                value: void
+              - name: PUID
+                value: "1000"
+              - name: USER_ID
+                value: "1000"
+              - name: UID
+                value: "1000"
+              - name: PGID
+                value: "568"
+              - name: GROUP_ID
+                value: "568"
+              - name: GID
+                value: "568"
+              - name: S6_READ_ONLY_ROOT
+                value: "1"
+
+  - it: should pass with disabled injectFixedEnvs
+    documentIndex: *deploymentDoc
+    set:
+      upgradeContainers:
+        some-name:
+          securityContext:
+            runAsUser: 0
+            runAsNonRoot: false
+          injectFixedEnvs: false
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            env:
+            - name: TZ
+              value: UTC
+            - name: UMASK
+              value: "002"
+            - name: UMASK_SET
+              value: "002"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: void
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+      - isNull:
+          path: spec.template.spec.initContainers[0].env
+
+  - it: should fail with lifecycle defined in upgrade container
+    set:
+      upgradeContainers:
+        some-name:
+          lifecycle:
+    asserts:
+      - failedTemplate:
+          errorMessage: Init/System/Install/Upgrade/(Cron)Job Container (RELEASE-NAME-common-test-upgrade-some-name) do not support lifecycle hooks
+
+  - it: should fail with env trying to override fixedEnvs in upgrade container
+    set:
+      upgradeContainers:
+        some-name:
+          env:
+            TZ: something
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-upgrade-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (env)]
+
+  - it: should fail with env trying to override configmap in upgrade container
+    set:
+      configmap:
+        some-confmap:
+          enabled: true
+          parseAsEnv: true
+          content:
+            TZ: something
+      upgradeContainers:
+        some-name:
+          envFrom:
+            - configMapRef:
+                name: '{{ include "ix.v1.common.names.fullname" . }}-some-confmap'
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-upgrade-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (configmap-RELEASE-NAME-common-test-some-confmap)]
+
+  - it: should fail with env trying to override secret in upgrade container
+    set:
+      secret:
+        some-secret:
+          enabled: true
+          parseAsEnv: true
+          content:
+            TZ: something
+      upgradeContainers:
+        some-name:
+          envFrom:
+            - secretRef:
+                name: '{{ include "ix.v1.common.names.fullname" . }}-some-secret'
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-upgrade-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (secret-RELEASE-NAME-common-test-some-secret)]
+
+  - it: should pass with securityContext inherited
+    documentIndex: *deploymentDoc
+    set:
+      securityContext:
+        runAsUser: 0
+        runAsGroup: 0
+        runAsNonRoot: false
+        readOnlyRootFilesystem: false
+        privileged: true
+        allowPrivilegeEscalation: true
+        capabilities:
+          add:
+            - Something
+          drop:
+            - Something_Else
+      upgradeContainers:
+        some_container:
+          imageSelector: image
+          securityContext:
+            inherit: true
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              runAsUser: 0
+              runAsGroup: 0
+              runAsNonRoot: false
+              readOnlyRootFilesystem: false
+              privileged: true
+              allowPrivilegeEscalation: true
+              capabilities:
+                add:
+                  - Something
+                drop:
+                  - Something_Else
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: true
+              capabilities:
+                add:
+                - Something
+                drop:
+                - Something_Else
+              privileged: true
+              readOnlyRootFilesystem: false
+              runAsGroup: 0
+              runAsNonRoot: false
+              runAsUser: 0
+
+  - it: should pass with deviceList defined in upgrade container
+    documentIndex: *deploymentDoc
+    set:
+      upgradeContainers:
+        some_container:
+          deviceList:
+            - enabled: true
+              mountPath: /host/dev/usb
+              hostPath: /dev/usb
+          securityContext:
+            inherit: true
+    asserts:
+      - equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 5
+              - 10
+              - 20
+              - 24
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add: []
+                drop:
+                  - ALL
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: true
+              capabilities:
+                add: []
+                drop:
+                  - ALL
+              privileged: true
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+
+  - it: should pass with both deviceList and scaleGPU defined in upgrade container
+    documentIndex: *deploymentDoc
+    set:
+      upgradeContainers:
+        some_container:
+          scaleGPU:
+            nvidia: something
+          deviceList:
+            - enabled: true
+              mountPath: /host/dev/usb
+              hostPath: /dev/usb
+          securityContext:
+            inherit: true
+    asserts:
+      - equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 5
+              - 10
+              - 20
+              - 24
+              - 44
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add: []
+                drop:
+                  - ALL
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: true
+              capabilities:
+                add: []
+                drop:
+                  - ALL
+              privileged: true
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+
+  - it: should pass with port <=1024 defined in upgrade container
+    documentIndex: *deploymentDoc
+    set:
+      upgradeContainers:
+        some_container:
+          ports:
+            - name: http
+              containerPort: 80
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add: []
+                drop:
+                  - ALL
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add:
+                  - NET_BIND_SERVICE
+                drop:
+                  - ALL
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+
+  - it: should pass with securityContext default
+    documentIndex: *deploymentDoc
+    set:
+      upgradeContainers:
+        some_container:
+          imageSelector: image
+          securityContext:
+            inherit: true
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add: []
+                drop:
+                  - ALL
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add: []
+                drop:
+                  - ALL
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+
+  - it: should pass with securityContext changed
+    documentIndex: *deploymentDoc
+    set:
+      upgradeContainers:
+        some_container:
+          imageSelector: image
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
+            readOnlyRootFilesystem: false
+            privileged: true
+            allowPrivilegeEscalation: true
+            capabilities:
+              add:
+                - Something
+              drop:
+                - Something_Else
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add: []
+                drop:
+                  - ALL
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: true
+              capabilities:
+                add:
+                - Something
+                drop:
+                - Something_Else
+              privileged: true
+              readOnlyRootFilesystem: false
+              runAsGroup: 0
+              runAsNonRoot: false
+              runAsUser: 0
+
+  - it: should pass with securityContext with some values changed
+    documentIndex: *deploymentDoc
+    set:
+      upgradeContainers:
+        some_container:
+          imageSelector: image
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
+            capabilities:
+              add:
+                - Something
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add: []
+                drop:
+                  - ALL
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add:
+                - Something
+                drop:
+                  - ALL
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 0
+              runAsNonRoot: false
+              runAsUser: 0
+
+  - it: should pass with securityContext with inherit and at least one value changed
+    documentIndex: *deploymentDoc
+    set:
+      securityContext:
+        privileged: true
+        allowPrivilegeEscalation: true
+        capabilities:
+          drop:
+            - something_else
+      upgradeContainers:
+        some_container:
+          imageSelector: image
+          securityContext:
+            inherit: true
+            runAsNonRoot: false
+            runAsUser: 0
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: true
+              capabilities:
+                add: []
+                drop:
+                  - something_else
+              privileged: true
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: true
+              capabilities:
+                add: []
+                drop:
+                  - something_else
+              privileged: true
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: false
+              runAsUser: 0
+
+  - it: should fail with probes in upgrade container
+    set:
+      upgradeContainers:
+        some-name:
+          probes:
+            liveness:
+              enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Init/System/Install/Upgrade/(Cron)Job Container (RELEASE-NAME-common-test-upgrade-some-name) do not support probes
+
+  - it: should fail with invalid protocol in ports in upgrade container
+    set:
+      upgradeContainers:
+        some-name:
+          ports:
+            - containerPort: 5678
+              protocol: invalid-proto
+              name: tcp-port
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid <protocol> (invalid-proto) in port (tcp-port) in (RELEASE-NAME-common-test-upgrade-some-name) container. Valid protocols are TCP and UDP.
+
+  - it: should fail without name in ports in upgrade container
+    set:
+      upgradeContainers:
+        some-name:
+          ports:
+            - containerPort: 5678
+              protocol: TCP
+              name: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: <name> is required in all <ports> in (RELEASE-NAME-common-test-upgrade-some-name) container.
+
+  - it: should fail without containerPort in ports in upgrade container
+    set:
+      upgradeContainers:
+        some-name:
+          ports:
+            - containerPort: ""
+              name: tcp-port
+    asserts:
+      - failedTemplate:
+          errorMessage: <containerPort> is required in port (tcp-port) in (RELEASE-NAME-common-test-upgrade-some-name) container.
+
+  - it: should fail with non-int containerPort in ports in upgrade container
+    set:
+      upgradeContainers:
+        some-name:
+          ports:
+            - containerPort: not-int
+              name: tcp-port
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid <containerPort> (not-int) in port (tcp-port) in (RELEASE-NAME-common-test-upgrade-some-name) container. Must be an int.
+
+  - it: should fail with non-int hostPort in ports in upgrade container
+    set:
+      upgradeContainers:
+        some-name:
+          ports:
+            - containerPort: 1234
+              hostPort: not-int
+              name: tcp-port
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid <hostPort> (not-int) in port (tcp-port) in (RELEASE-NAME-common-test-upgrade-some-name) container. Must be an int.
+
+  - it: should pass without protocol in ports in upgrade container
+    documentIndex: *deploymentDoc
+    set:
+      upgradeContainers:
+        some-name:
+          ports:
+            - containerPort: 5678
+              name: tcp-port
+    asserts:
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            ports:
+              - containerPort: 5678
+                protocol: TCP
+                name: tcp-port
+
+  - it: should pass with ports defined in upgrade container
+    documentIndex: *deploymentDoc
+    set:
+      upgradeContainers:
+        some-name:
+          ports:
+            - containerPort: 5678
+              protocol: TCP
+              name: tcp-port
+            - containerPort: 1234
+              protocol: UDP
+              name: udp-port
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            ports:
+              - containerPort: 65535
+                protocol: TCP
+                name: main
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            ports:
+              - containerPort: 5678
+                protocol: TCP
+                name: tcp-port
+              - containerPort: 1234
+                protocol: UDP
+                name: udp-port
+
+  - it: should fail without trying to mount a non existent volume in volumeMounts defined in upgrade container
+    set:
+      upgradeContainers:
+        some-name:
+          volumeMounts:
+            - name: some-volume
+              mountPath: /some/path
+    asserts:
+      - failedTemplate:
+          errorMessage: You are trying to mount a volume that does not exist (some-volume). Please define the volume in <persistence>.
+
+  - it: should fail without name in volumeMounts defined in upgrade container
+    set:
+      upgradeContainers:
+        some-name:
+          volumeMounts:
+            - name:
+              mountPath: /some/path
+              readOnly: false
+              subPath: /some/sub/path
+    asserts:
+      - failedTemplate:
+          errorMessage: <name> is required in volumeMounts in init/system/install/upgrade/additional containers.
+
+  - it: should pass with volumeMounts defined in upgrade container
+    documentIndex: *deploymentDoc
+    set:
+      persistence:
+        some-volume:
+          enabled: true
+          noMount: true
+          type: emptyDir
+        some-other-volume:
+          enabled: true
+          noMount: true
+          type: emptyDir
+      upgradeContainers:
+        some-name:
+          volumeMounts:
+            - name: some-volume
+              mountPath: /some/path
+              readOnly: false
+              subPath: /some/sub/path
+            - name: some-other-volume
+              mountPath: /some/other/path
+              readOnly: false
+              subPath: /some/other/sub/path
+    asserts:
+      - notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-volume
+      - notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-other-volume
+      - contains:
+          path: spec.template.spec.initContainers[0].volumeMounts
+          content:
+            name: some-volume
+            mountPath: /some/path
+            readOnly: false
+            subPath: /some/sub/path
+      - contains:
+          path: spec.template.spec.initContainers[0].volumeMounts
+          content:
+            name: some-other-volume
+            mountPath: /some/other/path
+            readOnly: false
+            subPath: /some/other/sub/path
+
+  - it: should pass with volumeMounts inherit all in upgrade container
+    documentIndex: *deploymentDoc
+    set:
+      persistence:
+        some-volume:
+          enabled: true
+          noMount: true
+          mountPath: /some/path
+          type: emptyDir
+        some-other-volume:
+          enabled: true
+          noMount: true
+          mountPath: /some/other/path
+          type: emptyDir
+      upgradeContainers:
+        some-name:
+          volumeMounts:
+            - inherit: all
+    asserts:
+      - notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-volume
+      - notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-other-volume
+      - contains:
+          path: spec.template.spec.initContainers[0].volumeMounts
+          content:
+            name: some-other-volume
+            mountPath: /some/other/path
+      - contains:
+          path: spec.template.spec.initContainers[0].volumeMounts
+          content:
+            name: some-volume
+            mountPath: /some/path
+
+  - it: should pass with volumeMounts inherit skipNoMount in upgrade container
+    documentIndex: *deploymentDoc
+    set:
+      persistence:
+        some-volume:
+          enabled: true
+          noMount: true
+          mountPath: /some/path
+          type: emptyDir
+        some-other-volume:
+          enabled: true
+          type: emptyDir
+          mountPath: /some/other/path
+      upgradeContainers:
+        some-name:
+          volumeMounts:
+            - inherit: skipNoMount
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            mountPath: /some/other/path
+            name: some-other-volume
+      - contains:
+          path: spec.template.spec.initContainers[0].volumeMounts
+          content:
+            name: some-other-volume
+            mountPath: /some/other/path
+
+
+  - it: should pass with deviceList and volumeMounts defined in upgrade container
+    documentIndex: *deploymentDoc
+    set:
+      deviceList:
+        - enabled: true
+          type: hostPath
+          mountPath: /host/dev/something
+          hostPath: /dev/something
+      persistence:
+        some-volume:
+          enabled: true
+          noMount: true
+          type: emptyDir
+        some-other-volume:
+          enabled: true
+          noMount: true
+          type: emptyDir
+      upgradeContainers:
+        some-name:
+          deviceList:
+            - enabled: true
+              type: hostPath
+              mountPath: /host/dev/usb
+              hostPath: /dev/usb
+            - enabled: true
+              type: hostPath
+              mountPath: /host/dev/serial
+              hostPath: /dev/serial
+          volumeMounts:
+            - name: some-volume
+              mountPath: /some/path
+              readOnly: false
+              subPath: /some/sub/path
+            - name: some-other-volume
+              mountPath: /some/other/path
+              readOnly: false
+              subPath: /some/other/sub/path
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: device-0
+            mountPath: /host/dev/something
+      - notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-volume
+      - notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-other-volume
+      - contains:
+          path: spec.template.spec.initContainers[0].volumeMounts
+          content:
+            name: some-volume
+            mountPath: /some/path
+            readOnly: false
+            subPath: /some/sub/path
+      - contains:
+          path: spec.template.spec.initContainers[0].volumeMounts
+          content:
+            name: some-other-volume
+            mountPath: /some/other/path
+            readOnly: false
+            subPath: /some/other/sub/path
+      - contains:
+          path: spec.template.spec.initContainers[0].volumeMounts
+          content:
+            name: device-some-name-0
+            mountPath: /host/dev/usb
+      - contains:
+          path: spec.template.spec.initContainers[0].volumeMounts
+          content:
+            name: device-some-name-1
+            mountPath: /host/dev/serial
+
+  - it: should pass with disabled upgrade container from tpl
+    documentIndex: *deploymentDoc
+    set:
+      flag: false
+      upgradeContainers:
+        some-name:
+          enabled: "{{ .Values.flag }}"
+    asserts:
+      - isNull:
+          path: spec.template.spec.initContainers

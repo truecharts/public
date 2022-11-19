@@ -1,0 +1,80 @@
+suite: deployment controller test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+      - equal:
+          path: apiVersion
+          value: apps/v1
+      - equal:
+          path: spec.revisionHistoryLimit
+          value: 3
+      - equal:
+          path: spec.replicas
+          value: 1
+      - equal:
+          path: spec.strategy.type
+          value: Recreate
+      - isNull:
+          path: spec.strategy.rollingUpdate
+
+  - it: should pass with controller disabled
+    documentIndex: *deploymentDoc
+    set:
+      controller:
+        enabled: false
+    asserts:
+      - hasDocuments:
+          count: 2
+
+  - it: should pass with controller strategy changed and rollingUpdate strategies set
+    documentIndex: *deploymentDoc
+    set:
+      controller:
+        strategy: RollingUpdate
+        rollingUpdate:
+          unavailable: 2
+          surge: 3
+    asserts:
+      - equal:
+          path: spec.strategy.type
+          value: RollingUpdate
+      - equal:
+          path: spec.strategy.rollingUpdate
+          value:
+            maxUnavailable: 2
+            maxSurge: 3
+
+  - it: should pass with controller strategy changed
+    documentIndex: *deploymentDoc
+    set:
+      controller:
+        strategy: RollingUpdate
+    asserts:
+      - equal:
+          path: spec.strategy.type
+          value: RollingUpdate
+      - isNull:
+          path: spec.strategy.rollingUpdate
+
+  - it: should fail with wrong controller
+    set:
+      controller:
+        type: not_valid_controller
+    asserts:
+      - failedTemplate:
+          errorMessage: Not a valid controller.type (not_valid_controller). Valid options are Deployment, DaemonSet, StatefulSet
+
+  - it: should fail with wrong strategy
+    set:
+      controller:
+        strategy: not_valid_strategy
+    asserts:
+      - failedTemplate:
+          errorMessage: Not a valid strategy type for Deployment (not_valid_strategy)

@@ -1,0 +1,120 @@
+
+suite: container in deployment image test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+
+  - it: should pass with imagePullPolicy changed
+    documentIndex: *deploymentDoc
+    set:
+      image:
+        pullPolicy: Always
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].imagePullPolicy
+          value: Always
+
+  - it: should pass with image changed
+    documentIndex: *deploymentDoc
+    set:
+      image:
+        repository: some_repo
+        tag: some_tag
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].image
+          value: some_repo:some_tag
+
+  - it: should fail without repository
+    set:
+      image:
+        repository: ""
+        tag: some_tag
+    asserts:
+      - failedTemplate:
+          errorMessage: Image <repository> is required
+
+  - it: should fail without tag
+    set:
+      image:
+        repository: some_repo
+        tag: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Image <tag> is required
+
+  - it: should fail with invalid pullPolicy
+    set:
+      image:
+        repository: some_repo
+        tag: some_tag
+        pullPolicy: invalid_policy
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid <pullPolicy> option (invalid_policy). Valid options are IfNotPresent, Always, Never
+
+  - it: should fail with selected image that does not exist in values
+    set:
+      imageX:
+        repository: some_repo
+        tag: some_tag
+        pullPolicy: invalid_policy
+      imageSelector: imageY
+    asserts:
+      - failedTemplate:
+          errorMessage: Selected image (imageY) does not exist in values
+
+  - it: should pass with image from image selector
+    documentIndex: *deploymentDoc
+    set:
+      betaImage:
+        repository: some_other_repo
+        tag: some_other_tag
+      imageSelector: betaImage
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].image
+          value: some_other_repo:some_other_tag
+
+  - it: should pass with pullPolicy from image selector
+    documentIndex: *deploymentDoc
+    set:
+      betaImage:
+        repository: some_other_repo
+        tag: some_other_tag
+        pullPolicy: Never
+      imageSelector: betaImage
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].image
+          value: some_other_repo:some_other_tag
+      - equal:
+          path: spec.template.spec.containers[0].imagePullPolicy
+          value: Never
+
+  - it: should fail without repo from image selector
+    set:
+      betaImage:
+        repository: ""
+        tag: some_other_tag
+      imageSelector: betaImage
+    asserts:
+      - failedTemplate:
+          errorMessage: Image <repository> is required
+
+  - it: should fail without tag from image selector
+    set:
+      betaImage:
+        repository: some_other_repo
+        tag: ""
+      imageSelector: betaImage
+    asserts:
+      - failedTemplate:
+          errorMessage: Image <tag> is required

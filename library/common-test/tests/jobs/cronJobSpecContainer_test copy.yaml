@@ -1,0 +1,1130 @@
+suite: cron Job Containers test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+
+  - it: should pass with default in job
+    documentIndex: &cronJobDoc 3
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isKind:
+          of: CronJob
+      - isAPIVersion:
+          of: batch/v1
+
+  - it: should pass with default container
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.containers[0]
+          value:
+            name: RELEASE-NAME-common-test-job-main
+            image: repo:tag
+            imagePullPolicy: IfNotPresent
+            tty: false
+            stdin: false
+            env:
+              - name: "TZ"
+                value: "UTC"
+              - name: "UMASK"
+                value: "002"
+              - name: "UMASK_SET"
+                value: "002"
+              - name: "NVIDIA_VISIBLE_DEVICES"
+                value: "void"
+              - name: "S6_READ_ONLY_ROOT"
+                value: "1"
+            securityContext:
+              runAsNonRoot: true
+              runAsUser: 568
+              runAsGroup: 568
+              readOnlyRootFilesystem: true
+              allowPrivilegeEscalation: false
+              privileged: false
+              capabilities:
+                add: []
+                drop:
+                  - "ALL"
+            resources:
+              requests:
+                cpu: 10m
+                memory: 50Mi
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+
+  - it: should pass with image defined in job container
+    documentIndex: *cronJobDoc
+    set:
+      jobImage:
+        repository: some-repo-job
+        tag: some-tag-job
+        pullPolicy: Never
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                imageSelector: jobImage
+    asserts:
+      - isSubset:
+          path: spec.jobTemplate.spec.template.spec.containers[0]
+          content:
+            image: some-repo-job:some-tag-job
+            imagePullPolicy: Never
+
+  - it: should pass with tty and stdin defined in job container
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+                tty: true
+                stdin: true
+    asserts:
+      - isSubset:
+          path: spec.jobTemplate.spec.template.spec.containers[0]
+          content:
+            tty: true
+            stdin: true
+
+  - it: should pass with command defined in job container
+    documentIndex: *cronJobDoc
+    set:
+      port: 8080
+      entrypoint: ./run.sh
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+                command:
+                  - /bin/sh
+                  - -c
+                  - |
+                    {{ .Values.entrypoint }}
+                args:
+                  - --port
+                  - "{{ .Values.port }}"
+                extraArgs:
+                  - --data_dir
+                  - /data
+    asserts:
+      - isSubset:
+          path: spec.jobTemplate.spec.template.spec.containers[0]
+          content:
+            command:
+              - /bin/sh
+              - -c
+              - |
+                ./run.sh
+            args:
+              - --port
+              - "8080"
+              - --data_dir
+              - /data
+
+  - it: should pass with termination defined in job container
+    documentIndex: *cronJobDoc
+    set:
+      port: 8080
+      entrypoint: ./run.sh
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+                termination:
+                  messagePath: somePath
+                  messagePolicy: File
+    asserts:
+      - isSubset:
+          path: spec.jobTemplate.spec.template.spec.containers[0]
+          content:
+            terminationMessagePath: somePath
+            terminationMessagePolicy: File
+
+  - it: should pass with resources inherited from main container and modified in job container
+    documentIndex: *cronJobDoc
+    set:
+      resources:
+        requests:
+          cpu: 25m
+          memory: 80Mi
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                resources:
+                  inherit: true
+                  limits:
+                    cpu: 1000m
+                    memory: 1Gi
+                  requests:
+                    memory: 120Mi
+    asserts:
+      - isSubset:
+          path: spec.jobTemplate.spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 1000m
+                memory: 1Gi
+              requests:
+                cpu: 25m
+                memory: 120Mi
+
+  - it: should pass with resources defined in job container
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                nvidiaCaps:
+                  - compute
+                scaleGPU:
+                  gpu.intel.com/i915: "1"
+                resources:
+                  limits:
+                    cpu: 3000m
+                    memory: 4Gi
+                  requests:
+                    cpu: 20m
+                    memory: 100Mi
+    asserts:
+      - isSubset:
+          path: spec.jobTemplate.spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 3000m
+                memory: 4Gi
+                gpu.intel.com/i915: "1"
+              requests:
+                cpu: 20m
+                memory: 100Mi
+      - contains:
+          path: spec.jobTemplate.spec.template.spec.containers[0].env
+          content:
+            name: NVIDIA_DRIVER_CAPABILITIES
+            value: compute
+
+  - it: should pass with envFrom defined in job container
+    documentIndex: *cronJobDoc
+    set:
+      some_name: a_name
+      some_name2: a_name2
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                envFrom:
+                  - configMapRef:
+                      name: "{{ .Values.some_name }}"
+                  - configMapRef:
+                      name: "{{ .Values.some_name2 }}"
+    asserts:
+      - isSubset:
+          path: spec.jobTemplate.spec.template.spec.containers[0]
+          content:
+            envFrom:
+              - configMapRef:
+                  name: a_name
+              - configMapRef:
+                  name: a_name2
+
+  - it: should pass with env and envList defined in job container
+    documentIndex: *cronJobDoc
+    set:
+      some_value: value
+      some_value2: value2
+      some_value3: value3
+      some_value4: value4
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                env:
+                  var1: "{{ .Values.some_value }}"
+                  var2: "{{ .Values.some_value2 }}"
+                envList:
+                  - name: var3
+                    value: "{{ .Values.some_value3 }}"
+                  - name: var4
+                    value: "{{ .Values.some_value4 }}"
+    asserts:
+      - isSubset:
+          path: spec.jobTemplate.spec.template.spec.containers[0]
+          content:
+            env:
+              - name: TZ
+                value: UTC
+              - name: UMASK
+                value: "002"
+              - name: UMASK_SET
+                value: "002"
+              - name: NVIDIA_VISIBLE_DEVICES
+                value: void
+              - name: S6_READ_ONLY_ROOT
+                value: "1"
+              - name: var1
+                value: value
+              - name: var2
+                value: value2
+              - name: var3
+                value: value3
+              - name: var4
+                value: value4
+
+  - it: should pass with changed PUID/UMASK
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                securityContext:
+                  runAsUser: 0
+                  runAsNonRoot: false
+                security:
+                  UMASK: "003"
+                  PUID: 1000
+    asserts:
+      - isSubset:
+          path: spec.jobTemplate.spec.template.spec.containers[0]
+          content:
+            env:
+              - name: TZ
+                value: UTC
+              - name: UMASK
+                value: "003"
+              - name: UMASK_SET
+                value: "003"
+              - name: NVIDIA_VISIBLE_DEVICES
+                value: void
+              - name: PUID
+                value: "1000"
+              - name: USER_ID
+                value: "1000"
+              - name: UID
+                value: "1000"
+              - name: PGID
+                value: "568"
+              - name: GROUP_ID
+                value: "568"
+              - name: GID
+                value: "568"
+              - name: S6_READ_ONLY_ROOT
+                value: "1"
+
+  - it: should pass with disabled injectFixedEnvs
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                securityContext:
+                  runAsUser: 0
+                  runAsNonRoot: false
+                injectFixedEnvs: false
+    asserts:
+      - isNull:
+          path: spec.jobTemplate.spec.template.spec.containers[0].env
+
+  - it: should fail with lifecycle defined in job container
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                lifecycle:
+    asserts:
+      - failedTemplate:
+          errorMessage: Init/System/Install/Upgrade/(Cron)Job Container (RELEASE-NAME-common-test-job-main) do not support lifecycle hooks
+
+  - it: should fail with env trying to override fixedEnvs in job container
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                env:
+                  TZ: something
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-job-main) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (env)]
+
+  - it: should fail with env trying to override configmap in job container
+    set:
+      configmap:
+        some-confmap:
+          enabled: true
+          parseAsEnv: true
+          content:
+            TZ: something
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                envFrom:
+                  - configMapRef:
+                      name: '{{ include "ix.v1.common.names.fullname" . }}-some-confmap'
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-job-main) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (configmap-RELEASE-NAME-common-test-some-confmap)]
+
+  - it: should fail with env trying to override secret in job container
+    set:
+      secret:
+        some-secret:
+          enabled: true
+          parseAsEnv: true
+          content:
+            TZ: something
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                envFrom:
+                  - secretRef:
+                      name: '{{ include "ix.v1.common.names.fullname" . }}-some-secret'
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-job-main) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (secret-RELEASE-NAME-common-test-some-secret)]
+
+  - it: should pass with securityContext inherited
+    documentIndex: *cronJobDoc
+    set:
+      securityContext:
+        runAsUser: 0
+        runAsGroup: 0
+        runAsNonRoot: false
+        readOnlyRootFilesystem: false
+        privileged: true
+        allowPrivilegeEscalation: true
+        capabilities:
+          add:
+            - Something
+          drop:
+            - Something_Else
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+                securityContext:
+                  inherit: true
+    asserts:
+      - isSubset:
+          path: spec.jobTemplate.spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: true
+              capabilities:
+                add:
+                - Something
+                drop:
+                - Something_Else
+              privileged: true
+              readOnlyRootFilesystem: false
+              runAsGroup: 0
+              runAsNonRoot: false
+              runAsUser: 0
+
+  - it: should pass with deviceList defined in job container
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                deviceList:
+                  - enabled: true
+                    mountPath: /host/dev/usb
+                    hostPath: /dev/usb
+                securityContext:
+                  inherit: true
+    asserts:
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 5
+              - 10
+              - 20
+              - 24
+      - isSubset:
+          path: spec.jobTemplate.spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: true
+              capabilities:
+                add: []
+                drop:
+                  - ALL
+              privileged: true
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+
+  - it: should pass with deviceList and scaleGPU defined in job container
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                scaleGPU:
+                  nvidia: something
+                deviceList:
+                  - enabled: true
+                    mountPath: /host/dev/usb
+                    hostPath: /dev/usb
+                securityContext:
+                  inherit: true
+    asserts:
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 5
+              - 10
+              - 20
+              - 24
+              - 44
+      - isSubset:
+          path: spec.jobTemplate.spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: true
+              capabilities:
+                add: []
+                drop:
+                  - ALL
+              privileged: true
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+
+  - it: should pass with port <=1024 defined in job container
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                ports:
+                  - name: http
+                    containerPort: 80
+    asserts:
+      - isSubset:
+          path: spec.jobTemplate.spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add:
+                  - NET_BIND_SERVICE
+                drop:
+                  - ALL
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+
+  - it: should pass with securityContext default
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+                securityContext:
+                  inherit: true
+    asserts:
+      - isSubset:
+          path: spec.jobTemplate.spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add: []
+                drop:
+                  - ALL
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+
+  - it: should pass with securityContext changed
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+                securityContext:
+                  runAsUser: 0
+                  runAsGroup: 0
+                  runAsNonRoot: false
+                  readOnlyRootFilesystem: false
+                  privileged: true
+                  allowPrivilegeEscalation: true
+                  capabilities:
+                    add:
+                      - Something
+                    drop:
+                      - Something_Else
+    asserts:
+      - isSubset:
+          path: spec.jobTemplate.spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: true
+              capabilities:
+                add:
+                - Something
+                drop:
+                - Something_Else
+              privileged: true
+              readOnlyRootFilesystem: false
+              runAsGroup: 0
+              runAsNonRoot: false
+              runAsUser: 0
+
+  - it: should pass with securityContext with some values changed
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+                securityContext:
+                  runAsUser: 0
+                  runAsGroup: 0
+                  runAsNonRoot: false
+                  capabilities:
+                    add:
+                      - Something
+    asserts:
+      - isSubset:
+          path: spec.jobTemplate.spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add:
+                - Something
+                drop:
+                  - ALL
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 0
+              runAsNonRoot: false
+              runAsUser: 0
+
+  - it: should pass with securityContext with inherit and at least one value changed
+    documentIndex: *cronJobDoc
+    set:
+      securityContext:
+        privileged: true
+        allowPrivilegeEscalation: true
+        capabilities:
+          drop:
+            - something_else
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+                securityContext:
+                  inherit: true
+                  runAsNonRoot: false
+                  runAsUser: 0
+    asserts:
+      - isSubset:
+          path: spec.jobTemplate.spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: true
+              capabilities:
+                add: []
+                drop:
+                  - something_else
+              privileged: true
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: false
+              runAsUser: 0
+
+  - it: should fail with probes in job container
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                probes:
+                  liveness:
+                    enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Init/System/Install/Upgrade/(Cron)Job Container (RELEASE-NAME-common-test-job-main) do not support probes
+
+  - it: should fail with invalid protocol in ports in job container
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                ports:
+                  - containerPort: 5678
+                    protocol: invalid-proto
+                    name: tcp-port
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid <protocol> (invalid-proto) in port (tcp-port) in (RELEASE-NAME-common-test-job-main) container. Valid protocols are TCP and UDP.
+
+  - it: should fail without name in ports in job container
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                ports:
+                  - containerPort: 5678
+                    protocol: TCP
+                    name: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: <name> is required in all <ports> in (RELEASE-NAME-common-test-job-main) container.
+
+  - it: should fail without containerPort in ports in job container
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                ports:
+                  - containerPort: ""
+                    name: tcp-port
+    asserts:
+      - failedTemplate:
+          errorMessage: <containerPort> is required in port (tcp-port) in (RELEASE-NAME-common-test-job-main) container.
+
+  - it: should fail with non-int containerPort in ports in job container
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                ports:
+                  - containerPort: not-int
+                    name: tcp-port
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid <containerPort> (not-int) in port (tcp-port) in (RELEASE-NAME-common-test-job-main) container. Must be an int.
+
+  - it: should fail with non-int hostPort in ports in job container
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                ports:
+                  - containerPort: 1234
+                    hostPort: not-int
+                    name: tcp-port
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid <hostPort> (not-int) in port (tcp-port) in (RELEASE-NAME-common-test-job-main) container. Must be an int.
+
+  - it: should pass without protocol in ports in job container
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                ports:
+                  - containerPort: 5678
+                    name: tcp-port
+    asserts:
+      - isSubset:
+          path: spec.jobTemplate.spec.template.spec.containers[0]
+          content:
+            ports:
+              - containerPort: 5678
+                protocol: TCP
+                name: tcp-port
+
+  - it: should pass with ports defined in job container
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                ports:
+                  - containerPort: 5678
+                    protocol: TCP
+                    name: tcp-port
+                  - containerPort: 1234
+                    protocol: UDP
+                    name: udp-port
+    asserts:
+      - isSubset:
+          path: spec.jobTemplate.spec.template.spec.containers[0]
+          content:
+            ports:
+              - containerPort: 5678
+                protocol: TCP
+                name: tcp-port
+              - containerPort: 1234
+                protocol: UDP
+                name: udp-port
+
+  - it: should fail without trying to mount a non existent volume in volumeMounts defined in job container
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                volumeMounts:
+                  - name: some-volume
+                    mountPath: /some/path
+    asserts:
+      - failedTemplate:
+          errorMessage: You are trying to mount a volume that does not exist (some-volume). Please define the volume in <persistence>.
+
+  - it: should fail without name in volumeMounts defined in job container
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                volumeMounts:
+                  - name:
+                    mountPath: /some/path
+                    readOnly: false
+                    subPath: /some/sub/path
+    asserts:
+      - failedTemplate:
+          errorMessage: <name> is required in volumeMounts in init/system/install/upgrade/additional containers.
+
+  - it: should pass with volumeMounts defined in job container
+    documentIndex: *cronJobDoc
+    set:
+      persistence:
+        some-volume:
+          enabled: true
+          noMount: true
+          type: emptyDir
+        some-other-volume:
+          enabled: true
+          noMount: true
+          type: emptyDir
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                volumeMounts:
+                  - name: some-volume
+                    mountPath: /some/path
+                    readOnly: false
+                    subPath: /some/sub/path
+                  - name: some-other-volume
+                    mountPath: /some/other/path
+                    readOnly: false
+                    subPath: /some/other/sub/path
+    asserts:
+      - contains:
+          path: spec.jobTemplate.spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-volume
+            mountPath: /some/path
+            readOnly: false
+            subPath: /some/sub/path
+      - contains:
+          path: spec.jobTemplate.spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-other-volume
+            mountPath: /some/other/path
+            readOnly: false
+            subPath: /some/other/sub/path
+
+  - it: should pass with deviceList and volumeMounts defined in job container
+    documentIndex: *cronJobDoc
+    set:
+      deviceList:
+        - enabled: true
+          type: hostPath
+          mountPath: /host/dev/something
+          hostPath: /dev/something
+      persistence:
+        some-volume:
+          enabled: true
+          noMount: true
+          type: emptyDir
+        some-other-volume:
+          enabled: true
+          noMount: true
+          type: emptyDir
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          podSpec:
+            containers:
+              main:
+                deviceList:
+                  - enabled: true
+                    type: hostPath
+                    mountPath: /host/dev/usb
+                    hostPath: /dev/usb
+                  - enabled: true
+                    type: hostPath
+                    mountPath: /host/dev/serial
+                    hostPath: /dev/serial
+                volumeMounts:
+                  - name: some-volume
+                    mountPath: /some/path
+                    readOnly: false
+                    subPath: /some/sub/path
+                  - name: some-other-volume
+                    mountPath: /some/other/path
+                    readOnly: false
+                    subPath: /some/other/sub/path
+    asserts:
+      - contains:
+          path: spec.jobTemplate.spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-volume
+            mountPath: /some/path
+            readOnly: false
+            subPath: /some/sub/path
+      - contains:
+          path: spec.jobTemplate.spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-other-volume
+            mountPath: /some/other/path
+            readOnly: false
+            subPath: /some/other/sub/path
+      - contains:
+          path: spec.jobTemplate.spec.template.spec.containers[0].volumeMounts
+          content:
+            name: device-job-main-0
+            mountPath: /host/dev/usb
+      - contains:
+          path: spec.jobTemplate.spec.template.spec.containers[0].volumeMounts
+          content:
+            name: device-job-main-1
+            mountPath: /host/dev/serial

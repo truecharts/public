@@ -1,0 +1,571 @@
+suite: container in deployment resources test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            limits:
+              cpu: 4000m
+              memory: 8Gi
+            requests:
+              cpu: 10m
+              memory: 50Mi
+
+  - it: should fail with inherit defined in main container
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        inherit:
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.inherit> key is only available for additional/init/install/upgrade containers.
+
+  - it: should fail with empty key in gpu
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU:
+        somekey:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: Value is not provided for GPU (<key> somekey)
+
+  - it: should fail with empty requests.cpu
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 4Gi
+        requests:
+          cpu:
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.requests.cpu> cannot be empty.
+
+  - it: should fail with empty requests.memory
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory:
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.requests.memory> cannot be empty.
+
+  - it: should fail with invalid format in requests.memory (zero)
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU:
+        somekey:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory: 0.0
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.requests.memory> has invalid format in value (0). Valid formats are (Suffixed with EPTGMK eg. 1G) (Suffixed with EPTGMK + i eg. 1Gi) (Plain integer (in bytes) eg. 1024) (Exponent eg. 134e6).
+
+  - it: should fail with invalid format in requests.memory (zero exponent)
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU:
+        somekey:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory: 0e0
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.requests.memory> has invalid format in value (0). Valid formats are (Suffixed with EPTGMK eg. 1G) (Suffixed with EPTGMK + i eg. 1Gi) (Plain integer (in bytes) eg. 1024) (Exponent eg. 134e6).
+
+  - it: should fail with invalid format in requests.memory (zero with suffix)
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU:
+        somekey:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory: 0M
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.requests.memory> has invalid format in value (0M). Valid formats are (Suffixed with EPTGMK eg. 1G) (Suffixed with EPTGMK + i eg. 1Gi) (Plain integer (in bytes) eg. 1024) (Exponent eg. 134e6).
+
+  - it: should fail with invalid format in requests.memory (string)
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU:
+        somekey:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory: not-valid
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.requests.memory> has invalid format in value (not-valid). Valid formats are (Suffixed with EPTGMK eg. 1G) (Suffixed with EPTGMK + i eg. 1Gi) (Plain integer (in bytes) eg. 1024) (Exponent eg. 134e6).
+
+  - it: should fail with invalid format in limits.memory (zero)
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 0.0
+        requests:
+          cpu: 20m
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.limits.memory> has invalid format in value (0). Valid formats are (Suffixed with EPTGMK eg. 1G) (Suffixed with EPTGMK + i eg. 1Gi) (Plain integer (in bytes) eg. 1024) (Exponent eg. 134e6).
+
+  - it: should fail with invalid format in limits.memory (zero exponent)
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 0e0
+        requests:
+          cpu: 20m
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.limits.memory> has invalid format in value (0). Valid formats are (Suffixed with EPTGMK eg. 1G) (Suffixed with EPTGMK + i eg. 1Gi) (Plain integer (in bytes) eg. 1024) (Exponent eg. 134e6).
+
+  - it: should fail with invalid format in requests.limits (zero with suffix)
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 0M
+        requests:
+          cpu: 20m
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.limits.memory> has invalid format in value (0M). Valid formats are (Suffixed with EPTGMK eg. 1G) (Suffixed with EPTGMK + i eg. 1Gi) (Plain integer (in bytes) eg. 1024) (Exponent eg. 134e6).
+
+  - it: should fail with invalid format in limits.memory (string)
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: not-valid
+        requests:
+          cpu: 20m
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.limits.memory> has invalid format in value (not-valid). Valid formats are (Suffixed with EPTGMK eg. 1G) (Suffixed with EPTGMK + i eg. 1Gi) (Plain integer (in bytes) eg. 1024) (Exponent eg. 134e6).
+
+  - it: should fail with invalid format in limits.cpu (zero)
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 0.0
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.limits.cpu> has invalid format in value (0). Valid formats are (Plain Integer eg. 1) (Float eg. 0.5) (Milicpu 500m).
+
+  - it: should fail with invalid format in limits.cpu (zero with suffix)
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 0m
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.limits.cpu> has invalid format in value (0m). Valid formats are (Plain Integer eg. 1) (Float eg. 0.5) (Milicpu 500m).
+
+  - it: should fail with invalid format in limits.cpu (string)
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: not-valid
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.limits.cpu> has invalid format in value (not-valid). Valid formats are (Plain Integer eg. 1) (Float eg. 0.5) (Milicpu 500m).
+
+  - it: should fail with invalid format in requests.cpu (zero)
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 4000m
+          memory: 4Gi
+        requests:
+          cpu: 0.0
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.requests.cpu> has invalid format in value (0). Valid formats are (Plain Integer eg. 1) (Float eg. 0.5) (Milicpu 500m).
+
+  - it: should fail with invalid format in requests.cpu (zero with suffix)
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 4000m
+          memory: 4Gi
+        requests:
+          cpu: 0m
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.requests.cpu> has invalid format in value (0m). Valid formats are (Plain Integer eg. 1) (Float eg. 0.5) (Milicpu 500m).
+
+  - it: should fail with invalid format in requests.cpu (string)
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 4000m
+          memory: 4Gi
+        requests:
+          cpu: not-valid
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.requests.cpu> has invalid format in value (not-valid). Valid formats are (Plain Integer eg. 1) (Float eg. 0.5) (Milicpu 500m).
+
+  - it: should pass with changed resources
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory: 100Mi
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            limits:
+              cpu: 3000m
+              memory: 4Gi
+            requests:
+              cpu: 20m
+              memory: 100Mi
+
+  - it: should pass with only limits.cpu resource changed
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 3000m
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            limits:
+              cpu: 3000m
+              memory: 8Gi
+            requests:
+              cpu: 10m
+              memory: 50Mi
+
+  - it: should pass with only limits.memory resource changed
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          memory: 4Gi
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            limits:
+              cpu: 4000m
+              memory: 4Gi
+            requests:
+              cpu: 10m
+              memory: 50Mi
+
+  - it: should pass with only requests.cpu resource changed
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        requests:
+          cpu: 20m
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            limits:
+              cpu: 4000m
+              memory: 8Gi
+            requests:
+              cpu: 20m
+              memory: 50Mi
+
+  - it: should pass with only requests.memory resource changed
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        requests:
+          memory: 25Mi
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            limits:
+              cpu: 4000m
+              memory: 8Gi
+            requests:
+              cpu: 10m
+              memory: 25Mi
+
+  - it: should pass with only scaleGOU resource changed
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU:
+        gpu.intel.com/i915: "1"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            limits:
+              cpu: 4000m
+              memory: 8Gi
+              gpu.intel.com/i915: "1"
+            requests:
+              cpu: 10m
+              memory: 50Mi
+
+  - it: should pass with changed resources and added GPU
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU:
+        gpu.intel.com/i915: "1"
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory: 100Mi
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            limits:
+              cpu: 3000m
+              memory: 4Gi
+              gpu.intel.com/i915: "1"
+            requests:
+              cpu: 20m
+              memory: 100Mi
+
+  - it: should pass with empty resources.limits
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu:
+          memory:
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            requests:
+              cpu: 10m
+              memory: 50Mi
+
+  - it: should pass with only limits.cpu defined
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU: {}
+      resources:
+        limits:
+          cpu: 3000m
+          memory:
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            limits:
+              cpu: 3000m
+            requests:
+              cpu: 10m
+              memory: 50Mi
+
+  - it: should pass with only limits.memory defined
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU: {}
+      resources:
+        limits:
+          cpu:
+          memory: 4Gi
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            limits:
+              memory: 4Gi
+            requests:
+              cpu: 10m
+              memory: 50Mi
+
+  - it: should pass with only requests.cpu defined
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU: {}
+      resources:
+        limits:
+          cpu:
+          memory:
+        requests:
+          cpu: 30m
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            requests:
+              cpu: 30m
+              memory: 50Mi
+
+  - it: should pass with only requests.memory defined
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU: {}
+      resources:
+        limits:
+          cpu:
+          memory:
+        requests:
+          memory: 15Mi
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            requests:
+              cpu: 10m
+              memory: 15Mi
+
+  - it: should pass with only limits.gpu defined
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU:
+        gpu.intel.com/i915: "1"
+      resources:
+        limits:
+          cpu:
+          memory:
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            limits:
+              gpu.intel.com/i915: "1"
+            requests:
+              cpu: 10m
+              memory: 50Mi
+
+  - it: should pass with only requests defined
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU: {}
+      resources:
+        limits:
+          cpu:
+          memory:
+        requests:
+          cpu: 10m
+          memory: 50Mi
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            requests:
+              cpu: 10m
+              memory: 50Mi
+
+  - it: should pass with only limits defined
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU: {}
+      resources:
+        limits:
+          cpu: 1000m
+          memory: 1Gi
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            limits:
+              cpu: 1000m
+              memory: 1Gi
+            requests:
+              cpu: 10m
+              memory: 50Mi
+
+
+  - it: should pass with only gpu defined
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU:
+        gpu.intel.com/i915: "1"
+      resources:
+        limits:
+          cpu:
+          memory:
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            limits:
+              gpu.intel.com/i915: "1"
+            requests:
+              cpu: 10m
+              memory: 50Mi

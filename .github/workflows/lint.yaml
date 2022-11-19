@@ -1,0 +1,27 @@
+name: flake8
+
+on: [push]
+
+jobs:
+  lint:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8
+    - name: Setup flake8 config
+      run: |
+        echo '[flake8]' > setup.cfg
+        echo 'max-line-length = 120' >> setup.cfg
+    - name: Analysing the code with flake8
+      run: |
+        find -name upgrade_strategy -exec sh -c "flake8  {} && exit 0 || echo $? > .exit_status" \;
+        test -f .exit_status && rm .exit_status && exit 1; exit 0;

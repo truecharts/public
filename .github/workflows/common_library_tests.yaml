@@ -1,0 +1,191 @@
+name: Common Library Tests
+
+on:
+  pull_request:
+    paths:
+      - library/**
+      - .github/workflows/common_library_tests.yaml
+
+jobs:
+  lint:
+    name: Lint Common
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        # We run tests on Helm version of latest SCALE release, SCALE nightly and manually defined "latest"
+        helm-version:
+          - v3.9.4
+          - v3.10.3
+          - v3.11.0-rc.1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        with:
+          fetch-depth: 1
+
+      - name: Install Helm
+        uses: azure/setup-helm@f382f75448129b3be48f8121b9857be18d815a82 # tag=v3
+        with:
+          version: ${{ matrix.helm-version }}
+
+      - uses: actions/setup-python@2c3dd9e7e29afd70cc0950079bde6c979d1f69f9 # tag=v4
+        with:
+          python-version: "3.10"
+
+      - name: Set up chart-testing
+        uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
+
+
+      - name: Run chart-testing (lint)
+        run: |
+          ct lint --config .github/ct-install-config/ct-lint.yaml \
+                  --lint-conf .github/ct-install-config/lint-conf.yaml \
+                  --charts library/common-test \
+                  --debug
+
+
+
+
+  unittest:
+    name: Unit Tests
+    runs-on: ubuntu-22.04
+    env:
+      helmunitversion: 0.2.11
+    strategy:
+      fail-fast: false
+      matrix:
+        # We run tests on Helm version of latest SCALE release, SCALE nightly and manually defined "latest"
+        helm-version:
+          - v3.9.4
+          - v3.10.3
+          - v3.11.0-rc.1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        with:
+          fetch-depth: 1
+
+      - name: Cache helm plugins
+        uses: actions/cache@v3
+        with:
+          path: |
+            /home/runner/.local/share/helm/plugins/helm-unittest
+          key: helm-${{ matrix.helm-version }}-unittest-v${{ env.helmunitversion }}-${{ hashFiles('/home/runner/.local/share/helm/plugins/helm-unittest') }}
+          restore-keys: |
+            helm-${{ matrix.helm-version }}-unittest-v${{ env.helmunitversion }}-${{ hashFiles('/home/runner/.local/share/helm/plugins/helm-unittest') }}
+            helm-${{ matrix.helm-version }}-unittest-v${{ env.helmunitversion }}
+
+      - name: Install Helm
+        uses: azure/setup-helm@f382f75448129b3be48f8121b9857be18d815a82 # tag=v3
+        with:
+          version: ${{ matrix.helm-version }}
+
+      - name: Run tests
+        run: |
+          helm unittest -h || helm plugin install https://github.com/quintush/helm-unittest --version "v${helmunitversion}"
+          cd library/common-test/
+          helm dependency update
+          helm unittest --helm3 -f "tests/*/*.yaml" .
+
+  install:
+    needs:
+      - lint
+    name: Install Charts
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        # We run tests on k3s version of latest SCALE release, SCALE nightly and manually defined "latest"
+        k3s-version:
+          - v1.25.3+k3s1
+          - v1.26.0+k3s1
+        # We run tests on Helm version of latest SCALE release, SCALE nightly and manually defined "latest"
+        helm-version:
+          - v3.9.4
+          - v3.10.3
+          - v3.11.0-rc.1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        with:
+          fetch-depth: 1
+
+      - name: Install Helm
+        uses: azure/setup-helm@f382f75448129b3be48f8121b9857be18d815a82 # tag=v3
+        with:
+          version: ${{ matrix.helm-version }}
+
+      - uses: actions/setup-python@2c3dd9e7e29afd70cc0950079bde6c979d1f69f9 # tag=v4
+        with:
+          python-version: "3.10"
+
+      - name: Set up chart-testing
+        uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
+
+      - name: Create k3d cluster - Attempt 1/3
+        continue-on-error: true
+        id: createc1
+        uses: nolar/setup-k3d-k3s@293b8e5822a20bc0d5bcdd4826f1a665e72aba96 # tag=v1.0.9
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          version: ${{ matrix.k3s-version }}
+          # Flags found here https://github.com/k3d-io/k3d
+          k3d-args: --k3s-arg --disable=metrics-server@server:*
+
+      - name: Wait 10 second to retry
+        if: steps.createc1.outcome=='failure'
+        run: |
+          sleep 10
+
+      - name: Create k3d cluster - Attempt 2/3
+        continue-on-error: true
+        if: steps.createc1.outcome=='failure'
+        id: createc2
+        uses: nolar/setup-k3d-k3s@293b8e5822a20bc0d5bcdd4826f1a665e72aba96 # tag=v1.0.9
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          version: ${{ matrix.k3s-version }}
+          # Flags found here https://github.com/k3d-io/k3d
+          k3d-args: --k3s-arg --disable=metrics-server@server:*
+
+      - name: Wait 10 second to retry
+        if: steps.createc2.outcome=='failure'
+        run: |
+          sleep 10
+
+
+      - name: Create k3d cluster - Attempt 3/3
+        id: createc3
+        if: steps.createc2.outcome=='failure'
+        uses: nolar/setup-k3d-k3s@293b8e5822a20bc0d5bcdd4826f1a665e72aba96 # tag=v1.0.9
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          version: ${{ matrix.k3s-version }}
+          # Flags found here https://github.com/k3d-io/k3d
+          k3d-args: --k3s-arg --disable=metrics-server@server:*
+
+      - name: Move CI values
+        run: |
+          mv library/common-test/ci library/common-test/runtests
+
+      - name: Run chart-testing (install) - Basic Values
+        run: |
+          mv -f library/common-test/runtests/basic-values.yaml library/common-test/values.yaml
+          ct install  --config .github/ct-install-config/ct-install.yaml \
+                      --charts library/common-test \
+                      --debug
+
+      - name: Run chart-testing (install) - persistence Values
+        run: |
+          mv -f library/common-test/runtests/persistence-values.yaml library/common-test/values.yaml
+          ct install  --config .github/ct-install-config/ct-install.yaml \
+                      --charts library/common-test \
+                      --debug
+
+      - name: Run chart-testing (install) - rbac Values
+        run: |
+          mv -f library/common-test/runtests/rbac-values.yaml library/common-test/values.yaml
+          ct install  --config .github/ct-install-config/ct-install.yaml \
+                      --charts library/common-test \
+                      --debug
