@@ -1,7 +1,8 @@
 {{/* Security Context included by the container */}}
 {{- define "ix.v1.common.container.securityContext" -}}
-{{- $secContext := .Values.securityContext -}}
-{{- $podSecContext := .Values.podSecurityContext -}}
+{{- $secContext := .secCont -}}
+{{- $podSecContext := .podSecCont -}}
+{{- $root := .root -}}
 {{/* Check that they are set as booleans to prevent typos */}}
 {{- with $secContext -}}
  {{- if or (not (kindIs "bool" .runAsNonRoot)) (not (kindIs "bool" .privileged)) (not (kindIs "bool" .readOnlyRootFilesystem)) (not (kindIs "bool" .allowPrivilegeEscalation)) -}}
@@ -11,7 +12,7 @@
 {{/* Only run as root if it's explicitly defined */}}
 {{- if or (not $podSecContext.runAsUser) (not $podSecContext.runAsGroup) -}}
   {{- if $secContext.runAsNonRoot -}}
-    {{- fail "You are trying to run as root (user or group), but runAsNonRoot is set to true"  -}}
+    {{- fail "You are trying to run as root (user or group), but runAsNonRoot is set to true" -}}
   {{- end -}}
 {{- end -}}
 runAsNonRoot: {{ $secContext.runAsNonRoot }}
@@ -26,13 +27,13 @@ capabilities:
     {{- with $secContext.capabilities.add }}
     add:
       {{- range . }}
-      - {{ tpl . $ | quote }}
+      - {{ tpl . $root | quote }}
       {{- end }}
     {{- end }}
     {{- with $secContext.capabilities.drop }}
     drop:
       {{- range . }}
-      - {{ tpl . $ | quote }}
+      - {{ tpl . $root | quote }}
       {{- end }}
     {{- end }}
   {{- else }}
@@ -41,6 +42,22 @@ capabilities:
   {{- end }}
 {{- end -}}
 
-
+{{/* A dict podSecContext is expected with keys line runAsUser */}}
 {{- define "ix.v1.common.container.podSecurityContext" -}}
+{{- $podSecCont := .podSecCont -}}
+runAsUser: {{ required "<runAsUser> value is required." $podSecCont.runAsUser }}
+runAsGroup: {{ required "<runAsGroup> value is required." $podSecCont.runAsGroup }}
+fsGroup: {{ required "<fsGroup> value is required." $podSecCont.fsGroup }}
+{{- with $podSecCont.supplementalGroups }}
+supplementalGroups:
+  {{- range . }}
+  - {{ . }}
+  {{- end -}}
+{{- end -}}
+{{- with $podSecCont.fsGroupChangePolicy -}}
+  {{- if and (ne . "Always") (ne . "OnRootMismatch") -}}
+    {{- fail "Invalid option for fsGroupChangePolicy. Valid options are <Always> and <OnRootMismatch>." -}}
+  {{- end }}
+fsGroupChangePolicy: {{ . }}
+{{- end -}}
 {{- end -}}

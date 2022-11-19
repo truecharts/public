@@ -1,0 +1,74 @@
+suite: deployment container podSecurityContext test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.securityContext
+          value:
+            runAsUser: 568
+            runAsGroup: 568
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+
+  - it: should pass with changed podSecurity values
+    set:
+      podSecurityContext:
+        runAsUser: 999
+        runAsGroup: 999
+        fsGroup: 999
+        fsGroupChangePolicy: Always
+        supplementalGroups:
+          - 1000
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.securityContext
+          value:
+            runAsUser: 999
+            runAsGroup: 999
+            fsGroup: 999
+            fsGroupChangePolicy: Always
+            supplementalGroups:
+              - 1000
+
+  - it: should fail without runAsUser
+    set:
+      podSecurityContext:
+        runAsUser:
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: <runAsUser> value is required.
+
+  - it: should fail without runAsGroup
+    set:
+      podSecurityContext:
+        runAsGroup:
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: <runAsGroup> value is required.
+
+  - it: should fail without fsGroup
+    set:
+      podSecurityContext:
+        fsGroup:
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: <fsGroup> value is required.
+
+  - it: should fail with invalid fsGroupChangePolicy
+    set:
+      podSecurityContext:
+        fsGroupChangePolicy: invalid_policy
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: Invalid option for fsGroupChangePolicy. Valid options are <Always> and <OnRootMismatch>.
