@@ -11,9 +11,10 @@ tests:
           documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].name
           value: RELEASE-NAME-common-test
-      - isNull:
+      - equal:
           documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].image
+          value: repo:tag
       - isNull:
           documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].command

@@ -21,11 +21,13 @@ ixExternalInterfacesConfigurationNames: []
 # TODO: docs
 image:
   # -- Image repository
-  repository:
+  repository: repo
   # -- Image tag
-  tag:
+  tag: tag
   # -- Image pull policy
   pullPolicy: IfNotPresent
+
+imageSelector: ""
 
 command: []
 

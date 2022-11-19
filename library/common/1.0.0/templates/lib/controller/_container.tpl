@@ -1,7 +1,7 @@
 {{/* The main container included in the controller */}}
 {{- define "ix.v1.common.controller.mainContainer" -}}
 - name: {{ include "ix.v1.common.names.fullname" . }}
-  image: {{/* TODO: */}}
+  image: {{ include "ix.v1.common.images.selector" . }}
   imagePullPolicy: {{ .Values.image.pullPolicy }}
   tty: {{ .Values.tty }}
   stdin: {{ .Values.stdin }}
