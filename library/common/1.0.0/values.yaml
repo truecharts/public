@@ -74,7 +74,8 @@ resources:
     memory: 50Mi
 
 # TODO: docs -- Used to add SCALE GPU configuration
-scaleGPU: {}  # TODO: Verify that this is the correct value returned from ref
+# TODO: Verify that this is the correct value returned from ref
+scaleGPU: {}
   # gpu: 1
 
 nvidiaCaps:
@@ -142,7 +143,8 @@ service:
         # If there is more than 1 service, make sure that only 1 port is marked as primary.
         primary: true
         # -- The port number (Default port is required if enabled: true)
-        port: 999999  #TODO:
+        #TODO: Decide if we have a default port or remove and also remove the "fail"
+        port: 999999
         # -- Port protocol.
         # Support values are `HTTP`, `HTTPS`, `TCP` and `UDP`.
         # HTTPS and HTTPS spawn a TCP service and get used for internal URL and name generation
@@ -192,7 +194,7 @@ probes:
       periodSeconds: 5
       failureThreshold: 60
 
-persistence:
+persistence: {}
 # TODO: Discuss if we are going to add defaults like:
   # - /dev/shm
   # - /tmp
