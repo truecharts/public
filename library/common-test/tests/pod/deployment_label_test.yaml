@@ -1,6 +1,8 @@
 suite: deployment label test
 templates:
   - common.yaml
+chart:
+  appVersion: v1.2.3
 tests:
   - it: should pass with default values
     asserts:
@@ -15,7 +17,7 @@ tests:
             app.kubernetes.io/instance: RELEASE-NAME
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/name: common-test
-            app.kubernetes.io/version: v1.0.0
+            app.kubernetes.io/version: v1.2.3
             helm-revision: "0"
             helm.sh/chart: common-test-1.0.0
             release: RELEASE-NAME
@@ -52,7 +54,7 @@ tests:
             app.kubernetes.io/instance: RELEASE-NAME
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/name: common-test
-            app.kubernetes.io/version: v1.0.0
+            app.kubernetes.io/version: v1.2.3
             helm-revision: "0"
             helm.sh/chart: common-test-1.0.0
             release: RELEASE-NAME
