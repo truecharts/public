@@ -1,14 +1,14 @@
 env:
-  AUTHOR_NAME: unRAID
-  DESCRIPTION: My unRAID Photo Stream collection.
+  AUTHOR_NAME: TrueCharts
+  DESCRIPTION: TrueCharts Photo Stream collection.
   SHOW_OFFICIAL_GITHUB: "0"
-  TITLE: Photo Stream for unRAID
+  TITLE: Photo Stream for TrueCharts
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/photo-stream
   tag: latest@sha256:9a0fa375ef7d6b4c651ac0e5c10e78df6747cf85d687381433136f0f8bc8bbd2
 persistence:
-  storageimages:
+  storage:
     enabled: true
     mountPath: /photo-stream/photos/original
 podSecurityContext:
@@ -22,7 +22,7 @@ service:
     ports:
       main:
         port: 4000
-        protocol: TCP
+        protocol: HTTP
         targetPort: 4000
 
 portal:
