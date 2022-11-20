@@ -304,7 +304,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center"><a href="https://www.keithcirkel.co.uk"><img src="https://avatars.githubusercontent.com/u/118266?v=4?s=100" width="100px;" alt="Keith Cirkel"/><br /><sub><b>Keith Cirkel</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=keithamus" title="Code">💻</a></td>
       <td align="center"><a href="https://github.com/mgale456"><img src="https://avatars.githubusercontent.com/u/55673155?v=4?s=100" width="100px;" alt="mgale456"/><br /><sub><b>mgale456</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=mgale456" title="Code">💻</a></td>
       <td align="center"><a href="https://github.com/fenichelar"><img src="https://avatars.githubusercontent.com/u/3437075?v=4?s=100" width="100px;" alt="Alec Fenichel"/><br /><sub><b>Alec Fenichel</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=fenichelar" title="Code">💻</a></td>
-      <td align="center"><a href="https://github.com/inmanturbo"><img src="https://avatars.githubusercontent.com/u/47095624?v=4?s=100" width="100px;" alt="inmanturbo"/><br /><sub><b>inmanturbo</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=inmanturbo" title="Documentation">📖</a></td>
+      <td align="center"><a href="https://github.com/boostchicken"><img src="https://avatars.githubusercontent.com/u/427295?v=4?s=100" width="100px;" alt="John Dorman"/><br /><sub><b>John Dorman</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=boostchicken" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
