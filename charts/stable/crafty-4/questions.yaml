@@ -32,17 +32,17 @@ questions:
                               type: int
                               default: 10586
                               required: true
-        - variable: sub
-          label: Sub Service
-          description: The Sub service on which the healthcheck runs, often the webUI
+        - variable: redirects
+          label: Redirects Service
+          description: The Comm service http > https redirects
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: sub
-                      label: Sub Service Port Configuration
+                    - variable: redirects
+                      label: Redirects Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
@@ -56,7 +56,7 @@ questions:
                               required: true
         - variable: minecraft
           label: Minecraft Service
-          description: Container Port 25500
+          description: Minecraft Service Port
           schema:
             additional_attrs: true
             type: dict
@@ -74,51 +74,7 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 25500
-                              required: true
-        - variable: dynmap
-          label: DynMap service
-          description: DynMap Port
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: dynmap
-                      label: DynMap Service Port Configuration
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
-                              default: 8123
-                              required: true
-        - variable: bedrock
-          label: Bedrock Service
-          description: Bedrock Server Port
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: bedrock
-                      label: Bedrock Service Port Configuration
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
-                              default: 19132
+                              default: 25565
                               required: true
 # Include{serviceExpertRoot}
             default: false
@@ -126,40 +82,40 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: Config Storage
-          description: Path to the persistent Crafty files
+          label: App Config Storage
+          description: Stores the Application Configuration.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: serverfiles
-          label: Server Files Storage
-          description: Path to the minecraft server folders
+        - variable: servers
+          label: App Servers Storage
+          description: Stores the Application Servers.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: serverlogs
-          label: Server Logs Storage
-          description: Logs
+        - variable: logs
+          label: App Logs Storage
+          description: Stores the Application Logs.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
         - variable: import
-          label: Import Folder Storage
-          description: Import existing Mincecraft Servers
+          label: App Import Storage
+          description: Stores the Application Import Files.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: backup
-          label: Backup Storage
-          description: Server Backups
+        - variable: backups
+          label: App backup Storage
+          description: Stores the Application Backups.
           schema:
             additional_attrs: true
             type: dict
