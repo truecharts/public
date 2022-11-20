@@ -20,13 +20,13 @@ questions:
           description: Password for WebUI.
           schema:
             type: string
-            default: admin
+            default: ""
         - variable: WEBUI_TEMPLATE
           label: WEBUI_TEMPLATE
           description: Alternative material WebUI design.
           schema:
             type: string
-            default: "default"
+            default: default
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
