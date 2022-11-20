@@ -1,5 +1,19 @@
 {{/* The pod definition included in the controller. */}}
 {{- define "ix.v1.common.controller.pod" -}}
+{{- with .Values.schedulerName }}
+schedulerName: {{ tpl . $ }}
+{{- end }}
+{{- with .Values.priorityClassName }}
+priorityClassName: {{ tpl . $ }}
+{{- end }}
+hostNetwork: {{ .Values.hostNetwork }}
+{{- with .Values.hostname }}
+hostname: {{ tpl . $ }}
+{{- end -}}
+{{- with .Values.termination.gracePeriodSeconds }}
+terminationGracePeriodSeconds: {{ . }}
+{{- end }}
+enableServiceLinks: {{ .Values.enableServiceLinks }}
 {{- with (include "ix.v1.common.container.podSecurityContext" (dict "podSecCont" .Values.podSecurityContext) | trim) }}
 securityContext:
   {{- . | nindent 2 }}

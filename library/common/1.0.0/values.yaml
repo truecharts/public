@@ -39,6 +39,16 @@ tty: false
 
 stdin: false
 
+hostname: ""
+
+hostNetwork: false
+
+enableServiceLinks: false
+
+schedulerName: ""
+
+priorityClassName: ""
+
 # TODO: docs
 podSecurityContext:
   runAsUser: 568

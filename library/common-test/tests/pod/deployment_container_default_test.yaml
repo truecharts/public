@@ -9,6 +9,31 @@ tests:
           of: Deployment
       - equal:
           documentIndex: *deploymentDoc
+          path: spec.template.spec.hostNetwork
+          value: false
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.terminationGracePeriodSeconds
+          value: 10
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.enableServiceLinks
+          value: false
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.terminationGracePeriodSeconds
+          value: 10
+      - isNull:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.hostname
+      - isNull:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.priorityClassName
+      - isNull:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.schedulerName
+      - equal:
+          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].name
           value: RELEASE-NAME-common-test
       - equal:

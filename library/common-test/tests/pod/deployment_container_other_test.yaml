@@ -27,6 +27,91 @@ tests:
           path: spec.template.spec.containers[0].stdin
           value: true
 
+  - it: should pass with hostNetwork set
+    set:
+      hostNetwork: true
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.hostNetwork
+          value: true
+
+  - it: should pass with hostname set
+    set:
+      hostname: some_hostname
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.hostname
+          value: some_hostname
+
+  - it: should pass with hostname set from tpl
+    set:
+      name: some_hostname
+      hostname: "{{ .Values.name }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.hostname
+          value: some_hostname
+
+  - it: should pass with gracePeriodSeconds set
+    set:
+      termination:
+        gracePeriodSeconds: 25
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.terminationGracePeriodSeconds
+          value: 25
+
+  - it: should pass with enableServiceLinks set
+    set:
+      enableServiceLinks: true
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.enableServiceLinks
+          value: true
+
+  - it: should pass with schedulerName set
+    set:
+      schedulerName: some_scheduler
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.schedulerName
+          value: some_scheduler
+
+  - it: should pass with schedulerName set from tpl
+    set:
+      name: some_scheduler
+      schedulerName: "{{ .Values.name }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.schedulerName
+          value: some_scheduler
+
+  - it: should pass with schedulerName set
+    set:
+      priorityClassName: some_priority_class_name
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.priorityClassName
+          value: some_priority_class_name
+
+  - it: should pass with schedulerName set from tpl
+    set:
+      name: some_priority_class_name
+      priorityClassName: "{{ .Values.name }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.priorityClassName
+          value: some_priority_class_name
+
   - it: should pass with single postStart lifecycle set
     set:
       lifecycle:
