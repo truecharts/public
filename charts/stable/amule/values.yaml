@@ -1,26 +1,19 @@
-env:
-  WEBUI_PWD: admin
-  WEBUI_TEMPLATE: default
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/amule
   tag: latest@sha256:08ac5dd2895ac3ebbee27dbee5ddff5cdbd1fc36624aff0651976d5eee52b217
-persistence:
-  storagecomplete:
-    enabled: true
-    mountPath: /incoming
-  storageconfig:
-    enabled: true
-    mountPath: /home/amule/.aMule
-  storageincomplete:
-    enabled: true
-    mountPath: /temp
+
+env:
+  WEBUI_PWD: admin
+  WEBUI_TEMPLATE: default
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
 service:
   main:
     ports:
@@ -44,6 +37,17 @@ service:
         port: 4672
         protocol: UDP
         targetPort: 4672
+
+persistence:
+  storagecomplete:
+    enabled: true
+    mountPath: /incoming
+  storageconfig:
+    enabled: true
+    mountPath: /home/amule/.aMule
+  storageincomplete:
+    enabled: true
+    mountPath: /temp
 
 portal:
   enabled: true
