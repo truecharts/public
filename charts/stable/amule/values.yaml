@@ -39,13 +39,13 @@ service:
         targetPort: 4672
 
 persistence:
-  storagecomplete:
+  complete:
     enabled: true
     mountPath: /incoming
-  storageconfig:
+  config:
     enabled: true
     mountPath: /home/amule/.aMule
-  storageincomplete:
+  incomplete:
     enabled: true
     mountPath: /temp
 

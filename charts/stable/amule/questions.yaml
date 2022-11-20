@@ -100,7 +100,7 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: storagecomplete
+        - variable: complete
           label: Completed Storage Location
           description: This is the location for complete downloads.
           schema:
@@ -108,7 +108,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: storageincomplete
+        - variable: incomplete
           label: Incomplete Storage Location
           description: This is the location for incomplete downloads.
           schema:
@@ -116,7 +116,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: storageconfig
+        - variable: config
           label: Config Storage
           description: This is the location for the internal data.
           schema:
