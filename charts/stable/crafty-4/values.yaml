@@ -28,51 +28,36 @@ service:
         port: 10586
         protocol: HTTPS
         targetPort: 8443
-  sub:
+  redirects:
     enabled: true
     ports:
-      sub:
+      redirects:
         enabled: true
         port: 10587
         protocol: HTTPS
         targetPort: 8000
-  bedrock:
-    enabled: true
-    ports:
-      bedrock:
-        enabled: true
-        port: 19132
-        protocol: UDP
-        targetPort: 19132
-  dynmap:
-    enabled: true
-    ports:
-      dynmap:
-        enabled: true
-        port: 8124
-        targetPort: 8123
   minecraft:
     enabled: true
     ports:
       minecraft:
         enabled: true
-        port: 25500
-        targetPort: 25500
+        port: 25565
+        targetPort: 25565
 
 persistence:
   config:
     enabled: true
     mountPath: /crafty/app/config
-  serverfiles:
+  servers:
     enabled: true
     mountPath: /crafty/servers
-  serverlogs:
+  logs:
     enabled: true
     mountPath: /crafty/logs
   import:
     enabled: true
     mountPath: /crafty/import
-  backup:
+  backups:
     enabled: true
     mountPath: /crafty/backups
 
