@@ -201,7 +201,7 @@ jobs:
                 if [ "${train}" != "dependency" ]; then
                   echo "creating tag for ${chart}"
                   version=$(cat charts/${train}/${chart}/Chart.yaml | grep '^version: ' | awk -F" " '{ print $2 }' | head -1)
-                  git tag ${chart}-${version}
+                  git tag ${chart}-${version} || echo "tag failed for ${chart}-${version}"
                 fi
               fi
           done
