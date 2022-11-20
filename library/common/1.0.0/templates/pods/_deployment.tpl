@@ -38,16 +38,14 @@ spec:
       {{- include "ix.v1.common.labels.selectorLabels" . | nindent 6 }}
   template:
     metadata:
+      {{- with (mustMerge (include "ix.v1.common.labels.selectorLabels" . | fromYaml) (include "ix.v1.common.podAnnotations" . | fromYaml)) }}
       annotations:
-        {{- include "ix.v1.common.labels.selectorLabels" . | nindent 8 }}
-        {{- with .Values.podAnnotations }}
-          {{- tpl (toYaml .) $ | nindent 8 }}
-        {{- end }}
+        {{- . | toYaml | nindent 8 }}
+      {{- end -}}
+      {{- with (mustMerge (include "ix.v1.common.labels.selectorLabels" . | fromYaml) (include "ix.v1.common.podLabels" . | fromYaml)) }}
       labels:
-        {{- include "ix.v1.common.labels.selectorLabels" . | nindent 8 }}
-        {{- with .Values.podLabels }}
-          {{- tpl (toYaml .) $ | nindent 8 }}
-        {{- end }}
+        {{- . | toYaml | nindent 8 }}
+      {{- end }}
     spec:
       {{- include "ix.v1.common.controller.pod" . | trim | nindent 6 }}
 {{- end }}
