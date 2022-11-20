@@ -9,9 +9,9 @@ tests:
       - documentIndex: &deploymentDoc 0
         isKind:
           of: Deployment
-      - equal:
-          path: spec.template.spec.containers[0].probes
-          value:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
             livenessProbe:
               httpGet:
                 path: /
@@ -201,7 +201,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
               path: /path
@@ -229,7 +229,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.readinessProbe
+          path: spec.template.spec.containers[0].readinessProbe
           value:
             httpGet:
               path: /path
@@ -257,7 +257,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.startupProbe
+          path: spec.template.spec.containers[0].startupProbe
           value:
             httpGet:
               path: /path
@@ -281,7 +281,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
               path: /
@@ -305,7 +305,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
               path: /
@@ -329,7 +329,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             tcpSocket:
               port: 999999
@@ -346,7 +346,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             tcpSocket:
               port: 999999
@@ -369,7 +369,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
               path: /some_path
@@ -394,7 +394,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
               path: /
@@ -420,7 +420,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
               path: /
@@ -445,7 +445,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
               path: /
@@ -472,7 +472,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
               path: /
@@ -498,7 +498,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
               path: /ping
@@ -519,7 +519,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
               path: /
@@ -540,7 +540,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             tcpSocket:
               port: 1234
@@ -562,7 +562,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             tcpSocket:
               port: 999999
@@ -579,7 +579,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             grpc:
               port: 999999
@@ -601,7 +601,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             exec:
               command:
@@ -628,7 +628,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             exec:
               command:
@@ -650,7 +650,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             exec:
               command:
@@ -670,7 +670,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             exec:
               command:
@@ -679,7 +679,6 @@ tests:
             failureThreshold: 5
             timeoutSeconds: 5
             periodSeconds: 10
-
 
   - it: should pass with with probe type exec single command and custom timings
     set:
@@ -695,7 +694,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             exec:
               command:

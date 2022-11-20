@@ -12,7 +12,7 @@ tests:
           of: Deployment
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
               path: /
@@ -51,7 +51,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             tcpSocket:
               port: 999999
@@ -79,7 +79,7 @@ tests:
     asserts:
       - equal:
           documentIndex: *deploymentDoc
-          path: spec.template.spec.containers[0].probes.livenessProbe
+          path: spec.template.spec.containers[0].livenessProbe
           value:
             tcpSocket:
               port: 12345

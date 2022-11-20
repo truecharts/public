@@ -52,8 +52,7 @@ So it can work on multiple places, like additional containers and not only the m
     {{- . | nindent 4 }}
   {{- end -}}
   {{- with (include "ix.v1.common.container.probes" . | trim) }}
-  probes:
-    {{- . | nindent 4 }}
+    {{- . | nindent 2 }}
   {{- end -}}
   {{- with (include "ix.v1.common.container.resources" (dict "resources" .Values.resources "SCALE" .Values.scaleGPU) | trim) }}
   resources:
