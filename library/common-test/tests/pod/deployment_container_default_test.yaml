@@ -26,6 +26,13 @@ tests:
       - isNull:
           documentIndex: *deploymentDoc
           path: spec.template.spec.hostname
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.dnsPolicy
+          value: ClusterFirst
+      - isNull:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.dnsConfig
       - isNull:
           documentIndex: *deploymentDoc
           path: spec.template.spec.priorityClassName

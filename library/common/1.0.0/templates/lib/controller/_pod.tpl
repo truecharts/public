@@ -13,6 +13,10 @@ hostname: {{ tpl . $ }}
 {{- with (include "ix.v1.common.dnsPolicy" . | trim ) }}
 dnsPolicy: {{ . }}
 {{- end -}}
+{{- with (include "ix.v1.common.dnsConfig" . | trim ) }}
+dnsConfig:
+  {{- . | nindent 2 }}
+{{- end -}}
 {{- with .Values.termination.gracePeriodSeconds }}
 terminationGracePeriodSeconds: {{ . }}
 {{- end }}

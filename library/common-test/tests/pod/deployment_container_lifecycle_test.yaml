@@ -1,0 +1,167 @@
+
+suite: deployment container lifecycle test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+
+  - it: should pass with single postStart lifecycle set
+    set:
+      lifecycle:
+        postStart:
+          command: some_command
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].lifecycle
+          value:
+            postStart:
+              exec:
+                command:
+                  - some_command
+
+  - it: should pass with single postStart lifecycle set from tpl
+    set:
+      some_key: some_command
+      lifecycle:
+        postStart:
+          command: "{{ .Values.some_key }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].lifecycle
+          value:
+            postStart:
+              exec:
+                command:
+                  - some_command
+
+  - it: should pass with postStart lifecycle set
+    set:
+      lifecycle:
+        postStart:
+          command:
+            - /bin/bash
+            - test
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].lifecycle
+          value:
+            postStart:
+              exec:
+                command:
+                  - /bin/bash
+                  - test
+
+  - it: should pass with postStart lifecycle set from tpl
+    set:
+      some_key: some_value
+      lifecycle:
+        postStart:
+          command:
+            - /bin/bash
+            - "{{ .Values.some_key }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].lifecycle
+          value:
+            postStart:
+              exec:
+                command:
+                  - /bin/bash
+                  - some_value
+
+  - it: should pass with single preStop lifecycle set
+    set:
+      lifecycle:
+        preStop:
+          command: some_command
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].lifecycle
+          value:
+            preStop:
+              exec:
+                command:
+                  - some_command
+
+  - it: should pass with single preStop lifecycle set from tpl
+    set:
+      some_key: some_command
+      lifecycle:
+        preStop:
+          command: "{{ .Values.some_key }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].lifecycle
+          value:
+            preStop:
+              exec:
+                command:
+                  - some_command
+
+
+  - it: should pass with preStop lifecycle set
+    set:
+      lifecycle:
+        preStop:
+          command:
+            - /bin/bash
+            - test
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].lifecycle
+          value:
+            preStop:
+              exec:
+                command:
+                  - /bin/bash
+                  - test
+
+  - it: should pass with preStop lifecycle set from tpl
+    set:
+      some_key: some_value
+      lifecycle:
+        preStop:
+          command:
+            - /bin/bash
+            - "{{ .Values.some_key }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.containers[0].lifecycle
+          value:
+            preStop:
+              exec:
+                command:
+                  - /bin/bash
+                  - some_value
+
+  - it: should fail with no command in preStop
+    set:
+      lifecycle:
+        preStop:
+          command: ""
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: No commands were given for preStop lifecycle hook
+
+  - it: should fail with no command in postStart
+    set:
+      lifecycle:
+        postStart:
+          command: ""
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: No commands were given for postStart lifecycle hook
