@@ -1,4 +1,12 @@
 {{/* The main container included in the controller */}}
+{{/*
+The "tpl (toYaml somepath) $" is used to expand template content (if any)
+Cases like this are when we set these values on another tpl file with template
+
+On some includes we pass a dict with the "root" and some other values.
+This is because this named function relies on those two, to specify it's context.
+So it can work on multiple places, like additional containers and not only the main container.
+*/}}
 {{- define "ix.v1.common.controller.mainContainer" -}}
 - name: {{ include "ix.v1.common.names.fullname" . }}
   image: {{ include "ix.v1.common.images.selector" . }}
@@ -52,13 +60,3 @@
     {{- . | nindent 4 }}
   {{- end -}}
 {{- end -}}
-
-{{/*
-The "tpl (toYaml somepath) $" is used to expand template content (if any)
-Cases like this are when we set these values on another tpl file with template
-*/}}
-{{/*
-On some includes we pass a dict with the "root" and some other values.
-This is because this named function relies on those two, to specify it's context.
-So it can work on multiple places, like additional containers and not only the main container.
-*/}}

@@ -1,3 +1,8 @@
+{{/*
+If no targetPort is given, default to port.
+This is for cases where port (that container listens)
+can be dynamically configured via an env var.
+*/}}
 {{/* Ports included by the container. */}}
 {{- define "ix.v1.common.container.ports" -}}
   {{ $ports := list }}
@@ -37,9 +42,3 @@
 {{- end }}
 {{- end -}}
 {{- end -}}
-
-{{/*
-If no targetPort is given, default to port.
-This is for cases where port (that container listens)
-can be dynamically configured via an env var.
-*/}}

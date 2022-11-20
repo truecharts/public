@@ -1,3 +1,4 @@
+{{/* A dict containing .values and .serviceName is passed when this function is called */}}
 {{/* Return the primary port for a given Service object. */}}
 {{- define "ix.v1.common.lib.util.service.ports.primary" -}}
   {{- $enabledPorts := dict -}}
@@ -29,4 +30,3 @@
 
   {{- $result -}}
 {{- end -}}
-{{/* A dict containing .values and .serviceName is passed when this function is called */}}

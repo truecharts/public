@@ -1,3 +1,10 @@
+{{/*
+A custom dict is expected with envs and root.
+It's designed to work for mainContainer AND initContainers.
+Calling this from an initContainer, wouldn't work, as it would have a different "root" context,
+and "tpl" on "$" would cause erors.
+That's why the custom dict is expected.
+*/}}
 {{/* Environment Variables included by the container */}}
 {{- define "ix.v1.common.container.envVars" -}}
 {{- $envs := .envs -}}
@@ -67,11 +74,3 @@
 {{- end -}}
 {{- end -}} {{/* Finish envList */}}
 {{- end -}}
-
-{{/*
-A custom dict is expected with envs and root.
-It's designed to work for mainContainer AND initContainers.
-Calling this from an initContainer, wouldn't work, as it would have a different "root" context,
-and "tpl" on "$" would cause erors.
-That's why the custom dict is expected.
-*/}}

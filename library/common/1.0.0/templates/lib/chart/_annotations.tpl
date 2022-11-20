@@ -1,3 +1,5 @@
+{{/* Workloads = Deployment, ReplicaSet, StatefulSet, DaemonSet, Job, CronJob, etc */}}
+
 {{/*
 These annotations will be shared on all objects
 Rendered under ".metadata.annotations"
@@ -27,5 +29,3 @@ Rendered under ".metadata.annotations"
 {{- define "ix.v1.common.annotations.workload" -}}
 rollme: {{ randAlphaNum 5 | quote }}
 {{- end -}}
-
-{{/* Workloads = Deployment, ReplicaSet, StatefulSet, DaemonSet, Job, CronJob, etc */}}
