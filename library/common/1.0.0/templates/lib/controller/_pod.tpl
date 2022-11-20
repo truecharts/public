@@ -10,6 +10,9 @@ hostNetwork: {{ .Values.hostNetwork }}
 {{- with .Values.hostname }}
 hostname: {{ tpl . $ }}
 {{- end -}}
+{{- with (include "ix.v1.common.dnsPolicy" . | trim ) }}
+dnsPolicy: {{ . }}
+{{- end -}}
 {{- with .Values.termination.gracePeriodSeconds }}
 terminationGracePeriodSeconds: {{ . }}
 {{- end }}

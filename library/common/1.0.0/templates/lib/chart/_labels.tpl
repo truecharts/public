@@ -1,7 +1,7 @@
 {{/* Common labels shared across objects */}}
 {{- define "ix.v1.common.labels" -}}
 helm.sh/chart: {{ include "ix.v1.common.names.chart" . }}
-{{- include "ix.v1.common.labels.selectorLabels" . }}
+{{ include "ix.v1.common.labels.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 helm-revision: {{ .Release.Revision | quote }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
