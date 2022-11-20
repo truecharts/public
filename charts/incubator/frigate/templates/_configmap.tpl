@@ -50,7 +50,7 @@ data:
       path: {{ . }}
       {{- end }}
       {{- with .Values.frigate.model.labelmap_path }}
-      path: {{ . }}
+      labelmap_path: {{ . }}
       {{- end }}
       width: {{ .Values.frigate.model.width | default 320 }}
       height: {{ .Values.frigate.model.height | default 320 }}
@@ -99,7 +99,7 @@ data:
     detect:
       enabled: {{ ternary "True" "False" .Values.frigate.detect.enabled }}
       width: {{ .Values.frigate.detect.width | default 1280 }}
-      width: {{ .Values.frigate.detect.height | default 720 }}
+      height: {{ .Values.frigate.detect.height | default 720 }}
       fps: {{ .Values.frigate.detect.fps | default 5 }}
       max_disappeared: {{ .Values.frigate.detect.max_disappeared | default 25 }}
       stationary:
@@ -248,7 +248,7 @@ data:
     {{- if .Values.frigate.live.render_config }}
     live:
       height: {{ .Values.frigate.live.height | default 720 }}
-      quality: {{ .Values.frigate.live.height | default 8 }}
+      quality: {{ .Values.frigate.live.quality | default 8 }}
     {{- end }}
 
     {{- if .Values.frigate.timestamp_style.render_config }}
@@ -260,7 +260,9 @@ data:
         green: {{ .Values.frigate.timestamp_style.color.green | default 255 }}
         blue: {{ .Values.frigate.timestamp_style.color.blue | default 255 }}
       thickness: {{ .Values.frigate.timestamp_style.thickness | default 2 }}
-      effect: {{ .Values.frigate.timestamp_style.effect | default "None" }}
+      {{- if ne .Values.frigate.timestamp_style.effect "None" }}
+      effect: {{ .Values.frigate.timestamp_style.effect }}
+      {{- end }}
     {{- end }}
 
     cameras:

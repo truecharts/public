@@ -545,6 +545,12 @@ questions:
                             schema:
                               type: int
                               "null": true
+                          - variable: max_ratio
+                            label: Max Ratio
+                            description: Maximum width/height of the bounding box for the detected object
+                            schema:
+                              type: int
+                              "null": true
                           - variable: min_score
                             label: Min Score
                             description: Minimum score for the object to initiate tracking
@@ -636,8 +642,8 @@ questions:
                       schema:
                         type: string
                         default: ""
-                    - variable: mask
-                      label: Mask
+                    - variable: improve_contrast
+                      label: Improve Contrast
                       description: Improve contrast. Enables dynamic contrast improvement. This should help improve night detections at the cost of making motion detection more sensitive for daytime.
                       schema:
                         type: boolean
