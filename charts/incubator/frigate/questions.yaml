@@ -642,8 +642,8 @@ questions:
                       schema:
                         type: string
                         default: ""
-                    - variable: mask
-                      label: Mask
+                    - variable: improve_contrast
+                      label: Improve Contrast
                       description: Improve contrast. Enables dynamic contrast improvement. This should help improve night detections at the cost of making motion detection more sensitive for daytime.
                       schema:
                         type: boolean
