@@ -40,11 +40,11 @@ spec:
     metadata:
       {{- with (mustMerge (include "ix.v1.common.labels.selectorLabels" . | fromYaml) (include "ix.v1.common.podAnnotations" . | fromYaml)) }}
       annotations:
-        {{- . | toYaml | nindent 8 }}
+        {{- . | toYaml | trim | nindent 8 }}
       {{- end -}}
       {{- with (mustMerge (include "ix.v1.common.labels.selectorLabels" . | fromYaml) (include "ix.v1.common.podLabels" . | fromYaml)) }}
       labels:
-        {{- . | toYaml | nindent 8 }}
+        {{- . | toYaml | trim | nindent 8 }}
       {{- end }}
     spec:
       {{- include "ix.v1.common.controller.pod" . | trim | nindent 6 }}
