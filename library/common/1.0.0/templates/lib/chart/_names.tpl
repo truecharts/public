@@ -61,3 +61,9 @@ nameOverride applies only to the current chart
     {{- fail (printf "Not a valid controller.type (%s)" .Values.controller.type) -}}
   {{- end -}}
 {{- end -}}
+
+{{- define "ix.v1.common.names.serviceAccountName" -}}
+  {{- $serviceAccountName := "default" -}}
+      {{/* TODO: Get the name of the primary SA here */}}
+  {{- $serviceAccountName -}}
+{{- end -}}

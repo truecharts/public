@@ -10,6 +10,9 @@ tests:
       - isAPIVersion:
           of: apps/v1
       - equal:
+          path: spec.template.spec.serviceAccountName
+          value: default
+      - equal:
           path: spec.template.spec.hostNetwork
           value: false
       - equal:
@@ -77,5 +80,3 @@ tests:
               value: void
             - name: S6_READ_ONLY_ROOT
               value: "1"
-
-# TODO: default SA Name
