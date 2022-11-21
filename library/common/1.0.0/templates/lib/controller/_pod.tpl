@@ -29,6 +29,7 @@ nodeSelector:
 tolerations:
   {{- . | nindent 2 }}
 {{- end -}}
+{{/* TODO: affinity, topologySpreadConstraints, not something critical as of now. */}}
 {{- with .Values.termination.gracePeriodSeconds }}
 terminationGracePeriodSeconds: {{ . }}
 {{- end }}
@@ -37,8 +38,10 @@ enableServiceLinks: {{ .Values.enableServiceLinks }}
 securityContext:
   {{- . | nindent 2 }}
 {{- end }}
+{{- with (include "ix.v1.common.controller.mainContainer" . | trim) }}
 containers:
-  {{- include "ix.v1.common.controller.mainContainer" . | nindent 2 }}
+  {{- . | nindent 2 }}
+{{- end }}
 {{- with (include "ix.v1.common.controller.volumes" . | trim) }}
 volumes:
     {{- . | nindent 2 }}
