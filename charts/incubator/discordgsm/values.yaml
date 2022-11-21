@@ -26,7 +26,7 @@ gsm:
   command_query_public: false
   command_query_cooldown: 5
   web_api_enable: false
-  POSTGRES_SSL_MODE: "disable"
+  postgres_ssl_mode: "disable"
 
 envFrom:
   - secretRef:

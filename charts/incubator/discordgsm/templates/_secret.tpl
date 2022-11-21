@@ -24,6 +24,7 @@ stringData:
   APP_ACTIVITY_NAME: {{ . | quote }}
   {{- end }}
   APP_PRESENCE_ADVERTISE: {{ .Values.gsm.app_presence_advertise | quote }}
+  POSTGRES_SSL_MODE: {{ .Values.gsm.postgres_ssl_mode | quote }}
 
   TASK_QUERY_SERVER: {{ .Values.gsm.task_query_server | quote }}
   COMMAND_QUERY_PUBLIC: {{ .Values.gsm.command_query_public | quote }}
