@@ -9,36 +9,36 @@ questions:
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
   - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
+    group: App Configuration
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: TITLE
-          label: "TITLE"
+          label: TITLE
           schema:
             type: string
-            default: "Photo Stream for TrueNAS"
+            default: TrueCharts Photo Stream collection.
         - variable: AUTHOR_NAME
           label: "AUTHOR_NAME"
           schema:
             type: string
-            default: "TrueNAS"
+            default: "TrueCharts"
         - variable: DESCRIPTION
           label: "DESCRIPTION"
           schema:
             type: string
-            default: "My TrueNAS Photo Stream collection."
+            default: "My TrueCharts Photo Stream collection."
         - variable: SHOW_OFFICIAL_GITHUB
-          label: "SHOW_OFFICIAL_GITHUB"
+          label: SHOW_OFFICIAL_GITHUB
           schema:
             type: string
             default: "0"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
+          label: Main Service
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -53,7 +53,7 @@ questions:
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
+                            label: Port
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
@@ -65,7 +65,7 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: storageimages
-          label: "storageimages Storage"
+          label: "Photo Storage"
           description: "Location for original files (photos)."
           schema:
             additional_attrs: true
@@ -75,7 +75,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -87,41 +87,41 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
