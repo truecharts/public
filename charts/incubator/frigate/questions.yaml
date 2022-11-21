@@ -1218,6 +1218,7 @@ questions:
                                     default: ""
                                 - variable: coordinates
                                   label: Coordinates
+                                  description: List of x,y coordinates to define the polygon of the zone.
                                   schema:
                                     type: string
                                     required: true
@@ -1235,6 +1236,46 @@ questions:
                                           type: string
                                           required: true
                                           default: ""
+                                - variable: filters
+                                  label: Filters
+                                  description: Zone level object filters
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: filter_entry
+                                        label: Filter Entry
+                                        description: For example person
+                                        schema:
+                                          additional_attrs: true
+                                          type: dict
+                                          attrs:
+                                            - variable: object
+                                              label: Object
+                                              description: For example person
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: ""
+                                            - variable: min_area
+                                              label: Min Area
+                                              description: Minimum width*height of the bounding box for the detected object
+                                              schema:
+                                                type: int
+                                                "null": true
+                                            - variable: max_area
+                                              label: Max Area
+                                              description: Maximum width*height of the bounding box for the detected object
+                                              schema:
+                                                type: int
+                                                "null": true
+                                            - variable: threshold
+                                              label: Threshold
+                                              description: Minimum decimal percentage for tracked object's computed score to be considered a true positive
+                                              schema:
+                                                type: string
+                                                default: ""
+                                                valid_chars: "[0-9.]"
                     - variable: mqtt
                       label: MQTT
                       description: MQTT Configuration for jpg snapshots published for this camera
