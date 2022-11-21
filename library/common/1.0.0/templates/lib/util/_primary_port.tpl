@@ -14,11 +14,11 @@
 
   {{- $result := "" -}}
   {{- range $name, $port := $enabledPorts -}}
-    {{- if $result -}}
-      {{- fail "More than one ports are set as primary in the primary service. This is not supported." -}}
-    {{- end -}}
     {{- if (hasKey $port "primary") -}}
       {{- if $port.primary -}}
+        {{- if $result -}}
+          {{- fail "More than one ports are set as primary in the primary service. This is not supported." -}}
+        {{- end -}}
         {{- $result = $name -}}
       {{- end -}}
     {{- end -}}

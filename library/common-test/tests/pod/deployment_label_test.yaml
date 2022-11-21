@@ -5,12 +5,11 @@ chart:
   appVersion: v1.2.3
 tests:
   - it: should pass with default values
+    documentIndex: &deploymentDoc 0
     asserts:
-      - documentIndex: &deploymentDoc 0
-        isKind:
+      - isKind:
           of: Deployment
       - equal:
-          documentIndex: *deploymentDoc
           path: metadata.labels
           value:
             app: common-test
@@ -22,7 +21,6 @@ tests:
             helm.sh/chart: common-test-1.0.0
             release: RELEASE-NAME
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.selector.matchLabels
           value:
             app: common-test
@@ -31,6 +29,7 @@ tests:
             release: RELEASE-NAME
 
   - it: should pass with controller and global labels
+    documentIndex: *deploymentDoc
     set:
       some_key: some_value
       controller:
@@ -43,7 +42,6 @@ tests:
           global_key2: "{{ .Values.some_key }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: metadata.labels
           value:
             controller_key: controller_value
@@ -60,6 +58,7 @@ tests:
             release: RELEASE-NAME
 
   - it: should pass with podLabels set
+    documentIndex: *deploymentDoc
     set:
       some_key: some_value2
       podLabels:
@@ -67,10 +66,8 @@ tests:
         test2: "{{ .Values.some_key }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.metadata.labels.test2
           value: some_value2
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.metadata.labels.test
           value: some_value

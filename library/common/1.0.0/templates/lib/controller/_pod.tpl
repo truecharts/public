@@ -1,5 +1,6 @@
 {{/* The pod definition included in the controller. */}}
 {{- define "ix.v1.common.controller.pod" -}}
+{{/* TODO: serviceAccountName */}}
 {{- with .Values.schedulerName }}
 schedulerName: {{ tpl . $ }}
 {{- end }}
@@ -29,7 +30,7 @@ nodeSelector:
 tolerations:
   {{- . | nindent 2 }}
 {{- end -}}
-{{/* TODO: affinity, topologySpreadConstraints, not something critical as of now. */}}
+{{/* TODO: imagePullSecrets, affinity, topologySpreadConstraints, not something critical as of now. */}}
 {{- with .Values.termination.gracePeriodSeconds }}
 terminationGracePeriodSeconds: {{ . }}
 {{- end }}

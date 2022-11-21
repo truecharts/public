@@ -3,63 +3,64 @@ templates:
   - common.yaml
 tests:
   - it: should pass with default values
+    documentIndex: &deploymentDoc 0
     asserts:
-      - documentIndex: &deploymentDoc 0
-        isKind:
+      - isKind:
           of: Deployment
 
   - it: should fail with envFrom configMapRef has empty name
+    documentIndex: *deploymentDoc
     set:
       envFrom:
         - configMapRef:
             name: ""
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: Name is required for configMapRef in envFrom.
 
   - it: should fail with envFrom secretRef has empty name
+    documentIndex: *deploymentDoc
     set:
       envFrom:
         - secretRef:
             name: ""
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: Name is required for secretRef in envFrom.
 
   - it: should fail with envFrom secretRef has missing name
+    documentIndex: *deploymentDoc
     set:
       envFrom:
         - secretRef:
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: Not valid Ref or <name> key is missing in envFrom.
 
   - it: should fail with envFrom configMapRef has missing name
+    documentIndex: *deploymentDoc
     set:
       envFrom:
         - configMapRef:
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: Not valid Ref or <name> key is missing in envFrom.
 
   - it: should pass with envFrom configMapRef entry added
+    documentIndex: *deploymentDoc
     set:
       envFrom:
         - configMapRef:
             name: some_name
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].envFrom
           value:
             - configMapRef:
                 name: some_name
 
   - it: should pass with envFrom configMapRef entries added from tpl
+    documentIndex: *deploymentDoc
     set:
       some_name: a_name
       some_name2: a_name2
@@ -70,7 +71,6 @@ tests:
             name: "{{ .Values.some_name2 }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].envFrom
           value:
             - configMapRef:
@@ -79,19 +79,20 @@ tests:
                 name: a_name2
 
   - it: should pass with envFrom secretRef entry added
+    documentIndex: *deploymentDoc
     set:
       envFrom:
         - secretRef:
             name: some_name
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].envFrom
           value:
             - secretRef:
                 name: some_name
 
   - it: should pass with envFrom secretRef entries added from tpl
+    documentIndex: *deploymentDoc
     set:
       some_name: a_name
       some_name2: a_name2
@@ -102,7 +103,6 @@ tests:
             name: "{{ .Values.some_name2 }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].envFrom
           value:
             - secretRef:
@@ -111,6 +111,7 @@ tests:
                 name: a_name2
 
   - it: should pass with envFrom secretRef and configMapRef entries added from tpl
+    documentIndex: *deploymentDoc
     set:
       some_name: a_name
       some_name2: a_name2
@@ -121,7 +122,6 @@ tests:
             name: "{{ .Values.some_name2 }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].envFrom
           value:
             - secretRef:

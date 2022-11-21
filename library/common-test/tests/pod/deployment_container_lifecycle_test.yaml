@@ -4,19 +4,19 @@ templates:
   - common.yaml
 tests:
   - it: should pass with default values
+    documentIndex: &deploymentDoc 0
     asserts:
-      - documentIndex: &deploymentDoc 0
-        isKind:
+      - isKind:
           of: Deployment
 
   - it: should pass with single postStart lifecycle set
+    documentIndex: *deploymentDoc
     set:
       lifecycle:
         postStart:
           command: some_command
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].lifecycle
           value:
             postStart:
@@ -25,6 +25,7 @@ tests:
                   - some_command
 
   - it: should pass with single postStart lifecycle set from tpl
+    documentIndex: *deploymentDoc
     set:
       some_key: some_command
       lifecycle:
@@ -32,7 +33,6 @@ tests:
           command: "{{ .Values.some_key }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].lifecycle
           value:
             postStart:
@@ -41,6 +41,7 @@ tests:
                   - some_command
 
   - it: should pass with postStart lifecycle set
+    documentIndex: *deploymentDoc
     set:
       lifecycle:
         postStart:
@@ -49,7 +50,6 @@ tests:
             - test
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].lifecycle
           value:
             postStart:
@@ -59,6 +59,7 @@ tests:
                   - test
 
   - it: should pass with postStart lifecycle set from tpl
+    documentIndex: *deploymentDoc
     set:
       some_key: some_value
       lifecycle:
@@ -68,7 +69,6 @@ tests:
             - "{{ .Values.some_key }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].lifecycle
           value:
             postStart:
@@ -78,13 +78,13 @@ tests:
                   - some_value
 
   - it: should pass with single preStop lifecycle set
+    documentIndex: *deploymentDoc
     set:
       lifecycle:
         preStop:
           command: some_command
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].lifecycle
           value:
             preStop:
@@ -93,6 +93,7 @@ tests:
                   - some_command
 
   - it: should pass with single preStop lifecycle set from tpl
+    documentIndex: *deploymentDoc
     set:
       some_key: some_command
       lifecycle:
@@ -100,7 +101,6 @@ tests:
           command: "{{ .Values.some_key }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].lifecycle
           value:
             preStop:
@@ -110,6 +110,7 @@ tests:
 
 
   - it: should pass with preStop lifecycle set
+    documentIndex: *deploymentDoc
     set:
       lifecycle:
         preStop:
@@ -118,7 +119,6 @@ tests:
             - test
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].lifecycle
           value:
             preStop:
@@ -128,6 +128,7 @@ tests:
                   - test
 
   - it: should pass with preStop lifecycle set from tpl
+    documentIndex: *deploymentDoc
     set:
       some_key: some_value
       lifecycle:
@@ -137,7 +138,6 @@ tests:
             - "{{ .Values.some_key }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].lifecycle
           value:
             preStop:
@@ -147,21 +147,21 @@ tests:
                   - some_value
 
   - it: should fail with no command in preStop
+    documentIndex: *deploymentDoc
     set:
       lifecycle:
         preStop:
           command: ""
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: No commands were given for preStop lifecycle hook
 
   - it: should fail with no command in postStart
+    documentIndex: *deploymentDoc
     set:
       lifecycle:
         postStart:
           command: ""
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: No commands were given for postStart lifecycle hook

@@ -3,75 +3,58 @@ templates:
   - common.yaml
 tests:
   - it: should pass with default values
+    documentIndex: &deploymentDoc 0
     asserts:
-      - documentIndex: &deploymentDoc 0
-        isKind:
+      - isKind:
           of: Deployment
+      - isAPIVersion:
+          of: apps/v1
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.hostNetwork
           value: false
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.terminationGracePeriodSeconds
           value: 10
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.enableServiceLinks
           value: false
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.terminationGracePeriodSeconds
           value: 10
       - isNull:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.hostname
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.dnsPolicy
           value: ClusterFirst
       - isNull:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.dnsConfig
       - isNull:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.priorityClassName
       - isNull:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.schedulerName
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].name
           value: RELEASE-NAME-common-test
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].image
           value: repo:tag
       - isNull:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].command
       - isNull:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].args
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].tty
           value: false
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].stdin
           value: false
       - isNull:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].lifecycle
       - isNull:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].terminationMessagePath
       - isNull:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].terminationMessagePolicy
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].securityContext
           value:
             allowPrivilegeEscalation: false
@@ -82,7 +65,6 @@ tests:
             readOnlyRootFilesystem: true
             runAsNonRoot: true
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].env
           value:
             - name: TZ
@@ -95,3 +77,5 @@ tests:
               value: void
             - name: S6_READ_ONLY_ROOT
               value: "1"
+
+# TODO: default SA Name

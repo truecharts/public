@@ -3,12 +3,11 @@ templates:
   - common.yaml
 tests:
   - it: should pass with default values
+    documentIndex: &deploymentDoc 0
     asserts:
-      - documentIndex: &deploymentDoc 0
-        isKind:
+      - isKind:
           of: Deployment
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.securityContext
           value:
             runAsUser: 568
@@ -17,6 +16,7 @@ tests:
             fsGroupChangePolicy: OnRootMismatch
 
   - it: should pass with changed podSecurity values
+    documentIndex: *deploymentDoc
     set:
       podSecurityContext:
         runAsUser: 999
@@ -27,7 +27,6 @@ tests:
           - 1000
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.securityContext
           value:
             runAsUser: 999
@@ -38,37 +37,37 @@ tests:
               - 1000
 
   - it: should fail without runAsUser
+    documentIndex: *deploymentDoc
     set:
       podSecurityContext:
         runAsUser:
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: <runAsUser> value is required.
 
   - it: should fail without runAsGroup
+    documentIndex: *deploymentDoc
     set:
       podSecurityContext:
         runAsGroup:
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: <runAsGroup> value is required.
 
   - it: should fail without fsGroup
+    documentIndex: *deploymentDoc
     set:
       podSecurityContext:
         fsGroup:
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: <fsGroup> value is required.
 
   - it: should fail with invalid fsGroupChangePolicy
+    documentIndex: *deploymentDoc
     set:
       podSecurityContext:
         fsGroupChangePolicy: invalid_policy
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: Invalid option for fsGroupChangePolicy. Valid options are <Always> and <OnRootMismatch>.

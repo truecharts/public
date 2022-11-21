@@ -3,31 +3,30 @@ templates:
   - common.yaml
 tests:
   - it: should pass with default values
+    documentIndex: &deploymentDoc 0
     asserts:
-      - documentIndex: &deploymentDoc 0
-        isKind:
+      - isKind:
           of: Deployment
       - equal:
-          documentIndex: *deploymentDoc
           path: metadata.name
           value: RELEASE-NAME-common-test
 
   - it: should pass with nameOverride
+    documentIndex: *deploymentDoc
     set:
       nameOverride: overrodeName
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: metadata.name
           value: RELEASE-NAME-overrodeName
 
   - it: should pass with global.nameOverride
+    documentIndex: *deploymentDoc
     set:
       nameOverride: overrodeName
       global:
         nameOverride: globalOverrodeName
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: metadata.name
           value: RELEASE-NAME-globalOverrodeName

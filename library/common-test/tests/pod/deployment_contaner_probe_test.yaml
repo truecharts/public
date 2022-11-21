@@ -3,11 +3,11 @@ templates:
   - common.yaml
 tests:
   - it: should pass with default values
+    documentIndex: &deploymentDoc 0
     asserts:
       - hasDocuments:
           count: 1
-      - documentIndex: &deploymentDoc 0
-        isKind:
+      - isKind:
           of: Deployment
       - isSubset:
           path: spec.template.spec.containers[0]
@@ -41,55 +41,56 @@ tests:
               periodSeconds: 5
 
   - it: should fail with wrong probe name
+    documentIndex: *deploymentDoc
     set:
       probes:
         invalid_probe_name:
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: Invalid probe name (invalid_probe_name). Valid options are (liveness, readiness, startup)
 
   - it: should fail without commands on exec probe
+    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
           type: exec
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: No commands were defined for exec type on probe (liveness)
 
   - it: should fail without path on http(s) liveness probe
+    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
           path: ""
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: <path> must be defined for HTTP/HTTPS probe types in probe (liveness)
 
   - it: should fail without path on http(s) readiness probe
+    documentIndex: *deploymentDoc
     set:
       probes:
         readiness:
           path: ""
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: <path> must be defined for HTTP/HTTPS probe types in probe (readiness)
 
   - it: should fail without path on http(s) startup probe
+    documentIndex: *deploymentDoc
     set:
       probes:
         startup:
           path: ""
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: <path> must be defined for HTTP/HTTPS probe types in probe (startup)
 
   - it: should fail without initialDelaySeconds on non-custom probes
+    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
@@ -97,10 +98,10 @@ tests:
             initialDelaySeconds:
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: <initialDelaySeconds> cannot be empty in probe (liveness)
 
   - it: should fail without failureThreshold on non-custom probes
+    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
@@ -108,10 +109,10 @@ tests:
             failureThreshold:
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: <failureThreshold> cannot be empty in probe (liveness)
 
   - it: should fail without timeoutSeconds on non-custom probes
+    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
@@ -119,10 +120,10 @@ tests:
             timeoutSeconds:
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: <timeoutSeconds> cannot be empty in probe (liveness)
 
   - it: should fail without periodSeconds on non-custom probes
+    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
@@ -130,10 +131,10 @@ tests:
             periodSeconds:
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: <periodSeconds> cannot be empty in probe (liveness)
 
   - it: should fail when non-custom probe is defined in a disabled service
+    documentIndex: *deploymentDoc
     set:
       service:
         main:
@@ -144,20 +145,20 @@ tests:
             periodSeconds:
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: Only custom probes are allowed when service is disabled (liveness)
 
   - it: should fail with invalid probe type
+    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
           type: not_valid_type
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: Invalid probe type (not_valid_type) on probe (liveness)
 
   - it: should fail with httpHeader value is defined as list
+    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
@@ -168,10 +169,10 @@ tests:
               - list_value2
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: Lists or Dicts are not allowed in httpHeaders on probe (liveness)
 
   - it: should fail with httpHeader value is defined as dict
+    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
@@ -181,10 +182,10 @@ tests:
               some_key:
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: Lists or Dicts are not allowed in httpHeaders on probe (liveness)
 
   - it: should pass with with custom defined liveness probe
+    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
@@ -200,7 +201,6 @@ tests:
             periodSeconds: 15
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
@@ -213,6 +213,7 @@ tests:
             periodSeconds: 15
 
   - it: should pass with with custom defined readiness probe
+    documentIndex: *deploymentDoc
     set:
       probes:
         readiness:
@@ -228,7 +229,6 @@ tests:
             periodSeconds: 15
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].readinessProbe
           value:
             httpGet:
@@ -241,6 +241,7 @@ tests:
             periodSeconds: 15
 
   - it: should pass with with custom defined startup probe
+    documentIndex: *deploymentDoc
     set:
       probes:
         startup:
@@ -256,7 +257,6 @@ tests:
             periodSeconds: 15
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].startupProbe
           value:
             httpGet:
@@ -269,6 +269,7 @@ tests:
             periodSeconds: 15
 
   - it: should pass with with probe type AUTO and service HTTP
+    documentIndex: *deploymentDoc
     set:
       service:
         main:
@@ -280,7 +281,6 @@ tests:
           type: AUTO
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
@@ -293,6 +293,7 @@ tests:
             periodSeconds: 10
 
   - it: should pass with with probe type AUTO and service HTTPS
+    documentIndex: *deploymentDoc
     set:
       service:
         main:
@@ -304,7 +305,6 @@ tests:
           type: AUTO
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
@@ -317,6 +317,7 @@ tests:
             periodSeconds: 10
 
   - it: should pass with with probe type AUTO and service TCP
+    documentIndex: *deploymentDoc
     set:
       service:
         main:
@@ -328,7 +329,6 @@ tests:
           type: AUTO
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             tcpSocket:
@@ -339,13 +339,13 @@ tests:
             periodSeconds: 10
 
   - it: should pass with with probe type TCP and service TCP
+    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
           type: TCP
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             tcpSocket:
@@ -356,6 +356,7 @@ tests:
             periodSeconds: 10
 
   - it: should pass with with probe type AUTO and service HTTP with custom path
+    documentIndex: *deploymentDoc
     set:
       service:
         main:
@@ -368,7 +369,6 @@ tests:
           path: /some_path
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
@@ -381,6 +381,7 @@ tests:
             periodSeconds: 10
 
   - it: should pass with with probe type AUTO and service HTTP with custom port
+    documentIndex: *deploymentDoc
     set:
       service:
         main:
@@ -393,7 +394,6 @@ tests:
           port: 1234
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
@@ -406,6 +406,7 @@ tests:
             periodSeconds: 10
 
   - it: should pass with with probe type AUTO and service HTTP with httpHeaders
+    documentIndex: *deploymentDoc
     set:
       service:
         main:
@@ -419,7 +420,6 @@ tests:
             some_header: 1234
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
@@ -435,6 +435,7 @@ tests:
             periodSeconds: 10
 
   - it: should pass with with probe type HTTP with httpHeaders set from tpl
+    documentIndex: *deploymentDoc
     set:
       some_header_value: 1234
       probes:
@@ -444,7 +445,6 @@ tests:
             some_header: "{{ .Values.some_header_value }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
@@ -460,6 +460,7 @@ tests:
             periodSeconds: 10
 
   - it: should pass with with probe type HTTP with multiple httpHeaders set from tpl
+    documentIndex: *deploymentDoc
     set:
       some_header_value: 1234
       some_header_value2: some_value
@@ -471,7 +472,6 @@ tests:
             some_header2: "{{ .Values.some_header_value2 }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
@@ -489,6 +489,7 @@ tests:
             periodSeconds: 10
 
   - it: should pass with with probe type HTTP with path set from tpl
+    documentIndex: *deploymentDoc
     set:
       some_path: /ping
       probes:
@@ -497,7 +498,6 @@ tests:
           path: "{{ .Values.some_path }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
@@ -510,6 +510,7 @@ tests:
             periodSeconds: 10
 
   - it: should pass with with probe type HTTP with port set from tpl
+    documentIndex: *deploymentDoc
     set:
       some_port: 1234
       probes:
@@ -518,7 +519,6 @@ tests:
           port: "{{ .Values.some_port }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
@@ -531,6 +531,7 @@ tests:
             periodSeconds: 10
 
   - it: should pass with with probe type TCP with port set from tpl
+    documentIndex: *deploymentDoc
     set:
       some_port: 1234
       probes:
@@ -539,7 +540,6 @@ tests:
           port: "{{ .Values.some_port }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             tcpSocket:
@@ -550,6 +550,7 @@ tests:
             periodSeconds: 10
 
   - it: should pass with with changed times
+    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
@@ -561,7 +562,6 @@ tests:
             periodSeconds: 15
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             tcpSocket:
@@ -572,13 +572,13 @@ tests:
             periodSeconds: 15
 
   - it: should pass with with probe type GRPC
+    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
           type: GRPC
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             grpc:
@@ -589,6 +589,7 @@ tests:
             periodSeconds: 10
 
   - it: should pass with with probe type exec with multiline command
+    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
@@ -600,7 +601,6 @@ tests:
               echo "probe!"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             exec:
@@ -615,6 +615,7 @@ tests:
             periodSeconds: 10
 
   - it: should pass with with probe type exec with multiline command from tpl
+    documentIndex: *deploymentDoc
     set:
       some_msg: probe!
       probes:
@@ -627,7 +628,6 @@ tests:
               echo "{{ .Values.some_msg }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             exec:
@@ -642,6 +642,7 @@ tests:
             periodSeconds: 10
 
   - it: should pass with with probe type exec single command
+    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
@@ -649,7 +650,6 @@ tests:
           command: env
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             exec:
@@ -661,6 +661,7 @@ tests:
             periodSeconds: 10
 
   - it: should pass with with probe type exec single command from tpl
+    documentIndex: *deploymentDoc
     set:
       some_command: env
       probes:
@@ -669,7 +670,6 @@ tests:
           command: "{{ .Values.some_command }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             exec:
@@ -681,6 +681,7 @@ tests:
             periodSeconds: 10
 
   - it: should pass with with probe type exec single command and custom timings
+    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
@@ -693,7 +694,6 @@ tests:
             periodSeconds: 15
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             exec:

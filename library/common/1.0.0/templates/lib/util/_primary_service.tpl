@@ -9,11 +9,11 @@
 
   {{- $result := "" -}}
   {{- range $name, $service := $enabledServices -}}
-    {{- if $result -}}
-      {{- fail "More than one services are set as primary. This is not supported." -}}
-    {{- end -}}
     {{- if (hasKey $service "primary") -}}
       {{- if $service.primary -}}
+        {{- if $result -}}
+          {{- fail "More than one services are set as primary. This is not supported." -}}
+        {{- end -}}
         {{- $result = $name -}}
       {{- end -}}
     {{- end -}}

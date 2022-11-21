@@ -59,6 +59,11 @@ nodeSelector: {}
 
 tolerations: []
 
+serviceAccount:
+  main:
+    enabled: false
+    primary: true
+
 # TODO: docs
 podSecurityContext:
   runAsUser: 568

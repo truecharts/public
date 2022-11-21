@@ -4,53 +4,54 @@ templates:
   - common.yaml
 tests:
   - it: should pass with default values
+    documentIndex: &deploymentDoc 0
     asserts:
-      - documentIndex: &deploymentDoc 0
-        isKind:
+      - isKind:
           of: Deployment
 
   - it: should pass with imagePullPolicy changed
+    documentIndex: *deploymentDoc
     set:
       image:
         pullPolicy: Always
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].imagePullPolicy
           value: Always
 
   - it: should pass with image changed
+    documentIndex: *deploymentDoc
     set:
       image:
         repository: some_repo
         tag: some_tag
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].image
           value: some_repo:some_tag
 
   - it: should fail without repository
+    documentIndex: *deploymentDoc
     set:
       image:
         repository: ""
         tag: some_tag
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: Image <repository> is required
 
   - it: should fail without tag
+    documentIndex: *deploymentDoc
     set:
       image:
         repository: some_repo
         tag: ""
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: Image <tag> is required
 
   - it: should pass with image from image selector
+    documentIndex: *deploymentDoc
     set:
       betaImage:
         repository: some_other_repo
@@ -58,11 +59,11 @@ tests:
       imageSelector: betaImage
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].image
           value: some_other_repo:some_other_tag
 
   - it: should pass without repo from image selector
+    documentIndex: *deploymentDoc
     set:
       betaImage:
         repository: ""
@@ -70,10 +71,10 @@ tests:
       imageSelector: betaImage
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: Image <repository> is required
 
   - it: should pass without tag from image selector
+    documentIndex: *deploymentDoc
     set:
       betaImage:
         repository: some_other_repo
@@ -81,5 +82,4 @@ tests:
       imageSelector: betaImage
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: Image <tag> is required

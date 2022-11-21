@@ -3,11 +3,12 @@ templates:
   - common.yaml
 tests:
   - it: should pass with default values
+    documentIndex: &deploymentDoc 0
     asserts:
-      - documentIndex: &deploymentDoc 0
-        isKind:
+      - isKind:
           of: Deployment
   - it: should pass with securityContext changed
+    documentIndex: *deploymentDoc
     set:
       securityContext:
         runAsNonRoot: false
@@ -21,7 +22,6 @@ tests:
             - NET_ADMIN
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].securityContext
           value:
             allowPrivilegeEscalation: true
@@ -35,6 +35,7 @@ tests:
             runAsNonRoot: false
 
   - it: should pass with securityContext changed from tpl
+    documentIndex: *deploymentDoc
     set:
       source:
         addCap: SYS_MODULE
@@ -47,7 +48,6 @@ tests:
             - "{{ .Values.source.remCap }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].securityContext
           value:
             allowPrivilegeEscalation: false
@@ -61,6 +61,7 @@ tests:
             runAsNonRoot: true
 
   - it: should fail with securityContext changed, runAsNonRoot true and runAsUser 0
+    documentIndex: *deploymentDoc
     set:
       securityContext:
         runAsNonRoot: true
@@ -68,10 +69,10 @@ tests:
         runAsUser: 0
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: You are trying to run as root (user or group), but runAsNonRoot is set to true
 
   - it: should fail with securityContext changed, runAsNonRoot true and runAsGroup 0
+    documentIndex: *deploymentDoc
     set:
       securityContext:
         runAsNonRoot: true
@@ -79,61 +80,60 @@ tests:
         runAsUser: 0
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: You are trying to run as root (user or group), but runAsNonRoot is set to true
 
   - it: should fail with securityContext changed and runAsNonRoot set to a non-bool value
+    documentIndex: *deploymentDoc
     set:
       securityContext:
         runAsNonRoot: non-bool
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: One or more of the following are not set as booleans (runAsNonRoot, privileged, readOnlyRootFilesystem, allowPrivilegeEscalation)
 
   - it: should fail with securityContext changed and privileged set to a non-bool value
+    documentIndex: *deploymentDoc
     set:
       securityContext:
         privileged: non-bool
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: One or more of the following are not set as booleans (runAsNonRoot, privileged, readOnlyRootFilesystem, allowPrivilegeEscalation)
 
   - it: should fail with securityContext changed and readOnlyRootFilesystem set to a non-bool value
+    documentIndex: *deploymentDoc
     set:
       securityContext:
         readOnlyRootFilesystem: non-bool
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: One or more of the following are not set as booleans (runAsNonRoot, privileged, readOnlyRootFilesystem, allowPrivilegeEscalation)
 
   - it: should fail with securityContext changed and allowPrivilegeEscalation set to a non-bool value
+    documentIndex: *deploymentDoc
     set:
       securityContext:
         allowPrivilegeEscalation: non-bool
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: One or more of the following are not set as booleans (runAsNonRoot, privileged, readOnlyRootFilesystem, allowPrivilegeEscalation)
 
   - it: should fail with securityContext changed and capabilities.add is not a list
+    documentIndex: *deploymentDoc
     set:
       securityContext:
         capabilities:
           add: non-a-list
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: Either <add> or <drop> capabilities is not a list.
 
   - it: should fail with securityContext changed and capabilities.drop is not a list
+    documentIndex: *deploymentDoc
     set:
       securityContext:
         capabilities:
           drop: non-a-list
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: Either <add> or <drop> capabilities is not a list.

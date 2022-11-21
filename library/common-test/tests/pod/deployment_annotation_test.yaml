@@ -3,15 +3,15 @@ templates:
   - common.yaml
 tests:
   - it: should pass with default values
+    documentIndex: &deploymentDoc 0
     asserts:
-      - documentIndex: &deploymentDoc 0
-        isKind:
+      - isKind:
           of: Deployment
       - isNotEmpty:
-          documentIndex: *deploymentDoc
           path: metadata.annotations.rollme
 
   - it: should pass with controller and global annotations
+    documentIndex: *deploymentDoc
     set:
       some_key: some_value
       controller:
@@ -24,26 +24,22 @@ tests:
           global_key2: "{{ .Values.some_key }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: metadata.annotations.controller_key
           value: controller_value
       - equal:
-          documentIndex: *deploymentDoc
           path: metadata.annotations.controller_key2
           value: some_value
       - equal:
-          documentIndex: *deploymentDoc
           path: metadata.annotations.global_key
           value: global_value
       - equal:
-          documentIndex: *deploymentDoc
           path: metadata.annotations.global_key2
           value: some_value
       - isNotEmpty:
-          documentIndex: *deploymentDoc
           path: metadata.annotations.rollme
 
   - it: should pass with podAnnotations set
+    documentIndex: *deploymentDoc
     set:
       some_key: some_value2
       podAnnotations:
@@ -51,10 +47,8 @@ tests:
         test2: "{{ .Values.some_key }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.metadata.annotations.test2
           value: some_value2
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.metadata.annotations.test
           value: some_value

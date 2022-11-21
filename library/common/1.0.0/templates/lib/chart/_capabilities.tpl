@@ -22,3 +22,8 @@
 {{- define "ix.v1.common.capabilities.job.apiVersion" -}}
   {{- print "batch/v1" -}}
 {{- end -}}
+
+{{/* Return the appropriate apiVersion for Job */}}
+{{- define "ix.v1.common.capabilities.serviceAccount.apiVersion" -}}
+  {{- print "v1" -}}
+{{- end -}}

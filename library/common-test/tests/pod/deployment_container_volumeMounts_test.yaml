@@ -3,45 +3,45 @@ templates:
   - common.yaml
 tests:
   - it: should pass with default values
+    documentIndex: &deploymentDoc 0
     asserts:
-      - documentIndex: &deploymentDoc 0
-        isKind:
+      - isKind:
           of: Deployment
       - isNull:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].volumeMounts
 
   - it: should fail with no mountPath set
+    documentIndex: *deploymentDoc
     set:
       persistence:
         vol1:
           enabled: true
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: <mountPath> must be defined, alternatively use the <noMount> flag.
 
   - it: should pass with enabled false
+    documentIndex: *deploymentDoc
     set:
       persistence:
         vol1:
           enabled: false
     asserts:
       - isNull:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].volumeMounts
 
   - it: should pass with noMount true
+    documentIndex: *deploymentDoc
     set:
       persistence:
         vol1:
           noMount: true
     asserts:
       - isNull:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].volumeMounts
 
   - it: should pass with mountPath set
+    documentIndex: *deploymentDoc
     set:
       persistence:
         vol1:
@@ -49,13 +49,13 @@ tests:
           mountPath: /some_path
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].volumeMounts
           value:
             - mountPath: /some_path
               name: vol1
 
   - it: should pass with mountPath and readOnly(true) set
+    documentIndex: *deploymentDoc
     set:
       persistence:
         vol1:
@@ -64,7 +64,6 @@ tests:
           readOnly: true
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].volumeMounts
           value:
             - mountPath: /some_path
@@ -72,6 +71,7 @@ tests:
               readOnly: true
 
   - it: should pass with mountPath and readOnly(false) set
+    documentIndex: *deploymentDoc
     set:
       persistence:
         vol1:
@@ -80,7 +80,6 @@ tests:
           readOnly: false
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].volumeMounts
           value:
             - mountPath: /some_path
@@ -88,6 +87,7 @@ tests:
               readOnly: false
 
   - it: should pass with mountPath and subPath set
+    documentIndex: *deploymentDoc
     set:
       persistence:
         vol1:
@@ -96,7 +96,6 @@ tests:
           subPath: config.yaml
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].volumeMounts
           value:
             - mountPath: /some_path
@@ -104,6 +103,7 @@ tests:
               subPath: config.yaml
 
   - it: should pass with mountPath and mountPropagation set
+    documentIndex: *deploymentDoc
     set:
       persistence:
         vol1:
@@ -112,7 +112,6 @@ tests:
           mountPropagation: HostToContainer
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].volumeMounts
           value:
             - mountPath: /some_path
@@ -120,6 +119,7 @@ tests:
               mountPropagation: HostToContainer
 
   - it: should pass with all set set
+    documentIndex: *deploymentDoc
     set:
       persistence:
         vol1:
@@ -128,7 +128,6 @@ tests:
           mountPropagation: HostToContainer
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].volumeMounts
           value:
             - mountPath: /some_path
@@ -136,6 +135,7 @@ tests:
               mountPropagation: HostToContainer
 
   - it: should pass with all set (readonly false)
+    documentIndex: *deploymentDoc
     set:
       persistence:
         vol1:
@@ -146,7 +146,6 @@ tests:
           mountPropagation: HostToContainer
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].volumeMounts
           value:
             - mountPath: /some_path
@@ -156,6 +155,7 @@ tests:
               mountPropagation: HostToContainer
 
   - it: should pass with all set (readonly true)
+    documentIndex: *deploymentDoc
     set:
       persistence:
         vol1:
@@ -166,7 +166,6 @@ tests:
           mountPropagation: HostToContainer
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].volumeMounts
           value:
             - mountPath: /some_path
@@ -176,6 +175,7 @@ tests:
               mountPropagation: HostToContainer
 
   - it: should pass with all set (readonly true) from tpl
+    documentIndex: *deploymentDoc
     set:
       some_mount: /some_path
       sub_path: config.yaml
@@ -189,7 +189,6 @@ tests:
           mountPropagation: "{{ .Values.mount_propagation }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].volumeMounts
           value:
             - mountPath: /some_path

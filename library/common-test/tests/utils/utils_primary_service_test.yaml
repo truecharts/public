@@ -4,14 +4,13 @@ templates:
   - common.yaml
 tests:
   - it: should pass with default values
+    documentIndex: &deploymentDoc 0
     asserts:
       - hasDocuments:
           count: 1
-      - documentIndex: &deploymentDoc 0
-        isKind:
+      - isKind:
           of: Deployment
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             httpGet:
@@ -24,6 +23,7 @@ tests:
             timeoutSeconds: 5
 
   - it: should fail with more than 1 primary services
+    documentIndex: *deploymentDoc
     set:
       service:
         main:
@@ -33,11 +33,39 @@ tests:
           primary: true
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: More than one services are set as primary. This is not supported.
 
 
+  - it: should pass with main service set as primary and other not
+    documentIndex: *deploymentDoc
+    set:
+      service:
+        main:
+          primary: true
+          ports:
+            main:
+              protocol: TCP
+        other:
+          primary: false
+          ports:
+            main:
+              protocol: TCP
+      probes:
+        liveness:
+          type: AUTO
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].livenessProbe
+          value:
+            tcpSocket:
+              port: 65535
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+
   - it: should pass with no service set as primary
+    documentIndex: *deploymentDoc
     set:
       service:
         main:
@@ -50,7 +78,6 @@ tests:
           type: AUTO
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             tcpSocket:
@@ -61,6 +88,7 @@ tests:
             periodSeconds: 10
 
   - it: should pass with different service set as primary
+    documentIndex: *deploymentDoc
     set:
       service:
         main:
@@ -78,7 +106,6 @@ tests:
           type: AUTO
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].livenessProbe
           value:
             tcpSocket:

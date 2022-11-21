@@ -4,172 +4,173 @@ templates:
   - common.yaml
 tests:
   - it: should pass with default values
+    documentIndex: &deploymentDoc 0
     asserts:
-      - documentIndex: &deploymentDoc 0
-        isKind:
+      - isKind:
           of: Deployment
 
   - it: should pass with tty set
+    documentIndex: *deploymentDoc
     set:
       tty: true
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].tty
           value: true
 
   - it: should pass with stdin set
+    documentIndex: *deploymentDoc
     set:
       stdin: true
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].stdin
           value: true
 
   - it: should pass with gracePeriodSeconds set
+    documentIndex: *deploymentDoc
     set:
       termination:
         gracePeriodSeconds: 25
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.terminationGracePeriodSeconds
           value: 25
 
   - it: should pass with schedulerName set
+    documentIndex: *deploymentDoc
     set:
       schedulerName: some_scheduler
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.schedulerName
           value: some_scheduler
 
   - it: should pass with schedulerName set from tpl
+    documentIndex: *deploymentDoc
     set:
       name: some_scheduler
       schedulerName: "{{ .Values.name }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.schedulerName
           value: some_scheduler
 
   - it: should pass with schedulerName set
+    documentIndex: *deploymentDoc
     set:
       priorityClassName: some_priority_class_name
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.priorityClassName
           value: some_priority_class_name
 
   - it: should pass with schedulerName set from tpl
+    documentIndex: *deploymentDoc
     set:
       name: some_priority_class_name
       priorityClassName: "{{ .Values.name }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.priorityClassName
           value: some_priority_class_name
 
   - it: should pass with terminationMessagePath set
+    documentIndex: *deploymentDoc
     set:
       termination:
         messagePath: /tmp/log
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].terminationMessagePath
           value: /tmp/log
 
   - it: should pass with terminationMessagePath set from tpl
+    documentIndex: *deploymentDoc
     set:
       some_path: /tmp/log
       termination:
         messagePath: "{{ .Values.some_path }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].terminationMessagePath
           value: /tmp/log
 
   - it: should pass with terminationMessagePolicy set
+    documentIndex: *deploymentDoc
     set:
       termination:
         messagePolicy: FallbackToLogsOnError
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].terminationMessagePolicy
           value: FallbackToLogsOnError
 
   - it: should pass with terminationMessagePolicy set from tpl
+    documentIndex: *deploymentDoc
     set:
       some_key: FallbackToLogsOnError
       termination:
         messagePolicy: "{{ .Values.some_key }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].terminationMessagePolicy
           value: FallbackToLogsOnError
 
   - it: should fail with invalid terminationMessagePolicy
+    documentIndex: *deploymentDoc
     set:
       some_key: invalid
       termination:
         messagePolicy: "{{ .Values.some_key }}"
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: Not valid option for messagePolicy
 
   - it: should fail with no command in preStop
+    documentIndex: *deploymentDoc
     set:
       lifecycle:
         preStop:
           command: ""
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: No commands were given for preStop lifecycle hook
 
   - it: should fail with no command in postStart
+    documentIndex: *deploymentDoc
     set:
       lifecycle:
         postStart:
           command: ""
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: No commands were given for postStart lifecycle hook
 
   - it: should fail with no value in a key in nodeSelector
+    documentIndex: *deploymentDoc
     set:
       nodeSelector:
         diskType:
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: Value is required on every key in <nodeSelector>
 
   - it: should pass with nodeSelector set
+    documentIndex: *deploymentDoc
     set:
       nodeSelector:
         diskType: ssd
         cpuType: intel
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.nodeSelector
           value:
             diskType: ssd
             cpuType: intel
 
   - it: should pass with nodeSelector set from tpl
+    documentIndex: *deploymentDoc
     set:
       some_key: ssd
       some_other_key: intel
@@ -178,111 +179,111 @@ tests:
         cpuType: "{{ .Values.some_other_key }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.nodeSelector
           value:
             diskType: ssd
             cpuType: intel
 
   - it: should fail with invalid operator in tolerations
+    documentIndex: *deploymentDoc
     set:
       tolerations:
         - operator: invalid_op
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: Invalid <operator>. Valid options are Exists, Equal.
 
   - it: should fail with invalid effect in tolerations
+    documentIndex: *deploymentDoc
     set:
       tolerations:
         - effect: invalid_effect
           operator: Exists
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: Invalid <effect>. Valid options are NoExecute, NoSchedule, PreferNoSchedule
 
   - it: should fail with empty key and operator Equal in tolerations
+    documentIndex: *deploymentDoc
     set:
       tolerations:
         - key: ""
           operator: Equal
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: <key> is required when <operator> is set to <Equal>
 
   - it: should fail with operator Exists and defined value in tolerations
+    documentIndex: *deploymentDoc
     set:
       tolerations:
         - value: something
           operator: Exists
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: When <operator> is set to <Exists>, you cannot define a <value>
 
   - it: should fail with operator Exists and non-integer tolerationSeconds in tolerations
+    documentIndex: *deploymentDoc
     set:
       tolerations:
         - tolerationSeconds: not_an_int
           operator: Exists
     asserts:
       - failedTemplate:
-          documentIndex: *deploymentDoc
           errorMessage: <tolerationSeconds> must result to an integer.
 
   - it: should pass with tolerations defined, with tolerationSeconds set
+    documentIndex: *deploymentDoc
     set:
       tolerations:
         - operator: Exists
           tolerationSeconds: 6000
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.tolerations
           value:
             - operator: Exists
               tolerationSeconds: 6000
 
   - it: should pass with tolerations defined, with only operator Exists
+    documentIndex: *deploymentDoc
     set:
       tolerations:
         - operator: Exists
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.tolerations
           value:
             - operator: Exists
 
   - it: should pass with tolerations defined, with only operator Exists from tpl
+    documentIndex: *deploymentDoc
     set:
       op: Exists
       tolerations:
         - operator: "{{ .Values.op }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.tolerations
           value:
             - operator: Exists
 
   - it: should pass with tolerations defined, with only operator Equal and key defined
+    documentIndex: *deploymentDoc
     set:
       tolerations:
         - operator: Equal
           key: key1
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.tolerations
           value:
             - operator: Equal
               key: key1
 
   - it: should pass with tolerations defined, with only operator Equal and key defined from tpl
+    documentIndex: *deploymentDoc
     set:
       some_key: key1
       tolerations:
@@ -290,26 +291,26 @@ tests:
           key: "{{ .Values.some_key }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.tolerations
           value:
             - operator: Equal
               key: key1
 
   - it: should pass with tolerations defined, with operator Exists and effect defined
+    documentIndex: *deploymentDoc
     set:
       tolerations:
         - operator: Exists
           effect: NoExecute
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.tolerations
           value:
             - operator: Exists
               effect: NoExecute
 
   - it: should pass with tolerations defined, with operator Exists and effect defined from tpl
+    documentIndex: *deploymentDoc
     set:
       ef1: NoExecute
       tolerations:
@@ -317,13 +318,13 @@ tests:
           effect: "{{ .Values.ef1 }}"
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.tolerations
           value:
             - operator: Exists
               effect: NoExecute
 
   - it: should pass with tolerations defined, with operator Equal and value defined
+    documentIndex: *deploymentDoc
     set:
       tolerations:
         - operator: Equal
@@ -331,7 +332,6 @@ tests:
           key: key1
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.tolerations
           value:
             - operator: Equal
@@ -339,6 +339,7 @@ tests:
               key: key1
 
   - it: should pass with tolerations defined, with operator Equal and value defined from tpl
+    documentIndex: *deploymentDoc
     set:
       val: some_value
       tolerations:
@@ -347,7 +348,6 @@ tests:
           key: key1
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.tolerations
           value:
             - operator: Equal
@@ -355,6 +355,7 @@ tests:
               key: key1
 
   - it: should pass with tolerations defined, with operator Equal and value defined from tpl
+    documentIndex: *deploymentDoc
     set:
       val: some_value
       tolerations:
@@ -363,7 +364,6 @@ tests:
           key: key1
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.tolerations
           value:
             - operator: Equal
@@ -371,6 +371,7 @@ tests:
               key: key1
 
   - it: should pass with tolerations defined, with everything set, multiple entries
+    documentIndex: *deploymentDoc
     set:
       tolerations:
         - operator: Equal
@@ -380,7 +381,6 @@ tests:
           tolerationSeconds: 6000
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.tolerations
           value:
             - operator: Equal
@@ -390,6 +390,7 @@ tests:
               tolerationSeconds: 6000
 
   - it: should pass with tolerations defined, with everything set from tpl, multiple entries
+    documentIndex: *deploymentDoc
     set:
       op1: Equal
       val1: some_value1
@@ -412,7 +413,6 @@ tests:
           tolerationSeconds: 6000
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.tolerations
           value:
             - operator: Equal

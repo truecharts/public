@@ -3,11 +3,11 @@ templates:
   - common.yaml
 tests:
   - it: should pass with default values
+    documentIndex: &deploymentDoc 0
     asserts:
       - hasDocuments:
           count: 1
-      - documentIndex: &deploymentDoc 0
-        isKind:
+      - isKind:
           of: Deployment
       - equal:
           path: spec.template.spec.containers[0].resources
@@ -20,6 +20,7 @@ tests:
               memory: 50Mi
 
   - it: should pass with changed resources
+    documentIndex: *deploymentDoc
     set:
       resources:
         limits:
@@ -30,7 +31,6 @@ tests:
           memory: 100Mi
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].resources
           value:
             limits:
@@ -41,6 +41,7 @@ tests:
               memory: 100Mi
 
   - it: should pass with changed resources and added GPU
+    documentIndex: *deploymentDoc
     set:
       scaleGPU:
         gpu: 1
@@ -53,7 +54,6 @@ tests:
           memory: 100Mi
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].resources
           value:
             limits:
@@ -65,6 +65,7 @@ tests:
               memory: 100Mi
 
   - it: should pass with empty resources
+    documentIndex: *deploymentDoc
     set:
       scaleGPU:
         gpu:
@@ -77,10 +78,10 @@ tests:
           memory:
     asserts:
       - isNull:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].resources
 
   - it: should pass with only limits.cpu defined
+    documentIndex: *deploymentDoc
     set:
       scaleGPU:
         gpu:
@@ -93,13 +94,13 @@ tests:
           memory:
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].resources
           value:
             limits:
               cpu: 3000m
 
   - it: should pass with only limits.memory defined
+    documentIndex: *deploymentDoc
     set:
       scaleGPU:
         gpu:
@@ -112,13 +113,13 @@ tests:
           memory:
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].resources
           value:
             limits:
               memory: 4Gi
 
   - it: should pass with only requests.cpu defined
+    documentIndex: *deploymentDoc
     set:
       scaleGPU:
         gpu:
@@ -131,13 +132,13 @@ tests:
           memory:
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].resources
           value:
             requests:
               cpu: 10m
 
   - it: should pass with only requests.memory defined
+    documentIndex: *deploymentDoc
     set:
       scaleGPU:
         gpu:
@@ -150,13 +151,13 @@ tests:
           memory: 50Mi
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].resources
           value:
             requests:
               memory: 50Mi
 
   - it: should pass with only limits.gpu defined
+    documentIndex: *deploymentDoc
     set:
       scaleGPU:
         gpu: 1
@@ -169,13 +170,13 @@ tests:
           memory:
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].resources
           value:
             limits:
               gpu: 1
 
   - it: should pass with only requests defined
+    documentIndex: *deploymentDoc
     set:
       scaleGPU:
         gpu:
@@ -188,7 +189,6 @@ tests:
           memory: 50Mi
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].resources
           value:
             requests:
@@ -196,6 +196,7 @@ tests:
               memory: 50Mi
 
   - it: should pass with only limits defined
+    documentIndex: *deploymentDoc
     set:
       scaleGPU:
         gpu:
@@ -208,7 +209,6 @@ tests:
           memory:
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].resources
           value:
             limits:
@@ -216,6 +216,7 @@ tests:
               memory: 4Gi
 
   - it: should pass with only gpu defined
+    documentIndex: *deploymentDoc
     set:
       scaleGPU:
         gpu: 1
@@ -228,7 +229,6 @@ tests:
           memory:
     asserts:
       - equal:
-          documentIndex: *deploymentDoc
           path: spec.template.spec.containers[0].resources
           value:
             limits:
