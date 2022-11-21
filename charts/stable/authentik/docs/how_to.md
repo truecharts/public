@@ -82,11 +82,15 @@ Once `authentik` is setup and running, you must create a `forwardAuth` inside `T
 
 ![Traefik-forwardAuth](img/Traefik-forwardAuth.png)
 
-- The main thing about this screen is to use the internal DNS name for simplicity
+:::note
+
+The main thing about this screen is to use the internal DNS name for simplicity
 
 :::
+
+```
 http://authentik-http.ix-authentik.svc.cluster.local:10230/outpost.goauthentik.io/auth/traefik
-:::
+```
 
 There's also a list of `authResponseHeaders` inside `authentik` listed for use with `Traefik`, so in case you need them here they are.
 

@@ -1,0 +1,20 @@
+image:
+  repository: tccr.io/truecharts/channels-dvr
+  pullPolicy: Always
+  tag: latest@sha256:bfc3c73c1cefd578c121b6e3256a496ad9ee190a6a6901d3ad1b9aa2a7be082c
+
+service:
+  main:
+    ports:
+      main:
+        port: 8089
+        protocol: HTTP
+        targetPort: 8089
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /channels-dvr
+
+portal:
+  enabled: true
