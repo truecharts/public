@@ -21,25 +21,25 @@ questions:
             type: string
             default: TrueCharts Photo Stream collection.
         - variable: AUTHOR_NAME
-          label: AUTHOR_NAME
+          label: "AUTHOR_NAME"
           schema:
             type: string
-            default: TrueCharts
+            default: "TrueCharts"
         - variable: DESCRIPTION
-          label: DESCRIPTION
+          label: "DESCRIPTION"
           schema:
             type: string
-            default: My TrueCharts Photo Stream collection.
+            default: "My TrueCharts Photo Stream collection."
         - variable: SHOW_OFFICIAL_GITHUB
           label: SHOW_OFFICIAL_GITHUB
           schema:
             type: string
-            default: 0
+            default: "0"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
           label: Main Service
-          description: The Primary service on which the healthcheck runs, often the webUI
+          description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
             type: dict
@@ -47,14 +47,14 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: Main Service Port Configuration
+                      label: "Main Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
                             label: Port
-                            description: This port exposes the container port on the service
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 4000
@@ -65,8 +65,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: storageimages
-          label: Photo Storage
-          description: Location for original files (photos).
+          label: "Photo Storage"
+          description: "Location for original files (photos)."
           schema:
             additional_attrs: true
             type: dict
