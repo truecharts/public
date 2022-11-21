@@ -542,26 +542,30 @@ questions:
                             label: Min Ratio
                             description: Minimum width/height of the bounding box for the detected object
                             schema:
-                              type: int
-                              "null": true
+                              type: string
+                              default: ""
+                              valid_chars: "[0-9.]"
                           - variable: max_ratio
                             label: Max Ratio
                             description: Maximum width/height of the bounding box for the detected object
                             schema:
-                              type: int
-                              "null": true
+                              type: string
+                              default: ""
+                              valid_chars: "[0-9.]"
                           - variable: min_score
                             label: Min Score
                             description: Minimum score for the object to initiate tracking
                             schema:
-                              type: int
-                              "null": true
+                              type: string
+                              default: ""
+                              valid_chars: "[0-9.]"
                           - variable: threshold
                             label: Threshold
                             description: Minimum decimal percentage for tracked object's computed score to be considered a true positive
                             schema:
-                              type: int
-                              "null": true
+                              type: string
+                              default: ""
+                              valid_chars: "[0-9.]"
                           - variable: mask
                             label: Mask
                             description: |
@@ -615,7 +619,8 @@ questions:
                         Too low and a fast moving person wont be detected as motion.
                       schema:
                         type: string
-                        default: "0.2"
+                        default: ""
+                        valid_chars: "[0-9.]"
                     - variable: frame_alpha
                       label: Frame Alpha
                       description: |
@@ -625,7 +630,8 @@ questions:
                         https://www.geeksforgeeks.org/background-subtraction-in-an-image-using-concept-of-running-average
                       schema:
                         type: string
-                        default: "0.2"
+                        default: ""
+                        valid_chars: "[0-9.]"
                     - variable: frame_height
                       label: Frame Height
                       description: |
