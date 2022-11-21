@@ -7,6 +7,17 @@ env:
   USER_ID: "{{ .Values.security.PUID }}"
   GROUP_ID: "{{ .Values.podSecurityContext.fsGroup }}"
 
+probes:
+  liveness:
+    type: HTTP
+    path: /
+  readiness:
+    type: HTTP
+    path: /
+  startup:
+    type: HTTP
+    path: /
+
 service:
   main:
     ports:
