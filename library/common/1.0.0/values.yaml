@@ -163,8 +163,7 @@ service:
         # If there is more than 1 service, make sure that only 1 port is marked as primary.
         primary: true
         # -- The port number (Default port is required if enabled: true)
-        #TODO: Decide if we have a default port or remove and also remove the "fail"
-        port: 999999
+        port:
         # -- Port protocol.
         # Support values are `HTTP`, `HTTPS`, `TCP` and `UDP`.
         # HTTPS and HTTPS spawn a TCP service and get used for internal URL and name generation

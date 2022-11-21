@@ -16,7 +16,7 @@ tests:
           value:
             httpGet:
               path: /
-              port: 999999
+              port: 65535
               scheme: HTTP
             failureThreshold: 5
             initialDelaySeconds: 10
@@ -40,7 +40,7 @@ tests:
           path: spec.template.spec.containers[0].livenessProbe
           value:
             tcpSocket:
-              port: 999999
+              port: 65535
             initialDelaySeconds: 10
             failureThreshold: 5
             timeoutSeconds: 5
