@@ -16,8 +16,19 @@ service:
     ports:
       main:
         port: 9996
-        protocol: HTTP
+        protocol: TCP
         targetPort: 9996
+
+probes:
+  liveness:
+    type: TCP
+    path: /
+  readiness:
+    type: TCP
+    path: /
+  startup:
+    type: TCP
+    path: /
 
 persistence:
   config:
