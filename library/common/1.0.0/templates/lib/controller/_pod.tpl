@@ -25,6 +25,10 @@ hostAliases:
 nodeSelector:
   {{- . | nindent 2 }}
 {{- end -}}
+{{- with (include "ix.v1.common.tolerations" . | trim) }}
+tolerations:
+  {{- . | nindent 2 }}
+{{- end -}}
 {{- with .Values.termination.gracePeriodSeconds }}
 terminationGracePeriodSeconds: {{ . }}
 {{- end }}
