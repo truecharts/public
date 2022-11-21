@@ -146,3 +146,40 @@ tests:
       - failedTemplate:
           documentIndex: *deploymentDoc
           errorMessage: No commands were given for postStart lifecycle hook
+
+  - it: should fail with no value in a key in nodeSelector
+    set:
+      nodeSelector:
+        diskType:
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: Value is required on every key in <nodeSelector>
+
+  - it: should pass with nodeSelector set
+    set:
+      nodeSelector:
+        diskType: ssd
+        cpuType: intel
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.nodeSelector
+          value:
+            diskType: ssd
+            cpuType: intel
+
+  - it: should pass with nodeSelector set from tpl
+    set:
+      some_key: ssd
+      some_other_key: intel
+      nodeSelector:
+        diskType: "{{ .Values.some_key }}"
+        cpuType: "{{ .Values.some_other_key }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.nodeSelector
+          value:
+            diskType: ssd
+            cpuType: intel

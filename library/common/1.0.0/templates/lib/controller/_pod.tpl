@@ -21,6 +21,10 @@ dnsConfig:
 hostAliases:
   {{- . | nindent 2 }}
 {{- end -}}
+{{- with (include "ix.v1.common.nodeSelector" . | trim) }}
+nodeSelector:
+  {{- . | nindent 2 }}
+{{- end -}}
 {{- with .Values.termination.gracePeriodSeconds }}
 terminationGracePeriodSeconds: {{ . }}
 {{- end }}
