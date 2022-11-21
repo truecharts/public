@@ -11,6 +11,11 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+extraArgs:
+  - python3
+  - -u
+  - main.py
+
 gsm:
   app_token: "DISCORD_BOT_TOKEN"
   whitelist_guilds: []
@@ -28,11 +33,18 @@ envFrom:
 
 service:
   main:
+    enabled: false
     ports:
       main:
-        port: 10589
-        protocol: HTTP
-        targetPort: 8000
+        enabled: false
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
 
 persistence:
   config:
