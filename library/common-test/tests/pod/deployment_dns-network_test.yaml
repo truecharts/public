@@ -248,3 +248,78 @@ tests:
               - name: ndots
                 value: "2"
               - name: edns0
+
+  - it: should fail without ip in hostAliases
+    set:
+      hostAliases:
+        - hostnames:
+          - hostname1
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: <ip> field is required in hostAliases
+
+  - it: should fail without hostnames in hostAliases
+    set:
+      hostAliases:
+        - ip: 1.1.1.1
+    asserts:
+      - failedTemplate:
+          documentIndex: *deploymentDoc
+          errorMessage: At least one <hostnames> is required in hostAliases
+
+  - it: should pass with hostAliases defined
+    set:
+      hostAliases:
+        - ip: 1.1.1.1
+          hostnames:
+            - hostname1
+            - hostname2
+        - ip: 8.8.8.8
+          hostnames:
+            - hostname3
+            - hostname4
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.hostAliases
+          value:
+            - ip: 1.1.1.1
+              hostnames:
+                - hostname1
+                - hostname2
+            - ip: 8.8.8.8
+              hostnames:
+                - hostname3
+                - hostname4
+
+  - it: should pass with hostAliases defined from tpl
+    set:
+      ip1: 1.1.1.1
+      ip2: 8.8.8.8
+      host1: hostname1
+      host2: hostname2
+      host3: hostname3
+      host4: hostname4
+      hostAliases:
+        - ip: "{{ .Values.ip1 }}"
+          hostnames:
+            - "{{ .Values.host1 }}"
+            - "{{ .Values.host2 }}"
+        - ip: "{{ .Values.ip2 }}"
+          hostnames:
+            - "{{ .Values.host3 }}"
+            - "{{ .Values.host4 }}"
+    asserts:
+      - equal:
+          documentIndex: *deploymentDoc
+          path: spec.template.spec.hostAliases
+          value:
+            - ip: 1.1.1.1
+              hostnames:
+                - hostname1
+                - hostname2
+            - ip: 8.8.8.8
+              hostnames:
+                - hostname3
+                - hostname4

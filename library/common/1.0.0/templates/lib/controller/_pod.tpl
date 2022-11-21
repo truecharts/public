@@ -17,6 +17,10 @@ dnsPolicy: {{ . }}
 dnsConfig:
   {{- . | nindent 2 }}
 {{- end -}}
+{{- with (include "ix.v1.common.hostAliases" . | trim) }}
+hostAliases:
+  {{- . | nindent 2 }}
+{{- end -}}
 {{- with .Values.termination.gracePeriodSeconds }}
 terminationGracePeriodSeconds: {{ . }}
 {{- end }}
@@ -30,5 +34,5 @@ containers:
 {{- with (include "ix.v1.common.controller.volumes" . | trim) }}
 volumes:
     {{- . | nindent 2 }}
-{{- end }}
+{{- end -}}
 {{- end -}}
