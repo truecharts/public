@@ -64,6 +64,18 @@ nameOverride applies only to the current chart
 
 {{- define "ix.v1.common.names.serviceAccountName" -}}
   {{- $serviceAccountName := "default" -}}
-      {{/* TODO: Get the name of the primary SA here */}}
+    {{- range $name, $serviceAccount := .Values.serviceAccount -}}
+      {{- if $serviceAccount.enabled -}}
+        {{- if hasKey $serviceAccount "primary" -}}
+          {{- if $serviceAccount.primary -}}
+            {{- if $serviceAccount.nameOverride -}}
+              {{- $serviceAccountName = (printf "%v-%v" (include "ix.v1.common.names.fullname" $) $serviceAccount.nameOverride) -}}
+            {{- else -}}
+              {{- $serviceAccountName = (include "ix.v1.common.names.fullname" $) -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
   {{- $serviceAccountName -}}
 {{- end -}}
