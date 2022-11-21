@@ -1,15 +1,11 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Network-Other
 apiVersion: v2
-appVersion: "latest"
+appVersion: "v1.6.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 11.0.3
 deprecated: false
-description: "PS3netsrv is a program that allows Multiman or Webman to play game backups that are stored on your TrueNAS server. [span style='color: #E80000;']THIS IS IN BETA AND HAS REPORTED ISSUES with TrueNAS 6.8.0 and higher.[/span][br][br]\n"
+description: Allows Multiman or Webman to play game backups.
 home: https://truecharts.org/docs/charts/incubator/ps3netsrv
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ps3netsrv.png
 keywords:
@@ -26,4 +22,9 @@ sources:
   - https://github.com/aldostools/webMAN-MOD/tree/master/_Projects_/ps3netsrv
   - https://hub.docker.com/r/shawly/ps3netsrv
 type: application
-version: 2.0.1
+version: 3.0.0
+annotations:
+  truecharts.org/catagories: |
+    - Network-Other
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
