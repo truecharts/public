@@ -14,7 +14,7 @@
       {{- end -}}
 
       {{/*
-      Pass a serviceAccount object with this single SA to the class,
+      Pass a serviceAccount object containing this single SA to the class,
       in order to create the object. Also pass "root" for includes to work.
       */}}
       {{- include "ix.v1.common.class.serviceAccount" (dict "serviceAccount" $saValues "root" $) -}}
