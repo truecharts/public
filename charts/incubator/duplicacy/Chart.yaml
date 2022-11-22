@@ -1,7 +1,3 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Backup
 apiVersion: v2
 appVersion: "latest"
 dependencies:
@@ -26,4 +22,9 @@ sources:
   - https://hotio.dev/containers/duplicacy
   - https://hub.docker.com/r/hotio/duplicacy
 type: application
-version: 2.0.1
+version: 2.0.2
+annotations:
+  truecharts.org/catagories: |
+    - Backup
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
