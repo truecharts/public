@@ -23,10 +23,10 @@ persistence:
   config:
     enabled: true
     mountPath: /config
-  hostpathforcache:
+  cache:
     enabled: true
     mountPath: /cache
-  hostpathforlogs:
+  logs:
     enabled: true
     mountPath: /logs
 
