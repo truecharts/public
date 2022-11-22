@@ -1,5 +1,5 @@
 
-suite: deployment container lifecycle test
+suite: container in deployment lifecycle test
 templates:
   - common.yaml
 tests:
@@ -145,6 +145,26 @@ tests:
                 command:
                   - /bin/bash
                   - some_value
+
+  - it: should fail with no command in preStop
+    documentIndex: *deploymentDoc
+    set:
+      lifecycle:
+        preStop:
+          command: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: No commands were given for preStop lifecycle hook
+
+  - it: should fail with no command in postStart
+    documentIndex: *deploymentDoc
+    set:
+      lifecycle:
+        postStart:
+          command: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: No commands were given for postStart lifecycle hook
 
   - it: should fail with no command in preStop
     documentIndex: *deploymentDoc
