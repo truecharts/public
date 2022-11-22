@@ -60,7 +60,7 @@
           {{- else if (eq ($probeType | lower) "grpc") -}}
             {{- printf "grpc:" | nindent 2 }}
           {{- else if (eq $probeType "UDP") -}}
-            {{- fail "UDP Probes are not supported. Please set a different UDP probe or disable probes." -}}
+            {{- fail "UDP Probes are not supported. Please use a different probe or disable probes." -}}
           {{- end -}}
 
           {{- $probePort := $primaryPort.port -}}
