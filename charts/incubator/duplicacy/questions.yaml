@@ -45,7 +45,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: hostpathforcache
+        - variable: cache
           label: App Cache Storage
           description: Stores the Application Cache.
           schema:
@@ -53,7 +53,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: hostpathforlogs
+        - variable: logs
           label: App Logs Storage
           description: Stores the Application Logs.
           schema:
