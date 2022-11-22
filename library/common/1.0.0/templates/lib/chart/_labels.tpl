@@ -7,11 +7,7 @@ helm-revision: {{ .Release.Revision | quote }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
-  {{- with .Values.global.labels }}
-    {{- range $k, $v := . }}
-      {{- $k | nindent 0 }}: {{ tpl $v $ | quote }}
-    {{- end }}
-  {{- end }}
+  {{- include "ix.v1.common.util.labels.render" (dict "root" . "labels" .Values.global.labels) -}}
 {{- end -}}
 
 {{/* Selector labels shared across objects */}}

@@ -5,11 +5,7 @@ These annotations will be shared on all objects
 Rendered under ".metadata.annotations"
 */}}
 {{- define "ix.v1.common.annotations" -}}
-  {{- with .Values.global.annotations -}}
-    {{- range $k, $v := . }}
-      {{- $k | nindent 0 }}: {{ tpl $v $ | quote }}
-    {{- end -}}
-  {{- end -}}
+  {{- include "ix.v1.common.util.annotations.render" (dict "root" . "annotations" .Values.global.annotations) -}}
 {{- end -}}
 
 {{/*
