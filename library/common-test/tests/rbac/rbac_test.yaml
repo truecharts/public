@@ -14,6 +14,89 @@ tests:
       - isKind:
           of: Deployment
 
+# TODO: check that these fails are valid...
+
+  - it: should fail with no apiGroups in rules
+    set:
+      rbac:
+        main:
+          enabled: true
+          rules:
+            - apiGroups: []
+              resources:
+                - something
+              verbs:
+                - something
+    asserts:
+      - failedTemplate:
+          errorMessage: <apiGroups> are required in RBAC rules.
+
+  - it: should fail with no resources in rules
+    set:
+      rbac:
+        main:
+          enabled: true
+          rules:
+            - apiGroups:
+                - something
+              resources: []
+              verbs:
+                - something
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources> are required in RBAC rules.
+
+  - it: should fail with no verbs in rules
+    set:
+      rbac:
+        main:
+          enabled: true
+          rules:
+            - apiGroups:
+                - something
+              resources:
+                - something
+              verbs: []
+    asserts:
+      - failedTemplate:
+          errorMessage: <verbs> are required in RBAC rules.
+
+  - it: should fail with no kind in subjects
+    set:
+      rbac:
+        main:
+          enabled: true
+          subjects:
+            - kind: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: <kind> is required in RBAC subjects.
+
+  - it: should fail with no name in subjects
+    set:
+      rbac:
+        main:
+          enabled: true
+          subjects:
+            - kind: something
+              name: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: <name> is required in RBAC subjects.
+
+  - it: should fail with no apiGroup in subjects
+    set:
+      rbac:
+        main:
+          enabled: true
+          subjects:
+            - kind: something
+              name: something
+              apiGroup: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: <apiGroup> is required in RBAC subjects.
+
   - it: should pass with rbac account enabled (Role)
     documentIndex: &roleDoc 0
     set:

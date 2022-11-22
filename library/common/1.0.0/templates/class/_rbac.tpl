@@ -48,18 +48,18 @@ metadata:
   {{- end }}
 {{- with $rbacValues.rules -}}
 rules:
-  {{/* Make sure that still works with values like "" also with tpl */}}
+  {{/* TODO: Make sure that still works with values like "" also with tpl and on subjects*/}}
   {{- range . }}
   - apiGroups:
-    {{- range (required "<apiGroups> are required in RBAC rules" .apiGroups) }}
+    {{- range (required "<apiGroups> are required in RBAC rules." .apiGroups) }}
       - {{ tpl . $root }}
     {{- end }}
     resources:
-    {{- range (required "<resources> are required in RBAC rules" .resources) }}
+    {{- range (required "<resources> are required in RBAC rules." .resources) }}
       - {{ tpl . $root }}
     {{- end }}
     verbs:
-    {{- range (required "<verbs> are required in RBAC rules" .verbs) }}
+    {{- range (required "<verbs> are required in RBAC rules." .verbs) }}
       - {{ tpl . $root }}
     {{- end }}
   {{- end }}
@@ -93,9 +93,9 @@ subjects:
     namespace: {{ $root.Release.Namespace }}
   {{- with $rbacValues.subjects -}}
     {{- range . }}
-  - kind: {{ tpl (required "<kind> is required in RBAC subjects" .kind) $root }}
-    name: {{ tpl (required "<name> is required in RBAC subjects" .name) $root }}
-    apiGroup: {{ tpl (required "<apiGroup> is required in RBAC subjects" .apiGroup) $root }}
+  - kind: {{ tpl (required "<kind> is required in RBAC subjects." .kind) $root }}
+    name: {{ tpl (required "<name> is required in RBAC subjects." .name) $root }}
+    apiGroup: {{ tpl (required "<apiGroup> is required in RBAC subjects." .apiGroup) $root }}
     {{- end }}
   {{- end -}}
 {{- end -}}
