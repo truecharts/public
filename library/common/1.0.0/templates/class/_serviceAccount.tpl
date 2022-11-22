@@ -1,9 +1,10 @@
 {{/* Template for a ServiceAccount object, can only be called by the spawner */}}
-{{/* A serviceAccount object is passed from the spawner */}}
+{{/* A serviceAccount object and "root" is passed from the spawner */}}
 {{- define "ix.v1.common.class.serviceAccount" -}}
   {{- $values := .serviceAccount -}}
   {{- $root := .root -}}
-  {{- $saName := (include "ix.v1.common.names.fullname" $root) -}}
+
+  {{- $saName := include "ix.v1.common.names.fullname" $root -}}
 
   {{- if and (hasKey $values "nameOverride") $values.nameOverride -}}
     {{- $saName = (printf "%v-%v" $saName $values.nameOverride) -}}
