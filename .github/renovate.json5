@@ -154,6 +154,11 @@
     //
     {
       "matchDatasources": ["docker"],
+      "versioning": "regex:^v(?<major>14)(?<minor>\\d+)(?<patch>\\d+)$",
+      "matchPackageNames": ["tccr.io/truecharts/photoprism"],
+    },
+    {
+      "matchDatasources": ["docker"],
       "versioning": "regex:^v(?<major>\\d{2})(?<minor>\\d{2})(?<patch>\\d{2})$",
       "matchPackageNames": ["tccr.io/truecharts/photoprism"],
     },
