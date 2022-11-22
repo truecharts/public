@@ -62,6 +62,7 @@ nameOverride applies only to the current chart
   {{- end -}}
 {{- end -}}
 
+{{/* Returns the serviceAccoutName. The name of the primary, if any, otherwise "default" */}}
 {{- define "ix.v1.common.names.serviceAccountName" -}}
   {{- $serviceAccountName := "default" -}}
     {{- range $name, $serviceAccount := .Values.serviceAccount -}}
