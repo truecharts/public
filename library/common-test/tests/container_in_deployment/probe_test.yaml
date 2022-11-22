@@ -41,7 +41,6 @@ tests:
               periodSeconds: 5
 
   - it: should fail with wrong probe name
-    documentIndex: *deploymentDoc
     set:
       probes:
         invalid_probe_name:
@@ -50,7 +49,6 @@ tests:
           errorMessage: Invalid probe name (invalid_probe_name). Valid options are (liveness, readiness, startup)
 
   - it: should fail without commands on exec probe
-    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
@@ -60,7 +58,6 @@ tests:
           errorMessage: No commands were defined for exec type on probe (liveness)
 
   - it: should fail without path on http(s) liveness probe
-    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
@@ -70,7 +67,6 @@ tests:
           errorMessage: <path> must be defined for HTTP/HTTPS probe types in probe (liveness)
 
   - it: should fail without path on http(s) readiness probe
-    documentIndex: *deploymentDoc
     set:
       probes:
         readiness:
@@ -80,7 +76,6 @@ tests:
           errorMessage: <path> must be defined for HTTP/HTTPS probe types in probe (readiness)
 
   - it: should fail without path on http(s) startup probe
-    documentIndex: *deploymentDoc
     set:
       probes:
         startup:
@@ -90,7 +85,6 @@ tests:
           errorMessage: <path> must be defined for HTTP/HTTPS probe types in probe (startup)
 
   - it: should fail without initialDelaySeconds on non-custom probes
-    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
@@ -101,7 +95,6 @@ tests:
           errorMessage: <initialDelaySeconds> cannot be empty in probe (liveness)
 
   - it: should fail without failureThreshold on non-custom probes
-    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
@@ -112,7 +105,6 @@ tests:
           errorMessage: <failureThreshold> cannot be empty in probe (liveness)
 
   - it: should fail without timeoutSeconds on non-custom probes
-    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
@@ -123,7 +115,6 @@ tests:
           errorMessage: <timeoutSeconds> cannot be empty in probe (liveness)
 
   - it: should fail without periodSeconds on non-custom probes
-    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
@@ -134,7 +125,6 @@ tests:
           errorMessage: <periodSeconds> cannot be empty in probe (liveness)
 
   - it: should fail when non-custom probe is defined in a disabled service
-    documentIndex: *deploymentDoc
     set:
       service:
         main:
@@ -148,7 +138,6 @@ tests:
           errorMessage: Only custom probes are allowed when service is disabled (liveness)
 
   - it: should fail with invalid probe type
-    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
@@ -158,7 +147,6 @@ tests:
           errorMessage: Invalid probe type (not_valid_type) on probe (liveness)
 
   - it: should fail with httpHeader value is defined as list
-    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
@@ -172,7 +160,6 @@ tests:
           errorMessage: Lists or Dicts are not allowed in httpHeaders on probe (liveness)
 
   - it: should fail with httpHeader value is defined as dict
-    documentIndex: *deploymentDoc
     set:
       probes:
         liveness:

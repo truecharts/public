@@ -9,7 +9,6 @@ tests:
           of: Deployment
 
   - it: should fail with envList missing name
-    documentIndex: *deploymentDoc
     set:
       envList:
         - value: some_value
@@ -18,7 +17,6 @@ tests:
           errorMessage: Please specify both name and value for environment variable
 
   - it: should fail with envList missing value
-    documentIndex: *deploymentDoc
     set:
       envList:
         - name: some_name
@@ -27,7 +25,6 @@ tests:
           errorMessage: Please specify both name and value for environment variable
 
   - it: should fail with envList name as a map
-    documentIndex: *deploymentDoc
     set:
       envList:
         - name:
@@ -38,7 +35,6 @@ tests:
           errorMessage: Name in envList cannot be a map or slice
 
   - it: should fail with envList name as a slice
-    documentIndex: *deploymentDoc
     set:
       envList:
         - name:
@@ -49,7 +45,6 @@ tests:
           errorMessage: Name in envList cannot be a map or slice
 
   - it: should fail with envList value as a map
-    documentIndex: *deploymentDoc
     set:
       envList:
         - name: some_name
@@ -60,7 +55,6 @@ tests:
           errorMessage: Value in envList cannot be a map or slice
 
   - it: should fail with envList value as a slice
-    documentIndex: *deploymentDoc
     set:
       envList:
         - name: some_name

@@ -23,7 +23,6 @@ tests:
             timeoutSeconds: 5
 
   - it: should fail with more than 1 primary services
-    documentIndex: *deploymentDoc
     set:
       service:
         main:

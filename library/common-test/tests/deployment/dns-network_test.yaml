@@ -47,7 +47,6 @@ tests:
           value: true
 
   - it: should fail with invalid dnsPolicy
-    documentIndex: *deploymentDoc
     set:
       dnsPolicy: invalid
     asserts:
@@ -83,7 +82,6 @@ tests:
           value: Default
 
   - it: should fail with more than 3 nameservers
-    documentIndex: *deploymentDoc
     set:
       dnsConfig:
         nameservers:
@@ -96,7 +94,6 @@ tests:
           errorMessage: There can be at most 3 nameservers specified in dnsConfig
 
   - it: should fail with more than 6 domain searches
-    documentIndex: *deploymentDoc
     set:
       dnsConfig:
         searches:
@@ -112,7 +109,6 @@ tests:
           errorMessage: There can be at most 6 search domains specified in dnsConfig
 
   - it: should fail with no nameservers and dnsPolicy set to None
-    documentIndex: *deploymentDoc
     set:
       dnsPolicy: None
     asserts:
@@ -250,7 +246,6 @@ tests:
               - name: edns0
 
   - it: should fail without ip in hostAliases
-    documentIndex: *deploymentDoc
     set:
       hostAliases:
         - hostnames:
@@ -260,7 +255,6 @@ tests:
           errorMessage: <ip> field is required in hostAliases
 
   - it: should fail without hostnames in hostAliases
-    documentIndex: *deploymentDoc
     set:
       hostAliases:
         - ip: 1.1.1.1

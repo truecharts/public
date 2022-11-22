@@ -37,7 +37,6 @@ tests:
               - 1000
 
   - it: should fail without runAsUser
-    documentIndex: *deploymentDoc
     set:
       podSecurityContext:
         runAsUser:
@@ -46,7 +45,6 @@ tests:
           errorMessage: <runAsUser> value is required.
 
   - it: should fail without runAsGroup
-    documentIndex: *deploymentDoc
     set:
       podSecurityContext:
         runAsGroup:
@@ -55,7 +53,6 @@ tests:
           errorMessage: <runAsGroup> value is required.
 
   - it: should fail without fsGroup
-    documentIndex: *deploymentDoc
     set:
       podSecurityContext:
         fsGroup:
@@ -64,7 +61,6 @@ tests:
           errorMessage: <fsGroup> value is required.
 
   - it: should fail with invalid fsGroupChangePolicy
-    documentIndex: *deploymentDoc
     set:
       podSecurityContext:
         fsGroupChangePolicy: invalid_policy

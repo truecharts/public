@@ -70,7 +70,6 @@ tests:
           value: FallbackToLogsOnError
 
   - it: should fail with invalid terminationMessagePolicy
-    documentIndex: *deploymentDoc
     set:
       some_key: invalid
       termination:

@@ -11,7 +11,6 @@ tests:
           path: spec.template.spec.containers[0].volumeMounts
 
   - it: should fail with no mountPath set
-    documentIndex: *deploymentDoc
     set:
       persistence:
         vol1:

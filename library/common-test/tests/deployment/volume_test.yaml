@@ -100,7 +100,6 @@ tests:
               medium: Memory
 
   - it: should fail with added emptyDir and non Memory medium
-    documentIndex: *deploymentDoc
     set:
       persistence:
         volume1:
@@ -169,7 +168,6 @@ tests:
               type: Directory
 
   - it: should fail with wrong persistence type
-    documentIndex: *deploymentDoc
     set:
       persistence:
         some_volume:
@@ -181,7 +179,6 @@ tests:
           errorMessage: Not a valid persistence.type (not_valid_persistence)
 
   - it: should fail with not set objectName on configMaps
-    documentIndex: *deploymentDoc
     set:
       persistence:
         some_volume:
@@ -193,7 +190,6 @@ tests:
           errorMessage: objectName not set for persistence item some_volume
 
   - it: should fail with not set objectName on secrets
-    documentIndex: *deploymentDoc
     set:
       persistence:
         some_volume:
@@ -205,7 +201,6 @@ tests:
           errorMessage: objectName not set for persistence item some_volume
 
   - it: should fail with not set path on hostPath
-    documentIndex: *deploymentDoc
     set:
       persistence:
         some_volume:
@@ -217,7 +212,6 @@ tests:
           errorMessage: hostPath not set on item some_volume
 
   - it: should fail with not set server on nfs
-    documentIndex: *deploymentDoc
     set:
       persistence:
         some_volume:
@@ -230,7 +224,6 @@ tests:
           errorMessage: NFS Server not set on item some_volume
 
   - it: should fail with not set path on nfs
-    documentIndex: *deploymentDoc
     set:
       persistence:
         some_volume:
@@ -243,7 +236,6 @@ tests:
           errorMessage: NFS Path not set on item some_volume
 
   - it: should fail with not set objectName on secret
-    documentIndex: *deploymentDoc
     set:
       persistence:
         some_volume:
@@ -255,7 +247,6 @@ tests:
           errorMessage: objectName not set for persistence item some_volume
 
   - it: should fail with not set objectName on configmap
-    documentIndex: *deploymentDoc
     set:
       persistence:
         some_volume:
@@ -363,7 +354,6 @@ tests:
               defaultMode: 644
 
   - it: should fail with added secret and no key on items
-    documentIndex: *deploymentDoc
     set:
       persistence:
         some_volume:
@@ -378,7 +368,6 @@ tests:
           errorMessage: No key was given for persistence item some_volume
 
   - it: should fail with added secret and no path on items
-    documentIndex: *deploymentDoc
     set:
       persistence:
         some_volume:
@@ -441,7 +430,6 @@ tests:
                   path: some_path
 
   - it: should fail with not set objectName on configMap
-    documentIndex: *deploymentDoc
     set:
       persistence:
         some_volume:
@@ -571,7 +559,6 @@ tests:
                   path: some_path
 
   - it: should fail with added configMap and no key on items
-    documentIndex: *deploymentDoc
     set:
       persistence:
         some_volume:
@@ -586,7 +573,6 @@ tests:
           errorMessage: No key was given for persistence item some_volume
 
   - it: should fail with added configMap and no path on items
-    documentIndex: *deploymentDoc
     set:
       persistence:
         some_volume:

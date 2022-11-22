@@ -61,7 +61,6 @@ tests:
             runAsNonRoot: true
 
   - it: should fail with securityContext changed, runAsNonRoot true and runAsUser 0
-    documentIndex: *deploymentDoc
     set:
       securityContext:
         runAsNonRoot: true
@@ -72,7 +71,6 @@ tests:
           errorMessage: You are trying to run as root (user or group), but runAsNonRoot is set to true
 
   - it: should fail with securityContext changed, runAsNonRoot true and runAsGroup 0
-    documentIndex: *deploymentDoc
     set:
       securityContext:
         runAsNonRoot: true
@@ -83,7 +81,6 @@ tests:
           errorMessage: You are trying to run as root (user or group), but runAsNonRoot is set to true
 
   - it: should fail with securityContext changed and runAsNonRoot set to a non-bool value
-    documentIndex: *deploymentDoc
     set:
       securityContext:
         runAsNonRoot: non-bool
@@ -92,7 +89,6 @@ tests:
           errorMessage: One or more of the following are not set as booleans (runAsNonRoot, privileged, readOnlyRootFilesystem, allowPrivilegeEscalation)
 
   - it: should fail with securityContext changed and privileged set to a non-bool value
-    documentIndex: *deploymentDoc
     set:
       securityContext:
         privileged: non-bool
@@ -101,7 +97,6 @@ tests:
           errorMessage: One or more of the following are not set as booleans (runAsNonRoot, privileged, readOnlyRootFilesystem, allowPrivilegeEscalation)
 
   - it: should fail with securityContext changed and readOnlyRootFilesystem set to a non-bool value
-    documentIndex: *deploymentDoc
     set:
       securityContext:
         readOnlyRootFilesystem: non-bool
@@ -110,7 +105,6 @@ tests:
           errorMessage: One or more of the following are not set as booleans (runAsNonRoot, privileged, readOnlyRootFilesystem, allowPrivilegeEscalation)
 
   - it: should fail with securityContext changed and allowPrivilegeEscalation set to a non-bool value
-    documentIndex: *deploymentDoc
     set:
       securityContext:
         allowPrivilegeEscalation: non-bool
@@ -119,7 +113,6 @@ tests:
           errorMessage: One or more of the following are not set as booleans (runAsNonRoot, privileged, readOnlyRootFilesystem, allowPrivilegeEscalation)
 
   - it: should fail with securityContext changed and capabilities.add is not a list
-    documentIndex: *deploymentDoc
     set:
       securityContext:
         capabilities:
@@ -129,7 +122,6 @@ tests:
           errorMessage: Either <add> or <drop> capabilities is not a list.
 
   - it: should fail with securityContext changed and capabilities.drop is not a list
-    documentIndex: *deploymentDoc
     set:
       securityContext:
         capabilities:

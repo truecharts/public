@@ -58,7 +58,6 @@ tests:
           value: some_priority_class_name
 
   - it: should fail with no value in a key in nodeSelector
-    documentIndex: *deploymentDoc
     set:
       nodeSelector:
         diskType:
@@ -95,7 +94,6 @@ tests:
             cpuType: intel
 
   - it: should fail with invalid operator in tolerations
-    documentIndex: *deploymentDoc
     set:
       tolerations:
         - operator: invalid_op
@@ -104,7 +102,6 @@ tests:
           errorMessage: Invalid <operator>. Valid options are Exists, Equal.
 
   - it: should fail with invalid effect in tolerations
-    documentIndex: *deploymentDoc
     set:
       tolerations:
         - effect: invalid_effect
@@ -114,7 +111,6 @@ tests:
           errorMessage: Invalid <effect>. Valid options are NoExecute, NoSchedule, PreferNoSchedule
 
   - it: should fail with empty key and operator Equal in tolerations
-    documentIndex: *deploymentDoc
     set:
       tolerations:
         - key: ""
@@ -124,7 +120,6 @@ tests:
           errorMessage: <key> is required when <operator> is set to <Equal>
 
   - it: should fail with operator Exists and defined value in tolerations
-    documentIndex: *deploymentDoc
     set:
       tolerations:
         - value: something
@@ -134,7 +129,6 @@ tests:
           errorMessage: When <operator> is set to <Exists>, you cannot define a <value>
 
   - it: should fail with operator Exists and non-integer tolerationSeconds in tolerations
-    documentIndex: *deploymentDoc
     set:
       tolerations:
         - tolerationSeconds: not_an_int

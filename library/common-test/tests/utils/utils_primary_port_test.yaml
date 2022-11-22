@@ -99,7 +99,6 @@ tests:
             periodSeconds: 10
 
   - it: should fail with more than 1 primary ports
-    documentIndex: *deploymentDoc
     set:
       service:
         main:

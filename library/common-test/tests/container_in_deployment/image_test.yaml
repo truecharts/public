@@ -31,7 +31,6 @@ tests:
           value: some_repo:some_tag
 
   - it: should fail without repository
-    documentIndex: *deploymentDoc
     set:
       image:
         repository: ""
@@ -41,7 +40,6 @@ tests:
           errorMessage: Image <repository> is required
 
   - it: should fail without tag
-    documentIndex: *deploymentDoc
     set:
       image:
         repository: some_repo
@@ -63,7 +61,6 @@ tests:
           value: some_other_repo:some_other_tag
 
   - it: should pass without repo from image selector
-    documentIndex: *deploymentDoc
     set:
       betaImage:
         repository: ""
@@ -74,7 +71,6 @@ tests:
           errorMessage: Image <repository> is required
 
   - it: should pass without tag from image selector
-    documentIndex: *deploymentDoc
     set:
       betaImage:
         repository: some_other_repo

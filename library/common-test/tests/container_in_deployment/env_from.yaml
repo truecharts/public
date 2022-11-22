@@ -9,7 +9,6 @@ tests:
           of: Deployment
 
   - it: should fail with envFrom configMapRef has empty name
-    documentIndex: *deploymentDoc
     set:
       envFrom:
         - configMapRef:
@@ -19,7 +18,6 @@ tests:
           errorMessage: Name is required for configMapRef in envFrom.
 
   - it: should fail with envFrom secretRef has empty name
-    documentIndex: *deploymentDoc
     set:
       envFrom:
         - secretRef:
@@ -29,7 +27,6 @@ tests:
           errorMessage: Name is required for secretRef in envFrom.
 
   - it: should fail with envFrom secretRef has missing name
-    documentIndex: *deploymentDoc
     set:
       envFrom:
         - secretRef:
@@ -38,7 +35,6 @@ tests:
           errorMessage: Not valid Ref or <name> key is missing in envFrom.
 
   - it: should fail with envFrom configMapRef has missing name
-    documentIndex: *deploymentDoc
     set:
       envFrom:
         - configMapRef:

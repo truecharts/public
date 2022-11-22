@@ -11,7 +11,6 @@ tests:
           of: Deployment
 
   - it: should fail with named port
-    documentIndex: *deploymentDoc
     set:
       service:
         main:
@@ -24,7 +23,6 @@ tests:
           errorMessage: This common library does not support named ports for targetPort. port name (main), targetPort (some_name)
 
   - it: should fail without port
-    documentIndex: *deploymentDoc
     set:
       service:
         main:
@@ -36,7 +34,6 @@ tests:
           errorMessage: Port is required on enabled services. Service (main)
 
   - it: should fail with disabled port on enabled service
-    documentIndex: *deploymentDoc
     set:
       service:
         main:
@@ -48,7 +45,6 @@ tests:
           errorMessage: No ports are enabled for the service (main)
 
   - it: should fail with invalid protocol
-    documentIndex: *deploymentDoc
     set:
       service:
         main:

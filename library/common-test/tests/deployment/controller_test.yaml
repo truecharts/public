@@ -62,7 +62,6 @@ tests:
           path: spec.strategy.rollingUpdate
 
   - it: should fail with wrong controller
-    documentIndex: *deploymentDoc
     set:
       controller:
         type: not_valid_controller
@@ -71,7 +70,6 @@ tests:
           errorMessage: Not a valid controller.type (not_valid_controller)
 
   - it: should fail with wrong strategy
-    documentIndex: *deploymentDoc
     set:
       controller:
         strategy: not_valid_strategy

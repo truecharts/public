@@ -147,7 +147,6 @@ tests:
                   - some_value
 
   - it: should fail with no command in preStop
-    documentIndex: *deploymentDoc
     set:
       lifecycle:
         preStop:
@@ -157,7 +156,6 @@ tests:
           errorMessage: No commands were given for preStop lifecycle hook
 
   - it: should fail with no command in postStart
-    documentIndex: *deploymentDoc
     set:
       lifecycle:
         postStart:
@@ -167,7 +165,6 @@ tests:
           errorMessage: No commands were given for postStart lifecycle hook
 
   - it: should fail with no command in preStop
-    documentIndex: *deploymentDoc
     set:
       lifecycle:
         preStop:
@@ -177,7 +174,6 @@ tests:
           errorMessage: No commands were given for preStop lifecycle hook
 
   - it: should fail with no command in postStart
-    documentIndex: *deploymentDoc
     set:
       lifecycle:
         postStart:
