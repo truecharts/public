@@ -18,7 +18,7 @@ env:
   HTTPS_PORT: "{{ .Values.service.main.ports.main.port }}"
   # Just so it doesn't try to bind port 80
   HTTP_PORT: "{{ add1 .Values.service.main.ports.main.port }}"
-  REDIRECT_TO_HTTPS: true
+  REDIRECT_TO_HTTPS: false
 
 probes:
   liveness:

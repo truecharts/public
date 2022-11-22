@@ -8,6 +8,19 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
+  - variable: xen
+    group: App Configuration
+    label: Xen Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: REDIRECT_TO_HTTPS
+          label: Redirect To HTTPS
+          description: Enable if using ingress otherwise keep it disabled.
+          schema:
+            type: boolean
+            default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
