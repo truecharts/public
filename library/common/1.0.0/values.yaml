@@ -67,6 +67,12 @@ serviceAccount:
     enabled: false
     primary: true
 
+rbac:
+  main:
+    enabled: false
+    primary: true
+    clusterWide: false
+
 # TODO: docs
 podSecurityContext:
   runAsUser: 568

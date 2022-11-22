@@ -1,6 +1,8 @@
 {{- define "ix.v1.common.loader.apply" -}}
   {{- include "ix.v1.common.spawner.serviceAccount" . | nindent 0 -}}
 
+  {{- include "ix.v1.common.spawner.rbac" . | nindent 0 -}}
+
   {{- if .Values.controller.enabled -}}
     {{- if eq (.Values.controller.type | lower) "deployment" -}}
       {{- include "ix.v1.common.deployment" . | nindent 0 }}
