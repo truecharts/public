@@ -8,9 +8,9 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: xen
+  - variable: env
     group: App Configuration
-    label: Xen Configuration
+    label: Environment Configuration
     schema:
       additional_attrs: true
       type: dict
