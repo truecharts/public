@@ -15,14 +15,14 @@ apiVersion: {{ include "ix.v1.common.capabilities.serviceAccount.apiVersion" $ro
 kind: ServiceAccount
 metadata:
   name: {{ $saName }}
-  {{- with (include "ix.v1.common.labels" $root | trim) }}
+  {{- $labels := (mustMerge ($values.labels | default dict) (include "ix.v1.common.labels" $root | fromYaml)) -}}
+  {{- with (include "ix.v1.common.util.labels.render" (dict "root" $root "labels" $labels) | trim) }}
   labels:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- with $values.annotations }}
+  {{- $annotations := (mustMerge ($values.annotations | default dict) (include "ix.v1.common.annotations" $root | fromYaml)) -}}
+  {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $root "annotations" $annotations) | trim) }}
   annotations:
-    {{- range $k, $v := . }}
-      {{- $k | nindent 4 }}: {{ tpl $v $root | quote }}
-    {{- end }}
-  {{- end }}
+    {{- . | nindent 4 }}
+  {{- end -}}
 {{- end }}

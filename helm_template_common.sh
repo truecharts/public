@@ -11,5 +11,5 @@ fi
 echo "Building common..."
 helm dependency update "$chart_path"
 
-helm template "./$chart_path"
+helm template --debug "./$chart_path"
 helm lint "./$chart_path"
