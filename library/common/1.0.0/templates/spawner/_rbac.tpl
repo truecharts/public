@@ -14,7 +14,7 @@
       {{- end -}}
 
       {{/*
-      Pass a serviceAccount object containing this single SA to the class,
+      Pass a RBAC object containing this single RBAC to the class,
       in order to create the object. Also pass "root" for includes to work.
       */}}
       {{- include "ix.v1.common.class.rbac" (dict "rbac" $rbacValues "root" $) -}}
