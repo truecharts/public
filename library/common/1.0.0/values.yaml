@@ -190,6 +190,10 @@ service:
         # [[ref]](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
         nodePort:
 
+addAnnotations:
+  traefik: true
+  metallb: true
+
 probes:
   liveness:
     enabled: true
