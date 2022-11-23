@@ -15,8 +15,8 @@ exporterImage:
 
 penpot:
   public_uri: "http://localhost:{{ .Values.service.main.ports.main.port }}"
-  flags: [] # "enable-registration" "enable-login" "disable-email-verification" "enable-login-with-ldap"
-  http_server_host: "0.0.0.0" ## Temporal workaround because of bad builtin default
+  flags: []
+  http_server_host: "0.0.0.0"
   assets_storage_backend: "assets-fs"
   assets_storage_assets_fs_directory: "/opt/data/assets"
   telemetry_enabled: false
