@@ -11,13 +11,23 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-extraArgs:
-  - python3
-  - -u
-  - main.py
+command:
+  - /bin/sh
+  - -c
+  - |
+    gunicorn \
+    --bind 0.0.0.0:{{ .Values.service.main.ports.main.port }} \
+    --workers={{ .Values.gsm.workers }} \
+    --worker-class=gthread app:app \
+    --timeout {{ .Values.gsm.timeout }} & \
+    python -u main.py
 
 gsm:
-  app_token: "DISCORD_BOT_TOKEN"
+  # Server Config
+  workers: 2
+  timeout: 90
+  # Bot Config
+  app_token: DISCORD_BOT_TOKEN
   whitelist_guilds: []
   app_activity_type: 3
   app_activity_name: ""
@@ -26,7 +36,7 @@ gsm:
   command_query_public: false
   command_query_cooldown: 5
   web_api_enable: false
-  postgres_ssl_mode: "disable"
+  postgres_ssl_mode: disable
 
 envFrom:
   - secretRef:
@@ -34,18 +44,18 @@ envFrom:
 
 service:
   main:
-    enabled: false
     ports:
       main:
-        enabled: false
+        port: 10230
+        protocol: HTTP
 
 probes:
   liveness:
-    enabled: false
+    type: HTTP
   readiness:
-    enabled: false
+    type: HTTP
   startup:
-    enabled: false
+    type: HTTP
 
 persistence:
   config:

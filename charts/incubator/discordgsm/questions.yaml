@@ -1,5 +1,7 @@
 # Include{groups}
-portals: {}
+portals:
+  open:
+# Include{portalLink}
 questions:
 # Include{global}
 # Include{controller}
@@ -87,6 +89,29 @@ questions:
 #            type: boolean
 #            default: false
 # Include{containerConfig}
+# Include{serviceRoot}
+        - variable: main
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: main
+                      label: Main Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 10589
+                              required: true
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -101,6 +126,29 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceList}
+# Include{serviceRoot}
+        - variable: main
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: main
+                      label: Main Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 10589
+                              required: true
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
