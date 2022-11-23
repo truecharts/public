@@ -85,38 +85,44 @@ questions:
                         type: list
                         default: []
                         items:
-                          - variable: name
-                            label: Name
-                            description: Name of the detector
+                          - variable: detector_entry
+                            label: Detector Entry
                             schema:
-                              type: string
-                              required: true
-                              default: ""
-                          - variable: type
-                            label: Type
-                            description: Name of the detector
-                            schema:
-                              type: string
-                              required: true
-                              default: cpu
-                              enum:
-                                - value: cpu
-                                  description: CPU
-                                - value: edgetpu
-                                  description: Edge TPU
-                          - variable: device
-                            label: Device
-                            description: Device name as defined here - https://coral.ai/docs/edgetpu/multiple-edgetpu/#using-the-tensorflow-lite-python-api
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: num_threads
-                            label: Number of Threads
-                            description: This value is only used for CPU types
-                            schema:
-                              type: int
-                              show_if: [["type", "=", "cpu"]]
-                              default: 3
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: Name
+                                  description: Name of the detector
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: ""
+                                - variable: type
+                                  label: Type
+                                  description: Name of the detector
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: cpu
+                                    enum:
+                                      - value: cpu
+                                        description: CPU
+                                      - value: edgetpu
+                                        description: Edge TPU
+                                - variable: device
+                                  label: Device
+                                  description: Device name as defined here - https://coral.ai/docs/edgetpu/multiple-edgetpu/#using-the-tensorflow-lite-python-api
+                                  schema:
+                                    type: string
+                                    default: ""
+                                - variable: num_threads
+                                  label: Number of Threads
+                                  description: This value is only used for CPU types
+                                  schema:
+                                    type: int
+                                    show_if: [["type", "=", "cpu"]]
+                                    default: 3
         - variable: model
           label: Model
           schema:
