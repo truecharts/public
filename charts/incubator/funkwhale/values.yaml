@@ -23,9 +23,9 @@ service:
   main:
     ports:
       main:
-        port: 3030
+        port: 10236
         protocol: HTTP
-        targetPort: 80
+        targetPort: 5000
 
 persistence:
   data:
