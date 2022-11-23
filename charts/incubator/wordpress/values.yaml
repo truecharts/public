@@ -3,6 +3,14 @@ image:
   pullPolicy: IfNotPresent
   tag: 6.1.1@sha256:be61f2e187daa98c603015962be0c42605857184c209b74a44954f2abbbbf849
 
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+ 
 secretEnv:
   WORDPRESS_USERNAME: "user"
   WORDPRESS_PASSWORD: "bitnami"
