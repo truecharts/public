@@ -1,5 +1,5 @@
 image:
-  repository: wordpress
+  repository: library/wordpress
   tag: php8.1-fpm-alpine@ssha256:f64add99635ace14d6d5f235dee179419d88c95e95986788e10a7784a02221ac
   pullPolicy: IfNotPresent
 
@@ -29,7 +29,7 @@ service:
       main:
         protocol: HTTP
         targetport: 80
-        port: 8080
+        port: 10591
 
 persistence:
   data:
