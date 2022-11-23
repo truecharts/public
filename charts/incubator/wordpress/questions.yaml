@@ -9,6 +9,59 @@ questions:
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
+  - variable: secretEnv
+    group: "App Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: WORDPRESS_USERNAME
+          label: User Name
+          description: Username for wordpress.
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: WORDPRESS_PASSWORD
+          label: User Password
+          description: User Password for wordpress.
+          schema:
+            type: string
+            private: true
+            required: true
+            default: ""
+  - variable: env
+    group: "App Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: WORDPRESS_EMAIL
+          label: "Wordpress Email"
+          description: WordPress application email.
+          schema:
+            type: string
+            default: ""
+        - variable: WORDPRESS_FIRST_NAME
+          label: "Wordpress First Name"
+          description: WordPress user first name.
+          schema:
+            type: string
+            default: ""
+        - variable: WORDPRESS_LAST_NAME
+          label: "Wordpress Last Name"
+          description: WordPress user last name.
+          schema:
+            type: string
+            default: ""
+        - variable: WORDPRESS_BLOG_NAME
+          label: "Wordpress Blog Name"
+          description: WordPress blog name.
+          schema:
+            type: string
+            default: "Truecharts Blog"
 # Include{serviceRoot}
         - variable: main
           label: Main Service
@@ -86,20 +139,20 @@ questions:
                 label: runAsNonRoot
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: runAsUser
           description: The UserID of the user running the application
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
           label: runAsGroup
           description: The groupID this App of the user running the application
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: fsGroup
           label: fsGroup
           description: The group that should own ALL storage.
