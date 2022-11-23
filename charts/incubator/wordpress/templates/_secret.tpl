@@ -13,7 +13,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
-  APACHE_HTTP_PORT_NUMBER: {{ .Values.wordpress.APACHE_HTTP_PORT_NUMBER | quote }}
+  APACHE_HTTP_PORT_NUMBER: {{ .Values.wordpress.apache_http_port_number | quote }}
   WORDPRESS_USERNAME: {{ .Values.wordpress.wp_user | quote }}
   WORDPRESS_PASSWORD: {{ .Values.wordpress.wp_pass | quote }}
   WORDPRESS_EMAIL: {{ .Values.wordpress.wp_email | quote }}
