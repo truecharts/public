@@ -1,0 +1,47 @@
+image:
+  repository: _/wordpress
+  tag: php8.1-fpm@ssha256:6a97e37809de2acb43ff3048c1835203533b7d7325d17af567a69b45c0ff1b8b
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  WORDPRESS_DB_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  WORDPRESS_DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
+  WORDPRESS_DB_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+  WORDPRESS_DB_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetport: 80
+        port: 8080
+
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /var/www/html
+
+mariadb:
+  enabled: true
+  mariadbUsername: wordpress
+  mariadbDatabase: wordpress
+  existingSecret: "mariadbcreds"
+
+portal:
+  enabled: true
