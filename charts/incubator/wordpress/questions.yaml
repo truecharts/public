@@ -16,14 +16,14 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: wp_user
+        - variable: user
           label: User Name
           description: Username for wordpress.
           schema:
             type: string
             required: true
             default: ""
-        - variable: wp_pass
+        - variable: pass
           label: User Password
           description: User Password for wordpress.
           schema:
@@ -31,30 +31,37 @@ questions:
             private: true
             required: true
             default: ""
-        - variable: wp_email
+        - variable: email
           label: "Wordpress Email"
           description: WordPress application email.
           schema:
             type: string
             default: ""
-        - variable: wp_first_name
+        - variable: first_name
           label: "Wordpress First Name"
           description: WordPress user first name.
           schema:
             type: string
             default: ""
-        - variable: wp_last_name
+        - variable: last_name
           label: "Wordpress Last Name"
           description: WordPress user last name.
           schema:
             type: string
             default: ""
-        - variable: wp_blog_name
+        - variable: blog_name
           label: "Wordpress Blog Name"
           description: WordPress blog name.
           schema:
             type: string
             default: "Truecharts Blog"
+  - variable: notifier
+    group: App Configuration
+    label: Notifier Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
         - variable: smtp
           label: Show SMTP Settings
           schema:
@@ -81,6 +88,7 @@ questions:
                 label: SMTP Port
                 schema:
                   type: string
+                  private: true
                   default: ""
 # Include{serviceRoot}
         - variable: main

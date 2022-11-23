@@ -13,26 +13,20 @@ podSecurityContext:
 
 wordpress:
   apache_http_port_number: "{{ .Values.service.main.ports.main.port }}"
-  wp_user: "user"
-  wp_pass: "bitnami"
-  wp_email: "user@example.com"
-  wp_first_name: "True"
-  wp_last_name: "Charts"
-  wp_blog_name: "Truecharts Blog"
-  wp_db_host:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
-  wp_db_user: "{{ .Values.mariadb.mariadbUsername }}"
-  wp_db_pass:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
-  wp_db_name: "{{ .Values.mariadb.mariadbDatabase }}"
-  smtp_host: "smtp.gmail.com"
-  smtp_port: 587
-  smtp_user: "test@gmail.com"
-  smtp_pass: "1234567890"
+  user: "user"
+  pass: "bitnami"
+  email: "user@example.com"
+  first_name: "True"
+  last_name: "Charts"
+  blog_name: "Truecharts Blog"
+
+notifier:
+  smtp:
+    enabled: false
+    # host: ""
+    # port: ""
+    # user: ""
+    # pass: ""
 
 service:
   main:
