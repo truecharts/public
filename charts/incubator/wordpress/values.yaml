@@ -29,10 +29,10 @@ wordpress:
       name: mariadbcreds
       key: mariadb-password
   wp_db_name: "{{ .Values.mariadb.mariadbDatabase }}"
-  # smtp_host: "smtp.gmail.com"
-  # smtp_port: 587
-  # smtp_user: "email@email.com"
-  # smtp_pass: "1234567890"
+  smtp_host: "smtp.gmail.com"
+  smtp_port: 587
+  smtp_user: "test@gmail.com"
+  smtp_pass: "1234567890"
 
 service:
   main:
