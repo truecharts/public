@@ -267,6 +267,14 @@ validate_catalog() {
 }
 export -f validate_catalog
 
+generate_catalog_json() {
+    if [[ -z "$standalone" ]]; then
+    echo "Starting Generation of catalog.json "
+    /usr/local/bin/catalog_update update --path "${PWD}/catalog"
+    fi
+}
+export -f generate_catalog_json
+
 upload_catalog() {
     echo "Uploading Catalog..."
     cd catalog
