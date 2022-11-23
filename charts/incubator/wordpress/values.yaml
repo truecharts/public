@@ -12,16 +12,16 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  WORDPRESS_DB_HOST:
+  WORDPRESS_DATABASE_HOST:
     secretKeyRef:
       name: mariadbcreds
       key: plainhost
-  WORDPRESS_DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
-  WORDPRESS_DB_PASSWORD:
+  WORDPRESS_DATABASE_USER: "{{ .Values.mariadb.mariadbUsername }}"
+  WORDPRESS_DATABASE_PASSWORD:
     secretKeyRef:
       name: mariadbcreds
       key: mariadb-password
-  WORDPRESS_DB_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
+  WORDPRESS_DATABASE_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
 
 service:
   main:
