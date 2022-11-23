@@ -17,7 +17,7 @@ secretEnv:
 
 env:
   APACHE_HTTP_PORT_NUMBER: "{{ .Values.service.main.ports.main.targetport }}"
-  APACHE_HTTPS_PORT_NUMBER "{{ .Values.service.main.ports.main.targetport }}"
+  APACHE_HTTPS_PORT_NUMBER: "{{ .Values.service.main.ports.main.targetport }}"
   WORDPRESS_EMAIL: "user@example.com"
   WORDPRESS_FIRST_NAME: "True"
   WORDPRESS_LAST_NAME: "Charts"
