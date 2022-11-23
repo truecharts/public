@@ -1,0 +1,94 @@
+image:
+  repository: penpotapp/frontend
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:0cf7ce270c8e3fc18459165567549b8c578a7f37c257785efd21d15189fb10ae
+
+backendImage:
+  repository: penpotapp/backend
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:e1485e99dd7b587155cf577408bab8fb85daf7b1bb0586958acc19ed5422b869
+
+exporterImage:
+  repository: penpotapp/exporter
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:e5c8d7b78feae9997a11bf6b7281aa19907a799c97d76b8d46e0caa7a349fc3f
+
+penpot:
+  public_uri: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+  flags: [] # "enable-registration" "enable-login" "disable-email-verification" "enable-login-with-ldap"
+  http_server_host: "0.0.0.0" ## Temporal workaround because of bad builtin default
+  assets_storage_backend: "assets-fs"
+  assets_storage_assets_fs_directory: "/opt/data/assets"
+  telemetry_enabled: false
+  registration_domain_whitelist: []
+
+notifier:
+  smtp:
+    enabled: false
+    default_from: "no-reply@example.com"
+    default_reply_to: "no-reply@example.com"
+    # tls: false
+    # ssl: false
+    # host: ""
+    # port: ""
+    # user: ""
+    # pass: ""
+
+identity_providers:
+  google:
+    enabled: false
+    # client_id: ""
+    # client_secret: ""
+  github:
+    enabled: false
+    # client_id: ""
+    # client_secret: ""
+  gitlab:
+    enabled: false
+    # base_uri: ""
+    # client_id: ""
+    # client_secret: ""
+  oidc:
+    enabled: false
+    # base_uri: ""
+    # client_id: ""
+    # client_secret: ""
+  ldap:
+    enabled: false
+    # host: ""
+    # port: ""
+    # ssl: false
+    # starttls: false
+    # base_dn: ""
+    # bind_dn: ""
+    # bind_pass: ""
+    # attrs_username: ""
+    # attrs_email: ""
+    # attrs_fullname: ""
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 80
+        port: 10592
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /opt/data
+
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlDatabase: penpot
+  postgresqlUsername: penpot
+
+redis:
+  enabled: true
+  existingSecret: rediscreds
+  redisUsername: "penpot"
+
+portal:
+  enabled: true
