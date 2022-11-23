@@ -9,7 +9,7 @@
   {{- end -}}
 
   {{- if not $enabledPorts -}}
-    {{- fail (printf "No ports are enabled for the service (%s)" .serviceName) -}}
+    {{- fail (printf "No ports are enabled for the service") -}}
   {{- end -}}
 
   {{- $result := "" -}}

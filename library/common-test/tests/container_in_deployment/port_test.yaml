@@ -42,7 +42,7 @@ tests:
               enabled: false
     asserts:
       - failedTemplate:
-          errorMessage: No ports are enabled for the service (main)
+          errorMessage: No ports are enabled for the service
 
   - it: should fail with invalid protocol
     set:

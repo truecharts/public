@@ -47,3 +47,13 @@
 {{- define "ix.v1.common.capabilities.clusterRoleBinding.apiVersion" -}}
   {{- print "rbac.authorization.k8s.io/v1" -}}
 {{- end -}}
+
+{{/* Return the appropriate apiVersion for service */}}
+{{- define "ix.v1.common.capabilities.service.apiVersion" -}}
+  {{- print "v1" -}}
+{{- end -}}
+
+{{/* Return the appropriate apiVersion for endpoints */}}
+{{- define "ix.v1.common.capabilities.endpoints.apiVersion" -}}
+  {{- print "v1" -}}
+{{- end -}}

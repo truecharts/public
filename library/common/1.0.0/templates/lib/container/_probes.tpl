@@ -4,7 +4,7 @@
   {{- $primaryService := get .Values.service $primarySeriviceName -}} {{/* Get service values of the primary service, if any */}}
   {{- $primaryPort := "" -}}
   {{- if $primaryService -}}
-    {{- $primaryPort = get $primaryService.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "serviceName" $primarySeriviceName "values" $primaryService)) -}}
+    {{- $primaryPort = get $primaryService.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "values" $primaryService)) -}}
   {{- end -}}
   {{- $probeType := "TCP" -}}
   {{- range $probeName, $probe := .Values.probes -}}
