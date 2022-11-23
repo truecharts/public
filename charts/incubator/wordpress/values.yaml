@@ -11,30 +11,35 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-env:
-  APACHE_HTTP_PORT_NUMBER: "{{ .Values.service.main.ports.main.targetport }}"
-  # APACHE_HTTPS_PORT_NUMBER: "{{ .Values.service.main.ports.main.targetport }}"
-  WORDPRESS_EMAIL: "user@example.com"
-  WORDPRESS_FIRST_NAME: "True"
-  WORDPRESS_LAST_NAME: "Charts"
-  WORDPRESS_BLOG_NAME: "Truecharts Blog"
-  WORDPRESS_DATABASE_HOST:
+wordpress:
+  apache_http_port_number: "{{ .Values.service.main.ports.main.port }}"
+  wp_user: "user"
+  wp_pass: "bitnami"
+  wp_email: "user@example.com"
+  wp_first_name: "True"
+  wp_last_name: "Charts"
+  wp_blog_name: "Truecharts Blog"
+  wp_db_host: # WORDPRESS_DATABASE_HOST
     secretKeyRef:
       name: mariadbcreds
       key: plainhost
-  WORDPRESS_DATABASE_USER: "{{ .Values.mariadb.mariadbUsername }}"
-  WORDPRESS_DATABASE_PASSWORD:
+  wp_db_user: "{{ .Values.mariadb.mariadbUsername }}"
+  wp_db_pass:
     secretKeyRef:
       name: mariadbcreds
       key: mariadb-password
-  WORDPRESS_DATABASE_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
+  wp_db_name: "{{ .Values.mariadb.mariadbDatabase }}"
+  
+  # smtp_host: "smtp.gmail.com"
+  # smtp_port: 587
+  # smtp_user: "email@email.com"
+  # smtp_pass: "1234567890"
 
 service:
   main:
     ports:
       main:
         protocol: HTTP
-        targetport: 8080
         port: 10591
 
 persistence:

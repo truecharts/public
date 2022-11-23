@@ -9,21 +9,21 @@ questions:
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
+  - variable: wordpress
+    group: App Configuration
+    label: WordPress Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: WORDPRESS_USERNAME
+        - variable: wp_user
           label: User Name
           description: Username for wordpress.
           schema:
             type: string
             required: true
             default: ""
-        - variable: WORDPRESS_PASSWORD
+        - variable: wp_pass
           label: User Password
           description: User Password for wordpress.
           schema:
@@ -31,37 +31,57 @@ questions:
             private: true
             required: true
             default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: WORDPRESS_EMAIL
+        - variable: wp_email
           label: "Wordpress Email"
           description: WordPress application email.
           schema:
             type: string
             default: ""
-        - variable: WORDPRESS_FIRST_NAME
+        - variable: wp_first_name
           label: "Wordpress First Name"
           description: WordPress user first name.
           schema:
             type: string
             default: ""
-        - variable: WORDPRESS_LAST_NAME
+        - variable: wp_last_name
           label: "Wordpress Last Name"
           description: WordPress user last name.
           schema:
             type: string
             default: ""
-        - variable: WORDPRESS_BLOG_NAME
+        - variable: wp_blog_name
           label: "Wordpress Blog Name"
           description: WordPress blog name.
           schema:
             type: string
             default: "Truecharts Blog"
+        - variable: smtp
+          label: Show SMTP Settings
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: smtp_host
+                label: SMTP Host
+                schema:
+                  type: string
+                  default: ""
+              - variable: smtp_port
+                label: SMTP Port
+                schema:
+                  type: int
+                  default: 587
+              - variable: smtp_user
+                label: SMTP Port
+                schema:
+                  type: string
+                  default: ""
+              - variable: smtp_pass
+                label: SMTP Port
+                schema:
+                  type: string
+                  default: ""
 # Include{serviceRoot}
         - variable: main
           label: Main Service
