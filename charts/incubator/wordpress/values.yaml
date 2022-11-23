@@ -19,7 +19,7 @@ wordpress:
   wp_first_name: "True"
   wp_last_name: "Charts"
   wp_blog_name: "Truecharts Blog"
-  wp_db_host: # WORDPRESS_DATABASE_HOST
+  wp_db_host:
     secretKeyRef:
       name: mariadbcreds
       key: plainhost

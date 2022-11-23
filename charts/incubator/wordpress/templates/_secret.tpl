@@ -20,12 +20,10 @@ stringData:
   WORDPRESS_FIRST_NAME: {{ .Values.wordpress.wp_first_name | quote }}
   WORDPRESS_LAST_NAME: {{ .Values.wordpress.wp_last_name | quote }}
   WORDPRESS_BLOG_NAME: {{ .Values.wordpress.wp_blog_name | quote }}
-  
   WORDPRESS_DATABASE_HOST: {{ .Values.wordpress.wp_db_host | quote }}
   WORDPRESS_DATABASE_USER: {{ .Values.wordpress.wp_db_user | quote }}
   WORDPRESS_DATABASE_PASSWORD: {{ .Values.wordpress.wp_db_pass | quote }}
   WORDPRESS_DATABASE_NAME: {{ .Values.wordpress.wp_db_name | quote }}
-
   WORDPRESS_SMTP_HOST: {{ .Values.wordpress.smtp_host | quote }}
   WORDPRESS_SMTP_PORT: {{ .Values.wordpress.smtp_port | quote }}
   WORDPRESS_SMTP_USER: {{ .Values.wordpress.smtp_user | quote }}
