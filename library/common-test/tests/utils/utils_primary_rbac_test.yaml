@@ -14,9 +14,22 @@ tests:
         main:
           enabled: true
           primary: true
+          rules: &rules
+            - apiGroups:
+                - something
+              resources:
+                - something
+              verbs:
+                - something
+          subjects: &subjects
+            - kind: something
+              name: something
+              apiGroup: something
         other:
           enabled: true
           primary: true
+          rules: *rules
+          subjects: *subjects
     asserts:
       - failedTemplate:
           errorMessage: More than one RBACS are set as primary. This is not supported.
@@ -28,6 +41,8 @@ tests:
         main:
           enabled: true
           primary: false
+          rules: *rules
+          subjects: *subjects
     asserts:
       - hasDocuments:
           count: 3
@@ -44,6 +59,8 @@ tests:
         main:
           enabled: true
           primary: false
+          rules: *rules
+          subjects: *subjects
     asserts:
       - hasDocuments:
           count: 3
@@ -61,6 +78,8 @@ tests:
           enabled: true
           primary: false
           clusterWide: true
+          rules: *rules
+          subjects: *subjects
     asserts:
       - hasDocuments:
           count: 3
@@ -78,6 +97,8 @@ tests:
           enabled: true
           primary: false
           clusterWide: true
+          rules: *rules
+          subjects: *subjects
     asserts:
       - hasDocuments:
           count: 3
@@ -94,9 +115,13 @@ tests:
         main:
           enabled: true
           primary: true
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: false
+          rules: *rules
+          subjects: *subjects
     asserts:
       - hasDocuments:
           count: 5
@@ -113,9 +138,13 @@ tests:
         main:
           enabled: true
           primary: true
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: false
+          rules: *rules
+          subjects: *subjects
     asserts:
       - hasDocuments:
           count: 5
@@ -132,9 +161,13 @@ tests:
         main:
           enabled: true
           primary: true
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: false
+          rules: *rules
+          subjects: *subjects
     asserts:
       - hasDocuments:
           count: 5
@@ -151,9 +184,13 @@ tests:
         main:
           enabled: true
           primary: true
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: false
+          rules: *rules
+          subjects: *subjects
     asserts:
       - hasDocuments:
           count: 5
@@ -171,9 +208,13 @@ tests:
           enabled: true
           primary: true
           clusterWide: true
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: false
+          rules: *rules
+          subjects: *subjects
     asserts:
       - hasDocuments:
           count: 5
@@ -190,10 +231,14 @@ tests:
         main:
           enabled: true
           primary: true
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: false
           clusterWide: true
+          rules: *rules
+          subjects: *subjects
     asserts:
       - hasDocuments:
           count: 5
@@ -211,9 +256,13 @@ tests:
           enabled: true
           primary: true
           clusterWide: true
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: false
+          rules: *rules
+          subjects: *subjects
     asserts:
       - hasDocuments:
           count: 5
@@ -230,10 +279,14 @@ tests:
         main:
           enabled: true
           primary: true
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: false
           clusterWide: true
+          rules: *rules
+          subjects: *subjects
     asserts:
       - hasDocuments:
           count: 5
@@ -250,9 +303,13 @@ tests:
         main:
           enabled: true
           primary: false
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: true
+          rules: *rules
+          subjects: *subjects
     asserts:
       - hasDocuments:
           count: 5
@@ -269,9 +326,13 @@ tests:
         main:
           enabled: true
           primary: false
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: true
+          rules: *rules
+          subjects: *subjects
     asserts:
       - hasDocuments:
           count: 5
@@ -288,9 +349,13 @@ tests:
         main:
           enabled: true
           primary: false
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: true
+          rules: *rules
+          subjects: *subjects
     asserts:
       - hasDocuments:
           count: 5
@@ -307,9 +372,13 @@ tests:
         main:
           enabled: true
           primary: false
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: true
+          rules: *rules
+          subjects: *subjects
     asserts:
       - hasDocuments:
           count: 5
@@ -327,9 +396,13 @@ tests:
           enabled: true
           primary: false
           clusterWide: true
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: true
+          rules: *rules
+          subjects: *subjects
     asserts:
       - hasDocuments:
           count: 5
@@ -346,10 +419,14 @@ tests:
         main:
           enabled: true
           primary: false
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: true
           clusterWide: true
+          rules: *rules
+          subjects: *subjects
     asserts:
       - hasDocuments:
           count: 5
@@ -367,9 +444,13 @@ tests:
           enabled: true
           primary: false
           clusterWide: true
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: true
+          rules: *rules
+          subjects: *subjects
     asserts:
       - hasDocuments:
           count: 5
@@ -386,10 +467,14 @@ tests:
         main:
           enabled: true
           primary: false
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: true
           clusterWide: true
+          rules: *rules
+          subjects: *subjects
     asserts:
       - hasDocuments:
           count: 5

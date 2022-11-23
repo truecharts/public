@@ -46,21 +46,36 @@ metadata:
   annotations:
     {{- . | nindent 4 }}
   {{- end }}
-{{- with $rbacValues.rules -}}
+{{- if not $rbacValues.rules -}}
+  {{- fail "<rules> cannot be empty in RBAC." -}}
+{{- end -}}
+{{- with $rbacValues.rules }}
 rules:
-  {{/* TODO: Make sure that still works with values like "" also with tpl and on subjects*/}}
   {{- range . }}
+    {{- if not .apiGroups  -}}
+      {{- fail "<apiGroups> cannot be empty in RBAC rules." -}}
+    {{- end -}}
+    {{- if not .resources -}}
+      {{- fail "<resources> cannot be empty in RBAC rules." -}}
+    {{- end -}}
+    {{- if not .verbs -}}
+      {{- fail "<verbs> cannot be empty in RBAC rules." -}}
+    {{- end }}
   - apiGroups:
-    {{- range (required "<apiGroups> are required in RBAC rules." .apiGroups) }}
-      - {{ tpl . $root }}
+    {{- range .apiGroups }}
+      {{- if eq . "" }}
+      - ""
+      {{- else }}
+      - {{ tpl . $root | quote }}
+      {{- end }}
     {{- end }}
     resources:
-    {{- range (required "<resources> are required in RBAC rules." .resources) }}
-      - {{ tpl . $root }}
+    {{- range .resources }}
+      - {{ tpl . $root | quote }}
     {{- end }}
     verbs:
-    {{- range (required "<verbs> are required in RBAC rules." .verbs) }}
-      - {{ tpl . $root }}
+    {{- range .verbs }}
+      - {{ tpl . $root | quote }}
     {{- end }}
   {{- end }}
 {{- end }}
@@ -93,9 +108,9 @@ subjects:
     namespace: {{ $root.Release.Namespace }}
   {{- with $rbacValues.subjects -}}
     {{- range . }}
-  - kind: {{ tpl (required "<kind> is required in RBAC subjects." .kind) $root }}
-    name: {{ tpl (required "<name> is required in RBAC subjects." .name) $root }}
-    apiGroup: {{ tpl (required "<apiGroup> is required in RBAC subjects." .apiGroup) $root }}
+  - kind: {{ tpl (required "<kind> cannot be empty in RBAC subjects." .kind) $root | quote }}
+    name: {{ tpl (required "<name> cannot be empty in RBAC subjects." .name) $root | quote }}
+    apiGroup: {{ tpl (required "<apiGroup> cannot be empty in RBAC subjects." .apiGroup) $root | quote }}
     {{- end }}
   {{- end -}}
 {{- end -}}

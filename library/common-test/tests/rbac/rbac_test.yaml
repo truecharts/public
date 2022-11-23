@@ -14,7 +14,19 @@ tests:
       - isKind:
           of: Deployment
 
-# TODO: check that these fails are valid...
+  - it: should fail with no rules in rbac
+    set:
+      rbac:
+        main:
+          enabled: true
+          rules: []
+          subjects: &subjects
+            - kind: something
+              name: something
+              apiGroup: something
+    asserts:
+      - failedTemplate:
+          errorMessage: <rules> cannot be empty in RBAC.
 
   - it: should fail with no apiGroups in rules
     set:
@@ -27,9 +39,10 @@ tests:
                 - something
               verbs:
                 - something
+          subjects: *subjects
     asserts:
       - failedTemplate:
-          errorMessage: <apiGroups> are required in RBAC rules.
+          errorMessage: <apiGroups> cannot be empty in RBAC rules.
 
   - it: should fail with no resources in rules
     set:
@@ -42,9 +55,10 @@ tests:
               resources: []
               verbs:
                 - something
+          subjects: *subjects
     asserts:
       - failedTemplate:
-          errorMessage: <resources> are required in RBAC rules.
+          errorMessage: <resources> cannot be empty in RBAC rules.
 
   - it: should fail with no verbs in rules
     set:
@@ -57,45 +71,55 @@ tests:
               resources:
                 - something
               verbs: []
+          subjects: *subjects
     asserts:
       - failedTemplate:
-          errorMessage: <verbs> are required in RBAC rules.
+          errorMessage: <verbs> cannot be empty in RBAC rules.
 
   - it: should fail with no kind in subjects
     set:
       rbac:
         main:
           enabled: true
+          rules: &rules
+            - apiGroups:
+                - something
+              resources:
+                - something
+              verbs:
+                - something
           subjects:
             - kind: ""
     asserts:
       - failedTemplate:
-          errorMessage: <kind> is required in RBAC subjects.
+          errorMessage: <kind> cannot be empty in RBAC subjects.
 
   - it: should fail with no name in subjects
     set:
       rbac:
         main:
           enabled: true
+          rules: *rules
           subjects:
             - kind: something
               name: ""
     asserts:
       - failedTemplate:
-          errorMessage: <name> is required in RBAC subjects.
+          errorMessage: <name> cannot be empty in RBAC subjects.
 
   - it: should fail with no apiGroup in subjects
     set:
       rbac:
         main:
           enabled: true
+          rules: *rules
           subjects:
             - kind: something
               name: something
               apiGroup: ""
     asserts:
       - failedTemplate:
-          errorMessage: <apiGroup> is required in RBAC subjects.
+          errorMessage: <apiGroup> cannot be empty in RBAC subjects.
 
   - it: should pass with rbac account enabled (Role)
     documentIndex: &roleDoc 0
@@ -103,6 +127,8 @@ tests:
       rbac:
         main:
           enabled: true
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: Role
@@ -121,6 +147,8 @@ tests:
       rbac:
         main:
           enabled: true
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: RoleBinding
@@ -140,6 +168,8 @@ tests:
         main:
           enabled: true
           clusterWide: true
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: ClusterRole
@@ -156,6 +186,8 @@ tests:
         main:
           enabled: true
           clusterWide: true
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: ClusterRoleBinding
@@ -172,6 +204,8 @@ tests:
         main:
           enabled: true
           nameOverride: some-name
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: Role
@@ -186,6 +220,8 @@ tests:
         main:
           enabled: true
           nameOverride: some-name
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: RoleBinding
@@ -201,6 +237,8 @@ tests:
           enabled: true
           nameOverride: some-name
           clusterWide: true
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: ClusterRole
@@ -216,6 +254,8 @@ tests:
           enabled: true
           nameOverride: some-name
           clusterWide: true
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: ClusterRoleBinding
@@ -235,6 +275,8 @@ tests:
           labels:
             key3: value3
             key4: value4
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: Role
@@ -272,6 +314,8 @@ tests:
           labels:
             key3: value3
             key4: value4
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: RoleBinding
@@ -310,6 +354,8 @@ tests:
           labels:
             key3: value3
             key4: value4
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: ClusterRole
@@ -348,6 +394,8 @@ tests:
           labels:
             key3: value3
             key4: value4
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: ClusterRoleBinding
@@ -372,7 +420,7 @@ tests:
             release: RELEASE-NAME
             key3: value3
             key4: value4
-###
+
   - it: should pass with primary service account enabled annotations and labels added from tpl (Role)
     documentIndex: *roleDoc
     set:
@@ -389,6 +437,8 @@ tests:
           labels:
             key3: "{{ .Values.k3 }}"
             key4: "{{ .Values.k4 }}"
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: Role
@@ -430,6 +480,8 @@ tests:
           labels:
             key3: "{{ .Values.k3 }}"
             key4: "{{ .Values.k4 }}"
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: RoleBinding
@@ -472,6 +524,8 @@ tests:
           labels:
             key3: "{{ .Values.k3 }}"
             key4: "{{ .Values.k4 }}"
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: ClusterRole
@@ -514,6 +568,8 @@ tests:
           labels:
             key3: "{{ .Values.k3 }}"
             key4: "{{ .Values.k4 }}"
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: ClusterRoleBinding
@@ -547,10 +603,14 @@ tests:
         main:
           enabled: true
           primary: true
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: false
           nameOverride: some-name
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: Role
@@ -565,10 +625,14 @@ tests:
         main:
           enabled: true
           primary: true
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: false
           nameOverride: some-name
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: RoleBinding
@@ -583,10 +647,14 @@ tests:
         main:
           enabled: true
           primary: true
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: false
           nameOverride: some-name
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: Role
@@ -601,10 +669,14 @@ tests:
         main:
           enabled: true
           primary: true
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: false
           nameOverride: some-name
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: RoleBinding
@@ -619,11 +691,15 @@ tests:
         main:
           enabled: true
           primary: true
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: false
           clusterWide: true
           nameOverride: some-name
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: ClusterRole
@@ -638,14 +714,398 @@ tests:
         main:
           enabled: true
           primary: true
+          rules: *rules
+          subjects: *subjects
         other:
           enabled: true
           primary: false
           clusterWide: true
           nameOverride: some-name
+          rules: *rules
+          subjects: *subjects
     asserts:
       - isKind:
           of: ClusterRoleBinding
       - equal:
           path: metadata.name
           value: RELEASE-NAME-common-test-some-name
+
+  - it: should pass with "" in apiGroups in rules
+    documentIndex: *roleDoc
+    set:
+      rbac:
+        main:
+          enabled: true
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - something
+              verbs:
+                - something
+          subjects: *subjects
+    asserts:
+      - isKind:
+          of: Role
+      - equal:
+          path: rules
+          value:
+            - apiGroups:
+                - ""
+              resources:
+                - something
+              verbs:
+                - something
+
+  - it: should pass with "" in apiGroups in rules, multiple entries
+    documentIndex: *roleDoc
+    set:
+      rbac:
+        main:
+          enabled: true
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - something
+              verbs:
+                - something
+            - apiGroups:
+                - ""
+              resources:
+                - something_else
+              verbs:
+                - something_else
+          subjects: *subjects
+    asserts:
+      - isKind:
+          of: Role
+      - equal:
+          path: rules
+          value:
+            - apiGroups:
+                - ""
+              resources:
+                - something
+              verbs:
+                - something
+            - apiGroups:
+                - ""
+              resources:
+                - something_else
+              verbs:
+                - something_else
+
+  - it: should pass with * in rules
+    documentIndex: *roleDoc
+    set:
+      rbac:
+        main:
+          enabled: true
+          rules:
+            - apiGroups:
+                - "*"
+              resources:
+                - "*"
+              verbs:
+                - "*"
+          subjects: *subjects
+    asserts:
+      - isKind:
+          of: Role
+      - equal:
+          path: rules
+          value:
+            - apiGroups:
+                - "*"
+              resources:
+                - "*"
+              verbs:
+                - "*"
+
+  - it: should pass with * in rules, multiple entries
+    documentIndex: *roleDoc
+    set:
+      rbac:
+        main:
+          enabled: true
+          rules:
+            - apiGroups:
+                - "*"
+              resources:
+                - "*"
+              verbs:
+                - "*"
+            - apiGroups:
+                - "*"
+              resources:
+                - "*"
+              verbs:
+                - "*"
+          subjects: *subjects
+    asserts:
+      - isKind:
+          of: Role
+      - equal:
+          path: rules
+          value:
+            - apiGroups:
+                - "*"
+              resources:
+                - "*"
+              verbs:
+                - "*"
+            - apiGroups:
+                - "*"
+              resources:
+                - "*"
+              verbs:
+                - "*"
+
+  - it: should pass with rules from tpl
+    documentIndex: *roleDoc
+    set:
+      k1: "*"
+      k2: value2
+      k3: value3
+      rbac:
+        main:
+          enabled: true
+          rules:
+            - apiGroups:
+                - "{{ .Values.k1 }}"
+              resources:
+                - "{{ .Values.k2 }}"
+              verbs:
+                - "{{ .Values.k3 }}"
+          subjects: *subjects
+    asserts:
+      - isKind:
+          of: Role
+      - equal:
+          path: rules
+          value:
+            - apiGroups:
+                - "*"
+              resources:
+                - value2
+              verbs:
+                - value3
+
+  - it: should pass with rules from tpl, multiple entries
+    documentIndex: *roleDoc
+    set:
+      k1: "*"
+      k2: value2
+      k3: value3
+      k4: "*"
+      k5: value5
+      k6: value6
+      rbac:
+        main:
+          enabled: true
+          rules:
+            - apiGroups:
+                - "{{ .Values.k1 }}"
+              resources:
+                - "{{ .Values.k2 }}"
+              verbs:
+                - "{{ .Values.k3 }}"
+            - apiGroups:
+                - "{{ .Values.k4 }}"
+              resources:
+                - "{{ .Values.k5 }}"
+              verbs:
+                - "{{ .Values.k6 }}"
+          subjects: *subjects
+    asserts:
+      - isKind:
+          of: Role
+      - equal:
+          path: rules
+          value:
+            - apiGroups:
+                - "*"
+              resources:
+                - value2
+              verbs:
+                - value3
+            - apiGroups:
+                - "*"
+              resources:
+                - value5
+              verbs:
+                - value6
+
+  - it: should pass with rules from tpl, multiple entries (ClusterRole)
+    documentIndex: *roleDoc
+    set:
+      k1: "*"
+      k2: value2
+      k3: value3
+      k4: "*"
+      k5: value5
+      k6: value6
+      rbac:
+        main:
+          enabled: true
+          clusterWide: true
+          rules:
+            - apiGroups:
+                - "{{ .Values.k1 }}"
+              resources:
+                - "{{ .Values.k2 }}"
+              verbs:
+                - "{{ .Values.k3 }}"
+            - apiGroups:
+                - "{{ .Values.k4 }}"
+              resources:
+                - "{{ .Values.k5 }}"
+              verbs:
+                - "{{ .Values.k6 }}"
+          subjects: *subjects
+    asserts:
+      - isKind:
+          of: ClusterRole
+      - equal:
+          path: rules
+          value:
+            - apiGroups:
+                - "*"
+              resources:
+                - value2
+              verbs:
+                - value3
+            - apiGroups:
+                - "*"
+              resources:
+                - value5
+              verbs:
+                - value6
+
+  - it: should pass with subjects set
+    documentIndex: *roleBindingDoc
+    set:
+      rbac:
+        main:
+          enabled: true
+          rules: *rules
+          subjects:
+            - kind: value1
+              name: value2
+              apiGroup: value3
+    asserts:
+      - isKind:
+          of: RoleBinding
+      - equal:
+          path: subjects
+          value:
+            - kind: ServiceAccount
+              name: RELEASE-NAME-common-test
+              namespace: *ns
+            - kind: value1
+              name: value2
+              apiGroup: value3
+
+  - it: should pass with subjects set, multiple entries
+    documentIndex: *roleBindingDoc
+    set:
+      rbac:
+        main:
+          enabled: true
+          rules: *rules
+          subjects:
+            - kind: value1
+              name: value2
+              apiGroup: value3
+            - kind: value4
+              name: value5
+              apiGroup: value6
+    asserts:
+      - isKind:
+          of: RoleBinding
+      - equal:
+          path: subjects
+          value:
+            - kind: ServiceAccount
+              name: RELEASE-NAME-common-test
+              namespace: *ns
+            - kind: value1
+              name: value2
+              apiGroup: value3
+            - kind: value4
+              name: value5
+              apiGroup: value6
+
+  - it: should pass with subjects set, multiple entries from tpl
+    documentIndex: *roleBindingDoc
+    set:
+      k1: value1
+      k2: value2
+      k3: value3
+      k4: value4
+      k5: value5
+      k6: value6
+      rbac:
+        main:
+          enabled: true
+          rules: *rules
+          subjects:
+            - kind: "{{ .Values.k1 }}"
+              name: "{{ .Values.k2 }}"
+              apiGroup: "{{ .Values.k3 }}"
+            - kind: "{{ .Values.k4 }}"
+              name: "{{ .Values.k5 }}"
+              apiGroup: "{{ .Values.k6 }}"
+    asserts:
+      - isKind:
+          of: RoleBinding
+      - equal:
+          path: subjects
+          value:
+            - kind: ServiceAccount
+              name: RELEASE-NAME-common-test
+              namespace: *ns
+            - kind: value1
+              name: value2
+              apiGroup: value3
+            - kind: value4
+              name: value5
+              apiGroup: value6
+
+  - it: should pass with subjects set, multiple entries from tpl (ClusterRoleBinding)
+    documentIndex: *roleBindingDoc
+    set:
+      k1: value1
+      k2: value2
+      k3: value3
+      k4: value4
+      k5: value5
+      k6: value6
+      rbac:
+        main:
+          enabled: true
+          clusterWide: true
+          rules: *rules
+          subjects:
+            - kind: "{{ .Values.k1 }}"
+              name: "{{ .Values.k2 }}"
+              apiGroup: "{{ .Values.k3 }}"
+            - kind: "{{ .Values.k4 }}"
+              name: "{{ .Values.k5 }}"
+              apiGroup: "{{ .Values.k6 }}"
+    asserts:
+      - isKind:
+          of: ClusterRoleBinding
+      - equal:
+          path: subjects
+          value:
+            - kind: ServiceAccount
+              name: RELEASE-NAME-common-test
+              namespace: *ns
+            - kind: value1
+              name: value2
+              apiGroup: value3
+            - kind: value4
+              name: value5
+              apiGroup: value6
