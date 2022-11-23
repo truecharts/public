@@ -11,7 +11,17 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+secretEnv:
+  WORDPRESS_USERNAME: "user"
+  WORDPRESS_PASSWORD: "bitnami"
+
 env:
+  # APACHE_HTTP_PORT_NUMBER: "{{ .Values.service.main.ports.main.port }}"
+  # APACHE_HTTPS_PORT_NUMBER "{{ .Values.service.main.ports.main.port }}"
+  WORDPRESS_EMAIL: "user@example.com"
+  WORDPRESS_FIRST_NAME: "True"
+  WORDPRESS_LAST_NAME: "Charts"
+  WORDPRESS_BLOG_NAME: "Truecharts Blog"
   WORDPRESS_DATABASE_HOST:
     secretKeyRef:
       name: mariadbcreds
@@ -28,13 +38,13 @@ service:
     ports:
       main:
         protocol: HTTP
-        targetport: 80
+        targetport: 8080
         port: 10591
 
 persistence:
-  data:
+  config:
     enabled: true
-    mountPath: /var/www/html
+    mountPath: /bitnami/wordpress
 
 mariadb:
   enabled: true
