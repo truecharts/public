@@ -136,7 +136,7 @@ tests:
       persistence:
         volume1:
           enabled: true
-          type: hostpath
+          type: hostPath
           hostPath: /mnt/pool/test
           noMount: true
     asserts:
@@ -154,7 +154,7 @@ tests:
       persistence:
         volume1:
           enabled: true
-          type: hostpath
+          type: hostPath
           hostPathType: "{{ .Values.some_key }}"
           hostPath: /mnt/pool/test
           noMount: true

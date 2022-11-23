@@ -24,7 +24,7 @@
   {{- end -}}
 
 {{/* TODO: write tests when statefulset is ready */}}
-  {{- if eq (.Values.controller.type | lower) "statefulset" -}}
+  {{- if eq .Values.controller.type "statefulset" -}}
     {{- range $index, $vct := .Values.volumeClaimTemplates }}
       {{- if not $vct.mountPath -}} {{/* Make sure that we have a mountPath */}}
         {{- fail "<mountPath> must be defined, alternatively use the <noMount> flag." -}}

@@ -13,7 +13,7 @@ you can specify a size for memory backed volumes.
     {{ $_ := set $persistence "type" $persistenceDefault }}
   {{- end }}
 - name: {{ tpl ( toString $index ) $ }}
-  {{- if eq ($persistence.type | lower) "pvc" }} {{/* PVC */}}
+  {{- if eq $persistence.type "pvc" }} {{/* PVC */}}
     {{- $pvcName := (include "ix.v1.common.names.fullname" $) -}}
     {{- if $persistence.existingClaim }} {{/* Always prefer existingClaim if it set */}}
       {{- $pvcName = $persistence.existingClaim -}}
@@ -31,13 +31,13 @@ you can specify a size for memory backed volumes.
     {{- end }}
   persistentVolumeClaim:
     claimName: {{ tpl $pvcName $ }}
-  {{- else if eq ($persistence.type | lower) "emptydir" }} {{/* emptyDir */}}
+  {{- else if eq $persistence.type "emptyDir" }} {{/* emptyDir */}}
     {{- if not (or $persistence.medium $persistence.sizeLimit) }}
   emptyDir: {}
     {{- else }}
   emptyDir:
       {{- with $persistence.medium }}
-      {{- if eq ((tpl . $) | lower) "memory" }}
+      {{- if eq (tpl . $) "Memory" }}
     medium: Memory
         {{- else }}
           {{- fail "You can only set medium as (Memory)" }}
@@ -47,10 +47,10 @@ you can specify a size for memory backed volumes.
     sizeLimit: {{ tpl . $ }}
       {{- end }}
     {{- end }}
-  {{- else if or (eq ($persistence.type | lower) "configmap") (eq ($persistence.type | lower) "secret") }}
+  {{- else if or (eq $persistence.type "configMap") (eq $persistence.type "secret") }}
     {{- $objectName := (required (printf "objectName not set for persistence item %s" (toString $index)) $persistence.objectName) }}
     {{- $objectName = tpl $objectName $ }}
-    {{- if eq ($persistence.type | lower) "configmap" }} {{/* configMap */}}
+    {{- if eq $persistence.type "configMap" }} {{/* configMap */}}
   configMap:
     name: {{ $objectName }}
     {{- else }} {{/* secret */}}
@@ -67,19 +67,19 @@ you can specify a size for memory backed volumes.
         path: {{ tpl (required (printf "No path was given for persistence item %s" (toString $index)) .path) $ }}
       {{- end }}
     {{- end }}
-  {{- else if eq ($persistence.type | lower) "hostpath" }} {{/* hostPath */}}
+  {{- else if eq $persistence.type "hostPath" }} {{/* hostPath */}}
   hostPath:
     path: {{ required (printf "hostPath not set on item %s" $index) $persistence.hostPath }}
     {{- with $persistence.hostPathType }}
     type: {{ tpl . $ }}
     {{- end }}
-  {{- else if eq ($persistence.type | lower) "nfs" }}
+  {{- else if eq $persistence.type "nfs" }}
   nfs:
     server: {{ required (printf "NFS Server not set on item %s" $index) $persistence.server }}
     path: {{ required (printf "NFS Path not set on item %s" $index) $persistence.path }}
-  {{- else if eq ($persistence.type | lower) "ix-volumes" }} {{/* ix-volumes */}}
+  {{- else if eq $persistence.type "ix-volumes" }} {{/* ix-volumes */}}
   {{/* TODO: Implement ix-volumes */}}
-  {{- else if eq ($persistence.type | lower) "custom" }} {{/* Custom, in case we want to add something once */}}
+  {{- else if eq $persistence.type "custom" }} {{/* Custom, in case we want to add something once */}}
     {{- tpl ( toYaml $persistence.volumeSpec ) $ | nindent 2 }}
   {{- else }}
     {{- fail (printf "Not a valid persistence.type (%s)" $persistence.type) }}

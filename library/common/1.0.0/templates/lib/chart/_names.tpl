@@ -51,11 +51,11 @@ nameOverride applies only to the current chart
 
 {{/* Return the properly cased version of the controller type */}}
 {{- define "ix.v1.common.names.controllerType" -}}
-  {{- if eq (.Values.controller.type | lower) "deployment" -}}
+  {{- if eq .Values.controller.type "deployment" -}}
     {{- print "Deployment" -}}
-  {{- else if eq (.Values.controller.type | lower) "daemonset" -}}
+  {{- else if eq .Values.controller.type "daemonset" -}}
     {{- print "DaemonSet" -}}
-  {{- else if eq (.Values.controller.type | lower) "statefulset"  -}}
+  {{- else if eq .Values.controller.type "statefulset"  -}}
     {{- print "StatefulSet" -}}
   {{- else -}}
     {{- fail (printf "Not a valid controller.type (%s)" .Values.controller.type) -}}

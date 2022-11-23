@@ -28,9 +28,9 @@ can be dynamically configured via an env var.
   {{- end }}
   containerPort: {{ default .port .targetPort }}
   {{- with .protocol }}
-  {{- if or (eq (. | upper) "HTTP") (eq (. | upper) "HTTPS") (eq (. | upper) "TCP") }}
+  {{- if or (eq . "HTTP") (eq . "HTTPS") (eq . "TCP") }}
   protocol: TCP
-  {{- else if (eq (. | upper) "UDP") }}
+  {{- else if (eq . "UDP") }}
   protocol: UDP
   {{- else }}
     {{- fail (printf "Not valid <protocol> (%s)" .) }}

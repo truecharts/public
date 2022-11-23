@@ -16,29 +16,29 @@
       {{- $probeName }}Probe:
       {{- if $probe.custom -}} {{/* Allows to add a custom definition on the probe */}}
         {{- $probe.spec | toYaml | nindent 2 }}
-      {{- else if eq ($probe.type | lower) "exec" -}}
+      {{- else if eq $probe.type "EXEC" -}}
         {{- print "exec:" | nindent 2 }}
         {{- if $probe.command -}}
             {{- print "command:" | nindent 4 }}
             {{- include "ix.v1.common.container.command" (dict "commands" $probe.command "root" $) | trim | nindent 6 }}
             {{- include "ix.v1.common.container.probes.timings" (dict "probe" $probe "probeName" $probeName) }}
         {{- else -}}
-          {{- fail (printf "No commands were defined for exec type on probe (%s)" $probeName) -}}
+          {{- fail (printf "No commands were defined for EXEC type on probe (%s)" $probeName) -}}
         {{- end -}}
       {{- else -}}
         {{- if and $primaryService $primaryPort -}}
           {{- if $probe.type -}}
-            {{- if eq ($probe.type | upper) "AUTO" -}}
+            {{- if eq $probe.type "AUTO" -}}
               {{- $probeType = $primaryPort.protocol -}}
             {{- else -}}
-              {{- if and (ne $probe.type "TCP") (ne $probe.type "HTTP") (ne $probe.type "HTTPS") (ne ($probe.type | upper) "GRPC") -}}
+              {{- if and (ne $probe.type "TCP") (ne $probe.type "HTTP") (ne $probe.type "HTTPS") (ne $probe.type "GRPC") -}}
                 {{- fail (printf "Invalid probe type (%s) on probe (%s)" $probe.type $probeName) -}}
               {{- end -}}
               {{- $probeType = $probe.type -}}
             {{- end -}}
           {{- end -}}
 
-          {{- if or (eq ($probeType | upper) "HTTPS") (eq ($probeType | upper) "HTTP") -}}
+          {{- if or (eq $probeType "HTTPS") (eq $probeType "HTTP") -}}
             {{- if not $probe.path -}}
               {{- fail (printf "<path> must be defined for HTTP/HTTPS probe types in probe (%s)" $probeName) -}}
             {{- end -}}
@@ -57,7 +57,7 @@
             {{- end }}
           {{- else if (eq $probeType "TCP") -}}
             {{- print "tcpSocket:" | nindent 2 }}
-          {{- else if (eq ($probeType | lower) "grpc") -}}
+          {{- else if (eq $probeType "GRPC") -}}
             {{- printf "grpc:" | nindent 2 }}
           {{- else if (eq $probeType "UDP") -}}
             {{- fail "UDP Probes are not supported. Please use a different probe or disable probes." -}}

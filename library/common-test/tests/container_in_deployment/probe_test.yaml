@@ -52,10 +52,10 @@ tests:
     set:
       probes:
         liveness:
-          type: exec
+          type: EXEC
     asserts:
       - failedTemplate:
-          errorMessage: No commands were defined for exec type on probe (liveness)
+          errorMessage: No commands were defined for EXEC type on probe (liveness)
 
   - it: should fail without path on http(s) liveness probe
     set:
@@ -580,7 +580,7 @@ tests:
     set:
       probes:
         liveness:
-          type: exec
+          type: EXEC
           command:
             - /bin/bash
             - -c
@@ -607,7 +607,7 @@ tests:
       some_msg: probe!
       probes:
         liveness:
-          type: exec
+          type: EXEC
           command:
             - /bin/bash
             - -c
@@ -633,7 +633,7 @@ tests:
     set:
       probes:
         liveness:
-          type: exec
+          type: EXEC
           command: env
     asserts:
       - equal:
@@ -653,7 +653,7 @@ tests:
       some_command: env
       probes:
         liveness:
-          type: exec
+          type: EXEC
           command: "{{ .Values.some_command }}"
     asserts:
       - equal:
@@ -672,7 +672,7 @@ tests:
     set:
       probes:
         liveness:
-          type: exec
+          type: EXEC
           command: env
           spec:
             initialDelaySeconds: 15
