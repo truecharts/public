@@ -199,6 +199,15 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+        - variable: websocketaccess
+          label: "WS Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
