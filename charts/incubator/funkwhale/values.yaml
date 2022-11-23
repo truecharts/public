@@ -13,8 +13,8 @@ securityContext:
 
 env:
   DJANGO_SECRET_KEY:
-    valueFrom:
-      secretKeyRef: '{{ printf "%s-secret" (include "tc.common.names.fullname" .) }}'
+    secretKeyRef:
+      name: '{{ printf "%s-secret" (include "tc.common.names.fullname" .) }}'
       key: DJANGO_SECRET_KEY
   FUNKWHALE_HOSTNAME: yourdomain.funkwhale
   NESTED_PROXY: "0"
