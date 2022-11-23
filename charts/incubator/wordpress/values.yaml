@@ -10,10 +10,6 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
- 
-secretEnv:
-  WORDPRESS_USERNAME: "user"
-  WORDPRESS_PASSWORD: "bitnami"
 
 env:
   APACHE_HTTP_PORT_NUMBER: "{{ .Values.service.main.ports.main.targetport }}"
