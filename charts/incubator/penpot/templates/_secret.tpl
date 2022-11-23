@@ -31,7 +31,7 @@ stringData:
   {{- with .Values.penpot.registration_domain_whitelist }}
   PENPOT_REGISTRATION_DOMAIN_WHITELIST: {{ join "," . }}
   {{- end }}
-  {{- if .Values.smtp.enabled }}
+  {{- if .Values.notifier.smtp.enabled }}
   PENPOT_SMTP_DEFAULT_FROM: {{ .Values.notifier.smtp.default_from | quote }}
   PENPOT_SMTP_DEFAULT_REPLY_TO: {{ .Values.notifier.smtp.default_reply_to | quote }}
   PENPOT_SMTP_HOST: {{ .Values.notifier.smtp.host | quote }}

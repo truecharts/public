@@ -70,6 +70,16 @@ questions:
             default: false
             show_subquestions_if: true
             subquestions:
+              - variable: default_from
+                label: Default From
+                schema:
+                  type: string
+                  default: ""
+              - variable: default_reply_to
+                label: Default Reply To
+                schema:
+                  type: string
+                  default: ""
               - variable: smtp_host
                 label: SMTP Host
                 schema:
