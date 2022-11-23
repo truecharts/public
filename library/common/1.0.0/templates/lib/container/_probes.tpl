@@ -8,7 +8,7 @@
   {{- end -}}
   {{- $probeType := "TCP" -}}
   {{- range $probeName, $probe := .Values.probes -}}
-    {{- if and (ne $probeName "liveness") (ne $probeName "readiness") (ne $probeName "startup") -}}
+    {{- if not (has $probeName (list "liveness" "readiness" "startup")) -}}
       {{- fail (printf "Invalid probe name (%s). Valid options are (liveness, readiness, startup)" $probeName) -}}
     {{- end -}}
     {{- if $probe.enabled -}}
@@ -31,14 +31,14 @@
             {{- if eq $probe.type "AUTO" -}}
               {{- $probeType = $primaryPort.protocol -}}
             {{- else -}}
-              {{- if and (ne $probe.type "TCP") (ne $probe.type "HTTP") (ne $probe.type "HTTPS") (ne $probe.type "GRPC") -}}
+              {{- if not (has $probe.type (list "TCP" "HTTP" "HTTPS" "GRPC")) -}}
                 {{- fail (printf "Invalid probe type (%s) on probe (%s)" $probe.type $probeName) -}}
               {{- end -}}
               {{- $probeType = $probe.type -}}
             {{- end -}}
           {{- end -}}
 
-          {{- if or (eq $probeType "HTTPS") (eq $probeType "HTTP") -}}
+          {{- if has $probeType (list "HTTPS" "HTTP") -}}
             {{- if not $probe.path -}}
               {{- fail (printf "<path> must be defined for HTTP/HTTPS probe types in probe (%s)" $probeName) -}}
             {{- end -}}
@@ -84,16 +84,16 @@
   {{- $probe := .probe -}}
   {{- $probeName := .probeName -}}
   {{/* ints are usually parsed as floats in helm */}}
-  {{- if and (not (kindIs "float64" $probe.spec.initialDelaySeconds)) (not (kindIs "int" $probe.spec.initialDelaySeconds)) -}}
+  {{- if not (has (kindOf $probe.spec.initialDelaySeconds) (list "float64" "int")) -}}
     {{- fail (printf "<initialDelaySeconds> cannot be empty in probe (%s)" $probeName) -}}
   {{- end -}}
-  {{- if and (not (kindIs "float64" $probe.spec.failureThreshold)) (not (kindIs "int" $probe.spec.failureThreshold)) -}}
+  {{- if not (has (kindOf $probe.spec.failureThreshold) (list "float64" "int")) -}}
     {{- fail (printf "<failureThreshold> cannot be empty in probe (%s)" $probeName) -}}
   {{- end -}}
-  {{- if and (not (kindIs "float64" $probe.spec.timeoutSeconds)) (not (kindIs "int" $probe.spec.timeoutSeconds)) -}}
+  {{- if not (has (kindOf $probe.spec.timeoutSeconds) (list "float64" "int")) -}}
     {{- fail (printf "<timeoutSeconds> cannot be empty in probe (%s)" $probeName) -}}
   {{- end -}}
-  {{- if and (not (kindIs "float64" $probe.spec.periodSeconds)) (not (kindIs "int" $probe.spec.periodSeconds)) -}}
+  {{- if not (has (kindOf $probe.spec.periodSeconds) (list "float64" "int")) -}}
     {{- fail (printf "<periodSeconds> cannot be empty in probe (%s)" $probeName) -}}
   {{- end -}}
   {{- printf "initialDelaySeconds: %v" $probe.spec.initialDelaySeconds | nindent 2 }}

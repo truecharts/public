@@ -108,7 +108,7 @@ tests:
           operator: Exists
     asserts:
       - failedTemplate:
-          errorMessage: Invalid <effect>. Valid options are NoExecute, NoSchedule, PreferNoSchedule
+          errorMessage: Invalid <effect> (invalid_effect). Valid options are NoExecute, NoSchedule, PreferNoSchedule
 
   - it: should fail with empty key and operator Equal in tolerations
     set:
