@@ -51,7 +51,7 @@ spec:
         resources:
           requests:
             storage: {{ .Values.alertmanager.persistence.size | quote }}
-        {{- include "tc.common.storage.class" (dict "persistence" .Values.alertmanager.persistence "global" $ ) | nindent 8 }}
+        {{- include "tc.common.storage.storageClassName" (dict "persistence" .Values.alertmanager.persistence "global" $ ) | nindent 8 }}
   {{- end }}
   {{- end }}
   {{- if or .Values.alertmanager.podMetadata.labels .Values.alertmanager.podMetadata.annotations (eq .Values.alertmanager.podAntiAffinityPreset "soft") (eq .Values.alertmanager.podAntiAffinityPreset "hard") }}
