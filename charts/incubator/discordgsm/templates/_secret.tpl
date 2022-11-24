@@ -15,9 +15,7 @@ metadata:
 stringData:
   DATABASE_URL: {{ .Values.postgresql.url.complete | trimAll "\"" }}
   DB_CONNECTION: {{ print "postgres" }}
-  {{- with .Values.gsm.app_token }}
-  APP_TOKEN: {{ . }}
-  {{- end }}
+  APP_TOKEN: {{ .Values.gsm.app_token | quote }}
   {{- with .Values.gsm.whitelist_guilds }}
   WHITELIST_GUILDS: {{ join ";" . }}
   {{- end }}
