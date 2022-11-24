@@ -20,15 +20,9 @@ stringData:
   WORDPRESS_FIRST_NAME: {{ .Values.wordpress.first_name | quote }}
   WORDPRESS_LAST_NAME: {{ .Values.wordpress.last_name | quote }}
   WORDPRESS_BLOG_NAME: {{ .Values.wordpress.blog_name | quote }}
-  WORDPRESS_DATABASE_HOST:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
+  WORDPRESS_DATABASE_HOST: {{ .Values.wordpress.database_host | quote }}
   WORDPRESS_DATABASE_USER: {{ .Values.mariadb.mariadbUsername | quote }}
-  WORDPRESS_DATABASE_PASSWORD:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
+  WORDPRESS_DATABASE_PASSWORD: {{ .Values.wordpress.database_pass | quote }}
   WORDPRESS_DATABASE_NAME: {{ .Values.mariadb.mariadbDatabase | quote }}
   {{- if .Values.notifier.smtp.enabled }}
   WORDPRESS_SMTP_HOST: {{ .Values.notifier.smtp.host | quote }}
