@@ -64,6 +64,21 @@ spec:
   {{- end -}}
   {{- with $svcValues.sessionAffinity }}
   sessionAffinity: {{ . }}
+    {{- with $svcValues.sessionAffinityConfig -}}
+      {{- with .ClientIP -}}
+        {{- with .timeoutSecond }}
+  sessionAffinityConfig:
+    ClientIP:
+      timeoutSeconds: {{ tpl . $root }}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- with $svcValues.externalIPs }}
+  externalIPs:
+    {{- range . }}
+    - {{ tpl . $root }}
+    {{- end }}
   {{- end -}}
 {{- end -}}
 ports:
