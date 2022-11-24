@@ -65,7 +65,7 @@ ports:
   - port: {{ $port.port }}
     targetPort: {{ $port.targetPort | default $name }}
     {{- if $port.protocol -}}
-      {{- if or (eq $port.protocol "HTTP") (eq $port.protocol "HTTPS") (eq $port.protocol "TCP") }}
+      {{- if has $port.protocol (list "HTTP" "HTTPS" "TCP") }}
     protocol: TCP
       {{- else }}
     protocol: {{ $port.protocol }}
@@ -79,7 +79,7 @@ ports:
     {{- end }}
   {{- end -}}
 {{- end -}}
-{{- if and (ne $svcType "ExternalName") (ne $svcType "ExternalIP") }}
+{{- if not (has $svcType (list "ExternalName" "ExternalIP")) }}
 selector:
   {{- with $svcValues.selector }}
   {{/*TODO: */}}

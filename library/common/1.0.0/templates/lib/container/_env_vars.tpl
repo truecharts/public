@@ -22,7 +22,7 @@ That's why the custom dict is expected.
   {{- end }}
 - name: {{ $name | quote }}
     {{- if not (kindIs "map" $value) -}}
-      {{- if or (kindIs "string" $value) -}} {{/* Single values are parsed as string (eg. int, bool) */}}
+      {{- if kindIs "string" $value -}} {{/* Single values are parsed as string (eg. int, bool) */}}
         {{- $value = tpl $value $root -}} {{/* Expand Value */}}
       {{- end }}
   value: {{ quote $value }}

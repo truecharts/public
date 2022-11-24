@@ -47,7 +47,7 @@ you can specify a size for memory backed volumes.
     sizeLimit: {{ tpl . $ }}
       {{- end }}
     {{- end }}
-  {{- else if or (eq $persistence.type "configMap") (eq $persistence.type "secret") }}
+  {{- else if has $persistence.type (list "configMap" "secret") }}
     {{- $objectName := (required (printf "objectName not set for persistence item %s" (toString $index)) $persistence.objectName) }}
     {{- $objectName = tpl $objectName $ }}
     {{- if eq $persistence.type "configMap" }} {{/* configMap */}}
