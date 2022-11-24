@@ -36,6 +36,10 @@ notifier:
     # user: ""
     # pass: ""
 
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-wordpress-secret'
+
 service:
   main:
     ports:
