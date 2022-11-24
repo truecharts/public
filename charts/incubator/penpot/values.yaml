@@ -70,6 +70,10 @@ identity_providers:
     # attrs_email: ""
     # attrs_fullname: ""
 
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-penpot-secret'
+
 service:
   main:
     ports:

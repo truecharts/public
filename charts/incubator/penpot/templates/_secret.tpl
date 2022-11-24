@@ -19,7 +19,7 @@ stringData:
   {{- end }}
   PENPOT_HTTP_SERVER_HOST: {{ .Values.penpot.http_server_host | quote }}
   PENPOT_DATABASE_URI: {{ .Values.postgresql.url.complete | trimAll "\"" }}
-  PENPOT_DATABASE_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+  PENPOT_DATABASE_USERNAME: {{ .Values.postgresql.postgresqlUsername }}
   PENPOT_DATABASE_PASSWORD: {{ .Values.penpot.db_pass | quote }}
   PENPOT_REDIS_URI: {{ .Values.redis.url.complete | trimAll "\"" }}
   PENPOT_ASSETS_STORAGE_BACKEND: {{ .Values.penpot.assets_storage_backend | quote }}
