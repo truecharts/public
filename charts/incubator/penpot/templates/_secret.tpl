@@ -21,7 +21,7 @@ stringData:
   PENPOT_DATABASE_URI: {{ .Values.postgresql.url.complete | quote }}
   PENPOT_DATABASE_USERNAME: {{ .Values.postgresql.postgresqlUsername }}
   PENPOT_DATABASE_PASSWORD: {{ .Values.penpot.db_pass | quote }}
-  PENPOT_REDIS_URI: {{ .Values.redis.url.complete | quote }}
+  PENPOT_REDIS_URI: {{ .Values.redis.url.plain | quote }}
   PENPOT_ASSETS_STORAGE_BACKEND: {{ .Values.penpot.assets_storage_backend | quote }}
   PENPOT_STORAGE_ASSETS_FS_DIRECTORY: {{ .Values.penpot.assets_storage_assets_fs_directory | quote }}
   PENPOT_TELEMETRY_ENABLED: {{ .Values.penpot.telemetry_enabled | quote }}
