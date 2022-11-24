@@ -40,6 +40,9 @@ jobs:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
 
+      - name: Setting repo parent dir as safe safe.directory
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
       - name: Collect changes
         id: collect-changes
         uses: ./.github/actions/collect-changes
