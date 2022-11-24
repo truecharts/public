@@ -207,11 +207,13 @@ questions:
                 schema:
                   type: int
                   default: 587
-                label: ssl
+              - variable: ssl
+                label: SSL
                 schema:
                   type: boolean
                   default: false
-                label: starttls
+              - variable: starttls
+                label: StartTLS
                 schema:
                   type: boolean
                   default: false
