@@ -36,8 +36,10 @@ notifier:
     # pass: ""
 
 envFrom:
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-env-config'
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-wordpress-secret'
+      name: '{{ include "tc.common.names.fullname" . }}-env-secret'
 
 service:
   main:
