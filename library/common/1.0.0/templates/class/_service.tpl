@@ -37,8 +37,8 @@ metadata:
 spec:
 {{- if eq $svcType "ClusterIP" }} {{/* ClusterIP */}}
   type: {{ $svcType }}
-  {{- if $svcValues.clusterIP }}
-  clusterIP: {{ $svcValues.clusterIP }}
+  {{- with $svcValues.clusterIP }}
+  clusterIP: {{ . }}
   {{- end }}
 {{- else if eq $svcType "NodePort" -}} {{/* NodePort */}}
   type: {{ $svcType }}
@@ -56,8 +56,15 @@ spec:
     - {{ tpl . $root }}
     {{- end }}
   {{- end }}
-{{- else if eq $svcType "ExternalIP" -}} {{/* ExternalIP */}}
-  {{/*TODO: */}}
+  {{- if $svcValues.externalTrafficPolicy -}}
+    {{- if not (has $svcValues.externalTrafficPolicy (list "Cluster" "Local")) -}}
+      {{- fail (printf "Invalid option (%s) for <externalTrafficPolicy>. Valid options are Cluster and Local" $svcValues) -}}
+    {{- end }}
+  externalTrafficPolicy: {{ $svcValues.externalTrafficPolicy }}
+  {{- end -}}
+  {{- with $svcValues.sessionAffinity }}
+  sessionAffinity: {{ . }}
+  {{- end -}}
 {{- end -}}
 ports:
 {{- range $name, $port := $svcValues.ports }}
@@ -74,7 +81,7 @@ ports:
     protocol: TCP
     {{- end }}
     name: {{ $name }}
-    {{- if (and (eq $svcType "NodePort") (not (empty $port.nodePort))) }}
+    {{- if (and $port.nodePort (eq $svcType "NodePort")) }}
     nodePort: {{ $port.nodePort }}
     {{- end }}
   {{- end -}}
