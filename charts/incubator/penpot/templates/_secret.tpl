@@ -51,10 +51,10 @@ stringData:
   PENPOT_GITLAB_CLIENT_ID: {{ .Values.identity_providers.gitlab.client_id | quote }}
   PENPOT_GITLAB_CLIENT_SECRET: {{ .Values.identity_providers.gitlab.client_secret | quote }}
   {{- end }}
-  {{- if .Values.identity_providers.odic.enabled }}
-  PENPOT_OIDC_BASE_URI: {{ .Values.identity_providers.odic.base_uri | quote }}
-  PENPOT_OIDC_CLIENT_ID: {{ .Values.identity_providers.odic.client_id | quote }}
-  PENPOT_OIDC_CLIENT_SECRET: {{ .Values.identity_providers.odic.client_secret | quote }}
+  {{- if .Values.identity_providers.oidc.enabled }}
+  PENPOT_OIDC_BASE_URI: {{ .Values.identity_providers.oidc.base_uri | quote }}
+  PENPOT_OIDC_CLIENT_ID: {{ .Values.identity_providers.oidc.client_id | quote }}
+  PENPOT_OIDC_CLIENT_SECRET: {{ .Values.identity_providers.oidc.client_secret | quote }}
   {{- end }}
   {{- if .Values.identity_providers.ldap.enabled }}
   PENPOT_LDAP_HOST: {{ .Values.identity_providers.ldap.host | quote }}
