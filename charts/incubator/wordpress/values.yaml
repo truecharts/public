@@ -12,7 +12,6 @@ podSecurityContext:
   runAsGroup: 0
 
 wordpress:
-  apache_http_port_number: "{{ .Values.service.main.ports.main.port }}"
   user: "user"
   pass: "bitnami"
   email: "user@example.com"
