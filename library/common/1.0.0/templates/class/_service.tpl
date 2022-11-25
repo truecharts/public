@@ -56,26 +56,29 @@ spec:
     {{- end }}
   {{- end -}}
 {{- end -}}
-{{- if $svcValues.externalTrafficPolicy -}}
-  {{- if not (has $svcValues.externalTrafficPolicy (list "Cluster" "Local")) -}}
-    {{- fail (printf "Invalid option (%s) for <externalTrafficPolicy>. Valid options are Cluster and Local" $svcValues) -}}
+{{- with $svcValues.externalTrafficPolicy -}}
+  {{- if not (has . (list "Cluster" "Local")) -}}
+    {{- fail (printf "Invalid option (%s) for <externalTrafficPolicy>. Valid options are Cluster and Local" .) -}}
   {{- end }}
-  externalTrafficPolicy: {{ $svcValues.externalTrafficPolicy }}
+  externalTrafficPolicy: {{ . }}
 {{- end -}}
 {{- with $svcValues.sessionAffinity }}
   {{- if not (has . (list "ClientIP" "None")) -}}
-    {{- fail (printf "Invalid option (%s). Valid options are ClusterIP and None" .) -}}
+    {{- fail (printf "Invalid option (%s). Valid options are ClientIP and None" .) -}}
   {{- end }}
   sessionAffinity: {{ . }}
-  {{- with $svcValues.sessionAffinityConfig -}}
-    {{- with .ClientIP -}}
-      {{- if hasKey . "timeoutSecond" }}
-        {{- if or (lt . 0) (gt . 86400) -}}
-          {{- fail (printf "Invalid value (%s) for <sessionAffinityConfig.ClientIP.timeoutSeconds>. Valid values must be with 0 and 86400" .) -}}
-        {{- end }}
-  sessionAffinityConfig:
-    ClientIP:
-      timeoutSeconds: {{ tpl . $root }}
+  {{- if eq . "ClientIP" -}}
+    {{- with $svcValues.sessionAffinityConfig -}}
+      {{- with .ClientIP -}}
+        {{- if hasKey . "timeoutSeconds" }}
+          {{- $timeout := tpl (toString .timeoutSeconds) $root -}}
+          {{- if or (lt (int $timeout) 0) (gt (int $timeout) 86400) -}}
+            {{- fail (printf "Invalid value (%s) for <sessionAffinityConfig.ClientIP.timeoutSeconds>. Valid values must be with 0 and 86400" $timeout) -}}
+          {{- end }}
+    sessionAffinityConfig:
+      ClientIP:
+        timeoutSeconds: {{ $timeout }}
+        {{- end -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
@@ -100,7 +103,7 @@ spec:
   ipFamilies:
     {{- range . }}
       {{- $ipFam := tpl . $root -}}
-      {{- if not has $ipFam (list "IPv4" "IPv6") -}}
+      {{- if not (has $ipFam (list "IPv4" "IPv6")) -}}
         {{- fail (printf "Invalid option (%s) for <ipFamilies[]>. Valid options are IPv4 and IPv6" $ipFam) -}}
       {{- end }}
     - {{ $ipFam }}

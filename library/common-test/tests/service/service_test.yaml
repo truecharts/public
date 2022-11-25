@@ -1,0 +1,83 @@
+
+suite: service test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 2
+      - isKind:
+          of: Deployment
+
+  - it: should fail with invalid externalTrafficPolicy
+    set:
+      service:
+        main:
+          externalTrafficPolicy: invalid_traffic_policy
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid option (invalid_traffic_policy) for <externalTrafficPolicy>. Valid options are Cluster and Local
+
+  - it: should fail with invalid sessionAffinity
+    set:
+      service:
+        main:
+          sessionAffinity: invalid_affinity
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid option (invalid_affinity). Valid options are ClientIP and None
+
+  - it: should fail with invalid timeoutSeconds in sessionAffinityConfig negative
+    set:
+      service:
+        main:
+          sessionAffinity: ClientIP
+          sessionAffinityConfig:
+            ClientIP:
+              timeoutSeconds: -1
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid value (-1) for <sessionAffinityConfig.ClientIP.timeoutSeconds>. Valid values must be with 0 and 86400
+
+  - it: should fail with invalid timeoutSeconds in sessionAffinityConfig too high
+    set:
+      service:
+        main:
+          sessionAffinity: ClientIP
+          sessionAffinityConfig:
+            ClientIP:
+              timeoutSeconds: 86401
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid value (86401) for <sessionAffinityConfig.ClientIP.timeoutSeconds>. Valid values must be with 0 and 86400
+
+  - it: should fail with invalid ipFamilyPolicy
+    set:
+      service:
+        main:
+          ipFamilyPolicy: invalid_fam_policy
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid option (invalid_fam_policy) for <ipFamilyPolicy>. Valid options are SingleStack, PreferDualStack, RequireDualStack
+
+  - it: should fail with invalid ipFamily
+    set:
+      service:
+        main:
+          ipFamilies:
+            - invalid_family
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid option (invalid_family) for <ipFamilies[]>. Valid options are IPv4 and IPv6
+
+  - it: should fail with externalIP type but no externalIP defined
+    set:
+      service:
+        main:
+          type: ExternalIP
+          externalIP: []
+    asserts:
+      - failedTemplate:
+          errorMessage: Service type is set to ExternalIP, but no externalIP is defined.
