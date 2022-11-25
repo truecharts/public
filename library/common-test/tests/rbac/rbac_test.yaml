@@ -8,9 +8,10 @@ release:
   namespace: &ns some_name_space
 tests:
   - it: should pass with default values
+    documentIndex: &deploymentDoc 0
     asserts:
       - hasDocuments:
-          count: 1
+          count: 2
       - isKind:
           of: Deployment
 

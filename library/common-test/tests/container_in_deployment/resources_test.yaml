@@ -6,7 +6,7 @@ tests:
     documentIndex: &deploymentDoc 0
     asserts:
       - hasDocuments:
-          count: 1
+          count: 2
       - isKind:
           of: Deployment
       - equal:
