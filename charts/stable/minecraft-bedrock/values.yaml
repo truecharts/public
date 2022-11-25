@@ -3,6 +3,9 @@ image:
   tag: 2022.1.0@sha256:85b2493240d4c6ac69f8383937510c432812072ebd5ef382ebe6ba7f325d70ed
   pullPolicy: Always
 
+tty: true
+stdin: true
+
 env:
   EULA: "TRUE"
   VERSION: "LATEST"
