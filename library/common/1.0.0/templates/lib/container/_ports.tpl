@@ -6,9 +6,12 @@ can be dynamically configured via an env var.
 {{/* Ports included by the container. */}}
 {{- define "ix.v1.common.container.ports" -}}
   {{ $ports := list }}
-  {{- range .Values.service -}}
-    {{- if .enabled -}}
-      {{- range $name, $port := .ports -}}
+  {{- range $svcName, $svc := .Values.service -}}
+    {{- if $svc.enabled -}}
+      {{- if not $svc.ports -}}
+        {{- fail (printf "At least one port is required in an enabled service (%s)" $svcName) -}}
+      {{- end -}}
+      {{- range $name, $port := $svc.ports -}}
         {{- $_ := set $port "name" $name -}}
         {{- $ports = mustAppend $ports $port -}}
       {{- end -}}

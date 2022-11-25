@@ -30,6 +30,10 @@ tests:
         other:
           enabled: true
           primary: true
+          ports:
+            other:
+              enabled: true
+              port: 80
     asserts:
       - failedTemplate:
           errorMessage: More than one services are set as primary. This is not supported.

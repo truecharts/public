@@ -33,6 +33,15 @@ tests:
       - failedTemplate:
           errorMessage: Port is required on enabled services. Service (main)
 
+  - it: should fail without ports dict in an enabled service
+    set:
+      service:
+        other:
+          enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: At least one port is required in an enabled service (other)
+
   - it: should fail with disabled port on enabled service
     set:
       service:
