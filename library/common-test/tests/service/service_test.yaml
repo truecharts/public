@@ -2,6 +2,8 @@
 suite: service test
 templates:
   - common.yaml
+chart:
+  appVersion: &appVer v1.2.3
 tests:
   - it: should pass with default values
     documentIndex: &deploymentDoc 0
@@ -81,3 +83,170 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Service type is set to ExternalIP, but no externalIP is defined.
+
+  - it: should pass with correct apiVersion
+    documentIndex: &serviceDoc 1
+    asserts:
+      - isKind:
+          of: Service
+      - isAPIVersion:
+          of: v1
+
+  - it: should pass with correct name
+    documentIndex: *serviceDoc
+    asserts:
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test
+
+  - it: should pass with nameOverride on other service
+    documentIndex: &otherServiceDoc 2
+    set:
+      service:
+        other:
+          enabled: true
+          nameOverride: something
+          ports:
+            other:
+              enabled: true
+              port: 80
+    asserts:
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test-something
+
+  - it: should pass with addAnnotations set to true
+    documentIndex: *serviceDoc
+    set:
+      addAnnotations:
+        traefik: true
+        metallb: true
+      service:
+        main:
+          type: LoadBalancer
+          ports:
+            main:
+              protocol: HTTPS
+    asserts:
+      - equal:
+          path: metadata.annotations
+          value:
+            traefik.ingress.kubernetes.io/service.serversscheme: https
+            metallb.universe.tf/allow-shared-ip: RELEASE-NAME-common-test
+
+  - it: should pass with addAnnotations set to false
+    documentIndex: *serviceDoc
+    set:
+      addAnnotations:
+        traefik: false
+        metallb: false
+      service:
+        main:
+          type: LoadBalancer
+          ports:
+            main:
+              protocol: HTTPS
+    asserts:
+      - isNull:
+          path: metadata.annotations
+
+  - it: should pass with addAnnotations set to true and annotations
+    documentIndex: *serviceDoc
+    set:
+      addAnnotations:
+        traefik: true
+        metallb: true
+      service:
+        main:
+          type: LoadBalancer
+          annotations:
+            some_key: value
+            some_key1: value1
+          ports:
+            main:
+              protocol: HTTPS
+    asserts:
+      - equal:
+          path: metadata.annotations
+          value:
+            traefik.ingress.kubernetes.io/service.serversscheme: https
+            metallb.universe.tf/allow-shared-ip: RELEASE-NAME-common-test
+            some_key: value
+            some_key1: value1
+
+  - it: should pass with addAnnotations set to true and global annotations
+    documentIndex: *serviceDoc
+    set:
+      global:
+        annotations:
+          some_key: value
+          some_key1: value1
+      addAnnotations:
+        traefik: true
+        metallb: true
+      service:
+        main:
+          type: LoadBalancer
+          ports:
+            main:
+              protocol: HTTPS
+    asserts:
+      - equal:
+          path: metadata.annotations
+          value:
+            traefik.ingress.kubernetes.io/service.serversscheme: https
+            metallb.universe.tf/allow-shared-ip: RELEASE-NAME-common-test
+            some_key: value
+            some_key1: value1
+
+  - it: should pass with labels
+    documentIndex: *serviceDoc
+    set:
+      service:
+        main:
+          labels:
+            some_key: value
+            some_key1: value1
+    asserts:
+      - equal:
+          path: metadata.labels
+          value:
+            app: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/version: *appVer
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            release: RELEASE-NAME
+            some_key: value
+            some_key1: value1
+
+  - it: should pass with labels and global labels
+    documentIndex: *serviceDoc
+    set:
+      global:
+        labels:
+          some_key2: value2
+          some_key3: value3
+      service:
+        main:
+          labels:
+            some_key: value
+            some_key1: value1
+    asserts:
+      - equal:
+          path: metadata.labels
+          value:
+            app: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/version: *appVer
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            release: RELEASE-NAME
+            some_key: value
+            some_key1: value1
+            some_key2: value2
+            some_key3: value3
