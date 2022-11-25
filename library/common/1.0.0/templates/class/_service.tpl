@@ -23,17 +23,17 @@ metadata:
   labels:
     {{- . | nindent 4 }}
   {{- end }}
-  {{- $annotations := (mustMerge ($svcValues.annotations | default dict) (include "ix.v1.common.annotations" $root | fromYaml)) -}}
+  {{- $additionalAnnotations := dict -}}
+  {{- if and $root.Values.addAnnotations.traefik (eq ($primaryPort.protocol | default "") "HTTPS") }}
+    {{- $_ := set $additionalAnnotations "traefik.ingress.kubernetes.io/service.serversscheme" "https" -}}
+  {{- end -}}
+  {{- if and $root.Values.addAnnotations.metallb (eq $svcType "LoadBalancer") }}
+    {{- $_ := set $additionalAnnotations "metallb.universe.tf/allow-shared-ip" (include "ix.v1.common.names.fullname" $root) }}
+  {{- end -}}
+  {{- $annotations := (mustMerge ($svcValues.annotations | default dict) (include "ix.v1.common.annotations" $root | fromYaml) ($additionalAnnotations)) -}}
   {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $root "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
-  {{/* TODO: Make sure bellow annotations are added even if the above include is empty */}}
-  {{- if and $root.addAnnotations.traefik (eq ($primaryPort.protocol | default "") "HTTPS") }}
-    traefik.ingress.kubernetes.io/service.serversscheme: https
-  {{- end -}}
-  {{- if and $root.addAnnotations.metallb (eq $svcType "LoadBalancer") }}
-    metallb.universe.tf/allow-shared-ip: {{ include "ix.v1.common.names.fullname" . }}
-  {{- end -}}
   {{- end }}
 spec:
 {{- if has $svcType (list "ClusterIP" "NodePort" "ExternalName" "LoadBalancer") }}
