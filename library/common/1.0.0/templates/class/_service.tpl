@@ -11,7 +11,7 @@
   {{- end -}}
 
   {{- $svcType := $svcValues.type | default "ClusterIP" -}}
-  {{- $primaryPort := get $svcValues.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "values" $svcValues)) -}}
+  {{- $primaryPort := get $svcValues.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "values" $svcValues)) }}
 
 ---
 apiVersion: {{ include "ix.v1.common.capabilities.service.apiVersion" $root }}
