@@ -9,6 +9,7 @@ env:
   AXIOS_USERAGENT: "axios/0.27.2"
   AXIOS_ACCEPT: "application/json, text/plain, */*"
   AXIOS_LANGUAGE: "en-US,en;q=0.5"
+  USE_REDIS: true
   REDIS_URL:
     secretKeyRef:
       name: rediscreds
