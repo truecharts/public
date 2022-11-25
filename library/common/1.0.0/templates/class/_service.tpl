@@ -110,7 +110,7 @@ spec:
     {{- end }}
   {{- end -}}
 {{- end }}
-ports:
+  ports:
 {{- range $name, $port := $svcValues.ports }}
   {{- if $port.enabled }}
     {{- $protocol := "TCP" -}} {{/* Default to TCP if no protocol is specified */}}
@@ -121,20 +121,20 @@ ports:
         {{- $protocol = . -}}
       {{- end -}}
     {{- end }}
-  - port: {{ $port.port }}
-    name: {{ $name }}
-    protocol: {{ $protocol }}
-    targetPort: {{ $port.targetPort | default $name }}
+    - port: {{ $port.port }}
+      name: {{ $name }}
+      protocol: {{ $protocol }}
+      targetPort: {{ $port.targetPort | default $name }}
     {{- if and (eq $svcType "NodePort") $port.nodePort }}
-    nodePort: {{ $port.nodePort }}
+      nodePort: {{ $port.nodePort }}
     {{- end -}}
   {{- end -}}
 {{- end -}}
 {{- if not (has $svcType (list "ExternalName" "ExternalIP")) }}
-selector:
+  selector:
   {{- with $svcValues.selector -}} {{/* If custom selector defined */}}
     {{- range $k, $v := . }}
-  {{ $k }}: {{ tpl $v $root }}
+    {{ $k }}: {{ tpl $v $root }}
     {{- end -}}
   {{- else }} {{/* else use the generated selectors */}}
     {{- include "ix.v1.common.labels.selectorLabels" $root | nindent 4 }}
