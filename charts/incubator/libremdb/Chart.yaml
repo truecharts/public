@@ -4,6 +4,10 @@ dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 11.0.3
+  - condition: redis.enabled
+    name: redis
+    repository: https://charts.truecharts.org
+    version: 5.0.3
 deprecated: false
 description: A free & open source IMDb front-end.
 home: https://truecharts.org/docs/charts/incubator/libremdb
