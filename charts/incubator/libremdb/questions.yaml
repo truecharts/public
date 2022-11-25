@@ -51,7 +51,7 @@ questions:
                 description: Default Accept Header.
                 schema:
                   type: string
-                  default: axios/0.27.2
+                  default: application/json, text/plain, */*
               - variable: AXIOS_LANGUAGE
                 label: Axios Language
                 description: Forcing a certain language for data we get from IMDB.
