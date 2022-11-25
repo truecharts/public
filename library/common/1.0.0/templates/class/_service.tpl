@@ -27,13 +27,14 @@ metadata:
   {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $root "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
-  {{- end }}
+  {{/* TODO: Make sure bellow annotations are added even if the above include is empty */}}
   {{- if and $root.addAnnotations.traefik (eq ($primaryPort.protocol | default "") "HTTPS") }}
     traefik.ingress.kubernetes.io/service.serversscheme: https
   {{- end -}}
   {{- if and $root.addAnnotations.metallb (eq $svcType "LoadBalancer") }}
     metallb.universe.tf/allow-shared-ip: {{ include "ix.v1.common.names.fullname" . }}
   {{- end -}}
+  {{- end }}
 spec:
 {{- if has $svcType (list "ClusterIP" "NodePort" "ExternalName" "LoadBalancer") }}
   type: {{ $svcType }} {{/* Specify type only for the above types */}}
@@ -135,5 +136,36 @@ selector:
   {{- else }} {{/* else use the generated selectors */}}
     {{- include "ix.v1.common.labels.selectorLabels" $root | nindent 4 }}
   {{- end }}
+{{- end -}}
+{{- if eq $svcType "ExternalIP" }}
+---
+apiVersion: {{ include "ix.v1.common.capabilities.endpoints.apiVersion" $root }}
+kind: Endpoints
+metadata:
+  name: {{ $svcName }}
+  {{- $labels := (mustMerge ($svcValues.labels | default dict) (include "ix.v1.common.labels" $root | fromYaml)) -}}
+  {{- with (include "ix.v1.common.util.labels.render" (dict "root" $root "labels" $labels) | trim) }}
+  labels:
+    {{- . | nindent 4 }}
+  {{- end }}
+  {{- $annotations := (mustMerge ($svcValues.annotations | default dict) (include "ix.v1.common.annotations" $root | fromYaml)) -}}
+  {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $root "annotations" $annotations) | trim) }}
+  annotations:
+    {{- . | nindent 4 }}
+  {{- end }}
+  {{- with $svcValues.externalIP }}
+subsets:
+  - addresses:
+      - {{ tpl . $root }}
+  {{- else -}}
+    {{- fail "Service type is set to ExternalIP, but no externalIP is defined." -}}
+  {{- end -}}
+    ports:
+    {{- range $name, $port := $svcValues.ports }}
+      {{- if $port.enabled }}
+      - port: {{ $port.port }}
+        name: {{ $name }}
+      {{- end }}
+    {{- end }}
 {{- end -}}
 {{- end -}}
