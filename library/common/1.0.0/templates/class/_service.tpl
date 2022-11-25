@@ -35,18 +35,16 @@ metadata:
     metallb.universe.tf/allow-shared-ip: {{ include "ix.v1.common.names.fullname" . }}
   {{- end -}}
 spec:
+{{- if has $svcType (list "ClusterIP" "NodePort" "ExternalName" "LoadBalancer") }}
+  type: {{ $svcType }} {{/* Specify type only for the above types */}}
+{{- end -}}
 {{- if eq $svcType "ClusterIP" }} {{/* ClusterIP */}}
-  type: {{ $svcType }}
   {{- with $svcValues.clusterIP }}
   clusterIP: {{ . }}
   {{- end }}
-{{- else if eq $svcType "NodePort" -}} {{/* NodePort */}}
-  type: {{ $svcType }}
 {{- else if eq $svcType "ExternalName" -}} {{/* ExternalName */}}
-  type: {{ $svcType }}
   externalName: {{ $svcValues.externalName }}
 {{- else if eq $svcType "LoadBalancer" -}} {{/* LoadBalancer */}}
-  type: {{ $svcType }}
   {{- with $svcValues.loadBalancerIP }}
   loadBalancerIP: {{ . }}
   {{- end }}
@@ -55,57 +53,86 @@ spec:
     {{- range . }}
     - {{ tpl . $root }}
     {{- end }}
-  {{- end }}
-  {{- if $svcValues.externalTrafficPolicy -}}
-    {{- if not (has $svcValues.externalTrafficPolicy (list "Cluster" "Local")) -}}
-      {{- fail (printf "Invalid option (%s) for <externalTrafficPolicy>. Valid options are Cluster and Local" $svcValues) -}}
-    {{- end }}
-  externalTrafficPolicy: {{ $svcValues.externalTrafficPolicy }}
   {{- end -}}
-  {{- with $svcValues.sessionAffinity }}
+{{- end -}}
+{{- if $svcValues.externalTrafficPolicy -}}
+  {{- if not (has $svcValues.externalTrafficPolicy (list "Cluster" "Local")) -}}
+    {{- fail (printf "Invalid option (%s) for <externalTrafficPolicy>. Valid options are Cluster and Local" $svcValues) -}}
+  {{- end }}
+  externalTrafficPolicy: {{ $svcValues.externalTrafficPolicy }}
+{{- end -}}
+{{- with $svcValues.sessionAffinity }}
+  {{- if not (has . (list "ClientIP" "None")) -}}
+    {{- fail (printf "Invalid option (%s). Valid options are ClusterIP and None" .) -}}
+  {{- end }}
   sessionAffinity: {{ . }}
-    {{- with $svcValues.sessionAffinityConfig -}}
-      {{- with .ClientIP -}}
-        {{- with .timeoutSecond }}
+  {{- with $svcValues.sessionAffinityConfig -}}
+    {{- with .ClientIP -}}
+      {{- if hasKey . "timeoutSecond" }}
+        {{- if or (lt . 0) (gt . 86400) -}}
+          {{- fail (printf "Invalid value (%s) for <sessionAffinityConfig.ClientIP.timeoutSeconds>. Valid values must be with 0 and 86400" .) -}}
+        {{- end }}
   sessionAffinityConfig:
     ClientIP:
       timeoutSeconds: {{ tpl . $root }}
-        {{- end -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
-  {{- with $svcValues.externalIPs }}
+{{- end -}}
+{{- with $svcValues.externalIPs }}
   externalIPs:
-    {{- range . }}
+  {{- range . }}
     - {{ tpl . $root }}
+  {{- end }}
+{{- end -}}
+{{- with $svcValues.publishNotReadyAddresses }}
+  publishNotReadyAddresses: {{ . }}
+{{- end -}}
+{{- if has $svcType (list "ClusterIP" "NodePort" "LoadBalancer") -}}
+  {{- with $svcValues.ipFamilyPolicy }}
+    {{- if not (has . (list "SingleStack" "PreferDualStack" "RequireDualStack")) -}}
+      {{ fail (printf "Invalid option (%s) for <ipFamilyPolicy>. Valid options are SingleStack, PreferDualStack, RequireDualStack" .) -}}
+    {{- end }}
+  ipFamilyPolicy: {{ . }}
+  {{- end -}}
+  {{- with $svcValues.ipFamilies }}
+  ipFamilies:
+    {{- range . }}
+      {{- $ipFam := tpl . $root -}}
+      {{- if not has $ipFam (list "IPv4" "IPv6") -}}
+        {{- fail (printf "Invalid option (%s) for <ipFamilies[]>. Valid options are IPv4 and IPv6" $ipFam) -}}
+      {{- end }}
+    - {{ $ipFam }}
     {{- end }}
   {{- end -}}
 {{- end -}}
 ports:
 {{- range $name, $port := $svcValues.ports }}
   {{- if $port.enabled }}
+    {{- $protocol := "TCP" -}} {{/* Default to TCP if no protocol is specified */}}
+    {{- with $port.protocol }}
+      {{- if has . (list "HTTP" "HTTPS" "TCP") -}}
+        {{- $protocol = "TCP" -}}
+      {{- else -}}
+        {{- $protocol = . -}}
+      {{- end -}}
+    {{- end }}
   - port: {{ $port.port }}
-    targetPort: {{ $port.targetPort | default $name }}
-    {{- if $port.protocol -}}
-      {{- if has $port.protocol (list "HTTP" "HTTPS" "TCP") }}
-    protocol: TCP
-      {{- else }}
-    protocol: {{ $port.protocol }}
-      {{- end }}
-    {{- else }}
-    protocol: TCP
-    {{- end }}
     name: {{ $name }}
-    {{- if (and $port.nodePort (eq $svcType "NodePort")) }}
+    protocol: {{ $protocol }}
+    targetPort: {{ $port.targetPort | default $name }}
+    {{- if and (eq $svcType "NodePort") $port.nodePort }}
     nodePort: {{ $port.nodePort }}
-    {{- end }}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
 {{- if not (has $svcType (list "ExternalName" "ExternalIP")) }}
 selector:
-  {{- with $svcValues.selector }}
-  {{/*TODO: */}}
-  {{- else }}
+  {{- with $svcValues.selector -}} {{/* If custom selector defined */}}
+    {{- range $k, $v := . }}
+  {{ $k }}: {{ tpl $v $root }}
+    {{- end -}}
+  {{- else }} {{/* else use the generated selectors */}}
     {{- include "ix.v1.common.labels.selectorLabels" $root | nindent 4 }}
   {{- end }}
 {{- end -}}
