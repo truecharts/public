@@ -1,0 +1,35 @@
+image:
+  repository: kirk1984/libremdb
+  pullPolicy: IfNotPresent
+  tag: latest-amd64@sha256:e5c908e5a39c91a291dce6eb6118e2c0ec64c68a5af674d5cba49802e4212603
+
+env:
+  # NEXT_PUBLIC_URL: "https://libremdb.iket.me"
+  NEXT_TELEMETRY_DISABLED: 1
+  AXIOS_USERAGENT: "axios/0.27.2"
+  AXIOS_ACCEPT: "application/json, text/plain, */*"
+  AXIOS_LANGUAGE: "en-US,en;q=0.5"
+  REDIS_URL:
+    secretKeyRef:
+      name: rediscreds
+      key: url
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 3000
+        port: 10593
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /opt/app
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+
+portal:
+  enabled: true
