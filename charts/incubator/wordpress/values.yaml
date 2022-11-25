@@ -11,6 +11,16 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+secretEnv:
+  WORDPRESS_DATABASE_HOST:
+    secretKeyRef:
+      name: "mariadbcreds"
+      key: plainhost
+  WORDPRESS_DATABASE_PASSWORD:
+    secretKeyRef:
+      name: "mariadbcreds"
+      key: mariadb-password
+
 wordpress:
   user: "user"
   pass: "bitnami"
@@ -18,14 +28,6 @@ wordpress:
   first_name: "True"
   last_name: "Charts"
   blog_name: "Truecharts Blog"
-  database_host:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
-  database_pass:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
 
 notifier:
   smtp:

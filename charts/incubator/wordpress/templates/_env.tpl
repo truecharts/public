@@ -29,9 +29,7 @@ metadata:
 stringData:
   WORDPRESS_USERNAME: {{ .Values.wordpress.user | quote }}
   WORDPRESS_PASSWORD: {{ .Values.wordpress.pass | quote }}
-  WORDPRESS_DATABASE_HOST: {{ .Values.wordpress.database_host | quote }}
   WORDPRESS_DATABASE_USER: {{ .Values.mariadb.mariadbUsername | quote }}
-  WORDPRESS_DATABASE_PASSWORD: {{ .Values.wordpress.database_pass | quote }}
   WORDPRESS_DATABASE_NAME: {{ .Values.mariadb.mariadbDatabase | quote }}
 {{- if .Values.notifier.smtp.enabled }}
   WORDPRESS_SMTP_USER: {{ .Values.notifier.smtp.user | quote }}
