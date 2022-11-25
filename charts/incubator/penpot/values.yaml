@@ -87,6 +87,12 @@ persistence:
     enabled: true
     mountPath: /opt/data
 
+backend:
+  enabled: true
+
+exporter:
+  enabled: true
+
 postgresql:
   enabled: true
   existingSecret: dbcreds

@@ -3,5 +3,12 @@
 
 {{- include "penpot.secret" . -}}
 
+{{- if .Values.backend.enabled -}}
+{{- $_ := set .Values.additionalContainers "imaginary" (include "penpot.backend" . | fromYaml) -}}
+{{- end -}}
+{{- if .Values.exporter.enabled -}}
+{{- $_ := set .Values.additionalContainers "hpb" (include "penpot.exporter" . | fromYaml) -}}
+{{- end -}}
+
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}
