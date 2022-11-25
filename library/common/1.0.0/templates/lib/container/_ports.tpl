@@ -16,29 +16,29 @@ can be dynamically configured via an env var.
   {{- end -}}
 
 {{/* Render the list of ports */}}
-{{- if $ports }}
-{{- range $_ := $ports }}
-  {{- if .enabled }}
+{{- if $ports -}}
+  {{- range $_ := $ports }}
+    {{- if .enabled }}
 - name: {{ tpl .name $ }}
-  {{- if not .port }}
-    {{- fail (printf "Port is required on enabled services. Service (%s)" .name) }}
-  {{- end }}
-  {{- if and .targetPort (kindIs "string" .targetPort) }}
-    {{- fail (printf "This common library does not support named ports for targetPort. port name (%s), targetPort (%s)" .name .targetPort) }}
-  {{- end }}
+      {{- if not .port -}}
+        {{- fail (printf "Port is required on enabled services. Service (%s)" .name) -}}
+      {{- end -}}
+      {{- if and .targetPort (kindIs "string" .targetPort) -}}
+        {{- fail (printf "This common library does not support named ports for targetPort. port name (%s), targetPort (%s)" .name .targetPort) -}}
+      {{- end }}
   containerPort: {{ default .port .targetPort }}
-  {{- with .protocol }}
-  {{- if has . (list "HTTP" "HTTPS" "TCP") }}
-  protocol: TCP
-  {{- else if (eq . "UDP") }}
-  protocol: UDP
-  {{- else }}
-    {{- fail (printf "Not valid <protocol> (%s)" .) }}
-  {{- end }}
-  {{- else }} {{/* If no protocol is given, default to TCP */}}
-  protocol: TCP
-  {{- end }}
-  {{- end }}
-{{- end }}
+      {{- $protocol := "TCP" -}}
+      {{- with .protocol -}}
+        {{- if has . (list "HTTP" "HTTPS" "TCP") -}}
+          {{- $protocol = "TCP" -}}
+        {{- else if (eq . "UDP") -}}
+          {{- $protocol = "UDP" -}}
+        {{- else -}}
+          {{- fail (printf "Not valid <protocol> (%s)" .) -}}
+        {{- end }}
+  protocol: {{ $protocol }}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
 {{- end -}}
 {{- end -}}
