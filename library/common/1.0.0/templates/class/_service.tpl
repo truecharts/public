@@ -106,7 +106,7 @@ spec:
     - {{ $ipFam }}
     {{- end }}
   {{- end -}}
-{{- end -}}
+{{- end }}
 ports:
 {{- range $name, $port := $svcValues.ports }}
   {{- if $port.enabled }}
