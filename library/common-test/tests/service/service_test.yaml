@@ -250,3 +250,29 @@ tests:
             some_key1: value1
             some_key2: value2
             some_key3: value3
+# TODO: add ports etc in the below tests
+  - it: should pass with ClusterIP service type
+    documentIndex: *serviceDoc
+    set:
+      service:
+        main:
+          type: ClusterIP
+    asserts:
+      - equal:
+          path: spec.type
+          value: ClusterIP
+
+  - it: should pass with ClusterIP service type and clusterIP set
+    documentIndex: *serviceDoc
+    set:
+      service:
+        main:
+          type: ClusterIP
+          clusterIP: 172.16.0.12
+    asserts:
+      - equal:
+          path: spec.type
+          value: ClusterIP
+      - equal:
+          path: spec.clusterIP
+          value: 172.16.0.12
