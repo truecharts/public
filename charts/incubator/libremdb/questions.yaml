@@ -40,11 +40,6 @@ questions:
             default: false
             show_subquestions_if: true
             subquestions:
-              - variable: default_from
-                label: Default From
-                schema:
-                  type: string
-                  default:
               - variable: AXIOS_USERAGENT
                 label: Axios UserAgent
                 description: Default userAgent for requesting data from imdb
