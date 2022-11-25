@@ -56,11 +56,13 @@ spec:
     {{- end }}
   {{- end -}}
 {{- end -}}
-{{- with $svcValues.externalTrafficPolicy -}}
-  {{- if not (has . (list "Cluster" "Local")) -}}
-    {{- fail (printf "Invalid option (%s) for <externalTrafficPolicy>. Valid options are Cluster and Local" .) -}}
-  {{- end }}
+{{- if ne $svcType "ClusterIP" -}}
+  {{- with $svcValues.externalTrafficPolicy -}}
+    {{- if not (has . (list "Cluster" "Local")) -}}
+      {{- fail (printf "Invalid option (%s) for <externalTrafficPolicy>. Valid options are Cluster and Local" .) -}}
+    {{- end }}
   externalTrafficPolicy: {{ . }}
+  {{- end -}}
 {{- end -}}
 {{- with $svcValues.sessionAffinity }}
   {{- if not (has . (list "ClientIP" "None")) -}}
@@ -69,15 +71,15 @@ spec:
   sessionAffinity: {{ . }}
   {{- if eq . "ClientIP" -}}
     {{- with $svcValues.sessionAffinityConfig -}}
-      {{- with .ClientIP -}}
+      {{- with .clientIP -}}
         {{- if hasKey . "timeoutSeconds" }}
           {{- $timeout := tpl (toString .timeoutSeconds) $root -}}
           {{- if or (lt (int $timeout) 0) (gt (int $timeout) 86400) -}}
             {{- fail (printf "Invalid value (%s) for <sessionAffinityConfig.ClientIP.timeoutSeconds>. Valid values must be with 0 and 86400" $timeout) -}}
           {{- end }}
-    sessionAffinityConfig:
-      ClientIP:
-        timeoutSeconds: {{ $timeout }}
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: {{ $timeout }}
         {{- end -}}
       {{- end -}}
     {{- end -}}
