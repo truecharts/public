@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "latest-amd64"
+appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -25,7 +25,8 @@ name: libremdb
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/libremdb
   - https://github.com/zyachel/libremdb
-  - https://hub.docker.com/r/kirk1984/libremdb
+  - quay.io/pussthecatorg/libremdb
+  - https://github.com/PussTheCat-org/docker-libremdb-quay
 type: application
 version: 0.0.1
 annotations:
