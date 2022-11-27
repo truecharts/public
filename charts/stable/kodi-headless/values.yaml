@@ -3,13 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v190
 
-securityContext:
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
