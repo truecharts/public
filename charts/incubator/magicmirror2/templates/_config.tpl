@@ -25,13 +25,12 @@ data:
     */
 
     var config = {
-      // DO NOT CHANGE THOSE
+      /*************** DO NOT CHANGE FOLLOWING VALUES ***************/
       address: "0.0.0.0",
-      port: {{ .Values.service.main.ports.main.port }},
+      port: {{ .Values.service.main.ports.main.targetPort }},
       useHttps: false,
       serverOnly: "true",
-      // EDIT BELLOW THIS ONLY
-      //------------------------------------------------
+      /*************** EDIT THE BELOW THIS LINE ONLY ***************/
 
       ipWhitelist: [],  // Set [] to allow all IP addresses
                         // or add a specific IPv4 of 192.168.1.5 :

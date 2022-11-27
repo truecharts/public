@@ -36,6 +36,7 @@ service:
       main:
         port: 10590
         protocol: HTTP
+        targetPort: 10000
 
 persistence:
   config:
