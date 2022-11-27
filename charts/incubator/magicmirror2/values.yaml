@@ -14,20 +14,6 @@ podSecurityContext:
 magicmirror:
   force_update: false
   force_update_modules: false
-  language: en
-  time_format: "24"
-  units: metrics
-  ip_whitelist: []
-  alert:
-    effect: slide
-    alert_effect: jelly
-    display_time: 3500
-    position: center
-    welcome_message: ""
-  update_notification:
-    position: top_bar
-    updateInterval: 600000
-    ignoreModules: []
 
 envFrom:
   - configMapRef:
@@ -55,15 +41,15 @@ persistence:
   config:
     enabled: true
     mountPath: /magicmirror2
+  # Mounts a modified default config file to a "tmp" which the entrypoint,
+  # copies to the config location if it does not exist.
   configfile:
     enabled: true
-    type: custom
-    mountPath: /magicmirror2/config/config.js
+    type: configMap
+    mountPath: /tmp/config.js
     subPath: config.js
     defaultMode: "0770"
-    volumeSpec:
-      configMap:
-        name: '{{ printf "%s-magicmirror-config" (include "tc.common.names.fullname" .) }}'
+    objectName: '{{ printf "%s-magicmirror-config" (include "tc.common.names.fullname" .) }}'
 
 portal:
   enabled: true

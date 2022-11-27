@@ -25,49 +25,31 @@ data:
     */
 
     var config = {
+      // DO NOT CHANGE THOSE
       address: "0.0.0.0",
       port: {{ .Values.service.main.ports.main.port }},
-
-      // or add a specific IPv4 of 192.168.1.5 :
-      // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.1.5"],
-      // or IPv4 range of 192.168.3.0 --> 192.168.3.15 use CIDR format :
-      // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.3.0/28"],
-      // Set [] to allow all IP addresses
-      ipWhitelist: [
-        {{- range .Values.magicmirror.ip_whitelist }}
-        {{ . | quote }},
-        {{- end }}
-      ],
-
-      useHttps: false, // Support HTTPS or not, default "false" will use HTTP
-
-      language: {{ .Values.magicmirror.language | quote }},
-      timeFormat: {{ .Values.magicmirror.time_format | trimAll "\"" }},
-      units: {{ .Values.magicmirror.units | quote }},
+      useHttps: false,
       serverOnly: "true",
+      // EDIT BELLOW THIS ONLY
+      //------------------------------------------------
+
+      ipWhitelist: [],  // Set [] to allow all IP addresses
+                        // or add a specific IPv4 of 192.168.1.5 :
+                        // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.1.5"],
+                        // or IPv4 range of 192.168.3.0 --> 192.168.3.15 use CIDR format :
+                        // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.3.0/28"],
+
+      language: "en",
+      timeFormat: 24,
+      units: "metric",
 
       modules: [
         {
           module: "alert",
-          config: {
-            effect: {{ .Values.magicmirror.alert.effect | quote }},
-            alert_effect: {{ .Values.magicmirror.alert.alert_effect | quote }},
-            display_time: {{ .Values.magicmirror.alert.display_time }},
-            position: {{ .Values.magicmirror.alert.position | quote }},
-            welcome_message: {{ .Values.magicmirror.alert.welcome_message | default false | quote }}
-          }
         },
         {
           module: "updatenotification",
-          position: {{ .Values.magicmirror.update_notification.position | quote }},
-          config: {
-            updateInterval: {{ .Values.magicmirror.update_notification.updateInterval }},
-            ignoreModules: [
-              {{- range  .Values.magicmirror.update_notification.ignoreModules }}
-              {{ . | quote }},
-              {{- end }}
-            ]
-          }
+          position: "top_bar"
         },
         {
           module: "clock",
@@ -126,7 +108,6 @@ data:
           }
         },
       ]
-
     };
 
     /*************** DO NOT EDIT THE LINE BELOW ***************/
