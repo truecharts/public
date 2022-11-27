@@ -48,7 +48,6 @@ persistence:
     type: configMap
     mountPath: /tmp/config.js
     subPath: config.js
-    defaultMode: "0770"
     objectName: '{{ printf "%s-magicmirror-config" (include "tc.common.names.fullname" .) }}'
 
 portal:
