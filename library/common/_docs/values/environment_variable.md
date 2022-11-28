@@ -99,3 +99,23 @@ envFrom:
   - configMapRef:
       name: "{{ .Values.configMapName }}"
 ```
+
+## Key: TZ
+
+- Type: `string`
+- Default: `UTC`
+- Helm Template: ❌
+
+`TZ` key is usually defined from the SCALE's GUI dropdown.
+It is also injected as environment variable into the container.
+It can also be used to pass timezone to other environment variables
+an app would use.
+
+Example:
+
+```yaml
+TZ: UTC
+
+env:
+  PHP_TZ: "{{ .Values.TZ }}"
+```
