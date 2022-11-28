@@ -27,6 +27,8 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
+  WORDPRESS_DATABASE_HOST: {{ .Values.secretEnv.wordpress_db_host | quote }}
+  WORDPRESS_DATABASE_PASSWORD: {{ .Values.secretEnv.wordpress_db_password | quote }}
   WORDPRESS_USERNAME: {{ .Values.wordpress.user | quote }}
   WORDPRESS_PASSWORD: {{ .Values.wordpress.pass | quote }}
   WORDPRESS_DATABASE_USER: {{ .Values.mariadb.mariadbUsername | quote }}

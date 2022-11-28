@@ -1,7 +1,7 @@
 image:
   repository: bitnami/wordpress
   pullPolicy: IfNotPresent
-  tag: 6.1.1@sha256:be61f2e187daa98c603015962be0c42605857184c209b74a44954f2abbbbf849
+  tag: 6.1.1@sha256:ed41950556c7b28e0465fa173ad35d7c632fe1883e15761cbdb5dd340a5eeadf
 
 securityContext:
   runAsNonRoot: false
@@ -12,13 +12,13 @@ podSecurityContext:
   runAsGroup: 0
 
 secretEnv:
-  WORDPRESS_DATABASE_HOST:
+  wordpress_db_host:
     secretKeyRef:
-      name: "mariadbcreds"
+      name: mariadbcreds
       key: plainhost
-  WORDPRESS_DATABASE_PASSWORD:
+  wordpress_db_password:
     secretKeyRef:
-      name: "mariadbcreds"
+      name: mariadbcreds
       key: mariadb-password
 
 wordpress:
@@ -59,7 +59,7 @@ mariadb:
   enabled: true
   mariadbUsername: wordpress
   mariadbDatabase: wordpress
-  existingSecret: "mariadbcreds"
+  existingSecret: mariadbcreds
 
 portal:
   enabled: true
