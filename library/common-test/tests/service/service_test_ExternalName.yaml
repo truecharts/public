@@ -40,6 +40,10 @@ tests:
                 targetPort: main
       - isNull:
           path: spec.selector
+      - isNull:
+          path: spec.ipFamilies
+      - isNull:
+          path: spec.ipFamilyPolicy
 
   - it: should pass with ExternalName service type and externalTrafficPolicy
     documentIndex: *serviceDoc
@@ -59,6 +63,10 @@ tests:
             externalTrafficPolicy: Cluster
       - isNull:
           path: spec.selector
+      - isNull:
+          path: spec.ipFamilies
+      - isNull:
+          path: spec.ipFamilyPolicy
 
   - it: should pass with ExternalName service type and sessionAffinity set to None
     documentIndex: *serviceDoc
@@ -83,6 +91,10 @@ tests:
           path: spec.sessionAffinityConfig
       - isNull:
           path: spec.selector
+      - isNull:
+          path: spec.ipFamilies
+      - isNull:
+          path: spec.ipFamilyPolicy
 
   - it: should pass with ExternalName service type and sessionAffinity set to ClientIP
     documentIndex: *serviceDoc
@@ -108,6 +120,10 @@ tests:
                 timeoutSeconds: 1000
       - isNull:
           path: spec.selector
+      - isNull:
+          path: spec.ipFamilies
+      - isNull:
+          path: spec.ipFamilyPolicy
 
   - it: should pass with ExternalName service type and sessionAffinity set to ClientIP from tpl
     documentIndex: *serviceDoc
@@ -134,6 +150,10 @@ tests:
                 timeoutSeconds: 1000
       - isNull:
           path: spec.selector
+      - isNull:
+          path: spec.ipFamilies
+      - isNull:
+          path: spec.ipFamilyPolicy
 
   - it: should pass with ExternalName service type and externalIPs
     documentIndex: *serviceDoc
@@ -159,6 +179,10 @@ tests:
               - 192.168.1.22
       - isNull:
           path: spec.selector
+      - isNull:
+          path: spec.ipFamilies
+      - isNull:
+          path: spec.ipFamilyPolicy
 
   - it: should pass with ExternalName service type and externalIPs from tpl
     documentIndex: *serviceDoc
@@ -187,6 +211,10 @@ tests:
               - 192.168.1.22
       - isNull:
           path: spec.selector
+      - isNull:
+          path: spec.ipFamilies
+      - isNull:
+          path: spec.ipFamilyPolicy
 
   - it: should pass with ExternalName service type and publishNotReadyAddresses
     documentIndex: *serviceDoc
@@ -206,45 +234,7 @@ tests:
             publishNotReadyAddresses: true
       - isNull:
           path: spec.selector
-
-  - it: should pass with ExternalName service type and ipFamilyPolicy
-    documentIndex: *serviceDoc
-    set:
-      service:
-        main:
-          type: ExternalName
-          externalName: some_hostname
-          ipFamilyPolicy: SingleStack
-    asserts:
-      - equal:
-          path: spec
-          value:
-            type: ExternalName
-            externalName: some_hostname
-            ports: *defaultPort
-            ipFamilyPolicy: SingleStack
       - isNull:
-          path: spec.selector
-
-  - it: should pass with ExternalName service type and ipFamilies
-    documentIndex: *serviceDoc
-    set:
-      service:
-        main:
-          type: ExternalName
-          externalName: some_hostname
-          ipFamilies:
-            - IPv6
-            - IPv4
-    asserts:
-      - equal:
-          path: spec
-          value:
-            type: ExternalName
-            externalName: some_hostname
-            ports: *defaultPort
-            ipFamilies:
-              - IPv6
-              - IPv4
+          path: spec.ipFamilies
       - isNull:
-          path: spec.selector
+          path: spec.ipFamilyPolicy
