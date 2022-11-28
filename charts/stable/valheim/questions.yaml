@@ -179,19 +179,6 @@ questions:
                               type: int
                               default: 2457
                               required: true
-                    - variable: valheim3
-                      label: valheim-3 Service Port Configuration
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
-                              default: 2458
-                              required: true
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
