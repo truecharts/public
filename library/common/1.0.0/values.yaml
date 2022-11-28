@@ -15,6 +15,11 @@ args: []
 
 extraArgs: []
 
+env: {}
+
+envList: []
+
+envFrom: []
 
 
 
@@ -125,11 +130,6 @@ security:
   PUID: 568
   UMASK: 002
 
-env: {}
-
-envList: []
-
-envFrom: []
 
 controller:
   # -- Enable the controller.

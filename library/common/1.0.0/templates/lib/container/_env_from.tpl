@@ -6,7 +6,7 @@ and "tpl" on "$" would cause erors.
 That's why the custom dict is expected.
 */}}
 
-{{/* Environment Variables List included by the container */}}
+{{/* Environment Variables From included by the container */}}
 {{- define "ix.v1.common.container.envFrom" -}}
 {{- $envFrom := .envFrom -}}
 {{- $root := .root -}}
