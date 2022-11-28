@@ -66,10 +66,10 @@ ingress:
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
   backups:
     enabled: true
-    mountPath: "/backups"
+    mountPath: /backups
 
 portal:
   enabled: true
