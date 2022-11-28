@@ -1,7 +1,12 @@
 # Include{groups}
 portals:
   open:
-# Include{portalLink}
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
 questions:
 # Include{global}
 # Include{controller}
