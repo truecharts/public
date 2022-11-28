@@ -54,3 +54,5 @@ gpuImage:
 
 imageSelector: gpuImage
 ```
+
+<!-- TODO: Add link to k8s docs -->
