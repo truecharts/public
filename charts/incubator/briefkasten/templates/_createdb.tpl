@@ -11,9 +11,12 @@ envFrom:
       name: '{{ include "tc.common.names.fullname" . }}-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-config'
-command:
-  - /bin/bash
-  - -c
-  - |
-    pnpm db:push
+lifecycle:
+  postStart:
+    exec:
+      command:
+        - /bin/bash
+        - -c
+        - |
+          pnpm db:push
 {{- end -}}
