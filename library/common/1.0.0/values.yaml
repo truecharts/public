@@ -21,7 +21,7 @@ envList: []
 
 envFrom: []
 
-
+TZ: UTC
 
 # Everything bellow needs documentation
 
@@ -124,7 +124,6 @@ nvidiaCaps:
 
 injectFixedEnvs: true
 
-TZ: UTC
 
 security:
   PUID: 568
