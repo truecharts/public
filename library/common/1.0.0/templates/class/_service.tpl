@@ -55,8 +55,7 @@ spec:
     {{- end -}}
   {{- end -}}
 {{- else if eq $svcType "ExternalName" -}} {{/* ExternalName */}}
-  externalName: {{ $svcValues.externalName }}
-{{- else if eq $svcType "LoadBalancer" -}} {{/* LoadBalancer */}}
+  externalName: {{ required "<externalName> is required when service type is set to ExternalName" $svcValues.externalName }}
 {{- end -}}
 {{- if ne $svcType "ClusterIP" -}}
   {{- with $svcValues.externalTrafficPolicy -}}

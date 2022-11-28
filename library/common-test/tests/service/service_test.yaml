@@ -13,6 +13,16 @@ tests:
       - isKind:
           of: Deployment
 
+  - it: should fail without externalName on ExternalName service
+    set:
+      service:
+        main:
+          type: ExternalName
+          externalName: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: <externalName> is required when service type is set to ExternalName
+
   - it: should fail with invalid externalTrafficPolicy
     set:
       service:
