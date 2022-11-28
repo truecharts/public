@@ -165,7 +165,7 @@ subsets:
       - {{ tpl . $root }}
   {{- else -}}
     {{- fail "Service type is set to ExternalIP, but no externalIP is defined." -}}
-  {{- end -}}
+  {{- end }}
     ports:
     {{- range $name, $port := $svcValues.ports }}
       {{- if $port.enabled }}

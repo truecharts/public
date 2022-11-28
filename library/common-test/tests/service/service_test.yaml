@@ -261,3 +261,101 @@ tests:
             some_key1: value1
             some_key2: value2
             some_key3: value3
+
+  - it: should pass with labels (Endpoints)
+    documentIndex: &endpointsDoc 2
+    set:
+      service:
+        main:
+          type: ExternalIP
+          externalIP: 10.10.10.100
+          labels:
+            some_key: value
+            some_key1: value1
+    asserts:
+      - isKind:
+          of: Endpoints
+      - isAPIVersion:
+          of: v1
+      - equal:
+          path: metadata.labels
+          value:
+            app: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/version: *appVer
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            release: RELEASE-NAME
+            some_key: value
+            some_key1: value1
+
+  - it: should pass with labels and global labels (Endpoints)
+    documentIndex: *endpointsDoc
+    set:
+      global:
+        labels:
+          some_key2: value2
+          some_key3: value3
+      service:
+        main:
+          type: ExternalIP
+          externalIP: 10.10.10.100
+          labels:
+            some_key: value
+            some_key1: value1
+    asserts:
+      - equal:
+          path: metadata.labels
+          value:
+            app: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/version: *appVer
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            release: RELEASE-NAME
+            some_key: value
+            some_key1: value1
+            some_key2: value2
+            some_key3: value3
+
+  - it: should pass with annotations (Endpoints)
+    documentIndex: *endpointsDoc
+    set:
+      addAnnotations:
+        traefik: true
+        metallb: true
+      service:
+        main:
+          type: ExternalIP
+          externalIP: 10.10.10.100
+          annotations:
+            some_key: value
+            some_key1: value1
+    asserts:
+      - equal:
+          path: metadata.annotations
+          value:
+            some_key: value
+            some_key1: value1
+
+  - it: should pass with global annotations (Endpoints)
+    documentIndex: *endpointsDoc
+    set:
+      global:
+        annotations:
+          some_key: value
+          some_key1: value1
+      service:
+        main:
+          type: ExternalIP
+          externalIP: 10.10.10.100
+    asserts:
+      - equal:
+          path: metadata.annotations
+          value:
+            some_key: value
+            some_key1: value1
