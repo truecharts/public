@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-133-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-134-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -306,6 +306,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center"><a href="https://github.com/fenichelar"><img src="https://avatars.githubusercontent.com/u/3437075?v=4?s=100" width="100px;" alt="Alec Fenichel"/><br /><sub><b>Alec Fenichel</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=fenichelar" title="Code">💻</a></td>
       <td align="center"><a href="https://github.com/boostchicken"><img src="https://avatars.githubusercontent.com/u/427295?v=4?s=100" width="100px;" alt="John Dorman"/><br /><sub><b>John Dorman</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=boostchicken" title="Code">💻</a></td>
       <td align="center"><a href="http://opello.org"><img src="https://avatars.githubusercontent.com/u/199623?v=4?s=100" width="100px;" alt="Dan"/><br /><sub><b>Dan</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=opello" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center"><a href="https://github.com/u4ium"><img src="https://avatars.githubusercontent.com/u/57515023?v=4?s=100" width="100px;" alt="u4ium"/><br /><sub><b>u4ium</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=u4ium" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
