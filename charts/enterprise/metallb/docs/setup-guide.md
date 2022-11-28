@@ -2,15 +2,7 @@
 
 The guide walks through a basic configuration of MetalLB for a single address pool on a layer 2 network. This will allow assigning different IP addresses by app.
 
-## 1. Install MetalLB without any config changes
-
-:::caution
-
-The MetalLB chart must be installed initially without any config changes. Once it is installed, proceed to Step 2 and edit the config.
-
-:::
-
-## 2. Configure Address Pool & L2 Advertisement
+## 1. Configure Address Pool & L2 Advertisement
 
 ![metallb-addpoolbasic](img/metallb_guide_addresspool_basic.png)
 
@@ -34,7 +26,7 @@ Create a new entry under `Configure L2 Advertisements`.
 
 _For users with VLANs or multiple subnets, you may reference multiple address pool objects under a single L2 Advertisement entry as needed._
 
-## 3. Disable SCALE's Default Loadbalancer
+## 2. Disable SCALE's Default Loadbalancer
 
 With MetalLB installed and configured, you must now disable SCALE's default loadbalancer.
 
@@ -46,7 +38,7 @@ Uncheck `Enable Integrated Loadbalancer`.
 
 **This will trigger a restart of Kubernetes and all apps**. After roughly 5-10 minutes, your apps will redeploy using the MetalLB-assigned addresses.
 
-## 4. Optional: Specify IP Address per App or Service
+## 3. Optional: Specify IP Address per App or Service
 
 ![metallb-specifyIP](img/metallb_guide_specifyIP.png)
 
