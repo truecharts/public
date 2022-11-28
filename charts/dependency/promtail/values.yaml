@@ -53,12 +53,6 @@ securityContext:
   runAsNonRoot: false
 
 persistence:
-  containers:
-    enabled: true
-    type: hostPath
-    mountPath: /mnt
-    hostPath: /mnt
-    readOnly: true
   pods:
     enabled: true
     type: hostPath

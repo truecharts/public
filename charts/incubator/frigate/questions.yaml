@@ -85,38 +85,44 @@ questions:
                         type: list
                         default: []
                         items:
-                          - variable: name
-                            label: Name
-                            description: Name of the detector
+                          - variable: detector_entry
+                            label: Detector Entry
                             schema:
-                              type: string
-                              required: true
-                              default: ""
-                          - variable: type
-                            label: Type
-                            description: Name of the detector
-                            schema:
-                              type: string
-                              required: true
-                              default: cpu
-                              enum:
-                                - value: cpu
-                                  description: CPU
-                                - value: edgetpu
-                                  description: Edge TPU
-                          - variable: device
-                            label: Device
-                            description: Device name as defined here - https://coral.ai/docs/edgetpu/multiple-edgetpu/#using-the-tensorflow-lite-python-api
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: num_threads
-                            label: Number of Threads
-                            description: This value is only used for CPU types
-                            schema:
-                              type: int
-                              show_if: [["type", "=", "cpu"]]
-                              default: 3
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: Name
+                                  description: Name of the detector
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: ""
+                                - variable: type
+                                  label: Type
+                                  description: Name of the detector
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: cpu
+                                    enum:
+                                      - value: cpu
+                                        description: CPU
+                                      - value: edgetpu
+                                        description: Edge TPU
+                                - variable: device
+                                  label: Device
+                                  description: Device name as defined here - https://coral.ai/docs/edgetpu/multiple-edgetpu/#using-the-tensorflow-lite-python-api
+                                  schema:
+                                    type: string
+                                    default: ""
+                                - variable: num_threads
+                                  label: Number of Threads
+                                  description: This value is only used for CPU types
+                                  schema:
+                                    type: int
+                                    show_if: [["type", "=", "cpu"]]
+                                    default: 3
         - variable: model
           label: Model
           schema:
@@ -251,7 +257,7 @@ questions:
                 description: Enable it to add the configuration in the config file
                 schema:
                   type: boolean
-                  default: true
+                  default: false
                   show_subquestions_if: true
                   subquestions:
                     - variable: enabled
@@ -447,7 +453,6 @@ questions:
                                         schema:
                                           type: int
                                           "null": true
-                                          required: true
                                       - variable: objects
                                         label: Objects
                                         schema:
@@ -498,73 +503,83 @@ questions:
                               type: string
                               required: true
                               default: ""
-              - variable: mask
-                label: Mask
-                description: |
-                  Mask to prevent all object types from being detected in certain areas
-                  Checks based on the bottom center of the bounding box of the object.
-                  This mask is COMBINED with the object type specific mask below
-                schema:
-                  type: string
-                  default: ""
-              - variable: filters
-                label: Filters
-                description: Filters to reduce false positives for specific object types
-                schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: filter_entry
-                      label: Filter Entry
+                    - variable: mask
+                      label: Mask
+                      description: |
+                        Mask to prevent all object types from being detected in certain areas
+                        Checks based on the bottom center of the bounding box of the object.
+                        This mask is COMBINED with the object type specific mask below
                       schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: object
-                            label: Object
-                            description: For example person
+                        type: string
+                        default: ""
+                    - variable: filters
+                      label: Filters
+                      description: Filters to reduce false positives for specific object types
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: filter_entry
+                            label: Filter Entry
                             schema:
-                              type: string
-                              required: true
-                              default: ""
-                          - variable: min_area
-                            label: Min Area
-                            description: Minimum width*height of the bounding box for the detected object
-                            schema:
-                              type: int
-                              "null": true
-                          - variable: max_area
-                            label: Max Area
-                            description: Maximum width*height of the bounding box for the detected object
-                            schema:
-                              type: int
-                              "null": true
-                          - variable: min_ratio
-                            label: Min Ratio
-                            description: Minimum width/height of the bounding box for the detected object
-                            schema:
-                              type: int
-                              "null": true
-                          - variable: min_score
-                            label: Min Score
-                            description: Minimum score for the object to initiate tracking
-                            schema:
-                              type: int
-                              "null": true
-                          - variable: threshold
-                            label: Threshold
-                            description: Minimum decimal percentage for tracked object's computed score to be considered a true positive
-                            schema:
-                              type: int
-                              "null": true
-                          - variable: mask
-                            label: Mask
-                            description: |
-                              Mask to prevent this object type from being detected in certain areas
-                              Checks based on the bottom center of the bounding box of the object
-                            schema:
-                              type: string
-                              default: ""
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: object
+                                  label: Object
+                                  description: For example person
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: ""
+                                - variable: min_area
+                                  label: Min Area
+                                  description: Minimum width*height of the bounding box for the detected object
+                                  schema:
+                                    type: int
+                                    "null": true
+                                - variable: max_area
+                                  label: Max Area
+                                  description: Maximum width*height of the bounding box for the detected object
+                                  schema:
+                                    type: int
+                                    "null": true
+                                - variable: min_ratio
+                                  label: Min Ratio
+                                  description: Minimum width/height of the bounding box for the detected object
+                                  schema:
+                                    type: string
+                                    default: ""
+                                    valid_chars: '^[0-9]+(\.[0-9]*)?$'
+                                - variable: max_ratio
+                                  label: Max Ratio
+                                  description: Maximum width/height of the bounding box for the detected object
+                                  schema:
+                                    type: string
+                                    default: ""
+                                    valid_chars: '^[0-9]+(\.[0-9]*)?$'
+                                - variable: min_score
+                                  label: Min Score
+                                  description: Minimum score for the object to initiate tracking
+                                  schema:
+                                    type: string
+                                    default: ""
+                                    valid_chars: '^[0-9]+(\.[0-9]*)?$'
+                                - variable: threshold
+                                  label: Threshold
+                                  description: Minimum decimal percentage for tracked object's computed score to be considered a true positive
+                                  schema:
+                                    type: string
+                                    default: ""
+                                    valid_chars: '^[0-9]+(\.[0-9]*)?$'
+                                - variable: mask
+                                  label: Mask
+                                  description: |
+                                    Mask to prevent this object type from being detected in certain areas
+                                    Checks based on the bottom center of the bounding box of the object
+                                  schema:
+                                    type: string
+                                    default: ""
         - variable: motion
           label: Motion
           schema:
@@ -610,7 +625,8 @@ questions:
                         Too low and a fast moving person wont be detected as motion.
                       schema:
                         type: string
-                        default: "0.2"
+                        default: ""
+                        valid_chars: '^[0-9]+(\.[0-9]*)?$'
                     - variable: frame_alpha
                       label: Frame Alpha
                       description: |
@@ -620,7 +636,8 @@ questions:
                         https://www.geeksforgeeks.org/background-subtraction-in-an-image-using-concept-of-running-average
                       schema:
                         type: string
-                        default: "0.2"
+                        default: ""
+                        valid_chars: '^[0-9]+(\.[0-9]*)?$'
                     - variable: frame_height
                       label: Frame Height
                       description: |
@@ -636,8 +653,8 @@ questions:
                       schema:
                         type: string
                         default: ""
-                    - variable: mask
-                      label: Mask
+                    - variable: improve_contrast
+                      label: Improve Contrast
                       description: Improve contrast. Enables dynamic contrast improvement. This should help improve night detections at the cost of making motion detection more sensitive for daytime.
                       schema:
                         type: boolean
@@ -1207,6 +1224,7 @@ questions:
                                     default: ""
                                 - variable: coordinates
                                   label: Coordinates
+                                  description: List of x,y coordinates to define the polygon of the zone.
                                   schema:
                                     type: string
                                     required: true
@@ -1224,6 +1242,46 @@ questions:
                                           type: string
                                           required: true
                                           default: ""
+                                - variable: filters
+                                  label: Filters
+                                  description: Zone level object filters
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: filter_entry
+                                        label: Filter Entry
+                                        description: For example person
+                                        schema:
+                                          additional_attrs: true
+                                          type: dict
+                                          attrs:
+                                            - variable: object
+                                              label: Object
+                                              description: For example person
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: ""
+                                            - variable: min_area
+                                              label: Min Area
+                                              description: Minimum width*height of the bounding box for the detected object
+                                              schema:
+                                                type: int
+                                                "null": true
+                                            - variable: max_area
+                                              label: Max Area
+                                              description: Maximum width*height of the bounding box for the detected object
+                                              schema:
+                                                type: int
+                                                "null": true
+                                            - variable: threshold
+                                              label: Threshold
+                                              description: Minimum decimal percentage for tracked object's computed score to be considered a true positive
+                                              schema:
+                                                type: string
+                                                default: ""
+                                                valid_chars: '^[0-9]+(\.[0-9]*)?$'
                     - variable: mqtt
                       label: MQTT
                       description: MQTT Configuration for jpg snapshots published for this camera

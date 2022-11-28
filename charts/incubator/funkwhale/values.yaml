@@ -1,10 +1,32 @@
-env:
-  FUNKWHALE_HOSTNAME: yourdomain.funkwhale
-  NESTED_PROXY: "0"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/funkwhale
-  tag: latest@sha256:ec538fd47441c881b3f06bfffcd164b63779a805ec6d05439dbeb5e8eff52729
+  tag: 1.2.8@sha256:e12c15ebb65102637b507ca0a610bc4a372495fd58bd8a02f2b4d024eff2badd
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+env:
+  DJANGO_SECRET_KEY:
+    secretKeyRef:
+      name: '{{ printf "%s-secret" (include "tc.common.names.fullname" .) }}'
+      key: DJANGO_SECRET_KEY
+  FUNKWHALE_HOSTNAME: yourdomain.funkwhale
+  NESTED_PROXY: "0"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10236
+        protocol: HTTP
+        targetPort: 5000
+
 persistence:
   data:
     enabled: true
@@ -13,19 +35,6 @@ persistence:
     enabled: true
     mountPath: /music
     readOnly: true
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-service:
-  main:
-    ports:
-      main:
-        port: 3030
-        protocol: TCP
-        targetPort: 80
 
 portal:
   enabled: true

@@ -1,29 +1,28 @@
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: kodi-headless
-version: 4.0.0
 appVersion: "190"
-description: A headless install of kodi in a docker container.
-type: application
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 11.0.3
 deprecated: false
+description: A headless install of kodi in a docker container.
 home: https://truecharts.org/docs/charts/stable/kodi-headless
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kodi-headless.png
 keywords:
   - kodi-headless
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/kodi-headless
-  - https://hub.docker.com/r/linuxserver/kodi-headless
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.0.0
-    # condition:
+kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
     url: https://truecharts.org
+name: kodi-headless
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/kodi-headless
+  - https://hub.docker.com/r/linuxserver/kodi-headless
+type: application
+version: 4.0.2
 annotations:
   truecharts.org/catagories: |
-    - incubator
+    - media
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U

@@ -28,7 +28,7 @@ data:
       password: {{ . }}
       {{- end }}
 
-    {{- if .Values.frigate.detectors.enabled }}
+    {{- if .Values.frigate.detectors.render_config }}
     {{- if .Values.frigate.detectors.config }}
     detectors:
       {{- range .Values.frigate.detectors.config }}
@@ -50,7 +50,7 @@ data:
       path: {{ . }}
       {{- end }}
       {{- with .Values.frigate.model.labelmap_path }}
-      path: {{ . }}
+      labelmap_path: {{ . }}
       {{- end }}
       width: {{ .Values.frigate.model.width | default 320 }}
       height: {{ .Values.frigate.model.height | default 320 }}
@@ -79,7 +79,7 @@ data:
       width: {{ .Values.frigate.birdseye.width | default 1280 }}
       height: {{ .Values.frigate.birdseye.height | default 720 }}
       quality: {{ .Values.frigate.birdseye.quality | default 8 }}
-      model: {{ .Values.frigate.birdseye.mode | default "objects" }}
+      mode: {{ .Values.frigate.birdseye.mode | default "objects" }}
     {{- end }}
 
     {{- if .Values.frigate.ffmpeg.render_config }}
@@ -99,7 +99,7 @@ data:
     detect:
       enabled: {{ ternary "True" "False" .Values.frigate.detect.enabled }}
       width: {{ .Values.frigate.detect.width | default 1280 }}
-      width: {{ .Values.frigate.detect.height | default 720 }}
+      height: {{ .Values.frigate.detect.height | default 720 }}
       fps: {{ .Values.frigate.detect.fps | default 5 }}
       max_disappeared: {{ .Values.frigate.detect.max_disappeared | default 25 }}
       stationary:
@@ -177,7 +177,7 @@ data:
 
     {{- if .Values.frigate.record.render_config }}
     record:
-      enable: {{ ternary "True" "False" .Values.frigate.record.enabled }}
+      enabled: {{ ternary "True" "False" .Values.frigate.record.enabled }}
       expire_interval: {{ .Values.frigate.record.expire_interval | default 60 }}
       {{- if .Values.frigate.record.retain.render_config }}
       retain:
@@ -243,8 +243,12 @@ data:
     {{- if .Values.frigate.rtmp.render_config }}
     rtmp:
       enabled: {{ ternary "True" "False" .Values.frigate.rtmp.enabled }}
+    {{- end }}
+
+    {{- if .Values.frigate.live.render_config }}
+    live:
       height: {{ .Values.frigate.live.height | default 720 }}
-      quality: {{ .Values.frigate.live.height | default 8 }}
+      quality: {{ .Values.frigate.live.quality | default 8 }}
     {{- end }}
 
     {{- if .Values.frigate.timestamp_style.render_config }}
@@ -256,7 +260,9 @@ data:
         green: {{ .Values.frigate.timestamp_style.color.green | default 255 }}
         blue: {{ .Values.frigate.timestamp_style.color.blue | default 255 }}
       thickness: {{ .Values.frigate.timestamp_style.thickness | default 2 }}
-      effect: {{ .Values.frigate.timestamp_style.effect | default "None" }}
+      {{- if ne .Values.frigate.timestamp_style.effect "None" }}
+      effect: {{ .Values.frigate.timestamp_style.effect }}
+      {{- end }}
     {{- end }}
 
     cameras:
