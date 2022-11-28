@@ -2,6 +2,16 @@
 # All values can be overridden per chart, in their values.yaml
 # For Examples and Explanation view the "Values.yaml Explained" markdown file
 
+image:
+  repository: repo
+  tag: tag
+  pullPolicy: IfNotPresent
+
+imageSelector: ""
+
+
+# Everything bellow needs documentation
+
 global:
   nameOverride: ""
   fullnameOverride: ""
@@ -21,16 +31,6 @@ ixExternalInterfacesConfigurationNames: []
   # - interface1
   # - interface2
 
-# TODO: docs
-image:
-  # -- Image repository
-  repository: repo
-  # -- Image tag
-  tag: tag
-  # -- Image pull policy
-  pullPolicy: IfNotPresent
-
-imageSelector: ""
 
 command: []
 
