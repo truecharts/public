@@ -39,22 +39,24 @@ spec:
 {{- if has $svcType (list "ClusterIP" "NodePort" "ExternalName" "LoadBalancer") }}
   type: {{ $svcType }} {{/* Specify type only for the above types */}}
 {{- end -}}
-{{- if eq $svcType "ClusterIP" }} {{/* ClusterIP */}}
+{{- if has $svcType (list "ClusterIP" "NodePort" "LoadBalancer") }} {{/* ClusterIP */}}
   {{- with $svcValues.clusterIP }}
   clusterIP: {{ . }}
   {{- end }}
+  {{- if eq $svcType "LoadBalancer" -}}
+    {{- with $svcValues.loadBalancerIP }}
+  loadBalancerIP: {{ . }}
+    {{- end }}
+    {{- with $svcValues.loadBalancerSourceRanges }}
+  loadBalancerSourceRanges:
+      {{- range . }}
+      - {{ tpl . $root }}
+      {{- end }}
+    {{- end -}}
+  {{- end -}}
 {{- else if eq $svcType "ExternalName" -}} {{/* ExternalName */}}
   externalName: {{ $svcValues.externalName }}
 {{- else if eq $svcType "LoadBalancer" -}} {{/* LoadBalancer */}}
-  {{- with $svcValues.loadBalancerIP }}
-  loadBalancerIP: {{ . }}
-  {{- end }}
-  {{- with $svcValues.loadBalancerSourceRanges }}
-  loadBalancerSourceRanges:
-    {{- range . }}
-    - {{ tpl . $root }}
-    {{- end }}
-  {{- end -}}
 {{- end -}}
 {{- if ne $svcType "ClusterIP" -}}
   {{- with $svcValues.externalTrafficPolicy -}}
