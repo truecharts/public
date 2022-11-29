@@ -12,7 +12,7 @@
 - name: NVIDIA_DRIVER_CAPABILITIES
   value: {{ join "," .Values.nvidiaCaps | quote }}
 {{- end -}}
-{{- if and (or (not .Values.podSecurityContext.runAsUser) (not .Values.podSecurityContext.runAsGroup)) (or .Values.security.PUID (eq (.Values.security.PUID | int) 0)) }} {{/* If root user or root group and a PUID is set, set PUID and related envs */}}
+{{- if and (or (eq (.Values.podSecurityContext.runAsUser | int) 0) (eq (.Values.podSecurityContext.runAsGroup | int) 0)) (or .Values.security.PUID (eq (.Values.security.PUID | int) 0)) }} {{/* If root user or root group and a PUID is set, set PUID and related envs */}}
 - name: PUID
   value: {{ tpl (toYaml .Values.security.PUID) $ | quote }}
 - name: USER_ID
