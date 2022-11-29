@@ -148,6 +148,15 @@ tests:
                   - /bin/bash
                   - some_value
 
+  - it: should fail with invalid key
+    set:
+      lifecycle:
+        preStart:
+          command: something
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid key (preStart) in lifecycle. Valid keys are preStop and postStart
+
   - it: should fail with no command in preStop
     set:
       lifecycle:
