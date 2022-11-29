@@ -63,6 +63,14 @@ questions:
             type: string
             default: "127.0.0.1"
             required: true
+        - variable: nodeIP
+          label: Node IP
+          description: Used to generate configuration, when installed without ingress
+          schema:
+            type: string
+            required: true
+            $ref:
+              - "definitions/nodeIP"
   - variable: customConfig
     group: "App Configuration"
     label: "Custom Configuration parameters"

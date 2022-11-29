@@ -2,10 +2,12 @@
 {{- define "gitea.secrets" -}}
 
 ---
+{{ $DOMAIN := .Values.config.nodeIP | quote -}}
+{{ $URL := (printf "http://%s/" .Values.config.nodeIP) }}
 
-{{ $DOMAIN := ( printf "%s-gitea.%s.svc.%s" .Release.Name .Release.Namespace "cluster.local" | quote ) -}}
-{{- if and ( .Values.ingress.main.enabled ) ( gt (len .Values.ingress.main.hosts) 0 ) -}}
-{{- $DOMAIN = (index .Values.ingress.main.hosts 0).host -}}
+{{- if and (.Values.ingress.main.enabled) (gt (len .Values.ingress.main.hosts) 0) -}}
+  {{- $DOMAIN = (index .Values.ingress.main.hosts 0).host -}}
+  {{- $URL = (printf "https://%s/" (index .Values.ingress.main.hosts 0).host) -}}
 {{- end -}}
 
 apiVersion: v1
@@ -86,11 +88,7 @@ stringData:
     ENABLE_PPROF = false
     HTTP_PORT = {{ .Values.service.main.ports.main.targetPort }}
     PROTOCOL = http
-    {{- if and ( .Values.ingress.main.enabled ) ( gt (len .Values.ingress.main.hosts) 0 ) }}
-    ROOT_URL = {{ printf "https://%s" $DOMAIN }}
-    {{- else }}
-    ROOT_URL = {{ printf "http://%s" $DOMAIN }}
-    {{- end }}
+    ROOT_URL = {{ $URL }}
     SSH_DOMAIN = {{ $DOMAIN }}
     SSH_LISTEN_PORT = {{ .Values.service.ssh.ports.ssh.targetPort }}
     SSH_PORT = {{ .Values.service.ssh.ports.ssh.port }}
