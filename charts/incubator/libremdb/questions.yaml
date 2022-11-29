@@ -51,13 +51,13 @@ questions:
                 description: Default Accept Header.
                 schema:
                   type: string
-                  default: application/json, text/plain, */*
+                  default: "application/json, text/plain, */*"
               - variable: AXIOS_LANGUAGE
                 label: Axios Language
                 description: Forcing a certain language for data we get from IMDB.
                 schema:
                   type: string
-                  default: en-US,en;q=0.5
+                  default: "en-US,en;q=0.5"
 # Include{serviceRoot}
         - variable: main
           label: Main Service
