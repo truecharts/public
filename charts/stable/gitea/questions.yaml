@@ -20,6 +20,7 @@ questions:
           label: "username"
           schema:
             type: string
+            valid_chars: '^(?!^admin$).*$'
             required: true
         - variable: password
           label: "password"
