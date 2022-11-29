@@ -44,6 +44,19 @@ serviceAccount:
   main:
     enabled: false
     primary: true
+
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi
+  requests:
+    cpu: 10m
+    memory: 50Mi
+
+addAnnotations:
+  traefik: true
+  metallb: true
+
 # Everything bellow needs documentation
 
 global:
@@ -115,15 +128,6 @@ termination:
   # TODO: docs / add it to the pod
   gracePeriodSeconds: 10
 
-# -- Set the resource requests / limits for the main container.
-resources:
-  limits:
-    cpu: 4000m
-    memory: 8Gi
-  requests:
-    cpu: 10m
-    memory: 50Mi
-
 # TODO: docs -- Used to add SCALE GPU configuration
 # TODO: Verify that this is the correct value returned from ref
 scaleGPU: {}
@@ -189,10 +193,6 @@ service:
         # -- Specify the nodePort value NodePort service types.
         # [[ref]](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
         nodePort:
-
-addAnnotations:
-  traefik: true
-  metallb: true
 
 probes:
   liveness:
