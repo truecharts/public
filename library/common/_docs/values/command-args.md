@@ -89,4 +89,6 @@ extraArgs:
   - "{{ .Values.persistence.photos.mountPath }}"
 ```
 
-<!-- TODO: Add link to k8s docs -->
+Kubernetes Documentation:
+
+- [command - args](https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#define-a-command-and-arguments-when-you-create-a-pod)

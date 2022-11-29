@@ -119,3 +119,7 @@ TZ: UTC
 env:
   PHP_TZ: "{{ .Values.TZ }}"
 ```
+
+Kubernetes Documentation:
+
+- [environment variables](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/#define-an-environment-variable-for-a-container)

@@ -55,4 +55,7 @@ gpuImage:
 imageSelector: gpuImage
 ```
 
-<!-- TODO: Add link to k8s docs -->
+Kubernetes Documentation:
+
+- [images](https://kubernetes.io/docs/concepts/containers/images)
+- [pullPolicy](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy)
