@@ -72,4 +72,4 @@ lifecycle:
 
 Kubernetes Documentation:
 
-- [lifecycle hooks](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks)
+- [Lifecycle Hooks](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks)

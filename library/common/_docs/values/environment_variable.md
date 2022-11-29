@@ -209,4 +209,4 @@ injectFixedEnvs: true
 
 Kubernetes Documentation:
 
-- [environment variables](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/#define-an-environment-variable-for-a-container)
+- [Environment Variables](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/#define-an-environment-variable-for-a-container)

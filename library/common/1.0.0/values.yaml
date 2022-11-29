@@ -34,7 +34,16 @@ security:
   PUID: 568
   UMASK: 002
 
+rbac:
+  main:
+    enabled: false
+    primary: true
+    clusterWide: false
 
+serviceAccount:
+  main:
+    enabled: false
+    primary: true
 # Everything bellow needs documentation
 
 global:
@@ -55,7 +64,6 @@ podLabels: {}
 ixExternalInterfacesConfigurationNames: []
   # - interface1
   # - interface2
-
 
 tty: false
 
@@ -81,16 +89,7 @@ nodeSelector: {}
 
 tolerations: []
 
-serviceAccount:
-  main:
-    enabled: false
-    primary: true
 
-rbac:
-  main:
-    enabled: false
-    primary: true
-    clusterWide: false
 
 # TODO: docs
 podSecurityContext:

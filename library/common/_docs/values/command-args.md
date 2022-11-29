@@ -91,4 +91,4 @@ extraArgs:
 
 Kubernetes Documentation:
 
-- [command - args](https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#define-a-command-and-arguments-when-you-create-a-pod)
+- [Command / Args](https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#define-a-command-and-arguments-when-you-create-a-pod)

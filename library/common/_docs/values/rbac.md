@@ -76,4 +76,4 @@ rbac:
 
 Kubernetes Documentation:
 
-- [RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
+- [RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac)
