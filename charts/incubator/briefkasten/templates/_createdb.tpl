@@ -1,3 +1,4 @@
+{{- define "briefkasten.createdb" -}}
 image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
 imagePullPolicy: {{ .Values.image.pullPolicy }}
 securityContext:
