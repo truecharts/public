@@ -187,13 +187,13 @@ stringData:
 
     {{- if or .Values.admin.existingSecret (and .Values.admin.username .Values.admin.password) }}
     function configure_admin_user() {
-      local ACCOUNT_ID=$(gitea admin user list --admin | grep -e "\s\+${GITEA_ADMIN_USERNAME}\s\+" | awk -F " " "{printf \$1}")
+      local ACCOUNT_ID=$(gitea admin user list --admin | grep -e "\s\+${GITEA_ADMIN_USERNAME}\|{{ .Values.admin.email }}\s\+" | awk -F " " "{printf \$1}")
       if [[ -z "${ACCOUNT_ID}" ]]; then
-        echo "No admin user '${GITEA_ADMIN_USERNAME}' found. Creating now..."
+        echo "No admin user '${GITEA_ADMIN_USERNAME}' found, neither email '{{ .Values.admin.email }}' is assigned to an admin. Creating now..."
         gitea admin user create --admin --username "${GITEA_ADMIN_USERNAME}" --password "${GITEA_ADMIN_PASSWORD}" --email {{ .Values.admin.email | quote }} --must-change-password=false
         echo '...created.'
       else
-        echo "Admin account '${GITEA_ADMIN_USERNAME}' already exist. Running update to sync password..."
+        echo "Admin account '${GITEA_ADMIN_USERNAME}' or email {{ .Values.admin.email }} already exist. Running update to sync password..."
         gitea admin user change-password --username "${GITEA_ADMIN_USERNAME}" --password "${GITEA_ADMIN_PASSWORD}"
         echo '...password sync done.'
       fi
