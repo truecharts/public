@@ -21,6 +21,7 @@ questions:
           schema:
             type: string
             required: true
+            valid_chars: ^((?!admin)[^<>])*$
         - variable: password
           label: "password"
           schema:
