@@ -13,3 +13,14 @@
   {{- end -}}
   {{- include "ix.v1.common.images.image" (dict "imageRoot" $image) -}}
 {{- end -}}
+
+{{- define "ix.v1.common.images.pullPolicy" -}}
+  {{- $pullPolicy := "IfNotPresent" -}}
+  {{- with .policy -}}
+    {{- if not (has . (list "IfNotPresent" "Always" "Never")) -}}
+      {{- fail (printf "Invalid <pullPolicy> option (%s). Valid options are IfNotPresent, Always, Never" .) -}}
+    {{- end -}}
+    {{- $pullPolicy = . -}}
+  {{- end -}}
+  {{- print $pullPolicy -}}
+{{- end -}}

@@ -10,7 +10,7 @@ So it can work on multiple places, like additional containers and not only the m
 {{- define "ix.v1.common.controller.mainContainer" -}}
 - name: {{ include "ix.v1.common.names.fullname" . }}
   image: {{ include "ix.v1.common.images.selector" . }}
-  imagePullPolicy: {{ .Values.image.pullPolicy }}
+  imagePullPolicy: {{ include "ix.v1.common.images.pullPolicy" (dict "policy" .Values.image.pullPolicy) }}
   tty: {{ .Values.tty }}
   stdin: {{ .Values.stdin }}
   {{- with (include "ix.v1.common.container.command" (dict "commands" .Values.command "root" $)) | trim }}

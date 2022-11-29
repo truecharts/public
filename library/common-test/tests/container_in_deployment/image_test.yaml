@@ -50,6 +50,16 @@ tests:
       - failedTemplate:
           errorMessage: Image <tag> is required
 
+  - it: should fail with invalid pullPolicy
+    set:
+      image:
+        repository: some_repo
+        tag: some_tag
+        pullPolicy: invalid_policy
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid <pullPolicy> option (invalid_policy). Valid options are IfNotPresent, Always, Never
+
   - it: should pass with image from image selector
     documentIndex: *deploymentDoc
     set:
