@@ -6,14 +6,15 @@ image:
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-  allowPrivilegeEscalation: true
-  privileged: true
-
-hostNetwork: true
+  capabilities:
+    add:
+      - NET_ADMIN
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
+hostNetwork: true
 
 service:
   main:
@@ -36,7 +37,7 @@ persistence:
     enabled: true
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
 
 portal:
   enabled: true
