@@ -23,6 +23,18 @@ envFrom: []
 
 TZ: UTC
 
+lifecycle: {}
+
+nvidiaCaps:
+  - all
+
+injectFixedEnvs: true
+
+security:
+  PUID: 568
+  UMASK: 002
+
+
 # Everything bellow needs documentation
 
 global:
@@ -97,7 +109,6 @@ securityContext:
     drop: []
     add: []
 
-lifecycle: {}
 
 termination:
   messagePath: ""
@@ -118,17 +129,6 @@ resources:
 # TODO: Verify that this is the correct value returned from ref
 scaleGPU: {}
   # gpu: 1
-
-nvidiaCaps:
-  - all
-
-injectFixedEnvs: true
-
-
-security:
-  PUID: 568
-  UMASK: 002
-
 
 controller:
   # -- Enable the controller.
