@@ -18,6 +18,7 @@ questions:
       attrs:
         - variable: username
           label: "username"
+          description: Set username to any user other than `admin`.
           schema:
             type: string
             required: true
