@@ -11,8 +11,8 @@ secretEnv:
 env:
   STATUS_HTTP: true
   STATUS_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
-  SUPERVISOR_HTTP_PORT: "{{ .Values.service.supervisor.ports.supervisor.port }}"
   SUPERVISOR_HTTP: true
+  SUPERVISOR_HTTP_PORT: "{{ .Values.service.supervisor.ports.supervisor.port }}"
   SERVER_NAME: My Server
   SERVER_PORT: "{{ .Values.service.valheim.ports.valheim1.port }}"
   WORLD_NAME: Dedicated
