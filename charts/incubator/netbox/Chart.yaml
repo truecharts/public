@@ -3,7 +3,7 @@ appVersion: "3.3.6"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.3
+    version: 11.0.4
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
@@ -27,7 +27,7 @@ name: netbox
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/netbox
   - https://github.com/netbox-community/netbox-docker
-version: 3.0.7
+version: 3.0.8
 annotations:
   truecharts.org/catagories: |
     - network
