@@ -15,6 +15,7 @@ securityContext:
 
 env:
   DOWNLOAD: http://download.kiwix.org/zim/wikipedia_en_chemistry_nopic.zim
+  PORT: "{{ .Values.service.main.ports.main.port }}"
 
 service:
   main:
@@ -22,7 +23,6 @@ service:
       main:
         port: 10323
         protocol: HTTP
-        targetPort: 80
 
 persistence:
   data:
