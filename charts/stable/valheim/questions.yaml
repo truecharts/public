@@ -1,7 +1,12 @@
 # Include{groups}
 portals:
   open:
-# Include{portalLink}
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$variable-service.supervisor.ports.supervisor.port"
 questions:
 # Include{global}
 # Include{controller}
@@ -9,91 +14,91 @@ questions:
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
   - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
+    group: App Configuration
+    label: Image Secrets
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: SUPERVISOR_HTTP_USER
-          label: "SUPERVISOR_HTTP_USER"
+          label: SUPERVISOR_HTTP_USER
           schema:
             type: string
-            default: "admin"
+            default: admin
             required: true
         - variable: SUPERVISOR_HTTP_PASS
-          label: "SUPERVISOR_HTTP_PASS"
+          label: SUPERVISOR_HTTP_PASS
           schema:
             type: string
             required: true
             private: true
-            default: "REPLACETHIS"
+            default: REPLACETHIS
         - variable: SERVER_PASS
-          label: "SERVER_PASS"
+          label: SERVER_PASS
           schema:
             type: string
             required: true
             private: true
-            default: "REPLACETHIS"
+            default: REPLACETHIS
   - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
+    group: App Configuration
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: STATUS_HTTP
-          label: "STATUS_HTTP"
+          label: STATUS_HTTP
           schema:
             type: boolean
             default: true
         - variable: SUPERVISOR_HTTP
-          label: "SUPERVISOR_HTTP"
+          label: SUPERVISOR_HTTP
           schema:
             type: boolean
             default: true
         - variable: SERVER_NAME
-          label: "SERVER_NAME"
+          label: SERVER_NAME
           schema:
             type: string
-            default: "My Server"
+            default: My Server
             required: true
         - variable: WORLD_NAME
-          label: "WORLD_NAME"
+          label: WORLD_NAME
           schema:
             type: string
-            default: "Dedicated"
+            default: Dedicated
             required: true
         - variable: SERVER_PUBLIC
-          label: "SERVER_PUBLIC"
+          label: SERVER_PUBLIC
           schema:
             type: boolean
             default: true
         - variable: UPDATE_INTERVAL
-          label: "UPDATE_INTERVAL"
+          label: UPDATE_INTERVAL
           schema:
             type: int
             default: 10800
             required: true
         - variable: BACKUPS
-          label: "BACKUPS"
+          label: BACKUPS
           schema:
             type: boolean
             default: true
         - variable: BACKUPS_INTERVAL
-          label: "BACKUPS_INTERVAL"
+          label: BACKUPS_INTERVAL
           schema:
             type: int
             default: 43200
             required: true
         - variable: BACKUPS_DIRECTORY
-          label: "BACKUPS_DIRECTORY"
+          label: BACKUPS_DIRECTORY
           schema:
             type: string
-            default: "/backups"
+            default: /backups
             required: true
         - variable: BACKUPS_MAX_AGE
-          label: "BACKUPS_MAX_AGE"
+          label: BACKUPS_MAX_AGE
           schema:
             type: int
             default: 3
@@ -101,8 +106,8 @@ questions:
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -110,21 +115,21 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 9010
                               required: true
         - variable: supervisor
-          label: "supervisor Service"
-          description: "The supervisor service"
+          label: supervisor Service
+          description: The supervisor service
           schema:
             additional_attrs: true
             type: dict
@@ -132,21 +137,21 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: supervisor
-                      label: "supervisor Service Port Configuration"
+                      label: supervisor Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 9011
                               required: true
         - variable: valheim
-          label: "valheim Service"
-          description: "The valheim Game service"
+          label: valheim Service
+          description: The valheim Game service
           schema:
             additional_attrs: true
             type: dict
@@ -154,43 +159,30 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: valheim1
-                      label: "valheim-1 Service Port Configuration"
+                      label: valheim-1 Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 2456
                               required: true
                     - variable: valheim2
-                      label: "valheim-2 Service Port Configuration"
+                      label: valheim-2 Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 2457
-                              required: true
-                    - variable: valheim3
-                      label: "valheim-3 Service Port Configuration"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 2458
                               required: true
 # Include{serviceExpertRoot}
             default: false
@@ -198,16 +190,16 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+          label: App Config Storage
+          description: Stores the Application Configuration.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
         - variable: backups
-          label: "App backups Storage"
-          description: "Stores the Application backups."
+          label: App backups Storage
+          description: Stores the Application backups.
           schema:
             additional_attrs: true
             type: dict
@@ -216,7 +208,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -225,7 +217,7 @@ questions:
 # Include{ingressTLS}
 # Include{ingressTraefik}
         - variable: supervisor
-          label: "supervisor Ingress"
+          label: supervisor Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -237,41 +229,41 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
