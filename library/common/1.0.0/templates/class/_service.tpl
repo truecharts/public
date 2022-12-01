@@ -33,7 +33,7 @@ metadata:
   {{- if and $root.Values.addAnnotations.metallb (eq $svcType "LoadBalancer") }}
     {{- $_ := set $additionalAnnotations "metallb.universe.tf/allow-shared-ip" (include "ix.v1.common.names.fullname" $root) }}
   {{- end -}}
-  {{- $annotations := (mustMerge ($svcValues.annotations | default dict) (include "ix.v1.common.annotations" $root | fromYaml) ($additionalAnnotations)) -}}
+  {{- $annotations := (mustMerge ($svcValues.annotations | default dict) (include "ix.v1.common.annotations" $root | fromYaml) $additionalAnnotations) -}}
   {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $root "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}

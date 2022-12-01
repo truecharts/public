@@ -6,22 +6,23 @@
   {{/*
   If a storage class is defined on a persistence object:
     "-" returns "", which means requesting a PV without class
-    SCALE-ZFS returns the value set on .Values.global.ixChartContext.storageClassName
+    SCALE-ZFS returns the value set on Values.global.ixChartContext.storageClassName
     else return the defined storageClass
-  Else if there is a storageClass defined in .Values.global.ixChartContext.storageClassName, return this
+  Else if there is a storageClass defined in Values.global.ixChartContext.storageClassName, return this
   In any other case, return nothing
   */}}
 
   {{- if $persistence.storageClass -}}
-    {{- if eq "-" $persistence.storageClass -}}
+    {{- $className := tpl $persistence.storageClass $root -}}
+    {{- if eq "-" $className -}}
       {{- print "\"\"" -}}
-    {{- else if eq "SCALE-ZFS" $persistence.storageClass -}}
+    {{- else if eq "SCALE-ZFS" $className -}}
       {{- if not $root.Values.global.ixChartContext.storageClassName -}}
         {{- fail "A storageClassName must be defined in global.ixChartContext.storageClassName" -}}
       {{- end -}}
       {{- print $root.Values.global.ixChartContext.storageClassName -}}
     {{- else -}}
-      {{- print $persistence.storageClass -}}
+      {{- print $className -}}
     {{- end -}}
   {{- else if $root.Values.global.ixChartContext.storageClassName -}}
     {{- print $root.Values.global.ixChartContext.storageClassName -}}

@@ -4,6 +4,8 @@
   {{- $pvcValues := .pvc -}}
   {{- $root := .root -}}
   {{- $defaultSize := $root.Values.global.ixChartContext.defaultPVCSize -}}
+  {{- $defaultAccessMode := $root.Values.global.ixChartContext.defaultAccessMode -}}
+  {{- $defaultRetain := $root.Values.global.ixChartContext.defaultPVCRetain -}}
 
   {{- $pvcName := include "ix.v1.common.names.fullname" $root -}}
 
@@ -17,8 +19,16 @@
     {{- $pvcName = tpl . $root -}}
   {{- end -}}
 
-  {{- $accessMode := (tpl (default "ReadWriteOnce" $pvcValues.accessMode) $root) | quote -}}
-  {{- $size := (tpl (default $defaultSize $pvcValues.size) $root) | quote }}
+  {{- $accessMode := (tpl (default $defaultAccessMode $pvcValues.accessMode) $root) -}}
+  {{- if not (has $accessMode (list "ReadWriteOnce" "ReadOnlyMany" "ReadWriteMany" "ReadWriteOncePod")) -}}
+    {{- fail (printf "Invalid <accessMode> option (%s). Valid options are ReadWriteOnce, ReadOnlyMany, ReadWriteMany and ReadWriteOncePod" $accessMode) -}}
+  {{- end -}}
+
+  {{- $size := (tpl (default $defaultSize $pvcValues.size) $root) -}}
+
+  {{- if hasKey $pvcValues "retain" -}}
+    {{- $defaultRetain = $pvcValues.retain -}}
+  {{- end }}
 
 ---
 apiVersion: {{ include "ix.v1.common.capabilities.pvc.apiVersion" $root }}
@@ -30,7 +40,11 @@ metadata:
   labels:
     {{- . | nindent 4 }}
   {{- end }}
-  {{- $annotations := (mustMerge ($pvcValues.annotations | default dict) (include "ix.v1.common.annotations" $root | fromYaml)) -}}
+  {{- $additionalAnnotations := dict -}}
+  {{- if $defaultRetain -}}
+    {{- $_ := set $additionalAnnotations "\"helm.sh/resource-policy\"" "keep" -}}
+  {{- end -}}
+  {{- $annotations := (mustMerge ($pvcValues.annotations | default dict) (include "ix.v1.common.annotations" $root | fromYaml) $additionalAnnotations) -}}
   {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $root "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
@@ -42,7 +56,7 @@ spec:
     requests:
       storage: {{ $size }}
   {{- with $pvcValues.volumeName }}
-  volumeName: {{ . | quote }}
+  volumeName: {{ tpl . $root | quote }}
   {{- end -}}
   {{/*
   If no storageClassName is defined, either in global or in the persistence object,

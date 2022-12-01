@@ -76,6 +76,13 @@ global:
     defaultPVCSize: 1Gi
     # If no PVC type is defined, assume this
     defaultPersistenceType: pvc
+    # If no PVC accessMode is defined, assume this
+    defaultAccessMode: ReadWriteOnce
+    # If no PVC retain key is defined, assume this
+    # Note, that this adds an annotation for helm whether to delete
+    # the resource on uninstall, manually deleting the namespace it will delete
+    # the resource no matter what this is set.
+    defaultPVCRetain: false
     # Define a storageClassName that will be used for all PVCs by default
     # Leave empty to rely on the node's default storageClass
     storageClassName:
