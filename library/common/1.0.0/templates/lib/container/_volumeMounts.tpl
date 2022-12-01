@@ -1,27 +1,25 @@
 {{/* Volume Mounts included by the container. */}}
 {{- define "ix.v1.common.container.volumeMounts" -}}
-  {{- $defaultType := "pvc" -}}
   {{- range $index, $item := .Values.persistence -}}
     {{- if $item.enabled -}}
       {{- if not $item.noMount -}}
-        {{- $mountPath := "" -}}
         {{- if not $item.mountPath -}} {{/* Make sure that we have a mountPath */}}
           {{- fail "<mountPath> must be defined, alternatively use the <noMount> flag." -}}
-        {{- end -}}
+        {{- end }}
 - mountPath: {{ tpl $item.mountPath $ }}
   name: {{ tpl $index $ }}
         {{- with $item.subPath }}
   subPath: {{ tpl . $ }}
-        {{- end }}
+        {{- end -}}
         {{- if (hasKey $item "readOnly") }}
   readOnly: {{ $item.readOnly }}
-        {{- end }}
+        {{- end -}}
         {{- with $item.mountPropagation }}
   mountPropagation: {{ tpl . $ }}
         {{- end -}}
       {{- end -}}
     {{- end -}}
-  {{- end -}}
+  {{- end }}
 
 {{/* TODO: write tests when statefulset is ready */}}
   {{- if eq .Values.controller.type "statefulset" -}}
