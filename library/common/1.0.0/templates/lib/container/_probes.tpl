@@ -12,7 +12,7 @@
       {{- fail (printf "Invalid probe name (%s). Valid options are (liveness, readiness, startup)" $probeName) -}}
     {{- end -}}
     {{- if $probe.enabled -}}
-      {{- "" | nindent 0 }} {{/* Needed to create a new line */}}
+      {{- "" | nindent 0 -}} {{/* Needed to create a new line, WARNING, needs both the "-" */}}
       {{- $probeName }}Probe:
       {{- if $probe.custom -}} {{/* Allows to add a custom definition on the probe */}}
         {{- $probe.spec | toYaml | nindent 2 }}
