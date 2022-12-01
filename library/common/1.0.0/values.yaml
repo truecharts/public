@@ -59,6 +59,10 @@ addAnnotations:
 
 hostAliases: []
 
+hostNetwork: false
+
+hostname: ""
+
 # Everything bellow needs documentation
 
 global:
@@ -83,10 +87,6 @@ ixExternalInterfacesConfigurationNames: []
 tty: false
 
 stdin: false
-
-hostname: ""
-
-hostNetwork: false
 
 enableServiceLinks: false
 
