@@ -17,7 +17,7 @@ stringData:
   DB_CONNECTION: {{ print "postgres" }}
   APP_TOKEN: {{ .Values.gsm.app_token | quote }}
   {{- with .Values.gsm.whitelist_guilds }}
-  WHITELIST_GUILDS: {{ join ";" . }}
+  WHITELIST_GUILDS: {{ join ";" . | quote }}
   {{- end }}
   APP_ACTIVITY_TYPE: {{ .Values.gsm.app_activity_type | quote }}
   {{- with .Values.gsm.app_activity_name }}

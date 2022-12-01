@@ -46,12 +46,14 @@ questions:
             enum:
               - value: "0"
                 description: Playing
+              - value: "1"
+                description: Streaming
               - value: "2"
                 description: Listening
               - value: "3"
                 description: Watching
               - value: "5"
-                description: Playing
+                description: Competing
         - variable: app_activity_name
           label: App Activity Name
           description: Presence activity name override.
@@ -59,7 +61,7 @@ questions:
             type: string
             default: ""
         - variable: app_presence_advertise
-          label: App Presense Advertise
+          label: App Presence Advertise
           description: Enable advertisement feature on presence
           schema:
             type: boolean
