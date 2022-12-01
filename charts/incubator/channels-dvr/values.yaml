@@ -3,6 +3,11 @@ image:
   pullPolicy: Always
   tag: latest@sha256:bfc3c73c1cefd578c121b6e3256a496ad9ee190a6a6901d3ad1b9aa2a7be082c
 
+tveImage:
+  repository: fancybits/channels-dvr
+  pullPolicy: Always
+  tag: tve@sha256:0fb54da902ae9bb872634e38a653f66c2698373ab25c587d79d41f24271077cb
+
 service:
   main:
     ports:
