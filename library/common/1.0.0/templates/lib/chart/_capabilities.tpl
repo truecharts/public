@@ -57,3 +57,8 @@
 {{- define "ix.v1.common.capabilities.endpoints.apiVersion" -}}
   {{- print "v1" -}}
 {{- end -}}
+
+{{/* Return the appropriate apiVersion for persistentVolumeClaim */}}
+{{- define "ix.v1.common.capabilities.pvc.apiVersion" -}}
+  {{- print "v1" -}}
+{{- end -}}
