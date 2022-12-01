@@ -1,21 +1,13 @@
-{{/* discordGSM environment variables */}}
-{{- define "discordgsm.env" -}}
-{{- $configName := printf "%s-env-config" (include "tc.common.names.fullname" .) }}
-{{- $secretName := printf "%s-env-secret" (include "tc.common.names.fullname" .) }}
+{{/* Define the secret */}}
+{{- define "gsm.secret" -}}
+
+{{- $secretName := printf "%s-gsm-secret" (include "tc.common.names.fullname" .) }}
+
 ---
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $configName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-data:
-  {{- with .Values.gsm.whitelist_guilds }}
-  WHITELIST_GUILDS: {{ join ";" . }}
-  {{- end }}
----
+
 apiVersion: v1
 kind: Secret
+type: Opaque
 metadata:
   name: {{ $secretName }}
   labels:
@@ -24,6 +16,9 @@ stringData:
   DATABASE_URL: {{ .Values.postgresql.url.complete | trimAll "\"" }}
   DB_CONNECTION: {{ print "postgres" }}
   APP_TOKEN: {{ .Values.gsm.app_token | quote }}
+  {{- with .Values.gsm.whitelist_guilds }}
+  WHITELIST_GUILDS: {{ join ";" . | quote }}
+  {{- end }}
   APP_ACTIVITY_TYPE: {{ .Values.gsm.app_activity_type | quote }}
   {{- with .Values.gsm.app_activity_name }}
   APP_ACTIVITY_NAME: {{ . | quote }}

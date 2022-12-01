@@ -39,10 +39,8 @@ gsm:
   postgres_ssl_mode: disable
 
 envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-env-config'
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-env-secret'
+      name: '{{ include "tc.common.names.fullname" . }}-gsm-secret'
 
 service:
   main:
