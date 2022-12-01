@@ -63,6 +63,9 @@ hostNetwork: false
 
 hostname: ""
 
+tty: false
+
+stdin: false
 # Everything bellow needs documentation
 
 global:
@@ -79,14 +82,9 @@ podAnnotations: {}
 
 podLabels: {}
 
-# TODO: docs
 ixExternalInterfacesConfigurationNames: []
   # - interface1
   # - interface2
-
-tty: false
-
-stdin: false
 
 enableServiceLinks: false
 
@@ -102,7 +100,6 @@ nodeSelector: {}
 
 tolerations: []
 
-# TODO: docs
 podSecurityContext:
   runAsUser: 568
   runAsGroup: 568
