@@ -19,6 +19,7 @@ can be dynamically configured via an env var.
   {{- end -}}
 
 {{/* TODO: Implement hostPort */}}
+{{/* TODO: Make sure no service is using the hostPort or it will end up with conflicts */}}
 {{/* Render the list of ports */}}
 {{- if $ports -}}
   {{- range $_ := $ports }}
