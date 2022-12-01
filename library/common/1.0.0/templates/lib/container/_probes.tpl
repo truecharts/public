@@ -4,7 +4,7 @@
   {{- $primaryService := get .Values.service $primarySeriviceName -}} {{/* Get service values of the primary service, if any */}}
   {{- $primaryPort := "" -}}
   {{- if $primaryService -}}
-    {{- $primaryPort = get $primaryService.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "values" $primaryService)) -}}
+    {{- $primaryPort = get $primaryService.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "values" $primaryService "svcName" $primarySeriviceName)) -}}
   {{- end -}}
   {{- $probeType := "TCP" -}}
   {{- range $probeName, $probe := .Values.probes -}}
@@ -12,13 +12,13 @@
       {{- fail (printf "Invalid probe name (%s). Valid options are (liveness, readiness, startup)" $probeName) -}}
     {{- end -}}
     {{- if $probe.enabled -}}
-      {{- "" | nindent 0 -}} {{/* Needed to create a new line */}}
+      {{- "" | nindent 0 }} {{/* Needed to create a new line */}}
       {{- $probeName }}Probe:
       {{- if $probe.custom -}} {{/* Allows to add a custom definition on the probe */}}
         {{- $probe.spec | toYaml | nindent 2 }}
-      {{- else if eq $probe.type "EXEC" -}}
+      {{- else if eq $probe.type "EXEC" }}
         {{- print "exec:" | nindent 2 }}
-        {{- if $probe.command -}}
+        {{- if $probe.command }}
             {{- print "command:" | nindent 4 }}
             {{- include "ix.v1.common.container.command" (dict "commands" $probe.command "root" $) | trim | nindent 6 }}
             {{- include "ix.v1.common.container.probes.timings" (dict "probe" $probe "probeName" $probeName) }}
@@ -41,7 +41,7 @@
           {{- if has $probeType (list "HTTPS" "HTTP") -}}
             {{- if not $probe.path -}}
               {{- fail (printf "<path> must be defined for HTTP/HTTPS probe types in probe (%s)" $probeName) -}}
-            {{- end -}}
+            {{- end }}
             {{- print "httpGet:" | nindent 2 }}
             {{- printf "path: %v" (tpl $probe.path $) | nindent 4 }}
             {{- printf "scheme: %v" $probeType | nindent 4 }}
@@ -50,14 +50,14 @@
               {{- range $k, $v := . }}
                 {{- if or (kindIs "slice" $v) (kindIs "map" $v) -}}
                   {{- fail (printf "Lists or Dicts are not allowed in httpHeaders on probe (%s)" $probeName) -}}
-                {{- end -}}
+                {{- end }}
                 {{- printf "- name: %s" $k | nindent 6 }}
                 {{- printf "  value: %s" (tpl (toString $v) $) | nindent 6 }}
               {{- end }}
             {{- end }}
-          {{- else if (eq $probeType "TCP") -}}
+          {{- else if (eq $probeType "TCP") }}
             {{- print "tcpSocket:" | nindent 2 }}
-          {{- else if (eq $probeType "GRPC") -}}
+          {{- else if (eq $probeType "GRPC") }}
             {{- printf "grpc:" | nindent 2 }}
           {{- else if (eq $probeType "UDP") -}}
             {{- fail "UDP Probes are not supported. Please use a different probe or disable probes." -}}
@@ -68,7 +68,7 @@
             {{- $probePort = (tpl ($probe.port | toString) $) -}}
           {{- else if $primaryPort.targetPort -}}
             {{- $probePort = $primaryPort.targetPort -}}
-          {{- end -}}
+          {{- end }}
 
           {{- printf "port: %v" $probePort | nindent 4 }}
           {{- include "ix.v1.common.container.probes.timings" (dict "probe" $probe "probeName" $probeName) }}
@@ -95,7 +95,7 @@
   {{- end -}}
   {{- if not (has (kindOf $probe.spec.periodSeconds) (list "float64" "int")) -}}
     {{- fail (printf "<periodSeconds> cannot be empty in probe (%s)" $probeName) -}}
-  {{- end -}}
+  {{- end }}
   {{- printf "initialDelaySeconds: %v" $probe.spec.initialDelaySeconds | nindent 2 }}
   {{- printf "failureThreshold: %v" $probe.spec.failureThreshold | nindent 2 }}
   {{- printf "timeoutSeconds: %v" $probe.spec.timeoutSeconds | nindent 2 }}

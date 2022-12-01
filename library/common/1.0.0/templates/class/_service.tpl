@@ -14,7 +14,7 @@
   {{- if $root.Values.hostNetwork -}}
     {{- $svcType = "ClusterIP" -}} {{/* When hostNetwork is enabled, force ClusterIP as service type */}}
   {{- end -}}
-  {{- $primaryPort := get $svcValues.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "values" $svcValues)) }}
+  {{- $primaryPort := get $svcValues.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "values" $svcValues "svcName" $svcName)) }}
 
 ---
 apiVersion: {{ include "ix.v1.common.capabilities.service.apiVersion" $root }}
@@ -42,14 +42,14 @@ spec:
 {{- if has $svcType (list "ClusterIP" "NodePort" "ExternalName" "LoadBalancer") }}
   type: {{ $svcType }} {{/* Specify type only for the above types */}}
 {{- end -}}
-{{- if has $svcType (list "ClusterIP" "NodePort" "LoadBalancer") }} {{/* ClusterIP */}}
+{{- if has $svcType (list "ClusterIP" "NodePort" "LoadBalancer") -}} {{/* ClusterIP */}}
   {{- with $svcValues.clusterIP }}
   clusterIP: {{ . }}
-  {{- end }}
+  {{- end -}}
   {{- if eq $svcType "LoadBalancer" -}}
     {{- with $svcValues.loadBalancerIP }}
   loadBalancerIP: {{ . }}
-    {{- end }}
+    {{- end -}}
     {{- with $svcValues.loadBalancerSourceRanges }}
   loadBalancerSourceRanges:
       {{- range . }}
@@ -57,7 +57,7 @@ spec:
       {{- end }}
     {{- end -}}
   {{- end -}}
-{{- else if eq $svcType "ExternalName" -}} {{/* ExternalName */}}
+{{- else if eq $svcType "ExternalName" }} {{/* ExternalName */}}
   externalName: {{ required "<externalName> is required when service type is set to ExternalName" $svcValues.externalName }}
 {{- end -}}
 {{- if ne $svcType "ClusterIP" -}}
