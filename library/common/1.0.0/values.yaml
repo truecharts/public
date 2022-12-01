@@ -69,6 +69,16 @@ stdin: false
 # Everything bellow needs documentation
 
 global:
+  ixChartContext:
+    # If no serviceType is defined, assume this
+    defaultServiceType: ClusterIP
+    # If no PVC Size is defined, assume this
+    defaultPVCSize: 1Gi
+    # If no PVC type is defined, assume this
+    defaultPersistenceType: pvc
+    # Define a storageClassName that will be used for all PVCs by default
+    # Leave empty to rely on the node's default storageClass
+    storageClassName:
   nameOverride: ""
   fullnameOverride: ""
   annotations: {}
