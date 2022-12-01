@@ -3,7 +3,7 @@
   {{- $enabledServiceAccounts := dict -}}
   {{- range $name, $serviceAccount := .Values.serviceAccount -}}
     {{- if $serviceAccount.enabled -}}
-      {{- $_ := set $enabledServiceAccounts $name . -}}
+      {{- $_ := set $enabledServiceAccounts $name $serviceAccount -}}
     {{- end -}}
   {{- end -}}
 
@@ -20,7 +20,13 @@
   {{- end -}}
 
   {{- if not $result -}}
-    {{- $result = keys $enabledServiceAccounts | first -}}
+    {{- if eq (len $enabledServiceAccounts) 1 -}}
+      {{- $result = keys $enabledServiceAccounts | first -}}
+    {{- else -}}
+      {{- if $enabledServiceAccounts -}}
+        {{- fail "At least one Service Account must be set as primary" -}}
+      {{- end -}}
+    {{- end -}}
   {{- end -}}
 
   {{- $result -}}

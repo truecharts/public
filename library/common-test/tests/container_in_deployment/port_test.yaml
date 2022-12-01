@@ -33,6 +33,23 @@ tests:
       - failedTemplate:
           errorMessage: Port is required on enabled services. Service (main)
 
+  - it: should fail with multiple port, but none set as primary
+    set:
+      service:
+        main:
+          ports:
+            main:
+              enabled: true
+              primary: false
+              port: 65535
+            main2:
+              enabled: true
+              primary: false
+              port: 65534
+    asserts:
+      - failedTemplate:
+          errorMessage: At least one port must be set as primary in service (main)
+
   - it: should fail without ports dict in an enabled service
     set:
       service:

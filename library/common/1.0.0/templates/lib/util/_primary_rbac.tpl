@@ -3,7 +3,7 @@
   {{- $enabledrbacs := dict -}}
   {{- range $name, $rbac := .Values.rbac -}}
     {{- if $rbac.enabled -}}
-      {{- $_ := set $enabledrbacs $name . -}}
+      {{- $_ := set $enabledrbacs $name $rbac -}}
     {{- end -}}
   {{- end -}}
 
@@ -20,7 +20,13 @@
   {{- end -}}
 
   {{- if not $result -}}
-    {{- $result = keys $enabledrbacs | first -}}
+    {{- if eq (len $enabledrbacs) 1 -}}
+      {{- $result = keys $enabledrbacs | first -}}
+    {{- else -}}
+      {{- if $enabledrbacs -}}
+        {{- fail "At least one RBAC must be set as primary" -}}
+      {{- end -}}
+    {{- end -}}
   {{- end -}}
 
   {{- $result -}}

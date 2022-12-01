@@ -1,10 +1,11 @@
 {{/* A dict containing .values and .serviceName is passed when this function is called */}}
 {{/* Return the primary port for a given Service object. */}}
 {{- define "ix.v1.common.lib.util.service.ports.primary" -}}
+  {{- $svcName := .svcName -}}
   {{- $enabledPorts := dict -}}
   {{- range $name, $port := .values.ports -}}
     {{- if $port.enabled -}}
-      {{- $_ := set $enabledPorts $name . -}}
+      {{- $_ := set $enabledPorts $name $port -}}
     {{- end -}}
   {{- end -}}
 
@@ -25,7 +26,13 @@
   {{- end -}}
 
   {{- if not $result -}}
-    {{- $result = keys $enabledPorts | first -}}
+    {{- if eq (len $enabledPorts) 1 -}}
+      {{- $result = keys $enabledPorts | first -}}
+    {{- else -}}
+      {{- if $enabledPorts -}}
+        {{- fail (printf "At least one port must be set as primary in service (%s)" $svcName) -}}
+      {{- end -}}
+    {{- end -}}
   {{- end -}}
 
   {{- $result -}}

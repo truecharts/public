@@ -15,6 +15,19 @@ tests:
       - isKind:
           of: Deployment
 
+  - it: should fail with multiple service accounts, without any set as primary
+    set:
+      rbac:
+        main:
+          enabled: true
+          primary: false
+        main2:
+          enabled: true
+          primary: false
+    asserts:
+      - failedTemplate:
+          errorMessage: At least one RBAC must be set as primary
+
   - it: should fail with no rules in rbac
     set:
       rbac:

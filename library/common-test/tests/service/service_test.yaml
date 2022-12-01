@@ -12,6 +12,27 @@ tests:
       - isKind:
           of: Deployment
 
+  - it: should fail with multiple services, without any set as primary
+    set:
+      service:
+        main:
+          enabled: true
+          primary: false
+          ports:
+            main:
+              enabled: true
+              port: 65535
+        main2:
+          enabled: true
+          primary: false
+          ports:
+            main2:
+              enabled: true
+              port: 65534
+    asserts:
+      - failedTemplate:
+          errorMessage: At least one Service must be set as primary
+
   - it: should fail without externalName on ExternalName service
     set:
       service:

@@ -3,7 +3,7 @@
   {{- $enabledServices := dict -}}
   {{- range $name, $service := .Values.service -}}
     {{- if $service.enabled -}}
-      {{- $_ := set $enabledServices $name . -}}
+      {{- $_ := set $enabledServices $name $service -}}
     {{- end -}}
   {{- end -}}
 
@@ -20,7 +20,13 @@
   {{- end -}}
 
   {{- if not $result -}}
-    {{- $result = keys $enabledServices | first -}}
+    {{- if eq (len $enabledServices) 1 -}}
+      {{- $result = keys $enabledServices | first -}}
+    {{- else -}}
+      {{- if $enabledServices -}}
+        {{- fail "At least one Service must be set as primary" -}}
+      {{- end -}}
+    {{- end -}}
   {{- end -}}
 
   {{- $result -}}
