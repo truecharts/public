@@ -3,14 +3,14 @@
 {{- define "ix.v1.common.class.service" -}}
   {{- $svcValues := .svc -}}
   {{- $root := .root -}}
-
+  {{- $defaultServiceType := $root.Values.global.ixChartContext.defaultServiceType -}}
   {{- $svcName := include "ix.v1.common.names.fullname" $root -}}
 
   {{- if and (hasKey $svcValues "nameOverride") $svcValues.nameOverride -}}
     {{- $svcName = (printf "%v-%v" $svcName $svcValues.nameOverride) -}}
   {{- end -}}
 
-  {{- $svcType := $svcValues.type | default "ClusterIP" -}}
+  {{- $svcType := $svcValues.type | default $defaultServiceType -}}
   {{- if $root.Values.hostNetwork -}}
     {{- $svcType = "ClusterIP" -}} {{/* When hostNetwork is enabled, force ClusterIP as service type */}}
   {{- end -}}
