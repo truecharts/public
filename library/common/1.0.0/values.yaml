@@ -183,6 +183,7 @@ service:
     # -- Configure the Service port information here.
     # Additional ports can be added by adding a dictionary key similar to the 'main' port.
     # @default -- See below
+    primary: true
     ports:
       main:
         # -- Enables or disables the port
