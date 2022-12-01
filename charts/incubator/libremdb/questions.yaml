@@ -45,13 +45,13 @@ questions:
                 description: Default user agent for requesting data from IMDB.
                 schema:
                   type: string
-                  default: axios/0.27.2
+                  default: "Mozilla/5.0 (X11; Linux x86_64; rv:104.0) Gecko/20100101 Firefox/104.0"
               - variable: AXIOS_ACCEPT
                 label: Axios Accept
                 description: Default Accept Header.
                 schema:
                   type: string
-                  default: "application/json, text/plain, */*"
+                  default: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8"
               - variable: AXIOS_LANGUAGE
                 label: Axios Language
                 description: Forcing a certain language for data we get from IMDB.
