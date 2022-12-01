@@ -55,6 +55,25 @@ tests:
             - mountPath: /some_path
               name: vol1
 
+  - it: should pass with mountPath set (multiple entries)
+    documentIndex: *deploymentDoc
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /some_path
+        vol2:
+          enabled: true
+          mountPath: /some_path2
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].volumeMounts
+          value:
+            - mountPath: /some_path
+              name: vol1
+            - mountPath: /some_path2
+              name: vol2
+
   - it: should pass with mountPath and readOnly(true) set
     documentIndex: *deploymentDoc
     set:
