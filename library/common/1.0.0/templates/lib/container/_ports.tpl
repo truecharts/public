@@ -18,6 +18,7 @@ can be dynamically configured via an env var.
     {{- end -}}
   {{- end -}}
 
+{{/* TODO: Implement hostPort */}}
 {{/* Render the list of ports */}}
 {{- if $ports -}}
   {{- range $_ := $ports }}
