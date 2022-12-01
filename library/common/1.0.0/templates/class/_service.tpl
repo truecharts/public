@@ -11,6 +11,9 @@
   {{- end -}}
 
   {{- $svcType := $svcValues.type | default "ClusterIP" -}}
+  {{- if $root.Values.hostNetwork -}}
+    {{- $svcType = "ClusterIP" -}} {{/* When hostNetwork is enabled, force ClusterIP as service type */}}
+  {{- end -}}
   {{- $primaryPort := get $svcValues.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "values" $svcValues)) }}
 
 ---
