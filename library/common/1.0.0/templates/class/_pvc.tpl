@@ -3,9 +3,9 @@
 {{- define "ix.v1.common.class.pvc" -}}
   {{- $pvcValues := .pvc -}}
   {{- $root := .root -}}
-  {{- $defaultSize := $root.Values.global.ixChartContext.defaultPVCSize -}}
-  {{- $defaultAccessMode := $root.Values.global.ixChartContext.defaultAccessMode -}}
-  {{- $defaultRetain := $root.Values.global.ixChartContext.defaultPVCRetain -}}
+  {{- $defaultSize := $root.Values.global.defaults.defaultPVCSize -}}
+  {{- $defaultAccessMode := $root.Values.global.defaults.defaultAccessMode -}}
+  {{- $defaultRetain := $root.Values.global.defaults.defaultPVCRetain -}}
 
   {{- $pvcName := include "ix.v1.common.names.fullname" $root -}}
 

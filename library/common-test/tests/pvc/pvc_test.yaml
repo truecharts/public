@@ -22,7 +22,7 @@ tests:
           mountPath: /somepath
     asserts:
       - failedTemplate:
-          errorMessage: A storageClassName must be defined in global.ixChartContext.storageClassName
+          errorMessage: A storageClassName must be defined in global.defaults.storageClassName
 
   - it: should fail with invalid accessMode
     set:
@@ -568,7 +568,7 @@ tests:
     documentIndex: *pvcDoc
     set:
       global:
-        ixChartContext:
+        defaults:
           defaultPVCRetain: true
       persistence:
         vol1:
@@ -589,7 +589,7 @@ tests:
     documentIndex: *pvcDoc
     set:
       global:
-        ixChartContext:
+        defaults:
           defaultPVCRetain: true
       persistence:
         vol1:
@@ -610,7 +610,7 @@ tests:
     documentIndex: *pvcDoc
     set:
       global:
-        ixChartContext:
+        defaults:
           defaultPVCRetain: false
       persistence:
         vol1:

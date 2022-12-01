@@ -3,7 +3,7 @@
 {{- define "ix.v1.common.class.service" -}}
   {{- $svcValues := .svc -}}
   {{- $root := .root -}}
-  {{- $defaultServiceType := $root.Values.global.ixChartContext.defaultServiceType -}}
+  {{- $defaultServiceType := $root.Values.global.defaults.defaultServiceType -}}
   {{- $svcName := include "ix.v1.common.names.fullname" $root -}}
 
   {{- if and (hasKey $svcValues "nameOverride") $svcValues.nameOverride -}}

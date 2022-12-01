@@ -7,7 +7,7 @@ you can specify a size for memory backed volumes.
 {{/* Volumes included by the controller. */}}
 {{- define "ix.v1.common.controller.volumes" -}}
   {{- $root := . -}}
-  {{- $persistenceDefault := .Values.global.ixChartContext.defaultPersistenceType -}}
+  {{- $persistenceDefault := .Values.global.defaults.defaultPersistenceType -}}
   {{- range $index, $persistence := .Values.persistence -}}
     {{- if $persistence.enabled -}}
       {{- if not $persistence.type -}} {{/* If persistence type is not defined, fallback to $persistenceDefault */}}
