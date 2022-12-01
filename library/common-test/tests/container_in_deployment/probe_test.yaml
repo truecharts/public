@@ -48,6 +48,21 @@ tests:
       - failedTemplate:
           errorMessage: Invalid probe name (invalid_probe_name). Valid options are (liveness, readiness, startup)
 
+  - it: should fail with probe type auto and port protocol UDP
+    set:
+      probes:
+        liveness:
+          type: AUTO
+      service:
+        main:
+          ports:
+            main:
+              port: 65535
+              protocol: UDP
+    asserts:
+      - failedTemplate:
+          errorMessage: UDP Probes are not supported. Please use a different probe type or disable probes.
+
   - it: should fail without commands on exec probe
     set:
       probes:
