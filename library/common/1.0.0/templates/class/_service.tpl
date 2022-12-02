@@ -14,8 +14,10 @@
   {{- if $root.Values.hostNetwork -}}
     {{- $svcType = "ClusterIP" -}} {{/* When hostNetwork is enabled, force ClusterIP as service type */}}
   {{- end -}}
-  {{- $primaryPort := get $svcValues.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "values" $svcValues "svcName" $svcName)) }}
-
+  {{- $primaryPort := get $svcValues.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "values" $svcValues "svcName" $svcName)) -}}
+  {{/* Prepare a dict to pass into includes */}}
+  {{- $tmpSVC := dict -}}
+  {{- $_ := set $tmpSVC "name" $svcName }}
 ---
 apiVersion: {{ include "ix.v1.common.capabilities.service.apiVersion" $root }}
 kind: Service
@@ -146,35 +148,8 @@ spec:
     {{- include "ix.v1.common.labels.selectorLabels" $root | nindent 4 }}
   {{- end }}
 {{- end -}}
-{{- if eq $svcType "ExternalIP" }}
----
-apiVersion: {{ include "ix.v1.common.capabilities.endpoints.apiVersion" $root }}
-kind: Endpoints
-metadata:
-  name: {{ $svcName }}
-  {{- $labels := (mustMerge ($svcValues.labels | default dict) (include "ix.v1.common.labels" $root | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.labels.render" (dict "root" $root "labels" $labels) | trim) }}
-  labels:
-    {{- . | nindent 4 }}
-  {{- end }}
-  {{- $annotations := (mustMerge ($svcValues.annotations | default dict) (include "ix.v1.common.annotations" $root | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $root "annotations" $annotations) | trim) }}
-  annotations:
-    {{- . | nindent 4 }}
-  {{- end }}
-  {{- with $svcValues.externalIP }}
-subsets:
-  - addresses:
-      - {{ tpl . $root }}
-  {{- else -}}
-    {{- fail "Service type is set to ExternalIP, but no externalIP is defined." -}}
-  {{- end }}
-    ports:
-    {{- range $name, $port := $svcValues.ports }}
-      {{- if $port.enabled }}
-      - port: {{ $port.port }}
-        name: {{ $name }}
-      {{- end }}
-    {{- end }}
-{{- end -}}
+  {{- if eq $svcType "ExternalIP" -}}
+    {{- $_ := set $tmpSVC "values" $svcValues -}}
+    {{- include "ix.v1.common.class.serivce.endpoints" (dict "svc" $tmpSVC "root" $root) }}
+  {{- end -}}
 {{- end -}}
