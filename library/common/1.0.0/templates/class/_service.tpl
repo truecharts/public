@@ -70,7 +70,7 @@ spec:
   externalTrafficPolicy: {{ . }}
   {{- end -}}
 {{- end -}}
-{{- if $svcValues.sessionAffinity -}}ex
+{{- if $svcValues.sessionAffinity -}}
   {{- include "ix.v1.common.class.serivce.sessionAffinity" (dict "svc" $svcValues "root" $root) | nindent 2 -}}
 {{- end -}}
 {{- if $svcValues.externalIPs -}}
