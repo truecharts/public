@@ -70,14 +70,11 @@ spec:
   externalTrafficPolicy: {{ . }}
   {{- end -}}
 {{- end -}}
-{{- if $svcValues.sessionAffinity -}}
+{{- if $svcValues.sessionAffinity -}}ex
   {{- include "ix.v1.common.class.serivce.sessionAffinity" (dict "svc" $svcValues "root" $root) | nindent 2 -}}
 {{- end -}}
-{{- with $svcValues.externalIPs }}
-  externalIPs:
-  {{- range . }}
-    - {{ tpl . $root }}
-  {{- end }}
+{{- if $svcValues.externalIPs -}}
+  {{- include "ix.v1.common.class.serivce.externalIPs" (dict "externalIPs" $svcValues.externalIPs "root" $root) | nindent 2 -}}
 {{- end -}}
 {{- with $svcValues.publishNotReadyAddresses }}
   publishNotReadyAddresses: {{ . }}
