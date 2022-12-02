@@ -70,7 +70,9 @@ stdin: false
 
 global:
   defaults:
-    # If no serviceType is defined, assume this
+    # If no probe Type is defined, assume this
+    defaultProbeType: TCP
+    # If no service Type is defined, assume this
     defaultServiceType: ClusterIP
     # If no PVC Size is defined, assume this
     defaultPVCSize: 1Gi

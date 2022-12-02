@@ -8,12 +8,13 @@
     {{- $primaryPort = get $primaryService.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "values" $primaryService "svcName" $primarySeriviceName)) -}}
   {{- end -}}
 
-  {{- $probeType := "TCP" -}}
+  {{- $defaultProbeType := .Values.global.defaults.defaultProbeType -}}
 
   {{- range $probeName, $probe := .Values.probes -}}
       {{- if not (has $probeName (list "liveness" "readiness" "startup")) -}}
         {{- fail (printf "Invalid probe name (%s). Valid options are (liveness, readiness, startup)" $probeName) -}}
       {{- end -}}
+    {{- $probeType := $defaultProbeType -}}
     {{- if $probe.enabled -}}
       {{/* Prepare a temp Probe to pass in the probe definition function */}}
       {{- $tmpProbe := dict -}}
