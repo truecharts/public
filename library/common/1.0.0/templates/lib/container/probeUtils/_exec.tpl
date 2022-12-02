@@ -1,3 +1,4 @@
+{{/* Returns exec for the probe */}}
 {{- define "ix.v1.common.container.probes.exec" -}}
   {{- $probe := .probe -}}
   {{- $root := .root -}}

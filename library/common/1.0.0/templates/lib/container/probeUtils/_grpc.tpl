@@ -1,3 +1,4 @@
+{{/* Returns grpc for the probe */}}
 {{- define "ix.v1.common.container.probes.grpc" -}}
   {{- $probe := .probe -}}
   {{- $root := .root -}}

@@ -1,3 +1,4 @@
+{{/* Returns tcp for the probe */}}
 {{- define "ix.v1.common.container.probes.tcp" -}}
   {{- $probe := .probe -}}
   {{- $root := .root -}}

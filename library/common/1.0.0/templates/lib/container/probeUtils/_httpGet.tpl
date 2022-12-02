@@ -1,3 +1,4 @@
+{{/* Returns http for the probe */}}
 {{- define "ix.v1.common.container.probes.httpGet" -}}
   {{- $probe := .probe -}}
   {{- $root := .root -}}
