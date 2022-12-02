@@ -66,6 +66,43 @@ hostname: ""
 tty: false
 
 stdin: false
+
+probes:
+  liveness:
+    enabled: true
+    type: AUTO
+    path: "/"
+    port: ""
+    command: []
+    httpHeaders: {}
+    spec:
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      timeoutSeconds: 5
+      failureThreshold: 5
+  readiness:
+    enabled: true
+    type: AUTO
+    path: "/"
+    port: ""
+    command: []
+    spec:
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      timeoutSeconds: 5
+      failureThreshold: 5
+  startup:
+    enabled: true
+    type: AUTO
+    path: "/"
+    port: ""
+    command: []
+    spec:
+      initialDelaySeconds: 10
+      timeoutSeconds: 2
+      periodSeconds: 5
+      failureThreshold: 60
+
 # Everything bellow needs documentation
 
 global:
@@ -207,40 +244,6 @@ service:
         # -- Specify the nodePort value NodePort service types.
         # [[ref]](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
         nodePort:
-
-probes:
-  liveness:
-    enabled: true
-    type: AUTO
-    path: "/"
-    command: []
-    httpHeaders: {}
-    spec:
-      initialDelaySeconds: 10
-      periodSeconds: 10
-      timeoutSeconds: 5
-      failureThreshold: 5
-  readiness:
-    enabled: true
-    type: AUTO
-    path: "/"
-    command: []
-    spec:
-      initialDelaySeconds: 10
-      periodSeconds: 10
-      timeoutSeconds: 5
-      failureThreshold: 5
-  startup:
-    enabled: true
-    type: AUTO
-    path: "/"
-    command: []
-    port: ""
-    spec:
-      initialDelaySeconds: 10
-      timeoutSeconds: 2
-      periodSeconds: 5
-      failureThreshold: 60
 
 persistence: {}
 # TODO: Discuss if we are going to add defaults like:
