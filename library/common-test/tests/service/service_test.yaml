@@ -60,7 +60,7 @@ tests:
           sessionAffinity: invalid_affinity
     asserts:
       - failedTemplate:
-          errorMessage: Invalid option (invalid_affinity). Valid options are ClientIP and None
+          errorMessage: Invalid option (invalid_affinity) for <sessionAffinity>. Valid options are ClientIP and None
 
   - it: should fail with invalid timeoutSeconds in sessionAffinityConfig negative
     set:

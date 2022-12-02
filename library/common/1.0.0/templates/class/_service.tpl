@@ -70,26 +70,8 @@ spec:
   externalTrafficPolicy: {{ . }}
   {{- end -}}
 {{- end -}}
-{{- with $svcValues.sessionAffinity }}
-  {{- if not (has . (list "ClientIP" "None")) -}}
-    {{- fail (printf "Invalid option (%s). Valid options are ClientIP and None" .) -}}
-  {{- end }}
-  sessionAffinity: {{ . }}
-  {{- if eq . "ClientIP" -}}
-    {{- with $svcValues.sessionAffinityConfig -}}
-      {{- with .clientIP -}}
-        {{- if hasKey . "timeoutSeconds" }}
-          {{- $timeout := tpl (toString .timeoutSeconds) $root -}}
-          {{- if or (lt (int $timeout) 0) (gt (int $timeout) 86400) -}}
-            {{- fail (printf "Invalid value (%s) for <sessionAffinityConfig.ClientIP.timeoutSeconds>. Valid values must be with 0 and 86400" $timeout) -}}
-          {{- end }}
-  sessionAffinityConfig:
-    clientIP:
-      timeoutSeconds: {{ $timeout }}
-        {{- end -}}
-      {{- end -}}
-    {{- end -}}
-  {{- end -}}
+{{- if $svcValues.sessionAffinity -}}
+  {{- include "ix.v1.common.class.serivce.sessionAffinity" (dict "svc" $svcValues "root" $root) | nindent 2 -}}
 {{- end -}}
 {{- with $svcValues.externalIPs }}
   externalIPs:
