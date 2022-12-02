@@ -15,10 +15,10 @@
       {{- end -}}
     {{- $probeType := "" -}}
     {{- if $probe.enabled -}}
-      {{- if $probe.custom -}}
-        {{ $probeType = "CUSTOM" }}
+      {{- if eq $probe.type "CUSTOM" -}}
+        {{ $probeType = $probe.type }}
       {{- else if eq $probe.type "EXEC" -}}
-        {{ $probeType = "EXEC" }}
+        {{ $probeType = $probe.type }}
       {{- else -}}
         {{- if and $primaryService $primaryPort -}}
           {{- if $probe.type -}}
@@ -34,7 +34,7 @@
             {{- $probeType := $defaultProbeType -}}
           {{- end -}}
         {{- else -}}
-          {{- fail (printf "Only custom probes are allowed when service is disabled (%s)" $probeName) -}}
+          {{- fail (printf "Only CUSTOM or EXEC probes are allowed when service is disabled (%s)" $probeName) -}}
         {{- end -}}
       {{- end -}}
 

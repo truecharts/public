@@ -150,7 +150,7 @@ tests:
             periodSeconds:
     asserts:
       - failedTemplate:
-          errorMessage: Only custom probes are allowed when service is disabled (liveness)
+          errorMessage: Only CUSTOM or EXEC probes are allowed when service is disabled (liveness)
 
   - it: should fail with invalid probe type
     set:
@@ -191,7 +191,7 @@ tests:
     set:
       probes:
         liveness:
-          custom: true
+          type: CUSTOM
           spec:
             httpGet:
               path: /path
@@ -219,7 +219,7 @@ tests:
     set:
       probes:
         readiness:
-          custom: true
+          type: CUSTOM
           spec:
             httpGet:
               path: /path
@@ -247,7 +247,7 @@ tests:
     set:
       probes:
         startup:
-          custom: true
+          type: CUSTOM
           spec:
             httpGet:
               path: /path

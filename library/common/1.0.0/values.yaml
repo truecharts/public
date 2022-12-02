@@ -211,7 +211,6 @@ service:
 probes:
   liveness:
     enabled: true
-    custom: false
     type: AUTO
     path: "/"
     command: []
@@ -223,7 +222,6 @@ probes:
       failureThreshold: 5
   readiness:
     enabled: true
-    custom: false
     type: AUTO
     path: "/"
     command: []
@@ -234,7 +232,6 @@ probes:
       failureThreshold: 5
   startup:
     enabled: true
-    custom: false
     type: AUTO
     path: "/"
     command: []
