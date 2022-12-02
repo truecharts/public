@@ -22,15 +22,15 @@
       {{- else -}}
         {{- if and $primaryService $primaryPort -}}
           {{- if $probe.type -}}
-            {{- if eq $probe.type "AUTO" -}}
+            {{- if eq $probe.type "AUTO" -}} {{/* Get probeType based on the service protocol */}}
               {{- $probeType = $primaryPort.protocol -}}
             {{- else -}}
-              {{- if not (has $probe.type (list "TCP" "HTTP" "HTTPS" "GRPC" "UDP")) -}}
-                {{- fail (printf "Invalid probe type (%s) on probe (%s)" $probe.type $probeName) -}}
+              {{- if not (has $probe.type (list "TCP" "HTTP" "HTTPS" "GRPC")) -}} {{/* Make sure there is a valid probe type defined */}}
+                {{- fail (printf "Invalid probe type (%s) on probe (%s). Valid types are TCP, HTTP, HTTPS, GRPC, EXEC" $probe.type $probeName) -}}
               {{- end -}}
               {{- $probeType = $probe.type -}}
             {{- end -}}
-          {{- else -}}
+          {{- else -}} {{/* Fail back to defaultProbeType if no type is defined */}}
             {{- $probeType := $defaultProbeType -}}
           {{- end -}}
         {{- else -}}

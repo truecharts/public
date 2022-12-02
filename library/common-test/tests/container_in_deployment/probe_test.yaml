@@ -159,7 +159,7 @@ tests:
           type: not_valid_type
     asserts:
       - failedTemplate:
-          errorMessage: Invalid probe type (not_valid_type) on probe (liveness)
+          errorMessage: Invalid probe type (not_valid_type) on probe (liveness). Valid types are TCP, HTTP, HTTPS, GRPC, EXEC
 
   - it: should fail with httpHeader value is defined as list
     set:
