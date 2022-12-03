@@ -1,0 +1,158 @@
+image:
+  repository: tccr.io/truecharts/invidious
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:bb8e2e0eedf9296a1af274e09d898555b0bfbd62aec52a346bddfb9b3b1dc983
+
+invidious:
+  db_name: "{{ .Values.postgresql.postgresqlDatabase }}"
+  db_user: "{{ .Values.postgresql.postgresqlUsername }}"
+  db_pass:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  db_host:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  db_port: 5432
+  check_tables: true
+
+network:
+  inbound:
+    internal_port: "{{ .Values.service.main.ports.main.port }}"
+    external_port: "{{ .Values.service.main.ports.main.port }}"
+    host_binding: "0.0.0.0"
+    domain: ""
+    https_only: false
+    hsts: true
+  outbound:
+    disable_proxy: false
+    pool_size: 100
+    use_quic: false
+    # cookies
+    force_resolve: "ipv4"
+
+logging:
+  output: STDOUT
+  log_level: "Info"
+
+features:
+  popular_enabled: true
+  statistics_enabled: false
+
+users_accounts:
+  registration_enabled: true
+  login_enabled: true
+  captcha_enabled: true
+  admins: []
+
+background:
+  channel_threads: 1
+  channel_refresh_interval: "30m"
+  full_refresh: false
+  feed_threads: 1
+  decrypt_polling: false # broken
+
+jobs:
+  clear_expired_items:
+    enable: true
+  refresh_channels:
+    enable: true
+  refresh_feeds:
+    enable: true
+
+captcha:
+  captcha_api_url: "https://api.anti-captcha.com"
+  captcha_key: ""
+
+default_user_preferences:
+  internationalization:
+    locale: en-US
+    region: US
+    captions: ["English", "English (auto-generated)", "Spanish"]
+  interface:
+    dark_mode: dark
+    thin_mode: false
+    feed_menu: ["Popular", "Trending", "Subscriptions", "Playlists"]
+    default_home: Popular
+    max_results: 40
+    annotations: false
+    annotations_subscribed: false
+    comments: ["youtube", ""]
+    player_style: invidious
+    related_videos: true
+
+video_player_behavior:
+  autoplay: false
+  continue: false
+  continue_autoplay: true
+  listen: false
+  video_loop: false
+
+video_playback_settings:
+  quality: hd720
+  quality_dash: auto
+  speed: 1.0
+  volume: 100
+  vr_mode: true
+
+subscription_feed:
+  latest_only: false
+  notifications_only: false
+  unseen_only: false
+  sort: published
+
+miscellaneous:
+  banner: ""
+  use_pubsub_feeds: false
+  hmac_key: ""
+  dmca_content: []
+  cache_annotations: false
+  modified_source_code_url: ""
+  playlist_length_limit: 500
+  local: false
+  show_nick: true
+  automatic_instance_redirect: false
+  extend_desc: false
+
+envFrom:
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-invidious-env'
+
+service:
+  main:
+    ports:
+      main:
+        port: 10594
+        protocol: HTTP
+
+probes:
+  liveness:
+    type: HTTP
+  readiness:
+    type: HTTP
+  startup:
+    type: HTTP
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /invidious/
+  # Mounts a modified default config file to a "tmp" which the entrypoint,
+  # copies to the config location if it does not exist.
+  # /invidious/config
+  configfile:
+    enabled: true
+    type: configMap
+    mountPath: /tmp/config.yml
+    subPath: config.yml
+    objectName: '{{ printf "%s-invidious-config" (include "tc.common.names.fullname" .) }}'
+
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlDatabase: invidious
+  postgresqlUsername: invidious
+
+portal:
+  enabled: true
