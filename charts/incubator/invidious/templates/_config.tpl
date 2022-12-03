@@ -14,7 +14,7 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   config.yml: |
-# version compatible 0.20.1+
+    # version compatible 0.20.1+
 #########################################
 #
 #  Database configuration
