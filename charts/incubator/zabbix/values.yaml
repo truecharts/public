@@ -1,31 +1,31 @@
 image:
   repository: tccr.io/truecharts/zabbix-server
-  tag: 6.2.4@sha256:cd32271b7518a69827061bdc63b6c6eaed65decc6f32a8b2c3c600c08ecd050b
+  tag: 6.2.5@sha256:a9329d52c8f0a0302aa20787ed312bf704cfee79b754d7219e1f3b5706c72ac4
   pullPolicy: IfNotPresent
 
 frontendImage:
   repository: tccr.io/truecharts/zabbix-web
-  tag: 6.2.4@sha256:36330108007ed91714f60ca825a8b72e54b2370adab672af0dc4e19f3c98bbb6
+  tag: 6.2.5@sha256:d2f94da01b92fb026d53fd156486c11a03e14c8f8c19e4cf77ba8cd515776e25
   pullPolicy: IfNotPresent
 
 agent2Image:
   repository: tccr.io/truecharts/zabbix-agent2
-  tag: 6.2.4@sha256:5a6672816998a3fe09e38702603fde676e13020fc93cdd6d712dda42f10632b6
+  tag: 6.2.5@sha256:e6a5362ef67c18db682cd8639e4859bb8e9e53d6684ed0378df1324faaa0088c
   pullPolicy: IfNotPresent
 
 snmptrapsImage:
   repository: tccr.io/truecharts/zabbix-snmptraps
-  tag: 6.2.4@sha256:a77c8d9a5c27592a256991392a1a502a4803080b400fba9f502e196321ab3a1e
+  tag: 6.2.5@sha256:f40996542b9a95732b17cf32b5ba1cadbc7b6455f8d28f18fcea99e017d9e84a
   pullPolicy: IfNotPresent
 
 javaGatewayImage:
   repository: tccr.io/truecharts/zabbix-java-gateway
-  tag: 6.2.4@sha256:d2c6b520ee13e2d17946d125857510ec2dc9b4f565043878a19c987029244439
+  tag: 6.2.5@sha256:2d43316950f34a11753d7f18d3ab20888cae621bc13c0721cd71b25247d9617a
   pullPolicy: IfNotPresent
 
 webServiceImage:
   repository: tccr.io/truecharts/zabbix-web-service
-  tag: 6.2.4@sha256:f24c0c3d948b45df5b7a411f2b98ce87855856bbcfe3cfc4c41a3b41e95d28bb
+  tag: 6.2.5@sha256:646642dafe09db43e45ddf328e972d42d021632e880ee27d915569b509b4b4df
   pullPolicy: IfNotPresent
 
 tty: true

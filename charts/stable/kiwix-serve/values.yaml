@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/kiwix-serve
-  tag: v3.3.0@sha256:aa766a860ee698841025574acd9b531a390b65369093094f49d9f07ed2348692
+  tag: 3.4.0@sha256:cb780fc1ef163d6f3ed0b3c34e5a8032f4441ed63a5df29e232f6b6ccf3e44a9
 
 args: ["*.zim"]
 
@@ -15,6 +15,7 @@ securityContext:
 
 env:
   DOWNLOAD: http://download.kiwix.org/zim/wikipedia_en_chemistry_nopic.zim
+  PORT: "{{ .Values.service.main.ports.main.port }}"
 
 service:
   main:
@@ -22,7 +23,6 @@ service:
       main:
         port: 10323
         protocol: HTTP
-        targetPort: 80
 
 persistence:
   data:

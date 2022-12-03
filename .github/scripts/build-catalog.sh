@@ -3,7 +3,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-include_questions(){
+include_questions() {
     local chart="$1"
     local chartname="$2"
     local train="$3"
@@ -17,7 +17,7 @@ include_questions(){
 
     echo "Including standardised questions.yaml includes for: ${chartname}"
     sed -i -E 's:^.*# Include\{(.*)\}.*$:cat templates/questions/**/\1.yaml:e' ${target}
-    }
+}
 export -f include_questions
 
 clean_catalog() {
@@ -29,12 +29,12 @@ clean_catalog() {
     local majorversions=$( (find . -mindepth 1 -maxdepth 1 -type d  \( ! -iname ".*" \) | sed 's|^\./||g') | sort -Vr | cut -c1 | uniq)
     echo "Removing old versions for: ${chartname}"
     for majorversion in ${majorversions}; do
-      local maxofmajor=$( (find . -mindepth 1 -maxdepth 1 -type d  \( -iname "${majorversion}.*" \) | sed 's|^\./||g') | sort -Vr | head -n1 )
-      local rmversions=$( (find . -mindepth 1 -maxdepth 1 -type d  \( -iname "${majorversion}.*" \) \( ! -iname "${maxofmajor}" \) | sed 's|^\./||g') | sort -Vr )
-      rm -Rf ${rmversions}
+        local maxofmajor=$( (find . -mindepth 1 -maxdepth 1 -type d  \( -iname "${majorversion}.*" \) | sed 's|^\./||g') | sort -Vr | head -n1 )
+        local rmversions=$( (find . -mindepth 1 -maxdepth 1 -type d  \( -iname "${majorversion}.*" \) \( ! -iname "${maxofmajor}" \) | sed 's|^\./||g') | sort -Vr )
+        rm -Rf ${rmversions}
     done
     cd -
-    }
+}
 export -f clean_catalog
 
 clean_apps() {
@@ -76,7 +76,10 @@ patch_apps() {
     echo "categories:" >> catalog/${train}/${chartname}/item.yaml
     cat ${target}/Chart.yaml | yq '.annotations."truecharts.org/catagories"' -r >> catalog/${train}/${chartname}/item.yaml
     # Copy changelog from website
-    cp -rf "website/docs/charts/${train}/${chart}/CHANGELOG.md" "${target}/CHANGELOG.md" 2>/dev/null || :
+    if [[ ! -f "website/docs/charts/${train}/${chartname}/CHANGELOG.md" ]]; then
+        touch "website/docs/charts/${train}/${chartname}/CHANGELOG.md"
+    fi
+    cp -rf "website/docs/charts/${train}/${chartname}/CHANGELOG.md" "${target}/CHANGELOG.md" 2>/dev/null || :
     sed -i '1d' "${target}/CHANGELOG.md"
     sed -i '1s/^/*for the complete changelog, please refer to the website*\n\n/' "${target}/CHANGELOG.md"
     sed -i '1s/^/**Important:**\n/' "${target}/CHANGELOG.md"
@@ -105,7 +108,6 @@ copy_apps() {
 }
 export -f copy_apps
 
-
 if [[ -d "charts/${1}" ]]; then
     echo "Start processing charts/${1} ..."
     chartversion=$(cat charts/${1}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
@@ -113,13 +115,13 @@ if [[ -d "charts/${1}" ]]; then
     train=$(basename $(dirname "charts/${1}"))
     SCALESUPPORT=$(cat charts/${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
     if [[ "${SCALESUPPORT}" == "true" ]]; then
-      clean_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
-      copy_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
-      patch_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
-      include_questions "charts/${1}" "${chartname}" "$train" "${chartversion}"
-      clean_catalog "charts/${1}" "${chartname}" "$train" "${chartversion}"
+        clean_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
+        copy_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
+        patch_apps "charts/${1}" "${chartname}" "$train" "${chartversion}"
+        include_questions "charts/${1}" "${chartname}" "$train" "${chartversion}"
+        clean_catalog "charts/${1}" "${chartname}" "$train" "${chartversion}"
     else
-      echo "Skipping chart charts/${1}, no correct SCALE compatibility layer detected"
+        echo "Skipping chart charts/${1}, no correct SCALE compatibility layer detected"
     fi
 else
     echo "Chart 'charts/${1}' no longer exists in repo. Skipping it..."

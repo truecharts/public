@@ -2,10 +2,12 @@
 {{- define "gitea.secrets" -}}
 
 ---
+{{ $DOMAIN := .Values.config.nodeIP | quote -}}
+{{ $URL := (printf "http://%s/" .Values.config.nodeIP) }}
 
-{{ $DOMAIN := ( printf "%s-gitea.%s.svc.%s" .Release.Name .Release.Namespace "cluster.local" | quote ) -}}
-{{- if and ( .Values.ingress.main.enabled ) ( gt (len .Values.ingress.main.hosts) 0 ) -}}
-{{- $DOMAIN = (index .Values.ingress.main.hosts 0).host -}}
+{{- if and (.Values.ingress.main.enabled) (gt (len .Values.ingress.main.hosts) 0) -}}
+  {{- $DOMAIN = (index .Values.ingress.main.hosts 0).host -}}
+  {{- $URL = (printf "https://%s/" (index .Values.ingress.main.hosts 0).host) -}}
 {{- end -}}
 
 apiVersion: v1
@@ -86,11 +88,7 @@ stringData:
     ENABLE_PPROF = false
     HTTP_PORT = {{ .Values.service.main.ports.main.targetPort }}
     PROTOCOL = http
-    {{- if and ( .Values.ingress.main.enabled ) ( gt (len .Values.ingress.main.hosts) 0 ) }}
-    ROOT_URL = {{ printf "https://%s" $DOMAIN }}
-    {{- else }}
-    ROOT_URL = {{ printf "http://%s" $DOMAIN }}
-    {{- end }}
+    ROOT_URL = {{ $URL }}
     SSH_DOMAIN = {{ $DOMAIN }}
     SSH_LISTEN_PORT = {{ .Values.service.ssh.ports.ssh.targetPort }}
     SSH_PORT = {{ .Values.service.ssh.ports.ssh.port }}
@@ -189,13 +187,13 @@ stringData:
 
     {{- if or .Values.admin.existingSecret (and .Values.admin.username .Values.admin.password) }}
     function configure_admin_user() {
-      local ACCOUNT_ID=$(gitea admin user list --admin | grep -e "\s\+${GITEA_ADMIN_USERNAME}\s\+" | awk -F " " "{printf \$1}")
+      local ACCOUNT_ID=$(gitea admin user list --admin | grep -e "\s\+${GITEA_ADMIN_USERNAME}\|{{ .Values.admin.email }}\s\+" | awk -F " " "{printf \$1}")
       if [[ -z "${ACCOUNT_ID}" ]]; then
-        echo "No admin user '${GITEA_ADMIN_USERNAME}' found. Creating now..."
+        echo "No admin user '${GITEA_ADMIN_USERNAME}' found, neither email '{{ .Values.admin.email }}' is assigned to an admin. Creating now..."
         gitea admin user create --admin --username "${GITEA_ADMIN_USERNAME}" --password "${GITEA_ADMIN_PASSWORD}" --email {{ .Values.admin.email | quote }} --must-change-password=false
         echo '...created.'
       else
-        echo "Admin account '${GITEA_ADMIN_USERNAME}' already exist. Running update to sync password..."
+        echo "Admin account '${GITEA_ADMIN_USERNAME}' or email {{ .Values.admin.email }} already exist. Running update to sync password..."
         gitea admin user change-password --username "${GITEA_ADMIN_USERNAME}" --password "${GITEA_ADMIN_PASSWORD}"
         echo '...password sync done.'
       fi
