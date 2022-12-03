@@ -33,6 +33,7 @@ stringData:
   WORDPRESS_PASSWORD: {{ .Values.wordpress.pass | quote }}
   WORDPRESS_DATABASE_USER: {{ .Values.mariadb.mariadbUsername | quote }}
   WORDPRESS_DATABASE_NAME: {{ .Values.mariadb.mariadbDatabase | quote }}
+  WORDPRESS_DATABASE_PORT_NUMBER: "3306"
 {{- if .Values.notifier.smtp.enabled }}
   WORDPRESS_SMTP_USER: {{ .Values.notifier.smtp.user | quote }}
   WORDPRESS_SMTP_PASSWORD: {{ .Values.notifier.smtp.pass | quote }}
