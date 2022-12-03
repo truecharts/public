@@ -11,16 +11,6 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secretEnv:
-  wordpress_db_host:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
-  wordpress_db_password:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
-
 wordpress:
   user: "user"
   pass: "bitnami"
@@ -59,7 +49,7 @@ mariadb:
   enabled: true
   mariadbUsername: wordpress
   mariadbDatabase: wordpress
-  existingSecret: mariadbcreds
+  existingSecret: "mariadbcreds"
 
 portal:
   enabled: true
