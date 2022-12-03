@@ -5,14 +5,14 @@
 {{- $argList := list -}}
 
 {{- if .Values.splunk.acceptLicense -}}
-  {{- $argList := append $argList "--accept-license" -}}
+  {{- $argList = append $argList "--accept-license" -}}
 {{- end -}}
 
 {{- with .Values.splunk.extraArgs -}}
   {{- range . -}}
-    {{- $argList := append $argList . -}}
+    {{- $argList = append $argList . -}}
   {{- end -}}
-{{- end -}}
+{{- end }}
 
 ---
 apiVersion: v1
