@@ -1,26 +1,19 @@
-env:
-  ADMIN_PASSWORD: changeme2019
-  SPLUNK_CLI_ARGS: --accept-license --no-prompt
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/splunk
-  tag: latest@sha256:869e2d91515fd8704c0647931d4f46695536a3779bfbb181e20003042c96bb2a
-persistence:
-  appcredspersist:
-    enabled: true
-    mountPath: /opt/splunk/etc/auth
-  configpersist:
-    enabled: true
-    mountPath: /opt/splunk/etc/apps
-  datapersist:
-    enabled: true
-    mountPath: /splunkdata
+  repository: splunk/splunk
+  tag: 9.0.2@sha256:a12eca0fbe252329e3b8c235cd8b26b31f4203a32132eb31c42ae1a86cd79256
+
+env:
+  SPLUNK_PASSWORD: changeme2019
+  SPLUNK_CLI_ARGS: --accept-license --no-prompt
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
 service:
   dataingest:
     enabled: true
@@ -44,6 +37,17 @@ service:
         port: 8089
         protocol: HTTP
         targetPort: 8089
+
+persistence:
+  appcredspersist:
+    enabled: true
+    mountPath: /opt/splunk/etc/
+  configpersist:
+    enabled: true
+    mountPath: /opt/splunk/var
+  datapersist:
+    enabled: true
+    mountPath: /splunkdata
 
 portal:
   enabled: true

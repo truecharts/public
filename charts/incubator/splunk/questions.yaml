@@ -21,8 +21,8 @@ questions:
           schema:
             type: string
             default: "--accept-license --no-prompt"
-        - variable: ADMIN_PASSWORD
-          label: "ADMIN_PASSWORD"
+        - variable: SPLUNK_PASSWORD
+          label: "SPLUNK_PASSWORD"
           description: "Splunk Web UI admin password."
           schema:
             type: string
