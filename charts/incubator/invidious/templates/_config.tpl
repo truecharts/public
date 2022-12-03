@@ -7,12 +7,12 @@
 ---
 
 apiVersion: v1
-kind: ConfigMap
+kind: Secret
 metadata:
   name: {{ $configName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
-data:
+stringData:
   config.yml: |
     # version compatible 0.20.1+
 #########################################
