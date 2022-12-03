@@ -3,16 +3,22 @@ image:
   repository: splunk/splunk
   tag: 9.0.2@sha256:a12eca0fbe252329e3b8c235cd8b26b31f4203a32132eb31c42ae1a86cd79256
 
-env:
-  SPLUNK_PASSWORD: changeme2019
-  SPLUNK_START_ARGS: --accept-license
-
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
+splunk:
+  acceptLicense: true
+  password: changeme
+  extraArgs: []
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-splunk-config'
 
 service:
   dataingest:
@@ -39,13 +45,13 @@ service:
         targetPort: 8089
 
 persistence:
-  appcredspersist:
+  appcreds:
     enabled: true
     mountPath: /opt/splunk/etc/
-  configpersist:
+  config:
     enabled: true
     mountPath: /opt/splunk/var
-  datapersist:
+  datap:
     enabled: true
     mountPath: /splunkdata
 
