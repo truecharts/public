@@ -2,7 +2,8 @@
 {{- define "splunk.config" -}}
 
 {{- $splunkConfig := printf "%s-splunk-Config" (include "tc.common.names.fullname" .) }}
-{{- $argList := [] -}}
+{{- $argList := list -}}
+
 
 ---
 
