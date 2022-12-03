@@ -12,7 +12,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
-  INVIDIOUS_CONFIG:|
+  INVIDIOUS_CONFIG: |
     # version compatible 0.20.1+
     db:
       user: {{ .Values.postgresql.postgresqlUsername }}
