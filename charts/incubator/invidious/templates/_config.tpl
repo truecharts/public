@@ -107,3 +107,4 @@ stringData:
    #show_nick: true
    #automatic_instance_redirect: false
    #extend_desc: false
+{{- end -}}
