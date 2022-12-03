@@ -5,7 +5,7 @@ image:
 
 env:
   SPLUNK_PASSWORD: changeme2019
-  SPLUNK_CLI_ARGS: --accept-license --no-prompt
+  SPLUNK_CLI_ARGS: --accept-license
 
 podSecurityContext:
   runAsGroup: 0
