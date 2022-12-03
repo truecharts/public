@@ -15,7 +15,8 @@ data:
   WORDPRESS_FIRST_NAME: {{ .Values.wordpress.first_name | quote }}
   WORDPRESS_LAST_NAME: {{ .Values.wordpress.last_name | quote }}
   WORDPRESS_BLOG_NAME: {{ .Values.wordpress.blog_name | quote }}
-{{- if .Values.notifier.smtp.enabled }}
+  {{- if .Values.notifier.smtp.enabled }}
+
   WORDPRESS_SMTP_HOST: {{ .Values.notifier.smtp.host | quote }}
   WORDPRESS_SMTP_PORT: {{ .Values.notifier.smtp.port | quote }}
   {{- end }}
