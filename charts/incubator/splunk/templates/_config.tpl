@@ -11,7 +11,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ $splunkArgs }}
+  name: {{ $splunkConfig }}
+
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
