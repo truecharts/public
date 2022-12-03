@@ -3,24 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:bb8e2e0eedf9296a1af274e09d898555b0bfbd62aec52a346bddfb9b3b1dc983
 
-invidious:
-  db_name: "{{ .Values.postgresql.postgresqlDatabase }}"
-  db_user: "{{ .Values.postgresql.postgresqlUsername }}"
-  db_pass:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  db_host:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  db_port: 5432
-  check_tables: true
-
 network:
   inbound:
-    internal_port: "{{ .Values.service.main.ports.main.port }}"
-    external_port: "{{ .Values.service.main.ports.main.port }}"
     host_binding: "0.0.0.0"
     domain: ""
     https_only: false
@@ -29,7 +13,7 @@ network:
     disable_proxy: false
     pool_size: 100
     use_quic: false
-    # cookies
+    cookies: ""
     force_resolve: "ipv4"
 
 logging:
@@ -51,7 +35,7 @@ background:
   channel_refresh_interval: "30m"
   full_refresh: false
   feed_threads: 1
-  decrypt_polling: false # broken
+  decrypt_polling: false
 
 jobs:
   clear_expired_items:
@@ -138,15 +122,6 @@ persistence:
   config:
     enabled: true
     mountPath: /invidious/
-  # Mounts a modified default config file to a "tmp" which the entrypoint,
-  # copies to the config location if it does not exist.
-  # /invidious/config
-  configfile:
-    enabled: true
-    type: configMap
-    mountPath: /tmp/config.yml
-    subPath: config.yml
-    objectName: '{{ printf "%s-invidious-config" (include "tc.common.names.fullname" .) }}'
 
 postgresql:
   enabled: true
