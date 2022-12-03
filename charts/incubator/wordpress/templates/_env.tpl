@@ -29,7 +29,8 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
   WORDPRESS_DATABASE_HOST: {{ printf "%v-%v" .Release.Name "mariadb" }}
-  WORDPRESS_DATABASE_PASSWORD: {{ .Values.mariadb.mariadbPassword | trimAll "\"" | b64enc }}
+  WORDPRESS_DATABASE_PASSWORD: {{ .Values.mariadb.mariadbPassword | trimAll "\"" }}
+
   WORDPRESS_PASSWORD: {{ .Values.wordpress.pass | quote }}
   WORDPRESS_DATABASE_USER: {{ .Values.mariadb.mariadbUsername | quote }}
   WORDPRESS_DATABASE_NAME: {{ .Values.mariadb.mariadbDatabase | quote }}
