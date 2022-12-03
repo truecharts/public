@@ -2,7 +2,6 @@
 {{- define "invidious.config" -}}
 
 {{- $configName := printf "%s-invidious-config" (include "tc.common.names.fullname" .) }}
-{{- $configEnvName := printf "%s-invidious-env" (include "tc.common.names.fullname" .) }}
 
 ---
 
