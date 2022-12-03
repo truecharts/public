@@ -1,7 +1,7 @@
 {{/* Define the configmap */}}
 {{- define "splunk.config" -}}
 
-{{- $splunkConfig := printf "%s-splunk-Config" (include "tc.common.names.fullname" .) }}
+{{- $splunkConfig := printf "%s-splunk-config" (include "tc.common.names.fullname" .) }}
 {{- $argList := list -}}
 
 {{- if .Values.splunk.acceptLicense -}}
