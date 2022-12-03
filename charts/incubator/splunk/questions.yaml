@@ -15,8 +15,8 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: SPLUNK_CLI_ARGS
-          label: "SPLUNK_CLI_ARGS"
+        - variable: SPLUNK_START_ARGS
+          label: "SPLUNK_START_ARGS"
           description: "Arguments to start Splunk with. "
           schema:
             type: string
