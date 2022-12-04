@@ -100,8 +100,8 @@ miscellaneous:
   extend_desc: false
 
 envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-invidious-env'
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-invidious-config'
 
 service:
   main:
