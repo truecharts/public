@@ -1,18 +1,11 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Productivity
-    - Tools-Utilities
-    - MediaApp-Photos
-    - MediaServer-Photos
 apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.3
+    version: 11.0.4
 deprecated: false
-description: "Photo Stream is a simpler home for your photos initially created by @maxvoltar and now maintained by @waschinski, @boerniee and friends. Easy to use, self hosted, no tracking, just photos."
+description: Photo Stream is a simpler home for your photos. Easy to use, self hosted, no tracking, just photos.
 home: https://truecharts.org/docs/charts/incubator/photo-stream
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/photo-stream.png
 keywords:
@@ -32,4 +25,11 @@ sources:
   - https://github.com/waschinski/photo-stream
   - https://hub.docker.com/r/waschinski/photo-stream
 type: application
-version: 2.0.1
+version: 2.1.1
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Productivity
+    - Tools-Utilities
+    - MediaApp-Photos
+    - MediaServer-Photos

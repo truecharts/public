@@ -25,20 +25,22 @@ data:
     */
 
     var config = {
+      /*************** DO NOT CHANGE FOLLOWING VALUES ***************/
       address: "0.0.0.0",
-      port: {{ .Values.service.main.ports.main.port }},
-      ipWhitelist: [], // Set [] to allow all IP addresses
-                                                            // or add a specific IPv4 of 192.168.1.5 :
-                                                            // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.1.5"],
-                                                            // or IPv4 range of 192.168.3.0 --> 192.168.3.15 use CIDR format :
-                                                            // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.3.0/28"],
-
-      useHttps: false, // Support HTTPS or not, default "false" will use HTTP
-
-      language: {{ .Values.magicmirror.language | quote }},
-      timeFormat: {{ .Values.magicmirror.time_format | trimAll "\"" }},
-      units: {{ .Values.magicmirror.units | quote }},
+      port: {{ .Values.service.main.ports.main.targetPort }},
+      useHttps: false,
       serverOnly: "true",
+      /*************** EDIT THE BELOW THIS LINE ONLY ***************/
+
+      ipWhitelist: [],  // Set [] to allow all IP addresses
+                        // or add a specific IPv4 of 192.168.1.5 :
+                        // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.1.5"],
+                        // or IPv4 range of 192.168.3.0 --> 192.168.3.15 use CIDR format :
+                        // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.3.0/28"],
+
+      language: "en",
+      timeFormat: 24,
+      units: "metric",
 
       modules: [
         {
@@ -105,7 +107,6 @@ data:
           }
         },
       ]
-
     };
 
     /*************** DO NOT EDIT THE LINE BELOW ***************/

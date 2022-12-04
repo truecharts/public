@@ -28,7 +28,7 @@ service:
       dataingest:
         enabled: true
         port: 9997
-        protocol: TCP
+        protocol: HTTP
         targetPort: 9997
   main:
     ports:
@@ -42,7 +42,7 @@ service:
       management:
         enabled: true
         port: 8089
-        protocol: TCP
+        protocol: HTTP
         targetPort: 8089
 
 portal:
