@@ -1,17 +1,14 @@
 {{- define "briefkasten.createdb" -}}
-image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-imagePullPolicy: {{ .Values.image.pullPolicy }}
-securityContext:
-  runAsUser: {{ .Values.podSecurityContext.runAsUser }}
-  runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
-  readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
-  runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-config'
-command:
-  - pnpm
-  - db:push
+
+- /bin/bash
+- -c
+- |
+  pnpm start &
+  echo "Waiting 20s for app to start..."
+  sleep 20
+  echo "Executing DB Seed..."
+  pnpm db:push
+  echo "...Done"
+  echo "Exiting... App will restart..."
+  exit 0
 {{- end -}}

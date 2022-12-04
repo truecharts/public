@@ -7,7 +7,9 @@
 {{/* Render secret */}}
 {{- include "briefkasten.secret" . }}
 
-{{- $_ := set .Values.installContainers "createdb" (include "briefkasten.createdb" . | fromYaml) -}}
+{{- if .Release.isInstall -}}
+{{- $_ := set .Values "command" (include "briefkasten.createdb" . | fromYaml) -}}
+{{- end -}}
 
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}
