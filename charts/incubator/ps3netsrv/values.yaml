@@ -1,7 +1,5 @@
 image:
   pullPolicy: IfNotPresent
-  repository: shawly/ps3netsrv
-  tag: v1.6.0@sha256:26458d12d2e58a708097e930312310071603dad71694b7aefc0cd5a1abc27978
 
 env:
   USER_ID: "{{ .Values.security.PUID }}"

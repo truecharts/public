@@ -16,7 +16,7 @@ jobs:
     outputs:
       ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
     container:
-      image: ghcr.io/truecharts/devcontainer:v2.6.0@sha256:5029ebed5c833646da3afb3a8512eba79f08cac8935a53fc1510854fec22341a
+      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:f0ecaa533663f88346b745eb497f6f6acf63561ad88e345cd71c8280963b8c1e
     steps:
       - name: Install Kubernetes tools
         uses: yokawasa/action-setup-kube-tools@b91bb02bc122bd84ac7bbea5f25ed6b0f2ec6275 # tag=v0.9.2
@@ -39,6 +39,9 @@ jobs:
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
+
+      - name: Setting repo parent dir as safe safe.directory
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Collect changes
         id: collect-changes
@@ -123,8 +126,6 @@ jobs:
           git add --all
           git commit -sm "Commit released docs for TrueCharts" || exit 0
           git push
-          cd -
-          rm -rf website
 
       - name: Checkout Catalog
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3
@@ -150,6 +151,7 @@ jobs:
           pip install yq
           parthreads=$(($(nproc) * 2))
           parallel -j ${parthreads} .github/scripts/build-catalog.sh '2>&1' ::: ${CHARTS[@]}
+          rm -rf website
 
       - name: Commit Catalog
         if: |

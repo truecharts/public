@@ -28,7 +28,7 @@ data:
       password: {{ . }}
       {{- end }}
 
-    {{- if .Values.frigate.detectors.enabled }}
+    {{- if .Values.frigate.detectors.render_config }}
     {{- if .Values.frigate.detectors.config }}
     detectors:
       {{- range .Values.frigate.detectors.config }}
