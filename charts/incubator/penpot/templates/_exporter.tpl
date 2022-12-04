@@ -5,4 +5,5 @@ imagePullPolicy: '{{ .Values.image.pullPolicy }}'
 
 env:
   - name: 'PENPOT_PUBLIC_URI'
-    value: '{{ .Values.penpot.public_uri | quote }}'
+    value: {{ .Values.penpot.public_uri | quote }}
+{{- end }}
