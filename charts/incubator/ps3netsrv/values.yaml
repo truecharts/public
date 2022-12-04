@@ -1,9 +1,6 @@
 image:
   pullPolicy: IfNotPresent
 
-env:
-  USER_ID: "{{ .Values.security.PUID }}"
-  GROUP_ID: "{{ .Values.podSecurityContext.fsGroup }}"
 
 service:
   main:
