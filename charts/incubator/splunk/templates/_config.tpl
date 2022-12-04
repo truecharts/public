@@ -1,7 +1,7 @@
-{{/* Define the configmap */}}
-{{- define "splunk.config" -}}
+{{/* Define the secret */}}
+{{- define "splunk.secret" -}}
 
-{{- $splunkConfig := printf "%s-splunk-config" (include "tc.common.names.fullname" .) }}
+{{- $splunkSecret := printf "%s-splunk-config" (include "tc.common.names.fullname" .) }}
 {{- $argList := list -}}
 
 {{- if .Values.splunk.acceptLicense -}}
@@ -16,13 +16,12 @@
 
 ---
 apiVersion: v1
-kind: ConfigMap
+kind: Secret
 metadata:
-  name: {{ $splunkConfig }}
-
+  name: {{ $splunkSecret }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
-data:
+stringData:
   {{- with $argList }}
   SPLUNK_START_ARGS: {{ join " " . | quote }}
   {{- end }}

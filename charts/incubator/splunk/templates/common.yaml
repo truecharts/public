@@ -1,5 +1,5 @@
 {{ include "tc.common.loader.init" . }}
 
-{{- include "splunk.config" . }}
+{{- include "splunk.secret" . }}
 
 {{ include "tc.common.loader.apply" . }}
