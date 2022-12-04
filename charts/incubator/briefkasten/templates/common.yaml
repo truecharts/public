@@ -8,7 +8,7 @@
 {{- include "briefkasten.secret" . }}
 
 {{- if .Release.IsInstall -}}
-{{- $_ := set .Values "command" (include "briefkasten.createdb" . | fromYaml) -}}
+{{- $_ := set .Values "command" (get (include "briefkasten.createdb" . | fromYaml) "commands") -}}
 {{- end -}}
 
 {{/* Render the templates */}}
