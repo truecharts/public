@@ -47,7 +47,6 @@ stringData:
   WORDPRESS_SMTP_USER: {{ .Values.notifier.smtp.user | quote }}
   WORDPRESS_SMTP_PASSWORD: {{ .Values.notifier.smtp.pass | quote }}
   {{- end }}
-## salts
   {{- with (lookup "v1" "Secret" .Release.Namespace $wordpressSecretName) }}
   WORDPRESS_AUTH_KEY: {{ index .data "WORDPRESS_AUTH_KEY" }}
   {{ $token = index .data "WORDPRESS_AUTH_KEY" }}
