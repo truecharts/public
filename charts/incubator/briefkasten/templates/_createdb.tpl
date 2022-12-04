@@ -1,7 +1,5 @@
 {{- define "briefkasten.createdb" -}}
 commands:
-  - /bin/bash
-  - -c
   - |
     pnpm start &
     echo "Waiting 20s for app to start..."
