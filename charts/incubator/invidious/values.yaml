@@ -3,6 +3,14 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:bb8e2e0eedf9296a1af274e09d898555b0bfbd62aec52a346bddfb9b3b1dc983
 
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+  
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
 network:
   inbound:
     host_binding: "0.0.0.0"
