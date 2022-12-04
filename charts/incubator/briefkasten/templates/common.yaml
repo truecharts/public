@@ -7,7 +7,7 @@
 {{/* Render secret */}}
 {{- include "briefkasten.secret" . }}
 
-{{- if .Release.isInstall -}}
+{{- if .Release.IsInstall -}}
 {{- $_ := set .Values "command" (include "briefkasten.createdb" . | fromYaml) -}}
 {{- end -}}
 

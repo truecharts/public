@@ -1,5 +1,4 @@
 {{- define "briefkasten.createdb" -}}
-
 - /bin/bash
 - -c
 - |
