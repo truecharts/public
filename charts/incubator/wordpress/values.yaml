@@ -27,6 +27,16 @@ notifier:
     # user: ""
     # pass: ""
 
+php-config:
+  PHP_ENABLE_OPCACHE: "yes"
+  PHP_EXPOSE_PHP: ""
+  PHP_MAX_EXECUTION_TIME: ""
+  PHP_MAX_INPUT_TIME: ""
+  PHP_MAX_INPUT_VARS: "".
+  PHP_MEMORY_LIMIT: "512M"
+  PHP_POST_MAX_SIZE: ""
+  PHP_UPLOAD_MAX_FILESIZE: ""
+
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-env-config'

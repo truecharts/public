@@ -90,6 +90,67 @@ questions:
                   type: string
                   private: true
                   default: ""
+ - variable: php-config
+    group: App Configuration
+    label: PHP Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: PHP_ENABLE_OPCACHE
+          label: PHP_ENABLE_OPCACHE
+          description:  Enable OPcache for PHP scripts.
+          schema:
+            type: string
+            default: "yes"
+        - variable: PHP_EXPOSE_PHP
+          label: PHP_EXPOSE_PHP
+          description:  Enables HTTP header with PHP version. No default.
+          schema:
+            type: string
+            default: ""
+        - variable: PHP_MAX_EXECUTION_TIME
+          label: PHP_MAX_EXECUTION_TIME
+          description:  Maximum execution time for PHP scripts. No default.
+          schema:
+            type: string
+            default: ""
+        - variable: PHP_MAX_INPUT_TIME
+          label: PHP_MAX_INPUT_TIME
+          description:  Maximum input time for PHP scripts. No default.
+          schema:
+            type: string
+            default: ""
+        - variable: PHP_MAX_INPUT_TIME
+          label: PHP_MAX_INPUT_TIME
+          description:  Maximum input time for PHP scripts. No default.
+          schema:
+            type: string
+            default: ""
+        - variable: PHP_MAX_INPUT_VARS
+          label: PHP_MAX_INPUT_VARS
+          description: Maximum amount of input variables for PHP scripts. No default.
+          schema:
+            type: string
+            default: ""
+        - variable: PHP_MEMORY_LIMIT
+          label: PHP_MEMORY_LIMIT
+          description: Memory limit for PHP scripts. Default: 512M.
+          schema:
+            type: string
+            default: "512M"
+        - variable: PHP_POST_MAX_SIZE
+          label: PHP_POST_MAX_SIZE
+          description: Maximum size for PHP POST requests. No default.
+          schema:
+            type: string
+            default: ""
+        - variable: PHP_UPLOAD_MAX_FILESIZE
+          label: PHP_UPLOAD_MAX_FILESIZE
+          description: Maximum file size for PHP uploads. No default.
+          schema:
+            type: string
+            default: ""
 # Include{serviceRoot}
         - variable: main
           label: Main Service
