@@ -41,23 +41,13 @@ metadata:
     {{- . | nindent 4 }}
   {{- end }}
 spec:
-{{- if has $svcType (list "ClusterIP" "NodePort" "ExternalName" "LoadBalancer") }}
+{{- if has $svcType (list "ClusterIP" "NodePort" "ExternalName") }}
   type: {{ $svcType }} {{/* Specify type only for the above types */}}
 {{- end -}}
+{{- include "ix.v1.common.class.serivce.loadBalancer" (dict "svc" $svcValues "svcType" $svcType "root" $root) | trim | nindent 2 -}}
 {{- if has $svcType (list "ClusterIP" "NodePort" "LoadBalancer") -}} {{/* ClusterIP */}}
   {{- with $svcValues.clusterIP }}
   clusterIP: {{ . }}
-  {{- end -}}
-  {{- if eq $svcType "LoadBalancer" -}}
-    {{- with $svcValues.loadBalancerIP }}
-  loadBalancerIP: {{ . }}
-    {{- end -}}
-    {{- with $svcValues.loadBalancerSourceRanges }}
-  loadBalancerSourceRanges:
-      {{- range . }}
-      - {{ tpl . $root }}
-      {{- end }}
-    {{- end -}}
   {{- end -}}
 {{- else if eq $svcType "ExternalName" }} {{/* ExternalName */}}
   externalName: {{ required "<externalName> is required when service type is set to ExternalName" $svcValues.externalName }}
