@@ -1,6 +1,7 @@
 {{- define "ix.v1.common.class.serivce.sessionAffinity" -}}
   {{- $svcValues := .svc -}}
   {{- $root := .root -}}
+
   {{- with $svcValues.sessionAffinity -}}
     {{- if not (has . (list "ClientIP" "None")) -}}
       {{- fail (printf "Invalid option (%s) for <sessionAffinity>. Valid options are ClientIP and None" .) -}}

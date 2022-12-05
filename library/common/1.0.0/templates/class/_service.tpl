@@ -62,14 +62,7 @@ spec:
 {{- else if eq $svcType "ExternalName" }} {{/* ExternalName */}}
   externalName: {{ required "<externalName> is required when service type is set to ExternalName" $svcValues.externalName }}
 {{- end -}}
-{{- if ne $svcType "ClusterIP" -}}
-  {{- with $svcValues.externalTrafficPolicy -}}
-    {{- if not (has . (list "Cluster" "Local")) -}}
-      {{- fail (printf "Invalid option (%s) for <externalTrafficPolicy>. Valid options are Cluster and Local" .) -}}
-    {{- end }}
-  externalTrafficPolicy: {{ . }}
-  {{- end -}}
-{{- end -}}
+{{- include "ix.v1.common.class.serivce.externalTrafficPolicy" (dict "svc" $svcValues "svcType" $svcType "root" $root) | trim | nindent 2 -}}
 {{- include "ix.v1.common.class.serivce.sessionAffinity" (dict "svc" $svcValues "root" $root) | trim | nindent 2 -}}
 {{- include "ix.v1.common.class.serivce.externalIPs" (dict "svc" $svcValues "root" $root) | trim | nindent 2 -}}
 {{- include "ix.v1.common.class.serivce.publishNotReadyAddresses" (dict "publishNotReadyAddresses" $svcValues.publishNotReadyAddresses) | trim | nindent 2 -}}
