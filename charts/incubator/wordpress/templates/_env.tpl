@@ -62,7 +62,7 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   WORDPRESS_DATABASE_HOST: {{ printf "%v-%v" .Release.Name "mariadb" | b64enc }}
-  WORDPRESS_DATABASE_PASSWORD: {{ .Values.mariadb.mariadbPassword | trimAll "\"" | b64enc  }}
+  WORDPRESS_DATABASE_PASSWORD: {{ .Values.mariadb.mariadbPassword | trimAll "\"" | b64enc }}
 
   WORDPRESS_PASSWORD: {{ .Values.wordpress.pass | quote | b64enc }}
 

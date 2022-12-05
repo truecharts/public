@@ -106,7 +106,7 @@ questions:
           description:  Enable OPcache for PHP scripts.
           schema:
             type: string
-            default: yes
+            default: "yes"
         - variable: PHP_EXPOSE_PHP
           label: Expose PHP
           description:  Enables HTTP header with PHP version.
