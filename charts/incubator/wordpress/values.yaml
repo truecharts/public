@@ -4,12 +4,11 @@ image:
   tag: 6.1.1@sha256:ed41950556c7b28e0465fa173ad35d7c632fe1883e15761cbdb5dd340a5eeadf
 
 # securityContext:
-#   runAsNonRoot: false
 #   readOnlyRootFilesystem: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 1001
+  runAsGroup: 1001
 
 wordpress:
   user: user
