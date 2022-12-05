@@ -140,9 +140,26 @@ podAnnotations: {}
 
 podLabels: {}
 
+externalInterfaces: []
+  # - hostInterface: ens3
+  #   ipam:
+  #     type: static
+  #   staticIPConfigurations:
+  #     - 1.2.3.4
+  #   staticRoutes:
+  #     - destination: 1.2.3.4
+  #       gateway: 1.2.3.4
+  # - hostInterface: ens4
+  #   ipam:
+  #     type: dhcp
+
+# Injected from middleware
+ixExternalInterfacesConfiguration: []
+  # - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-1", "type": "macvlan", "master": "ens5s0", "ipam": {"type": "dhcp"}}'
+# Injected from middleware
 ixExternalInterfacesConfigurationNames: []
-  # - interface1
-  # - interface2
+  # - ix-RELEASE-NAME-0
+  # - ix-RELEASE-NAME-1
 
 enableServiceLinks: false
 
@@ -177,7 +194,6 @@ securityContext:
 termination:
   messagePath: ""
   messagePolicy: ""
-  # TODO: docs / add it to the pod
   gracePeriodSeconds: 10
 
 # TODO: docs -- Used to add SCALE GPU configuration
