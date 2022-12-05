@@ -4,6 +4,7 @@
   {{- $svcValues := .svc -}}
   {{- $root := .root -}}
   {{- $defaultServiceType := $root.Values.global.defaults.defaultServiceType -}}
+  {{- $defaultPortProtocol := $root.Values.global.defaults.defaultPortProtocol -}}
   {{- $svcName := include "ix.v1.common.names.fullname" $root -}}
 
   {{- if and (hasKey $svcValues "nameOverride") $svcValues.nameOverride -}}
@@ -14,6 +15,7 @@
   {{- if $root.Values.hostNetwork -}}
     {{- $svcType = "ClusterIP" -}} {{/* When hostNetwork is enabled, force ClusterIP as service type */}}
   {{- end -}}
+
   {{- $primaryPort := get $svcValues.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "values" $svcValues "svcName" $svcName)) }}
 ---
 apiVersion: {{ include "ix.v1.common.capabilities.service.apiVersion" $root }}
@@ -49,27 +51,8 @@ spec:
   {{- end -}}
   {{- include "ix.v1.common.class.serivce.sessionAffinity" (dict "svc" $svcValues "root" $root) | indent 2 -}}
   {{- include "ix.v1.common.class.serivce.externalIPs" (dict "svc" $svcValues "root" $root) | indent 2 -}}
-  {{- include "ix.v1.common.class.serivce.publishNotReadyAddresses" (dict "publishNotReadyAddresses" $svcValues.publishNotReadyAddresses) | indent 2 }}
-  ports:
-  {{- range $name, $port := $svcValues.ports }}
-    {{- if $port.enabled }}
-      {{- $protocol := "TCP" -}} {{/* Default to TCP if no protocol is specified */}}
-      {{- with $port.protocol }}
-        {{- if has . (list "HTTP" "HTTPS" "TCP") -}}
-          {{- $protocol = "TCP" -}}
-        {{- else -}}
-          {{- $protocol = . -}}
-        {{- end -}}
-      {{- end }}
-    - port: {{ $port.port }}
-      name: {{ $name }}
-      protocol: {{ $protocol }}
-      targetPort: {{ $port.targetPort | default $name }}
-      {{- if and (eq $svcType "NodePort") $port.nodePort }}
-      nodePort: {{ $port.nodePort }}
-      {{- end -}}
-    {{- end -}}
-  {{- end -}}
+  {{- include "ix.v1.common.class.serivce.publishNotReadyAddresses" (dict "publishNotReadyAddresses" $svcValues.publishNotReadyAddresses) | indent 2 -}}
+  {{- include "ix.v1.common.class.serivce.ports" (dict "ports" $svcValues.ports "svcType" $svcType "defaultPortProtocol" $defaultPortProtocol) | indent 2 -}}
   {{- if not (has $svcType (list "ExternalName" "ExternalIP")) -}}
     {{- include "ix.v1.common.class.serivce.selector" (dict "svc" $svcValues "root" $root) | nindent 2 -}}
   {{- end -}}
