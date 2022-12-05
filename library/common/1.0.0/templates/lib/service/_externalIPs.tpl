@@ -2,10 +2,10 @@
   {{- $svcValues := .svc -}}
   {{- $root := .root -}}
 
-  {{- with $svcValues.externalIPs -}}
+  {{- with $svcValues.externalIPs }}
 externalIPs:
     {{- range . }}
   - {{ tpl . $root }}
-    {{- end }}
+    {{- end -}}
   {{- end -}}
 {{- end -}}

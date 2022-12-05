@@ -14,10 +14,7 @@
   {{- if $root.Values.hostNetwork -}}
     {{- $svcType = "ClusterIP" -}} {{/* When hostNetwork is enabled, force ClusterIP as service type */}}
   {{- end -}}
-  {{- $primaryPort := get $svcValues.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "values" $svcValues "svcName" $svcName)) -}}
-  {{/* Prepare a dict to pass into includes */}}
-  {{- $tmpSVC := dict -}}
-  {{- $_ := set $tmpSVC "name" $svcName }}
+  {{- $primaryPort := get $svcValues.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "values" $svcValues "svcName" $svcName)) }}
 ---
 apiVersion: {{ include "ix.v1.common.capabilities.service.apiVersion" $root }}
 kind: Service
@@ -41,22 +38,18 @@ metadata:
     {{- . | nindent 4 }}
   {{- end }}
 spec:
-{{- if has $svcType (list "ClusterIP" "NodePort" "ExternalName") }}
-  type: {{ $svcType }} {{/* Specify type only for the above types */}}
-{{- end -}}
-{{- include "ix.v1.common.class.serivce.loadBalancer" (dict "svc" $svcValues "svcType" $svcType "root" $root) | trim | nindent 2 -}}
-{{- if has $svcType (list "ClusterIP" "NodePort" "LoadBalancer") -}} {{/* ClusterIP */}}
-  {{- with $svcValues.clusterIP }}
-  clusterIP: {{ . }}
+  {{- if eq $svcType "ClusterIP" -}}
+    {{- include "ix.v1.common.class.serivce.clusterIP.spec" (dict "svc" $svcValues "root" $root) | indent 2 -}}
+  {{- else if eq $svcType "LoadBalancer" -}}
+    {{- include "ix.v1.common.class.serivce.loadBalancer.spec" (dict "svc" $svcValues "root" $root)| indent 2 -}}
+  {{- else if eq $svcType "NodePort" -}}
+    {{- include "ix.v1.common.class.serivce.nodePort.spec" (dict "svc" $svcValues "root" $root) | indent 2 -}}
+  {{- else if eq $svcType "ExternalName" -}}
+    {{- include "ix.v1.common.class.serivce.externalName.spec" (dict "svc" $svcValues "root" $root) | indent 2 -}}
   {{- end -}}
-{{- else if eq $svcType "ExternalName" }} {{/* ExternalName */}}
-  externalName: {{ required "<externalName> is required when service type is set to ExternalName" $svcValues.externalName }}
-{{- end -}}
-{{- include "ix.v1.common.class.serivce.externalTrafficPolicy" (dict "svc" $svcValues "svcType" $svcType "root" $root) | trim | nindent 2 -}}
-{{- include "ix.v1.common.class.serivce.sessionAffinity" (dict "svc" $svcValues "root" $root) | trim | nindent 2 -}}
-{{- include "ix.v1.common.class.serivce.externalIPs" (dict "svc" $svcValues "root" $root) | trim | nindent 2 -}}
-{{- include "ix.v1.common.class.serivce.publishNotReadyAddresses" (dict "publishNotReadyAddresses" $svcValues.publishNotReadyAddresses) | trim | nindent 2 -}}
-{{- include "ix.v1.common.class.serivce.ipFamily" (dict "svcType" $svcType "svc" $svcValues "root" $root) | trim | nindent 2 }}
+  {{- include "ix.v1.common.class.serivce.sessionAffinity" (dict "svc" $svcValues "root" $root) | indent 2 -}}
+  {{- include "ix.v1.common.class.serivce.externalIPs" (dict "svc" $svcValues "root" $root) | indent 2 -}}
+  {{- include "ix.v1.common.class.serivce.publishNotReadyAddresses" (dict "publishNotReadyAddresses" $svcValues.publishNotReadyAddresses) | indent 2 }}
   ports:
 {{- range $name, $port := $svcValues.ports }}
   {{- if $port.enabled }}
@@ -83,12 +76,12 @@ spec:
     {{- range $k, $v := . }}
     {{ $k }}: {{ tpl $v $root }}
     {{- end -}}
-  {{- else }} {{/* else use the generated selectors */}}
-    {{- include "ix.v1.common.labels.selectorLabels" $root | nindent 4 }}
-  {{- end }}
+  {{- else -}} {{/* else use the generated selectors */}}
+    {{- include "ix.v1.common.labels.selectorLabels" $root | nindent 4 -}}
+  {{- end -}}
 {{- end -}}
   {{- if eq $svcType "ExternalIP" -}}
-    {{- $_ := set $tmpSVC "values" $svcValues -}}
-    {{- include "ix.v1.common.class.serivce.endpoints" (dict "svc" $svcValues "svcName" $svcName "root" $root) }}
+    {{- include "ix.v1.common.class.serivce.externalTrafficPolicy" (dict "svc" $svcValues "root" $root) | nindent 2 -}}
+    {{- include "ix.v1.common.class.serivce.endpoints" (dict "svc" $svcValues "svcName" $svcName "root" $root) | nindent 0 -}}
   {{- end -}}
 {{- end -}}
