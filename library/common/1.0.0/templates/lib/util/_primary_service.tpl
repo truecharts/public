@@ -21,7 +21,7 @@
 
   {{- if not $result -}}
     {{- if eq (len $enabledServices) 1 -}}
-      {{- $result = keys $enabledServices | first -}}
+      {{- $result = keys $enabledServices | mustFirst -}}
     {{- else -}}
       {{- if $enabledServices -}}
         {{- fail "At least one Service must be set as primary" -}}

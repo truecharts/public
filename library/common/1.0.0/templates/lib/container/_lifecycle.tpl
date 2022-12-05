@@ -2,7 +2,7 @@
 {{- define "ix.v1.common.container.lifecycle" -}}
   {{- with .Values.lifecycle -}}
     {{- range $k, $v := . -}}
-      {{- if not (has $k (list "preStop" "postStart")) -}}
+      {{- if not (mustHas $k (list "preStop" "postStart")) -}}
         {{- fail (printf "Invalid key (%s) in lifecycle. Valid keys are preStop and postStart" $k) -}}
       {{- end -}}
     {{- end -}}

@@ -31,7 +31,7 @@ can be dynamically configured via an env var.
       {{- end -}}
       {{- $protocol := $defaultPortProtocol -}}
       {{- with .protocol -}}
-        {{- if has . (list "HTTP" "HTTPS" "TCP") -}}
+        {{- if mustHas . (list "HTTP" "HTTPS" "TCP") -}}
           {{- $protocol = "TCP" -}}
         {{- else if (eq . "UDP") -}}
           {{- $protocol = "UDP" -}}

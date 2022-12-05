@@ -21,7 +21,7 @@
 
   {{- if not $result -}}
     {{- if eq (len $enabledrbacs) 1 -}}
-      {{- $result = keys $enabledrbacs | first -}}
+      {{- $result = keys $enabledrbacs | mustFirst -}}
     {{- else -}}
       {{- if $enabledrbacs -}}
         {{- fail "At least one RBAC must be set as primary" -}}

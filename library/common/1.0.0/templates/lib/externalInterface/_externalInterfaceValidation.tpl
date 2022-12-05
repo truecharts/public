@@ -6,7 +6,7 @@
   {{- end -}}
   {{- if not $iface.ipam.type -}}
     {{- fail (printf "<ipam.type> is required. Interface (%s)" $iface.hostInterface) -}}
-  {{- else if not (has $iface.ipam.type (list "static" "dhcp")) -}}
+  {{- else if not (mustHas $iface.ipam.type (list "static" "dhcp")) -}}
     {{- fail (printf "Invalid option for <ipam.type> (%s). Valid options are static and dhcp. Interface (%s)" $iface.ipam.type $iface.hostInterface) -}}
   {{- end -}}
 

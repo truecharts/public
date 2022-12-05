@@ -3,16 +3,16 @@
   {{- $probeSpec := .probeSpec -}}
   {{- $probeName := .probeName -}}
   {{/* ints are usually parsed as floats in helm */}}
-  {{- if not (has (kindOf $probeSpec.initialDelaySeconds) (list "float64" "int")) -}}
+  {{- if not (mustHas (kindOf $probeSpec.initialDelaySeconds) (list "float64" "int")) -}}
     {{- fail (printf "<initialDelaySeconds> cannot be empty in probe (%s)" $probeName) -}}
   {{- end -}}
-  {{- if not (has (kindOf $probeSpec.failureThreshold) (list "float64" "int")) -}}
+  {{- if not (mustHas (kindOf $probeSpec.failureThreshold) (list "float64" "int")) -}}
     {{- fail (printf "<failureThreshold> cannot be empty in probe (%s)" $probeName) -}}
   {{- end -}}
-  {{- if not (has (kindOf $probeSpec.timeoutSeconds) (list "float64" "int")) -}}
+  {{- if not (mustHas (kindOf $probeSpec.timeoutSeconds) (list "float64" "int")) -}}
     {{- fail (printf "<timeoutSeconds> cannot be empty in probe (%s)" $probeName) -}}
   {{- end -}}
-  {{- if not (has (kindOf $probeSpec.periodSeconds) (list "float64" "int")) -}}
+  {{- if not (mustHas (kindOf $probeSpec.periodSeconds) (list "float64" "int")) -}}
     {{- fail (printf "<periodSeconds> cannot be empty in probe (%s)" $probeName) -}}
   {{- end }}
 initialDelaySeconds: {{ $probeSpec.initialDelaySeconds }}

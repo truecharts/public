@@ -7,7 +7,7 @@ ports:
     {{- if $port.enabled -}}
       {{- $protocol := $defaultPortProtocol -}} {{/* Default to TCP if no protocol is specified */}}
       {{- with $port.protocol -}}
-        {{- if has . (list "TCP" "HTTP" "HTTPS") -}}
+        {{- if mustHas . (list "TCP" "HTTP" "HTTPS") -}}
           {{- $protocol = "TCP" -}}
         {{- else -}}
           {{- $protocol = . -}}

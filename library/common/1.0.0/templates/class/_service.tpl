@@ -63,7 +63,7 @@ spec:
   {{- include "ix.v1.common.class.serivce.externalIPs" (dict "svc" $svcValues "root" $root) | indent 2 -}}
   {{- include "ix.v1.common.class.serivce.publishNotReadyAddresses" (dict "publishNotReadyAddresses" $svcValues.publishNotReadyAddresses) | indent 2 -}}
   {{- include "ix.v1.common.class.serivce.ports" (dict "ports" $svcValues.ports "svcType" $svcType "defaultPortProtocol" $defaultPortProtocol) | indent 2 -}}
-  {{- if not (has $svcType (list "ExternalName" "ExternalIP")) -}}
+  {{- if not (mustHas $svcType (list "ExternalName" "ExternalIP")) -}}
     {{- include "ix.v1.common.class.serivce.selector" (dict "svc" $svcValues "root" $root) | nindent 2 -}}
   {{- end -}}
   {{- if eq $svcType "ExternalIP" -}}

@@ -2,7 +2,7 @@
 {{- define "ix.v1.common.dnsPolicy" -}}
   {{- $policy := "ClusterFirst" -}}
   {{- if .Values.dnsPolicy -}}
-    {{- if not (has .Values.dnsPolicy (list "Default" "ClusterFirst" "ClusterFirstWithHostNet" "None"))  -}}
+    {{- if not (mustHas .Values.dnsPolicy (list "Default" "ClusterFirst" "ClusterFirstWithHostNet" "None"))  -}}
       {{- fail "Not valid dnsPolicy. Valid options are ClusterFirst, Default, ClusterFirstWithHostNet, None" -}}
     {{- end -}}
     {{- $policy = .Values.dnsPolicy -}}

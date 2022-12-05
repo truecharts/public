@@ -27,7 +27,7 @@
 
   {{- if not $result -}}
     {{- if eq (len $enabledPorts) 1 -}}
-      {{- $result = keys $enabledPorts | first -}}
+      {{- $result = keys $enabledPorts | mustFirst -}}
     {{- else -}}
       {{- if $enabledPorts -}}
         {{- fail (printf "At least one port must be set as primary in service (%s)" $svcName) -}}

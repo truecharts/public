@@ -22,7 +22,7 @@ spec:
   revisionHistoryLimit: {{ .Values.controller.revisionHistoryLimit }}
   replicas: {{ .Values.controller.replicas }}
   {{- $strategy := default "Recreate" .Values.controller.strategy }}
-  {{- if not (has $strategy (list "Recreate" "RollingUpdate")) }}
+  {{- if not (mustHas $strategy (list "Recreate" "RollingUpdate")) }}
     {{- fail (printf "Not a valid strategy type for Deployment (%s)" $strategy) }}
   {{- end }}
   strategy:

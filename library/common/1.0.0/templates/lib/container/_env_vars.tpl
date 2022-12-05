@@ -60,10 +60,10 @@ That's why the custom dict is expected.
 {{- with $envList -}}
 {{- range $envList -}}
   {{- if and .name .value -}}
-    {{- if has (kindOf .name) (list "map" "slice") -}}
+    {{- if mustHas (kindOf .name) (list "map" "slice") -}}
       {{- fail "Name in envList cannot be a map or slice" -}}
     {{- end -}}
-    {{- if has (kindOf .value) (list "map" "slice") -}}
+    {{- if mustHas (kindOf .value) (list "map" "slice") -}}
       {{- fail "Value in envList cannot be a map or slice" -}}
     {{- end }}
 - name: {{ tpl .name $root }}

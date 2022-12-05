@@ -2,7 +2,7 @@
 {{- define "ix.v1.common.tolerations" -}}
   {{- range .Values.tolerations }}
     {{- $operator := (tpl (default "Equal" .operator) $)  -}}
-    {{- if not (has $operator (list "Exists" "Equal")) -}}
+    {{- if not (mustHas $operator (list "Exists" "Equal")) -}}
       {{- fail "Invalid <operator>. Valid options are Exists, Equal." -}}
     {{- end -}}
 
@@ -17,12 +17,12 @@
     {{- end -}}
 
     {{- $effect := (tpl (default "" .effect) $) -}} {{/* Empty effect matches all effects with the key */}}
-    {{- if and $effect (not (has $effect (list "NoExecute" "NoSchedule" "PreferNoSchedule"))) -}}
+    {{- if and $effect (not (mustHas $effect (list "NoExecute" "NoSchedule" "PreferNoSchedule"))) -}}
       {{- fail (printf "Invalid <effect> (%s). Valid options are NoExecute, NoSchedule, PreferNoSchedule" $effect) -}}
     {{- end -}}
 
     {{- $tolSeconds := (default "" .tolerationSeconds) -}}
-    {{- if and $tolSeconds (not (has (kindOf $tolSeconds) (list "float64" "int"))) -}}
+    {{- if and $tolSeconds (not (mustHas (kindOf $tolSeconds) (list "float64" "int"))) -}}
       {{- fail "<tolerationSeconds> must result to an integer." -}}
     {{- end }}
 - operator: {{ $operator }}

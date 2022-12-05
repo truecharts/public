@@ -21,7 +21,7 @@
 
   {{- if not $result -}}
     {{- if eq (len $enabledServiceAccounts) 1 -}}
-      {{- $result = keys $enabledServiceAccounts | first -}}
+      {{- $result = keys $enabledServiceAccounts | mustFirst -}}
     {{- else -}}
       {{- if $enabledServiceAccounts -}}
         {{- fail "At least one Service Account must be set as primary" -}}

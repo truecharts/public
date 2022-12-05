@@ -17,7 +17,7 @@
 {{- define "ix.v1.common.images.pullPolicy" -}}
   {{- $pullPolicy := "IfNotPresent" -}}
   {{- with .policy -}}
-    {{- if not (has . (list "IfNotPresent" "Always" "Never")) -}}
+    {{- if not (mustHas . (list "IfNotPresent" "Always" "Never")) -}}
       {{- fail (printf "Invalid <pullPolicy> option (%s). Valid options are IfNotPresent, Always, Never" .) -}}
     {{- end -}}
     {{- $pullPolicy = . -}}

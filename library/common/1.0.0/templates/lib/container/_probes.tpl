@@ -10,7 +10,7 @@
   {{- end -}}
 
   {{- range $probeName, $probe := .Values.probes -}}
-      {{- if not (has $probeName (list "liveness" "readiness" "startup")) -}}
+      {{- if not (mustHas $probeName (list "liveness" "readiness" "startup")) -}}
         {{- fail (printf "Invalid probe name (%s). Valid options are (liveness, readiness, startup)" $probeName) -}}
       {{- end -}}
     {{- $probeType := "" -}}
@@ -25,7 +25,7 @@
             {{- if eq $probe.type "AUTO" -}} {{/* Get probeType based on the service protocol */}}
               {{- $probeType = $primaryPort.protocol -}}
             {{- else -}}
-              {{- if not (has $probe.type (list "TCP" "HTTP" "HTTPS" "GRPC")) -}} {{/* Make sure there is a valid probe type defined */}}
+              {{- if not (mustHas $probe.type (list "TCP" "HTTP" "HTTPS" "GRPC")) -}} {{/* Make sure there is a valid probe type defined */}}
                 {{- fail (printf "Invalid probe type (%s) on probe (%s). Valid types are TCP, HTTP, HTTPS, GRPC, EXEC" $probe.type $probeName) -}}
               {{- end -}}
               {{- $probeType = $probe.type -}}
@@ -51,7 +51,7 @@
       {{- $_ := set $tmpProbe "type" $probeType -}}
       {{- $_ := set $tmpProbe "port" $probePort }}
 {{ $probeName }}Probe:
-      {{- if has $probeType (list "HTTPS" "HTTP") -}}
+      {{- if mustHas $probeType (list "HTTPS" "HTTP") -}}
         {{- $_ := set $tmpProbe "path" $probe.path -}}
         {{- $_ := set $tmpProbe "httpHeaders" $probe.httpHeaders -}}
         {{- include "ix.v1.common.container.probes.httpGet" (dict "probe" $tmpProbe "root" $) | trim | nindent 2 }}

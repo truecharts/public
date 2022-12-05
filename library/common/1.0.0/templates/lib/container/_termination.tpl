@@ -7,7 +7,7 @@
 {{- define "ix.v1.common.container.termination.messagePolicy" -}}
   {{- $policy := (tpl .Values.termination.messagePolicy $) -}}
   {{- with $policy -}}
-    {{- if not (has . (list "File" "FallbackToLogsOnError")) }}
+    {{- if not (mustHas . (list "File" "FallbackToLogsOnError")) }}
       {{- fail "Not valid option for messagePolicy" -}}
     {{- end }}
     {{- $policy }}

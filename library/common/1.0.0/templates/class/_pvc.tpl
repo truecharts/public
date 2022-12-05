@@ -20,7 +20,7 @@
   {{- end -}}
 
   {{- $accessMode := (tpl (default $defaultAccessMode $pvcValues.accessMode) $root) -}}
-  {{- if not (has $accessMode (list "ReadWriteOnce" "ReadOnlyMany" "ReadWriteMany" "ReadWriteOncePod")) -}}
+  {{- if not (mustHas $accessMode (list "ReadWriteOnce" "ReadOnlyMany" "ReadWriteMany" "ReadWriteOncePod")) -}}
     {{- fail (printf "Invalid <accessMode> option (%s). Valid options are ReadWriteOnce, ReadOnlyMany, ReadWriteMany and ReadWriteOncePod" $accessMode) -}}
   {{- end -}}
 

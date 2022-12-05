@@ -2,9 +2,9 @@
 {{/* The .common part comes from the name of this library */}}
 {{- define "ix.v1.common.values.init" -}}
   {{- if .Values.common -}}
-    {{- $defaultValues := deepCopy .Values.common -}}
-    {{- $userValues := deepCopy (omit .Values "common") -}}
+    {{- $defaultValues := mustDeepCopy .Values.common -}}
+    {{- $userValues := mustDeepCopy (omit .Values "common") -}}
     {{- $mergedValues := mustMergeOverwrite $defaultValues $userValues -}}
-    {{- $_ := set . "Values" (deepCopy $mergedValues) -}}
+    {{- $_ := set . "Values" (mustDeepCopy $mergedValues) -}}
   {{- end -}}
 {{- end -}}

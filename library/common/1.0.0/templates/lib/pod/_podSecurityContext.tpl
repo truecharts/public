@@ -11,7 +11,7 @@ supplementalGroups:
     {{- end -}}
   {{- end -}}
   {{- with $podSecCont.fsGroupChangePolicy -}}
-    {{- if not (has . (list "Always" "OnRootMismatch")) -}}
+    {{- if not (mustHas . (list "Always" "OnRootMismatch")) -}}
       {{- fail "Invalid option for fsGroupChangePolicy. Valid options are <Always> and <OnRootMismatch>." -}}
     {{- end }}
 fsGroupChangePolicy: {{ . }}

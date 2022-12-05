@@ -3,7 +3,7 @@
   {{- $svcValues := .svc -}}
 
   {{- with $svcValues.externalTrafficPolicy -}}
-    {{- if not (has . (list "Cluster" "Local")) -}}
+    {{- if not (mustHas . (list "Cluster" "Local")) -}}
       {{- fail (printf "Invalid option (%s) for <externalTrafficPolicy>. Valid options are Cluster and Local" .) -}}
     {{- end }}
 externalTrafficPolicy: {{ . }}
