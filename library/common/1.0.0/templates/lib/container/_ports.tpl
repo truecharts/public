@@ -5,7 +5,8 @@ can be dynamically configured via an env var.
 */}}
 {{/* Ports included by the container. */}}
 {{- define "ix.v1.common.container.ports" -}}
-  {{ $ports := list }}
+  {{- $defaultPortProtocol := .Values.global.defaults.defaultPortProtocol -}}
+  {{- $ports := list -}}
   {{- range $svcName, $svc := .Values.service -}}
     {{- if $svc.enabled -}}
       {{- if not $svc.ports -}}
@@ -18,21 +19,17 @@ can be dynamically configured via an env var.
     {{- end -}}
   {{- end -}}
 
-{{/* TODO: Implement hostPort */}}
-{{/* TODO: Make sure no service is using the hostPort or it will end up with conflicts */}}
 {{/* Render the list of ports */}}
 {{- if $ports -}}
-  {{- range $_ := $ports }}
-    {{- if .enabled }}
-- name: {{ tpl .name $ }}
+  {{- range $ports -}}
+    {{- if .enabled -}}
       {{- if not .port -}}
         {{- fail (printf "Port is required on enabled services. Service (%s)" .name) -}}
       {{- end -}}
       {{- if and .targetPort (kindIs "string" .targetPort) -}}
         {{- fail (printf "This common library does not support named ports for targetPort. port name (%s), targetPort (%s)" .name .targetPort) -}}
-      {{- end }}
-  containerPort: {{ default .port .targetPort }}
-      {{- $protocol := "TCP" -}}
+      {{- end -}}
+      {{- $protocol := $defaultPortProtocol -}}
       {{- with .protocol -}}
         {{- if has . (list "HTTP" "HTTPS" "TCP") -}}
           {{- $protocol = "TCP" -}}
@@ -40,8 +37,13 @@ can be dynamically configured via an env var.
           {{- $protocol = "UDP" -}}
         {{- else -}}
           {{- fail (printf "Not valid <protocol> (%s)" .) -}}
-        {{- end }}
+        {{- end -}}
+      {{- end }}
+- name: {{ tpl .name $ }}
+  containerPort: {{ default .port .targetPort }}
   protocol: {{ $protocol }}
+      {{- with .hostPort }}
+  hostPort: {{ . }}
       {{- end -}}
     {{- end -}}
   {{- end -}}
