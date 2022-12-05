@@ -1,4 +1,7 @@
 {{- define "ix.v1.common.loader.apply" -}}
+
+  {{- include "ix.v1.common.spawner.externalInterface" . | nindent 0 -}}
+
   {{- include "ix.v1.common.spawner.serviceAccount" . | nindent 0 -}}
 
   {{- include "ix.v1.common.spawner.rbac" . | nindent 0 -}}
