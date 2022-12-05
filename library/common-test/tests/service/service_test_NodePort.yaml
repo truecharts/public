@@ -40,7 +40,7 @@ tests:
                 protocol: TCP
                 targetPort: main
                 nodePort: 35000
-            publishNotReadyAddresses: true
+            publishNotReadyAddresses: false
             selector: &defaultSelector
               app: common-test
               app.kubernetes.io/instance: RELEASE-NAME

@@ -76,7 +76,7 @@ spec:
 {{- if $svcValues.externalIPs -}}
   {{- include "ix.v1.common.class.serivce.externalIPs" (dict "externalIPs" $svcValues.externalIPs "root" $root) | nindent 2 -}}
 {{- end -}}
-{{- include "ix.v1.common.class.serivce.publishNotReadyAddresses" (dict "publishNotReadyAddresses" $svcValues.publishNotReadyAddresses) | nindent 2 -}}
+{{- include "ix.v1.common.class.serivce.publishNotReadyAddresses" (dict "publishNotReadyAddresses" $svcValues.publishNotReadyAddresses) | trim | nindent 2 -}}
 {{- if has $svcType (list "ClusterIP" "NodePort" "LoadBalancer") -}}
   {{- with $svcValues.ipFamilyPolicy }}
     {{- if not (has . (list "SingleStack" "PreferDualStack" "RequireDualStack")) -}}

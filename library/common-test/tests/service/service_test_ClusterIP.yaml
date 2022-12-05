@@ -288,6 +288,7 @@ tests:
           value:
             type: ClusterIP
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector:
               some_key: some_value
               some_key1: some_value1

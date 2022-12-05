@@ -1,8 +1,8 @@
 {{- define "ix.v1.common.class.serivce.publishNotReadyAddresses" -}}
-  {{- $pubNotReadAddr := false -}}
+  {{- $pubNotReadyAddr := false -}}
 
-  {{- with .publishNotReadyAddresses -}}
-    {{- $pubNotReadAddr = true -}}
+  {{- if .publishNotReadyAddresses -}}
+    {{- $pubNotReadyAddr = true -}}
   {{- end }}
-publishNotReadyAddresses: {{ $pubNotReadAddr }}
+publishNotReadyAddresses: {{ $pubNotReadyAddr }}
 {{- end -}}
