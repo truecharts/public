@@ -8,11 +8,15 @@ apiVersion: {{ include "ix.v1.common.capabilities.deployment.apiVersion" $ }}
 kind: Deployment
 metadata:
   name: {{ include "ix.v1.common.names.fullname" . }}
-  {{- with (mustMerge (default dict .Values.controller.labels) (include "ix.v1.common.labels" $ | fromYaml)) }}
-  labels: {{- tpl (toYaml .) $ | nindent 4 }}
+  {{- $labels := (mustMerge (default dict .Values.controller.labels) (include "ix.v1.common.labels" $ | fromYaml)) -}}
+  {{- with (include "ix.v1.common.util.labels.render" (dict "root" $ "labels" $labels) | trim) }}
+  labels:
+    {{- . | nindent 4 }}
   {{- end }}
-  {{- with (mustMerge (default dict .Values.controller.annotations) (include "ix.v1.common.annotations" $ | fromYaml) (include "ix.v1.common.annotations.workload" $ | fromYaml)) }}
-  annotations: {{- tpl (toYaml .) $ | nindent 4 }}
+  {{- $annotations := (mustMerge (default dict .Values.controller.annotations) (include "ix.v1.common.annotations" $ | fromYaml) (include "ix.v1.common.annotations.workload" $ | fromYaml) (include "ix.v1.common.annotations.workload.spec" $ | fromYaml)) -}}
+  {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $ "annotations" $annotations) | trim) }}
+  annotations:
+    {{- . | nindent 4 }}
   {{- end }}
 spec:
   revisionHistoryLimit: {{ .Values.controller.revisionHistoryLimit }}
