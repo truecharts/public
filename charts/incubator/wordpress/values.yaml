@@ -8,7 +8,7 @@ securityContext:
 
 podSecurityContext:
   runAsUser: 1001
-  runAsGroup: 1001
+  runAsGroup: 0
 
 wordpress:
   user: user
