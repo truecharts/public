@@ -70,31 +70,10 @@ spec:
   externalTrafficPolicy: {{ . }}
   {{- end -}}
 {{- end -}}
-{{- if $svcValues.sessionAffinity -}}
-  {{- include "ix.v1.common.class.serivce.sessionAffinity" (dict "svc" $svcValues "root" $root) | nindent 2 -}}
-{{- end -}}
-{{- if $svcValues.externalIPs -}}
-  {{- include "ix.v1.common.class.serivce.externalIPs" (dict "externalIPs" $svcValues.externalIPs "root" $root) | nindent 2 -}}
-{{- end -}}
+{{- include "ix.v1.common.class.serivce.sessionAffinity" (dict "svc" $svcValues "root" $root) | trim | nindent 2 -}}
+{{- include "ix.v1.common.class.serivce.externalIPs" (dict "svc" $svcValues "root" $root) | trim | nindent 2 -}}
 {{- include "ix.v1.common.class.serivce.publishNotReadyAddresses" (dict "publishNotReadyAddresses" $svcValues.publishNotReadyAddresses) | trim | nindent 2 -}}
-{{- if has $svcType (list "ClusterIP" "NodePort" "LoadBalancer") -}}
-  {{- with $svcValues.ipFamilyPolicy }}
-    {{- if not (has . (list "SingleStack" "PreferDualStack" "RequireDualStack")) -}}
-      {{ fail (printf "Invalid option (%s) for <ipFamilyPolicy>. Valid options are SingleStack, PreferDualStack, RequireDualStack" .) -}}
-    {{- end }}
-  ipFamilyPolicy: {{ . }}
-  {{- end -}}
-  {{- with $svcValues.ipFamilies }}
-  ipFamilies:
-    {{- range . }}
-      {{- $ipFam := tpl . $root -}}
-      {{- if not (has $ipFam (list "IPv4" "IPv6")) -}}
-        {{- fail (printf "Invalid option (%s) for <ipFamilies[]>. Valid options are IPv4 and IPv6" $ipFam) -}}
-      {{- end }}
-    - {{ $ipFam }}
-    {{- end }}
-  {{- end -}}
-{{- end }}
+{{- include "ix.v1.common.class.serivce.ipFamily" (dict "svcType" $svcType "svc" $svcValues "root" $root) | trim | nindent 2 }}
   ports:
 {{- range $name, $port := $svcValues.ports }}
   {{- if $port.enabled }}
@@ -127,6 +106,6 @@ spec:
 {{- end -}}
   {{- if eq $svcType "ExternalIP" -}}
     {{- $_ := set $tmpSVC "values" $svcValues -}}
-    {{- include "ix.v1.common.class.serivce.endpoints" (dict "svc" $tmpSVC "root" $root) }}
+    {{- include "ix.v1.common.class.serivce.endpoints" (dict "svc" $svcValues "svcName" $svcName "root" $root) }}
   {{- end -}}
 {{- end -}}

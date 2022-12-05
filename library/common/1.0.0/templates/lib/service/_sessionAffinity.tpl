@@ -1,13 +1,14 @@
 {{- define "ix.v1.common.class.serivce.sessionAffinity" -}}
-  {{- $svc := .svc -}}
+  {{- $svcValues := .svc -}}
   {{- $root := .root -}}
-
-  {{- if not (has $svc.sessionAffinity (list "ClientIP" "None")) -}}
-    {{- fail (printf "Invalid option (%s) for <sessionAffinity>. Valid options are ClientIP and None" $svc.sessionAffinity) -}}
-  {{- end }}
-sessionAffinity: {{ $svc.sessionAffinity }}
-  {{- if eq $svc.sessionAffinity "ClientIP" -}}
-    {{- with $svc.sessionAffinityConfig -}}
+  {{- with $svcValues.sessionAffinity -}}
+    {{- if not (has . (list "ClientIP" "None")) -}}
+      {{- fail (printf "Invalid option (%s) for <sessionAffinity>. Valid options are ClientIP and None" .) -}}
+    {{- end }}
+sessionAffinity: {{ . }}
+  {{- end -}}
+  {{- if eq $svcValues.sessionAffinity "ClientIP" -}}
+    {{- with $svcValues.sessionAffinityConfig -}}
       {{- with .clientIP -}}
         {{- if hasKey . "timeoutSeconds" -}}
           {{- $timeout := tpl (toString .timeoutSeconds) $root -}}

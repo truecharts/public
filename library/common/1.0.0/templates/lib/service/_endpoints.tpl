@@ -1,7 +1,7 @@
 {{- define "ix.v1.common.class.serivce.endpoints" -}}
   {{- $root := .root -}}
-  {{- $svcName := .svc.name -}}
-  {{- $svcValues := .svc.values }}
+  {{- $svcName := .svcName -}}
+  {{- $svcValues := .svc }}
 
 ---
 apiVersion: {{ include "ix.v1.common.capabilities.endpoints.apiVersion" $root }}
