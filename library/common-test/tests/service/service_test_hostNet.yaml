@@ -38,6 +38,7 @@ tests:
                 port: 65535
                 protocol: TCP
                 targetPort: main
+            publishNotReadyAddresses: false
             selector: &defaultSelector
               app: common-test
               app.kubernetes.io/instance: RELEASE-NAME

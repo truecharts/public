@@ -31,6 +31,7 @@ tests:
       - equal:
           path: spec
           value:
+            publishNotReadyAddresses: false
             ports: &defaultPort
               - name: main
                 port: 65535
@@ -107,6 +108,7 @@ tests:
       - equal:
           path: spec
           value:
+            publishNotReadyAddresses: false
             ports: *defaultPort
             externalTrafficPolicy: Cluster
       - isNull:
@@ -129,6 +131,7 @@ tests:
       - equal:
           path: spec
           value:
+            publishNotReadyAddresses: false
             ports: *defaultPort
             sessionAffinity: None
       - isNull:
@@ -153,6 +156,7 @@ tests:
       - equal:
           path: spec
           value:
+            publishNotReadyAddresses: false
             ports: *defaultPort
             sessionAffinity: ClientIP
             sessionAffinityConfig:
@@ -179,6 +183,7 @@ tests:
       - equal:
           path: spec
           value:
+            publishNotReadyAddresses: false
             ports: *defaultPort
             sessionAffinity: ClientIP
             sessionAffinityConfig:
@@ -204,6 +209,7 @@ tests:
       - equal:
           path: spec
           value:
+            publishNotReadyAddresses: false
             ports: *defaultPort
             externalIPs:
               - 192.168.1.20
@@ -232,6 +238,7 @@ tests:
       - equal:
           path: spec
           value:
+            publishNotReadyAddresses: false
             ports: *defaultPort
             externalIPs:
               - 192.168.1.20

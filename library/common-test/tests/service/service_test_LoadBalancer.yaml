@@ -36,6 +36,7 @@ tests:
                 port: 65535
                 protocol: TCP
                 targetPort: main
+            publishNotReadyAddresses: false
             selector: &defaultSelector
               app: common-test
               app.kubernetes.io/instance: RELEASE-NAME
@@ -56,6 +57,7 @@ tests:
             type: LoadBalancer
             loadBalancerIP: 10.16.0.12
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
 
   - it: should pass with LoadBalancer service type and loadBalancerSourceRanges set
@@ -76,6 +78,7 @@ tests:
               - 10.16.0.14
               - 10.16.0.15
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
 
   - it: should pass with LoadBalancer service type and loadBalancerSourceRanges set from tpl
@@ -98,6 +101,7 @@ tests:
               - 10.16.0.14
               - 10.16.0.15
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
 
   - it: should pass with LoadBalancer service type, loadBalancerIP and loadBalancerSourceRanges set from tpl
@@ -122,6 +126,7 @@ tests:
               - 10.16.0.14
               - 10.16.0.15
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
 
   - it: should pass with LoadBalancer service type and clusterIP set
@@ -138,6 +143,7 @@ tests:
             type: LoadBalancer
             clusterIP: 172.16.0.12
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
 
   - it: should pass with LoadBalancer service type and externalTrafficPolicy
@@ -153,6 +159,7 @@ tests:
           value:
             type: LoadBalancer
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
             externalTrafficPolicy: Cluster
 
@@ -172,6 +179,7 @@ tests:
           value:
             type: LoadBalancer
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
             sessionAffinity: None
       - isNull:
@@ -193,6 +201,7 @@ tests:
           value:
             type: LoadBalancer
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
             sessionAffinity: ClientIP
             sessionAffinityConfig:
@@ -216,6 +225,7 @@ tests:
           value:
             type: LoadBalancer
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
             sessionAffinity: ClientIP
             sessionAffinityConfig:
@@ -238,6 +248,7 @@ tests:
           value:
             type: LoadBalancer
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
             externalIPs:
               - 192.168.1.20
@@ -263,6 +274,7 @@ tests:
           value:
             type: LoadBalancer
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
             externalIPs:
               - 192.168.1.20
@@ -298,6 +310,7 @@ tests:
           value:
             type: LoadBalancer
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
             ipFamilyPolicy: SingleStack
 
@@ -316,6 +329,7 @@ tests:
           value:
             type: LoadBalancer
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
             ipFamilies:
               - IPv6
@@ -336,6 +350,7 @@ tests:
           value:
             type: LoadBalancer
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector:
               some_key: some_value
               some_key1: some_value1
@@ -357,6 +372,7 @@ tests:
           value:
             type: LoadBalancer
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector:
               some_key: some_value
               some_key1: some_value1

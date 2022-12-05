@@ -33,6 +33,7 @@ tests:
           value:
             type: ExternalName
             externalName: some_hostname
+            publishNotReadyAddresses: false
             ports: &defaultPort
               - name: main
                 port: 65535
@@ -60,6 +61,7 @@ tests:
             type: ExternalName
             externalName: some_hostname
             ports: *defaultPort
+            publishNotReadyAddresses: false
             externalTrafficPolicy: Cluster
       - isNull:
           path: spec.selector
@@ -86,6 +88,7 @@ tests:
             type: ExternalName
             externalName: some_hostname
             ports: *defaultPort
+            publishNotReadyAddresses: false
             sessionAffinity: None
       - isNull:
           path: spec.sessionAffinityConfig
@@ -114,6 +117,7 @@ tests:
             type: ExternalName
             externalName: some_hostname
             ports: *defaultPort
+            publishNotReadyAddresses: false
             sessionAffinity: ClientIP
             sessionAffinityConfig:
               clientIP:
@@ -144,6 +148,7 @@ tests:
             type: ExternalName
             externalName: some_hostname
             ports: *defaultPort
+            publishNotReadyAddresses: false
             sessionAffinity: ClientIP
             sessionAffinityConfig:
               clientIP:
@@ -173,6 +178,7 @@ tests:
             type: ExternalName
             externalName: some_hostname
             ports: *defaultPort
+            publishNotReadyAddresses: false
             externalIPs:
               - 192.168.1.20
               - 192.168.1.21
@@ -205,6 +211,7 @@ tests:
             type: ExternalName
             externalName: some_hostname
             ports: *defaultPort
+            publishNotReadyAddresses: false
             externalIPs:
               - 192.168.1.20
               - 192.168.1.21

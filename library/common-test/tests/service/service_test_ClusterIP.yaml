@@ -37,6 +37,7 @@ tests:
                 port: 65535
                 protocol: TCP
                 targetPort: main
+            publishNotReadyAddresses: false
             selector: &defaultSelector
               app: common-test
               app.kubernetes.io/instance: RELEASE-NAME
@@ -56,6 +57,7 @@ tests:
           value:
             type: ClusterIP
             clusterIP: 172.16.0.12
+            publishNotReadyAddresses: false
             ports: *defaultPort
             selector: *defaultSelector
 
@@ -72,6 +74,7 @@ tests:
           value:
             type: ClusterIP
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
       - isNull:
           path: spec.externalTrafficPolicy
@@ -92,6 +95,7 @@ tests:
           value:
             type: ClusterIP
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
             sessionAffinity: None
       - isNull:
@@ -113,6 +117,7 @@ tests:
           value:
             type: ClusterIP
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
             sessionAffinity: ClientIP
             sessionAffinityConfig:
@@ -136,6 +141,7 @@ tests:
           value:
             type: ClusterIP
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
             sessionAffinity: ClientIP
             sessionAffinityConfig:
@@ -158,6 +164,7 @@ tests:
           value:
             type: ClusterIP
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
             externalIPs:
               - 192.168.1.20
@@ -183,6 +190,7 @@ tests:
           value:
             type: ClusterIP
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
             externalIPs:
               - 192.168.1.20
@@ -218,6 +226,7 @@ tests:
           value:
             type: ClusterIP
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
             ipFamilyPolicy: SingleStack
 
@@ -236,6 +245,7 @@ tests:
           value:
             type: ClusterIP
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector: *defaultSelector
             ipFamilies:
               - IPv6
@@ -256,6 +266,7 @@ tests:
           value:
             type: ClusterIP
             ports: *defaultPort
+            publishNotReadyAddresses: false
             selector:
               some_key: some_value
               some_key1: some_value1
