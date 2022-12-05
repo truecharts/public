@@ -8,10 +8,14 @@ Typical setting user:group to `apps`, nothing fancy here
 
 - Placed the created `nzb` dataset within the `downloads` folder
 
-??? Note "Note"
-The `apps`:`apps` user:group is built into Truenas SCALE, it is the default user for most applications on Truenas SCALE. You do not have to create a separate user for each application.
+:::note
 
-    When configuring your application you'll typically see user:group `568`, this is the UID for `apps` and its recommended not to change it.
+The `apps`:`apps` user:group is built into Truenas SCALE, it is the default user for most applications on Truenas SCALE.
+You do not have to create a separate user for each application.
+
+When configuring your application you'll typically see user:group `568`, this is the UID for `apps` and its recommended not to change it.
+
+:::
 
 ![!Dataset: Tube](images/dataset.png)
 
@@ -35,9 +39,20 @@ This is ALSO the port Sonarr/Radarr and other services will use to connect to qB
 
 #### Listening Ports
 
-??? VPN "With VPN" - No need to port forward on your router - If you want fast seeding, you will need a service that supports port forwarding - We use Mullvad, and changed the two ports below to the port that was allocated to me by Mullvad
+:::tip VPN "With VPN"
 
-??? NOVPN "Without VPN" - You can leave the two ports default without a VPN - If you want fast seeding though, you will need to port forward this port on your router
+- No need to port forward on your router
+- If you want fast seeding, you will need a service that supports port forwarding and set the TCP Listening Port to the port Desired
+- Mullvad for example, from Qbit Webui, Tools > Options > Connection tab. Set TCP Listening port to the Port Provided by Mullvad.
+
+:::
+
+:::tip NOVPN "Without VPN"
+
+- You can leave the two ports default without a VPN
+- If you want fast seeding though, you will need to port forward this port on your router
+
+:::
 
 ![!Networking: qbittorrent](images/networking_listening.png)
 
