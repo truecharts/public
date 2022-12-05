@@ -39,13 +39,13 @@ metadata:
   {{- end }}
 spec:
   {{- if eq $svcType "ClusterIP" -}}
-    {{- include "ix.v1.common.class.serivce.clusterIP.spec" (dict "svc" $svcValues "root" $root) | indent 2 -}}
+    {{- include "ix.v1.common.class.serivce.clusterIP.spec" (dict "svc" $svcValues "root" $root) | nindent 2 -}}
   {{- else if eq $svcType "LoadBalancer" -}}
-    {{- include "ix.v1.common.class.serivce.loadBalancer.spec" (dict "svc" $svcValues "root" $root)| indent 2 -}}
+    {{- include "ix.v1.common.class.serivce.loadBalancer.spec" (dict "svc" $svcValues "root" $root)| nindent 2 -}}
   {{- else if eq $svcType "NodePort" -}}
-    {{- include "ix.v1.common.class.serivce.nodePort.spec" (dict "svc" $svcValues "root" $root) | indent 2 -}}
+    {{- include "ix.v1.common.class.serivce.nodePort.spec" (dict "svc" $svcValues "root" $root) | nindent 2 -}}
   {{- else if eq $svcType "ExternalName" -}}
-    {{- include "ix.v1.common.class.serivce.externalName.spec" (dict "svc" $svcValues "root" $root) | indent 2 -}}
+    {{- include "ix.v1.common.class.serivce.externalName.spec" (dict "svc" $svcValues "root" $root) | nindent 2 -}}
   {{- end -}}
   {{- include "ix.v1.common.class.serivce.sessionAffinity" (dict "svc" $svcValues "root" $root) | indent 2 -}}
   {{- include "ix.v1.common.class.serivce.externalIPs" (dict "svc" $svcValues "root" $root) | indent 2 -}}
