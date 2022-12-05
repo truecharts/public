@@ -16,6 +16,16 @@
     {{- $svcType = "ClusterIP" -}} {{/* When hostNetwork is enabled, force ClusterIP as service type */}}
   {{- end -}}
 
+  {{/* When hostPort is used, this port can only be assiged to a ClusterIP Service */}}
+  {{/* If at least one port in a service has hostPort this service will be forced to ClusterIP */}}
+  {{- range $name, $port := $svcValues.ports -}}
+    {{- if $port.enabled -}}
+      {{- if $port.hostPort -}}
+        {{- $svcType = "ClusterIP" -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
   {{- $primaryPort := get $svcValues.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "values" $svcValues "svcName" $svcName)) }}
 ---
 apiVersion: {{ include "ix.v1.common.capabilities.service.apiVersion" $root }}

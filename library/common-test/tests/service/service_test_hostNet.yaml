@@ -44,3 +44,30 @@ tests:
               app.kubernetes.io/instance: RELEASE-NAME
               app.kubernetes.io/name: common-test
               release: RELEASE-NAME
+
+  - it: should pass with hostPort defined, should be forced to ClusterIP
+    documentIndex: *serviceDoc
+    set:
+      service:
+        main:
+          type: LoadBalancer
+          ports:
+            main:
+              port: 65535
+              hostPort: 12345
+    asserts:
+      - equal:
+          path: spec
+          value:
+            type: ClusterIP
+            ports: &defaultPort
+              - name: main
+                port: 65535
+                protocol: TCP
+                targetPort: main
+            publishNotReadyAddresses: false
+            selector: &defaultSelector
+              app: common-test
+              app.kubernetes.io/instance: RELEASE-NAME
+              app.kubernetes.io/name: common-test
+              release: RELEASE-NAME
