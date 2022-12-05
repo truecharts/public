@@ -11,3 +11,4 @@ persistence:
 env:
   - name: 'PENPOT_PUBLIC_URI'
     value: '{{ .Values.penpot.public_uri | quote }}'
+{{- end }}
