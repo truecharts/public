@@ -79,7 +79,7 @@ you can specify a size for memory backed volumes.
     server: {{ required (printf "NFS Server not set on item %s" $index) $persistence.server }}
     path: {{ required (printf "NFS Path not set on item %s" $index) $persistence.path }}
       {{- else if eq $persistence.type "ix-volumes" -}} {{/* ix-volumes */}}
-      {{/* TODO: Implement ix-volumes */}}
+      {{/* TODO: Implement ix-volumes + add hostpathvalidation? */}}
       {{- else if eq $persistence.type "custom" }} {{/* Custom, in case we want to add something once */}}
         {{- tpl ( toYaml $persistence.volumeSpec ) $root | nindent 2 }}
       {{- else -}}
