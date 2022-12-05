@@ -3,24 +3,23 @@ image:
   pullPolicy: IfNotPresent
   tag: 6.1.1@sha256:ed41950556c7b28e0465fa173ad35d7c632fe1883e15761cbdb5dd340a5eeadf
 
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
+# securityContext:
+#   runAsNonRoot: false
+#   readOnlyRootFilesystem: false
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
 
 wordpress:
-  user: "user"
-  pass: "bitnami"
-  email: "user@example.com"
-  first_name: "True"
-  last_name: "Charts"
-  blog_name: "Truecharts Blog"
+  user: user
+  pass: bitnami
+  email: user@example.com
+  first_name: TrueCharts
+  last_name: TrueCharts
+  blog_name: Truecharts Blog
 
-notifier:
-  smtp:
+smtp:
   enabled: false
   host: ""
   port: ""
@@ -28,14 +27,14 @@ notifier:
   pass: ""
 
 php-config:
-PHP_ENABLE_OPCACHE: "yes"
-PHP_EXPOSE_PHP: ""
-PHP_MAX_EXECUTION_TIME: ""
-PHP_MAX_INPUT_TIME: ""
-PHP_MAX_INPUT_VARS: "".
-PHP_MEMORY_LIMIT: "512M"
-PHP_POST_MAX_SIZE: ""
-PHP_UPLOAD_MAX_FILESIZE: ""
+  PHP_ENABLE_OPCACHE: "yes"
+  PHP_EXPOSE_PHP: ""
+  PHP_MAX_EXECUTION_TIME: ""
+  PHP_MAX_INPUT_TIME: ""
+  PHP_MAX_INPUT_VARS: ""
+  PHP_MEMORY_LIMIT: 512M
+  PHP_POST_MAX_SIZE: ""
+  PHP_UPLOAD_MAX_FILESIZE: ""
 
 envFrom:
   - configMapRef:
@@ -59,7 +58,7 @@ mariadb:
   enabled: true
   mariadbUsername: wordpress
   mariadbDatabase: wordpress
-  existingSecret: "mariadbcreds"
+  existingSecret: mariadbcreds
 
 portal:
   enabled: true
