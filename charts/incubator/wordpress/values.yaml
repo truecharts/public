@@ -3,8 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: 6.1.1@sha256:ed41950556c7b28e0465fa173ad35d7c632fe1883e15761cbdb5dd340a5eeadf
 
-# securityContext:
-#   readOnlyRootFilesystem: false
+securityContext:
+  readOnlyRootFilesystem: false
 
 podSecurityContext:
   runAsUser: 1001
