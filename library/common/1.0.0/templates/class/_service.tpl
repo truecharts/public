@@ -51,35 +51,28 @@ spec:
   {{- include "ix.v1.common.class.serivce.externalIPs" (dict "svc" $svcValues "root" $root) | indent 2 -}}
   {{- include "ix.v1.common.class.serivce.publishNotReadyAddresses" (dict "publishNotReadyAddresses" $svcValues.publishNotReadyAddresses) | indent 2 }}
   ports:
-{{- range $name, $port := $svcValues.ports }}
-  {{- if $port.enabled }}
-    {{- $protocol := "TCP" -}} {{/* Default to TCP if no protocol is specified */}}
-    {{- with $port.protocol }}
-      {{- if has . (list "HTTP" "HTTPS" "TCP") -}}
-        {{- $protocol = "TCP" -}}
-      {{- else -}}
-        {{- $protocol = . -}}
-      {{- end -}}
-    {{- end }}
+  {{- range $name, $port := $svcValues.ports }}
+    {{- if $port.enabled }}
+      {{- $protocol := "TCP" -}} {{/* Default to TCP if no protocol is specified */}}
+      {{- with $port.protocol }}
+        {{- if has . (list "HTTP" "HTTPS" "TCP") -}}
+          {{- $protocol = "TCP" -}}
+        {{- else -}}
+          {{- $protocol = . -}}
+        {{- end -}}
+      {{- end }}
     - port: {{ $port.port }}
       name: {{ $name }}
       protocol: {{ $protocol }}
       targetPort: {{ $port.targetPort | default $name }}
-    {{- if and (eq $svcType "NodePort") $port.nodePort }}
+      {{- if and (eq $svcType "NodePort") $port.nodePort }}
       nodePort: {{ $port.nodePort }}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
-{{- end -}}
-{{- if not (has $svcType (list "ExternalName" "ExternalIP")) }}
-  selector:
-  {{- with $svcValues.selector -}} {{/* If custom selector defined */}}
-    {{- range $k, $v := . }}
-    {{ $k }}: {{ tpl $v $root }}
-    {{- end -}}
-  {{- else -}} {{/* else use the generated selectors */}}
-    {{- include "ix.v1.common.labels.selectorLabels" $root | nindent 4 -}}
+  {{- if not (has $svcType (list "ExternalName" "ExternalIP")) -}}
+    {{- include "ix.v1.common.class.serivce.selector" (dict "svc" $svcValues "root" $root) | nindent 2 -}}
   {{- end -}}
-{{- end -}}
   {{- if eq $svcType "ExternalIP" -}}
     {{- include "ix.v1.common.class.serivce.externalTrafficPolicy" (dict "svc" $svcValues "root" $root) | nindent 2 -}}
     {{- include "ix.v1.common.class.serivce.endpoints" (dict "svc" $svcValues "svcName" $svcName "root" $root) | nindent 0 -}}
