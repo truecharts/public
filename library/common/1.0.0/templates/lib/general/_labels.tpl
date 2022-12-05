@@ -2,10 +2,10 @@
 {{- define "ix.v1.common.labels" -}}
 helm.sh/chart: {{ include "ix.v1.common.names.chart" . }}
 {{ include "ix.v1.common.labels.selectorLabels" . }}
-{{- if .Chart.AppVersion }}
+  {{- if .Chart.AppVersion }}
 helm-revision: {{ .Release.Revision | quote }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
-{{- end }}
+  {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
   {{- include "ix.v1.common.util.labels.render" (dict "root" . "labels" .Values.global.labels) -}}
 {{- end -}}
