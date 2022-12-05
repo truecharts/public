@@ -10,10 +10,6 @@ That's why the custom dict is expected.
 {{- define "ix.v1.common.container.envFrom" -}}
 {{- $envFrom := .envFrom -}}
 {{- $root := .root -}}
-{{- if $root.Values.secretEnv }} {{/* TODO: Write unittest once _secret.tpl is completed */}}
-- secretRef:
-    name: {{ include "ix.v1.common.names.fullname" . }}
-{{- end -}}
 {{- range $envFrom -}}
   {{- if .secretRef }}
 - secretRef:
