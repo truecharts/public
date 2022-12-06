@@ -103,6 +103,10 @@ probes:
       periodSeconds: 5
       failureThreshold: 60
 
+# Used for SCALE GUI
+scaleGPU: {}
+
+# Used for SCALE GUI
 externalInterfaces: []
 
 # Injected from middleware
@@ -110,7 +114,7 @@ ixExternalInterfacesConfiguration: []
 # Injected from middleware
 ixExternalInterfacesConfigurationNames: []
 
-# Everything bellow needs documentation
+# - Everything bellow needs documentation
 
 global:
   defaults:
@@ -182,10 +186,7 @@ termination:
   messagePolicy: ""
   gracePeriodSeconds: 10
 
-# TODO: docs -- Used to add SCALE GPU configuration
-# TODO: Verify that this is the correct value returned from ref
-scaleGPU: {}
-  # gpu: 1
+
 
 controller:
   # -- Enable the controller.
