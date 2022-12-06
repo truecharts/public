@@ -79,7 +79,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
   - variable: alertmanager
     group: "App Configuration"
     label: "Alertmanager Settings"
@@ -129,13 +128,6 @@ questions:
                               type: int
                               default: 10086
                               required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9090
         - variable: alertmanager
           label: "alertmanager Service"
           description: "alertmanager service "
@@ -158,13 +150,6 @@ questions:
                               type: int
                               default: 10087
                               required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 9093
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -180,6 +165,5 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
 # Include{ingressList}
 # Include{advanced}

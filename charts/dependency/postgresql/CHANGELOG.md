@@ -2,6 +2,51 @@
 
 
 
+## [postgresql-9.0.0](https://github.com/truecharts/charts/compare/postgresql-8.0.124...postgresql-9.0.0) (2022-11-10)
+
+### Chore
+
+- Major Change to GUI
+
+
+
+
+## [postgresql-8.0.124](https://github.com/truecharts/charts/compare/postgresql-8.0.123...postgresql-8.0.124) (2022-11-09)
+
+### Chore
+
+- update helm chart common to v10.9.5
+
+
+
+
+## [postgresql-8.0.123](https://github.com/truecharts/charts/compare/postgresql-8.0.122...postgresql-8.0.123) (2022-11-08)
+
+### Chore
+
+- update helm chart common to v10.9.4
+
+
+
+
+## [postgresql-8.0.122](https://github.com/truecharts/charts/compare/postgresql-8.0.121...postgresql-8.0.122) (2022-11-08)
+
+### Chore
+
+- update helm chart common to v10.9.3 ([#4348](https://github.com/truecharts/charts/issues/4348))
+
+
+
+
+## [postgresql-8.0.121](https://github.com/truecharts/charts/compare/postgresql-8.0.120...postgresql-8.0.121) (2022-11-07)
+
+### Chore
+
+- update helm chart common to v10.9.1 ([#4339](https://github.com/truecharts/charts/issues/4339))
+
+
+
+
 ## [postgresql-8.0.120](https://github.com/truecharts/charts/compare/postgresql-8.0.119...postgresql-8.0.120) (2022-11-07)
 
 ### Chore

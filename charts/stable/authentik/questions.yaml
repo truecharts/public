@@ -5,15 +5,11 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-# Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}
-# Include{strategy}
-# Include{recreate}
-# Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: authentik
-    group: Container Configuration
+    group: App Configuration
     label: Authentik Configuration
     schema:
       additional_attrs: true
@@ -216,7 +212,7 @@ questions:
                   type: string
                   default: "null"
   - variable: outposts
-    group: Container Configuration
+    group: App Configuration
     label: Outpost Configuration
     schema:
       additional_attrs: true
@@ -357,7 +353,7 @@ questions:
                             # required: true
                             default: ""
   - variable: geoip
-    group: Container Configuration
+    group: App Configuration
     label: GeoIP Configuration
     schema:
       additional_attrs: true
@@ -456,13 +452,6 @@ questions:
                               type: int
                               default: 10229
                               required: true
-# Include{advancedPortHTTPS}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 9443
         - variable: ldapldaps
           label: LDAPS Service
           description: The LDAPS service.
@@ -485,13 +474,6 @@ questions:
                               type: int
                               default: 636
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 6636
         - variable: ldapldap
           label: LDAP Service
           description: The LDAPS service.
@@ -514,13 +496,6 @@ questions:
                               type: int
                               default: 389
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 3389
         - variable: proxyhttps
           label: Proxy HTTPS Service
           description: The Proxy HTTPS service.
@@ -543,13 +518,6 @@ questions:
                               type: int
                               default: 10233
                               required: true
-# Include{advancedPortHTTPS}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 9444
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -563,7 +531,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: templates
           label: App Templates Storage
           description: Stores the Application Templates.
@@ -572,7 +539,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: certs
           label: App Certs Storage
           description: Stores the Application Certs.
@@ -581,7 +547,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: geoip
           label: App GeoIP Storage
           description: Stores the Application GeoIP.
@@ -590,7 +555,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -602,7 +566,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
         - variable: proxyhttps
           label: Proxy HTTPS Ingress
           schema:
@@ -612,7 +575,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
@@ -636,7 +598,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-# Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: runAsUser
@@ -662,7 +623,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{promtail}
-# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

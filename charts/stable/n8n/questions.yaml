@@ -5,15 +5,11 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-# Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}
-# Include{strategy}
-# Include{recreate}
-# Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: timezoneandlocale
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Timezone and Localization"
     schema:
       additional_attrs: true
@@ -26,7 +22,7 @@ questions:
             type: string
             default: ""
   - variable: deployment
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Deployment"
     schema:
       additional_attrs: true
@@ -102,7 +98,7 @@ questions:
             type: boolean
             default: false
   - variable: workflows
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Workflows"
     schema:
       additional_attrs: true
@@ -127,7 +123,7 @@ questions:
             type: boolean
             default: false
   - variable: executions
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Executions"
     schema:
       additional_attrs: true
@@ -226,7 +222,7 @@ questions:
                 schema:
                   type: int
   - variable: n8n_security
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Security"
     schema:
       additional_attrs: true
@@ -321,7 +317,7 @@ questions:
             type: string
             default: ""
   - variable: endpoints
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Endpoints"
     schema:
       additional_attrs: true
@@ -389,7 +385,7 @@ questions:
             type: boolean
             default: false
   - variable: credentials
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Credentials"
     schema:
       additional_attrs: true
@@ -414,7 +410,7 @@ questions:
             type: string
             default: ""
   - variable: logs
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Logs"
     schema:
       additional_attrs: true
@@ -465,7 +461,7 @@ questions:
           schema:
             type: int
   - variable: externalhooks
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "External Hooks"
     schema:
       additional_attrs: true
@@ -478,7 +474,7 @@ questions:
             type: string
             default: ""
   - variable: usermanagement
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "User Management and SMTP"
     schema:
       additional_attrs: true
@@ -568,13 +564,6 @@ questions:
                               type: int
                               default: 5678
                               required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 5678
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -588,7 +577,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -600,7 +588,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
@@ -624,7 +611,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-# Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -649,7 +635,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{promtail}
-# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

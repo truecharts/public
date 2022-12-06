@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/plex
   pullPolicy: IfNotPresent
-  tag: 1.29.1.6316@sha256:56251d9a845cec37a18268ff2298f5ad67eb8d6d2d07db658da947ce81617c63
+  tag: 1.29.2.6364@sha256:16eac4e90b6873107332cd15bdd2e84eea4479adafbcb8032585c180b22b28c9
 
 service:
   main:
@@ -17,16 +17,12 @@ persistence:
     mountPath: "/config"
 
 plex:
-  serverURL: "{{ .Values.service.main.ports.main.protocol | lower }}://{{ .Values.plex.serverIP }}:{{ .Values.service.main.ports.main.port }}"
-  serverIngressURL: "{{ if .Values.ingress.main.enabled }}{{ with (first .Values.ingress.main.hosts) }},https://{{ .host }}{{ end }}{{ end }}"
-  serverIngressURLPort: "{{ if .Values.ingress.main.enabled }}{{ $port := .Values.service.main.ports.main.port }}{{ with (first .Values.ingress.main.hosts) }},https://{{ .host }}:{{ $port }}{{ end }}{{ end }}"
   # User Defined
   serverIP: "127.0.0.1"
   additionalAdvertiseURL: ""
   disableGDM: true
 
 env:
-  ADVERTISE_IP: "{{ tpl (.Values.plex.serverURL) .}}{{ tpl (.Values.plex.serverIngressURL) . }}{{ tpl (.Values.plex.serverIngressURLPort) . }}{{ with .Values.plex.additionalAdvertiseURL }},{{ . }}{{ end }}"
   PLEX_PREFERENCE_GDM: 'GdmEnabled={{ ternary "0" "1" .Values.plex.disableGDM }}'
   # User Defined
   ALLOWED_NETWORKS: "172.16.0.0/12,10.0.0.0/8,192.168.0.0/16"

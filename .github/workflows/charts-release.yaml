@@ -13,8 +13,10 @@ on:
 jobs:
   release-scale:
     runs-on: ubuntu-latest
+    outputs:
+      ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
     container:
-      image: ghcr.io/truecharts/devcontainer:v2.6.0@sha256:5029ebed5c833646da3afb3a8512eba79f08cac8935a53fc1510854fec22341a
+      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:f0ecaa533663f88346b745eb497f6f6acf63561ad88e345cd71c8280963b8c1e
     steps:
       - name: Install Kubernetes tools
         uses: yokawasa/action-setup-kube-tools@b91bb02bc122bd84ac7bbea5f25ed6b0f2ec6275 # tag=v0.9.2
@@ -23,39 +25,36 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - name: Install helm-docs
-        run: |
-          wget -O /tmp/helm-docs.deb  https://github.com/k8s-at-home/helm-docs/releases/download/v0.1.1/helm-docs_0.1.1_Linux_x86_64.deb
-          sudo dpkg -i /tmp/helm-docs.deb
-
       - name: Prep Helm
         run: |
           helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo add grafana https://grafana.github.io/helm-charts
+
           helm repo add prometheus https://prometheus-community.github.io/helm-charts
           helm repo update
 
       - name: Checkout
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
+
+      - name: Setting repo parent dir as safe safe.directory
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Collect changes
         id: collect-changes
         uses: ./.github/actions/collect-changes
 
-      - name: Generate README for changed charts
+      - name: Generate Changelog
         shell: bash
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
           parthreads=$(($(nproc) * 2))
-          parallel -j ${parthreads} .github/scripts/gen-docs.sh '2>&1' ::: ${CHARTS[@]}
+          parallel -j ${parthreads} .github/scripts/changelog.sh '2>&1' ::: ${CHARTS[@]}
 
       - name: Fix Pre-Commit issues
         shell: bash
@@ -68,7 +67,7 @@ jobs:
           find . -name '*.sh' | xargs chmod +x
 
       - name: Checkout
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
@@ -93,37 +92,29 @@ jobs:
                 train=${chart_parts[0]}
                 chart=${chart_parts[1]}
                 echo "copying docs to website for ${chart}"
-                rm -rf website/docs/charts/*/${chart}
+                mkdir -p tmp/website/docs/charts/${train}/${chart}/ || echo "chart path already exists, continuing..."
+                mv -f website/docs/charts/${train}/${chart}/CHANGELOG.md tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md || :
+                rm -rf website/docs/charts/*/${chart} || :
                 mkdir -p website/docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
-                yes | cp -rf charts/${train}/${chart}/README.md website/docs/charts/${train}/${chart}/index.md 2>/dev/null || :
-                yes | cp -rf charts/${train}/${chart}/CHANGELOG.md website/docs/charts/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/docs/* website/docs/charts/${train}/${chart}/ 2>/dev/null || :
+                yes | cp -f templates/docs/index.md website/docs/charts/${train}/${chart}/index.md 2>/dev/null || :
+                sed -i "s/APPNAME/${chart}/" "website/docs/charts/${train}/${chart}/index.md" || echo "failed to add index header..."
+                mv -f tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md website/docs/charts/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/icon.png website/static/img/hotlink-ok/chart-icons/${chart}.png 2>/dev/null || :
+                # Append SCALE changelog to actual changelog
+                if [[ -f "website/docs/charts/${train}/${chart}/CHANGELOG.md" ]]; then
+                   echo "changelog found..."
+                   true
+                else
+                   echo "changelog not found, starting with empty changelog..."
+                   touch "website/docs/charts/${train}/${chart}/CHANGELOG.md"
+                fi
+                sed -i '1d' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to sed 1d changelog..."
+                cat "charts/${train}/${chart}/app-changelog.md" | cat - "website/docs/charts/${train}/${chart}/CHANGELOG.md" > temp && mv temp "website/docs/charts/${train}/${chart}/CHANGELOG.md"
+                sed -i '1s/^/# Changelog\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to add changelog header..."
+                rm -rf temp || :
               fi
           done
-
-      - name: Create commit
-        id: create-commit
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
-        uses: stefanzweifel/git-auto-commit-action@49620cd3ed21ee620a48530e81dba0d139c9cb80 # v4
-        with:
-          file_pattern: charts/**/
-          commit_message: "chore: Auto-update chart README [skip ci]"
-          commit_user_name: truecharts-bot
-          commit_user_email: bot@truecharts.org
-          commit_author: truecharts-bot <bot@truecharts.org>
-
-      - name: Save commit hash
-        id: save-commit-hash
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
-        run: |
-          if [ "${{ steps.create-commit.outputs.changes_detected || 'unknown' }}" = "true" ]; then
-            echo '::set-output name=commit_hash::${{ steps.create-commit.outputs.commit_hash }}'
-          else
-            echo "::set-output name=commit_hash::${GITHUB_SHA}"
-          fi
 
       - name: Commit Website Changes
         if: |
@@ -135,11 +126,9 @@ jobs:
           git add --all
           git commit -sm "Commit released docs for TrueCharts" || exit 0
           git push
-          cd -
-          rm -rf website
 
-      - name: Checkout
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+      - name: Checkout Catalog
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
@@ -149,15 +138,20 @@ jobs:
           ref: staging
           path: catalog
 
-      - name: build catalogs
+      - name: build catalog
         shell: bash
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
-          pip install yq
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
+          charts_path="charts"
+          for changed in ${CHARTS[@]}; do
+            .github/scripts/fetch_helm_deps.sh "${changed}"
+          done
+          pip install yq
           parthreads=$(($(nproc) * 2))
           parallel -j ${parthreads} .github/scripts/build-catalog.sh '2>&1' ::: ${CHARTS[@]}
+          rm -rf website
 
       - name: Commit Catalog
         if: |
@@ -171,24 +165,16 @@ jobs:
           git push
           cd -
           rm -rf catalog
-          
-      - name: Checkout
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+
+      - name: set git author
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
-        with:
-          token: ${{ secrets.BOT_TOKEN }}
-          ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
-          fetch-depth: 0
-          
-      - name: Configure Git
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
+        shell: bash
         run: |
-          git config user.name "truecharts-bot"
+          git config user.name "TrueCharts-Bot"
           git config user.email "bot@truecharts.org"
-          
-      - name: Run chart-releaser
+
+      - name: Run chart-releaser for dependency apps
         uses: helm/chart-releaser-action@98bccfd32b0f76149d188912ac8e45ddd3f8695f # tag=v1.4.1
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
@@ -198,3 +184,27 @@ jobs:
         env:
           CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
           CR_SKIP_EXISTING: "true"
+
+      - name: Tag App Releases
+        if: |
+          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
+        shell: bash
+        run: |
+          #!/bin/bash
+          CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
+          echo "Removing Chart Docs prior to regeneration..."
+          mkdir -p website/static/img/hotlink-ok/chart-icons || echo "chart-icons path already exists, continuing..."
+          for i in "${CHARTS[@]}"
+          do
+              IFS='/' read -r -a chart_parts <<< "$i"
+              if [ -f "charts/${chart_parts[0]}"/"${chart_parts[1]}/Chart.yaml" ]; then
+                train=${chart_parts[0]}
+                chart=${chart_parts[1]}
+                if [ "${train}" != "dependency" ]; then
+                  echo "creating tag for ${chart}"
+                  version=$(cat charts/${train}/${chart}/Chart.yaml | grep '^version: ' | awk -F" " '{ print $2 }' | head -1)
+                  git tag ${chart}-${version} || echo "tag failed for ${chart}-${version}"
+                fi
+              fi
+          done
+          git push --tags

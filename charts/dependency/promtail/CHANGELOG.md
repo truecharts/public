@@ -2,6 +2,51 @@
 
 
 
+## [promtail-4.0.0](https://github.com/truecharts/charts/compare/promtail-3.0.80...promtail-4.0.0) (2022-11-10)
+
+### Chore
+
+- Major Change to GUI
+
+
+
+
+## [promtail-3.0.80](https://github.com/truecharts/charts/compare/promtail-3.0.79...promtail-3.0.80) (2022-11-09)
+
+### Chore
+
+- update helm chart common to v10.9.5
+
+
+
+
+## [promtail-3.0.79](https://github.com/truecharts/charts/compare/promtail-3.0.78...promtail-3.0.79) (2022-11-08)
+
+### Chore
+
+- update helm chart common to v10.9.4
+
+
+
+
+## [promtail-3.0.78](https://github.com/truecharts/charts/compare/promtail-3.0.77...promtail-3.0.78) (2022-11-08)
+
+### Chore
+
+- update helm chart common to v10.9.3 ([#4348](https://github.com/truecharts/charts/issues/4348))
+
+
+
+
+## [promtail-3.0.77](https://github.com/truecharts/charts/compare/promtail-3.0.76...promtail-3.0.77) (2022-11-07)
+
+### Chore
+
+- update helm chart common to v10.9.1 ([#4339](https://github.com/truecharts/charts/issues/4339))
+
+
+
+
 ## [promtail-3.0.76](https://github.com/truecharts/charts/compare/promtail-3.0.75...promtail-3.0.76) (2022-11-07)
 
 ### Chore

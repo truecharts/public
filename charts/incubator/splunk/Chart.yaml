@@ -8,7 +8,7 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 10.8.1
+    version: 11.0.4
 deprecated: false
 description: "This is a Chartfile for Splunk designed for OpenShift and TrueNAS based on Alpine Linux - https://www.splunk.com"
 home: https://truecharts.org/docs/charts/incubator/splunk
@@ -25,7 +25,7 @@ maintainers:
 name: splunk
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/splunk
-  - https://www.splunk.com/
-  - https://hub.docker.com/r/atunnecliffe/splunk
+  - https://splunk.github.io/docker-splunk
+  - https://hub.docker.com/r/splunk/splunk
 type: application
-version: 0.0.35
+version: 3.0.0

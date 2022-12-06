@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/omada-controller
-  tag: 5.5@sha256:394fa05a26de61a45f8b364c69b4253443e46e0ffd02dc68453fd020d73037e1
+  tag: 5.7.0@sha256:9df7901df1c7fdc409613600dd703b53490298a815e70c5a4698e8e9649fd06c
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -12,10 +12,6 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  # Omada automatically redirects to that port.
-  # Instead of consuming the external 443 port, it's better to switch internal
-  # But still give user the ability to change it.
-  MANAGE_HTTPS_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
   PORTAL_HTTPS_PORT: "{{ .Values.service.comm.ports.comm.port }}"
 
 service:
@@ -24,7 +20,6 @@ service:
       main:
         protocol: HTTPS
         port: 8043
-        targetPort: 443
   comm:
     enabled: true
     ports:

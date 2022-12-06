@@ -5,12 +5,8 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-# Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}
-# Include{strategy}
-# Include{recreate}
-# Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
 # Include{serviceRoot}
@@ -36,13 +32,6 @@ questions:
                               type: int
                               default: 8043
                               required: true
-# Include{advancedPortHTTPS}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 443
         - variable: comm
           label: Omada Controller User HTTPS portal
           description: Omada Controller User HTTPS portal
@@ -65,13 +54,6 @@ questions:
                               type: int
                               default: 8843
                               required: true
-# Include{advancedPortHTTPS}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 8843
         - variable: omada-tcp
           label: Omada TCP
           description: Omada TCP
@@ -95,13 +77,6 @@ questions:
                               type: int
                               default: 29811
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 29811
                     - variable: omada-tcp2
                       label: Omada TCP 2
                       description: Omada Controller or EAP Discovery Utility manages Omada devices before Omada Controller v5.x.
@@ -116,13 +91,6 @@ questions:
                               type: int
                               default: 29812
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 29812
                     - variable: omada-tcp3
                       label: Omada TCP 3
                       description: Omada Controller upgrades Omada devices before Omada Controller v5.x.
@@ -137,13 +105,6 @@ questions:
                               type: int
                               default: 29813
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 29813
                     - variable: omada-tcp4
                       label: Omada TCP 4
                       description: Omada Controller or EAP Discovery Utility adopts Omada devices since Omada Controller v5.x.
@@ -158,13 +119,6 @@ questions:
                               type: int
                               default: 29814
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 29814
         - variable: omada-udp
           label: Omada UDP
           description: Omada UDP
@@ -188,13 +142,6 @@ questions:
                               type: int
                               default: 29810
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 29810
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -208,7 +155,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: work
           label: App working Storage
           description: Stores the Application data between resets.
@@ -217,7 +163,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -229,7 +174,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
         - variable: comm
           label: Comm Ingress
           schema:
@@ -239,7 +183,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
@@ -263,7 +206,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-# Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: runAsUser
@@ -288,7 +230,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{promtail}
-# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

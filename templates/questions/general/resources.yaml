@@ -1,58 +1,53 @@
-
-  - variable: advancedresources
-    label: Set Custom Resource Limits/Requests (Advanced)
+  - variable: resources
     group: Resources and Devices
+    label: "Resource Limits"
     schema:
-      type: boolean
-      default: false
-      show_subquestions_if: true
-      subquestions:
-        - variable: resources
-          label: ""
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: limits
+          label: Advanced Limit Resource Consumption
           schema:
             additional_attrs: true
             type: dict
             attrs:
-              - variable: limits
-                label: Advanced Limit Resource Consumption
+              - variable: cpu
+                label: CPU
+                description: "1000m means 1 hyperthread. Detailed info: https://truecharts.org/docs/manual/SCALE%20Apps/indepth/validation"
                 schema:
-                  additional_attrs: true
-                  type: dict
-                  attrs:
-                    - variable: cpu
-                      label: CPU
-                      description: "1000m means 1 hyperthread. Detailed info: https://truecharts.org/docs/manual/SCALE%20Apps/indepth/validation"
-                      schema:
-                        type: string
-                        default: 4000m
-                        valid_chars: '^(?!^0(\.0|m|)$)([0-9]+)(\.[0-9]|m?)$'
-                    - variable: memory
-                      label: RAM
-                      description: "1Gi means 1 Gibibyte RAM. Detailed info: https://truecharts.org/docs/manual/SCALE%20Apps/indepth/validation"
-                      schema:
-                        type: string
-                        default: 8Gi
-                        valid_chars: '^(?!^0(e[0-9]|[EPTGMK]i?|)$)([0-9]+)(|[EPTGMK]i?|e[0-9]+)$'
-              - variable: requests
-                label: "Minimum Resources Required (request)"
+                  type: string
+                  default: 4000m
+                  valid_chars: '^(?!^0(\.0|m|)$)([0-9]+)(\.[0-9]|m?)$'
+              - variable: memory
+                label: RAM
+                description: "1Gi means 1 Gibibyte RAM. Detailed info: https://truecharts.org/docs/manual/SCALE%20Apps/indepth/validation"
                 schema:
-                  additional_attrs: true
-                  type: dict
-                  attrs:
-                    - variable: cpu
-                      label: CPU
-                      description: "1000m means 1 hyperthread. Detailed info: https://truecharts.org/docs/manual/SCALE%20Apps/indepth/validation"
-                      schema:
-                        type: string
-                        default: 10m
-                        valid_chars: '^(?!^0(\.0|m|)$)([0-9]+)(\.[0-9]|m?)$'
-                    - variable: memory
-                      label: "RAM"
-                      description: "1Gi means 1 Gibibyte RAM. Detailed info: https://truecharts.org/docs/manual/SCALE%20Apps/indepth/validation"
-                      schema:
-                        type: string
-                        default: 50Mi
-                        valid_chars: '^(?!^0(e[0-9]|[EPTGMK]i?|)$)([0-9]+)(|[EPTGMK]i?|e[0-9]+)$'
+                  type: string
+                  default: 8Gi
+                  valid_chars: '^(?!^0(e[0-9]|[EPTGMK]i?|)$)([0-9]+)(|[EPTGMK]i?|e[0-9]+)$'
+        - variable: requests
+          label: "Minimum Resources Required (request)"
+          schema:
+            additional_attrs: true
+            type: dict
+            hidden: true
+            attrs:
+              - variable: cpu
+                label: CPU
+                description: "1000m means 1 hyperthread. Detailed info: https://truecharts.org/docs/manual/SCALE%20Apps/indepth/validation"
+                schema:
+                  type: string
+                  default: 10m
+                  hidden: true
+                  valid_chars: '^(?!^0(\.0|m|)$)([0-9]+)(\.[0-9]|m?)$'
+              - variable: memory
+                label: "RAM"
+                description: "1Gi means 1 Gibibyte RAM. Detailed info: https://truecharts.org/docs/manual/SCALE%20Apps/indepth/validation"
+                schema:
+                  type: string
+                  default: 50Mi
+                  hidden: true
+                  valid_chars: '^(?!^0(e[0-9]|[EPTGMK]i?|)$)([0-9]+)(|[EPTGMK]i?|e[0-9]+)$'
   - variable: deviceList
     label: Mount USB Devices
     group: Resources and Devices

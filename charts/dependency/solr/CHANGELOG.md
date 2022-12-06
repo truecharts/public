@@ -2,6 +2,62 @@
 
 
 
+## [solr-1.0.0](https://github.com/truecharts/charts/compare/solr-0.0.92...solr-1.0.0) (2022-11-10)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Major Change to GUI
+  - update docker general non-major ([#4366](https://github.com/truecharts/charts/issues/4366))
+
+
+
+
+## [solr-0.0.93](https://github.com/truecharts/charts/compare/solr-0.0.92...solr-0.0.93) (2022-11-10)
+
+### Chore
+
+- update docker general non-major ([#4366](https://github.com/truecharts/charts/issues/4366))
+
+
+
+
+## [solr-0.0.92](https://github.com/truecharts/charts/compare/solr-0.0.91...solr-0.0.92) (2022-11-09)
+
+### Chore
+
+- update helm chart common to v10.9.5
+
+
+
+
+## [solr-0.0.91](https://github.com/truecharts/charts/compare/solr-0.0.90...solr-0.0.91) (2022-11-08)
+
+### Chore
+
+- update helm chart common to v10.9.4
+
+
+
+
+## [solr-0.0.90](https://github.com/truecharts/charts/compare/solr-0.0.89...solr-0.0.90) (2022-11-08)
+
+### Chore
+
+- update helm chart common to v10.9.3 ([#4348](https://github.com/truecharts/charts/issues/4348))
+
+
+
+
+## [solr-0.0.89](https://github.com/truecharts/charts/compare/solr-0.0.88...solr-0.0.89) (2022-11-07)
+
+### Chore
+
+- update helm chart common to v10.9.1 ([#4339](https://github.com/truecharts/charts/issues/4339))
+
+
+
+
 ## [solr-0.0.88](https://github.com/truecharts/charts/compare/solr-0.0.87...solr-0.0.88) (2022-11-07)
 
 ### Chore

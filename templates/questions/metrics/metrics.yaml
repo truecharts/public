@@ -10,7 +10,7 @@
           description: Enable Prometheus Metrics
           schema:
             type: boolean
-            default: false
+            default: true
             show_subquestions_if: true
             subquestions:
               - variable: serviceMonitor

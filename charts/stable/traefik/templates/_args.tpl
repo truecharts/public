@@ -158,6 +158,12 @@ args:
   - "--experimental.plugins.traefik-themepark.version={{ .Values.middlewares.themeParkVersion }}"
   {{- end }}
   {{/* End of theme.park */}}
+  {{/* GeoBlock */}}
+  {{- if .Values.middlewares.geoBlock }}
+  - "--experimental.plugins.GeoBlock.modulename=github.com/PascalMinder/geoblock"
+  - "--experimental.plugins.GeoBlock.version={{ .Values.middlewares.geoBlockVersion }}"
+  {{- end }}
+  {{/* End of GeoBlock */}}
   {{/* RealIP */}}
   {{- if .Values.middlewares.realIP }}
   - "--experimental.plugins.traefik-real-ip.modulename=github.com/soulbalz/traefik-real-ip"

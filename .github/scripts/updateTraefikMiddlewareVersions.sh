@@ -42,8 +42,12 @@ update_plugin() {
 }
 # Example
 # update_plugin "repo" "key_holding_version_in_values.yaml" "plugin_name_used_for_verbose_printing_only"
+
 # Real IP
 update_plugin "soulbalz/traefik-real-ip" "realIPVersion" "RealIP"
 
 # Theme Park
 update_plugin "packruler/traefik-themepark" "themeParkVersion" "ThemePark"
+
+# GeoBlock
+update_plugin "PascalMinder/geoblock" "geoBlockVersion" "GeoBlock"

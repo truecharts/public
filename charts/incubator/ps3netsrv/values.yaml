@@ -1,17 +1,12 @@
-env:
-  GROUP_ID: ""
-  USER_ID: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/ps3netsrv
-  tag: latest@sha256:384aafcd9742fa0867b5e89f0ad88db0866dff295bf10425c208b431e20e1dd6
-persistence:
-  gamesfolder:
-    enabled: true
-    mountPath: /games
+  tag: latest@sha256:200e6662a6e5e581ac0018b6e3dda69889e904585574315016f875bbd4476d45
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -20,8 +15,14 @@ service:
     ports:
       main:
         port: 38008
-        protocol: TCP
+        protocol: HTTP
         targetPort: 38008
 
+persistence:
+  games:
+    enabled: true
+    mountPath: /games
+  varrun:
+    enabled: true
 portal:
   enabled: true

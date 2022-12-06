@@ -1,21 +1,20 @@
 image:
-  repository: tccr.io/truecharts/prometheus-operator
-  tag: 0.60.1@sha256:6a4e096b210fd3c809af03ca2eba0c00523ed4e30204d884e5a5ece75fa504f2
-
-prometheusImage:
   repository: tccr.io/truecharts/prometheus
-  tag: 2.39.1@sha256:55ad0c16a9f682a7616868714ae7196156ceb131bb3228d65761fbc3c42e5d66
+  tag: 2.40.5@sha256:1e3901f5074bd05bc08d05dfbac12721c1956c209ae71757326838b8ada475ef
 
 thanosImage:
   repository: tccr.io/truecharts/thanos
-  tag: 0.28.1@sha256:eaef8f71a4a29afbae2fd090afd9aa24de0db02ff65de9ff052a09df9b16be5d
+  tag: 0.29.0@sha256:5b1bd1c381213b465ff7a999daa5d3b215f1b91065fe14eb5a5a8c1e98398afb
 
 alertmanagerImage:
   repository: tccr.io/truecharts/alertmanager
-  tag: v0.24.0@sha256:c4d9cf9a6ff3106cd8e9a728869b49c137d0ab356e7507655d07cc7711a80150
+  tag: v0.24.0@sha256:cd41860aee736ca669809c42fe56e90d4b1f341bf81aaa0bca31d06a0b78a2c3
 
 global:
   labels: {}
+
+controller:
+  enabled: false
 
 service:
   main:
@@ -26,14 +25,6 @@ service:
       main:
         port: 10086
         targetPort: 9090
-        protocol: HTTP
-  promop:
-    enabled: true
-    ports:
-      promop:
-        enabled: true
-        port: 10089
-        targetPort: 8080
         protocol: HTTP
   alertmanager:
     enabled: true
@@ -213,13 +204,12 @@ probes:
         scheme: HTTP
 
 operator:
-  enabled: true
   ## Create a servicemonitor for the operator
   ##
   serviceMonitor:
     ## @param operator.serviceMonitor.enabled Creates a ServiceMonitor to monitor Prometheus Operator
     ##
-    enabled: true
+    enabled: false
     ## @param operator.serviceMonitor.interval Scrape interval (use by default, falling back to Prometheus' default)
     ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#endpoint
     ##
@@ -232,21 +222,6 @@ operator:
     ## ref: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config
     ##
     relabelings: []
-
-  ## @param operator.logLevel Log level for Prometheus Operator
-  ##
-  logLevel: info
-  ## @param operator.logFormat Log format for Prometheus Operator
-  ##
-  logFormat: logfmt
-
-  configReloaderResources: {}
-  ## @param operator.kubeletService.enabled If true, the operator will create and maintain a service for scraping kubelets
-  ## @param operator.kubeletService.namespace Namespace to deploy the kubelet service
-  ##
-  kubeletService:
-    enabled: true
-    namespace: kube-system
 
   ## Prometheus Configmap-reload image to use for reloading configmaps
   ## defaults to Bitnami Prometheus Operator (ref: https://hub.docker.com/r/tccr.io/truecharts/prometheus-operator/tags/)

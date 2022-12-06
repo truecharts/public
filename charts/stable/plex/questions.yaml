@@ -2,69 +2,65 @@
 portals:
   open:
 # Include{portalLink}
-    path: "/web"
+    path: /web
 questions:
 # Include{global}
 # Include{controller}
-# Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}
-# Include{strategy}
-# Include{recreate}
-# Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: plex
-    group: "Container Configuration"
-    label: "Plex Configuration"
+    group: App Configuration
+    label: Plex Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: serverIP
-          label: "Server IP"
-          description: "Set to the IP-Address used to reach Plex."
+          label: Server IP
+          description: Set to the IP-Address used to reach Plex.
           schema:
             type: string
             required: true
             $ref:
-              - "definitions/nodeIP"
+              - definitions/nodeIP
         - variable: additionalAdvertiseURL
-          label: "Addition Advertise URLs"
-          description: "URLs to advertise to Plex, format http(s)://IPorDNS:3200. By default your serverIP and ingress URL is added"
+          label: Addition Advertise URLs
+          description: URLs to advertise to Plex, format http(s)://IPorDNS:3200. By default your serverIP and ingress URL is added"
           schema:
             type: string
             valid_chars: '^$|^(http(s)?:\/\/([a-zA-Z0-9.-]*)(:\d{0,5})?,?)*$'
             default: ""
         - variable: disableGDM
-          label: "Disable GDM"
-          description: "Recommended to keep this to true. Disables legacy local network discovery. Keeping it enabled might break discovery for some Plex Clients"
+          label: Disable GDM
+          description: Recommended to keep this to true. Disables legacy local network discovery. Keeping it enabled might break discovery for some Plex Clients
           schema:
             type: boolean
             default: true
   - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
+    group: App Configuration
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: ALLOWED_NETWORKS
-          label: "Allowed Networks"
-          description: "Networks allowed to connect to plex. Add your local network IP to this list"
+          label: Allowed Networks
+          description: Networks allowed to connect to plex. Add your local network IP to this list
           schema:
             type: string
-            default: "172.16.0.0/12,10.0.0.0/8,192.168.0.0/16"
+            default: 172.16.0.0/12,10.0.0.0/8,192.168.0.0/16
         - variable: PLEX_CLAIM
-          label: "Plex Claim Token"
-          description: "Claim token to use to register the plex server (Max. 4 minutes old!). You can obtain a claim token to login your server to your plex account by visiting https://www.plex.tv/claim."
+          label: Plex Claim Token
+          description: Claim token to use to register the plex server (Max. 4 minutes old!). You can obtain a claim token to login your server to your plex account by visiting https://www.plex.tv/claim.
           schema:
             type: string
             default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -72,43 +68,35 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 32400
                               required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 32400
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+          label: App Config Storage
+          description: Stores the Application Configuration.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -116,47 +104,45 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: true
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: true
-# Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 568
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 568
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
@@ -165,7 +151,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{promtail}
-# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

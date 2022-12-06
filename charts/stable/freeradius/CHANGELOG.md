@@ -2,7 +2,85 @@
 
 
 
-## [freeradius-6.0.43](https://github.com/truecharts/charts/compare/freeradius-6.0.42...freeradius-6.0.43) (2022-11-07)
+## [freeradius-7.0.0](https://github.com/truecharts/charts/compare/freeradius-6.0.42...freeradius-7.0.0) (2022-11-10)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Major Change to GUI
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4349](https://github.com/truecharts/charts/issues/4349))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [fossil-4.0.43](https://github.com/truecharts/charts/compare/fossil-4.0.40...fossil-4.0.43) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4349](https://github.com/truecharts/charts/issues/4349))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [fossil-4.0.42](https://github.com/truecharts/charts/compare/fossil-4.0.40...fossil-4.0.42) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [fossil-4.0.42](https://github.com/truecharts/charts/compare/fossil-4.0.40...fossil-4.0.42) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [fossil-4.0.42](https://github.com/truecharts/charts/compare/fossil-4.0.40...fossil-4.0.42) (2022-11-08)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
+  - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
+
+
+
+
+## [fossil-4.0.41](https://github.com/truecharts/charts/compare/fossil-4.0.40...fossil-4.0.41) (2022-11-07)
 
 ### Chore
 
@@ -13,7 +91,7 @@
 
 
 
-## [freeradius-6.0.43](https://github.com/truecharts/charts/compare/freeradius-6.0.42...freeradius-6.0.43) (2022-11-06)
+## [fossil-4.0.41](https://github.com/truecharts/charts/compare/fossil-4.0.40...fossil-4.0.41) (2022-11-06)
 
 ### Chore
 
@@ -23,7 +101,7 @@
 
 
 
-## [freeradius-6.0.42](https://github.com/truecharts/charts/compare/freeradius-6.0.41...freeradius-6.0.42) (2022-11-06)
+## [fossil-4.0.40](https://github.com/truecharts/charts/compare/fossil-4.0.39...fossil-4.0.40) (2022-11-06)
 
 ### Chore
 
@@ -33,7 +111,7 @@
 
 
 
-## [freeradius-6.0.41](https://github.com/truecharts/charts/compare/freeradius-6.0.40...freeradius-6.0.41) (2022-11-05)
+## [fossil-4.0.39](https://github.com/truecharts/charts/compare/fossil-4.0.38...fossil-4.0.39) (2022-11-05)
 
 ### Chore
 
@@ -43,7 +121,7 @@
 
 
 
-## [freeradius-6.0.40](https://github.com/truecharts/charts/compare/freeradius-6.0.39...freeradius-6.0.40) (2022-11-02)
+## [fossil-4.0.38](https://github.com/truecharts/charts/compare/fossil-4.0.37...fossil-4.0.38) (2022-11-02)
 
 ### Chore
 
@@ -53,7 +131,7 @@
 
 
 
-## [freeradius-6.0.39](https://github.com/truecharts/charts/compare/freeradius-6.0.38...freeradius-6.0.39) (2022-10-25)
+## [fossil-4.0.37](https://github.com/truecharts/charts/compare/fossil-4.0.36...fossil-4.0.37) (2022-10-25)
 
 ### Chore
 
@@ -63,7 +141,7 @@
 
 
 
-## [freeradius-6.0.38](https://github.com/truecharts/charts/compare/freeradius-6.0.37...freeradius-6.0.38) (2022-10-19)
+## [fossil-4.0.36](https://github.com/truecharts/charts/compare/fossil-4.0.35...fossil-4.0.36) (2022-10-19)
 
 ### Chore
 
@@ -73,7 +151,7 @@
 
 
 
-## [freeradius-6.0.37](https://github.com/truecharts/charts/compare/freeradius-6.0.36...freeradius-6.0.37) (2022-10-12)
+## [fossil-4.0.35](https://github.com/truecharts/charts/compare/fossil-4.0.34...fossil-4.0.35) (2022-10-12)
 
 ### Chore
 
@@ -83,7 +161,7 @@
 
 
 
-## [freeradius-6.0.36](https://github.com/truecharts/charts/compare/freeradius-6.0.35...freeradius-6.0.36) (2022-10-07)
+## [fossil-4.0.34](https://github.com/truecharts/charts/compare/fossil-4.0.33...fossil-4.0.34) (2022-10-07)
 
 ### Chore
 
@@ -94,7 +172,7 @@
 
 
 
-## [freeradius-6.0.36](https://github.com/truecharts/charts/compare/freeradius-6.0.35...freeradius-6.0.36) (2022-10-07)
+## [fossil-4.0.34](https://github.com/truecharts/charts/compare/fossil-4.0.33...fossil-4.0.34) (2022-10-07)
 
 ### Chore
 
@@ -104,7 +182,7 @@
 
 
 
-## [freeradius-6.0.35](https://github.com/truecharts/charts/compare/freeradius-6.0.34...freeradius-6.0.35) (2022-10-05)
+## [fossil-4.0.33](https://github.com/truecharts/charts/compare/fossil-4.0.32...fossil-4.0.33) (2022-10-05)
 
 ### Chore
 
@@ -115,7 +193,7 @@
 
 
 
-## [freeradius-6.0.34](https://github.com/truecharts/charts/compare/freeradius-6.0.33...freeradius-6.0.34) (2022-09-27)
+## [fossil-4.0.32](https://github.com/truecharts/charts/compare/fossil-4.0.31...fossil-4.0.32) (2022-09-27)
 
 ### Chore
 
@@ -125,7 +203,7 @@
 
 
 
-## [freeradius-6.0.33](https://github.com/truecharts/charts/compare/freeradius-6.0.32...freeradius-6.0.33) (2022-09-25)
+## [fossil-4.0.31](https://github.com/truecharts/charts/compare/fossil-4.0.30...fossil-4.0.31) (2022-09-25)
 
 ### Chore
 
@@ -135,7 +213,7 @@
 
 
 
-## [freeradius-6.0.32](https://github.com/truecharts/charts/compare/freeradius-6.0.31...freeradius-6.0.32) (2022-09-22)
+## [fossil-4.0.30](https://github.com/truecharts/charts/compare/fossil-4.0.29...fossil-4.0.30) (2022-09-22)
 
 ### Chore
 
@@ -159,7 +237,7 @@
 
 
 
-## [freeradius-6.0.32](https://github.com/truecharts/charts/compare/freeradius-6.0.31...freeradius-6.0.32) (2022-09-21)
+## [fossil-4.0.30](https://github.com/truecharts/charts/compare/fossil-4.0.29...fossil-4.0.30) (2022-09-21)
 
 ### Chore
 
@@ -182,7 +260,7 @@
 
 
 
-## [freeradius-6.0.32](https://github.com/truecharts/charts/compare/freeradius-6.0.31...freeradius-6.0.32) (2022-09-21)
+## [fossil-4.0.30](https://github.com/truecharts/charts/compare/fossil-4.0.29...fossil-4.0.30) (2022-09-21)
 
 ### Chore
 
@@ -204,7 +282,7 @@
 
 
 
-## [freeradius-6.0.32](https://github.com/truecharts/charts/compare/freeradius-6.0.31...freeradius-6.0.32) (2022-09-20)
+## [fossil-4.0.30](https://github.com/truecharts/charts/compare/fossil-4.0.29...fossil-4.0.30) (2022-09-20)
 
 ### Chore
 
@@ -225,7 +303,7 @@
 
 
 
-## [freeradius-6.0.32](https://github.com/truecharts/charts/compare/freeradius-6.0.31...freeradius-6.0.32) (2022-09-20)
+## [fossil-4.0.30](https://github.com/truecharts/charts/compare/fossil-4.0.29...fossil-4.0.30) (2022-09-20)
 
 ### Chore
 
@@ -245,7 +323,7 @@
 
 
 
-## [freeradius-6.0.32](https://github.com/truecharts/charts/compare/freeradius-6.0.31...freeradius-6.0.32) (2022-09-19)
+## [fossil-4.0.30](https://github.com/truecharts/charts/compare/fossil-4.0.29...fossil-4.0.30) (2022-09-19)
 
 ### Chore
 
@@ -264,7 +342,7 @@
 
 
 
-## [freeradius-6.0.32](https://github.com/truecharts/charts/compare/freeradius-6.0.31...freeradius-6.0.32) (2022-09-19)
+## [fossil-4.0.30](https://github.com/truecharts/charts/compare/fossil-4.0.29...fossil-4.0.30) (2022-09-19)
 
 ### Chore
 
@@ -282,7 +360,7 @@
 
 
 
-## [freeradius-6.0.32](https://github.com/truecharts/charts/compare/freeradius-6.0.31...freeradius-6.0.32) (2022-09-19)
+## [fossil-4.0.30](https://github.com/truecharts/charts/compare/fossil-4.0.29...fossil-4.0.30) (2022-09-19)
 
 ### Chore
 
@@ -299,7 +377,7 @@
 
 
 
-## [freeradius-6.0.32](https://github.com/truecharts/charts/compare/freeradius-6.0.31...freeradius-6.0.32) (2022-09-17)
+## [fossil-4.0.30](https://github.com/truecharts/charts/compare/fossil-4.0.29...fossil-4.0.30) (2022-09-17)
 
 ### Chore
 
@@ -315,7 +393,7 @@
 
 
 
-## [freeradius-6.0.32](https://github.com/truecharts/charts/compare/freeradius-6.0.31...freeradius-6.0.32) (2022-09-18)
+## [fossil-4.0.30](https://github.com/truecharts/charts/compare/fossil-4.0.29...fossil-4.0.30) (2022-09-18)
 
 ### Chore
 
@@ -329,7 +407,7 @@
 
 
 
-## [freeradius-6.0.32](https://github.com/truecharts/charts/compare/freeradius-6.0.31...freeradius-6.0.32) (2022-09-16)
+## [fossil-4.0.30](https://github.com/truecharts/charts/compare/fossil-4.0.29...fossil-4.0.30) (2022-09-16)
 
 ### Chore
 
@@ -342,7 +420,7 @@
 
 
 
-## [freeradius-6.0.32](https://github.com/truecharts/charts/compare/freeradius-6.0.31...freeradius-6.0.32) (2022-09-16)
+## [fossil-4.0.30](https://github.com/truecharts/charts/compare/fossil-4.0.29...fossil-4.0.30) (2022-09-16)
 
 ### Chore
 
@@ -354,7 +432,7 @@
 
 
 
-## [freeradius-6.0.32](https://github.com/truecharts/charts/compare/freeradius-6.0.31...freeradius-6.0.32) (2022-09-15)
+## [fossil-4.0.30](https://github.com/truecharts/charts/compare/fossil-4.0.29...fossil-4.0.30) (2022-09-15)
 
 ### Chore
 
@@ -365,7 +443,7 @@
 
 
 
-## [freeradius-6.0.32](https://github.com/truecharts/charts/compare/freeradius-6.0.31...freeradius-6.0.32) (2022-09-15)
+## [fossil-4.0.30](https://github.com/truecharts/charts/compare/fossil-4.0.29...fossil-4.0.30) (2022-09-15)
 
 ### Chore
 
@@ -375,7 +453,7 @@
 
 
 
-## [freeradius-6.0.31](https://github.com/truecharts/charts/compare/freeradius-6.0.30...freeradius-6.0.31) (2022-09-12)
+## [fossil-4.0.29](https://github.com/truecharts/charts/compare/fossil-4.0.28...fossil-4.0.29) (2022-09-12)
 
 ### Chore
 
@@ -389,7 +467,7 @@
 
 
 
-## [freeradius-6.0.31](https://github.com/truecharts/charts/compare/freeradius-6.0.30...freeradius-6.0.31) (2022-09-12)
+## [fossil-4.0.29](https://github.com/truecharts/charts/compare/fossil-4.0.28...fossil-4.0.29) (2022-09-12)
 
 ### Chore
 
@@ -402,7 +480,7 @@
 
 
 
-## [freeradius-6.0.31](https://github.com/truecharts/charts/compare/freeradius-6.0.30...freeradius-6.0.31) (2022-09-11)
+## [fossil-4.0.29](https://github.com/truecharts/charts/compare/fossil-4.0.28...fossil-4.0.29) (2022-09-11)
 
 ### Chore
 
@@ -414,7 +492,7 @@
 
 
 
-## [freeradius-6.0.31](https://github.com/truecharts/charts/compare/freeradius-6.0.30...freeradius-6.0.31) (2022-09-11)
+## [fossil-4.0.29](https://github.com/truecharts/charts/compare/fossil-4.0.28...fossil-4.0.29) (2022-09-11)
 
 ### Chore
 
@@ -425,7 +503,7 @@
 
 
 
-## [freeradius-6.0.31](https://github.com/truecharts/charts/compare/freeradius-6.0.30...freeradius-6.0.31) (2022-09-11)
+## [fossil-4.0.29](https://github.com/truecharts/charts/compare/fossil-4.0.28...fossil-4.0.29) (2022-09-11)
 
 ### Chore
 
@@ -435,7 +513,7 @@
 
 
 
-## [freeradius-6.0.31](https://github.com/truecharts/charts/compare/freeradius-6.0.30...freeradius-6.0.31) (2022-09-11)
+## [fossil-4.0.29](https://github.com/truecharts/charts/compare/fossil-4.0.28...fossil-4.0.29) (2022-09-11)
 
 ### Chore
 
@@ -444,7 +522,7 @@
 
 
 
-## [freeradius-6.0.30](https://github.com/truecharts/charts/compare/freeradius-6.0.29...freeradius-6.0.30) (2022-08-30)
+## [fossil-4.0.28](https://github.com/truecharts/charts/compare/fossil-4.0.27...fossil-4.0.28) (2022-08-30)
 
 ### Chore
 
@@ -453,7 +531,7 @@
 
 
 
-## [freeradius-6.0.29](https://github.com/truecharts/charts/compare/freeradius-6.0.28...freeradius-6.0.29) (2022-08-30)
+## [fossil-4.0.27](https://github.com/truecharts/charts/compare/fossil-4.0.26...fossil-4.0.27) (2022-08-30)
 
 ### Chore
 
@@ -462,7 +540,7 @@
 
 
 
-## [freeradius-6.0.28](https://github.com/truecharts/charts/compare/freeradius-6.0.27...freeradius-6.0.28) (2022-08-29)
+## [fossil-4.0.26](https://github.com/truecharts/charts/compare/fossil-4.0.25...fossil-4.0.26) (2022-08-29)
 
 ### Chore
 
@@ -471,7 +549,7 @@
 
 
 
-## [freeradius-6.0.27](https://github.com/truecharts/charts/compare/freeradius-6.0.26...freeradius-6.0.27) (2022-08-23)
+## [fossil-4.0.25](https://github.com/truecharts/charts/compare/fossil-4.0.24...fossil-4.0.25) (2022-08-23)
 
 ### Chore
 
@@ -480,7 +558,7 @@
 
 
 
-## [freeradius-6.0.26](https://github.com/truecharts/charts/compare/freeradius-6.0.25...freeradius-6.0.26) (2022-08-12)
+## [fossil-4.0.24](https://github.com/truecharts/charts/compare/fossil-4.0.23...fossil-4.0.24) (2022-08-12)
 
 ### Chore
 
@@ -494,16 +572,7 @@
 
 
 
-## [freeradius-6.0.25](https://github.com/truecharts/charts/compare/freeradius-6.0.24...freeradius-6.0.25) (2022-08-12)
-
-### Chore
-
-- update docker general non-major ([#3434](https://github.com/truecharts/charts/issues/3434))
-
-
-
-
-## [freeradius-6.0.24](https://github.com/truecharts/charts/compare/freeradius-6.0.23...freeradius-6.0.24) (2022-08-08)
+## [fossil-4.0.23](https://github.com/truecharts/charts/compare/fossil-4.0.22...fossil-4.0.23) (2022-08-08)
 
 ### Chore
 
@@ -513,7 +582,7 @@
 
 
 
-## [freeradius-6.0.23](https://github.com/truecharts/apps/compare/freeradius-6.0.22...freeradius-6.0.23) (2022-07-26)
+## [fossil-4.0.22](https://github.com/truecharts/apps/compare/fossil-4.0.21...fossil-4.0.22) (2022-07-26)
 
 ### Chore
 
@@ -523,7 +592,7 @@
 
 
 
-## [freeradius-6.0.22](https://github.com/truecharts/apps/compare/freeradius-6.0.21...freeradius-6.0.22) (2022-07-23)
+## [fossil-4.0.21](https://github.com/truecharts/apps/compare/fossil-4.0.20...fossil-4.0.21) (2022-07-23)
 
 ### Chore
 
@@ -534,7 +603,7 @@
 
 
 
-## [freeradius-6.0.22](https://github.com/truecharts/apps/compare/freeradius-6.0.21...freeradius-6.0.22) (2022-07-23)
+## [fossil-4.0.21](https://github.com/truecharts/apps/compare/fossil-4.0.20...fossil-4.0.21) (2022-07-23)
 
 ### Chore
 
@@ -544,7 +613,7 @@
 
 
 
-## [freeradius-6.0.22](https://github.com/truecharts/apps/compare/freeradius-6.0.21...freeradius-6.0.22) (2022-07-23)
+## [fossil-4.0.21](https://github.com/truecharts/apps/compare/fossil-4.0.20...fossil-4.0.21) (2022-07-23)
 
 ### Chore
 
@@ -553,7 +622,7 @@
 
 
 
-## [freeradius-6.0.21](https://github.com/truecharts/apps/compare/freeradius-6.0.19...freeradius-6.0.21) (2022-07-22)
+## [fossil-4.0.20](https://github.com/truecharts/apps/compare/fossil-4.0.18...fossil-4.0.20) (2022-07-22)
 
 ### Chore
 
@@ -562,7 +631,7 @@
 
 
 
-## [freeradius-6.0.19](https://github.com/truecharts/apps/compare/freeradius-6.0.18...freeradius-6.0.19) (2022-07-19)
+## [fossil-4.0.18](https://github.com/truecharts/apps/compare/fossil-4.0.17...fossil-4.0.18) (2022-07-19)
 
 ### Chore
 
@@ -570,7 +639,7 @@
 
 
 
-## [freeradius-6.0.18](https://github.com/truecharts/apps/compare/freeradius-6.0.17...freeradius-6.0.18) (2022-07-14)
+## [fossil-4.0.17](https://github.com/truecharts/apps/compare/fossil-4.0.16...fossil-4.0.17) (2022-07-14)
 
 ### Fix
 
@@ -578,7 +647,7 @@
 
 
 
-## [freeradius-6.0.17](https://github.com/truecharts/apps/compare/freeradius-6.0.15...freeradius-6.0.17) (2022-07-14)
+## [fossil-4.0.16](https://github.com/truecharts/apps/compare/fossil-4.0.14...fossil-4.0.16) (2022-07-14)
 
 ### Fix
 
@@ -586,7 +655,7 @@
 
 
 
-## [freeradius-6.0.15](https://github.com/truecharts/apps/compare/freeradius-6.0.13...freeradius-6.0.15) (2022-07-12)
+## [fossil-4.0.14](https://github.com/truecharts/apps/compare/fossil-4.0.12...fossil-4.0.14) (2022-07-12)
 
 ### Chore
 
@@ -595,7 +664,7 @@
 
 
 
-## [freeradius-6.0.13](https://github.com/truecharts/apps/compare/freeradius-6.0.12...freeradius-6.0.13) (2022-07-12)
+## [fossil-4.0.12](https://github.com/truecharts/apps/compare/fossil-4.0.11...fossil-4.0.12) (2022-07-12)
 
 ### Chore
 
@@ -603,8 +672,8 @@
 
 
 
-<a name="freeradius-6.0.12"></a>
-### [freeradius-6.0.12](https://github.com/truecharts/apps/compare/freeradius-6.0.11...freeradius-6.0.12) (2022-07-12)
+<a name="fossil-4.0.11"></a>
+### [fossil-4.0.11](https://github.com/truecharts/apps/compare/fossil-4.0.10...fossil-4.0.11) (2022-07-12)
 
 #### Chore
 
@@ -612,8 +681,8 @@
 
 
 
-<a name="freeradius-6.0.11"></a>
-### [freeradius-6.0.11](https://github.com/truecharts/apps/compare/freeradius-6.0.10...freeradius-6.0.11) (2022-07-11)
+<a name="fossil-4.0.10"></a>
+### [fossil-4.0.10](https://github.com/truecharts/apps/compare/fossil-4.0.9...fossil-4.0.10) (2022-07-11)
 
 #### Chore
 
@@ -621,8 +690,8 @@
 
 
 
-<a name="freeradius-6.0.10"></a>
-### [freeradius-6.0.10](https://github.com/truecharts/apps/compare/freeradius-6.0.9...freeradius-6.0.10) (2022-07-09)
+<a name="fossil-4.0.9"></a>
+### [fossil-4.0.9](https://github.com/truecharts/apps/compare/fossil-4.0.8...fossil-4.0.9) (2022-07-09)
 
 #### Chore
 
@@ -630,8 +699,8 @@
 
 
 
-<a name="freeradius-6.0.9"></a>
-### [freeradius-6.0.9](https://github.com/truecharts/apps/compare/freeradius-6.0.8...freeradius-6.0.9) (2022-07-04)
+<a name="fossil-4.0.8"></a>
+### [fossil-4.0.8](https://github.com/truecharts/apps/compare/fossil-4.0.7...fossil-4.0.8) (2022-07-04)
 
 #### Chore
 
@@ -639,8 +708,8 @@
 
 
 
-<a name="freeradius-6.0.8"></a>
-### [freeradius-6.0.8](https://github.com/truecharts/apps/compare/freeradius-6.0.7...freeradius-6.0.8) (2022-06-25)
+<a name="fossil-4.0.7"></a>
+### [fossil-4.0.7](https://github.com/truecharts/apps/compare/fossil-4.0.6...fossil-4.0.7) (2022-06-25)
 
 #### Chore
 
@@ -648,8 +717,8 @@
 
 
 
-<a name="freeradius-6.0.7"></a>
-### [freeradius-6.0.7](https://github.com/truecharts/apps/compare/freeradius-6.0.6...freeradius-6.0.7) (2022-06-22)
+<a name="fossil-4.0.6"></a>
+### [fossil-4.0.6](https://github.com/truecharts/apps/compare/fossil-4.0.5...fossil-4.0.6) (2022-06-22)
 
 #### Chore
 
@@ -657,8 +726,8 @@
 
 
 
-<a name="freeradius-6.0.6"></a>
-### [freeradius-6.0.6](https://github.com/truecharts/apps/compare/freeradius-6.0.5...freeradius-6.0.6) (2022-06-21)
+<a name="fossil-4.0.5"></a>
+### [fossil-4.0.5](https://github.com/truecharts/apps/compare/fossil-4.0.4...fossil-4.0.5) (2022-06-21)
 
 #### Chore
 
@@ -666,18 +735,8 @@
 
 
 
-<a name="freeradius-6.0.5"></a>
-### [freeradius-6.0.5](https://github.com/truecharts/apps/compare/freeradius-6.0.4...freeradius-6.0.5) (2022-06-17)
-
-#### Chore
-
-* Sync questions and values env's ([#2916](https://github.com/truecharts/apps/issues/2916))
-* update docker general non-major ([#2917](https://github.com/truecharts/apps/issues/2917))
-
-
-
-<a name="freeradius-6.0.4"></a>
-### [freeradius-6.0.4](https://github.com/truecharts/apps/compare/freeradius-6.0.3...freeradius-6.0.4) (2022-06-14)
+<a name="fossil-4.0.4"></a>
+### [fossil-4.0.4](https://github.com/truecharts/apps/compare/fossil-4.0.3...fossil-4.0.4) (2022-06-14)
 
 #### Chore
 
@@ -685,8 +744,8 @@
 
 
 
-<a name="freeradius-6.0.3"></a>
-### [freeradius-6.0.3](https://github.com/truecharts/apps/compare/freeradius-6.0.2...freeradius-6.0.3) (2022-06-11)
+<a name="fossil-4.0.3"></a>
+### [fossil-4.0.3](https://github.com/truecharts/apps/compare/fossil-4.0.2...fossil-4.0.3) (2022-06-11)
 
 #### Chore
 
@@ -694,8 +753,8 @@
 
 
 
-<a name="freeradius-6.0.2"></a>
-### [freeradius-6.0.2](https://github.com/truecharts/apps/compare/freeradius-6.0.1...freeradius-6.0.2) (2022-06-07)
+<a name="fossil-4.0.2"></a>
+### [fossil-4.0.2](https://github.com/truecharts/apps/compare/fossil-4.0.1...fossil-4.0.2) (2022-06-07)
 
 #### Fix
 
@@ -703,13 +762,12 @@
 
 
 
-<a name="freeradius-6.0.1"></a>
-### [freeradius-6.0.1](https://github.com/truecharts/apps/compare/freeradius-5.0.19...freeradius-6.0.1) (2022-06-07)
+<a name="fossil-4.0.1"></a>
+### [fossil-4.0.1](https://github.com/truecharts/apps/compare/fossil-3.0.19...fossil-4.0.1) (2022-06-07)
 
 #### Chore
 
 * Auto-update chart README [skip ci]
-* sync all apps persistence configuration and always default to PVC
 
 #### Fix
 
@@ -721,12 +779,8 @@
 
 
 
-<a name="freeradius-6.0.0"></a>
-### [freeradius-6.0.0](https://github.com/truecharts/apps/compare/freeradius-5.0.19...freeradius-6.0.0) (2022-06-07)
-
-#### Chore
-
-* sync all apps persistence configuration and always default to PVC
+<a name="fossil-4.0.0"></a>
+### [fossil-4.0.0](https://github.com/truecharts/apps/compare/fossil-3.0.19...fossil-4.0.0) (2022-06-07)
 
 #### Refactor
 
@@ -734,8 +788,8 @@
 
 
 
-<a name="freeradius-5.0.19"></a>
-### [freeradius-5.0.19](https://github.com/truecharts/apps/compare/freeradius-5.0.18...freeradius-5.0.19) (2022-05-31)
+<a name="fossil-3.0.19"></a>
+### [fossil-3.0.19](https://github.com/truecharts/apps/compare/fossil-3.0.18...fossil-3.0.19) (2022-05-31)
 
 #### Chore
 
@@ -743,8 +797,8 @@
 
 
 
-<a name="freeradius-5.0.18"></a>
-### [freeradius-5.0.18](https://github.com/truecharts/apps/compare/freeradius-5.0.17...freeradius-5.0.18) (2022-05-26)
+<a name="fossil-3.0.18"></a>
+### [fossil-3.0.18](https://github.com/truecharts/apps/compare/fossil-3.0.17...fossil-3.0.18) (2022-05-26)
 
 #### Chore
 
@@ -753,8 +807,8 @@
 
 
 
-<a name="freeradius-5.0.18"></a>
-### [freeradius-5.0.18](https://github.com/truecharts/apps/compare/freeradius-5.0.17...freeradius-5.0.18) (2022-05-26)
+<a name="fossil-3.0.18"></a>
+### [fossil-3.0.18](https://github.com/truecharts/apps/compare/fossil-3.0.17...fossil-3.0.18) (2022-05-26)
 
 #### Chore
 
@@ -762,8 +816,8 @@
 
 
 
-<a name="freeradius-5.0.17"></a>
-### [freeradius-5.0.17](https://github.com/truecharts/apps/compare/freeradius-5.0.16...freeradius-5.0.17) (2022-05-24)
+<a name="fossil-3.0.17"></a>
+### [fossil-3.0.17](https://github.com/truecharts/apps/compare/fossil-3.0.16...fossil-3.0.17) (2022-05-24)
 
 #### Chore
 
@@ -771,8 +825,8 @@
 
 
 
-<a name="freeradius-5.0.16"></a>
-### [freeradius-5.0.16](https://github.com/truecharts/apps/compare/freeradius-5.0.15...freeradius-5.0.16) (2022-05-17)
+<a name="fossil-3.0.16"></a>
+### [fossil-3.0.16](https://github.com/truecharts/apps/compare/fossil-3.0.15...fossil-3.0.16) (2022-05-17)
 
 #### Chore
 
@@ -781,8 +835,8 @@
 
 
 
-<a name="freeradius-5.0.16"></a>
-### [freeradius-5.0.16](https://github.com/truecharts/apps/compare/freeradius-5.0.15...freeradius-5.0.16) (2022-05-17)
+<a name="fossil-3.0.16"></a>
+### [fossil-3.0.16](https://github.com/truecharts/apps/compare/fossil-3.0.15...fossil-3.0.16) (2022-05-17)
 
 #### Chore
 
@@ -790,8 +844,8 @@
 
 
 
-<a name="freeradius-5.0.15"></a>
-### [freeradius-5.0.15](https://github.com/truecharts/apps/compare/freeradius-5.0.14...freeradius-5.0.15) (2022-05-17)
+<a name="fossil-3.0.15"></a>
+### [fossil-3.0.15](https://github.com/truecharts/apps/compare/fossil-3.0.14...fossil-3.0.15) (2022-05-17)
 
 #### Chore
 
@@ -799,8 +853,8 @@
 
 
 
-<a name="freeradius-5.0.14"></a>
-### [freeradius-5.0.14](https://github.com/truecharts/apps/compare/freeradius-5.0.13...freeradius-5.0.14) (2022-05-10)
+<a name="fossil-3.0.14"></a>
+### [fossil-3.0.14](https://github.com/truecharts/apps/compare/fossil-3.0.13...fossil-3.0.14) (2022-05-10)
 
 #### Chore
 
@@ -808,8 +862,8 @@
 
 
 
-<a name="freeradius-5.0.13"></a>
-### [freeradius-5.0.13](https://github.com/truecharts/apps/compare/freeradius-5.0.12...freeradius-5.0.13) (2022-05-05)
+<a name="fossil-3.0.13"></a>
+### [fossil-3.0.13](https://github.com/truecharts/apps/compare/fossil-3.0.12...fossil-3.0.13) (2022-05-05)
 
 #### Chore
 
@@ -817,8 +871,8 @@
 
 
 
-<a name="freeradius-5.0.12"></a>
-### [freeradius-5.0.12](https://github.com/truecharts/apps/compare/freeradius-5.0.11...freeradius-5.0.12) (2022-04-26)
+<a name="fossil-3.0.12"></a>
+### [fossil-3.0.12](https://github.com/truecharts/apps/compare/fossil-3.0.11...fossil-3.0.12) (2022-04-26)
 
 #### Chore
 
@@ -826,8 +880,8 @@
 
 
 
-<a name="freeradius-5.0.11"></a>
-### [freeradius-5.0.11](https://github.com/truecharts/apps/compare/freeradius-5.0.10...freeradius-5.0.11) (2022-04-20)
+<a name="fossil-3.0.11"></a>
+### [fossil-3.0.11](https://github.com/truecharts/apps/compare/fossil-3.0.10...fossil-3.0.11) (2022-04-20)
 
 #### Chore
 
@@ -836,8 +890,8 @@
 
 
 
-<a name="freeradius-5.0.10"></a>
-### [freeradius-5.0.10](https://github.com/truecharts/apps/compare/freeradius-5.0.9...freeradius-5.0.10) (2022-04-12)
+<a name="fossil-3.0.10"></a>
+### [fossil-3.0.10](https://github.com/truecharts/apps/compare/fossil-3.0.9...fossil-3.0.10) (2022-04-12)
 
 #### Chore
 
@@ -845,8 +899,8 @@
 
 
 
-<a name="freeradius-5.0.9"></a>
-### [freeradius-5.0.9](https://github.com/truecharts/apps/compare/freeradius-5.0.8...freeradius-5.0.9) (2022-04-03)
+<a name="fossil-3.0.9"></a>
+### [fossil-3.0.9](https://github.com/truecharts/apps/compare/fossil-3.0.8...fossil-3.0.9) (2022-04-03)
 
 #### Chore
 
@@ -854,8 +908,8 @@
 
 
 
-<a name="freeradius-5.0.8"></a>
-### [freeradius-5.0.8](https://github.com/truecharts/apps/compare/freeradius-5.0.7...freeradius-5.0.8) (2022-03-31)
+<a name="fossil-3.0.8"></a>
+### [fossil-3.0.8](https://github.com/truecharts/apps/compare/fossil-3.0.7...fossil-3.0.8) (2022-03-31)
 
 #### Chore
 
@@ -863,8 +917,8 @@
 
 
 
-<a name="freeradius-5.0.7"></a>
-### [freeradius-5.0.7](https://github.com/truecharts/apps/compare/freeradius-5.0.6...freeradius-5.0.7) (2022-03-30)
+<a name="fossil-3.0.7"></a>
+### [fossil-3.0.7](https://github.com/truecharts/apps/compare/fossil-3.0.6...fossil-3.0.7) (2022-03-30)
 
 #### Chore
 
@@ -872,8 +926,8 @@
 
 
 
-<a name="freeradius-5.0.6"></a>
-### [freeradius-5.0.6](https://github.com/truecharts/apps/compare/freeradius-5.0.5...freeradius-5.0.6) (2022-03-26)
+<a name="fossil-3.0.6"></a>
+### [fossil-3.0.6](https://github.com/truecharts/apps/compare/fossil-3.0.5...fossil-3.0.6) (2022-03-26)
 
 #### Chore
 
@@ -881,8 +935,8 @@
 
 
 
-<a name="freeradius-5.0.1"></a>
-### [freeradius-5.0.1](https://github.com/truecharts/apps/compare/freeradius-5.0.0...freeradius-5.0.1) (2022-03-07)
+<a name="fossil-3.0.1"></a>
+### [fossil-3.0.1](https://github.com/truecharts/apps/compare/fossil-3.0.0...fossil-3.0.1) (2022-03-07)
 
 #### Chore
 
@@ -891,8 +945,8 @@
 
 
 
-<a name="freeradius-5.0.0"></a>
-### [freeradius-5.0.0](https://github.com/truecharts/apps/compare/freeradius-4.0.45...freeradius-5.0.0) (2022-03-03)
+<a name="fossil-3.0.0"></a>
+### [fossil-3.0.0](https://github.com/truecharts/apps/compare/fossil-2.0.42...fossil-3.0.0) (2022-03-03)
 
 #### Chore
 
@@ -906,17 +960,18 @@
 
 
 
-<a name="freeradius-4.0.45"></a>
-### [freeradius-4.0.45](https://github.com/truecharts/apps/compare/freeradius-4.0.44...freeradius-4.0.45) (2022-03-02)
+<a name="fossil-2.0.42"></a>
+### [fossil-2.0.42](https://github.com/truecharts/apps/compare/fossil-2.0.41...fossil-2.0.42) (2022-03-02)
 
 #### Chore
 
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
 * update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
 
 
 
-<a name="freeradius-4.0.44"></a>
-### [freeradius-4.0.44](https://github.com/truecharts/apps/compare/freeradius-4.0.43...freeradius-4.0.44) (2022-02-21)
+<a name="fossil-2.0.41"></a>
+### [fossil-2.0.41](https://github.com/truecharts/apps/compare/fossil-2.0.40...fossil-2.0.41) (2022-02-21)
 
 #### Chore
 
@@ -924,8 +979,8 @@
 
 
 
-<a name="freeradius-4.0.43"></a>
-### [freeradius-4.0.43](https://github.com/truecharts/apps/compare/freeradius-4.0.42...freeradius-4.0.43) (2022-02-15)
+<a name="fossil-2.0.40"></a>
+### [fossil-2.0.40](https://github.com/truecharts/apps/compare/fossil-2.0.39...fossil-2.0.40) (2022-02-15)
 
 #### Chore
 
@@ -933,8 +988,8 @@
 
 
 
-<a name="freeradius-4.0.42"></a>
-### [freeradius-4.0.42](https://github.com/truecharts/apps/compare/freeradius-4.0.41...freeradius-4.0.42) (2022-02-08)
+<a name="fossil-2.0.39"></a>
+### [fossil-2.0.39](https://github.com/truecharts/apps/compare/fossil-2.0.38...fossil-2.0.39) (2022-02-08)
 
 #### Chore
 
@@ -942,8 +997,8 @@
 
 
 
-<a name="freeradius-4.0.41"></a>
-### [freeradius-4.0.41](https://github.com/truecharts/apps/compare/freeradius-4.0.40...freeradius-4.0.41) (2022-02-06)
+<a name="fossil-2.0.38"></a>
+### [fossil-2.0.38](https://github.com/truecharts/apps/compare/fossil-2.0.37...fossil-2.0.38) (2022-02-06)
 
 #### Chore
 
@@ -951,8 +1006,8 @@
 
 
 
-<a name="freeradius-4.0.40"></a>
-### [freeradius-4.0.40](https://github.com/truecharts/apps/compare/freeradius-4.0.39...freeradius-4.0.40) (2022-02-05)
+<a name="fossil-2.0.37"></a>
+### [fossil-2.0.37](https://github.com/truecharts/apps/compare/fossil-2.0.36...fossil-2.0.37) (2022-02-05)
 
 #### Chore
 
@@ -960,8 +1015,8 @@
 
 
 
-<a name="freeradius-4.0.39"></a>
-### [freeradius-4.0.39](https://github.com/truecharts/apps/compare/freeradius-4.0.38...freeradius-4.0.39) (2022-02-02)
+<a name="fossil-2.0.36"></a>
+### [fossil-2.0.36](https://github.com/truecharts/apps/compare/fossil-2.0.35...fossil-2.0.36) (2022-02-02)
 
 #### Chore
 
@@ -969,8 +1024,8 @@
 
 
 
-<a name="freeradius-4.0.38"></a>
-### [freeradius-4.0.38](https://github.com/truecharts/apps/compare/freeradius-4.0.37...freeradius-4.0.38) (2022-01-25)
+<a name="fossil-2.0.35"></a>
+### [fossil-2.0.35](https://github.com/truecharts/apps/compare/fossil-2.0.34...fossil-2.0.35) (2022-01-25)
 
 #### Chore
 
@@ -978,8 +1033,8 @@
 
 
 
-<a name="freeradius-4.0.37"></a>
-### [freeradius-4.0.37](https://github.com/truecharts/apps/compare/freeradius-4.0.36...freeradius-4.0.37) (2022-01-22)
+<a name="fossil-2.0.34"></a>
+### [fossil-2.0.34](https://github.com/truecharts/apps/compare/fossil-2.0.33...fossil-2.0.34) (2022-01-22)
 
 #### Chore
 
@@ -987,8 +1042,8 @@
 
 
 
-<a name="freeradius-4.0.36"></a>
-### [freeradius-4.0.36](https://github.com/truecharts/apps/compare/freeradius-4.0.35...freeradius-4.0.36) (2022-01-21)
+<a name="fossil-2.0.33"></a>
+### [fossil-2.0.33](https://github.com/truecharts/apps/compare/fossil-2.0.32...fossil-2.0.33) (2022-01-21)
 
 #### Chore
 
@@ -1000,8 +1055,8 @@
 
 
 
-<a name="freeradius-4.0.35"></a>
-### [freeradius-4.0.35](https://github.com/truecharts/apps/compare/freeradius-4.0.34...freeradius-4.0.35) (2022-01-18)
+<a name="fossil-2.0.32"></a>
+### [fossil-2.0.32](https://github.com/truecharts/apps/compare/fossil-2.0.31...fossil-2.0.32) (2022-01-18)
 
 #### Chore
 
@@ -1009,8 +1064,8 @@
 
 
 
-<a name="freeradius-4.0.34"></a>
-### [freeradius-4.0.34](https://github.com/truecharts/apps/compare/freeradius-4.0.33...freeradius-4.0.34) (2022-01-13)
+<a name="fossil-2.0.31"></a>
+### [fossil-2.0.31](https://github.com/truecharts/apps/compare/fossil-2.0.30...fossil-2.0.31) (2022-01-13)
 
 #### Chore
 
@@ -1022,8 +1077,8 @@
 
 
 
-<a name="freeradius-4.0.33"></a>
-### [freeradius-4.0.33](https://github.com/truecharts/apps/compare/freeradius-4.0.32...freeradius-4.0.33) (2022-01-12)
+<a name="fossil-2.0.30"></a>
+### [fossil-2.0.30](https://github.com/truecharts/apps/compare/fossil-2.0.29...fossil-2.0.30) (2022-01-12)
 
 #### Chore
 
@@ -1031,8 +1086,8 @@
 
 
 
-<a name="freeradius-4.0.32"></a>
-### [freeradius-4.0.32](https://github.com/truecharts/apps/compare/freeradius-4.0.31...freeradius-4.0.32) (2022-01-11)
+<a name="fossil-2.0.29"></a>
+### [fossil-2.0.29](https://github.com/truecharts/apps/compare/fossil-2.0.28...fossil-2.0.29) (2022-01-11)
 
 #### Chore
 
@@ -1040,8 +1095,8 @@
 
 
 
-<a name="freeradius-4.0.31"></a>
-### [freeradius-4.0.31](https://github.com/truecharts/apps/compare/freeradius-4.0.30...freeradius-4.0.31) (2022-01-04)
+<a name="fossil-2.0.28"></a>
+### [fossil-2.0.28](https://github.com/truecharts/apps/compare/fossil-2.0.27...fossil-2.0.28) (2022-01-04)
 
 #### Chore
 
@@ -1049,8 +1104,8 @@
 
 
 
-<a name="freeradius-4.0.30"></a>
-### [freeradius-4.0.30](https://github.com/truecharts/apps/compare/freeradius-4.0.29...freeradius-4.0.30) (2021-12-28)
+<a name="fossil-2.0.27"></a>
+### [fossil-2.0.27](https://github.com/truecharts/apps/compare/fossil-2.0.26...fossil-2.0.27) (2021-12-28)
 
 #### Chore
 
@@ -1058,8 +1113,8 @@
 
 
 
-<a name="freeradius-4.0.29"></a>
-### [freeradius-4.0.29](https://github.com/truecharts/apps/compare/freeradius-4.0.28...freeradius-4.0.29) (2021-12-21)
+<a name="fossil-2.0.26"></a>
+### [fossil-2.0.26](https://github.com/truecharts/apps/compare/fossil-2.0.25...fossil-2.0.26) (2021-12-21)
 
 #### Chore
 
@@ -1067,8 +1122,8 @@
 
 
 
-<a name="freeradius-4.0.28"></a>
-### [freeradius-4.0.28](https://github.com/truecharts/apps/compare/freeradius-4.0.27...freeradius-4.0.28) (2021-12-19)
+<a name="fossil-2.0.25"></a>
+### [fossil-2.0.25](https://github.com/truecharts/apps/compare/fossil-2.0.24...fossil-2.0.25) (2021-12-19)
 
 #### Chore
 
@@ -1077,18 +1132,17 @@
 
 
 
-<a name="freeradius-4.0.27"></a>
-### [freeradius-4.0.27](https://github.com/truecharts/apps/compare/freeradius-4.0.26...freeradius-4.0.27) (2021-12-19)
+<a name="fossil-2.0.24"></a>
+### [fossil-2.0.24](https://github.com/truecharts/apps/compare/fossil-2.0.23...fossil-2.0.24) (2021-12-19)
 
 #### Chore
 
-* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
 * update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
 
 
 
-<a name="freeradius-4.0.26"></a>
-### [freeradius-4.0.26](https://github.com/truecharts/apps/compare/freeradius-4.0.25...freeradius-4.0.26) (2021-12-18)
+<a name="fossil-2.0.23"></a>
+### [fossil-2.0.23](https://github.com/truecharts/apps/compare/fossil-2.0.22...fossil-2.0.23) (2021-12-18)
 
 #### Chore
 
@@ -1097,8 +1151,8 @@
 
 
 
-<a name="freeradius-4.0.25"></a>
-### [freeradius-4.0.25](https://github.com/truecharts/apps/compare/freeradius-4.0.24...freeradius-4.0.25) (2021-12-14)
+<a name="fossil-2.0.22"></a>
+### [fossil-2.0.22](https://github.com/truecharts/apps/compare/fossil-2.0.21...fossil-2.0.22) (2021-12-14)
 
 #### Chore
 
@@ -1106,8 +1160,8 @@
 
 
 
-<a name="freeradius-4.0.24"></a>
-### [freeradius-4.0.24](https://github.com/truecharts/apps/compare/freeradius-4.0.23...freeradius-4.0.24) (2021-12-13)
+<a name="fossil-2.0.21"></a>
+### [fossil-2.0.21](https://github.com/truecharts/apps/compare/fossil-2.0.20...fossil-2.0.21) (2021-12-13)
 
 #### Chore
 
@@ -1115,17 +1169,8 @@
 
 
 
-<a name="freeradius-4.0.23"></a>
-### [freeradius-4.0.23](https://github.com/truecharts/apps/compare/freeradius-4.0.22...freeradius-4.0.23) (2021-12-12)
-
-#### Chore
-
-* update docker general non-major ([#1518](https://github.com/truecharts/apps/issues/1518))
-
-
-
-<a name="freeradius-4.0.22"></a>
-### [freeradius-4.0.22](https://github.com/truecharts/apps/compare/freeradius-4.0.21...freeradius-4.0.22) (2021-12-11)
+<a name="fossil-2.0.20"></a>
+### [fossil-2.0.20](https://github.com/truecharts/apps/compare/fossil-2.0.19...fossil-2.0.20) (2021-12-11)
 
 #### Chore
 
@@ -1133,8 +1178,8 @@
 
 
 
-<a name="freeradius-4.0.21"></a>
-### [freeradius-4.0.21](https://github.com/truecharts/apps/compare/freeradius-4.0.20...freeradius-4.0.21) (2021-12-07)
+<a name="fossil-2.0.19"></a>
+### [fossil-2.0.19](https://github.com/truecharts/apps/compare/fossil-2.0.18...fossil-2.0.19) (2021-12-07)
 
 #### Chore
 
@@ -1142,17 +1187,18 @@
 
 
 
-<a name="freeradius-4.0.20"></a>
-### freeradius-4.0.20 (2021-12-05)
+<a name="fossil-2.0.18"></a>
+### fossil-2.0.18 (2021-12-05)
 
 #### Chore
 
 * bump apps to generate security page
 * move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
-* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* ensure container references are prefixed with v
 * update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
-* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
 * update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
 * update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
 
 #### Fix
@@ -1161,8 +1207,8 @@
 
 
 
-<a name="freeradius-4.0.19"></a>
-### [freeradius-4.0.19](https://github.com/truecharts/apps/compare/freeradius-4.0.18...freeradius-4.0.19) (2021-12-05)
+<a name="fossil-2.0.17"></a>
+### [fossil-2.0.17](https://github.com/truecharts/apps/compare/fossil-2.0.16...fossil-2.0.17) (2021-12-05)
 
 #### Chore
 
@@ -1170,17 +1216,8 @@
 
 
 
-<a name="freeradius-4.0.18"></a>
-### [freeradius-4.0.18](https://github.com/truecharts/apps/compare/freeradius-4.0.17...freeradius-4.0.18) (2021-12-05)
-
-#### Chore
-
-* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
-
-
-
-<a name="freeradius-4.0.17"></a>
-### [freeradius-4.0.17](https://github.com/truecharts/apps/compare/freeradius-4.0.16...freeradius-4.0.17) (2021-12-04)
+<a name="fossil-2.0.16"></a>
+### [fossil-2.0.16](https://github.com/truecharts/apps/compare/fossil-2.0.15...fossil-2.0.16) (2021-12-04)
 
 #### Chore
 
@@ -1188,27 +1225,41 @@
 
 
 
-<a name="freeradius-4.0.16"></a>
-### [freeradius-4.0.16](https://github.com/truecharts/apps/compare/freeradius-4.0.15...freeradius-4.0.16) (2021-12-04)
+<a name="fossil-2.0.15"></a>
+### [fossil-2.0.15](https://github.com/truecharts/apps/compare/fossil-2.0.14...fossil-2.0.15) (2021-12-04)
 
 #### Chore
 
-* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
 * update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
 
 
 
-<a name="freeradius-4.0.15"></a>
-### [freeradius-4.0.15](https://github.com/truecharts/apps/compare/freeradius-4.0.14...freeradius-4.0.15) (2021-11-30)
+<a name="fossil-2.0.14"></a>
+### [fossil-2.0.14](https://github.com/truecharts/apps/compare/fossil-2.0.13...fossil-2.0.14) (2021-12-03)
+
+#### Chore
+
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
+<a name="fossil-2.0.13"></a>
+### [fossil-2.0.13](https://github.com/truecharts/apps/compare/fossil-2.0.12...fossil-2.0.13) (2021-11-30)
 
 #### Chore
 
 * update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
 
+#### Fix
+
+* move conflicting ports to 10xxx range ([#1415](https://github.com/truecharts/apps/issues/1415))
 
 
-<a name="freeradius-4.0.14"></a>
-### [freeradius-4.0.14](https://github.com/truecharts/apps/compare/freeradius-4.0.13...freeradius-4.0.14) (2021-11-23)
+
+<a name="fossil-2.0.12"></a>
+### [fossil-2.0.12](https://github.com/truecharts/apps/compare/fossil-2.0.11...fossil-2.0.12) (2021-11-23)
 
 #### Chore
 
@@ -1216,8 +1267,8 @@
 
 
 
-<a name="freeradius-4.0.13"></a>
-### [freeradius-4.0.13](https://github.com/truecharts/apps/compare/freeradius-4.0.12...freeradius-4.0.13) (2021-11-22)
+<a name="fossil-2.0.11"></a>
+### [fossil-2.0.11](https://github.com/truecharts/apps/compare/fossil-2.0.10...fossil-2.0.11) (2021-11-22)
 
 #### Chore
 
@@ -1225,8 +1276,8 @@
 
 
 
-<a name="freeradius-4.0.12"></a>
-### [freeradius-4.0.12](https://github.com/truecharts/apps/compare/freeradius-4.0.11...freeradius-4.0.12) (2021-11-16)
+<a name="fossil-2.0.10"></a>
+### [fossil-2.0.10](https://github.com/truecharts/apps/compare/fossil-2.0.9...fossil-2.0.10) (2021-11-16)
 
 #### Chore
 
@@ -1234,8 +1285,8 @@
 
 
 
-<a name="freeradius-4.0.11"></a>
-### [freeradius-4.0.11](https://github.com/truecharts/apps/compare/freeradius-4.0.10...freeradius-4.0.11) (2021-11-15)
+<a name="fossil-2.0.9"></a>
+### [fossil-2.0.9](https://github.com/truecharts/apps/compare/fossil-2.0.8...fossil-2.0.9) (2021-11-15)
 
 #### Chore
 
@@ -1244,8 +1295,8 @@
 
 
 
-<a name="freeradius-4.0.10"></a>
-### [freeradius-4.0.10](https://github.com/truecharts/apps/compare/freeradius-4.0.9...freeradius-4.0.10) (2021-11-14)
+<a name="fossil-2.0.8"></a>
+### [fossil-2.0.8](https://github.com/truecharts/apps/compare/fossil-2.0.7...fossil-2.0.8) (2021-11-14)
 
 #### Chore
 
@@ -1256,12 +1307,12 @@
 
 #### Fix
 
-* Allow spaces in paths ([#1306](https://github.com/truecharts/apps/issues/1306))
+* split udp and tcp ports ([#1321](https://github.com/truecharts/apps/issues/1321))
 
 
 
-<a name="freeradius-4.0.9"></a>
-### [freeradius-4.0.9](https://github.com/truecharts/apps/compare/freeradius-4.0.8...freeradius-4.0.9) (2021-11-09)
+<a name="fossil-2.0.7"></a>
+### [fossil-2.0.7](https://github.com/truecharts/apps/compare/fossil-2.0.6...fossil-2.0.7) (2021-11-09)
 
 #### Chore
 
@@ -1269,22 +1320,8 @@
 
 
 
-<a name="freeradius-4.0.8"></a>
-### [freeradius-4.0.8](https://github.com/truecharts/apps/compare/freeradius-4.0.7...freeradius-4.0.8) (2021-11-08)
-
-
-
-<a name="freeradius-4.0.7"></a>
-### [freeradius-4.0.7](https://github.com/truecharts/apps/compare/freeradius-4.0.6...freeradius-4.0.7) (2021-11-08)
-
-#### Fix
-
-* Correctly enable ports by default on some more Apps
-
-
-
-<a name="freeradius-4.0.6"></a>
-### [freeradius-4.0.6](https://github.com/truecharts/apps/compare/freeradius-4.0.5...freeradius-4.0.6) (2021-11-07)
+<a name="fossil-2.0.6"></a>
+### [fossil-2.0.6](https://github.com/truecharts/apps/compare/fossil-2.0.5...fossil-2.0.6) (2021-11-07)
 
 #### Chore
 
@@ -1292,8 +1329,8 @@
 
 
 
-<a name="freeradius-4.0.5"></a>
-### [freeradius-4.0.5](https://github.com/truecharts/apps/compare/freeradius-4.0.4...freeradius-4.0.5) (2021-11-07)
+<a name="fossil-2.0.5"></a>
+### [fossil-2.0.5](https://github.com/truecharts/apps/compare/fossil-2.0.4...fossil-2.0.5) (2021-11-07)
 
 #### Chore
 
@@ -1307,10 +1344,14 @@
 
 * Simplify the Services GUI ([#1290](https://github.com/truecharts/apps/issues/1290))
 
+#### Fix
+
+* prevent duplicate port use and fix some questions.yaml mistakes
 
 
-<a name="freeradius-4.0.4"></a>
-### [freeradius-4.0.4](https://github.com/truecharts/apps/compare/freeradius-4.0.3...freeradius-4.0.4) (2021-11-02)
+
+<a name="fossil-2.0.4"></a>
+### [fossil-2.0.4](https://github.com/truecharts/apps/compare/fossil-2.0.3...fossil-2.0.4) (2021-11-02)
 
 #### Chore
 
@@ -1318,8 +1359,8 @@
 
 
 
-<a name="freeradius-4.0.3"></a>
-### [freeradius-4.0.3](https://github.com/truecharts/apps/compare/freeradius-4.0.2...freeradius-4.0.3) (2021-11-01)
+<a name="fossil-2.0.3"></a>
+### [fossil-2.0.3](https://github.com/truecharts/apps/compare/fossil-2.0.2...fossil-2.0.3) (2021-11-01)
 
 #### Chore
 
@@ -1327,8 +1368,8 @@
 
 
 
-<a name="freeradius-4.0.2"></a>
-### [freeradius-4.0.2](https://github.com/truecharts/apps/compare/freeradius-4.0.1...freeradius-4.0.2) (2021-10-26)
+<a name="fossil-2.0.2"></a>
+### [fossil-2.0.2](https://github.com/truecharts/apps/compare/fossil-2.0.1...fossil-2.0.2) (2021-10-26)
 
 #### Chore
 
@@ -1336,8 +1377,8 @@
 
 
 
-<a name="freeradius-4.0.1"></a>
-### [freeradius-4.0.1](https://github.com/truecharts/apps/compare/freeradius-4.0.0...freeradius-4.0.1) (2021-10-26)
+<a name="fossil-2.0.1"></a>
+### [fossil-2.0.1](https://github.com/truecharts/apps/compare/fossil-2.0.0...fossil-2.0.1) (2021-10-26)
 
 #### Chore
 
@@ -1345,8 +1386,8 @@
 
 
 
-<a name="freeradius-4.0.0"></a>
-### [freeradius-4.0.0](https://github.com/truecharts/apps/compare/freeradius-3.0.16...freeradius-4.0.0) (2021-10-25)
+<a name="fossil-2.0.0"></a>
+### [fossil-2.0.0](https://github.com/truecharts/apps/compare/fossil-1.0.1...fossil-2.0.0) (2021-10-25)
 
 #### Chore
 
@@ -1354,8 +1395,8 @@
 
 
 
-<a name="freeradius-3.0.16"></a>
-### [freeradius-3.0.16](https://github.com/truecharts/apps/compare/freeradius-3.0.15...freeradius-3.0.16) (2021-10-20)
+<a name="fossil-1.0.1"></a>
+### [fossil-1.0.1](https://github.com/truecharts/apps/compare/fossil-0.0.11...fossil-1.0.1) (2021-10-20)
 
 #### Chore
 
@@ -1363,8 +1404,8 @@
 
 
 
-<a name="freeradius-3.0.13"></a>
-### [freeradius-3.0.13](https://github.com/truecharts/apps/compare/freeradius-3.0.12...freeradius-3.0.13) (2021-10-20)
+<a name="fossil-0.0.9"></a>
+### [fossil-0.0.9](https://github.com/truecharts/apps/compare/fossil-0.0.8...fossil-0.0.9) (2021-10-20)
 
 #### Chore
 
@@ -1372,8 +1413,8 @@
 
 
 
-<a name="freeradius-3.0.12"></a>
-### [freeradius-3.0.12](https://github.com/truecharts/apps/compare/freeradius-3.0.11...freeradius-3.0.12) (2021-10-19)
+<a name="fossil-0.0.8"></a>
+### [fossil-0.0.8](https://github.com/truecharts/apps/compare/fossil-0.0.7...fossil-0.0.8) (2021-10-19)
 
 #### Change
 
@@ -1395,8 +1436,8 @@
 
 
 
-<a name="freeradius-3.0.11"></a>
-### [freeradius-3.0.11](https://github.com/truecharts/apps/compare/freeradius-3.0.10...freeradius-3.0.11) (2021-10-19)
+<a name="fossil-0.0.7"></a>
+### [fossil-0.0.7](https://github.com/truecharts/apps/compare/fossil-0.0.6...fossil-0.0.7) (2021-10-19)
 
 #### Fix
 
@@ -1404,8 +1445,8 @@
 
 
 
-<a name="freeradius-3.0.10"></a>
-### [freeradius-3.0.10](https://github.com/truecharts/apps/compare/freeradius-3.0.9...freeradius-3.0.10) (2021-10-19)
+<a name="fossil-0.0.6"></a>
+### [fossil-0.0.6](https://github.com/truecharts/apps/compare/fossil-0.0.5...fossil-0.0.6) (2021-10-19)
 
 #### Fix
 
@@ -1413,8 +1454,8 @@
 
 
 
-<a name="freeradius-3.0.9"></a>
-### [freeradius-3.0.9](https://github.com/truecharts/apps/compare/freeradius-3.0.8...freeradius-3.0.9) (2021-10-18)
+<a name="fossil-0.0.5"></a>
+### [fossil-0.0.5](https://github.com/truecharts/apps/compare/fossil-0.0.4...fossil-0.0.5) (2021-10-18)
 
 #### Refactor
 
@@ -1422,21 +1463,17 @@
 
 
 
-<a name="freeradius-3.0.8"></a>
-### [freeradius-3.0.8](https://github.com/truecharts/apps/compare/freeradius-3.0.7...freeradius-3.0.8) (2021-10-17)
+<a name="fossil-0.0.4"></a>
+### [fossil-0.0.4](https://github.com/truecharts/apps/compare/fossil-0.0.3...fossil-0.0.4) (2021-10-17)
 
 #### Chore
 
 * update helm chart common to v8.3.10 ([#1160](https://github.com/truecharts/apps/issues/1160))
 
-#### Fix
-
-* force users using correct / prefix for mounPath ([#1156](https://github.com/truecharts/apps/issues/1156))
 
 
-
-<a name="freeradius-3.0.7"></a>
-### [freeradius-3.0.7](https://github.com/truecharts/apps/compare/freeradius-3.0.6...freeradius-3.0.7) (2021-10-13)
+<a name="fossil-0.0.3"></a>
+### [fossil-0.0.3](https://github.com/truecharts/apps/compare/fossil-0.0.2...fossil-0.0.3) (2021-10-13)
 
 #### Chore
 
@@ -1444,78 +1481,14 @@
 
 
 
-<a name="freeradius-3.0.6"></a>
-### [freeradius-3.0.6](https://github.com/truecharts/apps/compare/freeradius-3.0.5...freeradius-3.0.6) (2021-10-12)
+<a name="fossil-0.0.2"></a>
+### [fossil-0.0.2](https://github.com/truecharts/apps/compare/fossil-0.0.1...fossil-0.0.2) (2021-10-13)
 
 #### Chore
 
-* update non-major deps helm releases ([#1126](https://github.com/truecharts/apps/issues/1126))
+* update non-major docker tags ([#1134](https://github.com/truecharts/apps/issues/1134))
 
 
 
-<a name="freeradius-3.0.5"></a>
-### [freeradius-3.0.5](https://github.com/truecharts/apps/compare/freeradius-3.0.4...freeradius-3.0.5) (2021-10-12)
-
-#### Chore
-
-* update non-major deps helm releases ([#1123](https://github.com/truecharts/apps/issues/1123))
-
-
-
-<a name="freeradius-3.0.4"></a>
-### [freeradius-3.0.4](https://github.com/truecharts/apps/compare/freeradius-3.0.3...freeradius-3.0.4) (2021-10-05)
-
-#### Chore
-
-* update non-major deps helm releases ([#1099](https://github.com/truecharts/apps/issues/1099))
-
-
-
-<a name="freeradius-3.0.3"></a>
-### [freeradius-3.0.3](https://github.com/truecharts/apps/compare/freeradius-3.0.2...freeradius-3.0.3) (2021-09-29)
-
-#### Chore
-
-* update helm chart common to v8.0.13 ([#1060](https://github.com/truecharts/apps/issues/1060))
-
-
-
-<a name="freeradius-3.0.1"></a>
-### [freeradius-3.0.1](https://github.com/truecharts/apps/compare/freeradius-3.0.0...freeradius-3.0.1) (2021-09-26)
-
-
-
-<a name="freeradius-3.0.0"></a>
-### [freeradius-3.0.0](https://github.com/truecharts/apps/compare/freeradius-2.0.2...freeradius-3.0.0) (2021-09-26)
-
-
-
-<a name="freeradius-2.0.2"></a>
-### [freeradius-2.0.2](https://github.com/truecharts/apps/compare/freeradius-2.0.1...freeradius-2.0.2) (2021-09-21)
-
-#### Chore
-
-* update non-major deps helm releases ([#1014](https://github.com/truecharts/apps/issues/1014))
-
-
-
-<a name="freeradius-2.0.1"></a>
-### [freeradius-2.0.1](https://github.com/truecharts/apps/compare/freeradius-1.7.18...freeradius-2.0.1) (2021-09-13)
-
-#### Chore
-
-* update non-major ([#962](https://github.com/truecharts/apps/issues/962))
-
-#### Feat
-
-* add new GUI and VPN support to all Apps ([#977](https://github.com/truecharts/apps/issues/977))
-* Add VPN addon and move some config to includes ([#973](https://github.com/truecharts/apps/issues/973))
-* pin all container references to digests ([#963](https://github.com/truecharts/apps/issues/963))
-* Move some common containers to our own containers
-
-<a name="freeradius-1.7.18"></a>
-## [freeradius-1.7.18](https://github.com/truecharts/apps/compare/freeradius-1.7.17...freeradius-1.7.18) (2021-09-08)
-
-### Fix
-
-* repair Hyperion and some misplaced GUI elements ([#922](https://github.com/truecharts/apps/issues/922))
+<a name="fossil-0.0.1"></a>
+### fossil-0.0.1 (2021-10-04)

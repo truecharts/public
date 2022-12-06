@@ -5,15 +5,11 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-# Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}
-# Include{strategy}
-# Include{recreate}
-# Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: secretEnv
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Image Secrets"
     schema:
       additional_attrs: true
@@ -33,7 +29,7 @@ questions:
             private: true
             default: ""
   - variable: env
-    group: "Container Configuration"
+    group: "App Configuration"
     label: "Image Environment"
     schema:
       additional_attrs: true
@@ -105,13 +101,6 @@ questions:
                               type: int
                               default: 2302
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 2302
         - variable: udpgameport
           label: 'udpgameport service'
           description: "Same as TCP Game Port"
@@ -134,13 +123,6 @@ questions:
                               type: int
                               default: 2302
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 2302
         - variable: udpsteamquerry
           label: 'udpsteamquerry service'
           description: "UDP Game Port 1"
@@ -163,13 +145,6 @@ questions:
                               type: int
                               default: 2303
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 2303
         - variable: udpsteammaster
           label: 'udpsteammaster service'
           description: "UDP Game Port 2"
@@ -192,13 +167,6 @@ questions:
                               type: int
                               default: 2304
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 2304
         - variable: udpvonport
           label: 'udpvonport service'
           description: "UDP Game Port 3"
@@ -221,13 +189,6 @@ questions:
                               type: int
                               default: 2305
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 2305
         - variable: udpbattleyetra
           label: 'udpbattleyetra service'
           description: "UDP Game Port 4"
@@ -250,13 +211,6 @@ questions:
                               type: int
                               default: 2306
                               required: true
-# Include{advancedPortUDP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 2306
         - variable: tcpmariadb
           label: 'tcpmariadb service'
           description: "Not required, only if you want to connect to the database from outside. Delete if you allready have a MariaDB container running."
@@ -279,13 +233,6 @@ questions:
                               type: int
                               default: 3306
                               required: true
-# Include{advancedPortTCP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 3306
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -299,7 +246,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: serverfiles
           label: "serverfiles Storage"
           description: "Container Path serverdataserverfiles"
@@ -308,7 +254,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
         - variable: profiles
           label: "profiles Storage"
           description: "serverdata.localshare"
@@ -317,7 +262,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -329,7 +273,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
@@ -353,7 +296,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-# Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
@@ -378,7 +320,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{promtail}
-# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

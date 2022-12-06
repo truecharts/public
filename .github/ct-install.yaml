@@ -29,6 +29,8 @@ excluded-charts:
   - charts/stable/zigbee2mqtt
   - charts/stable/alertmanager-bot
   - charts/stable/storj-node
+  - charts/incubator/frigate
+  - charts/stable/frigate
   - charts/stable/orbital-sync
   - charts/incubator/orbital-sync
   - charts/incubator/amcrest2mqtt
@@ -54,6 +56,5 @@ chart-repos:
   - truecharts=https://charts.truecharts.org
   - truecharts-library=https://library-charts.truecharts.org
   - bitnami=https://charts.bitnami.com/bitnami
-  - metallb=https://metallb.github.io/metallb
   - grafana=https://grafana.github.io/helm-charts
   - prometheus=https://prometheus-community.github.io/helm-charts

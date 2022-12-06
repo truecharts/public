@@ -5,18 +5,14 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-# Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}
-# Include{strategy}
-# Include{recreate}
-# Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "Logitech Media Web UI and music streaming"
+          label: Main Service
+          description: Logitech Media Web UI and music streaming
           schema:
             additional_attrs: true
             type: dict
@@ -24,28 +20,21 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Web Interface and music streaming port"
+                      label: Web Interface and music streaming port
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 7000
+                              default: 9000
                               required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 7000
         - variable: cli
-          label: "CLI Service"
-          description: "Logitech Media Server Telnet Command Line Interface"
+          label: CLI Service
+          description: Logitech Media Server Telnet Command Line Interface
           schema:
             additional_attrs: true
             type: dict
@@ -53,35 +42,21 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: cli
-                      label: "Port used for remote control using the Telnet Command Line interface"
+                      label: Port used for remote control using the Telnet Command Line interface
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
-                          - variable: protocol
-                            label: "Port Type"
-                            schema:
-                              type: string
-                              default: "TCP"
-                              enum:
-                                - value: HTTP
-                                  description: "HTTP"
-                                - value: "HTTPS"
-                                  description: "HTTPS"
-                                - value: TCP
-                                  description: "TCP"
-                                - value: "UDP"
-                                  description: "UDP"
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 10059
+                              default: 9090
                               required: true
         - variable: playertcp
-          label: "Logitech Media Server Player TCP Communcation"
-          description: "Logitech Media Server Player Service for TCP communication"
+          label: Logitech Media Server Player TCP Communcation
+          description: Logitech Media Server Player Service for TCP communication
           schema:
             additional_attrs: true
             type: dict
@@ -89,35 +64,21 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: slimprototcp
-                      label: "Player to server TCP communication"
+                      label: Player to server TCP communication
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
-                          - variable: protocol
-                            label: "Port Type"
-                            schema:
-                              type: string
-                              default: "TCP"
-                              enum:
-                                - value: HTTP
-                                  description: "HTTP"
-                                - value: "HTTPS"
-                                  description: "HTTPS"
-                                - value: TCP
-                                  description: "TCP"
-                                - value: "UDP"
-                                  description: "UDP"
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 3483
                               required: true
         - variable: playerudp
-          label: "Logitech Media Server Player Communcation"
-          description: "Logitech Media Server Player Service for UDP communication"
+          label: Logitech Media Server Player Communcation
+          description: Logitech Media Server Player Service for UDP communication
           schema:
             additional_attrs: true
             type: dict
@@ -125,28 +86,14 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: slimprotoudp
-                      label: "Player to server UDP communication"
+                      label: Player to server UDP communication
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
-                          - variable: protocol
-                            label: "Port Type"
-                            schema:
-                              type: string
-                              default: "UDP"
-                              enum:
-                                - value: HTTP
-                                  description: "HTTP"
-                                - value: "HTTPS"
-                                  description: "HTTPS"
-                                - value: TCP
-                                  description: "TCP"
-                                - value: "UDP"
-                                  description: "UDP"
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 3483
@@ -157,18 +104,17 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+          label: App Config Storage
+          description: Stores the Application Configuration.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -176,47 +122,45 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
-# Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
@@ -225,7 +169,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{promtail}
-# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

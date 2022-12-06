@@ -1,10 +1,8 @@
 image:
   repository: tccr.io/truecharts/traefik
   # defaults to appVersion
-  tag: 2.9.4@sha256:7c5f07ef67ec092b66dd8bdb56279ed876965553ee5ec59b5aa7456def5ed1f3
+  tag: 2.9.5@sha256:bafc97337a166a41f45444071f38706b2248eed6a6cb9953134221c2fb842646
   pullPolicy: IfNotPresent
-
-updateCRD: true
 
 # -- Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x
 ingressClass:
@@ -378,6 +376,22 @@ middlewares:
   addPrefix: []
   # - name: addPrefixName
   #   prefix: "/foo"
+  geoBlockVersion: v0.2.3
+  geoBlock: []
+  # -- https://github.com/PascalMinder/geoblock
+  # - name: geoBlockName
+  #   allowLocalRequests: true
+  #   logLocalRequests: false
+  #   logAllowedRequests: false
+  #   logApiRequests: false
+  #   api: https://get.geojs.io/v1/ip/country/{ip}
+  #   apiTimeoutMs: 500
+  #   cacheSize: 25
+  #   forceMonthlyUpdate: true
+  #   allowUnknownCountries: false
+  #   unknownCountryApiResponse: nil
+  #   countries:
+  #     - RU
 
 portalhook:
   enabled: true

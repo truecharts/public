@@ -2,6 +2,51 @@
 
 
 
+## [clickhouse-2.0.0](https://github.com/truecharts/charts/compare/clickhouse-1.0.58...clickhouse-2.0.0) (2022-11-10)
+
+### Chore
+
+- Major Change to GUI
+
+
+
+
+## [clickhouse-1.0.58](https://github.com/truecharts/charts/compare/clickhouse-1.0.57...clickhouse-1.0.58) (2022-11-09)
+
+### Chore
+
+- update helm chart common to v10.9.5
+
+
+
+
+## [clickhouse-1.0.57](https://github.com/truecharts/charts/compare/clickhouse-1.0.56...clickhouse-1.0.57) (2022-11-08)
+
+### Chore
+
+- update helm chart common to v10.9.4
+
+
+
+
+## [clickhouse-1.0.56](https://github.com/truecharts/charts/compare/clickhouse-1.0.55...clickhouse-1.0.56) (2022-11-08)
+
+### Chore
+
+- update helm chart common to v10.9.3 ([#4348](https://github.com/truecharts/charts/issues/4348))
+
+
+
+
+## [clickhouse-1.0.55](https://github.com/truecharts/charts/compare/clickhouse-1.0.54...clickhouse-1.0.55) (2022-11-07)
+
+### Chore
+
+- update helm chart common to v10.9.1 ([#4339](https://github.com/truecharts/charts/issues/4339))
+
+
+
+
 ## [clickhouse-1.0.54](https://github.com/truecharts/charts/compare/clickhouse-1.0.53...clickhouse-1.0.54) (2022-11-07)
 
 ### Chore

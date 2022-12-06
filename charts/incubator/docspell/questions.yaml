@@ -5,15 +5,11 @@ portals:
 questions:
 # Include{global}
 # Include{controller}
-# Include{controllerDeployment}
 # Include{replicas}
 # Include{replica1}
-# Include{strategy}
-# Include{recreate}
-# Include{controllerExpert}
 # Include{controllerExpertExtraArgs}
   - variable: dsc
-    group: Container Configuration
+    group: App Configuration
     label: DSC Configuration
     schema:
       additional_attrs: true
@@ -58,7 +54,7 @@ questions:
                   type: string
                   default: ""
   - variable: rest_server
-    group: Container Configuration
+    group: App Configuration
     label: Rest Server Configuration
     schema:
       additional_attrs: true
@@ -338,7 +334,7 @@ questions:
                         type: string
                         default: 3 days
   - variable: joex
-    group: Container Configuration
+    group: App Configuration
     label: Job Executor Configuration
     schema:
       additional_attrs: true
@@ -608,13 +604,6 @@ questions:
                               type: int
                               default: 10320
                               required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 10320
         - variable: joex
           label: Joex Service
           description: Joex Service
@@ -637,18 +626,10 @@ questions:
                               type: int
                               default: 10321
                               required: true
-# Include{advancedPortHTTP}
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: The internal(!) port on the container the Application runs on
-                                  schema:
-                                    type: int
-                                    default: 10321
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-# Include{persistenceAdvanced}
         - variable: import
           label: Import Storage
           description: Mounted to DSC container at /import
@@ -657,7 +638,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-# Include{persistenceAdvanced}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -669,7 +649,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
@@ -693,7 +672,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-# Include{securityContextAdvanced}
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: runAsUser
@@ -718,7 +696,5 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
-# Include{promtail}
-# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

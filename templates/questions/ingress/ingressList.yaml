@@ -27,46 +27,6 @@
                 schema:
                   type: string
                   default: ""
-              - variable: labelsList
-                label: Labels
-                schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: labelItem
-                      label: Label
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: name
-                            label: Name
-                            schema:
-                              type: string
-                          - variable: value
-                            label: Value
-                            schema:
-                              type: string
-              - variable: annotationsList
-                label: Annotations
-                schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: annotationItem
-                      label: Label
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: name
-                            label: Name
-                            schema:
-                              type: string
-                          - variable: value
-                            label: Value
-                            schema:
-                              type: string
               - variable: hosts
                 label: Hosts
                 schema:

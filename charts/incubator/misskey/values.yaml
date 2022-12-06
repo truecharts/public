@@ -1,0 +1,65 @@
+image:
+  repository: tccr.io/truecharts/misskey
+  pullPolicy: IfNotPresent
+  tag: 12.119.2@sha256:b3cdeba346b5c34e5773ef68160a706dbb94e61b72ca7040c0417b7387f755c8
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 33
+
+service:
+  main:
+    ports:
+      main:
+        port: 3003
+
+misskey:
+  # Final accessible URL seen by a user. ONCE YOU HAVE STARTED THE INSTANCE, DO NOT CHANGE THE URL SETTINGS AFTER THAT!
+  url: "https://example.tld/"
+  # ID generation method. 'aid' recommended.
+  id: "aid"
+  other:
+    disableHSTS: false
+    signToActivityPubGet: false
+    maxFileSize: 262144000
+    clusterLimit: 1
+    deliverJobConcurrency: 128
+    inboxJobConcurrency: 16
+    deliverJobPerSec: 128
+    inboxJobPerSec: 16
+    deliverJobMaxAttempts: 12
+    inboxJobMaxAttempts: 8
+    allowedPrivateNetworks:
+      - 127.0.0.1/32
+
+env:
+  # NODE_ENV = production | development
+  NODE_ENV: production
+
+persistence:
+  misskeyconfig:
+    enabled: true
+    type: configMap
+    objectName: misskeyconfig
+    mountPath: "/misskey/.config"
+  files:
+    enabled: true
+    mountPath: "/misskey/files"
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: misskey
+  postgresqlDatabase: misskey
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+
+portal:
+  enabled: true

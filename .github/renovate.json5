@@ -7,7 +7,7 @@
   "reviewersFromCodeOwners": true,
   "suppressNotifications": ["prIgnoreNotification"],
   "rebaseWhen": "conflicted",
-  "prConcurrentLimit": 7,
+  "prConcurrentLimit": 10,
   "pinDigests": true,
   "timezone":"Europe/Amsterdam",
   "gitAuthor": "TrueCharts-Admin <bot@truecharts.org>",
@@ -30,6 +30,7 @@
       "matchManagers": ["helm-values"],
       "enabled": true,
       "pinDigests": true,
+      "automerge": true,
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
       "matchUpdateTypes": ["major", "minor", "patch", "digest"],
@@ -38,7 +39,7 @@
     {
       "matchManagers": ["github-actions"],
       "excludePackageNames": ["stefanzweifel/git-auto-commit-action"],
-      "automerge": true,
+      "automerge": false,
     },
     //
     // helm deps
@@ -102,9 +103,6 @@
       "bumpVersion": "major",
       "labels": ["update/docker/enterprise/major"],
       "paths": ["charts/enterprise/"],
-      "schedule": [
-        "before 8am"
-      ],
     },
     {
       "matchDatasources": ["docker"],
@@ -114,11 +112,7 @@
       ],
       "bumpVersion": "patch",
       "labels": ["update/docker/enterprise/minor"],
-      "groupName": ["docker enterprise  minor"],
       "paths": ["charts/enterprise/"],
-      "schedule": [
-        "before 8am"
-      ],
     },
     {
       "matchDatasources": ["docker"],
@@ -130,11 +124,7 @@
       ],
       "bumpVersion": "patch",
       "labels": ["update/docker/enterprise/patch"],
-      "groupName": ["docker enterprise patch"],
       "paths": ["charts/enterprise/"],
-      "schedule": [
-        "before 8am"
-      ],
     },
     //
     // Tag updates for semantic tags on all but enterprise Apps
@@ -143,11 +133,8 @@
       "matchDatasources": ["docker"],
       "updateTypes": ["major"],
       "bumpVersion": "minor",
-      "labels": ["update/docker/general/major"],
+      "labels": ["update/docker/general/major", "automerge"],
       "paths": ["charts/dependency/", "charts/SCALE/", "charts/incubator/", "charts/dev/", "charts/stable/", "templates/app/"],
-      "schedule": [
-        "before 8am"
-      ],
     },
     {
       "matchDatasources": ["docker"],
@@ -159,12 +146,8 @@
         "pin",
       ],
       "bumpVersion": "patch",
-      "labels": ["update/docker/general/non-major"],
-      "groupName": ["docker general non-major"],
+      "labels": ["update/docker/general/non-major", "automerge"],
       "paths": ["charts/dependency/", "charts/SCALE/",  "charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "templates/app/"],
-      "schedule": [
-        "before 8am"
-      ],
     },
     //
     // Tag semantic version type based on regex
@@ -173,6 +156,11 @@
       "matchDatasources": ["docker"],
       "versioning": "regex:^v\d+\.(\d*)?[02468]+\.\d+$",
       "matchPackageNames": ["tailscale/tailscale"],
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>14)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["tccr.io/truecharts/postgresql"],
     },
     {
       "matchDatasources": ["docker"],
@@ -186,22 +174,22 @@
     },
     {
       "matchDatasources": ["docker"],
-      "versioning": "regex:^v(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
+      "versioning": "regex:^(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
       "matchPackageNames": ["tccr.io/truecharts/jitsi-web"],
     },
     {
       "matchDatasources": ["docker"],
-      "versioning": "regex:^v(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
+      "versioning": "regex:^(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
       "matchPackageNames": ["tccr.io/truecharts/jitsi-jicofo"],
     },
     {
       "matchDatasources": ["docker"],
-      "versioning": "regex:^v(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
+      "versioning": "regex:^(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
       "matchPackageNames": ["tccr.io/truecharts/jitsi-jvb"],
     },
     {
       "matchDatasources": ["docker"],
-      "versioning": "regex:^v(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
+      "versioning": "regex:^(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
       "matchPackageNames": ["tccr.io/truecharts/jitsi-prosody"],
     }
   ]
