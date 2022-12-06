@@ -91,8 +91,8 @@ data:
       {{- end }}
       output_args:
         detect: {{ .Values.frigate.ffmpeg.output_args.detect | default "-f rawvideo -pix_fmt yuv420p" }}
-        record: {{ .Values.frigate.ffmpeg.output_args.detect | default "-f segment -segment_time 10 -segment_format mp4 -reset_timestamps 1 -strftime 1 -c copy -an" }}
-        rtmp: {{ .Values.frigate.ffmpeg.output_args.detect | default "-c copy -f flv" }}
+        record: {{ .Values.frigate.ffmpeg.output_args.record | default "-f segment -segment_time 10 -segment_format mp4 -reset_timestamps 1 -strftime 1 -c copy -an" }}
+        rtmp: {{ .Values.frigate.ffmpeg.output_args.rtmp | default "-c copy -f flv" }}
     {{- end }}
 
     {{- if .Values.frigate.detect.render_config }}
