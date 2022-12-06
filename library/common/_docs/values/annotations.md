@@ -18,8 +18,8 @@ Enables or disables addition of annotations in `Service` objects.
 `metallb: true` adds `metallb.universe.tf/allow-shared-ip: $FULLNAME` annotation.
 Only when service type is `LoadBalancer`.
 
-`traefik: true` adds `traefik.ingress.kubernetes.io/service.serversscheme: https` annotation.
-Only when service protocol is `HTTPS`
+`traefik: true` adds `traefik.ingress.kubernetes.io/service.serversscheme: https`
+annotation. Only when service protocol is `HTTPS`
 
 Examples:
 
