@@ -37,15 +37,6 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: config
-          label: App Config Storage
-          description: Stores the Application Configuration.
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-# Include{persistenceList}
         - variable: music
           label: App Music Storage
           description: Stores the Application Music.
@@ -53,6 +44,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
+# Include{persistenceBasic}
 # Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}

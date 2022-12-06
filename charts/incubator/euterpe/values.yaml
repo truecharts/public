@@ -12,9 +12,6 @@ service:
         targetPort: 9996
 
 persistence:
-  config:
-    enabled: false
-    mountPath: /root/.euterpe
   music:
     enabled: true
     mountPath: /root/Music
