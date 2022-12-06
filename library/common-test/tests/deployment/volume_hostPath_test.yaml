@@ -1,0 +1,61 @@
+suite: deployment hostPath volume test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 2
+      - isKind:
+          of: Deployment
+      - isNull:
+          path: spec.template.spec.volume
+
+  - it: should fail with not set path on hostPath
+    set:
+      persistence:
+        some_volume:
+          type: hostPath
+          enabled: true
+          noMount: true
+    asserts:
+      - failedTemplate:
+          errorMessage: hostPath not set on item some_volume
+
+  - it: should pass with added hostPath
+    documentIndex: *deploymentDoc
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: hostPath
+          hostPath: /mnt/pool/test
+          noMount: true
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: volume1
+            hostPath:
+              path: /mnt/pool/test
+
+  - it: should pass with added hostPath and hostPathType set via tpl
+    documentIndex: *deploymentDoc
+    set:
+      some_key: Directory
+      persistence:
+        volume1:
+          enabled: true
+          type: hostPath
+          hostPathType: "{{ .Values.some_key }}"
+          hostPath: /mnt/pool/test
+          noMount: true
+    asserts:
+      - equal:
+          path: spec.template.spec.volumes[0]
+          value:
+            name: volume1
+            hostPath:
+              path: /mnt/pool/test
+              type: Directory

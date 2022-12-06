@@ -29,7 +29,7 @@ you can specify a size for memory backed volumes.
         {{- include "ix.v1.common.controller.volumes.ixVols" (dict "index" $index "volume" $persistence "root" $root) -}}
       {{/* TODO: Implement ix-volumes + add hostpathvalidation? */}}
       {{- else if eq $persistence.type "custom" -}} {{/* Custom, in case we want to add something once */}}
-        {{- tpl ( toYaml $persistence.volumeSpec ) $root | nindent 2 }}
+        {{- include "ix.v1.common.controller.volumes.custom" (dict "index" $index "volume" $persistence "root" $root) -}}
       {{- else -}}
         {{- fail (printf "Not a valid persistence.type (%s)" $persistence.type) -}}
       {{- end -}}
