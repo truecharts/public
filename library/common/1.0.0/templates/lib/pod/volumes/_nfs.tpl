@@ -2,7 +2,7 @@
   {{- $index := .index -}}
   {{- $vol := .volume -}}
   {{- $root := .root }}
-- name: {{ tpl (toString $index) $root }}
+- name: {{ $index }}
   nfs:
     server: {{ required (printf "NFS Server not set on item %s" $index) $vol.server }}
     path: {{ required (printf "NFS Path not set on item %s" $index) $vol.path }}

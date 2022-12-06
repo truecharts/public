@@ -5,6 +5,6 @@
   {{- if not $vol.volumeSpec -}}
     {{- fail (printf "You have defined custom persistence type but no <volumeSpec> was given on item (%s)" $index) -}}
   {{- end }}
-- name: {{ tpl (toString $index) $root }}
+- name: {{ $index }}
   {{- tpl ( toYaml $vol.volumeSpec ) $root | nindent 2 -}}
 {{- end -}}

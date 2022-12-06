@@ -2,6 +2,6 @@
   {{- $index := .index -}}
   {{- $vol := .volume -}}
   {{- $root := .root }}
-- name: {{ tpl (toString $index) $root }}
+- name: {{ $index }}
 
 {{- end -}}

@@ -3,7 +3,7 @@
   {{- $vol := .volume -}}
   {{- $root := .root -}}
   {{- $objectName := tpl (required (printf "objectName not set for persistence item %s" (toString $index)) $vol.objectName) $root }}
-- name: {{ tpl (toString $index) $root }}
+- name: {{ $index }}
   secret:
     secretName: {{ $objectName }}
   {{- with $vol.defaultMode }}

@@ -17,7 +17,7 @@
       {{- $pvcName = . -}}
     {{- end -}}
   {{- end }}
-- name: {{ tpl (toString $index) $root }}
+- name: {{ $index }}
   persistentVolumeClaim:
     claimName: {{ tpl $pvcName $root }}
 {{- end -}}

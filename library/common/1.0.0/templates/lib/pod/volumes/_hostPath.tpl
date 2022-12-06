@@ -2,7 +2,7 @@
   {{- $index := .index -}}
   {{- $vol := .volume -}}
   {{- $root := .root }}
-- name: {{ tpl (toString $index) $root }}
+- name: {{ $index }}
   hostPath:
     path: {{ required (printf "hostPath not set on item %s" $index) $vol.hostPath }}
   {{- with $vol.hostPathType }}

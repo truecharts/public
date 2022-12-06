@@ -2,7 +2,7 @@
   {{- $index := .index -}}
   {{- $vol := .volume -}}
   {{- $root := .root }}
-- name: {{ tpl (toString $index) $root }}
+- name: {{ $index }}
   {{- if not (or $vol.medium $vol.sizeLimit) }}
   emptyDir: {}
   {{- else }}
