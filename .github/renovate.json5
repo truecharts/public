@@ -154,6 +154,11 @@
     //
     {
       "matchDatasources": ["docker"],
+      "versioning": "regex:^v\d+\.(\d*)?[02468]+\.\d+$",
+      "matchPackageNames": ["tailscale/tailscale"],
+    },
+    {
+      "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>14)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
       "matchPackageNames": ["tccr.io/truecharts/postgresql"],
     },
