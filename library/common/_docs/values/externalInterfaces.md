@@ -55,3 +55,5 @@ externalInterfaces:
       - destination: 1.2.3.4
         gateway: 1.2.3.4
 ```
+
+`hostInterface` values are generated from the SCALE GUI
