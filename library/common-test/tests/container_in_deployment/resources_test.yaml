@@ -19,6 +19,22 @@ tests:
               cpu: 10m
               memory: 50Mi
 
+  - it: should fail with empty key in gpu
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU:
+        somekey:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: Value is not provided for GPU (<key> somekey)
+
   - it: should pass with changed resources
     documentIndex: *deploymentDoc
     set:
@@ -44,7 +60,7 @@ tests:
     documentIndex: *deploymentDoc
     set:
       scaleGPU:
-        gpu: 1
+        gpu.intel.com/i915: "1"
       resources:
         limits:
           cpu: 3000m
@@ -59,7 +75,7 @@ tests:
             limits:
               cpu: 3000m
               memory: 4Gi
-              gpu: 1
+              gpu.intel.com/i915: "1"
             requests:
               cpu: 20m
               memory: 100Mi
@@ -67,8 +83,7 @@ tests:
   - it: should pass with empty resources
     documentIndex: *deploymentDoc
     set:
-      scaleGPU:
-        gpu:
+      scaleGPU: {}
       resources:
         limits:
           cpu:
@@ -83,8 +98,7 @@ tests:
   - it: should pass with only limits.cpu defined
     documentIndex: *deploymentDoc
     set:
-      scaleGPU:
-        gpu:
+      scaleGPU: {}
       resources:
         limits:
           cpu: 3000m
@@ -102,8 +116,7 @@ tests:
   - it: should pass with only limits.memory defined
     documentIndex: *deploymentDoc
     set:
-      scaleGPU:
-        gpu:
+      scaleGPU: {}
       resources:
         limits:
           cpu:
@@ -121,8 +134,7 @@ tests:
   - it: should pass with only requests.cpu defined
     documentIndex: *deploymentDoc
     set:
-      scaleGPU:
-        gpu:
+      scaleGPU: {}
       resources:
         limits:
           cpu:
@@ -140,8 +152,7 @@ tests:
   - it: should pass with only requests.memory defined
     documentIndex: *deploymentDoc
     set:
-      scaleGPU:
-        gpu:
+      scaleGPU: {}
       resources:
         limits:
           cpu:
@@ -160,7 +171,7 @@ tests:
     documentIndex: *deploymentDoc
     set:
       scaleGPU:
-        gpu: 1
+        gpu.intel.com/i915: "1"
       resources:
         limits:
           cpu:
@@ -173,13 +184,12 @@ tests:
           path: spec.template.spec.containers[0].resources
           value:
             limits:
-              gpu: 1
+              gpu.intel.com/i915: "1"
 
   - it: should pass with only requests defined
     documentIndex: *deploymentDoc
     set:
-      scaleGPU:
-        gpu:
+      scaleGPU: {}
       resources:
         limits:
           cpu:
@@ -198,8 +208,7 @@ tests:
   - it: should pass with only limits defined
     documentIndex: *deploymentDoc
     set:
-      scaleGPU:
-        gpu:
+      scaleGPU: {}
       resources:
         limits:
           cpu: 3000m
@@ -219,7 +228,7 @@ tests:
     documentIndex: *deploymentDoc
     set:
       scaleGPU:
-        gpu: 1
+        gpu.intel.com/i915: "1"
       resources:
         limits:
           cpu:
@@ -232,4 +241,4 @@ tests:
           path: spec.template.spec.containers[0].resources
           value:
             limits:
-              gpu: 1
+              gpu.intel.com/i915: "1"
