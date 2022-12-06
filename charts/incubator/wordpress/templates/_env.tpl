@@ -18,6 +18,7 @@ data:
   WORDPRESS_DATABASE_NAME: {{ .Values.mariadb.mariadbDatabase | quote }}
 
   {{/* Wordpress */}}
+  WORDPRESS_USERNAME: {{ .Values.wordpress.user | quote }}
   WORDPRESS_EMAIL: {{ .Values.wordpress.email | quote }}
   WORDPRESS_FIRST_NAME: {{ .Values.wordpress.first_name | quote }}
   WORDPRESS_LAST_NAME: {{ .Values.wordpress.last_name | quote }}
