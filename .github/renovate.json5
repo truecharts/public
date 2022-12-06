@@ -154,7 +154,7 @@
     //
     {
       "matchDatasources": ["docker"],
-      "versioning": "regex:^v\d+\.(\d*)?[02468]+\.\d+$",
+      "versioning": "regex:^v\\d+\\.(\\d*)?[02468]+\\.\\d+$",
       "matchPackageNames": ["tailscale/tailscale"],
     },
     {
