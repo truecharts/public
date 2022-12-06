@@ -42,7 +42,7 @@ securityContext:
 {{- with (include "ix.v1.common.controller.mainContainer" . | trim) }}
 containers:
   {{- . | nindent 2 }}
-{{- end }}
+{{- end }}{{/*TODO: init/install/upgradeContainers */}}
 {{- with (include "ix.v1.common.controller.volumes" . | trim) }}
 volumes:
     {{- . | nindent 2 }}
