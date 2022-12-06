@@ -65,11 +65,11 @@ data:
   WORDPRESS_DATABASE_HOST: {{ printf "%v-%v" .Release.Name "mariadb" | b64enc }}
   WORDPRESS_DATABASE_PASSWORD: {{ .Values.mariadb.mariadbPassword | trimAll "\"" | b64enc }}
 
-  WORDPRESS_PASSWORD: {{ .Values.wordpress.pass | quote | b64enc }}
+  WORDPRESS_PASSWORD: {{ .Values.wordpress.pass | b64enc }}
 
   {{- if .Values.smtp.enabled }}
-  WORDPRESS_SMTP_USER: {{ .Values.smtp.user | quote | b64enc }}
-  WORDPRESS_SMTP_PASSWORD: {{ .Values.smtp.pass | quote | b64enc }}
+  WORDPRESS_SMTP_USER: {{ .Values.smtp.user | b64enc }}
+  WORDPRESS_SMTP_PASSWORD: {{ .Values.smtp.pass | b64enc }}
   {{- end }}
 
   {{/* Salts */}}
