@@ -1,9 +1,4 @@
 
-{{/*
-For emptyDir:
-If the `SizeMemoryBackedVolumes` feature gate is enabled,
-you can specify a size for memory backed volumes.
-*/}}
 {{/* Volumes included by the controller. */}}
 {{- define "ix.v1.common.controller.volumes" -}}
   {{- $root := . -}}

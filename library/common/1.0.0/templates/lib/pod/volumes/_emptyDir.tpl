@@ -1,3 +1,7 @@
+{{/*
+If the `SizeMemoryBackedVolumes` feature gate is enabled,
+you can specify a size for memory backed volumes.
+*/}}
 {{- define "ix.v1.common.controller.volumes.emptyDir" -}}
   {{- $index := .index -}}
   {{- $vol := .volume -}}
