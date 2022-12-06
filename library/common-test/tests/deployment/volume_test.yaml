@@ -111,7 +111,7 @@ tests:
           noMount: true
     asserts:
       - failedTemplate:
-          errorMessage: You can only set medium as (Memory)
+          errorMessage: You can only set <medium> as Memory on item (volume1)
 
   - it: should pass with added nfs
     documentIndex: *deploymentDoc
