@@ -63,6 +63,11 @@
   {{- print "v1" -}}
 {{- end -}}
 
+{{/* Return the appropriate apiVersion for configMap */}}
+{{- define "ix.v1.common.capabilities.configMap.apiVersion" -}}
+  {{- print "v1" -}}
+{{- end -}}
+
 {{/* Return the appropriate apiVersion for NetworkAttachmentDefinition */}}
 {{- define "ix.v1.common.capabilities.externalInterfaces.apiVersion" -}}
   {{- print "k8s.cni.cncf.io/v1" | quote -}}
