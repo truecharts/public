@@ -8,7 +8,7 @@ tests:
     documentIndex: &deploymentDoc 0
     asserts:
       - hasDocuments:
-          count: 2
+          count: 3
       - isKind:
           of: Deployment
 
@@ -117,7 +117,7 @@ tests:
         - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
     asserts:
       - hasDocuments:
-          count: 3
+          count: 4
       - isKind:
           of: NetworkAttachmentDefinition
       - isAPIVersion:
@@ -145,7 +145,7 @@ tests:
         - ix-RELEASE-NAME-0
     asserts:
       - hasDocuments:
-          count: 3
+          count: 4
       - isKind:
           of: Deployment
       - isSubset:
@@ -171,7 +171,7 @@ tests:
         - ix-RELEASE-NAME-0
     asserts:
       - hasDocuments:
-          count: 4
+          count: 5
       - isKind:
           of: NetworkAttachmentDefinition
       - isAPIVersion:
@@ -198,7 +198,7 @@ tests:
         - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-1", "type": "macvlan", "master": "ens5s0", "ipam": {"type": "dhcp"}}'
     asserts:
       - hasDocuments:
-          count: 4
+          count: 5
       - isKind:
           of: NetworkAttachmentDefinition
       - isAPIVersion:
@@ -228,7 +228,7 @@ tests:
         - ix-RELEASE-NAME-1
     asserts:
       - hasDocuments:
-          count: 4
+          count: 5
       - isKind:
           of: Deployment
       - isSubset:
@@ -255,7 +255,7 @@ tests:
         - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
     asserts:
       - hasDocuments:
-          count: 3
+          count: 4
       - isKind:
           of: NetworkAttachmentDefinition
       - isAPIVersion:
@@ -285,7 +285,7 @@ tests:
         - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
     asserts:
       - hasDocuments:
-          count: 3
+          count: 4
       - isKind:
           of: NetworkAttachmentDefinition
       - isAPIVersion:
@@ -313,7 +313,7 @@ tests:
         - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
     asserts:
       - hasDocuments:
-          count: 3
+          count: 4
       - isKind:
           of: NetworkAttachmentDefinition
       - isAPIVersion:
@@ -351,7 +351,7 @@ tests:
         - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
     asserts:
       - hasDocuments:
-          count: 3
+          count: 4
       - isKind:
           of: NetworkAttachmentDefinition
       - isAPIVersion:

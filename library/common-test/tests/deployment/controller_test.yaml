@@ -6,7 +6,7 @@ tests:
     documentIndex: &deploymentDoc 0
     asserts:
       - hasDocuments:
-          count: 2
+          count: 3
       - isKind:
           of: Deployment
       - equal:
@@ -31,7 +31,7 @@ tests:
         enabled: false
     asserts:
       - hasDocuments:
-          count: 1
+          count: 2
 
   - it: should pass with controller strategy changed and rollingUpdate strategies set
     documentIndex: *deploymentDoc
