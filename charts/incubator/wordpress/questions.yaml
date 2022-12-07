@@ -59,6 +59,12 @@ questions:
             type: string
             required: true
             default: Truecharts Blog
+        - variable: enable_reverse_proxy_headers
+          label: Wordpress Reverse Proxy Headers Support
+          description: Enable WordPress support for reverse proxy headers
+          schema:
+            type: boolean
+            default: true
   - variable: smtp
     group: App Configuration
     label: SMTP Configuration
