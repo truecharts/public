@@ -1,0 +1,33 @@
+image:
+  repository: tccr.io/truecharts/owntracks
+  pullPolicy: IfNotPresent
+  tag: 0.9.2@sha256:c774c7db9f80da21e11599872f9c4bdfdc7316834bd88685f4a0e3d3cbc915fa
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 8083
+        port: 8083
+
+probes:
+  liveness:
+    path: "/"
+
+  readiness:
+    path: "/"
+
+  startup:
+    path: "/"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/store"
+
+portal:
+  enabled: true
