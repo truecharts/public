@@ -147,6 +147,16 @@ global:
   annotations: {}
   labels: {}
 
+portal:
+  # Whether to generate portal configMaps
+  enabled: true
+  # main:
+  #   main:
+  #     path: /somepath
+  #     port: 123
+  #     protocol: http
+  #     host: blabla
+
 nameOverride: ""
 
 fullnameOverride: ""

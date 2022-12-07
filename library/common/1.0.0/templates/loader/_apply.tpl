@@ -21,4 +21,6 @@
  {{- include "ix.v1.common.spawner.service" . | nindent 0 -}}
 
  {{- include "ix.v1.common.spawner.pvc" . | nindent 0 -}}
+
+ {{- include "ix.v1.common.spawner.portal" . | nindent 0 -}}
 {{- end -}}
