@@ -59,30 +59,12 @@ questions:
             type: string
             required: true
             default: Truecharts Blog
-        - variable: WORDPRESS_ENABLE_HTTPS
-          label: Wordpress Enable HTTPS support
-          description: Whether to use HTTPS by default
-          schema:
-            type: string
-            required: true
-            default: "no"
-            enum:
-              - value: "yes"
-                description: "Yes"
-              - value: "no"
-                description: "No"
-        - variable: WORDPRESS_ENABLE_REVERSE_PROXY
-          label: Wordpress Reverse Proxy Support
+        - variable: enable_reverse_proxy_headers
+          label: Wordpress Reverse Proxy Headers Support
           description: Enable WordPress support for reverse proxy headers
           schema:
-            type: string
-            required: no
-            default: "yes"
-            enum:
-              - value: "yes"
-                description: "Yes"
-              - value: "no"
-                description: "No"
+            type: boolean
+            default: true
   - variable: smtp
     group: App Configuration
     label: SMTP Configuration

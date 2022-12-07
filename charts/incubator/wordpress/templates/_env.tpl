@@ -23,8 +23,7 @@ data:
   WORDPRESS_FIRST_NAME: {{ .Values.wordpress.first_name | quote }}
   WORDPRESS_LAST_NAME: {{ .Values.wordpress.last_name | quote }}
   WORDPRESS_BLOG_NAME: {{ .Values.wordpress.blog_name | quote }}
-  WORDPRESS_ENABLE_HTTPS: {{ .Values.wordpress.WORDPRESS_ENABLE_HTTPS | quote }}
-  WORDPRESS_ENABLE_REVERSE_PROXY: {{ .Values.wordpress.WORDPRESS_ENABLE_REVERSE_PROXY | quote }}
+  WORDPRESS_ENABLE_REVERSE_PROXY: {{ ternary "yes" "no" .Values.wordpress.enable_reverse_proxy_headers | quote }}
 
   {{- if .Values.smtp.enabled }}
   WORDPRESS_SMTP_HOST: {{ .Values.smtp.host | quote }}
