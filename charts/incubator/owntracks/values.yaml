@@ -6,28 +6,37 @@ image:
 # securityContext:
 #  readOnlyRootFilesystem: false
 
+env:
+  OTR_HTTPPORT: "{{ .Values.service.main.ports.main.port }}"
+  OTR_HOST: ""
+  OTR_PORT: 1883
+  OTR_USER: ""
+  OTR_PASS: ""
+  OTR_PRECISION: 7
+  OTR_GEOKEY: ""
+  OTR_BROWSERAPIKEY: ""
+
 service:
   main:
     ports:
       main:
         protocol: HTTP
-        targetPort: 8083
         port: 8083
 
 probes:
   liveness:
-    path: "/"
+    path: /
 
   readiness:
-    path: "/"
+    path: /
 
   startup:
-    path: "/"
+    path: /
 
 persistence:
   store:
     enabled: true
-    mountPath: "/store"
+    mountPath: /store
 
 portal:
   enabled: true
