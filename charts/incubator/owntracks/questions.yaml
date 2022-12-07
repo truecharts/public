@@ -16,28 +16,30 @@ questions:
       type: dict
       attrs:
         - variable: OTR_HOST
-          label: "OTR_HOST"
-          description: "Set the MQTT host url or ip. ex: `mosquitto.ix-mosquitto.svc.local`."
+          label: MQTT OTR Host
+          description: Set the MQTT host URL or IP. For example <mosquitto.ix-mosquitto.svc.local>.
           schema:
             type: string
             default: ""
         - variable: OTR_PORT
-          label: "OTR_PORT"
-          description: "Set OTR_PORT to the port that your MQTT uses."
+          label: OTR MQTT Port
+          description: Set to the port that your MQTT uses.
           schema:
             type: int
+            required: true
             default: 1883
         - variable: OTR_USER
-          label: "OTR_USER"
-          description: "Set to the user that your MQTT uses."
+          label: OTR MQTT User
+          description: Set to the user that your MQTT uses.
           schema:
             type: string
             default: ""
         - variable: OTR_PASS
-          label: "OTR_PASS"
-          description: "Set to the password that your MQTT uses."
+          label: OTR MQTT Password
+          description: Set to the password that your MQTT uses.
           schema:
             type: string
+            private: true
             default: ""
 # Include{containerConfig}
 # Include{serviceRoot}

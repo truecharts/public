@@ -3,8 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: 0.9.2@sha256:9973f01c20fe746bc87a930369c871367e9d0e7868b31c6d6e084918370209f9
 
-securityContext:
-  readOnlyRootFilesystem: false
+# securityContext:
+#  readOnlyRootFilesystem: false
 
 service:
   main:
