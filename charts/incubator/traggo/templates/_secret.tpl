@@ -11,7 +11,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
-  TRAGGO_DATABASE_DIALECT: sqlite
+  TRAGGO_DATABASE_DIALECT: sqlite3
   TRAGGO_DATABASE_CONNECTION: /opt/traggo/data/traggo.db
   TRAGGO_PORT: {{ .Values.service.main.ports.main.port | quote }}
   TRAGGO_PASS_STRENGTH: {{ .Values.traggo.pass_strength | quote }}
