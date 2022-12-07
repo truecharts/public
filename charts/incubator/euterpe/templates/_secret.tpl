@@ -50,18 +50,18 @@ stringData:
           "sleep_after_operation": {{ .Values.euterpe.library_scan.sleep_after_operation | quote }}
       },
 
-      "download_artwork": {{ .Values.euterpe.download_artwork }},
+      "download_artwork": {{ .Values.euterpe.discogs.download_artwork }},
 
-      {{- with .Values.euterpe.discogs_auth_token }}
+      {{- with .Values.euterpe.discogs.discogs_auth_token }}
       "discogs_auth_token": {{ . | quote }},
       {{- end }}
 
-      "gzip": {{ .Values.euterpe.gzip }},
-      "log_file": {{ .Values.euterpe.log_file | quote }},
-      "sqlite_database": {{ .Values.euterpe.sqlite_database | quote }},
-      "read_timeout": {{ .Values.euterpe.read_timeout }},
-      "write_timeout": {{ .Values.euterpe.write_timeout }},
-      "max_header_bytes": {{ .Values.euterpe.max_header_bytes | int }}
+      "gzip": {{ .Values.euterpe.danger_zone.gzip }},
+      "log_file": {{ .Values.euterpe.danger_zone.log_file | quote }},
+      "sqlite_database": {{ .Values.euterpe.danger_zone.sqlite_database | quote }},
+      "read_timeout": {{ .Values.euterpe.danger_zone.read_timeout }},
+      "write_timeout": {{ .Values.euterpe.danger_zone.write_timeout }},
+      "max_header_bytes": {{ .Values.euterpe.danger_zone.max_header_bytes | int }}
     }
 ---
 apiVersion: v1
