@@ -58,7 +58,7 @@ stringData:
       "sqlite_database": {{ .Values.euterpe.sqlite_database | quote }},
       "read_timeout": {{ .Values.euterpe.read_timeout }},
       "write_timeout": {{ .Values.euterpe.write_timeout }},
-      "max_header_bytes": {{ .Values.euterpe.max_header_bytes }},
+      "max_header_bytes": {{ .Values.euterpe.max_header_bytes | int }},
     }
 ---
 apiVersion: v1
