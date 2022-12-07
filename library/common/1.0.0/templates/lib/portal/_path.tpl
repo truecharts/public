@@ -1,5 +1,4 @@
 {{- define "ix.v1.common.portal.path" -}}
-  {{- $svcType := .svcType -}}
   {{- $svcName := .svcName -}}
   {{- $portName := .portName -}}
   {{- $port := .port -}}
