@@ -22,7 +22,6 @@
         {{- include "ix.v1.common.controller.volumes.nfs" (dict "index" $index "volume" $persistence "root" $root) -}}
       {{- else if eq $persistence.type "ix-volumes" -}} {{/* ix-volumes */}}
         {{- include "ix.v1.common.controller.volumes.ixVols" (dict "index" $index "volume" $persistence "root" $root) -}}
-      {{/* TODO: Implement ix-volumes + add hostpathvalidation? */}}
       {{- else if eq $persistence.type "custom" -}} {{/* Custom, in case we want to add something once */}}
         {{- include "ix.v1.common.controller.volumes.custom" (dict "index" $index "volume" $persistence "root" $root) -}}
       {{- else -}}
