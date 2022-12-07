@@ -57,8 +57,8 @@ stringData:
       "log_file": {{ .Values.euterpe.log_file | quote }},
       "sqlite_database": {{ .Values.euterpe.sqlite_database | quote }},
       "read_timeout": {{ .Values.euterpe.read_timeout }},
-      "write_timeout": {{ .Values.euterpe.sqlite_database }},
-      "max_header_bytes": {{ .Values.euterpe.sqlite_database }},
+      "write_timeout": {{ .Values.euterpe.write_timeout }},
+      "max_header_bytes": {{ .Values.euterpe.max_header_bytes }},
     }
 ---
 apiVersion: v1
