@@ -1,0 +1,37 @@
+image:
+  repository: tccr.io/truecharts/jackett
+  pullPolicy: IfNotPresent
+  tag: 0.20.2297@sha256:4de1541011cb56935ba5a8e28a58f6cbcf62a903393dc94581eda0b6e2aa117c
+
+traggo:
+  username: admin
+  password: admin
+  pass_strength: 10
+  log_level: info
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        port: 12117
+
+probes:
+  liveness:
+    type: HTTP
+  readiness:
+    type: HTTP
+  startup:
+    type: HTTP
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /opt/traggo/data
+
+portal:
+  enabled: true
