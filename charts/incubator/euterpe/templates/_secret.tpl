@@ -32,19 +32,22 @@ stringData:
           {{- with .Values.euterpe.authentication.password }}
           "password": {{ . | quote }},
           {{- end }}
-          "secret": {{ $secretKey | quote }},
+          "secret": {{ $secretKey | quote }}
       },
 
+      {{- if .Values.euterpe.libraries }}
       "libraries": [
-        {{- range .Values.euterpe.libraries }}
+        {{- range initial .Values.euterpe.libraries }}
           {{ . | quote }},
         {{- end }}
+          {{ last .Values.euterpe.libraries | quote }}
       ],
+      {{- end }}
 
       "library_scan": {
           "initial_wait_duration": {{ .Values.euterpe.library_scan.initial_wait_duration | quote }},
           "files_per_operation": {{ .Values.euterpe.library_scan.files_per_operation }},
-          "sleep_after_operation": {{ .Values.euterpe.library_scan.sleep_after_operation | quote }},
+          "sleep_after_operation": {{ .Values.euterpe.library_scan.sleep_after_operation | quote }}
       },
 
       "download_artwork": {{ .Values.euterpe.download_artwork }},
@@ -58,7 +61,7 @@ stringData:
       "sqlite_database": {{ .Values.euterpe.sqlite_database | quote }},
       "read_timeout": {{ .Values.euterpe.read_timeout }},
       "write_timeout": {{ .Values.euterpe.write_timeout }},
-      "max_header_bytes": {{ .Values.euterpe.max_header_bytes | int }},
+      "max_header_bytes": {{ .Values.euterpe.max_header_bytes }}
     }
 ---
 apiVersion: v1
