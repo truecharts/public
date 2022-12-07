@@ -126,12 +126,15 @@ probes:
   startup:
     type: HTTP
 
+# TODO: containers for seed db and db migrations
 
 postgresql:
   enabled: true
   existingSecret: dbcreds
   postgresqlDatabase: invidious
-  postgresqlUsername: invidious
+  # DB User cannot be changed
+  # hardcoded from upstream
+  postgresqlUsername: kemal
 
 portal:
   enabled: true

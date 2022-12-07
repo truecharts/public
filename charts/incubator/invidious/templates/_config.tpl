@@ -13,7 +13,6 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
   INVIDIOUS_CONFIG: |
-    # version compatible 0.20.1+
     db:
       user: {{ .Values.postgresql.postgresqlUsername }}
       password: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
@@ -82,7 +81,7 @@ stringData:
       video_loop: false
       quality: hd720
       quality_dash: auto
-      speed: 1
+      speed: 1.0  # Convert to float with `| float64`
       volume: 100
       vr_mode: true
       latest_only: false
