@@ -139,7 +139,9 @@ global:
     defaultPVCRetain: false
     # Define a storageClassName that will be used for all PVCs by default
     # Leave empty to rely on the node's default storageClass
-    storageClassName:
+    defaultStorageClass:
+    # When SCALE-ZFS is set for storageClass, return this name
+    scaleZFSStorageClass:
   nameOverride: ""
   fullnameOverride: ""
   annotations: {}

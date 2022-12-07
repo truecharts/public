@@ -4,27 +4,27 @@
   {{- $root := .root -}}
 
   {{/*
-  If a storage class is defined on a persistence object:
-    "-" returns "", which means requesting a PV without class
-    SCALE-ZFS returns the value set on Values.global.defaults.storageClassName
-    else return the defined storageClass
-  Else if there is a storageClass defined in Values.global.defaults.storageClassName, return this
-  In any other case, return nothing
+    If a storage class is defined on a persistence object:
+      "-" returns "", which means requesting a PV without class
+      "SCALE-ZFS" returns the value set on Values.global.defaults.scaleZFSStorageClass
+      else return the defined storageClass
+    Else if there is a storageClass defined in Values.global.defaults.defaultStorageClass, return this
+    In any other case, return nothing
   */}}
 
   {{- if $persistence.storageClass -}}
     {{- $className := tpl $persistence.storageClass $root -}}
     {{- if eq "-" $className -}}
       {{- print "\"\"" -}}
-    {{- else if eq "SCALE-ZFS" $className -}}
-      {{- if not $root.Values.global.defaults.storageClassName -}}
-        {{- fail "A storageClassName must be defined in global.defaults.storageClassName" -}}
+    {{- else if eq "SCALE-ZFS" $className -}} {{/* Later, if we have more storage classes we add another else if (eg SCALE-SMB) */}}
+      {{- if not $root.Values.global.defaults.scaleZFSStorageClass -}}
+        {{- fail "A storageClass must be defined in global.defaults.scaleZFSStorageClass" -}}
       {{- end -}}
-      {{- print $root.Values.global.defaults.storageClassName -}}
+      {{- print (tpl $root.Values.global.defaults.scaleZFSStorageClass $root) -}}
     {{- else -}}
       {{- print $className -}}
     {{- end -}}
-  {{- else if $root.Values.global.defaults.storageClassName -}}
-    {{- print $root.Values.global.defaults.storageClassName -}}
+  {{- else if $root.Values.global.defaults.defaultStorageClass -}}
+    {{- print $root.Values.global.defaults.defaultStorageClass -}}
   {{- end -}}
 {{- end -}}

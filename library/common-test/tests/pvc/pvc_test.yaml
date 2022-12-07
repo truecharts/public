@@ -12,7 +12,7 @@ tests:
       - isKind:
           of: Deployment
 
-  - it: should fail with SCALE-ZFS storageClass but not storageClassName in global
+  - it: should fail with SCALE-ZFS storageClass but not scaleZFSStorageClass in global
     set:
       persistence:
         vol1:
@@ -22,7 +22,7 @@ tests:
           mountPath: /somepath
     asserts:
       - failedTemplate:
-          errorMessage: A storageClassName must be defined in global.defaults.storageClassName
+          errorMessage: A storageClass must be defined in global.defaults.scaleZFSStorageClass
 
   - it: should fail with invalid accessMode
     set:
@@ -260,6 +260,51 @@ tests:
       - isNull:
           path: spec.volumeName
 
+  - it: should pass with storageClass set to SCALE-ZFS
+    documentIndex: *pvcDoc
+    set:
+      global:
+        defaults:
+          scaleZFSStorageClass: something
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          storageClass: SCALE-ZFS
+    asserts:
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+            storageClassName: something
+
+  - it: should pass with storageClass set to SCALE-ZFS from tpl
+    documentIndex: *pvcDoc
+    set:
+      key: something
+      global:
+        defaults:
+          scaleZFSStorageClass: "{{ .Values.key }}"
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
+          storageClass: SCALE-ZFS
+    asserts:
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+            storageClassName: something
+
   - it: should pass with storageClass set to "-"
     documentIndex: *pvcDoc
     set:
@@ -278,6 +323,8 @@ tests:
               requests:
                 storage: 1Gi
             storageClassName: ""
+      - isNotNull:
+          path: spec.storageClassName
 
   - it: should pass with storageClass set to something
     documentIndex: *pvcDoc
@@ -307,6 +354,27 @@ tests:
           enabled: true
           mountPath: /somepath
           storageClass: "{{ .Values.scName }}"
+    asserts:
+      - equal:
+          path: spec
+          value:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+            storageClassName: something
+
+  - it: should pass with storageClass defined globally
+    documentIndex: *pvcDoc
+    set:
+      global:
+        defaults:
+          defaultStorageClass: something
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /somepath
     asserts:
       - equal:
           path: spec
