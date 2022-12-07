@@ -68,9 +68,9 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+        - variable: store
+          label: "App Storage"
+          description: "Stores the location data."
           schema:
             additional_attrs: true
             type: dict
