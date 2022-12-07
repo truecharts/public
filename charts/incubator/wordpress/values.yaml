@@ -16,6 +16,8 @@ wordpress:
   first_name: TrueCharts
   last_name: TrueCharts
   blog_name: Truecharts Blog
+  WORDPRESS_ENABLE_HTTPS: no
+  WORDPRESS_ENABLE_REVERSE_PROXY: yes
 
 smtp:
   enabled: false
