@@ -15,7 +15,7 @@
         {{- if eq $portName $name -}}
           {{- if (hasKey $port "path") -}}
             {{- $portalPath = (tpl (toString $port.path) $root) -}}
-            {{- if not $portalPath -}}
+            {{- if or (eq $portalPath "<nil>") (not $portalPath) -}} {{/* toString on a nil key returns the string "<nil>" */}}
               {{- fail "You have defined empty <path> in <portal>. Define a path or remove the key." -}}
             {{- end -}}
           {{- end -}}
