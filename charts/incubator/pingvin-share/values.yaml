@@ -1,0 +1,20 @@
+image:
+  repository: stonith404/pingvin-share
+  pullPolicy: IfNotPresent
+  tag: v0.3.2@sha256:c6b26d6634552560df4078fdd0eceb8078bd14030e50533d95ffacf16be0c6ca
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 3000
+        port: 10595
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /opt/app/backend/data
+
+portal:
+  enabled: true
