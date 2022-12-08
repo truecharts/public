@@ -9,6 +9,8 @@
 
   {{- if $root.Values.hostNetwork -}}
     {{- $portalPort = $port.port -}}
+  {{- else if (hasKey $port "hostPort") -}}
+    {{- $portalPort = $port.hostPort -}}
   {{- else if eq $svcType "NodePort" -}}
     {{- $portalPort = $port.nodePort -}}
   {{- else if eq $svcType "LoadBalancer" -}}
