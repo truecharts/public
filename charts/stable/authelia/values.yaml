@@ -586,6 +586,9 @@ identity_providers:
     ## The policy to require for this client; one_factor or two_factor.
     # authorization_policy: two_factor
 
+    ## Configures the consent mode; auto, explicit or implicit
+    # consent_mode: auto
+
     ## Audience this client is allowed to request.
     # audience: []
 
