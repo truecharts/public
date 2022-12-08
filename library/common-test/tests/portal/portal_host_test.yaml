@@ -79,7 +79,7 @@ tests:
       - isSubset:
           path: data
           content:
-            host-main-main: 10.10.10.100
+            host-main-main: "10.10.10.100"
 
   - it: should pass with defaults on multiple service/port
     documentIndex: &dualServicePortalDoc 3
@@ -183,10 +183,10 @@ tests:
       - isSubset:
           path: data
           content:
-            host-main-main: 10.10.10.100
-            host-main-main2: 10.10.10.101
-            host-other-other: 10.10.10.102
-            host-other-other2: 10.10.10.103
+            host-main-main: "10.10.10.100"
+            host-main-main2: "10.10.10.101"
+            host-other-other: "10.10.10.102"
+            host-other-other2: "10.10.10.103"
 
   - it: should pass with override on multiple service/port from tpl
     documentIndex: *dualServicePortalDoc
@@ -246,7 +246,7 @@ tests:
       - isSubset:
           path: data
           content:
-            host-main-main: 10.10.10.100
-            host-main-main2: 10.10.10.101
-            host-other-other: 10.10.10.102
-            host-other-other2: 10.10.10.103
+            host-main-main: "10.10.10.100"
+            host-main-main2: "10.10.10.101"
+            host-other-other: "10.10.10.102"
+            host-other-other2: "10.10.10.103"

@@ -87,7 +87,7 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 11000
+            port-main-main: "11000"
 
   - it: should pass with hostPort multiple service
     documentIndex: &dualServicePortalDoc 3
@@ -118,8 +118,8 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 11000
-            port-other-other: 11001
+            port-main-main: "11000"
+            port-other-other: "11001"
 
   - it: should pass with hostPort multiple service and multiple port
     documentIndex: *dualServicePortalDoc
@@ -162,10 +162,10 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 11000
-            port-main-main2: 11002
-            port-other-other: 11001
-            port-other-other2: 11003
+            port-main-main: "11000"
+            port-main-main2: "11002"
+            port-other-other: "11001"
+            port-other-other2: "11003"
 
   - it: should pass with hostPort multiple service and multiple port and single port override on portal
     documentIndex: *dualServicePortalDoc
@@ -212,10 +212,10 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 20000
-            port-main-main2: 11002
-            port-other-other: 11001
-            port-other-other2: 11003
+            port-main-main: "20000"
+            port-main-main2: "11002"
+            port-other-other: "11001"
+            port-other-other2: "11003"
 
   - it: should pass with hostPort multiple service and multiple port and multiple port override on portal
     documentIndex: *dualServicePortalDoc
@@ -269,10 +269,10 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 20000
-            port-main-main2: 20002
-            port-other-other: 20001
-            port-other-other2: 20003
+            port-main-main: "20000"
+            port-main-main2: "20002"
+            port-other-other: "20001"
+            port-other-other2: "20003"
 
   - it: should pass with hostPort multiple service and multiple port and override on portal from tpl
     documentIndex: *dualServicePortalDoc
@@ -330,10 +330,10 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 20000
-            port-main-main2: 20002
-            port-other-other: 20001
-            port-other-other2: 20003
+            port-main-main: "20000"
+            port-main-main2: "20002"
+            port-other-other: "20001"
+            port-other-other2: "20003"
 
   - it: should pass with hostNetwork single service
     documentIndex: *portalDoc
@@ -358,7 +358,7 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 10000
+            port-main-main: "10000"
 
   - it: should pass with hostNetwork multiple service
     documentIndex: *dualServicePortalDoc
@@ -388,8 +388,8 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 10000
-            port-other-other: 10001
+            port-main-main: "10000"
+            port-other-other: "10001"
 
   - it: should pass with hostNetwork multiple service and multiple port
     documentIndex: *dualServicePortalDoc
@@ -429,10 +429,10 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 10000
-            port-main-main2: 10002
-            port-other-other: 10001
-            port-other-other2: 10003
+            port-main-main: "10000"
+            port-main-main2: "10002"
+            port-other-other: "10001"
+            port-other-other2: "10003"
 
   - it: should pass with hostNetwork multiple service and multiple port and single port override on portal
     documentIndex: *dualServicePortalDoc
@@ -476,10 +476,10 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 20000
-            port-main-main2: 10002
-            port-other-other: 10001
-            port-other-other2: 10003
+            port-main-main: "20000"
+            port-main-main2: "10002"
+            port-other-other: "10001"
+            port-other-other2: "10003"
 
   - it: should pass with hostNetwork multiple service and multiple port and multiple port override on portal
     documentIndex: *dualServicePortalDoc
@@ -530,10 +530,10 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 20000
-            port-main-main2: 20002
-            port-other-other: 20001
-            port-other-other2: 20003
+            port-main-main: "20000"
+            port-main-main2: "20002"
+            port-other-other: "20001"
+            port-other-other2: "20003"
 
   - it: should pass with hostNetwork multiple service and multiple port and override on portal from tpl
     documentIndex: *dualServicePortalDoc
@@ -588,10 +588,10 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 20000
-            port-main-main2: 20002
-            port-other-other: 20001
-            port-other-other2: 20003
+            port-main-main: "20000"
+            port-main-main2: "20002"
+            port-other-other: "20001"
+            port-other-other2: "20003"
 
   - it: should pass with nodePort single service
     documentIndex: *portalDoc
@@ -617,7 +617,7 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 11000
+            port-main-main: "11000"
 
   - it: should pass with nodePort multiple service
     documentIndex: *dualServicePortalDoc
@@ -650,8 +650,8 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 11000
-            port-other-other: 11001
+            port-main-main: "11000"
+            port-other-other: "11001"
 
   - it: should pass with nodePort multiple service
     documentIndex: *dualServicePortalDoc
@@ -696,10 +696,10 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 11000
-            port-main-main2: 11002
-            port-other-other: 11001
-            port-other-other2: 11003
+            port-main-main: "11000"
+            port-main-main2: "11002"
+            port-other-other: "11001"
+            port-other-other2: "11003"
 
   - it: should pass with nodePort multiple service and single override portal port
     documentIndex: *dualServicePortalDoc
@@ -748,10 +748,10 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 11000
-            port-main-main2: 11002
-            port-other-other: 11001
-            port-other-other2: 21003
+            port-main-main: "11000"
+            port-main-main2: "11002"
+            port-other-other: "11001"
+            port-other-other2: "21003"
 
   - it: should pass with nodePort multiple service and multiple override portal port
     documentIndex: *dualServicePortalDoc
@@ -807,10 +807,10 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 21000
-            port-main-main2: 21002
-            port-other-other: 21001
-            port-other-other2: 21003
+            port-main-main: "21000"
+            port-main-main2: "21002"
+            port-other-other: "21001"
+            port-other-other2: "21003"
 
   - it: should pass with nodePort multiple service and multiple override portal port from tpl
     documentIndex: *dualServicePortalDoc
@@ -870,10 +870,10 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 21000
-            port-main-main2: 21002
-            port-other-other: 21001
-            port-other-other2: 21003
+            port-main-main: "21000"
+            port-main-main2: "21002"
+            port-other-other: "21001"
+            port-other-other2: "21003"
 
   - it: should pass with loadBalancer single service
     documentIndex: *portalDoc
@@ -898,7 +898,7 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 10000
+            port-main-main: "10000"
 
   - it: should pass with loadBalancer multiple service
     documentIndex: *dualServicePortalDoc
@@ -929,8 +929,8 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 10000
-            port-other-other: 10001
+            port-main-main: "10000"
+            port-other-other: "10001"
 
   - it: should pass with loadBalancer multiple service
     documentIndex: *dualServicePortalDoc
@@ -971,10 +971,10 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 10000
-            port-main-main2: 10001
-            port-other-other: 10002
-            port-other-other2: 10003
+            port-main-main: "10000"
+            port-main-main2: "10001"
+            port-other-other: "10002"
+            port-other-other2: "10003"
 
   - it: should pass with loadBalancer multiple service and single override portal port
     documentIndex: *dualServicePortalDoc
@@ -1019,10 +1019,10 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 10000
-            port-main-main2: 10001
-            port-other-other: 10002
-            port-other-other2: 21003
+            port-main-main: "10000"
+            port-main-main2: "10001"
+            port-other-other: "10002"
+            port-other-other2: "21003"
 
   - it: should pass with loadBalancer multiple service and multiple override portal port
     documentIndex: *dualServicePortalDoc
@@ -1074,10 +1074,10 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 21000
-            port-main-main2: 21002
-            port-other-other: 21001
-            port-other-other2: 21003
+            port-main-main: "21000"
+            port-main-main2: "21002"
+            port-other-other: "21001"
+            port-other-other2: "21003"
 
   - it: should pass with loadBalancer multiple service and multiple override portal port from tpl
     documentIndex: *dualServicePortalDoc
@@ -1133,7 +1133,7 @@ tests:
       - isSubset:
           path: data
           content:
-            port-main-main: 21000
-            port-main-main2: 21002
-            port-other-other: 21001
-            port-other-other2: 21003
+            port-main-main: "21000"
+            port-main-main2: "21002"
+            port-other-other: "21001"
+            port-other-other2: "21003"
