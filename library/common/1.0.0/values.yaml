@@ -118,6 +118,8 @@ ixExternalInterfacesConfigurationNames: []
 
 global:
   defaults:
+    # If no restart Policy is defined, assume this
+    defaultRestartPolicy: Always
     # If no probe Type is defined, assume this
     defaultProbeType: TCP
     # If no port Protocol is defined, assume this

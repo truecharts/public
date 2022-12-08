@@ -4,6 +4,10 @@ serviceAccountName: {{ (include "ix.v1.common.names.serviceAccountName" .) }}
 {{- with .Values.schedulerName }}
 schedulerName: {{ tpl . $ }}
 {{- end }}
+{{- with (include "ix.v1.common.restartPolicy" . | trim ) }}
+restartPolicy:
+  {{- . | nindent 2 }}
+{{- end -}}
 {{- with .Values.priorityClassName }}
 priorityClassName: {{ tpl . $ }}
 {{- end }}

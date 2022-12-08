@@ -59,6 +59,29 @@ tests:
           path: spec.template.spec.priorityClassName
           value: some_priority_class_name
 
+  - it: should pass with not set restartPolicy (default will be used)
+    documentIndex: *deploymentDoc
+    asserts:
+      - equal:
+          path: spec.template.spec.restartPolicy
+          value: Always
+
+  - it: should pass with set restartPolicy
+    documentIndex: *deploymentDoc
+    set:
+      restartPolicy: OnFailure
+    asserts:
+      - equal:
+          path: spec.template.spec.restartPolicy
+          value: OnFailure
+
+  - it: should fail with invalid restartPolicy
+    set:
+      restartPolicy: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid <restartPolicy> (invalid). Valid options are Always, Never, OnFailure
+
   - it: should fail with no value in a key in nodeSelector
     set:
       nodeSelector:
