@@ -20,7 +20,7 @@ service:
         port: 10595
 
 persistence:
-  config:
+  data:
     enabled: true
     mountPath: /opt/app/backend/data
 
