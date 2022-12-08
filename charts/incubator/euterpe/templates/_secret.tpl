@@ -35,14 +35,13 @@ stringData:
           "secret": {{ $secretKey | quote }}
       },
 
-      {{- if .Values.euterpe.libraries }}
       "libraries": [
+        {{ .Values.persistence.music.mountPath }},
         {{- range initial .Values.euterpe.libraries }}
           {{ . | quote }},
         {{- end }}
           {{ last .Values.euterpe.libraries | quote }}
       ],
-      {{- end }}
 
       "library_scan": {
           "initial_wait_duration": {{ .Values.euterpe.library_scan.initial_wait_duration | quote }},
