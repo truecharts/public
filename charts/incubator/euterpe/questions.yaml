@@ -103,16 +103,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-              - variable: log_file
-                label: Log File Name
-                schema:
-                  type: string
-                  required: euterpe.log
-              - variable: sqlite_database
-                label: Sqlite Database Name
-                schema:
-                  type: string
-                  required: euterpe.db
               - variable: read_timeout
                 label: Read Timeout
                 schema:
