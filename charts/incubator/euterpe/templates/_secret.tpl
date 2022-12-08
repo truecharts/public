@@ -35,12 +35,14 @@ stringData:
           "secret": {{ $secretKey | quote }}
       },
 
+      {{- $libraries := .Values.euterpe.libraries -}}
+      {{- $libraries = append $libraries .Values.persistence.music.mountPath }}
+
       "libraries": [
-        {{ .Values.persistence.music.mountPath | quote }},
-        {{- range initial .Values.euterpe.libraries }}
+        {{- range initial $libraries }}
           {{ . | quote }},
         {{- end }}
-          {{ last .Values.euterpe.libraries | quote }}
+          {{ last $libraries | quote }}
       ],
 
       "library_scan": {
