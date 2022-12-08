@@ -21,15 +21,15 @@ questions:
           schema:
             type: boolean
             default: false
-        - variable: authentication
-          label: Authentication
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: [[basic_authenticate, "=", true]]
-            subquestions:
+            show_subquestions_if: true
+            subquestions:            
+              - variable: authentication
+                label: Authentication
+                schema:
+                  type: boolean
+                  default: false
               - variable: user
-                label: Basic Auth UserName
+                label: Basic Auth Username
                 schema:
                   type: string
                   required: true
