@@ -16,12 +16,12 @@
   {{/* If ingress is added at any point, here is the place to implement */}}
 
   {{/* Check if there are any overrides in .Values.portal */}}
-  {{- range $name, $portalSvc := $root.Values.portal -}}
+  {{- range $name, $svc := $root.Values.portal -}}
     {{- if eq $svcName $name -}}
-      {{- range $name, $portalPort := $portalSvc -}}
+      {{- range $name, $port := $svc -}}
         {{- if eq $portName $name -}}
-          {{- with $portalPort.protocol -}}
-            {{- $portalProtocol = (tpl . $root) -}}
+          {{- with $port.protocol -}}
+            {{- $portalProtocol = (tpl (toString .) $root) -}}
           {{- end -}}
         {{- end -}}
       {{- end -}}

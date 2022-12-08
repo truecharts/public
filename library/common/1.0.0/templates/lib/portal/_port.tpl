@@ -8,7 +8,7 @@
   {{- $portalPort := 443 -}}
 
   {{- if $root.Values.hostNetwork -}}
-    {{- $portalPort = (default $port.port $port.targetPort) -}}
+    {{- $portalPort = $port.port -}}
   {{- else if eq $svcType "NodePort" -}}
     {{- $portalPort = $port.nodePort -}}
   {{- else if eq $svcType "LoadBalancer" -}}
@@ -18,12 +18,12 @@
   {{/* If ingress is added at any point, here is the place to implement */}}
 
   {{/* Check if there are any overrides in .Values.portal */}}
-  {{- range $name, $portalSvc := $root.Values.portal -}}
+  {{- range $name, $svc := $root.Values.portal -}}
     {{- if eq $svcName $name -}}
-      {{- range $name, $portalPort := $portalSvc -}}
+      {{- range $name, $port := $svc -}}
         {{- if eq $portName $name -}}
-          {{- with $portalPort.port -}}
-            {{- $portalPort = (tpl . $root) -}}
+          {{- with $port.port -}}
+            {{- $portalPort = (tpl (toString .) $root) -}}
           {{- end -}}
         {{- end -}}
       {{- end -}}

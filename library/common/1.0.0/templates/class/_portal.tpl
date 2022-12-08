@@ -17,7 +17,7 @@ metadata:
     {{- . | nindent 4 }}
   {{- end }}
 data:
-  placeholder: for_non_empty_configmap
+  portal: placeholder
   {{- range $svcName, $svc := $root.Values.service }}
     {{- if $svc.enabled -}}
       {{- $svcValues := $svc -}}
