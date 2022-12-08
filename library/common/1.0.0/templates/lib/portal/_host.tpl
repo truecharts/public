@@ -14,8 +14,8 @@
       {{- range $name, $port := $svc -}}
         {{- if eq $portName $name -}}
           {{- if (hasKey $port "host") -}}
-            {{- $portalHost = (tpl (toString .) $root) -}}
-            {{- if not $portalHost -}}
+            {{- $portalHost = (tpl (toString $port.host) $root) -}}
+            {{- if or (eq $portalHost "<nil>") (not $portalHost) -}} {{/* toString on a nil key returns the string "<nil>" */}}
               {{- fail "You have defined empty <host> in <portal>. Define a path or remove the key." -}}
             {{- end -}}
           {{- end -}}
