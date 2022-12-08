@@ -108,17 +108,17 @@ questions:
                 label: Read Timeout
                 schema:
                   type: int
-                  required: 15
+                  default: 15
               - variable: write_timeout
                 label: Write Timeout
                 schema:
                   type: int
-                  required: 1200
+                  default: 1200
               - variable: max_header_bytes
                 label: Max Header Bytes
                 schema:
                   type: int
-                  required: 1048576
+                  default: 1048576
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

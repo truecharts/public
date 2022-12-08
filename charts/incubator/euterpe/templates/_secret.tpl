@@ -36,7 +36,7 @@ stringData:
       },
 
       "libraries": [
-        {{ .Values.persistence.music.mountPath }},
+        {{ .Values.persistence.music.mountPath | quote }},
         {{- range initial .Values.euterpe.libraries }}
           {{ . | quote }},
         {{- end }}
