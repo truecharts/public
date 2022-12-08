@@ -32,13 +32,13 @@ questions:
                 label: Basic Auth UserName
                 schema:
                   type: string
-                  required: [[basic_authenticate, "=", true]]
+                  required: true
                   default: ''
               - variable: password
                 label: Basic Auth Password
                 schema:
                   type: string
-                  required: [[basic_authenticate, "=", true]]
+                  required: true
                   default: ''
         - variable: libraries
           label: Libraries
