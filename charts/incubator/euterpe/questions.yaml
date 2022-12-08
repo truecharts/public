@@ -25,20 +25,21 @@ questions:
               - variable: authentication
                 label: Authentication
                 schema:
-                  type: boolean
-                  default: false
-              - variable: user
-                label: Basic Auth Username
-                schema:
-                  type: string
-                  required: true
-                  default: ''
-              - variable: password
-                label: Basic Auth Password
-                schema:
-                  type: string
-                  required: true
-                  default: ''
+                  addititional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: user
+                      label: Basic Auth Username
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: password
+                      label: Basic Auth Password
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
         - variable: libraries
           label: Libraries
           schema:
