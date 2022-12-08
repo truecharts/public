@@ -26,11 +26,11 @@ data:
         {{- $portalHost := include "ix.v1.common.portal.host" (dict "svcType" $svc.type "svcName" $svcName "portName" $portName "port" $port "root" $root) | trim }}
         {{- $portalPort := include "ix.v1.common.portal.port" (dict "svcType" $svc.type "svcName" $svcName "portName" $portName "port" $port "root" $root) | trim }}
         {{- $portalPath := include "ix.v1.common.portal.path" (dict "svcType" $svc.type "svcName" $svcName "portName" $portName "port" $port "root" $root) | trim }}
-  {{ printf "protocol-%v-%v" $svcName $portName }}: {{ $portalProtocol }}
-  {{ printf "host-%v-%v" $svcName $portName }}: {{ $portalHost }}
-  {{ printf "path-%v-%v" $svcName $portName }}: {{ $portalPath }}
-  {{ printf "port-%v-%v" $svcName $portName }}: {{ $portalPort }}
-  {{ printf "url-%v-%v" $svcName $portName }}: {{ printf "%v://%v:%v%v" $portalProtocol $portalHost $portalPort $portalPath }}
+  {{ printf "protocol-%v-%v" $svcName $portName }}: {{ $portalProtocol | quote }}
+  {{ printf "host-%v-%v" $svcName $portName }}: {{ $portalHost | quote }}
+  {{ printf "path-%v-%v" $svcName $portName }}: {{ $portalPath | quote }}
+  {{ printf "port-%v-%v" $svcName $portName }}: {{ $portalPort | quote }}
+  {{ printf "url-%v-%v" $svcName $portName }}: {{ printf "%v://%v:%v%v" $portalProtocol $portalHost $portalPort $portalPath | quote }}
       {{- end -}}
     {{- end -}}
   {{- end -}}
