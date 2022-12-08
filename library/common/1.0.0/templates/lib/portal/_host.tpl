@@ -13,8 +13,11 @@
     {{- if eq $svcName $name -}}
       {{- range $name, $port := $svc -}}
         {{- if eq $portName $name -}}
-          {{- with $port.host -}}
+          {{- if (hasKey $port "host") -}}
             {{- $portalHost = (tpl (toString .) $root) -}}
+            {{- if not $portalHost -}}
+              {{- fail "You have defined empty <host> in <portal>. Define a path or remove the key." -}}
+            {{- end -}}
           {{- end -}}
         {{- end -}}
       {{- end -}}

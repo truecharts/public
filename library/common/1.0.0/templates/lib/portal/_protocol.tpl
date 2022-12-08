@@ -20,8 +20,11 @@
     {{- if eq $svcName $name -}}
       {{- range $name, $port := $svc -}}
         {{- if eq $portName $name -}}
-          {{- with $port.protocol -}}
-            {{- $portalProtocol = (tpl (toString .) $root) -}}
+          {{- if (hasKey $port "protocol") -}}
+            {{- $portalProtocol = ((tpl (toString $port.protocol) $root) | lower) -}}
+            {{- if not (has $portalProtocol (list "http" "https")) -}}
+              {{- fail (printf "Invalid protocol (%s). Only HTTP/HTTPS protocols are allowed for <portal>" $portalProtocol) -}}
+            {{- end -}}
           {{- end -}}
         {{- end -}}
       {{- end -}}

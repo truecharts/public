@@ -10,6 +10,60 @@ tests:
       - isKind:
           of: Deployment
 
+  - it: should fail with portal override out of upper range (upper)
+    set:
+      portal:
+        main:
+          main:
+            port: 65536
+      service:
+        main:
+          enabled: true
+          ports:
+            main:
+              enabled: true
+              port: 10000
+              targetPort: 80
+    asserts:
+      - failedTemplate:
+          errorMessage: Port (65536) in <portal> is out of range. Range is 1-65535
+
+  - it: should fail with portal override out of lower range (lower)
+    set:
+      portal:
+        main:
+          main:
+            port: 0
+      service:
+        main:
+          enabled: true
+          ports:
+            main:
+              enabled: true
+              port: 10000
+              targetPort: 80
+    asserts:
+      - failedTemplate:
+          errorMessage: Port (0) in <portal> is out of range. Range is 1-65535
+
+  - it: should fail with portal override out of range (negative)
+    set:
+      portal:
+        main:
+          main:
+            port: -1
+      service:
+        main:
+          enabled: true
+          ports:
+            main:
+              enabled: true
+              port: 10000
+              targetPort: 80
+    asserts:
+      - failedTemplate:
+          errorMessage: Port (-1) in <portal> is out of range. Range is 1-65535
+
   - it: should pass with hostPort single service
     documentIndex: &portalDoc 2
     set:

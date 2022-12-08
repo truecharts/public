@@ -24,8 +24,11 @@
     {{- if eq $svcName $name -}}
       {{- range $name, $port := $svc -}}
         {{- if eq $portName $name -}}
-          {{- with $port.port -}}
-            {{- $portalPort = (tpl (toString .) $root) -}}
+          {{- if (hasKey $port "port") -}}
+            {{- $portalPort = (tpl (toString $port.port) $root) -}}
+            {{- if or (lt (int $portalPort) 1) (gt (int $portalPort) 65535) (eq (int $portalPort) 0) -}}
+              {{- fail (printf "Port (%s) in <portal> is out of range. Range is 1-65535" $portalPort) -}}
+            {{- end -}}
           {{- end -}}
         {{- end -}}
       {{- end -}}
