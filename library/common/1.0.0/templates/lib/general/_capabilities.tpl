@@ -63,8 +63,13 @@
   {{- print "v1" -}}
 {{- end -}}
 
-{{/* Return the appropriate apiVersion for configMap */}}
+{{/* Return the appropriate apiVersion for ConfigMap */}}
 {{- define "ix.v1.common.capabilities.configMap.apiVersion" -}}
+  {{- print "v1" -}}
+{{- end -}}
+
+{{/* Return the appropriate apiVersion for Secret */}}
+{{- define "ix.v1.common.capabilities.secret.apiVersion" -}}
   {{- print "v1" -}}
 {{- end -}}
 
