@@ -107,6 +107,7 @@ data:
         threshold: {{ .Values.frigate.detect.stationary.threshold | default 50 }}
         {{- if (hasKey .Values.frigate.detect.stationary "max_frames") }}
         {{- if or (hasKey .Values.frigate.detect.stationary.max_frames "default") (hasKey .Values.frigate.detect.stationary.max_frames "objects") }}
+        {{- if or .Values.frigate.detect.stationary.max_frames.default .Values.frigate.detect.stationary.max_frames.objects }}
         max_frames:
           {{- with .Values.frigate.detect.stationary.max_frames.default }}
           default: {{ . }}
@@ -117,6 +118,7 @@ data:
             {{ .object }}: {{ .frames }}
             {{- end }}
           {{- end }}
+        {{- end }}
         {{- end }}
         {{- end }}
     {{- end }}
