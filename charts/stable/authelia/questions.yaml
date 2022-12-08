@@ -920,8 +920,11 @@ questions:
                                     default: "auto"
                                     enum:
                                       - value: "auto"
+                                        description: "auto"
                                       - value: "explicit"
+                                        description: "explicit"
                                       - value: "implicit"
+                                        description: "implicit"
                                 - variable: userinfo_signing_algorithm
                                   label: "Userinfo Signing Algorithm"
                                   description: "The algorithm used to sign userinfo endpoint responses for this client, either none or RS256."
