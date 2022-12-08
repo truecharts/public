@@ -36,9 +36,9 @@ data:
   {{- end -}}
 {{- end -}}
 {{/*
-Current "bugs", you can't disable per app portal,
+Current "bugs", you can't disable per port portal,
 if port protocol is not HTTP or HTTPS,
 it will still create an HTTP portal.
-For this reason a placeholder is added,
-so we don't result in an empty configmap
+A placeholder is added, just to avoid having
+ an empty configmap
 */}}
