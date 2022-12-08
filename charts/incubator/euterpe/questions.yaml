@@ -21,11 +21,11 @@ questions:
             type: boolean
             default: false
             show_subquestions_if: true
-            subquestions:            
+            subquestions:
               - variable: authentication
                 label: Authentication
                 schema:
-                  addititional_attrs: true
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: user
