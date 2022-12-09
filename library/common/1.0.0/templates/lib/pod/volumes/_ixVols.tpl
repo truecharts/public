@@ -5,8 +5,10 @@
   {{- if not $vol.datasetName -}}
     {{- fail (printf "Item (%s) is set as ixVolume type, but has no Dataset Name defined" $index) -}}
   {{- end -}}
-  {{- if not (mustHas $vol.datasetName $root.ixVolumes) -}} {{/* Make sure the resolved datasetName is included in ixVolumes */}}
-    {{- fail (printf "Dataset Name on item (%s) does not exist in ixVolumes list" $index) -}}
+  {{- range $index, $normalizedHostPath := $root.ixVolumes -}}
+    {{- if ne $vol.datasetName (base $normalizedHostPath) -}} {{/* Make sure the resolved datasetName is included in ixVolumes */}}
+      {{- fail (printf "Dataset Name on item (%s) does not exist in ixVolumes list" $index) -}}
+    {{- end -}}
   {{- end }}
 - name: {{ $index }}
   hostPath:
