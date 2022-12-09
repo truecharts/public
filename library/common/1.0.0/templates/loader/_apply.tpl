@@ -7,14 +7,14 @@
   {{- include "ix.v1.common.spawner.rbac" . | nindent 0 -}}
 
   {{- if .Values.controller.enabled -}}
-    {{- if eq .Values.controller.type "deployment" -}}
+    {{- if eq .Values.controller.type "Deployment" -}}
       {{- include "ix.v1.common.deployment" . | nindent 0 -}}
-    {{- else if eq .Values.controller.type "daemonset" -}}
+    {{- else if eq .Values.controller.type "DaemonSet" -}}
       {{- include "ix.v1.common.daemonset" . | nindent 0 -}}
-    {{- else if eq .Values.controller.type "statefulset" -}}
+    {{- else if eq .Values.controller.type "StatefulSet" -}}
       {{- include "ix.v1.common.statefulset" . | nindent 0 -}}
     {{- else -}}
-      {{- fail (printf "Not a valid controller.type (%s)" .Values.controller.type) -}}
+      {{- fail (printf "Not a valid controller.type (%s). Valid options are Deployment, DaemonSet, StatefulSet" .Values.controller.type) -}}
     {{- end -}}
   {{- end -}}
 

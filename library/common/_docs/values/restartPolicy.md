@@ -15,6 +15,8 @@ Keys and sub keys:
 restartPolicy:
 ```
 
+`Deployment`, `StatefulSet`, `ReplicaSet` and `DaemonSet` only allows `Always`
+
 Examples:
 
 ```yaml

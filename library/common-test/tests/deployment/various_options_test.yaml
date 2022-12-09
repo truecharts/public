@@ -69,11 +69,11 @@ tests:
   - it: should pass with set restartPolicy
     documentIndex: *deploymentDoc
     set:
-      restartPolicy: OnFailure
+      restartPolicy: Always
     asserts:
       - equal:
           path: spec.template.spec.restartPolicy
-          value: OnFailure
+          value: Always
 
   - it: should fail with invalid restartPolicy
     set:
@@ -82,6 +82,44 @@ tests:
       - failedTemplate:
           errorMessage: Invalid <restartPolicy> (invalid). Valid options are Always, Never, OnFailure
 
+  - it: should fail with invalid restartPolicy on Deployment
+    set:
+      controller:
+        type: Deployment
+      restartPolicy: OnFailure
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid <restartPolicy (OnFailure). Valid option for Deployment, StatefulSet, DaemonSet and ReplicaSet is Always
+
+  # Bellow tests cannot be verified currently,
+  # until templates are created for those controller types
+
+  # - it: should fail with invalid restartPolicy on DaemonSet
+  #   set:
+  #     controller:
+  #       type: DaemonSet
+  #     restartPolicy: OnFailure
+  #   asserts:
+  #     - failedTemplate:
+  #         errorMessage: Invalid <restartPolicy (OnFailure). Valid option for Deployment, StatefulSet, DaemonSet and ReplicaSet is Always
+
+  # - it: should fail with invalid restartPolicy on StatefulSet
+  #   set:
+  #     controller:
+  #       type: StatefulSet
+  #     restartPolicy: OnFailure
+  #   asserts:
+  #     - failedTemplate:
+  #         errorMessage: Invalid <restartPolicy (OnFailure). Valid option for Deployment, StatefulSet, DaemonSet and ReplicaSet is Always
+
+  # - it: should fail with invalid restartPolicy on ReplicaSet
+  #   set:
+  #     controller:
+  #       type: ReplicaSet
+  #     restartPolicy: OnFailure
+  #   asserts:
+  #     - failedTemplate:
+  #         errorMessage: Invalid <restartPolicy (OnFailure). Valid option for Deployment, StatefulSet, DaemonSet and ReplicaSet is Always
   - it: should fail with no value in a key in nodeSelector
     set:
       nodeSelector:
