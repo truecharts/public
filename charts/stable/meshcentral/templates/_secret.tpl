@@ -30,7 +30,7 @@
 
 {{- $sessionKey := "" }}
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretStorageName) }}
-  {{- $sessionKey = (index .data "session_key") }}
+  {{- $sessionKey = (index .data "session_key") | b64dec }}
 {{- else }}
   {{- $sessionKey = randAlphaNum 32 }}
 {{- end }}
