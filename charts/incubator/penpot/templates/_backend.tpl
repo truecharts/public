@@ -3,6 +3,14 @@
 image: {{ .Values.backendImage.repository }}:{{ .Values.backendImage.tag }}
 imagePullPolicy: '{{ .Values.image.pullPolicy }}'
 
+podSecurityContext:
+  runAsGroup: 568
+  runAsUser: 568
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: true
+
 persistence:
   config:
     enabled: true

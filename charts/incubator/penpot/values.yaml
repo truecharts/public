@@ -21,10 +21,6 @@ penpot:
   assets_storage_assets_fs_directory: "/opt/data/assets"
   telemetry_enabled: false
   registration_domain_whitelist: []
-  db_pass:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
 
 notifier:
   smtp:
