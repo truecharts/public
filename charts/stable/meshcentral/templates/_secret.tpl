@@ -30,9 +30,9 @@
 
 {{- $sessionKey := "" }}
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretStorageName) }}
-  {{- $sessionKey = (index .data "session_key") | b64dec }}
+  {{- $sessionKey = (index .data "session_key") }}
 {{- else }}
-  {{- $sessionKey = randAlphaNum 32 }}
+  {{- $sessionKey = randAlphaNum 32 | b64enc}}
 {{- end }}
 
 {{/* Inject some values */}}
@@ -44,7 +44,7 @@
 
 {{- $_ := set $config.settings "mongoDB" (.Values.mongodb.url.complete | trimAll "\"") }}
 {{- $_ := set $config.settings "mongoDbName" .Values.mongodb.mongodbDatabase }}
-{{- $_ := set $config.settings "sessionKey" $sessionKey }}
+{{- $_ := set $config.settings "sessionKey" ($sessionKey | b64dec) }}
 {{- $_ := set $config.settings "port" .Values.service.main.ports.main.port }}
 
 {{/* Force disable some functions that are not appliable in docker */}}
@@ -77,7 +77,7 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{/* Store session_key to reuse */}}
-  session_key: {{ $sessionKey | b64enc }}
+  session_key: {{ $sessionKey }}
 
 ---
 
