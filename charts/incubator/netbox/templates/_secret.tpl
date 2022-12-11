@@ -7,7 +7,7 @@
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
   {{- $secret_key = (index .data "secret_key") }}
 {{- else }}
-  {{- $secret_key = randAlphaNum 64 }}
+  {{- $secret_key = randAlphaNum 64 | b64enc }}
 {{- end }}
 
 ---
@@ -20,7 +20,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  secret_key: {{ $secret_key | b64enc }}
+  secret_key: {{ $secret_key }}
 stringData:
   config.py: |
     ALLOWED_HOSTS = [
@@ -57,7 +57,7 @@ stringData:
         }
     }
 
-    SECRET_KEY = '{{ $secret_key }}'
+    SECRET_KEY = '{{ $secret_key | b64dec }}'
 
     {{- with .Values.netbox.admins }}
     ADMINS = [
