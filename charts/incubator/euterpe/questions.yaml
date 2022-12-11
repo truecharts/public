@@ -56,10 +56,9 @@ questions:
         - variable: library_scan
           label: Library Scan
           schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
+            additional_attrs: true
+            type: dict
+            attrs:
               - variable: initial_wait_duration
                 label: Initial Wait Duration
                 schema:
@@ -78,10 +77,9 @@ questions:
         - variable: discogs
           label: Discogs Settings
           schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
+            additional_attrs: true
+            type: dict
+            attrs:
               - variable: discogs_auth_token
                 label: Discogs Auth Token
                 schema:
@@ -92,33 +90,39 @@ questions:
                 schema:
                   type: boolean
                   default: false
-        - variable: danger_zone
-          label: Danger Zone Settings
+        - variable: show_danger_zone
+          label: Show Danger Zone Settings
           schema:
             type: boolean
             default: false
             show_subquestions_if: true
             subquestions:
-              - variable: gzip
-                label: gzip
+              - variable: danger_zone
+                label: Danger Zone Settings
                 schema:
-                  type: boolean
-                  default: true
-              - variable: read_timeout
-                label: Read Timeout
-                schema:
-                  type: int
-                  default: 15
-              - variable: write_timeout
-                label: Write Timeout
-                schema:
-                  type: int
-                  default: 1200
-              - variable: max_header_bytes
-                label: Max Header Bytes
-                schema:
-                  type: int
-                  default: 1048576
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: gzip
+                      label: gzip
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: read_timeout
+                      label: Read Timeout
+                      schema:
+                        type: int
+                        default: 15
+                    - variable: write_timeout
+                      label: Write Timeout
+                      schema:
+                        type: int
+                        default: 1200
+                    - variable: max_header_bytes
+                      label: Max Header Bytes
+                      schema:
+                        type: int
+                        default: 1048576
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
