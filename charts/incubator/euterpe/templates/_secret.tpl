@@ -6,7 +6,7 @@
 
 {{- $secretKey := "" }}
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretStorageName) }}
-  {{- $secretKey = (index .data "secret") }}
+  {{- $secretKey = (index .data "secret") | b64dec }}
 {{- else }}
   {{- $secretKey = randAlphaNum 32 | b64enc }}
 {{- end }}
@@ -32,7 +32,7 @@ stringData:
           {{- with .Values.euterpe.authentication.password }}
           "password": {{ . | quote }},
           {{- end }}
-          "secret": {{ $secretKey | b64dec | quote }}
+          "secret": {{ $secretKey | quote }}
       },
 
       {{- $libraries := .Values.euterpe.libraries -}}
@@ -74,5 +74,5 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{/* Store secretKey to reuse */}}
-  secret: {{ $secretKey }}
+  secret: {{ $secretKey | b64enc }}
 {{- end }}
