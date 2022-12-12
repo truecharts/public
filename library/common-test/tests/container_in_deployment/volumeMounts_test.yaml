@@ -21,6 +21,16 @@ tests:
       - failedTemplate:
           errorMessage: <mountPath> must be defined, alternatively use the <noMount> flag.
 
+  - it: should fail with empty mountPath set
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath:
+    asserts:
+      - failedTemplate:
+          errorMessage: <mountPath> must be defined, alternatively use the <noMount> flag.
+
   - it: should pass with enabled false
     documentIndex: *deploymentDoc
     set:
