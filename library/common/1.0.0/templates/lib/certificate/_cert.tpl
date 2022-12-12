@@ -7,7 +7,15 @@ This checks that the certName exists as a key/dict.
   {{- $certName := .certName -}}
   {{- $root := .root -}}
 
-  {{- hasKey $root.Values.ixCertificates (toString $certName) -}}
+  {{- if hasKey $root.Values "ixCertificates" -}}
+    {{- if $root.Values.ixCertificates -}}
+      {{- hasKey $root.Values.ixCertificates (toString $certName) -}}
+    {{- else -}}
+      {{- fail "Key <ixCertificates> is empty" -}}
+    {{- end -}}
+  {{- else -}}
+    {{- fail "Key <ixCertificates> does not exist." -}}
+  {{- end -}}
 {{- end -}}
 
 {{/*
@@ -19,19 +27,27 @@ Example keys (certificate, privatekey, expired, revoked)
   {{- $root := .root -}}
   {{- $key := .key -}}
 
-  {{- if (include "ix.v1.common.certificate.exists" (dict "root" $root "certName" $certName)) -}}
+  {{- if eq (include "ix.v1.common.certificate.exists" (dict "root" $root "certName" $certName)) "true" -}}
     {{- $certificate := (get $root.Values.ixCertificates (toString $certName)) -}}
-    {{- if eq (get $certificate "revoked") "true" -}}
-      {{- fail (printf "Certificate (%s) has been revoked." $certName) -}}
+
+    {{- if (hasKey $certificate "revoked") -}}
+      {{- if eq (get $certificate "revoked") true -}}
+        {{- fail (printf "Certificate (%s) has been revoked." $certName) -}}
+      {{- end -}}
     {{- end -}}
-    {{- if eq (get $certificate "expired") "true" -}}
-      {{- fail (printf "Certificate (%s) has been expired." $certName) -}}
+
+    {{- if (hasKey $certificate "expired") -}}
+      {{- if eq (get $certificate "expired") true -}}
+        {{- fail (printf "Certificate (%s) is expired." $certName) -}}
+      {{- end -}}
     {{- end -}}
-    {{- if (hasKey $certificate "key") -}}
-      {{- get $certificate "key" -}}
+
+    {{- if (hasKey $certificate $key) -}}
+      {{- get $certificate $key -}}
     {{- else -}}
       {{- fail (printf "Key (%s) does not exist in certificate (%s)" $key $certName) -}}
     {{- end -}}
+
   {{- else -}}
     {{- fail (printf "Certificate (%s) did not found." $certName) -}}
   {{- end -}}
