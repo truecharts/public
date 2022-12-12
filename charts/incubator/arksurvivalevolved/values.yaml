@@ -49,6 +49,7 @@ service:
         enabled: true
         port: 7778
         protocol: UDP
+        targetPort: 7778
   udpsteam:
     enabled: true
     ports:
