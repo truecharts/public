@@ -2,9 +2,11 @@
   {{- $secretName := include "ix.v1.common.names.fullname" . -}}
   {{- $root := .root -}}
 
-  {{- $certName := "TODO: Get the certName" -}}
-
-  {{- if (include "ix.v1.common.certificate.exists" (dict "root" $root "certName" $certName)) }}
+  {{- $certName := .certName -}}
+  {{- if (include "ix.v1.common.certificate.exists" (dict "root" $root "certName" $certName)) -}}
+  {{- if .key -}}
+    {{- include "ix.v1.common.certificate.get" (dict "root" $root "certName" $certName "key" "certificate") -}}
+  {{- else }}
 ---
 apiVersion: {{ include "ix.v1.common.capabilities.secret.apiVersion" . }}
 kind: Secret
