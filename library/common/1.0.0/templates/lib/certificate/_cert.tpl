@@ -23,21 +23,36 @@ Returns any key (based on the .key value)
 Example keys (certificate, privatekey, expired, revoked)
 */}}
 {{- define "ix.v1.common.certificate.get" -}}
-  {{- $certID := .certID -}}
+  {{- $cert := .cert -}}
   {{- $root := .root -}}
   {{- $key := .key -}}
+  {{- $certID := (toString $cert.id) -}}
+  {{- $useRevoked := $root.Values.global.defaults.useRevokedCerts -}}
+  {{- $useExpired := $root.Values.global.defaults.useExpiredCerts -}}
+
+  {{- if not $key -}}
+    {{- fail "You need to provide a <key> when calling this template (certificate.get)" -}}
+  {{- end -}}
 
   {{- if eq (include "ix.v1.common.certificate.exists" (dict "root" $root "certID" $certID)) "true" -}}
     {{- $certificate := (get $root.Values.ixCertificates (toString $certID)) -}}
 
+    {{- if (hasKey $cert "useRevoked") -}}
+      {{- $useRevoked = $cert.useRevoked -}}
+    {{- end -}}
+
+    {{- if (hasKey $cert "useExpired") -}}
+      {{- $useExpired = $cert.useExpired -}}
+    {{- end -}}
+
     {{- if (hasKey $certificate "revoked") -}}
-      {{- if eq (get $certificate "revoked") true -}}
+      {{- if and (not $useRevoked) (eq (get $certificate "revoked") true) -}}
         {{- fail (printf "Certificate (%s) has been revoked" $certID) -}}
       {{- end -}}
     {{- end -}}
 
     {{- if (hasKey $certificate "expired") -}}
-      {{- if eq (get $certificate "expired") true -}}
+      {{- if and (not $useExpired) (eq (get $certificate "expired") true) -}}
         {{- fail (printf "Certificate (%s) is expired" $certID) -}}
       {{- end -}}
     {{- end -}}
@@ -49,6 +64,6 @@ Example keys (certificate, privatekey, expired, revoked)
     {{- end -}}
 
   {{- else -}}
-    {{- fail (printf "Certificate (%s) did not found." $certID) -}}
+    {{- fail (printf "Certificate (%s) was not found." $certID) -}}
   {{- end -}}
 {{- end -}}

@@ -117,9 +117,32 @@ ixExternalInterfacesConfigurationNames: []
 # - Everything bellow needs documentation
 
 scaleCerts: {}
+  # some_cert_name:
+  #   # Override Name
+  #   nameOverride: name_override
+  #   # ID Comes from the definitions on the GUI
+  #   id: 1
+  #   # If populated, it will mount the certificate in the container in this path
+  #   certPath:
+  #   # If populated, it will mount the private key in the container in this path
+  #   keyPath:
+  #   useRevoked: false
+  #   useExpired: false
+scaleCertsList: []
+  # - name: some_cert_name
+  #   nameOverride: name_override
+  #   id: 1
+  #   certPath:
+  #   keyPath:
+  #   useRevoked: false
+  #   useExpired: false
 
 global:
   defaults:
+    # If not defined on the the cert item, assume this
+    useRevokedCerts: false
+    # If not defined on the the cert item, assume this
+    useExpiredCerts: false
     # If no restart Policy is defined, assume this
     defaultRestartPolicy: Always
     # If no probe Type is defined, assume this
