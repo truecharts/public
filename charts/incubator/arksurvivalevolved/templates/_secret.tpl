@@ -8,7 +8,7 @@
 {{- $params = append $params (printf "?QueryPort=%s" .Values.service.udpsteam.ports.udpsteam.port) -}}
 {{- $params = append $params (printf "?RCONPort=%s" .Values.service.rcontcp.ports.rcontcp.port) -}}
 {{- if .Values.ark.rcon_enabled -}}
-  {{- $params = append $params (print "?RCONEnabled=True) -}}
+  {{- $params = append $params (print "?RCONEnabled=True") -}}
 {{- end }}
 ---
 apiVersion: v1
