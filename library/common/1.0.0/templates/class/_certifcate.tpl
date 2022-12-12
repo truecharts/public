@@ -4,7 +4,7 @@
 
   {{- $certName := "TODO: Get the certName" -}}
 
-  {{- if include "ix.v1.common.certificate.exists" (dict "root" $root "certName" $certName) }}
+  {{- if (include "ix.v1.common.certificate.exists" (dict "root" $root "certName" $certName)) }}
 ---
 apiVersion: {{ include "ix.v1.common.capabilities.secret.apiVersion" . }}
 kind: Secret
@@ -22,7 +22,7 @@ metadata:
     {{- . | nindent 4 }}
   {{- end }}
 data:
-  tls.crt:
-  tls.key:
+  tls.crt: {{ include "ix.v1.common.certificate.get" (dict "root" $root "certName" $certName "key" "certificate") }}
+  tls.key: {{ include "ix.v1.common.certificate.get" (dict "root" $root "certName" $certName "key" "privatekey") }}
   {{- end -}}
 {{- end -}}
