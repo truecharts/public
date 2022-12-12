@@ -99,7 +99,7 @@ metadata:
     {{- . | nindent 4 }}
   {{- end }}
 roleRef:
-  apiGroup: {{ $roleAPI }}
+  apiGroup: {{ include "ix.v1.common.capabilities.roleRef.apiGroup.apiVersion" $root }}
   kind: {{ $roleKind }}
   name: {{ $rbacName }}
 subjects:

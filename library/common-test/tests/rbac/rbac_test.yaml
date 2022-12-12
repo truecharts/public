@@ -174,6 +174,12 @@ tests:
       - equal:
           path: metadata.namespace
           value: *ns
+      - equal:
+          path: roleRef
+          value:
+            apiGroup: rbac.authorization.k8s.io
+            kind: Role
+            name: RELEASE-NAME-common-test
 
   - it: should pass with rbac account enabled (ClusterRole)
     documentIndex: &roleDoc 0
@@ -210,6 +216,12 @@ tests:
       - equal:
           path: metadata.name
           value: RELEASE-NAME-common-test
+      - equal:
+          path: roleRef
+          value:
+            apiGroup: rbac.authorization.k8s.io
+            kind: ClusterRole
+            name: RELEASE-NAME-common-test
 
   - it: should pass with primary service account enabled and nameOverride defined (Role)
     documentIndex: *roleDoc

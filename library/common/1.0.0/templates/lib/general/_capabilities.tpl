@@ -29,6 +29,11 @@
 {{- end -}}
 
 {{/* Return the appropriate apiVersion for ClusterRole */}}
+{{- define "ix.v1.common.capabilities.roleRef.apiGroup.apiVersion" -}}
+  {{- print "rbac.authorization.k8s.io" -}}
+{{- end -}}
+
+{{/* Return the appropriate apiVersion for ClusterRole */}}
 {{- define "ix.v1.common.capabilities.clusterRole.apiVersion" -}}
   {{- print "rbac.authorization.k8s.io/v1" -}}
 {{- end -}}
