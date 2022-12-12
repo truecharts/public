@@ -30,9 +30,9 @@ Example keys (certificate, privatekey, expired, revoked)
   {{- $useRevoked := $root.Values.global.defaults.useRevokedCerts -}}
   {{- $useExpired := $root.Values.global.defaults.useExpiredCerts -}}
 
-  {{- if not $key -}}
+  {{- if not $key -}} {{/* This is something that should not happen when using this library */}}
     {{- fail "You need to provide a <key> when calling this template (certificate.get)" -}}
-  {{- end -}}
+  {{- end -}} {{/* It can only happen when consuing this function within this library */}}
 
   {{- if eq (include "ix.v1.common.certificate.exists" (dict "root" $root "certID" $certID)) "true" -}}
     {{- $certificate := (get $root.Values.ixCertificates (toString $certID)) -}}
@@ -46,22 +46,26 @@ Example keys (certificate, privatekey, expired, revoked)
     {{- end -}}
 
     {{- if (hasKey $certificate "revoked") -}}
-      {{- if and (not $useRevoked) (eq (get $certificate "revoked") true) -}}
-        {{- fail (printf "Certificate (%s) has been revoked" $certID) -}}
+      {{- if (eq (get $certificate "revoked") true) -}}
+        {{- if not $useRevoked -}}
+          {{- fail (printf "Certificate (%s) has been revoked" $certID) -}}
+        {{- end -}}
       {{- end -}}
     {{- end -}}
 
     {{- if (hasKey $certificate "expired") -}}
-      {{- if and (not $useExpired) (eq (get $certificate "expired") true) -}}
-        {{- fail (printf "Certificate (%s) is expired" $certID) -}}
+      {{- if (eq (get $certificate "expired") true) -}}
+        {{- if not $useExpired -}}
+          {{- fail (printf "Certificate (%s) is expired" $certID) -}}
+        {{- end -}}
       {{- end -}}
     {{- end -}}
 
     {{- if (hasKey $certificate $key) -}}
       {{- get $certificate $key -}}
-    {{- else -}}
+    {{- else -}} {{/* This is something that should not happen when using this library */}}
       {{- fail (printf "Key (%s) does not exist in certificate (%s)" $key $certID) -}}
-    {{- end -}}
+    {{- end -}} {{/* It can only happen when consuing this function within this library */}}
 
   {{- else -}}
     {{- fail (printf "Certificate (%s) was not found." $certID) -}}

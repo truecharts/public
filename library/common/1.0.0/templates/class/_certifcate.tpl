@@ -2,9 +2,9 @@
   {{- $cert := .cert -}}
   {{- $root := .root -}}
 
-  {{- if not (hasKey $cert "id") -}}
+  {{- if not (hasKey $cert "id") -}} {{/* This is something that should not happen when using this library */}}
     {{- fail (printf "Certificate (%s) has no <id> key" $cert.nameOverride) -}}
-  {{- end -}}
+  {{- end -}} {{/* It can only happen when consuing this function within this library */}}
   {{- $certID := (toString $cert.id) -}}
 
   {{- if (include "ix.v1.common.certificate.exists" (dict "root" $root "certID" $certID)) -}}

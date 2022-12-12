@@ -14,7 +14,7 @@ That's why the custom dict is expected.
   {{- include "ix.v1.common.container.fixedEnvs" $root | trim -}}
 {{- end -}} {{/* Finish fixedEnv */}}
 {{- with $envs -}}
-{{- range $k, $v := . -}}
+{{- range $k, $v := . -}} {{/* TODO: Check if there is a user provided env that exist in fixedEnv and error out */}}
   {{- $name := $k -}}
   {{- $value := $v -}}
   {{- if kindIs "int" $name -}}
