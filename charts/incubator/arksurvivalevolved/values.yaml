@@ -11,27 +11,30 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 
-secretEnv:
-  SRV_ADMIN_PWD: ""
-  SRV_PWD: ""
-  USERNAME: ""
-  PASSWRD: ""
+ark:
+  srv_admin_pass: ""
+  srv_password: ""
+  username: ""
+  password: ""
+  game_id: "376030"
+  rcon_enabled: true
+  game_params: "?bRawSockets"
+  game_params_extra: "-server -log -crossplay"
+  map: TheIsland
+  server_name: ""
+  validate: false
 
-env:
-  GAME_ID: "376030"
-  GAME_PARAMS: "?Port=7777?QueryPort=27015?RCONPort=27020?RCONEnabled=True?bRawSockets"
-  GAME_PARAMS_EXTRA: -server -log -crossplay
-  MAP: TheIsland
-  SERVER_NAME: ""
-  VALIDATE: false
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-ark-config'
 
 probes:
   liveness:
-    port: "{{ .Values.service.rcontcp.ports.rcontcp.targetPort }}"
+    port: "{{ .Values.service.rcontcp.ports.rcontcp.port }}"
   readiness:
-    port: "{{ .Values.service.rcontcp.ports.rcontcp.targetPort }}"
+    port: "{{ .Values.service.rcontcp.ports.rcontcp.port }}"
   startup:
-    port: "{{ .Values.service.rcontcp.ports.rcontcp.targetPort }}"
+    port: "{{ .Values.service.rcontcp.ports.rcontcp.port }}"
 
 service:
   main:
