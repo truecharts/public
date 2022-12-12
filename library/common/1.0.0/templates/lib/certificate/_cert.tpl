@@ -14,7 +14,7 @@ This checks that the certName exists as a key/dict.
       {{- fail "Key <ixCertificates> is empty" -}}
     {{- end -}}
   {{- else -}}
-    {{- fail "Key <ixCertificates> does not exist." -}}
+    {{- fail "Key <ixCertificates> does not exist" -}}
   {{- end -}}
 {{- end -}}
 
@@ -32,13 +32,13 @@ Example keys (certificate, privatekey, expired, revoked)
 
     {{- if (hasKey $certificate "revoked") -}}
       {{- if eq (get $certificate "revoked") true -}}
-        {{- fail (printf "Certificate (%s) has been revoked." $certName) -}}
+        {{- fail (printf "Certificate (%s) has been revoked" $certName) -}}
       {{- end -}}
     {{- end -}}
 
     {{- if (hasKey $certificate "expired") -}}
       {{- if eq (get $certificate "expired") true -}}
-        {{- fail (printf "Certificate (%s) is expired." $certName) -}}
+        {{- fail (printf "Certificate (%s) is expired" $certName) -}}
       {{- end -}}
     {{- end -}}
 
