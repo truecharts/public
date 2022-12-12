@@ -1,9 +1,9 @@
 {{- define "ix.v1.common.class.certificate" -}}
   {{- $secretName := .secretName -}}
-  {{- $certName := .certName -}}
+  {{- $certID := .certID -}}
   {{- $root := .root -}}
 
-  {{- if (include "ix.v1.common.certificate.exists" (dict "root" $root "certName" $certName)) }}
+  {{- if (include "ix.v1.common.certificate.exists" (dict "root" $root "certID" $certID)) }}
 ---
 apiVersion: {{ include "ix.v1.common.capabilities.secret.apiVersion" . }}
 kind: Secret
@@ -21,7 +21,7 @@ metadata:
     {{- . | nindent 4 }}
   {{- end }}
 data:
-  tls.crt: {{ include "ix.v1.common.certificate.get" (dict "root" $root "certName" $certName "key" "certificate") | toString | b64enc | quote }}
-  tls.key: {{ include "ix.v1.common.certificate.get" (dict "root" $root "certName" $certName "key" "privatekey") | toString | b64enc | quote }}
+  tls.crt: {{ include "ix.v1.common.certificate.get" (dict "root" $root "certID" $certID "key" "certificate") | toString | b64enc | quote }}
+  tls.key: {{ include "ix.v1.common.certificate.get" (dict "root" $root "certID" $certID "key" "privatekey") | toString | b64enc | quote }}
   {{- end -}}
 {{- end -}}
