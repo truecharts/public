@@ -35,14 +35,14 @@ of that key (if exists)
 
     {{- if (hasKey $cert "certPath") -}}
       {{- if $cert.certPath -}}
-        {{/* FIXME: Create Volume + Volume Mount of the certificate in the certPath */}}
+        {{/* FIXME: Create Volume + Volume Mount of the secret to the certPath */}}
         {{/* Probably append to .Values.persistence? Also make sure to call this spawner before pod creation */}}
       {{- end -}}
     {{- end -}}
 
     {{- if (hasKey $cert "keyPath") -}}
       {{- if $cert.keyPath -}}
-        {{/* FIXME: Create Volume + Volume Mount of the private key in the certPath */}}
+        {{/* FIXME: Create Volume + Volume Mount of the secret to the certPath */}}
         {{/* Probably append to .Values.persistence? Also make sure to call this spawner before pod creation */}}
       {{- end -}}
     {{- end -}}
