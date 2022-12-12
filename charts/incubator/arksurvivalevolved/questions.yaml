@@ -109,7 +109,7 @@ questions:
                               required: true
         - variable: udp2
           label: udp2 service
-          description: Container Port 7778
+          description: This should always be (Main Port + 1)
           schema:
             additional_attrs: true
             type: dict

@@ -47,9 +47,9 @@ service:
     ports:
       udp2:
         enabled: true
+        # This should always be main +1
         port: 7778
         protocol: UDP
-        targetPort: 7778
   udpsteam:
     enabled: true
     ports:
