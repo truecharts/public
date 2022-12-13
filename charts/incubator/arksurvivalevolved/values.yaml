@@ -26,7 +26,7 @@ ark:
 
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-ark-config'
+      name: '{{ include "tc.common.names.fullname" . }}-ark-secret'
 
 probes:
   liveness:
