@@ -30,17 +30,17 @@ jobs:
       - name: Set up chart-testing
         uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
 
-      # - name: Run chart-testing (list-changed)
-      #   id: list-changed
-      #   run: |
-      #     changed=$(ct list-changed --config .github/ct-lint.yaml)
-      #     if [[ -n "$changed" ]]; then
-      #       echo "changed=true" >> $env:GITHUB_OUTPUT
-      #     fi
+      - name: Run chart-testing (list-changed)
+        id: list-changed
+        run: |
+          changed=$(ct list-changed --config .github/ct-lint.yaml)
+          if [[ -n "$changed" ]]; then
+            echo "changed=true" >> $env:GITHUB_OUTPUT
+          fi
 
       - name: Run chart-testing (lint)
         id: lint
-        # if: steps.list-changed.outputs.changed == 'true'
+        if: steps.list-changed.outputs.changed == 'true'
         run: ct lint --config .github/ct-lint.yaml
 
   unittest:
@@ -93,8 +93,8 @@ jobs:
       uses: nolar/setup-k3d-k3s@v1
       with:
         version: v1.25.4+k3s1
-      # if: needs.lint.outputs.changed == 'true'
+      if: needs.lint.outputs.changed == 'true'
 
     - name: Run chart-testing (install)
-      # if: needs.lint.outputs.changed == 'true'
-      run: cd charts/common-test && ct install --chart-dirs . --charts . --config ../../.github/ct-install.yaml --debug
+      if: needs.lint.outputs.changed == 'true'
+      run: cd library/common-test && ct install --chart-dirs . --charts . --config ../../.github/ct-install.yaml --debug
