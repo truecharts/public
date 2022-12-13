@@ -1,20 +1,17 @@
-env:
-  UMASK: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rdesktop
   tag: latest@sha256:7b6217ddd97d4309f625f7f8dd24e27735500668980055c86159c6376c828aba
-persistence:
-  config:
-    enabled: true
-    mountPath: /config
+
 
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
 service:
   main:
     ports:
@@ -22,6 +19,11 @@ service:
         port: 3389
         protocol: TCP
         targetPort: 3389
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
 
 portal:
   enabled: true
