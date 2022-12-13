@@ -6,14 +6,20 @@
 
 common_test_path="library/common-test"
 
-if [ -d "$common_test_path/charts" ]; then
-  echo "Cleaning old built charts..."
-  rm -r "$common_test_path/charts"
-  rm  "$common_test_path/Chart.lock"
-fi
+function cleanup {
+  if [ -d "$common_test_path/charts" ]; then
+    echo "🧹 Cleaning up charts..."
+    rm -r "$common_test_path/charts"
+    rm  "$common_test_path/Chart.lock"
+  fi
+}
 
-echo "Building common..."
+cleanup
+
+echo "🔨 Building common..."
 helm dependency update "$common_test_path"
 
-echo "Running tests..."
+echo "🧪 Running tests..."
 helm unittest --update-snapshot --helm3 -f "tests/*/*.yaml" "./$common_test_path"
+
+cleanup
