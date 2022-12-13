@@ -1,0 +1,8 @@
+image:
+  repository: linuxserver/rdesktop
+  tag: alpine-mate@sha256:8134d197010499ad3d168f591bf1c7cc15881df3f5a79dcfddace9ffc0fdb6ab
+  pullPolicy: Always
+
+env:
+  PUID: "{{ .Values.podSecurityContext.runAsUser }}"
+  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"

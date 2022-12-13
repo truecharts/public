@@ -1,0 +1,8 @@
+image:
+  repository: linuxserver/rdesktop
+  tag: fedora-mate@sha256:c4adc361465a9415247d0928595f46264e4b398828d758ce23244732116e6f5c
+  pullPolicy: Always
+
+env:
+  PUID: "{{ .Values.podSecurityContext.runAsUser }}"
+  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"

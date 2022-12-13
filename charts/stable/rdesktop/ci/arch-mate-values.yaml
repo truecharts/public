@@ -1,0 +1,8 @@
+image:
+  repository: linuxserver/rdesktop
+  tag: arch-mate@sha256:aae824fd5ec3562e6c7f77b56df3aeb896e9af1ff765ef776fc2bc794c292828
+  pullPolicy: Always
+
+env:
+  PUID: "{{ .Values.podSecurityContext.runAsUser }}"
+  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"

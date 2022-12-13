@@ -1,0 +1,8 @@
+image:
+  repository: linuxserver/rdesktop
+  tag: ubuntu-xfce@sha256:4363143a469f6572b737da7fedc52cdc9566137e7dd04a35efc9420ed2fabc16
+  pullPolicy: Always
+
+env:
+  PUID: "{{ .Values.podSecurityContext.runAsUser }}"
+  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"

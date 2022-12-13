@@ -1,0 +1,8 @@
+image:
+  repository: linuxserver/rdesktop
+  tag: ubuntu-icewm@sha256:21dd3dd5724ed47b0849d49ce6da900e3000f68caf2a863a3ab24aa9629447b2
+  pullPolicy: Always
+
+env:
+  PUID: "{{ .Values.podSecurityContext.runAsUser }}"
+  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"

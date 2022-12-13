@@ -1,0 +1,129 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/rdesktop
+  tag: latest@sha256:9edf5f0644a03dacdffe5a5e38ce0a88df287ef3e367e05407c1504155e83919
+ubuntuXFCEImage:
+  repository: linuxserver/rdesktop
+  tag: ubuntu-xfce@sha256:4363143a469f6572b737da7fedc52cdc9566137e7dd04a35efc9420ed2fabc16
+  pullPolicy: Always
+fedoraXFCEImage:
+  repository: linuxserver/rdesktop
+  tag: fedora-xfce@sha256:93e81c3cf7ad0abf00fa3cbe0eddfeaa9f8b03c5153ef06533bbc8bf7e950cf1
+  pullPolicy: Always
+archXFCEImage:
+  repository: linuxserver/rdesktop
+  tag: arch-xfce@sha256:6b763a2cf0927e860d3debe5a53e165e3a7994c66a5a68537302d251fe0e7548
+  pullPolicy: Always
+
+alpineKDEImage:
+  repository: linuxserver/rdesktop
+  tag: alpine-kde@sha256:e3613d8ebdebfa971801977ad7153cd2a9a9de716ae0d4902d00322d2bc05043
+  pullPolicy: Always
+ubuntuKDEImage:
+  repository: linuxserver/rdesktop
+  tag: ubuntu-kde@sha256:6b21253811ba61462d106955e0f3bb82fe9e893d7af3b58e46f6cb17850a1df4
+  pullPolicy: Always
+fedoraKDEImage:
+  repository: linuxserver/rdesktop
+  tag: fedora-kde@sha256:5bbe4a5778e93be98d51e01019cba3b36f1bd85e38579f55596db727fc2936a6
+  pullPolicy: Always
+archKDEImage:
+  repository: linuxserver/rdesktop
+  tag: arch-kde@sha256:d9fbd34312c365a2b41fa3abf64f93dd509bc9736239e0a526e55319312c2d81
+  pullPolicy: Always
+
+alpineMATEImage:
+  repository: linuxserver/rdesktop
+  tag: alpine-mate@sha256:8134d197010499ad3d168f591bf1c7cc15881df3f5a79dcfddace9ffc0fdb6ab
+  pullPolicy: Always
+ubuntuMATEImage:
+  repository: linuxserver/rdesktop
+  tag: ubuntu-mate@sha256:3015290f83e2bb63d53f332240239313729673fa6d8b31702196bda76de2b434
+  pullPolicy: Always
+fedoraMATEImage:
+  repository: linuxserver/rdesktop
+  tag: fedora-mate@sha256:c4adc361465a9415247d0928595f46264e4b398828d758ce23244732116e6f5c
+  pullPolicy: Always
+archMATEImage:
+  repository: linuxserver/rdesktop
+  tag: arch-mate@sha256:aae824fd5ec3562e6c7f77b56df3aeb896e9af1ff765ef776fc2bc794c292828
+  pullPolicy: Always
+
+alpineI3Image:
+  repository: linuxserver/rdesktop
+  tag: alpine-i3@sha256:90cadd46da1286bb3878cb83a7eddfe244d82647584319bc0118570a0ed0b4d8
+  pullPolicy: Always
+ubuntuI3Image:
+  repository: linuxserver/rdesktop
+  tag: ubuntu-i3@sha256:5fcdcde31f14cf067e7e13ee62a2342c103ec9bb8d19cb13f90f3fea40bb7fe4
+  pullPolicy: Always
+fedoraI3Image:
+  repository: linuxserver/rdesktop
+  tag: fedora-i3@sha256:4541aedcb8b5f6e41fd5dbf5765ca9fc471067cf02747d46a1df831f07721d27
+  pullPolicy: Always
+archI3Image:
+  repository: linuxserver/rdesktop
+  tag: arch-i3@sha256:ba9df9b03fb0eec5451185c915ba70e915d299121b981dcb346d3555118b9707
+  pullPolicy: Always
+
+alpineOpenBoxImage:
+  repository: linuxserver/rdesktop
+  tag: alpine-openbox@sha256:5ea7108e5e4537d223332af9b8eff10531b47c27caee31667bd0f7c847112c2b
+  pullPolicy: Always
+ubuntuOpenBoxImage:
+  repository: linuxserver/rdesktop
+  tag: ubuntu-openbox@sha256:5ea7108e5e4537d223332af9b8eff10531b47c27caee31667bd0f7c847112c2b
+  pullPolicy: Always
+fedoraOpenBoxImage:
+  repository: linuxserver/rdesktop
+  tag: fedora-openbox@sha256:0d545a0597c6ecdd958b96b739c98e47ab68929233ebdb6bd7f628d41bf127f5
+  pullPolicy: Always
+archOpenBoxImage:
+  repository: linuxserver/rdesktop
+  tag: arch-openbox@sha256:0fd8f7b98ad671c7c22ddcc5a43e0150204af9d7008a3e0b8b18c5c2981f26c3
+  pullPolicy: Always
+
+alpineICEWMImage:
+  repository: linuxserver/rdesktop
+  tag: alpine-icewm@sha256:eef0103020215ffd25e330ccdd879bb3bae721c461ef5b723a8aff1431efa0ca
+  pullPolicy: Always
+ubuntuICEWMImage:
+  repository: linuxserver/rdesktop
+  tag: ubuntu-icewm@sha256:21dd3dd5724ed47b0849d49ce6da900e3000f68caf2a863a3ab24aa9629447b2
+  pullPolicy: Always
+fedoraICEWMImage:
+  repository: linuxserver/rdesktop
+  tag: fedora-icewm@sha256:aa5282a3b830e53c31548a1848d78aa2851fc82dbcfceacfd85f37f9feb2d986
+  pullPolicy: Always
+archICEWMImage:
+  repository: linuxserver/rdesktop
+  tag: arch-icewm@sha256:c208d8cdd4bf84e863f2d2369d55a9ff5165855c23cccfd8ca4890c1fda8c030
+  pullPolicy: Always
+
+env:
+  PUID: "{{ .Values.podSecurityContext.runAsUser }}"
+  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 3389
+        protocol: HTTP
+        targetPort: 3389
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+
+portal:
+  enabled: true

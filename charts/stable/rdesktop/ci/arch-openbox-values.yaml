@@ -1,0 +1,8 @@
+image:
+  repository: linuxserver/rdesktop
+  tag: arch-openbox@sha256:0fd8f7b98ad671c7c22ddcc5a43e0150204af9d7008a3e0b8b18c5c2981f26c3
+  pullPolicy: Always
+
+env:
+  PUID: "{{ .Values.podSecurityContext.runAsUser }}"
+  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"

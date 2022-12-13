@@ -1,0 +1,8 @@
+image:
+  repository: linuxserver/rdesktop
+  tag: ubuntu-kde@sha256:6b21253811ba61462d106955e0f3bb82fe9e893d7af3b58e46f6cb17850a1df4
+  pullPolicy: Always
+
+env:
+  PUID: "{{ .Values.podSecurityContext.runAsUser }}"
+  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"
