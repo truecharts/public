@@ -1,6 +1,8 @@
 {{- define "ix.v1.common.class.certificate" -}}
   {{- $cert := .cert -}}
   {{- $root := .root -}}
+  {{- $tlsCrtKey := "tls.crt" -}}
+  {{- $tlsPrivateKey := "tls.key" -}}
 
   {{- if not (hasKey $cert "id") -}} {{/* This is something that should not happen when using this library */}}
     {{- fail (printf "Certificate (%s) has no <id> key" $cert.nameOverride) -}}
@@ -17,17 +19,61 @@
   {{- end -}}
   {{- $secretName = (printf "%v-%v" $secretName $root.Release.Revision) -}}
 
-  {{- if (hasKey $cert "certPath") -}}
-    {{- if $cert.certPath -}}
-      {{/* FIXME: Create Volume + Volume Mount of the secret to the certPath */}}
-      {{/* Probably append to .Values.persistence? Also make sure to call this spawner before pod creation */}}
+  {{- if (hasKey $cert "cert") -}}
+    {{/* Create the dict */}}
+    {{- $persistenceDict := (dict "enabled" true "type" "secret" "objectName" $secretName) -}}
+
+    {{/* If cert is enabled */}}
+    {{- if $cert.cert.enabled -}}
+      {{/* And has a path... */}}
+      {{- if $cert.cert.path -}}
+
+        {{/* Append mountPath and subPath */}}
+        {{- $_ := set $persistenceDict "mountPath" $cert.cert.path -}}
+        {{- $_ := set $persistenceDict "subPath" $tlsCrtKey -}}
+
+        {{/* Append readOnly if defined. Actual content validation will be done when volume(Mount) is created  */}}
+        {{- if (hasKey $cert.cert "readOnly") -}}
+          {{- $_ := set $persistenceDict "readOnly" $cert.cert.readOnly -}}
+        {{- end -}}
+
+        {{/* Append defaultMode. Actual content validation will be done when volume(Mount) is created */}}
+        {{- if (hasKey $cert.cert "defaultMode") -}}
+          {{- $_ := set $persistenceDict "defaultMode" $cert.cert.defaultMode -}}
+        {{- end -}}
+
+        {{/* Append into persistence, so it will create the volume and volumeMount. randAlhaNum is to avoid dupes */}}
+        {{- $_ := set $root.Values.persistence (printf "ix-certificate-cert-%s-%s" $certID (randAlphaNum 5 | lower)) $persistenceDict -}}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
 
-  {{- if (hasKey $cert "keyPath") -}}
-    {{- if $cert.keyPath -}}
-      {{/* FIXME: Create Volume + Volume Mount of the secret to the certPath */}}
-      {{/* Probably append to .Values.persistence? Also make sure to call this spawner before pod creation */}}
+  {{- if (hasKey $cert "key") -}}
+    {{/* Create the dict */}}
+    {{- $persistenceDict := (dict "enabled" true "type" "secret" "objectName" $secretName) -}}
+
+    {{/* If key is enabled */}}
+    {{- if $cert.key.enabled -}}
+      {{/* And has a path... */}}
+      {{- if $cert.key.path -}}
+
+        {{/* Append mountPath and subPath */}}
+        {{- $_ := set $persistenceDict "mountPath" $cert.key.path -}}
+        {{- $_ := set $persistenceDict "subPath" $tlsPrivateKey -}}
+
+        {{/* Append readOnly if defined. Actual content validation will be done when volume(Mount) is created */}}
+        {{- if (hasKey $cert.key "readOnly") -}}
+          {{- $_ := set $persistenceDict "readOnly" $cert.key.readOnly -}}
+        {{- end -}}
+
+        {{/* Append defaultMode if defined. Actual content validation will be done when volume(Mount) is created */}}
+        {{- if (hasKey $cert.key "defaultMode") -}}
+          {{- $_ := set $persistenceDict "defaultMode" $cert.key.defaultMode -}}
+        {{- end -}}
+
+        {{/* Append into persistence, so it will create the volume and volumeMount. randAlhaNum is to avoid dupes */}}
+        {{- $_ := set $root.Values.persistence (printf "ix-certificate-key-%s-%s" $certID (randAlphaNum 5 | lower)) $persistenceDict -}}
+      {{- end -}}
     {{- end -}}
   {{- end }}
 ---
@@ -47,7 +93,7 @@ metadata:
     {{- . | nindent 4 }}
   {{- end }}
 data:
-  tls.crt: {{ include "ix.v1.common.certificate.get" (dict "root" $root "cert" $cert "key" "certificate") | toString | b64enc | quote }}
-  tls.key: {{ include "ix.v1.common.certificate.get" (dict "root" $root "cert" $cert "key" "privatekey") | toString | b64enc | quote }}
+  {{ $tlsCrtKey }}: {{ include "ix.v1.common.certificate.get" (dict "root" $root "cert" $cert "key" "certificate") | toString | b64enc | quote }}
+  {{ $tlsPrivateKey }}: {{ include "ix.v1.common.certificate.get" (dict "root" $root "cert" $cert "key" "privatekey") | toString | b64enc | quote }}
   {{- end -}}
 {{- end -}}
