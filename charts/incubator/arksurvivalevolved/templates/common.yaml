@@ -3,7 +3,7 @@
 
 {{- if ne (int .Values.service.udp2.ports.udp2.port) (add1 (int .Values.service.main.ports.main.port)) -}}
   {{- fail (printf "In the service udp2, the port for udp2 must be greater by 1 than the main service's port. You have to set it to <%s>." (add1 .Values.service.main.ports.main.port)) }}
-{{- end -}}
+{{- end }}
 
 {{/* Render secret */}}
 {{- include "ark.secret" . }}
