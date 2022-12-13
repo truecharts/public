@@ -7,7 +7,12 @@
   configMap:
     name: {{ $objectName }}
   {{- with $vol.defaultMode }}
-    defaultMode: {{ tpl (toString .) $root }}
+    {{- $defMode := tpl (toString .) $root -}}
+    {{- if (mustRegexMatch "^[0-9]{4}$" $defMode) }}
+    defaultMode: {{ $defMode }}
+    {{- else -}}
+      {{- fail (printf "<defaultMode> (%s, converted to octal) is not valid format. Valid format is string with 4 digits <0777>." $defMode) -}}
+    {{- end -}}
   {{- end -}}
   {{- with $vol.items }}
     items:

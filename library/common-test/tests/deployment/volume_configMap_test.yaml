@@ -62,7 +62,7 @@ tests:
             configMap:
               name: some_object_name
 
-  - it: should pass with added configMap and defaultMode as int
+  - it: should fail with added configMap and defaultMode as int
     documentIndex: *deploymentDoc
     set:
       persistence:
@@ -70,16 +70,11 @@ tests:
           type: configMap
           enabled: true
           objectName: some_object_name
-          defaultMode: 777
+          defaultMode: 0777
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
-            name: some_volume
-            configMap:
-              name: some_object_name
-              defaultMode: 777
+      - failedTemplate:
+          errorMessage: <defaultMode> (511, converted to octal) is not valid format. Valid format is string with 4 digits <0777>.
 
   - it: should pass with added configMap and defaultMode as string
     documentIndex: *deploymentDoc
@@ -89,7 +84,7 @@ tests:
           type: configMap
           enabled: true
           objectName: some_object_name
-          defaultMode: "777"
+          defaultMode: "0777"
           noMount: true
     asserts:
       - equal:
@@ -98,9 +93,9 @@ tests:
             name: some_volume
             configMap:
               name: some_object_name
-              defaultMode: 777
+              defaultMode: 0777
 
-  - it: should pass with added configMap and defaultMode as int from tpl
+  - it: should fail with added configMap and defaultMode as int from tpl
     documentIndex: *deploymentDoc
     set:
       mode: 644
@@ -112,18 +107,13 @@ tests:
           defaultMode: "{{ .Values.mode }}"
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
-            name: some_volume
-            configMap:
-              name: some_object_name
-              defaultMode: 644
+      - failedTemplate:
+          errorMessage: <defaultMode> (644, converted to octal) is not valid format. Valid format is string with 4 digits <0777>.
 
   - it: should pass with added configMap and defaultMode as string from tpl
     documentIndex: *deploymentDoc
     set:
-      mode: "644"
+      mode: "0644"
       persistence:
         some_volume:
           type: configMap
@@ -138,7 +128,7 @@ tests:
             name: some_volume
             configMap:
               name: some_object_name
-              defaultMode: 644
+              defaultMode: 0644
 
   - it: should pass with added configMap and items
     documentIndex: *deploymentDoc

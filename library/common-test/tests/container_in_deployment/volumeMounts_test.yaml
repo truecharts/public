@@ -21,7 +21,18 @@ tests:
       - failedTemplate:
           errorMessage: <mountPath> must be defined, alternatively use the <noMount> flag.
 
-  - it: should fail with empty mountPath set
+  - it: should fail with empty readOnly
+    set:
+      persistence:
+        vol1:
+          enabled: true
+          mountPath: /some/path
+          readOnly:
+    asserts:
+      - failedTemplate:
+          errorMessage: <readOnly> cannot be empty on item (vol1)
+
+  - it: should fail with empty mountPath
     set:
       persistence:
         vol1:

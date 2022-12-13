@@ -11,8 +11,12 @@
         {{- with $item.subPath }}
   subPath: {{ tpl . $ }}
         {{- end -}}
-        {{- if (hasKey $item "readOnly") }}
+        {{- if (hasKey $item "readOnly") -}}
+          {{- if or (eq $item.readOnly true) (eq $item.readOnly false) }}
   readOnly: {{ $item.readOnly }}
+          {{- else -}}
+            {{- fail (printf "<readOnly> cannot be empty on item (%s)" $index) -}}
+          {{- end -}}
         {{- end -}}
         {{- with $item.mountPropagation }}
   mountPropagation: {{ tpl . $ }}
