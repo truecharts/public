@@ -6,9 +6,9 @@
 
 {{- $secretKey := "" }}
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretStorageName) }}
-  {{- $secretKey = (index .data "secret") }}
+  {{- $secretKey = (index .data "secret") | b64dec }}
 {{- else }}
-  {{- $secretKey = randAlphaNum 32 }}
+  {{- $secretKey = randAlphaNum 32 | b64enc }}
 {{- end }}
 ---
 apiVersion: v1

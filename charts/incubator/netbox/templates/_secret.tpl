@@ -5,9 +5,9 @@
 
 {{- $secret_key := "" }}
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
-  {{- $secret_key = (index .data "secret_key") }}
+  {{- $secret_key = (index .data "secret_key") | b64dec }}
 {{- else }}
-  {{- $secret_key = randAlphaNum 64 }}
+  {{- $secret_key = randAlphaNum 64 | b64enc }}
 {{- end }}
 
 ---
