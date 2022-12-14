@@ -1,8 +1,1 @@
-image:
-  repository: linuxserver/rdesktop
-  tag: alpine-kde@sha256:90cadd46da1286bb3878cb83a7eddfe244d82647584319bc0118570a0ed0b4d8
-  pullPolicy: Always
-
-env:
-  PUID: "{{ .Values.podSecurityContext.runAsUser }}"
-  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"
+imageSelector: alpineI3Image

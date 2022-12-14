@@ -1,8 +1,1 @@
-image:
-  repository: linuxserver/rdesktop
-  tag: arch-i3@sha256:ba9df9b03fb0eec5451185c915ba70e915d299121b981dcb346d3555118b9707
-  pullPolicy: Always
-
-env:
-  PUID: "{{ .Values.podSecurityContext.runAsUser }}"
-  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"
+imageSelector: archI3Image

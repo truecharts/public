@@ -1,8 +1,1 @@
-image:
-  repository: linuxserver/rdesktop
-  tag: fedora-icewm@sha256:aa5282a3b830e53c31548a1848d78aa2851fc82dbcfceacfd85f37f9feb2d986
-  pullPolicy: Always
-
-env:
-  PUID: "{{ .Values.podSecurityContext.runAsUser }}"
-  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"
+imageSelector: fedoraICEWMImage

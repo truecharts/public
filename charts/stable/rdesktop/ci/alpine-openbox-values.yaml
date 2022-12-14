@@ -1,8 +1,1 @@
-image:
-  repository: linuxserver/rdesktop
-  tag: alpine-openbox@sha256:5ea7108e5e4537d223332af9b8eff10531b47c27caee31667bd0f7c847112c2b
-  pullPolicy: Always
-
-env:
-  PUID: "{{ .Values.podSecurityContext.runAsUser }}"
-  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"
+imageSelector: alpineOpenBoxImage

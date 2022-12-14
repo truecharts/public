@@ -1,8 +1,1 @@
-image:
-  repository: linuxserver/rdesktop
-  tag: fedora-openbox@sha256:0d545a0597c6ecdd958b96b739c98e47ab68929233ebdb6bd7f628d41bf127f5
-  pullPolicy: Always
-
-env:
-  PUID: "{{ .Values.podSecurityContext.runAsUser }}"
-  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"
+imageSelector: fedoraMATEImage

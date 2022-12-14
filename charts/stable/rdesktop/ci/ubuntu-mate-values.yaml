@@ -1,8 +1,1 @@
-image:
-  repository: linuxserver/rdesktop
-  tag: ubuntu-mate@sha256:3015290f83e2bb63d53f332240239313729673fa6d8b31702196bda76de2b434
-  pullPolicy: Always
-
-env:
-  PUID: "{{ .Values.podSecurityContext.runAsUser }}"
-  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"
+imageSelector: ubuntuMATEImage

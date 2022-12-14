@@ -1,8 +1,1 @@
-image:
-  repository: linuxserver/rdesktop
-  tag: fedora-xfce@sha256:93e81c3cf7ad0abf00fa3cbe0eddfeaa9f8b03c5153ef06533bbc8bf7e950cf1
-  pullPolicy: Always
-
-env:
-  PUID: "{{ .Values.podSecurityContext.runAsUser }}"
-  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"
+imageSelector: fedoraXFCEImage

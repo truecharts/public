@@ -1,8 +1,1 @@
-image:
-  repository: linuxserver/rdesktop
-  tag: arch-xfce@sha256:6b763a2cf0927e860d3debe5a53e165e3a7994c66a5a68537302d251fe0e7548
-  pullPolicy: Always
-
-env:
-  PUID: "{{ .Values.podSecurityContext.runAsUser }}"
-  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"
+imageSelector: archOpenBoxImage

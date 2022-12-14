@@ -1,8 +1,1 @@
-image:
-  repository: linuxserver/rdesktop
-  tag: fedora-i3@sha256:4541aedcb8b5f6e41fd5dbf5765ca9fc471067cf02747d46a1df831f07721d27
-  pullPolicy: Always
-
-env:
-  PUID: "{{ .Values.podSecurityContext.runAsUser }}"
-  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"
+imageSelector: fedoraI3Image

@@ -1,8 +1,1 @@
-image:
-  repository: linuxserver/rdesktop
-  tag: fedora-kde@sha256:5bbe4a5778e93be98d51e01019cba3b36f1bd85e38579f55596db727fc2936a6
-  pullPolicy: Always
-
-env:
-  PUID: "{{ .Values.podSecurityContext.runAsUser }}"
-  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"
+imageSelector: fedoraKDEImage

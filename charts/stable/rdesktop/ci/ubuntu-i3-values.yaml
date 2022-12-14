@@ -1,8 +1,1 @@
-image:
-  repository: linuxserver/rdesktop
-  tag: ubuntu-kde@sha256:5fcdcde31f14cf067e7e13ee62a2342c103ec9bb8d19cb13f90f3fea40bb7fe4
-  pullPolicy: Always
-
-env:
-  PUID: "{{ .Values.podSecurityContext.runAsUser }}"
-  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"
+imageSelector: ubuntuI3Image

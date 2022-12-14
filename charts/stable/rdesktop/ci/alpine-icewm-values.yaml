@@ -1,8 +1,1 @@
-image:
-  repository: linuxserver/rdesktop
-  tag: alpine-icewm@sha256:eef0103020215ffd25e330ccdd879bb3bae721c461ef5b723a8aff1431efa0ca
-  pullPolicy: Always
-
-env:
-  PUID: "{{ .Values.podSecurityContext.runAsUser }}"
-  PGID: "{{ .Values.podSecurityContext.runAsGroup }}"
+imageSelector: alpineICEWMImage
