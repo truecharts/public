@@ -2,15 +2,6 @@ suite: certificate dict test
 templates:
   - common.yaml
 tests:
-  - it: should fail with no ixCertificates key
-    set:
-      scaleCerts:
-        cert_name:
-          id: 1
-    asserts:
-      - failedTemplate:
-          errorMessage: Key <ixCertificates> does not exist
-
   - it: should fail with empty ixCertificates key
     set:
       scaleCerts:

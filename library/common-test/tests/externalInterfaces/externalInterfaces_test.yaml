@@ -104,6 +104,21 @@ tests:
       - failedTemplate:
           errorMessage: <destination> and <gateway> are required when <staticRoutes> are defined. Interface (ens3s0)
 
+  - it: should fail with ixExternalInterfacesConfiguration empty
+    documentIndex: &externalInterfaceDoc 0
+    set:
+      # Only to pass validation
+      externalInterfaces:
+        - hostInterface: ens3s0
+          ipam:
+            type: dhcp
+      # Simulate the ix Injected values
+      ixExternalInterfacesConfiguration:
+        - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+    asserts:
+      - failedTemplate:
+          errorMessage: There are externalInterfaces defined, but key <ixExternalInterfaceConfigurationNames> is empty.
+
   - it: should pass with externalInterface defined
     documentIndex: &externalInterfaceDoc 0
     set:
@@ -115,6 +130,8 @@ tests:
       # Simulate the ix Injected values
       ixExternalInterfacesConfiguration:
         - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfacesConfigurationNames:
+        - ix-RELEASE-NAME-0
     asserts:
       - hasDocuments:
           count: 4
@@ -196,6 +213,9 @@ tests:
       ixExternalInterfacesConfiguration:
         - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
         - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-1", "type": "macvlan", "master": "ens5s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfacesConfigurationNames:
+        - ix-RELEASE-NAME-0
+        - ix-RELEASE-NAME-1
     asserts:
       - hasDocuments:
           count: 5
@@ -253,6 +273,8 @@ tests:
       # Simulate the ix Injected values
       ixExternalInterfacesConfiguration:
         - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfacesConfigurationNames:
+        - ix-RELEASE-NAME-0
     asserts:
       - hasDocuments:
           count: 4
@@ -283,6 +305,8 @@ tests:
       # Simulate the ix Injected values
       ixExternalInterfacesConfiguration:
         - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfacesConfigurationNames:
+        - ix-RELEASE-NAME-0
     asserts:
       - hasDocuments:
           count: 4
@@ -311,6 +335,8 @@ tests:
       # Simulate the ix Injected values
       ixExternalInterfacesConfiguration:
         - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfacesConfigurationNames:
+        - ix-RELEASE-NAME-0
     asserts:
       - hasDocuments:
           count: 4
@@ -349,6 +375,8 @@ tests:
       # Simulate the ix Injected values
       ixExternalInterfacesConfiguration:
         - '{"cniVersion": "0.3.1", "name": "ix-RELEASE-NAME-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfacesConfigurationNames:
+        - ix-RELEASE-NAME-0
     asserts:
       - hasDocuments:
           count: 4
