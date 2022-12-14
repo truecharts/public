@@ -18,8 +18,8 @@
 runAsNonRoot: {{ $secContext.runAsNonRoot }}
 readOnlyRootFilesystem: {{ $secContext.readOnlyRootFilesystem }}
 allowPrivilegeEscalation: {{ $secContext.allowPrivilegeEscalation }}
-privileged: {{ $secContext.privileged }}
-capabilities:
+privileged: {{ $secContext.privileged }} {{/* TODO: Set to true if deviceList is used */}}
+capabilities: {{/* TODO: add NET_BIND_SERVICE when port < 80 is used */}}
   {{- if or $secContext.capabilities.add $secContext.capabilities.drop }}
     {{- if or (not (kindIs "slice" $secContext.capabilities.add)) (not (kindIs "slice" $secContext.capabilities.drop)) }}
       {{- fail "Either <add> or <drop> capabilities is not a list."}}

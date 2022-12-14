@@ -4,7 +4,7 @@
 runAsUser: {{ required "<runAsUser> value is required." $podSecCont.runAsUser }}
 runAsGroup: {{ required "<runAsGroup> value is required." $podSecCont.runAsGroup }}
 fsGroup: {{ required "<fsGroup> value is required." $podSecCont.fsGroup }}
-  {{- with $podSecCont.supplementalGroups }}
+  {{- with $podSecCont.supplementalGroups }} {{/* TODO: deviceList + suppleGroups */}}
 supplementalGroups:
     {{- range . }}
   - {{ . }}
