@@ -84,15 +84,27 @@ data:
 
     {{- if .Values.frigate.ffmpeg.render_config }}
     ffmpeg:
-      global_args: {{ .Values.frigate.ffmpeg.global_args | default "-hide_banner -loglevel warning" }}
-      input_args: {{ .Values.frigate.ffmpeg.input_args | default "-avoid_negative_ts make_zero -fflags +genpts+discardcorrupt -rtsp_transport tcp -timeout 5000000 -use_wallclock_as_timestamps 1" }}
+      {{- with .Values.frigate.ffmpeg.global_args }}
+      global_args: {{ . }}
+      {{- end }}
+      {{- with .Values.frigate.ffmpeg.input_args }}
+      input_args: {{ . }}
+      {{- end }}
       {{- with .Values.frigate.ffmpeg.hwaccel_args }}
       hwaccel_args: {{ . }}
       {{- end }}
+      {{- if or .Values.frigate.ffmpeg.output_args.detect .Values.frigate.ffmpeg.output_args.record .Values.frigate.ffmpeg.output_args.rtmp }}
       output_args:
-        detect: {{ .Values.frigate.ffmpeg.output_args.detect | default "-f rawvideo -pix_fmt yuv420p" }}
-        record: {{ .Values.frigate.ffmpeg.output_args.record | default "-f segment -segment_time 10 -segment_format mp4 -reset_timestamps 1 -strftime 1 -c copy -an" }}
-        rtmp: {{ .Values.frigate.ffmpeg.output_args.rtmp | default "-c copy -f flv" }}
+        {{- with .Values.frigate.ffmpeg.output_args.detect }}
+        detect: {{ . }}
+        {{- end }}
+        {{- with .Values.frigate.ffmpeg.output_args.record }}
+        record: {{ . }}
+        {{- end }}
+        {{- with .Values.frigate.ffmpeg.output_args.rtmp }}
+        rtmp: {{ . }}
+        {{- end }}
+      {{- end }}
     {{- end }}
 
     {{- if .Values.frigate.detect.render_config }}
