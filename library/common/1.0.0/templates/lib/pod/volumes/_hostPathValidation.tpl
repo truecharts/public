@@ -26,3 +26,11 @@
     {{- end -}}
   {{- end -}}
 {{- end -}}
+
+{{- define "ix.v1.common.controller.hostPathType.validation" -}}
+  {{- $type := .type -}}
+  {{- $index := .index -}}
+  {{- if not (mustHas $type (list "DirectoryOrCreate" "Directory" "FileOrCreate" "File" "Socket" "CharDevice" "BlockDevice")) -}}
+    {{- fail (printf "Invalid <hostPathType> option (%s) on item (%s). Valid options are DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice and BlockDevice" $type $index) -}}
+  {{- end -}}
+{{- end -}}

@@ -123,6 +123,21 @@ tests:
       - failedTemplate:
           errorMessage: Invalid hostPath (/not_allowed_path). Allowed hostPaths are valid paths under a given pool. e.g. /mnt/POOL/DATASET, /mnt/POOL/DATASET/DIRECTORY
 
+  - it: should fail with added hostPath and invalid hostPathType set
+    documentIndex: *deploymentDoc
+    set:
+      hostType: invalid
+      persistence:
+        volume1:
+          enabled: true
+          type: hostPath
+          hostPath: /some_path
+          hostPathType: "{{ .Values.hostType }}"
+          noMount: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid <hostPathType> option (invalid) on item (volume1). Valid options are DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice and BlockDevice
+
   - it: should pass with ValidateHostPath globally enabled but disabled on the item and not allowed path for hostPath (/not_allowed_path)
     documentIndex: *deploymentDoc
     set:

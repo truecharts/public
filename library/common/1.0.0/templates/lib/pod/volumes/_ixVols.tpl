@@ -3,18 +3,28 @@
   {{- $vol := .volume -}}
   {{- $root := .root -}}
   {{- if not $vol.datasetName -}}
-    {{- fail (printf "Item (%s) is set as ixVolume type, but has no Dataset Name defined" $index) -}}
+    {{- fail (printf "Item (%s) is set as ixVolume type, but has no <datasetName> defined" $index) -}}
   {{- end -}}
-  {{- range $index, $normalizedHostPath := $root.ixVolumes -}}
-    {{- if ne $vol.datasetName (base $normalizedHostPath) -}} {{/* Make sure the resolved datasetName is included in ixVolumes */}}
-      {{- fail (printf "Dataset Name on item (%s) does not exist in ixVolumes list" $index) -}}
+  {{- $hostPath := "" -}}
+  {{- if not $root.Values.ixVolumes -}}
+    {{- fail "Key <ixVolumes> is empty. But persistence volumes of type ixVolumes is defined." -}}
+  {{- end -}}
+  {{- if $vol.hostPath -}}
+    {{- fail (printf "Item (%s), is set as ixVolume but has hostPath defined. This is automatically calculated." $index) -}}
+  {{- end -}}
+  {{- range $idx, $normalizedHostPath := $root.Values.ixVolumes -}}
+    {{- if eq $vol.datasetName (base $normalizedHostPath) -}} {{/* Make sure the resolved datasetName is included in ixVolumes */}}
+      {{- $hostPath = $normalizedHostPath -}}
+    {{- else -}}
+      {{- fail (printf "Dataset Name (%s) on item (%s) does not exist in ixVolumes list" $vol.datasetName $index) -}}
     {{- end -}}
   {{- end }}
 - name: {{ $index }}
   hostPath:
-    path: {{ required (printf "hostPath not set on item %s" $index) $vol.hostPath }}
-  {{- with $vol.hostPathType }}
-    type: {{ tpl . $root }}
+    path: {{ $hostPath }}
+  {{- with $vol.hostPathType -}}
+    {{- $type := (tpl . $root) -}}
+    {{- include "ix.v1.common.controller.hostPathType.validation" (dict "index" $index "type" $type) }}
+    type: {{ $type }}
   {{- end -}}
 {{- end -}}
-{{/* TODO: unittests */}}
