@@ -18,8 +18,11 @@ ark:
   password: ""
   game_id: "376030"
   rcon_enabled: true
-  game_params: "?bRawSockets"
-  game_params_extra: "-server -log -crossplay"
+  game_params: []
+  game_params_extra:
+    - -server
+    - -log
+    - -crossplay"
   map: TheIsland
   server_name: ""
   validate: false

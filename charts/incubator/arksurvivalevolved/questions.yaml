@@ -73,16 +73,32 @@ questions:
             default: true
         - variable: game_params
           label: Game Parameters
-          description: "Enter your game parameters separated with ? and start with ? (don't put spaces in between eg: ?MaxPlayers=40?FastDecayUnsnappedCoreStructures=true). For multiple servers, change the port numbers in Networking and Services section ONLY."
+          description: "Enter your game parameters starting with ? (don't put spaces in between eg: ?MaxPlayers=40?FastDecayUnsnappedCoreStructures=true). For multiple servers, change the port numbers in Networking and Services section ONLY."
           schema:
-            type: string
-            default: "?bRawSockets"
+            type: list
+            default: []
+            items:
+              - variable: game_params_entry
+                label: Parameter Entry
+                description: Single parameter per entry. Start with ?
+                schema:
+                  type: string
+                  default: ""
+                  required: true
         - variable: game_params_extra
           label: Game Extra Parameters
-          description: "Values to start the server"
+          description: "Values to start the server, one per entry"
           schema:
-            type: string
-            default: "-server -log -crossplay"
+            type: list
+            default: ["-server", "-log", "-crossplay"]
+            items:
+              - variable: game_params_extra_entry
+                label: Extra Parameter Entry
+                description: Single parameter per entry.
+                schema:
+                  type: string
+                  default: ""
+                  required: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
