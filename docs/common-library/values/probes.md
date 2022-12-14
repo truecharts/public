@@ -10,10 +10,15 @@
     liveness:
       enabled: true
       type: AUTO
+      # Optional
       path: "/"
+      # Optional
       port: ""
+      # Optional
       command: []
+      # Optional
       httpHeaders: {}
+      # Optional
       spec:
         initialDelaySeconds: 10
         periodSeconds: 10

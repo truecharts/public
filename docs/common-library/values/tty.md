@@ -11,5 +11,6 @@ Allocates a TTY, requires also `stdin` set to true
 Examples:
 
 ```yaml
+# Optional
 tty: true
 ```

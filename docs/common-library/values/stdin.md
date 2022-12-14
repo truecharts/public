@@ -11,5 +11,6 @@ Allocates a buffer for stdin in the container runtime.
 Examples:
 
 ```yaml
+# Optional
 stdin: true
 ```
