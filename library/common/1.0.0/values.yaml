@@ -103,39 +103,26 @@ probes:
       periodSeconds: 5
       failureThreshold: 60
 
-# Used for SCALE GUI
+# Used for SCALE / GUI Focused
 scaleGPU: {}
 
-# Used for SCALE GUI
+# Used for SCALE / GUI Focused
 externalInterfaces: []
+
+# Used for SCALE
+scaleCerts: {}
+
+# Used for SCALE / GUI Focused
+scaleCertsList: []
 
 # Injected from middleware
 ixExternalInterfacesConfiguration: []
 # Injected from middleware
 ixExternalInterfacesConfigurationNames: []
+# Injected from middleware
+ixCertificates: []
 
 # - Everything bellow needs documentation
-
-scaleCerts: {}
-  # some_cert_name:
-  #   # Override Name
-  #   nameOverride: name_override
-  #   # ID Comes from the definitions on the GUI
-  #   id: 1
-  #   # If populated, it will mount the certificate in the container in this path
-  #   certPath:
-  #   # If populated, it will mount the private key in the container in this path
-  #   keyPath:
-  #   useRevoked: false
-  #   useExpired: false
-scaleCertsList: []
-  # - name: some_cert_name
-  #   nameOverride: name_override
-  #   id: 1
-  #   certPath:
-  #   keyPath:
-  #   useRevoked: false
-  #   useExpired: false
 
 global:
   defaults:

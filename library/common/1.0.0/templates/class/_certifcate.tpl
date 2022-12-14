@@ -29,7 +29,7 @@
       {{- if $cert.cert.path -}}
 
         {{/* Append mountPath and subPath */}}
-        {{- $_ := set $persistenceDict "mountPath" $cert.cert.path -}}
+        {{- $_ := set $persistenceDict "mountPath" (tpl $cert.cert.path $root) -}}
         {{- $_ := set $persistenceDict "subPath" $tlsCrtKey -}}
 
         {{/* Append readOnly if defined. Actual content validation will be done when volume(Mount) is created  */}}
@@ -58,7 +58,7 @@
       {{- if $cert.key.path -}}
 
         {{/* Append mountPath and subPath */}}
-        {{- $_ := set $persistenceDict "mountPath" $cert.key.path -}}
+        {{- $_ := set $persistenceDict "mountPath" (tpl $cert.key.path $root) -}}
         {{- $_ := set $persistenceDict "subPath" $tlsPrivateKey -}}
 
         {{/* Append readOnly if defined. Actual content validation will be done when volume(Mount) is created */}}
