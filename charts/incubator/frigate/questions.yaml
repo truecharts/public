@@ -151,11 +151,13 @@ questions:
                       label: Width
                       schema:
                         type: int
+                        required: true
                         default: 320
                     - variable: height
                       label: Height
                       schema:
                         type: int
+                        required: true
                         default: 320
                     - variable: labelmap
                       label: LabelMap Configuration
