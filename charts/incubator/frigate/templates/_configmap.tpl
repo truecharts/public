@@ -318,8 +318,12 @@ data:
 
     {{- if .Values.frigate.live.render_config }}
     live:
-      height: {{ .Values.frigate.live.height | default 720 }}
-      quality: {{ .Values.frigate.live.quality | default 8 }}
+      {{- with .Values.frigate.live.height }}
+      height: {{ . }}
+      {{- end }}
+      {{- with .Values.frigate.live.quality }}
+      quality: {{ . }}
+      {{- end }}
     {{- end }}
 
     {{- if .Values.frigate.timestamp_style.render_config }}

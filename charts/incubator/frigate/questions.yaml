@@ -1000,8 +1000,7 @@ questions:
                         reduce bandwidth required for viewing the live stream. Width is computed to match known aspect ratio.
                       schema:
                         type: int
-                        required: true
-                        default: 720
+                        "null": true
                     - variable: quality
                       label: Quality
                       description: |
@@ -1009,10 +1008,9 @@ questions:
                         1 is the highest quality, and 31 is the lowest. Lower quality feeds utilize less CPU resources.
                       schema:
                         type: int
-                        required: true
+                        "null": true
                         min: 1
                         max: 31
-                        default: 8
         - variable: timestamp_style
           label: Timestamp Style
           schema:
