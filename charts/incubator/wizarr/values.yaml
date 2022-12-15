@@ -1,0 +1,25 @@
+image:
+  repository: wizarr/wizarr
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:23a6c86f667094e29641c226b885f41d2cf52e6ea27c9ea427ef306d07ccf4e8
+
+env:
+  # APP_URL: https://join.domain.com
+  DISABLE_BUILTIN_AUTH: false
+  ALLOW_BUG_REPORTING: false
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 5690
+        port: 10596
+
+persistence:
+  database:
+    enabled: true
+    mountPath: /data/database
+
+portal:
+  enabled: true
