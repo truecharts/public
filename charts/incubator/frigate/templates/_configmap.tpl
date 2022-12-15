@@ -328,13 +328,21 @@ data:
 
     {{- if .Values.frigate.timestamp_style.render_config }}
     timestamp_style:
-      position: {{ .Values.frigate.timestamp_style.position | default "tl" }}
-      format: {{ .Values.frigate.timestamp_style.format | quote }}
+      {{- with .Values.frigate.timestamp_style.position }}
+      position: {{ . }}
+      {{- end }}
+      {{- with .Values.frigate.timestamp_style.format }}
+      format: {{ . }}
+      {{- end }}
+      {{- if .Values.frigate.timestamp_style.color.render_config }}
       color:
         red: {{ .Values.frigate.timestamp_style.color.red | default 255 }}
         green: {{ .Values.frigate.timestamp_style.color.green | default 255 }}
         blue: {{ .Values.frigate.timestamp_style.color.blue | default 255 }}
-      thickness: {{ .Values.frigate.timestamp_style.thickness | default 2 }}
+      {{- end }}
+      {{- with .Values.frigate.timestamp_style.thickness }}
+      thickness: {{ . }}
+      {{- end }}
       {{- if ne .Values.frigate.timestamp_style.effect "None" }}
       effect: {{ .Values.frigate.timestamp_style.effect }}
       {{- end }}

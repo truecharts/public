@@ -1030,8 +1030,7 @@ questions:
                       description: Position of the timestamp
                       schema:
                         type: string
-                        required: true
-                        default: tl
+                        default: ""
                         enum:
                           - value: tl
                             description: Top Left
@@ -1046,39 +1045,45 @@ questions:
                       description: Format specifier conform to the Python package "datetime"
                       schema:
                         type: string
-                        required: true
-                        default: "%m/%d/%Y %H:%M:%S"
+                        default: ""
                     - variable: color
                       label: Color
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
-                          - variable: red
-                            label: Red
+                          - variable: render_config
+                            label: Render Configuration
+                            description: Enable it to add the configuration in the config file
                             schema:
-                              type: int
-                              default: 255
-                              required: true
-                          - variable: green
-                            label: Green
-                            schema:
-                              type: int
-                              required: true
-                              default: 255
-                          - variable: blue
-                            label: Blue
-                            schema:
-                              type: int
-                              required: true
-                              default: 255
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: red
+                                  label: Red
+                                  schema:
+                                    type: int
+                                    default: 255
+                                    required: true
+                                - variable: green
+                                  label: Green
+                                  schema:
+                                    type: int
+                                    required: true
+                                    default: 255
+                                - variable: blue
+                                  label: Blue
+                                  schema:
+                                    type: int
+                                    required: true
+                                    default: 255
                     - variable: thickness
                       label: Thickness
                       description: Line thickness of font
                       schema:
                         type: int
-                        required: true
-                        default: 2
+                        "null": true
                     - variable: effect
                       label: Effect
                       description: |
@@ -1088,7 +1093,6 @@ questions:
                         Shadow - Shadow for font
                       schema:
                         type: string
-                        required: true
                         default: None
                         enum:
                           - value: None
