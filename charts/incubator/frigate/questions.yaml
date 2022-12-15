@@ -273,15 +273,13 @@ questions:
                       description: Width of the output resolution
                       schema:
                         type: int
-                        required: true
-                        default: 1280
+                        "null": true
                     - variable: height
                       label: Height
                       description: Height of the output resolution
                       schema:
                         type: int
-                        required: true
-                        default: 720
+                        "null": true
                     - variable: quality
                       label: Quality
                       description: Encoding quality of the mpeg1 feed. Where 1 is the highest quality, and 31 is the lowest. Lower quality feeds utilize less CPU resources.
@@ -289,8 +287,7 @@ questions:
                         type: int
                         min: 1
                         max: 31
-                        required: true
-                        default: 8
+                        "null": true
                     - variable: mode
                       label: Mode
                       description: |
@@ -300,8 +297,7 @@ questions:
                         Continuous - All cameras are included always.
                       schema:
                         type: string
-                        required: true
-                        default: objects
+                        "null": true
                         enum:
                           - value: objects
                             description: Objects

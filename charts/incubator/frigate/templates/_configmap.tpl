@@ -76,10 +76,18 @@ data:
     {{- if .Values.frigate.birdseye.render_config }}
     birdseye:
       enabled: {{ ternary "True" "False" .Values.frigate.birdseye.enabled }}
-      width: {{ .Values.frigate.birdseye.width | default 1280 }}
-      height: {{ .Values.frigate.birdseye.height | default 720 }}
-      quality: {{ .Values.frigate.birdseye.quality | default 8 }}
-      mode: {{ .Values.frigate.birdseye.mode | default "objects" }}
+      {{- with .Values.frigate.birdseye.width }}
+      width: {{ . }}
+      {{- end }}
+      {{- with .Values.frigate.birdseye.height }}
+      height: {{ . }}
+      {{- end }}
+      {{- with .Values.frigate.birdseye.quality }}
+      quality: {{ . }}
+      {{- end }}
+      {{- with .Values.frigate.birdseye.mode }}
+      mode: {{ . }}
+      {{- end }}
     {{- end }}
 
     {{- if .Values.frigate.ffmpeg.render_config }}
