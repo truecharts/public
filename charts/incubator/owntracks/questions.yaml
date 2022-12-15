@@ -8,58 +8,72 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: env
+  - variable: owntracks
     group: App Configuration
-    label: Image Environment
+    label: OwnTracks Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: OTR_HOST
+        - variable: otr_host
           label: MQTT OTR Host
           description: Set the MQTT host URL or IP. For example <mosquitto.ix-mosquitto.svc.local>.
           schema:
             type: string
             default: ""
-        - variable: OTR_PORT
+        - variable: otr_port
           label: OTR MQTT Port
           description: Set to the port that your MQTT uses.
           schema:
             type: int
             default: 1883
-        - variable: OTR_USER
+        - variable: otr_user
           label: OTR MQTT User
           description: Set to the user that your MQTT uses.
           schema:
             type: string
             default: ""
-        - variable: OTR_PASS
+        - variable: otr_pass
           label: OTR MQTT Password
           description: Set to the password that your MQTT uses.
           schema:
             type: string
             private: true
             default: ""
-        - variable: OTR_PRECISION
+        - variable: otr_precision
           label: OTR Precision
           description: Reverse-geo precision
           schema:
             type: int
             default: 7
-        - variable: OTR_GEOKEY
+        - variable: otr_geokey
           label: OTR Geo Key
           description: API key for reverse-geo lookups
           schema:
             type: string
             private: true
             default: ""
-        - variable: OTR_BROWSERAPIKEY
+        - variable: otr_browserapikey
           label: OTR Browser API Key
           description: Google maps browser API key
           schema:
             type: string
             private: true
             default: ""
+        - variable: otr_serverlabel
+          label: OTR Server Label
+          description: Server label for Web
+          schema:
+            type: string
+            required: true
+            default: OwnTracks
+        - variable: otr_lmdbsize
+          label: OTR LMBD Size
+          description: Size of the LMDB database. If less than 10485760 (10 MB) it will be set to 10485760.
+          schema:
+            type: int
+            required: true
+            default: 104857600000
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

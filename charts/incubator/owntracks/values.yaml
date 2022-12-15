@@ -6,15 +6,20 @@ image:
 # securityContext:
 #  readOnlyRootFilesystem: false
 
-env:
-  OTR_HTTPPORT: "{{ .Values.service.main.ports.main.port }}"
-  OTR_HOST: ""
-  OTR_PORT: 1883
-  OTR_USER: ""
-  OTR_PASS: ""
-  OTR_PRECISION: 7
-  OTR_GEOKEY: ""
-  OTR_BROWSERAPIKEY: ""
+owntracks:
+  otr_host: ""
+  otr_port: 1883
+  otr_user: ""
+  otr_pass: ""
+  otr_precision: 7
+  otr_geokey: ""
+  otr_browserapikey: ""
+  otr_serverlabel: OwnTracks
+  otr_lmdbsize: 104857600000
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
 
 service:
   main:
@@ -25,13 +30,26 @@ service:
 
 probes:
   liveness:
-    path: /
-
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /usr/sbin/recorder-health.sh
   readiness:
-    path: /
-
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /usr/sbin/recorder-health.sh
   startup:
-    path: /
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /usr/sbin/recorder-health.sh
 
 persistence:
   store:
