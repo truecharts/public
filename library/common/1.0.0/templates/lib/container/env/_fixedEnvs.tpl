@@ -5,6 +5,7 @@ will be parsed correctly without causing errors.
 {{- define "ix.v1.common.container.fixedEnvs" -}}
   {{- $root := .root -}}
   {{- $vars := list -}}
+
   {{- $vars = mustAppend $vars (dict "name" "TZ" "value" (tpl (toYaml $root.Values.TZ) $root)) -}}
   {{- $vars = mustAppend $vars (dict "name" "UMASK" "value" (tpl (toYaml $root.Values.security.UMASK) $root)) -}}
   {{- $vars = mustAppend $vars (dict "name" "UMASK_SET" "value" (tpl (toYaml $root.Values.security.UMASK) $root)) -}}

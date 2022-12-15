@@ -3,10 +3,10 @@ Checks if $key exists in $checkEnvs
 Takes a stringified array ($checkEnvs) and a string ($key)
 */}}
 {{- define "ix.v1.common.container.envFixed.checkDuplicate" -}}
-  {{- $checkEnvs := .checkEnvs -}}
+  {{- $checkEnvs := .checkEnvs | fromJsonArray -}}
   {{- $key := .key -}}
   {{- $holderKey := .holderKey -}}
-  {{- $checkEnvs = $checkEnvs | fromJsonArray -}}
+
   {{- range $checkEnvs -}}
     {{- if eq $key .name -}}
       {{- fail (printf "Environment variable (%s) is already set to (%s). It must be removed from the <%s> key." .name .value $holderKey) -}}

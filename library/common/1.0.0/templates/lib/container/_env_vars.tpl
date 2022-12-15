@@ -11,6 +11,7 @@ That's why the custom dict is expected.
   {{- $envList := .envList -}}
   {{- $root := .root -}}
   {{- $fixedEnv := list -}}
+
   {{- if $root.Values.injectFixedEnvs -}}
     {{- $fixedEnv = (include "ix.v1.common.container.fixedEnvs" (dict "root" $root "fixedEnv" $fixedEnv )) -}}
   {{- end -}} {{/* Finish fixedEnv */}}
