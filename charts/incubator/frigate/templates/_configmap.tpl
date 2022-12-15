@@ -199,16 +199,30 @@ data:
 
     {{- if .Values.frigate.motion.render_config }}
     motion:
-      threshold: {{ .Values.frigate.motion.threshold | default 25 }}
-      contour_area: {{ .Values.frigate.motion.contour_area | default 30 }}
-      delta_alpha: {{ .Values.frigate.motion.delta_alpha | default 0.2 }}
-      frame_alpha: {{ .Values.frigate.motion.frame_alpha | default 0.2 }}
-      frame_height: {{ .Values.frigate.motion.frame_height | default 50 }}
+      {{- with .Values.frigate.motion.threshold }}
+      threshold: {{ . }}
+      {{- end }}
+      {{- with .Values.frigate.motion.contour_area }}
+      contour_area: {{ . }}
+      {{- end }}
+      {{- with .Values.frigate.motion.delta_alpha }}
+      delta_alpha: {{ . }}
+      {{- end }}
+      {{- with .Values.frigate.motion.frame_alpha }}
+      frame_alpha: {{ . }}
+      {{- end }}
+      {{- with .Values.frigate.motion.frame_height }}
+      frame_height: {{ . }}
+      {{- end }}
       {{- with .Values.frigate.motion.mask }}
       mask: {{ . }}
       {{- end }}
+      {{- with .Values.frigate.motion.improve_contrast }}
       improve_contrast: {{ ternary "True" "False" .Values.frigate.motion.improve_contrast }}
-      mqtt_off_delay: {{ .Values.frigate.motion.mqtt_off_delay | default 30 }}
+      {{- end }}
+      {{- with .Values.frigate.motion.mqtt_off_delay }}
+      mqtt_off_delay: {{ . }}
+      {{- end }}
     {{- end }}
 
     {{- if .Values.frigate.record.render_config }}
