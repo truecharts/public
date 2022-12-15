@@ -13,7 +13,7 @@ metadata:
   labels:
     {{- . | nindent 4 }}
   {{- end }}
-  {{- $annotations := (mustMerge (default dict .Values.controller.annotations) (include "ix.v1.common.annotations" $ | fromYaml) (include "ix.v1.common.annotations.workload" $ | fromYaml) (include "ix.v1.common.annotations.workload.spec" $ | fromYaml)) -}}
+  {{- $annotations := (mustMerge (default dict .Values.controller.annotations) (include "ix.v1.common.annotations" $ | fromYaml) (include "ix.v1.common.annotations.workload.spec" $ | fromYaml)) -}}
   {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $ "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
@@ -42,7 +42,7 @@ spec:
       {{- include "ix.v1.common.labels.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with (mustMerge (include "ix.v1.common.labels.selectorLabels" . | fromYaml) (include "ix.v1.common.podAnnotations" . | fromYaml)) }}
+      {{- with (mustMerge (include "ix.v1.common.labels.selectorLabels" . | fromYaml) (include "ix.v1.common.annotations.workload" . | fromYaml) (include "ix.v1.common.podAnnotations" . | fromYaml)) }}
       annotations:
         {{- . | toYaml | trim | nindent 8 }}
       {{- end -}}

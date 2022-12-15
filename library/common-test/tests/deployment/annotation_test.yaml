@@ -9,8 +9,11 @@ tests:
           count: 3
       - isKind:
           of: Deployment
-      - isNotEmpty:
-          path: metadata.annotations.rollme
+      - isNull:
+          path: metadata.annotations
+      - matchRegex:
+          path: spec.template.metadata.annotations.rollme
+          pattern: "^[a-zA-Z0-9]{5}$"
 
   - it: should pass with controller and global annotations
     documentIndex: *deploymentDoc
@@ -26,19 +29,17 @@ tests:
           global_key2: "{{ .Values.some_key }}"
     asserts:
       - equal:
-          path: metadata.annotations.controller_key
-          value: controller_value
-      - equal:
-          path: metadata.annotations.controller_key2
-          value: some_value
-      - equal:
-          path: metadata.annotations.global_key
-          value: global_value
-      - equal:
-          path: metadata.annotations.global_key2
-          value: some_value
-      - isNotEmpty:
+          path: metadata.annotations
+          value:
+            controller_key: controller_value
+            controller_key2: some_value
+            global_key: global_value
+            global_key2: some_value
+      - isNull:
           path: metadata.annotations.rollme
+      - matchRegex:
+          path: spec.template.metadata.annotations.rollme
+          pattern: "^[a-zA-Z0-9]{5}$"
 
   - it: should pass with podAnnotations set
     documentIndex: *deploymentDoc
@@ -48,9 +49,12 @@ tests:
         test: some_value
         test2: "{{ .Values.some_key }}"
     asserts:
-      - equal:
-          path: spec.template.metadata.annotations.test2
-          value: some_value2
-      - equal:
-          path: spec.template.metadata.annotations.test
-          value: some_value
+      - isSubset:
+          path: spec.template.metadata.annotations
+          content:
+            app: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/name: common-test
+            release: RELEASE-NAME
+            test2: some_value2
+            test: some_value

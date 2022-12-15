@@ -169,8 +169,11 @@ tests:
           path: metadata.annotations
           content:
             k8s.v1.cni.cncf.io/networks: ix-RELEASE-NAME-0
-      - isNotNull:
+      - isNull:
           path: metadata.annotations.rollme
+      - matchRegex:
+          path: spec.template.metadata.annotations.rollme
+          pattern: "^[a-zA-Z0-9]{5}$"
 
   - it: should pass with externalInterface defined, multiple entries (First Doc)
     documentIndex: *externalInterfaceDoc
@@ -255,8 +258,11 @@ tests:
           path: metadata.annotations
           content:
             k8s.v1.cni.cncf.io/networks: ix-RELEASE-NAME-0, ix-RELEASE-NAME-1
-      - isNotNull:
+      - isNull:
           path: metadata.annotations.rollme
+      - matchRegex:
+          path: spec.template.metadata.annotations.rollme
+          pattern: "^[a-zA-Z0-9]{5}$"
 
   - it: should pass with externalInterface defined and global annotations, multiple entries
     documentIndex: &externalInterfaceDoc 0
