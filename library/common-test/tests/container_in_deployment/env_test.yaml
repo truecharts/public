@@ -107,6 +107,34 @@ tests:
       - failedTemplate:
           errorMessage: <optional> is not supported in configMapRefKey
 
+  - it: should fail with env trying to override fixedEnv
+    set:
+      env:
+        TZ: something
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment variable (TZ) is already set to (UTC) by the maintainer. It must be removed from the <env> key.
+
+  - it: should fail with envList trying to override fixedEnv
+    set:
+      envList:
+        - name: TZ
+          value: something
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment variable (TZ) is already set to (UTC) by the maintainer. It must be removed from the <envList> key.
+
+  - it: should fail with envList trying to override env
+    set:
+      env:
+        POSTGRES_HOST: postgres.svc.cluster.local
+      envList:
+        - name: POSTGRES_HOST
+          value: something
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment variable (POSTGRES_HOST) is already set to (postgres.svc.cluster.local) by the maintainer. It must be removed from the <envList> key.
+
   - it: should pass with envs defined with int value
     documentIndex: *deploymentDoc
     set:

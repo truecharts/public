@@ -1,33 +1,28 @@
+{{/*
+"toYaml" makes sure that any type of data (int/float/strin)
+will be parsed correctly without causing errors.
+*/}}
 {{- define "ix.v1.common.container.fixedEnvs" -}}
-- name: TZ
-  value: {{ tpl (toYaml .Values.TZ) $ | quote }}
-- name: UMASK
-  value: {{ tpl (toYaml .Values.security.UMASK) $ | quote }}
-- name: UMASK_SET
-  value: {{ tpl (toYaml .Values.security.UMASK) $ | quote }}
-  {{- if not (.Values.scaleGPU) }}
-- name: NVIDIA_VISIBLE_DEVICES
-  value: "void"
-  {{- else }}
-- name: NVIDIA_DRIVER_CAPABILITIES
-  value: {{ join "," .Values.nvidiaCaps | quote }}
+  {{- $root := .root -}}
+  {{- $vars := list -}}
+  {{- $vars = mustAppend $vars (dict "name" "TZ" "value" (tpl (toYaml $root.Values.TZ) $root)) -}}
+  {{- $vars = mustAppend $vars (dict "name" "UMASK" "value" (tpl (toYaml $root.Values.security.UMASK) $root)) -}}
+  {{- $vars = mustAppend $vars (dict "name" "UMASK_SET" "value" (tpl (toYaml $root.Values.security.UMASK) $root)) -}}
+  {{- if not ($root.Values.scaleGPU) -}}
+    {{- $vars = mustAppend $vars (dict "name" "NVIDIA_VISIBLE_DEVICES" "value" "void") -}}
+  {{- else -}}
+    {{- $vars = mustAppend $vars (dict "name" "NVIDIA_DRIVER_CAPABILITIES" "value" ( join "," $root.Values.nvidiaCaps )) -}}
   {{- end -}}
-  {{- if and (or (eq (.Values.podSecurityContext.runAsUser | int) 0) (eq (.Values.podSecurityContext.runAsGroup | int) 0)) (or .Values.security.PUID (eq (.Values.security.PUID | int) 0)) }} {{/* If root user or root group and a PUID is set, set PUID and related envs */}}
-- name: PUID
-  value: {{ tpl (toYaml .Values.security.PUID) $ | quote }}
-- name: USER_ID
-  value: {{ tpl (toYaml .Values.security.PUID) $ | quote }}
-- name: UID
-  value: {{ tpl (toYaml .Values.security.PUID) $ | quote }}
-- name: PGID
-  value: {{ tpl (toYaml .Values.podSecurityContext.fsGroup) $ | quote }}
-- name: GROUP_ID
-  value: {{ tpl (toYaml .Values.podSecurityContext.fsGroup) $ | quote }}
-- name: GID
-  value: {{ tpl (toYaml .Values.podSecurityContext.fsGroup) $ | quote }}
+  {{- if and (or (eq ($root.Values.podSecurityContext.runAsUser | int) 0) (eq ($root.Values.podSecurityContext.runAsGroup | int) 0)) (or $root.Values.security.PUID (eq ($root.Values.security.PUID | int) 0)) -}} {{/* If root user or root group and a PUID is set, set PUID and related envs */}}
+    {{- $vars = mustAppend $vars (dict "name" "PUID" "value" (tpl (toYaml $root.Values.security.PUID) $root)) -}}
+    {{- $vars = mustAppend $vars (dict "name" "USER_ID" "value" (tpl (toYaml $root.Values.security.PUID) $root)) -}}
+    {{- $vars = mustAppend $vars (dict "name" "UID" "value" (tpl (toYaml $root.Values.security.PUID) $root)) -}}
+    {{- $vars = mustAppend $vars (dict "name" "PGID" "value" (tpl (toYaml $root.Values.podSecurityContext.fsGroup) $root)) -}}
+    {{- $vars = mustAppend $vars (dict "name" "GROUP_ID" "value" (tpl (toYaml $root.Values.podSecurityContext.fsGroup) $root)) -}}
+    {{- $vars = mustAppend $vars (dict "name" "GID" "value" (tpl (toYaml $root.Values.podSecurityContext.fsGroup) $root)) -}}
   {{- end -}}
-  {{- if or (.Values.securityContext.readOnlyRootFilesystem) (.Values.securityContext.runAsNonRoot) }} {{/* Mainly for LSIO containers, tell S6 to avoid using rootfs */}}
-- name: S6_READ_ONLY_ROOT
-  value: "1"
+  {{- if or ($root.Values.securityContext.readOnlyRootFilesystem) ($root.Values.securityContext.runAsNonRoot) -}} {{/* Mainly for LSIO containers, tell S6 to avoid using rootfs */}}
+    {{- $vars = mustAppend $vars (dict "name" "S6_READ_ONLY_ROOT" "value" "1") -}}
   {{- end -}}
+  {{- toJson $vars -}} {{/* Helm can only return "string", so we stringify the output */}}
 {{- end -}}
