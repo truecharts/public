@@ -682,8 +682,7 @@ questions:
                       description: Number of minutes to wait between cleanup runs
                       schema:
                         type: int
-                        required: true
-                        default: 60
+                        "null": true
                     - variable: retain
                       label: Retain
                       description: Retention settings for recording
@@ -705,8 +704,7 @@ questions:
                                     NOTE: This should be set to 0 and retention should be defined in events section below if you only want to retain recordings of events.
                                   schema:
                                     type: int
-                                    required: true
-                                    default: 0
+                                    "null": true
                                 - variable: mode
                                   label: Mode
                                   description: |
@@ -718,8 +716,8 @@ questions:
                                   schema:
                                     type: string
                                     show_if: [["days", "!=", 0]]
-                                    required: true
-                                    default: all
+                                    default: ""
+                                    "null": true
                                     enum:
                                       - value: all
                                         description: All
@@ -734,112 +732,119 @@ questions:
                         additional_attrs: true
                         type: dict
                         attrs:
-                          - variable: pre_capture
-                            label: Pre Capture
-                            description: Number of seconds before the event to include
+                          - variable: render_config
+                            label: Render Configuration
+                            description: Enable it to add the configuration in the config file
                             schema:
-                              type: int
-                              required: true
-                              default: 5
-                          - variable: post_capture
-                            label: Post Capture
-                            description: Number of seconds after the event to include
-                            schema:
-                              type: int
-                              required: true
-                              default: 5
-                          - variable: objects
-                            label: Objects
-                            description: Objects to save recordings for. Defaults to all objects.
-                            schema:
-                              type: list
-                              default: []
-                              items:
-                                - variable: object_entry
-                                  label: Object Entry
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: pre_capture
+                                  label: Pre Capture
+                                  description: Number of seconds before the event to include
                                   schema:
-                                    type: string
-                                    required: true
-                                    default: ""
-                          - variable: required_zones
-                            label: Required Zones
-                            description: Restrict recordings to objects that entered any of the listed zones
-                            schema:
-                              type: list
-                              default: []
-                              items:
-                                - variable: zone_entry
-                                  label: Zone Entry
+                                    type: int
+                                    "null": true
+                                - variable: post_capture
+                                  label: Post Capture
+                                  description: Number of seconds after the event to include
                                   schema:
-                                    type: string
-                                    required: true
-                                    default: ""
-                          - variable: retain
-                            label: Retain
-                            description: Retention settings for recordings of events
-                            schema:
-                              additional_attrs: true
-                              type: dict
-                              attrs:
-                                - variable: render_config
-                                  label: Render Retain Config
+                                    type: int
+                                    "null": true
+                                - variable: objects
+                                  label: Objects
+                                  description: Objects to save recordings for. Defaults to all objects.
                                   schema:
-                                    type: boolean
-                                    default: false
-                                    show_subquestions_if: true
-                                    subquestions:
-                                      - variable: default
-                                        label: Default
-                                        description: Default retention days
-                                        schema:
-                                          type: int
-                                          required: true
-                                          default: 10
-                                      - variable: mode
-                                        label: Mode
-                                        description: |
-                                          Mode for retention.
-                                          All - save all recording segments for events regardless of activity
-                                          Motion - save all recordings segments for events with any detected motion
-                                          Active Objects - save all recording segments for event with active/moving objects
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: object_entry
+                                        label: Object Entry
                                         schema:
                                           type: string
                                           required: true
-                                          default: motion
-                                          enum:
-                                            - value: all
-                                              description: All
-                                            - value: motion
-                                              description: Motion
-                                            - value: active_objects
-                                              description: Active Objects
-                                      - variable: objects
-                                        label: Objects
-                                        description: Per object retention days
+                                          default: ""
+                                - variable: required_zones
+                                  label: Required Zones
+                                  description: Restrict recordings to objects that entered any of the listed zones
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: zone_entry
+                                        label: Zone Entry
                                         schema:
-                                          type: list
-                                          default: []
-                                          items:
-                                            - variable: objects_entry
-                                              label: Objects Entry
+                                          type: string
+                                          required: true
+                                          default: ""
+                                - variable: retain
+                                  label: Retain
+                                  description: Retention settings for recordings of events
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: render_config
+                                        label: Render Retain Config
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                          show_subquestions_if: true
+                                          subquestions:
+                                            - variable: default
+                                              label: Default
+                                              description: Default retention days
                                               schema:
-                                                additional_attrs: true
-                                                type: dict
-                                                attrs:
-                                                  - variable: object
-                                                    label: Object
-                                                    description: For example Person
+                                                type: int
+                                                required: true
+                                                default: 10
+                                            - variable: mode
+                                              label: Mode
+                                              description: |
+                                                Mode for retention.
+                                                All - save all recording segments for events regardless of activity
+                                                Motion - save all recordings segments for events with any detected motion
+                                                Active Objects - save all recording segments for event with active/moving objects
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: ""
+                                                "null": true
+                                                enum:
+                                                  - value: all
+                                                    description: All
+                                                  - value: motion
+                                                    description: Motion
+                                                  - value: active_objects
+                                                    description: Active Objects
+                                            - variable: objects
+                                              label: Objects
+                                              description: Per object retention days
+                                              schema:
+                                                type: list
+                                                default: []
+                                                items:
+                                                  - variable: objects_entry
+                                                    label: Objects Entry
                                                     schema:
-                                                      type: string
-                                                      required: true
-                                                      default: ""
-                                                  - variable: days
-                                                    label: Retention Days
-                                                    description: Retention days for the object
-                                                    schema:
-                                                      type: int
-                                                      required: true
-                                                      default: 15
+                                                      additional_attrs: true
+                                                      type: dict
+                                                      attrs:
+                                                        - variable: object
+                                                          label: Object
+                                                          description: For example Person
+                                                          schema:
+                                                            type: string
+                                                            required: true
+                                                            default: ""
+                                                        - variable: days
+                                                          label: Retention Days
+                                                          description: Retention days for the object
+                                                          schema:
+                                                            type: int
+                                                            required: true
+                                                            default: 15
         - variable: snapshots
           label: Snapshots
           schema:

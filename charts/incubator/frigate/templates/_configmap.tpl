@@ -228,15 +228,26 @@ data:
     {{- if .Values.frigate.record.render_config }}
     record:
       enabled: {{ ternary "True" "False" .Values.frigate.record.enabled }}
-      expire_interval: {{ .Values.frigate.record.expire_interval | default 60 }}
+      {{- with .Values.frigate.record.expire_interval }}
+      expire_interval: {{ . }}
+      {{- end }}
       {{- if .Values.frigate.record.retain.render_config }}
       retain:
-        days: {{ .Values.frigate.record.retain.days | default 0 }}
-        mode: {{ .Values.frigate.record.retain.mode | default "all" }}
+        {{- with .Values.frigate.record.retain.days }}
+        days: {{ . }}
+        {{- end }}
+        {{- with .Values.frigate.record.retain.mode }}
+        mode: {{ . }}
+        {{- end }}
       {{- end }}
+      {{- if .Values.frigate.record.events.render_config }}
       events:
-        pre_capture: {{ .Values.frigate.record.events.pre_capture | default 5 }}
-        post_capture: {{ .Values.frigate.record.events.post_capture | default 5 }}
+        {{- with .Values.frigate.record.events.pre_capture }}
+        pre_capture: {{ . }}
+        {{- end }}
+        {{- with .Values.frigate.record.events.post_capture }}
+        post_capture: {{ . }}
+        {{- end }}
         {{- with .Values.frigate.record.events.objects }}
         objects:
           {{- range . }}
@@ -252,7 +263,9 @@ data:
         {{- if .Values.frigate.record.events.retain.render_config }}
         retain:
           default: {{ .Values.frigate.record.events.retain.default | default 10 }}
-          mode: {{ .Values.frigate.record.events.retain.mode | default "motion" }}
+          {{- with .Values.frigate.record.events.retain.mode }}
+          mode: {{ . }}
+          {{- end }}
           {{- with .Values.frigate.record.events.retain.objects }}
           objects:
           {{- range . }}
