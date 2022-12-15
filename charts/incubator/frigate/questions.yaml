@@ -872,25 +872,25 @@ questions:
                       description: Save a clean PNG copy of the snapshot image
                       schema:
                         type: boolean
-                        default: true
+                        "null": true
                     - variable: timestamp
                       label: Timestamp
                       description: Print a timestamp on the snapshots
                       schema:
                         type: boolean
-                        default: false
+                        "null": true
                     - variable: bounding_box
                       label: Bounding Box
                       description: Draw bounding box on the snapshots
                       schema:
                         type: boolean
-                        default: false
+                        "null": true
                     - variable: crop
                       label: Crop
                       description: Crop the snapshot
                       schema:
                         type: boolean
-                        default: false
+                        "null": true
                     - variable: height
                       label: Height
                       description: Height to resize the snapshot to

@@ -278,10 +278,18 @@ data:
     {{- if .Values.frigate.snapshots.render_config }}
     snapshots:
       enabled: {{ ternary "True" "False" .Values.frigate.snapshots.enabled }}
+      {{- with .Values.frigate.snapshots.clean_copy }}
       clean_copy: {{ ternary "True" "False" .Values.frigate.snapshots.clean_copy }}
+      {{- end }}
+      {{- with .Values.frigate.snapshots.timestamp }}
       timestamp: {{ ternary "True" "False" .Values.frigate.snapshots.timestamp }}
+      {{- end }}
+      {{- with .Values.frigate.snapshots.bounding_box }}
       bounding_box: {{ ternary "True" "False" .Values.frigate.snapshots.bounding_box }}
+      {{- end }}
+      {{- with .Values.frigate.snapshots.crop }}
       crop: {{ ternary "True" "False" .Values.frigate.snapshots.crop }}
+      {{- end }}
       {{- with .Values.frigate.snapshots.height }}
       height: {{ . }}
       {{- end }}
