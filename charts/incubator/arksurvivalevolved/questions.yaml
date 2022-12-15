@@ -146,7 +146,7 @@ questions:
                               default: 7778
                               required: true
         - variable: udpsteam
-          label: udpsteam service
+          label: UDP Steam sService
           description: Container Port 27015
           schema:
             additional_attrs: true
@@ -155,7 +155,7 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: udpsteam
-                      label: udpsteam Service Port Configuration
+                      label: UDP Steam Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
