@@ -110,13 +110,26 @@ data:
     {{- if .Values.frigate.detect.render_config }}
     detect:
       enabled: {{ ternary "True" "False" .Values.frigate.detect.enabled }}
-      width: {{ .Values.frigate.detect.width | default 1280 }}
-      height: {{ .Values.frigate.detect.height | default 720 }}
-      fps: {{ .Values.frigate.detect.fps | default 5 }}
-      max_disappeared: {{ .Values.frigate.detect.max_disappeared | default 25 }}
+      {{- with .Values.frigate.detect.width }}
+      width: {{ . }}
+      {{- end }}
+      {{- with .Values.frigate.detect.height }}
+      height: {{ . }}
+      {{- end }}
+      {{- with .Values.frigate.detect.fps }}
+      fps: {{ . }}
+      {{- end }}
+      {{- with .Values.frigate.detect.max_disappeared }}
+      max_disappeared: {{ . }}
+      {{- end }}
+      {{- if or .Values.frigate.detect.stationary.interval .Values.frigate.detect.stationary.threshold .Values.frigate.detect.stationary.set_max_frames}}
       stationary:
-        interval: {{ .Values.frigate.detect.stationary.interval | default 0 }}
-        threshold: {{ .Values.frigate.detect.stationary.threshold | default 50 }}
+        {{- with .Values.frigate.detect.stationary.interval }}
+        interval: {{ . }}
+        {{- end }}
+        {{- with .Values.frigate.detect.stationary.threshold }}
+        threshold: {{ . }}
+        {{- end }}
         {{- if (hasKey .Values.frigate.detect.stationary "max_frames") }}
         {{- if or (hasKey .Values.frigate.detect.stationary.max_frames "default") (hasKey .Values.frigate.detect.stationary.max_frames "objects") }}
         {{- if or .Values.frigate.detect.stationary.max_frames.default .Values.frigate.detect.stationary.max_frames.objects }}
@@ -133,6 +146,7 @@ data:
         {{- end }}
         {{- end }}
         {{- end }}
+      {{- end }}
     {{- end }}
 
     {{- if .Values.frigate.objects.render_config }}
