@@ -6,10 +6,12 @@
 {{- end -}}
 
 {{- define "ix.v1.common.images.selector" -}}
-  {{- $image := get .Values "image" -}}
-  {{- $selected := .Values.imageSelector -}}
-  {{- if hasKey .Values $selected -}}
-    {{- $image = get .Values $selected -}}
+  {{- $root := .root -}}
+  {{- $selectedImage := .selectedImage -}}
+
+  {{- $image := get $root.Values "image" -}}
+  {{- if hasKey $root.Values $selectedImage -}}
+    {{- $image = get $root.Values $selectedImage -}}
   {{- end -}}
   {{- include "ix.v1.common.images.image" (dict "imageRoot" $image) -}}
 {{- end -}}

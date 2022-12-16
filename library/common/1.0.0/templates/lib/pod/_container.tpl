@@ -9,7 +9,7 @@ So it can work on multiple places, like additional containers and not only the m
 */}}
 {{- define "ix.v1.common.controller.mainContainer" -}}
 - name: {{ include "ix.v1.common.names.fullname" . }}
-  image: {{ include "ix.v1.common.images.selector" . }}
+  image: {{ include "ix.v1.common.images.selector" (dict "root" . "selectedImage" .Values.imageSelector ) }}
   imagePullPolicy: {{ include "ix.v1.common.images.pullPolicy" (dict "policy" .Values.image.pullPolicy) }}
   tty: {{ .Values.tty }}
   stdin: {{ .Values.stdin }}
@@ -25,14 +25,14 @@ So it can work on multiple places, like additional containers and not only the m
   securityContext:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- with (include "ix.v1.common.container.lifecycle" .) | trim }}
+  {{- with (include "ix.v1.common.container.lifecycle" (dict "lifecycle" .Values.lifecycle "root" $)) | trim }}
   lifecycle:
     {{- . | nindent 4 }}
   {{- end }}
-  {{- with (include "ix.v1.common.container.termination.messagePath" .) | trim }}
+  {{- with (include "ix.v1.common.container.termination.messagePath" (dict "msgPath" .Values.termination.messagePath "root" $)) | trim }}
   terminationMessagePath: {{ . }}
   {{- end }}
-  {{- with (include "ix.v1.common.container.termination.messagePolicy" .) | trim }}
+  {{- with (include "ix.v1.common.container.termination.messagePolicy" (dict "msgPolicy" .Values.termination.messagePolicy "root" $)) | trim }}
   terminationMessagePolicy: {{ . }}
   {{- end -}}
   {{- with (include "ix.v1.common.container.envVars" (dict "envs" .Values.env "envList" .Values.envList "root" $) | trim) }}
