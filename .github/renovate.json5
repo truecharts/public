@@ -170,42 +170,12 @@
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
-      "matchPackageNames": ["tccr.io/truecharts/jitsi-web"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "versioning": "regex:^(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
-      "matchPackageNames": ["tccr.io/truecharts/jitsi-jicofo"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "versioning": "regex:^(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
-      "matchPackageNames": ["tccr.io/truecharts/jitsi-jvb"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "versioning": "regex:^(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
-      "matchPackageNames": ["tccr.io/truecharts/jitsi-prosody"],
+      "matchPackagePatterns": ["^tccr.io/truecharts/jitsi-.*$"],
     },
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)_\\d+$",
-      "matchPackageNames": ["tccr.io/truecharts/immich-ml"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)_\\d+$",
-      "matchPackageNames": ["tccr.io/truecharts/immich-server"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)_\\d+$",
-      "matchPackageNames": ["tccr.io/truecharts/immich-web"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)_\\d+$",
-      "matchPackageNames": ["tccr.io/truecharts/immich-proxy"],
+      "matchPackagePatterns": ["^tccr.io/truecharts/immich-.*$"],
     }
   ]
 }
