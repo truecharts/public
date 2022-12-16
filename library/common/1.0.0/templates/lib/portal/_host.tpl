@@ -5,7 +5,7 @@
   {{- $root := .root -}}
 
   {{- $portalHost := "$node_ip" -}}
-
+  {{/*TODO: When LB + LB-ip = LB-ip*/}}
   {{/* If ingress is added at any point, here is the place to implement */}}
 
   {{/* Check if there are any overrides in .Values.portal */}}
