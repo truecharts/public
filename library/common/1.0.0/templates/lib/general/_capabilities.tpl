@@ -78,7 +78,17 @@
   {{- print "v1" -}}
 {{- end -}}
 
-{{/* Return the appropriate apiVersion for NetworkAttachmentDefinition */}}
+{{/* Return the appropriate annotation for NetworkAttachmentDefinition */}}
 {{- define "ix.v1.common.capabilities.externalInterfaces.apiVersion" -}}
   {{- print "k8s.cni.cncf.io/v1" | quote -}}
+{{- end -}}
+
+{{/* Return the appropriate type for ImagePullSecrets Secret */}}
+{{- define "ix.v1.common.capabilities.secret.imagePullSecret.type" -}}
+  {{- print "kubernetes.io/dockerconfigjson" | quote -}}
+{{- end -}}
+
+{{/* Return the appropriate type for Certificate Secret */}}
+{{- define "ix.v1.common.capabilities.secret.certificate.type" -}}
+  {{- print "kubernetes.io/tls" | quote -}}
 {{- end -}}

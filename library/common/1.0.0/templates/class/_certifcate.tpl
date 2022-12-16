@@ -79,7 +79,7 @@
 ---
 apiVersion: {{ include "ix.v1.common.capabilities.secret.apiVersion" . }}
 kind: Secret
-type: kubernetes.io/tls
+type: {{ include "ix.v1.common.capabilities.secret.certificate.type" . }}
 metadata:
   name: {{ $secretName }}
   {{- $labels := (default dict (include "ix.v1.common.labels" $root | fromYaml)) -}}
