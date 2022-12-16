@@ -25,4 +25,4 @@ That's why the custom dict is expected.
   {{- include "ix.v1.common.container.envList" (dict "envList" $envList "envs" $envs "root" $root "fixedEnv" $fixedEnv) -}}
 {{- end -}}
 
-{{/* Note: It's does not check for dupes in configmap/secrets. */}}
+{{/* Note: TODO: Check for dupes in configmap/secrets. */}}

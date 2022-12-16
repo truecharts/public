@@ -35,7 +35,16 @@ apiVersion: {{ include "ix.v1.common.capabilities.secret.apiVersion" $root }}
 kind: Secret
 metadata:
   name: {{ $secretName }}
-  {{/*TODO: label / anno */}}
+  {{- $labels := include "ix.v1.common.labels" $root | fromYaml -}}
+  {{- with (include "ix.v1.common.util.labels.render" (dict "root" $root "labels" $labels) | trim) }}
+  labels:
+    {{- . | nindent 4 }}
+  {{- end }}
+  {{- $annotations := include "ix.v1.common.annotations" $root | fromYaml -}}
+  {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $root "annotations" $annotations) | trim) }}
+  annotations:
+    {{- . | nindent 4 }}
+  {{- end }}
 type: {{ include "ix.v1.common.capabilities.secret.imagePullSecret.type" $root }}
 data:
   .dockerconfigjson: {{ $registrySecret | toJson | b64enc }}
