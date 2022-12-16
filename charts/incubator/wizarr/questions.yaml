@@ -21,7 +21,7 @@ questions:
           description: set this url as either http://ip:port or https://app.domain.tld if using ingress/reverse proxy.
           schema:
             type: string
-            default: ''
+            default: ""
         - variable: DISABLE_BUILTIN_AUTH
           label: Disable Builtin Auth
           description: Check this if using an external auth provider, otherwise leave it false.
