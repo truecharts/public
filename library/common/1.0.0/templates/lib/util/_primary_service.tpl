@@ -1,7 +1,9 @@
 {{/* Returns the primary service object */}}
 {{- define "ix.v1.common.lib.util.service.primary" -}}
+  {{- $services := .services -}}
+
   {{- $enabledServices := dict -}}
-  {{- range $name, $service := .Values.service -}}
+  {{- range $name, $service := $services -}}
     {{- if $service.enabled -}}
       {{- $_ := set $enabledServices $name $service -}}
     {{- end -}}

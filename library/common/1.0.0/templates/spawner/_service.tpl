@@ -1,6 +1,8 @@
 {{/* Renders the service object(s) */}}
 {{- define "ix.v1.common.spawner.service" -}}
-  {{- range $name, $svc := .Values.service -}}
+  {{- $services := .Values.service -}}
+
+  {{- range $name, $svc := $services -}}
     {{- if $svc.enabled -}}
       {{- $svcValues := $svc -}}
 
@@ -9,7 +11,7 @@
       we have a unique name passed to the service class.
       Primary service cannot have it's nameOverride
       */}}
-      {{- if and (not $svcValues.nameOverride) (ne $name (include "ix.v1.common.lib.util.service.primary" $)) -}}
+      {{- if and (not $svcValues.nameOverride) (ne $name (include "ix.v1.common.lib.util.service.primary" (dict "services" $services))) -}}
         {{- $_ := set $svcValues "nameOverride" $name -}}
       {{- end -}}
 

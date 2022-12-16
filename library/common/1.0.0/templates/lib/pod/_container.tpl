@@ -51,7 +51,7 @@ So it can work on multiple places, like additional containers and not only the m
   volumeMounts:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- with (include "ix.v1.common.container.probes" . | trim) }}
+  {{- with (include "ix.v1.common.container.probes" (dict "probes" .Values.probes "services" .Values.service "root" $) | trim) }}
     {{- . | nindent 2 }}
   {{- end -}}
   {{- with (include "ix.v1.common.container.resources" (dict "resources" .Values.resources "gpu" .Values.scaleGPU) | trim) }}
