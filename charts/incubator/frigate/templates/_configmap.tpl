@@ -273,6 +273,7 @@ data:
           {{- end }}
           {{- end }}
         {{- end }}
+      {{- end }}
     {{- end }}
 
     {{- if .Values.frigate.snapshots.render_config }}
