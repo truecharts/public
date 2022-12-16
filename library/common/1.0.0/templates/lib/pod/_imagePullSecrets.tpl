@@ -11,7 +11,7 @@
   {{- $name := .name -}}
   {{- $root := .root -}}
 
-  {{- $credsName := $name | replace " " "-" | lower -}}
+  {{- $credsName := $name | lower -}}
   {{- $secretName := printf "%v-%v" (include "ix.v1.common.names.fullname" $root) $credsName | trunc 63 -}}
   {{- $secretName -}}
 {{- end -}}

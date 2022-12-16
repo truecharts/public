@@ -54,7 +54,7 @@ spec:
     - {{ $accessMode }}
   resources:
     requests:
-      storage: {{ $size }}
+      storage: {{ $size }} {{/* TODO: Check for previous size with lookup and check if it's lower */}}
   {{- with $pvcValues.volumeName }}
   volumeName: {{ tpl . $root | quote }}
   {{- end -}}
