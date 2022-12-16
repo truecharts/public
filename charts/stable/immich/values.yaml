@@ -3,17 +3,17 @@ image:
   tag: 1.38.2_60@sha256:d1a67c3bd732f8b3fbf6f334b17d053f867ada27cbcbf2e55647dd782abf86e8
   pullPolicy: IfNotPresent
 
-imageML:
+mlImage:
   repository: tccr.io/truecharts/immich-ml
   tag: 1.29.5_44@sha256:2df7b6368beb52ff1ffd946aaacc4df21f278b97ee3c592e2021118b3dcb5fec
   pullPolicy: IfNotPresent
 
-imageWeb:
+webImage:
   repository: tccr.io/truecharts/immich-web
   tag: 1.29.5_44@sha256:c17ec4c2a174bac8fc2c58ebaedc7db70600fa2480695cf0920d54127c8bb32e
   pullPolicy: IfNotPresent
 
-imageProxy:
+proxyImage:
   repository: tccr.io/truecharts/immich-proxy
   tag: 1.29.5_44@sha256:a4c24a70cc1e1bbbdecc3df371af08528430846709ef22ca16e2a923aa8da509
   pullPolicy: IfNotPresent

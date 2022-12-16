@@ -14,13 +14,13 @@ podSecurityContext:
 probes:
   liveness:
     type: HTTP
-    path: /login
+    path: /api
   readiness:
     type: HTTP
-    path: /login
+    path: /api
   startup:
     type: HTTP
-    path: /login
+    path: /api
     # Gives some time for app to run db migrations
     initialDelaySeconds: 60
 

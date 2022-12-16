@@ -1,7 +1,11 @@
 {{/* Define the ml container */}}
 {{- define "immich.ml" -}}
-image: {{ .Values.imageML.repository }}:{{ .Values.imageML.tag }}
-imagePullPolicy: {{ .Values.imageML.pullPolicy }}
+  {{- if hasKey .Values "imageML" -}} {{/* For smooth upgrade, Remove later*/}}
+    {{- $img := .Values.imageML -}}
+    {{- $_ := set .Values "mlImage" (dict "repository" $img.repository "tag" $img.tag "pullPolicy" $img.pullPolicy) -}}
+  {{- end }}
+image: {{ .Values.mlImage.repository }}:{{ .Values.mlImage.tag }}
+imagePullPolicy: {{ .Values.mlImage.pullPolicy }}
 securityContext:
   runAsUser: {{ .Values.podSecurityContext.runAsUser }}
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
