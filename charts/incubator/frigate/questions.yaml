@@ -297,8 +297,10 @@ questions:
                         Continuous - All cameras are included always.
                       schema:
                         type: string
-                        "null": true
+                        default: ""
                         enum:
+                          - value: ""
+                            description: Inherit
                           - value: objects
                             description: Objects
                           - value: motion
@@ -717,8 +719,9 @@ questions:
                                     type: string
                                     show_if: [["days", "!=", 0]]
                                     default: ""
-                                    "null": true
                                     enum:
+                                      - value: ""
+                                        description: Inherit
                                       - value: all
                                         description: All
                                       - value: motion
@@ -810,8 +813,9 @@ questions:
                                                 type: string
                                                 required: true
                                                 default: ""
-                                                "null": true
                                                 enum:
+                                                  - value: ""
+                                                    description: Inherit
                                                   - value: all
                                                     description: All
                                                   - value: motion
@@ -1032,6 +1036,8 @@ questions:
                         type: string
                         default: ""
                         enum:
+                          - value: ""
+                            description: Inherit
                           - value: tl
                             description: Top Left
                           - value: tr
