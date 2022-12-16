@@ -1,7 +1,7 @@
 {{/* Define the web container */}}
 {{- define "immich.web" -}}
-image: {{ .Values.imageWeb.repository }}:{{ .Values.imageWeb.tag }}
-imagePullPolicy: {{ .Values.imageWeb.pullPolicy }}
+image: {{ .Values.webImage.repository }}:{{ .Values.webImage.tag }}
+imagePullPolicy: {{ .Values.webImage.pullPolicy }}
 securityContext:
   runAsUser: {{ .Values.podSecurityContext.runAsUser }}
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}

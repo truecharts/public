@@ -1,7 +1,7 @@
 {{/* Define the proxy container */}}
 {{- define "immich.proxy" -}}
-image: {{ .Values.imageProxy.repository }}:{{ .Values.imageProxy.tag }}
-imagePullPolicy: {{ .Values.imageProxy.pullPolicy }}
+image: {{ .Values.proxyImage.repository }}:{{ .Values.proxyImage.tag }}
+imagePullPolicy: {{ .Values.proxyImage.pullPolicy }}
 securityContext:
   runAsUser: {{ .Values.podSecurityContext.runAsUser }}
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}

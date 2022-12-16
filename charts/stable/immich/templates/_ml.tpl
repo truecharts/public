@@ -1,7 +1,7 @@
 {{/* Define the ml container */}}
 {{- define "immich.ml" -}}
-image: {{ .Values.imageML.repository }}:{{ .Values.imageML.tag }}
-imagePullPolicy: {{ .Values.imageML.pullPolicy }}
+image: {{ .Values.mlImage.repository }}:{{ .Values.mlImage.tag }}
+imagePullPolicy: {{ .Values.mlImage.pullPolicy }}
 securityContext:
   runAsUser: {{ .Values.podSecurityContext.runAsUser }}
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
