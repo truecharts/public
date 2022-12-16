@@ -1,5 +1,9 @@
 {{/* Define the web container */}}
 {{- define "immich.web" -}}
+  {{- if hasKey .Values "imageWeb" -}} {{/* For smooth upgrade, Remove later */}}
+    {{- $img := .Values.imageWeb -}}
+    {{- $_ := set .Values "webImage" (dict "repository" $img.repository "tag" $img.tag "pullPolicy" $img.pullPolicy) -}}
+  {{- end }}
 image: {{ .Values.webImage.repository }}:{{ .Values.webImage.tag }}
 imagePullPolicy: {{ .Values.webImage.pullPolicy }}
 securityContext:

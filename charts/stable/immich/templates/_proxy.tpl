@@ -1,5 +1,9 @@
 {{/* Define the proxy container */}}
 {{- define "immich.proxy" -}}
+  {{- if hasKey .Values "imageProxy" -}} {{/* For smooth upgrade, Remove later */}}
+    {{- $img := .Values.imageProxy -}}
+    {{- $_ := set .Values "proxyImage" (dict "repository" $img.repository "tag" $img.tag "pullPolicy" $img.pullPolicy) -}}
+  {{- end }}
 image: {{ .Values.proxyImage.repository }}:{{ .Values.proxyImage.tag }}
 imagePullPolicy: {{ .Values.proxyImage.pullPolicy }}
 securityContext:
