@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-136-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-137-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -311,6 +311,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center"><a href="https://github.com/u4ium"><img src="https://avatars.githubusercontent.com/u/57515023?v=4?s=100" width="100px;" alt="u4ium"/><br /><sub><b>u4ium</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=u4ium" title="Documentation">📖</a></td>
       <td align="center"><a href="https://github.com/ErroneousBosch"><img src="https://avatars.githubusercontent.com/u/20829218?v=4?s=100" width="100px;" alt="ErroneousBosch"/><br /><sub><b>ErroneousBosch</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3AErroneousBosch" title="Bug reports">🐛</a></td>
       <td align="center"><a href="https://github.com/MaverickD650"><img src="https://avatars.githubusercontent.com/u/92877124?v=4?s=100" width="100px;" alt="MaverickD650"/><br /><sub><b>MaverickD650</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=MaverickD650" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/Grogdor"><img src="https://avatars.githubusercontent.com/u/6863613?v=4?s=100" width="100px;" alt="Grogdor"/><br /><sub><b>Grogdor</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Grogdor" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
