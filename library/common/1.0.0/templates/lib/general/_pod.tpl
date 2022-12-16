@@ -34,7 +34,7 @@ nodeSelector:
 tolerations:
   {{- . | nindent 2 }}
 {{- end -}}
-{{/* TODO: imagePullSecrets, affinity, topologySpreadConstraints, not something critical as of now. */}}
+{{/* TODO: affinity, topologySpreadConstraints, not something critical as of now. */}}
 {{- with .Values.termination.gracePeriodSeconds }}
 terminationGracePeriodSeconds: {{ . }}
 {{- end }}
@@ -42,11 +42,15 @@ enableServiceLinks: {{ .Values.enableServiceLinks }}
 {{- with (include "ix.v1.common.container.podSecurityContext" (dict "podSecCont" .Values.podSecurityContext) | trim) }}
 securityContext:
   {{- . | nindent 2 }}
-{{- end }}
+{{- end -}}
+{{- with (include "ix.v1.common.imagePullSecrets" . | trim) }}
+imagePullSecrets:
+  {{- . | nindent 2 }}
+{{- end -}}
 {{- with (include "ix.v1.common.controller.mainContainer" . | trim) }}
 containers:
   {{- . | nindent 2 }}
-{{- end }}{{/*TODO: init/install/upgradeContainers */}}
+{{- end -}}{{/*TODO: init/install/upgradeContainers */}}
 {{- with (include "ix.v1.common.controller.volumes" . | trim) }}
 volumes:
     {{- . | nindent 2 }}

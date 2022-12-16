@@ -4,6 +4,8 @@
 
   {{- include "ix.v1.common.spawner.certificate" . | nindent 0 -}}
 
+  {{- include "ix.v1.common.spawner.imagePullSecret" . | nindent 0 -}}
+
   {{- include "ix.v1.common.spawner.serviceAccount" . | nindent 0 -}}
 
   {{- include "ix.v1.common.spawner.rbac" . | nindent 0 -}}
