@@ -22,12 +22,19 @@ questions:
             type: string
             required: true
             default: ""
+        - variable: telemetry_enabled
+          label: Telemetry Enabled
+          description: Telemetry Enabled.
+          schema:
+            type: boolean
+            default: false
         - variable: flags
           label: Flags
           description: Feature flags
           schema:
             type: list
             required: true
+            # TODO: Check if it works
             default: ["enable-registration", "enable-login", "disable-email-verification"]
             items:
               - variable: feature_flag
@@ -36,12 +43,6 @@ questions:
                   type: string
                   required: true
                   default: ""
-        - variable: telemetry_enabled
-          label: Telemetry Enabled
-          description: Telemetry Enabled.
-          schema:
-            type: boolean
-            default: false
         - variable: registration_domain_whitelist
           label: Registration Domain Whitelist
           description: Registration Domain Whitelist
@@ -56,204 +57,240 @@ questions:
                   type: string
                   required: true
                   default: ""
-  - variable: notifier
-    group: App Configuration
-    label: Notifier Configuration
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: smtp
-          label: Show SMTP Settings
+          group: App Configuration
+          label: SMTP Configuration
           schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: default_from
-                label: Default From
-                schema:
-                  type: string
-                  default: ""
-              - variable: default_reply_to
-                label: Default Reply To
-                schema:
-                  type: string
-                  default: ""
-              - variable: smtp_host
-                label: SMTP Host
-                schema:
-                  type: string
-                  default: ""
-              - variable: smtp_port
-                label: SMTP Port
-                schema:
-                  type: int
-                  default: 587
-              - variable: smtp_user
-                label: SMTP Port
-                schema:
-                  type: string
-                  default: ""
-              - variable: smtp_pass
-                label: SMTP Port
-                schema:
-                  type: string
-                  private: true
-                  default: ""
-  - variable: identity_providers
-    group: App Configuration
-    label: Identity Providers Configuration
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: google
-          label: Show Google Settings
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: client_id
-                label: Client ID
-                schema:
-                  type: string
-                  default: ""
-              - variable: client_secret
-                label: Client Secret
-                schema:
-                  type: string
-                  private: true
-                  default: ""
-        - variable: github
-          label: Show Github Settings
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: client_id
-                label: Client ID
-                schema:
-                  type: string
-                  default: ""
-              - variable: client_secret
-                label: Client Secret
-                schema:
-                  type: string
-                  private: true
-                  default: ""
-        - variable: gitlab
-          label: Show Gitlab Settings
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: base_uri
-                label: Base URI
-                schema:
-                  type: string
-                  default: "https://gitlab.com"
-              - variable: client_id
-                label: Client ID
-                schema:
-                  type: string
-                  default: ""
-              - variable: client_secret
-                label: Client Secret
-                schema:
-                  type: string
-                  private: true
-                  default: ""
-        - variable: oidc
-          label: Show ODIC Settings
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: base_uri
-                label: Base URI
-                schema:
-                  type: string
-                  default: ""
-              - variable: client_id
-                label: Client ID
-                schema:
-                  type: string
-                  default: ""
-              - variable: client_secret
-                label: Client Secret
-                schema:
-                  type: string
-                  private: true
-                  default: ""
-        - variable: ldap
-          label: Show LDAP Settings
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: host
-                label: Host
-                schema:
-                  type: string
-                  default: ""
-              - variable: port
-                label: Port
-                schema:
-                  type: int
-                  default: 587
-              - variable: ssl
-                label: SSL
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enable SMTP
                 schema:
                   type: boolean
                   default: false
-              - variable: starttls
-                label: StartTLS
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: default_from
+                      label: Default From
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: default_reply_to
+                      label: Default Reply To
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: smtp_host
+                      label: SMTP Host
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: smtp_port
+                      label: SMTP Port
+                      schema:
+                        type: int
+                        required: true
+                        default: 587
+                    - variable: smtp_user
+                      label: SMTP User
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: smtp_pass
+                      label: SMTP Pass
+                      schema:
+                        type: string
+                        required: true
+                        private: true
+                        default: ""
+        - variable: identity_providers
+          group: App Configuration
+          label: Identity Providers Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: google
+                label: Google Identity Provider
                 schema:
-                  type: boolean
-                  default: false
-              - variable: base_dn
-                label: Base DN
+                additional_attrs: true
+                type: dict
+                attrs:
+                  - variable: enabled
+                    label: Show Google Settings
+                    schema:
+                      type: boolean
+                      default: false
+                      show_subquestions_if: true
+                      subquestions:
+                        - variable: client_id
+                          label: Client ID
+                          schema:
+                            type: string
+                            default: ""
+                        - variable: client_secret
+                          label: Client Secret
+                          schema:
+                            type: string
+                            private: true
+                            default: ""
+              - variable: github
+                label: Github Identity Provider
                 schema:
-                  type: string
-                  default: ""
-              - variable: bind_dn
-                label: Bind DN
+                additional_attrs: true
+                type: dict
+                attrs:
+                  - variable: enabled
+                    label: Show Github Settings
+                    schema:
+                      type: boolean
+                      default: false
+                      show_subquestions_if: true
+                      subquestions:
+                        - variable: client_id
+                          label: Client ID
+                          schema:
+                            type: string
+                            default: ""
+                        - variable: client_secret
+                          label: Client Secret
+                          schema:
+                            type: string
+                            private: true
+                            default: ""
+              - variable: gitlab
+                label: Gitlab Identity Provider
                 schema:
-                  type: string
-                  default: ""
-              - variable: bind_pass
-                label: Bind Pass
+                additional_attrs: true
+                type: dict
+                attrs:
+                  - variable: enabled
+                    label: Show Gitlab Settings
+                    schema:
+                      type: boolean
+                      default: false
+                      show_subquestions_if: true
+                      subquestions:
+                        - variable: base_uri
+                          label: Base URI
+                          schema:
+                            type: string
+                            default: "https://gitlab.com"
+                        - variable: client_id
+                          label: Client ID
+                          schema:
+                            type: string
+                            default: ""
+                        - variable: client_secret
+                          label: Client Secret
+                          schema:
+                            type: string
+                            private: true
+                            default: ""
+              - variable: oidc
+                label: OIDC Identity Provider
                 schema:
-                  type: string
-                  private: true
-                  default: ""
-              - variable: attrs_username
-                label: ATTRS UserName
+                additional_attrs: true
+                type: dict
+                attrs:
+                  - variable: enabled
+                    label: Show OIDC Settings
+                    schema:
+                      type: boolean
+                      default: false
+                      show_subquestions_if: true
+                      subquestions:
+                        - variable: base_uri
+                          label: Base URI
+                          schema:
+                            type: string
+                            default: ""
+                        - variable: client_id
+                          label: Client ID
+                          schema:
+                            type: string
+                            default: ""
+                        - variable: client_secret
+                          label: Client Secret
+                          schema:
+                            type: string
+                            private: true
+                            default: ""
+              - variable: ldap
+                label: LDAP Identity Provider
                 schema:
-                  type: string
-                  private: true
-                  default: ""
-              - variable: attrs_email
-                label: ATTRS Email
-                schema:
-                  type: string
-                  default: ""
-              - variable: attrs_fullname
-                label: ATTRS FullName
-                schema:
-                  type: string
-                  default: ""
+                additional_attrs: true
+                type: dict
+                attrs:
+                  - variable: enabled
+                    label: Show LDAP Settings
+                    schema:
+                      type: boolean
+                      default: false
+                      show_subquestions_if: true
+                      subquestions:
+                        - variable: host
+                          label: Host
+                          schema:
+                            type: string
+                            default: ""
+                        - variable: port
+                          label: Port
+                          schema:
+                            type: int
+                            default: 587
+                        - variable: ssl
+                          label: SSL
+                          schema:
+                            type: boolean
+                            default: false
+                        - variable: starttls
+                          label: StartTLS
+                          schema:
+                            type: boolean
+                            default: false
+                        - variable: base_dn
+                          label: Base DN
+                          schema:
+                            type: string
+                            default: ""
+                        - variable: bind_dn
+                          label: Bind DN
+                          schema:
+                            type: string
+                            default: ""
+                        - variable: bind_pass
+                          label: Bind Pass
+                          schema:
+                            type: string
+                            private: true
+                            default: ""
+                        - variable: attrs_username
+                          label: ATTRS UserName
+                          schema:
+                            type: string
+                            private: true
+                            default: ""
+                        - variable: attrs_email
+                          label: ATTRS Email
+                          schema:
+                            type: string
+                            default: ""
+                        - variable: attrs_fullname
+                          label: ATTRS FullName
+                          schema:
+                            type: string
+                            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -261,26 +298,26 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 9117
+                              default: 10592
                               required: true
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+        - variable: data
+          label: App Data Storage
+          description: Stores the Application Data.
           schema:
             additional_attrs: true
             type: dict
@@ -289,7 +326,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -301,41 +338,41 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
-                  default: true
+                  default: false
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568

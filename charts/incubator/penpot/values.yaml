@@ -1,3 +1,4 @@
+# TODO: Update images
 image:
   repository: penpotapp/frontend
   pullPolicy: IfNotPresent
@@ -13,62 +14,77 @@ exporterImage:
   pullPolicy: IfNotPresent
   tag: latest@sha256:e5c8d7b78feae9997a11bf6b7281aa19907a799c97d76b8d46e0caa7a349fc3f
 
+podSecurityContext:
+  runAsNonRoot: false
+
+securityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 penpot:
   public_uri: "http://localhost:{{ .Values.service.main.ports.main.port }}"
-  flags: []
-  http_server_host: "0.0.0.0"
-  assets_storage_backend: "assets-fs"
-  assets_storage_assets_fs_directory: "/opt/data/assets"
+  flags:
+    - enable-registration
+    - enable-login
+    - disable-email-verification
   telemetry_enabled: false
   registration_domain_whitelist: []
-
-notifier:
   smtp:
     enabled: false
-    # default_from: "no-reply@example.com"
-    # default_reply_to: "no-reply@example.com"
-    # tls: false
-    # ssl: false
-    # host: ""
-    # port: ""
-    # user: ""
-    # pass: ""
-
-identity_providers:
-  google:
-    enabled: false
-    # client_id: ""
-    # client_secret: ""
-  github:
-    enabled: false
-    # client_id: ""
-    # client_secret: ""
-  gitlab:
-    enabled: false
-    # base_uri: ""
-    # client_id: ""
-    # client_secret: ""
-  oidc:
-    enabled: false
-    # base_uri: ""
-    # client_id: ""
-    # client_secret: ""
-  ldap:
-    enabled: false
-    # host: ""
-    # port: ""
-    # ssl: false
-    # starttls: false
-    # base_dn: ""
-    # bind_dn: ""
-    # bind_pass: ""
-    # attrs_username: ""
-    # attrs_email: ""
-    # attrs_fullname: ""
+    default_from: "no-reply@example.com"
+    default_reply_to: "no-reply@example.com"
+    tls: true
+    ssl: false
+    host: ""
+    port: 587
+    user: ""
+    pass: ""
+  identity_providers:
+    google:
+      enabled: false
+      client_id: ""
+      client_secret: ""
+    github:
+      enabled: false
+      client_id: ""
+      client_secret: ""
+    gitlab:
+      enabled: false
+      base_uri: ""
+      client_id: ""
+      client_secret: ""
+    oidc:
+      enabled: false
+      base_uri: ""
+      client_id: ""
+      client_secret: ""
+    ldap:
+      enabled: false
+      host: ""
+      port: 10389
+      ssl: false
+      starttls: false
+      base_dn: ""
+      bind_dn: ""
+      bind_pass: ""
+      attrs_username: ""
+      attrs_email: ""
+      attrs_fullname: ""
 
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-penpot-secret'
+
+probes:
+  liveness:
+    type: HTTP
+    path: /
+  readiness:
+    type: HTTP
+    path: /
+  startup:
+    type: HTTP
+    path: /
 
 service:
   main:
@@ -79,15 +95,13 @@ service:
         port: 10592
 
 persistence:
-  config:
+  data:
     enabled: true
     mountPath: /opt/data
-
-backend:
-  enabled: true
-
-exporter:
-  enabled: true
+    noMount: true
+  assets:
+    enabled: true
+    mountPath: /opt/data/assets
 
 postgresql:
   enabled: true
@@ -98,7 +112,7 @@ postgresql:
 redis:
   enabled: true
   existingSecret: rediscreds
-  redisUsername: "penpot"
+  redisUsername: penpot
 
 portal:
   enabled: true
