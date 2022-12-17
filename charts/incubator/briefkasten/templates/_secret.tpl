@@ -18,7 +18,7 @@ data:
   {{- else }}
   NEXTAUTH_SECRET: {{ randAlphaNum 32 | b64enc }}
   {{- end }}
-  DATABASE_URL: {{ printf "%v?sslmode=disable" (get .Values.postgresql.url "complete" | trimAll "\"") | b64enc }}
+  DATABASE_URL: {{ get .Values.postgresql.url "complete" | trimAll "\"" | b64enc }}
   {{- with .Values.briefkasten.github.id }}
   GITHUB_ID: {{ . | b64enc }}
   {{- end }}
