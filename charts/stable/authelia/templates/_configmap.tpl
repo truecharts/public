@@ -205,6 +205,7 @@ data:
           public: {{ $client.public }}
           {{- end }}
           authorization_policy: {{ default "two_factor" $client.authorization_policy }}
+          consent_mode: {{ default "auto" $client.consent_mode}}
           redirect_uris:
           {{- range $client.redirect_uris }}
           - {{ . }}

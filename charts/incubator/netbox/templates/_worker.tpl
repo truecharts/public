@@ -29,10 +29,13 @@ volumeMounts:
   - name: configfile
     mountPath: /etc/netbox/config/01-config.py
     subPath: config.py
-{{/*readinessProbe:
+readinessProbe:
   exec:
     command:
-      - TODO: find a healthcheck
+      - /bin/bash
+      - -c
+      - |
+        ps -aux | grep -v grep | grep -q rqworker || exit 1
   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
@@ -40,7 +43,10 @@ volumeMounts:
 livenessProbe:
   exec:
     command:
-      - TODO: find a healthcheck
+      - /bin/bash
+      - -c
+      - |
+        ps -aux | grep -v grep | grep -q rqworker || exit 1
   initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
@@ -48,9 +54,12 @@ livenessProbe:
 startupProbe:
   exec:
     command:
-      - TODO: find a healthcheck
+      - /bin/bash
+      - -c
+      - |
+        ps -aux | grep -v grep | grep -q rqworker || exit 1
   initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
-  failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}*/}}
+  failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
 {{- end -}}

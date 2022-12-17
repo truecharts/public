@@ -1,0 +1,36 @@
+image:
+  repository: tccr.io/truecharts/libremdb
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:d10db7b87e70c1be7315e44183e45abe3dce7689dbcb815d6d4d104ca534461d
+
+env:
+  NEXT_PUBLIC_URL: http://localhost:3000
+  NEXT_TELEMETRY_DISABLED: 1
+  AXIOS_USERAGENT: "Mozilla/5.0 (X11; Linux x86_64; rv:104.0) Gecko/20100101 Firefox/104.0"
+  AXIOS_ACCEPT: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8"
+  AXIOS_LANGUAGE: "en-US,en;q=0.5"
+  USE_REDIS: true
+  REDIS_URL:
+    secretKeyRef:
+      name: rediscreds
+      key: url
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 3000
+        port: 10593
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /opt/app
+
+redis:
+  enabled: true
+  existingSecret: rediscreds
+
+portal:
+  enabled: true

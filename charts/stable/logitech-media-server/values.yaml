@@ -1,14 +1,10 @@
 image:
   repository: tccr.io/truecharts/logitechmediaserver
   pullPolicy: IfNotPresent
-  tag: 8.4.0@sha256:a22d99d15cb5cba04746aa7be636635d6b7b036901db2d1fd99a222fd64b5551
+  tag: 8.4.0@sha256:598cf7a6e4e4c6e80e4f60992fedb6a1b883d7ee157d0248b5b40f4ac3c0be7b
+
 env:
-  # Permissions Settings
   HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
-  # Port to host the web service on. This will be the internal container port exposed and needs to be the same as the public service port.
-  # The main http port always has to be a 1:1 mapping between external and internal port.
-  # You can't just map it like -p 9002:9000, as Logitech Media Server is telling players on which port to connect.
-  # Therefore if you have to use a different http port for LMS (other than 9000) you'll have to set the HTTP_PORT environment variable
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -22,38 +18,34 @@ service:
   main:
     ports:
       main:
-        # Please note that the main http port always has to be a 1:1 mapping between external and internal port.
-        # You can't just map it like -p 7000:9000, as Logitech Media Server is telling players on which port to connect.
-        # Therefore if you have to use a different http port for LMS (other than 9000) you'll have to set the HTTP_PORT environment variable
-        targetPort: 7000
-        port: 7000
+        port: 9000
   cli:
     enabled: true
     ports:
       cli:
         enabled: true
+        port: 9090
         targetPort: 9090
-        port: 10059
   playertcp:
     enabled: true
     ports:
       slimprototcp:
         enabled: true
-        targetPort: 3483
         port: 3483
+        targetPort: 3483
   playerudp:
     enabled: true
     ports:
       slimprotoudp:
         enabled: true
-        targetPort: 3483
         port: 3483
         protocol: UDP
+        targetPort: 3483
 
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
 
 portal:
   enabled: true

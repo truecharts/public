@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/qbittorrent
   pullPolicy: IfNotPresent
-  tag: v4.4.5@sha256:246ecabd9d6893597449e7f62c35d541ffd029cda168b7957008ceec19e87972
+  tag: 4.5.0@sha256:0f75c164b7a4c23cf4d0b925af142254871483b2c1525f3c79b2c873898d601b
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -18,14 +18,12 @@ service:
       torrent:
         enabled: true
         port: 6881
-        targetPort: 6881
   torrentudp:
     enabled: true
     ports:
       torrentudp:
         enabled: true
         port: 6881
-        targetPort: 6881
         protocol: UDP
 
 persistence:

@@ -7,7 +7,7 @@
   "reviewersFromCodeOwners": true,
   "suppressNotifications": ["prIgnoreNotification"],
   "rebaseWhen": "conflicted",
-  "prConcurrentLimit": 10,
+  "prConcurrentLimit": 25,
   "pinDigests": true,
   "timezone":"Europe/Amsterdam",
   "gitAuthor": "TrueCharts-Admin <bot@truecharts.org>",
@@ -170,22 +170,12 @@
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
-      "matchPackageNames": ["tccr.io/truecharts/jitsi-web"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/jitsi"],
     },
     {
       "matchDatasources": ["docker"],
-      "versioning": "regex:^(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
-      "matchPackageNames": ["tccr.io/truecharts/jitsi-jicofo"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "versioning": "regex:^(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
-      "matchPackageNames": ["tccr.io/truecharts/jitsi-jvb"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "versioning": "regex:^(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
-      "matchPackageNames": ["tccr.io/truecharts/jitsi-prosody"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)_\\d+$",
+      "matchPackagePrefixes": ["tccr.io/truecharts/immich"],
     }
   ]
 }

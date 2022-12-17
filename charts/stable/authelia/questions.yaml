@@ -912,6 +912,19 @@ questions:
                                         description: "one_factor"
                                       - value: "two_factor"
                                         description: "two_factor"
+                                - variable: consent_mode
+                                  label: "Consent Mode"
+                                  description: "Configures the consent mode. This can be set to auto (default), explicit (consent required every time) or implicit (automatically assumes consent for every authorization, never asking the user if they wish to give consent.)"
+                                  schema:
+                                    type: string
+                                    default: "auto"
+                                    enum:
+                                      - value: "auto"
+                                        description: "auto"
+                                      - value: "explicit"
+                                        description: "explicit"
+                                      - value: "implicit"
+                                        description: "implicit"
                                 - variable: userinfo_signing_algorithm
                                   label: "Userinfo Signing Algorithm"
                                   description: "The algorithm used to sign userinfo endpoint responses for this client, either none or RS256."

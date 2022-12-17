@@ -145,7 +145,7 @@ spec:
         resources:
           requests:
             storage: {{ .Values.prometheus.persistence.size | quote }}
-        {{- include "tc.common.storage.class" (dict "persistence" .Values.prometheus.persistence "global" $ ) | nindent 8 }}
+        {{- include "tc.common.storage.storageClassName" (dict "persistence" .Values.prometheus.persistence "global" $ ) | nindent 8 }}
   {{- end }}
   {{- if or .Values.prometheus.podMetadata.labels .Values.prometheus.podMetadata.annotations (eq .Values.prometheus.podAntiAffinityPreset "soft") (eq .Values.prometheus.podAntiAffinityPreset "hard") }}
   podMetadata:

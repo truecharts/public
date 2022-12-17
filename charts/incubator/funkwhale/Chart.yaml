@@ -4,11 +4,11 @@ annotations:
     - MediaApp-Music
     - MediaServer-Music
 apiVersion: v2
-appVersion: "latest"
+appVersion: "1.2.9"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.3
+    version: 11.0.7
 deprecated: false
 description: Funkwhale is designed to make it easy to listen to music you like, and to discover new artists.
 home: https://truecharts.org/docs/charts/incubator/funkwhale
@@ -26,6 +26,6 @@ name: funkwhale
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/funkwhale
   - https://funkwhale.audio/
-  - https://hub.docker.com/r/thetarkus/funkwhale/
+  - https://hub.docker.com/r/funkwhale/funkwhale
 type: application
-version: 2.0.1
+version: 2.1.3
