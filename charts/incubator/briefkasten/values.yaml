@@ -44,12 +44,15 @@ service:
 
 probes:
   liveness:
+    enabled: false
     type: HTTP
     path: /
   readiness:
+    enabled: false
     type: HTTP
     path: /
   startup:
+    enabled: false
     type: HTTP
     path: /
 
