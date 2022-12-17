@@ -1,7 +1,11 @@
 {{/* Define the proxy container */}}
 {{- define "immich.proxy" -}}
-image: {{ .Values.imageProxy.repository }}:{{ .Values.imageProxy.tag }}
-imagePullPolicy: {{ .Values.imageProxy.pullPolicy }}
+  {{- if hasKey .Values "imageProxy" -}} {{/* For smooth upgrade, Remove later */}}
+    {{- $img := .Values.imageProxy -}}
+    {{- $_ := set .Values "proxyImage" (dict "repository" $img.repository "tag" $img.tag "pullPolicy" $img.pullPolicy) -}}
+  {{- end }}
+image: {{ .Values.proxyImage.repository }}:{{ .Values.proxyImage.tag }}
+imagePullPolicy: {{ .Values.proxyImage.pullPolicy }}
 securityContext:
   runAsUser: {{ .Values.podSecurityContext.runAsUser }}
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
