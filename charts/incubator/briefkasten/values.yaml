@@ -3,9 +3,13 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:4bf3e15f5219605c7801ec5d69e64d0d3d80fef41a6a1dcfb36f3ded1f22ae13
 
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
 podSecurityContext:
-  runAsUser: 1001
-  runAsGroup: 1001
+  runAsUser: 0
+  runAsGroup: 0
 
 briefkasten:
   general:
