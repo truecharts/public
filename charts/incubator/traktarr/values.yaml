@@ -1,23 +1,26 @@
-env:
-  APP_BRANCH: ""
-  BLACKLIST: ""
-  DELAY: ""
-  NOSEARCH: ""
-  NOTIFICATIONS: ""
-  RUNNOW: ""
-  SKIPUPDATE: ""
-  SORT: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/traktarr
   tag: latest@sha256:c3f2e4c967f7574d13b234c8cfa5d5bc25c007d891ecf8bf78e04f0654033785
-persistence:
-  config:
-    enabled: true
-    mountPath: /config
+
+env:
+  APP_BRANCH: "master"
+  BLACKLIST: "yes"
+  DELAY: "2.5"
+  NOSEARCH: "yes"
+  NOTIFICATIONS: "yes"
+  RUNNOW: "no"
+  SKIPUPDATE: "yes"
+  SORT: "rating"
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
 probes:
   liveness:
     enabled: false
@@ -25,15 +28,18 @@ probes:
     enabled: false
   startup:
     enabled: false
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
 
 portal:
   enabled: false
