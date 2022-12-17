@@ -15,13 +15,12 @@ webImage:
 
 proxyImage:
   repository: tccr.io/truecharts/immich-proxy
-  tag: 1.29.5_44@sha256:a4c24a70cc1e1bbbdecc3df371af08528430846709ef22ca16e2a923aa8da509
+  tag: 1.38.2_60@sha256:c788886ce9510541e4031b664d5d3cafbaf14e3bea25792484e1485704dd7231
   pullPolicy: IfNotPresent
 
 command:
   - /bin/sh
-  - -c
-  - chmod +x ./start-server.sh && ./start-server.sh
+  - ./start-server.sh
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -63,36 +62,18 @@ probes:
     type: HTTP
     port: 3001
 
-# Due to https://github.com/immich-app/immich/issues/726
-hostAliases:
-  - ip: 127.0.0.1
-    hostnames:
-      - immich-web
-      - immich-server
-      - immich-machine-learning
-
 service:
   main:
     ports:
       main:
         port: 10323
         protocol: HTTP
+        targetPort: 8080
 
 persistence:
   uploads:
     enabled: true
     mountPath: /usr/src/app/upload
-  proxy-conf:
-    enabled: true
-    noMount: true
-    type: custom
-    mountPath: /etc/nginx/
-    volumeSpec:
-      configMap:
-        name: '{{ include "tc.common.names.fullname" . }}-proxy-config'
-        items:
-          - key: nginx.conf
-            path: nginx.conf
 
 postgresql:
   enabled: true
