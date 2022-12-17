@@ -23,7 +23,7 @@ ports:
 readinessProbe:
   httpGet:
     path: /api/server-info/ping
-    port: {{ .Values.service.main.ports.main.port }}
+    port: {{ .Values.service.main.ports.main.targetPort }}
   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
@@ -31,7 +31,7 @@ readinessProbe:
 livenessProbe:
   httpGet:
     path: /api/server-info/ping
-    port: {{ .Values.service.main.ports.main.port }}
+    port: {{ .Values.service.main.ports.main.targetPort }}
   initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
@@ -39,7 +39,7 @@ livenessProbe:
 startupProbe:
   httpGet:
     path: /api/server-info/ping
-    port: {{ .Values.service.main.ports.main.port }}
+    port: {{ .Values.service.main.ports.main.targetPort }}
   initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
