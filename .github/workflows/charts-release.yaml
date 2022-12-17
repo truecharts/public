@@ -109,10 +109,10 @@ jobs:
                 echo "" >> website/docs/charts/${train}/${chart}/index.md
                 
                 # Iterate over all files in the docs directory
-                for file in website/docs/charts/${train}/${chart}/*; do
+                for file in charts/${train}/${chart}/docs/*; do
                   # Extract the file name and first line from each file
                   filename=$(basename "${file}")
-                  title=$(head -n 1 "${file}" | sed 's/#//')
+                  title=$(head -n 1 "${file}" | sed 's/# //')
                   
                   # Create a markdown link using the file name and title
                   link="[${title}](/${filename})"
