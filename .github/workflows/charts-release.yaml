@@ -109,16 +109,17 @@ jobs:
                 echo "" >> website/docs/charts/${train}/${chart}/index.md
                 
                 # Iterate over all files in the docs directory
-                for file in charts/${train}/${chart}/docs/*; do
+                for file in website/docs/charts/${train}/${chart}/*; do
                   # Extract the file name and first line from each file
                   filename=$(basename "${file}")
                   title=$(head -n 1 "${file}" | sed 's/# //')
                   
                   # Create a markdown link using the file name and title
                   link="[${title}](/${filename})"
-                  
-                  # Append the link to the index.md file
-                  echo "${link}" >> website/docs/charts/${train}/${chart}/index.md
+                  if [ ${filename} != "index.md" ]; then
+                    # Append the link to the index.md file
+                    echo "${link}" >> website/docs/charts/${train}/${chart}/index.md
+                  fi
                 done
                 
                 mv -f tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md website/docs/charts/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
