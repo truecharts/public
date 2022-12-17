@@ -10,7 +10,7 @@ securityContext:
 command:
   - /bin/sh
   - -c
-  - ./start-microservices.sh
+  - chmod +x ./start-microservices.sh && ./start-microservices.sh
 volumeMounts:
   - name: uploads
     mountPath: {{ .Values.persistence.uploads.mountPath }}

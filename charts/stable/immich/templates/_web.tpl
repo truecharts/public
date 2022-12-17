@@ -14,7 +14,7 @@ securityContext:
 command:
   - /bin/sh
   - -c
-  - ./entrypoint.sh
+  - chmod +x ./entrypoint.sh && ./entrypoint.sh
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-common-config'
