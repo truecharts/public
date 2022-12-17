@@ -56,6 +56,23 @@ tests:
               cpu: 20m
               memory: 100Mi
 
+  - it: should pass with only one resource changed
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 3000m
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            limits:
+              cpu: 3000m
+              memory: 8Gi
+            requests:
+              cpu: 10m
+              memory: 50Mi
+
   - it: should pass with changed resources and added GPU
     documentIndex: *deploymentDoc
     set:
