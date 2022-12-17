@@ -17,8 +17,10 @@ global:
 # -- In most cases the "enabled" key is only used internally to "render" or not the configuration
 # - Some parts of the config bellow are slightly modified so they can be added on SCALE UI. Mainly lists.
 # - Do not blindly copy paste configuration from upstream.
-# frigate:
-# - All of the frigate app config is in the questions, so we don't need to default any of it here.
+frigate:
+  mqtt:
+    host: mqtt.server.com
+# All of the frigate app config is in the questions, so we don't need to default any of it
 
 ingress:
   rtmp:
