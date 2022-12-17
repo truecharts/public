@@ -56,7 +56,7 @@ tests:
               cpu: 20m
               memory: 100Mi
 
-  - it: should pass with only one resource changed
+  - it: should pass with only limits.cpu resource changed
     documentIndex: *deploymentDoc
     set:
       resources:
@@ -69,6 +69,74 @@ tests:
             limits:
               cpu: 3000m
               memory: 8Gi
+            requests:
+              cpu: 10m
+              memory: 50Mi
+
+  - it: should pass with only limits.memory resource changed
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          memory: 4Gi
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            limits:
+              cpu: 4000m
+              memory: 4Gi
+            requests:
+              cpu: 10m
+              memory: 50Mi
+
+  - it: should pass with only requests.cpu resource changed
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        requests:
+          cpu: 20m
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            limits:
+              cpu: 4000m
+              memory: 8Gi
+            requests:
+              cpu: 20m
+              memory: 50Mi
+
+  - it: should pass with only requests.memory resource changed
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        requests:
+          memory: 25Mi
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            limits:
+              cpu: 4000m
+              memory: 8Gi
+            requests:
+              cpu: 10m
+              memory: 25Mi
+
+  - it: should pass with only scaleGOU resource changed
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU:
+        gpu.intel.com/i915: "1"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            limits:
+              cpu: 4000m
+              memory: 8Gi
+              gpu.intel.com/i915: "1"
             requests:
               cpu: 10m
               memory: 50Mi
