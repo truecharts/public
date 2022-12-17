@@ -70,7 +70,12 @@ questions:
           description: Do a first run immediately without waiting.
           schema:
             type: string
-            default:
+            default: 'yes'
+            enum:
+              - value: "yes"
+                description: "Yes"
+              - value: "no"
+                description: "No"
         - variable: SKIPUPDATE
           label: Skip Update
           description: Skip auto-update
@@ -99,8 +104,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: config Storage
-          description: Container Path config
+          label: App Config Storage
+          description: Stores the Application Config.
           schema:
             additional_attrs: true
             type: dict
