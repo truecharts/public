@@ -14,12 +14,8 @@ securityContext:
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-common-config'
-volumeMounts:
-  - name: proxy-conf
-    mountPath: /etc/nginx
-    readOnly: true
 ports:
-  - containerPort: {{ .Values.service.main.ports.main.port }}
+  - containerPort: {{ .Values.service.main.ports.main.targetPort }}
     name: main
 readinessProbe:
   httpGet:

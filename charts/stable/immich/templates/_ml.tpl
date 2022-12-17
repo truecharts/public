@@ -14,7 +14,7 @@ securityContext:
 command:
   - /bin/sh
   - -c
-  - chmod +x ./entrypoint.sh && ./entrypoint.sh
+  - ./entrypoint.sh
 volumeMounts:
   - name: uploads
     mountPath: {{ .Values.persistence.uploads.mountPath }}
