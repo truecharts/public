@@ -1,8 +1,16 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rollarr
   tag: latest@sha256:2c6cc5aa2a7e29350e30b1e45b264938a76a50b898352984e085f090c8cf83e5
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
 persistence:
   appdata:
     enabled: true
@@ -10,18 +18,13 @@ persistence:
   prerolls:
     enabled: true
     mountPath: /media/prerolls
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+
 service:
   main:
     ports:
       main:
         port: 3100
-        protocol: TCP
+        protocol: HTTP
         targetPort: 3100
 
 portal:
