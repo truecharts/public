@@ -5,7 +5,7 @@
     {{- $_ := set .Values "proxyImage" (dict "repository" $img.repository "tag" $img.tag "pullPolicy" $img.pullPolicy) -}}
   {{- end -}}
   {{- if not .Values.service.main.ports.main.targetPort -}} {{/* For smooth upgrade, Remove later */}}
-    {{- $_ := set .Values.service.main.ports.main "targetPort" "8080" -}}
+    {{- $_ := set .Values.service.main.ports.main "targetPort" 8080 -}}
   {{- end }}
 image: {{ .Values.proxyImage.repository }}:{{ .Values.proxyImage.tag }}
 imagePullPolicy: {{ .Values.proxyImage.pullPolicy }}
