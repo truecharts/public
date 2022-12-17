@@ -19,6 +19,7 @@ questions:
           schema:
             type: string
             default: "2.5"
+            valid_charts: ^\d+\.\d+$
         - variable: SORT
           label: Sort
           description: Votes or rating or release, sort list to process
@@ -37,7 +38,7 @@ questions:
           description: Disable search when adding to ARR services.
           schema:
             type: string
-            default: 'yes'
+            default: "yes"
             enum:
               - value: "yes"
                 description: "Yes"
@@ -48,7 +49,7 @@ questions:
           description: Disable notifications
           schema:
             type: string
-            default: 'yes'
+            default: "yes"
             enum:
               - value: "yes"
                 description: "Yes"
@@ -59,7 +60,7 @@ questions:
           description: Enables/disables the blacklist when running app.
           schema:
             type: string
-            default: 'yes'
+            default: "yes"
             enum:
               - value: "yes"
                 description: "Yes"
@@ -70,7 +71,7 @@ questions:
           description: Do a first run immediately without waiting.
           schema:
             type: string
-            default: 'yes'
+            default: "yes"
             enum:
               - value: "yes"
                 description: "Yes"
@@ -81,7 +82,7 @@ questions:
           description: Skip auto-update
           schema:
             type: string
-            default: 'yes'
+            default: "yes
             enum:
               - value: "yes"
                 description: "Yes"
