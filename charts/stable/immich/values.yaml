@@ -20,8 +20,7 @@ proxyImage:
 
 command:
   - /bin/sh
-  - -c
-  - chmod +x ./start-microservices.sh && ./start-server.sh
+  - ./start-server.sh
 
 securityContext:
   readOnlyRootFilesystem: false

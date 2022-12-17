@@ -13,8 +13,7 @@ securityContext:
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 command:
   - /bin/sh
-  - -c
-  - chmod +x ./entrypoint.sh && ./entrypoint.sh
+  - ./entrypoint.sh
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-common-config'
