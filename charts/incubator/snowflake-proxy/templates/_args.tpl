@@ -23,4 +23,30 @@ args:
   {{- if .Values.snowflake.keep_local_addresses }}
   - "-keep-local-addresses"
   {{- end }}
+  {{- with .Values.snowflake.nat_retest_interval }}
+  - "-nat-retest-interval"
+  - {{ . | quote }}
+  {{- end }}
+  {{- with .Values.snowflake.relay }}
+  - "-relay"
+  - {{ . | quote }}
+  {{- end }}
+  {{- with .Values.snowflake.stun }}
+  - "-stun"
+  - {{ . | quote }}
+  {{- end }}
+  {{- with .Values.snowflake.summary_interval }}
+  - "-summary-interval"
+  - {{ . | quote }}
+  {{- end }}
+  {{- with .Values.snowflake.unsafe_logging }}
+  - "-unsafe-logging"
+  {{- end }}
+  {{- with .Values.snowflake.verbose }}
+  - "-verbose"
+  {{- end }}
+  {{- with .Values.snowflake.log }}
+  - "-log"
+  - {{ . | quote }}
+  {{- end }}
 {{- end -}}

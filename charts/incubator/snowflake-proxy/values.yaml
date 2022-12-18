@@ -17,6 +17,13 @@ snowflake:
   broker: "https://snowflake-broker.torproject.net/"
   capacity: 0
   keep_local_addresses: false
+  nat_retest_interval: 24h0m0s
+  relay: "wss://snowflake.bamsoftware.com/"
+  stun: "stun:stun.stunprotocol.org:3478"
+  summary_interval: 1h0m0s
+  unsafe_logging: false
+  verbose: false
+  log: ""
 
 args:
   - "-ephemeral-ports-range"
