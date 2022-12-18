@@ -54,7 +54,7 @@ data:
   RATELIMITS_BLACKLIST_EVERY_SECONDS: {{ .Values.rate_limits.blacklist_every_seconds | quote }}
   {{- end }}
 
-  {{- with .Values..rate_limits.blacklists }}
+  {{- with .Values.rate_limits.blacklists }}
   RATELIMITS_BLACKLIST: {{ join "," . | quote }}
   {{- end }}
 ---
@@ -64,7 +64,7 @@ metadata:
   name: {{ $secretName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
-data:
+stringDta:
   {{/* Storage/Dependencies */}}
   STORAGE_TYPE: "postgres"
   STORAGE_PORT: "5432"
