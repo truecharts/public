@@ -23,7 +23,7 @@ questions:
         - variable: RETURN_FULL_URL
           label: Return Full URL
           schema:
-            type: string
+            type: boolean
             default: true
         - variable: MAX_SECRET_LENGTH
           label: max Secret Length
@@ -83,7 +83,7 @@ questions:
         - variable: PRUNE_ENABLED
           label: Prune Enabled
           schema:
-            type: string
+            type: boolean
             default: true
         - variable: PRUNE_MIN_DAYS
           label: Prune Min Days
