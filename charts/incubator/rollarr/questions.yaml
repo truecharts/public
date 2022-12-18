@@ -37,9 +37,9 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: appdata
-          label: App Data Storage
-          description: Stores the Application Data.
+        - variable: config
+          label: App Config Storage
+          description: Stores the Application Config.
           schema:
             additional_attrs: true
             type: dict

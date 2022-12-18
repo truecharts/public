@@ -12,9 +12,9 @@ securityContext:
   runAsNonRoot: false
 
 persistence:
-  appdata:
+  config:
     enabled: true
-    mountPath: /rollar/data.json
+    mountPath: /rollar
   prerolls:
     enabled: true
     mountPath: /media/prerolls
