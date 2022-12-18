@@ -10,6 +10,14 @@ podSecurityContext:
 # securityContext:
 #  readOnlyRootFilesystem: false
 
+snowflake:
+  ephemeral_ports_range: "30000:60000"
+  allow-non_tls_relay: true
+  allowed_relay_hostname_pattern: "snowflake.torproject.net$"
+  broker: "https://snowflake-broker.torproject.net/"
+  capacity: 0
+  keep_local_addresses: false
+
 args:
   - "-ephemeral-ports-range"
   - "30000:60000"
