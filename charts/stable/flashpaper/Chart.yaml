@@ -1,11 +1,3 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Cloud
-    - Productivity
-    - Security
-    - Tools-Utilities
-    - Network-Web
 apiVersion: v2
 appVersion: "latest"
 dependencies:
@@ -13,8 +5,8 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 11.0.7
 deprecated: false
-description: "A one-time encrypted zero-knowledge password/secret sharing application focused on simplicity and security. No database or complicated set-up required."
-home: https://truecharts.org/docs/charts/incubator/flashpaper
+description: One-time encrypted password/secret sharing
+home: https://truecharts.org/docs/charts/stable/flashpaper
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/flashpaper.png
 keywords:
   - flashpaper
@@ -30,8 +22,17 @@ maintainers:
     url: https://truecharts.org
 name: flashpaper
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/flashpaper
+  - https://github.com/truecharts/charts/tree/master/charts/stable/flashpaper
   - https://github.com/AndrewPaglusch/FlashPaper
   - https://hub.docker.com/r/andrewpaglusch/flashpaper
 type: application
-version: 2.0.3
+version: 3.0.0
+annotations:
+  truecharts.org/catagories: |
+    - Cloud
+    - Productivity
+    - Security
+    - Tools-Utilities
+    - Network-Web
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
