@@ -14,7 +14,7 @@ traktarr:
   sort: rating
 
 env:
-  APP_BRANCH: "{{ .Values.trakrarr.app_branch }}"
+  APP_BRANCH: "{{ .Values.traktarr.app_branch }}"
   BLACKLIST: '{{ ternary "yes" "no" .Values.traktarr.blacklist }}'
   NOSEARCH: '{{ ternary "yes" "no" .Values.traktarr.nosearch }}'
   NOTIFICATIONS: '{{ ternary "yes" "no" .Values.traktarr.notifications }}'
