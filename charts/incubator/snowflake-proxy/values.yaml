@@ -36,11 +36,32 @@ service:
 
 probes:
   liveness:
-    enabled: false
+    custom: true
+    spec:
+      exec:
+        command:
+          - /bin/bash
+          - -c
+          - |
+            ps -aux | grep -v grep | grep -q proxy || exit 1
   readiness:
-    enabled: false
+    custom: true
+    spec:
+      exec:
+        command:
+          - /bin/bash
+          - -c
+          - |
+            ps -aux | grep -v grep | grep -q proxy || exit 1
   startup:
-    enabled: false
+    custom: true
+    spec:
+      exec:
+        command:
+          - /bin/bash
+          - -c
+          - |
+            ps -aux | grep -v grep | grep -q proxy || exit 1
 
 portal:
   enabled: false

@@ -99,29 +99,6 @@ questions:
             type: string
             default: ""
 # Include{containerConfig}
-# Include{serviceRoot}
-        - variable: main
-          label: Main Service
-          description: The Primary service on which the healthcheck runs, often the webUI
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: main
-                      label: Main Service Port Configuration
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
-                              default: 30000
-                              required: true
 # Include{serviceExpertRoot}
             default: true
 # Include{serviceList}
