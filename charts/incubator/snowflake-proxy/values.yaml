@@ -1,0 +1,29 @@
+image:
+  repository: tccr.io/truecharts/snowflake-proxy
+  pullPolicy: IfNotPresent
+  tag: 2.4.1@sha256:aec084e33088c8a8192940aa61d3ff52df91816c4a9465eee6f13c3fdb2e31fd
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+command:
+  - "-ephemeral-ports-range"
+  - "30000:60000"
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 60000
+        port: 30000
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+portal:
+  enabled: false
