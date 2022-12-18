@@ -93,6 +93,13 @@ jobs:
                 chart=${chart_parts[1]}
                 echo "copying docs to website for ${chart}"
                 mkdir -p tmp/website/docs/charts/${train}/${chart}/ || echo "chart path already exists, continuing..."
+                if [[ -f "website/docs/charts/${train}/${chart}/CHANGELOG.md" ]]; then
+                   echo "changelog found..."
+                   true
+                else
+                   echo "changelog not found, starting with empty changelog..."
+                   touch "website/docs/charts/${train}/${chart}/CHANGELOG.md"
+                fi
                 mv -f website/docs/charts/${train}/${chart}/CHANGELOG.md tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md || :
                 rm -rf website/docs/charts/*/${chart} || :
                 mkdir -p website/docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
@@ -125,13 +132,6 @@ jobs:
                 mv -f tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md website/docs/charts/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/icon.png website/static/img/hotlink-ok/chart-icons/${chart}.png 2>/dev/null || :
                 # Append SCALE changelog to actual changelog
-                if [[ -f "website/docs/charts/${train}/${chart}/CHANGELOG.md" ]]; then
-                   echo "changelog found..."
-                   true
-                else
-                   echo "changelog not found, starting with empty changelog..."
-                   touch "website/docs/charts/${train}/${chart}/CHANGELOG.md"
-                fi
                 sed -i '1d' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to sed 1d changelog..."
                 cat "charts/${train}/${chart}/app-changelog.md" | cat - "website/docs/charts/${train}/${chart}/CHANGELOG.md" > temp && mv temp "website/docs/charts/${train}/${chart}/CHANGELOG.md"
                 sed -i '1s/^/# Changelog\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to add changelog header..."
