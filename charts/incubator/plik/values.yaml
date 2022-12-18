@@ -1,0 +1,26 @@
+image:
+  repository: tccr.io/truecharts/plik
+  pullPolicy: IfNotPresent
+  tag: 0.20.2297@sha256:f9c31219bfb0793c3b9ce4ec304cd52c4dfef106ae452ab0f6a57a0a0b575fbd
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 8080
+        port: 10599
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+  plikd:
+    enabled: true
+    mountPath: /home/plik/server/plikd.cfg
+
+portal:
+  enabled: true
