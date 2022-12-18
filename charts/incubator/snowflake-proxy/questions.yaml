@@ -45,7 +45,7 @@ questions:
           description: ICE UDP ephemeral ports range in format ("30000:60000")
           schema:
             type: string
-            default: "599999:60000"
+            default: "59999:60000"
         - variable: keep_local_addresses
           label: Keep Local Addresses
           description: Keep local LAN address ICE candidates
