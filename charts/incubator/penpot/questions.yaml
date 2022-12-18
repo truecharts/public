@@ -118,174 +118,191 @@ questions:
               - variable: google
                 label: Google Identity Provider
                 schema:
-                additional_attrs: true
-                type: dict
-                attrs:
-                  - variable: enabled
-                    label: Show Google Settings
-                    schema:
-                      type: boolean
-                      default: false
-                      show_subquestions_if: true
-                      subquestions:
-                        - variable: client_id
-                          label: Client ID
-                          schema:
-                            type: string
-                            default: ""
-                        - variable: client_secret
-                          label: Client Secret
-                          schema:
-                            type: string
-                            private: true
-                            default: ""
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Show Google Settings
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: client_id
+                            label: Client ID
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: client_secret
+                            label: Client Secret
+                            schema:
+                              type: string
+                              private: true
+                              required: true
+                              default: ""
               - variable: github
                 label: Github Identity Provider
                 schema:
-                additional_attrs: true
-                type: dict
-                attrs:
-                  - variable: enabled
-                    label: Show Github Settings
-                    schema:
-                      type: boolean
-                      default: false
-                      show_subquestions_if: true
-                      subquestions:
-                        - variable: client_id
-                          label: Client ID
-                          schema:
-                            type: string
-                            default: ""
-                        - variable: client_secret
-                          label: Client Secret
-                          schema:
-                            type: string
-                            private: true
-                            default: ""
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Show Github Settings
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: client_id
+                            label: Client ID
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: client_secret
+                            label: Client Secret
+                            schema:
+                              type: string
+                              private: true
+                              required: true
+                              default: ""
               - variable: gitlab
                 label: Gitlab Identity Provider
                 schema:
-                additional_attrs: true
-                type: dict
-                attrs:
-                  - variable: enabled
-                    label: Show Gitlab Settings
-                    schema:
-                      type: boolean
-                      default: false
-                      show_subquestions_if: true
-                      subquestions:
-                        - variable: base_uri
-                          label: Base URI
-                          schema:
-                            type: string
-                            default: "https://gitlab.com"
-                        - variable: client_id
-                          label: Client ID
-                          schema:
-                            type: string
-                            default: ""
-                        - variable: client_secret
-                          label: Client Secret
-                          schema:
-                            type: string
-                            private: true
-                            default: ""
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Show Gitlab Settings
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: base_uri
+                            label: Base URI
+                            schema:
+                              type: string
+                              required: true
+                              default: "https://gitlab.com"
+                          - variable: client_id
+                            label: Client ID
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: client_secret
+                            label: Client Secret
+                            schema:
+                              type: string
+                              private: true
+                              required: true
+                              default: ""
               - variable: oidc
                 label: OIDC Identity Provider
                 schema:
-                additional_attrs: true
-                type: dict
-                attrs:
-                  - variable: enabled
-                    label: Show OIDC Settings
-                    schema:
-                      type: boolean
-                      default: false
-                      show_subquestions_if: true
-                      subquestions:
-                        - variable: base_uri
-                          label: Base URI
-                          schema:
-                            type: string
-                            default: ""
-                        - variable: client_id
-                          label: Client ID
-                          schema:
-                            type: string
-                            default: ""
-                        - variable: client_secret
-                          label: Client Secret
-                          schema:
-                            type: string
-                            private: true
-                            default: ""
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Show OIDC Settings
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: base_uri
+                            label: Base URI
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: client_id
+                            label: Client ID
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: client_secret
+                            label: Client Secret
+                            schema:
+                              type: string
+                              private: true
+                              required: true
+                              default: ""
               - variable: ldap
                 label: LDAP Identity Provider
                 schema:
-                additional_attrs: true
-                type: dict
-                attrs:
-                  - variable: enabled
-                    label: Show LDAP Settings
-                    schema:
-                      type: boolean
-                      default: false
-                      show_subquestions_if: true
-                      subquestions:
-                        - variable: host
-                          label: Host
-                          schema:
-                            type: string
-                            default: ""
-                        - variable: port
-                          label: Port
-                          schema:
-                            type: int
-                            default: 587
-                        - variable: ssl
-                          label: SSL
-                          schema:
-                            type: boolean
-                            default: false
-                        - variable: starttls
-                          label: StartTLS
-                          schema:
-                            type: boolean
-                            default: false
-                        - variable: base_dn
-                          label: Base DN
-                          schema:
-                            type: string
-                            default: ""
-                        - variable: bind_dn
-                          label: Bind DN
-                          schema:
-                            type: string
-                            default: ""
-                        - variable: bind_pass
-                          label: Bind Pass
-                          schema:
-                            type: string
-                            private: true
-                            default: ""
-                        - variable: attrs_username
-                          label: ATTRS UserName
-                          schema:
-                            type: string
-                            private: true
-                            default: ""
-                        - variable: attrs_email
-                          label: ATTRS Email
-                          schema:
-                            type: string
-                            default: ""
-                        - variable: attrs_fullname
-                          label: ATTRS FullName
-                          schema:
-                            type: string
-                            default: ""
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Show LDAP Settings
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: host
+                            label: Host
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: port
+                            label: Port
+                            schema:
+                              type: int
+                              required: true
+                              default: 587
+                          - variable: ssl
+                            label: SSL
+                            schema:
+                              type: boolean
+                              default: false
+                          - variable: starttls
+                            label: StartTLS
+                            schema:
+                              type: boolean
+                              default: false
+                          - variable: base_dn
+                            label: Base DN
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: bind_dn
+                            label: Bind DN
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: bind_pass
+                            label: Bind Pass
+                            schema:
+                              type: string
+                              private: true
+                              required: true
+                              default: ""
+                          - variable: attrs_username
+                            label: ATTRS Username
+                            schema:
+                              type: string
+                              rquired: true
+                              default: ""
+                          - variable: attrs_email
+                            label: ATTRS Email
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: attrs_fullname
+                            label: ATTRS Fullname
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
