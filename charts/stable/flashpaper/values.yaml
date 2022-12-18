@@ -1,3 +1,16 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/flashpaper
+  tag: latest@sha256:a784f26d36046473f36f3cf2c214f6ac63517c1b1434eb769fd15a7ee2f10c29
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
 env:
   ANNOUNCEMENT: ""
   MAX_SECRET_LENGTH: "3000"
@@ -17,20 +30,7 @@ env:
   PRUNE_MIN_DAYS: "365"
   RETURN_FULL_URL: "true"
   SITE_TITLE: FlashPaper - Self-Destructing Message
-image:
-  pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/flashpaper
-  tag: latest@sha256:a784f26d36046473f36f3cf2c214f6ac63517c1b1434eb769fd15a7ee2f10c29
-persistence:
-  data:
-    enabled: true
-    mountPath: /var/www/html/data
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+
 service:
   main:
     ports:
@@ -39,5 +39,9 @@ service:
         protocol: TCP
         targetPort: 80
 
+persistence:
+  data:
+    enabled: true
+    mountPath: /var/www/html/data
 portal:
   enabled: true

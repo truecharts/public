@@ -4,97 +4,71 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
+  - variable: imageSelector
+    group: Container Image
+    label: Select Image
+    schema:
+      type: string
+      default: image
+      enum:
+        # XFCE
+        - value: image
+          description: XFCE Alpine
+        - value: ubuntuXFCEImage
+          description: XFCE Ubuntu
+        - value: fedoraXFCEImage
+          description: XFCE Fedora
+        - value: archXFCEImage
+          description: XFCE Arch
+        # KDE
+        - value: alpineKDEImage
+          description: KDE Alpine
+        - value: ubuntuKDEImage
+          description: KDE Ubuntu
+        - value: fedoraKDEImage
+          description: KDE Fedora
+        - value: archKDEImage
+          description: KDE Arch
+        # Mate
+        - value: alpineMATEImage
+          description: Mate Alpine
+        - value: ubuntuMATEImage
+          description: Mate Ubuntu
+        - value: fedoraMATEImage
+          description: Mate Fedora
+        - value: archMATEImage
+          description: Mate Arch
+        # I3
+        - value: alpineI3Image
+          description: I3 Alpine
+        - value: ubuntuI3Image
+          description: I3 Ubuntu
+        - value: fedoraI3Image
+          description: I3 Fedora
+        - value: archI3Image
+          description: I3 Arch
+        # OpenBox
+        - value: alpineOpenBoxImage
+          description: OpenBox Alpine
+        - value: ubuntuOpenBoxImage
+          description: OpenBox Ubuntu
+        - value: fedoraOpenBoxImage
+          description: OpenBox Fedora
+        - value: archOpenBoxImage
+          description: OpenBox Arch
+        # OpenBox
+        - value: alpineICEWMImage
+          description: ICEWM Alpine
+        - value: ubuntuICEWMImage
+          description: ICEWM Ubuntu
+        - value: fedoraICEWMImage
+          description: ICEWM Fedora
+        - value: archICEWMImage
+          description: ICEWM Arch
 # Include{controller}
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SITE_TITLE
-          label: "SITE_TITLE"
-          schema:
-            type: string
-            default: "FlashPaper - Self-Destructing Message"
-        - variable: RETURN_FULL_URL
-          label: "RETURN_FULL_URL"
-          schema:
-            type: string
-            default: "true"
-        - variable: MAX_SECRET_LENGTH
-          label: "MAX_SECRET_LENGTH"
-          schema:
-            type: string
-            default: "3000"
-        - variable: ANNOUNCEMENT
-          label: "ANNOUNCEMENT"
-          schema:
-            type: string
-            default: ""
-        - variable: MESSAGES_ERROR_SECRET_TOO_LONG
-          label: "MESSAGES_ERROR_SECRET_TOO_LONG"
-          schema:
-            type: string
-            default: "Input length too long"
-        - variable: MESSAGES_SUBMIT_SECRET_HEADER
-          label: "MESSAGES_SUBMIT_SECRET_HEADER"
-          schema:
-            type: string
-            default: "Create A Self-Destructing Message"
-        - variable: MESSAGES_SUBMIT_SECRET_SUBHEADER
-          label: "MESSAGES_SUBMIT_SECRET_SUBHEADER"
-          schema:
-            type: string
-            default: ""
-        - variable: MESSAGES_SUBMIT_SECRET_BUTTON
-          label: "MESSAGES_SUBMIT_SECRET_BUTTON"
-          schema:
-            type: string
-            default: "Encrypt Message"
-        - variable: MESSAGES_VIEW_CODE_HEADER
-          label: "MESSAGES_VIEW_CODE_HEADER"
-          schema:
-            type: string
-            default: "Self-Destructing URL"
-        - variable: MESSAGES_VIEW_CODE_SUBHEADER
-          label: "MESSAGES_VIEW_CODE_SUBHEADER"
-          schema:
-            type: string
-            default: "Share this URL via email, chat, or another messaging service. It will self-destruct after being viewed once."
-        - variable: MESSAGES_CONFIRM_VIEW_SECRET_HEADER
-          label: "MESSAGES_CONFIRM_VIEW_SECRET_HEADER"
-          schema:
-            type: string
-            default: "View this secret?"
-        - variable: MESSAGES_CONFIRM_VIEW_SECRET_BUTTON
-          label: "MESSAGES_CONFIRM_VIEW_SECRET_BUTTON"
-          schema:
-            type: string
-            default: "View Secret"
-        - variable: MESSAGES_VIEW_SECRET_HEADER
-          label: "MESSAGES_VIEW_SECRET_HEADER"
-          schema:
-            type: string
-            default: "This message has been destroyed"
-        - variable: PRUNE_ENABLED
-          label: "PRUNE_ENABLED"
-          schema:
-            type: string
-            default: "true"
-        - variable: PRUNE_MIN_DAYS
-          label: "PRUNE_MIN_DAYS"
-          schema:
-            type: string
-            default: "365"
-        - variable: PRUNE_MAX_DAYS
-          label: "PRUNE_MAX_DAYS"
-          schema:
-            type: string
-            default: "730"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -117,15 +91,16 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 8544
+                              default: 3389
                               required: true
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: data
-          label: "data Storage"
+        - variable: config
+          label: "config Storage"
+          description: "abc users home directory"
           schema:
             additional_attrs: true
             type: dict
