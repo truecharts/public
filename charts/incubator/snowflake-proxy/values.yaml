@@ -25,10 +25,6 @@ snowflake:
   verbose: false
   log: ""
 
-args:
-  - "-ephemeral-ports-range"
-  - "30000:60000"
-
 service:
   main:
     ports:
