@@ -97,7 +97,7 @@ jobs:
                 rm -rf website/docs/charts/*/${chart} || :
                 mkdir -p website/docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
                 yes | cp -rf charts/${train}/${chart}/docs/* website/docs/charts/${train}/${chart}/ 2>/dev/null || :
-                
+
                 touch website/docs/charts/${train}/${chart}/index.md
                 echo "# ${chart}" >> website/docs/charts/${train}/${chart}/index.md
                 echo "" >> website/docs/charts/${train}/${chart}/index.md
@@ -107,13 +107,13 @@ jobs:
                 echo "" >> website/docs/charts/${train}/${chart}/index.md
                 echo "## Available Documentation" >> website/docs/charts/${train}/${chart}/index.md
                 echo "" >> website/docs/charts/${train}/${chart}/index.md
-                
+
                 # Iterate over all files in the docs directory
-                for file in website/docs/charts/${train}/${chart}/*; do
+                for file in website/docs/charts/${train}/${chart}/*.md; do
                   # Extract the file name and first line from each file
                   filename=$(basename "${file}")
                   title=$(head -n 1 "${file}" | sed 's/# //')
-                  
+
                   # Create a markdown link using the file name and title
                   link="[${title}](/${filename})"
                   if [ ${filename} != "index.md" ]; then
@@ -121,7 +121,7 @@ jobs:
                     echo "${link}" >> website/docs/charts/${train}/${chart}/index.md
                   fi
                 done
-                
+
                 mv -f tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md website/docs/charts/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/icon.png website/static/img/hotlink-ok/chart-icons/${chart}.png 2>/dev/null || :
                 # Append SCALE changelog to actual changelog
