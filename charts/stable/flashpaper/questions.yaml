@@ -88,12 +88,12 @@ questions:
         - variable: PRUNE_MIN_DAYS
           label: Prune Min Days
           schema:
-            type: string
+            type: int
             default: 365
         - variable: PRUNE_MAX_DAYS
           label: Prune Max Days
           schema:
-            type: string
+            type: int
             default: 730
 # Include{containerConfig}
 # Include{serviceRoot}
