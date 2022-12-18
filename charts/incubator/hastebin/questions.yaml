@@ -9,6 +9,158 @@ questions:
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
+ - variable: hastebin
+    group: App Configuration
+    label: HasteBin Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: key_length
+          label: Key Length
+          description: the length of the keys to user.
+          schema:
+            type: int
+            default: 10
+        - variable: max_length
+          label: Max Length
+          description: maximum length of a paste
+          schema:
+            type: int
+            default: 400000
+        - variable: static_max_age
+          label: Static Max Age
+          description: max age for static assets
+          schema:
+            type: int
+            default: 86400
+        - variable: storage_expires_seconds
+          label: Storage Expires Seconds
+          description: Number of seconds to expire keys in.
+          schema:
+            type: int
+            default: 2592000
+        - variable: recompress_static_assets
+          label: Recompress Static Assets
+          description: whether or not to compile static js assets.
+          schema:
+            type: bool
+            default: true
+        - variable: key_gen_type
+          label: Key Gen Type
+          description: Type of key generator.
+          schema:
+            type: string
+            default: "phonetic"
+            enum:
+              - value: "phonetic"
+                description: "Phonetic"
+              - value: "random"
+                description: "Random"
+        - variable: documents
+          label: Documents
+          description: list of static documents to serve
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: docEntry
+                label: Document Entry
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+ - variable: logging
+    group: App Configuration
+    label: Logging Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: level
+          label: Logging Level
+          schema:
+            type: string
+            default: verbose
+        - variable: type
+          label: Logging Type
+          schema:
+            type: string
+            default: Console
+        - variable: colorize
+          label: Logging Colorize
+          schema:
+            type: bool
+            default: true
+ - variable: rate_limits
+    group: App Configuration
+    label: Rate Limits Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: normal_total_requests
+          label: Normal Total Requests
+          description: By default anyone uncategorized will be subject to X requests.
+          schema:
+            type: int
+            default: 500
+        - variable: normal_every_milliseconds
+          label: Normal Every Milliseconds
+          description: The timespan to allow the total requests for uncategorized users.
+          schema:
+            type: int
+            default: 60000
+        - variable: whitelist_total_requests
+          label: Whitelist Total Requests
+          description: By default client names in the whitelist will not have their requests limited.
+          schema:
+            type: int
+            default: -1
+        - variable: whitelist_every_seconds
+          label: Whitelist Every Seconds
+          description: By default client names in the whitelist will not have their requests limited.
+          schema:
+            type: int
+            default: -1
+        - variable: whitelists
+          label: Whitelists
+          description: list of the clients which are in the whitelist pool
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: whitelistEntry
+                label: Whitelist Entry
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+        - variable: whitelist_total_requests
+          label: Whitelist Total Requests
+          description: By default client names in the blacklist will be subject to 0 requests per hours.
+          schema:
+            type: int
+            default: 0
+        - variable: whitelist_every_seconds
+          label: Whitelist Every Seconds
+          description: By default client names in the blacklist will be subject to 0 requests per hours.
+          schema:
+            type: int
+            default: 0
+        - variable: blacklists
+          label: Blacklists
+          description: list of the clients which are in the blacklistpool.
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: blacklistEntry
+                label: blacklist Entry
+                schema:
+                  type: string
+                  required: true
+                  default: ""
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
