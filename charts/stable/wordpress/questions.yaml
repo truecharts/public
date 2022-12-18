@@ -73,7 +73,7 @@ questions:
       type: dict
       attrs:
         - variable: enabled
-          label: Show SMTP Settings
+          label: Enable SMTP
           schema:
             type: boolean
             default: false
@@ -84,10 +84,12 @@ questions:
                 schema:
                   type: string
                   default: ""
+                  required: true
               - variable: port
                 label: SMTP Port
                 schema:
                   type: int
+                  required: true
                   default: 587
               - variable: user
                 label: SMTP User

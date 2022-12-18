@@ -1,0 +1,66 @@
+image:
+  repository: tccr.io/truecharts/briefkasten
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:4bf3e15f5219605c7801ec5d69e64d0d3d80fef41a6a1dcfb36f3ded1f22ae13
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+briefkasten:
+  general:
+    nextauth_url: http://localhost:3000
+  github:
+    id: ""
+    secret: ""
+  google:
+    id: ""
+    secret: ""
+  supabase:
+    key:
+    url:
+    bucket_id:
+  mail:
+    from:
+    server:
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
+  - configMapRef:
+      name: '{{ include "tc.common.names.fullname" . }}-config'
+
+service:
+  main:
+    ports:
+      main:
+        port: 10349
+        protocol: HTTP
+        targetPort: 3000
+
+probes:
+  liveness:
+    enabled: false
+    type: HTTP
+    path: /
+  readiness:
+    enabled: false
+    type: HTTP
+    path: /
+  startup:
+    enabled: false
+    type: HTTP
+    path: /
+
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlUsername: briefkasten
+  postgresqlDatabase: briefkasten
+
+portal:
+  enabled: true
