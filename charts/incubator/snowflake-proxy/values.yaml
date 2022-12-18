@@ -40,7 +40,7 @@ probes:
     spec:
       exec:
         command:
-          - /bin/bash
+          - /bin/sh
           - -c
           - |
             ps -aux | grep -v grep | grep -q proxy || exit 1
@@ -49,7 +49,7 @@ probes:
     spec:
       exec:
         command:
-          - /bin/bash
+          - /bin/sh
           - -c
           - |
             ps -aux | grep -v grep | grep -q proxy || exit 1
@@ -58,7 +58,7 @@ probes:
     spec:
       exec:
         command:
-          - /bin/bash
+          - /bin/sh
           - -c
           - |
             ps -aux | grep -v grep | grep -q proxy || exit 1
