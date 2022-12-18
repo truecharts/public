@@ -18,7 +18,7 @@ args:
   {{- end }}
   {{- with .Values.snowflake.capacity }}
   - "-capacity"
-  - {{ . | quote }}
+  - {{ (int .) | quote }}
   {{- end }}
   {{- if .Values.snowflake.keep_local_addresses }}
   - "-keep-local-addresses"

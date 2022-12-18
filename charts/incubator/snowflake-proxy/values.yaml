@@ -10,12 +10,14 @@ podSecurityContext:
 # securityContext:
 #  readOnlyRootFilesystem: false
 
+hostNetwork: true
+
 snowflake:
-  ephemeral_ports_range: "30000:60000"
-  allow-non_tls_relay: true
+  allow_non_tls_relay: false
   allowed_relay_hostname_pattern: "snowflake.torproject.net$"
   broker: "https://snowflake-broker.torproject.net/"
   capacity: 0
+  ephemeral_ports_range: "599999:60000"
   keep_local_addresses: false
   nat_retest_interval: 24h0m0s
   relay: "wss://snowflake.bamsoftware.com/"
@@ -27,10 +29,10 @@ snowflake:
 
 service:
   main:
+    enabled: false
     ports:
       main:
-        targetPort: 60000
-        port: 30000
+        enabled: false
 
 probes:
   liveness:
