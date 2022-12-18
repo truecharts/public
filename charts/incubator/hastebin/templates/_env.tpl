@@ -17,15 +17,46 @@ data:
   RECOMPRESS_STATIC_ASSETS: {{ .Values.hastebin.recompress_static_assets | quote }}
   KEYGENERATOR_TYPE: {{ .Values.hastebin.key_gen_type | quote }}
 
-  {{/* //TODO */}}
-  DOCUMENTS: {{ .Values.hastebin.documents | quote }}
+  {{- with .Values.hastebin.documents }}
+  DOCUMENTS: {{ join "," . | quote }}
+  {{- end }}
 
   {{/* Logging */}}
   LOGGING_LEVEL: {{ .Values.logging.level | quote }}
   LOGGING_TYPE: {{ .Values.logging.type | quote }}
   LOGGING_COLORIZE: {{ .Values.logging.colorize | quote }}
 
-  {{/* Rate Limits //TODO */}}
+  {{/* Rate Limits */}}
+  RATELIMITS_NORMAL_TOTAL_REQUESTS: {{ .Values.rate_limits.normal_total_requests | quote }}
+  RATELIMITS_NORMAL_EVERY_MILLISECONDS: {{ .Values.rate_limits.normal_every_milliseconds | quote }}
+
+  {{/* if variable is NOT -1, apply the value */}}
+  {{- if not (eq .Values.rate_limits.whitelist_total_requests -1) }}
+  RATELIMITS_WHITELIST_TOTAL_REQUESTS: {{ .Values.rate_limits.whitelist_total_requests | quote }}
+  {{- end }}
+
+  {{/* if variable is NOT -1, apply the value */}}
+  {{- if not (eq .Values.rate_limits.whitelist_every_seconds -1) }}
+  RATELIMITS_WHITELIST_EVERY_SECONDS: {{ .Values.rate_limits.whitelist_every_seconds | quote }}
+  {{- end }}
+
+  {{- with .Values.rate_limits.whitelists }}
+  RATELIMITS_WHITELIST: {{ join "," . | quote }}
+  {{- end }}
+
+  {{/* if variable is NOT -1, apply the value */}}
+  {{- if not (eq .Values.rate_limits.blacklist_total_requests -1) }}
+  RATELIMITS_BLACKLIST_TOTAL_REQUESTS: {{ .Values.rate_limits.blacklist_total_requests | quote }}
+  {{- end }}
+
+  {{/* if variable is NOT -1, apply the value */}}
+  {{- if not (eq .Values.rate_limits.blacklist_every_seconds -1) }}
+  RATELIMITS_BLACKLIST_EVERY_SECONDS: {{ .Values.rate_limits.blacklist_every_seconds | quote }}
+  {{- end }}
+
+  {{- with .Values..rate_limits.blacklists }}
+  RATELIMITS_BLACKLIST: {{ join "," . | quote }}
+  {{- end }}
 ---
 apiVersion: v1
 kind: Secret

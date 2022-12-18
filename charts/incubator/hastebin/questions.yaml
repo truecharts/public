@@ -44,7 +44,7 @@ questions:
           label: Recompress Static Assets
           description: whether or not to compile static js assets.
           schema:
-            type: bool
+            type: boolean
             default: true
         - variable: key_gen_type
           label: Key Gen Type
@@ -62,7 +62,7 @@ questions:
           description: list of static documents to serve
           schema:
             type: list
-            default: []
+            default: ["./about.md","home=./home.md"]
             items:
               - variable: docEntry
                 label: Document Entry
@@ -90,7 +90,7 @@ questions:
         - variable: colorize
           label: Logging Colorize
           schema:
-            type: bool
+            type: boolean
             default: true
  - variable: rate_limits
     group: App Configuration
