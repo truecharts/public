@@ -29,14 +29,14 @@ persistence:
     mountPath: /home/pi/pialert/config
   db:
     enabled: true
-    mountPath: /home/pi/pialert/db/pialert.db
+    mountPath: /home/pi/pialert/db
 
 installContainers:
   createdb:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
       - name: db
-        mountPath: /home/pi/pialert/db/
+        mountPath: /home/pi/pialert/db
     command: ["/bin/sh", "-c"]
     args:
       - |-
