@@ -1,0 +1,43 @@
+image:
+  repository: tccr.io/truecharts/soft-serve
+  pullPolicy: IfNotPresent
+  tag: 0.4.4@sha256:758d04854964a10967c0895e3abca055ad569c8630664e3efe5907003c1647fc
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+secretEnv:
+  SOFT_SERVE_INITIAL_ADMIN_KEY: "test123"
+
+env:
+  SOFT_SERVE_BIND_ADDRESS: 0.0.0.0
+  SOFT_SERVE_PORT: "{{ .Values.service.main.ports.main.port}}"
+  SOFT_SERVE_HOST: "http://localhost"
+  SOFT_SERVE_KEY_PATH: /.ssh
+  SOFT_SERVE_REPO_PATH: /.repos
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        port: 23231
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /soft-serve
+  ssh:
+    enabled: true
+    mountPath: /.ssh
+  repos:
+    enabled: true
+    mountPath: /.repos
+
+portal:
+  enabled: true
