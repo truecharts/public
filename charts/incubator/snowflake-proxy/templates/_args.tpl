@@ -2,35 +2,42 @@
 {{- define "snowflake.args" -}}
 args:
   {{- with .Values.snowflake.ephemeral_ports_range }}
-  - "-ephemeral_ports_range"
-  - "{{ . }}"
+  - "-ephemeral-ports-range"
+  - {{ . | quote }}
   {{- end }}
   {{- if .Values.snowflake.allow_non_tls_relay }}
   - "-allow-non-tls-relay"
   {{- end }}
   {{- with .Values.allowed_relay_hostname_pattern }}
-  - "-allowed-relay-hostname-pattern {{ . }}"
+  - "-allowed-relay-hostname-pattern"
+  - {{ . | quote }}
   {{- end }}
   {{- with .Values.snowflake.broker }}
-  - "-broker {{ . }}"
+  - "-broker"
+  - {{ . | quote }}
   {{- end }}
   {{- with .Values.snowflake.capacity }}
-  - "-capacity {{ int . }}"
+  - "-capacity"
+  - {{ int . | quote }}
   {{- end }}
   {{- if .Values.snowflake.keep_local_addresses }}
   - "-keep-local-addresses"
   {{- end }}
   {{- with .Values.snowflake.nat_retest_interval }}
-  - "-nat-retest-interval {{ . }}"
+  - "-nat-retest-interval"
+  - {{ . | quote }}
   {{- end }}
   {{- with .Values.snowflake.relay }}
-  - "-relay {{ . }}"
+  - "-relay"
+  - {{ . | quote }}
   {{- end }}
   {{- with .Values.snowflake.stun }}
-  - "-stun {{ . }}"
+  - "-stun"
+  - {{ . | quote }}
   {{- end }}
   {{- with .Values.snowflake.summary_interval }}
-  - "-summary-interval {{ . }}"
+  - "-summary-interval"
+  - {{ . | quote }}
   {{- end }}
   {{- with .Values.snowflake.unsafe_logging }}
   - "-unsafe-logging"
@@ -39,6 +46,7 @@ args:
   - "-verbose"
   {{- end }}
   {{- with .Values.snowflake.log }}
-  - "-log {{ . }}"
+  - "-log"
+  - {{ . | quote }}
   {{- end }}
 {{- end -}}
