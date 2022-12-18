@@ -3,6 +3,14 @@ image:
   pullPolicy: IfNotPresent
   tag: 0.0.15@sha256:064641b965fb34cf77a2ea6cb89f455b04aec25b50f669871957b0927d1b7088
 
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
 secretEnv:
   GOOGLE_SEARCH_KEY: key
   GOOGLE_SEARCH_CX: projectId
