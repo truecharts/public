@@ -1,18 +1,15 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Cloud
-    - Productivity
-    - Tools-Utilities
-    - Network-Other
 apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 11.0.7
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 8.0.48
 deprecated: false
-description: "Alpine-based Chart for Hastebin, the node.js paste service  "
+description: Open Source pastebin software written in node.js.
 home: https://truecharts.org/docs/charts/incubator/hastebin
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/hastebin.png
 keywords:
@@ -32,4 +29,12 @@ sources:
   - https://github.com/nzzane/haste-server
   - https://hub.docker.com/r/flippinturt/hastebin
 type: application
-version: 2.0.3
+version: 2.0.4
+annotations:
+  truecharts.org/catagories: |
+    - Cloud
+    - Productivity
+    - Tools-Utilities
+    - Network-Other
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
