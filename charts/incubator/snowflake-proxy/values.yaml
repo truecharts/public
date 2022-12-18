@@ -3,10 +3,14 @@ image:
   pullPolicy: IfNotPresent
   tag: 2.4.1@sha256:aec084e33088c8a8192940aa61d3ff52df91816c4a9465eee6f13c3fdb2e31fd
 
-securityContext:
-  readOnlyRootFilesystem: false
+podSecurityContext:
+  runAsUser: 1000
+  runAsGroup: 1000
 
-command:
+# securityContext:
+#  readOnlyRootFilesystem: false
+
+args:
   - "-ephemeral-ports-range"
   - "30000:60000"
 
