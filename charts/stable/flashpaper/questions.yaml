@@ -39,7 +39,7 @@ questions:
           label: Messages Error Secret Too Long
           schema:
             type: string
-            default: Input length too long
+            default: Input length Too long
         - variable: MESSAGES_SUBMIT_SECRET_HEADER
           label: Messages Submit Secret Header
           schema:
@@ -49,7 +49,7 @@ questions:
           label: MESSAGES_SUBMIT_SECRET_SUBHEADER
           schema:
             type: string
-            default:
+            default: ""
         - variable: MESSAGES_SUBMIT_SECRET_BUTTON
           label: Messages Submit Secret Button
           schema:
