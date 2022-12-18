@@ -1,0 +1,52 @@
+image:
+  repository: jokobsk/pi.alert
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:b7ef9d403d011d58170573a56cecd5b5bd4b67415369cd2e8a93f364b3fc78b2
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  HOST_USER_ID: "{{ .Values.podSecurityContext.runAsUser }}"
+  HOST_USER_GID: "{{ .Values.podSecurityContext.runAsGroup }}"
+  PORT: "{{ .Values.service.main.ports.main.port}}"
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        port: 10600
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /home/pi/pialert/config
+  db:
+    enabled: true
+    mountPath: /home/pi/pialert/db/pialert.db
+
+installContainers:
+  createdb:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: db
+        mountPath: /home/pi/pialert/db/
+    command: ["/bin/sh", "-c"]
+    args:
+      - |-
+        echo "Creating pialert.db file..."
+        if [ -f /home/pi/pialert/db/pialert.db ]; then
+          echo "db file exists!, Skipping..."
+        else
+          echo "db file is missing, getting a new one!"
+          curl -fLvo /home/pi/pialert/db/pialert.db https://raw.githubusercontent.com/jokob-sk/Pi.Alert/main/db/pialert.db || ( echo "Downloading config file, FAILED..." && exit 1 )
+        fi
+
+portal:
+  enabled: true
