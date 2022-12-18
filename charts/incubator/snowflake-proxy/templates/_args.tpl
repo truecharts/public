@@ -2,7 +2,8 @@
 {{- define "snowflake.args" -}}
 args:
   {{- with .Values.snowflake.ephemeral_ports_range }}
-  - "-ephemeral_ports_range {{ . }}"
+  - "-ephemeral_ports_range"
+  - "{{ . }}"
   {{- end }}
   {{- if .Values.snowflake.allow_non_tls_relay }}
   - "-allow-non-tls-relay"
