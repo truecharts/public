@@ -40,28 +40,22 @@ probes:
     spec:
       exec:
         command:
-          - /bin/sh
-          - -c
-          - |
-            ps -aux | grep -v grep | grep -q proxy || exit 1
+          - /bin/proxy
+          - -version
   readiness:
     custom: true
     spec:
       exec:
         command:
-          - /bin/sh
-          - -c
-          - |
-            ps -aux | grep -v grep | grep -q proxy || exit 1
+          - /bin/proxy
+          - -version
   startup:
     custom: true
     spec:
       exec:
         command:
-          - /bin/sh
-          - -c
-          - |
-            ps -aux | grep -v grep | grep -q proxy || exit 1
+          - /bin/proxy
+          - -version
 
 portal:
   enabled: false
