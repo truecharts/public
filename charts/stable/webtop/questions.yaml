@@ -15,18 +15,18 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: SUBFOLDER
-          label: SUBFOLDER
-          description: Specify a subfolder to use with reverse proxies, IE `subfolder`
+        - variable: TITLE
+          label: TITLE
+          description: String which will be used as page/tab title in the web browser.
           schema:
             type: string
-            default: ""
+            default: Webtop
         - variable: KEYBOARD
           label: KEYBOARD
-          description: See the keyboard layouts section for more information and options.
+          description: See the keyboard layouts in https://docs.linuxserver.io/images/docker-webtop#application-setup
           schema:
             type: string
-            default: ""
+            default: en-us-qwerty
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
