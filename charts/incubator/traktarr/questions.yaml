@@ -6,21 +6,21 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: env
+  - variable: trakrarr
     group: App Configuration
-    label: Image Environment
+    label: Traktarr Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: DELAY
+        - variable: delay
           label: Delay
           description: (FLOAT) Seconds between each add request to ARR services.
           schema:
             type: string
             default: "2.5"
             valid_charts: ^\d+\.\d+$
-        - variable: SORT
+        - variable: sort
           label: Sort
           description: Votes or rating or release, sort list to process
           schema:
@@ -33,62 +33,37 @@ questions:
                 description: "Votes"
               - value: "release"
                 description: "Release"
-        - variable: NOSEARCH
+        - variable: nosearch
           label: No Search
           description: Disable search when adding to ARR services.
           schema:
-            type: string
-            default: "yes"
-            enum:
-              - value: "yes"
-                description: "Yes"
-              - value: "no"
-                description: "No"
-        - variable: NOTIFICATIONS
+            type: boolean
+            default: true
+        - variable: notifications
           label: Notifications
           description: Disable notifications
           schema:
-            type: string
-            default: "yes"
-            enum:
-              - value: "yes"
-                description: "Yes"
-              - value: "no"
-                description: "No"
-        - variable: BLACKLIST
+            type: boolean
+            default: true
+        - variable: blackist
           label: Black List
           description: Enables/disables the blacklist when running app.
           schema:
-            type: string
-            default: "yes"
-            enum:
-              - value: "yes"
-                description: "Yes"
-              - value: "no"
-                description: "No"
-        - variable: RUNNOW
+            type: boolean
+            default: true
+        - variable: runnow
           label: Run Now
           description: Do a first run immediately without waiting.
           schema:
-            type: string
-            default: "yes"
-            enum:
-              - value: "yes"
-                description: "Yes"
-              - value: "no"
-                description: "No"
-        - variable: SKIPUPDATE
+            type: boolean
+            default: false
+        - variable: skipupdate
           label: Skip Update
           description: Skip auto-update
           schema:
-            type: string
-            default: "yes"
-            enum:
-              - value: "yes"
-                description: "Yes"
-              - value: "no"
-                description: "No"
-        - variable: APP_BRANCH
+            type: boolean
+            default: true
+        - variable: app_branch
           label: App Branch
           description: GitHub branch.
           schema:
