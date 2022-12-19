@@ -126,9 +126,16 @@ ixCertificates: []
 # Injected from middleware
 ixVolumes: []
 
+portal:
+  enabled: true
+
 # - Everything bellow needs documentation
 
 global:
+  nameOverride: ""
+  fullnameOverride: ""
+  annotations: {}
+  labels: {}
   defaults:
     # If not defined on the the cert item, assume this
     useRevokedCerts: false
@@ -162,20 +169,6 @@ global:
     defaultStorageClass:
     # When SCALE-ZFS is set for storageClass, return this name
     scaleZFSStorageClass:
-  nameOverride: ""
-  fullnameOverride: ""
-  annotations: {}
-  labels: {}
-
-portal:
-  # Whether to generate portal configMaps
-  enabled: true
-  # main:
-  #   main:
-  #     path: /somepath
-  #     port: 123
-  #     protocol: http
-  #     host: blabla
 
 nameOverride: ""
 
@@ -281,6 +274,24 @@ service:
         # -- Specify the nodePort value NodePort service types.
         # [[ref]](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
         nodePort:
+
+configmap: {}
+  # someName:
+  #   enabled: true
+  #   labels: {}
+  #   annotations: {}
+  #   nameOverride: ""
+    # Tells to common that this contains environment variables
+    # So it wil be checked for duplicates among `env` `envList` and fixedEnvs
+    # also content can be key/value pairs
+    # parseAsEnv: true
+    ## Key/Value
+    # content:
+      # key: value
+    ## Or yaml scalar
+    # content:
+    #   someKey: |
+    #     configmap content
 
 persistence: {}
 # TODO: Discuss if we are going to add defaults like:

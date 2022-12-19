@@ -3,20 +3,23 @@
   {{- $root := .root -}}
   {{- $fixedEnv := .fixedEnv -}}
 
+  {{- $dupeCheck := dict -}}
+
   {{- with $envs -}}
     {{- range $k, $v := . -}}
       {{- $name := $k -}}
       {{- $value := $v -}}
+
       {{- if kindIs "int" $name -}}
         {{- fail "Environment Variables as a list is not supported. Use key-value format." -}}
-      {{- end -}}
-      {{- include "ix.v1.common.container.envFixed.checkDuplicate" (dict "checkEnvs" $fixedEnv "key" $name "holderKey" "env") }}
+      {{- end }}
 - name: {{ $name | quote }}
       {{- if not (kindIs "map" $value) -}}
         {{- if kindIs "string" $value -}} {{/* Single values are parsed as string (eg. int, bool) */}}
           {{- $value = tpl $value $root -}} {{/* Expand Value */}}
         {{- end }}
   value: {{ $value | quote }}
+        {{- $_ := set $dupeCheck $name $value -}}
       {{- else if kindIs "map" $value -}} {{/* If value is a dict... */}}
         {{- if hasKey $value "valueFrom" -}}
           {{- fail "Please remove <valueFrom> and use directly configMapKeyRef or secretKeyRef" -}}
@@ -47,5 +50,6 @@
       key: {{ tpl (required (printf "<key> for the keyRef is not defined in (%s)" $name) $value.key) $root }}
       {{- end -}}
     {{- end -}}
+    {{- include "ix.v1.common.util.storeEnvsForCheck" (dict "root" $root "source" "env" "data" $dupeCheck) -}}
   {{- end -}} {{/* Finish env */}}
 {{- end -}}

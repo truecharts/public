@@ -23,7 +23,7 @@
 
       {{- if $data -}}
         {{/* Create the ConfigMap */}}
-        {{- include "ix.v1.common.class.configmap" (dict "root" $root "configName" "portal" "type" "portal" "data" $data) -}}
+        {{- include "ix.v1.common.class.configmap" (dict "root" $root "configName" "portal" "type" "key_value" "data" $data) -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}

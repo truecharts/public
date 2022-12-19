@@ -25,5 +25,6 @@ will be parsed correctly without causing errors.
   {{- if or ($root.Values.securityContext.readOnlyRootFilesystem) ($root.Values.securityContext.runAsNonRoot) -}} {{/* Mainly for LSIO containers, tell S6 to avoid using rootfs */}}
     {{- $vars = mustAppend $vars (dict "name" "S6_READ_ONLY_ROOT" "value" "1") -}}
   {{- end -}}
+  {{- include "ix.v1.common.util.storeEnvsForCheck" (dict "root" $root "source" "fixedEnv" "data" (toJson $vars)) -}}
   {{- toJson $vars -}} {{/* Helm can only return "string", so we stringify the output */}}
 {{- end -}}

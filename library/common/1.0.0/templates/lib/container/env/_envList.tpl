@@ -4,6 +4,7 @@
   {{- $root := .root -}}
   {{- $fixedEnv := .fixedEnv -}}
 
+  {{- $dupeCheck := dict -}}
   {{- with $envList -}}
     {{- range $envList -}}
       {{- if and .name .value -}}
@@ -13,13 +14,15 @@
         {{- if mustHas (kindOf .value) (list "map" "slice") -}}
           {{- fail "Value in envList cannot be a map or slice" -}}
         {{- end -}}
-        {{- include "ix.v1.common.container.envFixed.checkDuplicate" (dict "checkEnvs" $fixedEnv "key" .name "holderKey" "envList") -}}
-        {{- include "ix.v1.common.container.env.checkDuplicate" (dict "checkEnvs" $envs "key" .name) }}
-- name: {{ tpl .name $root }}
-  value: {{ tpl .value $root | quote }}
+        {{- $name := tpl .name $root -}}
+        {{- $value := tpl .value $root }}
+- name: {{ $name }}
+  value: {{ $value | quote }}
+        {{- $_ := set $dupeCheck $name $value -}}
       {{- else -}}
         {{- fail "Please specify both name and value for environment variable" -}}
       {{- end -}}
     {{- end -}}
+    {{- include "ix.v1.common.util.storeEnvsForCheck" (dict "root" $root "source" "envList" "data" $dupeCheck) -}}
   {{- end -}} {{/* Finish envList */}}
 {{- end -}}
