@@ -32,3 +32,5 @@ data:
     {{- fail (printf "Invalid type (%s) for configmap. Valid types are scalar and key_value" $type) -}}
   {{- end -}}
 {{- end -}}
+
+{{/* TODO: Unit tests*/}}
