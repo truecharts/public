@@ -36,6 +36,7 @@ data:
   {{- end -}}
 {{- end -}}
 {{/*
+TODO:
 Current "bugs", you can't disable per port portal,
 if port protocol is not HTTP or HTTPS,
 it will still create an HTTP portal.
