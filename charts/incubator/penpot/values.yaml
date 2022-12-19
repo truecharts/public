@@ -73,7 +73,7 @@ penpot:
 
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-penpot-secret'
+      name: '{{ include "tc.common.names.fullname" . }}-common-secret'
 
 probes:
   liveness:
