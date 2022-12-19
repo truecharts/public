@@ -1,0 +1,30 @@
+image:
+  repository: towfiqi/serpbear
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:09d962f84ebf85c8a033a524954ff198a7513afc5c86ecefce56b0b580350693
+
+secretEnv:
+  USER: "admin"
+  PASSWORD: "1234567"
+  SECRET: ""
+  APIKEY: ""
+
+env:
+  SESSION_DURATION: 24
+  NEXT_PUBLIC_APP_URL: "http://localhost:10605"
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 3000
+        port: 10605
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data
+
+portal:
+  enabled: true

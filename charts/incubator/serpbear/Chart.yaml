@@ -1,0 +1,30 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 11.0.7
+deprecated: false
+description: Search Engine Position Tracking App.
+home: https://truecharts.org/docs/charts/incubator/serpbear
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/serpbear.png
+keywords:
+  - serpbear
+  - metrics
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: serpbear
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/serpbear
+  - https://github.com/Sanster/lama-cleaner
+  - https://hub.docker.com/r/towfiqi/serpbear
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - metrics
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
