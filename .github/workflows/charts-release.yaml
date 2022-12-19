@@ -122,7 +122,7 @@ jobs:
                   title=$(head -n 1 "${file}" | sed 's/# //')
 
                   # Create a markdown link using the file name and title
-                  link="[${title}](charts/${train}/${chart}/${filename})"
+                  link="[${title}](charts/${train}/${chart}/${filename%.md})"
                   if [ ${filename} != "index.md" ]; then
                     # Append the link to the index.md file
                     echo "${link}" >> website/docs/charts/${train}/${chart}/index.md
