@@ -14,10 +14,10 @@ exporterImage:
   pullPolicy: IfNotPresent
   tag: latest@sha256:e5c8d7b78feae9997a11bf6b7281aa19907a799c97d76b8d46e0caa7a349fc3f
 
-podSecurityContext:
+securityContext:
   runAsNonRoot: false
 
-securityContext:
+podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
