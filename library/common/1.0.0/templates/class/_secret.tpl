@@ -3,8 +3,8 @@
   {{- $data := .data -}}
   {{- $type := .type -}}
   {{- $root := .root -}}
-  {{- $typeClass := "" -}}
 
+  {{- $typeClass := "" -}}
   {{- if eq $type "certificate" -}}
     {{- $typeClass = (include "ix.v1.common.capabilities.secret.certificate.type" $root) -}}
   {{- else if eq $type "pullSecret" -}}
@@ -33,7 +33,7 @@ data:
   .dockerconfigjson: {{ $data | toJson | b64enc }}
   {{- else if eq $type "certificate" -}}
     {{- range $k, $v := $data }}
-      {{ $k }}: {{ $v | toString | b64enc }}
+      {{- $k | nindent 2 }}: {{ $v | toString | b64enc }}
     {{- end -}}
   {{- end -}}
 {{- end -}}

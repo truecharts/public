@@ -34,7 +34,7 @@
     {{- $_ := set $certData $tlsCrtKey (include "ix.v1.common.certificate.get" (dict "root" $root "cert" $cert "key" "certificate")) -}}
     {{- $_ := set $certData $tlsPrivateKey (include "ix.v1.common.certificate.get" (dict "root" $root "cert" $cert "key" "privatekey")) -}}
 
-    {{/* Create the secret */}}
+    {{/* Create the Secret */}}
     {{- include "ix.v1.common.class.secret" (dict "root" $root "secretName" $secretName "data" $certData "type" "certificate") -}}
   {{- end -}}
 {{- end -}}
