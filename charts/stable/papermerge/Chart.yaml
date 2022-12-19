@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: papermerge
-version: 6.0.9
+version: 6.0.10
 appVersion: "2.0.1"
 description: Papermerge is an open source document management system (DMS) primarily designed for archiving and retrieving your digital documents.
 type: application
@@ -16,11 +16,11 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.0.9
   - condition: redis.enabled
     name: redis
     repository: https://charts.truecharts.org
-    version: 5.0.16
+    version: 5.0.17
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
