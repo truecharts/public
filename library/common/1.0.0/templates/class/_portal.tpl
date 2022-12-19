@@ -1,3 +1,4 @@
+{{/* A placeholder is added, just to avoid having an empty configmap */}}
 {{- define "ix.v1.common.class.portal" -}}
   {{- $root := .root -}}
 
@@ -35,11 +36,3 @@ data:
     {{- end -}}
   {{- end -}}
 {{- end -}}
-{{/*
-TODO:
-Current "bugs", you can't disable per port portal,
-if port protocol is not HTTP or HTTPS,
-it will still create an HTTP portal.
-A placeholder is added, just to avoid having
- an empty configmap
-*/}}

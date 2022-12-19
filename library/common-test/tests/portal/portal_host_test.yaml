@@ -53,6 +53,33 @@ tests:
           content:
             host-main-main: $node_ip
 
+  - it: should pass with LoadBalancer and IP set on single service/port
+    documentIndex: &portalDoc 2
+    set:
+      service:
+        main:
+          enabled: true
+          type: LoadBalancer
+          loadBalancerIP: 10.10.10.100
+          ports:
+            main:
+              enabled: true
+              port: 10000
+              protocol: HTTP
+              targetPort: 80
+    asserts:
+      - isKind:
+          of: ConfigMap
+      - isAPIVersion:
+          of: v1
+      - equal:
+          path: metadata.name
+          value: portal
+      - isSubset:
+          path: data
+          content:
+            host-main-main: "10.10.10.100"
+
   - it: should pass with host override on single service/port
     documentIndex: *portalDoc
     set:

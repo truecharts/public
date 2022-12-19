@@ -8,7 +8,7 @@
   {{- $portalProtocol := "http" -}}
 
   {{- if $port.protocol -}}
-    {{- if (has $port.protocol (list "HTTP" "HTTPS")) -}}
+    {{- if (mustHas $port.protocol (list "HTTP" "HTTPS")) -}}
       {{ $portalProtocol = ($port.protocol | lower) }}
     {{- end -}}
   {{- end -}}
