@@ -293,6 +293,24 @@ configmap: {}
     #   someKey: |
     #     configmap content
 
+secret: {}
+  # someName:
+  #   enabled: true
+  #   labels: {}
+  #   annotations: {}
+  #   nameOverride: ""
+    # Tells to common that this contains environment variables
+    # So it wil be checked for duplicates among `env` `envList` and fixedEnvs
+    # also content can be key/value pairs
+    # parseAsEnv: true
+    ## Key/Value
+    # content:
+      # key: value
+    ## Or yaml scalar
+    # content:
+    #   someKey: |
+    #     configmap content
+
 persistence: {}
 # TODO: Discuss if we are going to add defaults like:
   # - /dev/shm

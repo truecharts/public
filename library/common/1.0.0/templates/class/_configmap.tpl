@@ -26,7 +26,7 @@ data:
     {{- range $k, $v := $data }}
       {{- $k | nindent 2 }}: {{ $v }}
     {{- end -}}
-  {{- else if eq $type "scalar" -}}
+  {{- else if eq $type "scalar" }}
     {{- $data | nindent 2 }}
   {{- else -}}
     {{- fail (printf "Invalid type (%s) for configmap. Valid types are scalar and key_value" $type) -}}
