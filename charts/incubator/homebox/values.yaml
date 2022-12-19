@@ -1,0 +1,45 @@
+image:
+  repository: ghcr.io/hay-kot/homebox
+  pullPolicy: IfNotPresent
+  tag: v0.6.0@sha256:06691e25e5f7d2d6a47c5956326d906402aaca4290e801830784accf58cd460e
+
+secretEnv:
+  HBOX_MAILER_USERNAME: ""
+  HBOX_MAILER_PASSWORD: ""
+
+env:
+  HBOX_WEB_PORT: "{{ .Values.service.main.ports.main.port }}"
+  HBOX_WEB_HOST: ""
+  HBOX_WEB_MAX_UPLOAD_SIZE: 10
+  HBOX_MODE: production
+
+  HBOX_SWAGGER_HOST: "{{ .Values.service.main.ports.main.port }}"
+  HBOX_SWAGGER_SCHEMA: http
+
+  HBOX_OPTIONS_ALLOW_REGISTRATION: true
+  HBOX_OPTIONS_AUTO_INCREMENT_ASSET_ID: true
+
+  HBOX_STORAGE_DATA: /config
+  HBOX_STORAGE_SQLITE_URL: /config/homebox.db?_fk=1
+
+  HBOX_LOG_LEVEL: info
+  HBOX_LOG_FORMAT: text
+
+  HBOX_MAILER_HOST: ""
+  HBOX_MAILER_PORT: 587
+  HBOX_MAILER_FROM: ""
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        port: 10603
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+
+portal:
+  enabled: true
