@@ -3,7 +3,7 @@ appVersion: "1.73.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.0.9
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
@@ -25,7 +25,7 @@ name: synapse
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/synapse
 type: application
-version: 7.0.12
+version: 7.0.13
 annotations:
   truecharts.org/catagories: |
     - cloud
