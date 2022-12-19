@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: "1.1.0"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 11.0.7
+deprecated: false
+description: AIO Prometheus Exporter for ARR apps.
+home: https://truecharts.org/docs/charts/incubator/exportarr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/metrics.png
+keywords:
+  - exportarr
+  - metrics
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: exportarr
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/exportarr
+  - https://github.com/onedr0p/exportarr
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - metrics
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

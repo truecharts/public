@@ -1,0 +1,141 @@
+# Include{groups}
+portals:
+  open:
+# Include{portalLink}
+questions:
+# Include{global}
+# Include{controller}
+# Include{replicas}
+# Include{replica1}
+# Include{controllerExpertExtraArgs}
+  - variable: secretEnv
+    group: App Configuration
+    label: Image Secrets
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: BASIC_AUTH_USERNAME
+          label: Basic Auth UserName
+          description: Optionally set your basic auth username.
+          schema:
+            type: string
+            default: ""
+        - variable: BASIC_AUTH_PASSWORD
+          label: Basic Auth PASSWORD
+          description: Optionally set your basic auth password.
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: APIKEY
+          label: API Key
+          description: API Key for the ARR app.
+          schema:
+            type: string
+            private: true
+            required: true
+            default: ""
+  - variable: env
+    group: App Configuration
+    label: Image Environment
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: URL
+          label: URL
+          description: The full URL for the ARR app.
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: ENABLE_ADDITIONAL_METRICS
+          label: Enable Additional Metrics
+          description: Enable gathering of additional metrics (slow).
+          schema:
+            type: boolean
+            default: false
+        - variable: ENABLE_UNKNOWN_QUEUE_ITEMS
+          label: Enable Unknown Queue Items
+          description: Enable gathering unknown queue items.
+          schema:
+            type: boolean
+            default: false
+# Include{containerConfig}
+# Include{serviceRoot}
+        - variable: main
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: main
+                      label: Main Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 10602
+                              required: true
+# Include{serviceExpertRoot}
+            default: false
+# Include{serviceExpert}
+# Include{serviceList}
+# Include{persistenceList}
+# Include{security}
+# Include{securityContextAdvancedRoot}
+              - variable: privileged
+                label: Privileged mode
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: ReadOnly Root Filesystem
+                schema:
+                  type: boolean
+                  default: true
+              - variable: allowPrivilegeEscalation
+                label: Allow Privilege Escalation
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: runAsNonRoot
+                schema:
+                  type: boolean
+                  default: true
+# Include{podSecurityContextRoot}
+        - variable: runAsUser
+          label: runAsUser
+          description: The UserID of the user running the application
+          schema:
+            type: int
+            default: 568
+        - variable: runAsGroup
+          label: runAsGroup
+          description: The groupID this App of the user running the application
+          schema:
+            type: int
+            default: 568
+        - variable: fsGroup
+          label: fsGroup
+          description: The group that should own ALL storage.
+          schema:
+            type: int
+            default: 568
+# Include{podSecurityContextAdvanced}
+# Include{resources}
+# Include{advanced}
+# Include{addons}
+# Include{codeserver}
+# Include{vpn}
+# Include{documentation}
