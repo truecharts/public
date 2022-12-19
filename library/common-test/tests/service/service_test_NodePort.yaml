@@ -12,6 +12,18 @@ tests:
       - isKind:
           of: Deployment
 
+  - it: should fail with nodePort less than the minimum allowed
+    set:
+      service:
+        main:
+          type: NodePort
+          ports:
+            main:
+              nodePort: 8999
+    asserts:
+      - failedTemplate:
+          errorMessage: Port number (8999) for (main) is too low. The minimum port for Node Port is (9000)
+
   - it: should pass with correct apiVersion
     documentIndex: &serviceDoc 1
     asserts:

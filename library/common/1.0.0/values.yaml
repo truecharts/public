@@ -140,6 +140,8 @@ global:
     defaultProbeType: TCP
     # If no port Protocol is defined, assume this
     defaultPortProtocol: TCP
+    # Define the minimum NodePort
+    minimumNodePort: 9000
     # If no service Type is defined, assume this
     defaultServiceType: ClusterIP
     # If no PVC Size is defined, assume this
