@@ -33,6 +33,6 @@
         {{- end -}}
       {{- end -}}
     {{- end -}}
-  {{- end }}
-{{ $portalPort }}
+  {{- end -}}
+{{- $portalPort -}}
 {{- end -}}

@@ -22,6 +22,6 @@
         {{- end -}}
       {{- end -}}
     {{- end -}}
-  {{- end }}
-{{ $portalPath }}
+  {{- end -}}
+{{- $portalPath -}}
 {{- end -}}

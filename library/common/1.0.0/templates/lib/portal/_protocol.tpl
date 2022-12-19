@@ -29,6 +29,6 @@
         {{- end -}}
       {{- end -}}
     {{- end -}}
-  {{- end }}
-{{ $portalProtocol }}
+  {{- end -}}
+{{- $portalProtocol -}}
 {{- end -}}

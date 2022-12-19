@@ -29,6 +29,6 @@
         {{- end -}}
       {{- end -}}
     {{- end -}}
-  {{- end }}
-{{ $portalHost }}
+  {{- end -}}
+{{- $portalHost -}}
 {{- end -}}
