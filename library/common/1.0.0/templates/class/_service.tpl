@@ -26,7 +26,7 @@
     {{- end -}}
   {{- end -}}
 
-  {{- $primaryPort := get $svcValues.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "values" $svcValues "svcName" $svcName)) }}
+  {{- $primaryPort := get $svcValues.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "svcValues" $svcValues "svcName" $svcName)) }}
 ---
 apiVersion: {{ include "ix.v1.common.capabilities.service.apiVersion" $root }}
 kind: Service

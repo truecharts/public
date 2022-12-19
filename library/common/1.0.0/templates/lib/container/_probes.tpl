@@ -10,7 +10,7 @@
   {{- $defaultProbeType := $root.Values.global.defaults.defaultProbeType -}}
 
   {{- if $primaryService -}}
-    {{- $primaryPort = get $primaryService.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "values" $primaryService "svcName" $primarySeriviceName)) -}}
+    {{- $primaryPort = get $primaryService.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "svcValues" $primaryService "svcName" $primarySeriviceName)) -}}
   {{- end -}}
 
   {{- range $probeName, $probe := $probes -}}

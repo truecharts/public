@@ -2,8 +2,11 @@
 {{/* Return the primary port for a given Service object. */}}
 {{- define "ix.v1.common.lib.util.service.ports.primary" -}}
   {{- $svcName := .svcName -}}
+  {{- $svcValues := .svcValues -}}
+
   {{- $enabledPorts := dict -}}
-  {{- range $name, $port := .values.ports -}}
+
+  {{- range $name, $port := $svcValues.ports -}}
     {{- if $port.enabled -}}
       {{- $_ := set $enabledPorts $name $port -}}
     {{- end -}}
