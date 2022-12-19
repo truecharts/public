@@ -25,7 +25,7 @@ tests:
           value: kubernetes.io/tls
       - equal:
           path: metadata.name
-          value: RELEASE-NAME-common-test-cert_name-ixcert-1-0
+          value: RELEASE-NAME-common-test-cert-name-ixcert-1-0
       - isNotEmpty:
           path: data.tls\.crt
       - isNotEmpty:

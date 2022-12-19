@@ -75,7 +75,7 @@ tests:
           value: kubernetes.io/tls
       - equal:
           path: metadata.name
-          value: RELEASE-NAME-common-test-cert_name-ixcert-1-0
+          value: RELEASE-NAME-common-test-cert-name-ixcert-1-0
       - isNotEmpty:
           path: data.tls\.crt
       - isNotEmpty:
@@ -104,7 +104,7 @@ tests:
           value: kubernetes.io/tls
       - equal:
           path: metadata.name
-          value: RELEASE-NAME-common-test-cert_name-ixcert-1-1
+          value: RELEASE-NAME-common-test-cert-name-ixcert-1-1
       - isNotEmpty:
           path: data.tls\.crt
       - isNotEmpty:
@@ -134,7 +134,7 @@ tests:
           value: kubernetes.io/tls
       - equal:
           path: metadata.name
-          value: RELEASE-NAME-common-test-name_override-ixcert-1-1
+          value: RELEASE-NAME-common-test-name-override-ixcert-1-1
       - isNotEmpty:
           path: data.tls\.crt
       - isNotEmpty:
@@ -254,7 +254,7 @@ tests:
           value: kubernetes.io/tls
       - equal:
           path: metadata.name
-          value: RELEASE-NAME-common-test-cert_name2-ixcert-2-0
+          value: RELEASE-NAME-common-test-cert-name2-ixcert-2-0
       - isNotEmpty:
           path: data.tls\.crt
       - isNotEmpty:
