@@ -1,0 +1,37 @@
+image:
+  repository: tccr.io/truecharts/jackett
+  pullPolicy: IfNotPresent
+  tag: 0.20.2297@sha256:4de1541011cb56935ba5a8e28a58f6cbcf62a903393dc94581eda0b6e2aa117c
+
+secretEnv:
+  TOKEN: ""
+  CHATID: ""
+
+env:
+  DELAY: 600
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /app/config
+  blackhole:
+    enabled: true
+    mountPath: /app/blackhole
+
+portal:
+  enabled: false
