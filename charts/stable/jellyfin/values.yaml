@@ -24,6 +24,10 @@ persistence:
     enabled: true
     mountPath: "/cache"
     type: "emptyDir"
+  transcode:
+    enabled: true
+    mountPath: "/config/transcode"
+    type: "emptyDir"
 
 portal:
   enabled: true
