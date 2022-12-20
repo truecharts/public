@@ -11,6 +11,8 @@ function cleanup {
     echo "🧹 Cleaning up charts..."
     rm -r "$common_test_path/charts"
     rm  "$common_test_path/Chart.lock"
+    # Clean snapshots
+    rm -r "$common_test_path/**/__snapshot__" 2> /dev/null
   fi
 }
 

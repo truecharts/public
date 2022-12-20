@@ -2,15 +2,15 @@
   {{- $secretName := .secretName -}}
   {{- $data := .data -}}
   {{- $contentType := .contentType -}}
-  {{- $secretType := .secretType -}}
+  {{- $secretType := .secretType -}} {{/* Optional */}}
   {{- $secretLabels := .labels -}}
   {{- $secretAnnotations := .annotations -}}
   {{- $root := .root -}}
 
-  {{- $typeClass := "Opaque" -}}
-  {{- if eq $contentType "certificate" -}}
+  {{- $typeClass := "Opaque" -}} {{/* Default to Opaque */}}
+  {{- if eq $contentType "certificate" -}} {{/* Certificate content has specific type */}}
     {{- $typeClass = (include "ix.v1.common.capabilities.secret.certificate.type" $root) -}}
-  {{- else if eq $contentType "pullSecret" -}}
+  {{- else if eq $contentType "pullSecret" -}} {{/* imagePullSecrets content has specific type */}}
     {{- $typeClass = (include "ix.v1.common.capabilities.secret.imagePullSecret.type" $root) -}}
   {{- end -}}
 
