@@ -49,30 +49,28 @@
       {{- $parseAsEnv = $objectData.parseAsEnv -}}
     {{- end -}}
 
-    {{- if $parseAsEnv -}} {{/* If it's destined for use on envFrom, also check them for dupes */}}
-      {{- $dupeCheck := dict -}}
+    {{- $dupeCheck := dict -}}
+    {{- $contentType := "" -}}
 
-      {{- range $k, $v := $objectData.content -}} {{/* Expand templates before sending them to the configmap */}}
-        {{- if and (not $v) (not (mustHas $v (list "" 0 false))) -}} {{/* To handle falsy values */}}
-          {{- fail (printf "%s (%s) has key (%s), without content." (camelcase $objectType) $name $k) -}}
-        {{- end -}}
-        {{- $value := tpl ($v | toString) $root -}} {{/* Convert to string so safely handle ints */}}
+    {{- range $k, $v := $objectData.content -}}
+      {{- if and (not $v) (not (mustHas $v (list "" 0 false))) -}} {{/* To handle falsy values */}}
+        {{- fail (printf "%s (%s) has key (%s), without content." (camelcase $objectType) $name $k) -}}
+      {{- end -}}
+
+      {{- $value := tpl ($v | toString) $root -}} {{/* Convert to string so safely handle ints, falsy values and scalars and expand */}}
+      {{- if $parseAsEnv -}} {{/* If it's destined for use on envFrom, add to the list for dupe check */}}
         {{- $_ := set $dupeCheck $k $value -}}
-        {{- $_ := set $classData $k $value -}}
       {{- end -}}
 
+      {{- $_ := set $classData $k $value -}} {{/* scalar */}}
+    {{- end -}}
+
+    {{- include "ix.v1.common.util.storeEnvsForDupeCheck" (dict "root" $root "source" (printf "%s-%s" (camelcase $objectType) $objectName) "data" $dupeCheck) -}}
+    {{- if $parseAsEnv -}}
       {{- $contentType = "key_value" -}}
-      {{- include "ix.v1.common.util.storeEnvsForDupeCheck" (dict "root" $root "source" (printf "%s-%s" (camelcase $objectType) $objectName) "data" $dupeCheck) -}}
-
-    {{- else -}} {{/* If it's not destined for envFromm assume "scalar" secret/configmap... */}}
-      {{- range $k, $v := $objectData.content -}} {{/* key/value works too when parsed as scalar */}}
-        {{- if and (not $v) (not (mustHas $v (list "" 0 false))) -}} {{/* To handle falsy values */}}
-          {{- fail (printf "%s (%s) has key (%s), without content." (camelcase $objectType) $name $k) -}}
-        {{- end -}}
-        {{- $_ := set $classData $k ($v | toString) -}}
-      {{- end -}}
-      {{- $contentType = "scalar" -}} {{/* Handle both key/value and scalar the same way */}}
-      {{- $classData = (tpl (toYaml $classData) $root) -}} {{/* toYaml works on both scalar and key/value */}}
+    {{- else -}}
+      {{- $contentType = "scalar" -}}
+      {{- $classData = toYaml $classData -}} {{/* Expand contents on non env types (toYaml works on both scalar and key/value) */}}
     {{- end -}}
 
     {{/* Create ConfigMap or Secret */}}
