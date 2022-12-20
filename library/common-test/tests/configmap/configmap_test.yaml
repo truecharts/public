@@ -42,6 +42,17 @@ tests:
       - failedTemplate:
           errorMessage: Content of Configmap (somename) are empty. Please disable or add content.
 
+  - it: should fail with key without content in configmap
+    set:
+      configmap:
+        somename:
+          enabled: true
+          content:
+            key:
+    asserts:
+      - failedTemplate:
+          errorMessage: Configmap (somename) has key (key), without content.
+
   - it: should fail with string in content in configmap
     set:
       configmap:
@@ -90,6 +101,20 @@ tests:
             helm-revision: "0"
             helm.sh/chart: common-test-1.0.0
             release: RELEASE-NAME
+
+  - it: should pass with empty key in content in configmap
+    documentIndex: *configMapDoc
+    set:
+      configmap:
+        somename:
+          enabled: true
+          content:
+            key: ""
+    asserts:
+      - equal:
+          path: data
+          value:
+            key: ""
 
   - it: should pass with 1 configmap created with parseAsEnv and values set from tpl
     documentIndex: *configMapDoc
@@ -235,7 +260,7 @@ tests:
       k3: pair
       k4: value2
       k5: 81
-      k6: pair2
+      k6: false
       configmap:
         some-name:
           enabled: true
@@ -295,7 +320,7 @@ tests:
       k3: pair
       k4: value2
       k5: 81
-      k6: pair2
+      k6: false
       configmap:
         some-name:
           enabled: true
@@ -331,7 +356,7 @@ tests:
       - equal:
           path: data
           value:
-            key: pair2
+            key: "false"
             nginx.conf2: |
               alias value2
               listen 81

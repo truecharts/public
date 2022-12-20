@@ -1,0 +1,55 @@
+# ConfigMap
+
+## key: configmap
+
+- Type: `dict`
+- Default: `{}`
+- Helm Template:
+  - content.KEY: ❌
+  - content.KEY.value: ✅
+
+`configmap` dict creates a configmap based on the `content`
+
+Options:
+
+```yaml
+configmap:
+  somename:
+    enabled: true
+    # Optional
+    labels: {}
+    # Optional
+    annotations: {}
+    # Optional
+    nameOverride: ""
+    # Tells to common that this contains environment variables
+    # So it wil be checked for duplicates among `env`, `envList`, `fixedEnvs`
+    # and other `secrets` / `configmaps` (with parseAsEnv set)
+    parseAsEnv: true
+    # Key/Value
+    content:
+      key: value
+    # Or yaml scalar
+    content:
+      someKey: |
+        configmap content
+```
+
+Examples:
+
+```yaml
+configmap:
+  somename:
+    enabled: true
+    content:
+      somekey: value
+      otherkey: othervalue
+
+configmap:
+  somename:
+    enabled: true
+    content:
+      somekey: value
+      nginx.conf: |
+        listen {{ .Values.service.main.ports.main.port }}
+```
