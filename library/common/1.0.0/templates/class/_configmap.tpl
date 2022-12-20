@@ -32,5 +32,3 @@ data:
     {{- fail (printf "Invalid content type (%s) for configmap. Valid types are scalar and key_value" $contentType) -}}
   {{- end -}}
 {{- end -}}
-
-{{/* TODO: Unit tests*/}}
