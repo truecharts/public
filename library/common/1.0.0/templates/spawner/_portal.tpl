@@ -23,7 +23,8 @@
 
       {{- if $data -}}
         {{/* Create the ConfigMap */}}
-        {{- include "ix.v1.common.class.configmap" (dict "root" $root "configName" "portal" "contentType" "key_value" "data" $data) -}}
+        {{- $data := toYaml $data -}}
+        {{- include "ix.v1.common.class.configmap" (dict "root" $root "configName" "portal" "contentType" "yaml" "data" $data) -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}

@@ -42,16 +42,10 @@ data:
         {{- $k | nindent 2 }}: {{ $v | b64enc }}
       {{- end -}}
     {{- end -}}
-  {{- else if (mustHas $contentType (list "scalar" "key_value")) }}
+  {{- else if eq $contentType "yaml" }}
 stringData:
-    {{- if eq $contentType "key_value" }}
-      {{- range $k, $v := $data }}
-        {{- $k | nindent 2 }}: {{ $v | quote }}
-      {{- end -}}
-    {{- else if eq $contentType "scalar" }}
-      {{- $data | nindent 2 }}
-    {{- else -}}
-      {{- fail (printf "Invalid content type (%s) for secret. Valid types are pullSecret, certificate, scalar and key_value" $contentType) -}}
-    {{- end -}}
+    {{- $data | nindent 2 }}
+  {{- else -}}
+    {{- fail (printf "Invalid content type (%s) for secret. Valid types are pullSecret, certificate, scalar and key_value" $contentType) -}}
   {{- end -}}
 {{- end -}}

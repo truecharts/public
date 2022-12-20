@@ -42,17 +42,6 @@ tests:
       - failedTemplate:
           errorMessage: Content of Configmap (somename) are empty. Please disable or add content.
 
-  - it: should fail with key without content in configmap
-    set:
-      configmap:
-        somename:
-          enabled: true
-          content:
-            key:
-    asserts:
-      - failedTemplate:
-          errorMessage: Configmap (somename) has key (key), without content.
-
   - it: should fail with string in content in configmap
     set:
       configmap:

@@ -22,11 +22,7 @@ metadata:
     {{- . | nindent 4 }}
   {{- end }}
 data:
-  {{- if eq $contentType "key_value" -}}
-    {{- range $k, $v := $data }}
-      {{- $k | nindent 2 }}: {{ $v | quote }}
-    {{- end -}}
-  {{- else if eq $contentType "scalar" }}
+  {{- if eq $contentType "yaml" }}
     {{- $data | nindent 2 }}
   {{- else -}} {{/* This should never happen, unless there is a mistake in the caller of this class */}}
     {{- fail (printf "Invalid content type (%s) for configmap. Valid types are scalar and key_value" $contentType) -}}

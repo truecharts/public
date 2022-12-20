@@ -41,38 +41,29 @@
       {{- fail (printf "Content of %s (%s) are string. Must be in key/value format. Value can be scalar too." (camelcase $objectType) $name) -}}
     {{- end -}}
 
-    {{- $classData := dict -}} {{/* Store expanded data that will be passed to the class */}}
-    {{- $contentType := "" -}} {{/* Type of the content "key_value" or "scalar" */}}
 
     {{- $parseAsEnv := false -}}
     {{- if hasKey $objectData "parseAsEnv" -}}
       {{- $parseAsEnv = $objectData.parseAsEnv -}}
     {{- end -}}
 
-    {{- $dupeCheck := dict -}}
-    {{- $contentType := "" -}}
+    {{- $classData := dict -}} {{/* Store expanded data that will be passed to the class */}}
+    {{- $dupeCheck := dict -}}  {{/* Store expanded data that will be checked for dupes */}}
 
     {{- range $k, $v := $objectData.content -}}
-      {{- if and (not $v) (not (mustHas $v (list "" 0 false))) -}} {{/* To handle falsy values */}}
-        {{- fail (printf "%s (%s) has key (%s), without content." (camelcase $objectType) $name $k) -}}
-      {{- end -}}
-
-      {{- $value := tpl ($v | toString) $root -}} {{/* Convert to string so safely handle ints, falsy values and scalars and expand */}}
-      {{- if $parseAsEnv -}} {{/* If it's destined for use on envFrom, add to the list for dupe check */}}
+      {{- $value := tpl ($v | toString) $root -}} {{/* Convert to string so safely handle ints, falsy values and scalars. Also expand values */}}
+      {{- if $parseAsEnv -}}
         {{- $_ := set $dupeCheck $k $value -}}
       {{- end -}}
-
-      {{- $_ := set $classData $k $value -}} {{/* scalar */}}
+      {{- $_ := set $classData $k $value -}}
     {{- end -}}
 
+    {{/* Add the to the list for dupeCheck */}}
     {{- include "ix.v1.common.util.storeEnvsForDupeCheck" (dict "root" $root "source" (printf "%s-%s" (camelcase $objectType) $objectName) "data" $dupeCheck) -}}
-    {{- if $parseAsEnv -}}
-      {{- $contentType = "key_value" -}}
-    {{- else -}}
-      {{- $contentType = "scalar" -}}
-      {{- $classData = toYaml $classData -}} {{/* Expand contents on non env types (toYaml works on both scalar and key/value) */}}
-    {{- end -}}
+    {{/* Convert to Yaml before sending to classes */}}
+    {{- $classData = toYaml $classData -}}
 
+    {{- $contentType := "yaml" -}}
     {{/* Create ConfigMap or Secret */}}
     {{- if eq $objectType "configmap" -}}
       {{- include "ix.v1.common.class.configmap" (dict "root" $root "configName" $objectName "contentType" $contentType "data" $classData "labels" $objectData.labels "annotations" $objectData.annotations) -}}
