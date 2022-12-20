@@ -14,11 +14,11 @@
       {{- $secretName := include "ix.v1.common.imagePullSecrets.name" (dict "root" $root "name" $imgPullCreds.name) -}}
       {{- $registrySecret := dict -}}
 
-      {{- if not $imgPullCreds.contents -}}
-        {{- fail (printf "<contents> is not defined in Image Pull Secrets Credential (%s)" $imgPullCreds.name) -}}
+      {{- if not $imgPullCreds.content -}}
+        {{- fail (printf "<content> is not defined in Image Pull Secrets Credential (%s)" $imgPullCreds.name) -}}
       {{- end -}}
 
-      {{- with $imgPullCreds.contents -}}
+      {{- with $imgPullCreds.content -}}
         {{- if not .username -}}
           {{- fail (printf "<username> is not defined in Image Pull Secrets Credential (%s)" $imgPullCreds.name) -}}
         {{- end -}}

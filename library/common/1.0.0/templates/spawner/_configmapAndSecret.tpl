@@ -19,7 +19,7 @@
     {{- fail (printf "%s has invalid name (%s). Name must be lowercase." (camelcase $objectType) $name) -}}
   {{- end -}}
   {{- if contains "_" $name -}}
-    {{- fail (printf "%s has invalid name (%s). Name cannot contain underscorers (_)" (camelcase $objectType) $name) -}}
+    {{- fail (printf "%s has invalid name (%s). Name cannot contain underscores (_)." (camelcase $objectType) $name) -}}
   {{- end -}}
 
   {{/* Generate the name */}}
@@ -34,11 +34,11 @@
 
     {{/* Do some checks */}}
     {{- if not $objectData.content -}}
-      {{- fail (printf "Contents %s (%s) are empty. Please disable or add contents." (camelcase $objectType) $name) -}}
+      {{- fail (printf "Content of %s (%s) are empty. Please disable or add content." (camelcase $objectType) $name) -}}
     {{- end -}}
 
     {{- if eq (kindOf $objectData.content) "string" -}}
-      {{- fail (printf "Contets of %s (%s) are string. Must be in key/value format. Value can be scalar too." (camelcase $objectType) $name) -}}
+      {{- fail (printf "Content of %s (%s) are string. Must be in key/value format. Value can be scalar too." (camelcase $objectType) $name) -}}
     {{- end -}}
 
     {{- $classData := dict -}} {{/* Store expanded data that will be passed to the class */}}
@@ -61,14 +61,14 @@
       {{- $contentType = "key_value" -}}
       {{- include "ix.v1.common.util.storeEnvsForDupeCheck" (dict "root" $root "source" (printf "%s-%s" (camelcase $objectType) $objectName) "data" $dupeCheck) -}}
 
-    {{- else -}} {{/* If it's normal secret/configmap... */}}
+    {{- else -}} {{/* If it's "normal" key/value or scalar secret/configmap... */}}
       {{- range $key, $value := $objectData.content -}}
         {{- if not $value -}}
           {{- fail (printf "%s (%s) has key (%s), without content." (camelcase $objectType) $name $key) -}}
         {{- end -}}
       {{- end -}}
-      {{- $contentType = "scalar" -}}
-      {{- $classData = (tpl (toYaml $objectData.content) $root) -}}
+      {{- $contentType = "scalar" -}} {{/* Handle both key/value and scalar the same way */}}
+      {{- $classData = (tpl (toYaml $objectData.content) $root) -}} {{/* toYaml works on both scalar and key/value */}}
     {{- end -}}
 
     {{/* Create ConfigMap or Secret */}}
