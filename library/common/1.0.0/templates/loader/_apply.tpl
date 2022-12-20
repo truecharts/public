@@ -10,7 +10,7 @@
 
   {{- include "ix.v1.common.spawner.rbac" . | nindent 0 -}}
 
-  {{- include "ix.v1.common.spawner.configmap" . | nindent 0 -}}
+  {{- include "ix.v1.common.spawner.configmapAndSecret" . | nindent 0 -}}
 
   {{- if .Values.controller.enabled -}}
     {{- if eq .Values.controller.type "Deployment" -}}

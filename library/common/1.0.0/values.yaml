@@ -296,6 +296,8 @@ configmap: {}
 secret: {}
   # someName:
   #   enabled: true
+  #   # Define custom secret type. Defaults to Opaque
+  #   secretType: ""
   #   labels: {}
   #   annotations: {}
   #   nameOverride: ""

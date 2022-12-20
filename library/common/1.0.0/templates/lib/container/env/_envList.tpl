@@ -23,6 +23,6 @@
         {{- fail "Please specify both name and value for environment variable" -}}
       {{- end -}}
     {{- end -}}
-    {{- include "ix.v1.common.util.storeEnvsForCheck" (dict "root" $root "source" "envList" "data" $dupeCheck) -}}
+    {{- include "ix.v1.common.util.storeEnvsForDupeCheck" (dict "root" $root "source" "envList" "data" $dupeCheck) -}}
   {{- end -}} {{/* Finish envList */}}
 {{- end -}}

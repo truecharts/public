@@ -1,10 +1,10 @@
 {{- define "ix.v1.common.class.configmap" -}}
   {{- $configName := .configName -}}
   {{- $data := .data -}}
-  {{- $type := .type -}}
+  {{- $contentType := .contentType -}}
   {{- $configLabels := .labels -}}
   {{- $configAnnotations := .annotations -}}
-  {{- $root := .root -}}
+  {{- $root := .root }}
 
 ---
 apiVersion: {{ include "ix.v1.common.capabilities.configMap.apiVersion" $root }}
@@ -22,14 +22,14 @@ metadata:
     {{- . | nindent 4 }}
   {{- end }}
 data:
-  {{- if eq $type "key_value" -}}
+  {{- if eq $contentType "key_value" -}}
     {{- range $k, $v := $data }}
       {{- $k | nindent 2 }}: {{ $v }}
     {{- end -}}
-  {{- else if eq $type "scalar" }}
+  {{- else if eq $contentType "scalar" }}
     {{- $data | nindent 2 }}
   {{- else -}}
-    {{- fail (printf "Invalid type (%s) for configmap. Valid types are scalar and key_value" $type) -}}
+    {{- fail (printf "Invalid content type (%s) for configmap. Valid types are scalar and key_value" $contentType) -}}
   {{- end -}}
 {{- end -}}
 

@@ -120,28 +120,28 @@ tests:
       env:
         ENVVAR: something
       configmap:
-        someName:
+        somename:
           enabled: true
           parseAsEnv: true
           content:
             ENVVAR: ABC
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (ENVVAR) is already set [to (ABC) on (configmap-someName)] and [to (something) on (env)]
+          errorMessage: Environment Variable (ENVVAR) is already set [to (ABC) on (Configmap-RELEASE-NAME-common-test-somename)] and [to (something) on (env)]
 
   - it: should fail with env trying to override secret
     set:
       env:
         ENVVAR: something
       secret:
-        someName:
+        somename:
           enabled: true
           parseAsEnv: true
           content:
             ENVVAR: ABC
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (ENVVAR) is already set [to (ABC) on (secret-someName)] and [to (something) on (env)]
+          errorMessage: Environment Variable (ENVVAR) is already set [to (ABC) on (Secret-RELEASE-NAME-common-test-somename)] and [to (something) on (env)]
 
   - it: should fail with env trying to override envList
     set:
@@ -180,14 +180,14 @@ tests:
         - name: POSTGRES_HOST
           value: something
       configmap:
-        someName:
+        somename:
           enabled: true
           parseAsEnv: true
           content:
             POSTGRES_HOST: something
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something) on (configmap-someName)] and [to (something) on (envList)]
+          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something) on (Configmap-RELEASE-NAME-common-test-somename)] and [to (something) on (envList)]
 
   - it: should fail with envList trying to override secret
     set:
@@ -195,40 +195,40 @@ tests:
         - name: POSTGRES_HOST
           value: something
       secret:
-        someName:
+        somename:
           enabled: true
           parseAsEnv: true
           content:
             POSTGRES_HOST: something
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something) on (secret-someName)] and [to (something) on (envList)]
+          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something) on (Secret-RELEASE-NAME-common-test-somename)] and [to (something) on (envList)]
 
   - it: should fail with configmap trying to override fixedEnv
     set:
       configmap:
-        someName:
+        somename:
           enabled: true
           parseAsEnv: true
           content:
             TZ: something
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (TZ) is already set [to (something) on (configmap-someName)] and [to (UTC) on (fixedEnv)]
+          errorMessage: Environment Variable (TZ) is already set [to (something) on (Configmap-RELEASE-NAME-common-test-somename)] and [to (UTC) on (fixedEnv)]
 
   - it: should fail with configmap trying to override env
     set:
       env:
         POSTGRES_HOST: postgres.svc.cluster.local
       configmap:
-        someName:
+        somename:
           enabled: true
           parseAsEnv: true
           content:
             POSTGRES_HOST: something
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something) on (configmap-someName)] and [to (postgres.svc.cluster.local) on (env)]
+          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something) on (Configmap-RELEASE-NAME-common-test-somename)] and [to (postgres.svc.cluster.local) on (env)]
 
   - it: should fail with configmap trying to override envList
     set:
@@ -236,58 +236,58 @@ tests:
         - name: POSTGRES_HOST
           value: postgres.svc.cluster.local
       configmap:
-        someName:
+        somename:
           enabled: true
           parseAsEnv: true
           content:
             POSTGRES_HOST: something
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something) on (configmap-someName)] and [to (postgres.svc.cluster.local) on (envList)]
+          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something) on (Configmap-RELEASE-NAME-common-test-somename)] and [to (postgres.svc.cluster.local) on (envList)]
 
   - it: should fail with configmap trying to override secret
     set:
       secret:
-        someName:
+        somename:
           enabled: true
           parseAsEnv: true
           content:
             POSTGRES_HOST: something123
       configmap:
-        someName:
+        somename:
           enabled: true
           parseAsEnv: true
           content:
             POSTGRES_HOST: something
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something) on (configmap-someName)] and [to (something123) on (secret-someName)]
+          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something) on (Configmap-RELEASE-NAME-common-test-somename)] and [to (something123) on (Secret-RELEASE-NAME-common-test-somename)]
 
   - it: should fail with secret trying to override fixedEnv
     set:
       secret:
-        someName:
+        somename:
           enabled: true
           parseAsEnv: true
           content:
             TZ: something
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (TZ) is already set [to (something) on (secret-someName)] and [to (UTC) on (fixedEnv)]
+          errorMessage: Environment Variable (TZ) is already set [to (something) on (Secret-RELEASE-NAME-common-test-somename)] and [to (UTC) on (fixedEnv)]
 
   - it: should fail with secret trying to override env
     set:
       env:
         POSTGRES_HOST: postgres.svc.cluster.local
       secret:
-        someName:
+        somename:
           enabled: true
           parseAsEnv: true
           content:
             POSTGRES_HOST: something
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something) on (secret-someName)] and [to (postgres.svc.cluster.local) on (env)]
+          errorMessage:  Environment Variable (POSTGRES_HOST) is already set [to (something) on (Secret-RELEASE-NAME-common-test-somename)] and [to (postgres.svc.cluster.local) on (env)]
 
   - it: should fail with secret trying to override envList
     set:
@@ -295,32 +295,32 @@ tests:
         - name: POSTGRES_HOST
           value: postgres.svc.cluster.local
       secret:
-        someName:
+        somename:
           enabled: true
           parseAsEnv: true
           content:
             POSTGRES_HOST: something
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something) on (secret-someName)] and [to (postgres.svc.cluster.local) on (envList)]
+          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something) on (Secret-RELEASE-NAME-common-test-somename)] and [to (postgres.svc.cluster.local) on (envList)]
 
   - it: should fail with secret trying to override configmap
     set:
       configmap:
-        someName:
+        somename:
           enabled: true
           parseAsEnv: true
           content:
             POSTGRES_HOST: something123
       secret:
-        someName:
+        somename:
           enabled: true
           parseAsEnv: true
           content:
             POSTGRES_HOST: something
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something123) on (configmap-someName)] and [to (something) on (secret-someName)]
+          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something123) on (Configmap-RELEASE-NAME-common-test-somename)] and [to (something) on (Secret-RELEASE-NAME-common-test-somename)]
 
   - it: should pass with envs defined with int value
     documentIndex: *deploymentDoc

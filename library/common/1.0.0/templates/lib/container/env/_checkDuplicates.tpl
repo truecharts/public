@@ -11,7 +11,7 @@
 {{- end -}}
 
 {{/* Stores envs for dupe checking later */}}
-{{- define "ix.v1.common.util.storeEnvsForCheck" -}}
+{{- define "ix.v1.common.util.storeEnvsForDupeCheck" -}}
   {{- $root := .root -}}
   {{- $source := .source -}}
   {{- $data := .data -}}

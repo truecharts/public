@@ -5,12 +5,18 @@
   {{- $tlsCrtKey := "tls.crt" -}}
   {{- $tlsPrivateKey := "tls.key" -}}
 
+
+  {{- if ne $name ($name | lower) -}}
+    {{- fail (printf "Certificate has invalid name (%s). Name must be lowercase." $name) -}}
+  {{- end -}}
+  {{- if contains "_" $name -}}
+    {{- fail (printf "Certificate has invalid name (%s). Name cannot contain underscores (_)" $name) -}}
+  {{- end -}}
+
   {{/* Default to $name if there is not a nameOverride given */}}
   {{- if not $cert.nameOverride -}}
     {{- $_ := set $cert "nameOverride" $name -}}
   {{- end -}}
-  {{/* Make sure name is acceptable for kubernetes API */}}
-  {{- $nameOverride := $cert.nameOverride | replace "_" "-" -}}
 
   {{- if not (hasKey $cert "id") -}} {{/* This is something that should not happen when using this library */}}
     {{- fail (printf "Certificate (%s) has no <id> key" $cert.nameOverride) -}}
@@ -20,8 +26,8 @@
   {{- if (include "ix.v1.common.certificate.exists" (dict "root" $root "certID" $certID)) -}}
     {{/* Generate secret name here so we can pass it to persistence if needed */}}
     {{- $secretName := include "ix.v1.common.names.fullname" $root -}}
-    {{- if $nameOverride -}}
-      {{- $secretName = (printf "%v-%v-%v-%v" $secretName $nameOverride "ixcert" $certID) -}}
+    {{- if $cert.nameOverride -}}
+      {{- $secretName = (printf "%v-%v-%v-%v" $secretName $cert.nameOverride "ixcert" $certID) -}}
     {{- else -}}
       {{- $secretName = (printf "%v-%v-%v" $secretName "ixcert" $certID) -}}
     {{- end -}}
@@ -35,6 +41,6 @@
     {{- $_ := set $certData $tlsPrivateKey (include "ix.v1.common.certificate.get" (dict "root" $root "cert" $cert "key" "privatekey")) -}}
 
     {{/* Create the Secret */}}
-    {{- include "ix.v1.common.class.secret" (dict "root" $root "secretName" $secretName "data" $certData "type" "certificate") -}}
+    {{- include "ix.v1.common.class.secret" (dict "root" $root "secretName" $secretName "data" $certData "contentType" "certificate") -}}
   {{- end -}}
 {{- end -}}

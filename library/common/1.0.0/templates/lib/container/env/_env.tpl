@@ -50,6 +50,6 @@
       key: {{ tpl (required (printf "<key> for the keyRef is not defined in (%s)" $name) $value.key) $root }}
       {{- end -}}
     {{- end -}}
-    {{- include "ix.v1.common.util.storeEnvsForCheck" (dict "root" $root "source" "env" "data" $dupeCheck) -}}
+    {{- include "ix.v1.common.util.storeEnvsForDupeCheck" (dict "root" $root "source" "env" "data" $dupeCheck) -}}
   {{- end -}} {{/* Finish env */}}
 {{- end -}}
