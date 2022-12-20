@@ -32,22 +32,26 @@ metadata:
   {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $root "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
-  {{- end }}
-  {{- if (mustHas $contentType (list "pullSecret" "certificate" "key_value")) }}
-data:
-  {{- else if (mustHas $contentType (list "scalar")) }}
-stringData:
   {{- end -}}
+  {{- if (mustHas $contentType (list "pullSecret" "certificate")) }}
+data:
   {{- if eq $contentType "pullSecret" }}
   .dockerconfigjson: {{ $data | toJson | b64enc }}
-  {{- else if or (eq $contentType "certificate") (eq $contentType "key_value") }}
-    {{- range $k, $v := $data }}
-      {{- $k | nindent 2 }}: {{ $v | toString | b64enc }}
+    {{- else if eq $contentType "certificate"  }}
+      {{- range $k, $v := $data }}
+        {{- $k | nindent 2 }}: {{ $v | b64enc }}
+      {{- end -}}
     {{- end -}}
-  {{- else if eq $contentType "scalar" }}
-    {{- $data | nindent 2 }}
-  {{- else -}}
-    {{- fail (printf "Invalid content type (%s) for secret. Valid types are pullSecret, certificate, scalar and key_value" $contentType) -}}
+  {{- else if (mustHas $contentType (list "scalar" "key_value")) }}
+stringData:
+    {{- if eq $contentType "key_value" }}
+      {{- range $k, $v := $data }}
+        {{- $k | nindent 2 }}: {{ $v | quote }}
+      {{- end -}}
+    {{- else if eq $contentType "scalar" }}
+      {{- $data | nindent 2 }}
+    {{- else -}}
+      {{- fail (printf "Invalid content type (%s) for secret. Valid types are pullSecret, certificate, scalar and key_value" $contentType) -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
-{{/* TODO: Unit tests */}}

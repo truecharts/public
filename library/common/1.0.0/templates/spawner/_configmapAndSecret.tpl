@@ -52,8 +52,8 @@
     {{- if $parseAsEnv -}} {{/* If it's destined for use on envFrom, also check them for dupes */}}
       {{- $dupeCheck := dict -}}
 
-      {{- range $k, $v := $objectData.content -}}
-        {{- $value := tpl $v $root -}} {{/* Exapand templates before sending them to the configmap */}}
+      {{- range $k, $v := $objectData.content -}} {{/* Expand templates before sending them to the configmap */}}
+        {{- $value := tpl ($v | toString ) $root -}} {{/* Convert to string so safely handle ints */}}
         {{- $_ := set $classData $k $value -}}
         {{- $_ := set $dupeCheck $k $value -}}
       {{- end -}}
@@ -61,8 +61,8 @@
       {{- $contentType = "key_value" -}}
       {{- include "ix.v1.common.util.storeEnvsForDupeCheck" (dict "root" $root "source" (printf "%s-%s" (camelcase $objectType) $objectName) "data" $dupeCheck) -}}
 
-    {{- else -}} {{/* If it's "normal" key/value or scalar secret/configmap... */}}
-      {{- range $key, $value := $objectData.content -}}
+    {{- else -}} {{/* If it's not destined for envFromm assume "scalar" secret/configmap... */}}
+      {{- range $key, $value := $objectData.content -}} {{/* key/value works too when parsed as scalar */}}
         {{- if not $value -}}
           {{- fail (printf "%s (%s) has key (%s), without content." (camelcase $objectType) $name $key) -}}
         {{- end -}}
@@ -80,6 +80,3 @@
 
   {{- end -}}
 {{- end -}}
-
-
-{{/* TODO: Unit tests */}}
