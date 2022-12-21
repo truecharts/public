@@ -40,7 +40,7 @@ runAsNonRoot: {{ $runAsNonRoot }}
 readOnlyRootFilesystem: {{ $readOnlyRootFilesystem }}
 allowPrivilegeEscalation: {{ $allowPrivilegeEscalation }}
 privileged: {{ $privileged }} {{/* TODO: Set to true if deviceList is used? */}}
-capabilities: {{/* TODO: add NET_BIND_SERVICE when port < 80 is used? */}}
+capabilities: {{/* TODO: add NET_BIND_SERVICE when port < 80 is used? */}} {{/* TODO: make caps reusuable */}}
   {{- if or $secContext.capabilities.add $secContext.capabilities.drop }}
     {{- if or (not (kindIs "slice" $secContext.capabilities.add)) (not (kindIs "slice" $secContext.capabilities.drop)) }}
       {{- fail "Either <add> or <drop> capabilities is not a list."}}
