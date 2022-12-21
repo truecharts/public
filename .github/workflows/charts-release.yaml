@@ -116,7 +116,7 @@ jobs:
                 fi
                 # keep some docs safe
                 mv -f website/docs/charts/${train}/${chart}/CHANGELOG.md tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md || :
-                mv -f website/docs/charts/${train}/${chart}/helm-security.md.md tmp/website/docs/charts/${train}/${chart}/helm-security.md || :
+                mv -f website/docs/charts/${train}/${chart}/helm-security.md tmp/website/docs/charts/${train}/${chart}/helm-security.md || :
                 mv -f website/docs/charts/${train}/${chart}/container-security.md tmp/website/docs/charts/${train}/${chart}/container-security.md || :
                 
                 # remove old docs everywhere and recreate based on charts repo
@@ -134,6 +134,14 @@ jobs:
                 sed -i '1d' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to sed 1d changelog..."
                 cat "charts/${train}/${chart}/app-changelog.md" | cat - "website/docs/charts/${train}/${chart}/CHANGELOG.md" > temp && mv temp "website/docs/charts/${train}/${chart}/CHANGELOG.md"
                 sed -i '1s/^/# Changelog\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to add changelog header..."
+                
+                # Ensure helm security header is always set
+                sed -i '1d' "website/docs/charts/${train}/${chart}/helm-security.md" || echo "failed to sed 1d helm-security..."
+                sed -i '1s/^/# helm-security\n\n/' "website/docs/charts/${train}/${chart}/helm-security.md" || echo "failed to add helm-security header..."
+                
+                # Ensure container security header is always set
+                sed -i '1d' "website/docs/charts/${train}/${chart}/container-security.md" || echo "failed to sed 1d container-security..."
+                sed -i '1s/^/# container-security\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to add container-security header..."
 
                 touch website/docs/charts/${train}/${chart}/index.md
                 echo "# ${chart}" >> website/docs/charts/${train}/${chart}/index.md
