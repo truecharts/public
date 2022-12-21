@@ -62,7 +62,7 @@ tests:
     documentIndex: *deploymentDoc
     set:
       scaleGPU:
-        something: something
+        gpu.intel.com/i915: "1"
     asserts:
       - equal:
           path: spec.template.spec.containers[0].env
@@ -260,7 +260,7 @@ tests:
     documentIndex: *deploymentDoc
     set:
       scaleGPU:
-        something: something
+        gpu.intel.com/i915: "1"
     asserts:
       - equal:
           path: spec.template.spec.containers[0].env
@@ -280,7 +280,7 @@ tests:
     documentIndex: *deploymentDoc
     set:
       scaleGPU:
-        something: something
+        gpu.intel.com/i915: "1"
       nvidiaCaps:
         - compute
         - utility
