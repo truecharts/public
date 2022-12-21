@@ -10,6 +10,30 @@ tests:
           count: 3
       - isKind:
           of: Deployment
+      - isNull:
+          path: spec.template.spec.runtimeClassName
+
+  - it: should pass with addNvidiaRuntimeClass and nvidiaRuntimeClassName set
+    documentIndex: *deploymentDoc
+    set:
+      global:
+        ixChartContext:
+          addNvidiaRuntimeClass: true
+          nvidiaRuntimeClassName: something
+    asserts:
+      - equal:
+          path: spec.template.spec.runtimeClassName
+          value: something
+
+  - it: should pass with nvidiaRuntimeClassName set
+    documentIndex: *deploymentDoc
+    set:
+      global:
+        ixChartContext:
+          nvidiaRuntimeClassName: something
+    asserts:
+      - isNull:
+          path: spec.template.spec.runtimeClassName
 
   - it: should pass with gracePeriodSeconds set
     documentIndex: *deploymentDoc
@@ -93,7 +117,7 @@ tests:
 
   # Bellow tests cannot be verified currently,
   # until templates are created for those controller types
-
+  # TODO:
   # - it: should fail with invalid restartPolicy on DaemonSet
   #   set:
   #     controller:
@@ -120,6 +144,7 @@ tests:
   #   asserts:
   #     - failedTemplate:
   #         errorMessage: Invalid <restartPolicy (OnFailure). Valid option for Deployment, StatefulSet, DaemonSet and ReplicaSet is Always
+
   - it: should fail with no value in a key in nodeSelector
     set:
       nodeSelector:
