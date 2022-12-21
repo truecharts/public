@@ -100,10 +100,40 @@ jobs:
                    echo "changelog not found, starting with empty changelog..."
                    touch "website/docs/charts/${train}/${chart}/CHANGELOG.md"
                 fi
+                if [[ -f "website/docs/charts/${train}/${chart}/helm-security.md" ]]; then
+                   echo "helm-security found..."
+                   true
+                else
+                   echo "helm-security not found, starting with empty helm-security..."
+                   touch "website/docs/charts/${train}/${chart}/helm-security.md"
+                fi
+                if [[ -f "website/docs/charts/${train}/${chart}/container-security.md" ]]; then
+                   echo "container-security found..."
+                   true
+                else
+                   echo "container-security not found, starting with empty container-security..."
+                   touch "website/docs/charts/${train}/${chart}/container-security.md"
+                fi
+                # keep some docs safe
                 mv -f website/docs/charts/${train}/${chart}/CHANGELOG.md tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md || :
+                mv -f website/docs/charts/${train}/${chart}/helm-security.md.md tmp/website/docs/charts/${train}/${chart}/helm-security.md || :
+                mv -f website/docs/charts/${train}/${chart}/CHANGELOG.md tmp/website/docs/charts/${train}/${chart}/container-security.md || :
+                
+                # remove old docs everywhere and recreate based on charts repo
                 rm -rf website/docs/charts/*/${chart} || :
                 mkdir -p website/docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
                 yes | cp -rf charts/${train}/${chart}/docs/* website/docs/charts/${train}/${chart}/ 2>/dev/null || :
+                yes | cp -rf charts/${train}/${chart}/icon.png website/static/img/hotlink-ok/chart-icons/${chart}.png 2>/dev/null || :
+                
+                # Copy over kept documents
+                mv -f tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md website/docs/charts/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
+                mv -f tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md website/docs/charts/${train}/${chart}/helm-security.md 2>/dev/null || :
+                mv -f tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md website/docs/charts/${train}/${chart}/container-security.md 2>/dev/null || :
+
+                # Append SCALE changelog to actual changelog
+                sed -i '1d' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to sed 1d changelog..."
+                cat "charts/${train}/${chart}/app-changelog.md" | cat - "website/docs/charts/${train}/${chart}/CHANGELOG.md" > temp && mv temp "website/docs/charts/${train}/${chart}/CHANGELOG.md"
+                sed -i '1s/^/# Changelog\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to add changelog header..."
 
                 touch website/docs/charts/${train}/${chart}/index.md
                 echo "# ${chart}" >> website/docs/charts/${train}/${chart}/index.md
@@ -132,12 +162,6 @@ jobs:
                   fi
                 done
 
-                mv -f tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md website/docs/charts/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
-                yes | cp -rf charts/${train}/${chart}/icon.png website/static/img/hotlink-ok/chart-icons/${chart}.png 2>/dev/null || :
-                # Append SCALE changelog to actual changelog
-                sed -i '1d' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to sed 1d changelog..."
-                cat "charts/${train}/${chart}/app-changelog.md" | cat - "website/docs/charts/${train}/${chart}/CHANGELOG.md" > temp && mv temp "website/docs/charts/${train}/${chart}/CHANGELOG.md"
-                sed -i '1s/^/# Changelog\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to add changelog header..."
                 rm -rf temp || :
               fi
           done
