@@ -2,7 +2,7 @@
 {{/* Volumes included by the controller. */}}
 {{- define "ix.v1.common.controller.volumes" -}}
   {{- $root := . -}}
-  {{- $persistenceDefault := .Values.global.defaults.defaultPersistenceType -}}
+  {{- $persistenceDefault := .Values.global.defaults.persistenceType -}}
   {{- range $index, $persistence := .Values.persistence -}}
     {{- if $persistence.enabled -}}
       {{- if not $persistence.type -}} {{/* If persistence type is not defined, fallback to $persistenceDefault */}}

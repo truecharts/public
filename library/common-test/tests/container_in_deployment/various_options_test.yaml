@@ -78,4 +78,4 @@ tests:
         messagePolicy: "{{ .Values.some_key }}"
     asserts:
       - failedTemplate:
-          errorMessage: Not valid option for messagePolicy
+          errorMessage: Not valid option for messagePolicy (invalid). Valid options are FallbackToLogsOnError and File

@@ -54,6 +54,10 @@ runtimeClassName: {{ . }}
 containers:
   {{- . | nindent 2 }}
 {{- end -}}{{/*TODO: init/install/upgradeContainers */}}
+{{- with (include "ix.v1.common.controller.initContainers" (dict "root" . "initContainers" .Values.initContainers) | trim) }}
+initContainers:
+  {{- . | nindent 2 }}
+{{- end -}}
 {{- with (include "ix.v1.common.controller.volumes" . | trim) }}
 volumes:
     {{- . | nindent 2 }}

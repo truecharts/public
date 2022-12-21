@@ -1,6 +1,6 @@
 {{/* Renders the PVC objects */}}
 {{- define "ix.v1.common.spawner.pvc" -}}
-  {{- $defaultType := .Values.global.defaults.defaultPersistenceType -}}
+  {{- $defaultType := .Values.global.defaults.persistenceType -}}
   {{- range $name, $pvc := .Values.persistence -}}
     {{- if and $pvc.enabled (eq (default $defaultType $pvc.type) "pvc") (not ($pvc.existingClaim)) -}}
       {{- $pvcValues := $pvc -}}

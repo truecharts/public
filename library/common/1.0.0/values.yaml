@@ -51,14 +51,6 @@ serviceAccount:
     enabled: false
     primary: true
 
-resources:
-  limits:
-    cpu: 4000m
-    memory: 8Gi
-  requests:
-    cpu: 10m
-    memory: 50Mi
-
 addAnnotations:
   traefik: true
   metallb: true
@@ -146,33 +138,51 @@ global:
     # If not defined on the the cert item, assume this
     useExpiredCerts: false
     # If no restart Policy is defined, assume this
-    defaultRestartPolicy: Always
+    restartPolicy: Always
     # If no probe Type is defined, assume this
-    defaultProbeType: TCP
+    probeType: TCP
     # If no port Protocol is defined, assume this
-    defaultPortProtocol: TCP
+    portProtocol: TCP
     # Define the minimum NodePort
     minimumNodePort: 9000
     # If no service Type is defined, assume this
-    defaultServiceType: ClusterIP
+    serviceType: ClusterIP
     # If no PVC Size is defined, assume this
-    defaultPVCSize: 1Gi
+    PVCSize: 1Gi
     # If no PVC type is defined, assume this
-    defaultPersistenceType: pvc
+    persistenceType: pvc
     # If no validateHostPath key exists in the persistence item, assume this
-    defaultValidateHostPath: false
+    validateHostPath: false
     # If no PVC accessMode is defined, assume this
-    defaultAccessMode: ReadWriteOnce
+    accessMode: ReadWriteOnce
     # If no PVC retain key is defined, assume this
     # Note, that this adds an annotation for helm whether to delete
     # the resource on uninstall, manually deleting the namespace it will delete
     # the resource no matter what this is set.
-    defaultPVCRetain: false
+    PVCRetain: false
     # Define a storageClassName that will be used for all PVCs by default
     # Leave empty to rely on the node's default storageClass
-    defaultStorageClass:
+    storageClass:
     # When SCALE-ZFS is set for storageClass, return this name
     scaleZFSStorageClass:
+    # Default security context used for all
+    # init/install/upgrade/additional containers
+    # if not specified
+    securityContext:
+      runAsNonRoot: true
+      readOnlyRootFilesystem: true
+      allowPrivilegeEscalation: false
+      privileged: false
+      capabilities:
+        add: []
+        drop: []
+    resources:
+      limits:
+        cpu: 4000m
+        memory: 8Gi
+      requests:
+        cpu: 10m
+        memory: 50Mi
 
 nameOverride: ""
 
@@ -209,8 +219,8 @@ securityContext:
   allowPrivilegeEscalation: false
   runAsNonRoot: true
   capabilities:
-    drop: []
     add: []
+    drop: []
 
 termination:
   messagePath: ""
@@ -244,6 +254,8 @@ controller:
     surge:
     # -- Set statefulset RollingUpdate partition
     partition:
+
+initContainers: {}
 
 # -- Configure the services for the chart here.
 # Additional services can be added by adding a dictionary key similar to the 'main' service.

@@ -14,7 +14,7 @@
   {{- $policy := (tpl $msgPolicy $root) -}}
   {{- with $policy -}}
     {{- if not (mustHas . (list "File" "FallbackToLogsOnError")) }}
-      {{- fail "Not valid option for messagePolicy" -}}
+      {{- fail (printf "Not valid option for messagePolicy (%s). Valid options are FallbackToLogsOnError and File" $policy) -}}
     {{- end }}
     {{- $policy }}
   {{- end -}}

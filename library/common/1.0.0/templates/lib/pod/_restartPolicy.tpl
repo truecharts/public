@@ -1,5 +1,5 @@
 {{- define "ix.v1.common.restartPolicy" -}}
-  {{- $policy := .Values.global.defaults.defaultRestartPolicy -}}
+  {{- $policy := .Values.global.defaults.restartPolicy -}}
 
   {{- if (hasKey .Values "restartPolicy") -}}
     {{- with .Values.restartPolicy -}}

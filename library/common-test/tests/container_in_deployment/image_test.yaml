@@ -60,6 +60,17 @@ tests:
       - failedTemplate:
           errorMessage: Invalid <pullPolicy> option (invalid_policy). Valid options are IfNotPresent, Always, Never
 
+  - it: should fail with selected image that does not exist in values
+    set:
+      imageX:
+        repository: some_repo
+        tag: some_tag
+        pullPolicy: invalid_policy
+      imageSelector: imageY
+    asserts:
+      - failedTemplate:
+          errorMessage: Selected image (imageY) does not exist in values
+
   - it: should pass with image from image selector
     documentIndex: *deploymentDoc
     set:

@@ -27,7 +27,7 @@ tests:
     set:
       global:
         defaults:
-          defaultValidateHostPath: true
+          validateHostPath: true
       persistence:
         some_volume:
           type: hostPath
@@ -42,7 +42,7 @@ tests:
     set:
       global:
         defaults:
-          defaultValidateHostPath: true
+          validateHostPath: true
       persistence:
         some_volume:
           type: hostPath
@@ -57,7 +57,7 @@ tests:
     set:
       global:
         defaults:
-          defaultValidateHostPath: true
+          validateHostPath: true
       persistence:
         some_volume:
           type: hostPath
@@ -111,7 +111,7 @@ tests:
     set:
       global:
         defaults:
-          defaultValidateHostPath: false
+          validateHostPath: false
       persistence:
         some_volume:
           type: hostPath
@@ -143,7 +143,7 @@ tests:
     set:
       global:
         defaults:
-          defaultValidateHostPath: true
+          validateHostPath: true
       persistence:
         some_volume:
           type: hostPath
@@ -164,7 +164,7 @@ tests:
     set:
       global:
         defaults:
-          defaultValidateHostPath: true
+          validateHostPath: true
       persistence:
         volume1:
           enabled: true
@@ -184,7 +184,7 @@ tests:
     set:
       global:
         defaults:
-          defaultValidateHostPath: true
+          validateHostPath: true
       persistence:
         volume1:
           enabled: true
@@ -204,7 +204,7 @@ tests:
     set:
       global:
         defaults:
-          defaultValidateHostPath: true
+          validateHostPath: true
       persistence:
         volume1:
           enabled: true
@@ -224,7 +224,7 @@ tests:
     set:
       global:
         defaults:
-          defaultValidateHostPath: true
+          validateHostPath: true
       persistence:
         volume1:
           enabled: true

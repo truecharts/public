@@ -3,9 +3,9 @@
 {{- define "ix.v1.common.class.pvc" -}}
   {{- $pvcValues := .pvc -}}
   {{- $root := .root -}}
-  {{- $defaultSize := $root.Values.global.defaults.defaultPVCSize -}}
-  {{- $defaultAccessMode := $root.Values.global.defaults.defaultAccessMode -}}
-  {{- $defaultRetain := $root.Values.global.defaults.defaultPVCRetain -}}
+  {{- $defaultSize := $root.Values.global.defaults.PVCSize -}}
+  {{- $defaultAccessMode := $root.Values.global.defaults.accessMode -}}
+  {{- $defaultRetain := $root.Values.global.defaults.PVCRetain -}}
 
   {{- $pvcName := include "ix.v1.common.names.fullname" $root -}}
 

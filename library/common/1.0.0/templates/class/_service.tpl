@@ -3,8 +3,8 @@
 {{- define "ix.v1.common.class.service" -}}
   {{- $svcValues := .svc -}}
   {{- $root := .root -}}
-  {{- $defaultServiceType := $root.Values.global.defaults.defaultServiceType -}}
-  {{- $defaultPortProtocol := $root.Values.global.defaults.defaultPortProtocol -}}
+  {{- $defaultServiceType := $root.Values.global.defaults.serviceType -}}
+  {{- $defaultPortProtocol := $root.Values.global.defaults.portProtocol -}}
   {{- $svcName := include "ix.v1.common.names.fullname" $root -}}
 
   {{- if and (hasKey $svcValues "nameOverride") $svcValues.nameOverride -}}

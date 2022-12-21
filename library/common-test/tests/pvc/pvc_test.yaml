@@ -370,7 +370,7 @@ tests:
     set:
       global:
         defaults:
-          defaultStorageClass: something
+          storageClass: something
       persistence:
         vol1:
           enabled: true
@@ -637,7 +637,7 @@ tests:
     set:
       global:
         defaults:
-          defaultPVCRetain: true
+          PVCRetain: true
       persistence:
         vol1:
           enabled: true
@@ -658,7 +658,7 @@ tests:
     set:
       global:
         defaults:
-          defaultPVCRetain: true
+          PVCRetain: true
       persistence:
         vol1:
           enabled: true
@@ -679,7 +679,7 @@ tests:
     set:
       global:
         defaults:
-          defaultPVCRetain: false
+          PVCRetain: false
       persistence:
         vol1:
           enabled: true

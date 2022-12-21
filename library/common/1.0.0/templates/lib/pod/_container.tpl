@@ -28,10 +28,10 @@ So it can work on multiple places, like additional containers and not only the m
   {{- with (include "ix.v1.common.container.lifecycle" (dict "lifecycle" .Values.lifecycle "root" $)) | trim }}
   lifecycle:
     {{- . | nindent 4 }}
-  {{- end }}
+  {{- end -}}
   {{- with (include "ix.v1.common.container.termination.messagePath" (dict "msgPath" .Values.termination.messagePath "root" $)) | trim }}
   terminationMessagePath: {{ . }}
-  {{- end }}
+  {{- end -}}
   {{- with (include "ix.v1.common.container.termination.messagePolicy" (dict "msgPolicy" .Values.termination.messagePolicy "root" $)) | trim }}
   terminationMessagePolicy: {{ . }}
   {{- end -}}

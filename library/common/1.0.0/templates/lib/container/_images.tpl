@@ -7,11 +7,16 @@
 
 {{- define "ix.v1.common.images.selector" -}}
   {{- $root := .root -}}
-  {{- $selectedImage := .selectedImage -}}
+  {{- $selectedImage := "" -}}
+  {{- if .selectedImage -}}
+    {{- $selectedImage = .selectedImage -}}
+  {{- end -}}
 
   {{- $image := get $root.Values "image" -}}
   {{- if hasKey $root.Values $selectedImage -}}
     {{- $image = get $root.Values $selectedImage -}}
+  {{- else if $selectedImage -}} {{/* If selectedImage does not exist in Values */}}
+    {{- fail (printf "Selected image (%s) does not exist in values" $selectedImage) -}}
   {{- end -}}
   {{- include "ix.v1.common.images.image" (dict "imageRoot" $image) -}}
 {{- end -}}

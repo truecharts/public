@@ -8,7 +8,7 @@
       "-" returns "", which means requesting a PV without class
       "SCALE-ZFS" returns the value set on Values.global.defaults.scaleZFSStorageClass
       else return the defined storageClass
-    Else if there is a storageClass defined in Values.global.defaults.defaultStorageClass, return this
+    Else if there is a storageClass defined in Values.global.defaults.storageClass, return this
     In any other case, return nothing
   */}}
 
@@ -24,7 +24,7 @@
     {{- else -}}
       {{- print $className -}}
     {{- end -}}
-  {{- else if $root.Values.global.defaults.defaultStorageClass -}}
-    {{- print $root.Values.global.defaults.defaultStorageClass -}}
+  {{- else if $root.Values.global.defaults.storageClass -}}
+    {{- print $root.Values.global.defaults.storageClass -}}
   {{- end -}}
 {{- end -}}
