@@ -108,7 +108,9 @@ jobs:
                 touch website/docs/charts/${train}/${chart}/index.md
                 echo "# ${chart}" >> website/docs/charts/${train}/${chart}/index.md
                 echo "" >> website/docs/charts/${train}/${chart}/index.md
-                echo "## App Description" >> website/docs/charts/${train}/${chart}/index.md
+                version=$(cat charts/${train}/${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+                appversion=$(cat charts/${train}/${chart}/Chart.yaml | grep "^appVersion: " | awk -F" " '{ print $2 }')
+                echo '![Version: '"${version}"'](https://img.shields.io/badge/Version-'"${version}"'-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: '"${appversion}"'](https://img.shields.io/badge/AppVersion-'"${appversion}"'-informational?style=flat-square)' >> website/docs/charts/${train}/${chart}/index.md
                 echo "" >> website/docs/charts/${train}/${chart}/index.md
                 cat charts/${train}/${chart}/Chart.yaml | yq .description -r >> website/docs/charts/${train}/${chart}/index.md
                 echo "" >> website/docs/charts/${train}/${chart}/index.md
