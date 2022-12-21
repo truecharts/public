@@ -10,7 +10,7 @@
 
   {{/* Override previous if a runtime is passed from the pod */}}
   {{- with $runtime -}}
-    {{- $runtimeName := . -}}
+    {{- $runtimeName = . -}}
   {{- end -}}
 
  {{/* Override all previous if running in Scale and it's defined */}}

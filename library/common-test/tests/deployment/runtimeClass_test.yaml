@@ -1,0 +1,70 @@
+suite: deployment runtimeClassName test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+      - isNull:
+          path: spec.template.spec.runtimeClassName
+
+  - it: should pass with addNvidiaRuntimeClass and nvidiaRuntimeClassName set
+    documentIndex: *deploymentDoc
+    set:
+      global:
+        ixChartContext:
+          addNvidiaRuntimeClass: true
+          nvidiaRuntimeClassName: something
+    asserts:
+      - equal:
+          path: spec.template.spec.runtimeClassName
+          value: something
+
+  - it: should pass overriding global and per pod runtime
+    documentIndex: *deploymentDoc
+    set:
+      runtimeClassName: perpod
+      global:
+        defaults:
+          runtimeClassName: global
+        ixChartContext:
+          addNvidiaRuntimeClass: true
+          nvidiaRuntimeClassName: something
+    asserts:
+      - equal:
+          path: spec.template.spec.runtimeClassName
+          value: something
+
+  - it: should pass with nvidiaRuntimeClassName set
+    documentIndex: *deploymentDoc
+    set:
+      global:
+        ixChartContext:
+          nvidiaRuntimeClassName: something
+    asserts:
+      - isNull:
+          path: spec.template.spec.runtimeClassName
+
+  - it: should pass with global runtime set
+    documentIndex: *deploymentDoc
+    set:
+      global:
+        defaults:
+          runtimeClassName: something
+    asserts:
+      - equal:
+          path: spec.template.spec.runtimeClassName
+          value: something
+
+  - it: should pass with pod runtime set
+    documentIndex: *deploymentDoc
+    set:
+      runtimeClassName: something
+    asserts:
+      - equal:
+          path: spec.template.spec.runtimeClassName
+          value: something
