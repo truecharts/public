@@ -21,6 +21,10 @@ secretEnv:
 env:
   KASM_PORT: "{{ .Values.service.main.ports.main.port }}"
 
+kasm:
+  mountUdev: false
+  mountInput: false
+
 probes:
   liveness:
     type: HTTPS
