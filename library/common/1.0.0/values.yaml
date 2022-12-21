@@ -133,6 +133,9 @@ global:
   annotations: {}
   labels: {}
   defaults:
+    # If not defined on per pod or in ixChartContext, assume this.
+    # Empty means NO runtimeClassName
+    runtimeClassName: ""
     # If not defined on the the cert item, assume this
     useRevokedCerts: false
     # If not defined on the the cert item, assume this

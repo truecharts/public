@@ -47,7 +47,7 @@ securityContext:
 imagePullSecrets:
   {{- . | nindent 2 }}
 {{- end -}}
-{{- with (include "ix.v1.common.runtimeClassName" (dict "root" .) | trim) }}
+{{- with (include "ix.v1.common.runtimeClassName" (dict "root" . "runtimeClassName" .Values.runtimeClassName) | trim) }}
 runtimeClassName: {{ . }}
 {{- end -}}
 {{- with (include "ix.v1.common.controller.mainContainer" . | trim) }}
