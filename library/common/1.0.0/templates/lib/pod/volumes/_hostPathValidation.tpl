@@ -2,7 +2,7 @@
   {{- $vol := .volume -}}
   {{- $root := .root -}}
   {{- $validate := $root.Values.global.defaults.validateHostPath -}}
-  W
+
   {{- if (hasKey $vol "validateHostPath") -}}
     {{- $validate = $vol.validateHostPath -}}
   {{- end -}}

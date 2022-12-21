@@ -2,6 +2,7 @@
   {{- $index := .index -}}
   {{- $vol := .volume -}}
   {{- $root := .root -}}
+
   {{- include "ix.v1.common.controller.volumes.hostPath.validation" (dict "volume" $vol "root" $root) }} {{/* hostPath validation (if enabled) */}}
 - name: {{ $index }}
   hostPath:
