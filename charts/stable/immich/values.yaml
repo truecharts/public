@@ -1,27 +1,26 @@
 image:
   repository: tccr.io/truecharts/immich-server
-  tag: 1.29.5_44@sha256:8245bc309da22c436eb29a838d2292f504d77e24f4d098d6c0e65df877180ff3
+  tag: 1.39.0_61@sha256:150bc50169418d4b6da875cc29a07a7dfa1194a41d48fb42b9e45a5d7676d850
   pullPolicy: IfNotPresent
 
-imageML:
+mlImage:
   repository: tccr.io/truecharts/immich-ml
-  tag: 1.29.5_44@sha256:2df7b6368beb52ff1ffd946aaacc4df21f278b97ee3c592e2021118b3dcb5fec
+  tag: 1.39.0_61@sha256:b5609ed5e36b647ecdeab1c8e5297ed3920ad69c1da859b1f327be465c355927
   pullPolicy: IfNotPresent
 
-imageWeb:
+webImage:
   repository: tccr.io/truecharts/immich-web
-  tag: 1.29.5_44@sha256:c17ec4c2a174bac8fc2c58ebaedc7db70600fa2480695cf0920d54127c8bb32e
+  tag: 1.39.0_61@sha256:213fbb0cd372d9e22141656605045d959a0888d51a8e95a772fcb4f1684354ff
   pullPolicy: IfNotPresent
 
-imageProxy:
+proxyImage:
   repository: tccr.io/truecharts/immich-proxy
-  tag: 1.29.5_44@sha256:a4c24a70cc1e1bbbdecc3df371af08528430846709ef22ca16e2a923aa8da509
+  tag: 1.39.0_61@sha256:97994bf419d6cb1a318827896cc7927dfbab8e162153f4b1e61ae179095146cb
   pullPolicy: IfNotPresent
 
 command:
   - /bin/sh
-  - -c
-  - chmod +x ./start-server.sh && ./start-server.sh
+  - ./start-server.sh
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -63,36 +62,18 @@ probes:
     type: HTTP
     port: 3001
 
-# Due to https://github.com/immich-app/immich/issues/726
-hostAliases:
-  - ip: 127.0.0.1
-    hostnames:
-      - immich-web
-      - immich-server
-      - immich-machine-learning
-
 service:
   main:
     ports:
       main:
         port: 10323
         protocol: HTTP
+        targetPort: 8080
 
 persistence:
   uploads:
     enabled: true
     mountPath: /usr/src/app/upload
-  proxy-conf:
-    enabled: true
-    noMount: true
-    type: custom
-    mountPath: /etc/nginx/
-    volumeSpec:
-      configMap:
-        name: '{{ include "tc.common.names.fullname" . }}-proxy-config'
-        items:
-          - key: nginx.conf
-            path: nginx.conf
 
 postgresql:
   enabled: true

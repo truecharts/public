@@ -58,6 +58,14 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
+        - variable: transcode
+          label: "App Transcode Storage"
+          description: "Storage for transcode, best to be set to emptyDir and if enough RAM, to Memory type."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

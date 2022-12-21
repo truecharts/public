@@ -1,11 +1,11 @@
 apiVersion: v2
 appVersion: "1.8.14"
-version: 11.0.10
+version: 11.0.12
 kubeVersion: ">=1.16.0-0"
 name: etherpad
 description: A real-time collaborative editor scalable to thousands of simultaneous real time users.
 type: application
-home: https://truecharts.org/docs/charts/stable/etherpad
+home: https://truecharts.org/charts/stable/etherpad
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/etherpad.png
 keywords:
   - etherpad
@@ -20,11 +20,11 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.0.9
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 11.0.11
+    version: 11.0.13
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts

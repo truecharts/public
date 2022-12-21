@@ -1,0 +1,127 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/rdesktop
+  tag: latest@sha256:9edf5f0644a03dacdffe5a5e38ce0a88df287ef3e367e05407c1504155e83919
+ubuntuXFCEImage:
+  repository: tccr.io/truecharts/rdesktop-ubuntu-xfce
+  tag: latest@sha256:ac67c8f1e6f0ef2030f362b0c502921513a7284f755740a7bdc0f8e888a3a6ba
+  pullPolicy: Always
+fedoraXFCEImage:
+  repository: tccr.io/truecharts/rdesktop-fedora-xfce
+  tag: latest@sha256:442805c8a45df5e73e475105a2caa753e0d79f0d79b3be4ce893997b47bffa31
+  pullPolicy: Always
+archXFCEImage:
+  repository: tccr.io/truecharts/rdesktop-arch-xfce
+  tag: latest@sha256:40f8c4f0cea4f559ec61a33b083c54a281a83b3ef9fd896e7bac3a8264c78fd6
+  pullPolicy: Always
+
+alpineKDEImage:
+  repository: tccr.io/truecharts/rdesktop-alpine-kde
+  tag: latest@sha256:131065e7e68a48041c26eeb5a9e7a4b532842a2a48d88dd18e60114010464db5
+  pullPolicy: Always
+ubuntuKDEImage:
+  repository: tccr.io/truecharts/rdesktop-ubuntu-kde
+  tag: latest@sha256:4306fb8092d9326ad1ed1abe8dcacf361d8686ebe43ef0be27c64a16e02f467c
+  pullPolicy: Always
+fedoraKDEImage:
+  repository: tccr.io/truecharts/rdesktop-fedora-kde
+  tag: latest@sha256:fb931fdf7b7b654ca506de372993c94e5daa15f9d04725ac6f85feb33929aa4d
+  pullPolicy: Always
+archKDEImage:
+  repository: tccr.io/truecharts/rdesktop-arch-kde
+  tag: latest@sha256:e4118773ad0331353f754643a7672b3280e79845a71b11cb3db14c6864ba0c75
+  pullPolicy: Always
+
+alpineMATEImage:
+  repository: tccr.io/truecharts/rdesktop-alpine-mate
+  tag: latest@sha256:90f86dbd8385b59dcc9746bc737fe65c059dfbc73b503b56bf4e73d1f43ccbea
+  pullPolicy: Always
+ubuntuMATEImage:
+  repository: tccr.io/truecharts/rdesktop-ubuntu-mate
+  tag: latest@sha256:11b8506f0ae86af79dfa7fe782410c8877ea0408faa70d0a7daa1db8713fca10
+  pullPolicy: Always
+fedoraMATEImage:
+  repository: tccr.io/truecharts/rdesktop-fedora-mate
+  tag: latest@sha256:8d83e087c14f8d80c9feb75c031ce414d613b59656e001b732c1d28c125a4222
+  pullPolicy: Always
+archMATEImage:
+  repository: tccr.io/truecharts/rdesktop-arch-mate
+  tag: latest@sha256:5ce77bd6ad55c6e1b22c215335364fd55d0d4a2db573cd52e734238897324d8f
+  pullPolicy: Always
+
+alpineI3Image:
+  repository: tccr.io/truecharts/rdesktop-alpine-i3
+  tag: latest@sha256:c163a2c2c0ae441e8d76f3c8260679797a46bd65c1a686da18cf1add1b597908
+  pullPolicy: Always
+ubuntuI3Image:
+  repository: tccr.io/truecharts/rdesktop-ubuntu-i3
+  tag: latest@sha256:b8121add696d5bc628dc33f03d731616061e74ebc8e075a4ec4dc0389b19cd78
+  pullPolicy: Always
+fedoraI3Image:
+  repository: tccr.io/truecharts/rdesktop-fedora-i3
+  tag: latest@sha256:e89bc02fb1f579e53a10ebb4ceecfde00e3c95dd57a01c601488727a2e14b83b
+  pullPolicy: Always
+archI3Image:
+  repository: tccr.io/truecharts/rdesktop-arch-i3
+  tag: latest@sha256:b6f6d2ff96b6cf709f9de3b3b41c4fc0999599b1eee348ae5ddf3b2b9d8ee0c6
+  pullPolicy: Always
+
+alpineOpenBoxImage:
+  repository: tccr.io/truecharts/rdesktop-alpine-openbox
+  tag: latest@sha256:e7751801eaf20ffe9615d0315a7dbda07b8e44516ae41095beefa55f4a877e02
+  pullPolicy: Always
+ubuntuOpenBoxImage:
+  repository: tccr.io/truecharts/rdesktop-ubuntu-openbox
+  tag: latest@sha256:1c21fe1d9282b6ccefdb169331f0a2c2f09855452ececa01ff10ab0ebcb20d78
+  pullPolicy: Always
+fedoraOpenBoxImage:
+  repository: tccr.io/truecharts/rdesktop-fedora-openbox
+  tag: latest@sha256:e9e214ba1989557f3633eea4d560ee241b967dad4905f71a5ab9ecc25cca8155
+  pullPolicy: Always
+archOpenBoxImage:
+  repository: tccr.io/truecharts/rdesktop-arch-openbox
+  tag: latest@sha256:799d145d81db091e67d76de59ee08e440c7b713cdc163aa43b694e80c42b0f71
+  pullPolicy: Always
+
+alpineICEWMImage:
+  repository: tccr.io/truecharts/rdesktop-alpine-icewm
+  tag: latest@sha256:3be676d826e23fdaba225bd7a9c1c9590e61775d2d700d8a9a18985b7bc7fa94
+  pullPolicy: Always
+ubuntuICEWMImage:
+  repository: tccr.io/truecharts/rdesktop-ubuntu-icewm
+  tag: latest@sha256:9231d13f4be9affc8a673a67383343ab4ebbfe61ed37d475502457f326f9512a
+  pullPolicy: Always
+fedoraICEWMImage:
+  repository: tccr.io/truecharts/rdesktop-fedora-icewm
+  tag: latest@sha256:159b870385bc58f50c88e9aec9f2ecf9a65925eabf43c193a698c7286823aae3
+  pullPolicy: Always
+archICEWMImage:
+  repository: tccr.io/truecharts/rdesktop-arch-icewm
+  tag: latest@sha256:24ce9bb6fc1afb60ea52e3ea2a69f908e01fec2ca151e4bc6c9ef2458cf9d399
+  pullPolicy: Always
+
+imageSelector: image
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 3389
+        protocol: HTTP
+        targetPort: 3389
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+
+portal:
+  enabled: true
