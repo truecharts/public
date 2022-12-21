@@ -5,10 +5,12 @@
   {{- $root := .root -}}
 
   {{- $defaultSecCont := $root.Values.global.defaults.securityContext -}}
-  {{- $runAsNonRoot := $defaultSecCont.runAsNonRoot -}} {{/* TODO: Set defaults from values */}}
+  {{- $runAsNonRoot := $defaultSecCont.runAsNonRoot -}} {{/* TODO: Inherit from main container? */}}
   {{- $readOnlyRootFilesystem := $defaultSecCont.readOnlyRootFilesystem -}}
   {{- $allowPrivilegeEscalation := $defaultSecCont.allowPrivilegeEscalation -}}
   {{- $privileged := $defaultSecCont.privileged -}}
+  {{- $capAdd := $defaultSecCont.capabilities.add -}}
+  {{- $capDrop := $defaultSecCont.capabilities.drop -}}
 
   {{/* Check that they are set as booleans to prevent typos */}}
   {{- with $secContext -}}
@@ -17,6 +19,7 @@
     {{- end -}}
   {{- end -}}
 
+  {{/* Override defaults based on user/dev input */}}
   {{- if ne (toString $secContext.runAsNonRoot) (toString $runAsNonRoot) -}}
     {{- $runAsNonRoot = $secContext.runAsNonRoot -}}
   {{- end -}}
@@ -35,30 +38,32 @@
     {{- if $runAsNonRoot -}}
       {{- fail "You are trying to run as root (user or group), but runAsNonRoot is set to true" -}}
     {{- end -}}
-  {{- end -}}
+  {{- end }}
 runAsNonRoot: {{ $runAsNonRoot }}
 readOnlyRootFilesystem: {{ $readOnlyRootFilesystem }}
 allowPrivilegeEscalation: {{ $allowPrivilegeEscalation }}
 privileged: {{ $privileged }} {{/* TODO: Set to true if deviceList is used? */}}
 capabilities: {{/* TODO: add NET_BIND_SERVICE when port < 80 is used? */}} {{/* TODO: make caps reusuable */}}
-  {{- if or $secContext.capabilities.add $secContext.capabilities.drop }}
-    {{- if or (not (kindIs "slice" $secContext.capabilities.add)) (not (kindIs "slice" $secContext.capabilities.drop)) }}
-      {{- fail "Either <add> or <drop> capabilities is not a list."}}
-    {{- end }}
-    {{- with $secContext.capabilities.add }}
+  {{- with $secContext.capabilities -}}
+    {{- if or .add .drop -}}
+      {{- if or (not (kindIs "slice" .add)) (not (kindIs "slice" .drop)) -}}
+        {{- fail "Either <add> or <drop> capabilities is not a list." -}}
+      {{- end -}}
+      {{- with .add }}
     add:
-      {{- range . }}
-      - {{ tpl . $root | quote }}
-      {{- end }}
-    {{- end }}
-    {{- with $secContext.capabilities.drop }}
+        {{- range . }}
+        - {{ tpl . $root | quote }}
+        {{- end -}}
+      {{- end -}}
+      {{- with .drop }}
     drop:
-      {{- range . }}
-      - {{ tpl . $root | quote }}
-      {{- end }}
-    {{- end }}
-  {{- else }}
-    add: []
-    drop: []
+        {{- range . }}
+        - {{ tpl . $root | quote }}
+        {{- end -}}
+      {{- end -}}
+    {{- else }}
+    add: {{ $capAdd }}
+    drop: {{ $capDrop }}
+    {{- end -}}
   {{- end }}
 {{- end -}}
