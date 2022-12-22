@@ -23,11 +23,11 @@
   args:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- with (include "ix.v1.common.container.envVars" (dict "envs" $container.env "envList" $container.envList "container" $name "root" $root) | trim) }}
+  {{- with (include "ix.v1.common.container.envVars" (dict "envs" $container.env "envList" $container.envList "containerName" $name "root" $root) | trim) }}
   env:
     {{- . | nindent 4 }} {{/* env, fixedEnvs and envList */}}
   {{- end -}}
-  {{- with (include "ix.v1.common.container.envFrom" (dict "envFrom" $container.envFrom "container" $name "root" $root) | trim) }}
+  {{- with (include "ix.v1.common.container.envFrom" (dict "envFrom" $container.envFrom "containerName" $name "root" $root) | trim) }}
   envFrom:
     {{- . | nindent 4 }}
   {{- end -}}

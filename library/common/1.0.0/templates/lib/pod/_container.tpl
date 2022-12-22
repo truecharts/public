@@ -36,11 +36,11 @@ So it can work on multiple places, like additional containers and not only the m
   {{- with (include "ix.v1.common.container.termination.messagePolicy" (dict "msgPolicy" .Values.termination.messagePolicy "root" $)) | trim }}
   terminationMessagePolicy: {{ . }}
   {{- end -}}
-  {{- with (include "ix.v1.common.container.envVars" (dict "envs" .Values.env "envList" .Values.envList "container" $name "root" $) | trim) }}
+  {{- with (include "ix.v1.common.container.envVars" (dict "envs" .Values.env "envList" .Values.envList "containerName" $name "root" $) | trim) }}
   env:
     {{- . | nindent 4 }} {{/* env, fixedEnvs and envList */}}
   {{- end -}}
-  {{- with (include "ix.v1.common.container.envFrom" (dict "envFrom" .Values.envFrom "container" $name "root" $) | trim) }}
+  {{- with (include "ix.v1.common.container.envFrom" (dict "envFrom" .Values.envFrom "containerName" $name "root" $) | trim) }}
   envFrom:
     {{- . | nindent 4 }}
   {{- end -}}

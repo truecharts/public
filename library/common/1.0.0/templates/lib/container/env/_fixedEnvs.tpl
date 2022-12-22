@@ -4,7 +4,7 @@ will be parsed correctly without causing errors.
 */}}
 {{- define "ix.v1.common.container.fixedEnvs" -}}
   {{- $root := .root -}}
-  {{- $container := .container -}}
+  {{- $containerName := .containerName -}}
   {{- $vars := list -}}
 
   {{- $vars = mustAppend $vars (dict "name" "TZ" "value" (tpl (toYaml $root.Values.TZ) $root)) -}}
@@ -26,6 +26,6 @@ will be parsed correctly without causing errors.
   {{- if or ($root.Values.securityContext.readOnlyRootFilesystem) ($root.Values.securityContext.runAsNonRoot) -}} {{/* Mainly for LSIO containers, tell S6 to avoid using rootfs */}}
     {{- $vars = mustAppend $vars (dict "name" "S6_READ_ONLY_ROOT" "value" "1") -}}
   {{- end -}}
-  {{- include "ix.v1.common.util.storeEnvsForDupeCheck" (dict "root" $root "source" "fixedEnv" "data" (toJson $vars) "containers" (list $container)) -}}
+  {{- include "ix.v1.common.util.storeEnvsForDupeCheck" (dict "root" $root "source" "fixedEnv" "data" (toJson $vars) "containers" (list $containerName)) -}}
   {{- toJson $vars -}} {{/* Helm can only return "string", so we stringify the output */}}
 {{- end -}}

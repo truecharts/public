@@ -9,12 +9,12 @@ That's why the custom dict is expected.
 {{- define "ix.v1.common.container.envVars" -}}
   {{- $envs := .envs -}}
   {{- $envList := .envList -}}
-  {{- $container := .container -}}
+  {{- $containerName := .containerName -}}
   {{- $root := .root -}}
   {{- $fixedEnv := list -}}
 
   {{- if $root.Values.injectFixedEnvs -}}
-    {{- $fixedEnv = (include "ix.v1.common.container.fixedEnvs" (dict "root" $root "fixedEnv" $fixedEnv "container" $container)) -}}
+    {{- $fixedEnv = (include "ix.v1.common.container.fixedEnvs" (dict "root" $root "fixedEnv" $fixedEnv "containerName" $containerName)) -}}
   {{- end -}} {{/* Finish fixedEnv */}}
   {{- with $fixedEnv -}}
     {{- range $fixedEnv | fromJsonArray }} {{/* "fromJsonArray" parses stringified output and convet to list */}}
@@ -22,8 +22,8 @@ That's why the custom dict is expected.
   value: {{ .value | quote }}
     {{- end -}}
   {{- end -}}
-  {{- include "ix.v1.common.container.env" (dict "envs" $envs "root" $root "fixedEnv" $fixedEnv "container" $container) -}}
-  {{- include "ix.v1.common.container.envList" (dict "envList" $envList "envs" $envs "root" $root "fixedEnv" $fixedEnv "container" $container) -}}
+  {{- include "ix.v1.common.container.env" (dict "envs" $envs "root" $root "fixedEnv" $fixedEnv "containerName" $containerName) -}}
+  {{- include "ix.v1.common.container.envList" (dict "envList" $envList "envs" $envs "root" $root "fixedEnv" $fixedEnv "containerName" $containerName) -}}
 {{- end -}}
 
 {{/* Note: TODO: Check for dupes in configmap/secrets. */}}

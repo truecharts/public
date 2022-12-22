@@ -1,7 +1,7 @@
 {{- define "ix.v1.common.container.envList" -}}
   {{- $envList := .envList -}}
   {{- $envs := .envs -}}
-  {{- $container := .container -}}
+  {{- $containerName := .containerName -}}
   {{- $root := .root -}}
   {{- $fixedEnv := .fixedEnv -}}
 
@@ -24,6 +24,6 @@
         {{- fail "Please specify both name and value for environment variable" -}}
       {{- end -}}
     {{- end -}}
-    {{- include "ix.v1.common.util.storeEnvsForDupeCheck" (dict "root" $root "source" "envList" "data" $dupeCheck "containers" (list $container)) -}}
+    {{- include "ix.v1.common.util.storeEnvsForDupeCheck" (dict "root" $root "source" "envList" "data" $dupeCheck "containers" (list $containerName)) -}}
   {{- end -}} {{/* Finish envList */}}
 {{- end -}}
