@@ -8,88 +8,102 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
+  - variable: ark
+    group: App Configuration
+    label: Ark Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: USERNAME
-          label: "USERNAME"
-          description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+        - variable: username
+          label: Username
+          description: Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard).
           schema:
             type: string
             default: ""
-        - variable: PASSWRD
-          label: "PASSWRD"
-          description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            private: true
-            default: ""
-        - variable: SRV_PWD
-          label: "SRV_PWD"
-          description: "Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)"
+        - variable: password
+          label: Password
+          description: Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard).
           schema:
             type: string
             private: true
             default: ""
-        - variable: SRV_ADMIN_PWD
-          label: "SRV_ADMIN_PWD"
-          description: "Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)"
+        - variable: srv_password
+          label: Server Password
+          description: Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)
           schema:
             type: string
             private: true
             default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: GAME_ID
-          label: "GAME_ID"
+        - variable: srv_admin_pass
+          label: Server Admin Password
+          description: Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: game_id
+          label: Game ID
           description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
           schema:
             type: string
             default: "376030"
-        - variable: MAP
-          label: "MAP"
-          description: "Map name"
+        - variable: map
+          label: Map
+          description: Map Name
           schema:
             type: string
-            default: "TheIsland"
-        - variable: SERVER_NAME
-          label: "SERVER_NAME"
-          description: "Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)"
+            default: TheIsland
+        - variable: server_name
+          label: Server Name
+          description: Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)
           schema:
             type: string
             default: ""
-        - variable: VALIDATE
-          label: "VALIDATE"
+        - variable: validate
+          label: Valitdate
           description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
           schema:
             type: boolean
             default: true
-        - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
-          description: "Enter your game parameters separated with ? and start with ? (don't put spaces in between eg: ?MaxPlayers=40?FastDecayUnsnappedCoreStructures=true)"
+        - variable: rcon_enabled
+          label: Enable RCON
           schema:
-            type: string
-            default: "?RCONPort=27020?RCONEnabled=True"
-        - variable: GAME_PARAMS_EXTRA
-          label: "GAME_PARAMS_EXTRA"
-          description: "Values to start the server"
+            type: boolean
+            default: true
+        - variable: game_params
+          label: Game Parameters
+          description: "Enter your game parameters starting with ? (don't put spaces in between eg: ?MaxPlayers=40?FastDecayUnsnappedCoreStructures=true). For multiple servers, change the port numbers in Networking and Services section ONLY."
           schema:
-            type: string
-            default: "-server -log -crossplay"
+            type: list
+            default: []
+            items:
+              - variable: game_params_entry
+                label: Parameter Entry
+                description: Single parameter per entry. Start with ?
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+        - variable: game_params_extra
+          label: Game Extra Parameters
+          description: "Values to start the server, one per entry"
+          schema:
+            type: list
+            default: ["-server", "-log", "-crossplay"]
+            items:
+              - variable: game_params_extra_entry
+                label: Extra Parameter Entry
+                description: Single parameter per entry.
+                schema:
+                  type: string
+                  default: ""
+                  required: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -97,21 +111,21 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 7777
                               required: true
         - variable: udp2
-          label: "udp2 service"
-          description: "Container Port 7778"
+          label: udp2 service
+          description: This should always be (Main Port + 1)
           schema:
             additional_attrs: true
             type: dict
@@ -119,21 +133,21 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: udp2
-                      label: "udp2 Service Port Configuration"
+                      label: udp2 Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 7778
                               required: true
         - variable: udpsteam
-          label: "udpsteam service"
-          description: "Container Port 27015"
+          label: UDP Steam Service
+          description: Container Port 27015
           schema:
             additional_attrs: true
             type: dict
@@ -141,21 +155,21 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: udpsteam
-                      label: "udpsteam Service Port Configuration"
+                      label: UDP Steam Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 27015
                               required: true
         - variable: rcontcp
-          label: "rcontcp service"
-          description: "Container Port 27020"
+          label: rcontcp service
+          description: Container Port 27020
           schema:
             additional_attrs: true
             type: dict
@@ -163,14 +177,14 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: rcontcp
-                      label: "rcontcp Service Port Configuration"
+                      label: rcontcp Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 27020
@@ -181,16 +195,16 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: steamcmd
-          label: "steamcmd Storage"
-          description: "Container Path serverdatasteamcmd"
+          label: steamcmd Storage
+          description: Container Path serverdatasteamcmd
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
         - variable: serverfiles
-          label: "serverfiles Storage"
-          description: "Container Path serverdataserverfiles"
+          label: serverfiles Storage
+          description: Container Path serverdataserverfiles
           schema:
             additional_attrs: true
             type: dict
@@ -199,7 +213,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -211,41 +225,41 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568

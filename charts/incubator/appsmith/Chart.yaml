@@ -3,17 +3,17 @@ appVersion: "1.8.13"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.0.9
   - condition: redis.enabled
     name: redis
     repository: https://charts.truecharts.org
-    version: 5.0.16
+    version: 5.0.17
 # - condition: mongodb.enabled
 #   name: mongodb
 #   repository: https://charts.truecharts.org
 #   version: 0.0.25
 description: Turn any datasource into an internal app in minutes. Appsmith lets you drag-and-drop UI components to build pages, connect to any API, database or GraphQL source and write logic with JavaScript objects.
-home: https://truecharts.org/docs/charts/incubator/appsmith
+home: https://truecharts.org/charts/incubator/appsmith
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/appsmith.png
 keywords:
   - appsmith
@@ -26,7 +26,7 @@ name: appsmith
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/appsmith
   - https://github.com/appsmithorg/appsmith
-version: 5.0.14
+version: 5.0.15
 annotations:
   truecharts.org/catagories: |
     - productivity
