@@ -32,10 +32,4 @@
 
   {{- include "ix.v1.common.util.envCheckDupes" (dict "root" .) -}}
 
-  {{- include "ix.v1.common.util.cleanupEnvsForCheck" (dict "root" .) -}}
-
-  {{- if .Values.envsForDupeCheck -}} {{/* TODO: Remove when testing is done */}}
-    {{- fail "Failed to cleanup <envsForDupeCheck> key." -}}
-  {{- end -}}
-
 {{- end -}}

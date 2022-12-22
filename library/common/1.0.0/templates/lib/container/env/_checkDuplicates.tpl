@@ -3,10 +3,19 @@
 
   {{- range $kOut, $vOut := $root.Values.envsForDupeCheck -}}
     {{- range $kIn, $vIn := $root.Values.envsForDupeCheck -}}
-      {{- if and (eq $vOut.key $vIn.key) (ne $vOut.source $vIn.source) -}}
-        {{- fail (printf "Environment Variable (%s) is already set [to (%s) on (%s)] and [to (%s) on (%s)]" $vOut.key $vOut.value $vOut.source $vIn.value $vIn.source) -}}
+      {{- if and (ne $vOut.source $vIn.source) (eq $vOut.key $vIn.key) -}}
+        {{- range $container := $vOut.containers -}}
+          {{- if (mustHas $container $vIn.containers) -}}
+            {{- fail (printf "Environment Variable (%s) on container (%s) is set more than once. [to (%s) on (%s)] and [to (%s) on (%s)]" $vOut.key $container $vOut.value $vOut.source $vIn.value $vIn.source) -}}
+          {{- end -}}
+        {{- end -}}
       {{- end -}}
     {{- end -}}
+  {{- end -}}
+  {{- include "ix.v1.common.util.cleanupEnvsForCheck" (dict "root" $root) -}}
+
+  {{- if $root.Values.envsForDupeCheck -}} {{/* TODO: Remove when testing is done */}}
+    {{- fail "Failed to cleanup <envsForDupeCheck> key." -}}
   {{- end -}}
 {{- end -}}
 
@@ -14,6 +23,7 @@
 {{- define "ix.v1.common.util.storeEnvsForDupeCheck" -}}
   {{- $root := .root -}}
   {{- $source := .source -}}
+  {{- $containers := .containers -}}
   {{- $data := .data -}}
 
   {{/* If there is no key already, create it now */}}
@@ -32,9 +42,28 @@
       {{- $k = $v.name -}}
       {{- $v = $v.value -}}
     {{- end -}}
-    {{- $tmpList = mustAppend $tmpList (dict "key" $k "value" $v "source" $source) -}}
+    {{- $tmpList = mustAppend $tmpList (dict "key" $k "value" $v "source" $source "containers" $containers) -}}
   {{- end -}}
   {{- $_ := set $root.Values "envsForDupeCheck" $tmpList -}}
+{{- end -}}
+
+{{- define "ix.v1.common.util.storeEnvFromVarsForCheck" -}}
+  {{- $root := .root -}}
+  {{- $name := .name -}}
+  {{- $container := .container -}}
+  {{- $type := .type -}}
+
+  {{- $dupes := $root.Values.envsForDupeCheck -}}
+  {{- range $item := $dupes -}}
+    {{- if eq $item.source (printf "%s-%s" (camelcase $type) $name) -}}
+      {{- if not (mustHas $container $item.containers) -}}
+        {{- $dupes = without $dupes $item -}}
+        {{- $_ := set $item "containers" (mustAppend $item.containers $container) -}}
+        {{- $dupes = mustAppend $dupes $item -}}
+        {{- $_ := set $root.Values "envsForDupeCheck" $dupes -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
 {{- end -}}
 
 {{- define "ix.v1.common.util.cleanupEnvsForCheck" -}}

@@ -44,6 +44,17 @@ tests:
       - failedTemplate:
           errorMessage: Not valid Ref or <name> key is missing in envFrom.
 
+  - it: should fail with envFrom configMapRef and secretRef on the same item
+    set:
+      envFrom:
+        - configMapRef:
+            name: something
+          secretRef:
+            name: something
+    asserts:
+      - failedTemplate:
+          errorMessage: You can't define both secretRef and configMapRef on the same item.
+
   - it: should pass with envFrom configMapRef entry added
     documentIndex: *deploymentDoc
     set:

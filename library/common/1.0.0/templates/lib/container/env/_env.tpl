@@ -1,6 +1,7 @@
 {{- define "ix.v1.common.container.env" -}}
   {{- $envs := .envs -}}
   {{- $root := .root -}}
+  {{- $container := .container -}}
   {{- $fixedEnv := .fixedEnv -}}
 
   {{- $dupeCheck := dict -}}
@@ -50,6 +51,6 @@
       key: {{ tpl (required (printf "<key> for the keyRef is not defined in (%s)" $name) $value.key) $root }}
       {{- end -}}
     {{- end -}}
-    {{- include "ix.v1.common.util.storeEnvsForDupeCheck" (dict "root" $root "source" "env" "data" $dupeCheck) -}}
+    {{- include "ix.v1.common.util.storeEnvsForDupeCheck" (dict "root" $root "source" "env" "data" $dupeCheck "containers" (list $container)) -}}
   {{- end -}} {{/* Finish env */}}
 {{- end -}}

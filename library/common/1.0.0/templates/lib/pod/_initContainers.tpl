@@ -9,7 +9,7 @@
     {{- if ne $name ($name | lower) -}}
       {{- fail (printf "Name (%s) of Init Container must be all lowercase" $name) -}}
     {{- end }}
-- name: {{ $name }}
+- name: {{ printf "%s-%s" (include "ix.v1.common.names.fullname" $root) $name }}
   image: {{ include "ix.v1.common.images.selector" (dict "root" $root "selectedImage" $container.imageSelector ) }}
   imagePullPolicy: {{ include "ix.v1.common.images.pullPolicy" (dict "policy" $container.pullPolicy) }}
   tty: {{ $container.tty | default false }}
@@ -28,7 +28,7 @@
   {{- end -}}
   {{- with (include "ix.v1.common.container.securityContext" (dict "secCont" $container.securityContext "podSecCont" $container.podSecurityContext "root" $root)) | trim }}
   securityContext:
-    {{- . | nindent 4 }} {{/* TODO: finish sec context regaring caps */}}
+    {{- . | nindent 4 }}
   {{- end -}}
   {{- with (include "ix.v1.common.container.termination.messagePath" (dict "msgPath" $container.termination.messagePath "root" $root)) | trim }}
   terminationMessagePath: {{ . }}

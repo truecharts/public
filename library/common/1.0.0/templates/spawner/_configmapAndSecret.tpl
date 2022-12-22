@@ -41,7 +41,6 @@
       {{- fail (printf "Content of %s (%s) are string. Must be in key/value format. Value can be scalar too." (camelcase $objectType) $name) -}}
     {{- end -}}
 
-
     {{- $parseAsEnv := false -}}
     {{- if hasKey $objectData "parseAsEnv" -}}
       {{- $parseAsEnv = $objectData.parseAsEnv -}}
@@ -59,7 +58,7 @@
     {{- end -}}
 
     {{/* Add the to the list for dupeCheck */}}
-    {{- include "ix.v1.common.util.storeEnvsForDupeCheck" (dict "root" $root "source" (printf "%s-%s" (camelcase $objectType) $objectName) "data" $dupeCheck) -}}
+    {{- include "ix.v1.common.util.storeEnvsForDupeCheck" (dict "root" $root "source" (printf "%s-%s" (camelcase $objectType) $objectName) "containers" list "data" $dupeCheck) -}}
     {{/* Convert to Yaml before sending to classes */}}
     {{- $classData = toYaml $classData -}}
 

@@ -113,7 +113,7 @@ tests:
         TZ: something
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (TZ) is already set [to (UTC) on (fixedEnv)] and [to (something) on (env)]
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (env)]
 
   - it: should fail with env trying to override configmap
     set:
@@ -125,9 +125,12 @@ tests:
           parseAsEnv: true
           content:
             ENVVAR: ABC
+      envFrom:
+        - configMapRef:
+            name: RELEASE-NAME-common-test-somename
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (ENVVAR) is already set [to (ABC) on (Configmap-RELEASE-NAME-common-test-somename)] and [to (something) on (env)]
+          errorMessage: Environment Variable (ENVVAR) on container (RELEASE-NAME-common-test) is set more than once. [to (something) on (env)] and [to (ABC) on (Configmap-RELEASE-NAME-common-test-somename)]
 
   - it: should fail with env trying to override secret
     set:
@@ -139,9 +142,12 @@ tests:
           parseAsEnv: true
           content:
             ENVVAR: ABC
+      envFrom:
+        - secretRef:
+            name: RELEASE-NAME-common-test-somename
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (ENVVAR) is already set [to (ABC) on (Secret-RELEASE-NAME-common-test-somename)] and [to (something) on (env)]
+          errorMessage: Environment Variable (ENVVAR) on container (RELEASE-NAME-common-test) is set more than once. [to (something) on (env)] and [to (ABC) on (Secret-RELEASE-NAME-common-test-somename)]
 
   - it: should fail with env trying to override envList
     set:
@@ -152,7 +158,7 @@ tests:
           value: ABC
     asserts:
       - failedTemplate:
-          errorMessage:  Environment Variable (ENVVAR) is already set [to (something) on (env)] and [to (ABC) on (envList)]
+          errorMessage:  Environment Variable (ENVVAR) on container (RELEASE-NAME-common-test) is set more than once. [to (something) on (env)] and [to (ABC) on (envList)]
 
   - it: should fail with envList trying to override fixedEnv
     set:
@@ -161,7 +167,7 @@ tests:
           value: something
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (TZ) is already set [to (UTC) on (fixedEnv)] and [to (something) on (envList)]
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (envList)]
 
   - it: should fail with envList trying to override env
     set:
@@ -172,7 +178,7 @@ tests:
           value: something
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (postgres.svc.cluster.local) on (env)] and [to (something) on (envList)]
+          errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (postgres.svc.cluster.local) on (env)] and [to (something) on (envList)]
 
   - it: should fail with envList trying to override configmap
     set:
@@ -185,9 +191,12 @@ tests:
           parseAsEnv: true
           content:
             POSTGRES_HOST: something
+      envFrom:
+        - configMapRef:
+            name: RELEASE-NAME-common-test-somename
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something) on (Configmap-RELEASE-NAME-common-test-somename)] and [to (something) on (envList)]
+          errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (something) on (envList)] and [to (something) on (Configmap-RELEASE-NAME-common-test-somename)]
 
   - it: should fail with envList trying to override secret
     set:
@@ -200,9 +209,12 @@ tests:
           parseAsEnv: true
           content:
             POSTGRES_HOST: something
+      envFrom:
+        - secretRef:
+            name: RELEASE-NAME-common-test-somename
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something) on (Secret-RELEASE-NAME-common-test-somename)] and [to (something) on (envList)]
+          errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (something) on (envList)] and [to (something) on (Secret-RELEASE-NAME-common-test-somename)]
 
   - it: should fail with configmap trying to override fixedEnv
     set:
@@ -212,9 +224,12 @@ tests:
           parseAsEnv: true
           content:
             TZ: something
+      envFrom:
+        - configMapRef:
+            name: RELEASE-NAME-common-test-somename
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (TZ) is already set [to (something) on (Configmap-RELEASE-NAME-common-test-somename)] and [to (UTC) on (fixedEnv)]
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (Configmap-RELEASE-NAME-common-test-somename)]
 
   - it: should fail with configmap trying to override env
     set:
@@ -226,9 +241,12 @@ tests:
           parseAsEnv: true
           content:
             POSTGRES_HOST: something
+      envFrom:
+        - configMapRef:
+            name: RELEASE-NAME-common-test-somename
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something) on (Configmap-RELEASE-NAME-common-test-somename)] and [to (postgres.svc.cluster.local) on (env)]
+          errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (postgres.svc.cluster.local) on (env)] and [to (something) on (Configmap-RELEASE-NAME-common-test-somename)]
 
   - it: should fail with configmap trying to override envList
     set:
@@ -241,9 +259,12 @@ tests:
           parseAsEnv: true
           content:
             POSTGRES_HOST: something
+      envFrom:
+        - configMapRef:
+            name: RELEASE-NAME-common-test-somename
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something) on (Configmap-RELEASE-NAME-common-test-somename)] and [to (postgres.svc.cluster.local) on (envList)]
+          errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (postgres.svc.cluster.local) on (envList)] and [to (something) on (Configmap-RELEASE-NAME-common-test-somename)]
 
   - it: should fail with configmap trying to override secret
     set:
@@ -259,9 +280,14 @@ tests:
           parseAsEnv: true
           content:
             POSTGRES_HOST: something
+      envFrom:
+        - configMapRef:
+            name: RELEASE-NAME-common-test-somename
+        - secretRef:
+            name: RELEASE-NAME-common-test-somename
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something) on (Configmap-RELEASE-NAME-common-test-somename)] and [to (something123) on (Secret-RELEASE-NAME-common-test-somename)]
+          errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (something) on (Configmap-RELEASE-NAME-common-test-somename)] and [to (something123) on (Secret-RELEASE-NAME-common-test-somename)]
 
   - it: should fail with secret trying to override fixedEnv
     set:
@@ -271,9 +297,12 @@ tests:
           parseAsEnv: true
           content:
             TZ: something
+      envFrom:
+        - secretRef:
+            name: RELEASE-NAME-common-test-somename
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (TZ) is already set [to (something) on (Secret-RELEASE-NAME-common-test-somename)] and [to (UTC) on (fixedEnv)]
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (Secret-RELEASE-NAME-common-test-somename)]
 
   - it: should fail with secret trying to override env
     set:
@@ -285,9 +314,12 @@ tests:
           parseAsEnv: true
           content:
             POSTGRES_HOST: something
+      envFrom:
+        - secretRef:
+            name: RELEASE-NAME-common-test-somename
     asserts:
       - failedTemplate:
-          errorMessage:  Environment Variable (POSTGRES_HOST) is already set [to (something) on (Secret-RELEASE-NAME-common-test-somename)] and [to (postgres.svc.cluster.local) on (env)]
+          errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (postgres.svc.cluster.local) on (env)] and [to (something) on (Secret-RELEASE-NAME-common-test-somename)]
 
   - it: should fail with secret trying to override envList
     set:
@@ -300,9 +332,12 @@ tests:
           parseAsEnv: true
           content:
             POSTGRES_HOST: something
+      envFrom:
+        - secretRef:
+            name: RELEASE-NAME-common-test-somename
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something) on (Secret-RELEASE-NAME-common-test-somename)] and [to (postgres.svc.cluster.local) on (envList)]
+          errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (postgres.svc.cluster.local) on (envList)] and [to (something) on (Secret-RELEASE-NAME-common-test-somename)]
 
   - it: should fail with secret trying to override configmap
     set:
@@ -318,9 +353,14 @@ tests:
           parseAsEnv: true
           content:
             POSTGRES_HOST: something
+      envFrom:
+        - configMapRef:
+            name: RELEASE-NAME-common-test-somename
+        - secretRef:
+            name: RELEASE-NAME-common-test-somename
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (POSTGRES_HOST) is already set [to (something123) on (Configmap-RELEASE-NAME-common-test-somename)] and [to (something) on (Secret-RELEASE-NAME-common-test-somename)]
+          errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (something123) on (Configmap-RELEASE-NAME-common-test-somename)] and [to (something) on (Secret-RELEASE-NAME-common-test-somename)]
 
   - it: should pass with envs defined with int value
     documentIndex: *deploymentDoc

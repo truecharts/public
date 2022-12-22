@@ -8,17 +8,26 @@ That's why the custom dict is expected.
 
 {{/* Environment Variables From included by the container */}}
 {{- define "ix.v1.common.container.envFrom" -}}
-{{- $envFrom := .envFrom -}}
-{{- $root := .root -}}
-{{- range $envFrom -}}
-  {{- if .secretRef }}
+  {{- $envFrom := .envFrom -}}
+  {{- $container := .container -}}
+  {{- $root := .root -}}
+
+  {{- range $envFrom -}}
+    {{- if and .secretRef .configMapRef -}}
+      {{- fail "You can't define both secretRef and configMapRef on the same item." -}}
+    {{- end -}}
+    {{- if .secretRef }}
+      {{- $secretName := (tpl (required "Name is required for secretRef in envFrom." .secretRef.name) $root) }}
 - secretRef:
-    name: {{ tpl (required "Name is required for secretRef in envFrom." .secretRef.name) $root | quote }}
-  {{- else if .configMapRef }}
+    name: {{ $secretName | quote }}
+    {{- include "ix.v1.common.util.storeEnvFromVarsForCheck" (dict "root" $root "container" $container "name" $secretName "type" "secret") -}}
+    {{- else if .configMapRef }}
+      {{- $configName := (tpl (required "Name is required for configMapRef in envFrom." .configMapRef.name) $root) }}
 - configMapRef:
-    name: {{ tpl (required "Name is required for configMapRef in envFrom." .configMapRef.name) $root | quote }}
-  {{- else -}}
-    {{- fail "Not valid Ref or <name> key is missing in envFrom." -}}
+    name: {{ $configName | quote }}
+    {{- include "ix.v1.common.util.storeEnvFromVarsForCheck" (dict "root" $root "container" $container "name" $configName "type" "configmap") -}}
+    {{- else -}}
+      {{- fail "Not valid Ref or <name> key is missing in envFrom." -}}
+    {{- end -}}
   {{- end -}}
-{{- end -}}
 {{- end -}}

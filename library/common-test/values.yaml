@@ -3,3 +3,49 @@ service:
     ports:
       main:
         port: 65535
+
+initImage:
+  repository: something
+  tag: somethingeles
+# TODO: Unittests
+initContainers:
+  init-db:
+    name: ss
+    imageSelector: initImage
+    pullPolicy: Always
+    tty: true
+    stdin: true
+    command:
+      - this
+      - is
+      - |
+        a test
+    args:
+      - this args
+      - is
+      - |
+        a test
+    extraArgs:
+      - this extraargs
+      - is
+      - |
+        a test
+    lifecycle:
+      preStop:
+        command:
+          - /bin/sh
+          - -c
+          - |
+            echo "Doing things..."
+    termination:
+      messagePath: something
+      messagePolicy: FallbackToLogsOnError
+    scaleGPU:
+      gpu.intel.com/i915: "1"
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 2Gi
+      requests:
+        cpu: 10m
+        memory: 10Mi
