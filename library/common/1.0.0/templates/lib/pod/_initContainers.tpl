@@ -1,8 +1,9 @@
 {{- define "ix.v1.common.controller.initContainers" -}}
   {{- $initContainers := .initContainers -}}
+  {{- $type := .type -}}
   {{- $root := .root -}}
 
-  {{- range $name, $container := $initContainers }}
+  {{- range $name, $container := $initContainers }} {{/* TODO: not only init. any type of containers */}}
     {{- if $container.name -}}
       {{- $name = $container.name -}}
     {{- end -}}
@@ -31,9 +32,11 @@
   envFrom:
     {{- . | nindent 4 }}
   {{- end -}}
+  {{- if ne $type "init" -}} {{/* Init containers do not have lifecycle... */}}
   {{- with (include "ix.v1.common.container.lifecycle" (dict "lifecycle" $container.lifecycle "root" $root)) | trim }}
   lifecycle:
     {{- . | nindent 4 }}
+  {{- end -}}
   {{- end -}}
   {{- with (include "ix.v1.common.container.securityContext" (dict "secCont" $container.securityContext "podSecCont" $container.podSecurityContext "root" $root)) | trim }}
   securityContext:
