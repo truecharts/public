@@ -97,8 +97,8 @@ jobs:
             for chart in $(ls "charts/${train}"); do
               chartname="$(basename "$(dirname "${chart}")")"
               if [ -d "${chart}" ]; then
-                helm_sec_scan ${chart} ${chartname} ${train}
-                # container_sec_scan ${chart} ${chartname} ${train}
+                helm_sec_scan "charts/${train}/${chart}" ${chart} ${train}
+                # container_sec_scan "charts/${train}/${chart}" ${chartname} ${train}
               fi
             done
           done
