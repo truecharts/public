@@ -66,7 +66,7 @@ jobs:
               echo "##### Scan Results" >> website/docs/charts/${train}/${chartname}/helm-security.md
               echo "" >> website/docs/charts/${train}/${chartname}/helm-security.md
               helm template ${chart} --output-dir ${chart}/render
-              trivy config -f template --template "@./templates/trivy.tpl" ${chart}/render >> website/docs/charts/${train}/${chartname}/helm-security.md
+              trivy config -f template --template "@./templates/trivy-config.tpl" ${chart}/render >> website/docs/charts/${train}/${chartname}/helm-security.md
               echo "" >> website/docs/charts/${train}/${chartname}/helm-security.md
               }
           container_sec_scan() {
@@ -87,7 +87,7 @@ jobs:
                 echo "**Container: ${container}**" >> website/docs/charts/${train}/${chartname}/container-security.md
                 echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
                 ghcrcont=$(echo ${container} | sed "s/tccr.io/ghcr.io/g")
-                trivy image -f template --template "@./templates/trivy.tpl" ${ghcrcont} >> website/docs/charts/${train}/${chartname}/container-security.md
+                trivy image -f template --template "@./templates/trivy-container.tpl" ${ghcrcont} >> website/docs/charts/${train}/${chartname}/container-security.md
                 echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
                 done
 
