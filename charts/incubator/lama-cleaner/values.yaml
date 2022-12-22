@@ -9,6 +9,20 @@ gpuImage:
 
 imageSelector: image
 
+extraArgs:
+  - lama-cleaner
+  - --hf_access_token="{{ .Values.lamacleaner.hf_access_token }}"
+  - --model="{{ .Values.lamacleaner.model }}"
+  - --sd-disable-nsfw="{{ .Values.lamacleaner.disable_nsfw }}"
+  - --device="{{ .Values.lamacleaner.device }}"
+  - --port=8080
+
+lamacleaner:
+  hf_access_token: ""
+  model: "lama"
+  device: "cpu"
+  disable_nsfw: false
+
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
