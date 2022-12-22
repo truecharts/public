@@ -38,7 +38,7 @@ So it can work on multiple places, like additional containers and not only the m
   {{- end -}}
   {{- with (include "ix.v1.common.container.envVars" (dict "envs" .Values.env "envList" .Values.envList "container" $name "root" $) | trim) }}
   env:
-    {{- . | nindent 4 }} {{/* env and envList */}}
+    {{- . | nindent 4 }} {{/* env, fixedEnvs and envList */}}
   {{- end -}}
   {{- with (include "ix.v1.common.container.envFrom" (dict "envFrom" .Values.envFrom "container" $name "root" $) | trim) }}
   envFrom:
