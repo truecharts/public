@@ -1,11 +1,11 @@
 apiVersion: v2
 appVersion: "5.0.4"
 kubeVersion: ">=1.16.0-0"
-version: 6.0.17
+version: 6.0.18
 name: redmine
 description: Redmine is a flexible project management web application written using Ruby on Rails framework.
 type: application
-home: https://truecharts.org/docs/charts/stable/redmine
+home: https://truecharts.org/charts/stable/redmine
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/redmine.png
 keywords:
   - project
@@ -20,7 +20,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.0.9
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
