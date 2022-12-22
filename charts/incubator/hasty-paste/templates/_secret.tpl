@@ -13,11 +13,12 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
   {{- $redis := .Values.redis -}}
-  {{- $redisUser := $redis.redisUsername -}}
   {{- $redisPass := $redis.redisPassword | trimAll "\"" -}}
+  {{- $redisUser := $redis.redisUsername }}
   {{- $redisURL := $redis.url.plain | trimAll "\"" }}
-  CACHE__REDIS_URI: {{ printf "redis://%v:%v@%v/0" "default" $redisPass $redisURL | quote }}
+  CACHE__REDIS_URI: {{ printf "redis://%v:%v@%v/0" $redisUser $redisPass $redisURL | quote }}
   CACHE__ENABLE: "true"
+  PORT: {{ .Values.service.main.ports.main.port | quote }}
   TIME_ZONE: {{ .Values.TZ }}
   PASTE_ROOT: {{ .Values.persistence.config.mountPath | quote }}
   {{/* User defined */}}

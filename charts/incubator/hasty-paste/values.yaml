@@ -59,7 +59,6 @@ service:
       main:
         protocol: HTTP
         port: 10601
-        targetPort: 8000
 
 persistence:
   config:
@@ -69,7 +68,7 @@ persistence:
 redis:
   enabled: true
   existingSecret: rediscreds
-  redisUsername: hastypaste
+  redisUsername: default
 
 portal:
   enabled: true
