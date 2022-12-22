@@ -92,15 +92,9 @@ jobs:
                 done
 
               }
-          charts_path=${charts_path:-./charts}
-          trains=(
-              "enterprise"
-              "stable"
-              "incubator"
-              "dependency"
-          )
-          for train in "${trains[@]}"; do
-            for chart in $(ls "$charts_path/$train"); do
+          for train in enterprise stable incubator dependency; do
+            echo "Processing Charts for Train: ${train}..."
+            for chart in $(ls "charts/${train}"); do
               chartname="$(basename "$(dirname "${chart}")")"
               if [ -d "${chart}" ]; then
                 helm_sec_scan ${chart} ${chartname} ${train}
