@@ -58,7 +58,7 @@
     {{- end -}}
 
     {{/* Add the to the list for dupeCheck */}}
-    {{- include "ix.v1.common.util.storeEnvsForDupeCheck" (dict "root" $root "source" (printf "%s-%s" (camelcase $objectType) $objectName) "containers" list "data" $dupeCheck) -}}
+    {{- include "ix.v1.common.util.storeEnvsForDupeCheck" (dict "root" $root "source" (printf "%s-%s" $objectType $objectName) "containers" list "data" $dupeCheck) -}}
     {{/* Convert to Yaml before sending to classes */}}
     {{- $classData = toYaml $classData -}}
 

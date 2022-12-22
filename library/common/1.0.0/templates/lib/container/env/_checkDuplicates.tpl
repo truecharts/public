@@ -52,13 +52,12 @@
 
 {{- define "ix.v1.common.util.storeEnvFromVarsForCheck" -}}
   {{- $root := .root -}}
-  {{- $name := .name -}}
+  {{- $source := .source -}}
   {{- $containerName := .containerName -}}
-  {{- $type := .type -}}
 
   {{- $dupes := $root.Values.envsForDupeCheck -}}
   {{- range $item := $dupes -}}
-    {{- if eq $item.source (printf "%s-%s" (camelcase $type) $name) -}}
+    {{- if eq $item.source $source -}}
       {{- if not (mustHas $containerName $item.containers) -}}
         {{- $dupes = without $dupes $item -}}
         {{- $_ := set $item "containers" (mustAppend $item.containers $containerName) -}}
