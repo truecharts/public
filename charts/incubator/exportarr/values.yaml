@@ -3,10 +3,14 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.1.0@sha256:afd3a63b80c8a641a3bb20ff6088cb50c0501950687fbe2d57cac5282991c42a
 
+extraArgs:
+  - "{{ .Values.env.ARR_APP }}"
+
 secretEnv:
   BASIC_AUTH_USERNAME: ""
   BASIC_AUTH_PASSWORD: ""
   APIKEY: ""
+  ARR_APP: "sonarr"
 
 env:
   PORT: "{{ .Values.service.main.ports.main.port }}"

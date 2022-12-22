@@ -43,6 +43,21 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: ARR_APP
+          label: ARR APP
+          schema:
+            type: string
+            required: true
+            default: sonarr
+            enum:
+              - value: sonarr
+                description: Sonarr
+              - value: radarr
+                description: Radarr
+              - value: lidarr
+                description: Lidarr
+              - value: prowlarr
+                description: Prowlarr
         - variable: URL
           label: URL
           description: The full URL for the ARR app.
