@@ -40,7 +40,18 @@ questions:
           schema:
             type: string
             required: true
-            default: WARNING
+            default: INFO
+            enum:
+              - value: INFO
+                description: Info
+              - value: WARNING
+                description: Warning
+              - value: ERROR
+                description: Error                                
+              - value: DEBUG
+                description: Debug
+              - value: CRITICAL
+                description: Critical
         - variable: workers
           label: Workers
           description: Number of separate processes to spawn
