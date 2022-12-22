@@ -1,7 +1,7 @@
 image:
-  repository: ghcr.io/enchant97/hasty-paste
+  repository: tccr.io/truecharts/hasty-paste
   pullPolicy: IfNotPresent
-  tag: 1.7.0@sha256:525060fac104c013a637ae4cbe8a3ceb8642a51929e1d63738f2d05b823653d1
+  tag: 1.8.0@sha256:3ab77aead86237a92c149edf8c4f802e598aff58e371062242ddbb895264e0cd
 
 hastyPaste:
   new_at_index: false
@@ -32,7 +32,6 @@ service:
     ports:
       main:
         protocol: HTTP
-        targetPort: 8000
         port: 10601
 
 persistence:
