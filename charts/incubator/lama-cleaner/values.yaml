@@ -14,6 +14,7 @@ extraArgs:
   - --hf_access_token="{{ .Values.lamacleaner.hf_access_token }}"
   - --model="{{ .Values.lamacleaner.model }}"
   - --device="{{ .Values.lamacleaner.device }}"
+  - --host=0.0.0.0
   - --port=8080
 
 lamacleaner:
