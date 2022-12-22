@@ -93,7 +93,7 @@ probes:
 
 initContainers:
   prestart:
-    image: '{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}'
+    image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
     securityContext:
       runAsUser: 0
       runAsGroup: 0
