@@ -35,7 +35,7 @@ jobs:
       - name: Setting repo parent dir as safe safe.directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
-      - name: Checkout
+      - name: Checkout website
         uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
         with:
           fetch-depth: 1
@@ -43,9 +43,10 @@ jobs:
           token: ${{ secrets.BOT_TOKEN }}
           path: website
 
-      - name: Copy docs to website
+      - name: generate security reports
         shell: bash
         run: |
+          #!/bin/bash
           helm_sec_scan() {
               local chart="$1"
               local chartname="$2"
@@ -84,14 +85,14 @@ jobs:
                 trivy image -f template --template "@./templates/trivy.tpl" ${ghcrcont} >> website/docs/charts/${train}/${chartname}/container-security.md
                 echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
                 done
-          
+
               }
           for train in stable SCALE incubator games enterprise develop non-free deprecated dependency core; do
             for chart in charts/${train}/*; do
+              chartname="$(basename "$(dirname "$path")")"
               if [ -d "${chart}" ]; then
-          	    chartname="$(basename "$(dirname "$path")")"
-		        helm_sec_scan ${chart} ${chartname} ${train}
-          	    #container_sec_scan ${chart} ${chartname} ${train}
+                helm_sec_scan ${chart} ${chartname} ${train}
+                # container_sec_scan ${chart} ${chartname} ${train}
               fi
             done
           done
@@ -106,4 +107,3 @@ jobs:
           git add --all
           git commit -sm "Commit released docs for TrueCharts" || exit 0
           git push
-
