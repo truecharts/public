@@ -91,6 +91,7 @@ jobs:
             for chart in charts/${train}/*; do
               chartname="$(basename "$(dirname "$path")")"
               if [ -d "${chart}" ]; then
+                .github/scripts/fetch_helm_deps.sh "${chart}"
                 helm_sec_scan ${chart} ${chartname} ${train}
                 # container_sec_scan ${chart} ${chartname} ${train}
               fi
