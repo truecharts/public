@@ -42,6 +42,11 @@ jobs:
           repository: truecharts/website
           token: ${{ secrets.BOT_TOKEN }}
           path: website
+          
+      - name: fetch dependencies
+        shell: bash
+        run: |
+          .github/scripts/fetch_helm_deps.sh
 
       - name: generate security reports
         shell: bash
@@ -89,9 +94,8 @@ jobs:
               }
           for train in stable SCALE incubator games enterprise develop non-free deprecated dependency core; do
             for chart in charts/${train}/*; do
-              chartname="$(basename "$(dirname "$path")")"
+              chartname="$(basename "$(dirname "${chart}")")"
               if [ -d "${chart}" ]; then
-                .github/scripts/fetch_helm_deps.sh "${chart}"
                 helm_sec_scan ${chart} ${chartname} ${train}
                 # container_sec_scan ${chart} ${chartname} ${train}
               fi
