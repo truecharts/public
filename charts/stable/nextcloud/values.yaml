@@ -93,7 +93,7 @@ probes:
 
 initContainers:
   prestart:
-    image: '{{ include "tc.common.images.selector" . }}'
+    image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
     securityContext:
       runAsUser: 0
       runAsGroup: 0
@@ -104,20 +104,9 @@ initContainers:
       - |
         /bin/bash <<'EOF'
         echo "Forcing permissions on userdata folder..."
-        if nfs4xdr_getfacl && nfs4xdr_getfacl | grep -qv "Failed to get NFSv4 ACL"; then
-          echo "NFSv4 ACLs detected, Trying to override permissions using nfs4_setfacl..."
-          nfs4_setfacl -R -a A:g:33:RWX "/var/www/html/data"
-        else
-          echo "No NFSv4 ACLs detected, trying to override permissions using chown/chmod..."
-          echo "checking ownership..."
-          if [ $(stat -c %g .) -eq 33 ]; then
-            echo "Ownership already set to 33, skipping..."
-          else
-            echo "Changing ownership to group 33..."
-            chown -R :33 "/var/www/html/data"
-          fi
-          chmod 770 /var/www/html/data
-        fi
+        echo "Trying to override ownship using nfs4xdr_winacl..."
+        /usr/bin/nfs4xdr_winacl -a chown -G 33 -r -c '/var/www/html/data' -p '/var/www/html/data' || echo "Failed setting ownership..."
+        chmod 770 /var/www/html/data || echo "Failed to chmod..."
         EOF
 
     volumeMounts:
