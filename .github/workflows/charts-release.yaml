@@ -92,6 +92,7 @@ jobs:
                 train=${chart_parts[0]}
                 chart=${chart_parts[1]}
                 echo "copying docs to website for ${chart}"
+                mkdir -p website/docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
                 mkdir -p tmp/website/docs/charts/${train}/${chart}/ || echo "chart path already exists, continuing..."
                 if [[ -f "website/docs/charts/${train}/${chart}/CHANGELOG.md" ]]; then
                    echo "changelog found..."
