@@ -59,7 +59,7 @@ jobs:
               echo "Scanning helm security for ${chartname}"
               mkdir -p ${chart}/render
               rm -rf website/docs/charts/${train}/${chartname}/helm-security.md | echo "removing old sec-scan.md file failed..."
-              echo "# Security Scan" >> website/docs/charts/${train}/${chartname}/helm-security.md
+              echo "# Helm Security" >> website/docs/charts/${train}/${chartname}/helm-security.md
               echo "" >> website/docs/charts/${train}/${chartname}/helm-security.md
               echo "## Helm-Chart" >> website/docs/charts/${train}/${chartname}/helm-security.md
               echo "" >> website/docs/charts/${train}/${chartname}/helm-security.md
@@ -74,7 +74,7 @@ jobs:
               local chartname="$2"
               local train="$3"
               echo "Scanning container security for ${chartname}"
-              echo "## Containers" >> website/docs/charts/${train}/${chartname}/container-security.md
+              echo "# Container Security" >> website/docs/charts/${train}/${chartname}/container-security.md
               echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
               echo "##### Detected Containers" >> website/docs/charts/${train}/${chartname}/container-security.md
               echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
