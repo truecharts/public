@@ -93,7 +93,7 @@ jobs:
 
               }
           for train in stable SCALE incubator games enterprise develop non-free deprecated dependency core; do
-            for chart in charts/${train}/*; do
+            for chart in $(ls "$charts_path/$train"); do
               chartname="$(basename "$(dirname "${chart}")")"
               if [ -d "${chart}" ]; then
                 helm_sec_scan ${chart} ${chartname} ${train}
