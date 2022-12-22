@@ -9,7 +9,10 @@ gpuImage:
 
 imageSelector: image
 
-extraArgs:
+command:
+  - /bin/sh
+  - -c
+  - |
   - lama-cleaner
   - --hf_access_token="{{ .Values.lamacleaner.hf_access_token }}"
   - --model="{{ .Values.lamacleaner.model }}"
