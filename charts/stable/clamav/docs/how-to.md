@@ -1,11 +1,13 @@
 # How-To
 
-This is a quick how-to or setup-guide to use ClamAV with mounting directories using NFS shares and using the integrated cron job to scan these mounted folders.
+This is a quick setup-guide on how-to to use ClamAV with mounting directories using NFS shares and using the integrated cron job to scan these mounted folders.
 
-## Requirements
+:::info
 
 - ClamAV TrueCharts App
 - NFS Shares of the folders you want to scan
+
+:::
 
 ## Guide
 
@@ -13,7 +15,7 @@ This is a quick how-to or setup-guide to use ClamAV with mounting directories us
 
 Setup App Name and Configuration as necessary, but where you deviate from defaults is by `Enable cronjob` at the <u>ClamAV Cron Configuration</u> section.
 
-- To generate a cron schedule one can use a website like https://crontab.cronhub.io/ or https://crontab.guru/#*/
+- To generate a cron schedule one can use a website like [cronhub](https://crontab.cronhub.io) or [crontab.guru](https://crontab.guru)
 
 ![Cron Config](img/Cron-Config.png)
 
