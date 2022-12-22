@@ -16,7 +16,7 @@ stringData:
   {{- $redisUser := $redis.redisUsername -}}
   {{- $redisPass := $redis.redisPassword | trimAll "\"" -}}
   {{- $redisURL := $redis.url.plain | trimAll "\"" }}
-  CACHE__REDIS_URI: {{ printf "redis://%v:%v@%v/0" $redisUser $redisPass $redisURL | quote }}
+  CACHE__REDIS_URI: {{ printf "redis://%v:%v@%v/0" "default" $redisPass $redisURL | quote }}
   CACHE__ENABLE: "true"
   TIME_ZONE: {{ .Values.TZ }}
   PASTE_ROOT: {{ .Values.persistence.config.mountPath | quote }}
