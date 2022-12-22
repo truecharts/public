@@ -49,7 +49,5 @@ stringData:
   {{- with $branding.css_file }}
   BRANDING__CSS_FILE: {{ . | quote }}
   {{- end -}}
-  {{- with $branding.hide_version }}
-  BRANDING__HIDE_VERSION: {{ . | quote }}
-  {{- end -}}
+  BRANDING__HIDE_VERSION: {{ $branding.hide_version | quote }}
 {{- end }}

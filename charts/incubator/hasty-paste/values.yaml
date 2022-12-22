@@ -3,10 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: 1.7.0@sha256:525060fac104c013a637ae4cbe8a3ceb8642a51929e1d63738f2d05b823653d1
 
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
-
 hastyPaste:
   new_at_index: false
   enable_public_list: false
@@ -26,6 +22,10 @@ hastyPaste:
     favicon: ""
     css_file: ""
     hide_version: false
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
 
 service:
   main:
