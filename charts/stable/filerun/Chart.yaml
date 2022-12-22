@@ -3,13 +3,13 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.0.9
   - condition: mariadb.enabled
     name: mariadb
     repository: https://charts.truecharts.org/
     version: 5.0.15
 description: FileRun is a full featured web based file manager with an easy to use user interface
-home: https://truecharts.org/docs/charts/stable/filerun
+home: https://truecharts.org/charts/stable/filerun
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/filerun.png
 keywords:
   - filerun
@@ -24,7 +24,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/filerun
   - https://hub.docker.com/r/filerun/filerun
   - https://github.com/filerun/docker
-version: 6.0.9
+version: 6.0.10
 annotations:
   truecharts.org/catagories: |
     - media

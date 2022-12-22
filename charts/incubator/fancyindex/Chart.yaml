@@ -1,12 +1,12 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: fancyindex
-version: 3.0.3
+version: 3.0.4
 appVersion: "latest"
 description: Fancyindex provides a lightweight nginx directory listing with theming support
 type: application
 deprecated: false
-home: https://truecharts.org/docs/charts/incubator/fancyindex
+home: https://truecharts.org/charts/incubator/fancyindex
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fancyindex.png
 keywords:
   - fancyindex
@@ -17,7 +17,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.0.9
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts

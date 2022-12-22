@@ -1,12 +1,12 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: redisinsight
-version: 2.0.3
+version: 2.0.4
 appVersion: "latest"
 description: GUI for Redis.
 type: application
 deprecated: false
-home: https://truecharts.org/docs/charts/incubator/redisinsight
+home: https://truecharts.org/charts/incubator/redisinsight
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/redisinsight.png
 keywords:
   - redisinsight
@@ -18,7 +18,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.0.9
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
