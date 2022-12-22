@@ -107,7 +107,6 @@ initContainers:
         echo "Trying to override ownship using nfs4xdr_winacl..."
         /usr/bin/nfs4xdr_winacl -a chown -G 33 -r -c '/var/www/html/data' -p '/var/www/html/data' || echo "Failed setting ownership..."
         chmod 770 /var/www/html/data || echo "Failed to chmod..."
-        fi
         EOF
 
     volumeMounts:
