@@ -58,15 +58,15 @@ jobs:
               local train="$3"
               echo "Scanning helm security for ${chartname}"
               mkdir -p ${chart}/render
-              rm -rf website/docs/charts/${train}/${chartname}/helm-security.md | echo "removing old helm-security file failed..."
+              rm -rf website/docs/charts/${train}/${chartname}/helm-security.md || echo "removing old helm-security file failed..."
               echo "# Helm Security" >> website/docs/charts/${train}/${chartname}/helm-security.md
               echo "" >> website/docs/charts/${train}/${chartname}/helm-security.md
               echo "## Helm-Chart" >> website/docs/charts/${train}/${chartname}/helm-security.md
               echo "" >> website/docs/charts/${train}/${chartname}/helm-security.md
               echo "##### Scan Results" >> website/docs/charts/${train}/${chartname}/helm-security.md
               echo "" >> website/docs/charts/${train}/${chartname}/helm-security.md
-              helm template ${chart} --output-dir ${chart}/render | echo "Helm template failed..."
-              trivy config -f template --template "@./templates/trivy-config.tpl" ${chart}/render >> website/docs/charts/${train}/${chartname}/helm-security.md | echo "trivy scan failed..."
+              helm template ${chart} --output-dir ${chart}/render || echo "Helm template failed..."
+              trivy config -f template --template "@./templates/trivy-config.tpl" ${chart}/render >> website/docs/charts/${train}/${chartname}/helm-security.md || echo "trivy scan failed..."
               }
           container_sec_scan() {
               local chart="$1"
