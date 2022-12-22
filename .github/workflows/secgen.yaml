@@ -99,10 +99,9 @@ jobs:
               # container_sec_scan "charts/${train}/${chart}" ${chartname} ${train}
             done
           done
+          echo "finsihed security scan"
 
       - name: Commit Website Changes
-        if: |
-          steps.collect-changes.outputs.changesDetected == 'true'
         run: |
           cd website
           git config user.name "TrueCharts-Bot"
