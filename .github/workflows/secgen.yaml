@@ -92,7 +92,14 @@ jobs:
                 done
 
               }
-          for train in stable SCALE incubator games enterprise develop non-free deprecated dependency core; do
+          charts_path=${charts_path:-./charts}
+          trains=(
+              "enterprise"
+              "stable"
+              "incubator"
+              "dependency"
+          )
+          for train in "${trains[@]}"; do
             for chart in $(ls "$charts_path/$train"); do
               chartname="$(basename "$(dirname "${chart}")")"
               if [ -d "${chart}" ]; then
