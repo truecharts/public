@@ -58,7 +58,7 @@ jobs:
               local train="$3"
               echo "Rendering helm-template for ${chartname}"
               mkdir -p ${chart}/render
-              helm template ${chart} --output-dir ${chart}/render || echo "Helm template failed..."
+              helm template ${chart} >> ${chart}/render/app.yaml || echo "Helm template failed..."
           }
           helm_sec_scan() {
               local chart="$1"
@@ -93,8 +93,7 @@ jobs:
               for container in $(cat ${chart}/render/containers.tmp); do
                 echo "**Container: ${container}**" >> website/docs/charts/${train}/${chartname}/container-security.md
                 echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
-                ghcrcont=$(echo ${container} | sed "s/tccr.io/ghcr.io/g")
-                trivy image -f template --template "@./templates/trivy-container.tpl" ${ghcrcont} >> website/docs/charts/${train}/${chartname}/container-security.md || echo "trivy container scan failed..."
+                trivy image -f template --template "@./templates/trivy-container.tpl" ${container} >> website/docs/charts/${train}/${chartname}/container-security.md || echo "trivy container scan failed..."
                 echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
               done
               }
