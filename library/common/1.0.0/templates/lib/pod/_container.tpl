@@ -1,62 +1,69 @@
-{{/* The main container included in the controller */}}
-{{/*
-The "tpl (toYaml somepath) $" is used to expand template content (if any)
-Cases like this are when we set these values on another tpl file with template
+{{- define "ix.v1.common.controller.containers" -}}
+  {{- $containerList := .containerList -}}
+  {{- $type := .type -}}
+  {{- $root := .root -}}
 
-On some includes we pass a dict with the "root" and some other values.
-This is because this named function relies on those two, to specify it's context.
-So it can work on multiple places, like additional containers and not only the main container.
-*/}}
-{{- define "ix.v1.common.controller.mainContainer" -}}
-  {{- $name := include "ix.v1.common.names.fullname" . -}}
+  {{- if not $type -}} {{/* This can only be triggered while developing the common library */}}
+    {{- fail "You have to specify the type of the container" -}}
+  {{- end -}}
+
+  {{- $sortedContainers := list -}} {{/* Sort containers */}}
+  {{- range $index, $name := (keys $containerList | uniq | sortAlpha) -}}
+    {{- $container := get $containerList $name -}}
+    {{- $_ := set $container "name" $name -}}
+    {{- $sortedContainers = mustAppend $sortedContainers $container -}}
+  {{- end -}}
+
+  {{- range $index, $container := $sortedContainers }}
+    {{- if ne $container.name ($container.name | lower) -}}
+      {{- fail (printf "Name (%s) of Init Container must be all lowercase" $container.name) -}}
+    {{- end -}}
+    {{- $name := (printf "%s-%s" (include "ix.v1.common.names.fullname" $root) $container.name) }}
 - name: {{ $name }}
-  image: {{ include "ix.v1.common.images.selector" (dict "root" . "selectedImage" .Values.imageSelector ) }}
-  imagePullPolicy: {{ include "ix.v1.common.images.pullPolicy" (dict "policy" .Values.image.pullPolicy) }}
-  tty: {{ .Values.tty }}
-  stdin: {{ .Values.stdin }}
-  {{- with (include "ix.v1.common.container.command" (dict "commands" .Values.command "root" $)) | trim }}
+  image: {{ include "ix.v1.common.images.selector" (dict "root" $root "selectedImage" $container.imageSelector ) }}
+  imagePullPolicy: {{ include "ix.v1.common.images.pullPolicy" (dict "policy" $container.pullPolicy) }}
+  tty: {{ $container.tty | default false }}
+  stdin: {{ $container.stdin | default false }}
+  {{- with (include "ix.v1.common.container.command" (dict "commands" $container.command "root" $root)) | trim }}
   command:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- with (include "ix.v1.common.container.args" (dict "args" .Values.args "extraArgs" .Values.extraArgs "root" $)) | trim }}
+  {{- with (include "ix.v1.common.container.args" (dict "args" $container.args "extraArgs" $container.extraArgs "root" $root)) | trim }}
   args:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- with (include "ix.v1.common.container.securityContext" (dict "secCont" .Values.securityContext "podSecCont" .Values.podSecurityContext "root" $)) | trim }}
-  securityContext:
-    {{- . | nindent 4 }}
-  {{- end -}}
-  {{- with (include "ix.v1.common.container.lifecycle" (dict "lifecycle" .Values.lifecycle "root" $)) | trim }}
-  lifecycle:
-    {{- . | nindent 4 }}
-  {{- end -}}
-  {{- with (include "ix.v1.common.container.termination.messagePath" (dict "msgPath" .Values.termination.messagePath "root" $)) | trim }}
-  terminationMessagePath: {{ . }}
-  {{- end -}}
-  {{- with (include "ix.v1.common.container.termination.messagePolicy" (dict "msgPolicy" .Values.termination.messagePolicy "root" $)) | trim }}
-  terminationMessagePolicy: {{ . }}
-  {{- end -}}
-  {{- with (include "ix.v1.common.container.envVars" (dict "envs" .Values.env "envList" .Values.envList "containerName" $name "root" $) | trim) }}
+  {{- with (include "ix.v1.common.container.envVars" (dict "envs" $container.env "envList" $container.envList "containerName" $name "root" $root) | trim) }}
   env:
     {{- . | nindent 4 }} {{/* env, fixedEnvs and envList */}}
   {{- end -}}
-  {{- with (include "ix.v1.common.container.envFrom" (dict "envFrom" .Values.envFrom "containerName" $name "root" $) | trim) }}
+  {{- with (include "ix.v1.common.container.envFrom" (dict "envFrom" $container.envFrom "containerName" $name "root" $root) | trim) }}
   envFrom:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- with (include "ix.v1.common.container.ports" . | trim) }}
-  ports:
+  {{- with (include "ix.v1.common.container.lifecycle" (dict "lifecycle" $container.lifecycle "root" $root)) | trim -}}
+    {{- if and . (eq $type "init") -}} {{/* Init containers do not have lifecycle... */}}
+      {{- fail (printf "Init Container (%s) do not support lifecycle hooks" $name) -}}
+    {{- end }}
+  lifecycle:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- with (include "ix.v1.common.container.volumeMounts" . | trim) }}
-  volumeMounts:
+  {{- with (include "ix.v1.common.container.securityContext" (dict "secCont" $container.securityContext "podSecCont" $container.podSecurityContext "root" $root)) | trim }}
+  securityContext:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- with (include "ix.v1.common.container.probes" (dict "probes" .Values.probes "services" .Values.service "root" $) | trim) }}
-    {{- . | nindent 2 }}
+  {{- if $container.termination -}}
+  {{- with (include "ix.v1.common.container.termination.messagePath" (dict "msgPath" $container.termination.messagePath "root" $root)) | trim }}
+  terminationMessagePath: {{ . }}
   {{- end -}}
-  {{- with (include "ix.v1.common.container.resources" (dict "resources" .Values.resources "gpu" .Values.scaleGPU "root" $) | trim) }}
+  {{- with (include "ix.v1.common.container.termination.messagePolicy" (dict "msgPolicy" $container.termination.messagePolicy "root" $root)) | trim }}
+  terminationMessagePolicy: {{ . }}
+  {{- end -}}
+  {{- end -}}
+  {{- with (include "ix.v1.common.container.resources" (dict "resources" $container.resources "gpu" $container.scaleGPU "root" $root) | trim) }}
   resources:
     {{- . | nindent 4 }}
   {{- end -}}
+  {{- end -}}
 {{- end -}}
+
+{{/* TODO: Rename this as container and use this template for main container, additionals, init, upgrade, installs */}}
