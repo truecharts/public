@@ -59,7 +59,7 @@
   {{- range $item := $dupes -}}
     {{- if eq $item.source $source -}}
       {{- if not (mustHas $containerName $item.containers) -}}
-        {{- $dupes = without $dupes $item -}}
+        {{- $dupes = mustWithout $dupes $item -}}
         {{- $_ := set $item "containers" (mustAppend $item.containers $containerName) -}}
         {{- $dupes = mustAppend $dupes $item -}}
         {{- $_ := set $root.Values "envsForDupeCheck" $dupes -}}

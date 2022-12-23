@@ -5,7 +5,7 @@ Validate list of host path in a specific format
     {{- $allowed_paths := (list "mnt" "sys" "dev" "cluster") -}}
     {{- range . -}}
         {{- $host_p := splitList "/" . -}}
-        {{- $host_p := (without $host_p "") -}}
+        {{- $host_p := (mustWithout $host_p "") -}}
         {{- $error_msg := (printf "Invalid hostpath %s. Path must be a valid path under a given pool e.g `/mnt/tank/somepath` is valid whereas `/mnt` or `/mnt/tank` are invalid examples." .) -}}
         {{- if and (eq (index $host_p 0) "mnt") (lt ($host_p | len) 3) -}}
             {{- fail $error_msg -}}
