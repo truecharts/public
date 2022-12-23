@@ -7,10 +7,7 @@
 
 {{- define "ix.v1.common.images.selector" -}}
   {{- $root := .root -}}
-  {{- $selectedImage := "" -}}
-  {{- if .selectedImage -}}
-    {{- $selectedImage = .selectedImage -}}
-  {{- end -}}
+  {{- $selectedImage := .selectedImage -}}
 
   {{- $image := get $root.Values "image" -}}
   {{- if hasKey $root.Values $selectedImage -}}
@@ -22,12 +19,25 @@
 {{- end -}}
 
 {{- define "ix.v1.common.images.pullPolicy" -}}
+  {{- $root := .root -}}
+  {{- $selectedImage := .selectedImage -}}
+
   {{- $pullPolicy := "IfNotPresent" -}}
-  {{- with .policy -}}
-    {{- if not (mustHas . (list "IfNotPresent" "Always" "Never")) -}}
-      {{- fail (printf "Invalid <pullPolicy> option (%s). Valid options are IfNotPresent, Always, Never" .) -}}
+  {{- $image := get $root.Values "image" -}}
+
+  {{- if hasKey $root.Values $selectedImage -}}
+    {{- $image = get $root.Values $selectedImage -}}
+  {{- else if $selectedImage -}} {{/* If selectedImage does not exist in Values */}}
+    {{- fail (printf "Selected image (%s) does not exist in values" $selectedImage) -}}
+  {{- end -}}
+
+  {{- with $image -}}
+    {{- with .pullPolicy -}}
+      {{- if not (mustHas . (list "IfNotPresent" "Always" "Never")) -}}
+        {{- fail (printf "Invalid <pullPolicy> option (%s). Valid options are IfNotPresent, Always, Never" .) -}}
+      {{- end -}}
+      {{- $pullPolicy = . -}}
     {{- end -}}
-    {{- $pullPolicy = . -}}
   {{- end -}}
   {{- print $pullPolicy -}}
 {{- end -}}

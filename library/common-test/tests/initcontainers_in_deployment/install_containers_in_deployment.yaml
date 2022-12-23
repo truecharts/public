@@ -1,0 +1,41 @@
+
+suite: installContainer in deployment test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+
+  - it: should pass with image defined in install container
+    documentIndex: *deploymentDoc
+    set:
+      image:
+        repository: some-repo
+        tag: some-tag
+        pullPolicy: Always
+      installImage:
+        repository: some-repo-install
+        tag: some-tag-install
+        pullPolicy: Never
+      installContainers:
+        some-name:
+          imageSelector: installImage
+          pullPolicy: Never
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].image
+          value: some-repo:some-tag
+      - equal:
+          path: spec.template.spec.containers[0].imagePullPolicy
+          value: Always
+      - equal:
+          path: spec.template.spec.initContainers[0].image
+          value: some-repo-install:some-tag-install
+      - equal:
+          path: spec.template.spec.initContainers[0].imagePullPolicy
+          value: Never

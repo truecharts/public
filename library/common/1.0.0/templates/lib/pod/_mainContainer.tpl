@@ -1,8 +1,5 @@
 {{/* The main container included in the controller */}}
 {{/*
-The "tpl (toYaml somepath) $" is used to expand template content (if any)
-Cases like this are when we set these values on another tpl file with template
-
 On some includes we pass a dict with the "root" and some other values.
 This is because this named function relies on those two, to specify it's context.
 So it can work on multiple places, like additional containers and not only the main container.
@@ -10,8 +7,8 @@ So it can work on multiple places, like additional containers and not only the m
 {{- define "ix.v1.common.controller.mainContainer" -}}
   {{- $name := include "ix.v1.common.names.fullname" . -}}
 - name: {{ $name }}
-  image: {{ include "ix.v1.common.images.selector" (dict "root" . "selectedImage" .Values.imageSelector ) }}
-  imagePullPolicy: {{ include "ix.v1.common.images.pullPolicy" (dict "policy" .Values.image.pullPolicy) }}
+  image: {{ include "ix.v1.common.images.selector" (dict "root" . "selectedImage" .Values.imageSelector) }}
+  imagePullPolicy: {{ include "ix.v1.common.images.pullPolicy" (dict "root" . "selectedImage" .Values.imageSelector) }}
   tty: {{ .Values.tty }}
   stdin: {{ .Values.stdin }}
   {{- with (include "ix.v1.common.container.command" (dict "commands" .Values.command "root" $)) | trim }}

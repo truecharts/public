@@ -53,10 +53,18 @@ runtimeClassName: {{ . }}
 {{- with (include "ix.v1.common.controller.mainContainer" . | trim) }}
 containers:
   {{- . | nindent 2 }}
-{{- end -}}{{/*TODO: init/install/upgradeContainers */}}
-{{- with (include "ix.v1.common.controller.containers" (dict "root" . "containerList" .Values.initContainers "type" "init") | trim) }}
+{{- end -}}
+{{- if or .Values.initContainers .Values.installContainers .Values.upgradeContainers }}
 initContainers:
+{{- with (include "ix.v1.common.controller.extraContainers" (dict "root" . "containerList" .Values.installContainers "type" "install") | trim) -}}
   {{- . | nindent 2 }}
+{{- end -}}
+{{- with (include "ix.v1.common.controller.extraContainers" (dict "root" . "containerList" .Values.upgradeContainers "type" "upgrade") | trim) -}}
+  {{- . | nindent 2 }}
+{{- end -}}
+{{- with (include "ix.v1.common.controller.extraContainers" (dict "root" . "containerList" .Values.initContainers "type" "init") | trim) -}}
+  {{- . | nindent 2 }}
+{{- end -}}
 {{- end -}}
 {{- with (include "ix.v1.common.controller.volumes" . | trim) }}
 volumes:

@@ -1,4 +1,4 @@
-{{- define "ix.v1.common.controller.containers" -}}
+{{- define "ix.v1.common.controller.extraContainers" -}}
   {{- $containerList := .containerList -}}
   {{- $type := .type -}}
   {{- $root := .root -}}
@@ -7,11 +7,24 @@
     {{- fail "You have to specify the type of the container" -}}
   {{- end -}}
 
-  {{- $sortedContainers := list -}} {{/* Sort containers */}}
+  {{- if not (mustHas $type (list "init" "install" "upgrade" "addititional")) -}}
+    {{- fail (printf "Type (%s) is not valid. Valid types are init, install, upgrade, addititonal" $type) -}}
+  {{- end -}}
+
+  {{- $sortedContainers := list -}}
+
+  {{/* Sort containers */}}
   {{- range $index, $name := (keys $containerList | uniq | sortAlpha) -}}
     {{- $container := get $containerList $name -}}
     {{- $_ := set $container "name" $name -}}
     {{- $sortedContainers = mustAppend $sortedContainers $container -}}
+  {{- end -}}
+
+  {{/* Empty the list if the phase does not match the container type */}}
+  {{- if and (eq $type "install") (not $root.Release.IsInstall) -}}
+    {{- $sortedContainers = list -}}
+  {{- else if and (eq $type "upgrade") (not $root.Release.IsUpgrade) -}}
+    {{- $sortedContainers = list -}}
   {{- end -}}
 
   {{- range $index, $container := $sortedContainers }}
@@ -21,7 +34,7 @@
     {{- $name := (printf "%s-%s" (include "ix.v1.common.names.fullname" $root) $container.name) }}
 - name: {{ $name }}
   image: {{ include "ix.v1.common.images.selector" (dict "root" $root "selectedImage" $container.imageSelector ) }}
-  imagePullPolicy: {{ include "ix.v1.common.images.pullPolicy" (dict "policy" $container.pullPolicy) }}
+  imagePullPolicy: {{ include "ix.v1.common.images.pullPolicy" (dict "root" $root "selectedImage" $container.imageSelector) }}
   tty: {{ $container.tty | default false }}
   stdin: {{ $container.stdin | default false }}
   {{- with (include "ix.v1.common.container.command" (dict "commands" $container.command "root" $root)) | trim }}
@@ -41,8 +54,8 @@
     {{- . | nindent 4 }}
   {{- end -}}
   {{- with (include "ix.v1.common.container.lifecycle" (dict "lifecycle" $container.lifecycle "root" $root)) | trim -}}
-    {{- if and . (eq $type "init") -}} {{/* Init containers do not have lifecycle... */}}
-      {{- fail (printf "Init Container (%s) do not support lifecycle hooks" $name) -}}
+    {{- if and . (mustHas $type (list "init" "install" "upgrades")) -}} {{/* Init containers do not have lifecycle... */}}
+      {{- fail (printf "Init/Install/Upgrade Container (%s) do not support lifecycle hooks" $name) -}}
     {{- end }}
   lifecycle:
     {{- . | nindent 4 }}

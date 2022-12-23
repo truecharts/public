@@ -83,7 +83,23 @@ tests:
           path: spec.template.spec.containers[0].image
           value: some_other_repo:some_other_tag
 
-  - it: should pass without repo from image selector
+  - it: should pass with pullPolicy from image selector
+    documentIndex: *deploymentDoc
+    set:
+      betaImage:
+        repository: some_other_repo
+        tag: some_other_tag
+        pullPolicy: Never
+      imageSelector: betaImage
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].image
+          value: some_other_repo:some_other_tag
+      - equal:
+          path: spec.template.spec.containers[0].imagePullPolicy
+          value: Never
+
+  - it: should fail without repo from image selector
     set:
       betaImage:
         repository: ""
@@ -93,7 +109,7 @@ tests:
       - failedTemplate:
           errorMessage: Image <repository> is required
 
-  - it: should pass without tag from image selector
+  - it: should fail without tag from image selector
     set:
       betaImage:
         repository: some_other_repo
