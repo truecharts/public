@@ -82,7 +82,7 @@ tests:
       - failedTemplate:
           errorMessage: Not valid <protocol> (NOT_VALID)
 
-  - it: should pass with with only port set
+  - it: should pass with only port set
     documentIndex: *deploymentDoc
     set:
       service:
@@ -98,7 +98,7 @@ tests:
             containerPort: 443
             protocol: TCP
 
-  - it: should pass with with port and targetPort set
+  - it: should pass with port and targetPort set
     documentIndex: *deploymentDoc
     set:
       service:
@@ -115,7 +115,7 @@ tests:
             containerPort: 8000
             protocol: TCP
 
-  - it: should pass with with port and targetPort and protocol set
+  - it: should pass with port and targetPort and protocol set
     documentIndex: *deploymentDoc
     set:
       service:
@@ -133,7 +133,7 @@ tests:
             containerPort: 8000
             protocol: TCP
 
-  - it: should pass with with port and targetPort and protocol UDP set
+  - it: should pass with port and targetPort and protocol UDP set
     documentIndex: *deploymentDoc
     set:
       service:
@@ -158,7 +158,7 @@ tests:
             containerPort: 8000
             protocol: UDP
 
-  - it: should pass with with port and targetPort and protocol HTTP set
+  - it: should pass with port and targetPort and protocol HTTP set
     documentIndex: *deploymentDoc
     set:
       service:
@@ -176,7 +176,7 @@ tests:
             containerPort: 8000
             protocol: TCP
 
-  - it: should pass with with port and targetPort and protocol HTTPS set
+  - it: should pass with port and targetPort and protocol HTTPS set
     documentIndex: *deploymentDoc
     set:
       service:
@@ -194,7 +194,7 @@ tests:
             containerPort: 8000
             protocol: TCP
 
-  - it: should pass with with multiple port and targetPort and protocol set
+  - it: should pass with multiple port and targetPort and protocol set
     documentIndex: *deploymentDoc
     set:
       service:

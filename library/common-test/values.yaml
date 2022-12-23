@@ -12,61 +12,58 @@ initImage:
 # env:
 #   TZ: tsd
 
-# TODO: check why it mixes up envs from main container with init container for dupe check
 
 # TODO: Unittests
 # initContainers:
 #   init-db:
-#     name: ss
 #     imageSelector: initImage
 #     pullPolicy: Always
 #     tty: true
 #     stdin: true
-#     command:
-#       - this
-#       - is
-#       - |
-#         a test
-#     args:
-#       - this args
-#       - is
-#       - |
-#         a test
-#     extraArgs:
-#       - this extraargs
-#       - is
-#       - |
-#         a test
-#     lifecycle:
-#       preStop:
-#         command:
-#           - /bin/sh
-#           - -c
-#           - |
-#             echo "Doing things..."
-#     termination:
-#       messagePath: something
-#       messagePolicy: FallbackToLogsOnError
-#     scaleGPU:
-#       gpu.intel.com/i915: "1"
-#     resources:
-#       limits:
-#         cpu: 1000m
-#         memory: 2Gi
-#       requests:
-#         cpu: 10m
-#         memory: 10Mi
-#     env:
-#       key: value
-#       test: tasdt
-#       blbla: tasd
-#     envFrom:
-#       - configMapRef:
-#           name: omething
-#       - secretRef:
-#           name: omething
-#     envList:
-#       # - name: blbla
-#       #   value: tasd
-#       - name: blbla23
-#         value: tasd234
+# installContainer:
+#   ainit-db:
+#     imageSelector: initImage
+#     pullPolicy: Always
+#     tty: true
+#     stdin: true
+    # command:
+    #   - this
+    #   - is
+    #   - |
+    #     a test
+    # args:
+    #   - this args
+    #   - is
+    #   - |
+    #     a test
+    # extraArgs:
+    #   - this extraargs
+    #   - is
+    #   - |
+    #     a test
+    # termination:
+    #   messagePath: something
+    #   messagePolicy: FallbackToLogsOnError
+    # scaleGPU:
+    #   gpu.intel.com/i915: "1"
+    # resources:
+    #   limits:
+    #     cpu: 1000m
+    #     memory: 2Gi
+    #   requests:
+    #     cpu: 10m
+    #     memory: 10Mi
+    # env:
+    #   key: value
+    #   test: tasdt
+    #   blbla: tasd
+    # envFrom:
+    #   - configMapRef:
+    #       name: omething
+    #   - secretRef:
+    #       name: omething
+    # envList:
+    #   # - name: blbla
+    #   #   value: tasd
+    #   - name: blbla23
+    #     value: tasd234
