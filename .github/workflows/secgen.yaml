@@ -52,7 +52,7 @@ jobs:
         shell: bash
         run: |
           #!/bin/bash
-          render(){
+          render() {
               local chart="$1"
               local chartname="$2"
               local train="$3"
@@ -105,9 +105,9 @@ jobs:
               echo "sanitising website output for ${chartname}..."
               rm -rf ${chart}/render
               sed -i 's|<br>|<br />|g' website/docs/charts/${train}/${chartname}/helm-security.md
-              sed -i 's|<br>|<br />|g' website/docs/charts/${train}/${chartname}/container_sec_scan.md
+              sed -i 's|<br>|<br />|g' website/docs/charts/${train}/${chartname}/container-security.md
               sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/helm-security.md
-              sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/container_sec_scan.md
+              sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/container-security.md
               }
           for train in enterprise stable incubator dependency; do
             echo "Processing Charts for Train: ${train}..."
