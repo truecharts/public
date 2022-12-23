@@ -4,9 +4,9 @@
 {{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
 
 {{- $params := list }}
-{{- $params = append $params (printf "?Port=%s" .Values.service.main.ports.main.port) -}}
-{{- $params = append $params (printf "?QueryPort=%s" .Values.service.udpsteam.ports.udpsteam.port) -}}
-{{- $params = append $params (printf "?RCONPort=%s" .Values.service.rcontcp.ports.rcontcp.port) -}}
+{{- $params = append $params (printf "?Port=%v" .Values.service.main.ports.main.port) -}}
+{{- $params = append $params (printf "?QueryPort=%v" .Values.service.udpsteam.ports.udpsteam.port) -}}
+{{- $params = append $params (printf "?RCONPort=%v" .Values.service.rcontcp.ports.rcontcp.port) -}}
 {{- if .Values.ark.rcon_enabled -}}
   {{- $params = append $params (print "?RCONEnabled=True") -}}
 {{- end }}
