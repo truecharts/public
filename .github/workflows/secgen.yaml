@@ -96,9 +96,9 @@ jobs:
               local train="$3"
               echo "sanitising website output for ${chartname}..."
               sed -i 's|<br>|<br />|g' website/docs/charts/${train}/${chartname}/helm-security.md
-              sed -i 's|<br>|<br />|g' website/docs/charts/${train}/${chartname}/container_sec_scan.md
+              #sed -i 's|<br>|<br />|g' website/docs/charts/${train}/${chartname}/container_sec_scan.md
               sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/helm-security.md
-              sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/container_sec_scan.md
+              #sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/container_sec_scan.md
               }
           for train in enterprise stable incubator dependency; do
             echo "Processing Charts for Train: ${train}..."
