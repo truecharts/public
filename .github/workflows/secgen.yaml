@@ -90,7 +90,7 @@ jobs:
               echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
               echo "##### Scan Results" >> website/docs/charts/${train}/${chartname}/container-security.md
               echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
-              for container in $(cat ${chart}/render/containers.tmp); do
+              for container in $(cat ${chart}/render/containers.tmp | sort | uniq); do
                 echo "**Container: ${container}**" >> website/docs/charts/${train}/${chartname}/container-security.md
                 echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
                 trivy image -f template --template "@./templates/trivy-container.tpl" ${container} >> website/docs/charts/${train}/${chartname}/container-security.md || echo "trivy container scan failed..."
