@@ -94,7 +94,7 @@ jobs:
                 echo "**Container: ${container}**" >> website/docs/charts/${train}/${chartname}/container-security.md
                 echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
                 ghcrcont=$(echo ${container} | sed "s/tccr.io/ghcr.io/g")
-                trivy image -f template --template "@./templates/trivy-container.tpl" ${ghcrcont} >> website/docs/charts/${train}/${chartname}/container-security.md
+                trivy image -f template --template "@./templates/trivy-container.tpl" ${ghcrcont} >> website/docs/charts/${train}/${chartname}/container-security.md || echo "trivy container scan failed..."
                 echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
               done
               }
@@ -112,10 +112,7 @@ jobs:
           for train in enterprise stable incubator dependency; do
             echo "Processing Charts for Train: ${train}..."
             for chart in $(ls "charts/${train}"); do
-              render "charts/${train}/${chart}" ${chart} ${train}
-              helm_sec_scan "charts/${train}/${chart}" ${chart} ${train}
-              container_sec_scan "charts/${train}/${chart}" ${chart} ${train}
-              cleanfiles "charts/${train}/${chart}" ${chart} ${train}
+              render "charts/${train}/${chart}" ${chart} ${train} && helm_sec_scan "charts/${train}/${chart}" ${chart} ${train} && container_sec_scan "charts/${train}/${chart}" ${chart} ${train} && cleanfiles "charts/${train}/${chart}" ${chart} ${train} || echo "processing failed for ${chart}"
             done
           done
           echo "finsihed security scan"
