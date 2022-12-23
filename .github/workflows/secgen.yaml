@@ -67,6 +67,7 @@ jobs:
               echo "" >> website/docs/charts/${train}/${chartname}/helm-security.md
               helm template ${chart} --output-dir ${chart}/render || echo "Helm template failed..."
               trivy config -f template --template "@./templates/trivy-config.tpl" ${chart}/render >> website/docs/charts/${train}/${chartname}/helm-security.md || echo "trivy scan failed..."
+              rm -rf ${chart}/render
               }
           container_sec_scan() {
               local chart="$1"
