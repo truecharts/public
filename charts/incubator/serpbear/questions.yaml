@@ -8,21 +8,21 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: secretEnv
+  - variable: serpbear
     group: App Configuration
-    label: Image Secrets
+    label: Serpbear Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: USER
+        - variable: user
           label: User
           description: The username you want to use to login to the app.
           schema:
             type: string
             required: true
             default: ""
-        - variable: PASSWORD
+        - variable: password
           label: Password
           description: The password you want to use to login to the app.
           schema:
@@ -30,15 +30,7 @@ questions:
             private: true
             required: true
             default: ""
-        - variable: SECRET
-          label: Secret
-          description: A secret key which will be used for encrypting 3rd party api keys & passwords.
-          schema:
-            type: string
-            private: true
-            required: true
-            default: ""
-        - variable: APIKEY
+        - variable: api_key
           label: API Key
           description: API key that will be used to access the apps API.
           schema:
@@ -46,26 +38,19 @@ questions:
             private: true
             required: true
             default: ""
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: NEXT_PUBLIC_APP_URL
+        - variable: app_url
           label: Next Public App URL
           description: The URL where your app is hosted and can be accessed.
           schema:
             type: string
+            required: true
             default: http://localhost:10605
-        - variable: SESSION_DURATION
+        - variable: session_duration
           label: Session Duration
           description: The duration(in hour) of the user's logged in session.
           schema:
             type: int
             default: 24
-
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

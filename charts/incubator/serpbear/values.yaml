@@ -3,15 +3,16 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:2aeb05064783dee6c17751eecb0d2d23f6f7e06719c6a34c6d757f7195df04d9
 
-secretEnv:
-  USER: "admin"
-  PASSWORD: "1234567"
-  SECRET: ""
-  APIKEY: ""
+serpbear:
+  user: admin
+  password: secret
+  session_duration: 24
+  api_key: ""
+  app_url: http://localhost:10605
 
-env:
-  SESSION_DURATION: 24
-  NEXT_PUBLIC_APP_URL: "http://localhost:10605"
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-env-secret'
 
 service:
   main:
