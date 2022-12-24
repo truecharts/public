@@ -8,7 +8,7 @@
 {{- $params = append $params (printf "?QueryPort=%v" .Values.service.udpsteam.ports.udpsteam.port) -}}
 {{- $params = append $params (printf "?RCONPort=%v" .Values.service.rcontcp.ports.rcontcp.port) -}}
 {{- if .Values.ark.rcon_enabled -}}
-  {{- $params = append $params (print "?RCONEnabled=True") -}}
+  {{- $params = append $params (print "?RCONEnabled=true") -}}
 {{- end }}
 ---
 apiVersion: v1
@@ -26,7 +26,7 @@ stringData:
   SERVER_NAME: {{ . | quote }}
   {{- end }}
   VALIDATE: {{ default false .Values.ark.validate | quote }}
-  {{- with .Values.ark.srv_admin_password }}
+  {{- with .Values.ark.srv_admin_pass }}
   SRV_ADMIN_PWD: {{ . | quote }}
   {{- end }}
   {{- with .Values.ark.srv_password }}

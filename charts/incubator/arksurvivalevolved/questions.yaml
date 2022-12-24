@@ -17,52 +17,103 @@ questions:
       attrs:
         - variable: username
           label: Username
-          description: Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard).
+          description: Optionally set a steam username otherwise(disable Steam Guard).
           schema:
             type: string
             default: ""
         - variable: password
           label: Password
-          description: Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard).
+          description: Optionally set a steam password(disable Steam Guard).
           schema:
             type: string
             private: true
             default: ""
         - variable: srv_password
           label: Server Password
-          description: Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)
+          description: Optionally set a password for the server(this field accepts no spaces)
           schema:
             type: string
             private: true
             default: ""
         - variable: srv_admin_pass
           label: Server Admin Password
-          description: Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)
+          description: Optionally set a password for the admin(this field accepts no spaces)
           schema:
             type: string
             private: true
             default: ""
         - variable: game_id
           label: Game ID
-          description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
+          description: "The SteamCMD Game ID."
           schema:
             type: string
             default: "376030"
+            enum:
+              - value: "376030"
+                description: "ARK Survival Evolved"
+              - value: "445400"
+                description: "ARK Survival of the Fittest"
         - variable: map
           label: Map
           description: Map Name
           schema:
             type: string
             default: TheIsland
+            enum:
+              - value: TheIsland
+                description: Island
+            enum:
+              - value: TheCenter
+                description: Center
+            enum:
+              - value: ScorchedEarth_P
+                description: Scorched Earth
+            enum:
+              - value: Ragnarok
+                description: Ragnarok
+            enum:
+              - value: Aberration_P
+                description: Aberration
+            enum:
+              - value: Extinction
+                description: Extinction
+            enum:
+              - value: Genesis
+                description: Genesis
+            enum:
+              - value: Valguero_P
+                description: Valguero
+            enum:
+              - value: CrystalIsles
+                description: Crystal Isles
+            enum:
+              - value: Gen2
+                description: Genesis 2
+            enum:
+              - value: Lost Island
+                description: LostIsland
+            enum:
+              - value: Fjordur
+                description: Fjordur
+            enum:
+              - value: custom
+                description: Custom
+        - variable: CUSTOM_MAP
+          label: Custom Map
+          description: Custom Map name.
+          schema:
+            type: string
+            default: ""
+            show_if: [[map, "=", "custom"]]
         - variable: server_name
           label: Server Name
-          description: Leave empty if you want to use the settings from GameUserSettings.ini (this field accepts no spaces)
+          description: Optionally set a name for the server(this field accepts no spaces)
           schema:
             type: string
             default: ""
         - variable: validate
           label: Validate
-          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
+          description: Enable to validate the installation, otherwise uncheck it.
           schema:
             type: boolean
             default: true
@@ -73,7 +124,7 @@ questions:
             default: true
         - variable: game_params
           label: Game Parameters
-          description: "Enter your game parameters starting with ? (don't put spaces in between eg: ?MaxPlayers=40?FastDecayUnsnappedCoreStructures=true). For multiple servers, change the port numbers in Networking and Services section ONLY."
+          description: Enter your game parameters starting with ?, one per entry
           schema:
             type: list
             default: []
@@ -85,12 +136,30 @@ questions:
                   type: string
                   default: ""
                   required: true
+        - variable: flag_params_extra_server
+          label: Server Flag
+          description: add -server flag to Game Extra Parameters
+          schema:
+            type: boolean
+            default: true
+        - variable: flag_params_extra_log
+          label: Log Flag
+          description: add -log flag to Game Extra Parameters
+          schema:
+            type: boolean
+            default: true
+        - variable: flag_params_extra_crossplay
+          label: Crossplay Flag
+          description: add -crossplay flag to Game Extra Parameters
+          schema:
+            type: boolean
+            default: true
         - variable: game_params_extra
           label: Game Extra Parameters
-          description: "Values to start the server, one per entry"
+          description: "Enter your game extra parameters, one per entry"
           schema:
             type: list
-            default: ["-server", "-log", "-crossplay"]
+            default: []
             items:
               - variable: game_params_extra_entry
                 label: Extra Parameter Entry
@@ -195,16 +264,16 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: steamcmd
-          label: steamcmd Storage
-          description: Container Path serverdatasteamcmd
+          label: App SteamCMD Storage
+          description: Stores the Application SteamCMD.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
         - variable: serverfiles
-          label: serverfiles Storage
-          description: Container Path serverdataserverfiles
+          label: App ServerFiles Storage
+          description: Stores the Application ServerFiles.
           schema:
             additional_attrs: true
             type: dict
