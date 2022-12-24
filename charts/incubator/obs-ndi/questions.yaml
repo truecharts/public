@@ -15,18 +15,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: NVIDIA_DRIVER_CAPABILITIES
-          label: "NVIDIA_DRIVER_CAPABILITIES"
-          description: "Container Variable NVIDIADRIVERCAPABILITIES"
-          schema:
-            type: string
-            default: "all"
-        - variable: NVIDIA_VISIBLE_DEVICES
-          label: "NVIDIA_VISIBLE_DEVICES"
-          description: "Container Variable NVIDIAVISIBLEDEVICES"
-          schema:
-            type: string
-            default: ""
         - variable: VNC_PASSWD
           label: "VNC_PASSWD"
           description: "Container Variable VNCPASSWD"

@@ -51,7 +51,7 @@
       "bumpVersion": "major",
       "labels": ["update/helm/dependency/major"],
       "groupName": ["helm dependency major"],
-      "paths": ["charts/dependency/"],
+      "matchPaths": ["charts/dependency/**"],
     },
     {
       "matchDatasources": ["helm"],
@@ -62,7 +62,7 @@
       ],
       "bumpVersion": "patch",
       "labels": ["update/helm/dependency/non-major"],
-      "paths": ["charts/dependency/"],
+      "matchPaths": ["charts/dependency/**"],
       "groupName": "helm dependency non-major",
     },
     //
@@ -74,7 +74,7 @@
       "bumpVersion": "major",
       "labels": ["update/helm/general/major"],
       "groupName": ["helm general major"],
-      "paths": ["charts/incubator/", "charts/SCALE/", "charts/dev/", "charts/enterprise/", "charts/stable/", "templates/app/"],
+      "matchPaths": ["charts/incubator/**", "charts/SCALE/**", "charts/dev/**", "charts/enterprise/**", "charts/stable/**", "templates/app/**"],
       "schedule": [
         "before 10pm on tuesday"
       ],
@@ -89,7 +89,7 @@
       "bumpVersion": "patch",
       "labels": ["update/helm/general/non-major"],
       "groupName": "helm general non-major",
-      "paths": ["charts/incubator/", "charts/SCALE/", "charts/dev/", "charts/enterprise/", "charts/stable/", "templates/app/"],
+      "matchPaths": ["charts/incubator/**", "charts/SCALE/**", "charts/dev/**", "charts/enterprise/**", "charts/stable/**", "templates/app/**"],
       "schedule": [
         "before 10pm on tuesday"
       ],
@@ -102,7 +102,7 @@
       "updateTypes": ["major"],
       "bumpVersion": "major",
       "labels": ["update/docker/enterprise/major"],
-      "paths": ["charts/enterprise/"],
+      "matchPaths": ["charts/enterprise/**"],
     },
     {
       "matchDatasources": ["docker"],
@@ -112,7 +112,7 @@
       ],
       "bumpVersion": "patch",
       "labels": ["update/docker/enterprise/minor"],
-      "paths": ["charts/enterprise/"],
+      "matchPaths": ["charts/enterprise/**"],
     },
     {
       "matchDatasources": ["docker"],
@@ -124,7 +124,7 @@
       ],
       "bumpVersion": "patch",
       "labels": ["update/docker/enterprise/patch"],
-      "paths": ["charts/enterprise/"],
+      "matchPaths": ["charts/enterprise/**"],
     },
     //
     // Tag updates for semantic tags on all but enterprise Apps
@@ -134,7 +134,7 @@
       "updateTypes": ["major"],
       "bumpVersion": "minor",
       "labels": ["update/docker/general/major", "automerge"],
-      "paths": ["charts/dependency/", "charts/SCALE/", "charts/incubator/", "charts/dev/", "charts/stable/", "templates/app/"],
+      "matchPaths": ["charts/dependency/**", "charts/SCALE/**", "charts/incubator/**", "charts/dev/**", "charts/stable/**", "templates/app/**"],
     },
     {
       "matchDatasources": ["docker"],
@@ -147,7 +147,7 @@
       ],
       "bumpVersion": "patch",
       "labels": ["update/docker/general/non-major", "automerge"],
-      "paths": ["charts/dependency/", "charts/SCALE/",  "charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "templates/app/"],
+      "matchPaths": ["charts/dependency/**", "charts/SCALE/**",  "charts/incubator/**", "charts/dev/**", "charts/library/**", "charts/stable/**", "templates/app/**"],
     },
     //
     // Tag semantic version type based on regex
@@ -170,22 +170,12 @@
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
-      "matchPackageNames": ["tccr.io/truecharts/jitsi-web"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/jitsi"],
     },
     {
       "matchDatasources": ["docker"],
-      "versioning": "regex:^(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
-      "matchPackageNames": ["tccr.io/truecharts/jitsi-jicofo"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "versioning": "regex:^(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
-      "matchPackageNames": ["tccr.io/truecharts/jitsi-jvb"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "versioning": "regex:^(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
-      "matchPackageNames": ["tccr.io/truecharts/jitsi-prosody"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)_\\d+$",
+      "matchPackagePrefixes": ["tccr.io/truecharts/immich"],
     }
   ]
 }

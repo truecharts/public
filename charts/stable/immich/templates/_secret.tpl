@@ -2,9 +2,7 @@
 {{- define "immich.secret" -}}
 
 {{- $secretName := printf "%s-immich-secret" (include "tc.common.names.fullname" .) }}
-
 ---
-
 apiVersion: v1
 kind: Secret
 type: Opaque

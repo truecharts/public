@@ -35,6 +35,25 @@ questions:
             type: string
             private: true
             default: ""
+  - variable: kasm
+    group: App Configuration
+    label: KASM Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: mountUdev
+          label: Mount /run/udev/data
+          description: Mounts host's /run/udev/data to container. Know the risks first. Used for GamePad support.
+          schema:
+            type: boolean
+            default: false
+        - variable: mountInput
+          label: Mount /dev/input
+          description: Mounts host's /dev/input to container. Know the risks first. Used for GamePad support.
+          schema:
+            type: boolean
+            default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

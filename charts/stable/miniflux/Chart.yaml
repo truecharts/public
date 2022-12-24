@@ -2,13 +2,13 @@ apiVersion: v2
 appVersion: "2.0.41"
 description: Miniflux is a minimalist and opinionated feed reader.
 name: miniflux
-version: 10.0.11
+version: 10.0.13
 kubeVersion: ">=1.16.0-0"
 keywords:
   - miniflux
   - rss
   - news
-home: https://truecharts.org/docs/charts/stable/miniflux
+home: https://truecharts.org/charts/stable/miniflux
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/miniflux.png
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/miniflux
@@ -16,11 +16,11 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.0.9
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 11.0.11
+    version: 11.0.13
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts

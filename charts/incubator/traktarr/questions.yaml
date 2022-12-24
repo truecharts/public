@@ -6,69 +6,82 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
+  - variable: trakrarr
+    group: App Configuration
+    label: Traktarr Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: DELAY
-          label: "DELAY"
-          description: "Container Variable DELAY  (FLOAT) in secs - default 2.5"
+        - variable: delay
+          label: Delay
+          description: (FLOAT) Seconds between each add request to ARR services.
           schema:
             type: string
-            default: ""
-        - variable: SORT
-          label: "SORT"
-          description: "Container Variable SORT"
+            default: "2.5"
+            valid_charts: ^\d+\.\d+$
+        - variable: sort
+          label: Sort
+          description: Votes or rating or release, sort list to process
           schema:
             type: string
-            default: ""
-        - variable: NOSEARCH
-          label: "NOSEARCH"
-          description: "Container Variable NOSEARCH, Disable search when adding to SonarrRadarr"
+            default: "rating"
+            enum:
+              - value: "rating"
+                description: "Rating"
+              - value: "votes"
+                description: "Votes"
+              - value: "release"
+                description: "Release"
+        - variable: nosearch
+          label: No Search
+          description: Disable search when adding to ARR services.
+          schema:
+            type: boolean
+            default: true
+        - variable: notifications
+          label: Notifications
+          description: Disable notifications
+          schema:
+            type: boolean
+            default: true
+        - variable: blackist
+          label: Black List
+          description: Enables/disables the blacklist when running app.
+          schema:
+            type: boolean
+            default: true
+        - variable: runnow
+          label: Run Now
+          description: Do a first run immediately without waiting.
+          schema:
+            type: boolean
+            default: false
+        - variable: skipupdate
+          label: Skip Update
+          description: Skip auto-update
+          schema:
+            type: boolean
+            default: true
+        - variable: app_branch
+          label: App Branch
+          description: GitHub branch.
           schema:
             type: string
-            default: ""
-        - variable: NOTIFICATIONS
-          label: "NOTIFICATIONS"
-          description: "Container Path NOTIFICATIONS"
-          schema:
-            type: string
-            default: ""
-        - variable: BLACKLIST
-          label: "BLACKLIST"
-          description: "Container Variable BLACKLIST"
-          schema:
-            type: string
-            default: ""
-        - variable: RUNNOW
-          label: "RUNNOW"
-          description: "Container Variable RUNNOW"
-          schema:
-            type: string
-            default: ""
-        - variable: SKIPUPDATE
-          label: "SKIPUPDATE"
-          description: "Container Variable SKIPUPDATE"
-          schema:
-            type: string
-            default: ""
-        - variable: APP_BRANCH
-          label: "APP_BRANCH"
-          description: "Container Variable APPBRANCH"
-          schema:
-            type: string
-            default: ""
+            default: 'master'
+            enum:
+              - value: "master"
+                description: "Master"
+              - value: "develop"
+                description: "Develop"
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: "config Storage"
-          description: "Container Path config"
+          label: App Config Storage
+          description: Stores the Application Config.
           schema:
             additional_attrs: true
             type: dict
@@ -78,41 +91,41 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
