@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/cadquery-jupyter
-  tag: 3.4.0
+  tag: 3.4.0@sha256:1fad7b53f0b220282b478e70ef2a41e13a886cb4330de17fcab53c56fc29318b
 persistence:
   workdir:
     enabled: true

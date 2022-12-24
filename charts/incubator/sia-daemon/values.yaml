@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/sia-daemon
-  tag: vmaster
+  tag: vmaster@sha256:14ecab016a0e9af0de3fa04a3f4afd30100ab992b55ae79760f11398d466d2af
 persistence:
   datadirectory:
     enabled: true

@@ -2,7 +2,7 @@ env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/hassconfigurator
-  tag: vx86_64
+  tag: vx86_64@sha256:bf9faaba154bab91e5ac7c1908586381bcce706d0ec521678596da290946e641
 persistence:
   config:
     enabled: true
