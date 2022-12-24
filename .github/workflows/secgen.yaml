@@ -92,10 +92,14 @@ jobs:
               echo "##### Scan Results" >> website/docs/charts/${train}/${chartname}/container-security.md
               echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
               for container in $(cat ${chart}/render/containers.tmp | sort | uniq); do
-                echo "**Container: ${container}**" >> website/docs/charts/${train}/${chartname}/container-security.md
-                echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
-                trivy image --security-checks vuln -f template --template "@./templates/trivy-container.tpl" ${container} >> website/docs/charts/${train}/${chartname}/container-security.md || echo "trivy container scan failed..."
-                echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
+                if [[ "$container" == *"ghcr.io/truecharts/alpine"* || "$container" == *"ghcr.io/truecharts/ubuntu"* || "$container" == *"ghcr.io/truecharts/kubectl"* ]]; then
+                  echo "Skipping ${container}, as it's a shared common container..."
+                else
+                  echo "**Container: ${container}**" >> website/docs/charts/${train}/${chartname}/container-security.md
+                  echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
+                  trivy image --security-checks vuln -f template --template "@./templates/trivy-container.tpl" ${container} >> website/docs/charts/${train}/${chartname}/container-security.md || echo "trivy container scan failed..."
+                  echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
+                fi
               done
               }
           cleanfiles() {
