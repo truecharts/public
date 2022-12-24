@@ -3,31 +3,22 @@ image:
   pullPolicy: IfNotPresent
   tag: 0.6.0@sha256:97dad0bc2e0683c22f1b29416ef2caa70fedc83688d1ee9dc57d7d862204a396
 
-secretEnv:
-  HBOX_MAILER_USERNAME: ""
-  HBOX_MAILER_PASSWORD: ""
 
-env:
-  HBOX_WEB_PORT: "{{ .Values.service.main.ports.main.port }}"
-  HBOX_WEB_HOST: ""
-  HBOX_WEB_MAX_UPLOAD_SIZE: 10
-  HBOX_MODE: production
+homebox:
+  allow_registration: true
+  auto_increment_asset_id: true
+  max_upload_size: 10
+  log_level: info
+  log_format: text
+  mailer_host: ""
+  mailer_port: 587
+  mailer_from: ""
+  mailer_username: ""
+  mailer_password: ""
 
-  HBOX_SWAGGER_HOST: "{{ .Values.service.main.ports.main.port }}"
-  HBOX_SWAGGER_SCHEMA: http
-
-  HBOX_OPTIONS_ALLOW_REGISTRATION: true
-  HBOX_OPTIONS_AUTO_INCREMENT_ASSET_ID: true
-
-  HBOX_STORAGE_DATA: /config
-  HBOX_STORAGE_SQLITE_URL: /config/homebox.db?_fk=1
-
-  HBOX_LOG_LEVEL: info
-  HBOX_LOG_FORMAT: text
-
-  HBOX_MAILER_HOST: ""
-  HBOX_MAILER_PORT: 587
-  HBOX_MAILER_FROM: ""
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-homebox-secret'
 
 service:
   main:
@@ -37,9 +28,9 @@ service:
         port: 10603
 
 persistence:
-  config:
+  data:
     enabled: true
-    mountPath: /config
+    mountPath: /data
 
 portal:
   enabled: true

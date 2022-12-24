@@ -8,71 +8,33 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: secretEnv
+  - variable: homebox
     group: App Configuration
-    label: Image Secrets
+    label: Homebox Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: HBOX_MAILER_USERNAME
-          label: HBOX Mailer UserName
-          description: Email user to use.
-          schema:
-            type: string
-            default: ""
-        - variable: HBOX_MAILER_PASSWORD
-          label: HBOX Mailer Password
-          description: Email password to use.
-          schema:
-            type: string
-            private: true
-            default: ""
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: HBOX_MODE
-          label: HBOX Mode
-          description: Application mode used for runtime behavior
-          schema:
-            type: string
-            default: production
-            enum:
-              - value: production
-                description: Production
-              - value: development
-                description: Development
-        - variable: HBOX_WEB_HOST
-          label: HBOX Web Host
-          description: Host to run the web server on.
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: HBOX_OPTIONS_ALLOW_REGISTRATION
-          label: HBOX Options Allow Registration
+        - variable: allow_registration
+          label: Options Allow Registration
           description: Allow users to register themselves.
           schema:
             type: boolean
             default: true
-        - variable: HBOX_OPTIONS_AUTO_INCREMENT_ASSET_ID
-          label: HBOX Options Auto Increment Asset ID
+        - variable: auto_increment_asset_id
+          label: Options Auto Increment Asset ID
           description: Auto increments the asset_id field for new items.
           schema:
             type: boolean
             default: true
-        - variable: HBOX_WEB_MAX_UPLOAD_SIZE
-          label: HBOX Web Max Upload Size
+        - variable: max_upload_size
+          label: Web Max Upload Size
           description: Maximum file upload size supported in MB.
           schema:
             type: int
             default: 10
-        - variable: HBOX_LOG_LEVEL
-          label: HBOX Log Level
+        - variable: log_level
+          label: Log Level
           description: Log level to use.
           schema:
             type: string
@@ -90,8 +52,8 @@ questions:
                 description: Error
               - value: critical
                 description: Critical
-        - variable: HBOX_LOG_FORMAT
-          label: HBOX Log Format
+        - variable: log_format
+          label: Log Format
           description: Log format to use
           schema:
             type: string
@@ -101,23 +63,44 @@ questions:
                 description: Text
               - value: json
                 description: Json
-        - variable: HBOX_MAILER_HOST
-          label: HBOX Mailer Host
+        - variable: mailer_host
+          label: Mailer Host
           description: Email host to use.
           schema:
             type: string
             default: ""
-        - variable: HBOX_MAILER_PORT
-          label: HBOX Mailer Port
+        - variable: mailer_port
+          label: Mailer Port
           description: Email port to use.
           schema:
             type: int
+            show_if: [["mailer_host", "!=", ""]]
+            required: true
             default: 587
-        - variable: HBOX_MAILER_FROM
-          label: HBOX Mailer From
+        - variable: mailer_from
+          label: Mailer From
           description: Email from address to use.
           schema:
             type: string
+            show_if: [["mailer_host", "!=", ""]]
+            required: true
+            default: ""
+        - variable: mailer_username
+          label: Mailer Username
+          description: Email user to use.
+          schema:
+            type: string
+            show_if: [["mailer_host", "!=", ""]]
+            required: true
+            default: ""
+        - variable: mailer_password
+          label: Mailer Password
+          description: Email password to use.
+          schema:
+            type: string
+            show_if: [["mailer_host", "!=", ""]]
+            private: true
+            required: true
             default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
@@ -148,9 +131,9 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: config
-          label: App Config Storage
-          description: Stores the Application Configuration.
+        - variable: data
+          label: App Data Storage
+          description: Stores the Application Data.
           schema:
             additional_attrs: true
             type: dict
@@ -179,7 +162,7 @@ questions:
                 label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: Allow Privilege Escalation
                 schema:
