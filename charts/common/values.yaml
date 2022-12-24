@@ -47,6 +47,22 @@ ubuntuImage:
   # -- Specify the redis image pull policy
   pullPolicy: IfNotPresent
 
+alpineImage:
+  # -- Specify the multi-init image
+  repository: tccr.io/truecharts/alpine
+  # -- Specify the redis image tag
+  tag: v3.17.0@sha256:f8607e14a5e456c1b8fe50b7f0c9371b4aae543d23080f5e2fe0bdbb06d2413b
+  # -- Specify the redis image pull policy
+  pullPolicy: IfNotPresent
+
+kubectlImage:
+  # -- Specify the multi-init image
+  repository: tccr.io/truecharts/kubectl
+  # -- Specify the redis image tag
+  tag: v1.26.0@sha256:6d6e0e50f28b961ed1c1c6a9c140553238641591fbdc9ac7c1a348636f78c552
+  # -- Specify the redis image pull policy
+  pullPolicy: IfNotPresent
+
 # -- Used to inject our own operator manifests into SCALE
 manifests:
   enabled: true

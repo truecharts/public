@@ -96,4 +96,4 @@ jobs:
 
     - name: Run chart-testing (install)
       if: needs.lint.outputs.changed == 'true'
-      run: find ./ -type f -name "*.yaml" -exec sed -i 's/tccr.io/ghcr.io/gI' {} \; && ct install --all --config .github/ct-install.yaml --debug
+      run: ct install --all --config .github/ct-install.yaml --debug

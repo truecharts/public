@@ -5,16 +5,60 @@ before chart installation.
 {{- define "tc.common.controller.prepare" -}}
 {{- $group := .Values.podSecurityContext.fsGroup -}}
 {{- $hostPathMounts := dict -}}
+{{- $autoperms := false -}}
 {{- range $name, $mount := .Values.persistence -}}
   {{- if and $mount.enabled $mount.setPermissions -}}
     {{- $name = default ( $name| toString ) $mount.name -}}
     {{- $_ := set $hostPathMounts $name $mount -}}
+    {{- $autoperms = true -}}
   {{- end -}}
 {{- end }}
-- name: prepare
-  image: {{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}
+{{- if or $autoperms ( and ( .Values.addons.vpn.configFile.enabled ) ( ne .Values.addons.vpn.type "disabled" ) ( ne .Values.addons.vpn.type "tailscale" ) ) }}
+- name: db-wait
+  image: {{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}
   securityContext:
     runAsUser: 0
+  resources:
+  {{- with .Values.resources }}
+    {{- tpl ( toYaml . ) $ | nindent 4 }}
+  {{- end }}
+  command:
+    - "/bin/sh"
+    - "-c"
+    - |
+      /bin/sh <<'EOF'
+      echo "Automatically correcting permissions..."
+      {{- if and ( .Values.addons.vpn.configFile.enabled ) ( ne .Values.addons.vpn.type "disabled" ) ( ne .Values.addons.vpn.type "tailscale" ) }}
+      echo "Automatically correcting permissions for vpn config file..."
+      /usr/bin/nfs4xdr_winacl -a chown -O 568 -G 568 -c /vpn/vpn.conf -p /vpn/vpn.conf || echo "Failed setting permissions..."
+      {{- end }}
+      {{- range $_, $hpm := $hostPathMounts }}
+      echo "Automatically correcting permissions for {{ $hpm.mountPath }}..."
+      /usr/bin/nfs4xdr_winacl -a chown -G {{ $group }} -r -c {{ tpl $hpm.mountPath $ | squote }} -p {{ tpl $hpm.mountPath $ | squote }} || echo "Failed setting permissions..."
+      {{- end }}
+      EOF
+
+  volumeMounts:
+    {{- range $name, $hpm := $hostPathMounts }}
+    - name: {{ $name }}
+      mountPath: {{ $hpm.mountPath }}
+      {{- if $hpm.subPath }}
+      subPath: {{ $hpm.subPath }}
+      {{- end }}
+    {{- end }}
+    {{- if and ( .Values.addons.vpn.configFile.enabled ) ( ne .Values.addons.vpn.type "disabled" ) ( ne .Values.addons.vpn.type "tailscale" ) }}
+    - name: vpnconfig
+      mountPath: /vpn/vpn.conf
+    {{- end }}
+{{- end }}
+{{- if or .Values.mariadb.enabled .Values.redis.enabled .Values.mongodb.enabled .Values.clickhouse.enabled .Values.solr.enabled .Values.postgresql.enabled .Values.cnpg.enabled }}
+- name: db-wait
+  image: {{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}
+  securityContext:
+    runAsUser: 568
+    runAsGroup: 568
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
   resources:
   {{- with .Values.resources }}
     {{- tpl ( toYaml . ) $ | nindent 4 }}
@@ -87,15 +131,7 @@ before chart installation.
     - "-c"
     - |
       /bin/bash <<'EOF'
-      echo "Automatically correcting permissions..."
-      {{- if and ( .Values.addons.vpn.configFile.enabled ) ( ne .Values.addons.vpn.type "disabled" ) ( ne .Values.addons.vpn.type "tailscale" ) }}
-      echo "Automatically correcting permissions for vpn config file..."
-      /usr/bin/nfs4xdr_winacl -a chown -O 568 -G 568 -c /vpn/vpn.conf -p /vpn/vpn.conf || echo "Failed setting permissions..."
-      {{- end }}
-      {{- range $_, $hpm := $hostPathMounts }}
-      echo "Automatically correcting permissions for {{ $hpm.mountPath }}..."
-      /usr/bin/nfs4xdr_winacl -a chown -G {{ $group }} -r -c {{ tpl $hpm.mountPath $ | squote }} -p {{ tpl $hpm.mountPath $ | squote }} || echo "Failed setting permissions..."
-      {{- end }}
+      echo "Executing DB waits..."
       {{- if .Values.postgresql.enabled }}
       {{- $pghost := printf "%v-%v" .Release.Name "postgresql" }}
       until
@@ -174,17 +210,5 @@ before chart installation.
       {{- end }}
 
       EOF
-
-  volumeMounts:
-    {{- range $name, $hpm := $hostPathMounts }}
-    - name: {{ $name }}
-      mountPath: {{ $hpm.mountPath }}
-      {{- if $hpm.subPath }}
-      subPath: {{ $hpm.subPath }}
-      {{- end }}
-    {{- end }}
-    {{- if and ( .Values.addons.vpn.configFile.enabled ) ( ne .Values.addons.vpn.type "disabled" ) ( ne .Values.addons.vpn.type "tailscale" ) }}
-    - name: vpnconfig
-      mountPath: /vpn/vpn.conf
-    {{- end }}
+{{- end }}
 {{- end -}}

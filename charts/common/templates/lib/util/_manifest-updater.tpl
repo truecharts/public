@@ -17,16 +17,28 @@ spec:
       serviceAccountName: {{ $fullName }}-manifests
       containers:
         - name: {{ $fullName }}-manifests
-          image: {{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}
+          image: {{ .Values.kubectlImage.repository }}:{{ .Values.kubectlImage.tag }}
+          securityContext:
+            runAsUser: 568
+            runAsGroup: 568
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
           command:
             - "/bin/sh"
             - "-c"
             - |
-              /bin/bash <<'EOF'
+              /bin/sh <<'EOF'
               echo "installing manifests..."
               kubectl apply --server-side --force-conflicts  -k https://github.com/truecharts/manifests/{{ if .Values.manifests.staging }}staging{{ else }}manifests{{ end }} {{ if .Values.manifests.nonBlocking }} || echo "Manifest application failed..."{{ end }}
               EOF
+          volumeMounts:
+            - name: temp
+              mountPath: /tmp
       restartPolicy: Never
+      {{- with (include "tc.common.controller.volumes" . | trim) }}
+      volumes:
+        {{- nindent 8 . }}
+      {{- end }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole

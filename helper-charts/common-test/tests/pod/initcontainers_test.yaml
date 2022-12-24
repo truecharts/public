@@ -13,7 +13,7 @@ tests:
           of: Deployment
       - documentIndex: 0
         equal:
-          path: spec.template.spec.initContainers[1].name
+          path: spec.template.spec.initContainers[0].name
           value: template-test
 
   - it: with implicit name should pass
@@ -27,7 +27,7 @@ tests:
           of: Deployment
       - documentIndex: 0
         equal:
-          path: spec.template.spec.initContainers[1].name
+          path: spec.template.spec.initContainers[0].name
           value: init1
 
   - it: with templated name should pass
@@ -41,5 +41,5 @@ tests:
           of: Deployment
       - documentIndex: 0
         equal:
-          path: spec.template.spec.initContainers[1].name
+          path: spec.template.spec.initContainers[0].name
           value: RELEASE-NAME-container
