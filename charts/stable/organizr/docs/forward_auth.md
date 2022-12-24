@@ -54,10 +54,10 @@ We will use the Organizr user groups that map to specific forwardAuth URLs.
 The below table shows the example forwardAuth entries that correspond to the user groups in Organizr.
 The URLs for these entries use the kubernetes internal DNS address & default port (`10022`) for your Organizr app. You can name the forwardAuth entries whatever you like.
 
-| forwardAuth Name                      | forwardAuth Address                                                         | screenshot                                                          |
+| forwardAuth Name                      | forwardAuth Address                                                         |                             screenshot                              |
 | :------------------------------------ | :-------------------------------------------------------------------------- | :-----------------------------------------------------------------: |
-| `organizr-admin`                      | `http://organizr.ix-organizr.svc.cluster.local:10022/api/v2/auth?group=0`   | ![Organizr-admin-forwardAuth](img/organizr-admin-forwardAuth.png)   |
-| `organizr-guest` (optional)           | `http://organizr.ix-organizr.svc.cluster.local:10022/api/v2/auth?group=999` | ![Organizr-guest-forwardAuth](img/organizr-guest-forwardAuth.png)   |
+| `organizr-admin`                      | `http://organizr.ix-organizr.svc.cluster.local:10022/api/v2/auth?group=0`   |  ![Organizr-admin-forwardAuth](img/organizr-admin-forwardAuth.png)  |
+| `organizr-guest` (optional)           | `http://organizr.ix-organizr.svc.cluster.local:10022/api/v2/auth?group=999` |  ![Organizr-guest-forwardAuth](img/organizr-guest-forwardAuth.png)  |
 | `organizr-custom5` (optional, custom) | `http://organizr.ix-organizr.svc.cluster.local:10022/api/v2/auth?group=5`   | ![Organizr-custom-forwardAuth](img/organizr-custom-forwardAuth.png) |
 
 See Organizr [documentation](https://docs.organizr.app/features/server-authentication#using-the-organizr-authorization-api) on "Server Authentication"
