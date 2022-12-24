@@ -14,7 +14,6 @@ securityContext:
 invidious:
   network:
     inbound:
-      # TODO: When ingress enabled, 443, true and ingress host as domain
       external_port: 10594
       https_only: false
       domain: ""
