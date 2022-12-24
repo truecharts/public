@@ -1,13 +1,14 @@
 {{- define "invidious.dbseed" -}}
 image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
 env:
-  - name: POSTGRESQL_DATABASE
+  - name: POSTGRES_DATABASE
     value: {{ .Values.postgresql.postgresqlDatabase }}
-  - name: POSTGRESQL_USER
+  - name: POSTGRES_USER
     value: {{ .Values.postgresql.postgresqlUsername }}
-  - name: POSTGRESQL_PORT
+{{/* PG* variables are for the psql client */}}
+  - name: PGPORT
     value: "5432"
-  - name: POSTGRESQL_HOSTNAME
+  - name: PGHOST
     valueFrom:
       secretKeyRef:
         name: dbcreds
