@@ -299,6 +299,77 @@ questions:
                       schema:
                         type: boolean
                         default: true
+        - variable: captcha
+          label: Captcha
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: captcha_api_url
+                label: Captcha API URL
+                description: URL of the captcha solving service.
+                schema:
+                  type: string
+                  required: true
+                  default: https://api.anti-captcha.com
+              - variable: captcha_key
+                label: Captcha API Key
+                description: API key for the captcha solving service.
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+        - variable: miscellaneous
+          label: Miscellaneous
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: banner
+                label: Banner
+                description: Custom banner displayed at the top of every page. This can used for instance announcements, e.g.
+                schema:
+                  type: string
+                  default: ""
+              - variable: use_pubsub_feeds
+                label: Use PuBSub Feeds
+                description: Subscribe to channels using PubSubHub (Google PubSubHubbub service). PubSubHub allows Invidious to be instantly notified when a new video is published on any subscribed channels
+                schema:
+                  type: boolean
+                  default: false
+              - variable: hmac_key
+                label: HMAC Key
+                description: HMAC signing key used for CSRF tokens and pubsub subscriptions verification.
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: dmca_content
+                label: DMCA Content
+                description: List of video IDs where the "download" widget must be disabled, in order to comply with DMCA requests.
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: dmcaEntry
+                      label: DMCA Entry
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+              - variable: cache_annotations
+                label: Cache Annotations
+                description: Cache video annotations in the database.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: playlist_length_limit
+                label: Playlist Length Limit
+                description: Maximum custom playlist length limit.
+                schema:
+                  type: int
+                  required: true
+                  default: 500
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

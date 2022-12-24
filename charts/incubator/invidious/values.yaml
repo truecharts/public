@@ -56,9 +56,19 @@ invidious:
     refresh_feeds:
       enable: true
 
-captcha:
-  captcha_api_url: "https://api.anti-captcha.com"
-  captcha_key: ""
+  captcha:
+    captcha_api_url: "https://api.anti-captcha.com"
+    captcha_key: ""
+
+  miscellaneous:
+    banner: ""
+    use_pubsub_feeds: false
+    hmac_key: ""
+    dmca_content: []
+    cache_annotations: false
+    playlist_length_limit: 500
+
+
 
 default_user_preferences:
   internationalization:
@@ -76,6 +86,10 @@ default_user_preferences:
     comments: ["youtube", ""]
     player_style: invidious
     related_videos: true
+  local: false
+  show_nick: true
+  automatic_instance_redirect: false
+  extend_desc: false
 
 video_player_behavior:
   autoplay: false
@@ -97,18 +111,7 @@ subscription_feed:
   unseen_only: false
   sort: published
 
-miscellaneous:
-  banner: ""
-  use_pubsub_feeds: false
-  hmac_key: ""
-  dmca_content: []
-  cache_annotations: false
-  modified_source_code_url: ""
-  playlist_length_limit: 500
-  local: false
-  show_nick: true
-  automatic_instance_redirect: false
-  extend_desc: false
+
 
 envFrom:
   - secretRef:

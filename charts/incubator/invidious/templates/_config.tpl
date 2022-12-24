@@ -9,6 +9,8 @@
 {{- $vUserAcc := $v.users_accounts }}
 {{- $vBgJobs := $v.background_jobs }}
 {{- $vJobs := $v.jobs }}
+{{- $vCaptca := $v.captcha }}
+{{- $vMisc := $v.miscellaneous }}
 ---
 apiVersion: v1
 kind: Secret
@@ -78,15 +80,25 @@ stringData:
         enable: {{ $vJobs.refresh_feeds.enable }}
 
     # Captcha
-    captcha_api_url: "https://api.anti-captcha.com"
-    captcha_key: ""
-    banner: ""
-    use_pubsub_feeds: false
-    hmac_key: ""
+    captcha_api_url: {{ $vCaptca.captca_api_url }}
+    captcha_key: {{ $vCaptca.captca_key }}
+
+    # Miscellaneaous
+    banner: {{ $vMisc.banner }}
+    use_pubsub_feeds: {{ $vMisc.use_pubsub_feeds }}
+    hmac_key: {{ $vMisc.hmac_key }}
+    {{- if $vMisc.dmca_content }}
+    dmca_content:
+      {{- range $vMisc.dmca_content }}
+      - {{ . }}
+      {{- end }}
+    {{- else }}
     dmca_content: [""]
-    cache_annotations: false
+    {{- end }}
+    cache_annotations: {{ $vMisc.cache_annotations }}
+    playlist_length_limit: {{ $vMisc.playlist_length_limit }}
     modified_source_code_url: ""
-    playlist_length_limit: 500
+
     default_user_preferences:
       locale: en-US
       region: US
