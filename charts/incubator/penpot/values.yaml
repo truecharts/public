@@ -23,7 +23,7 @@ podSecurityContext:
   runAsGroup: 0
 
 hostAliases:
-  - ip: localhost
+  - ip: 127.0.0.1
     hostnames:
       - penpot-backend
       - penpot-exporter
