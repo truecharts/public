@@ -48,13 +48,13 @@ invidious:
     feed_threads: 1
     decrypt_polling: false
 
-jobs:
-  clear_expired_items:
-    enable: true
-  refresh_channels:
-    enable: true
-  refresh_feeds:
-    enable: true
+  jobs:
+    clear_expired_items:
+      enable: true
+    refresh_channels:
+      enable: true
+    refresh_feeds:
+      enable: true
 
 captcha:
   captcha_api_url: "https://api.anti-captcha.com"
