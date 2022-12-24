@@ -5,8 +5,8 @@ imagePullPolicy: '{{ .Values.backendImage.pullPolicy }}'
 securityContext:
   runAsUser: {{ .Values.podSecurityContext.runAsUser }}
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
-  readOnlyRootFilesystem: false
-  runAsNonRoot: true
+  readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
+  runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 volumeMounts:
   - name: data
     mountPath: {{ .Values.persistence.data.mountPath }}
