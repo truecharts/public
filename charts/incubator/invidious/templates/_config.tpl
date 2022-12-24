@@ -2,15 +2,16 @@
 {{- define "invidious.config" -}}
 
 {{- $configName := printf "%s-invidious-config" (include "tc.common.names.fullname" .) }}
-{{- $v := .Values.invidious }}
-{{- $vNet := $v.network }}
-{{- $vLog := $v.logging }}
-{{- $vFeat := $v.features }}
-{{- $vUserAcc := $v.users_accounts }}
-{{- $vBgJobs := $v.background_jobs }}
-{{- $vJobs := $v.jobs }}
-{{- $vCaptca := $v.captcha }}
-{{- $vMisc := $v.miscellaneous }}
+{{- $vNet := .Values.invidious.network }}
+{{- $vLog := .Values.invidious.logging }}
+{{- $vFeat := .Values.invidious.features }}
+{{- $vUserAcc := .Values.invidious.users_accounts }}
+{{- $vBgJobs := .Values.invidious.background_jobs }}
+{{- $vJobs := .Values.invidious.jobs }}
+{{- $vCaptca := .Values.invidious.captcha }}
+{{- $vMisc := .Values.invidious.miscellaneous }}
+{{- $vLoc := .Values.invidious.default_user_preferences.internationalization }}
+{{- $vUI := .Values.invidious.default_user_preferences.interface }}
 ---
 apiVersion: v1
 kind: Secret
@@ -99,20 +100,54 @@ stringData:
     playlist_length_limit: {{ $vMisc.playlist_length_limit }}
     modified_source_code_url: ""
 
+    # Default User Preferences
     default_user_preferences:
-      locale: en-US
-      region: US
+
+      # Internationalization
+      locale: {{ $vLoc.locale }}
+      region: {{ $vLoc.region }}
+      {{- with $vLoc.captions -}}
+        {{- if ne (len .) 3 -}}
+          {{- fail "Exactly 3 entries are required for Captions" -}}
+        {{- end }}
+      captions:
+        {{- range $c := . }}
+        - {{ $c }}
+        {{- end -}}
+      {{- else }}
       captions: ["","",""]
-      dark_mode: auto
-      thin_mode: false
+      {{- end }}
+
+      # Interface
+      dark_mode: {{ $vUI.dark_mode }}
+      thin_mode: {{ $vUI.thin_mode }}
+      {{- with $vUI.feed_menu }}
+      feed_menu:
+        {{- range $f := . }}
+        - {{ $f }}
+        {{- end -}}
+      {{- else }}
       feed_menu: ["Popular", "Trending", "Subscriptions", "Playlists"]
-      default_home: Popular
-      max_results: 40
-      annotations: false
-      annotations_subscribed: false
-      comments: ["youtube"]
-      player_style: invidious
-      related_videos: true
+      {{- end }}
+      default_home: {{ $vUI.default_home }}
+      max_results: {{ $vUI.max_results }}
+      annotations: {{ $vUI.annotations }}
+      annotations_subscribed: {{ $vUI.annotations_subscribed }}
+      {{- with $vUI.comments }}
+        {{- if ne (len .) 2 -}}
+          {{- fail "Exactly 2 entries are required for comments" -}}
+        {{- end }}
+      comments:
+        {{- range $c := . }}
+        - {{ $c }}
+        {{- end }}
+      {{- else }}
+      comments: ["youtube", ""]
+      {{- end }}
+      player_style: {{ $vUI.player_style }}
+      related_videos: {{ $vUI.related_videos }}
+
+      # Video Player Behaviour
       autoplay: false
       continue: false
       continue_autoplay: true

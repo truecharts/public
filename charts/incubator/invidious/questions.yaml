@@ -370,6 +370,557 @@ questions:
                   type: int
                   required: true
                   default: 500
+        - variable: default_user_preferences
+          label: Default User Preferences
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: internationalization
+                label: Internationalization
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: locale
+                      label: Locale
+                      description: Default user interface language (locale).
+                      schema:
+                        type: string
+                        required: true
+                        default: en-US
+                        enum:
+                          - value: ar
+                            description: Arabic
+                          - value: da
+                            description: Danish
+                          - value: de
+                            description: German
+                          - value: en-US
+                            description: English, US
+                          - value: el
+                            description: Greek
+                          - value: eo
+                            description: Esperanto
+                          - value: es
+                            description: Spanish
+                          - value: fa
+                            description: Persian
+                          - value: fi
+                            description: Finnish
+                          - value: fr
+                            description: French
+                          - value: he
+                            description: Hebrew
+                          - value: hr
+                            description: Hungarian
+                          - value: id
+                            description: Indonesian
+                          - value: is
+                            description: Icelandic
+                          - value: it
+                            description: Italian
+                          - value: ja
+                            description: Japanese
+                          - value: nb-NO
+                            description: Norwegian, Bomkmal
+                          - value: nl
+                            description: Dutch
+                          - value: pl
+                            description: Polish
+                          - value: pt-BR
+                            description: Portuguese, Brazil
+                          - value: pt-PT
+                            description: Portuguese, Portugal
+                          - value: ro
+                            description: Romanian
+                          - value: ru
+                            description: Russian
+                          - value: sv
+                            description: Swedish
+                          - value: tr
+                            description: Turkish
+                          - value: uk
+                            description: Ukrainian
+                          - value: zh-CN
+                            description: Chinese, China (Simplified Chinese)
+                          - value: zh-TW
+                            description: Chinese, Taiwan (Traditional Chinese)
+                    - variable: region
+                      label: Region
+                      description: Default geographical location for content.
+                      schema:
+                        type: string
+                        required: true
+                        default: US
+                        enum:
+                          - value: AE
+                            description: AE
+                          - value: AR
+                            description: AR
+                          - value: AT
+                            description: AT
+                          - value: AU
+                            description: AU
+                          - value: AZ
+                            description: AZ
+                          - value: BA
+                            description: BA
+                          - value: BD
+                            description: BD
+                          - value: BE
+                            description: BE
+                          - value: BG
+                            description: BG
+                          - value: BH
+                            description: BH
+                          - value: BO
+                            description: BO
+                          - value: BR
+                            description: BR
+                          - value: BY
+                            description: BY
+                          - value: CA
+                            description: CA
+                          - value: CH
+                            description: CH
+                          - value: CL
+                            description: CL
+                          - value: CO
+                            description: CO
+                          - value: CR
+                            description: CR
+                          - value: CY
+                            description: CY
+                          - value: CZ
+                            description: CZ
+                          - value: DE
+                            description: DE
+                          - value: DK
+                            description: DK
+                          - value: DO
+                            description: DO
+                          - value: DZ
+                            description: DZ
+                          - value: EC
+                            description: EC
+                          - value: EE
+                            description: EE
+                          - value: EG
+                            description: EG
+                          - value: ES
+                            description: ES
+                          - value: FI
+                            description: FI
+                          - value: FR
+                            description: FR
+                          - value: GB
+                            description: GB
+                          - value: GE
+                            description: GE
+                          - value: GH
+                            description: GH
+                          - value: GR
+                            description: GR
+                          - value: GT
+                            description: GT
+                          - value: HK
+                            description: HK
+                          - value: HN
+                            description: HN
+                          - value: HR
+                            description: HR
+                          - value: HU
+                            description: HU
+                          - value: ID
+                            description: ID
+                          - value: IE
+                            description: IE
+                          - value: IL
+                            description: IL
+                          - value: IN
+                            description: IN
+                          - value: IQ
+                            description: IQ
+                          - value: IS
+                            description: IS
+                          - value: IT
+                            description: IT
+                          - value: JM
+                            description: JM
+                          - value: JO
+                            description: JO
+                          - value: JP
+                            description: JP
+                          - value: KE
+                            description: KE
+                          - value: KR
+                            description: KR
+                          - value: KW
+                            description: KW
+                          - value: KZ
+                            description: KZ
+                          - value: LB
+                            description: LB
+                          - value: LI
+                            description: LI
+                          - value: LK
+                            description: LK
+                          - value: LT
+                            description: LT
+                          - value: LU
+                            description: LU
+                          - value: LV
+                            description: LV
+                          - value: LY
+                            description: LY
+                          - value: MA
+                            description: MA
+                          - value: ME
+                            description: ME
+                          - value: MK
+                            description: MK
+                          - value: MT
+                            description: MT
+                          - value: MX
+                            description: MX
+                          - value: MY
+                            description: MY
+                          - value: NG
+                            description: NG
+                          - value: NI
+                            description: NI
+                          - value: NL
+                            description: NL
+                          - value: NO
+                            description: NO
+                          - value: NP
+                            description: NP
+                          - value: NZ
+                            description: NZ
+                          - value: OM
+                            description: OM
+                          - value: PA
+                            description: PA
+                          - value: PE
+                            description: PE
+                          - value: PG
+                            description: PG
+                          - value: PH
+                            description: PH
+                          - value: PK
+                            description: PK
+                          - value: PL
+                            description: PL
+                          - value: PR
+                            description: PR
+                          - value: PT
+                            description: PT
+                          - value: PY
+                            description: PY
+                          - value: QA
+                            description: QA
+                          - value: RO
+                            description: RO
+                          - value: RS
+                            description: RS
+                          - value: RU
+                            description: RU
+                          - value: SA
+                            description: SA
+                          - value: SE
+                            description: SE
+                          - value: SG
+                            description: SG
+                          - value: SI
+                            description: SI
+                          - value: SK
+                            description: SK
+                          - value: SN
+                            description: SN
+                          - value: SV
+                            description: SV
+                          - value: TH
+                            description: TH
+                          - value: TN
+                            description: TN
+                          - value: TR
+                            description: TR
+                          - value: TW
+                            description: TW
+                          - value: TZ
+                            description: TZ
+                          - value: UA
+                            description: UA
+                          - value: UG
+                            description: UG
+                          - value: US
+                            description: US
+                          - value: UY
+                            description: UY
+                          - value: VE
+                            description: VE
+                          - value: VN
+                            description: VN
+                          - value: YE
+                            description: YE
+                          - value: ZA
+                            description: ZA
+                          - value: ZW
+                            description: ZW
+                    - variable: captions
+                      label: Captions
+                      description: Top 3 preferred languages for video captions.
+                      schema:
+                        type: list
+                        required: true
+                        default: []
+                        items:
+                          - variable: captionEntry
+                            label: Caption Entry
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                              enum:
+                                - value: English
+                                  description: English
+                                - value: English (auto-generated)
+                                  description: English (auto-generated)
+                                - value: Afrikaans
+                                  description: Afrikaans
+                                - value: Albanian
+                                  description: Albanian
+                                - value: Amharic
+                                  description: Amharic
+                                - value: Arabic
+                                  description: Arabic
+                                - value: Armenian
+                                  description: Armenian
+                                - value: Azerbaijani
+                                  description: Azerbaijani
+                                - value: Bangla
+                                  description: Bangla
+                                - value: Basque
+                                  description: Basque
+                                - value: Belarusian
+                                  description: Belarusian
+                                - value: Bosnian
+                                  description: Bosnian
+                                - value: Bulgarian
+                                  description: Bulgarian
+                                - value: Burmese
+                                  description: Burmese
+                                - value: Catalan
+                                  description: Catalan
+                                - value: Cebuano
+                                  description: Cebuano
+                                - value: Chinese (Simplified)
+                                  description: Chinese (Simplified)
+                                - value: Chinese (Traditional)
+                                  description: Chinese (Traditional)
+                                - value: Corsican
+                                  description: Corsican
+                                - value: Croatian
+                                  description: Croatian
+                                - value: Czech
+                                  description: Czech
+                                - value: Danish
+                                  description: Danish
+                                - value: Dutch
+                                  description: Dutch
+                                - value: Esperanto
+                                  description: Esperanto
+                                - value: Estonian
+                                  description: Estonian
+                                - value: Filipino
+                                  description: Filipino
+                                - value: Finnish
+                                  description: Finnish
+                                - value: French
+                                  description: French
+                                - value: Galician
+                                  description: Galician
+                                - value: Georgian
+                                  description: Georgian
+                                - value: German
+                                  description: German
+                                - value: Greek
+                                  description: Greek
+                                - value: Gujarati
+                                  description: Gujarati
+                                - value: Haitian Creole
+                                  description: Haitian Creole
+                                - value: Hausa
+                                  description: Hausa
+                                - value: Hawaiian
+                                  description: Hawaiian
+                                - value: Hebrew
+                                  description: Hebrew
+                                - value: Hindi
+                                  description: Hindi
+                                - value: Hmong
+                                  description: Hmong
+                                - value: Hungarian
+                                  description: Hungarian
+                                - value: Icelandic
+                                  description: Icelandic
+                                - value: Igbo
+                                  description: Igbo
+                                - value: Indonesian
+                                  description: Indonesian
+                                - value: Irish
+                                  description: Irish
+                                - value: Italian
+                                  description: Italian
+                                - value: Japanese
+                                  description: Japanese
+                                - value: Javanese
+                                  description: Javanese
+                                - value: Kannada
+                                  description: Kannada
+                                - value: Kazakh
+                                  description: Kazakh
+                                - value: Khmer
+                                  description: Khmer
+                                - value: Korean
+                                  description: Korean
+                                - value: Kurdish
+                                  description: Kurdish
+                                - value: Kyrgyz
+                                  description: Kyrgyz
+                                - value: Lao
+                                  description: Lao
+                                - value: Latin
+                                  description: Latin
+                                - value: Latvian
+                                  description: Latvian
+                                - value: Lithuanian
+                                  description: Lithuanian
+                                - value: Luxembourgish
+                                  description: Luxembourgish
+                                - value: Macedonian
+                                  description: Macedonian
+                                - value: Malagasy
+                                  description: Malagasy
+                                - value: Malay
+                                  description: Malay
+                                - value: Malayalam
+                                  description: Malayalam
+                                - value: Maltese
+                                  description: Maltese
+                                - value: Maori
+                                  description: Maori
+                                - value: Marathi
+                                  description: Marathi
+                                - value: Mongolian
+                                  description: Mongolian
+                                - value: Nepali
+                                  description: Nepali
+                                - value: Norwegian Bokmål
+                                  description: Norwegian Bokmål
+                                - value: Nyanja
+                                  description: Nyanja
+                                - value: Pashto
+                                  description: Pashto
+                                - value: Persian
+                                  description: Persian
+                                - value: Polish
+                                  description: Polish
+                                - value: Portuguese
+                                  description: Portuguese
+                                - value: Punjabi
+                                  description: Punjabi
+                                - value: Romanian
+                                  description: Romanian
+                                - value: Russian
+                                  description: Russian
+                                - value: Samoan
+                                  description: Samoan
+                                - value: Scottish Gaelic
+                                  description: Scottish Gaelic
+                                - value: Serbian
+                                  description: Serbian
+                                - value: Shona
+                                  description: Shona
+                                - value: Sindhi
+                                  description: Sindhi
+                                - value: Sinhala
+                                  description: Sinhala
+                                - value: Slovak
+                                  description: Slovak
+                                - value: Slovenian
+                                  description: Slovenian
+                                - value: Somali
+                                  description: Somali
+                                - value: Southern Sotho
+                                  description: Southern Sotho
+                                - value: Spanish
+                                  description: Spanish
+                                - value: Spanish (Latin America)
+                                  description: Spanish (Latin America)
+                                - value: Sundanese
+                                  description: Sundanese
+                                - value: Swahili
+                                  description: Swahili
+                                - value: Swedish
+                                  description: Swedish
+                                - value: Tajik
+                                  description: Tajik
+                                - value: Tamil
+                                  description: Tamil
+                                - value: Telugu
+                                  description: Telugu
+                                - value: Thai
+                                  description: Thai
+                                - value: Turkish
+                                  description: Turkish
+                                - value: Ukrainian
+                                  description: Ukrainian
+                                - value: Urdu
+                                  description: Urdu
+                                - value: Uzbek
+                                  description: Uzbek
+                                - value: Vietnamese
+                                  description: Vietnamese
+                                - value: Welsh
+                                  description: Welsh
+                                - value: Western Frisian
+                                  description: Western Frisian
+                                - value: Xhosa
+                                  description: Xhosa
+                                - value: Yiddish
+                                  description: Yiddish
+                                - value: Yoruba
+                                  description: Yoruba
+                                - value: Zulu
+                                  description: Zulu
+              - variable: interface
+                label: Interface
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: dark_mode
+                      label: Dark Mode
+                      description: Enable/Disable dark mode.
+                      schema:
+                        type: string
+                        required: true
+                        default: auto
+                        enum:
+                          - value: auto
+                            description: Auto
+                          - value: dark
+                            description: Dark
+                          - value: light
+                            description: Light
+                    - variable: thin_mode
+                      label: Thin Mode
+                      description: Enable/Disable thin mode (no video thumbnails).
+                      schema:
+                        type: boolean
+                        default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

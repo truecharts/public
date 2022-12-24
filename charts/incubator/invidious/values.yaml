@@ -68,24 +68,22 @@ invidious:
     cache_annotations: false
     playlist_length_limit: 500
 
-
-
-default_user_preferences:
-  internationalization:
-    locale: en-US
-    region: US
-    captions: ["English", "English (auto-generated)", "Spanish"]
-  interface:
-    dark_mode: dark
-    thin_mode: false
-    feed_menu: ["Popular", "Trending", "Subscriptions", "Playlists"]
-    default_home: Popular
-    max_results: 40
-    annotations: false
-    annotations_subscribed: false
-    comments: ["youtube", ""]
-    player_style: invidious
-    related_videos: true
+  default_user_preferences:
+    internationalization:
+      locale: en-US
+      region: US
+      captions: []
+    interface:
+      dark_mode: dark
+      thin_mode: false
+      feed_menu: []
+      default_home: Popular
+      max_results: 40
+      annotations: false
+      annotations_subscribed: false
+      comments: []
+      player_style: invidious
+      related_videos: true
   local: false
   show_nick: true
   automatic_instance_redirect: false
