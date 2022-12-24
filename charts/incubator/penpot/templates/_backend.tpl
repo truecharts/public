@@ -14,7 +14,7 @@ envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-common-secret'
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-backend-secret'
+      name: '{{ include "tc.common.names.fullname" . }}-backend-exporter-secret'
 readinessProbe:
   tcpSocket:
     port: 6060

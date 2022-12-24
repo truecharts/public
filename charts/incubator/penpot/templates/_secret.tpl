@@ -3,8 +3,8 @@
 
 {{- $commonSecretName := printf "%s-common-secret" (include "tc.common.names.fullname" .) }}
 {{- $exporterSecretName := printf "%s-exporter-secret" (include "tc.common.names.fullname" .) }}
-{{- $backendSecretName := printf "%s-backend-secret" (include "tc.common.names.fullname" .) }}
 {{- $frontendSecretName := printf "%s-frontend-secret" (include "tc.common.names.fullname" .) }}
+{{- $backendAndExporterSecretName := printf "%s-backend-exporter-secret" (include "tc.common.names.fullname" .) }}
 
 {{- $backendFlags := list }}
 {{- $backendFlags = mustAppend $backendFlags (printf "%s-smtp" (ternary "enable" "disable" .Values.penpot.smtp.enabled)) }}
@@ -88,7 +88,7 @@ apiVersion: v1
 kind: Secret
 type: Opaque
 metadata:
-  name: {{ $backendSecretName }}
+  name: {{ $backendAndExporterSecretName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
