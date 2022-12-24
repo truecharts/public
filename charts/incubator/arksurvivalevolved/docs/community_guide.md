@@ -1,38 +1,49 @@
 # Community Guide
 
-- `Username` and `Password` is optional but recommended. You **_will_** need to disable Steam Guard.
-- Optionally set a `Server Password` to secure its access.
-- `Server Admin Password` is recommended to bet set, use a strong password.
+## Credentials
 
-- Set `Game ID` to ark **ARK Survival Evolved** or **ARK Survival of the Fittest**
+`Username` and `Password` is optional but recommended. You **_will_** need to disable Steam Guard.
 
-  - Ark Survival Evolved supports anonymous login while _Fittest_ does **not**.
+`Server Admin Password` is recommended to bet set, use a strong password.
 
-- `Map` is defaulted to the `Island` map and has all the official maps in the list. There is a `Custom` option that will reveal the `Custom Map` entry where you can manually specify a map.
+> Optionally set a `Server Password` to secure its access.
 
-  - Island
-  - Center
-  - Scorched Earth
-  - Ragnarok
-  - Aberration
-  - Extinction
-  - Genesis
-  - Valguero
-  - Crystal Isles
-  - Genesis 2
-  - Lost Island
-  - Fjordur
+## Game ID
 
-- `Validate` is set to true as default, verifies the game installation.
+Set `Game ID` to **ARK Survival Evolved** or **ARK Survival of the Fittest**
+`Validate` is set to true as default, verifies the game installation.
 
-- `Enable RCON` will append the **?RCONEnabled=true** to `Game Parameters` for you.
+> Ark Survival Evolved supports anonymous login while _Fittest_ does **not**.
 
-- Set additional `Game Parameters` if you need to with one entry per box.
+## Map
 
-- In `Game Extra Parmeters (Easy)`
+`Map` is defaulted to the `Island` map and has all the official maps in the list.
 
-  - `Server Flag` will append the flag **-server** to `Game Extra Parameters` for you.
-  - `Log Flag` will append the flag **-log** to `Game Extra Parameters` for you.
-  - `Crossplay Flag` will append the flag **-crossplay** to `Game Extra Parameters` for you.
+- Island
+- Center
+- Scorched Earth
+- Ragnarok
+- Aberration
+- Extinction
+- Genesis
+- Valguero
+- Crystal Isles
+- Genesis 2
+- Lost Island
+- Fjordur
 
-- Set additional `Game Extra Parameters` if you need to with one entry per box.
+There is a `Custom Map` option that will override (and hide) `Map`.
+
+## Parameters
+
+`Enable RCON` will append the **?RCONEnabled=True** to `Game Parameters`.
+
+> Set additional `Game Parameters` if you need to, with one entry per box.
+
+In `Game Extra Parmeters (Easy)`
+
+- `Server Flag` will append the flag **-server** to `Game Extra Parameters`.
+- `Log Flag` will append the flag **-log** to `Game Extra Parameters`.
+- `Crossplay Flag` will append the flag **-crossplay** to `Game Extra Parameters`.
+
+> Set additional `Game Extra Parameters` if you need to, with one entry per box.

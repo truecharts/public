@@ -33,7 +33,7 @@ stringData:
   {{- with .Values.ark.custom_map }}
   MAP: {{ . | quote }}
   {{- else }}
-  MAP: {{ Values.ark.map | quote }}
+  MAP: {{ .Values.ark.map | quote }}
   {{- end }}
   {{- with .Values.ark.server_name }}
   SERVER_NAME: {{ . | quote }}
