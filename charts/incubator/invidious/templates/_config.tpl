@@ -14,6 +14,8 @@
 {{- $vUI := .Values.invidious.default_user_preferences.interface }}
 {{- $vVidBeh := .Values.invidious.default_user_preferences.video_player_behavior }}
 {{- $vVidPlay := .Values.invidious.default_user_preferences.video_playback_settings }}
+{{- $vSubFeed := .Values.invidious.default_user_preferences.subscription_feed }}
+{{- $vUserMisc := .Values.invidious.default_user_preferences.miscellaneous }}
 ---
 apiVersion: v1
 kind: Secret
@@ -166,12 +168,15 @@ stringData:
       volume: {{ $vVidPlay.volume }}
       vr_mode: {{ $vVidPlay.vr_mode }}
 
-      latest_only: false
-      notifications_only: false
-      unseen_only: false
-      sort: published
-      local: false
-      show_nick: true
-      automatic_instance_redirect: false
-      extend_desc: false
+      # Subscription Feed
+      latest_only: {{ $vSubFeed.latest_only }}
+      notifications_only: {{ $vSubFeed.notifications_only }}
+      unseen_only: {{ $vSubFeed.unseen_only }}
+      sort: {{ $vSubFeed.sort }}
+
+      # Miscellaneous
+      local: {{ $vUserMisc.local }}
+      show_nick: {{ $vUserMisc.show_nick }}
+      automatic_instance_redirect: {{ $vUserMisc.automatic_instance_redirect }}
+      extend_desc: {{ $vUserMisc.extend_desc }}
 {{- end -}}

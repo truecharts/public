@@ -95,22 +95,16 @@ invidious:
       speed: 1.25
       volume: 100
       vr_mode: true
-
-
-    # TODO:
-    miscellaneous:
-      local: false
-      show_nick: true
-      automatic_instance_redirect: false
-      extend_desc: false
-
-
-
     subscription_feed:
       latest_only: false
       notifications_only: false
       unseen_only: false
       sort: published
+    miscellaneous:
+      local: false
+      show_nick: true
+      automatic_instance_redirect: false
+      extend_desc: false
 
 envFrom:
   - secretRef:

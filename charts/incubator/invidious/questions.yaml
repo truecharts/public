@@ -1018,7 +1018,7 @@ questions:
                         type: boolean
                         default: true
               - variable: video_player_behavior
-                label: Video Player Behaviour
+                label: Video Player Behavior
                 schema:
                   additional_attrs: true
                   type: dict
@@ -1130,6 +1130,80 @@ questions:
                     - variable: vr_mode
                       label: VR Mode
                       description: Allow 360° videos to be played.
+                      schema:
+                        type: boolean
+                        default: false
+              - variable: subscription_feed
+                label: Subscription Feed
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: latest_only
+                      label: Latest Only
+                      description: In the "Subscription" feed, only show the latest video of each channel the user is subscribed to.
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: notifications_only
+                      label: Notifications Only
+                      description: Enable/Disable user subscriptions desktop notifications.
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: unseen_only
+                      label: Unseen Only
+                      description: In the "Subscription" feed, Only show the videos that the user haven't watched yet.
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: sort
+                      label: Sort
+                      description: Default sorting parameter for subscription feeds.
+                      schema:
+                        type: string
+                        required: true
+                        default: published
+                        enum:
+                          - value: alphabetically
+                            description: Alphabetically
+                          - value: alphabetically - reverse
+                            description: Alphabetically - Reverse
+                          - value: channel name
+                            description: Channel Name
+                          - value: channel name - reverse
+                            description: Channel Name - Reverse
+                          - value: published
+                            description: Published
+                          - value: published - reverse
+                            description: Published - Reverse
+              - variable: miscellaneous
+                label: Miscellaneous
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: local
+                      label: Local
+                      description: Proxy videos through instance by default.
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: show_nick
+                      label: Show Nick
+                      description: Show the connected user's nick at the top right.
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: automatic_instance_redirect
+                      label: Automatic Instance Redirect
+                      description: Automatically redirect to a random instance when the user uses any "switch invidious instance" link
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: extend_desc
+                      label: Extend Description
+                      description: Show the entire video description
                       schema:
                         type: boolean
                         default: false
