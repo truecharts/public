@@ -124,24 +124,31 @@ questions:
                   type: string
                   default: ""
                   required: true
-        - variable: flag_params_extra_server
-          label: Server Flag
-          description: add -server flag to Game Extra Parameters
+        - variable: easy_game_extra_params
+          label: Game Extra Parmeters (Easy)
+          description: Appends the game extra params to the Game Extra Parameters list
           schema:
-            type: boolean
-            default: true
-        - variable: flag_params_extra_log
-          label: Log Flag
-          description: add -log flag to Game Extra Parameters
-          schema:
-            type: boolean
-            default: true
-        - variable: flag_params_extra_crossplay
-          label: Crossplay Flag
-          description: add -crossplay flag to Game Extra Parameters
-          schema:
-            type: boolean
-            default: true
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: server
+                label: Server Flag
+                description: Adds -server flag to Game Extra Parameters
+                schema:
+                  type: boolean
+                  default: true
+              - variable: log
+                label: Log Flag
+                description: Adds -log flag to Game Extra Parameters
+                schema:
+                  type: boolean
+                  default: true
+              - variable: crossplay
+                label: Crossplay Flag
+                description: Adds -crossplay flag to Game Extra Parameters
+                schema:
+                  type: boolean
+                  default: true
         - variable: game_params_extra
           label: Game Extra Parameters
           description: "Enter your game extra parameters, one per entry"
