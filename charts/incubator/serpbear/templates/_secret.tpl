@@ -23,6 +23,6 @@ data:
   {{- end }}
   USER: {{ .Values.serpbear.user | b64enc }}
   PASSWORD: {{ .Values.serpbear.password | b64enc }}
-  SESSION_DURATION: {{ .Values.serpbear.session_duration | b64enc }}
+  SESSION_DURATION: {{ .Values.serpbear.session_duration | quote | b64enc }}
   NEXT_PUBLIC_APP_URL: {{ .Values.serpbear.app_url | b64enc }}
 {{- end }}
