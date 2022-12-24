@@ -3,5 +3,7 @@
 
 {{- include "invidious.config" . }}
 
+{{- $_ := set .Values.installContainers "dbseed" (include "invidious.dbseed" . | fromYaml) -}}
+
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}

@@ -126,17 +126,6 @@ probes:
   startup:
     type: HTTP
 
-# TODO: containers for seed db and db migrations
-installContainers:
-  seeddb:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    volumeMounts:
-      - name: sql
-        mountPath: /config/sql
-      - name: init-invidious-db.sh
-        mountPath: /docker-entrypoint-initdb.d/init-invidious-db.sh
-    command: ["./docker-entrypoint-initdb.d/init-invidious-db.sh"]
-
 postgresql:
   enabled: true
   existingSecret: dbcreds

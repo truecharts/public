@@ -4,7 +4,6 @@
 {{- $configName := printf "%s-invidious-config" (include "tc.common.names.fullname" .) }}
 
 ---
-
 apiVersion: v1
 kind: Secret
 metadata:
