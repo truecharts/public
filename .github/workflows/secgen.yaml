@@ -92,7 +92,7 @@ jobs:
               echo "##### Scan Results" >> website/docs/charts/${train}/${chartname}/container-security.md
               echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
               for container in $(cat ${chart}/render/containers.tmp | sort | uniq); do
-                if [[ "$container" == *"tccr.io/truecharts/alpine"* || "$container" == *"tccr.io/truecharts/ubuntu"* || "$container" == *"tccr.io/truecharts/kubectl"* ]]; then
+                if [[ "$container" == *"truecharts/alpine"* || "$container" == *"truecharts/ubuntu"* || "$container" == *"truecharts/kubectl"* ]]; then
                   echo "Skipping ${container}, as it's a shared common container..."
                 else
                   echo "**Container: ${container}**" >> website/docs/charts/${train}/${chartname}/container-security.md
