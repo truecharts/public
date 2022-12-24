@@ -26,6 +26,7 @@ invidious:
       use_quic: false
       cookies: []
       force_resolve: "ipv4"
+
   logging:
     output: STDOUT
     log_level: "Info"
@@ -34,12 +35,11 @@ invidious:
     popular_enabled: true
     statistics_enabled: false
 
-
-users_accounts:
-  registration_enabled: true
-  login_enabled: true
-  captcha_enabled: true
-  admins: []
+  users_accounts:
+    registration_enabled: true
+    login_enabled: true
+    captcha_enabled: true
+    admins: []
 
 background:
   channel_threads: 1

@@ -97,6 +97,19 @@ questions:
                       schema:
                         type: boolean
                         default: false
+                    - variable: cookies
+                      label: Cookies
+                      description: Additional cookies to be sent when requesting the youtube API.
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: cookie_entry
+                            label: Cookie Entry
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
                     - variable: force_resolve
                       label: Force Resolve
                       description: Force connection to youtube over a specific IP family.
@@ -167,23 +180,42 @@ questions:
                   type: boolean
                   default: false
         - variable: users_accounts
-          label: Features Configuration
+          label: Users and Accounts
           schema:
             additional_attrs: true
             type: dict
             attrs:
-              - variable: popular_enabled
-                label: Popular Enabled
-                description: Enable/Disable the "Popular" tab on the main page.
+              - variable: registration_enabled
+                label: Registration Enabled
+                description: Allow/Forbid Invidious (local) account creation. Invidious accounts allow users to subscribe to channels and to create playlists without a Google account.
                 schema:
                   type: boolean
                   default: true
-              - variable: statistics_enabled
-                label: Statistics Enabled
-                description: Enable/Disable statistics (available at /api/v1/stats).
+              - variable: login_enabled
+                label: Login Enabled
+                description: Allow/Forbid users to log-in. This setting affects the ability to connect with BOTH Google and Invidious (local) accounts.
                 schema:
                   type: boolean
-                  default: false
+                  default: true
+              - variable: captcha_enabled
+                label: Captcha Enabled
+                description: Enable/Disable the captcha challenge on the login page.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: admins
+                label: Admins
+                description: List of usernames that will be granted administrator rights.
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: adminEntry
+                      label: Admin Entry
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

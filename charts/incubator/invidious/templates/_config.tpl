@@ -28,15 +28,15 @@ stringData:
     # Network
     host_binding: 0.0.0.0
     port: {{ .Values.service.main.ports.main.port }}
-    external_port: {{ $vNet.network.inbound.external_port }}
-    https_only: {{ $vNet.network.inbound.https_only }}
-    domain: {{ $vNet.network.inbound.domain }}
-    hsts: {{ $vNet.network.inbound.hsts }}
-    disable_proxy: {{ $vNet.network.outbound.disable_proxy }}
-    pool_size: {{ $vNet.network.outbound.pool_size }}
-    use_quic: {{ $vNet.network.outbound.use_quic }}
-    cookies: {{ join "; " $vNet.network.outbound.cookies }}
-    force_resolve: {{ $vNet.network.outbound.force_resolve }}
+    external_port: {{ $vNet.inbound.external_port }}
+    https_only: {{ $vNet.inbound.https_only }}
+    domain: {{ $vNet.inbound.domain }}
+    hsts: {{ $vNet.inbound.hsts }}
+    disable_proxy: {{ $vNet.outbound.disable_proxy }}
+    pool_size: {{ $vNet.outbound.pool_size }}
+    use_quic: {{ $vNet.outbound.use_quic }}
+    cookies: {{ join "; " $vNet.outbound.cookies }}
+    force_resolve: {{ $vNet.outbound.force_resolve }}
 
     # Logging
     output: {{ $vLog.output }}
@@ -46,10 +46,20 @@ stringData:
     popular_enabled: {{ $vFeat.popular_enabled }}
     statistics_enabled: {{ $vFeat.statistics_enabled }}
 
-    registration_enabled: true
-    login_enabled: true
-    captcha_enabled: true
+    # Users and Accounts
+    registration_enabled: {{ $vUserAcc.registration_enabled }}
+    login_enabled: {{ $vUserAcc.login_enabled }}
+    captcha_enabled: {{ $vUserAcc.captcha_enabled }}
+    {{- if $vUserAcc.admins -}}
+    admins:
+      {{- range $vUserAcc.admins }}
+      - {{ . }}
+      {{- end }}
+    {{- else }}
     admins: [""]
+    {{- end }}
+
+    # Background Jobs
     channel_threads: 1
     channel_refresh_interval: 30m
     full_refresh: false
