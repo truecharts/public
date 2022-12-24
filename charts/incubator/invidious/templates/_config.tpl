@@ -12,6 +12,8 @@
 {{- $vMisc := .Values.invidious.miscellaneous }}
 {{- $vLoc := .Values.invidious.default_user_preferences.internationalization }}
 {{- $vUI := .Values.invidious.default_user_preferences.interface }}
+{{- $vVidBeh := .Values.invidious.default_user_preferences.video_player_behavior }}
+{{- $vVidPlay := .Values.invidious.default_user_preferences.video_playback_settings }}
 ---
 apiVersion: v1
 kind: Secret
@@ -151,16 +153,19 @@ stringData:
       related_videos: {{ $vUI.related_videos }}
 
       # Video Player Behaviour
-      autoplay: false
-      continue: false
-      continue_autoplay: true
-      listen: false
-      video_loop: false
-      quality: hd720
-      quality_dash: auto
-      speed: 1.0  # Convert to float with `| float64`
-      volume: 100
-      vr_mode: true
+      autoplay: {{ $vVidBeh.autoplay }}
+      continue: {{ $vVidBeh.continue }}
+      continue_autoplay: {{ $vVidBeh.continue_autoplay }}
+      listen: {{ $vVidBeh.listen }}
+      video_loop: {{ $vVidBeh.video_loop }}
+
+      # Video Playback Settigns
+      quality: {{ $vVidPlay.quality }}
+      quality_dash: {{ $vVidPlay.quality_dash }}
+      speed: {{ $vVidPlay.speed | float64 }}
+      volume: {{ $vVidPlay.volume }}
+      vr_mode: {{ $vVidPlay.vr_mode }}
+
       latest_only: false
       notifications_only: false
       unseen_only: false

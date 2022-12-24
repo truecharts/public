@@ -1017,6 +1017,122 @@ questions:
                       schema:
                         type: boolean
                         default: true
+              - variable: video_player_behavior
+                label: Video Player Behaviour
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: autoplay
+                      label: Autoplay
+                      description: Automatically play videos on page load.
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: continue
+                      label: Continue
+                      description: Automatically load the "next" video (either next in playlist or proposed) when the current video ends.
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: continue_autoplay
+                      label: Continue Autoplay
+                      description: Autoplay next video by default.
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: listen
+                      label: Listen
+                      description: Play videos in Audio-only mode by default.
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: video_loop
+                      label: Video Loop
+                      description: Loop videos automatically.
+                      schema:
+                        type: boolean
+                        default: false
+              - variable: video_playback_settings
+                label: Video Playback Settings
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: quality
+                      label: Quality
+                      description: Default video quality.
+                      schema:
+                        type: string
+                        required: true
+                        default: hd720
+                        enum:
+                          - value: hd720
+                            description: HD720
+                          - value: dash
+                            description: Dash
+                          - value: medium
+                            description: Medium
+                          - value: small
+                            description: Small
+                    - variable: quality_dash
+                      label: Quality Dash
+                      description: Default dash video quality.
+                      schema:
+                        type: string
+                        show_if: [["quality", "=", "dash"]]
+                        required: true
+                        default: auto
+                        enum:
+                          - value: auto
+                            description: Auto
+                          - value: best
+                            description: Best
+                          - value: 4320p
+                            description: 4320p
+                          - value: 2160p
+                            description: 2160p
+                          - value: 1440p
+                            description: 1440p
+                          - value: 1080p
+                            description: 1080p
+                          - value: 720p
+                            description: 720p
+                          - value: 480p
+                            description: 480p
+                          - value: 480p
+                            description: 480p
+                          - value: 360p
+                            description: 360p
+                          - value: 240p
+                            description: 240p
+                          - value: 144p
+                            description: 144p
+                          - value: worst
+                            description: Worst
+                    - variable: speed
+                      label: Speed
+                      description: Default video playback speed.
+                      schema:
+                        type: string
+                        required: true
+                        valid_chars: '^[0-9]+(\.[0-9]*)?$'
+                        default: "1.00"
+                    - variable: volume
+                      label: Volume
+                      description: Default volume.
+                      schema:
+                        type: int
+                        min: 1
+                        max: 100
+                        required: true
+                        default: 100
+                    - variable: vr_mode
+                      label: VR Mode
+                      description: Allow 360° videos to be played.
+                      schema:
+                        type: boolean
+                        default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

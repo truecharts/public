@@ -20,7 +20,6 @@ invidious:
       domain: ""
       hsts: true
     outbound:
-      # Can be also a string
       disable_proxy: false
       pool_size: 100
       use_quic: false
@@ -84,6 +83,19 @@ invidious:
       comments: []
       player_style: invidious
       related_videos: true
+    video_player_behavior:
+      autoplay: false
+      continue: false
+      continue_autoplay: true
+      listen: false
+      video_loop: false
+    video_playback_settings:
+      quality: hd720
+      quality_dash: auto
+      speed: 1.25
+      volume: 100
+      vr_mode: true
+
 
     # TODO:
     miscellaneous:
@@ -92,19 +104,7 @@ invidious:
       automatic_instance_redirect: false
       extend_desc: false
 
-    video_player_behavior:
-      autoplay: false
-      continue: false
-      continue_autoplay: true
-      listen: false
-      video_loop: false
 
-    video_playback_settings:
-      quality: hd720
-      quality_dash: auto
-      speed: 1.0
-      volume: 100
-      vr_mode: true
 
     subscription_feed:
       latest_only: false
