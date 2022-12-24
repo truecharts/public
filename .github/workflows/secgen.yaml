@@ -81,6 +81,7 @@ jobs:
               local train="$3"
               echo "Scanning container security for ${chartname}"
               mkdir -p ${chart}/render
+              rm -rf website/docs/charts/${train}/${chartname}/container-security.md || echo "removing old container-security file failed..."
               echo "# Container Security" >> website/docs/charts/${train}/${chartname}/container-security.md
               echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
               echo "##### Detected Containers" >> website/docs/charts/${train}/${chartname}/container-security.md
