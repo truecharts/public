@@ -27,6 +27,7 @@ hostAliases:
     hostnames:
       - penpot-backend
       - penpot-exporter
+      - penpot-frontend
 
 penpot:
   public_uri: "http://localhost:{{ .Values.service.main.ports.main.port }}"

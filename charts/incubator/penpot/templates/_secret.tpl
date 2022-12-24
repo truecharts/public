@@ -81,9 +81,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
-  {{/* Is for exporter, to communicate with frontend.
-  I know, PUBLIC doesn't make much sense */}}
-  PENPOT_PUBLIC_URI: http://localhost:{{ .Values.service.main.ports.main.targetPort }}
+  PENPOT_PUBLIC_URI: http://penpot-frontend:{{ .Values.service.main.ports.main.targetPort }}
 ---
 apiVersion: v1
 kind: Secret
