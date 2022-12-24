@@ -1,0 +1,9 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{- $newArgs := (include "lama.args" . | fromYaml) }}
+{{- $args := concat .Values.args $newArgs.args }}
+{{- $_ := set .Values "args" $args -}}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}
