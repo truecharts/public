@@ -670,10 +670,9 @@ questions:
                             description: ZW
                     - variable: captions
                       label: Captions
-                      description: Top 3 preferred languages for video captions.
+                      description: Top 3 preferred languages for video captions. Exactly 3 Captions
                       schema:
                         type: list
-                        required: true
                         default: []
                         items:
                           - variable: captionEntry
@@ -921,6 +920,103 @@ questions:
                       schema:
                         type: boolean
                         default: false
+                    - variable: feed_menu
+                      label: Feed Menu
+                      description: List of feeds available on the home page. Defaults to all. Max 4 feed items
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: feedEntry
+                            label: Feed Entry
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                              enum:
+                                - value: Popular
+                                  description: Popular
+                                - value: Trending
+                                  description: Trending
+                                - value: Subscriptions
+                                  description: Subscriptions
+                                - value: Playlists
+                                  description: Playlists
+                    - variable: default_home
+                      label: Default Home
+                      description: Default feed to display on the home page.
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                        enum:
+                          - value: ""
+                            description: None
+                          - value: Popular
+                            description: Popular
+                          - value: Trending
+                            description: Trending
+                          - value: Subscriptions
+                            description: Subscriptions
+                          - value: Playlists
+                            description: Playlists
+                    - variable: max_results
+                      label: Max Results
+                      description: Default number of results to display per page.
+                      schema:
+                        type: int
+                        required: true
+                        default: 40
+                    - variable: annotations
+                      label: Annotations
+                      description: Show/hide annotations.
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: annotations_subscribed
+                      label: Annotations Subscribed
+                      description: Show/hide subscribed annotations.
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: comments
+                      label: Comments
+                      description: Type of comments to display below video. Exactly 2 Types
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: commentEntry
+                            label: Comment Entry
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                              enum:
+                                - value: ""
+                                  description: None
+                                - value: youtube
+                                  description: Youtube
+                                - value: reddit
+                                  description: Reddit
+                    - variable: player_style
+                      label: Player Style
+                      description: Default player style.
+                      schema:
+                        type: string
+                        required: true
+                        default: invidious
+                        enum:
+                          - value: invidious
+                            description: Invidious
+                          - value: youtube
+                            description: Youtube
+                    - variable: related_videos
+                      label: Related Videos
+                      description: Show/Hide the "related videos" sidebar when watching a video.
+                      schema:
+                        type: boolean
+                        default: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

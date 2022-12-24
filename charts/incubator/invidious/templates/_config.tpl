@@ -122,6 +122,9 @@ stringData:
       dark_mode: {{ $vUI.dark_mode }}
       thin_mode: {{ $vUI.thin_mode }}
       {{- with $vUI.feed_menu }}
+        {{- if gt (len . ) 4 -}}
+          {{- fail "Max 4 Feed menu items are accepted" -}}
+        {{- end }}
       feed_menu:
         {{- range $f := . }}
         - {{ $f }}
