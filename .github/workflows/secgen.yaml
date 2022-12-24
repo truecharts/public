@@ -113,20 +113,12 @@ jobs:
               sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/helm-security.md
               sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/container-security.md
               }
-              
-          scan() {
-              local chart="$1"
-              local train="$2"
-           render "charts/${train}/${chart}" ${chart} ${train} && helm_sec_scan "charts/${train}/${chart}" ${chart} ${train} && container_sec_scan "charts/${train}/${chart}" ${chart} ${train} && cleanfiles "charts/${train}/${chart}" ${chart} ${train} || echo "processing failed for ${chart}"
-          }
-          
           for train in enterprise stable incubator dependency; do
             echo "Processing Charts for Train: ${train}..."
             for chart in $(ls "charts/${train}"); do
-               echo "${chart} ${train}" >> list.txt
+              render "charts/${train}/${chart}" ${chart} ${train} && helm_sec_scan "charts/${train}/${chart}" ${chart} ${train} && container_sec_scan "charts/${train}/${chart}" ${chart} ${train} && cleanfiles "charts/${train}/${chart}" ${chart} ${train} || echo "processing failed for ${chart}"
             done
           done
-          parallel --dry-run -j ${parthreads} --colsep ' ' scan ::: list.txt ${1} ${2}
           echo "finsihed security scan"
 
       - name: Commit Website Changes
