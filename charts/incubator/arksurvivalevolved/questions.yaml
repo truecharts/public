@@ -17,27 +17,27 @@ questions:
       attrs:
         - variable: username
           label: Username
-          description: Optionally set a steam username otherwise(disable Steam Guard).
+          description: Optionally set a steam username otherwise (disable Steam Guard).
           schema:
             type: string
             default: ""
         - variable: password
           label: Password
-          description: Optionally set a steam password(disable Steam Guard).
+          description: Optionally set a steam password (disable Steam Guard).
           schema:
             type: string
             private: true
             default: ""
         - variable: srv_password
           label: Server Password
-          description: Optionally set a password for the server(this field accepts no spaces)
+          description: Optionally set a password for the server (this field accepts no spaces)
           schema:
             type: string
             private: true
             default: ""
         - variable: srv_admin_pass
           label: Server Admin Password
-          description: Optionally set a password for the admin(this field accepts no spaces)
+          description: Optionally set a password for the admin (this field accepts no spaces)
           schema:
             type: string
             private: true
@@ -53,11 +53,18 @@ questions:
                 description: "ARK Survival Evolved"
               - value: "445400"
                 description: "ARK Survival of the Fittest"
+        - variable: custom_map
+          label: Custom Map
+          description: Custom Map name.
+          schema:
+            type: string
+            default: ""
         - variable: map
           label: Map
           description: Map Name
           schema:
             type: string
+            show_if: [["custom_map", "=", ""]]
             default: TheIsland
             enum:
               - value: TheIsland
@@ -86,16 +93,9 @@ questions:
                 description: Fjordur
               - value: custom
                 description: Custom
-        - variable: CUSTOM_MAP
-          label: Custom Map
-          description: Custom Map name.
-          schema:
-            type: string
-            default: ""
-            show_if: [[map, "=", "custom"]]
         - variable: server_name
           label: Server Name
-          description: Optionally set a name for the server(this field accepts no spaces)
+          description: Optionally set a name for the server (this field accepts no spaces)
           schema:
             type: string
             default: ""
