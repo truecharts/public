@@ -7,9 +7,8 @@ securityContext:
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
+{{/* Exporter does not utilize the common secret */}}
 envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-common-secret'
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-exporter-secret'
 readinessProbe:

@@ -1,4 +1,3 @@
-# TODO: Update images
 image:
   repository: tccr.io/truecharts/penpot-frontend
   pullPolicy: IfNotPresent
@@ -32,9 +31,18 @@ hostAliases:
 penpot:
   public_uri: "http://localhost:{{ .Values.service.main.ports.main.port }}"
   flags:
-    - enable-registration
-    - enable-login
-    - disable-email-verification
+    registration: true
+    insecure_register: false
+    login: true
+    demo_users: false
+    demo_warning: false
+    user_feedback: false
+    mail_verification: true
+    log_invitation_token: false
+    log_emails: false
+    secure_session_cookies: true
+    cors: false
+    backend_api_doc: false
   telemetry_enabled: false
   registration_domain_whitelist: []
   smtp:
