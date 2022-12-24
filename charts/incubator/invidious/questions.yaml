@@ -216,6 +216,47 @@ questions:
                         type: string
                         required: true
                         default: ""
+        - variable: background_jobs
+          label: Background Jobs
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: channel_threads
+                label: Channel Threads
+                description: Number of threads to use when crawling channel videos (during subscriptions update).
+                schema:
+                  type: int
+                  required: true
+                  min: 1
+                  default: 1
+              - variable: channel_refresh_interval
+                label: Channel Refresh Interval
+                description: Time interval between two executions of the job that crawls channel videos (subscriptions update).
+                schema:
+                  type: string
+                  required: true
+                  default: 30m
+              - variable: full_refresh
+                label: Full Refresh
+                description: Forcefully dump and re-download the entire list of uploaded videos when crawling channel (during subscriptions update).
+                schema:
+                  type: boolean
+                  default: false
+              - variable: feed_threads
+                label: Feed Threads
+                description: Number of threads to use when updating RSS feeds.
+                schema:
+                  type: int
+                  required: true
+                  min: 1
+                  default: 1
+              - variable: decrypt_polling
+                label: Decrypt Polling
+                description: Enable/Disable the polling job that keeps the decryption function (for "secured" videos) up to date.
+                schema:
+                  type: boolean
+                  default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

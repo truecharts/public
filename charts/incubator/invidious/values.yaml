@@ -41,12 +41,12 @@ invidious:
     captcha_enabled: true
     admins: []
 
-background:
-  channel_threads: 1
-  channel_refresh_interval: "30m"
-  full_refresh: false
-  feed_threads: 1
-  decrypt_polling: false
+  background_jobs:
+    channel_threads: 1
+    channel_refresh_interval: 30m
+    full_refresh: false
+    feed_threads: 1
+    decrypt_polling: false
 
 jobs:
   clear_expired_items:

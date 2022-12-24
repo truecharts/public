@@ -7,6 +7,7 @@
 {{- $vLog := $v.logging }}
 {{- $vFeat := $v.features }}
 {{- $vUserAcc := $v.users_accounts }}
+{{- $vBgJobs := $v.background_jobs }}
 ---
 apiVersion: v1
 kind: Secret
@@ -60,11 +61,13 @@ stringData:
     {{- end }}
 
     # Background Jobs
-    channel_threads: 1
-    channel_refresh_interval: 30m
-    full_refresh: false
-    feed_threads: 1
-    decrypt_polling: false
+    channel_threads: {{ $vBgJobs.channel_threads }}
+    channel_refresh_interval: {{ $vBgJobs.channel_refresh_interval }}
+    full_refresh: {{ $vBgJobs.full_refresh }}
+    feed_threads: {{ $vBgJobs.feed_threads }}
+    decrypt_polling: {{ $vBgJobs.decrypt_polling }}
+
+    # Jobs
     jobs:
       clear_expired_items:
         enable: true
