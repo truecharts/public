@@ -32,17 +32,82 @@ questions:
           label: Flags
           description: Feature flags
           schema:
-            type: list
+            additional_attrs: true
+            type: dict
             required: true
-            # TODO: Check if it works
-            default: ["enable-registration", "enable-login", "disable-email-verification"]
-            items:
-              - variable: feature_flag
-                label: Feature Flag Entry
+            attrs:
+              - variable: registration
+                label: Registration
+                description: Enables or disables, the registration process
                 schema:
-                  type: string
-                  required: true
-                  default: ""
+                  type: boolean
+                  default: true
+              - variable: insecure_register
+                label: Insecure Register
+                description: Enables or disables, the insecure process of profile registration deactivating the email verification process
+                schema:
+                  type: boolean
+                  default: false
+              - variable: login
+                label: Login
+                description: Enables or disables, the password based login form
+                schema:
+                  type: boolean
+                  default: true
+              - variable: demo_users
+                label: Demo Users
+                description: Enables or disables, the creation of demo users without the need of a registration process.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: demo_warning
+                label: Demo Warning
+                description: Enables or disables, demo warning in the register and login page saying that this is a demonstration purpose instance
+                schema:
+                  type: boolean
+                  default: false
+              - variable: user_feedback
+                label: User Feedback
+                description: Enables or disables, the feedback form at the dashboard
+                schema:
+                  type: boolean
+                  default: false
+              - variable: mail_verification
+                label: Mail Verification
+                description: Enables or disables, mail verification
+                schema:
+                  type: boolean
+                  default: true
+              - variable: log_invitation_token
+                label: Log Invitation Token
+                description: Enables or disables, invitation token logging in console
+                schema:
+                  type: boolean
+                  default: false
+              - variable: log_emails
+                label: Log Emails
+                description: Enables or disables, email logging in console. This only works if smtp is not enabled.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: secure_session_cookies
+                label: Secure Session Cookies
+                description: Enables or disables, the secure flag on cookies
+                schema:
+                  type: boolean
+                  default: true
+              - variable: cors
+                label: CORS
+                description: Enables or disables, the default cors configuration that allows all domains
+                schema:
+                  type: boolean
+                  default: false
+              - variable: backend_api_doc
+                label: API Docs
+                description: Enables or disables, /api/_doc endpoint that lists all rpc methods available on backend.
+                schema:
+                  type: boolean
+                  default: false
         - variable: registration_domain_whitelist
           label: Registration Domain Whitelist
           description: Registration Domain Whitelist
