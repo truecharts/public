@@ -29,7 +29,7 @@ metadata:
 stringData:
   GAME_ID: {{ .Values.ark.game_id | quote }}
   GAME_PARAMS: {{ printf "%s%s" (join "" $params) (join "" .Values.ark.game_params) | quote }}
-  GAME_PARAMS_EXTRA: {{ (join " " (concat $gameExtraParams .Values.ark.game_params_extra) | quote }}
+  GAME_PARAMS_EXTRA: {{ (join " " (concat $gameExtraParams .Values.ark.game_params_extra)) | quote }}
   {{- with .Values.ark.custom_map }}
   MAP: {{ . | quote }}
   {{- else }}
