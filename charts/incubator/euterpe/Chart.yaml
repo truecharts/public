@@ -1,19 +1,12 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Productivity
-    - Tools-Utilities
-    - MediaApp-Music
-    - MediaServer-Music
 apiVersion: v2
-appVersion: "latest"
+appVersion: "1.5.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.4
+    version: 11.0.9
 deprecated: false
-description: "Euterpe is self-hosted streaming service for music. Formerly known as HTTPMS (HTTP Media Server)."
-home: https://truecharts.org/docs/charts/incubator/euterpe
+description: Self-hosted streaming service for music, formerly known as HTTP Media Server.
+home: https://truecharts.org/charts/incubator/euterpe
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/euterpe.png
 keywords:
   - euterpe
@@ -32,4 +25,12 @@ sources:
   - https://github.com/ironsmile/euterpe
   - https://hub.docker.com/r/ironsmile/euterpe
 type: application
-version: 2.0.3
+version: 3.0.5
+annotations:
+  truecharts.org/catagories: |
+    - Productivity
+    - Tools-Utilities
+    - MediaApp-Music
+    - MediaServer-Music
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

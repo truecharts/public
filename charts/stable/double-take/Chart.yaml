@@ -1,12 +1,12 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: double-take
-version: 4.0.2
+version: 4.0.4
 appVersion: "1.13.1"
 description: Unified UI and API for processing and training images for facial recognition
 type: application
 deprecated: false
-home: https://truecharts.org/docs/charts/stable/double-take
+home: https://truecharts.org/charts/stable/double-take
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/double-take.png
 keywords:
   - ai
@@ -17,7 +17,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.4
+    version: 11.0.9
     # condition:
 maintainers:
   - email: info@truecharts.org

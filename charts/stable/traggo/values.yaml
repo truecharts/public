@@ -1,0 +1,37 @@
+image:
+  repository: tccr.io/truecharts/traggo
+  pullPolicy: IfNotPresent
+  tag: 0.2.3@sha256:a1922f9ceee1ab826ed55800a71494a1405cf698a176333094d4b85fc36d78f2
+
+traggo:
+  username: admin
+  password: admin
+  pass_strength: 10
+  log_level: info
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        port: 12117
+
+probes:
+  liveness:
+    type: HTTP
+  readiness:
+    type: HTTP
+  startup:
+    type: HTTP
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /opt/traggo/data
+
+portal:
+  enabled: true

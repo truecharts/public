@@ -13,14 +13,14 @@
 
 {{- $server_secret := "" }}
 {{- with (lookup "v1" "Secret" .Release.Namespace $storeSecretName) }}
-{{- $server_secret = (index .data "server_secret") }}
-{{- else }}
-{{- $server_secret = printf "b64:%v" (randAlphaNum 32 | b64enc) }}
+{{- $server_secret = (index .data "server_secret") | b64dec }}
+{{- else }} {{/* Real content must be also b64 encoded */}}
+{{- $server_secret = (printf "b64:%v" (randAlphaNum 32 | b64enc)) | b64enc }}
 {{- end }}
 
 {{- $new_invite_password := "" }}
 {{- with (lookup "v1" "Secret" .Release.Namespace $storeSecretName) }}
-{{- $new_invite_password = (index .data "new_invite_password") }}
+{{- $new_invite_password = (index .data "new_invite_password") | b64dec }}
 {{- else }}
 {{- $new_invite_password = randAlphaNum 32 | b64enc }}
 {{- end }}
@@ -34,9 +34,9 @@ metadata:
   name: {{ $storeSecretName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
-  server_secret: {{ $server_secret }}
-  new_invite_password: {{ $new_invite_password }}
+data:
+  server_secret: {{ $server_secret | b64enc }}
+  new_invite_password: {{ $new_invite_password | b64enc }}
 ---
 apiVersion: v1
 kind: Secret

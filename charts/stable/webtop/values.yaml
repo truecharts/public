@@ -1,11 +1,10 @@
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/webtop
-  tag: latest@sha256:b0cafd735b596c8b3830fe7cd2f6d13e79f4c1e8ac8fde2f11cd702eae8ebcae
+  tag: latest@sha256:57ad1e49112fece3e8d10a1cd40a0d7b3650022b787993f76013eb21216efe29
 
 env:
   KEYBOARD: ""
-  SUBFOLDER: ""
   CUSTOM_PORT: "{{ .Values.service.main.ports.main.port }}"
 
 podSecurityContext:

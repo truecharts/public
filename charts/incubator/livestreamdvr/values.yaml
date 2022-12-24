@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/livestreamdvr
-  tag: vmaster
+  tag: vmaster@sha256:0eed68afe400436fca4c3dbf56475e82cb277ae8da0caec9cd286c6743e49422
 persistence:
   config:
     enabled: true

@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "7.2.95"
+appVersion: "7.3.76"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.4
+    version: 11.0.9
 deprecated: false
 description: Ubiquiti Network's Unifi Controller
-home: https://truecharts.org/docs/charts/stable/unifi
+home: https://truecharts.org/charts/stable/unifi
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/unifi.png
 keywords:
   - ubiquiti
@@ -22,7 +22,7 @@ sources:
   - https://github.com/jacobalberty/unifi-docker
   - https://unifi-network.ui.com
 type: application
-version: 13.0.2
+version: 13.0.6
 annotations:
   truecharts.org/catagories: |
     - Networking

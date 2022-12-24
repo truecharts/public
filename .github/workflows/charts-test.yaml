@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
@@ -81,7 +81,7 @@ jobs:
       detected6: ${{ steps.list-changed.outputs.detected6 }}
     steps:
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
@@ -140,7 +140,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
@@ -152,7 +152,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@13ae5bb136fac2878aff31522b9efb785519f984 # tag=v4
+      - uses: actions/setup-python@5ccb29d8773c3f3f653e1705f474dfaa8a06a912 # v4
         with:
           python-version: "3.10"
 
@@ -183,7 +183,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
@@ -195,7 +195,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@13ae5bb136fac2878aff31522b9efb785519f984 # tag=v4
+      - uses: actions/setup-python@5ccb29d8773c3f3f653e1705f474dfaa8a06a912 # v4
         with:
           python-version: "3.10"
 
@@ -227,7 +227,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
@@ -239,7 +239,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@13ae5bb136fac2878aff31522b9efb785519f984 # tag=v4
+      - uses: actions/setup-python@5ccb29d8773c3f3f653e1705f474dfaa8a06a912 # v4
         with:
           python-version: "3.10"
 
@@ -270,7 +270,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
@@ -282,7 +282,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@13ae5bb136fac2878aff31522b9efb785519f984 # tag=v4
+      - uses: actions/setup-python@5ccb29d8773c3f3f653e1705f474dfaa8a06a912 # v4
         with:
           python-version: "3.10"
 
@@ -313,7 +313,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
@@ -325,7 +325,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@13ae5bb136fac2878aff31522b9efb785519f984 # tag=v4
+      - uses: actions/setup-python@5ccb29d8773c3f3f653e1705f474dfaa8a06a912 # v4
         with:
           python-version: "3.10"
 
@@ -356,7 +356,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
@@ -368,7 +368,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@13ae5bb136fac2878aff31522b9efb785519f984 # tag=v4
+      - uses: actions/setup-python@5ccb29d8773c3f3f653e1705f474dfaa8a06a912 # v4
         with:
           python-version: "3.10"
 

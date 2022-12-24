@@ -8,30 +8,43 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
+  - variable: splunk
+    group: App Configuration
+    label: Splunk Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: SPLUNK_CLI_ARGS
-          label: "SPLUNK_CLI_ARGS"
-          description: "Arguments to start Splunk with. "
+        - variable: acceptLicense
+          label: Accept License
+          description: Arguments to start Splunk with.
+          schema:
+            type: boolean
+            default: true
+        - variable: password
+          label: Splunk Password
+          description: Splunk Web UI admin password.
           schema:
             type: string
-            default: "--accept-license --no-prompt"
-        - variable: ADMIN_PASSWORD
-          label: "ADMIN_PASSWORD"
-          description: "Splunk Web UI admin password."
+            private: true
+            default: ""
+        - variable: extraArgs
+          label: Extra Startup Arg
           schema:
-            type: string
-            default: "changeme2019"
+            type: list
+            default: []
+            items:
+              - variable: argEntry
+                label: Arg Entry
+                schema:
+                  type: string
+                  required: true
+                  default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -39,21 +52,21 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 8000
                               required: true
         - variable: management
-          label: 'management service'
-          description: "HTTPS API"
+          label: management service
+          description: HTTPS API
           schema:
             additional_attrs: true
             type: dict
@@ -61,21 +74,21 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: management
-                      label: "management Service Port Configuration"
+                      label: management Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 8089
                               required: true
         - variable: dataingest
-          label: 'dataingest service'
-          description: "SplunkTCP input"
+          label: dataingest service
+          description: SplunkTCP input
           schema:
             additional_attrs: true
             type: dict
@@ -83,14 +96,14 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: dataingest
-                      label: "dataingest Service Port Configuration"
+                      label: dataingest Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 9997
@@ -100,25 +113,25 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: datapersist
-          label: "datapersist Storage"
-          description: "For indexed data persistence"
+        - variable: data
+          label: data Storage
+          description: For indexed data persistence
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: configpersist
-          label: "configpersist Storage"
-          description: "For config and app data persistence"
+        - variable: config
+          label: config Storage
+          description: For config and app data persistence
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: appcredspersist
-          label: "appcredspersist Storage"
-          description: "For passwordencryption persistence"
+        - variable: appcreds
+          label: appcreds Storage
+          description: For passwordencryption persistence
           schema:
             additional_attrs: true
             type: dict
@@ -127,7 +140,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -139,41 +152,41 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568

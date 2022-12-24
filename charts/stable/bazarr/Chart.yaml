@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "1.1.2"
+appVersion: "1.1.3"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.4
+    version: 11.0.9
 deprecated: false
 description: Bazarr is a companion application to Sonarr and Radarr. It manages and downloads subtitles based on your requirements
-home: https://truecharts.org/docs/charts/stable/bazarr
+home: https://truecharts.org/charts/stable/bazarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/bazarr.png
 keywords:
   - bazarr
@@ -26,7 +26,7 @@ sources:
   - https://github.com/morpheus65535/bazarr
   - https://hub.docker.com/r/linuxserver/bazarr
 type: application
-version: 13.0.4
+version: 13.0.10
 annotations:
   truecharts.org/catagories: |
     - media

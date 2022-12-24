@@ -1,12 +1,12 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: paperless-ng
-version: 7.0.10
-appVersion: "1.10.1"
+version: 7.0.15
+appVersion: "1.10.2"
 description: Paperless-ngx is an application by Daniel Quinn and contributors that indexes your scanned documents.
 type: application
 deprecated: false
-home: https://truecharts.org/docs/charts/stable/paperless-ng
+home: https://truecharts.org/charts/stable/paperless-ng
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/paperless-ng.png
 keywords:
   - paperless-ng
@@ -20,15 +20,15 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.4
+    version: 11.0.9
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 11.0.5
+    version: 11.0.13
   - condition: redis.enabled
     name: redis
     repository: https://charts.truecharts.org
-    version: 5.0.5
+    version: 5.0.17
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts

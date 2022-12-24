@@ -1,12 +1,12 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: autobrr
-version: 3.0.3
-appVersion: "1.11.0"
+version: 3.0.6
+appVersion: "1.12.0"
 description: The modern download automation tool for torrents.
 type: application
 deprecated: false
-home: https://truecharts.org/docs/charts/stable/autobrr
+home: https://truecharts.org/charts/stable/autobrr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/autobrr.png
 keywords:
   - autobrr
@@ -17,7 +17,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.4
+    version: 11.0.9
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts

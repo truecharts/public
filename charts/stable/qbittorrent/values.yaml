@@ -18,14 +18,12 @@ service:
       torrent:
         enabled: true
         port: 6881
-        targetPort: 6881
   torrentudp:
     enabled: true
     ports:
       torrentudp:
         enabled: true
         port: 6881
-        targetPort: 6881
         protocol: UDP
 
 persistence:

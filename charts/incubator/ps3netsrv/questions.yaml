@@ -8,25 +8,6 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: USER_ID
-          label: "USER_ID"
-          description: "UID for permissions.  Do not change unless you know what youre doing."
-          schema:
-            type: string
-            default: ""
-        - variable: GROUP_ID
-          label: "GROUP_ID"
-          description: "GID for permissions.  Do not change unless you know what youre doing."
-          schema:
-            type: string
-            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -56,9 +37,9 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: gamesfolder
-          label: "gamesfolder Storage"
-          description: "Container Path games"
+        - variable: games
+          label: App Games Storage
+          description: Stores the Application Games.
           schema:
             additional_attrs: true
             type: dict
@@ -97,20 +78,20 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."

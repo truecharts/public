@@ -450,7 +450,6 @@ questions:
           description: By default uploaded media is stored on the local filesystem. Using Django-storages is also supported. Provide the class path of the storage driver in storage_backend and any configuration options in storage_config.
           schema:
             type: string
-            required: true
             default: ""
         - variable: storage_config
           label: Storage Config
@@ -496,59 +495,61 @@ questions:
                 schema:
                   type: boolean
                   default: false
-              - variable: backend
-                label: Backend
-                schema:
-                  type: string
-                  required: true
-                  default: ""
-              - variable: header
-                label: Header
-                schema:
-                  type: string
-                  required: true
-                  default: ""
-              - variable: auto_create_user
-                label: Auto Create User
-                schema:
-                  type: boolean
-                  default: false
-              - variable: default_groups
-                label: Default Groups
-                schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: default_group_entry
-                      label: Default Group
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: backend
+                      label: Backend
                       schema:
                         type: string
                         required: true
                         default: ""
-              - variable: default_permissions
-                label: Default Permissions
-                schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: default_permissions_entry
-                      label: Default Permission Entry
+                    - variable: header
+                      label: Header
                       schema:
-                        type: dict
-                        additional_attrs: true
-                        attrs:
-                          - variable: key
-                            label: Key
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: auto_create_user
+                      label: Auto Create User
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: default_groups
+                      label: Default Groups
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: default_group_entry
+                            label: Default Group
                             schema:
                               type: string
                               required: true
                               default: ""
-                          - variable: value
-                            label: Value
+                    - variable: default_permissions
+                      label: Default Permissions
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: default_permissions_entry
+                            label: Default Permission Entry
                             schema:
-                              type: string
-                              required: true
-                              default: ""
+                              type: dict
+                              additional_attrs: true
+                              attrs:
+                                - variable: key
+                                  label: Key
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: ""
+                                - variable: value
+                                  label: Value
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: ""
         - variable: date_time
           label: Date Time
           description: Date/time formatting. See the following link for supported formats https://docs.djangoproject.com/en/stable/ref/templates/builtins/#date

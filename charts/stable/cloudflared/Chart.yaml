@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "2022.11.1"
+appVersion: "2022.12.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.4
+    version: 11.0.9
 deprecated: false
 description: Client for Cloudflare Tunnel, a daemon that exposes private services through the Cloudflare edge.
-home: https://truecharts.org/docs/charts/stable/cloudflared
+home: https://truecharts.org/charts/stable/cloudflared
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloudflared.png
 keywords:
   - cloudflared
@@ -21,7 +21,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/cloudflared
   - https://hub.docker.com/r/cloudflare/cloudflared
 type: application
-version: 3.0.4
+version: 3.0.8
 annotations:
   truecharts.org/catagories: |
     - network

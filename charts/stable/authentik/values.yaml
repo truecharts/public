@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/authentik
-  tag: 2022.11.1@sha256:72df18dc8af9243ca0bdd7f8853ea0a1dfe016d4107fafac948a18e7882f072c
+  tag: 2022.11.4@sha256:5c11f5cf4386a6019c3558a157adce5d1fa3a29856ae18c50a2f906bae645628
   pullPolicy: IfNotPresent
 
 geoipImage:
@@ -10,12 +10,12 @@ geoipImage:
 
 ldapImage:
   repository: tccr.io/truecharts/authentik-ldap
-  tag: 2022.11.1@sha256:61e60557c0d0705976632044b17d308eae9386f238599653dd87a3c93dd34b8e
+  tag: 2022.11.4@sha256:7dbb31d5646271e6ede69f2a3bcbeb7948dc1534d521e7ac1aed12fca14ae795
   pullPolicy: IfNotPresent
 
 proxyImage:
   repository: tccr.io/truecharts/authentik-proxy
-  tag: 2022.11.1@sha256:4f872527575395d4be8a694c745ab2c3ebe0427f80d3278f12b5aad9c3bc7973
+  tag: 2022.11.4@sha256:4347de3a85b445d701f40a5063406c77bbabd79addda659146c771f6908468d7
   pullPolicy: IfNotPresent
 
 args: ["server"]

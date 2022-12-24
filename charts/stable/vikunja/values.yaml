@@ -5,12 +5,12 @@ image:
 
 frontendImage:
   repository: tccr.io/truecharts/vikunja-frontend
-  tag: 0.20.1@sha256:73d6073996074450e1a1db672b9a19a462b41ec6f570df03ee480819c8d999e3
+  tag: 0.20.2@sha256:556a26579911eb172ce23c903f7484040753e009b51144270eb208445d51edb0
   pullPolicy: IfNotPresent
 
 nginxImage:
   repository: tccr.io/truecharts/nginx
-  tag: 1.23.2@sha256:cdf55dbebc5265ecbcd65c96355edcdee0ec014f758b770adc09c2bdaa3fe95f
+  tag: 1.23.3@sha256:04e9a62aea88168d61d2bae5562e248e48bc04aa866c49cff0e1638dc37400b7
 
 securityContext:
   readOnlyRootFilesystem: false

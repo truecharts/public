@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/authelia
   pullPolicy: IfNotPresent
-  tag: 4.37.2@sha256:6a691be39eb422079ad89fd6bf4fb17e9ecc2e22f2ee2fdc5c9e90dc2feb6f7f
+  tag: 4.37.5@sha256:76a4617539534cec140fd98a12f721b878524f2df3a3653f3df8ff2b7eaab586
 
 command: ["authelia"]
 args: ["--config=/configuration.yaml"]
@@ -585,6 +585,9 @@ identity_providers:
 
     ## The policy to require for this client; one_factor or two_factor.
     # authorization_policy: two_factor
+
+    ## Configures the consent mode; auto, explicit or implicit
+    # consent_mode: auto
 
     ## Audience this client is allowed to request.
     # audience: []

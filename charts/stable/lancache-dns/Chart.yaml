@@ -1,12 +1,12 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: lancache-dns
-version: 3.0.3
+version: 3.0.5
 appVersion: "latest"
 description: DNS Chart service for a steam cache.
 type: application
 deprecated: false
-home: https://truecharts.org/docs/charts/stable/lancache-dns
+home: https://truecharts.org/charts/stable/lancache-dns
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lancache-dns.png
 keywords:
   - lancache-dns
@@ -18,7 +18,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.4
+    version: 11.0.9
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts

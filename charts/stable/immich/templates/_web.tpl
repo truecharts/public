@@ -1,7 +1,11 @@
 {{/* Define the web container */}}
 {{- define "immich.web" -}}
-image: {{ .Values.imageWeb.repository }}:{{ .Values.imageWeb.tag }}
-imagePullPolicy: {{ .Values.imageWeb.pullPolicy }}
+  {{- if hasKey .Values "imageWeb" -}} {{/* For smooth upgrade, Remove later */}}
+    {{- $img := .Values.imageWeb -}}
+    {{- $_ := set .Values "webImage" (dict "repository" $img.repository "tag" $img.tag "pullPolicy" $img.pullPolicy) -}}
+  {{- end }}
+image: {{ .Values.webImage.repository }}:{{ .Values.webImage.tag }}
+imagePullPolicy: {{ .Values.webImage.pullPolicy }}
 securityContext:
   runAsUser: {{ .Values.podSecurityContext.runAsUser }}
   runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
@@ -9,8 +13,7 @@ securityContext:
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 command:
   - /bin/sh
-  - -c
-  - chmod +x ./entrypoint.sh && ./entrypoint.sh
+  - ./entrypoint.sh
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-common-config'

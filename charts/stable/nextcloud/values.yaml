@@ -1,12 +1,12 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: 25.0.1@sha256:7e69a681c491fb47e2994b770a9a9071cfd783a0c7190845c574f24ccf1e5378
+  tag: 25.0.2@sha256:2d1f5a45360a597fcc633ab361cc089f64354143e38a8b7a772801bbafd6d550
 
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: 1.23.2@sha256:dabc6ad902d747cef5f67cb5ad6ecd926991385bcfd8b2884836971da6a8a729
+  tag: 1.23.3@sha256:7b2ac308e55c7fcb8cb6b0be9b0c0a517f25f89968d4d89a98bc82539a404d0d
 
 imaginaryImage:
   repository: h2non/imaginary
@@ -93,7 +93,7 @@ probes:
 
 initContainers:
   prestart:
-    image: '{{ include "tc.common.images.selector" . }}'
+    image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
     securityContext:
       runAsUser: 0
       runAsGroup: 0
@@ -104,20 +104,9 @@ initContainers:
       - |
         /bin/bash <<'EOF'
         echo "Forcing permissions on userdata folder..."
-        if nfs4xdr_getfacl && nfs4xdr_getfacl | grep -qv "Failed to get NFSv4 ACL"; then
-          echo "NFSv4 ACLs detected, Trying to override permissions using nfs4_setfacl..."
-          nfs4_setfacl -R -a A:g:33:RWX "/var/www/html/data"
-        else
-          echo "No NFSv4 ACLs detected, trying to override permissions using chown/chmod..."
-          echo "checking ownership..."
-          if [ $(stat -c %g .) -eq 33 ]; then
-            echo "Ownership already set to 33, skipping..."
-          else
-            echo "Changing ownership to group 33..."
-            chown -R :33 "/var/www/html/data"
-          fi
-          chmod 770 /var/www/html/data
-        fi
+        echo "Trying to override ownship using nfs4xdr_winacl..."
+        /usr/bin/nfs4xdr_winacl -a chown -G 33 -r -c '/var/www/html/data' -p '/var/www/html/data' || echo "Failed setting ownership..."
+        chmod 770 /var/www/html/data || echo "Failed to chmod..."
         EOF
 
     volumeMounts:

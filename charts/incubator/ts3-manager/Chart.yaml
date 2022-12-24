@@ -1,12 +1,12 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: ts3-manager
-version: 2.0.2
+version: 2.0.4
 appVersion: "2.2.0"
 description: A modern web interface for maintaining Teamspeak3 servers.
 type: application
 deprecated: false
-home: https://truecharts.org/docs/charts/incubator/ts3-manager
+home: https://truecharts.org/charts/incubator/ts3-manager
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ts3-manager.png
 keywords:
   - ts3-manager
@@ -19,7 +19,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.4
+    version: 11.0.9
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts

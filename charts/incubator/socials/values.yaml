@@ -4,7 +4,7 @@ env:
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/socials
-  tag: vmain
+  tag: vmain@sha256:5804199d19dd00c51fea79473da522b9ca56e411f76cda3f9d3da7f43b6783d3
 persistence:
   socials:
     enabled: true

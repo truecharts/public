@@ -1,12 +1,12 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: cloudflareddns
-version: 3.0.3
+version: 3.0.6
 appVersion: "latest"
 description: Update your Cloudflare DNS records automatically for those with a dynamic IP
 type: application
 deprecated: false
-home: https://truecharts.org/docs/charts/stable/cloudflareddns
+home: https://truecharts.org/charts/stable/cloudflareddns
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloudflareddns.png
 keywords:
   - ddns
@@ -19,7 +19,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.4
+    version: 11.0.9
     # condition:
 maintainers:
   - email: info@truecharts.org
