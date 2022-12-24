@@ -126,7 +126,7 @@ jobs:
                echo "${chart} ${train}" >> list.txt
             done
           done
-          parallel --dry-run -j ${parthreads} --colsep ' ' -a list.txt scan ${1} ${2}
+          parallel --dry-run -j ${parthreads} --colsep ' ' scan ::: list.txt ${1} ${2}
           echo "finsihed security scan"
 
       - name: Commit Website Changes
