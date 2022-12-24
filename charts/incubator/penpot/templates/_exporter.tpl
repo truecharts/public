@@ -12,30 +12,26 @@ envFrom:
       name: '{{ include "tc.common.names.fullname" . }}-common-secret'
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-exporter-secret'
-{{/*
 readinessProbe:
-  httpGet:
-    path: /outpost.goauthentik.io/ping
-    port: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
+  tcpSocket:
+    port: 6061
   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
   failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
 livenessProbe:
   httpGet:
-    path: /outpost.goauthentik.io/ping
-    port: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
+  tcpSocket:
+    port: 6061
   initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
   failureThreshold: {{ .Values.probes.liveness.spec.failureThreshold }}
 startupProbe:
-  httpGet:
-    path: /outpost.goauthentik.io/ping
-    port: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
+  tcpSocket:
+    port: 6061
   initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
   failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
-*/}}
 {{- end }}
