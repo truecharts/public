@@ -89,7 +89,6 @@ questions:
                         type: int
                         required: true
                         min: 1
-                        max:
                         default: 100
                     - variable: use_quic
                       label: Use QUIC
@@ -592,8 +591,8 @@ questions:
                             description: NI
                           - value: NL
                             description: NL
-                          - value: NO
-                            description: NO
+                          - value: "NO"
+                            description: "NO"
                           - value: NP
                             description: NP
                           - value: NZ
