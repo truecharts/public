@@ -16,7 +16,7 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
   {{/* Dependencies */}}
-  PENPOT_DATABASE_URI: {{ printf "postgresql://%v/%v" .Values.postgresql.url.plainport .Values.postgresql.postgresqlDatabase }}
+  PENPOT_DATABASE_URI: {{ printf "postgresql://%v/%v" (.Values.postgresql.url.plainport | trimAll "\"") .Values.postgresql.postgresqlDatabase }}
   PENPOT_DATABASE_USERNAME: {{ .Values.postgresql.postgresqlUsername }}
   PENPOT_DATABASE_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
   PENPOT_REDIS_URI: {{ printf "redis://%v:%v@%v/%v" "default" (.Values.redis.redisPassword | trimAll "\"") (.Values.redis.url.plainport | trimAll "\"") "0" }}
