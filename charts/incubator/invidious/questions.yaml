@@ -22,7 +22,7 @@ questions:
             type: dict
             attrs:
               - variable: inbound
-                label: Inbound Configuration
+                label: Inbound
                 schema:
                   additional_attrs: true
                   type: dict
@@ -55,7 +55,7 @@ questions:
                         type: boolean
                         default: false
               - variable: outbound
-                label: Outbound Configuration
+                label: Outbound
                 schema:
                   additional_attrs: true
                   type: dict
@@ -257,6 +257,48 @@ questions:
                 schema:
                   type: boolean
                   default: false
+        - variable: jobs
+          label: Jobs Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: clear_expired_items
+                label: Clear Expired Items
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enable
+                      label: Enable
+                      description: Enable the database cleaning job
+                      schema:
+                        type: boolean
+                        default: true
+              - variable: refresh_channels
+                label: Refresh Channels
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enable
+                      label: Enable
+                      description: Enable the channels updater job
+                      schema:
+                        type: boolean
+                        default: true
+              - variable: refresh_feeds
+                label: Refresh Feeds
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enable
+                      label: Enable
+                      description: Enable the RSS feeds updater job
+                      schema:
+                        type: boolean
+                        default: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

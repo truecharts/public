@@ -8,6 +8,7 @@
 {{- $vFeat := $v.features }}
 {{- $vUserAcc := $v.users_accounts }}
 {{- $vBgJobs := $v.background_jobs }}
+{{- $vJobs := $v.jobs }}
 ---
 apiVersion: v1
 kind: Secret
@@ -70,11 +71,13 @@ stringData:
     # Jobs
     jobs:
       clear_expired_items:
-        enable: true
+        enable: {{ $vJobs.clear_expired_items.enable }}
       refresh_channels:
-        enable: true
+        enable: {{ $vJobs.refresh_channels.enable }}
       refresh_feeds:
-        enable: true
+        enable: {{ $vJobs.refresh_feeds.enable }}
+
+    # Captcha
     captcha_api_url: "https://api.anti-captcha.com"
     captcha_key: ""
     banner: ""
