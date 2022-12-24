@@ -166,6 +166,24 @@ questions:
                 schema:
                   type: boolean
                   default: false
+        - variable: users_accounts
+          label: Features Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: popular_enabled
+                label: Popular Enabled
+                description: Enable/Disable the "Popular" tab on the main page.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: statistics_enabled
+                label: Statistics Enabled
+                description: Enable/Disable statistics (available at /api/v1/stats).
+                schema:
+                  type: boolean
+                  default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
