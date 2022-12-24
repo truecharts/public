@@ -29,8 +29,10 @@
 
 - Set additional `Game Parameters` if you need to with one entry per box.
 
-- `Server Flag` will append the flag **-server** to `Game Extra Parameters` for you.
-- `Log Flag` will append the flag **-log** to `Game Extra Parameters` for you.
-- `Crossplay Flag` will append the flag **-crossplay** to `Game Extra Parameters` for you.
+- In `Game Extra Parmeters (Easy)`
+
+  - `Server Flag` will append the flag **-server** to `Game Extra Parameters` for you.
+  - `Log Flag` will append the flag **-log** to `Game Extra Parameters` for you.
+  - `Crossplay Flag` will append the flag **-crossplay** to `Game Extra Parameters` for you.
 
 - Set additional `Game Extra Parameters` if you need to with one entry per box.
