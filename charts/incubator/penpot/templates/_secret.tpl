@@ -94,7 +94,7 @@ metadata:
 stringData:
   PENPOT_FLAGS: {{ join " " (concat $commonFlags $backendFlags) | quote }}
   PENPOT_PUBLIC_URI: {{ .Values.penpot.public_uri | quote }}
-  {{- with (lookup "v1" "Secret" .Release.Namespace $backendSecretName) }}
+  {{- with (lookup "v1" "Secret" .Release.Namespace $backendAndExporterSecretName) }}
   PENPOT_SECRET_KEY: {{ index .data "PENPOT_SECRET_KEY" }}
   {{- else }}
   PENPOT_SECRET_KEY: {{ randAlphaNum 32 | b64enc }}
