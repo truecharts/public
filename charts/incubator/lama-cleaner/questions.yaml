@@ -4,10 +4,94 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
+  - variable: imageSelector
+    group: Container Image
+    label: Select Image
+    schema:
+      type: string
+      default: image
+      enum:
+        - value: image
+          description: CPU Image
+        - value: imageGPU
+          description: GPU Image
 # Include{controller}
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
+  - variable: lamacleaner
+    group: App Configuration
+    label: Lama Cleaner Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: model
+          label: Model
+          description: Inpainting Model https://github.com/Sanster/lama-cleaner#inpainting-model
+          schema:
+            type: string
+            required: true
+            default: lama
+            enum:
+              - value: lama
+                description: lama
+              - value: cv2
+                description: cv2
+              - value: ldm
+                description: ldm
+              - value: zits
+                description: zits
+              - value: fcf
+                description: fcf
+              - value: sd1.5
+                description: sd1.5
+              - value: mat
+                description: mat
+        - variable: input
+          label: Input
+          description: Path to image you want to load by default
+          schema:
+            type: string
+            default: ""
+        - variable: sd_run_local
+          label: Stable Diffusion Run Local
+          description: Once the model as downloaded, you can enable this.
+          schema:
+            type: boolean
+            default: false
+        - variable: hf_access_token
+          label: HuggingFace Access Token
+          description: Stable diffusion need HuggingFace access token to download model
+          schema:
+            type: string
+            show_if: [[ "sd_run_local", "=", "true"]]
+            private: true
+            default: ""
+        - variable: sd_disable_nsfw
+          label: Stable Diffusion Disable NSFW Checker.
+          description: Disable stable diffusion NSFW checker.
+          schema:
+            type: boolean
+            default: false
+        - variable: sd_cpu_text_encoder
+          label: Stable Diffusion Text Encoder
+          description: Always run stable-diffusion TextEncoder model on CPU.
+          schema:
+            type: boolean
+            default: false
+        - variable: sd_enable_xformers
+          label: Stable Diffusion Enable XFormers
+          description: Enable xFormers optimizations.
+          schema:
+            type: boolean
+            default: false
+        - variable: debug
+          label: Enable debug
+          description: Enable debug mode for flask web server
+          schema:
+            type: boolean
+            default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

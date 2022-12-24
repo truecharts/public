@@ -2,6 +2,7 @@ image:
   repository: cwq1913/lama-cleaner
   pullPolicy: IfNotPresent
   tag: cpu-0.26.1@sha256:e57095636fe19e62280e78f10f98fff0fe1e0608e689515b2a0a56a7d2dad2e8
+
 gpuImage:
   repository: cwq1913/lama-cleaner
   tag: gpu-0.26.1@sha256:65c54a6309f46bb643be31d704e4b361988b277f7b9492a9dd8e24c28220005c
@@ -9,21 +10,7 @@ gpuImage:
 
 imageSelector: image
 
-command:
-  - /bin/sh
-  - -c
-  - |
-  - lama-cleaner
-  - --hf_access_token="{{ .Values.lamacleaner.hf_access_token }}"
-  - --model="{{ .Values.lamacleaner.model }}"
-  - --device="{{ .Values.lamacleaner.device }}"
-  - --host=0.0.0.0
-  - --port=8080
-
-lamacleaner:
-  hf_access_token: ""
-  model: "lama"
-  device: "cpu"
+command: lama-cleaner
 
 securityContext:
   runAsNonRoot: false
@@ -33,12 +20,21 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+lamacleaner:
+  model: lama
+  input: ""
+  sd_run_local: false
+  hf_access_token: ""
+  sd_disable_nsfw: false
+  sd_cpu_text_encoder: false
+  sd_enable_xformers: false
+  debug: false
+
 service:
   main:
     ports:
       main:
         protocol: HTTP
-        targetPort: 8080
         port: 10604
 
 persistence:
