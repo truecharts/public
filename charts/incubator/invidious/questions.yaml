@@ -15,13 +15,157 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: app_token
-          label: App Token
-          description: Discord Bot Token.
+        - variable: network
+          label: Network Configuration
           schema:
-            type: string
-            required: true
-            default: ""
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: inbound
+                label: Inbound Configuration
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: external_port
+                      label: External Port
+                      description: When the invidious instance is behind a proxy, and the proxy listens on a different port than the instance does, this lets invidious know about it.
+                      schema:
+                        type: int
+                        required: true
+                        min: 1
+                        max: 65535
+                        default: 10594
+                    - variable: https_only
+                      label: HTTPS Only
+                      description: Tell Invidious that it is behind a proxy that provides only HTTPS, so all links must use the https:// scheme. This setting MUST be set to true if invidious is behind a reverse proxy serving HTTPs.
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: domain
+                      label: Domain
+                      description: Domain name under which this instance is hosted. This is used to craft absolute URLs to the instance
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: hsts
+                      label: HSTS
+                      description: Enable/Disable Strict-Transport-Security.
+                      schema:
+                        type: boolean
+                        default: false
+              - variable: outbound
+                label: Outbound Configuration
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: disable_proxy
+                      label: Disable Proxy
+                      description: Disable proxying server-wide. Can be disable as a whole, or only for a single function.
+                      schema:
+                        type: string
+                        required: true
+                        default: "false"
+                        enum:
+                          - value: "false"
+                            description: "false"
+                          - value: "true"
+                            description: "true"
+                          - value: dash
+                            description: dash
+                          - value: livestreams
+                            description: livestreams
+                          - value: livestreams
+                            description: livestreams
+                          - value: downloads
+                            description: downloads
+                          - value: local
+                            description: local
+                    - variable: pool_size
+                      label: Pool Size
+                      description: Size of the HTTP pool used to connect to youtube.
+                      schema:
+                        type: int
+                        required: true
+                        min: 1
+                        max:
+                        default: 100
+                    - variable: use_quic
+                      label: Use QUIC
+                      description: Enable/Disable the use of QUIC (HTTP/3) when connecting to the youtube API and websites
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: force_resolve
+                      label: Force Resolve
+                      description: Force connection to youtube over a specific IP family.
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                        enum:
+                          - value: ""
+                            description: Default
+                          - value: ipv4
+                            description: ipv4
+                          - value: ipv6
+                            description: ipv6
+        - variable: logging
+          label: Logging Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: output
+                label: Output
+                description: STDOUT or Path to log file. Can be absolute or relative to the invidious binary.
+                schema:
+                  type: string
+                  required: true
+                  default: STDOUT
+              - variable: log_level
+                label: Log Level
+                description: Logging Verbosity.
+                schema:
+                  type: string
+                  required: true
+                  default: Info
+                  enum:
+                    - value: Info
+                      description: Info
+                    - value: Trace
+                      description: Trace
+                    - value: Debug
+                      description: Debug
+                    - value: Warn
+                      description: Warn
+                    - value: Error
+                      description: Error
+                    - value: Fatal
+                      description: Fatal
+                    - value: "Off"
+                      description: "Off"
+                    - value: All
+                      description: All
+        - variable: features
+          label: Features Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: popular_enabled
+                label: Popular Enabled
+                description: Enable/Disable the "Popular" tab on the main page.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: statistics_enabled
+                label: Statistics Enabled
+                description: Enable/Disable statistics (available at /api/v1/stats).
+                schema:
+                  type: boolean
+                  default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

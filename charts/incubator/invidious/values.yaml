@@ -11,26 +11,29 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 
-network:
-  inbound:
-    host_binding: "0.0.0.0"
-    domain: ""
-    https_only: false
-    hsts: true
-  outbound:
-    disable_proxy: false
-    pool_size: 100
-    use_quic: false
-    cookies: ""
-    force_resolve: "ipv4"
+invidious:
+  network:
+    inbound:
+      # TODO: When ingress enabled, 443, true and ingress host as domain
+      external_port: 10594
+      https_only: false
+      domain: ""
+      hsts: true
+    outbound:
+      # Can be also a string
+      disable_proxy: false
+      pool_size: 100
+      use_quic: false
+      cookies: []
+      force_resolve: "ipv4"
+  logging:
+    output: STDOUT
+    log_level: "Info"
 
-logging:
-  output: STDOUT
-  log_level: "Info"
+  features:
+    popular_enabled: true
+    statistics_enabled: false
 
-features:
-  popular_enabled: true
-  statistics_enabled: false
 
 users_accounts:
   registration_enabled: true
