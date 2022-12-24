@@ -3,6 +3,8 @@
 
 {{- $secretName := printf "%s-common-secret" (include "tc.common.names.fullname" .) }}
 {{- $exporterSecretName := printf "%s-exporter-secret" (include "tc.common.names.fullname" .) }}
+{{- $backendSecretName := printf "%s-backend-secret" (include "tc.common.names.fullname" .) }}
+{{- $frontendSecretName := printf "%s-frontend-secret" (include "tc.common.names.fullname" .) }}
 
 ---
 apiVersion: v1
@@ -22,7 +24,6 @@ stringData:
   PENPOT_STORAGE_ASSETS_FS_DIRECTORY: {{ .Values.persistence.assets.mountPath }}
   PENPOT_ASSETS_STORAGE_BACKEND: assets-fs
   PENPOT_HTTP_SERVER_HOST: "0.0.0.0"
-  PENPOT_PUBLIC_URI: {{ .Values.penpot.public_uri | quote }}
   {{- with .Values.penpot.flags }}
   PENPOT_FLAGS: {{ join " " . | quote }}
   {{- end }}
@@ -82,5 +83,25 @@ metadata:
 stringData:
   {{/* Is for exporter, to communicate with frontend.
   I know, PUBLIC doesn't make much sense */}}
-  PENPOT_PUBLIC_URI: http://localhost:80
+  PENPOT_PUBLIC_URI: http://localhost:{{ .Values.service.main.ports.main.targetPort }}
+---
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: {{ $backendSecretName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+stringData:
+  PENPOT_PUBLIC_URI: {{ .Values.penpot.public_uri | quote }}
+---
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: {{ $frontendSecretName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+stringData:
+  PENPOT_PUBLIC_URI: {{ .Values.penpot.public_uri | quote }}
 {{- end }}

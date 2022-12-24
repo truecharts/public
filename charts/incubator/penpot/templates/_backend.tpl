@@ -13,6 +13,8 @@ volumeMounts:
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-common-secret'
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-backend-secret'
 {{/*
 readinessProbe:
   httpGet:
