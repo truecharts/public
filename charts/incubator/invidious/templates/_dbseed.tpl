@@ -1,7 +1,7 @@
 {{- define "invidious.dbseed" -}}
 image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
 env:
-  - name: POSTGRES_DATABASE
+  - name: POSTGRES_DB
     value: {{ .Values.postgresql.postgresqlDatabase }}
   - name: POSTGRES_USER
     value: {{ .Values.postgresql.postgresqlUsername }}
