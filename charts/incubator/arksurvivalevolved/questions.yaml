@@ -47,12 +47,13 @@ questions:
           description: "The SteamCMD Game ID."
           schema:
             type: string
+            required: true
             default: "376030"
             enum:
               - value: "376030"
-                description: "ARK Survival Evolved"
+                description: ARK Survival Evolved
               - value: "445400"
-                description: "ARK Survival of the Fittest"
+                description: ARK Survival of the Fittest
         - variable: custom_map
           label: Custom Map
           description: Custom Map name.

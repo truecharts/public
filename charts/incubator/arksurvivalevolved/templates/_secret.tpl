@@ -39,12 +39,8 @@ stringData:
   SERVER_NAME: {{ . | quote }}
   {{- end }}
   VALIDATE: {{ default false .Values.ark.validate | quote }}
-  {{- with .Values.ark.srv_admin_pass }}
-  SRV_ADMIN_PWD: {{ . | quote }}
-  {{- end }}
-  {{- with .Values.ark.srv_password }}
-  SRV_PWD: {{ . | quote }}
-  {{- end }}
+  SRV_ADMIN_PWD: {{ .Values.ark.srv_admin_pass | quote }}
+  SRV_PWD: {{ .Values.ark.srv_password | quote }}
   {{- with .Values.ark.username }}
   USERNAME: {{ . | quote }}
   {{- end }}
