@@ -173,7 +173,9 @@ data:
         host: {{ $notifier.smtp.host }}
         port: {{ default 25 $notifier.smtp.port }}
         timeout: {{ default "5s" $notifier.smtp.timeout }}
-        username: {{ $notifier.smtp.username }}
+        {{- with $notifier.smtp.username }}
+        username: {{ . }}
+        {{- end }}
         sender: {{ $notifier.smtp.sender }}
         identifier: {{ $notifier.smtp.identifier }}
         subject: {{ $notifier.smtp.subject | quote }}
