@@ -76,10 +76,10 @@ patch_apps() {
     echo "categories:" >> catalog/${train}/${chartname}/item.yaml
     cat ${target}/Chart.yaml | yq '.annotations."truecharts.org/catagories"' -r >> catalog/${train}/${chartname}/item.yaml
     # Copy changelog from website
-    if [[ ! -f "website/charts/${train}/${chartname}/CHANGELOG.md" ]]; then
-        touch "website/charts/${train}/${chartname}/CHANGELOG.md"
+    if [[ ! -f "website/docs/charts/${train}/${chartname}/CHANGELOG.md" ]]; then
+        touch "website/docs/charts/${train}/${chartname}/CHANGELOG.md"
     fi
-    cp -rf "website/charts/${train}/${chartname}/CHANGELOG.md" "${target}/CHANGELOG.md" 2>/dev/null || :
+    cp -rf "website/docs/charts/${train}/${chartname}/CHANGELOG.md" "${target}/CHANGELOG.md" 2>/dev/null || :
     sed -i '1d' "${target}/CHANGELOG.md"
     sed -i '1s/^/*for the complete changelog, please refer to the website*\n\n/' "${target}/CHANGELOG.md"
     sed -i '1s/^/**Important:**\n/' "${target}/CHANGELOG.md"
