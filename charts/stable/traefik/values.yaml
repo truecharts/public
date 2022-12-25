@@ -139,6 +139,7 @@ service:
     ports:
       main:
         port: 9000
+        targetPort: 9000
         protocol: HTTP
         # -- Forwarded Headers should never be enabled on Main entrypoint
         forwardedHeaders:
