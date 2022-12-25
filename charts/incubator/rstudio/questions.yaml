@@ -20,12 +20,13 @@ questions:
           description: Optionally set a User Name
           schema:
             type: string
-            default: "rstudio"
+            default: ""
         - variable: PASSWORD
           label: User Password
           description: Optionally set a Password
           schema:
             type: string
+            private: true
             default: ""
   - variable: env
     group: "App Configuration"

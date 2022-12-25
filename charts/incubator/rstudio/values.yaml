@@ -19,7 +19,7 @@ env:
   DISABLE_AUTH: false
   ROOT: "FALSE"
   USERID: "{{ .Values.podSecurityContext.runAsUser }}"
-  GROUPID: "{{ .Values.podSecurityContext.runAsGroup }}"
+  GROUPID: "{{ .Values.podSecurityContext.fsGroup }}"
 
 service:
   main:
