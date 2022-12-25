@@ -76,10 +76,10 @@ patch_apps() {
     echo "categories:" >> catalog/${train}/${chartname}/item.yaml
     cat ${target}/Chart.yaml | yq '.annotations."truecharts.org/catagories"' -r >> catalog/${train}/${chartname}/item.yaml
     # Copy changelog from website
-    if [[ ! -f "website/docs/charts/${train}/${chartname}/CHANGELOG.md" ]]; then
-        touch "website/docs/charts/${train}/${chartname}/CHANGELOG.md"
+    if [[ ! -f "website/charts/${train}/${chartname}/CHANGELOG.md" ]]; then
+        touch "website/charts/${train}/${chartname}/CHANGELOG.md"
     fi
-    cp -rf "website/docs/charts/${train}/${chartname}/CHANGELOG.md" "${target}/CHANGELOG.md" 2>/dev/null || :
+    cp -rf "website/charts/${train}/${chartname}/CHANGELOG.md" "${target}/CHANGELOG.md" 2>/dev/null || :
     sed -i '1d' "${target}/CHANGELOG.md"
     sed -i '1s/^/*for the complete changelog, please refer to the website*\n\n/' "${target}/CHANGELOG.md"
     sed -i '1s/^/**Important:**\n/' "${target}/CHANGELOG.md"
@@ -87,12 +87,12 @@ patch_apps() {
     # Generate SCALE App description file
     cat ${target}/Chart.yaml | yq .description -r >> ${target}/app-readme.md
     echo "" >> ${target}/app-readme.md
-    echo "This App is supplied by TrueCharts, for more information visit the manual: [https://truecharts.org/docs/charts/${train}/${chartname}](https://truecharts.org/docs/charts/${train}/${chartname})" >> ${target}/app-readme.md
+    echo "This App is supplied by TrueCharts, for more information visit the manual: [https://truecharts.org/charts/${train}/${chartname}](https://truecharts.org/charts/${train}/${chartname})" >> ${target}/app-readme.md
     echo "" >> ${target}/app-readme.md
     echo "---" >> ${target}/app-readme.md
     echo "" >> ${target}/app-readme.md
     echo "TrueCharts can only exist due to the incredible effort of our staff." >> ${target}/app-readme.md
-    echo "Please consider making a [donation](https://truecharts.org/docs/about/sponsor) or contributing back to the project any way you can!" >> ${target}/app-readme.md
+    echo "Please consider making a [donation](https://truecharts.org/about/sponsor) or contributing back to the project any way you can!" >> ${target}/app-readme.md
 }
 export -f patch_apps
 
