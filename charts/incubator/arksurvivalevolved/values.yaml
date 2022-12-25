@@ -19,11 +19,14 @@ ark:
   game_id: "376030"
   rcon_enabled: true
   game_params: []
-  game_params_extra:
-    - -server
-    - -log
-    - -crossplay"
+  game_params_extra: []
+  easy_game_extra_params:
+    server: true
+    log: true
+    crossplay: true
   map: TheIsland
+  # Used only for SCALE GUI
+  custom_map: ""
   server_name: ""
   validate: false
 
