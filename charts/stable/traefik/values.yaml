@@ -139,7 +139,6 @@ service:
     ports:
       main:
         port: 9000
-        targetPort: 9000
         protocol: HTTP
         # -- Forwarded Headers should never be enabled on Main entrypoint
         forwardedHeaders:
@@ -192,7 +191,7 @@ service:
           insecureMode: false
   #      tcpexample:
   #        enabled: true
-  #        targetPort: 9443
+  #        port: 9999
   #        protocol: TCP
   #        tls:
   #          enabled: false
@@ -211,7 +210,6 @@ service:
       metrics:
         enabled: true
         port: 9180
-        targetPort: 9180
         protocol: HTTP
         # -- Forwarded Headers should never be enabled on Metrics entrypoint
         forwardedHeaders:
