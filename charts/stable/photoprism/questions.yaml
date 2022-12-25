@@ -48,12 +48,6 @@ questions:
           schema:
             type: boolean
             default: false
-        - variable: useRamDisk
-          label: Use RAM Disk for Temp files
-          description: Caution, if you process a lot of files, you might run out of memory
-          schema:
-            type: boolean
-            default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -86,6 +80,14 @@ questions:
         - variable: storage
           label: "App Storage"
           description: "Stores the Application Configuration."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: temp
+          label: "App Temp Files"
+          description: "Stores the Application Temp Files."
           schema:
             additional_attrs: true
             type: dict
