@@ -8,6 +8,25 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
+  - variable: secretEnv
+    group: "App Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: USER
+          label: User Name
+          description: Optionally set a User Name
+          schema:
+            type: string
+            default: "rstudio"
+        - variable: PASSWORD
+          label: User Password
+          description: Optionally set a Password
+          schema:
+            type: string
+            default: ""
   - variable: env
     group: "App Configuration"
     label: "Image Environment"
@@ -15,24 +34,18 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: PASSWORD
-          label: "PASSWORD"
-          description: "Container Variable PASSWORD"
+        - variable: DISABLE_AUTH
+          label: Disable Auth
+          description: Disable authentication for RStudio Server.
           schema:
-            type: string
-            default: "yourpasswordhere"
+            type: boolean
+            default: false
         - variable: ROOT
-          label: "ROOT"
-          description: "Give the user root permissions"
+          label: Root
+          description:  If set to true, the default non-root user will be added to the sudoers group when the server init process.
           schema:
-            type: string
-            default: "FALSE"
-        - variable: ADD
-          label: "ADD"
-          description: "Input shiny without quotes to add shiny server"
-          schema:
-            type: string
-            default: "shiny"
+            type: boolean
+            default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -57,36 +70,22 @@ questions:
                               type: int
                               default: 8787
                               required: true
-        - variable: hostport2
-          label: 'hostport2 service'
-          description: "Required for shiny server"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: hostport2
-                      label: "hostport2 Service Port Configuration"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 3838
-                              required: true
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: userdatadirectory
-          label: "userdatadirectory Storage"
-          description: "Shared folder for saving your files"
+        - variable: config
+          label: "App Config Storage"
+          description: "Stores the Application Configuration."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: workspace
+          label: "App WorkSpace Storage"
+          description: "Stores the Application WorkSpace."
           schema:
             additional_attrs: true
             type: dict

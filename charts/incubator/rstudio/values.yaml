@@ -1,36 +1,41 @@
-env:
-  ADD: shiny
-  PASSWORD: yourpasswordhere
-  ROOT: "FALSE"
 image:
+  repository: rocker/rstudio
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/rstudio
-  tag: latest@sha256:66604649adaf7738e901f48f7d9865813d187ee7f8510d7510e4680dbd941318
-persistence:
-  userdatadirectory:
-    enabled: true
-    mountPath: /home/rstudio/Documents
+  tag: 4.2.2@sha256:320a4cdcda8402045b0e595e35c56620073abeb178f60efbb5d34e8371842d9b
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
+secretEnv:
+  USER: rstudio
+  PASSWORD: rstudio
+
+env:
+  DISABLE_AUTH: false
+  ROOT: "FALSE"
+  USERID: "{{ .Values.podSecurityContext.runAsUser }}"
+  GROUPID: "{{ .Values.podSecurityContext.runAsGroup }}"
+
 service:
-  hostport2:
-    enabled: true
-    ports:
-      hostport2:
-        enabled: true
-        port: 3838
-        protocol: TCP
-        targetPort: 3838
   main:
     ports:
       main:
         port: 8787
         protocol: HTTP
         targetPort: 8787
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /home/rstudio/.config/rstudio
+  workspace:
+    enabled: true
+    mountPath: /home/rstudio/workspace
 
 portal:
   enabled: true
