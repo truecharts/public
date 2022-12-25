@@ -59,6 +59,8 @@ jobs:
               echo "Rendering helm-template for ${chartname}"
               mkdir -p ${chart}/render
               helm template ${chart} >> ${chart}/render/app.yaml || echo "Helm template failed..."
+              rm -rf website/docs/charts/${train}/${chartname}/helm-security.md || echo "removing old helm-security file failed..."
+              rm -rf website/docs/charts/${train}/${chartname}/container-security.md || echo "removing old container-security file failed..."
           }
           helm_sec_scan() {
               local chart="$1"
@@ -66,7 +68,6 @@ jobs:
               local train="$3"
               echo "Scanning helm security for ${chartname}"
               mkdir -p ${chart}/render
-              rm -rf website/docs/charts/${train}/${chartname}/helm-security.md || echo "removing old helm-security file failed..."
               echo "# Helm Security" >> website/docs/charts/${train}/${chartname}/helm-security.md
               echo "" >> website/docs/charts/${train}/${chartname}/helm-security.md
               echo "## Helm-Chart" >> website/docs/charts/${train}/${chartname}/helm-security.md
@@ -81,7 +82,6 @@ jobs:
               local train="$3"
               echo "Scanning container security for ${chartname}"
               mkdir -p ${chart}/render
-              rm -rf website/docs/charts/${train}/${chartname}/container-security.md || echo "removing old container-security file failed..."
               echo "# Container Security" >> website/docs/charts/${train}/${chartname}/container-security.md
               echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
               echo "##### Detected Containers" >> website/docs/charts/${train}/${chartname}/container-security.md
