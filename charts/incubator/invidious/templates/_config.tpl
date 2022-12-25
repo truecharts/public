@@ -164,7 +164,11 @@ stringData:
       # Video Playback Settigns
       quality: {{ $vVidPlay.quality }}
       quality_dash: {{ $vVidPlay.quality_dash }}
+      {{- if not (contains "." (toString $vVidPlay.speed)) }}
+      speed: {{ printf "%s.00" (toString $vVidPlay.speed) }}
+      {{- else }}
       speed: {{ $vVidPlay.speed | float64 }}
+      {{- end }}
       volume: {{ $vVidPlay.volume }}
       vr_mode: {{ $vVidPlay.vr_mode }}
 
