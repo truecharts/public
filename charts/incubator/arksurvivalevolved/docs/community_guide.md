@@ -10,7 +10,8 @@
 
 ## Game ID
 
-Set `Game ID` to **ARK Survival Evolved** or **ARK Survival of the Fittest**
+Set `Game ID` to **ARK Survival Evolved** or **ARK Survival of the Fittest**.
+
 `Validate` is set to true as default, verifies the game installation.
 
 > Ark Survival Evolved supports anonymous login while _Fittest_ does **not**.
