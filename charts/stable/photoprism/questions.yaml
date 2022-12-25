@@ -22,7 +22,7 @@ questions:
             type: string
             required: true
             private: true
-            default: "REPLACETHIS"
+            default: ""
   - variable: env
     group: "App Configuration"
     label: "Image Environment"
@@ -45,6 +45,12 @@ questions:
         - variable: PHOTOPRISM_PUBLIC
           label: "PHOTOPRISM_PUBLIC"
           description: "Disable authentication / password protection"
+          schema:
+            type: boolean
+            default: false
+        - variable: useRamDisk
+          label: Use RAM Disk for Temp files
+          description: Caution, if you process a lot of files, you might run out of memory
           schema:
             type: boolean
             default: false

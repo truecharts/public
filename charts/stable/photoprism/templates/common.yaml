@@ -1,1 +1,9 @@
-{{ include "tc.common.loader.all" . }}
+{{ include "tc.common.loader.init" . }}
+
+{{- if .Values.env.useRamDisk -}}
+  {{- $_ := set .Values.persistence.temp "medium" "Memory" -}}
+{{- else -}}
+  {{- $_ := unset .Values.persistence.temp "medium" -}}
+{{- end -}}
+
+{{ include "tc.common.loader.apply" . }}
