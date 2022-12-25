@@ -114,11 +114,10 @@ questions:
                       description: Force connection to youtube over a specific IP family.
                       schema:
                         type: string
-                        required: true
                         default: ""
                         enum:
                           - value: ""
-                            description: Default
+                            description: No Force
                           - value: ipv4
                             description: ipv4
                           - value: ipv6
@@ -946,7 +945,6 @@ questions:
                       description: Default feed to display on the home page.
                       schema:
                         type: string
-                        required: true
                         default: ""
                         enum:
                           - value: ""
