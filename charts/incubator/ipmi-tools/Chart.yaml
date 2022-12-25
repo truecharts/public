@@ -9,7 +9,7 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.9
+    version: 11.1.0
 deprecated: false
 description: This is a Chart with a webGUI to manage a Dell servers fan speeds using IPMI. You must enable IPMI from iDRAC. You can pass credentials through environment variables or enter them in the webGUI at runtime.
 home: https://truecharts.org/charts/incubator/ipmi-tools
@@ -30,4 +30,4 @@ sources:
   - https://github.com/EdwardChamberlain/IPMI-Fan-Controller
   - https://hub.docker.com/r/edchamberlain/ipmi-tools
 type: application
-version: 2.0.4
+version: 2.0.5
