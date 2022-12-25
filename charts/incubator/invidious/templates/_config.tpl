@@ -59,7 +59,7 @@ stringData:
     registration_enabled: {{ $vUserAcc.registration_enabled }}
     login_enabled: {{ $vUserAcc.login_enabled }}
     captcha_enabled: {{ $vUserAcc.captcha_enabled }}
-    {{- if $vUserAcc.admins -}}
+    {{- if $vUserAcc.admins }}
     admins:
       {{- range $vUserAcc.admins }}
       - {{ . }}
