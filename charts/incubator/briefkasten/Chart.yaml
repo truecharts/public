@@ -3,11 +3,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.9
+    version: 11.1.0
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 11.0.13
+    version: 11.0.15
 deprecated: false
 description: Self-hosted bookmarking application.
 home: https://truecharts.org/docs/charts/incubator/briefkasten
@@ -24,7 +24,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/briefkasten
   - https://github.com/ndom91/briefkasten
 type: application
-version: 0.0.2
+version: 0.0.3
 annotations:
   truecharts.org/catagories: |
     - bookmark
