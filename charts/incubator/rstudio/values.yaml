@@ -1,7 +1,7 @@
 image:
-  repository: rocker/rstudio
+  repository: tccr.io/truecharts/rstudio
   pullPolicy: IfNotPresent
-  tag: 4.2.2@sha256:320a4cdcda8402045b0e595e35c56620073abeb178f60efbb5d34e8371842d9b
+  tag: v4.2.2@sha256:0902a2549c17caf1a4755f95b804685659b2162b3325d2483ad20cefc20d1db6
 
 podSecurityContext:
   runAsGroup: 0
