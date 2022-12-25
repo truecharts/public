@@ -59,8 +59,6 @@ jobs:
               echo "Rendering helm-template for ${chartname}"
               mkdir -p ${chart}/render
               helm template ${chart} >> ${chart}/render/app.yaml || echo "Helm template failed..."
-              rm -rf website/docs/charts/${train}/${chartname}/helm-security.md || echo "removing old helm-security file failed..."
-              rm -rf website/docs/charts/${train}/${chartname}/container-security.md || echo "removing old container-security file failed..."
           }
           helm_sec_scan() {
               local chart="$1"
@@ -68,6 +66,7 @@ jobs:
               local train="$3"
               echo "Scanning helm security for ${chartname}"
               mkdir -p ${chart}/render
+              rm -rf website/docs/charts/${train}/${chartname}/helm-security.md || echo "removing old helm-security file failed..."
               echo "# Helm Security" >> website/docs/charts/${train}/${chartname}/helm-security.md
               echo "" >> website/docs/charts/${train}/${chartname}/helm-security.md
               echo "## Helm-Chart" >> website/docs/charts/${train}/${chartname}/helm-security.md
@@ -82,6 +81,7 @@ jobs:
               local train="$3"
               echo "Scanning container security for ${chartname}"
               mkdir -p ${chart}/render
+              rm -rf website/docs/charts/${train}/${chartname}/container-security.md || echo "removing old container-security file failed..."
               echo "# Container Security" >> website/docs/charts/${train}/${chartname}/container-security.md
               echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
               echo "##### Detected Containers" >> website/docs/charts/${train}/${chartname}/container-security.md
@@ -109,14 +109,14 @@ jobs:
               echo "sanitising website output for ${chartname}..."
               rm -rf ${chart}/render
               sed -i 's|<br>|<br />|g' website/docs/charts/${train}/${chartname}/helm-security.md
-              # sed -i 's|<br>|<br />|g' website/docs/charts/${train}/${chartname}/container-security.md
+              sed -i 's|<br>|<br />|g' website/docs/charts/${train}/${chartname}/container-security.md
               sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/helm-security.md
-              # sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/container-security.md
+              sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/container-security.md
               }
           for train in enterprise stable incubator dependency; do
             echo "Processing Charts for Train: ${train}..."
             for chart in $(ls "charts/${train}"); do
-              render "charts/${train}/${chart}" ${chart} ${train} && helm_sec_scan "charts/${train}/${chart}" ${chart} ${train} && cleanfiles "charts/${train}/${chart}" ${chart} ${train} || echo "processing failed for ${chart}"
+              render "charts/${train}/${chart}" ${chart} ${train} && helm_sec_scan "charts/${train}/${chart}" ${chart} ${train} && container_sec_scan "charts/${train}/${chart}" ${chart} ${train} && cleanfiles "charts/${train}/${chart}" ${chart} ${train} || echo "processing failed for ${chart}"
             done
           done
           echo "finsihed security scan"
