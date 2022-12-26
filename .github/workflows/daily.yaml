@@ -95,6 +95,7 @@ jobs:
             for chart in $(ls "charts/${train}"); do
               echo "Correcting Chart.yaml for Chart: ${chart}..."
               sync_tag "charts/${train}/${chart}" "${chart}" "${train}"
+            done
           done
           
       - name: Cleanup
