@@ -7,6 +7,8 @@ jobs:
   generate-readme:
     runs-on: ubuntu-latest
     name: "Generate readme files"
+    container:
+      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:f0ecaa533663f88346b745eb497f6f6acf63561ad88e345cd71c8280963b8c1e
     steps:
       - name: Checkout
         uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
@@ -113,6 +115,7 @@ jobs:
           
   generate-security-reports:
     runs-on: ubuntu-latest
+    name: Generate Security Reports"
     container:
       image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:f0ecaa533663f88346b745eb497f6f6acf63561ad88e345cd71c8280963b8c1e
     steps:
