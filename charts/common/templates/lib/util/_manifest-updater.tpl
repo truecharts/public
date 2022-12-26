@@ -1,6 +1,6 @@
 {{- define "tc.common.lib.util.manifest.update" -}}
 {{- if .Values.manifests.enabled }}
-{{- $fullName := include "tc.common.names.fullname" . -}}
+{{- $fullName := include "tc.common.names.fullname" . }}
 ---
 apiVersion: batch/v1
 kind: Job
@@ -29,16 +29,15 @@ spec:
             - |
               /bin/sh <<'EOF'
               echo "installing manifests..."
-              kubectl apply --server-side --force-conflicts  -k https://github.com/truecharts/manifests/{{ if .Values.manifests.staging }}staging{{ else }}manifests{{ end }} {{ if .Values.manifests.nonBlocking }} || echo "Manifest application failed..."{{ end }}
+              kubectl apply --server-side --force-conflicts -k https://github.com/truecharts/manifests/{{ if .Values.manifests.staging }}staging{{ else }}manifests{{ end }} {{ if .Values.manifests.nonBlocking }} || echo "Manifest application failed..."{{ end }}
               EOF
           volumeMounts:
-            - name: temp
+            - name: {{ $fullName }}-manifests-temp
               mountPath: /tmp
       restartPolicy: Never
-      {{- with (include "tc.common.controller.volumes" . | trim) }}
       volumes:
-        {{- nindent 8 . }}
-      {{- end }}
+        - name: {{ $fullName }}-manifests-temp
+          emptyDir: {}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole

@@ -14,10 +14,11 @@ before chart installation.
   {{- end -}}
 {{- end }}
 {{- if or $autoperms ( and ( .Values.addons.vpn.configFile.enabled ) ( ne .Values.addons.vpn.type "disabled" ) ( ne .Values.addons.vpn.type "tailscale" ) ) }}
-- name: db-wait
+- name: auto-permissions
   image: {{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}
   securityContext:
     runAsUser: 0
+    runAsNonRoot: false
   resources:
   {{- with .Values.resources }}
     {{- tpl ( toYaml . ) $ | nindent 4 }}
@@ -37,7 +38,6 @@ before chart installation.
       /usr/bin/nfs4xdr_winacl -a chown -G {{ $group }} -r -c {{ tpl $hpm.mountPath $ | squote }} -p {{ tpl $hpm.mountPath $ | squote }} || echo "Failed setting permissions..."
       {{- end }}
       EOF
-
   volumeMounts:
     {{- range $name, $hpm := $hostPathMounts }}
     - name: {{ $name }}
@@ -208,7 +208,6 @@ before chart installation.
         done
       fi;
       {{- end }}
-
       EOF
 {{- end }}
 {{- end -}}
