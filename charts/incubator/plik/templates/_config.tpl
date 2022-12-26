@@ -16,16 +16,11 @@ stringData:
     Path                  = ""
     SslEnabled            = false
     SslCert               = "plik.crt"
-    SslKey               = "plik.key"
+    SslKey                = "plik.key"
     NoWebInterface        = false
     WebappDirectory       = "../webapp/dist"
     ClientsDirectory      = "../clients"
     ChangelogDirectory    = "../changelog"
-    [MetadataBackendConfig]
-        Driver = "postgres"
-        ConnectionString = {{ .Values.postgresql.url.complete | trimAll "\"" | quote }}
-        Debug = false
-
     Debug                 = {{ .Values.plik.general.debug }}
     DebugRequests         = {{ .Values.plik.general.debug_requests }}
     LogLevel              = {{ .Values.plik.general.log_level | quote }}
@@ -87,28 +82,32 @@ stringData:
 
     {{- $backend := .Values.plik.files.data_backend -}}
     DataBackend           = {{ $backend | quote }}
+    [MetadataBackendConfig]
+        Driver            = "postgres"
+        ConnectionString  = {{ .Values.postgresql.url.complete | trimAll "\"" | quote }}
+        Debug             = {{ .Values.plik.general.debug }}
     [DataBackendConfig]
     {{- if eq $backend "file" }}
-        Directory           = {{ .Values.persistence.data.mountPath | quote }}
+        Directory         = {{ .Values.persistence.data.mountPath | quote }}
     {{- else if eq $backend "gcs" }}
-        Bucket              = {{ .Values.plik.files.gcs.bucket | quote }}
-        Folder              = {{ .Values.plik.files.gcs.folder | quote }}
+        Bucket            = {{ .Values.plik.files.gcs.bucket | quote }}
+        Folder            = {{ .Values.plik.files.gcs.folder | quote }}
     {{- else if eq $backend "s3" }}
-        Endpoint            = {{ .Values.plik.files.s3.endpoint | quote }}
-        AccessKeyID         = {{ .Values.plik.files.s3.access_key_id | quote }}
-        SecretAccessKey     = {{ .Values.plik.files.s3.secret_access_key | quote }}
-        Bucket              = {{ .Values.plik.files.s3.bucket | quote }}
-        Location            = {{ .Values.plik.files.s3.location | quote }}
-        Prefix              = {{ .Values.plik.files.s3.prefix | quote }}
-        UseSSL              = {{ .Values.plik.files.s3.use_ssl }}
-        PartSize            = {{ .Values.plik.files.s3.part_size | int }}
-        SSE                 = {{ .Values.plik.files.s3.sse | quote }}
+        Endpoint          = {{ .Values.plik.files.s3.endpoint | quote }}
+        AccessKeyID       = {{ .Values.plik.files.s3.access_key_id | quote }}
+        SecretAccessKey   = {{ .Values.plik.files.s3.secret_access_key | quote }}
+        Bucket            = {{ .Values.plik.files.s3.bucket | quote }}
+        Location          = {{ .Values.plik.files.s3.location | quote }}
+        Prefix            = {{ .Values.plik.files.s3.prefix | quote }}
+        UseSSL            = {{ .Values.plik.files.s3.use_ssl }}
+        PartSize          = {{ .Values.plik.files.s3.part_size | int }}
+        SSE               = {{ .Values.plik.files.s3.sse | quote }}
     {{- else if eq $backend "swift" }}
-        Container           = {{ .Values.plik.files.swift.container | quote }}
-        AuthUrl             = {{ .Values.plik.files.swift.auth_url | quote }}
-        UserName            = {{ .Values.plik.files.swift.username | quote }}
-        ApiKey              = {{ .Values.plik.files.swift.api_key | quote }}
-        Domain              = {{ .Values.plik.files.swift.domain | quote }}
-        Tenant              = {{ .Values.plik.files.swift.tenant | quote }}
+        Container         = {{ .Values.plik.files.swift.container | quote }}
+        AuthUrl           = {{ .Values.plik.files.swift.auth_url | quote }}
+        UserName          = {{ .Values.plik.files.swift.username | quote }}
+        ApiKey            = {{ .Values.plik.files.swift.api_key | quote }}
+        Domain            = {{ .Values.plik.files.swift.domain | quote }}
+        Tenant            = {{ .Values.plik.files.swift.tenant | quote }}
     {{- end -}}
 {{- end -}}
