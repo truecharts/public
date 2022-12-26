@@ -85,7 +85,7 @@ persistence:
     volumeSpec:
       secret:
         secretName: '{{ include "tc.common.names.fullname" . }}-plik-secret'
-        defaultMode: "0600"
+        defaultMode: 0600
 
 postgresql:
   enabled: true
