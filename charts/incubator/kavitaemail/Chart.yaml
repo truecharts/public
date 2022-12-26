@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: kavitaemail
-version: 2.0.6
+version: 2.0.7
 appVersion: "0.1.11"
 description: Simple email relay server for kavita.
 type: application
@@ -19,7 +19,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.0
+    version: 11.1.1
     # condition:
 maintainers:
   - email: info@truecharts.org
