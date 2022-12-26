@@ -80,7 +80,7 @@ stringData:
     OvhApiSecret            = {{ .Values.plik.third_party.ovh_api_secret | quote }}
     OvhApiEndpoint        = {{ .Values.plik.third_party.ovh_api_endpoint | quote }}
 
-    {{- $backend := .Values.plik.files.data_backend -}}
+    {{- $backend := .Values.plik.files.data_backend }}
     DataBackend           = {{ $backend | quote }}
     [MetadataBackendConfig]
         Driver            = "postgres"
