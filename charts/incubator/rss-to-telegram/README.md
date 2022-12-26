@@ -1,92 +1,14 @@
-# rss-to-telegram
+# README
 
-A self-hosted telegram JS/TS bot that dumps posts from RSS feeds to a telegram chat. This script was created because all the third party services were unreliable, slow.
+## General Info
 
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
+However only installations using the TrueNAS SCALE Apps system are supported.
 
-This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [rss-to-telegram](https://truecharts.org/docs/charts/incubator/rss-to-telegram)
+For more information about this App, please check the docs on the TrueCharts [website](https://truecharts.org/docs/charts/incubator/)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
-## Source Code
-
-* <https://github.com/truecharts/charts/tree/master/charts/incubator/rss-to-telegram>
-* <https://github.com/BoKKeR/RSS-to-Telegram-Bot>
-* <https://hub.docker.com/r/bokker/rss.to.telegram>
-
-## Requirements
-
-Kubernetes: `>=1.16.0-0`
-
-## Dependencies
-
-| Repository | Name | Version |
-|------------|------|---------|
-| https://library-charts.truecharts.org | common | 10.9.4 |
-
-## Installing the Chart
-
-### TrueNAS SCALE
-
-To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Installing-an-App).
-
-### Helm
-
-To install the chart with the release name `rss-to-telegram`
-
-```console
-helm repo add TrueCharts https://charts.truecharts.org
-helm repo update
-helm install rss-to-telegram TrueCharts/rss-to-telegram
-```
-
-## Uninstall
-
-### TrueNAS SCALE
-
-**Upgrading, Rolling Back and Uninstalling the Chart**
-
-To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Upgrade-rollback-delete-an-App).
-
-### Helm
-
-To uninstall the `rss-to-telegram` deployment
-
-```console
-helm uninstall rss-to-telegram
-```
-
-## Configuration
-
-### Helm
-
-#### Available Settings
-
-Read through the values.yaml file. It has several commented out suggested values.
-Other values may be used from the [values.yaml](https://github.com/truecharts/library-charts/tree/main/charts/stable/common/values.yaml) from the [common library](https://github.com/truecharts/library-charts/tree/main/charts/common).
-
-#### Configure using the command line
-
-Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
-
-```console
-helm install rss-to-telegram \
-  --set env.TZ="America/New York" \
-    TrueCharts/rss-to-telegram
-```
-
-#### Configure using a yaml file
-
-Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart.
-
-```console
-helm install rss-to-telegram TrueCharts/rss-to-telegram -f values.yaml
-```
-
-#### Connecting to other charts
-
-If you need to connect this Chart to other Charts on TrueNAS SCALE, please refer to our [Linking Charts Internally](https://truecharts.org/docs/manual/SCALE%20Apps/linking-apps) quick-start guide.
 
 ## Support
 
@@ -102,6 +24,4 @@ If you need to connect this Chart to other Charts on TrueNAS SCALE, please refer
 TrueCharts can only exist due to the incredible effort of our staff.
 Please consider making a [donation](https://truecharts.org/sponsor) or contributing back to the project any way you can!
 
----
-
-All Rights Reserved - The TrueCharts Project
+*All Rights Reserved - The TrueCharts Project*
