@@ -109,6 +109,7 @@ jobs:
         run: |
           git config user.name "TrueCharts-Bot"
           git config user.email "bot@truecharts.org"
+          git pull
           git add --all
           git commit -sm "Commit daily changes" || exit 0
           git push
@@ -234,6 +235,7 @@ jobs:
           cd website
           git config user.name "TrueCharts-Bot"
           git config user.email "bot@truecharts.org"
+          git pull
           git add --all
           git commit -sm "Commit released docs for TrueCharts" || exit 0
           git push
