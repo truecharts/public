@@ -1,16 +1,12 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Productivity
 apiVersion: v2
-appVersion: "latest"
+appVersion: "4.2.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.1.1
 deprecated: false
-description: "***NOTE*** First run is slow."
-home: https://truecharts.org/docs/charts/incubator/rstudio
+description: Integrated development environment for R, a programming language for statistical computing and graphics.
+home: https://truecharts.org/charts/incubator/rstudio
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rstudio.png
 keywords:
   - rstudio
@@ -23,7 +19,12 @@ maintainers:
 name: rstudio
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/rstudio
-  - https://github.com/rocker-org/rocker-versioned
+  - https://github.com/rocker-org/rocker-versioned2
   - https://hub.docker.com/r/rocker/rstudio/
 type: application
-version: 2.0.5
+version: 3.0.2
+annotations:
+  truecharts.org/catagories: |
+    - Productivity
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

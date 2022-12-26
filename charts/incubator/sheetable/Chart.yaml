@@ -3,13 +3,13 @@ appVersion: "0.8"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.1.1
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 11.0.11
+    version: 11.0.16
 description: SheetAble is an easy to use music sheet organiser for all the music enthusiasts out there.
-home: https://truecharts.org/docs/charts/incubator/sheetable
+home: https://truecharts.org/charts/incubator/sheetable
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sheetable.png
 keywords:
   - sheetable
@@ -23,7 +23,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/sheetable
   - https://sheetable.net/docs
   - https://github.com/SheetAble
-version: 3.0.10
+version: 3.0.14
 annotations:
   truecharts.org/catagories: |
     - music

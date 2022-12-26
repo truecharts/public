@@ -22,7 +22,7 @@ questions:
             type: string
             required: true
             private: true
-            default: "REPLACETHIS"
+            default: ""
   - variable: env
     group: "App Configuration"
     label: "Image Environment"
@@ -80,6 +80,14 @@ questions:
         - variable: storage
           label: "App Storage"
           description: "Stores the Application Configuration."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: photoprismtemp
+          label: "App Temp Files"
+          description: "Stores the Application Temp Files."
           schema:
             additional_attrs: true
             type: dict

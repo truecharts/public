@@ -36,7 +36,7 @@ data:
   LDAP_PASSWORD: {{ .Values.authentication_backend.ldap.plain_password | b64enc | quote }}
   {{- end }}
 
-  {{- if .Values.notifier.smtp.enabled }}
+  {{- if and .Values.notifier.smtp.enabled .Values.notifier.smtp.plain_password }}
   SMTP_PASSWORD: {{ .Values.notifier.smtp.plain_password | b64enc | quote }}
   {{- end }}
 

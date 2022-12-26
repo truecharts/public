@@ -32,11 +32,11 @@ All our charts are supposed to work together, be easy to setup using the TrueNAS
 
 Installing TrueCharts within TrueNAS SCALE, is possible using the TrueNAS SCALE Catalog list.
 
-Check TrueCharts [Quick-Start Guides](https://truecharts.org/docs/manual/guides/Adding-TrueCharts) for more information.
+Check TrueCharts [Quick-Start Guides](https://truecharts.org/manual/guides/Adding-TrueCharts) for more information.
 
 ### Support
 
-Please check our [FAQ](https://truecharts.org/docs/manual/FAQ), [manual](https://truecharts.org/docs/manual/intro/) and [Issue tracker](https://github.com/truecharts/charts/issues) There is a significant chance your issue has been reported before!
+Please check our [FAQ](https://truecharts.org/manual/FAQ), [manual](https://truecharts.org/manual/intro/) and [Issue tracker](https://github.com/truecharts/charts/issues) There is a significant chance your issue has been reported before!
 
 Still something not working as expected? [Contact us!](https://discord.gg/tVsPTHWTtr) and we'll figure it out together!
 

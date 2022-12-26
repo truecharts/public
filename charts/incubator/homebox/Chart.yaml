@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: "0.6.0"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 11.1.1
+deprecated: false
+description: Inventory and organization system built for the Home User.
+home: https://truecharts.org/charts/incubator/homebox
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/homebox.png
+keywords:
+  - homebox
+  - inventory
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: homebox
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/homebox
+  - https://github.com/hay-kot/homebox
+type: application
+version: 0.0.3
+annotations:
+  truecharts.org/catagories: |
+    - inventory
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

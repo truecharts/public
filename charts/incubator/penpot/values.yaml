@@ -1,0 +1,136 @@
+image:
+  repository: tccr.io/truecharts/penpot-frontend
+  pullPolicy: IfNotPresent
+  tag: 1.16.2@sha256:c41349dcd43eccf1bf61809e9d46d54dcb22bfbd31c6fb199630e2fbec54d628
+
+backendImage:
+  repository: tccr.io/truecharts/penpot-backend
+  pullPolicy: IfNotPresent
+  tag: 1.16.2@sha256:99997f7640b27274f0b1570cd8c839266661e54a3314dd1f1caf4dd1220de752
+
+exporterImage:
+  repository: tccr.io/truecharts/penpot-exporter
+  pullPolicy: IfNotPresent
+  tag: 1.16.2@sha256:8104c3dd90001ca94023b4e0f6a47bdd3868610a31f25fb2aa9e61d2f10130b3
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+hostAliases:
+  - ip: 127.0.0.1
+    hostnames:
+      - penpot-backend
+      - penpot-exporter
+      - penpot-frontend
+
+penpot:
+  public_uri: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+  flags:
+    registration: true
+    insecure_register: false
+    login: true
+    demo_users: false
+    demo_warning: false
+    user_feedback: false
+    mail_verification: true
+    log_invitation_token: false
+    log_emails: false
+    secure_session_cookies: true
+    cors: false
+    backend_api_doc: false
+  telemetry_enabled: false
+  registration_domain_whitelist: []
+  smtp:
+    enabled: false
+    default_from: "no-reply@example.com"
+    default_reply_to: "no-reply@example.com"
+    tls: true
+    ssl: false
+    host: ""
+    port: 587
+    user: ""
+    pass: ""
+  identity_providers:
+    google:
+      enabled: false
+      client_id: ""
+      client_secret: ""
+    github:
+      enabled: false
+      client_id: ""
+      client_secret: ""
+    gitlab:
+      enabled: false
+      base_uri: ""
+      client_id: ""
+      client_secret: ""
+    oidc:
+      enabled: false
+      base_uri: ""
+      client_id: ""
+      client_secret: ""
+    ldap:
+      enabled: false
+      host: ""
+      port: 10389
+      ssl: false
+      starttls: false
+      base_dn: ""
+      bind_dn: ""
+      bind_pass: ""
+      attrs_username: ""
+      attrs_email: ""
+      attrs_fullname: ""
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-common-secret'
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-frontend-secret'
+
+probes:
+  liveness:
+    type: HTTP
+    path: /
+  readiness:
+    type: HTTP
+    path: /
+  startup:
+    type: HTTP
+    path: /
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 80
+        port: 10592
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /opt/data
+    noMount: true
+  assets:
+    enabled: true
+    mountPath: /opt/data/assets
+
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlDatabase: penpot
+  postgresqlUsername: penpot
+
+redis:
+  enabled: true
+  existingSecret: rediscreds
+  redisUsername: penpot
+
+portal:
+  enabled: true

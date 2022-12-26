@@ -13,7 +13,7 @@ env:
   HOME: "/photoprism"
   PHOTOPRISM_ORIGINALS_PATH: "/photoprism/originals"
   PHOTOPRISM_IMPORT_PATH: "/photoprism/import"
-  PHOTOPRISM_TEMP_PATH: "/photoprism/temp"
+  PHOTOPRISM_TEMP_PATH: "/photoprism_temp"
   PHOTOPRISM_STORAGE_PATH: "/assets/storage"
   PHOTOPRISM_SIDECAR_PATH: "/assets/sidecar"
   PHOTOPRISM_CACHE_PATH: "/assets/cache"
@@ -46,9 +46,9 @@ persistence:
   storage:
     enabled: true
     mountPath: "/assets"
-  temp:
+  photoprismtemp:
     enabled: true
-    mountPath: "/photoprism/temp"
+    mountPath: "/photoprism_temp"
     type: emptyDir
 
 mariadb:

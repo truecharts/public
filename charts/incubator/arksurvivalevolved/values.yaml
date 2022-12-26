@@ -11,27 +11,36 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 
-secretEnv:
-  SRV_ADMIN_PWD: ""
-  SRV_PWD: ""
-  USERNAME: ""
-  PASSWRD: ""
+ark:
+  srv_admin_pass: ""
+  srv_password: ""
+  username: ""
+  password: ""
+  game_id: "376030"
+  rcon_enabled: true
+  game_params: []
+  game_params_extra: []
+  easy_game_extra_params:
+    server: true
+    log: true
+    crossplay: true
+  map: TheIsland
+  # Used only for SCALE GUI
+  custom_map: ""
+  server_name: ""
+  validate: false
 
-env:
-  GAME_ID: "376030"
-  GAME_PARAMS: "?RCONPort=27020?RCONEnabled=True"
-  GAME_PARAMS_EXTRA: -server -log -crossplay
-  MAP: TheIsland
-  SERVER_NAME: ""
-  VALIDATE: false
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
 
 probes:
   liveness:
-    port: "{{ .Values.service.rcontcp.ports.rcontcp.targetPort }}"
+    port: "{{ .Values.service.rcontcp.ports.rcontcp.port }}"
   readiness:
-    port: "{{ .Values.service.rcontcp.ports.rcontcp.targetPort }}"
+    port: "{{ .Values.service.rcontcp.ports.rcontcp.port }}"
   startup:
-    port: "{{ .Values.service.rcontcp.ports.rcontcp.targetPort }}"
+    port: "{{ .Values.service.rcontcp.ports.rcontcp.port }}"
 
 service:
   main:
@@ -39,15 +48,14 @@ service:
       main:
         port: 7777
         protocol: UDP
-        targetPort: 7777
   udp2:
     enabled: true
     ports:
       udp2:
         enabled: true
+        # This should always be main +1
         port: 7778
         protocol: UDP
-        targetPort: 7778
   udpsteam:
     enabled: true
     ports:
@@ -55,7 +63,6 @@ service:
         enabled: true
         port: 27015
         protocol: UDP
-        targetPort: 27015
   rcontcp:
     enabled: true
     ports:
@@ -63,7 +70,6 @@ service:
         enabled: true
         port: 27020
         protocol: TCP
-        targetPort: 27020
 
 persistence:
   serverfiles:

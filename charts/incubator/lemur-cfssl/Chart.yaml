@@ -7,10 +7,10 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.1.1
 deprecated: false
 description: "Lemur manages TLS certificate creation. While not able to issue certificates itself, Lemur acts as a broker between CAs and environments providing a central portal for developers to issue TLS certificates with 'sane' defaults."
-home: https://truecharts.org/docs/charts/incubator/lemur-cfssl
+home: https://truecharts.org/charts/incubator/lemur-cfssl
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lemur-cfssl.png
 keywords:
   - lemur-cfssl
@@ -26,4 +26,4 @@ sources:
   - https://github.com/Netflix/lemur
   - https://hub.docker.com/r/halianelf/lemur/
 type: application
-version: 2.0.3
+version: 2.0.6

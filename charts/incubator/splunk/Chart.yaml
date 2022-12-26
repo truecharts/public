@@ -4,14 +4,14 @@ annotations:
     - Tools-Utilities
     - Network-Management
 apiVersion: v2
-appVersion: "9.0.2"
+appVersion: "9.0.3"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.1.1
 deprecated: false
 description: "This is a Chartfile for Splunk designed for OpenShift and TrueNAS based on Alpine Linux - https://www.splunk.com"
-home: https://truecharts.org/docs/charts/incubator/splunk
+home: https://truecharts.org/charts/incubator/splunk
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/splunk.png
 keywords:
   - splunk
@@ -28,4 +28,4 @@ sources:
   - https://splunk.github.io/docker-splunk
   - https://hub.docker.com/r/splunk/splunk
 type: application
-version: 3.0.1
+version: 3.0.5

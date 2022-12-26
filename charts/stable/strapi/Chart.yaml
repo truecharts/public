@@ -3,13 +3,13 @@ appVersion: "4.5.4"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.1.1
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 11.0.11
+    version: 11.0.16
 description: Open-source headless CMS. JavaScript, fully customizable and developer-first.
-home: https://truecharts.org/docs/charts/stable/strapi
+home: https://truecharts.org/charts/stable/strapi
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/strapi.png
 keywords:
   - strapi
@@ -25,7 +25,7 @@ sources:
   - https://truecharts.org/docs/charts/stable/strapi
   - https://hub.docker.com/r/naskio/strapi
   - https://github.com/naskio/docker-strapi
-version: 8.0.14
+version: 8.0.18
 annotations:
   truecharts.org/catagories: |
     - media

@@ -1,0 +1,40 @@
+apiVersion: v2
+appVersion: "1.16.2"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 11.1.1
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 11.0.16
+  - condition: redis.enabled
+    name: redis
+    repository: https://charts.truecharts.org
+    version: 5.0.20
+deprecated: false
+description: Open Source design and prototyping platform.
+home: https://truecharts.org/charts/incubator/penpot
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/penpot.png
+keywords:
+  - penpot
+  - media
+  - design
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: penpot
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/penpot
+  - https://github.com/penpot/penpot
+  - https://hub.docker.com/r/penpotapp/frontend
+  - https://hub.docker.com/r/penpotapp/backend
+type: application
+version: 1.0.2
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

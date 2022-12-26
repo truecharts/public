@@ -1,4 +1,4 @@
-name: "Daily Tasks"
+name: "Chore: Daily Tasks"
 
 on:
   workflow_dispatch:
@@ -13,6 +13,10 @@ jobs:
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
+          
+      - name: Setting repo parent dir as safe safe.directory
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+        
       - name: generate readme.md
         shell: bash
         run: |
@@ -38,6 +42,65 @@ jobs:
               fi
             done
           done
+          
+      - name: Bump and Sync
+        shell: bash
+        run: |
+          # Designed to ensure the appversion in Chart.yaml is in sync with the primary Chart tag if found
+          # Also makes sure that home link is pointing to the correct url
+          sync_tag() {
+              local chart="$1"
+              local chartname="$2"
+              local train="$3"
+              echo "Attempting to sync primary tag with appversion for: ${chartname}"
+              local tag="$(cat ${chart}/values.yaml | grep '^  tag: ' | awk -F" " '{ print $2 }' | head -1)"
+              tag="${tag%%@*}"
+              tag="${tag:-auto}"
+              tag=$(echo $tag | sed "s/release-//g")
+              tag=$(echo $tag | sed "s/release_//g")
+              tag=$(echo $tag | sed "s/version-//g")
+              tag=$(echo $tag | sed "s/version_//g")
+              tag="${tag#*V.}"
+              tag="${tag#*v-}"
+              tag="${tag#*v}"
+              tag="${tag%-*}"
+              tag="${tag:0:10}"
+              tag="${tag%-}"
+              tag="${tag%_}"
+              tag="${tag%.}"
+              echo "Updating tag of ${chartname} to ${tag}..."
+              sed -i -e "s|appVersion: .*|appVersion: \"${tag}\"|" "${chart}/Chart.yaml"
+              echo "Updating icon of ${chartname}..."
+              sed -i -e "s|icon: .*|icon: https:\/\/truecharts.org\/img\/hotlink-ok\/chart-icons\/${chartname}.png|" "${chart}/Chart.yaml"
+              echo "Updating home of ${chartname}..."
+              sed -i -e "s|home: .*|home: https:\/\/truecharts.org\/charts\/${train}\/${chartname}|" "${chart}/Chart.yaml"
+              echo "Attempting to update sources of ${chartname}..."
+              echo "Using go-yq verion: <$(go-yq -V)>"
+              # Get all sources (except truecharts)
+              curr_sources=$(go-yq '.sources[] | select(. != "https://github.com/truecharts*")' "${chart}/Chart.yaml")
+              # Empty sources list in-place
+              go-yq -i 'del(.sources.[])' "${chart}/Chart.yaml"
+              # Add truechart source
+              tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" go-yq -i '.sources += env(tcsource)' "${chart}/Chart.yaml"
+              # Add the rest of the sources
+              while IFS= read -r line; do
+                src="$line" go-yq -i '.sources += env(src)' "${chart}/Chart.yaml" || echo "src set error"
+              done <<< "$curr_sources"
+              echo "Sources of ${chartname} updated!"
+              }
+          export -f sync_tag
+          
+          for train in enterprise stable incubator dependency; do
+            echo "Correcting Chart.yaml for Train: ${train}..."
+            for chart in $(ls "charts/${train}"); do
+              echo "Correcting Chart.yaml for Chart: ${chart}..."
+              sync_tag "charts/${train}/${chart}" "${chart}" "${train}"
+          done
+          
+      - name: Cleanup
+        run: |
+          rm -rf changes.json
+          rm -rf master
 
       - name: Commit changes
         run: |
@@ -45,4 +108,128 @@ jobs:
           git config user.email "bot@truecharts.org"
           git add --all
           git commit -sm "Commit daily changes" || exit 0
+          git push
+          
+  generate-security-reports:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:f0ecaa533663f88346b745eb497f6f6acf63561ad88e345cd71c8280963b8c1e
+    steps:
+      - name: Install Kubernetes tools
+        uses: yokawasa/action-setup-kube-tools@b91bb02bc122bd84ac7bbea5f25ed6b0f2ec6275 # tag=v0.9.2
+        with:
+          setup-tools: |
+            helmv3
+          helm: "3.8.0"
+
+      - name: Prep Helm
+        run: |
+          helm repo add truecharts https://charts.truecharts.org
+          helm repo add truecharts-library https://library-charts.truecharts.org
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo add prometheus https://prometheus-community.github.io/helm-charts
+          helm repo update
+
+      - name: Checkout
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setting repo parent dir as safe safe.directory
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Checkout website
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
+        with:
+          fetch-depth: 1
+          repository: truecharts/website
+          token: ${{ secrets.BOT_TOKEN }}
+          path: website
+          
+      - name: fetch dependencies
+        shell: bash
+        run: |
+          .github/scripts/fetch_helm_deps.sh
+
+      - name: generate security reports
+        shell: bash
+        run: |
+          #!/bin/bash
+          render() {
+              local chart="$1"
+              local chartname="$2"
+              local train="$3"
+              echo "Rendering helm-template for ${chartname}"
+              mkdir -p ${chart}/render
+              helm template ${chart} >> ${chart}/render/app.yaml || echo "Helm template failed..."
+          }
+          helm_sec_scan() {
+              local chart="$1"
+              local chartname="$2"
+              local train="$3"
+              echo "Scanning helm security for ${chartname}"
+              mkdir -p ${chart}/render
+              rm -rf website/docs/charts/${train}/${chartname}/helm-security.md || echo "removing old helm-security file failed..."
+              echo "# Helm Security" >> website/docs/charts/${train}/${chartname}/helm-security.md
+              echo "" >> website/docs/charts/${train}/${chartname}/helm-security.md
+              echo "## Helm-Chart" >> website/docs/charts/${train}/${chartname}/helm-security.md
+              echo "" >> website/docs/charts/${train}/${chartname}/helm-security.md
+              echo "##### Scan Results" >> website/docs/charts/${train}/${chartname}/helm-security.md
+              echo "" >> website/docs/charts/${train}/${chartname}/helm-security.md
+              trivy config -f template --template "@./templates/trivy-config.tpl" ${chart}/render >> website/docs/charts/${train}/${chartname}/helm-security.md || echo "trivy scan failed..."
+              }
+          container_sec_scan() {
+              local chart="$1"
+              local chartname="$2"
+              local train="$3"
+              echo "Scanning container security for ${chartname}"
+              mkdir -p ${chart}/render
+              rm -rf website/docs/charts/${train}/${chartname}/container-security.md || echo "removing old container-security file failed..."
+              echo "# Container Security" >> website/docs/charts/${train}/${chartname}/container-security.md
+              echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
+              echo "##### Detected Containers" >> website/docs/charts/${train}/${chartname}/container-security.md
+              echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
+              find ${chart}/render/ -name '*.yaml' -type f -exec cat {} \; | grep image: | sed "s/image: //g" | sed "s/\"//g" >> ${chart}/render/containers.tmp
+              cat ${chart}/render/containers.tmp >> website/docs/charts/${train}/${chartname}/container-security.md
+              echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
+              echo "##### Scan Results" >> website/docs/charts/${train}/${chartname}/container-security.md
+              echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
+              for container in $(cat ${chart}/render/containers.tmp | sort | uniq); do
+                if [[ "$container" == *"truecharts/alpine"* || "$container" == *"truecharts/ubuntu"* || "$container" == *"truecharts/kubectl"* ]]; then
+                  echo "Skipping ${container}, as it's a shared common container..."
+                else
+                  echo "**Container: ${container}**" >> website/docs/charts/${train}/${chartname}/container-security.md
+                  echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
+                  trivy image --security-checks vuln -f template --template "@./templates/trivy-container.tpl" ${container} >> website/docs/charts/${train}/${chartname}/container-security.md || echo "trivy container scan failed..."
+                  echo "" >> website/docs/charts/${train}/${chartname}/container-security.md
+                fi
+              done
+              }
+          cleanfiles() {
+              local chart="$1"
+              local chartname="$2"
+              local train="$3"
+              echo "sanitising website output for ${chartname}..."
+              rm -rf ${chart}/render
+              sed -i 's|<br>|<br />|g' website/docs/charts/${train}/${chartname}/helm-security.md
+              sed -i 's|<br>|<br />|g' website/docs/charts/${train}/${chartname}/container-security.md
+              sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/helm-security.md
+              sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/container-security.md
+              }
+          for train in enterprise stable incubator dependency; do
+            echo "Processing Charts for Train: ${train}..."
+            for chart in $(ls "charts/${train}"); do
+              render "charts/${train}/${chart}" ${chart} ${train} && helm_sec_scan "charts/${train}/${chart}" ${chart} ${train} && container_sec_scan "charts/${train}/${chart}" ${chart} ${train} && cleanfiles "charts/${train}/${chart}" ${chart} ${train} || echo "processing failed for ${chart}"
+            done
+          done
+          echo "finsihed security scan"
+
+      - name: Commit Website Changes
+        run: |
+          cd website
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Commit released docs for TrueCharts" || exit 0
           git push
