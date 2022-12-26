@@ -55,7 +55,7 @@ stringData:
     UploadWhitelist       = []
     {{- end }}
     MaxFileSizeStr        = {{ .Values.plik.files.max_file_size | quote }}
-    MaxFilePerUpload      = {{ .Values.plik.files.max_file_per_upload }}
+    MaxFilePerUpload      = {{ .Values.plik.files.max_files_per_upload }}
     DefaultTTLStr         = {{ .Values.plik.files.default_ttl | quote }}
     MaxTTLStr             = {{ .Values.plik.files.max_ttl | quote }}
 
@@ -101,7 +101,7 @@ stringData:
         Location            = {{ .Values.plik.files.s3.location | quote }}
         Prefix              = {{ .Values.plik.files.s3.prefix | quote }}
         UseSSL              = {{ .Values.plik.files.s3.use_ssl }}
-        PartSize            = {{ .Values.plik.files.s3.part_size }}
+        PartSize            = {{ .Values.plik.files.s3.part_size | int }}
         SSE                 = {{ .Values.plik.files.s3.sse | quote }}
     {{- else if eq $backend "swift" }}
         Container           = {{ .Values.plik.files.swift.container | quote }}

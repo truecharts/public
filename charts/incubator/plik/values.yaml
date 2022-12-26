@@ -3,8 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: 1.3.6@sha256:f9c31219bfb0793c3b9ce4ec304cd52c4dfef106ae452ab0f6a57a0a0b575fbd
 
-securityContext:
-  readOnlyRootFilesystem: false
+# securityContext:
+#   readOnlyRootFilesystem: false
 
 plik:
   general:
@@ -21,16 +21,16 @@ plik:
     upload_whitelist: []
   files:
     max_file_size: 10GB
-    max_file_per_upload: 1000
+    max_files_per_upload: 1000
     default_ttl: 30d
     max_ttl: 30d
     # file | gcs | s3 | swift
     data_backend: file
     gcs:
       bucket: ""
-      folder: plik
+      folder: ""
     s3:
-      bucket: plik
+      bucket: ""
       endpoint: ""
       access_key_id: ""
       secret_access_key: ""
@@ -40,7 +40,7 @@ plik:
       part_size: 16000000
       sse: ""
     swift:
-      container: plik
+      container: ""
       auth_url: https://auth.swiftauthapi.xxx/v2.0/
       username: ""
       api_key: ""
@@ -70,7 +70,6 @@ service:
     ports:
       main:
         protocol: HTTP
-        targetPort: 8080
         port: 10599
 
 persistence:
