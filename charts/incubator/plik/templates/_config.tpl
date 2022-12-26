@@ -16,7 +16,7 @@ stringData:
     Path                  = ""
     SslEnabled            = false
     SslCert               = "plik.crt"
-    SslCert               = "plik.key"
+    SslKey               = "plik.key"
     NoWebInterface        = false
     WebappDirectory       = "../webapp/dist"
     ClientsDirectory      = "../clients"
