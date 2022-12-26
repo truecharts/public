@@ -82,7 +82,7 @@ stringData:
     GoogleValidDomains    = []
     {{- end }}
     OvhApiKey             = {{ .Values.plik.third_party.ovh_api_key | quote }}
-    OvhApiSecret	        = {{ .Values.plik.third_party.ovh_api_secret | quote }}
+    OvhApiSecret            = {{ .Values.plik.third_party.ovh_api_secret | quote }}
     OvhApiEndpoint        = {{ .Values.plik.third_party.ovh_api_endpoint | quote }}
 
     {{- $backend := .Values.plik.files.data_backend -}}
