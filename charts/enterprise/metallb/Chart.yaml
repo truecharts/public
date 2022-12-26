@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: "upstream"
 deprecated: false
 description: A network load-balancer implementation for Kubernetes using standard routing protocols
-home: https://truecharts.org/docs/charts/enterprise/metallb
+home: https://truecharts.org/charts/enterprise/metallb
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/metallb.png
 keywords:
   - metallb
@@ -10,7 +10,7 @@ keywords:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.1.1
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
@@ -22,7 +22,7 @@ sources:
   - https://github.com/metallb/metallb
   - https://metallb.universe.tf
 type: application
-version: 7.0.4
+version: 7.0.7
 annotations:
   truecharts.org/catagories: |
     - core

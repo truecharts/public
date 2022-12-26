@@ -3,13 +3,13 @@ appVersion: "14.10.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.1.1
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 11.0.13
+    version: 11.0.16
 description: XWiki is a free wiki software platform written in Java with a design emphasis on extensibility
-home: https://truecharts.org/docs/charts/stable/xwiki
+home: https://truecharts.org/charts/stable/xwiki
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/xwiki.png
 keywords:
   - xwiki
@@ -24,7 +24,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/xwiki
   - https://hub.docker.com/_/xwiki
   - https://github.com/xwiki/xwiki-docker
-version: 6.0.15
+version: 6.0.18
 annotations:
   truecharts.org/catagories: |
     - productivity

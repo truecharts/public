@@ -3,14 +3,14 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.1.1
   - condition: redis.enabled
     name: redis
     repository: https://charts.truecharts.org
-    version: 5.0.16
+    version: 5.0.20
 deprecated: false
 description: A free & open source IMDb front-end.
-home: https://truecharts.org/docs/charts/incubator/libremdb
+home: https://truecharts.org/charts/incubator/libremdb
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/libremdb.png
 keywords:
   - libremdb
@@ -28,7 +28,7 @@ sources:
   - https://quay.io/pussthecatorg/libremdb
   - https://github.com/PussTheCat-org/docker-libremdb-quay
 type: application
-version: 0.0.9
+version: 0.0.13
 annotations:
   truecharts.org/catagories: |
     - media

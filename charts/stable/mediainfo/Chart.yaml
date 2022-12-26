@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "22.12.1"
+appVersion: "22.12.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.1.1
 deprecated: false
 description: MediaInfo is a convenient unified display of the most relevant technical and tag data for video and audio files.
-home: https://truecharts.org/docs/charts/stable/mediainfo
+home: https://truecharts.org/charts/stable/mediainfo
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mediainfo.png
 keywords:
   - info
@@ -22,7 +22,7 @@ sources:
   - https://github.com/jlesage/docker-mediainfo
   - https://hub.docker.com/r/jlesage/mediainfo/
 type: application
-version: 3.0.4
+version: 3.0.8
 annotations:
   truecharts.org/catagories: |
     - media

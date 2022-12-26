@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "4.0.0"
+appVersion: "4.0.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.1.1
 deprecated: false
 description: A command-line application that will automatically synchronize recommended settings from TRaSH guides to your Sonarr/Radarr instances.
-home: https://truecharts.org/docs/charts/stable/recyclarr
+home: https://truecharts.org/charts/stable/recyclarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/recyclarr.png
 keywords:
   - recyclarr
@@ -22,7 +22,7 @@ sources:
   - https://github.com/recyclarr/recyclarr
   - https://github.com/recyclarr/recyclarr/pkgs/container/recyclarr
 type: application
-version: 3.0.6
+version: 3.0.10
 annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |

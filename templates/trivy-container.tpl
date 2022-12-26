@@ -9,10 +9,10 @@
 |:---------------------------------|
 
       {{ else }}
-| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
-|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|
         {{- range .Vulnerabilities }}
-| {{ escapeXML .PkgName }}         |    {{ escapeXML .VulnerabilityID }}   |   {{ escapeXML .Vulnerability.Severity }}  |  {{ escapeXML .InstalledVersion }} | {{ escapeXML .FixedVersion }} | <details><summary>Expand...</summary>{{ range .Vulnerability.References }}<a href={{ escapeXML . | printf "%q" }}>{{ escapeXML . }}</a><br>{{ end }}</details>  |
+| {{ escapeXML .PkgName }}         |    {{ escapeXML .VulnerabilityID }}   |   {{ escapeXML .Vulnerability.Severity }}  |  {{ escapeXML .InstalledVersion }} | {{ escapeXML .FixedVersion }} |
         {{- end }}
       {{- end }}
     {{- end }}

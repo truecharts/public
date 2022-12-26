@@ -1,19 +1,19 @@
 apiVersion: v2
-appVersion: "3.3.6"
+appVersion: "3.4.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.1.1
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 11.0.13
+    version: 11.0.16
   - condition: redis.enabled
     name: redis
     repository: https://charts.truecharts.org
-    version: 5.0.16
+    version: 5.0.20
 description: NetBox is the leading solution for modeling and documenting modern networks.
-home: https://truecharts.org/docs/charts/incubator/netbox
+home: https://truecharts.org/charts/incubator/netbox
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/netbox.png
 keywords:
   - network
@@ -27,7 +27,7 @@ name: netbox
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/netbox
   - https://github.com/netbox-community/netbox-docker
-version: 3.0.14
+version: 3.0.18
 annotations:
   truecharts.org/catagories: |
     - network

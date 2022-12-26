@@ -1,15 +1,17 @@
 {
-  "enabled": true,
+  "semanticCommits": "enabled",
   "extends": ["helpers:pinGitHubActionDigests"],
   "dependencyDashboard": true,
-  "dependencyDashboardTitle": "Renovate Dashboard",
-  "assigneesFromCodeOwners": true,
-  "reviewersFromCodeOwners": true,
+  "dependencyDashboardTitle": "Renovate Dashboard 🤖",
   "suppressNotifications": ["prIgnoreNotification"],
+  "commitMessageTopic": "{{depName}}",
+  "commitMessageExtra": "to {{newVersion}}",
+  "commitMessageSuffix": "",
   "rebaseWhen": "conflicted",
   "prConcurrentLimit": 25,
-  "pinDigests": true,
   "timezone":"Europe/Amsterdam",
+  "pinDigests": true,
+  "automerge": true,
   "gitAuthor": "TrueCharts-Admin <bot@truecharts.org>",
   "helm-values": {
     "fileMatch": ["charts/.+/.*values\\.yaml$", "charts/.+/SCALE/.*_values\\.yaml$"]
@@ -34,6 +36,15 @@
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
       "matchUpdateTypes": ["major", "minor", "patch", "digest"],
+    },
+    {
+      "datasources": ["docker"],
+      "enabled": true,
+      "pinDigests": true,
+      "automerge": true,
+      "separateMinorPatch": true,
+      "commitMessageTopic": "container image {{depName}}",
+      "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
     },
     // Setup datasources for github actions
     {

@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "2022.14.0"
+appVersion: "2022.15.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.7
+    version: 11.1.1
 deprecated: false
 description: Minecraft Java Dedicated Server
-home: https://truecharts.org/docs/charts/stable/minecraft-java
+home: https://truecharts.org/charts/stable/minecraft-java
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/minecraft-java.png
 keywords:
   - minecraft
@@ -21,7 +21,7 @@ sources:
   - https://github.com/itzg/docker-minecraft-server
   - https://hub.docker.com/r/itzg/minecraft-server
 type: application
-version: 3.0.7
+version: 3.0.12
 annotations:
   truecharts.org/catagories: |
     - games
