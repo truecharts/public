@@ -3,11 +3,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.0
+    version: 11.1.1
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 11.0.15
+    version: 11.0.16
 description: Open source alternative front-end to YouTube.
 home: https://truecharts.org/charts/incubator/invidious
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/invidious.png
@@ -25,7 +25,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/invidious
   - https://github.com/iv-org/invidious
   - https://docs.invidious.io/installation/#docker
-version: 1.0.4
+version: 1.0.5
 annotations:
   truecharts.org/catagories: |
     - media

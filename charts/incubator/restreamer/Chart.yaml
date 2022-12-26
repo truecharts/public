@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: restreamer
-version: 2.0.8
+version: 2.0.9
 appVersion: "2.4.2"
 description: "Allows smart free video streaming in real time."
 type: application
@@ -20,7 +20,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.0
+    version: 11.1.1
     # condition:
 maintainers:
   - email: info@truecharts.org
