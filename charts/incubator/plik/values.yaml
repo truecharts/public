@@ -6,6 +6,65 @@ image:
 securityContext:
   readOnlyRootFilesystem: false
 
+plik:
+  general:
+    debug: false
+    debug_requests: false
+    log_level: INFO
+    abuse_contact: ""
+  network:
+    download_domain: "something"
+    download_domain_alias: []
+    enhanced_web_security: false
+    session_timeout: 365d
+    source_ip_header: ""
+    upload_whitelist: []
+  files:
+    max_file_size: 10GB
+    max_file_per_upload: 1000
+    default_ttl: 30d
+    max_ttl: 30d
+    # file | gcs | s3 | swift
+    data_backend: file
+    gcs:
+      bucket: ""
+      folder: plik
+    s3:
+      bucket: plik
+      endpoint: ""
+      access_key_id: ""
+      secret_access_key: ""
+      location: ""
+      prefix: ""
+      use_ssl: true
+      part_size: 16000000
+      sse: ""
+    swift:
+      container: plik
+      auth_url: https://auth.swiftauthapi.xxx/v2.0/
+      username: ""
+      api_key: ""
+      domain: ""
+      tenant: ""
+  features:
+    authentication: disabled
+    one_shot: enabled
+    removable: enabled
+    stream: enabled
+    password: enabled
+    comments: enabled
+    set_ttl: enabled
+    extend_ttl: disabled
+    clients: enabled
+    github: enabled
+  third_party:
+    google_api_client_id: ""
+    google_api_secret: ""
+    google_valid_domains: []
+    ovh_api_key: ""
+    ovh_api_secret: ""
+    ovh_api_endpoint: https://eu.api.ovh.com/1.0
+
 service:
   main:
     ports:
@@ -18,9 +77,21 @@ persistence:
   data:
     enabled: true
     mountPath: /data
-  plikd:
+  plikd-config:
     enabled: true
     mountPath: /home/plik/server/plikd.cfg
+    subPath: plikd.cfg
+    type: custom
+    readOnly: true
+    volumeSpec:
+      secret:
+        name: '{{ include "tc.common.names.fullname" . }}-plik-secret'
+
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlUsername: plik
+  postgresqlDatabase: plik
 
 portal:
   enabled: true
