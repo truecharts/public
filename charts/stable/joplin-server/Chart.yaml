@@ -1,13 +1,13 @@
 apiVersion: v2
-appVersion: "2.10.4"
+appVersion: "2.10.5"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.0.9
+    version: 11.1.2
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 11.0.13
+    version: 11.0.17
 deprecated: false
 description: Allows you to sync any Joplin client.
 home: https://truecharts.org/charts/stable/joplin-server
@@ -27,7 +27,7 @@ sources:
   - https://github.com/laurent22/joplin
   - https://hub.docker.com/r/joplin/server
 type: application
-version: 11.0.14
+version: 11.0.18
 annotations:
   truecharts.org/catagories: |
     - media
