@@ -51,7 +51,7 @@ imagePullSecrets:
 runtimeClassName: {{ . }}
 {{- end -}}
 {{- with (include "ix.v1.common.controller.mainContainer" . | trim) }}
-containers:
+containers: {{/* TODO: Additional Containers */}}
   {{- . | nindent 2 }}
 {{- end -}}
 {{- if or .Values.initContainers .Values.installContainers .Values.upgradeContainers }}

@@ -27,15 +27,324 @@ tests:
           imageSelector: installImage
           pullPolicy: Never
     asserts:
-      - equal:
-          path: spec.template.spec.containers[0].image
-          value: some-repo:some-tag
-      - equal:
-          path: spec.template.spec.containers[0].imagePullPolicy
-          value: Always
-      - equal:
-          path: spec.template.spec.initContainers[0].image
-          value: some-repo-install:some-tag-install
-      - equal:
-          path: spec.template.spec.initContainers[0].imagePullPolicy
-          value: Never
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            image: some-repo:some-tag
+            imagePullPolicy: Always
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            image: some-repo-install:some-tag-install
+            imagePullPolicy: Never
+
+  - it: should pass with image defined in multiple install container
+    documentIndex: *deploymentDoc
+    set:
+      image:
+        repository: some-repo
+        tag: some-tag
+        pullPolicy: Always
+      initImage:
+        repository: some-repo-init
+        tag: some-tag-init
+        pullPolicy: Never
+      installImage:
+        repository: some-repo-install
+        tag: some-tag-install
+        pullPolicy: Never
+      installImage2:
+        repository: some-repo-install2
+        tag: some-tag-install2
+        pullPolicy: IfNotPresent
+      installContainers:
+        some-name:
+          imageSelector: installImage
+          pullPolicy: Never
+        some-name2:
+          imageSelector: installImage2
+          pullPolicy: Never
+      initContainers:
+        some-name3:
+          imageSelector: initImage
+          pullPolicy: Never
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            image: some-repo:some-tag
+            imagePullPolicy: Always
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            image: some-repo-install:some-tag-install
+            imagePullPolicy: Never
+      - isSubset:
+          path: spec.template.spec.initContainers[1]
+          content:
+            image: some-repo-install2:some-tag-install2
+            imagePullPolicy: IfNotPresent
+      - isSubset:
+          path: spec.template.spec.initContainers[2]
+          content:
+            image: some-repo-init:some-tag-init
+            imagePullPolicy: Never
+
+  - it: should pass with tty and stdin defined in install container
+    documentIndex: *deploymentDoc
+    set:
+      installContainers:
+        some-name:
+          tty: true
+          stdin: true
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            tty: false
+            stdin: false
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            tty: true
+            stdin: true
+
+  - it: should pass with command and args defined in install container
+    documentIndex: *deploymentDoc
+    set:
+      port: 8080
+      entrypoint: ./run.sh
+      installContainers:
+        some-name:
+          command:
+            - /bin/sh
+            - -c
+            - |
+              {{ .Values.entrypoint }}
+          args:
+            - --port
+            - "{{ .Values.port }}"
+          extraArgs:
+            - --data_dir
+            - /data
+    asserts:
+      - isNotSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            command:
+              - /bin/sh
+              - -c
+              - |
+                ./run.sh
+            args:
+              - --port
+              - "8080"
+              - --data_dir
+              - /data
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            command:
+              - /bin/sh
+              - -c
+              - |
+                ./run.sh
+            args:
+              - --port
+              - "8080"
+              - --data_dir
+              - /data
+
+  - it: should pass with termination defined in install container
+    documentIndex: *deploymentDoc
+    set:
+      installContainers:
+        some-name:
+          termination:
+            messagePath: somePath
+            messagePolicy: File
+    asserts:
+      - isNotSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            terminationMessagePath: somePath
+            terminationMessagePolicy: File
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            terminationMessagePath: somePath
+            terminationMessagePolicy: File
+
+  - it: should pass with resources defined in install container
+    documentIndex: *deploymentDoc
+    set:
+      installContainers:
+        some-name:
+          resources:
+            limits:
+              cpu: 3000m
+              memory: 4Gi
+            requests:
+              cpu: 20m
+              memory: 100Mi
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            resources:
+              limits:
+                cpu: 3000m
+                memory: 4Gi
+              requests:
+                cpu: 20m
+                memory: 100Mi
+
+  - it: should pass with envFrom defined in install container
+    documentIndex: *deploymentDoc
+    set:
+      some_name: a_name
+      some_name2: a_name2
+      installContainers:
+        some-name:
+          envFrom:
+            - configMapRef:
+                name: "{{ .Values.some_name }}"
+            - configMapRef:
+                name: "{{ .Values.some_name2 }}"
+    asserts:
+      - isNotSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            envFrom:
+              - configMapRef:
+                  name: a_name
+              - configMapRef:
+                  name: a_name2
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            envFrom:
+              - configMapRef:
+                  name: a_name
+              - configMapRef:
+                  name: a_name2
+
+  - it: should pass with env and envList defined in install container
+    documentIndex: *deploymentDoc
+    set:
+      some_value: value
+      some_value2: value2
+      some_value3: value3
+      some_value4: value4
+      installContainers:
+        some-name:
+          env:
+            var1: "{{ .Values.some_value }}"
+            var2: "{{ .Values.some_value2 }}"
+          envList:
+            - name: var3
+              value: "{{ .Values.some_value3 }}"
+            - name: var4
+              value: "{{ .Values.some_value4 }}"
+    asserts:
+      - isNotSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            env:
+              - name: var1
+                value: value
+              - name: var2
+                value: value2
+              - name: var3
+                value: value3
+              - name: var4
+                value: value4
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            env:
+              - name: TZ
+                value: UTC
+              - name: UMASK
+                value: "2"
+              - name: UMASK_SET
+                value: "2"
+              - name: NVIDIA_VISIBLE_DEVICES
+                value: void
+              - name: S6_READ_ONLY_ROOT
+                value: "1"
+              - name: var1
+                value: value
+              - name: var2
+                value: value2
+              - name: var3
+                value: value3
+              - name: var4
+                value: value4
+
+  - it: should fail with lifecycle defined in install container
+    documentIndex: *deploymentDoc
+    set:
+      installContainers:
+        some-name:
+          lifecycle:
+    asserts:
+      - failedTemplate:
+          errorMessage: Init/Install/Upgrade Container (RELEASE-NAME-common-test-some-name) do not support lifecycle hooks
+
+  - it: should fail with env trying to override fixedEnvs in install container
+    documentIndex: *deploymentDoc
+    set:
+      installContainers:
+        some-name:
+          env:
+            TZ: something
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (env)]
+
+  - it: should fail with env trying to override configmap in install container
+    documentIndex: *deploymentDoc
+    set:
+      configmap:
+        some-confmap:
+          enabled: true
+          parseAsEnv: true
+          content:
+            TZ: something
+      installContainers:
+        some-name:
+          envFrom:
+            - configMapRef:
+                name: '{{ include "ix.v1.common.names.fullname" . }}-some-confmap'
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (configmap-RELEASE-NAME-common-test-some-confmap)]
+
+  - it: should fail with env trying to override secret in install container
+    documentIndex: *deploymentDoc
+    set:
+      secret:
+        some-secret:
+          enabled: true
+          parseAsEnv: true
+          content:
+            TZ: something
+      installContainers:
+        some-name:
+          envFrom:
+            - secretRef:
+                name: '{{ include "ix.v1.common.names.fullname" . }}-some-secret'
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (secret-RELEASE-NAME-common-test-some-secret)]

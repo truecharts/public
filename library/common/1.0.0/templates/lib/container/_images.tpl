@@ -9,7 +9,12 @@
   {{- $root := .root -}}
   {{- $selectedImage := .selectedImage -}}
 
-  {{- $image := get $root.Values "image" -}}
+  {{- if not $selectedImage -}}
+    {{- $selectedImage = "image" -}}
+  {{- end -}}
+
+  {{- $image := "" -}}
+
   {{- if hasKey $root.Values $selectedImage -}}
     {{- $image = get $root.Values $selectedImage -}}
   {{- else if $selectedImage -}} {{/* If selectedImage does not exist in Values */}}
@@ -22,8 +27,12 @@
   {{- $root := .root -}}
   {{- $selectedImage := .selectedImage -}}
 
+  {{- if not $selectedImage -}}
+    {{- $selectedImage = "image" -}}
+  {{- end -}}
+
   {{- $pullPolicy := "IfNotPresent" -}}
-  {{- $image := get $root.Values "image" -}}
+  {{- $image := "" -}}
 
   {{- if hasKey $root.Values $selectedImage -}}
     {{- $image = get $root.Values $selectedImage -}}

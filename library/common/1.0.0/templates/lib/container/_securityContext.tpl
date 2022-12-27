@@ -26,6 +26,10 @@ init{{/* Security Context included by the container */}}
     {{- end -}}
   {{- end -}}
 
+  {{- if $secContext.inheritMain -}} {{/* if inheritMain is set, use the secContext from main container as default */}}
+    {{- $defaultSecCont = $root.Values.securityContext -}}
+  {{- end -}} {{/* TODO: Unittests for inherit + normal securityContext */}}
+
   {{/* Override defaults based on user/dev input */}}
   {{- if and (hasKey $secContext "runAsNonRoot") (ne (toString $secContext.runAsNonRoot) (toString $runAsNonRoot)) -}}
     {{- $runAsNonRoot = $secContext.runAsNonRoot -}}

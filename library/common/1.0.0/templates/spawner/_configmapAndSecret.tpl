@@ -2,9 +2,15 @@
   {{- $root := . -}}
 
   {{- range $name, $objectData := .Values.configmap -}}
+    {{- if ne (kindOf $objectData) "map" -}}
+      {{- fail (printf "<configmap> key must have at least one dict. Found (%s)" (kindOf $objectData)) -}}
+    {{- end -}}
     {{- include "ix.v1.common.configmapAndSecret.process" (dict "root" $root "name" $name "objectData" $objectData "objectType" "configmap") -}}
   {{- end -}}
   {{- range $name, $objectData := .Values.secret -}}
+    {{- if ne (kindOf $objectData) "map" -}}
+      {{- fail (printf "<secret> key must have at least one dict. Found (%s)" (kindOf $objectData)) -}}
+    {{- end -}}
     {{- include "ix.v1.common.configmapAndSecret.process" (dict "root" $root "name" $name "objectData" $objectData "objectType" "secret") -}}
   {{- end -}}
 {{- end -}}

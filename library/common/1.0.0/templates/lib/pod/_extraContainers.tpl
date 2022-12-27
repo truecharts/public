@@ -50,10 +50,10 @@
   envFrom:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- with (include "ix.v1.common.container.lifecycle" (dict "lifecycle" $container.lifecycle "root" $root)) | trim -}}
-    {{- if and . (mustHas $type (list "init" "install" "upgrades")) -}} {{/* Init containers do not have lifecycle... */}}
-      {{- fail (printf "Init/Install/Upgrade Container (%s) do not support lifecycle hooks" $name) -}}
-    {{- end }}
+  {{- if and (hasKey $container "lifecycle") (mustHas $type (list "init" "install" "upgrade")) -}} {{/* Init containers do not have lifecycle... */}}
+    {{- fail (printf "Init/Install/Upgrade Container (%s) do not support lifecycle hooks" $name) -}}
+  {{- end -}}
+  {{- with (include "ix.v1.common.container.lifecycle" (dict "lifecycle" $container.lifecycle "root" $root)) | trim }}
   lifecycle:
     {{- . | nindent 4 }}
   {{- end -}}

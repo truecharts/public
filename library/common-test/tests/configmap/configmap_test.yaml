@@ -12,6 +12,16 @@ tests:
       - isKind:
           of: Deployment
 
+  - it: should fail without a dict in configmap
+    set:
+      configmap:
+        enabled: true
+        content:
+          key: value
+    asserts:
+      - failedTemplate:
+          errorMessage: <configmap> key must have at least one dict. Found (bool)
+
   - it: should fail with uppercase in name in configmap
     set:
       configmap:

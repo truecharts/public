@@ -127,7 +127,7 @@ tests:
             ENVVAR: ABC
       envFrom:
         - configMapRef:
-            name: RELEASE-NAME-common-test-somename
+            name: '{{ include "ix.v1.common.names.fullname" . }}-somename'
     asserts:
       - failedTemplate:
           errorMessage: Environment Variable (ENVVAR) on container (RELEASE-NAME-common-test) is set more than once. [to (something) on (env)] and [to (ABC) on (configmap-RELEASE-NAME-common-test-somename)]
@@ -193,7 +193,7 @@ tests:
             POSTGRES_HOST: something
       envFrom:
         - configMapRef:
-            name: RELEASE-NAME-common-test-somename
+            name: '{{ include "ix.v1.common.names.fullname" . }}-somename'
     asserts:
       - failedTemplate:
           errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (something) on (envList)] and [to (something) on (configmap-RELEASE-NAME-common-test-somename)]
@@ -226,7 +226,7 @@ tests:
             TZ: something
       envFrom:
         - configMapRef:
-            name: RELEASE-NAME-common-test-somename
+            name: '{{ include "ix.v1.common.names.fullname" . }}-somename'
     asserts:
       - failedTemplate:
           errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (configmap-RELEASE-NAME-common-test-somename)]
@@ -243,7 +243,7 @@ tests:
             POSTGRES_HOST: something
       envFrom:
         - configMapRef:
-            name: RELEASE-NAME-common-test-somename
+            name: '{{ include "ix.v1.common.names.fullname" . }}-somename'
     asserts:
       - failedTemplate:
           errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (postgres.svc.cluster.local) on (env)] and [to (something) on (configmap-RELEASE-NAME-common-test-somename)]
@@ -261,7 +261,7 @@ tests:
             POSTGRES_HOST: something
       envFrom:
         - configMapRef:
-            name: RELEASE-NAME-common-test-somename
+            name: '{{ include "ix.v1.common.names.fullname" . }}-somename'
     asserts:
       - failedTemplate:
           errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (postgres.svc.cluster.local) on (envList)] and [to (something) on (configmap-RELEASE-NAME-common-test-somename)]
@@ -282,9 +282,9 @@ tests:
             POSTGRES_HOST: something
       envFrom:
         - configMapRef:
-            name: RELEASE-NAME-common-test-somename
+            name: '{{ include "ix.v1.common.names.fullname" . }}-somename'
         - secretRef:
-            name: RELEASE-NAME-common-test-somename
+            name: '{{ include "ix.v1.common.names.fullname" . }}-somename'
     asserts:
       - failedTemplate:
           errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (something) on (configmap-RELEASE-NAME-common-test-somename)] and [to (something123) on (secret-RELEASE-NAME-common-test-somename)]
@@ -355,9 +355,9 @@ tests:
             POSTGRES_HOST: something
       envFrom:
         - configMapRef:
-            name: RELEASE-NAME-common-test-somename
+            name: '{{ include "ix.v1.common.names.fullname" . }}-somename'
         - secretRef:
-            name: RELEASE-NAME-common-test-somename
+            name: '{{ include "ix.v1.common.names.fullname" . }}-somename'
     asserts:
       - failedTemplate:
           errorMessage: Environment Variable (POSTGRES_HOST) on container (RELEASE-NAME-common-test) is set more than once. [to (something123) on (configmap-RELEASE-NAME-common-test-somename)] and [to (something) on (secret-RELEASE-NAME-common-test-somename)]

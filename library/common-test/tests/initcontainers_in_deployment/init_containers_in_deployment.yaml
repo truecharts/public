@@ -1,9 +1,7 @@
 
-suite: upgradeContainer in deployment test
+suite: initContainer in deployment test (on Upgrade)
 templates:
   - common.yaml
-release:
-  upgrade: true
 tests:
   - it: should pass with default values
     documentIndex: &deploymentDoc 0
@@ -13,34 +11,7 @@ tests:
       - isKind:
           of: Deployment
 
-  - it: should pass with image defined in upgrade container
-    documentIndex: *deploymentDoc
-    set:
-      image:
-        repository: some-repo
-        tag: some-tag
-        pullPolicy: Always
-      upgradeImage:
-        repository: some-repo-upgrade
-        tag: some-tag-upgrade
-        pullPolicy: Never
-      upgradeContainers:
-        some-name:
-          imageSelector: upgradeImage
-          pullPolicy: Never
-    asserts:
-      - isSubset:
-          path: spec.template.spec.containers[0]
-          content:
-            image: some-repo:some-tag
-            imagePullPolicy: Always
-      - isSubset:
-          path: spec.template.spec.initContainers[0]
-          content:
-            image: some-repo-upgrade:some-tag-upgrade
-            imagePullPolicy: Never
-
-  - it: should pass with image defined in multiple upgrade container
+  - it: should pass with image defined in init container
     documentIndex: *deploymentDoc
     set:
       image:
@@ -51,23 +22,8 @@ tests:
         repository: some-repo-init
         tag: some-tag-init
         pullPolicy: Never
-      upgradeImage:
-        repository: some-repo-upgrade
-        tag: some-tag-upgrade
-        pullPolicy: Never
-      upgradeImage2:
-        repository: some-repo-upgrade2
-        tag: some-tag-upgrade2
-        pullPolicy: IfNotPresent
-      upgradeContainers:
-        some-name:
-          imageSelector: upgradeImage
-          pullPolicy: Never
-        some-name2:
-          imageSelector: upgradeImage2
-          pullPolicy: Never
       initContainers:
-        some-name3:
+        some-name:
           imageSelector: initImage
           pullPolicy: Never
     asserts:
@@ -79,23 +35,131 @@ tests:
       - isSubset:
           path: spec.template.spec.initContainers[0]
           content:
-            image: some-repo-upgrade:some-tag-upgrade
+            image: some-repo-init:some-tag-init
+            imagePullPolicy: Never
+
+  - it: should pass with image defined in multiple init container
+    documentIndex: *deploymentDoc
+    set:
+      image:
+        repository: some-repo
+        tag: some-tag
+        pullPolicy: Always
+      initImage:
+        repository: some-repo-init
+        tag: some-tag-init
+        pullPolicy: Never
+      initImage2:
+        repository: some-repo-init2
+        tag: some-tag-init2
+        pullPolicy: IfNotPresent
+      initContainers:
+        some-name:
+          imageSelector: initImage
+          pullPolicy: Never
+        some-name2:
+          imageSelector: initImage2
+          pullPolicy: Never
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            image: some-repo:some-tag
+            imagePullPolicy: Always
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            image: some-repo-init:some-tag-init
             imagePullPolicy: Never
       - isSubset:
           path: spec.template.spec.initContainers[1]
           content:
-            image: some-repo-upgrade2:some-tag-upgrade2
+            image: some-repo-init2:some-tag-init2
             imagePullPolicy: IfNotPresent
+
+---
+suite: initContainer in deployment test (onInstall)
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+
+  - it: should pass with image defined in init container
+    documentIndex: *deploymentDoc
+    set:
+      image:
+        repository: some-repo
+        tag: some-tag
+        pullPolicy: Always
+      initImage:
+        repository: some-repo-init
+        tag: some-tag-init
+        pullPolicy: Never
+      initContainers:
+        some-name:
+          imageSelector: initImage
+          pullPolicy: Never
+    asserts:
       - isSubset:
-          path: spec.template.spec.initContainers[2]
+          path: spec.template.spec.containers[0]
+          content:
+            image: some-repo:some-tag
+            imagePullPolicy: Always
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
           content:
             image: some-repo-init:some-tag-init
             imagePullPolicy: Never
 
-  - it: should pass with tty and stdin defined in upgrade container
+  - it: should pass with image defined in multiple init container
     documentIndex: *deploymentDoc
     set:
-      upgradeContainers:
+      image:
+        repository: some-repo
+        tag: some-tag
+        pullPolicy: Always
+      initImage:
+        repository: some-repo-init
+        tag: some-tag-init
+        pullPolicy: Never
+      initImage2:
+        repository: some-repo-init2
+        tag: some-tag-init2
+        pullPolicy: IfNotPresent
+      initContainers:
+        some-name:
+          imageSelector: initImage
+          pullPolicy: Never
+        some-name2:
+          imageSelector: initImage2
+          pullPolicy: Never
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            image: some-repo:some-tag
+            imagePullPolicy: Always
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            image: some-repo-init:some-tag-init
+            imagePullPolicy: Never
+      - isSubset:
+          path: spec.template.spec.initContainers[1]
+          content:
+            image: some-repo-init2:some-tag-init2
+            imagePullPolicy: IfNotPresent
+
+  - it: should pass with tty and stdin defined in init container
+    documentIndex: *deploymentDoc
+    set:
+      initContainers:
         some-name:
           tty: true
           stdin: true
@@ -111,12 +175,12 @@ tests:
             tty: true
             stdin: true
 
-  - it: should pass with command and args defined in upgrade container
+  - it: should pass with command and args defined in init container
     documentIndex: *deploymentDoc
     set:
       port: 8080
       entrypoint: ./run.sh
-      upgradeContainers:
+      initContainers:
         some-name:
           command:
             - /bin/sh
@@ -157,10 +221,10 @@ tests:
               - --data_dir
               - /data
 
-  - it: should pass with termination defined in upgrade container
+  - it: should pass with termination defined in init container
     documentIndex: *deploymentDoc
     set:
-      upgradeContainers:
+      initContainers:
         some-name:
           termination:
             messagePath: somePath
@@ -177,10 +241,10 @@ tests:
             terminationMessagePath: somePath
             terminationMessagePolicy: File
 
-  - it: should pass with resources defined in upgrade container
+  - it: should pass with resources defined in init container
     documentIndex: *deploymentDoc
     set:
-      upgradeContainers:
+      initContainers:
         some-name:
           resources:
             limits:
@@ -211,12 +275,12 @@ tests:
                 cpu: 20m
                 memory: 100Mi
 
-  - it: should pass with envFrom defined in upgrade container
+  - it: should pass with envFrom defined in init container
     documentIndex: *deploymentDoc
     set:
       some_name: a_name
       some_name2: a_name2
-      upgradeContainers:
+      initContainers:
         some-name:
           envFrom:
             - configMapRef:
@@ -241,14 +305,14 @@ tests:
               - configMapRef:
                   name: a_name2
 
-  - it: should pass with env and envList defined in upgrade container
+  - it: should pass with env and envList defined in init container
     documentIndex: *deploymentDoc
     set:
       some_value: value
       some_value2: value2
       some_value3: value3
       some_value4: value4
-      upgradeContainers:
+      initContainers:
         some-name:
           env:
             var1: "{{ .Values.some_value }}"
@@ -294,20 +358,20 @@ tests:
               - name: var4
                 value: value4
 
-  - it: should fail with lifecycle defined in upgrade container
+  - it: should fail with lifecycle defined in init container
     documentIndex: *deploymentDoc
     set:
-      upgradeContainers:
+      initContainers:
         some-name:
           lifecycle:
     asserts:
       - failedTemplate:
           errorMessage: Init/Install/Upgrade Container (RELEASE-NAME-common-test-some-name) do not support lifecycle hooks
 
-  - it: should fail with env trying to override fixedEnvs in upgrade container
+  - it: should fail with env trying to override fixedEnvs in init container
     documentIndex: *deploymentDoc
     set:
-      upgradeContainers:
+      initContainers:
         some-name:
           env:
             TZ: something
@@ -315,7 +379,7 @@ tests:
       - failedTemplate:
           errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (env)]
 
-  - it: should fail with env trying to override configmap in upgrade container
+  - it: should fail with env trying to override configmap in init container
     documentIndex: *deploymentDoc
     set:
       configmap:
@@ -324,7 +388,7 @@ tests:
           parseAsEnv: true
           content:
             TZ: something
-      upgradeContainers:
+      initContainers:
         some-name:
           envFrom:
             - configMapRef:
@@ -333,7 +397,7 @@ tests:
       - failedTemplate:
           errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (configmap-RELEASE-NAME-common-test-some-confmap)]
 
-  - it: should fail with env trying to override secret in upgrade container
+  - it: should fail with env trying to override secret in init container
     documentIndex: *deploymentDoc
     set:
       secret:
@@ -342,7 +406,7 @@ tests:
           parseAsEnv: true
           content:
             TZ: something
-      upgradeContainers:
+      initContainers:
         some-name:
           envFrom:
             - secretRef:
