@@ -14,7 +14,7 @@
   {{- end -}}
   {{- include "ix.v1.common.util.cleanupEnvsForCheck" (dict "root" $root) -}}
 
-  {{- if $root.Values.envsForDupeCheck -}} {{/* TODO: Remove when testing is done */}}
+  {{- if $root.Values.envsForDupeCheck -}} {{/* Just for piece of mind. Check we cleanup when finished */}}
     {{- fail "Failed to cleanup <envsForDupeCheck> key." -}}
   {{- end -}}
 {{- end -}}

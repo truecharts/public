@@ -75,5 +75,3 @@
   {{- end -}}
   {{- end -}}
 {{- end -}}
-
-{{/* TODO: Rename this as container and use this template for main container, additionals, init, upgrade, installs */}}
