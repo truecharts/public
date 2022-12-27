@@ -168,4 +168,5 @@ nameOverride applies only to the current chart
     {{- $objName = printf "%v-%v" $objName $objName -}}
   {{- end -}}
 
+  {{- $objName -}}
 {{- end -}}
