@@ -143,17 +143,17 @@ nameOverride applies only to the current chart
   {{- $pvcVolName := (include "ix.v1.common.names.fullname" $root) -}}
 
   {{- if $pvcVolValues.existingClaim -}} {{/* Always prefer existingClaim if it set */}}
-    {{- $pvcName = $pvcVolValues.existingClaim -}}
+    {{- $pvcVolName = $pvcVolValues.existingClaim -}}
   {{- else -}} {{/* Else use nameOverride */}}
     {{- if $pvcVolValues.nameOverride -}}
       {{- if not (eq $pvcVolValues.nameOverride "-") -}}
-        {{- $pvcName = (printf "%s-%s" (include "ix.v1.common.names.fullname" $root) $pvcVolValues.nameOverride) -}}
+        {{- $pvcVolName = (printf "%s-%s" (include "ix.v1.common.names.fullname" $root) $pvcVolValues.nameOverride) -}}
       {{- end -}}
     {{- else -}} {{/* Else generate the PVC name from fullname + volume name */}}
-      {{- $pvcName = (printf "%s-%s" (include "ix.v1.common.names.fullname" $root) $index) -}}
+      {{- $pvcVolName = (printf "%s-%s" (include "ix.v1.common.names.fullname" $root) $index) -}}
     {{- end -}}
     {{- with $pvcVolValues.forceName -}}
-      {{- $pvcName = . -}}
+      {{- $pvcVolName = . -}}
     {{- end -}}
   {{- end -}}
 
