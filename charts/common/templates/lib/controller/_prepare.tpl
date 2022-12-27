@@ -97,7 +97,7 @@ before chart installation.
           name: mongodbcreds
           key: plainhost
     - name: MONGODB_DATABASE
-      value: "{{ .Values.mongodb.mongoDatabase }}"
+      value: "{{ .Values.mongodb.mongodbDatabase }}"
     {{- end }}
     {{- if .Values.clickhouse.enabled }}
     - name: CLICKHOUSE_PING
@@ -141,7 +141,7 @@ before chart installation.
       {{- end }}
       {{- if .Values.mongodb.enabled }}
       until
-        echo "db.runCommand(\"ping\")" | mongosh --host ${MONGODB_HOST} --port 27017 ${MONGODB_DATABASE} --quiet;
+        HOME=/config && echo "db.runCommand(\"ping\")" | mongosh --host ${MONGODB_HOST} --port 27017 ${MONGODB_DATABASE} --quiet;
         do sleep 2;
       done
       {{- end }}
