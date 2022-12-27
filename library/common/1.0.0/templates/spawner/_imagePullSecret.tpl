@@ -11,7 +11,7 @@
         {{- fail (printf "<name> (%s) can only container this alphanumerical characters (- a-z A-Z 0-9)" $imgPullCreds.name) -}}
       {{- end -}}
 
-      {{- $secretName := include "ix.v1.common.imagePullSecrets.name" (dict "root" $root "name" $imgPullCreds.name) -}}
+      {{- $secretName := include "ix.v1.common.names.imagePullSecret" (dict "root" $root "imgPullCredsName" $imgPullCreds.name) -}}
       {{- $registrySecret := dict -}}
 
       {{- if not $imgPullCreds.content -}}
