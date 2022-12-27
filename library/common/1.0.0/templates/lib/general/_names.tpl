@@ -161,12 +161,12 @@ nameOverride applies only to the current chart
     {{- fail (printf "%s has invalid name (%s). Name cannot contain underscores (_)." (camelcase $objType) $objName) -}}
   {{- end -}}
 
-  {{- $objName := include "ix.v1.common.names.fullname" $root -}}
+  {{- $generatedName := include "ix.v1.common.names.fullname" $root -}}
   {{- if and (hasKey $objData "nameOverride") $objData.nameOverride -}}
-    {{- $objName = printf "%v-%v" $objName $objData.nameOverride -}}
+    {{- $generatedName = printf "%v-%v" $generatedName $objData.nameOverride -}}
   {{- else -}}
-    {{- $objName = printf "%v-%v" $objName $objName -}}
+    {{- $generatedName = printf "%v-%v" $generatedName $objName -}}
   {{- end -}}
 
-  {{- $objName -}}
+  {{- $generatedName -}}
 {{- end -}}
