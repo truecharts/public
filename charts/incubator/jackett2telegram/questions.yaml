@@ -19,6 +19,7 @@ questions:
           schema:
             type: string
             required: true
+            private: true
             default: ""
         - variable: CHATID
           label: Chat ID
@@ -40,6 +41,7 @@ questions:
           description: Delay in seconds.
           schema:
             type: int
+            required: true
             default: 600
 # Include{containerConfig}
 # Include{serviceExpertRoot}
