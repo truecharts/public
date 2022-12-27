@@ -3,15 +3,15 @@ appVersion: "2022.06"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.1
+    version: 11.1.2
   - condition: mariadb.enabled
     name: mariadb
     repository: https://charts.truecharts.org/
-    version: 5.0.18
+    version: 5.0.19
   - condition: redis.enabled
     name: redis
     repository: https://charts.truecharts.org
-    version: 5.0.21
+    version: 5.0.22
 description: "Welcome to the free social web"
 home: https://truecharts.org/charts/stable/friendica
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/friendica.png
@@ -28,7 +28,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/friendica
   - https://friendi.ca/
   - https://hub.docker.com/_/friendica
-version: 7.0.13
+version: 7.0.14
 annotations:
   truecharts.org/catagories: |
     - social
