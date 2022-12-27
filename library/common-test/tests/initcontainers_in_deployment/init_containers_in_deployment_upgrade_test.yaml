@@ -1,0 +1,77 @@
+suite: initContainer in deployment test (on Upgrade)
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+
+  - it: should pass with image defined in init container
+    documentIndex: *deploymentDoc
+    set:
+      image:
+        repository: some-repo
+        tag: some-tag
+        pullPolicy: Always
+      initImage:
+        repository: some-repo-init
+        tag: some-tag-init
+        pullPolicy: Never
+      initContainers:
+        some-name:
+          imageSelector: initImage
+          pullPolicy: Never
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            image: some-repo:some-tag
+            imagePullPolicy: Always
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            image: some-repo-init:some-tag-init
+            imagePullPolicy: Never
+
+  - it: should pass with image defined in multiple init container
+    documentIndex: *deploymentDoc
+    set:
+      image:
+        repository: some-repo
+        tag: some-tag
+        pullPolicy: Always
+      initImage:
+        repository: some-repo-init
+        tag: some-tag-init
+        pullPolicy: Never
+      initImage2:
+        repository: some-repo-init2
+        tag: some-tag-init2
+        pullPolicy: IfNotPresent
+      initContainers:
+        some-name:
+          imageSelector: initImage
+          pullPolicy: Never
+        some-name2:
+          imageSelector: initImage2
+          pullPolicy: Never
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            image: some-repo:some-tag
+            imagePullPolicy: Always
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            image: some-repo-init:some-tag-init
+            imagePullPolicy: Never
+      - isSubset:
+          path: spec.template.spec.initContainers[1]
+          content:
+            image: some-repo-init2:some-tag-init2
+            imagePullPolicy: IfNotPresent

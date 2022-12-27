@@ -5,7 +5,7 @@ init{{/* Security Context included by the container */}}
   {{- $root := .root -}}
 
   {{- $defaultSecCont := $root.Values.global.defaults.securityContext -}}
-  {{- $runAsNonRoot := $defaultSecCont.runAsNonRoot -}} {{/* TODO: Inherit from main container? */}}
+  {{- $runAsNonRoot := $defaultSecCont.runAsNonRoot -}}
   {{- $readOnlyRootFilesystem := $defaultSecCont.readOnlyRootFilesystem -}}
   {{- $allowPrivilegeEscalation := $defaultSecCont.allowPrivilegeEscalation -}}
   {{- $privileged := $defaultSecCont.privileged -}}
@@ -18,11 +18,6 @@ init{{/* Security Context included by the container */}}
       {{- if not (kindIs "bool" (get $secContext $bool)) -}}
         {{- fail (printf "<%s> key has value (%s). But it must be boolean." $bool (get $secContext $bool)) -}}
       {{- end -}}
-    {{- end -}}
-  {{- end -}}
-  {{- with $secContext -}}
-    {{- if or (not (kindIs "bool" .runAsNonRoot)) (not (kindIs "bool" .privileged)) (not (kindIs "bool" .readOnlyRootFilesystem)) (not (kindIs "bool" .allowPrivilegeEscalation)) -}}
-        {{- fail "One or more of the following are not set as booleans (runAsNonRoot, privileged, readOnlyRootFilesystem, allowPrivilegeEscalation)" -}}
     {{- end -}}
   {{- end -}}
 
