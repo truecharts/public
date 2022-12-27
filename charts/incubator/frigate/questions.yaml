@@ -273,13 +273,13 @@ questions:
                       description: Width of the output resolution
                       schema:
                         type: int
-                        "null": true
+                        default: 1280
                     - variable: height
                       label: Height
                       description: Height of the output resolution
                       schema:
                         type: int
-                        "null": true
+                        default: 720
                     - variable: quality
                       label: Quality
                       description: Encoding quality of the mpeg1 feed. Where 1 is the highest quality, and 31 is the lowest. Lower quality feeds utilize less CPU resources.
@@ -287,7 +287,7 @@ questions:
                         type: int
                         min: 1
                         max: 31
-                        "null": true
+                        default: 8
                     - variable: mode
                       label: Mode
                       description: |
@@ -383,25 +383,25 @@ questions:
                       description: Width of the frame for the input with the detect role
                       schema:
                         type: int
-                        "null": true
+                        default: 1280
                     - variable: height
                       label: Height
                       description: Height of the frame for the input with the detect role
                       schema:
                         type: int
-                        "null": true
+                        default: 720
                     - variable: fps
                       label: FPS
                       description: Desired fps for your camera for the input with the detect role. Recommended value of 5. Ideally, try and reduce your FPS on the camera.
                       schema:
                         type: int
-                        "null": true
+                        default: 5
                     - variable: max_disappeared
                       label: Max Disappeared
                       description: Number of frames without a detection before frigate considers an object to be gone.
                       schema:
                         type: int
-                        "null": true
+                        default: 25
                     - variable: stationary
                       label: Stationary
                       schema:
@@ -416,13 +416,13 @@ questions:
                               If set to 10, object detection will run to confirm the object still exists on every 10th frame.
                             schema:
                               type: int
-                              "null": true
+                              default: 0
                           - variable: threshold
                             label: Threshold
                             description: Number of frames without a position change for an object to be considered stationary
                             schema:
                               type: int
-                              "null": true
+                              default: 50
                           - variable: set_max_frames
                             label: Set Max Frames
                             schema:
@@ -592,7 +592,7 @@ questions:
                         type: int
                         min: 1
                         max: 255
-                        "null": true
+                        default: 25
                     - variable: contour_area
                       label: Contour Area
                       description: |
@@ -606,7 +606,6 @@ questions:
                       schema:
                         type: int
                         default: 30
-                        "null": true
                     - variable: delta_alpha
                       label: Delta Alpha
                       description: |
@@ -636,7 +635,7 @@ questions:
                         of higher CPU usage. Lower values result in less CPU, but small changes may not register as motion.
                       schema:
                         type: int
-                        "null": true
+                        default: 50
                     - variable: mask
                       label: Mask
                       description: See docs for more detailed info on creating masks
@@ -654,7 +653,7 @@ questions:
                       description: Delay when updating camera motion through MQTT from ON -> OFF
                       schema:
                         type: int
-                        "null": true
+                        default: 30
         - variable: record
           label: Record
           schema:
@@ -684,7 +683,7 @@ questions:
                       description: Number of minutes to wait between cleanup runs
                       schema:
                         type: int
-                        "null": true
+                        default: 60
                     - variable: retain
                       label: Retain
                       description: Retention settings for recording
@@ -706,7 +705,7 @@ questions:
                                     NOTE: This should be set to 0 and retention should be defined in events section below if you only want to retain recordings of events.
                                   schema:
                                     type: int
-                                    "null": true
+                                    default: 0
                                 - variable: mode
                                   label: Mode
                                   description: |
@@ -876,25 +875,25 @@ questions:
                       description: Save a clean PNG copy of the snapshot image
                       schema:
                         type: boolean
-                        "null": true
+                        default: true
                     - variable: timestamp
                       label: Timestamp
                       description: Print a timestamp on the snapshots
                       schema:
                         type: boolean
-                        "null": true
+                        default: false
                     - variable: bounding_box
                       label: Bounding Box
                       description: Draw bounding box on the snapshots
                       schema:
                         type: boolean
-                        "null": true
+                        default: false
                     - variable: crop
                       label: Crop
                       description: Crop the snapshot
                       schema:
                         type: boolean
-                        "null": true
+                        default: false
                     - variable: height
                       label: Height
                       description: Height to resize the snapshot to
@@ -1004,7 +1003,7 @@ questions:
                         reduce bandwidth required for viewing the live stream. Width is computed to match known aspect ratio.
                       schema:
                         type: int
-                        "null": true
+                        default: 720
                     - variable: quality
                       label: Quality
                       description: |
@@ -1012,9 +1011,9 @@ questions:
                         1 is the highest quality, and 31 is the lowest. Lower quality feeds utilize less CPU resources.
                       schema:
                         type: int
-                        "null": true
                         min: 1
                         max: 31
+                        default: 8
         - variable: timestamp_style
           label: Timestamp Style
           schema:
@@ -1089,7 +1088,7 @@ questions:
                       description: Line thickness of font
                       schema:
                         type: int
-                        "null": true
+                        default: 2
                     - variable: effect
                       label: Effect
                       description: |
