@@ -1,4 +1,4 @@
-{{/* Security Context included by the container */}}
+init{{/* Security Context included by the container */}}
 {{- define "ix.v1.common.container.securityContext" -}}
   {{- $secContext := .secCont -}}
   {{- $podSecContext := .podSecCont -}}
@@ -13,6 +13,13 @@
   {{- $capDrop := $defaultSecCont.capabilities.drop -}}
 
   {{/* Check that they are set as booleans to prevent typos */}}
+  {{- range $bool := (list "runAsNonRoot" "privileged" "readOnlyRootFilesystem" "allowPrivilegeEscalation") -}}
+    {{- if (hasKey $secContext $bool) -}}
+      {{- if not (kindIs "bool" (get $secContext $bool)) -}}
+        {{- fail (printf "<%s> key has value (%s). But it must be boolean." $bool (get $secContext $bool)) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
   {{- with $secContext -}}
     {{- if or (not (kindIs "bool" .runAsNonRoot)) (not (kindIs "bool" .privileged)) (not (kindIs "bool" .readOnlyRootFilesystem)) (not (kindIs "bool" .allowPrivilegeEscalation)) -}}
         {{- fail "One or more of the following are not set as booleans (runAsNonRoot, privileged, readOnlyRootFilesystem, allowPrivilegeEscalation)" -}}
@@ -20,17 +27,25 @@
   {{- end -}}
 
   {{/* Override defaults based on user/dev input */}}
-  {{- if ne (toString $secContext.runAsNonRoot) (toString $runAsNonRoot) -}}
+  {{- if and (hasKey $secContext "runAsNonRoot") (ne (toString $secContext.runAsNonRoot) (toString $runAsNonRoot)) -}}
     {{- $runAsNonRoot = $secContext.runAsNonRoot -}}
   {{- end -}}
-  {{- if ne (toString $secContext.readOnlyRootFilesystem) (toString $readOnlyRootFilesystem) -}}
+  {{- if and (hasKey $secContext "readOnlyRootFilesystem") (ne (toString $secContext.readOnlyRootFilesystem) (toString $readOnlyRootFilesystem)) -}}
     {{- $readOnlyRootFilesystem = $secContext.readOnlyRootFilesystem -}}
   {{- end -}}
-  {{- if ne (toString $secContext.allowPrivilegeEscalation) (toString $allowPrivilegeEscalation) -}}
+  {{- if and (hasKey $secContext "allowPrivilegeEscalation") (ne (toString $secContext.allowPrivilegeEscalation) (toString $allowPrivilegeEscalation)) -}}
     {{- $allowPrivilegeEscalation = $secContext.allowPrivilegeEscalation -}}
   {{- end -}}
-  {{- if ne (toString $secContext.privileged) (toString $privileged) -}}
+  {{- if and (hasKey $secContext "privileged") (ne (toString $secContext.privileged) (toString $privileged)) -}}
     {{- $privileged = $secContext.privileged -}}
+  {{- end -}}
+  {{/* If has key "add" and has items in the list. */}}
+  {{- if and (hasKey $secContext.capabilities "add") $secContext.capabilities.add -}}
+    {{- $capAdd = $secContext.capabilities.add -}}
+  {{- end -}}
+  {{/* If has key "drop" and has items in the list. */}}
+  {{- if and (hasKey $secContext.capabilities "drop") $secContext.capabilities.drop -}}
+    {{- $capDrop = $secContext.capabilities.drop -}}
   {{- end -}}
 
   {{/* Only run as root if it's explicitly defined */}}
@@ -44,26 +59,23 @@ readOnlyRootFilesystem: {{ $readOnlyRootFilesystem }}
 allowPrivilegeEscalation: {{ $allowPrivilegeEscalation }}
 privileged: {{ $privileged }} {{/* TODO: Set to true if deviceList is used? */}}
 capabilities: {{/* TODO: add NET_BIND_SERVICE when port < 80 is used? */}}
-  {{- with $secContext.capabilities -}}
-    {{- if or .add .drop -}}
-      {{- if or (not (kindIs "slice" .add)) (not (kindIs "slice" .drop)) -}}
-        {{- fail "Either <add> or <drop> capabilities is not a list." -}}
-      {{- end -}}
-      {{- with .add }}
-    add:
-        {{- range . }}
-        - {{ tpl . $root | quote }}
-        {{- end -}}
-      {{- end -}}
-      {{- with .drop }}
-    drop:
-        {{- range . }}
-        - {{ tpl . $root | quote }}
-        {{- end -}}
-      {{- end -}}
-    {{- else }}
-    add: {{ $capAdd }}
-    drop: {{ $capDrop }}
+  {{- if or (not (kindIs "slice" $capAdd)) (not (kindIs "slice" $capDrop)) -}}
+    {{- fail "Either <add> or <drop> capabilities is not a list." -}}
+  {{- end -}}
+  {{- with $capAdd }}
+  add:
+    {{- range . }}
+    - {{ tpl . $root | quote }}
     {{- end -}}
-  {{- end }}
+  {{- else }}
+  add: []
+  {{- end -}}
+  {{- with $capDrop }}
+  drop:
+    {{- range . }}
+    - {{ tpl . $root | quote }}
+    {{- end -}}
+  {{- else }}
+  drop: []
+  {{- end -}}
 {{- end -}}

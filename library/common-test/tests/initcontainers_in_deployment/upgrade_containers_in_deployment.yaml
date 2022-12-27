@@ -1,0 +1,75 @@
+
+suite: upgradeContainer in deployment test
+templates:
+  - common.yaml
+release:
+  upgrade: true
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+
+  - it: should pass with image defined in install container
+    documentIndex: *deploymentDoc
+    set:
+      image:
+        repository: some-repo
+        tag: some-tag
+        pullPolicy: Always
+      someImage:
+        repository: some-other-repo
+        tag: some-other-tag
+        pullPolicy: Never
+      installContainers:
+        some-name:
+          imageSelector: someImage
+          pullPolicy: Never
+      upgradeContainers:
+        some-name-upgrade:
+          imageSelector: someImage
+          pullPolicy: Never
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].image
+          value: some-repo:some-tag
+      - equal:
+          path: spec.template.spec.containers[0].imagePullPolicy
+          value: Always
+      - contains:
+          path: spec.template.spec.initContainers
+          content:
+            name: RELEASE-NAME-common-test-some-name-upgrade
+            image: some-other-repo:some-other-tag
+            imagePullPolicy: Never
+            stdin: false
+            tty: false
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add: []
+                drop: []
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsNonRoot: true
+            env:
+            - name: TZ
+              value: UTC
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: void
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi

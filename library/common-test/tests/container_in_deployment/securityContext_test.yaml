@@ -89,7 +89,7 @@ tests:
         runAsNonRoot: non-bool
     asserts:
       - failedTemplate:
-          errorMessage: One or more of the following are not set as booleans (runAsNonRoot, privileged, readOnlyRootFilesystem, allowPrivilegeEscalation)
+          errorMessage: <runAsNonRoot> key has value (non-bool). But it must be boolean.
 
   - it: should fail with securityContext changed and privileged set to a non-bool value
     set:
@@ -97,7 +97,7 @@ tests:
         privileged: non-bool
     asserts:
       - failedTemplate:
-          errorMessage: One or more of the following are not set as booleans (runAsNonRoot, privileged, readOnlyRootFilesystem, allowPrivilegeEscalation)
+          errorMessage: <privileged> key has value (non-bool). But it must be boolean.
 
   - it: should fail with securityContext changed and readOnlyRootFilesystem set to a non-bool value
     set:
@@ -105,7 +105,7 @@ tests:
         readOnlyRootFilesystem: non-bool
     asserts:
       - failedTemplate:
-          errorMessage: One or more of the following are not set as booleans (runAsNonRoot, privileged, readOnlyRootFilesystem, allowPrivilegeEscalation)
+          errorMessage: <readOnlyRootFilesystem> key has value (non-bool). But it must be boolean.
 
   - it: should fail with securityContext changed and allowPrivilegeEscalation set to a non-bool value
     set:
@@ -113,7 +113,7 @@ tests:
         allowPrivilegeEscalation: non-bool
     asserts:
       - failedTemplate:
-          errorMessage: One or more of the following are not set as booleans (runAsNonRoot, privileged, readOnlyRootFilesystem, allowPrivilegeEscalation)
+          errorMessage: <allowPrivilegeEscalation> key has value (non-bool). But it must be boolean.
 
   - it: should fail with securityContext changed and capabilities.add is not a list
     set:
