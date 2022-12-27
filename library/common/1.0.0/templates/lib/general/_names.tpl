@@ -106,13 +106,13 @@ nameOverride applies only to the current chart
   {{- $saName -}}
 {{- end -}}
 
-{{/* Returns the pvcName. */}}
+{{/* Returns the pvc name. */}}
 {{- define "ix.v1.common.names.pvc" -}}
   {{- $root := .root -}}
   {{- $pvcValues := .pvcValues -}}
 
   {{- if or (not $root) (not $pvcValues) -}}
-    {{- fail "Named function <names.pvcName> did not receive required values" -}}
+    {{- fail "Named function <names.pvc> did not receive required values" -}}
   {{- end -}}
 
   {{- $pvcName := include "ix.v1.common.names.fullname" $root -}}
@@ -128,6 +128,36 @@ nameOverride applies only to the current chart
   {{- end -}}
 
   {{- $pvcName -}}
+{{- end -}}
+
+{{/* Retursn the pvc name for volume */}}
+{{- define "ix.v1.common.names.volume.pvc" -}}
+  {{- $root := .root -}}
+  {{- $pvcVolValues := .pvcVolValues -}}
+  {{- $index := .index -}}
+
+  {{- if or (not $root) (not $pvcVolValues) (not $index) -}}
+    {{- fail "Named function <names.volume.pvc> did not receive required values" -}}
+  {{- end -}}
+
+  {{- $pvcVolName := (include "ix.v1.common.names.fullname" $root) -}}
+
+  {{- if $pvcVolValues.existingClaim -}} {{/* Always prefer existingClaim if it set */}}
+    {{- $pvcName = $pvcVolValues.existingClaim -}}
+  {{- else -}} {{/* Else use nameOverride */}}
+    {{- if $pvcVolValues.nameOverride -}}
+      {{- if not (eq $pvcVolValues.nameOverride "-") -}}
+        {{- $pvcName = (printf "%s-%s" (include "ix.v1.common.names.fullname" $root) $pvcVolValues.nameOverride) -}}
+      {{- end -}}
+    {{- else -}} {{/* Else generate the PVC name from fullname + volume name */}}
+      {{- $pvcName = (printf "%s-%s" (include "ix.v1.common.names.fullname" $root) $index) -}}
+    {{- end -}}
+    {{- with $pvcVolValues.forceName -}}
+      {{- $pvcName = . -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $pvcVolName -}}
 {{- end -}}
 
 {{/* Returns the container name. */}}
