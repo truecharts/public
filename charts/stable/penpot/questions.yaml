@@ -148,25 +148,25 @@ questions:
                         type: string
                         required: true
                         default: ""
-                    - variable: smtp_host
+                    - variable: host
                       label: SMTP Host
                       schema:
                         type: string
                         required: true
                         default: ""
-                    - variable: smtp_port
+                    - variable: port
                       label: SMTP Port
                       schema:
                         type: int
                         required: true
                         default: 587
-                    - variable: smtp_user
+                    - variable: user
                       label: SMTP User
                       schema:
                         type: string
                         required: true
                         default: ""
-                    - variable: smtp_pass
+                    - variable: pass
                       label: SMTP Pass
                       schema:
                         type: string
