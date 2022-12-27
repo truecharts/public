@@ -138,8 +138,11 @@ configmap:
         http:
           use_x_forwarded_for: true
           trusted_proxies:
-            - 172.16.0.0/12
-
+            {{- if hasKey .Values "ixChartContext" }}
+            - {{ .Values.ixChartContext.kubernetes_config.cluster_cidr }}
+            {{- else }}
+            - 172.16.0.0/16
+            {{- end }}
 postgresql:
   enabled: true
   postgresqlUsername: home-assistant
