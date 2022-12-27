@@ -15,23 +15,10 @@
   {{- $objectData := .objectData -}}
   {{- $objectType := .objectType -}}
 
-  {{- if ne $name ($name | lower) -}}
-    {{- fail (printf "%s has invalid name (%s). Name must be lowercase." (camelcase $objectType) $name) -}}
-  {{- end -}}
-  {{- if contains "_" $name -}}
-    {{- fail (printf "%s has invalid name (%s). Name cannot contain underscores (_)." (camelcase $objectType) $name) -}}
-  {{- end -}}
-
   {{/* Generate the name */}}
-  {{- $objectName := include "ix.v1.common.names.fullname" $root -}}
-  {{- if and (hasKey $objectData "nameOverride") $objectData.nameOverride -}}
-    {{- $objectName = printf "%v-%v" $objectName $objectData.nameOverride -}}
-  {{- else -}}
-    {{- $objectName = printf "%v-%v" $objectName $name -}}
-  {{- end -}}
+  {{- $objectName := include "ix.v1.common.names.configmapAndSecret" (dict "root" $root "objName" $name "objData" $objectData "objType" $objectType) -}}
 
   {{- if $objectData.enabled -}} {{/* If it's enabled... */}}
-
     {{/* Do some checks */}}
     {{- if not $objectData.content -}}
       {{- fail (printf "Content of %s (%s) are empty. Please disable or add content." (camelcase $objectType) $name) -}}

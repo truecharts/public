@@ -7,17 +7,7 @@
   {{- $defaultAccessMode := $root.Values.global.defaults.accessMode -}}
   {{- $defaultRetain := $root.Values.global.defaults.PVCRetain -}}
 
-  {{- $pvcName := include "ix.v1.common.names.fullname" $root -}}
-
-  {{- if and (hasKey $pvcValues "nameOverride") $pvcValues.nameOverride -}}
-    {{- if not (eq $pvcValues.nameOverride "-") -}}
-      {{- $pvcName = printf "%v-%v" $pvcName $pvcValues.nameOverride -}}
-    {{- end -}}
-  {{- end -}}
-
-  {{- with $pvcValues.forceName -}}
-    {{- $pvcName = tpl . $root -}}
-  {{- end -}}
+  {{- $pvcName := include "ix.v1.common.names.pvc" (dict "root" $root "pvcValues" $pvcValues) -}}
 
   {{- $accessMode := (tpl (default $defaultAccessMode $pvcValues.accessMode) $root) -}}
   {{- if not (mustHas $accessMode (list "ReadWriteOnce" "ReadOnlyMany" "ReadWriteMany" "ReadWriteOncePod")) -}}

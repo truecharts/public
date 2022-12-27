@@ -28,10 +28,7 @@
   {{- end -}}
 
   {{- range $index, $container := $sortedContainers }}
-    {{- if ne $container.name ($container.name | lower) -}}
-      {{- fail (printf "Name (%s) of Init Container must be all lowercase" $container.name) -}}
-    {{- end -}}
-    {{- $name := (printf "%s-%s" (include "ix.v1.common.names.fullname" $root) $container.name) }}
+    {{- $name := include "ix.v1.common.names.container" (dict "root" $root "containerName" $container.name) }}
 - name: {{ $name }}
   image: {{ include "ix.v1.common.images.selector" (dict "root" $root "selectedImage" $container.imageSelector ) }}
   imagePullPolicy: {{ include "ix.v1.common.images.pullPolicy" (dict "root" $root "selectedImage" $container.imageSelector) }}
