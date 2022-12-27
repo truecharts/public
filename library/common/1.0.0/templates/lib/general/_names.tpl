@@ -88,6 +88,24 @@ nameOverride applies only to the current chart
   {{- $serviceAccountName -}}
 {{- end -}}
 
+{{/* Returns the service name */}}
+{{- define "ix.v1.common.names.serviceAccount" -}}
+  {{- $root := .root -}}
+  {{- $saValues := .saValues -}}
+
+  {{- if or (not $root) (not $saValues) -}}
+    {{- fail "Named function <names.serviceAccount> did not receive required values" -}}
+  {{- end -}}
+
+  {{- $saName := include "ix.v1.common.names.fullname" $root -}}
+
+  {{- if and (hasKey $saValues "nameOverride") $saValues.nameOverride -}}
+    {{- $saName = (printf "%v-%v" $saName $saValues.nameOverride) -}}
+  {{- end -}}
+
+  {{- $saName -}}
+{{- end -}}
+
 {{/* Returns the pvcName. */}}
 {{- define "ix.v1.common.names.pvc" -}}
   {{- $root := .root -}}
@@ -169,4 +187,56 @@ nameOverride applies only to the current chart
   {{- end -}}
 
   {{- $generatedName -}}
+{{- end -}}
+
+{{/* Returns the name for certificate secret */}}
+{{- define "ix.v1.common.names.certificateSecret" -}}
+  {{- $root := .root -}}
+  {{- $certName := .certName -}}
+  {{- $certValues := .certValues -}}
+  {{- $certID := .certID -}}
+
+  {{- if or (not $root) (not $certName) (not $certValues) (not $certID) -}}
+    {{- fail "Named function <names.certificateSecret> did not receive required values" -}}
+  {{- end -}}
+
+  {{- if ne $certName ($certName | lower) -}}
+    {{- fail (printf "Certificate has invalid name (%s). Name must be lowercase." $certName) -}}
+  {{- end -}}
+  {{- if contains "_" $certName -}}
+    {{- fail (printf "Certificate has invalid name (%s). Name cannot contain underscores (_)" $certName) -}}
+  {{- end -}}
+
+  {{/* Default to $name if there is not a nameOverride given */}}
+  {{- if not $certValues.nameOverride -}}
+    {{- $_ := set $certValues "nameOverride" $certName -}}
+  {{- end -}}
+
+  {{- $secretName := include "ix.v1.common.names.fullname" $root -}}
+  {{- if $certValues.nameOverride -}}
+    {{- $secretName = (printf "%v-%v-%v-%v" $secretName $certValues.nameOverride "ixcert" $certID) -}}
+  {{- else -}}
+    {{- $secretName = (printf "%v-%v-%v" $secretName "ixcert" $certID) -}}
+  {{- end -}}
+  {{- $secretName = (printf "%v-%v" $secretName $root.Release.Revision) -}}
+
+  {{- $secretName -}}
+{{- end -}}
+
+{{/* Returns the serviceName. */}}
+{{- define "ix.v1.common.names.service" -}}
+  {{- $root := .root -}}
+  {{- $svcValues := .svcValues -}}
+
+  {{- if or (not $root) (not $svcValues) -}}
+    {{- fail "Named function <names.service> did not receive required values" -}}
+  {{- end -}}
+
+  {{- $svcName := include "ix.v1.common.names.fullname" $root -}}
+
+  {{- if and (hasKey $svcValues "nameOverride") $svcValues.nameOverride -}}
+    {{- $svcName = (printf "%v-%v" $svcName $svcValues.nameOverride) -}}
+  {{- end -}}
+
+  {{- $svcName -}}
 {{- end -}}
