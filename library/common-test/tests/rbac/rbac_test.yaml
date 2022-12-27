@@ -15,7 +15,7 @@ tests:
       - isKind:
           of: Deployment
 
-  - it: should fail with multiple service accounts, without any set as primary
+  - it: should fail with multiple rbac, without any set as primary
     set:
       rbac:
         main:
@@ -223,7 +223,7 @@ tests:
             kind: ClusterRole
             name: RELEASE-NAME-common-test
 
-  - it: should pass with primary service account enabled and nameOverride defined (Role)
+  - it: should pass with primary rbac enabled and nameOverride defined (Role)
     documentIndex: *roleDoc
     set:
       rbac:
@@ -239,7 +239,7 @@ tests:
           path: metadata.name
           value: RELEASE-NAME-common-test-some-name
 
-  - it: should pass with primary service account enabled and nameOverride defined (RoleBinding)
+  - it: should pass with primary rbac enabled and nameOverride defined (RoleBinding)
     documentIndex: *roleBindingDoc
     set:
       rbac:
@@ -255,7 +255,7 @@ tests:
           path: metadata.name
           value: RELEASE-NAME-common-test-some-name
 
-  - it: should pass with primary service account enabled and nameOverride defined (ClusterRole)
+  - it: should pass with primary rbac enabled and nameOverride defined (ClusterRole)
     documentIndex: *roleDoc
     set:
       rbac:
@@ -272,7 +272,7 @@ tests:
           path: metadata.name
           value: RELEASE-NAME-common-test-some-name
 
-  - it: should pass with primary service account enabled and nameOverride defined (ClusterRoleBinding)
+  - it: should pass with primary rbac enabled and nameOverride defined (ClusterRoleBinding)
     documentIndex: *roleBindingDoc
     set:
       rbac:
@@ -289,7 +289,7 @@ tests:
           path: metadata.name
           value: RELEASE-NAME-common-test-some-name
 
-  - it: should pass with primary service account enabled annotations and labels added (Role)
+  - it: should pass with primary rbac enabled annotations and labels added (Role)
     documentIndex: *roleDoc
     set:
       rbac:
@@ -301,168 +301,6 @@ tests:
           labels:
             key3: value3
             key4: value4
-          rules: *rules
-          subjects: *subjects
-    asserts:
-      - isKind:
-          of: Role
-      - equal:
-          path: metadata.name
-          value: RELEASE-NAME-common-test
-      - equal:
-          path: metadata.annotations
-          value:
-            key1: value1
-            key2: value2
-      - equal:
-          path: metadata.labels
-          value:
-            app: common-test
-            app.kubernetes.io/instance: RELEASE-NAME
-            app.kubernetes.io/managed-by: Helm
-            app.kubernetes.io/name: common-test
-            app.kubernetes.io/version: *appVer
-            helm-revision: "0"
-            helm.sh/chart: common-test-1.0.0
-            release: RELEASE-NAME
-            key3: value3
-            key4: value4
-
-  - it: should pass with primary service account enabled annotations and labels added (RoleBinding)
-    documentIndex: *roleBindingDoc
-    set:
-      rbac:
-        main:
-          enabled: true
-          annotations:
-            key1: value1
-            key2: value2
-          labels:
-            key3: value3
-            key4: value4
-          rules: *rules
-          subjects: *subjects
-    asserts:
-      - isKind:
-          of: RoleBinding
-      - equal:
-          path: metadata.name
-          value: RELEASE-NAME-common-test
-      - equal:
-          path: metadata.annotations
-          value:
-            key1: value1
-            key2: value2
-      - equal:
-          path: metadata.labels
-          value:
-            app: common-test
-            app.kubernetes.io/instance: RELEASE-NAME
-            app.kubernetes.io/managed-by: Helm
-            app.kubernetes.io/name: common-test
-            app.kubernetes.io/version: *appVer
-            helm-revision: "0"
-            helm.sh/chart: common-test-1.0.0
-            release: RELEASE-NAME
-            key3: value3
-            key4: value4
-
-  - it: should pass with primary service account enabled annotations and labels added (ClusterRole)
-    documentIndex: *roleDoc
-    set:
-      rbac:
-        main:
-          enabled: true
-          clusterWide: true
-          annotations:
-            key1: value1
-            key2: value2
-          labels:
-            key3: value3
-            key4: value4
-          rules: *rules
-          subjects: *subjects
-    asserts:
-      - isKind:
-          of: ClusterRole
-      - equal:
-          path: metadata.name
-          value: RELEASE-NAME-common-test
-      - equal:
-          path: metadata.annotations
-          value:
-            key1: value1
-            key2: value2
-      - equal:
-          path: metadata.labels
-          value:
-            app: common-test
-            app.kubernetes.io/instance: RELEASE-NAME
-            app.kubernetes.io/managed-by: Helm
-            app.kubernetes.io/name: common-test
-            app.kubernetes.io/version: *appVer
-            helm-revision: "0"
-            helm.sh/chart: common-test-1.0.0
-            release: RELEASE-NAME
-            key3: value3
-            key4: value4
-
-  - it: should pass with primary service account enabled annotations and labels added (ClusterRoleBinding)
-    documentIndex: *roleBindingDoc
-    set:
-      rbac:
-        main:
-          enabled: true
-          clusterWide: true
-          annotations:
-            key1: value1
-            key2: value2
-          labels:
-            key3: value3
-            key4: value4
-          rules: *rules
-          subjects: *subjects
-    asserts:
-      - isKind:
-          of: ClusterRoleBinding
-      - equal:
-          path: metadata.name
-          value: RELEASE-NAME-common-test
-      - equal:
-          path: metadata.annotations
-          value:
-            key1: value1
-            key2: value2
-      - equal:
-          path: metadata.labels
-          value:
-            app: common-test
-            app.kubernetes.io/instance: RELEASE-NAME
-            app.kubernetes.io/managed-by: Helm
-            app.kubernetes.io/name: common-test
-            app.kubernetes.io/version: *appVer
-            helm-revision: "0"
-            helm.sh/chart: common-test-1.0.0
-            release: RELEASE-NAME
-            key3: value3
-            key4: value4
-
-  - it: should pass with primary service account enabled annotations and labels added from tpl (Role)
-    documentIndex: *roleDoc
-    set:
-      k1: value1
-      k2: value2
-      k3: value3
-      k4: value4
-      rbac:
-        main:
-          enabled: true
-          annotations:
-            key1: "{{ .Values.k1 }}"
-            key2: "{{ .Values.k2 }}"
-          labels:
-            key3: "{{ .Values.k3 }}"
-            key4: "{{ .Values.k4 }}"
           rules: *rules
           subjects: *subjects
     asserts:
@@ -490,7 +328,169 @@ tests:
             key3: value3
             key4: value4
 
-  - it: should pass with primary service account enabled annotations and labels added from tpl (RoleBinding)
+  - it: should pass with primary rbac enabled annotations and labels added (RoleBinding)
+    documentIndex: *roleBindingDoc
+    set:
+      rbac:
+        main:
+          enabled: true
+          annotations:
+            key1: value1
+            key2: value2
+          labels:
+            key3: value3
+            key4: value4
+          rules: *rules
+          subjects: *subjects
+    asserts:
+      - isKind:
+          of: RoleBinding
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test
+      - equal:
+          path: metadata.annotations
+          value:
+            key1: value1
+            key2: value2
+      - equal:
+          path: metadata.labels
+          value:
+            app: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/version: *appVer
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            release: RELEASE-NAME
+            key3: value3
+            key4: value4
+
+  - it: should pass with primary rbac enabled annotations and labels added (ClusterRole)
+    documentIndex: *roleDoc
+    set:
+      rbac:
+        main:
+          enabled: true
+          clusterWide: true
+          annotations:
+            key1: value1
+            key2: value2
+          labels:
+            key3: value3
+            key4: value4
+          rules: *rules
+          subjects: *subjects
+    asserts:
+      - isKind:
+          of: ClusterRole
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test
+      - equal:
+          path: metadata.annotations
+          value:
+            key1: value1
+            key2: value2
+      - equal:
+          path: metadata.labels
+          value:
+            app: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/version: *appVer
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            release: RELEASE-NAME
+            key3: value3
+            key4: value4
+
+  - it: should pass with primary rbac enabled annotations and labels added (ClusterRoleBinding)
+    documentIndex: *roleBindingDoc
+    set:
+      rbac:
+        main:
+          enabled: true
+          clusterWide: true
+          annotations:
+            key1: value1
+            key2: value2
+          labels:
+            key3: value3
+            key4: value4
+          rules: *rules
+          subjects: *subjects
+    asserts:
+      - isKind:
+          of: ClusterRoleBinding
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test
+      - equal:
+          path: metadata.annotations
+          value:
+            key1: value1
+            key2: value2
+      - equal:
+          path: metadata.labels
+          value:
+            app: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/version: *appVer
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            release: RELEASE-NAME
+            key3: value3
+            key4: value4
+
+  - it: should pass with primary rbac enabled annotations and labels added from tpl (Role)
+    documentIndex: *roleDoc
+    set:
+      k1: value1
+      k2: value2
+      k3: value3
+      k4: value4
+      rbac:
+        main:
+          enabled: true
+          annotations:
+            key1: "{{ .Values.k1 }}"
+            key2: "{{ .Values.k2 }}"
+          labels:
+            key3: "{{ .Values.k3 }}"
+            key4: "{{ .Values.k4 }}"
+          rules: *rules
+          subjects: *subjects
+    asserts:
+      - isKind:
+          of: Role
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test
+      - equal:
+          path: metadata.annotations
+          value:
+            key1: value1
+            key2: value2
+      - equal:
+          path: metadata.labels
+          value:
+            app: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/version: *appVer
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            release: RELEASE-NAME
+            key3: value3
+            key4: value4
+
+  - it: should pass with primary rbac enabled annotations and labels added from tpl (RoleBinding)
     documentIndex: *roleBindingDoc
     set:
       k1: value1
@@ -533,7 +533,7 @@ tests:
             key3: value3
             key4: value4
 
-  - it: should pass with primary service account enabled annotations and labels added (ClusterRole)
+  - it: should pass with primary rbac enabled annotations and labels added (ClusterRole)
     documentIndex: *roleDoc
     set:
       k1: value1
@@ -577,7 +577,7 @@ tests:
             key3: value3
             key4: value4
 
-  - it: should pass with primary service account enabled annotations and labels added (ClusterRoleBinding)
+  - it: should pass with primary rbac enabled annotations and labels added (ClusterRoleBinding)
     documentIndex: *roleBindingDoc
     set:
       k1: value1
@@ -622,7 +622,7 @@ tests:
             key4: value4
 
 
-  - it: should pass with non-primary service account enabled and nameOverride defined (Role - main)
+  - it: should pass with non-primary rbac enabled and nameOverride defined (Role - main)
     documentIndex: *roleDoc
     set:
       rbac:
@@ -644,7 +644,7 @@ tests:
           path: metadata.name
           value: RELEASE-NAME-common-test
 
-  - it: should pass with non-primary service account enabled and nameOverride defined (RoleBinding - main)
+  - it: should pass with non-primary rbac enabled and nameOverride defined (RoleBinding - main)
     documentIndex: *roleBindingDoc
     set:
       rbac:
@@ -666,7 +666,7 @@ tests:
           path: metadata.name
           value: RELEASE-NAME-common-test
 
-  - it: should pass with non-primary service account enabled and nameOverride defined (Role - main)
+  - it: should pass with non-primary rbac enabled and nameOverride defined (Role - main)
     documentIndex: &otherRoleDoc 2
     set:
       rbac:
@@ -688,7 +688,7 @@ tests:
           path: metadata.name
           value: RELEASE-NAME-common-test-some-name
 
-  - it: should pass with non-primary service account enabled and nameOverride defined (RoleBinding - other)
+  - it: should pass with non-primary rbac enabled and nameOverride defined (RoleBinding - other)
     documentIndex: &otherRoleBindingDoc 3
     set:
       rbac:
@@ -710,7 +710,7 @@ tests:
           path: metadata.name
           value: RELEASE-NAME-common-test-some-name
 
-  - it: should pass with non-primary service account enabled and nameOverride defined (ClusterRole - other)
+  - it: should pass with non-primary rbac enabled and nameOverride defined (ClusterRole - other)
     documentIndex: &otherRoleDoc 2
     set:
       rbac:
@@ -733,7 +733,7 @@ tests:
           path: metadata.name
           value: RELEASE-NAME-common-test-some-name
 
-  - it: should pass with non-primary service account enabled and nameOverride defined (ClusterRoleBinding - other)
+  - it: should pass with non-primary rbac enabled and nameOverride defined (ClusterRoleBinding - other)
     documentIndex: &otherRoleBindingDoc 3
     set:
       rbac:
@@ -1027,7 +1027,7 @@ tests:
           path: subjects
           value:
             - kind: ServiceAccount
-              name: RELEASE-NAME-common-test
+              name: default
               namespace: *ns
             - kind: value1
               name: value2
@@ -1054,7 +1054,7 @@ tests:
           path: subjects
           value:
             - kind: ServiceAccount
-              name: RELEASE-NAME-common-test
+              name: default
               namespace: *ns
             - kind: value1
               name: value2
@@ -1090,7 +1090,7 @@ tests:
           path: subjects
           value:
             - kind: ServiceAccount
-              name: RELEASE-NAME-common-test
+              name: default
               namespace: *ns
             - kind: value1
               name: value2
@@ -1123,6 +1123,81 @@ tests:
     asserts:
       - isKind:
           of: ClusterRoleBinding
+      - equal:
+          path: subjects
+          value:
+            - kind: ServiceAccount
+              name: default
+              namespace: *ns
+            - kind: value1
+              name: value2
+              apiGroup: value3
+            - kind: value4
+              name: value5
+              apiGroup: value6
+
+  - it: should pass with subjects set, multiple entries and 2 service account 1 primary and nameOverride
+    documentIndex: &roleBindingDoc 3
+    set:
+      rbac:
+        main:
+          enabled: true
+          rules: *rules
+          subjects:
+            - kind: value1
+              name: value2
+              apiGroup: value3
+            - kind: value4
+              name: value5
+              apiGroup: value6
+      serviceAccount:
+        main:
+          enabled: true
+          primary: true
+          nameOverride: the-main
+        other:
+          enabled: true
+          primary: false
+    asserts:
+      - isKind:
+          of: RoleBinding
+      - equal:
+          path: subjects
+          value:
+            - kind: ServiceAccount
+              name: RELEASE-NAME-common-test-the-main
+              namespace: *ns
+            - kind: value1
+              name: value2
+              apiGroup: value3
+            - kind: value4
+              name: value5
+              apiGroup: value6
+
+  - it: should pass with subjects set, multiple entries and 2 service account 1 primary
+    documentIndex: *roleBindingDoc
+    set:
+      rbac:
+        main:
+          enabled: true
+          rules: *rules
+          subjects:
+            - kind: value1
+              name: value2
+              apiGroup: value3
+            - kind: value4
+              name: value5
+              apiGroup: value6
+      serviceAccount:
+        main:
+          enabled: true
+          primary: true
+        other:
+          enabled: true
+          primary: false
+    asserts:
+      - isKind:
+          of: RoleBinding
       - equal:
           path: subjects
           value:

@@ -68,7 +68,7 @@ nameOverride applies only to the current chart
 {{- end -}}
 
 {{/* Returns the serviceAccoutName. The name of the primary, if any, otherwise "default" */}}
-{{- define "ix.v1.common.names.pod.serviceAccountName" -}}
+{{- define "ix.v1.common.names.serviceAccountName" -}}
   {{- $serviceAccountName := "default" -}}
 
   {{- range $name, $serviceAccount := .Values.serviceAccount -}}
@@ -104,6 +104,24 @@ nameOverride applies only to the current chart
   {{- end -}}
 
   {{- $saName -}}
+{{- end -}}
+
+{{/* Returns the RBAC name */}}
+{{- define "ix.v1.common.names.rbac" -}}
+  {{- $root := .root -}}
+  {{- $rbacValues := .rbacValues -}}
+
+  {{- if or (not $root) (not $rbacValues) -}}
+    {{- fail "Named function <names.rbac> did not receive required values" -}}
+  {{- end -}}
+
+  {{- $rbacName := include "ix.v1.common.names.fullname" $root -}}
+
+  {{- if and (hasKey $rbacValues "nameOverride") $rbacValues.nameOverride -}}
+    {{- $rbacName = (printf "%v-%v" $rbacName $rbacValues.nameOverride) -}}
+  {{- end -}}
+
+  {{- $rbacName -}}
 {{- end -}}
 
 {{/* Returns the pvc name. */}}

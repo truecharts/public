@@ -2,15 +2,10 @@
 {{/* An rbac object, an SA object and "root" is passed from the spawner */}}
 {{- define "ix.v1.common.class.rbac" -}}
   {{- $rbacValues := .rbac -}}
-  {{- $saValues := .serviceAccount -}}
   {{- $root := .root -}}
 
-  {{- $saName := include "ix.v1.common.names.fullname" $root -}}
-  {{- $rbacName := include "ix.v1.common.names.fullname" $root -}}
-
-  {{- if and (hasKey $rbacValues "nameOverride") $rbacValues.nameOverride -}}
-    {{- $rbacName = (printf "%v-%v" $rbacName $rbacValues.nameOverride) -}}
-  {{- end -}}
+  {{- $saName := include "ix.v1.common.names.serviceAccountName" $root -}}
+  {{- $rbacName := include "ix.v1.common.names.rbac" (dict "root" $root "rbacValues" $rbacValues) -}}
 
   {{/* Prepare values for either cluster rbac or namespaced rbac */}}
   {{- $roleAPI := include "ix.v1.common.capabilities.role.apiVersion" $root -}}
@@ -18,6 +13,7 @@
   {{- $roleKind := "Role" -}}
   {{- $roleBindingKind := "RoleBinding" -}}
   {{- $clusterWide := false -}}
+
   {{- if hasKey $rbacValues "clusterWide" -}}
     {{- if $rbacValues.clusterWide -}}
       {{- $roleKind = "ClusterRole" -}}
