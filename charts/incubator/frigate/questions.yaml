@@ -685,7 +685,7 @@ questions:
                         type: int
                         default: 60
                     - variable: retain
-                      label: Retain
+                      label: Record > Retain
                       description: Retention settings for recording
                       schema:
                         additional_attrs: true
@@ -728,7 +728,7 @@ questions:
                                       - value: active_objects
                                         description: Active Objects
                     - variable: events
-                      label: Events
+                      label: Record > Events
                       description: Event recording settings
                       schema:
                         additional_attrs: true
@@ -781,7 +781,7 @@ questions:
                                           required: true
                                           default: ""
                                 - variable: retain
-                                  label: Retain
+                                  label: Record > Events > Retain
                                   description: Retention settings for recordings of events
                                   schema:
                                     additional_attrs: true
@@ -914,8 +914,8 @@ questions:
                               required: true
                               default: ""
                     - variable: retain
-                      label: Retain
-                      description: Retention settings for recordings of events
+                      label: Snapshots > Retain
+                      description: Retention settings for snapshots of events
                       schema:
                         additional_attrs: true
                         type: dict
@@ -1052,7 +1052,7 @@ questions:
                         type: string
                         default: ""
                     - variable: color
-                      label: Color
+                      label: Timestamp Style > Color
                       schema:
                         additional_attrs: true
                         type: dict
