@@ -2,7 +2,7 @@
   {{- $index := .index -}}
   {{- $vol := .volume -}}
   {{- $root := .root -}}
-  {{- $pvcName := include "ix.v1.common.names.volume.pvc" (dict "index" $index "root" $root "pvcVolValues" $vol) -}}
+  {{- $pvcName := include "ix.v1.common.names.volume.pvc" (dict "index" $index "root" $root "pvcVolValues" $vol) }}
 - name: {{ $index }}
   persistentVolumeClaim:
     claimName: {{ tpl $pvcName $root }}
