@@ -60,15 +60,23 @@ tests:
       - isNull:
           path: spec.template.spec.containers[0].terminationMessagePolicy
       - equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups: []
+      - equal:
           path: spec.template.spec.containers[0].securityContext
           value:
             allowPrivilegeEscalation: false
-            capabilities:
-              add: []
-              drop: []
             privileged: false
             readOnlyRootFilesystem: true
             runAsNonRoot: true
+            runAsUser: 568
+            runAsGroup: 568
+            capabilities:
+              add: []
+              drop: []
       - equal:
           path: spec.template.spec.containers[0].env
           value:

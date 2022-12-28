@@ -15,6 +15,8 @@ tests:
     set:
       securityContext:
         runAsNonRoot: false
+        runAsUser: 0
+        runAsGroup: 0
         readOnlyRootFilesystem: false
         allowPrivilegeEscalation: true
         privileged: true
@@ -28,14 +30,16 @@ tests:
           path: spec.template.spec.containers[0].securityContext
           value:
             allowPrivilegeEscalation: true
+            privileged: true
+            readOnlyRootFilesystem: false
+            runAsNonRoot: false
+            runAsUser: 0
+            runAsGroup: 0
             capabilities:
               add:
                 - SYS_MODULE
               drop:
                 - NET_ADMIN
-            privileged: true
-            readOnlyRootFilesystem: false
-            runAsNonRoot: false
 
   - it: should pass with securityContext changed from tpl
     documentIndex: *deploymentDoc
@@ -62,6 +66,8 @@ tests:
             privileged: false
             readOnlyRootFilesystem: true
             runAsNonRoot: true
+            runAsUser: 568
+            runAsGroup: 568
 
   - it: should fail with inherit key added in securityContext on main container
     set:
@@ -75,7 +81,6 @@ tests:
     set:
       securityContext:
         runAsNonRoot: true
-      podSecurityContext:
         runAsUser: 0
     asserts:
       - failedTemplate:
@@ -85,7 +90,6 @@ tests:
     set:
       securityContext:
         runAsNonRoot: true
-      podSecurityContext:
         runAsUser: 0
     asserts:
       - failedTemplate:
@@ -140,3 +144,69 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Either <add> or <drop> capabilities is not a list.
+
+  - it: should fail with empty capabilities.drop in securityContext
+    set:
+      securityContext:
+        capabilities:
+          drop:
+    asserts:
+      - failedTemplate:
+          errorMessage: <capabilities.drop> key cannot be empty. Set a value or remove the key for the default ([]) to take effect.
+
+  - it: should fail with empty capabilities.add in securityContext
+    set:
+      securityContext:
+        capabilities:
+          add:
+    asserts:
+      - failedTemplate:
+          errorMessage: <capabilities.add> key cannot be empty. Set a value or remove the key for the default ([]) to take effect.
+
+  - it: should fail with empty runAsGroup in securityContext
+    set:
+      securityContext:
+        runAsGroup:
+    asserts:
+      - failedTemplate:
+          errorMessage: <runAsGroup> key cannot be empty. Set a value or remove the key for the default (568) to take effect.
+
+  - it: should fail with empty runAsUser in securityContext
+    set:
+      securityContext:
+        runAsUser:
+    asserts:
+      - failedTemplate:
+          errorMessage: <runAsUser> key cannot be empty. Set a value or remove the key for the default (568) to take effect.
+
+  - it: should fail with empty privileged in securityContext
+    set:
+      securityContext:
+        privileged:
+    asserts:
+      - failedTemplate:
+          errorMessage: <privileged> key has value (<nil>). But it must be boolean.
+
+  - it: should fail with empty allowPrivilegeEscalation in securityContext
+    set:
+      securityContext:
+        allowPrivilegeEscalation:
+    asserts:
+      - failedTemplate:
+          errorMessage: <allowPrivilegeEscalation> key has value (<nil>). But it must be boolean.
+
+  - it: should fail with empty readOnlyRootFilesystem in securityContext
+    set:
+      securityContext:
+        readOnlyRootFilesystem:
+    asserts:
+      - failedTemplate:
+          errorMessage: <readOnlyRootFilesystem> key has value (<nil>). But it must be boolean.
+
+  - it: should fail with empty runAsNonRoot in securityContext
+    set:
+      securityContext:
+        runAsNonRoot:
+    asserts:
+      - failedTemplate:
+          errorMessage: <runAsNonRoot> key has value (<nil>). But it must be boolean.

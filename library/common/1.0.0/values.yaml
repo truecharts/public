@@ -169,16 +169,24 @@ global:
     # When SCALE-ZFS is set for storageClass, return this name
     scaleZFSStorageClass:
     # Default security context used for all
-    # init/install/upgrade/additional containers
-    # if not specified
+    # init/install/upgrade/additional
+    # and main containers if not specified
     securityContext:
       runAsNonRoot: true
+      runAsUser: 568
+      runAsGroup: 568
       readOnlyRootFilesystem: true
       allowPrivilegeEscalation: false
       privileged: false
       capabilities:
         add: []
         drop: []
+    # Default podSecurityContext, used if
+    # no other is specified
+    podSecurityContext:
+      fsGroup: 568
+      supplementalGroups: []
+      fsGroupChangePolicy: OnRootMismatch
     resources:
       limits:
         cpu: 4000m
@@ -211,21 +219,17 @@ runtimeClassName: ""
 
 tolerations: []
 
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: OnRootMismatch
+# podSecurityContext:
+#   fsGroup: 568
+#   fsGroupChangePolicy: OnRootMismatch
 
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: true
-  allowPrivilegeEscalation: false
-  runAsNonRoot: true
-  capabilities:
-    add: []
-    drop: []
+# securityContext:
+#   runAsUser: 568
+#   runAsGroup: 568
+#   privileged: false
+#   readOnlyRootFilesystem: true
+#   allowPrivilegeEscalation: false
+#   runAsNonRoot: true
 
 termination:
   messagePath: ""

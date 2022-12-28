@@ -39,7 +39,7 @@ tolerations:
 terminationGracePeriodSeconds: {{ . }}
 {{- end }}
 enableServiceLinks: {{ .Values.enableServiceLinks }}
-{{- with (include "ix.v1.common.container.podSecurityContext" (dict "podSecCont" .Values.podSecurityContext) | trim) }}
+{{- with (include "ix.v1.common.container.podSecurityContext" (dict "podSecCont" .Values.podSecurityContext "root" .) | trim) }}
 securityContext:
   {{- . | nindent 2 }}
 {{- end -}}

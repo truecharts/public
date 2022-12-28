@@ -1,6 +1,8 @@
 suite: initContainer in deployment test (on Upgrade)
 templates:
   - common.yaml
+release:
+  upgrade: true
 tests:
   - it: should pass with default values
     documentIndex: &deploymentDoc 0
@@ -75,3 +77,460 @@ tests:
           content:
             image: some-repo-init2:some-tag-init2
             imagePullPolicy: IfNotPresent
+
+  - it: should pass with tty and stdin defined in init container
+    documentIndex: *deploymentDoc
+    set:
+      initContainers:
+        some-name:
+          tty: true
+          stdin: true
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            tty: false
+            stdin: false
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            tty: true
+            stdin: true
+
+  - it: should pass with command and args defined in init container
+    documentIndex: *deploymentDoc
+    set:
+      port: 8080
+      entrypoint: ./run.sh
+      initContainers:
+        some-name:
+          command:
+            - /bin/sh
+            - -c
+            - |
+              {{ .Values.entrypoint }}
+          args:
+            - --port
+            - "{{ .Values.port }}"
+          extraArgs:
+            - --data_dir
+            - /data
+    asserts:
+      - isNotSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            command:
+              - /bin/sh
+              - -c
+              - |
+                ./run.sh
+            args:
+              - --port
+              - "8080"
+              - --data_dir
+              - /data
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            command:
+              - /bin/sh
+              - -c
+              - |
+                ./run.sh
+            args:
+              - --port
+              - "8080"
+              - --data_dir
+              - /data
+
+  - it: should pass with termination defined in init container
+    documentIndex: *deploymentDoc
+    set:
+      initContainers:
+        some-name:
+          termination:
+            messagePath: somePath
+            messagePolicy: File
+    asserts:
+      - isNotSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            terminationMessagePath: somePath
+            terminationMessagePolicy: File
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            terminationMessagePath: somePath
+            terminationMessagePolicy: File
+
+  - it: should pass with resources defined in init container
+    documentIndex: *deploymentDoc
+    set:
+      initContainers:
+        some-name:
+          resources:
+            limits:
+              cpu: 3000m
+              memory: 4Gi
+            requests:
+              cpu: 20m
+              memory: 100Mi
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            resources:
+              limits:
+                cpu: 3000m
+                memory: 4Gi
+              requests:
+                cpu: 20m
+                memory: 100Mi
+
+  - it: should pass with envFrom defined in init container
+    documentIndex: *deploymentDoc
+    set:
+      some_name: a_name
+      some_name2: a_name2
+      initContainers:
+        some-name:
+          envFrom:
+            - configMapRef:
+                name: "{{ .Values.some_name }}"
+            - configMapRef:
+                name: "{{ .Values.some_name2 }}"
+    asserts:
+      - isNotSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            envFrom:
+              - configMapRef:
+                  name: a_name
+              - configMapRef:
+                  name: a_name2
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            envFrom:
+              - configMapRef:
+                  name: a_name
+              - configMapRef:
+                  name: a_name2
+
+  - it: should pass with env and envList defined in init container
+    documentIndex: *deploymentDoc
+    set:
+      some_value: value
+      some_value2: value2
+      some_value3: value3
+      some_value4: value4
+      initContainers:
+        some-name:
+          env:
+            var1: "{{ .Values.some_value }}"
+            var2: "{{ .Values.some_value2 }}"
+          envList:
+            - name: var3
+              value: "{{ .Values.some_value3 }}"
+            - name: var4
+              value: "{{ .Values.some_value4 }}"
+    asserts:
+      - isNotSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            env:
+              - name: var1
+                value: value
+              - name: var2
+                value: value2
+              - name: var3
+                value: value3
+              - name: var4
+                value: value4
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            env:
+              - name: TZ
+                value: UTC
+              - name: UMASK
+                value: "2"
+              - name: UMASK_SET
+                value: "2"
+              - name: NVIDIA_VISIBLE_DEVICES
+                value: void
+              - name: S6_READ_ONLY_ROOT
+                value: "1"
+              - name: var1
+                value: value
+              - name: var2
+                value: value2
+              - name: var3
+                value: value3
+              - name: var4
+                value: value4
+
+  - it: should fail with lifecycle defined in init container
+    documentIndex: *deploymentDoc
+    set:
+      initContainers:
+        some-name:
+          lifecycle:
+    asserts:
+      - failedTemplate:
+          errorMessage: Init/Install/Upgrade Container (RELEASE-NAME-common-test-some-name) do not support lifecycle hooks
+
+  - it: should fail with env trying to override fixedEnvs in init container
+    documentIndex: *deploymentDoc
+    set:
+      initContainers:
+        some-name:
+          env:
+            TZ: something
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (env)]
+
+  - it: should fail with env trying to override configmap in init container
+    documentIndex: *deploymentDoc
+    set:
+      configmap:
+        some-confmap:
+          enabled: true
+          parseAsEnv: true
+          content:
+            TZ: something
+      initContainers:
+        some-name:
+          envFrom:
+            - configMapRef:
+                name: '{{ include "ix.v1.common.names.fullname" . }}-some-confmap'
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (configmap-RELEASE-NAME-common-test-some-confmap)]
+
+  - it: should fail with env trying to override secret in init container
+    documentIndex: *deploymentDoc
+    set:
+      secret:
+        some-secret:
+          enabled: true
+          parseAsEnv: true
+          content:
+            TZ: something
+      initContainers:
+        some-name:
+          envFrom:
+            - secretRef:
+                name: '{{ include "ix.v1.common.names.fullname" . }}-some-secret'
+    asserts:
+      - failedTemplate:
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (secret-RELEASE-NAME-common-test-some-secret)]
+
+
+  - it: should pass with securityContext inherited
+    documentIndex: *deploymentDoc
+    set:
+      securityContext:
+        runAsUser: 0
+        runAsGroup: 0
+        runAsNonRoot: false
+        readOnlyRootFilesystem: false
+        privileged: true
+        allowPrivilegeEscalation: true
+        capabilities:
+          add:
+            - Something
+          drop:
+            - Something_Else
+      initContainers:
+        some_container:
+          imageSelector: image
+          securityContext:
+            inherit: true
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              runAsUser: 0
+              runAsGroup: 0
+              runAsNonRoot: false
+              readOnlyRootFilesystem: false
+              privileged: true
+              allowPrivilegeEscalation: true
+              capabilities:
+                add:
+                  - Something
+                drop:
+                  - Something_Else
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: true
+              capabilities:
+                add:
+                - Something
+                drop:
+                - Something_Else
+              privileged: true
+              readOnlyRootFilesystem: false
+              runAsGroup: 0
+              runAsNonRoot: false
+              runAsUser: 0
+
+  - it: should pass with securityContext default
+    documentIndex: *deploymentDoc
+    set:
+      initContainers:
+        some_container:
+          imageSelector: image
+          securityContext:
+            inherit: true
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add: []
+                drop: []
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add: []
+                drop: []
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+
+  - it: should pass with securityContext changed
+    documentIndex: *deploymentDoc
+    set:
+      initContainers:
+        some_container:
+          imageSelector: image
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
+            readOnlyRootFilesystem: false
+            privileged: true
+            allowPrivilegeEscalation: true
+            capabilities:
+              add:
+                - Something
+              drop:
+                - Something_Else
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add: []
+                drop: []
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: true
+              capabilities:
+                add:
+                - Something
+                drop:
+                - Something_Else
+              privileged: true
+              readOnlyRootFilesystem: false
+              runAsGroup: 0
+              runAsNonRoot: false
+              runAsUser: 0
+
+  - it: should pass with securityContext with some values changed
+    documentIndex: *deploymentDoc
+    set:
+      initContainers:
+        some_container:
+          imageSelector: image
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
+            capabilities:
+              add:
+                - Something
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add: []
+                drop: []
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add:
+                - Something
+                drop: []
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 0
+              runAsNonRoot: false
+              runAsUser: 0
+
+  - it: should fail with securityContext with inherit and at least one value changed
+    documentIndex: *deploymentDoc
+    set:
+      securityContext:
+        privileged: true
+        allowPrivilegeEscalation: true
+        capabilities:
+          drop:
+            - something_else
+      initContainers:
+        some_container:
+          imageSelector: image
+          securityContext:
+            inherit: true
+            runAsUser: 0
+    asserts:
+      - failedTemplate:
+          errorMessage: Overriding inherited securityContext is not supported. Please unset inherit or remove the keys ([runAsUser])

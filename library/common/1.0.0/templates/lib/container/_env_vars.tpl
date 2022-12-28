@@ -10,11 +10,13 @@ That's why the custom dict is expected.
   {{- $envs := .envs -}}
   {{- $envList := .envList -}}
   {{- $containerName := .containerName -}}
+  {{- $isMainContainer := .isMainContainer -}}
+  {{- $secCont := .secCont -}}
   {{- $root := .root -}}
   {{- $fixedEnv := list -}}
 
   {{- if $root.Values.injectFixedEnvs -}}
-    {{- $fixedEnv = (include "ix.v1.common.container.fixedEnvs" (dict "root" $root "fixedEnv" $fixedEnv "containerName" $containerName)) -}}
+    {{- $fixedEnv = (include "ix.v1.common.container.fixedEnvs" (dict "root" $root "fixedEnv" $fixedEnv "containerName" $containerName "isMainContainer" $isMainContainer "secCont" $secCont)) -}}
   {{- end -}} {{/* Finish fixedEnv */}}
   {{- with $fixedEnv -}}
     {{- range $fixedEnv | fromJsonArray }} {{/* "fromJsonArray" parses stringified output and convet to list */}}

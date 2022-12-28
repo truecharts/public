@@ -81,9 +81,8 @@ tests:
   - it: should pass with envs changed because run as user root
     documentIndex: *deploymentDoc
     set:
-      podSecurityContext:
-        runAsUser: 0
       securityContext:
+        runAsUser: 0
         runAsNonRoot: false
     asserts:
       - equal:
@@ -115,9 +114,8 @@ tests:
   - it: should pass with envs changed because run as group root
     documentIndex: *deploymentDoc
     set:
-      podSecurityContext:
-        runAsGroup: 0
       securityContext:
+        runAsGroup: 0
         runAsNonRoot: false
     asserts:
       - equal:
@@ -149,9 +147,8 @@ tests:
   - it: should pass with envs changed because run as user root and PUID 0
     documentIndex: *deploymentDoc
     set:
-      podSecurityContext:
-        runAsUser: 0
       securityContext:
+        runAsUser: 0
         runAsNonRoot: false
       security:
         PUID: 0
@@ -185,9 +182,8 @@ tests:
   - it: should pass with envs changed because run as group root and PUID 0
     documentIndex: *deploymentDoc
     set:
-      podSecurityContext:
-        runAsGroup: 0
       securityContext:
+        runAsGroup: 0
         runAsNonRoot: false
       security:
         PUID: 0
@@ -222,9 +218,9 @@ tests:
     documentIndex: *deploymentDoc
     set:
       podSecurityContext:
-        runAsGroup: 0
         fsGroup: 0
       securityContext:
+        runAsGroup: 0
         runAsNonRoot: false
       security:
         PUID: 0

@@ -334,3 +334,201 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (secret-RELEASE-NAME-common-test-some-secret)]
+
+
+  - it: should pass with securityContext inherited
+    documentIndex: *deploymentDoc
+    set:
+      securityContext:
+        runAsUser: 0
+        runAsGroup: 0
+        runAsNonRoot: false
+        readOnlyRootFilesystem: false
+        privileged: true
+        allowPrivilegeEscalation: true
+        capabilities:
+          add:
+            - Something
+          drop:
+            - Something_Else
+      initContainers:
+        some_container:
+          imageSelector: image
+          securityContext:
+            inherit: true
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              runAsUser: 0
+              runAsGroup: 0
+              runAsNonRoot: false
+              readOnlyRootFilesystem: false
+              privileged: true
+              allowPrivilegeEscalation: true
+              capabilities:
+                add:
+                  - Something
+                drop:
+                  - Something_Else
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: true
+              capabilities:
+                add:
+                - Something
+                drop:
+                - Something_Else
+              privileged: true
+              readOnlyRootFilesystem: false
+              runAsGroup: 0
+              runAsNonRoot: false
+              runAsUser: 0
+
+  - it: should pass with securityContext default
+    documentIndex: *deploymentDoc
+    set:
+      initContainers:
+        some_container:
+          imageSelector: image
+          securityContext:
+            inherit: true
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add: []
+                drop: []
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add: []
+                drop: []
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+
+  - it: should pass with securityContext changed
+    documentIndex: *deploymentDoc
+    set:
+      initContainers:
+        some_container:
+          imageSelector: image
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
+            readOnlyRootFilesystem: false
+            privileged: true
+            allowPrivilegeEscalation: true
+            capabilities:
+              add:
+                - Something
+              drop:
+                - Something_Else
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add: []
+                drop: []
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: true
+              capabilities:
+                add:
+                - Something
+                drop:
+                - Something_Else
+              privileged: true
+              readOnlyRootFilesystem: false
+              runAsGroup: 0
+              runAsNonRoot: false
+              runAsUser: 0
+
+  - it: should pass with securityContext with some values changed
+    documentIndex: *deploymentDoc
+    set:
+      initContainers:
+        some_container:
+          imageSelector: image
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
+            capabilities:
+              add:
+                - Something
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add: []
+                drop: []
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add:
+                - Something
+                drop: []
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 0
+              runAsNonRoot: false
+              runAsUser: 0
+
+  - it: should fail with securityContext with inherit and at least one value changed
+    documentIndex: *deploymentDoc
+    set:
+      securityContext:
+        privileged: true
+        allowPrivilegeEscalation: true
+        capabilities:
+          drop:
+            - something_else
+      initContainers:
+        some_container:
+          imageSelector: image
+          securityContext:
+            inherit: true
+            runAsUser: 0
+    asserts:
+      - failedTemplate:
+          errorMessage: Overriding inherited securityContext is not supported. Please unset inherit or remove the keys ([runAsUser])
