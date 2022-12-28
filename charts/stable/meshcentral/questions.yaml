@@ -37,17 +37,15 @@ questions:
                   default: ""
               - variable: tlsOffload
                 label: tlsOffload
-                description: When true, indicates that a TLS offloader is in front of the MeshCentral server. More typically, set this to the IP address of the reverse proxy or TLS offloader so that IP forwarding headers will be trusted. For example traefik.ix-traefik.svc.cluster.local
+                description: When true, indicates that a TLS offloader is in front of the MeshCentral server. More typically, set this to the IP address of the reverse proxy or TLS offloader so that IP forwarding headers will be trusted. For example 172.16.0.0/16
                 schema:
                   type: string
-                  required: true
-                  default: ""
+                  default: "172.16.0.0/16"
               - variable: trustedProxy
                 label: trustedProxy
-                description: Trust forwarded headers from these IPs or domains. Providing the magic string "CloudFlare" will cause the server to download the IP address list of trusted CloudFlare proxies directly from CloudFlare on each server start. For example traefik.ix-traefik.svc.cluster.local
+                description: Trust forwarded headers from these IPs or domains. Providing the magic string "CloudFlare" will cause the server to download the IP address list of trusted CloudFlare proxies directly from CloudFlare on each server start. For example 172.16.0.0/16. This should be left empty if traefik is used.
                 schema:
                   type: string
-                  required: true
                   default: ""
               - variable: WANonly
                 label: WANonly
