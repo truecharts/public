@@ -1,4 +1,4 @@
-{{/* A dict podSecContext is expected with keys line runAsUser */}}
+{{/* A dict podSecContext is expected with keys like runAsUser */}}
 {{- define "ix.v1.common.container.podSecurityContext" -}}
   {{- $podSecCont := .podSecCont -}}
 runAsUser: {{ required "<runAsUser> value is required." $podSecCont.runAsUser }}

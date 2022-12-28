@@ -57,7 +57,7 @@
   lifecycle:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- with (include "ix.v1.common.container.securityContext" (dict "secCont" $container.securityContext "podSecCont" $root.Values.podSecurityContext "root" $root)) | trim }}
+  {{- with (include "ix.v1.common.container.securityContext" (dict "secCont" $container.securityContext "podSecCont" $root.Values.podSecurityContext "isMainContainer" false "root" $root)) | trim }}
   securityContext:
     {{- . | nindent 4 }}
   {{- end -}}

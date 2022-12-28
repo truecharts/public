@@ -1,10 +1,25 @@
-init{{/* Security Context included by the container */}}
+{{/* Security Context included by the container */}}
 {{- define "ix.v1.common.container.securityContext" -}}
   {{- $secContext := .secCont -}}
   {{- $podSecContext := .podSecCont -}}
+  {{- $isMainContainer := .isMainContainer -}}
   {{- $root := .root -}}
 
+  {{/*
+  TODO: Modify podSecContext and securityContext.
+  Only applied on podSecContext values that can only be set there.
+  Everything else applied to secContext which has more weight and overrides podSec
+  */}}
+
   {{- $defaultSecCont := $root.Values.global.defaults.securityContext -}}
+
+  {{- if and (hasKey $secContext "inherit") $isMainContainer -}}
+    {{- fail "<inherit> key is only available for additional/init/install/upgrade containers." -}}
+  {{- end -}}
+  {{- if and $secContext.inherit (not $isMainContainer) -}} {{/* if inherit is set, use the secContext from main container as default */}}
+    {{- $defaultSecCont = $root.Values.securityContext -}}
+  {{- end -}} {{/* TODO: Unittests for inherit + normal securityContext */}}
+
   {{- $runAsNonRoot := $defaultSecCont.runAsNonRoot -}}
   {{- $readOnlyRootFilesystem := $defaultSecCont.readOnlyRootFilesystem -}}
   {{- $allowPrivilegeEscalation := $defaultSecCont.allowPrivilegeEscalation -}}
@@ -20,10 +35,6 @@ init{{/* Security Context included by the container */}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
-
-  {{- if $secContext.inheritMain -}} {{/* if inheritMain is set, use the secContext from main container as default */}}
-    {{- $defaultSecCont = $root.Values.securityContext -}}
-  {{- end -}} {{/* TODO: Unittests for inherit + normal securityContext */}}
 
   {{/* Override defaults based on user/dev input */}}
   {{- if and (hasKey $secContext "runAsNonRoot") (ne (toString $secContext.runAsNonRoot) (toString $runAsNonRoot)) -}}
