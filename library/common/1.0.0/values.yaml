@@ -34,8 +34,6 @@ lifecycle: {}
 nvidiaCaps:
   - all
 
-injectFixedEnvs: true
-
 rbac:
   main:
     enabled: false
@@ -188,6 +186,9 @@ global:
     security:
       PUID: 568
       UMASK: "002"
+    # Whether to inject fixedEnvs on containers
+    # Can be overruled per container
+    injectFixedEnvs: true
     # Default Resources values, if no others
     # are specified
     resources:

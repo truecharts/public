@@ -11,11 +11,17 @@ That's why the custom dict is expected.
   {{- $envList := .envList -}}
   {{- $containerName := .containerName -}}
   {{- $isMainContainer := .isMainContainer -}}
+  {{- $injectFixedEnvs := .injectFixedEnvs -}}
   {{- $secCont := .secCont -}}
   {{- $root := .root -}}
   {{- $fixedEnv := list -}}
 
-  {{- if $root.Values.injectFixedEnvs -}}
+  {{- $inject := $root.Values.global.defaults.injectFixedEnvs -}}
+  {{- if (mustHas (toString $injectFixedEnvs) (list "true" "false")) -}}
+    {{- $inject = $injectFixedEnvs -}}
+  {{- end -}}
+
+  {{- if $inject -}}
     {{- $fixedEnv = (include "ix.v1.common.container.fixedEnvs" (dict "root" $root "fixedEnv" $fixedEnv "containerName" $containerName "isMainContainer" $isMainContainer "secCont" $secCont "security" .security)) -}}
   {{- end -}} {{/* Finish fixedEnv */}}
   {{- with $fixedEnv -}}

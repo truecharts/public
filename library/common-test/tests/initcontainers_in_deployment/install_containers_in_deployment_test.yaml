@@ -308,24 +308,69 @@ tests:
           path: spec.template.spec.containers[0]
           content:
             env:
+              - name: TZ
+                value: UTC
               - name: UMASK
                 value: "002"
+              - name: UMASK_SET
+                value: "002"
+              - name: NVIDIA_VISIBLE_DEVICES
+                value: void
+              - name: S6_READ_ONLY_ROOT
+                value: "1"
       - isSubset:
           path: spec.template.spec.initContainers[0]
           content:
             env:
               - name: TZ
                 value: UTC
-              - name: PUID
-                value: "1000"
               - name: UMASK
                 value: "003"
               - name: UMASK_SET
                 value: "003"
               - name: NVIDIA_VISIBLE_DEVICES
                 value: void
+              - name: PUID
+                value: "1000"
+              - name: USER_ID
+                value: "1000"
+              - name: UID
+                value: "1000"
+              - name: PGID
+                value: "568"
+              - name: GROUP_ID
+                value: "568"
+              - name: GID
+                value: "568"
               - name: S6_READ_ONLY_ROOT
                 value: "1"
+
+  - it: should pass with disabled injectFixedEnvs
+    documentIndex: *deploymentDoc
+    set:
+      installContainers:
+        some-name:
+          securityContext:
+            runAsUser: 0
+            runAsNonRoot: false
+          injectFixedEnvs: false
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            env:
+            - name: TZ
+              value: UTC
+            - name: UMASK
+              value: "002"
+            - name: UMASK_SET
+              value: "002"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: void
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+      - isNull:
+          path: spec.template.spec.initContainers[0].env
 
   - it: should fail with lifecycle defined in install container
     documentIndex: *deploymentDoc
