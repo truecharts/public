@@ -77,6 +77,7 @@ will be parsed correctly without causing errors.
     {{- end -}}
   {{- end -}}
 
+  {{/* TODO: Extract this checks into a function, but instead of returning the value, just print it (Test how it works with bools/ints) */}}
   {{- if (hasKey $security "PUID") -}}
     {{- if eq (toString $security.PUID) "<nil>" -}}
       {{- fail (printf "<PUID> key cannot be empty. Set a value or remove the key for the default (%v) to take effect." $PUID) -}}
@@ -89,6 +90,7 @@ will be parsed correctly without causing errors.
 
   {{- $vars := list -}}
   {{/* TODO: container aware NVIDIA Caps*/}}
+  {{/* TODO: Convert this to yaml directly */}}
   {{- $vars = mustAppend $vars (dict "name" "TZ" "value" (tpl (toYaml $root.Values.TZ) $root)) -}}
   {{- $vars = mustAppend $vars (dict "name" "UMASK" "value" $UMASK) -}}
   {{- $vars = mustAppend $vars (dict "name" "UMASK_SET" "value" $UMASK) -}}
