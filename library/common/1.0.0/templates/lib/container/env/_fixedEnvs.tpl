@@ -17,9 +17,7 @@ will be parsed correctly without causing errors.
   {{- $securityEnvs := (include "ix.v1.common.lib.securityEnvs" (dict "root" $root "secEnvs" $secEnvs) | fromJson) -}}
 
   {{- $vars := list -}}
-
   {{/* TODO: container aware NVIDIA Caps*/}}
-  {{/* TODO: Convert this to yaml directly */}}
   {{- $vars = mustAppend $vars (dict "name" "TZ" "value" (tpl (toYaml $root.Values.TZ) $root)) -}}
   {{- $vars = mustAppend $vars (dict "name" "UMASK" "value" $securityEnvs.UMASK) -}}
   {{- $vars = mustAppend $vars (dict "name" "UMASK_SET" "value" $securityEnvs.UMASK) -}}
