@@ -93,11 +93,10 @@ probes:
 
 initContainers:
   prestart:
-    image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
+    image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
     securityContext:
       runAsUser: 0
       runAsGroup: 0
-      privileged: true
     command:
       - "/bin/sh"
       - "-c"
@@ -105,7 +104,7 @@ initContainers:
         /bin/bash <<'EOF'
         echo "Forcing permissions on userdata folder..."
         echo "Trying to override ownship using nfs4xdr_winacl..."
-        /usr/bin/nfs4xdr_winacl -a chown -G 33 -r -c '/var/www/html/data' -p '/var/www/html/data' || echo "Failed setting ownership..."
+        /usr/bin/nfs4xdr_winacl -a chown -G 33 -c '/var/www/html/data' -p '/var/www/html/data' || echo "Failed setting ownership..."
         chmod 770 /var/www/html/data || echo "Failed to chmod..."
         EOF
 
