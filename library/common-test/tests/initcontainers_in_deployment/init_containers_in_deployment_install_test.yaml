@@ -594,7 +594,7 @@ tests:
               runAsNonRoot: false
               runAsUser: 0
 
-  - it: should fail with securityContext with inherit and at least one value changed
+  - it: should pass with securityContext with inherit and at least one value changed
     documentIndex: *deploymentDoc
     set:
       securityContext:
@@ -608,7 +608,34 @@ tests:
           imageSelector: image
           securityContext:
             inherit: true
+            runAsNonRoot: false
             runAsUser: 0
     asserts:
-      - failedTemplate:
-          errorMessage: Overriding inherited securityContext is not supported. Please unset inherit or remove the keys ([runAsUser])
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: true
+              capabilities:
+                add: []
+                drop:
+                  - something_else
+              privileged: true
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: true
+              capabilities:
+                add: []
+                drop:
+                  - something_else
+              privileged: true
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: false
+              runAsUser: 0

@@ -4,7 +4,7 @@
   {{- $root := .root -}}
 
   {{/* Calculate all security values */}}
-  {{- $security := (include "ix.v1.common.lib.security" (dict "root" $root "podSecCont" $podSecCont) | fromJson) }}
+  {{- $security := (include "ix.v1.common.lib.podSecurityContext" (dict "root" $root "podSecCont" $podSecCont) | fromJson) }}
 fsGroup: {{ $security.fsGroup }}
   {{- with $security.supplementalGroups }}
 supplementalGroups:

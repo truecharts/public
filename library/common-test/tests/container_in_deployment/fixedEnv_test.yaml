@@ -26,7 +26,7 @@ tests:
         PUID: "1000"
     asserts:
       - failedTemplate:
-          errorMessage: <PUID> key must be an int.
+          errorMessage: <PUID> key has value of ("1000"). But must be an int.
 
   - it: should fail with empty UMASK
     documentIndex: *deploymentDoc

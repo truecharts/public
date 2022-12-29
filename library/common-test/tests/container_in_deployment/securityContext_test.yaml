@@ -134,7 +134,7 @@ tests:
           add: non-a-list
     asserts:
       - failedTemplate:
-          errorMessage: Either <add> or <drop> capabilities is not a list.
+          errorMessage: <capabilities.add> key has value (non-a-list). But it must be a list. Set a list value or remove the key for the default ([]) to take effect.
 
   - it: should fail with securityContext changed and capabilities.drop is not a list
     set:
@@ -143,7 +143,7 @@ tests:
           drop: non-a-list
     asserts:
       - failedTemplate:
-          errorMessage: Either <add> or <drop> capabilities is not a list.
+          errorMessage: <capabilities.drop> key has value (non-a-list). But it must be a list. Set a list value or remove the key for the default ([]) to take effect.
 
   - it: should fail with empty capabilities.drop in securityContext
     set:
@@ -152,7 +152,7 @@ tests:
           drop:
     asserts:
       - failedTemplate:
-          errorMessage: <capabilities.drop> key cannot be empty. Set a value or remove the key for the default ([]) to take effect.
+          errorMessage:  <capabilities.drop> key has value (<nil>). But it must be a list. Set a list value or remove the key for the default ([]) to take effect.
 
   - it: should fail with empty capabilities.add in securityContext
     set:
@@ -161,7 +161,7 @@ tests:
           add:
     asserts:
       - failedTemplate:
-          errorMessage: <capabilities.add> key cannot be empty. Set a value or remove the key for the default ([]) to take effect.
+          errorMessage: <capabilities.add> key has value (<nil>). But it must be a list. Set a list value or remove the key for the default ([]) to take effect.
 
   - it: should fail with empty runAsGroup in securityContext
     set:
@@ -170,6 +170,22 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: <runAsGroup> key cannot be empty. Set a value or remove the key for the default (568) to take effect.
+
+  - it: should fail with non int runAsGroup in securityContext
+    set:
+      securityContext:
+        runAsGroup: "1000"
+    asserts:
+      - failedTemplate:
+         errorMessage: <runAsGroup> key has value of ("1000"). But must be an int.
+
+  - it: should fail with non int runAsUser in securityContext
+    set:
+      securityContext:
+        runAsUser: "1000"
+    asserts:
+      - failedTemplate:
+         errorMessage: <runAsUser> key has value of ("1000"). But must be an int.
 
   - it: should fail with empty runAsUser in securityContext
     set:

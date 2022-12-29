@@ -5,15 +5,7 @@
   {{- $root := .root -}}
 
   {{/* Calculate all security values */}}
-  {{- $security := (include "ix.v1.common.lib.security" (dict "root" $root "secCont" $secCont "isMainContainer" $isMainContainer) | fromJson) -}}
-
-  {{/* Check that they are still set as booleans after the overrides to prevent errors */}}
-  {{- range $key := (list "runAsNonRoot" "privileged" "readOnlyRootFilesystem" "allowPrivilegeEscalation") -}}
-    {{- $value := (get $security $key) -}}
-    {{- if not (kindIs "bool" $value) -}}
-      {{- fail (printf "Key <%s> has value of (%s). But it must be boolean." $key $value) -}}
-    {{- end -}}
-  {{- end -}}
+  {{- $security := (include "ix.v1.common.lib.securityContext" (dict "root" $root "secCont" $secCont "isMainContainer" $isMainContainer) | fromJson) -}}
 
   {{/* Only run as root if it's explicitly defined */}}
   {{- if or (eq (int $security.runAsUser) 0) (eq (int $security.runAsGroup) 0) -}}
@@ -28,10 +20,7 @@ readOnlyRootFilesystem: {{ $security.readOnlyRootFilesystem }}
 allowPrivilegeEscalation: {{ $security.allowPrivilegeEscalation }}
 privileged: {{ $security.privileged }} {{/* TODO: Set to true if deviceList is used? */}}
 capabilities: {{/* TODO: add NET_BIND_SERVICE when port < 80 is used? */}}
-  {{- if or (not (kindIs "slice" $security.capAdd)) (not (kindIs "slice" $security.capDrop)) -}}
-    {{- fail "Either <add> or <drop> capabilities is not a list." -}}
-  {{- end -}}
-  {{- with $security.capAdd }}
+  {{- with $security.capabilities.add }}
   add:
     {{- range . }}
     - {{ tpl . $root | quote }}
@@ -39,7 +28,7 @@ capabilities: {{/* TODO: add NET_BIND_SERVICE when port < 80 is used? */}}
   {{- else }}
   add: []
   {{- end -}}
-  {{- with $security.capDrop }}
+  {{- with $security.capabilities.drop }}
   drop:
     {{- range . }}
     - {{ tpl . $root | quote }}
