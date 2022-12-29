@@ -6,6 +6,7 @@ will be parsed correctly without causing errors.
   {{- $root := .root -}}
   {{- $containerName := .containerName -}}
   {{- $isMainContainer := .isMainContainer -}}
+  {{- $security := .security -}}
   {{- $secCont := .secCont -}}
 
   {{- $podSecCont := $root.Values.podSecurityContext -}}
@@ -22,6 +23,8 @@ will be parsed correctly without causing errors.
   {{- $runAsGroup := $defaultSecCont.runAsGroup -}}
   {{- $readOnlyRootFilesystem := $defaultSecCont.readOnlyRootFilesystem -}}
   {{- $fsGroup := $defaultPodSecCont.fsGroup -}}
+  {{- $UMASK := $root.Values.global.defaults.security.UMASK -}}
+  {{- $PUID := $root.Values.global.defaults.security.PUID -}}
 
   {{/* Override based on user/dev input */}}
   {{- if (hasKey $secCont "runAsNonRoot") -}}
@@ -64,23 +67,43 @@ will be parsed correctly without causing errors.
     {{- end -}}
   {{- end -}}
 
+  {{- if (hasKey $security "UMASK") -}}
+    {{- if not $security.UMASK -}}
+      {{- fail (printf "<UMASK> key cannot be empty. Set a value or remove the key for the default (%v) to take effect." $UMASK) -}}
+    {{- else if not (kindIs "string" $security.UMASK) -}}
+      {{- fail (printf "<UMASK> key must be a string, so the format is kept intact.") -}}
+    {{- else if $security.UMASK -}}
+      {{- $UMASK = (tpl $security.UMASK $root) -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if (hasKey $security "PUID") -}}
+    {{- if eq (toString $security.PUID) "<nil>" -}}
+      {{- fail (printf "<PUID> key cannot be empty. Set a value or remove the key for the default (%v) to take effect." $PUID) -}}
+    {{- else if not (mustHas (kindOf $security.PUID) (list "int" "float64")) -}}
+      {{- fail "<PUID> key must be an int." -}}
+    {{- else if ge (int $security.PUID) 0 -}}
+      {{- $PUID = $security.PUID -}}
+    {{- end -}}
+  {{- end -}}
+
   {{- $vars := list -}}
-  {{/* TODO: container aware UMASK/PUID/NVIDIA Caps*/}}
+  {{/* TODO: container aware NVIDIA Caps*/}}
   {{- $vars = mustAppend $vars (dict "name" "TZ" "value" (tpl (toYaml $root.Values.TZ) $root)) -}}
-  {{- $vars = mustAppend $vars (dict "name" "UMASK" "value" (tpl (toYaml $root.Values.security.UMASK) $root)) -}}
-  {{- $vars = mustAppend $vars (dict "name" "UMASK_SET" "value" (tpl (toYaml $root.Values.security.UMASK) $root)) -}}
+  {{- $vars = mustAppend $vars (dict "name" "UMASK" "value" $UMASK) -}}
+  {{- $vars = mustAppend $vars (dict "name" "UMASK_SET" "value" $UMASK) -}}
   {{- if not ($root.Values.scaleGPU) -}} {{/* TODO: container aware GPU */}}
     {{- $vars = mustAppend $vars (dict "name" "NVIDIA_VISIBLE_DEVICES" "value" "void") -}}
   {{- else -}}
-    {{- $vars = mustAppend $vars (dict "name" "NVIDIA_DRIVER_CAPABILITIES" "value" ( join "," $root.Values.nvidiaCaps )) -}}
+    {{- $vars = mustAppend $vars (dict "name" "NVIDIA_DRIVER_CAPABILITIES" "value" (join "," $root.Values.nvidiaCaps)) -}}
   {{- end -}}
-  {{- if and (or (eq ($runAsUser | int) 0) (eq ($runAsGroup | int) 0)) (or $root.Values.security.PUID (eq ($root.Values.security.PUID | int) 0)) -}} {{/* If root user or root group and a PUID is set, set PUID and related envs */}}
-    {{- $vars = mustAppend $vars (dict "name" "PUID" "value" (tpl (toYaml $root.Values.security.PUID) $root)) -}}
-    {{- $vars = mustAppend $vars (dict "name" "USER_ID" "value" (tpl (toYaml $root.Values.security.PUID) $root)) -}}
-    {{- $vars = mustAppend $vars (dict "name" "UID" "value" (tpl (toYaml $root.Values.security.PUID) $root)) -}}
-    {{- $vars = mustAppend $vars (dict "name" "PGID" "value" (tpl (toYaml $fsGroup) $root)) -}}
-    {{- $vars = mustAppend $vars (dict "name" "GROUP_ID" "value" (tpl (toYaml $fsGroup) $root)) -}}
-    {{- $vars = mustAppend $vars (dict "name" "GID" "value" (tpl (toYaml $fsGroup) $root)) -}}
+  {{- if and (or (eq ($runAsUser | int) 0) (eq ($runAsGroup | int) 0)) (ge ($PUID | int) 0) -}} {{/* If root user or root group and a PUID is set, set PUID and related envs */}}
+    {{- $vars = mustAppend $vars (dict "name" "PUID" "value" $PUID) -}}
+    {{- $vars = mustAppend $vars (dict "name" "USER_ID" "value" $PUID) -}}
+    {{- $vars = mustAppend $vars (dict "name" "UID" "value" $PUID) -}}
+    {{- $vars = mustAppend $vars (dict "name" "PGID" "value" $fsGroup) -}}
+    {{- $vars = mustAppend $vars (dict "name" "GROUP_ID" "value" $fsGroup) -}}
+    {{- $vars = mustAppend $vars (dict "name" "GID" "value" $fsGroup) -}}
   {{- end -}}
   {{- if or ($readOnlyRootFilesystem) ($runAsNonRoot) -}} {{/* Mainly for LSIO containers, tell S6 to avoid using rootfs */}}
     {{- $vars = mustAppend $vars (dict "name" "S6_READ_ONLY_ROOT" "value" "1") -}}

@@ -10,7 +10,7 @@
   {{- $limitsMemory := $defautlResources.limits.memory -}}
   {{- $requestsCPU := $defautlResources.requests.cpu -}}
   {{- $requestsMemory := $defautlResources.requests.memory -}}
-
+  {{/* TODO: Inherit */}}
   {{/* Modify based on user/dev input */}}
   {{- with $resources -}}
     {{- with $resources.requests -}}

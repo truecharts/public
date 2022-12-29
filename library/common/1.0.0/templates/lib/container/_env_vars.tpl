@@ -16,7 +16,7 @@ That's why the custom dict is expected.
   {{- $fixedEnv := list -}}
 
   {{- if $root.Values.injectFixedEnvs -}}
-    {{- $fixedEnv = (include "ix.v1.common.container.fixedEnvs" (dict "root" $root "fixedEnv" $fixedEnv "containerName" $containerName "isMainContainer" $isMainContainer "secCont" $secCont)) -}}
+    {{- $fixedEnv = (include "ix.v1.common.container.fixedEnvs" (dict "root" $root "fixedEnv" $fixedEnv "containerName" $containerName "isMainContainer" $isMainContainer "secCont" $secCont "security" .security)) -}}
   {{- end -}} {{/* Finish fixedEnv */}}
   {{- with $fixedEnv -}}
     {{- range $fixedEnv | fromJsonArray }} {{/* "fromJsonArray" parses stringified output and convet to list */}}

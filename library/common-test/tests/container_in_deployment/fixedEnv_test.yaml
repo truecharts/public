@@ -10,6 +10,42 @@ tests:
       - isKind:
           of: Deployment
 
+  - it: should fail with empty PUID
+    documentIndex: *deploymentDoc
+    set:
+      security:
+        PUID:
+    asserts:
+      - failedTemplate:
+          errorMessage: <PUID> key cannot be empty. Set a value or remove the key for the default (568) to take effect.
+
+  - it: should fail with PUID not-int
+    documentIndex: *deploymentDoc
+    set:
+      security:
+        PUID: "1000"
+    asserts:
+      - failedTemplate:
+          errorMessage: <PUID> key must be an int.
+
+  - it: should fail with empty UMASK
+    documentIndex: *deploymentDoc
+    set:
+      security:
+        UMASK:
+    asserts:
+      - failedTemplate:
+          errorMessage: <UMASK> key cannot be empty. Set a value or remove the key for the default (002) to take effect.
+
+  - it: should fail with UMASK not-string
+    documentIndex: *deploymentDoc
+    set:
+      security:
+        UMASK: 2
+    asserts:
+      - failedTemplate:
+          errorMessage: <UMASK> key must be a string, so the format is kept intact.
+
   - it: should pass with injectFixedEnvs false
     documentIndex: *deploymentDoc
     set:
@@ -23,7 +59,7 @@ tests:
     set:
       TZ: ETC
       security:
-        UMASK: 3
+        UMASK: "003"
     asserts:
       - equal:
           path: spec.template.spec.containers[0].env
@@ -31,9 +67,9 @@ tests:
             - name: TZ
               value: ETC
             - name: UMASK
-              value: "3"
+              value: "003"
             - name: UMASK_SET
-              value: "3"
+              value: "003"
             - name: NVIDIA_VISIBLE_DEVICES
               value: void
             - name: S6_READ_ONLY_ROOT
@@ -52,9 +88,9 @@ tests:
             - name: TZ
               value: UTC
             - name: UMASK
-              value: "2"
+              value: "002"
             - name: UMASK_SET
-              value: "2"
+              value: "002"
             - name: NVIDIA_VISIBLE_DEVICES
               value: void
 
@@ -70,9 +106,9 @@ tests:
             - name: TZ
               value: UTC
             - name: UMASK
-              value: "2"
+              value: "002"
             - name: UMASK_SET
-              value: "2"
+              value: "002"
             - name: NVIDIA_DRIVER_CAPABILITIES
               value: all
             - name: S6_READ_ONLY_ROOT
@@ -91,9 +127,9 @@ tests:
             - name: TZ
               value: UTC
             - name: UMASK
-              value: "2"
+              value: "002"
             - name: UMASK_SET
-              value: "2"
+              value: "002"
             - name: NVIDIA_VISIBLE_DEVICES
               value: void
             - name: PUID
@@ -124,9 +160,9 @@ tests:
             - name: TZ
               value: UTC
             - name: UMASK
-              value: "2"
+              value: "002"
             - name: UMASK_SET
-              value: "2"
+              value: "002"
             - name: NVIDIA_VISIBLE_DEVICES
               value: void
             - name: PUID
@@ -159,9 +195,9 @@ tests:
             - name: TZ
               value: UTC
             - name: UMASK
-              value: "2"
+              value: "002"
             - name: UMASK_SET
-              value: "2"
+              value: "002"
             - name: NVIDIA_VISIBLE_DEVICES
               value: void
             - name: PUID
@@ -194,9 +230,9 @@ tests:
             - name: TZ
               value: UTC
             - name: UMASK
-              value: "2"
+              value: "002"
             - name: UMASK_SET
-              value: "2"
+              value: "002"
             - name: NVIDIA_VISIBLE_DEVICES
               value: void
             - name: PUID
@@ -231,9 +267,9 @@ tests:
             - name: TZ
               value: UTC
             - name: UMASK
-              value: "2"
+              value: "002"
             - name: UMASK_SET
-              value: "2"
+              value: "002"
             - name: NVIDIA_VISIBLE_DEVICES
               value: void
             - name: PUID
@@ -251,7 +287,6 @@ tests:
             - name: S6_READ_ONLY_ROOT
               value: "1"
 
-
   - it: should pass with envs defined with scaleGPU
     documentIndex: *deploymentDoc
     set:
@@ -264,9 +299,9 @@ tests:
             - name: TZ
               value: "UTC"
             - name: UMASK
-              value: "2"
+              value: "002"
             - name: UMASK_SET
-              value: "2"
+              value: "002"
             - name: NVIDIA_DRIVER_CAPABILITIES
               value: "all"
             - name: S6_READ_ONLY_ROOT
@@ -287,9 +322,9 @@ tests:
             - name: TZ
               value: "UTC"
             - name: UMASK
-              value: "2"
+              value: "002"
             - name: UMASK_SET
-              value: "2"
+              value: "002"
             - name: NVIDIA_DRIVER_CAPABILITIES
               value: "compute,utility"
             - name: S6_READ_ONLY_ROOT

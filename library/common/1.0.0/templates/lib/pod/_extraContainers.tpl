@@ -42,7 +42,7 @@
   args:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- with (include "ix.v1.common.container.envVars" (dict "envs" $container.env "envList" $container.envList "containerName" $name "isMainContainer" false "secCont" $container.securityContext "root" $root) | trim) }}
+  {{- with (include "ix.v1.common.container.envVars" (dict "envs" $container.env "envList" $container.envList "containerName" $name "isMainContainer" false "secCont" $container.securityContext "security" $container.security "root" $root) | trim) }}
   env:
     {{- . | nindent 4 }} {{/* env, fixedEnvs and envList */}}
   {{- end -}}

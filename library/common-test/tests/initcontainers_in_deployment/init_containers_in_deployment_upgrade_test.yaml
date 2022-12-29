@@ -264,9 +264,9 @@ tests:
               - name: TZ
                 value: UTC
               - name: UMASK
-                value: "2"
+                value: "002"
               - name: UMASK_SET
-                value: "2"
+                value: "002"
               - name: NVIDIA_VISIBLE_DEVICES
                 value: void
               - name: S6_READ_ONLY_ROOT
@@ -279,6 +279,41 @@ tests:
                 value: value3
               - name: var4
                 value: value4
+
+  - it: should pass with changed PUID/UMASK
+    documentIndex: *deploymentDoc
+    set:
+      initContainers:
+        some-name:
+          securityContext:
+            runAsUser: 0
+            runAsNonRoot: true
+          security:
+            UMASK: "003"
+            PUID: 1000
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            env:
+              - name: UMASK
+                value: "002"
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            env:
+              - name: TZ
+                value: UTC
+              - name: PUID
+                value: "1000"
+              - name: UMASK
+                value: "003"
+              - name: UMASK_SET
+                value: "003"
+              - name: NVIDIA_VISIBLE_DEVICES
+                value: void
+              - name: S6_READ_ONLY_ROOT
+                value: "1"
 
   - it: should fail with lifecycle defined in init container
     documentIndex: *deploymentDoc

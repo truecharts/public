@@ -850,16 +850,13 @@ Sets PUID for the main container
 
 - Type: `int`
 - Default: `568`
-- Helm Template: ✅
+- Helm Template: ❌
 
 Examples: Values.yaml
 
 ```yaml
 security:
   PUID: 568
-
-security:
-  PUID: "{{ .Values.some_key }}"
 ```
 
 Sets it to:
@@ -878,18 +875,15 @@ Sets UMASK for the main container
 <details>
 <summary>Show / Hide</summary>
 
-- Type: `int`
-- Default: `002`
-- Helm Template: ✅
+- Type: `string`
+- Default: `"002"`
+- Helm Template: ❌
 
 Examples: Values.yaml
 
 ```yaml
 security:
-  UMASK: 002
-
-security:
-  UMASK: "{{ .Values.some_key }}"
+  UMASK: "002"
 ```
 
 Sets it to:

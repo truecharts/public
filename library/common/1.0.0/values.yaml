@@ -36,10 +36,6 @@ nvidiaCaps:
 
 injectFixedEnvs: true
 
-security:
-  PUID: 568
-  UMASK: 002
-
 rbac:
   main:
     enabled: false
@@ -187,6 +183,13 @@ global:
       fsGroup: 568
       supplementalGroups: []
       fsGroupChangePolicy: OnRootMismatch
+    # Default Security values, if no others
+    # are specified
+    security:
+      PUID: 568
+      UMASK: "002"
+    # Default Resources values, if no others
+    # are specified
     resources:
       limits:
         cpu: 4000m
