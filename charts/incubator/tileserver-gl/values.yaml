@@ -10,28 +10,13 @@ args:
 probes:
   liveness:
     enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - node
-          - /usr/src/app/src/healthcheck.js
+    path: /health
   readiness:
     enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - node
-          - /usr/src/app/src/healthcheck.js
+    path: /health
   startup:
     enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - node
-          - /usr/src/app/src/healthcheck.js
+    path: /health
 
 service:
   main:
