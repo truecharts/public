@@ -1,0 +1,54 @@
+image:
+  repository: tccr.io/truecharts/rustdeskserver
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:0f10a9242e711d59137fb70617bf5337e52dab6df144b1818d521b22f74f6842
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-common-secret'
+
+extraArgs:
+  - hbbs
+  - -r
+  - 127.0.0.1:21117
+
+service:
+  main:
+    ports:
+      main:
+        protocol: TCP
+        targetPort: 21115
+        port: 21115
+      holeconnection:
+        protocol: TCP
+        targetPort: 21116
+        port: 21116
+      relay:
+        protocol: TCP
+        targetPort: 21117
+        port: 21117
+      web1:
+        protocol: TCP
+        targetPort: 21118
+        port: 21118
+      web2:
+        protocol: TCP
+        targetPort: 21119
+        port: 21119
+  idreg:
+    ports:
+      heartbeat:
+        protocol: UDP
+        targetPort: 21116
+        port: 21116
+
+persistence:
+  root:
+    enabled: true
+    mountPath: /root
+
+portal:
+  enabled: false

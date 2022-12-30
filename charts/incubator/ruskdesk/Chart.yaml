@@ -1,0 +1,30 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 11.1.2
+deprecated: false
+description: Yet another remote desktop software, written in Rust.
+home: https://truecharts.org/charts/incubator/rustdesk
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/rustdesk.png
+keywords:
+  - rustdesk
+  - utilities
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: rustdesk
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/rustdesk
+  - https://github.com/rustdesk/rustdesk
+  - https://hub.docker.com/r/rustdesk/rustdesk-server
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - utilities
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

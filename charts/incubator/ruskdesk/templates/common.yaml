@@ -1,0 +1,9 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.common.loader.init" . }}
+
+{{- include "penpot.secret" . -}}
+
+{{- $_ := set .Values.additionalContainers "relay" (include "rustdesk.relay" . | fromYaml) -}}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}
