@@ -53,8 +53,9 @@
       {{- $_ := set $tmpProbe "name" $probeName -}}
       {{- $_ := set $tmpProbe "spec" $probe.spec -}}
       {{- $_ := set $tmpProbe "type" $probeType -}}
-      {{- $_ := set $tmpProbe "port" $probePort }}
-{{ $probeName }}Probe:
+      {{- $_ := set $tmpProbe "port" $probePort -}}
+
+      {{ printf "%sProbe:" $probeName | nindent 0 }}
       {{- if mustHas $probeType (list "HTTPS" "HTTP") -}}
         {{- $_ := set $tmpProbe "path" $probe.path -}}
         {{- $_ := set $tmpProbe "httpHeaders" $probe.httpHeaders -}}
