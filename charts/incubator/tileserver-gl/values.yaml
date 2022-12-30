@@ -9,6 +9,7 @@ service:
       main:
         protocol: HTTP
         port: 9080
+        targetPort: 8080
 
 persistence:
   data:
