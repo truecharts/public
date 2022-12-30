@@ -4,7 +4,8 @@ image:
   pullPolicy: IfNotPresent
 
 args:
-  - --port "{{ .Values.service.main.ports.main.port }}"
+  - --port
+  - "{{ .Values.service.main.ports.main.port }}"
 
 probes:
   liveness:
