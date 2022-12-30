@@ -95,8 +95,8 @@ memory: {{ . }}
     {{/* If it's not null validate input */}}
     {{- if ne . "<nil>" -}} {{/* Limits can be null, means "no limit" */}}
       {{- if eq $key "cpu" -}}
-        {{/* https://regex101.com/r/TlVTXr/3 */}} {{/*TODO: smallify this? */}}
-        {{- if not (mustRegexMatch "^([1-9][0-9]*(\\.\\[0-9]+)?m|[1-9][0-9]*|[0-9]*\\.[1-9][0-9]*(m)?)$" .) -}}
+        {{/* https://regex101.com/r/D4HouI/1 */}}
+        {{- if not (mustRegexMatch "^(0\\.[1-9]|[1-9][0-9]*)(\\.[0-9]|m?)$" .) -}}
           {{- fail (printf "<resources.%s.%s> has invalid format in value (%s). Valid formats are (Plain Integer eg. 1) (Float eg. 0.5) (Milicpu 500m)." $object $key .) -}}
         {{- end -}}
 
