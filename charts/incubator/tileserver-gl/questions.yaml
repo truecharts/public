@@ -8,13 +8,6 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
