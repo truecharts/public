@@ -3,13 +3,41 @@ image:
   tag: v4.3.3
   pullPolicy: IfNotPresent
 
+args:
+  - --port "{{ .Values.service.main.ports.main.port }}"
+
+probes:
+  liveness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - node
+          - /usr/src/app/src/healthcheck.js
+  readiness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - node
+          - /usr/src/app/src/healthcheck.js
+  startup:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - node
+          - /usr/src/app/src/healthcheck.js
+
 service:
   main:
     ports:
       main:
         protocol: HTTP
-        port: 9080
-        targetPort: 8080
+        port: 10080
 
 persistence:
   data:
