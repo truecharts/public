@@ -78,7 +78,10 @@
   terminationMessagePolicy: {{ . }}
   {{- end -}}
   {{- end -}}
-  {{- with (include "ix.v1.common.container.resources" (dict "resources" $container.resources "gpu" $container.scaleGPU "root" $root) | trim) }}
+  {{- with (include "ix.v1.common.container.resources"  (dict "resources" $container.resources
+                                                              "gpu" $container.scaleGPU
+                                                              "isMainContainer" false
+                                                              "root" $root) | trim) }}
   resources:
     {{- . | nindent 4 }}
   {{- end -}}

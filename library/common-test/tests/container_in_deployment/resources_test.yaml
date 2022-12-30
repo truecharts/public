@@ -19,6 +19,15 @@ tests:
               cpu: 10m
               memory: 50Mi
 
+  - it: should fail with inherit defined in main container
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        inherit:
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.inherit> key is only available for additional/init/install/upgrade containers.
+
   - it: should fail with empty key in gpu
     documentIndex: *deploymentDoc
     set:
@@ -34,6 +43,238 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Value is not provided for GPU (<key> somekey)
+
+  - it: should fail with empty requests.cpu
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 4Gi
+        requests:
+          cpu:
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.requests.cpu> cannot be empty.
+
+  - it: should fail with empty requests.memory
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory:
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.requests.memory> cannot be empty.
+
+  - it: should fail with invalid format in requests.memory (zero)
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU:
+        somekey:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory: 0.0
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.requests.memory> has invalid format in value (0). Valid formats are (Suffixed with EPTGMK eg. 1G) (Suffixed with EPTGMK + i eg. 1Gi) (Plain integer (in bytes) eg. 1024) (Exponent eg. 134e6).
+
+  - it: should fail with invalid format in requests.memory (zero exponent)
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU:
+        somekey:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory: 0e0
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.requests.memory> has invalid format in value (0). Valid formats are (Suffixed with EPTGMK eg. 1G) (Suffixed with EPTGMK + i eg. 1Gi) (Plain integer (in bytes) eg. 1024) (Exponent eg. 134e6).
+
+  - it: should fail with invalid format in requests.memory (zero with suffix)
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU:
+        somekey:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory: 0M
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.requests.memory> has invalid format in value (0M). Valid formats are (Suffixed with EPTGMK eg. 1G) (Suffixed with EPTGMK + i eg. 1Gi) (Plain integer (in bytes) eg. 1024) (Exponent eg. 134e6).
+
+  - it: should fail with invalid format in requests.memory (string)
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU:
+        somekey:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory: not-valid
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.requests.memory> has invalid format in value (not-valid). Valid formats are (Suffixed with EPTGMK eg. 1G) (Suffixed with EPTGMK + i eg. 1Gi) (Plain integer (in bytes) eg. 1024) (Exponent eg. 134e6).
+
+  - it: should fail with invalid format in limits.memory (zero)
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 0.0
+        requests:
+          cpu: 20m
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.limits.memory> has invalid format in value (0). Valid formats are (Suffixed with EPTGMK eg. 1G) (Suffixed with EPTGMK + i eg. 1Gi) (Plain integer (in bytes) eg. 1024) (Exponent eg. 134e6).
+
+  - it: should fail with invalid format in limits.memory (zero exponent)
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 0e0
+        requests:
+          cpu: 20m
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.limits.memory> has invalid format in value (0). Valid formats are (Suffixed with EPTGMK eg. 1G) (Suffixed with EPTGMK + i eg. 1Gi) (Plain integer (in bytes) eg. 1024) (Exponent eg. 134e6).
+
+  - it: should fail with invalid format in requests.limits (zero with suffix)
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: 0M
+        requests:
+          cpu: 20m
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.limits.memory> has invalid format in value (0M). Valid formats are (Suffixed with EPTGMK eg. 1G) (Suffixed with EPTGMK + i eg. 1Gi) (Plain integer (in bytes) eg. 1024) (Exponent eg. 134e6).
+
+  - it: should fail with invalid format in limits.memory (string)
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 3000m
+          memory: not-valid
+        requests:
+          cpu: 20m
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.limits.memory> has invalid format in value (not-valid). Valid formats are (Suffixed with EPTGMK eg. 1G) (Suffixed with EPTGMK + i eg. 1Gi) (Plain integer (in bytes) eg. 1024) (Exponent eg. 134e6).
+
+  - it: should fail with invalid format in limits.cpu (zero)
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 0.0
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.limits.cpu> has invalid format in value (0). Valid formats are (Plain Integer eg. 1) (Float eg. 0.5) (Milicpu 500m).
+
+  - it: should fail with invalid format in limits.cpu (zero with suffix)
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 0m
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.limits.cpu> has invalid format in value (0m). Valid formats are (Plain Integer eg. 1) (Float eg. 0.5) (Milicpu 500m).
+
+  - it: should fail with invalid format in limits.cpu (string)
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: not-valid
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.limits.cpu> has invalid format in value (not-valid). Valid formats are (Plain Integer eg. 1) (Float eg. 0.5) (Milicpu 500m).
+
+  - it: should fail with invalid format in requests.cpu (zero)
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 4000m
+          memory: 4Gi
+        requests:
+          cpu: 0.0
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.requests.cpu> has invalid format in value (0). Valid formats are (Plain Integer eg. 1) (Float eg. 0.5) (Milicpu 500m).
+
+  - it: should fail with invalid format in requests.cpu (zero with suffix)
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 4000m
+          memory: 4Gi
+        requests:
+          cpu: 0m
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.requests.cpu> has invalid format in value (0m). Valid formats are (Plain Integer eg. 1) (Float eg. 0.5) (Milicpu 500m).
+
+  - it: should fail with invalid format in requests.cpu (string)
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        limits:
+          cpu: 4000m
+          memory: 4Gi
+        requests:
+          cpu: not-valid
+          memory: 100Mi
+    asserts:
+      - failedTemplate:
+          errorMessage: <resources.requests.cpu> has invalid format in value (not-valid). Valid formats are (Plain Integer eg. 1) (Float eg. 0.5) (Milicpu 500m).
 
   - it: should pass with changed resources
     documentIndex: *deploymentDoc
@@ -165,20 +406,20 @@ tests:
               cpu: 20m
               memory: 100Mi
 
-  - it: should pass with empty resources
+  - it: should pass with empty resources.limits
     documentIndex: *deploymentDoc
     set:
-      scaleGPU: {}
       resources:
         limits:
           cpu:
           memory:
-        requests:
-          cpu:
-          memory:
     asserts:
-      - isNull:
+      - equal:
           path: spec.template.spec.containers[0].resources
+          value:
+            requests:
+              cpu: 10m
+              memory: 50Mi
 
   - it: should pass with only limits.cpu defined
     documentIndex: *deploymentDoc
@@ -188,15 +429,15 @@ tests:
         limits:
           cpu: 3000m
           memory:
-        requests:
-          cpu:
-          memory:
     asserts:
       - equal:
           path: spec.template.spec.containers[0].resources
           value:
             limits:
               cpu: 3000m
+            requests:
+              cpu: 10m
+              memory: 50Mi
 
   - it: should pass with only limits.memory defined
     documentIndex: *deploymentDoc
@@ -206,15 +447,15 @@ tests:
         limits:
           cpu:
           memory: 4Gi
-        requests:
-          cpu:
-          memory:
     asserts:
       - equal:
           path: spec.template.spec.containers[0].resources
           value:
             limits:
               memory: 4Gi
+            requests:
+              cpu: 10m
+              memory: 50Mi
 
   - it: should pass with only requests.cpu defined
     documentIndex: *deploymentDoc
@@ -225,14 +466,14 @@ tests:
           cpu:
           memory:
         requests:
-          cpu: 10m
-          memory:
+          cpu: 30m
     asserts:
       - equal:
           path: spec.template.spec.containers[0].resources
           value:
             requests:
-              cpu: 10m
+              cpu: 30m
+              memory: 50Mi
 
   - it: should pass with only requests.memory defined
     documentIndex: *deploymentDoc
@@ -243,14 +484,14 @@ tests:
           cpu:
           memory:
         requests:
-          cpu:
-          memory: 50Mi
+          memory: 15Mi
     asserts:
       - equal:
           path: spec.template.spec.containers[0].resources
           value:
             requests:
-              memory: 50Mi
+              cpu: 10m
+              memory: 15Mi
 
   - it: should pass with only limits.gpu defined
     documentIndex: *deploymentDoc
@@ -261,15 +502,15 @@ tests:
         limits:
           cpu:
           memory:
-        requests:
-          cpu:
-          memory:
     asserts:
       - equal:
           path: spec.template.spec.containers[0].resources
           value:
             limits:
               gpu.intel.com/i915: "1"
+            requests:
+              cpu: 10m
+              memory: 50Mi
 
   - it: should pass with only requests defined
     documentIndex: *deploymentDoc
@@ -296,18 +537,19 @@ tests:
       scaleGPU: {}
       resources:
         limits:
-          cpu: 3000m
-          memory: 4Gi
-        requests:
-          cpu:
-          memory:
+          cpu: 1000m
+          memory: 1Gi
     asserts:
       - equal:
           path: spec.template.spec.containers[0].resources
           value:
             limits:
-              cpu: 3000m
-              memory: 4Gi
+              cpu: 1000m
+              memory: 1Gi
+            requests:
+              cpu: 10m
+              memory: 50Mi
+
 
   - it: should pass with only gpu defined
     documentIndex: *deploymentDoc
@@ -318,12 +560,12 @@ tests:
         limits:
           cpu:
           memory:
-        requests:
-          cpu:
-          memory:
     asserts:
       - equal:
           path: spec.template.spec.containers[0].resources
           value:
             limits:
               gpu.intel.com/i915: "1"
+            requests:
+              cpu: 10m
+              memory: 50Mi

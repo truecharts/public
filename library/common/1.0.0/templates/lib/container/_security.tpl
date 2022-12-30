@@ -13,16 +13,15 @@ The reason is not splitted, is that on one of the places needs a combo of all va
 
   {{/* Initialiaze Values */}}
   {{- $defaultSecCont := $root.Values.global.defaults.securityContext -}}
-  {{- $returnValue := (deepCopy $defaultSecCont) -}}
+  {{- $returnValue := (mustDeepCopy $defaultSecCont) -}}
 
   {{/* TODO: deviceList + suppleGroups */}}
 
   {{- if and (hasKey $secCont "inherit") $isMainContainer -}}
-    {{- fail "<inherit> key is only available for additional/init/install/upgrade containers." -}}
+    {{- fail "<securityContext.inherit> key is only available for additional/init/install/upgrade containers." -}}
   {{- end -}}
 
-  {{/* SecurityContext */}}
-  {{- if and $secCont.inherit (not $isMainContainer) -}} {{/* if inherit is set, overwrite defaults with values from mainContainer */}}
+  {{- if and $secCont.inherit (not $isMainContainer) -}} {{/* if inherit is set, overwrite values from mainContainer */}}
     {{- if (hasKey $root.Values "securityContext") -}}
       {{- $returnValue = mustMergeOverwrite $returnValue $root.Values.securityContext -}}
     {{- end -}}
@@ -77,7 +76,7 @@ The reason is not splitted, is that on one of the places needs a combo of all va
 
   {{/* Initialiaze Values */}}
   {{- $defaultPodSecCont := $root.Values.global.defaults.podSecurityContext -}}
-  {{- $returnValue := (deepCopy $defaultPodSecCont) -}}
+  {{- $returnValue := (mustDeepCopy $defaultPodSecCont) -}}
 
   {{/* Overwrite from values that user/dev passed */}}
   {{- $returnValue = mustMergeOverwrite $returnValue $podSecCont -}}
@@ -106,7 +105,7 @@ The reason is not splitted, is that on one of the places needs a combo of all va
 
   {{/* Initialiaze Values */}}
   {{- $defaultSecEnvs := $root.Values.global.defaults.security -}}
-  {{- $returnValue := (deepCopy $defaultSecEnvs) -}}
+  {{- $returnValue := (mustDeepCopy $defaultSecEnvs) -}}
 
   {{/* Overwrite from values that user/dev passed */}}
   {{- $returnValue = mustMergeOverwrite $returnValue $secEnvs -}}

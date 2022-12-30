@@ -163,6 +163,44 @@ tests:
             terminationMessagePath: somePath
             terminationMessagePolicy: File
 
+  - it: should pass with resources inherited from main container and modified in init container
+    documentIndex: *deploymentDoc
+    set:
+      resources:
+        requests:
+          cpu: 25m
+          memory: 80Mi
+      initContainers:
+        some-name:
+          resources:
+            inherit: true
+            limits:
+              cpu: 1000m
+              memory: 1Gi
+            requests:
+              memory: 120Mi
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 25m
+                memory: 80Mi
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            resources:
+              limits:
+                cpu: 1000m
+                memory: 1Gi
+              requests:
+                cpu: 25m
+                memory: 120Mi
+
   - it: should pass with resources defined in init container
     documentIndex: *deploymentDoc
     set:

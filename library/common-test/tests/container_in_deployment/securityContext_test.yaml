@@ -75,7 +75,7 @@ tests:
         inherit: true
     asserts:
       - failedTemplate:
-          errorMessage: <inherit> key is only available for additional/init/install/upgrade containers.
+          errorMessage: <securityContext.inherit> key is only available for additional/init/install/upgrade containers.
 
   - it: should fail with securityContext changed, runAsNonRoot true and runAsUser 0
     set:
