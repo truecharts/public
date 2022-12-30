@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: "2022"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 11.1.2
+description: Vector and raster maps with GL styles
+home: https://github.com/maptiler/tileserver-gl
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tileserver-gl.png
+keywords:
+  - tileserver-gl
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: tileserver-gl
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/tileserver-gl
+  - https://github.com/maptiler/tileserver-gl
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - cartography
+    - map
+    - directions
+    - tile
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

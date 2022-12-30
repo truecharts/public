@@ -1,0 +1,25 @@
+image:
+  repository: maptiler/tileserver-gl
+  tag: v4.3.3
+  pullPolicy: IfNotPresent
+
+args:
+  - -b
+  - "0.0.0.0"
+  - -p
+  - "{{ .Values.service.main.ports.main.port }}"
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        port: 9080
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+
+portal:
+  enabled: true
