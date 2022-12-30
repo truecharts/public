@@ -32,9 +32,9 @@ data:
     redisMaxConnections = 30
 
     [Config]
-    {{/* Secret Key */}}
-    {{- with (lookup "v1" "Secret" .Release.Namespace $nitterSecretName) }}
-    hmacKey: {{ index .data "AUTHENTIK_SECRET_KEY" }}
+    {{/* Salts */}}
+    {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
+    hmacKey: {{ index .data "hmacKey" }}
     {{- else }}
     hmacKey: {{ randAlphaNum 32 | b64enc }}
     {{- end }}
