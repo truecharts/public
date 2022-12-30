@@ -31,9 +31,6 @@ TZ: UTC
 
 lifecycle: {}
 
-nvidiaCaps:
-  - all
-
 rbac:
   main:
     enabled: false
@@ -189,6 +186,10 @@ global:
     # Whether to inject fixedEnvs on containers
     # Can be overruled per container
     injectFixedEnvs: true
+    # Default nvidia Caps will be assigned via
+    # environment variable (requires injectFixedEnvs)
+    nvidiaCaps:
+      - all
     # Default Resources values, if no others
     # are specified
     resources:

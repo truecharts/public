@@ -8,6 +8,10 @@ will be parsed correctly without causing errors.
   {{- $isMainContainer := .isMainContainer -}}
   {{- $secEnvs := .secEnvs -}}
   {{- $secCont := .secCont -}}
+  {{- $scaleGPU := .scaleGPU -}}
+  {{- $nvidiaCaps := .nvidiaCaps -}}
+
+  {{- $nvidiaCaps = $nvidiaCaps | default $root.Values.global.defaults.nvidiaCaps -}}
 
   {{- $podSecCont := $root.Values.podSecurityContext -}}
 
@@ -17,14 +21,13 @@ will be parsed correctly without causing errors.
   {{- $securityEnvs := (include "ix.v1.common.lib.securityEnvs" (dict "root" $root "secEnvs" $secEnvs) | fromJson) -}}
 
   {{- $vars := list -}}
-  {{/* TODO: container aware NVIDIA Caps*/}}
   {{- $vars = mustAppend $vars (dict "name" "TZ" "value" (tpl (toYaml $root.Values.TZ) $root)) -}}
   {{- $vars = mustAppend $vars (dict "name" "UMASK" "value" $securityEnvs.UMASK) -}}
   {{- $vars = mustAppend $vars (dict "name" "UMASK_SET" "value" $securityEnvs.UMASK) -}}
-  {{- if not ($root.Values.scaleGPU) -}} {{/* TODO: container aware GPU */}}
+  {{- if not $scaleGPU -}}
     {{- $vars = mustAppend $vars (dict "name" "NVIDIA_VISIBLE_DEVICES" "value" "void") -}}
   {{- else -}}
-    {{- $vars = mustAppend $vars (dict "name" "NVIDIA_DRIVER_CAPABILITIES" "value" (join "," $root.Values.nvidiaCaps)) -}}
+    {{- $vars = mustAppend $vars (dict "name" "NVIDIA_DRIVER_CAPABILITIES" "value" (join "," $nvidiaCaps)) -}}
   {{- end -}}
   {{- if and (or (eq ($securityContext.runAsUser | int) 0) (eq ($securityContext.runAsGroup | int) 0)) (ge ($securityEnvs.PUID | int) 0) -}} {{/* If root user or root group and a PUID is set, set PUID and related envs */}}
     {{- $vars = mustAppend $vars (dict "name" "PUID" "value" $securityEnvs.PUID) -}}

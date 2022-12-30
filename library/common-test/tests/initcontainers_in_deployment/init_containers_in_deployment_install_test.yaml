@@ -166,6 +166,10 @@ tests:
     set:
       initContainers:
         some-name:
+          nvidiaCaps:
+            - compute
+          scaleGPU:
+            gpu.intel.com/i915: "1"
           resources:
             limits:
               cpu: 3000m
@@ -191,9 +195,20 @@ tests:
               limits:
                 cpu: 3000m
                 memory: 4Gi
+                gpu.intel.com/i915: "1"
               requests:
                 cpu: 20m
                 memory: 100Mi
+      - notContains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: NVIDIA_DRIVER_CAPABILITIES
+            value: all
+      - contains:
+          path: spec.template.spec.initContainers[0].env
+          content:
+            name: NVIDIA_DRIVER_CAPABILITIES
+            value: compute
 
   - it: should pass with envFrom defined in init container
     documentIndex: *deploymentDoc

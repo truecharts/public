@@ -32,8 +32,8 @@ So it can work on multiple places, like additional containers and not only the m
   {{- end -}}
   {{- with (include "ix.v1.common.container.termination.messagePolicy" (dict "msgPolicy" .Values.termination.messagePolicy "root" $)) | trim }}
   terminationMessagePolicy: {{ . }}
-  {{- end -}}
-  {{- with (include "ix.v1.common.container.envVars" (dict "envs" .Values.env "envList" .Values.envList "containerName" $name "isMainContainer" true "secCont" .Values.securityContext "secEnvs" .Values.security "injectFixedEnvs" .Values.injectFixedEnvs "root" $) | trim) }}
+  {{- end -}}{{/* TODO: prepare dict above and make this line shorter */}}
+  {{- with (include "ix.v1.common.container.envVars" (dict "envs" .Values.env "envList" .Values.envList "containerName" $name "isMainContainer" true "scaleGPU" .Values.scaleGPU "nvidiaCaps" .Values.nvidiaCaps "secCont" .Values.securityContext "secEnvs" .Values.security "injectFixedEnvs" .Values.injectFixedEnvs "root" $) | trim) }}
   env:
     {{- . | nindent 4 }} {{/* env, fixedEnvs and envList */}}
   {{- end -}}

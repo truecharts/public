@@ -41,8 +41,8 @@
   {{- with (include "ix.v1.common.container.args" (dict "args" $container.args "extraArgs" $container.extraArgs "root" $root)) | trim }}
   args:
     {{- . | nindent 4 }}
-  {{- end -}}
-  {{- with (include "ix.v1.common.container.envVars" (dict "envs" $container.env "envList" $container.envList "containerName" $name "isMainContainer" false "secCont" $container.securityContext "secEnvs" $container.security "injectFixedEnvs" $container.injectFixedEnvs "root" $root) | trim) }}
+  {{- end -}} {{/* TODO: prepare dict above and make this line shorter */}}
+  {{- with (include "ix.v1.common.container.envVars" (dict "envs" $container.env "envList" $container.envList "containerName" $name "isMainContainer" false "scaleGPU" $container.scaleGPU "nvidiaCaps" $container.nvidiaCaps "secCont" $container.securityContext "secEnvs" $container.security "injectFixedEnvs" $container.injectFixedEnvs "root" $root) | trim) }}
   env:
     {{- . | nindent 4 }} {{/* env, fixedEnvs and envList */}}
   {{- end -}}
