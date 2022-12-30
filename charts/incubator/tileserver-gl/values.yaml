@@ -3,12 +3,6 @@ image:
   tag: v4.3.3
   pullPolicy: IfNotPresent
 
-args:
-  - -b
-  - "0.0.0.0"
-  - -p
-  - "{{ .Values.service.main.ports.main.port }}"
-
 service:
   main:
     ports:
