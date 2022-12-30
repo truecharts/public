@@ -3,50 +3,53 @@
   {{- $root := .root -}}
   {{- $probes := .probes -}}
   {{- $services := .services -}}
+  {{- $containerName := .containerName -}}
 
-  {{- $primarySeriviceName := (include "ix.v1.common.lib.util.service.primary" (dict "services" $services "root" $root)) -}}  {{/* Get the name of the primary service, if any */}}
-  {{- $primaryService := get $root.Values.service $primarySeriviceName -}} {{/* Get service values of the primary service, if any */}}
-  {{- $primaryPort := "" -}}
   {{- $defaultProbeType := $root.Values.global.defaults.probeType -}}
+  {{- $defaultProbePath := $root.Values.global.defaults.probePath -}}
 
-  {{- if $primaryService -}}
-    {{- $primaryPort = get $primaryService.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "svcValues" $primaryService "svcName" $primarySeriviceName)) -}}
+  {{- $primaryPort := "" -}}
+  {{- if $services -}} {{/* If no services exist don't try to guess a port */}}
+    {{/* Get the name of the primary service, if any */}}
+    {{- $primarySeriviceName := (include "ix.v1.common.lib.util.service.primary" (dict "services" $services "root" $root)) -}}
+    {{/* Get service values of the primary service, if any */}}
+    {{- $primaryService := get $root.Values.service $primarySeriviceName -}}
+
+    {{- if $primaryService -}}
+      {{/* Get primaryPort, if any */}}
+      {{- $primaryPort = get $primaryService.ports (include "ix.v1.common.lib.util.service.ports.primary" (dict "svcValues" $primaryService "svcName" $primarySeriviceName)) -}}
+    {{- end -}}
   {{- end -}}
 
   {{- range $probeName, $probe := $probes -}}
-      {{- if not (mustHas $probeName (list "liveness" "readiness" "startup")) -}}
-        {{- fail (printf "Invalid probe name (%s). Valid options are (liveness, readiness, startup)" $probeName) -}}
-      {{- end -}}
-    {{- $probeType := "" -}}
+    {{- if not (mustHas $probeName (list "liveness" "readiness" "startup")) -}}
+      {{- fail (printf "Invalid probe name (%s) in (%s) container. Valid options are (liveness, readiness, startup)" $probeName $containerName) -}}
+    {{- end -}}
+
     {{- if $probe.enabled -}}
-      {{- if eq $probe.type "CUSTOM" -}}
-        {{ $probeType = $probe.type }}
-      {{- else if eq $probe.type "EXEC" -}}
-        {{ $probeType = $probe.type }}
-      {{- else -}}
-        {{- if and $primaryService $primaryPort -}}
-          {{- if $probe.type -}}
-            {{- if eq $probe.type "AUTO" -}} {{/* Get probeType based on the service protocol */}}
-              {{- $probeType = $primaryPort.protocol -}}
-            {{- else -}}
-              {{- if not (mustHas $probe.type (list "TCP" "HTTP" "HTTPS" "GRPC")) -}} {{/* Make sure there is a valid probe type defined */}}
-                {{- fail (printf "Invalid probe type (%s) on probe (%s). Valid types are TCP, HTTP, HTTPS, GRPC, EXEC" $probe.type $probeName) -}}
-              {{- end -}}
-              {{- $probeType = $probe.type -}}
-            {{- end -}}
-          {{- else -}} {{/* Fail back to defaultProbeType if no type is defined */}}
-            {{- $probeType := $defaultProbeType -}}
-          {{- end -}}
-        {{- else -}}
-          {{- fail (printf "Only CUSTOM or EXEC probes are allowed when service is disabled (%s)" $probeName) -}}
-        {{- end -}}
+      {{- $probeType := $defaultProbeType -}}
+      {{- if $probe.type -}}
+        {{- $probeType = $probe.type -}}
       {{- end -}}
 
-      {{- $probePort := $primaryPort.port -}}
+      {{- if not (mustHas $probeType (list "tcp" "http" "https" "grpc" "exec" "custom")) -}}
+        {{- fail (printf "Invalid probe type (%s) on probe (%s) in (%s) container. Valid types are tcp, http, https, grpc, exec" $probe.type $probeName $containerName) -}}
+      {{- end -}}
+
+      {{- $probePort := "" -}}
+      {{- if $primaryPort -}}
+        {{/* If port is defined to primaryPort use this */}}
+        {{- if $primaryPort.port -}}
+          {{- $probePort = $primaryPort.port -}}
+        {{- end -}}
+        {{/* If targetPort is defined to primaryPort use this */}}
+        {{- if $primaryPort.targetPort -}}
+          {{- $probePort = $primaryPort.targetPort -}}
+        {{- end -}}
+      {{- end -}}
+      {{/* If a port is set on probe, use this always */}}
       {{- if $probe.port -}}
         {{- $probePort = (tpl ($probe.port | toString) $root) -}}
-      {{- else if $primaryPort.targetPort -}}
-        {{- $probePort = $primaryPort.targetPort -}}
       {{- end -}}
 
       {{- $tmpProbe := dict -}}{{/* Prepare a temp Probe to pass in the probe definition function */}}
@@ -56,21 +59,25 @@
       {{- $_ := set $tmpProbe "port" $probePort -}}
 
       {{ printf "%sProbe:" $probeName | nindent 0 }}
-      {{- if mustHas $probeType (list "HTTPS" "HTTP") -}}
-        {{- $_ := set $tmpProbe "path" $probe.path -}}
+      {{- if mustHas $probeType (list "https" "http") -}}
+        {{- if $probe.path -}}
+          {{- $_ := set $tmpProbe "path" $probe.path -}}
+        {{- else -}}
+          {{- $_ := set $tmpProbe "path" $defaultProbePath -}}
+        {{- end -}}
         {{- $_ := set $tmpProbe "httpHeaders" $probe.httpHeaders -}}
-        {{- include "ix.v1.common.container.probes.httpGet" (dict "probe" $tmpProbe "root" $root) | trim | nindent 2 }}
-      {{- else if (eq $probeType "TCP") -}}
-        {{- include "ix.v1.common.container.probes.tcp" (dict "probe" $tmpProbe "root" $root) | trim | nindent 2 }}
-      {{- else if (eq $probeType "GRPC") -}}
-        {{- include "ix.v1.common.container.probes.grpc" (dict "probe" $tmpProbe "root" $root) | trim | nindent 2 }}
-      {{- else if (eq $probeType "EXEC") -}}
+        {{- include "ix.v1.common.container.probes.httpGet" (dict "probe" $tmpProbe "root" $root "containerName" $containerName) | trim | nindent 2 }}
+      {{- else if (eq $probeType "tcp") -}}
+        {{- include "ix.v1.common.container.probes.tcp" (dict "probe" $tmpProbe "root" $root "containerName" $containerName) | trim | nindent 2 }}
+      {{- else if (eq $probeType "grpc") -}}
+        {{- include "ix.v1.common.container.probes.grpc" (dict "probe" $tmpProbe "root" $root "containerName" $containerName) | trim | nindent 2 }}
+      {{- else if (eq $probeType "exec") -}}
         {{- $_ := set $tmpProbe "command" $probe.command -}}
-        {{- include "ix.v1.common.container.probes.exec" (dict "probe" $tmpProbe "root" $root) | trim | nindent 2 }}
-      {{- else if (eq $probeType "CUSTOM") -}}
-        {{- include "ix.v1.common.container.probes.custom" (dict "probe" $tmpProbe "root" $root) | trim | nindent 2 }}
-      {{- else if (eq $probeType "UDP") -}}
-        {{- include "ix.v1.common.container.probes.udp" (dict "probe" $tmpProbe "root" $root) | trim | nindent 2 }}
+        {{- include "ix.v1.common.container.probes.exec" (dict "probe" $tmpProbe "root" $root "containerName" $containerName) | trim | nindent 2 }}
+      {{- else if (eq $probeType "custom") -}}
+        {{- include "ix.v1.common.container.probes.custom" (dict "probe" $tmpProbe "root" $root "containerName" $containerName) | trim | nindent 2 }}
+      {{- else if (eq $probeType "udp") -}}
+        {{- include "ix.v1.common.container.probes.udp" (dict "probe" $tmpProbe "root" $root "containerName" $containerName) | trim | nindent 2 }}
       {{- end -}}
 
     {{- end -}}

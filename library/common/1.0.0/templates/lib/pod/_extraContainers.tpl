@@ -59,6 +59,11 @@
   envFrom:
     {{- . | nindent 4 }}
   {{- end -}}
+  {{- with (include "ix.v1.common.container.probes" (dict "probes" $container.probes
+                                                          "containerName" $name
+                                                          "root" $root) | trim) }}
+    {{- . | nindent 2 }}
+  {{- end -}}
   {{- if and (hasKey $container "lifecycle") (mustHas $type (list "init" "install" "upgrade")) -}} {{/* Init containers do not have lifecycle... */}}
     {{- fail (printf "Init/Install/Upgrade Container (%s) do not support lifecycle hooks" $name) -}}
   {{- end -}}

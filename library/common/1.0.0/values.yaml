@@ -59,38 +59,10 @@ stdin: false
 probes:
   liveness:
     enabled: true
-    type: AUTO
-    path: "/"
-    port: ""
-    command: []
-    httpHeaders: {}
-    spec:
-      initialDelaySeconds: 10
-      periodSeconds: 10
-      timeoutSeconds: 5
-      failureThreshold: 5
   readiness:
     enabled: true
-    type: AUTO
-    path: "/"
-    port: ""
-    command: []
-    spec:
-      initialDelaySeconds: 10
-      periodSeconds: 10
-      timeoutSeconds: 5
-      failureThreshold: 5
   startup:
     enabled: true
-    type: AUTO
-    path: "/"
-    port: ""
-    command: []
-    spec:
-      initialDelaySeconds: 10
-      timeoutSeconds: 2
-      periodSeconds: 5
-      failureThreshold: 60
 
 # Used for SCALE / GUI Focused
 scaleGPU: {}
@@ -133,8 +105,6 @@ global:
     useExpiredCerts: false
     # If no restart Policy is defined, assume this
     restartPolicy: Always
-    # If no probe Type is defined, assume this
-    probeType: TCP
     # If no port Protocol is defined, assume this
     portProtocol: TCP
     # Define the minimum NodePort
@@ -191,7 +161,7 @@ global:
     nvidiaCaps:
       - all
     # Default Resources values, if no others
-    # are specified
+    # are specified, use those
     resources:
       limits:
         cpu: 4000m
@@ -199,6 +169,31 @@ global:
       requests:
         cpu: 10m
         memory: 50Mi
+    # If no probe Type is defined, assume this
+    probeType: http
+    # If no probe Path is defined, assume this
+    probePath: /
+    # Default probe timeouts, if no others
+    # are specified, use those
+    probes:
+      liveness:
+        spec:
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 5
+      readiness:
+        spec:
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 5
+      startup:
+        spec:
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 2
+          failureThreshold: 60
 
 nameOverride: ""
 

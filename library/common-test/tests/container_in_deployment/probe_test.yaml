@@ -46,58 +46,73 @@ tests:
         invalid_probe_name:
     asserts:
       - failedTemplate:
-          errorMessage: Invalid probe name (invalid_probe_name). Valid options are (liveness, readiness, startup)
+          errorMessage: Invalid probe name (invalid_probe_name) in (RELEASE-NAME-common-test) container. Valid options are (liveness, readiness, startup)
 
-  - it: should fail with probe type auto and port protocol UDP
+  - it: should fail with probe type set to UDP
     set:
       probes:
         liveness:
-          type: AUTO
-      service:
-        main:
-          ports:
-            main:
-              port: 65535
-              protocol: UDP
+          type: udp
     asserts:
       - failedTemplate:
-          errorMessage: UDP Probes are not supported. Please use a different probe type or disable probes.
+          errorMessage: Invalid probe type (udp) on probe (liveness) in (RELEASE-NAME-common-test) container. Valid types are tcp, http, https, grpc, exec
 
   - it: should fail without commands on exec probe
     set:
       probes:
         liveness:
-          type: EXEC
+          type: exec
     asserts:
       - failedTemplate:
-          errorMessage: No commands were defined for EXEC type on probe (liveness)
+          errorMessage: No commands were defined for <exec> type on probe (liveness) in (RELEASE-NAME-common-test) container.
 
-  - it: should fail without path on http(s) liveness probe
+  - it: should fail without port on http(s) liveness probe and disabled service
     set:
+      service:
+        main:
+          enabled: false
+          ports:
+            main:
+              enabled: false
       probes:
         liveness:
-          path: ""
+          path: "/"
+          port:
     asserts:
       - failedTemplate:
-          errorMessage: <path> must be defined for HTTP/HTTPS probe types in probe (liveness)
+          errorMessage: <port> must be defined for <http>/<https> probe types in probe (liveness) in (RELEASE-NAME-common-test) container.
 
-  - it: should fail without path on http(s) readiness probe
+  - it: should fail without port on http(s) readiness probe and disabled service
     set:
+      service:
+        main:
+          enabled: false
+          ports:
+            main:
+              enabled: false
       probes:
         readiness:
-          path: ""
+          path: "/"
+          port:
     asserts:
       - failedTemplate:
-          errorMessage: <path> must be defined for HTTP/HTTPS probe types in probe (readiness)
+          errorMessage: <port> must be defined for <http>/<https> probe types in probe (liveness) in (RELEASE-NAME-common-test) container.
 
-  - it: should fail without path on http(s) startup probe
+  - it: should fail without port on http(s) startup probe and disabled service
     set:
+      service:
+        main:
+          enabled: false
+          ports:
+            main:
+              enabled: false
       probes:
         startup:
-          path: ""
+          path: "/"
+          port:
     asserts:
       - failedTemplate:
-          errorMessage: <path> must be defined for HTTP/HTTPS probe types in probe (startup)
+          errorMessage: <port> must be defined for <http>/<https> probe types in probe (liveness) in (RELEASE-NAME-common-test) container.
 
   - it: should fail without initialDelaySeconds on non-custom probes
     set:
@@ -107,7 +122,7 @@ tests:
             initialDelaySeconds:
     asserts:
       - failedTemplate:
-          errorMessage: <initialDelaySeconds> cannot be empty in probe (liveness)
+          errorMessage: <initialDelaySeconds> cannot be empty in probe (liveness) in (RELEASE-NAME-common-test) container
 
   - it: should fail without failureThreshold on non-custom probes
     set:
@@ -117,7 +132,7 @@ tests:
             failureThreshold:
     asserts:
       - failedTemplate:
-          errorMessage: <failureThreshold> cannot be empty in probe (liveness)
+          errorMessage: <failureThreshold> cannot be empty in probe (liveness) in (RELEASE-NAME-common-test) container
 
   - it: should fail without timeoutSeconds on non-custom probes
     set:
@@ -127,7 +142,7 @@ tests:
             timeoutSeconds:
     asserts:
       - failedTemplate:
-          errorMessage: <timeoutSeconds> cannot be empty in probe (liveness)
+          errorMessage: <timeoutSeconds> cannot be empty in probe (liveness) in (RELEASE-NAME-common-test) container
 
   - it: should fail without periodSeconds on non-custom probes
     set:
@@ -137,20 +152,7 @@ tests:
             periodSeconds:
     asserts:
       - failedTemplate:
-          errorMessage: <periodSeconds> cannot be empty in probe (liveness)
-
-  - it: should fail when non-custom probe is defined in a disabled service
-    set:
-      service:
-        main:
-          enabled: false
-      probes:
-        liveness:
-          spec:
-            periodSeconds:
-    asserts:
-      - failedTemplate:
-          errorMessage: Only CUSTOM or EXEC probes are allowed when service is disabled (liveness)
+          errorMessage: <periodSeconds> cannot be empty in probe (liveness) in (RELEASE-NAME-common-test) container
 
   - it: should fail with invalid probe type
     set:
@@ -159,13 +161,13 @@ tests:
           type: not_valid_type
     asserts:
       - failedTemplate:
-          errorMessage: Invalid probe type (not_valid_type) on probe (liveness). Valid types are TCP, HTTP, HTTPS, GRPC, EXEC
+          errorMessage: Invalid probe type (not_valid_type) on probe (liveness) in (RELEASE-NAME-common-test) container. Valid types are tcp, http, https, grpc, exec
 
   - it: should fail with httpHeader value is defined as list
     set:
       probes:
         liveness:
-          type: HTTP
+          type: http
           httpHeaders:
             some_header:
               - list_value
@@ -178,7 +180,7 @@ tests:
     set:
       probes:
         liveness:
-          type: HTTP
+          type: http
           httpHeaders:
             some_header:
               some_key:
@@ -186,12 +188,23 @@ tests:
       - failedTemplate:
           errorMessage: Lists or Dicts are not allowed in httpHeaders on probe (liveness)
 
+  - it: should fail without spec in custom defined probe
+    documentIndex: *deploymentDoc
+    set:
+      probes:
+        liveness:
+          type: custom
+          spec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: <spec> must be defined for <custom> probe types in probe (liveness) in (RELEASE-NAME-common-test) container.
+
   - it: should pass with with custom defined liveness probe
     documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
-          type: CUSTOM
+          type: custom
           spec:
             httpGet:
               path: /path
@@ -219,7 +232,7 @@ tests:
     set:
       probes:
         readiness:
-          type: CUSTOM
+          type: custom
           spec:
             httpGet:
               path: /path
@@ -247,7 +260,7 @@ tests:
     set:
       probes:
         startup:
-          type: CUSTOM
+          type: custom
           spec:
             httpGet:
               path: /path
@@ -270,7 +283,7 @@ tests:
             timeoutSeconds: 10
             periodSeconds: 15
 
-  - it: should pass with with probe type AUTO and service HTTP
+  - it: should pass with with no probe type and service HTTP
     documentIndex: *deploymentDoc
     set:
       service:
@@ -278,9 +291,6 @@ tests:
           ports:
             main:
               protocol: HTTP
-      probes:
-        liveness:
-          type: AUTO
     asserts:
       - equal:
           path: spec.template.spec.containers[0].livenessProbe
@@ -294,58 +304,12 @@ tests:
             timeoutSeconds: 5
             periodSeconds: 10
 
-  - it: should pass with with probe type AUTO and service HTTPS
-    documentIndex: *deploymentDoc
-    set:
-      service:
-        main:
-          ports:
-            main:
-              protocol: HTTPS
-      probes:
-        liveness:
-          type: AUTO
-    asserts:
-      - equal:
-          path: spec.template.spec.containers[0].livenessProbe
-          value:
-            httpGet:
-              path: /
-              scheme: HTTPS
-              port: 65535
-            initialDelaySeconds: 10
-            failureThreshold: 5
-            timeoutSeconds: 5
-            periodSeconds: 10
-
-  - it: should pass with with probe type AUTO and service TCP
-    documentIndex: *deploymentDoc
-    set:
-      service:
-        main:
-          ports:
-            main:
-              protocol: TCP
-      probes:
-        liveness:
-          type: AUTO
-    asserts:
-      - equal:
-          path: spec.template.spec.containers[0].livenessProbe
-          value:
-            tcpSocket:
-              port: 65535
-            initialDelaySeconds: 10
-            failureThreshold: 5
-            timeoutSeconds: 5
-            periodSeconds: 10
-
   - it: should pass with with probe type TCP and service TCP
     documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
-          type: TCP
+          type: tcp
     asserts:
       - equal:
           path: spec.template.spec.containers[0].livenessProbe
@@ -357,7 +321,24 @@ tests:
             timeoutSeconds: 5
             periodSeconds: 10
 
-  - it: should pass with with probe type AUTO and service HTTP with custom path
+  - it: should fail without port on tcp readiness probe and disabled service
+    set:
+      service:
+        main:
+          enabled: false
+          ports:
+            main:
+              enabled: false
+      probes:
+        readiness:
+          path: "/"
+          type: tcp
+          port:
+    asserts:
+      - failedTemplate:
+          errorMessage: <port> must be defined for <http>/<https> probe types in probe (liveness) in (RELEASE-NAME-common-test) container.
+
+  - it: should pass with with no probe type and service HTTP with custom path
     documentIndex: *deploymentDoc
     set:
       service:
@@ -367,7 +348,6 @@ tests:
               protocol: HTTP
       probes:
         liveness:
-          type: AUTO
           path: /some_path
     asserts:
       - equal:
@@ -382,7 +362,7 @@ tests:
             timeoutSeconds: 5
             periodSeconds: 10
 
-  - it: should pass with with probe type AUTO and service HTTP with custom port
+  - it: should pass with with no probe type and service HTTP with custom port
     documentIndex: *deploymentDoc
     set:
       service:
@@ -392,7 +372,6 @@ tests:
               protocol: HTTP
       probes:
         liveness:
-          type: AUTO
           port: 1234
     asserts:
       - equal:
@@ -407,7 +386,7 @@ tests:
             timeoutSeconds: 5
             periodSeconds: 10
 
-  - it: should pass with with probe type AUTO and service HTTP with httpHeaders
+  - it: should pass with with no probe type and service HTTP with httpHeaders
     documentIndex: *deploymentDoc
     set:
       service:
@@ -417,7 +396,6 @@ tests:
               protocol: HTTP
       probes:
         liveness:
-          type: AUTO
           httpHeaders:
             some_header: 1234
     asserts:
@@ -442,7 +420,7 @@ tests:
       some_header_value: 1234
       probes:
         liveness:
-          type: HTTP
+          type: http
           httpHeaders:
             some_header: "{{ .Values.some_header_value }}"
     asserts:
@@ -468,7 +446,7 @@ tests:
       some_header_value2: some_value
       probes:
         liveness:
-          type: HTTP
+          type: http
           httpHeaders:
             some_header: "{{ .Values.some_header_value }}"
             some_header2: "{{ .Values.some_header_value2 }}"
@@ -496,7 +474,7 @@ tests:
       some_path: /ping
       probes:
         liveness:
-          type: HTTP
+          type: http
           path: "{{ .Values.some_path }}"
     asserts:
       - equal:
@@ -517,7 +495,7 @@ tests:
       some_port: 1234
       probes:
         liveness:
-          type: HTTP
+          type: http
           port: "{{ .Values.some_port }}"
     asserts:
       - equal:
@@ -538,7 +516,7 @@ tests:
       some_port: 1234
       probes:
         liveness:
-          type: TCP
+          type: tcp
           port: "{{ .Values.some_port }}"
     asserts:
       - equal:
@@ -556,7 +534,7 @@ tests:
     set:
       probes:
         liveness:
-          type: TCP
+          type: tcp
           spec:
             initialDelaySeconds: 15
             failureThreshold: 10
@@ -578,7 +556,7 @@ tests:
     set:
       probes:
         liveness:
-          type: GRPC
+          type: grpc
     asserts:
       - equal:
           path: spec.template.spec.containers[0].livenessProbe
@@ -590,12 +568,29 @@ tests:
             timeoutSeconds: 5
             periodSeconds: 10
 
+  - it: should fail without port on grpc readiness probe and disabled service
+    set:
+      service:
+        main:
+          enabled: false
+          ports:
+            main:
+              enabled: false
+      probes:
+        readiness:
+          path: "/"
+          type: grpc
+          port:
+    asserts:
+      - failedTemplate:
+          errorMessage: <port> must be defined for <http>/<https> probe types in probe (liveness) in (RELEASE-NAME-common-test) container.
+
   - it: should pass with with probe type exec with multiline command
     documentIndex: *deploymentDoc
     set:
       probes:
         liveness:
-          type: EXEC
+          type: exec
           command:
             - /bin/bash
             - -c
@@ -622,7 +617,7 @@ tests:
       some_msg: probe!
       probes:
         liveness:
-          type: EXEC
+          type: exec
           command:
             - /bin/bash
             - -c
@@ -648,7 +643,7 @@ tests:
     set:
       probes:
         liveness:
-          type: EXEC
+          type: exec
           command: env
     asserts:
       - equal:
@@ -668,7 +663,7 @@ tests:
       some_command: env
       probes:
         liveness:
-          type: EXEC
+          type: exec
           command: "{{ .Values.some_command }}"
     asserts:
       - equal:
@@ -687,7 +682,7 @@ tests:
     set:
       probes:
         liveness:
-          type: EXEC
+          type: exec
           command: env
           spec:
             initialDelaySeconds: 15
