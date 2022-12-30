@@ -41,7 +41,7 @@
   {{- with (include "ix.v1.common.container.args" (dict "args" $container.args "extraArgs" $container.extraArgs "root" $root)) | trim }}
   args:
     {{- . | nindent 4 }}
-  {{- end -}} {{/* TODO: prepare dict above and make this line shorter */}}
+  {{- end -}}
   {{- with (include "ix.v1.common.container.envVars"  (dict "envs" $container.env
                                                             "envList" $container.envList
                                                             "containerName" $name
