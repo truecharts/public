@@ -711,7 +711,7 @@ tests:
   - it: should fail with probe type set to auto in init container
     documentIndex: *deploymentDoc
     set:
-      installContainers:
+      upgradeContainers:
         some-name:
           probes:
             liveness:
