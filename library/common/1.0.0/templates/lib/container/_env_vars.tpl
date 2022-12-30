@@ -25,7 +25,14 @@ That's why the custom dict is expected.
   {{- end -}}
 
   {{- if $inject -}}
-    {{- $fixedEnv = (include "ix.v1.common.container.fixedEnvs" (dict "root" $root "fixedEnv" $fixedEnv "containerName" $containerName "isMainContainer" $isMainContainer "scaleGPU" $scaleGPU "nvidiaCaps" $nvidiaCaps "secCont" $secCont "secEnvs" $secEnvs)) -}}
+    {{- $fixedEnv = (include "ix.v1.common.container.fixedEnvs" (dict "root" $root
+                                                                      "fixedEnv" $fixedEnv
+                                                                      "containerName" $containerName
+                                                                      "isMainContainer" $isMainContainer
+                                                                      "scaleGPU" $scaleGPU
+                                                                      "nvidiaCaps" $nvidiaCaps
+                                                                      "secCont" $secCont
+                                                                      "secEnvs" $secEnvs)) -}}
   {{- end -}} {{/* Finish fixedEnv */}}
   {{- with $fixedEnv -}}
     {{- range $fixedEnv | fromJsonArray }} {{/* "fromJsonArray" parses stringified output and convet to list */}}
@@ -33,6 +40,14 @@ That's why the custom dict is expected.
   value: {{ .value | quote }}
     {{- end -}}
   {{- end -}}
-  {{- include "ix.v1.common.container.env" (dict "envs" $envs "root" $root "fixedEnv" $fixedEnv "containerName" $containerName) -}}
-  {{- include "ix.v1.common.container.envList" (dict "envList" $envList "envs" $envs "root" $root "fixedEnv" $fixedEnv "containerName" $containerName) -}}
+  {{- include "ix.v1.common.container.env"  (dict "envs" $envs
+                                                  "root" $root
+                                                  "fixedEnv" $fixedEnv
+                                                  "containerName" $containerName) -}}
+
+  {{- include "ix.v1.common.container.envList"  (dict "envList" $envList
+                                                      "envs" $envs
+                                                      "root" $root
+                                                      "fixedEnv" $fixedEnv
+                                                      "containerName" $containerName) -}}
 {{- end -}}
