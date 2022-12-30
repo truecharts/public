@@ -48,6 +48,18 @@ tests:
       - failedTemplate:
           errorMessage: Invalid probe name (invalid_probe_name) in (RELEASE-NAME-common-test) container. Valid options are (liveness, readiness, startup)
 
+  - it: should fail with auto probe type and no service enabled
+    set:
+      service:
+        main:
+          enabled: false
+      probes:
+        liveness:
+          type: auto
+    asserts:
+      - failedTemplate:
+          errorMessage: <auto> probe type in probe (liveness) in (RELEASE-NAME-common-test) container, is only supported for the main container and only if there is at least 1 port enabled
+
   - it: should fail with probe type set to UDP
     set:
       probes:
@@ -55,7 +67,22 @@ tests:
           type: udp
     asserts:
       - failedTemplate:
-          errorMessage: Invalid probe type (udp) on probe (liveness) in (RELEASE-NAME-common-test) container. Valid types are tcp, http, https, grpc, exec
+          errorMessage: Invalid probe type (udp) on probe (liveness) in (RELEASE-NAME-common-test) container. Valid types are tcp, http, https, grpc, exec, auto
+
+  - it: should fail with probe type auto and port protocol UDP
+    set:
+      probes:
+        liveness:
+          type: auto
+      service:
+        main:
+          ports:
+            main:
+              port: 65535
+              protocol: UDP
+    asserts:
+      - failedTemplate:
+          errorMessage: UDP Probes are not supported. Please use a different probe type or disable probes in (RELEASE-NAME-common-test) container.
 
   - it: should fail without commands on exec probe
     set:
@@ -77,12 +104,12 @@ tests:
       probes:
         liveness:
           path: "/"
-          port:
+          type: http
     asserts:
       - failedTemplate:
           errorMessage: <port> must be defined for <http>/<https> probe types in probe (liveness) in (RELEASE-NAME-common-test) container.
 
-  - it: should fail without port on http(s) readiness probe and disabled service
+  - it: should fail without port on http(s) liveness probe and disabled service
     set:
       service:
         main:
@@ -91,14 +118,15 @@ tests:
             main:
               enabled: false
       probes:
-        readiness:
+        liveness:
           path: "/"
+          type: https
           port:
     asserts:
       - failedTemplate:
           errorMessage: <port> must be defined for <http>/<https> probe types in probe (liveness) in (RELEASE-NAME-common-test) container.
 
-  - it: should fail without port on http(s) startup probe and disabled service
+  - it: should fail without port on http(s) liveness probe and disabled service
     set:
       service:
         main:
@@ -107,8 +135,9 @@ tests:
             main:
               enabled: false
       probes:
-        startup:
+        liveness:
           path: "/"
+          type: http
           port:
     asserts:
       - failedTemplate:
@@ -161,7 +190,7 @@ tests:
           type: not_valid_type
     asserts:
       - failedTemplate:
-          errorMessage: Invalid probe type (not_valid_type) on probe (liveness) in (RELEASE-NAME-common-test) container. Valid types are tcp, http, https, grpc, exec
+          errorMessage: Invalid probe type (not_valid_type) on probe (liveness) in (RELEASE-NAME-common-test) container. Valid types are tcp, http, https, grpc, exec, auto
 
   - it: should fail with httpHeader value is defined as list
     set:
@@ -321,7 +350,7 @@ tests:
             timeoutSeconds: 5
             periodSeconds: 10
 
-  - it: should fail without port on tcp readiness probe and disabled service
+  - it: should fail without port on tcp liveness probe and disabled service
     set:
       service:
         main:
@@ -330,13 +359,13 @@ tests:
             main:
               enabled: false
       probes:
-        readiness:
+        liveness:
           path: "/"
           type: tcp
-          port:
+          port: ""
     asserts:
       - failedTemplate:
-          errorMessage: <port> must be defined for <http>/<https> probe types in probe (liveness) in (RELEASE-NAME-common-test) container.
+          errorMessage: <port> must be defined for <tcp> probe types in probe (liveness) in (RELEASE-NAME-common-test) container.
 
   - it: should pass with with no probe type and service HTTP with custom path
     documentIndex: *deploymentDoc
@@ -568,7 +597,7 @@ tests:
             timeoutSeconds: 5
             periodSeconds: 10
 
-  - it: should fail without port on grpc readiness probe and disabled service
+  - it: should fail without port on grpc liveness probe and disabled service
     set:
       service:
         main:
@@ -577,13 +606,13 @@ tests:
             main:
               enabled: false
       probes:
-        readiness:
+        liveness:
           path: "/"
           type: grpc
-          port:
+          port: ""
     asserts:
       - failedTemplate:
-          errorMessage: <port> must be defined for <http>/<https> probe types in probe (liveness) in (RELEASE-NAME-common-test) container.
+          errorMessage: <port> must be defined for <grpc> probe types in probe (liveness) in (RELEASE-NAME-common-test) container.
 
   - it: should pass with with probe type exec with multiline command
     documentIndex: *deploymentDoc

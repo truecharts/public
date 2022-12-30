@@ -48,6 +48,7 @@ tests:
           ports:
             main:
               protocol: TCP
+              port: 12345
         other:
           primary: false
           ports:
@@ -55,13 +56,13 @@ tests:
               protocol: TCP
       probes:
         liveness:
-          type: AUTO
+          type: auto
     asserts:
       - equal:
           path: spec.template.spec.containers[0].livenessProbe
           value:
             tcpSocket:
-              port: 65535
+              port: 12345
             initialDelaySeconds: 10
             failureThreshold: 5
             timeoutSeconds: 5
@@ -76,15 +77,16 @@ tests:
           ports:
             main:
               protocol: TCP
+              port: 12345
       probes:
         liveness:
-          type: AUTO
+          type: auto
     asserts:
       - equal:
           path: spec.template.spec.containers[0].livenessProbe
           value:
             tcpSocket:
-              port: 65535
+              port: 12345
             initialDelaySeconds: 10
             failureThreshold: 5
             timeoutSeconds: 5
@@ -106,7 +108,7 @@ tests:
               port: 12345
       probes:
         liveness:
-          type: AUTO
+          type: auto
     asserts:
       - equal:
           path: spec.template.spec.containers[0].livenessProbe

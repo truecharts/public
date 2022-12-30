@@ -2,11 +2,12 @@
 {{- define "ix.v1.common.container.probes" -}}
   {{- $root := .root -}}
   {{- $probes := .probes -}}
-  {{- $services := .services -}}
+  {{- $services := .services -}} {{/* Only passed from main container, not init/install/upgrade/additional */}}
   {{- $containerName := .containerName -}}
 
   {{- $defaultProbeType := $root.Values.global.defaults.probeType -}}
   {{- $defaultProbePath := $root.Values.global.defaults.probePath -}}
+  {{- $defaultPortProtocol := $root.Values.global.defaults.portProtocol -}}
 
   {{- $primaryPort := "" -}}
   {{- if $services -}} {{/* If no services exist don't try to guess a port */}}
@@ -32,8 +33,31 @@
         {{- $probeType = $probe.type -}}
       {{- end -}}
 
-      {{- if not (mustHas $probeType (list "tcp" "http" "https" "grpc" "exec" "custom")) -}}
-        {{- fail (printf "Invalid probe type (%s) on probe (%s) in (%s) container. Valid types are tcp, http, https, grpc, exec" $probe.type $probeName $containerName) -}}
+      {{- if and (or (not $services) (not $primaryPort)) (eq $probeType "auto") -}}
+        {{- fail (printf "<auto> probe type in probe (%s) in (%s) container, is only supported for the main container and only if there is at least 1 port enabled" $probeName $containerName) -}}
+      {{- end -}}
+
+      {{- if not (mustHas $probeType (list "tcp" "http" "https" "grpc" "exec" "custom" "auto")) -}}
+        {{- fail (printf "Invalid probe type (%s) on probe (%s) in (%s) container. Valid types are tcp, http, https, grpc, exec, auto" $probe.type $probeName $containerName) -}}
+      {{- end -}}
+
+      {{/* Get the probeType from primaryPort protocol */}}
+      {{- if eq $probeType "auto" -}}
+        {{- with $primaryPort -}}
+          {{- with $primaryPort.protocol -}}
+            {{- if eq . "HTTPS" -}}
+              {{- $probeType = "https" -}}
+            {{- else if eq . "HTTP" -}}
+              {{- $probeType = "http" -}}
+            {{- else if eq . "TCP" -}}
+              {{- $probeType = "tcp" -}}
+            {{- else if eq . "UDP" -}} {{/* This will fail shortly after by another check */}}
+              {{- $probeType = "udp" -}} {{/* It's mainly to have probeType have a value */}}
+            {{- end -}}
+          {{- else -}} {{/* If no protcol is given, failback to defaultPortProtocol */}}
+            {{- $probeType = $defaultPortProtocol -}}
+          {{- end -}}
+        {{- end -}}
       {{- end -}}
 
       {{- $probePort := "" -}}

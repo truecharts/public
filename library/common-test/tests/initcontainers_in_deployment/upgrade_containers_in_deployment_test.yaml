@@ -708,6 +708,19 @@ tests:
               runAsNonRoot: false
               runAsUser: 0
 
+  - it: should fail with probe type set to auto in init container
+    documentIndex: *deploymentDoc
+    set:
+      installContainers:
+        some-name:
+          probes:
+            liveness:
+              enabled: true
+              type: auto
+    asserts:
+      - failedTemplate:
+          errorMessage: <auto> probe type in probe (liveness) in (RELEASE-NAME-common-test-some-name) container, is only supported for the main container and only if there is at least 1 port enabled
+
   - it: should pass with probes defined in init container
     documentIndex: *deploymentDoc
     set:

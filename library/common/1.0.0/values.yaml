@@ -170,7 +170,7 @@ global:
         cpu: 10m
         memory: 50Mi
     # If no probe Type is defined, assume this
-    probeType: http
+    probeType: auto
     # If no probe Path is defined, assume this
     probePath: /
     # Default probe timeouts, if no others
