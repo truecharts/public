@@ -1,0 +1,61 @@
+image:
+  repository: tccr.io/truecharts/nitter
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:dde49ae0122fe8da6d00432ec26e596efd36e81e0f14851df6ff40e1c656ddf7
+
+nitter:
+  title: "nitter"
+  hostname: "0.0.0.0:10606"
+  httpMaxConnections: 100
+
+cache:
+  listMinutes: 240
+  rssMinutes: 10
+
+config:
+  base64Media: false
+  enableRSS: true
+  enableDebug: false
+  proxy: ""
+  proxyAuth: ""
+  tokenCount: 10
+
+preferences:
+  theme: "Nitter"
+  replaceTwitter: "nitter.net"
+  replaceYouTube: "piped.video"
+  replaceReddit: "teddit.net"
+  replaceInstagram: ""
+  proxyVideos: true
+  hlsPlayback: false
+  infiniteScroll: false
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        port: 10606
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /src
+  public:
+    enabled: true
+    mountPath: /public
+  nitter-conf:
+    enabled: true
+    mountPath: /src
+    type: configMap
+    objectName: '{{ template "tc.common.names.fullname" . }}-nitter-config'
+    items:
+      - key: config.yml
+        path: config.yml
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+
+portal:
+  enabled: true
