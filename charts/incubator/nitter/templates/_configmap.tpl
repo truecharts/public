@@ -1,7 +1,7 @@
 {{/* Define the configmap */}}
 {{- define "nitter.configmap" -}}
 
-{{- $configName := printf "%s-nitter-config" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-nitter-secret" (include "tc.common.names.fullname" .) }}
 
 ---
 apiVersion: v1
