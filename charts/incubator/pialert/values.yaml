@@ -11,6 +11,44 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+pialert:
+  general:
+    web_protection: false
+    # If true...
+    web_password: ""
+    print_log: false
+    report_dashboard_url: http://localhost
+    days_to_keep_events: 90
+    scan_cycle_minutes: 5
+    # Empty means all
+    # internet,new_devices,down_devices,events
+    included_sections: []
+  pushsafer:
+    enabled: false
+    # If true...
+    token: ""
+  apprise:
+    enabled: false
+    # If true...
+    host: ""
+    url: ""
+  ntfy:
+    enabled: false
+    # If true...
+    host: ""
+    topic: ""
+    user: ""
+    password: ""
+  webhook:
+    enabled: false
+    # If true...
+    url: ""
+    # json,html,text
+    payload: json
+    method: GET
+  email:
+    enabled: false
+
 env:
   HOST_USER_ID: "{{ .Values.podSecurityContext.runAsUser }}"
   HOST_USER_GID: "{{ .Values.podSecurityContext.fsGroup }}"
