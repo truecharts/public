@@ -18,7 +18,7 @@ data:
     https = false
     httpMaxConnections = {{ .Values.nitter.httpMaxConnections }}
     staticDir = "/public"
-    title = {{ .Values.nitter.title }}
+    title = {{ .Values.nitter.title | quote }}
     hostname = {{ .Values.nitter.hostname }}
 
     [Cache]
