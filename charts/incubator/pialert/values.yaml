@@ -14,7 +14,7 @@ podSecurityContext:
 env:
   HOST_USER_ID: "{{ .Values.podSecurityContext.runAsUser }}"
   HOST_USER_GID: "{{ .Values.podSecurityContext.fsGroup }}"
-  PORT: "{{ .Values.service.main.ports.main.port}}"
+  PORT: "{{ .Values.service.main.ports.main.port }}"
 
 service:
   main:
