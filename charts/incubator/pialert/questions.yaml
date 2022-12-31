@@ -66,6 +66,7 @@ questions:
                   required: true
               - variable: included_sections
                 label: Included Sections
+                description: Empty list, will add all sections
                 schema:
                   type: list
                   default: []
@@ -110,6 +111,305 @@ questions:
                               type: string
                               default: ""
                               required: true
+        - variable: pushsafer
+          label: PushSafer
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enabled
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: token
+                      label: Token
+                      schema:
+                        type: string
+                        default: ""
+                        private: true
+                        required: true
+        - variable: apprise
+          label: Apprise
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enabled
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: host
+                      label: Host
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                    - variable: url
+                      label: URL
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+        - variable: ntfy
+          label: ntfy
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enabled
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: host
+                      label: Host
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                    - variable: topic
+                      label: Topic
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                    - variable: user
+                      label: Username
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: password
+                      label: Password
+                      schema:
+                        type: string
+                        default: ""
+        - variable: webhook
+          label: Webhook
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enabled
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: url
+                      label: URL
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                    - variable: payload
+                      label: Payload
+                      schema:
+                        type: string
+                        default: json
+                        required: true
+                        enum:
+                          - value: json
+                            description: JSON
+                          - value: html
+                            description: HTML
+                          - value: text
+                            description: TEXT
+                    - variable: method
+                      label: Method
+                      schema:
+                        type: string
+                        default: GET
+        - variable: email
+          label: Email
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enabled
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: server
+                      label: Server
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                    - variable: port
+                      label: Port
+                      schema:
+                        type: int
+                        default: 587
+                        required: true
+                    - variable: report_to
+                      label: Report To
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                    - variable: report_from
+                      label: Report From
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                    - variable: skip_login
+                      label: Skip Login
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: skip_tls
+                      label: Skip TLS
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: user
+                      label: Username
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: password
+                      label: Password
+                      schema:
+                        type: string
+                        default: ""
+        - variable: mqtt
+          label: MQTT
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enabled
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: broker
+                      label: Broker
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                    - variable: port
+                      label: Port
+                      schema:
+                        type: int
+                        default: 587
+                        required: true
+                    - variable: user
+                      label: Username
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: password
+                      label: Password
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: qos
+                      label: QOS
+                      schema:
+                        type: int
+                        default: 0
+                        required: true
+                    - variable: delay_sec
+                      label: Delay Sec
+                      schema:
+                        type: int
+                        default: 2
+                        required: true
+        - variable: dyndns
+          label: DynDNS
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enabled
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: domain
+                      label: Domain
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                    - variable: force
+                      label: Force
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: timeout
+                      label: Timeout
+                      schema:
+                        type: int
+                        default: 20
+                        required: true
+                    - variable: days_data
+                      label: Days Data
+                      schema:
+                        type: int
+                        default: 7
+                        required: true
+                    - variable: days_data
+                      label: Days Data
+                      schema:
+                        type: int
+                        default: 7
+                        required: true
+                    - variable: run
+                      label: Run
+                      schema:
+                        type: string
+                        default: once
+                        required: true
+                    - variable: run_timeout
+                      label: Run Timeout
+                      schema:
+                        type: int
+                        default: 300
+                        required: true
+                    - variable: run_schedule
+                      label: Run Schedule
+                      schema:
+                        type: string
+                        default: "0 4 * * *"
+                        required: true
+        - variable: pihole
+          label: PiHole
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: pihole_active
+                label: PiHole Active (Not covered by support)
+                description: If enabled you need to map '/etc/pihole/pihole-FTL.db' with additional storage. Not covered by support
+                schema:
+                  type: boolean
+                  default: false
+              - variable: dhcp_active
+                label: DHCP Active (Not covered by support)
+                description: If enabled you need to map '/etc/pihole/dhcp.leases' with additional storage. Not covered by support
+                schema:
+                  type: boolean
+                  default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -142,6 +442,14 @@ questions:
         - variable: config
           label: App Config Storage
           description: Stores the Application Configuration.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: db
+          label: App DB Storage
+          description: Stores the Application DB.
           schema:
             additional_attrs: true
             type: dict
@@ -180,20 +488,20 @@ questions:
                 label: runAsNonRoot
                 schema:
                   type: boolean
-                  default: true
+                  default: false
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: runAsUser
           description: The UserID of the user running the application
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: runAsGroup
           label: runAsGroup
           description: The groupID this App of the user running the application
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: fsGroup
           label: fsGroup
           description: The group that should own ALL storage.

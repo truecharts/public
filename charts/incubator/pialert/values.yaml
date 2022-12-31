@@ -1,4 +1,5 @@
 image:
+  # TODO: update to tccr.io
   repository: jokobsk/pi.alert
   pullPolicy: IfNotPresent
   tag: latest@sha256:b7ef9d403d011d58170573a56cecd5b5bd4b67415369cd2e8a93f364b3fc78b2
@@ -22,38 +23,30 @@ pialert:
     report_dashboard_url: http://localhost
     days_to_keep_events: 90
     scan_cycle_minutes: 5
-    # Empty means all
-    # internet,new_devices,down_devices,events
     included_sections: []
     scan_subnets:
       - cidr: "192.168.1.0/24"
         interface: eth0
   pushsafer:
     enabled: false
-    # If true...
     token: ""
   apprise:
     enabled: false
-    # If true...
     host: ""
     url: ""
   ntfy:
     enabled: false
-    # If true...
     host: ""
     topic: ""
     user: ""
     password: ""
   webhook:
     enabled: false
-    # If true...
     url: ""
-    # json,html,text
     payload: json
     method: GET
   email:
     enabled: false
-    # If true...
     server: ""
     port: 587
     report_to: ""
@@ -64,7 +57,6 @@ pialert:
     password: ""
   mqtt:
     enabled: false
-    # If true...
     broker: ""
     port: 1883
     user: ""
@@ -73,14 +65,12 @@ pialert:
     delay_sec: 2
   dyndns:
     enabled: false
-    # If true...
     domain: ""
     user: ""
     password: ""
     update_url: ""
   pholus:
     enabled: false
-    # If true...
     timeout: 20
     force: false
     days_data: 7
