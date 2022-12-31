@@ -45,7 +45,7 @@ data:
     replaceYouTube = {{ .Values.preferences.replaceYouTube }}
     replaceReddit = {{ .Values.preferences.replaceReddit }}
     replaceInstagram = {{ .Values.preferences.replaceInstagram }}
-    proxyVideos = {{ ternary "true" "false" .Values.preferences.proxyVideos }}
+    proxyVideos = {{ .Values.preferences.proxyVideos }}
     hlsPlayback = {{ ternary "true" "false" .Values.preferences.hlsPlayback }}
     infiniteScroll = {{ ternary "true" "false" .Values.preferences.infiniteScroll }}
 
