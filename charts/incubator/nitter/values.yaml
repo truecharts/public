@@ -36,12 +36,6 @@ service:
         port: 10606
 
 persistence:
-  config:
-    enabled: true
-    mountPath: /src
-  public:
-    enabled: true
-    mountPath: /public
   nitter-conf:
     enabled: true
     mountPath: /src/nitter.conf
