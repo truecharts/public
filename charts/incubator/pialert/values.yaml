@@ -1,8 +1,7 @@
 image:
-  # TODO: update to tccr.io
-  repository: jokobsk/pi.alert
+  repository: tccr.io/truecharts/pialert
   pullPolicy: IfNotPresent
-  tag: latest@sha256:b7ef9d403d011d58170573a56cecd5b5bd4b67415369cd2e8a93f364b3fc78b2
+  tag: latest@sha256:a25d25c8d2be38895e4bee0e13f934ed7048a07753e84a6854c9e9b04187fbae
 
 securityContext:
   readOnlyRootFilesystem: false
