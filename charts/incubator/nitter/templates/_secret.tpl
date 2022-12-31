@@ -36,7 +36,7 @@ stringData:
     [Server]
     https = false
     address = "0.0.0.0"
-    staticDir = "/public"
+    staticDir = {{ .Values.persistence.public.mountPath | quote }}
     port = {{ .Values.service.main.ports.main.port }}
     httpMaxConnections = {{ .Values.nitter.general.httpMaxConnections }}
     title = {{ .Values.nitter.general.title | quote }}
