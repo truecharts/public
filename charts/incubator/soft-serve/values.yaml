@@ -13,7 +13,7 @@ image:
 
 softserve:
   host: localhost
-  key_path: /.ssh/soft_serve_server_ed25519
+  key_path: /soft-serve/.ssh/soft_serve_server_ed25519
   init_admin_key: ""
 
 envFrom:
@@ -33,10 +33,10 @@ persistence:
     mountPath: /soft-serve
   ssh:
     enabled: true
-    mountPath: /.ssh
+    mountPath: /soft-serve/.ssh
   repos:
     enabled: true
-    mountPath: /repos
+    mountPath: /soft-serve/repos
 
 portal:
   enabled: false
