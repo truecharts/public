@@ -26,7 +26,7 @@ questions:
           schema:
             type: string
             required: true
-            default: /soft-serve/.ssh/soft_serve_server_ed25519
+            default: /.ssh/soft_serve_server_ed25519
         - variable: host
           label: Soft Serve Host
           description: Address to use in public clone URLs

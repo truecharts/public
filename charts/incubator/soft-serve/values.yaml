@@ -7,13 +7,13 @@ image:
 #   runAsGroup: 0
 #   runAsUser: 0
 
-# securityContext:
-#   readOnlyRootFilesystem: false
+securityContext:
+  readOnlyRootFilesystem: false
 #   runAsNonRoot: false
 
 softserve:
   host: localhost
-  key_path: /soft-serve/.ssh/soft_serve_server_ed25519
+  key_path: /.ssh/soft_serve_server_ed25519
   init_admin_key: ""
 
 envFrom:
@@ -28,15 +28,15 @@ service:
         port: 23231
 
 persistence:
-  # config:
-  #   enabled: true
-  #   mountPath: /soft-serve
+  config:
+    enabled: true
+    mountPath: /soft-serve
   ssh:
     enabled: true
-    mountPath: /soft-serve/.ssh
+    mountPath: /.ssh
   repos:
     enabled: true
-    mountPath: /soft-serve/repos
+    mountPath: /repos
 
 portal:
   enabled: false
