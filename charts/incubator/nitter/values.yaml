@@ -50,7 +50,7 @@ persistence:
   nitter-conf:
     enabled: true
     mountPath: /src/nitter.conf
-    type: configMap
+    type: secret
     objectName: '{{ template "tc.common.names.fullname" . }}-nitter-secret'
     subPath: nitter.conf
 
