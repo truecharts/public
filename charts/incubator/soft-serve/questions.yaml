@@ -1,38 +1,41 @@
 # Include{groups}
-portals:
-  open:
-# Include{portalLink}
+portals: {}
 questions:
 # Include{global}
 # Include{controller}
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: secretEnv
+  - variable: softserve
     group: App Configuration
-    label: Image Secrets
+    label: Soft Serve Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: SOFT_SERVE_INITIAL_ADMIN_KEY
-          label: Soft Serve Initial Admin Key(Set Only Once)
+        - variable: init_admin_key
+          label: Soft Serve Initial Admin Key (Only during installation)
+          description: The public key that will initially have admin access to repos
           schema:
             type: string
             default: ""
             required: true
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SOFT_SERVE_HOST
+            private: true
+        - variable: key_path
           label: Soft Serve Host
+          description: SSH host key-pair PATH
           schema:
             type: string
-            default: http://localhost
+            required: true
+            default: /.ssh/soft_serve_server_ed25519
+        - variable: host
+          label: Soft Serve Host
+          description: Address to use in public clone URLs
+          schema:
+            type: string
+            required: true
+            $ref:
+              - "definitions/nodeIP"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

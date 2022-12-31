@@ -3,29 +3,28 @@ image:
   pullPolicy: IfNotPresent
   tag: 0.4.4@sha256:758d04854964a10967c0895e3abca055ad569c8630664e3efe5907003c1647fc
 
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+# podSecurityContext:
+#   runAsGroup: 0
+#   runAsUser: 0
 
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
 
-secretEnv:
-  SOFT_SERVE_INITIAL_ADMIN_KEY: "test123"
+softserve:
+  host: localhost
+  key_path: /.ssh/soft_serve_server_ed25519
+  init_admin_key: secret
 
-env:
-  SOFT_SERVE_BIND_ADDRESS: 0.0.0.0
-  SOFT_SERVE_PORT: "{{ .Values.service.main.ports.main.port}}"
-  SOFT_SERVE_HOST: "http://localhost"
-  SOFT_SERVE_KEY_PATH: /.ssh
-  SOFT_SERVE_REPO_PATH: /.repos
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-env-secret'
 
 service:
   main:
     ports:
       main:
-        protocol: HTTP
+        protocol: TCP
         port: 23231
 
 persistence:
@@ -37,7 +36,7 @@ persistence:
     mountPath: /.ssh
   repos:
     enabled: true
-    mountPath: /.repos
+    mountPath: /repos
 
 portal:
-  enabled: true
+  enabled: false
