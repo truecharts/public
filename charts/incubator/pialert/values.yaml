@@ -106,7 +106,6 @@ persistence:
     noMount: true
     type: secret
     objectName: '{{ template "tc.common.names.fullname" . }}-secret'
-    subPath: pialert.conf
 
 initContainers:
   init:
