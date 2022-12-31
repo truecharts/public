@@ -1,5 +1,5 @@
 {{/* Define the configmap */}}
-{{- define "nitter.configmap" -}}
+{{- define "nitter.secret" -}}
 
 {{- $secretName := printf "%s-nitter-secret" (include "tc.common.names.fullname" .) }}
 
