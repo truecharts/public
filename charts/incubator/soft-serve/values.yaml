@@ -14,7 +14,7 @@ image:
 softserve:
   host: localhost
   key_path: /.ssh/soft_serve_server_ed25519
-  init_admin_key: secret
+  init_admin_key: ""
 
 envFrom:
   - secretRef:

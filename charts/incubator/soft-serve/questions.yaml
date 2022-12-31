@@ -14,12 +14,11 @@ questions:
       type: dict
       attrs:
         - variable: init_admin_key
-          label: Soft Serve Initial Admin Key (Only during installation)
+          label: Soft Serve Initial Admin Key (Optional, Only during installation)
           description: The public key that will initially have admin access to repos
           schema:
             type: string
             default: ""
-            required: true
             private: true
         - variable: key_path
           label: Soft Serve Host
