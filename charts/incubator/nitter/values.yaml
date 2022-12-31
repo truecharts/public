@@ -13,6 +13,7 @@ cache:
   rssMinutes: 10
 
 config:
+  hmacKey: ""
   base64Media: false
   enableRSS: true
   enableDebug: false
@@ -50,8 +51,8 @@ persistence:
     type: configMap
     objectName: '{{ template "tc.common.names.fullname" . }}-nitter-config'
     items:
-      - key: config.yml
-        path: config.yml
+      - key: nitter.conf
+        path: nitter.conf
 
 redis:
   enabled: true

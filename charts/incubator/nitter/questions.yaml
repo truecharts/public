@@ -53,6 +53,13 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: hmac_key
+          label: HMAC Key
+          description: HMAC signing key used for CSRF tokens and pubsub subscriptions verification.
+          schema:
+            type: string
+            private: true
+            default: ""
         - variable: base64Media
           label: Base64 Encoding
           description: Enable base64 encoding for proxied media urls.
