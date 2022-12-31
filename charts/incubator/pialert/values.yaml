@@ -128,8 +128,8 @@ initContainers:
         echo "Copying config file into it's directory.."
         cp -f "$temp_config_file" "$config_file" && echo "Copied config file successfully!" || echo "Failed to copy config file..."
         {{- if .Values.pialert.general.dark_mode }}
-        echo "Enabling dark mode file...""
-        touch "$dark_file" && echo "Created dark mode file! || echo "Failed to create dark mode file..."
+        echo "Enabling dark mode file..."
+        touch "$dark_file" && echo "Created dark mode file!" || echo "Failed to create dark mode file..."
         {{- else }}
         if [ -f "$dark_file" ]; then
           rm -f $dark_file && echo "Dark mode file removed!" || echo "Failed to remove dark mode file..."
