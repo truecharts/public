@@ -11,7 +11,7 @@ metadata:
   name: {{ $configName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
-data:
+stringData:
   nitter.conf: |
     [Server]
     address = "0.0.0.0"
