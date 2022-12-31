@@ -50,9 +50,7 @@ persistence:
     mountPath: /src/nitter.conf
     type: configMap
     objectName: '{{ template "tc.common.names.fullname" . }}-nitter-config'
-    items:
-      - key: nitter.conf
-        path: nitter.conf
+    subPath: nitter.conf
 
 redis:
   enabled: true
