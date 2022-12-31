@@ -47,7 +47,7 @@ persistence:
     mountPath: /public
   nitter-conf:
     enabled: true
-    mountPath: /src
+    mountPath: /src/nitter.conf
     type: configMap
     objectName: '{{ template "tc.common.names.fullname" . }}-nitter-config'
     items:
