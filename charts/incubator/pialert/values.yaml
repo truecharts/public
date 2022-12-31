@@ -103,7 +103,7 @@ persistence:
     mountPath: /home/pi/pialert/db
   pialert-config:
     enabled: true
-    mountPath: /home/pi/pialert/config/tc-pialert.conf
+    noMount: true
     type: secret
     objectName: '{{ template "tc.common.names.fullname" . }}-secret'
     subPath: pialert.conf
@@ -116,6 +116,10 @@ initContainers:
         mountPath: /home/pi/pialert/db
       - name: config
         mountPath: /home/pi/pialert/config
+      - name: config
+        mountPath: /home/pi/pialert/config
+      - name: pialert-config
+        mountPath: /home/pi/pialert/config/tc-pialert.conf
     command: ["/bin/sh", "-c"]
     args:
       - |
