@@ -26,7 +26,7 @@ questions:
                 schema:
                   type: string
                   required: true
-                  default:
+                  default: Nitter
               - variable: hostname
                 label: Hostname
                 schema:
@@ -195,7 +195,6 @@ questions:
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-# Include{persistenceRoot}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
