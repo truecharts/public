@@ -32,7 +32,7 @@
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretStorageName) -}}
   {{- $sessionKey = (index .data "session_key") | b64dec -}}
 {{- else -}}
-  {{- $sessionKey = randAlphaNum 32 | b64enc -}}
+  {{- $sessionKey = randAlphaNum 32 -}}
 {{- end -}}
 
 {{/* Inject some values */}}
@@ -89,7 +89,7 @@ metadata:
 data:
   {{/* The actual config */}}
   config.json: |
-    {{- toPrettyJson (fromYaml $config) | b64enc |nindent 4 }}
+    {{- toPrettyJson (fromYaml $config) | b64enc | nindent 4 }}
 {{- end -}}
 
 {{/* Prunes keys that start with _ */}}
