@@ -15,7 +15,7 @@ hostNetwork: true
 
 pialert:
   general:
-    dark_mode: false
+    dark_mode: true
     web_protection: false
     web_password: ""
     print_log: false
@@ -118,6 +118,7 @@ initContainers:
         mountPath: /home/pi/pialert/config
       - name: pialert-config
         mountPath: /tc-pialert.conf
+        subPath: /tc-pialert.conf
     command: ["/bin/sh", "-c"]
     args:
       - |
