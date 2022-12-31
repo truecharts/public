@@ -3,13 +3,13 @@ image:
   pullPolicy: IfNotPresent
   tag: 0.4.4@sha256:758d04854964a10967c0895e3abca055ad569c8630664e3efe5907003c1647fc
 
-# podSecurityContext:
-#   runAsGroup: 0
-#   runAsUser: 0
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
 
 securityContext:
   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+  runAsNonRoot: false
 
 softserve:
   host: localhost
