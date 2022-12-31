@@ -118,9 +118,7 @@ persistence:
     mountPath: /home/pi/pialert/config/pialert.conf
     type: secret
     objectName: '{{ template "tc.common.names.fullname" . }}-secret'
-    items:
-      - key: pialert.conf
-        path: pialert.conf
+    subPath: pialert.conf
 
 initContainers:
   dark_mode:
