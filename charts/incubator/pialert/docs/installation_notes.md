@@ -2,6 +2,6 @@
 
 :::warning
 
-This app will need to be deployed with host network **enabled**.
+This app defaults to host network **enabled**.
 
 :::

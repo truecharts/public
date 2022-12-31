@@ -15,6 +15,7 @@ hostNetwork: true
 
 pialert:
   general:
+    dark_mode: false
     web_protection: false
     # If true...
     web_password: ""
@@ -121,22 +122,26 @@ persistence:
       - key: pialert.conf
         path: pialert.conf
 
-# installContainers:
-#   createdb:
-#     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-#     volumeMounts:
-#       - name: db
-#         mountPath: /home/pi/pialert/db
-#     command: ["/bin/sh", "-c"]
-#     args:
-#       - |-
-#         echo "Creating pialert.db file..."
-#         if [ -f /home/pi/pialert/db/pialert.db ]; then
-#           echo "db file exists!, Skipping..."
-#         else
-#           echo "db file is missing, getting a new one!"
-#           curl -fLvo /home/pi/pialert/db/pialert.db https://raw.githubusercontent.com/jokob-sk/Pi.Alert/main/db/pialert.db || ( echo "Downloading config file, FAILED..." && exit 1 )
-#         fi
+initContainers:
+  dark_mode:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: db
+        mountPath: /home/pi/pialert/db
+    command: ["/bin/sh", "-c"]
+    args:
+      - |
+        dark_file="/home/pi/pialert/db/setting_darkmode"
+        {{- if .Values.pialert.general.dark_mode }}
+        echo "Enabling dark mode file...""
+        touch "$dark_file" && echo "Created dark mode file! || echo "Failed to create dark mode file..."
+        {{- else }}
+        if [ -f "$dark_file" ]; then
+          rm -f $dark_file && echo "Dark mode file removed!" || echo "Failed to remove dark mode file..."
+        else
+          echo "Dark mode file does not exist, no action is needed."
+        fi
+        {{- end }}
 
 portal:
   enabled: true
