@@ -49,7 +49,7 @@ persistence:
     enabled: true
     mountPath: /src/nitter.conf
     type: configMap
-    objectName: '{{ template "tc.common.names.fullname" . }}-nitter-config'
+    objectName: '{{ template "tc.common.names.fullname" . }}-nitter-secret'
     subPath: nitter.conf
 
 redis:
