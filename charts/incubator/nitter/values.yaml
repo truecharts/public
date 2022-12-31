@@ -8,11 +8,9 @@ nitter:
     title: nitter
     hostname: localhost:{{ .Values.service.main.ports.main.port }}
     httpMaxConnections: 100
-
   cache:
     listMinutes: 240
     rssMinutes: 10
-
   config:
     base64Media: false
     enableRSS: true
@@ -20,7 +18,6 @@ nitter:
     proxy: ""
     proxyAuth: ""
     tokenCount: 10
-
   preferences:
     theme: Nitter
     replaceTwitter: nitter.net
