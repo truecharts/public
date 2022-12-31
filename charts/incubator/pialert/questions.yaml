@@ -8,6 +8,108 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
+  - variable: pialert
+    group: App Configuration
+    label: PiAlert Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: general
+          label: General
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: dark_mode
+                label: Dark Mode
+                description: Forces dark mode by creating a <setting_darkmode> file in the container
+                schema:
+                  type: boolean
+                  default: true
+              - variable: web_protection
+                label: Web Protection
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: web_password
+                      label: Web Password
+                      schema:
+                        type: string
+                        default: ""
+                        private: true
+                        required: true
+              - variable: print_log
+                label: Print Log
+                schema:
+                  type: boolean
+                  default: false
+              - variable: report_dashboard_url
+                label: Report Dashboard URL
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+              - variable: days_to_keep_events
+                label: Days to Keep Events
+                schema:
+                  type: int
+                  default: 90
+                  required: true
+              - variable: scan_cycle_minutes
+                label: Scan Cycle Minutes
+                schema:
+                  type: int
+                  default: 5
+                  required: true
+              - variable: included_sections
+                label: Included Sections
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: section
+                      label: Section
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                        enum:
+                          - value: internet
+                            description: Internet
+                          - value: new_devices
+                            description: New Devices
+                          - value: down_devices
+                            description: Down Devices
+                          - value: events
+                            description: Events
+              - variable: scan_subnets
+                label: Scan Subnets
+                description: CIDR format is <192.168.1.0/24> and interface format is <eth0>
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: subnet
+                      label: Subnet
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: cidr
+                            label: CIDR
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+                          - variable: interface
+                            label: Interface
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

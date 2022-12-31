@@ -23,11 +23,14 @@ stringData:
     REPORT_DASHBOARD_URL={{ .Values.pialert.general.report_dashboard_url | squote }}
     DAYS_TO_KEEP_EVENTS={{ .Values.pialert.general.days_to_keep_events }}
     SCAN_CYCLE_MINUTES={{ .Values.pialert.general.scan_cycle_minutes }}
-    {{- with .Values.pialert.general.included_sections }}
+    {{- with (uniq .Values.pialert.general.included_sections) }}
+      {{- if gt (len .) 4 -}}
+        {{- fail "You can define up to 4 unique sections" -}}
+      {{- end }}
     INCLUDED_SECTIONS=[
       {{- range $section := initial . }}
         {{ . | squote }},
-      {{- end -}}
+      {{- end }}
       {{ last . | squote }}
     ]
     {{- else }}
