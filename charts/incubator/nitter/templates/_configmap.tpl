@@ -4,7 +4,6 @@
 {{- $configName := printf "%s-nitter-config" (include "tc.common.names.fullname" .) }}
 
 ---
-
 apiVersion: v1
 kind: ConfigMap
 metadata:
