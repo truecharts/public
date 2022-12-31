@@ -5,7 +5,7 @@ image:
 
 nitter:
   title: "nitter"
-  hostname: "0.0.0.0:10606"
+  hostname: "localhost:{{ .Values.service.main.ports.main.port }}"
   httpMaxConnections: 100
 
 cache:
