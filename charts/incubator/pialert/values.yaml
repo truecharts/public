@@ -110,7 +110,7 @@ persistence:
     subPath: pialert.conf
 
 initContainers:
-  dark_mode:
+  dark-mode:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
       - name: db
