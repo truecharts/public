@@ -36,13 +36,13 @@ questions:
       attrs:
         - variable: listMinutes
           label: List Minutes
-          description: how long to cache list info (not the tweets, so keep it high).
+          description: How long to cache list info (not the tweets, so keep it high).
           schema:
             type: int
             default: 240
         - variable: rssMinutes
           label: RSS Minutes
-          description: how long to cache rss queries.
+          description: How long to cache rss queries.
           schema:
             type: int
             default: 10
@@ -53,9 +53,9 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: hmac_key
+        - variable: hmacKey
           label: HMAC Key
-          description: HMAC signing key used for CSRF tokens and pubsub subscriptions verification.
+          description: Random key for cryptographic signing of video urls.
           schema:
             type: string
             private: true
@@ -68,19 +68,19 @@ questions:
             default: false
         - variable: enableRSS
           label: Enable RSS
-          description: Uncheck to disable RSS feeds
+          description: Uncheck to disable RSS feeds.
           schema:
             type: boolean
             default: true
         - variable: enableDebug
           label: Enable Debug
-          description: Enable request logs and debug endpoints
+          description: Enable request logs and debug endpoints.
           schema:
             type: boolean
             default: false
         - variable: proxy
           label: Proxy
-          description: http/https url, SOCKS proxies are not supported
+          description: http/https url, SOCKS proxies are not supported.
           schema:
             type: string
             default: ""
