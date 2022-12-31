@@ -118,7 +118,7 @@ initContainers:
         mountPath: /home/pi/pialert/config
       - name: pialert-config
         mountPath: /tc-pialert.conf
-        subPath: tc-pialert.conf
+        subPath: pialert.conf
     command: ["/bin/sh", "-c"]
     args:
       - |
@@ -126,7 +126,7 @@ initContainers:
         temp_config_file="/tc-pialert.conf"
         config_file="/home/pi/pialert/config/pialert.conf"
         echo "Copying config file into it's directory.."
-        cp "$temp_config_file" "$config_file" && echo "Copied config file successfully!" || echo "Failed to copy config file..."
+        cp -f "$temp_config_file" "$config_file" && echo "Copied config file successfully!" || echo "Failed to copy config file..."
         {{- if .Values.pialert.general.dark_mode }}
         echo "Enabling dark mode file..."
         touch "$dark_file" && echo "Created dark mode file!" || echo "Failed to create dark mode file..."
