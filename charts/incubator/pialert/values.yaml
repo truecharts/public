@@ -11,6 +11,8 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+hostNetwork: true
+
 pialert:
   general:
     web_protection: false
@@ -23,6 +25,9 @@ pialert:
     # Empty means all
     # internet,new_devices,down_devices,events
     included_sections: []
+    scan_subnets:
+      - cidr: "192.168.1.0/24"
+        interface: eth0
   pushsafer:
     enabled: false
     # If true...
@@ -48,6 +53,45 @@ pialert:
     method: GET
   email:
     enabled: false
+    # If true...
+    server: ""
+    port: 587
+    report_to: ""
+    report_from: ""
+    skip_login: false
+    skip_tls: false
+    user: ""
+    password: ""
+  mqtt:
+    enabled: false
+    # If true...
+    broker: ""
+    port: 1883
+    user: ""
+    password: ""
+    qos: 0
+    delay_sec: 2
+  dyndns:
+    enabled: false
+    # If true...
+    domain: ""
+    user: ""
+    password: ""
+    update_url: ""
+  pholus:
+    enabled: false
+    # If true...
+    timeout: 20
+    force: false
+    days_data: 7
+    run: once
+    run_timeout: 300
+    run_schedule: "0 4 * * *"
+  pihole:
+    # If enabled you need to map '/etc/pihole/pihole-FTL.db' with additional storage
+    pihole_active: false
+    # If enabled you need to map '/etc/pihole/dhcp.leases' with additional storage
+    dhcp_active: false
 
 env:
   HOST_USER_ID: "{{ .Values.podSecurityContext.runAsUser }}"

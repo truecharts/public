@@ -33,13 +33,16 @@ stringData:
     {{- else }}
     INCLUDED_SECTIONS=['internet','new_devices','down_devices','events']
     {{- end }}
-    # TODO:
-    # Scan using interface eth0
-    # SCAN_SUBNETS    = ['192.168.1.0/24 --interface=eth0']
-    #
-    # Scan multiple interfaces (eth1 and eth0):
-    # SCAN_SUBNETS    = [ '192.168.1.0/24 --interface=eth1', '192.168.1.0/24 --interface=eth0' ]
-    SCAN_SUBNETS=['192.168.1.0/24 --interface=eth1']
+    {{- with .Values.pialert.general.scan_subnets }}
+    SCAN_SUBNETS=[
+      {{- range $entry := initial . }}
+        {{ (printf "%s --interface=%s" .cidr .interface) | squote }},
+      {{- end }}
+      {{- with last . }}
+        {{ (printf "%s --interface=%s" .cidr .interface) | squote }}
+      {{- end }}
+    ]
+    {{- end }}
 
 
     # PUSHSAFER
@@ -79,57 +82,64 @@ stringData:
     # Email
     REPORT_MAIL={{ ternary "True" "False" .Values.pialert.email.enabled }}
     {{- if .Values.pialert.email.enabled }}
-    SMTP_SERVER='smtp.gmail.com'
-    SMTP_PORT=587
-    REPORT_TO='user@gmail.com'
-    REPORT_FROM='Pi.Alert <user@gmail.com>'
-    SMTP_SKIP_LOGIN=False
-    SMTP_USER='user@gmail.com'
-    SMTP_PASS='password'
-    SMTP_SKIP_TLS=False
+    SMTP_SERVER={{ .Values.pialert.email.server | squote }}
+    SMTP_PORT={{ .Values.pialert.email.port }}
+    REPORT_TO={{ .Values.pialert.email.report_to | squote }}
+    REPORT_FROM={{ .Values.pialert.email.report_from | squote }}
+    SMTP_SKIP_LOGIN={{ ternary "True" "False" .Values.pialert.email.skip_login }}
+    {{- with .Values.pialert.email.user }}
+    SMTP_USER={{ . | squote }}
+    {{- end }}
+    {{- with .Values.pialert.email.password }}
+    SMTP_PASS={{ . | squote }}
+    {{- end }}
+    SMTP_SKIP_TLS={{ ternary "True" "False" .Values.pialert.email.skip_tls }}
     {{- end }}
 
 
     # MQTT
-    #---------------------------
-    REPORT_MQTT=False
-    MQTT_BROKER='192.168.1.2'
-    MQTT_PORT=1883
-    MQTT_USER='mqtt'
-    MQTT_PASSWORD='passw0rd'
-    MQTT_QOS=0
-    MQTT_DELAY_SEC=2
+    REPORT_MQTT={{ ternary "True" "False" .Values.pialert.mqtt.enabled }}
+    {{- if .Values.pialert.email.enabled }}
+    MQTT_BROKER={{ .Values.pialert.mqtt.broker | squote }}
+    MQTT_PORT={{ .Values.pialert.mqtt.port }}
+    {{- with .Values.pialert.mqtt.user }}
+    MQTT_USER={{ . | squote }}
+    {{- end }}
+    {{- with .Values.pialert.mqtt.password }}
+    MQTT_PASSWORD={{ . | squote }}
+    {{- end }}
+    MQTT_QOS={{ .Values.pialert.mqtt.qos }}
+    MQTT_DELAY_SEC={{ .Values.pialert.mqtt.delay_sec }}
+    {{- end }}
+
 
     # DynDNS
-    #---------------------------
-    DDNS_ACTIVE=False
-    DDNS_DOMAIN='your_domain.freeddns.org'
-    DDNS_USER='dynu_user'
-    DDNS_PASSWORD='A0000000B0000000C0000000D0000000'
-    DDNS_UPDATE_URL='https://api.dynu.com/nic/update?'
-
-
-    # PiHole
-    #---------------------------
-    # if enabled you need to map '/etc/pihole/pihole-FTL.db' in docker-compose.yml
-    PIHOLE_ACTIVE=False
-    # if enabled you need to map '/etc/pihole/dhcp.leases' in docker-compose.yml
-    DHCP_ACTIVE=False
+    DDNS_ACTIVE={{ ternary "True" "False" .Values.pialert.dyndns.enabled }}
+    {{- if .Values.pialert.dyndns.enabled }}
+    DDNS_DOMAIN={{ .Values.pialert.dyndns.domain | squote }}
+    {{- with .Values.pialert.dyndns.user }}
+    DDNS_USER={{ . | squote }}
+    {{- end }}
+    {{- with .Values.pialert.dyndns.password }}
+    DDNS_PASSWORD={{ . | squote }}
+    {{- end }}
+    DDNS_UPDATE_URL={{ .Values.pialert.dyndns.update_url | squote }}
+    {{- end }}
 
 
     # Pholus
-    #---------------------------
-    PHOLUS_ACTIVE=False
-    PHOLUS_TIMEOUT=20
-    PHOLUS_FORCE=False
-    PHOLUS_DAYS_DATA=7
-    PHOLUS_RUN='once'
-    PHOLUS_RUN_TIMEOUT=300
-    PHOLUS_RUN_SCHD='0 4 * * *'
+    PHOLUS_ACTIVE={{ ternary "True" "False" .Values.pialert.pholus.enabled }}
+    {{- if .Values.pialert.pholus.enabled }}
+    PHOLUS_TIMEOUT={{ .Values.pialert.pholus.timeout }}
+    PHOLUS_FORCE={{ ternary "True" "False" .Values.pialert.pholus.force }}
+    PHOLUS_DAYS_DATA={{ .Values.pialert.pholus.days_data }}
+    PHOLUS_RUN={{ .Values.pialert.pholus.run | squote }}
+    PHOLUS_RUN_TIMEOUT={{ .Values.pialert.pholus.run_timeout }}
+    PHOLUS_RUN_SCHD={{ .Values.pialert.pholus.run_schedule | squote }}
+    {{- end }}
 
 
-    #-------------------IMPORTANT INFO-------------------#
-    #   This file is ingested by a python script, so if  #
-    #        modified it needs to use python syntax      #
-    #-------------------IMPORTANT INFO-------------------#
+    # PiHole
+    PIHOLE_ACTIVE={{ ternary "True" "False" .Values.pialert.pihole.pihole_active }}
+    DHCP_ACTIVE={{ ternary "True" "False" .Values.pialert.pihole.dhcp_active }}
 {{- end }}
