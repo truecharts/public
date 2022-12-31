@@ -91,6 +91,7 @@ questions:
                 description: CIDR format is <192.168.1.0/24> and interface format is <eth0>
                 schema:
                   type: list
+                  required: true
                   default: []
                   items:
                     - variable: subnet
