@@ -4,8 +4,8 @@ image:
   tag: latest@sha256:dde49ae0122fe8da6d00432ec26e596efd36e81e0f14851df6ff40e1c656ddf7
 
 nitter:
-  title: "nitter"
-  hostname: "localhost:{{ .Values.service.main.ports.main.port }}"
+  title: nitter
+  hostname: localhost:{{ .Values.service.main.ports.main.port }}
   httpMaxConnections: 100
 
 cache:
