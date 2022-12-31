@@ -118,7 +118,7 @@ initContainers:
         mountPath: /home/pi/pialert/config
       - name: pialert-config
         mountPath: /tc-pialert.conf
-        subPath: /tc-pialert.conf
+        subPath: tc-pialert.conf
     command: ["/bin/sh", "-c"]
     args:
       - |
