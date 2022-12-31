@@ -23,7 +23,8 @@ pialert:
     days_to_keep_events: 90
     scan_cycle_minutes: 5
     included_sections: []
-    scan_subnets: []
+    scan_subnets:
+      []
       # - cidr: "192.168.1.0/24"
       #   interface: eth0
   pushsafer:
