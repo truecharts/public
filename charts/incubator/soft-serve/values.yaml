@@ -28,9 +28,9 @@ service:
         port: 23231
 
 persistence:
-  config:
-    enabled: true
-    mountPath: /soft-serve
+  # config:
+  #   enabled: true
+  #   mountPath: /soft-serve
   ssh:
     enabled: true
     mountPath: /soft-serve/.ssh
