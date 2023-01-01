@@ -31,28 +31,28 @@ data:
   {{- end }}
 
   {{/* PHP */}}
-  {{- with .Values.wordpress.PHP_ENABLE_OPCACHE }}
+  {{- with .Values.php-config.PHP_ENABLE_OPCACHE }}
   PHP_ENABLE_OPCACHE: {{ . | quote }}
   {{- end }}
-  {{- with .Values.wordpress.PHP_EXPOSE_PHP }}
+  {{- with .Values.php-config.PHP_EXPOSE_PHP }}
   PHP_EXPOSE_PHP: {{ . | quote }}
   {{- end }}
-  {{- with .Values.wordpress.PHP_MAX_EXECUTION_TIME }}
+  {{- with .Values.php-config.PHP_MAX_EXECUTION_TIME }}
   PHP_MAX_EXECUTION_TIME: {{ . | quote }}
   {{- end }}
-  {{- with .Values.wordpress.PHP_MAX_INPUT_TIME }}
+  {{- with .Values.php-config.PHP_MAX_INPUT_TIME }}
   PHP_MAX_INPUT_TIME: {{ . | quote }}
   {{- end }}
-  {{- with .Values.wordpress.PHP_MAX_INPUT_VARS }}
+  {{- with .Values.php-config.PHP_MAX_INPUT_VARS }}
   PHP_MAX_INPUT_VARS: {{ . | quote }}
   {{- end }}
-  {{- with .Values.wordpress.PHP_MEMORY_LIMIT }}
+  {{- with .Values.php-config.PHP_MEMORY_LIMIT }}
   PHP_MEMORY_LIMIT: {{ . | quote }}
   {{- end }}
-  {{- with .Values.wordpress.PHP_POST_MAX_SIZE }}
+  {{- with .Values.php-config.PHP_POST_MAX_SIZE }}
   PHP_POST_MAX_SIZE: {{ . | quote }}
   {{- end }}
-  {{- with .Values.wordpress.PHP_UPLOAD_MAX_FILESIZE }}
+  {{- with .Values.php-config.PHP_UPLOAD_MAX_FILESIZE }}
   PHP_UPLOAD_MAX_FILESIZE: {{ . | quote }}
   {{- end }}
 ---
