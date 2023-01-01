@@ -6,7 +6,7 @@ image:
 nitter:
   general:
     title: nitter
-    hostname: localhost:{{ .Values.service.main.ports.main.port }}
+    hostname: localhost:10606
     httpMaxConnections: 100
   cache:
     listMinutes: 240
