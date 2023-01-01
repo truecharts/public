@@ -9,8 +9,7 @@
   {{- $hmacKey = (index .data "hmacKey") | b64dec -}}
 {{- else -}}
   {{- $hmacKey = randAlphaNum 32 -}}
-{{- end -}}
-
+{{- end }}
 
 ---
 apiVersion: v1
@@ -20,8 +19,7 @@ metadata:
   name: {{ $storageSecretName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
-data:
-  {{/* Store session_key to reuse */}}
+data: {{/* Store to reuse */}}
   hmacKey: {{ $hmacKey | b64enc }}
 ---
 apiVersion: v1
