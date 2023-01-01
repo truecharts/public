@@ -9,61 +9,61 @@ questions:
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
   - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
+    group: App Configuration
+    label: Image Secrets
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: TOKEN
-          label: "HA Token"
-          description: "Your HomeAssistant Token"
+          label: HA Token
+          description: Your Long Live Home-Assistant Token
           schema:
             type: string
             private: true
             required: true
-            default: "REPLACETHIS"
+            default: ""
   # Docker specific env
   - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
+    group: App Configuration
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: HA_URL
-          label: "HA URL"
-          description: "Your HomeAssistant URL"
+          label: HA URL
+          description: Your Home-Assistant URL
           schema:
             type: string
             default: ""
             required: true
         - variable: DASH_URL
-          label: "Dashboard URL"
-          description: "URL of your appdaemon dashboard"
+          label: Dashboard URL
+          description: URL of your AppDaemon dashboard
           schema:
             type: string
-            default: "http://$HOSTNAME:5050"
+            default: http://$HOSTNAME:5050
             required: true
         - variable: LATITUDE
-          label: "Latitude"
-          description: "Latitude of your home assistant instance"
+          label: Latitude
+          description: Latitude of your home assistant instance
           schema:
             type: string
             default: ""
             valid_chars: '^[0-9]{1,}\.{1}[0-9]{1,}$'
             required: true
         - variable: LONGITUDE
-          label: "Longitude"
-          description: "Longitude of your home assistant instance"
+          label: Longitude
+          description: Longitude of your home assistant instance
           schema:
             type: string
             default: ""
             valid_chars: '^[0-9]{1,}\.{1}[0-9]{1,}$'
             required: true
         - variable: ELEVATION
-          label: "Elevation"
-          description: "Longitude of your home assistant instance"
+          label: Elevation
+          description: Longitude of your home assistant instance
           schema:
             type: int
             default: 0
@@ -71,8 +71,8 @@ questions:
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -80,17 +80,17 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 51050
+                              default: 5050
                               required: true
 # Include{serviceExpertRoot}
             default: false
@@ -98,52 +98,63 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: conf
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+          label: App Config Storage
+          description: Stores the Application Configuration.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceList}
+# Include{ingressRoot}
+        - variable: main
+          label: Main Ingress
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: true
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
