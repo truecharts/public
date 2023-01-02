@@ -2,6 +2,23 @@ image:
   repository: jetbrains/youtrack
   tag: 2022.2.55618
   pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: true
+
+podSecurityContext:
+  runAsGroup: 568
+  runAsUser: 568
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+        protocol: TCP
+        targetPort: 8080
+
 persistence:
   data:
     enabled: true
@@ -18,18 +35,6 @@ persistence:
   temp:
     enabled: true
     mountPath: /opt/youtrack/temp
-podSecurityContext:
-  runAsGroup: 568
-  runAsUser: 568
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: true
-service:
-  main:
-    ports:
-      main:
-        port: 8080
-        protocol: TCP
-        targetPort: 8080
+
 portal:
   enabled: true
