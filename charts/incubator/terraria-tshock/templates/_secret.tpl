@@ -18,7 +18,7 @@
   {{- if $value -}}
     {{ $params = mustAppend $easyGameParams (printf " -%s" $key) }}
   {{- end -}}
-{{- end -}}
+{{- end }}
 
 ---
 apiVersion: v1
