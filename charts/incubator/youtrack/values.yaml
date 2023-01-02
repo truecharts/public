@@ -3,8 +3,8 @@ image:
   tag: 2022.2.55618
   pullPolicy: IfNotPresent
 
-# securityContext:
-#  readOnlyRootFilesystem: false
+securityContext:
+  readOnlyRootFilesystem: false
 
 podSecurityContext:
   runAsGroup: 13001
