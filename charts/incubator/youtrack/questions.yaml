@@ -39,7 +39,6 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-# Include{persistenceBasic}
         - variable: data
           label: "Database Storage"
           description: "This is the location for the database (destination)."
@@ -79,6 +78,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
