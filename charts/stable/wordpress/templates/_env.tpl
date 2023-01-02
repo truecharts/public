@@ -1,6 +1,6 @@
 {{/* Wordpress environment variables */}}
 {{- define "wordpress.env" -}}
-  {{- $configName := printf "%s-env" (include "tc.common.names.fullname" .) }}
+  {{- $configName := printf "%s-env-config" (include "tc.common.names.fullname" .) }}
   {{- $secretName := printf "%s-env-secret" (include "tc.common.names.fullname" .) }}
 ---
 apiVersion: v1
