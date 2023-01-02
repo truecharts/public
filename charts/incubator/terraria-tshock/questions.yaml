@@ -43,7 +43,7 @@ questions:
           description: Specifies the world seed.
           schema:
             type: string
-            default: "AwesomeSeed"
+            default: AwesomeSeed
         - variable: worldname
           label: Server World Name
           description: Sets the name of the world
@@ -69,25 +69,25 @@ questions:
           description: Sets the server's language.
           schema:
             type: string
-            default: "en-US"
+            default: en-US
             enum:
-              - value: "en-US"
+              - value: en-US
                 description: English
-              - value: "de-DE"
+              - value: de-DE
                 description: German
-              - value: "it-IT"
+              - value: it-IT
                 description: Italian
-              - value: "fr-FR"
+              - value: fr-FR
                 description: French
-              - value: "es-ES"
+              - value: es-ES
                 description: Spanish
-              - value: "ru-RU"
+              - value: ru-RU
                 description: Russian
-              - value: "zh-Hans"
+              - value: zh-Hans
                 description: Chinese
-              - value: "pt-BR"
+              - value: pt-BR
                 description: Portuguese
-              - value: "pl-PL"
+              - value: pl-PL
                 description: Polish
         - variable: easy_game_params
           label: Easy Game Parameters
@@ -131,8 +131,8 @@ questions:
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -140,21 +140,21 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 9014
                               required: true
         - variable: tcp
           label: 'tcp service'
-          description: "Container Port 7777"
+          description: Container Port 7777
           schema:
             additional_attrs: true
             type: dict
@@ -162,14 +162,14 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: tcp
-                      label: "tcp Service Port Configuration"
+                      label: tcp Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 7777
@@ -180,8 +180,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: serverfiles
-          label: "serverfiles Storage"
-          description: "Container Path serverdataserverfiles"
+          label: serverfiles Storage
+          description: Container Path serverdataserverfiles
           schema:
             additional_attrs: true
             type: dict
@@ -190,7 +190,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -202,41 +202,41 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
