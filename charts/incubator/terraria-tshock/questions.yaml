@@ -8,19 +8,126 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
+  - variable: terraria
+    group: App Configuration
+    label: Terraria Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
-          description: "Enter your start up commands for the server."
+        - variable: pass
+          label: Server Pass
+          description: Sets the server password.
           schema:
             type: string
-            default: "-config serverconfig.txt"
+            private: true
+            required: true
+            default: ""
+        - variable: autocreate
+          label: Auto Create
+          description: Creates a world if none is found.
+          schema:
+            type: string
+            default: "1"
+            enum:
+              - value: "0"
+                description: None
+              - value: "1"
+                description: Small
+              - value: "2"
+                description: Medium
+              - value: "3"
+                description: Large
+        - variable: seed
+          label: World Seed
+          description: Specifies the world seed.
+          schema:
+            type: string
+            default: "AwesomeSeed"
+        - variable: worldname
+          label: Server World Name
+          description: Sets the name of the world
+          schema:
+            type: string
+            default: ""
+        - variable: motd
+          label: Server Message of The Day
+          description: Set the server motto of the day text.
+          schema:
+            type: string
+            default: ""
+        - variable: maxplayers
+          label: Max Players Count
+          description: Sets the max number of players.
+          schema:
+            type: int
+            default: 16
+            min: 1
+            max: 255
+        - variable: lang
+          label: Language
+          description: Sets the server's language.
+          schema:
+            type: string
+            default: "en-US"
+            enum:
+              - value: "en-US"
+                description: English
+              - value: "de-DE"
+                description: German
+              - value: "it-IT"
+                description: Italian
+              - value: "fr-FR"
+                description: French
+              - value: "es-ES"
+                description: Spanish
+              - value: "ru-RU"
+                description: Russian
+              - value: "zh-Hans"
+                description: Chinese
+              - value: "pt-BR"
+                description: Portuguese
+              - value: "pl-PL"
+                description: Polish
+        - variable: easy_game_params
+          label: Easy Game Parameters
+          description: Appends the game extra params to the Game Extra Parameters list
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: noupnp
+                label: no UPNP Flag
+                description: Disables automatic universal plug and play.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: secure
+                label: Secure Flag
+                description: Adds additional cheat protection to the server.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: steam
+                label: Steam Flag
+                description: Enables Steam support.
+                schema:
+                  type: boolean
+                  default: false
+        - variable: game_params
+          label: Game Parameters
+          description: Enter your game parameters starting with -, one per entry
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: game_params_entry
+                label: Parameter Entry
+                description: Single parameter per entry. Start with -
+                schema:
+                  type: string
+                  default: ""
+                  required: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
