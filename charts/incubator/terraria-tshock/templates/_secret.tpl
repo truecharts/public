@@ -28,5 +28,5 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
-  GAME_PARAMS: {{ printf "%s%s" (join " " $params) (join " " .Values.terraria.game_params) | quote }}
+  GAME_PARAMS: {{ printf "%s %s" (join " " $params) (join " " .Values.terraria.game_params) | quote }}
 {{- end -}}
