@@ -69,14 +69,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: temp
-          label: "temp Storage"
-          description: "This is the location for backups (destination)."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
