@@ -16,7 +16,7 @@
 {{- $easyGameParams := list -}}
 {{- range $key, $value := .Values.terraria.easy_game_params -}}
   {{- if $value -}}
-    {{ $params = mustAppend $easyGameParams (printf " -%s" $key) }}
+    {{- $params = mustAppend $easyGameParams (printf " -%s" $key) -}}
   {{- end -}}
 {{- end }}
 
