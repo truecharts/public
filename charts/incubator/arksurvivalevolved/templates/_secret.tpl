@@ -9,7 +9,7 @@
 {{- $params = append $params (printf "?RCONPort=%v" .Values.service.rcontcp.ports.rcontcp.port) -}}
 
 {{- $gameExtraParams := list -}}
-{{- range $key, $value := .Values.easy_game_extra_params -}}
+{{- range $key, $value := .Values.ark.easy_game_extra_params -}}
   {{- if $value -}}
     {{ $gameExtraParams = mustAppend $gameExtraParams (printf "-%s" $key) }}
   {{- end -}}
