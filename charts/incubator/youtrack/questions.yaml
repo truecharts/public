@@ -39,6 +39,7 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
+# Include{persistenceBasic}
         - variable: data
           label: "Database Storage"
           description: "This is the location for the database (destination)."
@@ -46,7 +47,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{persistenceRoot}
+# Include{persistenceBasic}
         - variable: conf
           label: "Configuration Storage"
           description: "This is the location for the configuration (destination)."
@@ -54,7 +55,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{persistenceRoot}
+# Include{persistenceBasic}
         - variable: logs
           label: "Logs Storage"
           description: "This is the location for the logs (destination)."
@@ -62,7 +63,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{persistenceRoot}
+# Include{persistenceBasic}
         - variable: backups
           label: "Backups Storage"
           description: "This is the location for backups (destination)."
@@ -70,7 +71,6 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -111,13 +111,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 13001
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 13001
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
