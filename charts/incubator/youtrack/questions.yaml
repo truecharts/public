@@ -110,7 +110,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: "runAsUser"
