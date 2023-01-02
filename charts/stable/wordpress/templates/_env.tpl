@@ -1,6 +1,6 @@
 {{/* Wordpress environment variables */}}
 {{- define "wordpress.env" -}}
-  {{- $configName := printf "%s-env-config" (include "tc.common.names.fullname" .) }}
+  {{- $configName := printf "%s-env" (include "tc.common.names.fullname" .) }}
   {{- $secretName := printf "%s-env-secret" (include "tc.common.names.fullname" .) }}
 ---
 apiVersion: v1
@@ -31,28 +31,28 @@ data:
   {{- end }}
 
   {{/* PHP */}}
-  {{- with .Values.php-config.PHP_ENABLE_OPCACHE }}
+  {{- with .Values.php.PHP_ENABLE_OPCACHE }}
   PHP_ENABLE_OPCACHE: {{ . | quote }}
   {{- end }}
-  {{- with .Values.php-config.PHP_EXPOSE_PHP }}
+  {{- with .Values.php.PHP_EXPOSE_PHP }}
   PHP_EXPOSE_PHP: {{ . | quote }}
   {{- end }}
-  {{- with .Values.php-config.PHP_MAX_EXECUTION_TIME }}
+  {{- with .Values.php.PHP_MAX_EXECUTION_TIME }}
   PHP_MAX_EXECUTION_TIME: {{ . | quote }}
   {{- end }}
-  {{- with .Values.php-config.PHP_MAX_INPUT_TIME }}
+  {{- with .Values.php.PHP_MAX_INPUT_TIME }}
   PHP_MAX_INPUT_TIME: {{ . | quote }}
   {{- end }}
-  {{- with .Values.php-config.PHP_MAX_INPUT_VARS }}
+  {{- with .Values.php.PHP_MAX_INPUT_VARS }}
   PHP_MAX_INPUT_VARS: {{ . | quote }}
   {{- end }}
-  {{- with .Values.php-config.PHP_MEMORY_LIMIT }}
+  {{- with .Values.php.PHP_MEMORY_LIMIT }}
   PHP_MEMORY_LIMIT: {{ . | quote }}
   {{- end }}
-  {{- with .Values.php-config.PHP_POST_MAX_SIZE }}
+  {{- with .Values.php.PHP_POST_MAX_SIZE }}
   PHP_POST_MAX_SIZE: {{ . | quote }}
   {{- end }}
-  {{- with .Values.php-config.PHP_UPLOAD_MAX_FILESIZE }}
+  {{- with .Values.php.PHP_UPLOAD_MAX_FILESIZE }}
   PHP_UPLOAD_MAX_FILESIZE: {{ . | quote }}
   {{- end }}
 ---
