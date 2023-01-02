@@ -19,20 +19,14 @@ env:
   LATITUDE: 46
   LONGITUDE: -94
   ELEVATION: 1217
+  TIMEZONE: "{{ .Values.TZ }}"
 
 service:
   main:
     ports:
       main:
         port: 5050
-        targetPort: 5050
-  tcp:
-    enabled: true
-    ports:
-      tcp:
-        enabled: true
-        port: 51050
-        targetPort: 51050
+        targetPort: 80
 
 persistence:
   conf:
