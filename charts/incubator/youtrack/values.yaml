@@ -16,6 +16,9 @@ persistence:
   backups:
     enabled: true
     mountPath: /opt/youtrack/backups
+  temp:
+    enabled: true
+    mountPath: /opt/youtrack/temp
 podSecurityContext:
   runAsGroup: 568
   runAsUser: 568
