@@ -30,29 +30,30 @@ data:
   WORDPRESS_SMTP_PORT: {{ .Values.smtp.port | quote }}
   {{- end }}
 
+  {{- $php := get .Values "php-config" }}
   {{/* PHP */}}
-  {{- with .Values.wordpress.PHP_ENABLE_OPCACHE }}
+  {{- with $php.PHP_ENABLE_OPCACHE }}
   PHP_ENABLE_OPCACHE: {{ . | quote }}
   {{- end }}
-  {{- with .Values.wordpress.PHP_EXPOSE_PHP }}
+  {{- with $php.PHP_EXPOSE_PHP }}
   PHP_EXPOSE_PHP: {{ . | quote }}
   {{- end }}
-  {{- with .Values.wordpress.PHP_MAX_EXECUTION_TIME }}
+  {{- with $php.PHP_MAX_EXECUTION_TIME }}
   PHP_MAX_EXECUTION_TIME: {{ . | quote }}
   {{- end }}
-  {{- with .Values.wordpress.PHP_MAX_INPUT_TIME }}
+  {{- with $php.PHP_MAX_INPUT_TIME }}
   PHP_MAX_INPUT_TIME: {{ . | quote }}
   {{- end }}
-  {{- with .Values.wordpress.PHP_MAX_INPUT_VARS }}
+  {{- with $php.PHP_MAX_INPUT_VARS }}
   PHP_MAX_INPUT_VARS: {{ . | quote }}
   {{- end }}
-  {{- with .Values.wordpress.PHP_MEMORY_LIMIT }}
+  {{- with $php.PHP_MEMORY_LIMIT }}
   PHP_MEMORY_LIMIT: {{ . | quote }}
   {{- end }}
-  {{- with .Values.wordpress.PHP_POST_MAX_SIZE }}
+  {{- with $php.PHP_POST_MAX_SIZE }}
   PHP_POST_MAX_SIZE: {{ . | quote }}
   {{- end }}
-  {{- with .Values.wordpress.PHP_UPLOAD_MAX_FILESIZE }}
+  {{- with $php.PHP_UPLOAD_MAX_FILESIZE }}
   PHP_UPLOAD_MAX_FILESIZE: {{ . | quote }}
   {{- end }}
 ---
