@@ -109,12 +109,7 @@ jobs:
         if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
         uses: nolar/setup-k3d-k3s@v1
         with:
-          version: v1.25.4
-          k3d-args: -p 31990-31999:31990-31999@server:0
-
-      - name: Remove node taints
-        run: |
-          kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
+          version: v1.25.4+k3s1
 
       - name: Run chart-testing (install)
         if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
