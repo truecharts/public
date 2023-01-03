@@ -9,7 +9,7 @@ on:
 jobs:
   lint:
     name: Lint Common
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     outputs:
       changed: ${{ steps.list-changed.outputs.changed }}
     steps:
@@ -21,7 +21,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # tag=v3
         with:
-          version: v3.10.1
+          version: v3.10.3
 
       - uses: actions/setup-python@2c3dd9e7e29afd70cc0950079bde6c979d1f69f9 # tag=v4
         with:
@@ -53,7 +53,7 @@ jobs:
     needs:
       - lint
     name: Unit Tests
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
@@ -76,7 +76,7 @@ jobs:
     needs:
       - lint
     name: Install Charts
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
@@ -86,11 +86,11 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@f382f75448129b3be48f8121b9857be18d815a82 # tag=v3
         with:
-          version: v3.10.1
+          version: v3.10.3
 
       - uses: actions/setup-python@2c3dd9e7e29afd70cc0950079bde6c979d1f69f9 # tag=v4
         with:
-          python-version: 3.9
+          python-version: "3.10"
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
@@ -107,9 +107,10 @@ jobs:
 
       - name: Create k3d cluster
         if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
-        uses: nolar/setup-k3d-k3s@v1
+        uses: nolar/setup-k3d-k3s@293b8e5822a20bc0d5bcdd4826f1a665e72aba96 # tag=v1.0.9
         with:
-          version: v1.22.4+k3s1
+          version: v1.25.4+k3s1
+          # version: v1.22.4+k3s1
 
       - name: Run chart-testing (install)
         if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
