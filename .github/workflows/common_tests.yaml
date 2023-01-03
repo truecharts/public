@@ -1,4 +1,4 @@
-name: Common Library Lint and Test
+name: Common Library Tests
 
 on:
   pull_request:
@@ -42,17 +42,17 @@ jobs:
 
       - name: Run chart-testing (lint)
         id: lint
-        if: steps.list-changed.outputs.changes_detected == 'true'
+        if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
         run: |
           ct lint --config .github/ct-lint.yaml \
                   --lint-conf .github/lintconf.yaml \
-                  --charts {{ steps.list-changed.outputs.changed_charts }} \
+                  --charts ${{ steps.list-changed.outputs.changed_charts }} \
                   --debug
 
   unittest:
     needs:
       - lint
-    name: Run unit tests
+    name: Unit Tests
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
@@ -75,7 +75,7 @@ jobs:
   install:
     needs:
       - lint
-    name: Install charts
+    name: Install Charts
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
@@ -112,9 +112,9 @@ jobs:
           version: v1.25.4+k3s1
 
       - name: Run chart-testing (install)
-        if: steps.list-changed.outputs.changes_detected == 'true'
+        if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
         run: |
           ct install  --config .github/ct-install.yaml \
-                      --charts {{ steps.list-changed.outputs.changed_charts }} \
+                      --charts ${{ steps.list-changed.outputs.changed_charts }} \
                       --upgrade \
                       --debug
