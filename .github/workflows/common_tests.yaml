@@ -44,11 +44,9 @@ jobs:
         id: lint
         if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
         run: |
-          echo "1. {{ steps.list-changed.outputs.changed_charts }}"
-          echo "2. ${{ steps.list-changed.outputs.changed_charts }}"
           ct lint --config .github/ct-lint.yaml \
                   --lint-conf .github/lintconf.yaml \
-                  --charts "${{ steps.list-changed.outputs.changed_charts }}" \
+                  --charts "{{ steps.list-changed.outputs.changed_charts }}" \
                   --debug
 
   unittest:
@@ -117,6 +115,6 @@ jobs:
         if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
         run: |
           ct install  --config .github/ct-install.yaml \
-                      --charts ${{ steps.list-changed.outputs.changed_charts }} \
+                      --charts {{ steps.list-changed.outputs.changed_charts }} \
                       --upgrade \
                       --debug
