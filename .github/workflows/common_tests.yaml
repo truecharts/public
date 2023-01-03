@@ -33,15 +33,16 @@ jobs:
       - name: Gather changed charts
         id: list-changed
         run: |
-          changed=$(ct list-changed --config .github/ct-lint.yaml)
+          changed=$(ct list-changed --config .github/ct-lint.yaml | grep -v "Skipping...")
           if [[ -n "$changed" ]]; then
             echo "changed=true" >> $env:GITHUB_OUTPUT
+            echo "changed_charts=$changed" >> $env:GITHUB_OUTPUT
           fi
 
       - name: Run chart-testing (lint)
         id: lint
         if: steps.list-changed.outputs.changed == 'true'
-        run: ct lint --config .github/ct-lint.yaml --lint-conf .github/lintconf.yaml --debug
+        run: ct lint --config .github/ct-lint.yaml --lint-conf .github/lintconf.yaml --charts {{ steps.list-changed.outputs.changed_charts }} --debug
 
   unittest:
     needs:
@@ -95,6 +96,7 @@ jobs:
         changed=$(ct list-changed --config .github/ct-install.yaml)
         if [[ -n "$changed" ]]; then
           echo "changed=true" >> $env:GITHUB_OUTPUT
+          echo "changed_charts=$changed" >> $env:GITHUB_OUTPUT
         fi
 
     - name: Create k3d cluster
@@ -106,4 +108,4 @@ jobs:
     - name: Run chart-testing (install)
       if: needs.install.outputs.changed == 'true'
       run: |
-        ct install --config .github/ct-install.yaml --debug --upgrade
+        ct install --config .github/ct-install.yaml --debug --charts {{ steps.list-changed.outputs.changed_charts }} --upgrade
