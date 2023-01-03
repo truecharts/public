@@ -109,12 +109,12 @@ jobs:
         if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
         uses: nolar/setup-k3d-k3s@v1
         with:
-          version: v1.24
+          version: v1.22.4+k3s1
 
       - name: Run chart-testing (install)
         if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
         run: |
           ct install  --config .github/ct-install.yaml \
                       --charts "${{ steps.list-changed.outputs.changed_charts }}" \
-                      --upgrade \
-                      --debug
+                      --upgrade
+                      # --debug
