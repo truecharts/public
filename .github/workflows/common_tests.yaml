@@ -25,7 +25,7 @@ jobs:
 
       - uses: actions/setup-python@2c3dd9e7e29afd70cc0950079bde6c979d1f69f9 # tag=v4
         with:
-          python-version: 3.7
+          python-version: "3.10"
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
@@ -109,7 +109,7 @@ jobs:
         if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
         uses: nolar/setup-k3d-k3s@v1
         with:
-          version: v1.25.4+k3s1
+          version: v1.24
 
       - name: Run chart-testing (install)
         if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
