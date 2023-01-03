@@ -20,6 +20,6 @@ data:
   DB_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
   REDIS_PASSWORD: {{ .Values.redis.redisPassword | trimAll "\"" | b64enc }}
   {{- with .Values.immich.mapbox_key }}
-  MAPBOX_KEY: {{ . }}
+  MAPBOX_KEY: {{ . | b64enc}}
   {{- end }}
 {{- end }}
