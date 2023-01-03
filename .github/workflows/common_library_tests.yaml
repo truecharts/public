@@ -63,7 +63,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@f382f75448129b3be48f8121b9857be18d815a82 # tag=v3
         with:
-          version: v3.10.1
+          version: v3.10.3
 
       - name: Run tests
         run: |
@@ -109,9 +109,9 @@ jobs:
         if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
         uses: nolar/setup-k3d-k3s@293b8e5822a20bc0d5bcdd4826f1a665e72aba96 # tag=v1.0.9
         with:
-          version: v1.22.4+k3s1
+          # version: v1.22.4+k3s1
           # This version greps wrong deployment name and it fails.
-          # version: v1.25.4+k3s1
+          version: v1.25.4+k3s1
 
       - name: Run chart-testing (install)
         if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
