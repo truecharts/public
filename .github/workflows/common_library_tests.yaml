@@ -33,7 +33,7 @@ jobs:
       - name: Gather changed charts
         id: list-changed
         run: |
-          changed=$(ct list-changed --config .github/ct-lint.yaml)
+          changed=$(ct list-changed --config .github/ct-install-config/ct-lint.yaml)
           if [[ -n "$changed" ]]; then
             echo "changes_detected=true" >> $GITHUB_OUTPUT
             echo "changed_charts=$changed" >> $GITHUB_OUTPUT
@@ -44,8 +44,8 @@ jobs:
         id: lint
         if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
         run: |
-          ct lint --config .github/ct-lint.yaml \
-                  --lint-conf .github/lintconf.yaml \
+          ct lint --config .github/ct-install-config/ct-lint.yaml \
+                  --lint-conf .github/ct-install-config/lint-conf.yaml \
                   --charts "${{ steps.list-changed.outputs.changed_charts }}" \
                   --debug
 
@@ -98,7 +98,7 @@ jobs:
       - name: Gather changed charts
         id: list-changed
         run: |
-          changed=$(ct list-changed --config .github/ct-install.yaml)
+          changed=$(ct list-changed --config .github/ct-install-config/ct-install.yaml)
           if [[ -n "$changed" ]]; then
             echo "changes_detected=true" >> $GITHUB_OUTPUT
             echo "changed_charts=$changed" >> $GITHUB_OUTPUT
@@ -114,7 +114,7 @@ jobs:
       - name: Run chart-testing (install)
         if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
         run: |
-          ct install  --config .github/ct-install.yaml \
+          ct install  --config .github/ct-install-config/ct-install.yaml \
                       --charts "${{ steps.list-changed.outputs.changed_charts }}" \
                       --upgrade \
                       --debug
