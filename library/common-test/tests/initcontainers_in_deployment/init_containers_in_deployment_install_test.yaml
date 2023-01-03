@@ -536,7 +536,8 @@ tests:
               allowPrivilegeEscalation: false
               capabilities:
                 add: []
-                drop: []
+                drop:
+                  - ALL
               privileged: false
               readOnlyRootFilesystem: true
               runAsGroup: 568
@@ -549,7 +550,8 @@ tests:
               allowPrivilegeEscalation: false
               capabilities:
                 add: []
-                drop: []
+                drop:
+                  - ALL
               privileged: false
               readOnlyRootFilesystem: true
               runAsGroup: 568
@@ -582,7 +584,8 @@ tests:
               allowPrivilegeEscalation: false
               capabilities:
                 add: []
-                drop: []
+                drop:
+                  - ALL
               privileged: false
               readOnlyRootFilesystem: true
               runAsGroup: 568
@@ -625,7 +628,8 @@ tests:
               allowPrivilegeEscalation: false
               capabilities:
                 add: []
-                drop: []
+                drop:
+                  - ALL
               privileged: false
               readOnlyRootFilesystem: true
               runAsGroup: 568
@@ -639,7 +643,8 @@ tests:
               capabilities:
                 add:
                 - Something
-                drop: []
+                drop:
+                  - ALL
               privileged: false
               readOnlyRootFilesystem: true
               runAsGroup: 0
