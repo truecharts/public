@@ -116,5 +116,5 @@ jobs:
         run: |
           ct install  --config .github/ct-install.yaml \
                       --charts "${{ steps.list-changed.outputs.changed_charts }}" \
-                      --upgrade
+                      --upgrade \
                       --debug
