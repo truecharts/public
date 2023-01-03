@@ -35,8 +35,8 @@ jobs:
         run: |
           changed=$(ct list-changed --config .github/ct-lint.yaml)
           if [[ -n "$changed" ]]; then
-            echo "changes_detected=true" >> $env:GITHUB_OUTPUT
-            echo "changed_charts=$changed" >> $env:GITHUB_OUTPUT
+            echo "changes_detected=true" >> $GITHUB_OUTPUT
+            echo "changed_charts=$changed" >> $GITHUB_OUTPUT
           fi
           echo "Changed Charts: $changed"
 
@@ -46,7 +46,7 @@ jobs:
         run: |
           ct lint --config .github/ct-lint.yaml \
                   --lint-conf .github/lintconf.yaml \
-                  --charts "{{ steps.list-changed.outputs.changed_charts }}" \
+                  --charts "${{ steps.list-changed.outputs.changed_charts }}" \
                   --debug
 
   unittest:
@@ -100,13 +100,13 @@ jobs:
         run: |
           changed=$(ct list-changed --config .github/ct-install.yaml)
           if [[ -n "$changed" ]]; then
-            echo "changes_detected=true" >> $env:GITHUB_OUTPUT
-            echo "changed_charts=$changed" >> $env:GITHUB_OUTPUT
+            echo "changes_detected=true" >> $GITHUB_OUTPUT
+            echo "changed_charts=$changed" >> $GITHUB_OUTPUT
           fi
           echo "Changed Charts: $changed"
 
       - name: Create k3d cluster
-        if: needs.install.outputs.changed == 'true'
+        if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
         uses: nolar/setup-k3d-k3s@v1
         with:
           version: v1.25.4+k3s1
@@ -115,6 +115,6 @@ jobs:
         if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
         run: |
           ct install  --config .github/ct-install.yaml \
-                      --charts {{ steps.list-changed.outputs.changed_charts }} \
+                      --charts "${{ steps.list-changed.outputs.changed_charts }}" \
                       --upgrade \
                       --debug
