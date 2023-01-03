@@ -8,19 +8,53 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: env
+  - variable: jenkins
     group: App Configuration
-    label: Image Environment
+    label: Jenkins Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: JENKINS_JAVA_OPTS
-          label: JENKINS_JAVA_OPTS
-          description: You might need to customize the JVM running Jenkins, typically to adjust system properties or tweak heap memory settings.
+        - variable: java_opts
+          label: Jenkins Java Opts
+          description: Add the JVM parameters, one per entry.
           schema:
-            type: string
-            default: ""
+            type: list
+            default: []
+            items:
+              - variable: java_opts_entry
+                label: Java Opts Parameter Entry
+                description: Single parameter per entry.
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+        - variable: opts
+          label: Jenkins Opts
+          description: Add the Opts parameters, one per entry.
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: opts_entry
+                label: Opts Parameter Entry
+                description: Single parameter per entry.
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+        - variable: plugins_force_upgrade
+          label: Plugins Force Upgrade
+          description: To force upgrades of plugins that have been manually upgraded.
+          schema:
+            type: boolean
+            default: true
+        - variable: upgrade_if_no_marker
+          label: Upgrade If No Marker
+          description: To upgrade existing plugins without marker.
+          schema:
+            type: boolean
+            default: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
