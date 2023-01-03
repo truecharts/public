@@ -20,6 +20,6 @@ stringData:
   JENKINS_SLAVE_AGENT_PORT: "{{ .Values.service.agent.ports.agent.port }}"
   JENKINS_JAVA_OPTS: {{ join " " $java | quote }}
   JENKINS_OPTS: {{ printf "%s%s" (join "" $opts) (join "" .Values.jenkins.opts) | quote }}
-  PLUGINS_FORCE_UPGRADE: {{ default false .Values.ajenkinsrk.plugins_force_upgrade | quote }}
+  PLUGINS_FORCE_UPGRADE: {{ default false .Values.jenkins.plugins_force_upgrade | quote }}
   TRY_UPGRADE_IF_NO_MARKER: {{ default false .Values.jenkins.upgrade_if_no_marker | quote }}
 {{- end -}}
