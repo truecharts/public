@@ -30,8 +30,6 @@ questions:
             type: string
             default: "1"
             enum:
-              - value: "0"
-                description: None
               - value: "1"
                 description: Small
               - value: "2"
@@ -43,18 +41,21 @@ questions:
           description: Specifies the world seed.
           schema:
             type: string
+            required: true
             default: AwesomeSeed
         - variable: worldname
           label: Server World Name
           description: Sets the name of the world
           schema:
             type: string
+            required: true
             default: ""
         - variable: motd
           label: Server Message of The Day
           description: Set the server motto of the day text.
           schema:
             type: string
+            required: true
             default: ""
         - variable: maxplayers
           label: Max Players Count
