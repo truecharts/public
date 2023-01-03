@@ -54,13 +54,14 @@ So it can work on multiple places, like additional containers and not only the m
   ports:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- with (include "ix.v1.common.container.mainVolumeMounts" . | trim) }}
+  {{- with (include "ix.v1.common.container.volumeMounts" . | trim) }}
   volumeMounts:
     {{- . | nindent 4 }}
   {{- end -}}
   {{- with (include "ix.v1.common.container.probes" (dict "probes" .Values.probes
                                                           "services" .Values.service
                                                           "containerName" $name
+                                                          "isMainContainer" true
                                                           "root" $) | trim) }}
     {{- . | nindent 2 }}
   {{- end -}}

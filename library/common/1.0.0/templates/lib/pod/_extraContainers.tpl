@@ -61,6 +61,7 @@
   {{- end -}}
   {{- with (include "ix.v1.common.container.probes" (dict "probes" $container.probes
                                                           "containerName" $name
+                                                          "isMainContainer" false
                                                           "root" $root) | trim) }}
     {{- . | nindent 2 }}
   {{- end -}}
@@ -82,6 +83,12 @@
   {{- with (include "ix.v1.common.container.termination.messagePolicy" (dict "msgPolicy" $container.termination.messagePolicy "root" $root)) | trim }}
   terminationMessagePolicy: {{ . }}
   {{- end -}}
+  {{- end -}}
+  {{- with (include "ix.v1.common.container.extraContainerPorts"  (dict "root" $root
+                                                                        "containerName" $name
+                                                                        "ports" $container.ports ) | trim) }}
+  ports:
+    {{- . | nindent 4 }}
   {{- end -}}
   {{- with (include "ix.v1.common.container.resources"  (dict "resources" $container.resources
                                                               "gpu" $container.scaleGPU

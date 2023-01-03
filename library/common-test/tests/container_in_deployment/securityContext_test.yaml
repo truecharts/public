@@ -9,6 +9,19 @@ tests:
           count: 3
       - isKind:
           of: Deployment
+      - equal:
+          path: spec.template.spec.containers[0].securityContext
+          value:
+            allowPrivilegeEscalation: false
+            privileged: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 568
+            runAsGroup: 568
+            capabilities:
+              add: []
+              drop:
+                - ALL
 
   - it: should pass with securityContext changed
     documentIndex: *deploymentDoc
@@ -143,7 +156,7 @@ tests:
           drop: non-a-list
     asserts:
       - failedTemplate:
-          errorMessage: <capabilities.drop> key has value (non-a-list). But it must be a list. Set a list value or remove the key for the default ([]) to take effect.
+          errorMessage: <capabilities.drop> key has value (non-a-list). But it must be a list. Set a list value or remove the key for the default ([ALL]) to take effect.
 
   - it: should fail with empty capabilities.drop in securityContext
     set:
@@ -152,7 +165,7 @@ tests:
           drop:
     asserts:
       - failedTemplate:
-          errorMessage:  <capabilities.drop> key has value (<nil>). But it must be a list. Set a list value or remove the key for the default ([]) to take effect.
+          errorMessage:  <capabilities.drop> key has value (<nil>). But it must be a list. Set a list value or remove the key for the default ([ALL]) to take effect.
 
   - it: should fail with empty capabilities.add in securityContext
     set:

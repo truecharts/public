@@ -2,6 +2,7 @@
 {{- define "ix.v1.common.container.probes" -}}
   {{- $root := .root -}}
   {{- $probes := .probes -}}
+  {{- $isMainContainer := .isMainContainer -}}
   {{- $services := .services -}} {{/* Only passed from main container, not init/install/upgrade/additional */}}
   {{- $containerName := .containerName -}}
 
@@ -10,7 +11,7 @@
   {{- $defaultPortProtocol := $root.Values.global.defaults.portProtocol -}}
 
   {{- $primaryPort := "" -}}
-  {{- if $services -}} {{/* If no services exist don't try to guess a port */}}
+  {{- if and $isMainContainer $services -}} {{/* If no services exist don't try to guess a port, but do only in main container */}}
     {{/* Get the name of the primary service, if any */}}
     {{- $primarySeriviceName := (include "ix.v1.common.lib.util.service.primary" (dict "services" $services "root" $root)) -}}
     {{/* Get service values of the primary service, if any */}}
@@ -28,7 +29,10 @@
     {{- end -}}
 
     {{- if $probe.enabled -}}
+      {{/* Initialize probe type to the default */}}
       {{- $probeType := $defaultProbeType -}}
+
+      {{/* If type defined, use this */}}
       {{- if $probe.type -}}
         {{- $probeType = $probe.type -}}
       {{- end -}}
@@ -62,13 +66,12 @@
 
       {{- $probePort := "" -}}
       {{- if $primaryPort -}}
-        {{/* If port is defined to primaryPort use this */}}
-        {{- if $primaryPort.port -}}
-          {{- $probePort = $primaryPort.port -}}
-        {{- end -}}
         {{/* If targetPort is defined to primaryPort use this */}}
         {{- if $primaryPort.targetPort -}}
           {{- $probePort = $primaryPort.targetPort -}}
+        {{/* Else If port is defined to primaryPort use this */}}
+        {{- else if $primaryPort.port -}}
+          {{- $probePort = $primaryPort.port -}}
         {{- end -}}
       {{- end -}}
       {{/* If a port is set on probe, use this always */}}
@@ -100,7 +103,7 @@
         {{- include "ix.v1.common.container.probes.exec" (dict "probe" $tmpProbe "root" $root "containerName" $containerName) | trim | nindent 2 }}
       {{- else if (eq $probeType "custom") -}}
         {{- include "ix.v1.common.container.probes.custom" (dict "probe" $tmpProbe "root" $root "containerName" $containerName) | trim | nindent 2 }}
-      {{- else if (eq $probeType "udp") -}}
+      {{- else if (eq $probeType "udp") -}} {{/* This just contains a fail message. */}}
         {{- include "ix.v1.common.container.probes.udp" (dict "probe" $tmpProbe "root" $root "containerName" $containerName) | trim | nindent 2 }}
       {{- end -}}
 

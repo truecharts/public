@@ -1,32 +1,26 @@
 {{/* Volume Mounts included by the container. */}}
-{{- define "ix.v1.common.container.mainVolumeMounts" -}}
+{{- define "ix.v1.common.container.volumeMounts" -}}
   {{- range $name, $item := .Values.persistence -}}
     {{- if $item.enabled -}}
       {{- if not $item.noMount -}}
-        {{- include "ix.v1.common.continer.volumeMount" (dict "root" $ "item" $item "name" $name) | nindent 0 -}}
+        {{- include "ix.v1.common.container.volumeMount" (dict "root" $ "item" $item "name" $name) | nindent 0 -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
 
 {{/* TODO: write tests when statefulset is ready */}}
   {{- if eq .Values.controller.type "statefulset" -}}
-    {{- range $index, $vct := .Values.volumeClaimTemplates }}
-      {{- if not $vct.mountPath -}} {{/* Make sure that we have a mountPath */}}
-        {{- fail "<mountPath> must be defined, alternatively use the <noMount> flag." -}}
-      {{- end -}}
-- mountPath: {{ $vct.mountPath }}
-  name: {{ tpl (toString $index) $ }}
-      {{- with $vct.subPath }}
-  subPath: {{ tpl . $ }}
-      {{- end -}}
+    {{- range $index, $vct := .Values.volumeClaimTemplates -}}
+      {{- include "ix.v1.common.container.volumeMount" (dict "root" $ "item" $vct "name" (toString $index)) | nindent 0  -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
 
-{{- define "ix.v1.common.continer.volumeMount" -}}
+{{- define "ix.v1.common.container.volumeMount" -}}
   {{- $root := .root -}}
   {{- $item := .item -}}
   {{- $name := .name -}}
+
   {{- if not $item.mountPath -}} {{/* Make sure that we have a mountPath */}}
     {{- fail "<mountPath> must be defined, alternatively use the <noMount> flag." -}}
   {{- end -}}

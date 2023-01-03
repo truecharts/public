@@ -76,7 +76,8 @@ tests:
             runAsGroup: 568
             capabilities:
               add: []
-              drop: []
+              drop:
+                - ALL
       - equal:
           path: spec.template.spec.containers[0].env
           value:

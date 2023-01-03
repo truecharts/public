@@ -175,7 +175,7 @@ tests:
             terminationMessagePath: somePath
             terminationMessagePolicy: File
 
-  - it: should pass with resources inherited from main container and modified in init container
+  - it: should pass with resources inherited from main container and modified in install container
     documentIndex: *deploymentDoc
     set:
       resources:
@@ -706,7 +706,7 @@ tests:
               runAsNonRoot: false
               runAsUser: 0
 
-  - it: should fail with probe type set to auto in init container
+  - it: should fail with probe type set to auto in install container
     documentIndex: *deploymentDoc
     set:
       installContainers:
@@ -719,7 +719,7 @@ tests:
       - failedTemplate:
           errorMessage: <auto> probe type in probe (liveness) in (RELEASE-NAME-common-test-some-name) container, is only supported for the main container and only if there is at least 1 port enabled
 
-  - it: should pass with probes defined in init container
+  - it: should pass with probes defined in install container
     documentIndex: *deploymentDoc
     set:
       installContainers:
@@ -803,3 +803,114 @@ tests:
               failureThreshold: 60
               timeoutSeconds: 2
               periodSeconds: 5
+
+  - it: should fail with invalid protocol in ports in install container
+    documentIndex: *deploymentDoc
+    set:
+      installContainers:
+        some-name:
+          ports:
+            - containerPort: 5678
+              protocol: invalid-proto
+              name: tcp-port
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid <protocol> (invalid-proto) in port (tcp-port) in (RELEASE-NAME-common-test-some-name) container. Valid protocols are TCP and UDP.
+
+  - it: should fail without name in ports in install container
+    documentIndex: *deploymentDoc
+    set:
+      installContainers:
+        some-name:
+          ports:
+            - containerPort: 5678
+              protocol: TCP
+              name: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: <name> is required in all <ports> in (RELEASE-NAME-common-test-some-name) container.
+
+  - it: should fail without containerPort in ports in install container
+    documentIndex: *deploymentDoc
+    set:
+      installContainers:
+        some-name:
+          ports:
+            - containerPort: ""
+              name: tcp-port
+    asserts:
+      - failedTemplate:
+          errorMessage: <containerPort> is required in port (tcp-port) in (RELEASE-NAME-common-test-some-name) container.
+
+  - it: should fail with non-int containerPort in ports in install container
+    documentIndex: *deploymentDoc
+    set:
+      installContainers:
+        some-name:
+          ports:
+            - containerPort: not-int
+              name: tcp-port
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid <containerPort> (not-int) in port (tcp-port) in (RELEASE-NAME-common-test-some-name) container. Must be an int.
+
+  - it: should fail with non-int hostPort in ports in install container
+    documentIndex: *deploymentDoc
+    set:
+      installContainers:
+        some-name:
+          ports:
+            - containerPort: 1234
+              hostPort: not-int
+              name: tcp-port
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid <hostPort> (not-int) in port (tcp-port) in (RELEASE-NAME-common-test-some-name) container. Must be an int.
+
+  - it: should pass without protocol in ports in install container
+    documentIndex: *deploymentDoc
+    set:
+      installContainers:
+        some-name:
+          ports:
+            - containerPort: 5678
+              name: tcp-port
+    asserts:
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            ports:
+              - containerPort: 5678
+                protocol: TCP
+                name: tcp-port
+
+  - it: should pass with ports defined in install container
+    documentIndex: *deploymentDoc
+    set:
+      installContainers:
+        some-name:
+          ports:
+            - containerPort: 5678
+              protocol: TCP
+              name: tcp-port
+            - containerPort: 1234
+              protocol: UDP
+              name: udp-port
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            ports:
+              - containerPort: 65535
+                protocol: TCP
+                name: main
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            ports:
+              - containerPort: 5678
+                protocol: TCP
+                name: tcp-port
+              - containerPort: 1234
+                protocol: UDP
+                name: udp-port

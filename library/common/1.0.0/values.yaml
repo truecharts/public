@@ -141,7 +141,8 @@ global:
       privileged: false
       capabilities:
         add: []
-        drop: []
+        drop:
+          - ALL
     # Default podSecurityContext, used if
     # no other is specified
     podSecurityContext:
