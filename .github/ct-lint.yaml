@@ -1,9 +1,7 @@
 remote: origin
 target-branch: master
 helm-extra-args: --timeout 600s --debug
+chart-yaml-schema: .github/chart_schema.yaml
 chart-dirs:
-- library/common
-- library
-excluded-charts:
-- library/_docs
-- library/common/2207.0.0
+  - library
+excluded-charts: []

@@ -3,12 +3,14 @@ version: 1.0.0
 apiVersion: v2
 appVersion: v1.0.0
 kubeVersion: '>=1.16.0-0'
+description: A chart for the common library chart-testing
+home: http://localhost
 type: application
-icon: https://icon
+icon: https://localhost/icon
 dependencies:
   - name: common
     repository: file://../common/1.0.0
     version: ~1.0.0
 maintainers:
-  - name: iX Systems
+  - name: iX-Systems
     url: https://www.truenas.com/
