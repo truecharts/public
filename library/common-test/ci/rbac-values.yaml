@@ -13,6 +13,14 @@ args:
   - --port
   - '8080'
 
+probes:
+  liveness:
+    enabled: true
+  readiness:
+    enabled: true
+  startup:
+    enabled: true
+
 rbac:
   main:
     enabled: true
