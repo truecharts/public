@@ -80,10 +80,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # We can run a matrix test on current k3s version, on nighlies version and on latest
+        # We can run a matrix test on current k3s version, on nigthlies version and on "latest"
         k3s-version:
           - v1.25.3+k3s1
-          - latest
+          - v1.26.0+k3s1
     steps:
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
