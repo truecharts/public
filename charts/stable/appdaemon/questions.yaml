@@ -51,7 +51,7 @@ questions:
           schema:
             type: string
             default: ""
-            valid_chars: '^[0-9]{1,}\.{1}[0-9]{1,}$'
+            valid_chars: '^(\+|-)?(?:90(?:(?:\.0{1,15})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,15})?))$'
             required: true
         - variable: LONGITUDE
           label: Longitude
@@ -59,7 +59,7 @@ questions:
           schema:
             type: string
             default: ""
-            valid_chars: '^[0-9]{1,}\.{1}[0-9]{1,}$'
+            valid_chars: '^(\+|-)?(?:180(?:(?:\.0{1,15})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,15})?))$'
             required: true
         - variable: ELEVATION
           label: Elevation
@@ -128,7 +128,7 @@ questions:
                 label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
-                  default: true
+                  default: false
               - variable: allowPrivilegeEscalation
                 label: Allow Privilege Escalation
                 schema:
