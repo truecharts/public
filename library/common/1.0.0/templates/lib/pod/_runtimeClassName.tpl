@@ -14,7 +14,7 @@
   {{- end -}}
 
  {{/* Override all previous if running in Scale and it's defined */}}
-  {{- if hasKey $root.Values.global "ixChartContext" -}}
+  {{- if hasKey $root.Values.global "ixChartContext" -}} {{/* TODO: check if gpu is also defined? */}}
     {{- if $root.Values.global.ixChartContext.addNvidiaRuntimeClass -}}
       {{- $runtimeName = $root.Values.global.ixChartContext.nvidiaRuntimeClassName -}}
     {{- end -}}
