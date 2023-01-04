@@ -75,7 +75,7 @@ jobs:
   install:
     needs:
       - lint
-    name: Install Charts (k3s - ${{ matrix.k3s-version }})
+    name: Install Charts
     runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
