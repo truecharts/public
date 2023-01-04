@@ -109,10 +109,9 @@ jobs:
         if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
         uses: nolar/setup-k3d-k3s@293b8e5822a20bc0d5bcdd4826f1a665e72aba96 # tag=v1.0.9
         with:
-          version: v1.22.4+k3s1
-          # This versions grabs wrong deployment name and it fails.
-          # version: v1.25.4+k3s1
-          # version: v1.24
+          version: v1.25.4+k3s1
+          # Flags found here https://github.com/k3d-io/k3d
+          k3d-args: --k3s-arg --disable=metrics-server@server:*
 
       - name: Run chart-testing (install)
         if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
