@@ -1,18 +1,26 @@
 {{/* Volume Mounts included by the container. */}}
 {{- define "ix.v1.common.container.volumeMounts" -}}
-  {{- range $name, $item := .Values.persistence -}}
-    {{- if $item.enabled -}}
-      {{- if not $item.noMount -}}
-        {{- include "ix.v1.common.container.volumeMount" (dict "root" $ "item" $item "name" $name) | nindent 0 -}}
+  {{- $isMainContainer := .isMainContainer -}}
+  {{- $root := .root -}}
+  {{- $extraContainerVolMounts := .extraContainerVolMouts -}}
+
+  {{- if $isMainContainer -}}
+    {{- range $name, $item := $root.Values.persistence -}}
+      {{- if $item.enabled -}}
+        {{- if not $item.noMount -}}
+          {{- include "ix.v1.common.container.volumeMount" (dict "root" $root "item" $item "name" $name) | nindent 0 -}}
+        {{- end -}}
       {{- end -}}
     {{- end -}}
-  {{- end -}}
 
-{{/* TODO: write tests when statefulset is ready */}}
-  {{- if eq .Values.controller.type "statefulset" -}}
-    {{- range $index, $vct := .Values.volumeClaimTemplates -}}
-      {{- include "ix.v1.common.container.volumeMount" (dict "root" $ "item" $vct "name" (toString $index)) | nindent 0  -}}
+    {{/* TODO: write tests when statefulset is ready */}}
+    {{- if eq $root.Values.controller.type "statefulset" -}}
+      {{- range $index, $vct := $root.Values.volumeClaimTemplates -}}
+        {{- include "ix.v1.common.container.volumeMount" (dict "root" $root "item" $vct "name" (toString $index)) | nindent 0 -}}
+      {{- end -}}
     {{- end -}}
+  {{- else if not $isMainContainer -}}
+  {{/* range themounts of extra contaienrs */}}
   {{- end -}}
 {{- end -}}
 

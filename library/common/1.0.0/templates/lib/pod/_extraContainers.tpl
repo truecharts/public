@@ -90,6 +90,12 @@
   ports:
     {{- . | nindent 4 }}
   {{- end -}}
+  {{- with (include "ix.v1.common.container.volumeMounts" (dict "root" $root
+                                                                "extraContaienrVolMounts" $container.volumeMounts
+                                                                "isMainContainer" false) | trim) }}
+  volumeMounts:
+    {{- . | nindent 4 }}
+  {{- end -}}
   {{- with (include "ix.v1.common.container.resources"  (dict "resources" $container.resources
                                                               "gpu" $container.scaleGPU
                                                               "isMainContainer" false

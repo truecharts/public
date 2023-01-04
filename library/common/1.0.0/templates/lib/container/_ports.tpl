@@ -7,6 +7,7 @@ can be dynamically configured via an env var.
 {{- define "ix.v1.common.container.ports" -}}
   {{- $defaultPortProtocol := .Values.global.defaults.portProtocol -}}
   {{- $ports := list -}}
+
   {{- range $svcName, $svc := .Values.service -}}
     {{- if $svc.enabled -}}
       {{- if not $svc.ports -}}
@@ -50,6 +51,7 @@ can be dynamically configured via an env var.
   {{- end -}}
 {{- end -}}
 
+{{/* This is called by init/install/upgrade/additional containers only */}}
 {{- define "ix.v1.common.container.extraContainerPorts" -}}
   {{- $containerName := .containerName -}}
   {{- $ports := .ports -}}
