@@ -77,6 +77,13 @@ jobs:
       - lint
     name: Install Charts
     runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        # We can run a matrix test on current k3s version, on nighlies version and on latest
+        k3s-version:
+          - v1.25.3+k3s1
+          - latest
     steps:
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
@@ -109,7 +116,7 @@ jobs:
         if: ${{ steps.list-changed.outputs.changes_detected }} == 'true'
         uses: nolar/setup-k3d-k3s@293b8e5822a20bc0d5bcdd4826f1a665e72aba96 # tag=v1.0.9
         with:
-          version: v1.25.4+k3s1
+          version: ${{ matrix.k3s-version }}
           # Flags found here https://github.com/k3d-io/k3d
           k3d-args: --k3s-arg --disable=metrics-server@server:*
 
