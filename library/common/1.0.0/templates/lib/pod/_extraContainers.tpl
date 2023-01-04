@@ -91,7 +91,7 @@
     {{- . | nindent 4 }}
   {{- end -}}
   {{- with (include "ix.v1.common.container.volumeMounts" (dict "root" $root
-                                                                "extraContaienrVolMounts" $container.volumeMounts
+                                                                "extraContainerVolMounts" $container.volumeMounts
                                                                 "isMainContainer" false) | trim) }}
   volumeMounts:
     {{- . | nindent 4 }}

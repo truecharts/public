@@ -905,3 +905,73 @@ tests:
               - containerPort: 1234
                 protocol: UDP
                 name: udp-port
+
+  - it: should fail without trying to mount a non existent volume in volumeMounts defined in init container
+    documentIndex: *deploymentDoc
+    set:
+      initContainers:
+        some-name:
+          volumeMounts:
+            - name: some-volume
+              mountPath: /some/path
+    asserts:
+      - failedTemplate:
+          errorMessage: You are trying to mount a volume that does not exist (some-volume). Please define the volume in <persistence>.
+
+  - it: should fail without name in volumeMounts defined in init container
+    documentIndex: *deploymentDoc
+    set:
+      initContainers:
+        some-name:
+          volumeMounts:
+            - name:
+              mountPath: /some/path
+              readOnly: false
+              subPath: /some/sub/path
+    asserts:
+      - failedTemplate:
+          errorMessage: <name> is required in volumeMounts in init/install/upgrade/additional containers.
+
+  - it: should pass with volumeMounts defined in init container
+    documentIndex: *deploymentDoc
+    set:
+      persistence:
+        some-volume:
+          enabled: true
+          noMount: true
+          type: emptyDir
+        some-other-volume:
+          enabled: true
+          noMount: true
+          type: emptyDir
+      initContainers:
+        some-name:
+          volumeMounts:
+            - name: some-volume
+              mountPath: /some/path
+              readOnly: false
+              subPath: /some/sub/path
+            - name: some-other-volume
+              mountPath: /some/other/path
+              readOnly: false
+              subPath: /some/other/sub/path
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            ports:
+              - containerPort: 65535
+                protocol: TCP
+                name: main
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            volumeMounts:
+              - name: some-volume
+                mountPath: /some/path
+                readOnly: false
+                subPath: /some/sub/path
+              - name: some-other-volume
+                mountPath: /some/other/path
+                readOnly: false
+                subPath: /some/other/sub/path
