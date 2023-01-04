@@ -1,0 +1,66 @@
+image:
+  repository: ghcr.io/truecharts/whoami
+  pullPolicy: IfNotPresent
+  tag: 1.8.7@sha256:8c61f0ca92fd806fcb4ed1465cb793c05443f37951554b105b0f2dc686a95772
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+
+args:
+  - --port
+  - '8080'
+
+rbac:
+  main:
+    enabled: true
+    rules:
+      - apiGroups:
+          - ""
+        resources:
+          - services
+          - endpoints
+          - secrets
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - extensions
+          - networking.k8s.io
+        resources:
+          - ingresses
+          - ingressclasses
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - extensions
+          - networking.k8s.io
+        resources:
+          - ingresses/status
+        verbs:
+          - update
+      - apiGroups:
+          - traefik.containo.us
+        resources:
+          - ingressroutes
+          - ingressroutetcps
+          - ingressrouteudps
+          - middlewares
+          - middlewaretcps
+          - tlsoptions
+          - tlsstores
+          - traefikservices
+          - serverstransports
+        verbs:
+          - get
+          - list
+          - watch
+
+serviceAccount:
+  main:
+    create: true
