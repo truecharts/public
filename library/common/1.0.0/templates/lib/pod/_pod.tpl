@@ -1,5 +1,6 @@
 {{/* The pod definition included in the controller. */}}
 {{- define "ix.v1.common.controller.pod" -}}
+{{- $root := . }}
 serviceAccountName: {{ (include "ix.v1.common.names.serviceAccountName" .) }}
 {{- with .Values.schedulerName }}
 schedulerName: {{ tpl . $ }}
@@ -51,8 +52,9 @@ imagePullSecrets:
 runtimeClassName: {{ . }}
 {{- end -}}
 {{- with (include "ix.v1.common.controller.mainContainer" . | trim) }}
-containers: {{/* TODO: Additional Containers */}}
+containers:
   {{- . | nindent 2 }}
+  {{- (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.additionalContainers "type" "addititional") | trim) | nindent 2 }}
 {{- end -}}
 {{- if or .Values.initContainers .Values.installContainers .Values.upgradeContainers }}
 initContainers:
