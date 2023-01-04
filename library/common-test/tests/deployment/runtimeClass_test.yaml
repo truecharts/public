@@ -15,6 +15,24 @@ tests:
   - it: should pass with addNvidiaRuntimeClass and nvidiaRuntimeClassName set
     documentIndex: *deploymentDoc
     set:
+      scaleGPU:
+        something: blabla
+      global:
+        ixChartContext:
+          addNvidiaRuntimeClass: true
+          nvidiaRuntimeClassName: something
+    asserts:
+      - equal:
+          path: spec.template.spec.runtimeClassName
+          value: something
+
+  - it: should pass with addNvidiaRuntimeClass and nvidiaRuntimeClassName set and gpu on initContainers
+    documentIndex: *deploymentDoc
+    set:
+      initContainers:
+        some-name:
+          scaleGPU:
+            something: blabla
       global:
         ixChartContext:
           addNvidiaRuntimeClass: true
@@ -28,6 +46,8 @@ tests:
     documentIndex: *deploymentDoc
     set:
       runtimeClassName: perpod
+      scaleGPU:
+        something: blabla
       global:
         defaults:
           runtimeClassName: global
@@ -39,7 +59,7 @@ tests:
           path: spec.template.spec.runtimeClassName
           value: something
 
-  - it: should pass with nvidiaRuntimeClassName set
+  - it: should pass with nvidiaRuntimeClassName set but not addNvidiaRuntimeClassName
     documentIndex: *deploymentDoc
     set:
       global:

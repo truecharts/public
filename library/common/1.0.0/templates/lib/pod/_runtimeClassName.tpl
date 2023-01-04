@@ -14,9 +14,37 @@
   {{- end -}}
 
  {{/* Override all previous if running in Scale and it's defined */}}
-  {{- if hasKey $root.Values.global "ixChartContext" -}} {{/* TODO: check if gpu is also defined? */}}
+  {{- if hasKey $root.Values.global "ixChartContext" -}}
     {{- if $root.Values.global.ixChartContext.addNvidiaRuntimeClass -}}
-      {{- $runtimeName = $root.Values.global.ixChartContext.nvidiaRuntimeClassName -}}
+
+      {{- $nvidiaRunTime := false -}}
+
+      {{/* If main container has GPU... */}}
+      {{- if $root.Values.scaleGPU -}}
+        {{- $nvidiaRunTime = true -}}
+      {{- end -}}
+
+      {{- $containers := dict -}}
+      {{/* Append containers if exist, to the $containers dict */}}
+      {{- range $key := (list "initContainers" "installContainers" "upgradeContainers" "additionalContainers") -}}
+        {{- if (get $root.Values $key) -}}
+          {{- $containers = mustMerge $containers (get $root.Values $key) -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{/* Check containers if they have GPU assigned */}}
+      {{- range $name, $container := $containers -}}
+        {{- if hasKey $container "scaleGPU" -}}
+          {{- if $container.scaleGPU -}}
+            {{/* If at least 1 container has GPU... */}}
+            {{- $nvidiaRunTime = true -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{- if $nvidiaRunTime -}}
+        {{- $runtimeName = $root.Values.global.ixChartContext.nvidiaRuntimeClassName -}}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
 
