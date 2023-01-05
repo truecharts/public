@@ -239,3 +239,97 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: <runAsNonRoot> key has value (<nil>). But it must be boolean.
+
+  - it: should pass with deviceList defined
+    documentIndex: *deploymentDoc
+    set:
+      deviceList:
+        - enabled: true
+          hostPath: /dev/usb
+          mountPath: /host/dev/usb
+    asserts:
+      - equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 5
+              - 10
+              - 20
+              - 24
+      - equal:
+          path: spec.template.spec.containers[0].securityContext
+          value:
+            allowPrivilegeEscalation: true
+            privileged: true
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 568
+            runAsGroup: 568
+            capabilities:
+              add: []
+              drop:
+                - ALL
+
+  - it: should pass with scaleGPU defined
+    documentIndex: *deploymentDoc
+    set:
+      scaleGPU:
+        nvidia: something
+    asserts:
+      - equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 44
+      - equal:
+          path: spec.template.spec.containers[0].securityContext
+          value:
+            allowPrivilegeEscalation: false
+            privileged: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 568
+            runAsGroup: 568
+            capabilities:
+              add: []
+              drop:
+                - ALL
+
+  - it: should pass with both scaleGPU and deviceList defined
+    documentIndex: *deploymentDoc
+    set:
+      deviceList:
+        - enabled: true
+          hostPath: /dev/usb
+          mountPath: /host/dev/usb
+      scaleGPU:
+        nvidia: something
+    asserts:
+      - equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 5
+              - 10
+              - 20
+              - 24
+              - 44
+      - equal:
+          path: spec.template.spec.containers[0].securityContext
+          value:
+            allowPrivilegeEscalation: true
+            privileged: true
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 568
+            runAsGroup: 568
+            capabilities:
+              add: []
+              drop:
+                - ALL

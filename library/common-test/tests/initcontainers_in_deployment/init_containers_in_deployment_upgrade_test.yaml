@@ -218,6 +218,13 @@ tests:
               cpu: 20m
               memory: 100Mi
     asserts:
+      - equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 44
       - isSubset:
           path: spec.template.spec.containers[0]
           content:
@@ -522,6 +529,111 @@ tests:
               runAsGroup: 0
               runAsNonRoot: false
               runAsUser: 0
+
+  - it: should pass with deviceList defined in init container
+    documentIndex: *deploymentDoc
+    set:
+      initContainers:
+        some_container:
+          deviceList:
+            - enabled: true
+              mountPath: /host/dev/usb
+              hostPath: /dev/usb
+          securityContext:
+            inherit: true
+    asserts:
+      - equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 5
+              - 10
+              - 20
+              - 24
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add: []
+                drop:
+                  - ALL
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: true
+              capabilities:
+                add: []
+                drop:
+                  - ALL
+              privileged: true
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+
+  - it: should pass with deviceList and scaleGPU defined in init container
+    documentIndex: *deploymentDoc
+    set:
+      initContainers:
+        some_container:
+          scaleGPU:
+            nvidia: something
+          deviceList:
+            - enabled: true
+              mountPath: /host/dev/usb
+              hostPath: /dev/usb
+          securityContext:
+            inherit: true
+    asserts:
+      - equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 5
+              - 10
+              - 20
+              - 24
+              - 44
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add: []
+                drop:
+                  - ALL
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: true
+              capabilities:
+                add: []
+                drop:
+                  - ALL
+              privileged: true
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
 
   - it: should pass with securityContext default
     documentIndex: *deploymentDoc

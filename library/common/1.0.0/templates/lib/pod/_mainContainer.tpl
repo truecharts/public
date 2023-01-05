@@ -19,7 +19,11 @@ So it can work on multiple places, like additional containers and not only the m
   args:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- with (include "ix.v1.common.container.securityContext" (dict "secCont" .Values.securityContext "isMainContainer" true "root" $)) | trim }}
+  {{- with (include "ix.v1.common.container.securityContext"  (dict "secCont" .Values.securityContext
+                                                                    "isMainContainer" true
+                                                                    "deviceList" .Values.deviceList
+                                                                    "scaleGPU" .Values.scaleGPU
+                                                                    "root" $)) | trim }}
   securityContext:
     {{- . | nindent 4 }}
   {{- end -}}

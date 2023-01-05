@@ -9,13 +9,12 @@ The reason is not splitted, is that on one of the places needs a combo of all va
 {{- define "ix.v1.common.lib.securityContext" -}}
   {{- $root := .root -}}
   {{- $secCont := .secCont -}}
+  {{- $deviceList := .deviceList -}}
   {{- $isMainContainer := .isMainContainer -}}
 
   {{/* Initialiaze Values */}}
   {{- $defaultSecCont := $root.Values.global.defaults.securityContext -}}
   {{- $returnValue := (mustDeepCopy $defaultSecCont) -}}
-
-  {{/* TODO: deviceList + suppleGroups */}}
 
   {{- if and (hasKey $secCont "inherit") $isMainContainer -}}
     {{- fail "<securityContext.inherit> key is only available for additional/init/install/upgrade containers." -}}
@@ -29,6 +28,12 @@ The reason is not splitted, is that on one of the places needs a combo of all va
 
   {{/* Overwrite from values that user/dev passed on this container */}}
   {{- $returnValue = mustMergeOverwrite $returnValue $secCont -}}
+
+  {{/* Devices need privileged container */}}
+  {{- if $deviceList -}}
+    {{- $_ := set $returnValue "privileged" true -}}
+    {{- $_ := set $returnValue "allowPrivilegeEscalation" true -}}
+  {{- end -}}
 
   {{/* Validate values, as mergeOverwrite also passes null values */}}
   {{- if not (kindIs "bool" $returnValue.runAsNonRoot) -}}
@@ -80,6 +85,59 @@ The reason is not splitted, is that on one of the places needs a combo of all va
 
   {{/* Overwrite from values that user/dev passed */}}
   {{- $returnValue = mustMergeOverwrite $returnValue $podSecCont -}}
+
+  {{- $appendGPUGroup := false -}}
+  {{- $appendDeviceGroups := false -}}
+
+  {{- if $root.Values.scaleGPU -}}
+    {{- $appendGPUGroup = true -}}
+  {{- end -}}
+
+  {{- if $root.Values.deviceList -}}
+    {{- $appendDeviceGroups = true -}}
+  {{- end -}}
+
+  {{/* If at least one of those is not true, lets make sure it's not needed by any other container */}}
+  {{- if or (not $appendDeviceGroups) (not $appendGPUGroup) -}}
+
+    {{- range $key := (list "initContainers" "installContainers" "upgradeContainers" "additionalContainers") -}}
+      {{/* If they have containers defined... */}}
+      {{- if (get $root.Values $key) -}}
+
+        {{/* Go over the containers */}}
+        {{- range $containerName, $container := (get $root.Values $key) -}}
+          {{/* If the container has deviceList */}}
+          {{- if hasKey $container "deviceList" -}}
+            {{- if $container.deviceList -}}
+              {{- $appendDeviceGroups = true -}}
+            {{- end -}}
+          {{- end -}}
+          {{/* If the container has scaleGPU */}}
+          {{- if hasKey $container "scaleGPU" -}}
+            {{- if $container.scaleGPU -}}
+              {{- $appendGPUGroup = true -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if $appendDeviceGroups -}}
+    {{/* Append the "tty" Group */}}
+    {{- $_ := set $returnValue "supplementalGroups" (mustAppend $returnValue.supplementalGroups 5) -}}
+    {{/* Append the "uucp" Group (used for USB/TTY/RS232) */}}
+    {{- $_ := set $returnValue "supplementalGroups" (mustAppend $returnValue.supplementalGroups 10) -}}
+    {{/* Append the "dialout" Group */}}
+    {{- $_ := set $returnValue "supplementalGroups" (mustAppend $returnValue.supplementalGroups 20) -}}
+    {{/* Append "cdrom" Group */}}
+    {{- $_ := set $returnValue "supplementalGroups" (mustAppend $returnValue.supplementalGroups 24) -}}
+  {{- end -}}
+
+  {{- if $appendGPUGroup -}}
+    {{/* Append "video" Group */}}
+    {{- $_ := set $returnValue "supplementalGroups" (mustAppend $returnValue.supplementalGroups 44) -}}
+  {{- end -}}
 
   {{/* Validate values, as mergeOverwrite also passes null values */}}
   {{- if eq (toString $returnValue.fsGroup) "<nil>" -}}

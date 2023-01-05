@@ -72,7 +72,11 @@
   lifecycle:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- with (include "ix.v1.common.container.securityContext" (dict "secCont" $container.securityContext "isMainContainer" false "root" $root)) | trim }}
+  {{- with (include "ix.v1.common.container.securityContext"  (dict "secCont" $container.securityContext
+                                                                    "isMainContainer" false
+                                                                    "deviceList" $container.deviceList
+                                                                    "scaleGPU" $container.scaleGPU
+                                                                    "root" $root)) | trim }}
   securityContext:
     {{- . | nindent 4 }}
   {{- end -}}
