@@ -12,33 +12,35 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
 
-  {{/* API */}}
+  {{- $cfddns := get .Values "cloudflareddns" }}
 
-  {{- with .cloudflareddns.api_token }}
+  {{/* API */}}
+  {{- with $cfddns.api_token }}
   CF_APITOKEN: {{ . | quote }}
   {{- end }}
 
-  {{- with .cloudflareddns.api_key }}
+  {{- with $cfddns.api_key }}
   CF_APIKEY: {{ . | quote }}
   {{- end }}
 
-  {{- with .cloudflareddns.api_token_zone }}
+  {{- with $cfddns.api_token_zone }}
   CF_APITOKEN_ZONE: {{ . | quote }}
   {{- end }}
 
-  {{- with .cloudflareddns.user }}
+  {{- with $cfddns.user }}
   CF_USER: {{ . | quote }}
   {{- end }}
 
-  {{- with .cloudflareddns.interval }}
+  {{- with $cfddns.interval }}
   INTERVAL: {{ . | quote }}
   {{- end }}
 
-  {{- with .cloudflareddns.log_level }}
+  {{- with $cfddns.log_level }}
   LOG_LEVEL: {{ . | quote }}
   {{- end }}
 
-  {{/* TODO host_and_record  */}}
+  DETECTION_MODE: {{ ternary $cfddns.detect_mode $cfddns.detection_mode (eq $cfddns.detection_mode "") | quote }}
 
+  {{/* TODO host_and_record  */}}
 
 {{- end -}}

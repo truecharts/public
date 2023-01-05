@@ -16,7 +16,6 @@ cloudflareddns:
   api_token: ""
   api_key: ""
   api_token_zone: ""
-  detection_mode: '{{ ternary .Values.cloudflareddns.detect_mode .Values.cloudflareddns.detection_mode (eq .Values.env.detection_mode "") }}'
   interval: 300
   detect_mode: "dig-whoami.cloudflare"
   detect_override: ""
