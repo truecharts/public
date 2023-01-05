@@ -108,13 +108,13 @@ questions:
                         type: string
                         required: true
                         default: "example.com"
-                        valid_chars: '^((?!\.cf$|\.ga$|\.gq$|\.ml$|\.tk$).)*$'
+                        valid_chars: '^((?!(\.cf|\.ga|\.gq|\.ml|\.tk)$).)*$'
                     - variable: zone
                       label: Zone
                       schema:
                         type: string
                         required: true
-                        valid_chars: '^((?!\.cf$|\.ga$|\.gq$|\.ml$|\.tk$).)*$'
+                        valid_chars: '^((?!(\.cf|\.ga|\.gq|\.ml|\.tk)$).)*$'
                         default: ""
                     - variable: type
                       label: Record Type
