@@ -1,6 +1,6 @@
 {{- define "prometheus.prometheus.additionalscrapejobs" -}}
 {{- if (and .Values.prometheus.additionalScrapeConfigs.enabled (eq .Values.prometheus.additionalScrapeConfigs.type "internal") ) }}
---
+---
 apiVersion: v1
 kind: Secret
 metadata:
