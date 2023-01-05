@@ -972,13 +972,8 @@ tests:
               readOnly: false
               subPath: /some/other/sub/path
     asserts:
-      - isSubset:
-          path: spec.template.spec.containers[0]
-          content:
-            ports:
-              - containerPort: 65535
-                protocol: TCP
-                name: main
+      - isNull:
+          path: spec.template.spec.containers[0].volumeMounts
       - isSubset:
           path: spec.template.spec.initContainers[0]
           content:
@@ -991,3 +986,64 @@ tests:
                 mountPath: /some/other/path
                 readOnly: false
                 subPath: /some/other/sub/path
+
+  - it: should pass with deviceList and volumeMounts defined in upgrade container
+    documentIndex: *deploymentDoc
+    set:
+      deviceList:
+        - enabled: true
+          type: hostPath
+          mountPath: /host/dev/something
+          hostPath: /dev/something
+      persistence:
+        some-volume:
+          enabled: true
+          noMount: true
+          type: emptyDir
+        some-other-volume:
+          enabled: true
+          noMount: true
+          type: emptyDir
+      upgradeContainers:
+        some-name:
+          deviceList:
+            - enabled: true
+              type: hostPath
+              mountPath: /host/dev/usb
+              hostPath: /dev/usb
+            - enabled: true
+              type: hostPath
+              mountPath: /host/dev/serial
+              hostPath: /dev/serial
+          volumeMounts:
+            - name: some-volume
+              mountPath: /some/path
+              readOnly: false
+              subPath: /some/sub/path
+            - name: some-other-volume
+              mountPath: /some/other/path
+              readOnly: false
+              subPath: /some/other/sub/path
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            volumeMounts:
+              - name: device-0
+                mountPath: /host/dev/something
+      - isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            volumeMounts:
+              - name: some-volume
+                mountPath: /some/path
+                readOnly: false
+                subPath: /some/sub/path
+              - name: some-other-volume
+                mountPath: /some/other/path
+                readOnly: false
+                subPath: /some/other/sub/path
+              - name: device-some-name-0
+                mountPath: /host/dev/usb
+              - name: device-some-name-1
+                mountPath: /host/dev/serial
