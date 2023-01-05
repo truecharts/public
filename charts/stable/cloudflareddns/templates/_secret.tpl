@@ -2,6 +2,7 @@
 {{- define "cloudflareddns.secret" -}}
 
 {{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
+{{- $cfddns := .Values.cloudflareddns -}}
 {{- $domains := list }}
 {{- $records := list }}
 {{- $zones := list }}
@@ -10,7 +11,6 @@
   {{- $records = mustAppend $records $item.record }}
   {{- $zones = mustAppend $zones $item.zone }}
 {{- end }}
-{{- $cfddns := .Values.cloudflareddns -}}
 ---
 apiVersion: v1
 kind: Secret
