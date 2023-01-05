@@ -20,7 +20,7 @@ runAsUser: {{ $security.runAsUser }}
 runAsGroup: {{ $security.runAsGroup }}
 readOnlyRootFilesystem: {{ $security.readOnlyRootFilesystem }}
 allowPrivilegeEscalation: {{ $security.allowPrivilegeEscalation }}
-privileged: {{ $security.privileged }} {{/* TODO: Set to true if deviceList is used? */}}
+privileged: {{ $security.privileged }}
 capabilities: {{/* TODO: add NET_BIND_SERVICE when port < 80 is used? */}}
   {{- with $security.capabilities.add }}
   add:
