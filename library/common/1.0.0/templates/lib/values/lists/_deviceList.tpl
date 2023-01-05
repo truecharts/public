@@ -6,8 +6,8 @@
     {{/* Generate the name */}}
     {{- $name := (printf "device-%s" (toString $index)) -}}
 
-    {{- if $device.name -}}
-      {{- $name = $device.name -}}
+    {{- with $device.name -}}
+      {{- $name = . -}}
     {{- end -}}
 
     {{/* Make sure a persistence dict exists before trying to add items */}}

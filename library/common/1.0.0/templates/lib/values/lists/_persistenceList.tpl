@@ -6,8 +6,8 @@
     {{/* Generate the name */}}
     {{- $name := (printf "persist-list-%s" (toString $index)) -}}
 
-    {{- if $persistence.name -}}
-      {{- $name = $persistence.name -}}
+    {{- with $persistence.name -}}
+      {{- $name = . -}}
     {{- end -}}
 
     {{/* Make sure a persistence dict exists before trying to add items */}}
