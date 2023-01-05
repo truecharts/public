@@ -90,14 +90,14 @@ questions:
                 description: UPDATE, WARNING, ERROR, INFO
               - value: 3
                 description: UPDATE, WARNING, ERROR, INFO, DEBUG
-        - variable: host_and_record
-          label: Host and Record Type
+        - variable: host_zone_record
+          label: Hosts, Zones and Record Types
           schema:
             type: list
             default: []
             items:
               - variable: hostRecordEntry
-                label: Host and Record Entry
+                label: Host, Zone and Record Type Entry
                 schema:
                   type: dict
                   additional_attrs: true
@@ -109,25 +109,20 @@ questions:
                         required: true
                         default: "example.com"
                         valid_chars: '^((?!\.cf$|\.ga$|\.gq$|\.ml$|\.tk$).)*$'
+                    - variable: zone
+                      label: Zone
+                      schema:
+                        type: string
+                        required: true
+                        valid_chars: '^((?!\.cf$|\.ga$|\.gq$|\.ml$|\.tk$).)*$'
+                        default: ""
                     - variable: type
                       label: Record Type
                       schema:
                         type: string
                         required: true
                         default: "A"
-        - variable: zones
-          label: Zones
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: zoneEntry
-                label: Zone Entry
-                schema:
-                  type: string
-                  default: ""
-                  valid_chars: '^((?!\.cf$|\.ga$|\.gq$|\.ml$|\.tk$).)*$'
-                  required: true
+
 # Include{containerConfig}
 # Include{serviceList}
 # Include{persistenceRoot}

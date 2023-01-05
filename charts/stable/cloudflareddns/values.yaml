@@ -12,25 +12,24 @@ podSecurityContext:
   runAsGroup: 0
 
 cloudflareddns:
-  user: "your.cf.email@example.com"
+  user: your.cf.email@example.com
   api_token: ""
   api_key: ""
   api_token_zone: ""
   interval: 300
-  detect_mode: "dig-whoami.cloudflare"
+  detect_mode: dig-whoami.cloudflare
   detect_override: ""
   log_level: 3
-  zones:
-    - example.com
-    - foobar.com
-    - foobar.com
-  host_and_record:
+  host_zone_record:
     - domain: example.com
-      type: A
+      zone: example.com
+      record: A
     - domain: foobar.com
-      type: A
+      zone: foobar.com
+      record: A
     - domain: foobar.com
-      type: AAAA
+      zone: foobar.com
+      record: AAAA
 
 probes:
   liveness:
@@ -54,7 +53,7 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
   varrun:
     enabled: true
 
