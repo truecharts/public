@@ -134,12 +134,6 @@ questions:
                         required: true
                         default: "example.com"
                         valid_chars: '^((?!\.cf$|\.ga$|\.gq$|\.ml$|\.tk$).)*$'
-                    - variable: type
-                      label: Record Type
-                      schema:
-                        type: string
-                        required: true
-                        default: "A"
 # Include{containerConfig}
 # Include{serviceList}
 # Include{persistenceRoot}
