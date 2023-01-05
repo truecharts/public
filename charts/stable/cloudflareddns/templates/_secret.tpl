@@ -35,6 +35,6 @@ stringData:
   LOG_LEVEL: {{ $cfddns.log_level | quote }}
   DETECTION_MODE: {{ $cfddns.detect_override | default $cfddns.detect_mode | quote }}
   CF_ZONES: {{ join ";" $zones | quote }}
-  CF_HOSTS: {{ join ";" $hosts | quote }}
+  CF_HOSTS: {{ join ";" $domains | quote }}
   CF_RECORDTYPES: {{ join ";" $records | quote }}
 {{- end -}}
