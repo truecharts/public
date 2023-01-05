@@ -34,7 +34,7 @@ tests:
             volumes:
               - name: persist-list-0
                 persistentVolumeClaim:
-                  claimName: release-name-common-test-persist-list-0
+                  claimName: RELEASE-NAME-common-test-persist-list-0
 
   - it: should pass with persistenceList defined
     documentIndex: *deploymentDoc
@@ -92,7 +92,7 @@ tests:
             volumes:
               - name: persist-list-0
                 persistentVolumeClaim:
-                  claimName: release-name-common-test-persist-list-0
+                  claimName: RELEASE-NAME-common-test-persist-list-0
 
   - it: should pass with persistenceList defined, validateHostPath true and a malicious not allowed path
     documentIndex: *deploymentDoc
