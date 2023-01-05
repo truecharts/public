@@ -20,6 +20,10 @@ cloudflareddns:
   detect_mode: "dig-whoami.cloudflare"
   detect_override: ""
   log_level: 3
+  zones:
+    - example.com
+    - foobar.com
+    - foobar.com
   host_and_record:
     - domain: example.com
       type: A

@@ -41,6 +41,8 @@ stringData:
 
   DETECTION_MODE: {{ ternary $cfddns.detect_mode $cfddns.detection_mode (eq $cfddns.detection_mode "") | quote }}
 
+  CF_ZONES: {{ (join ";" (concat $cfddn.zones)) | quote }}
+
   {{/* TODO host_and_record  */}}
 
 {{- end -}}

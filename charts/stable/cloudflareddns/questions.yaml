@@ -124,16 +124,10 @@ questions:
               - variable: zoneEntry
                 label: Zone Entry
                 schema:
-                  type: dict
-                  additional_attrs: true
-                  attrs:
-                    - variable: domain
-                      label: Domain
-                      schema:
-                        type: string
-                        required: true
-                        default: "example.com"
-                        valid_chars: '^((?!\.cf$|\.ga$|\.gq$|\.ml$|\.tk$).)*$'
+                  type: string
+                  default: ""
+                  valid_chars: '^((?!\.cf$|\.ga$|\.gq$|\.ml$|\.tk$).)*$'
+                  required: true
 # Include{containerConfig}
 # Include{serviceList}
 # Include{persistenceRoot}
