@@ -6,51 +6,45 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: secretEnv
+  - variable: cloudflareddns
     group: App Configuration
-    label: Image Secrets
+    label: Cloudflareddns Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: CF_APITOKEN
+        - variable: user
+          label: CF User
+          description: Cloudflare Username (eg. your.cf.email@example.com)
+          schema:
+            type: string
+            default: ""
+        - variable: api_token
           label: CF API Token
           schema:
             type: string
             private: true
             default: ""
-        - variable: CF_APIKEY
+        - variable: api_key
           label: CF API Key
           schema:
             type: string
             private: true
             default: ""
-        - variable: CF_APITOKEN_ZONE
+        - variable: api_token_zone
           label: CF API Token Zone
           schema:
             type: string
             private: true
             default: ""
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: INTERVAL
+        - variable: interval
           label: Interval
           description: Update your DDNS interval in seconds
           schema:
             type: int
             default: 300
-        - variable: LOG_LEVEL
-          label: Log Level
-          description: Level of detail your logs need
-          schema:
-            type: int
-            default: 3
-        - variable: DETECT_MODE
+            min: 60
+        - variable: detect_mode
           label: Detection Mode
           description: How you want to get your WAN IP
           schema:
@@ -75,38 +69,52 @@ questions:
                 description: dig-google.com
               - value: dig-opendns.com
                 description: dig-opendns.com
-        - variable: DETECT_OVERRIDE
+        - variable: detect_override
           label: Detection mode Override
           description: If you want to set DETECTION_MODE to 'local:eth0' for a local interface, this will override the dropdown selection
           schema:
             type: string
             default: ""
-        - variable: CF_USER
-          label: CF User
-          description: Cloudflare Username (eg. your.cf.email@example.com)
+        - variable: log_level
+          label: Log Level
+          description: Level of detail your logs need
           schema:
-            type: string
-            default: ""
-        - variable: CF_HOSTS
-          label: CF Hosts
-          description: Cloudflare Hosts (Domains) (eg. test.example.com;test.foobar.com)
+            type: int
+            default: 3
+            enum:
+              - value: 0
+                description: No log output
+              - value: 1
+                description: UPDATE, WARNING, ERROR
+              - value: 2
+                description: UPDATE, WARNING, ERROR, INFO
+              - value: 3
+                description: UPDATE, WARNING, ERROR, INFO, DEBUG
+        - variable: host_and_record
+          label: Host and Record Type
           schema:
-            type: string
-            valid_chars: '^((?!\.cf$|\.ga$|\.gq$|\.ml$|\.tk$).)*$'
-            default: ""
-        - variable: CF_ZONES
-          label: CF Zones
-          description: Cloudflare DNS Zones (eg. example.com;foobar.com;foobar.com)
-          schema:
-            type: string
-            valid_chars: '^((?!\.cf$|\.ga$|\.gq$|\.ml$|\.tk$).)*$'
-            default: ""
-        - variable: CF_RECORDTYPES
-          label: CF Record Types
-          description: Cloudflare DNS Zones
-          schema:
-            type: string
-            default: A;A;AAAA
+            type: list
+            default: []
+            items:
+              - variable: hostRecordEntry
+                label: Host and Record Entry
+                schema:
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: domain
+                      label: Domain
+                      schema:
+                        type: string
+                        required: true
+                        default: "example.com"
+                        valid_chars: '^((?!\.cf$|\.ga$|\.gq$|\.ml$|\.tk$).)*$'
+                    - variable: type
+                      label: Record Type
+                      schema:
+                        type: string
+                        required: true
+                        default: "A"
 # Include{containerConfig}
 # Include{serviceList}
 # Include{persistenceRoot}
