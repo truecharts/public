@@ -1,33 +1,31 @@
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: cloudflareddns
-version: 3.0.10
 appVersion: "latest"
-description: Update your Cloudflare DNS records automatically for those with a dynamic IP
-type: application
-deprecated: false
-home: https://truecharts.org/charts/stable/cloudflareddns
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloudflareddns.png
-keywords:
-  - ddns
-  - cloudflare
-  - cloudflareddns
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/cloudflareddns
-  - https://github.com/hotio/cloudflareddns
-  - https://hotio.dev/containers/cloudflareddns/
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 11.1.2
-    # condition:
+deprecated: false
+description: Automate Cloudflare DNS records for those with a dynamic IP.
+home: https://truecharts.org/charts/stable/cloudflareddns
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloudflareddns.png
+keywords:
+  - cloudflareddns
+  - ddns
+  - cloudflare
+kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
     url: https://truecharts.org
+name: cloudflareddns
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/cloudflareddns
+  - https://github.com/hotio/cloudflareddns
+  - https://hotio.dev/containers/cloudflareddns/
+type: application
+version: 4.0.0
 annotations:
   truecharts.org/catagories: |
-    - incubator
     - networking
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U
