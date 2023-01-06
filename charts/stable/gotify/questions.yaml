@@ -16,14 +16,14 @@ questions:
       type: dict
       attrs:
         - variable: user
-          label: user
+          label: Username (First install only)
           description: Sets the default admin user.
           schema:
             type: string
             default: ""
             required: true
         - variable: pass
-          label: pass
+          label: Password (First install only)
           description: Sets the default admin pass.
           schema:
             type: string
@@ -32,46 +32,140 @@ questions:
             private: true
         - variable: registration
           label: Registration
-          description: Enable/Disable user registration.
+          description: Enable / Disable user registration.
           schema:
             type: boolean
             default: true
-        - variable: keep_alive_period_seconds
-          label: Keep Alive Period Seconds
-          description: Set the interval in which keepalive packets will be sent. 0 = use Go default (15s); -1 = disable keepalive; Only change this value if you know what you are doing.
-          schema:
-            type: int
-            default: 0
-        - variable: listen_address
-          label: Listen Address
-          description: The address to bind on, leave empty to bind on all addresses.
-          schema:
-            type: string
-            default: ""
-        - variable: ssl_enabled
-          label: SSL Enabled
-          description: If https should be enabled.
-          schema:
-            type: boolean
-            default: false
-        - variable: response_headers
-          label: Response Headers
-          description: Response headers are added to every response (default-> none)
-          schema:
-            type: string
-            default: "X-Custom-Header: "custom value""
-        - variable: stream_period_seconds
-          label: Stream Period Seconds
-          description: The interval in which websocket pings will be sent. Only change this value if you know what you are doing.
-          schema:
-            type: int
-            default: 45
         - variable: password_strength
           label: Password Strength
           description: The bcrypt password strength (higher = better but also slower).
           schema:
             type: int
             default: 10
+        - variable: show_advanced
+          label: Show Advanced Options
+          description: Shows advanced options that should be changed only if you know what you are doing
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: response_headers
+                label: Response Headers
+                description: Response headers are added to every response
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: response_header_entry
+                      label: Response Header Entry
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: key
+                            label: Header Key
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+                          - variable: value
+                            label: Header Value
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+              - variable: keep_alive_period_seconds
+                label: Keep Alive Period Seconds
+                description: Set the interval in which keepalive packets will be sent. 0 = use Go default (15s); -1 = disable keepalive; Only change this value if you know what you are doing.
+                schema:
+                  type: int
+                  required: true
+                  default: 0
+        - variable: stream
+          label: Stream
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: show_advanced
+                label: Show Advanced Options
+                description: Shows advanced options that should be changed only if you know what you are doing
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: ping_period_seconds
+                      label: Ping Period Seconds
+                      description: The interval in which websocket pings will be sent. Only change this value if you know what you are doing.
+                      schema:
+                        type: int
+                        required:
+                        default: 45
+                    - variable: allowed_origins
+                      label: Allowed Origins
+                      description: Allowed origins for websocket connections (Same Origin is always allowed, Default is Same Origin)
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: allowed_origin_entry
+                            label: Allowed Origin Entry
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+        - variable: cors
+          label: CORS
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: show_advanced
+                label: Show Advanced Options
+                description: Shows advanced options that should be changed only if you know what you are doing
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: allowed_origins
+                      label: Allowed Origins
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: allowed_origin_entry
+                            label: Allowed Origin Entry
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+                    - variable: allowed_methos
+                      label: Allowed Methods
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: allowed_method_entry
+                            label: Allowed Method Entry
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+                    - variable: allowed_headers
+                      label: Allowed Headers
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: allowed_header_entry
+                            label: Allowed Header Entry
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
