@@ -116,7 +116,7 @@ questions:
                         required: true
                         valid_chars: '^((?!(\.cf|\.ga|\.gq|\.ml|\.tk)$).)*$'
                         default: ""
-                    - variable: type
+                    - variable: record
                       label: Record Type
                       schema:
                         type: string
