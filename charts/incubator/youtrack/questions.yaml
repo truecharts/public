@@ -17,10 +17,11 @@ questions:
       attrs:
         - variable: baseURL
           label: Base URL
-          description: The URL that end users request to access your YouTrack installation. For example, https://youtrack.mydomain.com.
+          description: The URL that end users request to access your YouTrack installation. For example, https://youtrack.mydomain.com or http://YOUR.SCALE.SERVER.IP:18080
           schema:
             type: string
-            default: http://YOUR.SCALE.SERVER.IP:18080
+            required: true
+            default: ""
         - variable: webHooksBaseUrl
           label: Webhook Base URL
           description: Sets an alternative base URL for your YouTrack server when sending requests to create webhooks in external services.
