@@ -10,6 +10,17 @@ podSecurityContext:
   runAsGroup: 13001
   runAsUser: 13001
 
+youtrack:
+  baseURL: ""
+  hubURL: ""
+  statisticsUpload: false
+  support_email: youtrack-feedback@jetbrains.com
+  admin_restore: false
+  disableCheckForUpdate: false
+  minPrefixQueryLength: 3
+  mailLimit: 0
+
+
 service:
   main:
     ports:
@@ -30,6 +41,10 @@ persistence:
   backups:
     enabled: true
     mountPath: /opt/youtrack/backups
+  youtracktemp:
+    enabled: true
+    mountPath: /opt/youtrack/temp
+    type: emptyDir
 
 portal:
   enabled: true
