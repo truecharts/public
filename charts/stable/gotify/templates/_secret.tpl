@@ -15,7 +15,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
-  config.yml:
+  config.yml: |
     database:
       dialect: postgres
       connection: {{ printf "host=%s port=5432 user=%s dbname=%s password=%s sslmode=disable" $url $dbuser $dbname $password }}
