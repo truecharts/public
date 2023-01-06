@@ -50,7 +50,7 @@ persistence:
     readOnly: true
     defaultMode: "0600"
     objectName: '{{ include "tc.common.names.fullname" . }}-secret'
-    mountPath: /etc/gotify/config.yml
+    mountPath: /app/data/config.yml
     subPath: config.yml
 
 postgresql:
