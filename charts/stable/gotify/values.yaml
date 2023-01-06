@@ -50,7 +50,7 @@ persistence:
     readOnly: true
     defaultMode: "0600"
     objectName: '{{ include "tc.common.names.fullname" . }}-secret'
-    mountPath: /app/data/config.yml
+    mountPath: /app/config.yml
     subPath: config.yml
 
 postgresql:
