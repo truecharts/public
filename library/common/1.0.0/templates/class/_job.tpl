@@ -21,4 +21,3 @@ metadata:
 spec:
   {{- include "ix.v1.common.lib.job" (dict "root" $root "job" $job) | indent 2 -}}
 {{- end -}}
-{{/* TODO: Unit Tests */}}
