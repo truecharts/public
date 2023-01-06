@@ -12,6 +12,17 @@ will be parsed correctly without causing errors.
   {{- $nvidiaCaps := .nvidiaCaps -}}
 
   {{- $nvidiaCaps = $nvidiaCaps | default $root.Values.global.defaults.nvidiaCaps -}}
+
+  {{- if not (deepEqual $nvidiaCaps (mustUniq $nvidiaCaps)) -}}
+    {{- fail (printf "<nvidiaCaps> (%s) are must have unique values only" $nvidiaCaps) -}}
+  {{- end -}}
+
+  {{- range $cap := $nvidiaCaps -}}
+    {{- if not (mustHas $cap (list "compute" "utility" "all" "graphics" "video")) -}}
+      {{- fail (printf "Invalid options in <nvidiaCaps> (%s). Valid options are compute, utility, all, graphics, video"  $cap) -}}
+    {{- end -}}
+  {{- end -}}
+
   {{- $podSecCont := $root.Values.podSecurityContext -}}
 
   {{/* Calculate all security values */}}

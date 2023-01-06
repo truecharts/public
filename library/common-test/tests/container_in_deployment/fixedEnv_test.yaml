@@ -307,6 +307,28 @@ tests:
             - name: S6_READ_ONLY_ROOT
               value: "1"
 
+  - it: should fail with non-unique nvidiaCaps
+    documentIndex: *deploymentDoc
+    set:
+      nvidiaCaps:
+        - compute
+        - compute
+        - utility
+    asserts:
+      - failedTemplate:
+          errorMessage: <nvidiaCaps> ([compute compute utility]) are must have unique values only
+
+  - it: should fail with invalid nvidiaCaps value
+    documentIndex: *deploymentDoc
+    set:
+      nvidiaCaps:
+        - invalid
+        - compute
+        - utility
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid options in <nvidiaCaps> (invalid). Valid options are compute, utility, all, graphics, video
+
   - it: should pass with envs defined with scaleGPU and custom capabilities
     documentIndex: *deploymentDoc
     set:
