@@ -101,7 +101,7 @@ questions:
                       description: The interval in which websocket pings will be sent. Only change this value if you know what you are doing.
                       schema:
                         type: int
-                        required:
+                        required: true
                         default: 45
                     - variable: allowed_origins
                       label: Allowed Origins
@@ -140,9 +140,9 @@ questions:
                             label: Allowed Origin Entry
                             schema:
                               type: string
-                              default: ""
                               required: true
-                    - variable: allowed_methos
+                              default: ""
+                    - variable: allowed_methods
                       label: Allowed Methods
                       schema:
                         type: list

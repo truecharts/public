@@ -15,7 +15,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
-  config.yml
+  config.yml:
     database:
       dialect: postgres
       connection: {{ printf "host=%s port=5432 user=%s dbname=%s password=%s sslmode=disable" $url $dbuser $dbname $password }}
@@ -47,6 +47,7 @@ stringData:
           - {{ $item | quote }}
           {{- end }}
         {{- end }}
+      {{- if or .Values.gotify.cors.allowed_origins .Values.gotify.cors.allowed_methods .Values.gotify.cors.allowed_headers }}
       cors:
         {{- with .Values.gotify.cors.allowed_origins }}
         alloworigins:
@@ -66,4 +67,5 @@ stringData:
           - {{ $item | quote }}
           {{- end }}
         {{- end }}
+      {{- end }}
 {{- end -}}
