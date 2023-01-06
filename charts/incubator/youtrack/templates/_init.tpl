@@ -49,15 +49,15 @@ args:
   - --hub-url={{ . }}
   {{- end }}
   {{- with .Values.youtrack.jvm.maxHeapSize }}
-  - --J-Xmx{{ . }}
+  - -J-Xmx{{ . }}
   {{- end }}
   {{- with .Values.youtrack.jvm.maxMetaspaceMemory }}
-  - --J-XX:MaxMetaspaceSize{{ . }}
+  - -J-XX:MaxMetaspaceSize{{ . }}
   {{- end }}
   {{- with .Values.youtrack.jvm.metaspaceMemory }}
-  - --J-XX:MetaspaceSize{{ . }}
+  - -J-XX:MetaspaceSize{{ . }}
   {{- end }}
   {{- range .Values.youtrack.jvm.extraJVMOptions }}
-  - --J{{ . }}
+  - -J{{ . }}
   {{- end }}
 {{- end -}}
