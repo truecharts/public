@@ -6,7 +6,7 @@
 {{- $domains := list }}
 {{- $records := list }}
 {{- $zones := list }}
-{{- range $item := $cfddns.host_and_record }}
+{{- range $item := $cfddns.host_zone_record }}
   {{- $domains = mustAppend $domains $item.domain }}
   {{- $records = mustAppend $records $item.record }}
   {{- $zones = mustAppend $zones $item.zone }}
