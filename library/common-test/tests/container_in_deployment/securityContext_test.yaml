@@ -333,3 +333,53 @@ tests:
               add: []
               drop:
                 - ALL
+
+  - it: should pass with container port <=1024 defined
+    documentIndex: *deploymentDoc
+    set:
+      service:
+        main:
+          ports:
+            main:
+              port: 5000
+              targetPort: 1024
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].securityContext
+          value:
+            allowPrivilegeEscalation: false
+            privileged: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 568
+            runAsGroup: 568
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+              drop:
+                - ALL
+
+  - it: should pass with container port <=1024 defined
+    documentIndex: *deploymentDoc
+    set:
+      service:
+        main:
+          ports:
+            main:
+              port: 5000
+              targetPort: 80
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].securityContext
+          value:
+            allowPrivilegeEscalation: false
+            privileged: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 568
+            runAsGroup: 568
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+              drop:
+                - ALL

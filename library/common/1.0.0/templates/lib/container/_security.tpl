@@ -10,6 +10,7 @@ The reason is not splitted, is that on one of the places needs a combo of all va
   {{- $root := .root -}}
   {{- $secCont := .secCont -}}
   {{- $deviceList := .deviceList -}}
+  {{- $ports := .ports -}}
   {{- $isMainContainer := .isMainContainer -}}
 
   {{/* Initialiaze Values */}}
@@ -28,6 +29,34 @@ The reason is not splitted, is that on one of the places needs a combo of all va
 
   {{/* Overwrite from values that user/dev passed on this container */}}
   {{- $returnValue = mustMergeOverwrite $returnValue $secCont -}}
+
+  {{- $isPrivilegedPort := false -}}
+
+  {{- if $isMainContainer -}}
+    {{- range $svcName, $svc := $root.Values.service -}}
+      {{- if $svc.enabled -}}
+        {{- range $portName, $port := $svc.ports -}}
+          {{- if $port.enabled -}} {{/* We failback to port if no targetPort is given */}}
+            {{- $portNumber := ($port.targetPort | default $port.port) -}}
+            {{- if le (int $portNumber) 1024 -}}
+              {{- $isPrivilegedPort = true -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- else -}}
+    {{- range $port := $ports -}}
+      {{- if le (int $port.containerPort) 1024 -}}
+        {{- $isPrivilegedPort = true -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{/* If at least on port is the specific container uses a port <=1024, add the NET_BIND_SERVICE capability */}}
+  {{- if $isPrivilegedPort -}}
+    {{- $_ := set $returnValue.capabilities "add" (mustAppend $returnValue.capabilities.add "NET_BIND_SERVICE") -}}
+  {{- end -}}
 
   {{/* Devices need privileged container */}}
   {{- if $deviceList -}}

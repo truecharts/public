@@ -74,6 +74,7 @@
   {{- end -}}
   {{- with (include "ix.v1.common.container.securityContext"  (dict "secCont" $container.securityContext
                                                                     "isMainContainer" false
+                                                                    "ports" $container.ports
                                                                     "deviceList" $container.deviceList
                                                                     "scaleGPU" $container.scaleGPU
                                                                     "root" $root)) | trim }}

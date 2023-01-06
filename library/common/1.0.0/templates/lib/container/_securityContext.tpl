@@ -4,10 +4,15 @@
   {{- $isMainContainer := .isMainContainer -}}
   {{- $deviceList := .deviceList -}}
   {{- $scaleGPU := .scaleGPU -}}
+  {{- $ports := .ports -}}
   {{- $root := .root -}}
 
   {{/* Calculate all security values */}}
-  {{- $security := (include "ix.v1.common.lib.securityContext" (dict "root" $root "secCont" $secCont "deviceList" $deviceList "isMainContainer" $isMainContainer) | fromJson) -}}
+  {{- $security := (include "ix.v1.common.lib.securityContext"  (dict "root" $root
+                                                                      "secCont" $secCont
+                                                                      "deviceList" $deviceList
+                                                                      "isMainContainer" $isMainContainer
+                                                                      "ports" $ports) | fromJson) -}}
 
   {{/* Only run as root if it's explicitly defined */}}
   {{- if or (eq (int $security.runAsUser) 0) (eq (int $security.runAsGroup) 0) -}}
@@ -21,7 +26,7 @@ runAsGroup: {{ $security.runAsGroup }}
 readOnlyRootFilesystem: {{ $security.readOnlyRootFilesystem }}
 allowPrivilegeEscalation: {{ $security.allowPrivilegeEscalation }}
 privileged: {{ $security.privileged }}
-capabilities: {{/* TODO: add NET_BIND_SERVICE when port < 80 is used? */}}
+capabilities:
   {{- with $security.capabilities.add }}
   add:
     {{- range . }}

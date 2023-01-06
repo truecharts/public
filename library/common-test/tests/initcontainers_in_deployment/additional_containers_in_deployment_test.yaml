@@ -587,6 +587,45 @@ tests:
               runAsNonRoot: true
               runAsUser: 568
 
+  - it: should pass with port <=1024 defined in additional container
+    documentIndex: *deploymentDoc
+    set:
+      additionalContainers:
+        some_container:
+          ports:
+            - name: http
+              containerPort: 80
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add: []
+                drop:
+                  - ALL
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+      - isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                add:
+                  - NET_BIND_SERVICE
+                drop:
+                  - ALL
+              privileged: false
+              readOnlyRootFilesystem: true
+              runAsGroup: 568
+              runAsNonRoot: true
+              runAsUser: 568
+
   - it: should pass with deviceList defined in additionalContainer
     documentIndex: *deploymentDoc
     set:
