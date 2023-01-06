@@ -34,6 +34,18 @@ gotify:
       # - Authorization
       # - content-type
 
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret-env'
+
+probes:
+  liveness:
+    path: /health
+  readiness:
+    path: /health
+  startup:
+    path: /health
+
 service:
   main:
     ports:
@@ -50,7 +62,7 @@ persistence:
     readOnly: true
     defaultMode: "0600"
     objectName: '{{ include "tc.common.names.fullname" . }}-secret'
-    mountPath: /app/config.yml
+    mountPath: /etc/gotify/config.yml
     subPath: config.yml
 
 postgresql:
