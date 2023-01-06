@@ -21,29 +21,29 @@ args:
   - -J-Ddisable.configuration.wizard.on.clean.install=true
   - --listen-port={{ .Values.service.main.ports.main.port }}
   - --statistics-upload={{ .Values.youtrack.statisticsUpload }}
-  - --jetbrains.youtrack.disableCheckForUpdate={{ .Values.youtrack.disableCheckForUpdate }}
-  - --jetbrains.dnq.textIndex.minPrefixQueryLength={{ .Values.youtrack.minPrefixQueryLength }}
-  - --jetbrains.youtrack.mailLimit={{ .Values.youtrack.mailLimit }}
-  - --jetbrains.youtrack.event.merge.timeout={{ .Values.youtrack.eventMergeTimeout }}
-  - --jetbrains.youtrack.default.page={{ .Values.youtrack.defaultPage }}
-  - --jetbrains.http.request.header.buffer.size={{ .Values.youtrack.requestHeaderBufferSize }}
-  - --jetbrains.youtrack.dumbMode={{ .Values.youtrack.dumbMode }}
-  - --jetbrains.hub.auth.login.throttling.enabled={{ .Values.youtrack.authThrottlingEnabled }}
+  - -J-Djetbrains.youtrack.disableCheckForUpdate={{ .Values.youtrack.disableCheckForUpdate }}
+  - -J-Djetbrains.dnq.textIndex.minPrefixQueryLength={{ .Values.youtrack.minPrefixQueryLength }}
+  - -J-Djetbrains.youtrack.mailLimit={{ .Values.youtrack.mailLimit }}
+  - -J-Djetbrains.youtrack.event.merge.timeout={{ .Values.youtrack.eventMergeTimeout }}
+  - -J-Djetbrains.youtrack.default.page={{ .Values.youtrack.defaultPage }}
+  - -J-Djetbrains.http.request.header.buffer.size={{ .Values.youtrack.requestHeaderBufferSize }}
+  - -J-Djetbrains.youtrack.dumbMode={{ .Values.youtrack.dumbMode }}
+  - -J-Djetbrains.hub.auth.login.throttling.enabled={{ .Values.youtrack.authThrottlingEnabled }}
   - --base-url={{ .Values.youtrack.baseURL }}
   {{- with .Values.youtrack.licenseName }}
-  - --jetbrains.youtrack.licenseName={{ . }}
+  - -J-Djetbrains.youtrack.licenseName={{ . }}
   {{- end }}
   {{- with .Values.youtrack.licenseKey }}
-  - --jetbrains.youtrack.licenseKey={{ . }}
+  - -J-Djetbrains.youtrack.licenseKey={{ . }}
   {{- end }}
   {{- with .Values.youtrack.webHooksBaseUrl }}
-  - --jetbrains.youtrack.webHooksBaseUrl={{ . }}
+  - -J-Djetbrains.youtrack.webHooksBaseUrl={{ . }}
   {{- end }}
   {{- if .Values.youtrack.admin_restore }}
-  - --jetbrains.youtrack.admin.restore=true
+  - -J-Djetbrains.youtrack.admin.restore=true
   {{- end }}
   {{- with .Values.youtrack.support_email }}
-  - --jetbrains.youtrack.support.email= {{ . }}
+  - -J-Djetbrains.youtrack.support.email= {{ . }}
   {{- end }}
   {{- with .Values.youtrack.hubURL }}
   - --hub-url={{ . }}
