@@ -31,7 +31,8 @@ youtrack:
     maxHeapSize: 1g
     maxMetaspaceMemory: 350m
     metaspaceMemory: 350m
-    extraJVMOptions: []
+    extraJVMOptions:
+      []
       # - -XX:+HeapDumpOnOutOfMemoryError
 
 service:
