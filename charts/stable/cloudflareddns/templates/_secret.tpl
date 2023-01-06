@@ -2,11 +2,11 @@
 {{- define "cloudflareddns.secret" -}}
 
 {{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
-{{- $cfddns := .Values.cloudflareddns -}}
+
 {{- $domains := list }}
 {{- $records := list }}
 {{- $zones := list }}
-{{- range $item := $cfddns.host_and_record }}
+{{- range $item := .Values.cloudflareddns.host_zone_record }}
   {{- $domains = mustAppend $domains $item.domain }}
   {{- $records = mustAppend $records $item.record }}
   {{- $zones = mustAppend $zones $item.zone }}
@@ -19,21 +19,21 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
-  {{- with $cfddns.user }}
+  {{- with .Values.cloudflareddns.user }}
   CF_USER: {{ . | quote }}
   {{- end }}
-  {{- with $cfddns.api_key }}
+  {{- with .Values.cloudflareddns.api_key }}
   CF_APIKEY: {{ . | quote }}
   {{- end }}
-  {{- with $cfddns.api_token }}
+  {{- with .Values.cloudflareddns.api_token }}
   CF_APITOKEN: {{ . | quote }}
   {{- end }}
-  {{- with $cfddns.api_token_zone }}
+  {{- with .Values.cloudflareddns.api_token_zone }}
   CF_APITOKEN_ZONE: {{ . | quote }}
   {{- end }}
-  INTERVAL: {{ $cfddns.interval | quote }}
-  LOG_LEVEL: {{ $cfddns.log_level | quote }}
-  DETECTION_MODE: {{ $cfddns.detect_override | default $cfddns.detect_mode | quote }}
+  INTERVAL: {{ .Values.cloudflareddns.interval | quote }}
+  LOG_LEVEL: {{ .Values.cloudflareddns.log_level | quote }}
+  DETECTION_MODE: {{ .Values.cloudflareddns.detect_override | default .Values.cloudflareddns.detect_mode | quote }}
   CF_ZONES: {{ join ";" $zones | quote }}
   CF_HOSTS: {{ join ";" $domains | quote }}
   CF_RECORDTYPES: {{ join ";" $records | quote }}
