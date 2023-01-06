@@ -43,4 +43,3 @@ spec:
     spec:
   {{- include "ix.v1.common.lib.job" (dict "root" $root "job" $job) | indent 6 -}}
 {{- end -}}
-{{/* TODO: Unit Tests */}}

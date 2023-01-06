@@ -110,3 +110,243 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: <cron.startingDeadlineSeconds> (-1) in <job> (job-name) must be a positive integer.
+
+  - it: should pass with cronjob disabled
+    set:
+      jobs:
+        job-name:
+          enabled: false
+          cron:
+            enabled: false
+    asserts:
+      - hasDocuments:
+          count: 3
+
+  - it: should pass with cronjob defined
+    documentIndex: &cronJobDoc 3
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          containers:
+            some-container:
+    asserts:
+      - isKind:
+          of: CronJob
+      - isAPIVersion:
+          of: batch/v1
+      - isNull:
+          path: metadata.annotations
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test-job-name
+
+  - it: should pass with nameOverride in cronjob defined
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          nameOverride: other-job-name
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          containers:
+            some-container:
+    asserts:
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test-other-job-name
+
+  - it: should pass with global labels and labels from tpl defined in cronjob
+    documentIndex: *cronJobDoc
+    set:
+      l1: val1
+      l2: val2
+      global:
+        labels:
+          label1: val3
+          label2: val4
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+            labels:
+              l1: "{{ .Values.l1 }}"
+              l2: "{{ .Values.l2 }}"
+          containers:
+            some-container:
+    asserts:
+      - equal:
+          path: metadata.labels
+          value:
+            app: common-test
+            release: RELEASE-NAME
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/version: v1.0.0
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            l1: val1
+            l2: val2
+            label1: val3
+            label2: val4
+
+  - it: should pass with annotations from tpl defined in cronjob
+    documentIndex: *cronJobDoc
+    set:
+      a1: val1
+      a2: val2
+      global:
+        annotations:
+          annotation1: val3
+          annotation2: val4
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+            annotations:
+              a1: "{{ .Values.a1 }}"
+              a2: "{{ .Values.a2 }}"
+          containers:
+            some-container:
+    asserts:
+      - equal:
+          path: metadata.annotations
+          value:
+            a1: val1
+            a2: val2
+            annotation1: val3
+            annotation2: val4
+
+  - it: should pass with defaults defined defined in cronjob
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          containers:
+            some-container:
+    asserts:
+      - isSubset:
+          path: spec
+          content:
+            schedule: "* * * * *"
+            timeZone: UTC
+            concurrencyPolicy: Forbid
+            failedJobsHistoryLimit: 1
+            successfulJobsHistoryLimit: 3
+            jobTemplate:
+              spec:
+
+  - it: should pass with schedule defined defined in cronjob
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          containers:
+            some-container:
+    asserts:
+      - equal:
+          path: spec.schedule
+          value: "* * * * *"
+
+  - it: should pass with timezone defined in cronjob
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+            timezone: Europe/Athens
+          containers:
+            some-container:
+    asserts:
+      - equal:
+          path: spec.timeZone
+          value: Europe/Athens
+
+  - it: should pass with concurrencyPolicy defined in cronjob
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+            concurrencyPolicy: Allow
+          containers:
+            some-container:
+    asserts:
+      - equal:
+          path: spec.concurrencyPolicy
+          value: Allow
+
+  - it: should pass with failedJobsHistoryLimit defined in cronjob
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+            failedJobsHistoryLimit: 5
+          containers:
+            some-container:
+    asserts:
+      - equal:
+          path: spec.failedJobsHistoryLimit
+          value: 5
+
+  - it: should pass with successfulJobsHistoryLimit defined in cronjob
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+            successfulJobsHistoryLimit: 5
+          containers:
+            some-container:
+    asserts:
+      - equal:
+          path: spec.successfulJobsHistoryLimit
+          value: 5
+
+  - it: should pass with startingDeadLineSeconds defined in cronjob
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+            startingDeadLineSeconds: 150
+          containers:
+            some-container:
+    asserts:
+      - equal:
+          path: spec.startingDeadLineSeconds
+          value: 150
