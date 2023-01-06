@@ -11,10 +11,13 @@ volumeMounts:
     mountPath: {{ .Values.persistence.conf.mountPath }}
 args:
   - configure
-  {{- (include "youtrack.args" . | trim) | nindent 2 -}}
+  {{- range (include "youtrack.args" . | fromYaml).args }}
+  - {{ . }}
+  {{- end -}}
 {{- end -}}
 
 {{- define "youtrack.args" -}}
+args:
   - --listen-port={{ .Values.service.main.ports.main.port }}
   - --data-dir={{ .Values.persistence.data.mountPath }}
   - --temp-dir={{ .Values.persistence.youtracktemp.mountPath }}
