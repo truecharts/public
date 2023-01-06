@@ -1,6 +1,6 @@
 image:
-  repository: jetbrains/youtrack
-  tag: 2022.2.55618
+  repository: tccr.io/truecharts/youtrack
+  tag: 2022.3.65360@sha256:558c3df7c3188fa6eff309a0c0ad87a6c763f42fc84e7c842bac7fb8b7856d11
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -12,14 +12,26 @@ podSecurityContext:
 
 youtrack:
   baseURL: ""
+  webHooksBaseUrl: ""
   hubURL: ""
-  statisticsUpload: false
+  defaultPage: /dashboard
   support_email: youtrack-feedback@jetbrains.com
-  admin_restore: false
   disableCheckForUpdate: false
   minPrefixQueryLength: 3
   mailLimit: 0
-
+  eventMergeTimeout: 60000
+  requestHeaderBufferSize: 102400
+  licenseName: ""
+  licenseKey: ""
+  statisticsUpload: false
+  dumbMode: false
+  admin_restore: false
+  jvm:
+    maxHeapSize: 1g
+    maxMetaspaceMemory: 350m
+    metaspaceMemory: 350m
+    extraJVMOptions: []
+      # - -XX:+HeapDumpOnOutOfMemoryError
 
 service:
   main:

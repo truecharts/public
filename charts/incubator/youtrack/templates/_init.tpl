@@ -19,14 +19,23 @@ args:
 {{- define "youtrack.args" -}}
 args:
   - --listen-port={{ .Values.service.main.ports.main.port }}
-  - --data-dir={{ .Values.persistence.data.mountPath }}
-  - --temp-dir={{ .Values.persistence.youtracktemp.mountPath }}
-  - --logs-dir={{ .Values.persistence.logs.mountPath }}
-  - --backups-dir={{ .Values.persistence.backups.mountPath }}
   - --statistics-upload={{ .Values.youtrack.statisticsUpload }}
   - --jetbrains.youtrack.disableCheckForUpdate={{ .Values.youtrack.disableCheckForUpdate }}
   - --jetbrains.dnq.textIndex.minPrefixQueryLength={{ .Values.youtrack.minPrefixQueryLength }}
   - --jetbrains.youtrack.mailLimit={{ .Values.youtrack.mailLimit }}
+  - --jetbrains.youtrack.event.merge.timeout={{ .Values.youtrack.eventMergeTimeout }}
+  - --jetbrains.youtrack.default.page={{ .Values.youtrack.defaultPage }}
+  - --jetbrains.http.request.header.buffer.size={{ .Values.youtrack.requestHeaderBufferSize }}
+  - --jetbrains.youtrack.dumbMode={{ .Values.youtrack.dumbMode }}
+  {{- with .Values.youtrack.licenseName }}
+  - --jetbrains.youtrack.licenseName={{ . }}
+  {{- end }}
+  {{- with .Values.youtrack.licenseKey }}
+  - --jetbrains.youtrack.licenseKey={{ . }}
+  {{- end }}
+  {{- with .Values.youtrack.webHooksBaseUrl }}
+  - --jetbrains.youtrack.webHooksBaseUrl={{ . }}
+  {{- end }}
   {{- if .Values.youtrack.admin_restore }}
   - --jetbrains.youtrack.admin.restore=true
   {{- end }}
@@ -38,5 +47,17 @@ args:
   {{- end }}
   {{- with .Values.youtrack.hubURL }}
   - --hub-url={{ . }}
+  {{- end }}
+  {{- with .Values.youtrack.jvm.maxHeapSize }}
+  - --J-Xmx{{ . }}
+  {{- end }}
+  {{- with .Values.youtrack.jvm.maxMetaspaceMemory }}
+  - --J-XX:MaxMetaspaceSize{{ . }}
+  {{- end }}
+  {{- with .Values.youtrack.jvm.metaspaceMemory }}
+  - --J-XX:MetaspaceSize{{ . }}
+  {{- end }}
+  {{- range .Values.youtrack.jvm.extraJVMOptions }}
+  - --J{{ . }}
   {{- end }}
 {{- end -}}
