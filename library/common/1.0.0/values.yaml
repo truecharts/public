@@ -195,6 +195,14 @@ global:
           periodSeconds: 5
           timeoutSeconds: 2
           failureThreshold: 60
+    # Default job/cronjob values
+    job:
+      cron:
+        concurrencyPolicy: Forbid
+        failedJobsHistoryLimit: 1
+        successfulJobsHistoryLimit: 3
+      backoffLimit: 6
+      completionMode: NonIndexed
 
 nameOverride: ""
 

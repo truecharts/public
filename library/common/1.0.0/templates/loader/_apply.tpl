@@ -30,6 +30,8 @@
 
   {{- include "ix.v1.common.spawner.portal" . | nindent 0 -}}
 
+  {{- include "ix.v1.common.spawner.jobAndCronJob" . | nindent 0 -}}
+
   {{- include "ix.v1.common.util.envCheckDupes" (dict "root" .) -}}
 
 {{- end -}}

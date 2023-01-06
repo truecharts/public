@@ -288,3 +288,23 @@ nameOverride applies only to the current chart
 
   {{- $svcName -}}
 {{- end -}}
+
+{{/* Returns the pvc name. */}}
+{{- define "ix.v1.common.names.jobAndCronJob" -}}
+  {{- $root := .root -}}
+  {{- $jobValues := .jobValues -}}
+
+  {{- if or (not $root) (not $jobValues) -}}
+    {{- fail "Named function <names.jobAndCronJob> did not receive required values" -}}
+  {{- end -}}
+
+  {{- $jobName := include "ix.v1.common.names.fullname" $root -}}
+
+  {{- if and (hasKey $jobValues "nameOverride") $jobValues.nameOverride -}}
+    {{- if not (eq $jobValues.nameOverride "-") -}}
+      {{- $jobName = printf "%v-%v" $jobName $jobValues.nameOverride -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $jobName -}}
+{{- end -}}
