@@ -3,46 +3,71 @@ image:
   pullPolicy: IfNotPresent
   tag: 2.2.2@sha256:740c2e6236b0d197f2c43b39714b802161fdfec17866dade32966ed4d2c9a7d1
 
-secretEnv:
-  user: "admin"
-  pass: "admin"
-
-env:
-  GOTIFY_SERVER_PORT: 8080
-  GOTIFY_SERVER_KEEPALIVEPERIODSECONDS: 0
-  GOTIFY_SERVER_LISTENADDR: ""
-  GOTIFY_SERVER_SSL_ENABLED: false
-  # lists are a little weird but do-able (:
-  # GOTIFY_SERVER_SSL_LETSENCRYPT_HOSTS: "- mydomain.tld\n- myotherdomain.tld"
-  GOTIFY_SERVER_RESPONSEHEADERS: 'X-Custom-Header: "custom value"'
-  # GOTIFY_SERVER_CORS_ALLOWORIGINS: "- \".+.example.com\"\n- \"otherdomain.com\""
-  # GOTIFY_SERVER_CORS_ALLOWMETHODS: "- \"GET\"\n- \"POST\""
-  # GOTIFY_SERVER_CORS_ALLOWHEADERS: "- \"Authorization\"\n- \"content-type\""
-  # GOTIFY_SERVER_STREAM_ALLOWEDORIGINS: "- \".+.example.com\"\n- \"otherdomain.com\""
-  GOTIFY_SERVER_STREAM_PINGPERIODSECONDS: 45
-  GOTIFY_PASSSTRENGTH: 10
-  GOTIFY_UPLOADEDIMAGESDIR: "data/images"
-  GOTIFY_PLUGINSDIR: "data/plugins"
+gotify:
+  user: admin
+  pass: admin
+  registration: false
+  password_strength: 10
+  # Advanced
+  response_headers:
+    []
+    # - key: X-Custom-Header
+    #   value: "custom value"
+  keep_alive_period_seconds: 0
+  stream:
+    ping_period_seconds: 45
+    allowed_origins:
+      []
+      # - example.com
+      # - domain.com
+  cors:
+    allowed_origins:
+      []
+      # - ".+.example.com"
+      # - "otherdomain.com"
+    allowed_methods:
+      []
+      # - GET
+      # - POST
+    allowed_headers:
+      []
+      # - Authorization
+      # - content-type
 
 envFrom:
-  - configMapRef:
-      name: gotifyenv
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret-env'
+
+probes:
+  liveness:
+    path: /health
+  readiness:
+    path: /health
+  startup:
+    path: /health
 
 service:
   main:
     ports:
       main:
         port: 10084
-        targetPort: 8080
 
 persistence:
   data:
     enabled: true
-    mountPath: "/app/data"
+    mountPath: /app/data
+  config-file:
+    enabled: true
+    type: secret
+    readOnly: true
+    defaultMode: "0600"
+    objectName: '{{ include "tc.common.names.fullname" . }}-secret'
+    mountPath: /etc/gotify/config.yml
+    subPath: config.yml
 
 postgresql:
   enabled: true
-  existingSecret: "dbcreds"
+  existingSecret: dbcreds
   postgresqlUsername: gotify
   postgresqlDatabase: gotify
 
