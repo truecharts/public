@@ -18,6 +18,7 @@ args:
 
 {{- define "youtrack.args" -}}
 args:
+  - -J-Ddisable.configuration.wizard.on.clean.install=true
   - --listen-port={{ .Values.service.main.ports.main.port }}
   - --statistics-upload={{ .Values.youtrack.statisticsUpload }}
   - --jetbrains.youtrack.disableCheckForUpdate={{ .Values.youtrack.disableCheckForUpdate }}
@@ -27,6 +28,8 @@ args:
   - --jetbrains.youtrack.default.page={{ .Values.youtrack.defaultPage }}
   - --jetbrains.http.request.header.buffer.size={{ .Values.youtrack.requestHeaderBufferSize }}
   - --jetbrains.youtrack.dumbMode={{ .Values.youtrack.dumbMode }}
+  - --jetbrains.hub.auth.login.throttling.enabled={{ .Values.youtrack.authThrottlingEnabled }}
+  - --base-url={{ .Values.youtrack.baseURL }}
   {{- with .Values.youtrack.licenseName }}
   - --jetbrains.youtrack.licenseName={{ . }}
   {{- end }}
@@ -42,12 +45,8 @@ args:
   {{- with .Values.youtrack.support_email }}
   - --jetbrains.youtrack.support.email= {{ . }}
   {{- end }}
-  {{- with .Values.youtrack.baseURL }}
-  - --base-url={{ . }}
-  {{- end }}
-  {{- if .Values.youtrack.hubURL }}
-  - --jetbrains.hub.auth.login.throttling.enabled={{ .Values.youtrack.authThrottlingEnabled }}
-  - --hub-url={{ .Values.youtrack.hubURL }}
+  {{- with .Values.youtrack.hubURL }}
+  - --hub-url={{ . }}
   {{- end }}
   {{- with .Values.youtrack.jvm.maxHeapSize }}
   - -J-Xmx{{ . }}

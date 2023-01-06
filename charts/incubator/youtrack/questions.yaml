@@ -20,7 +20,7 @@ questions:
           description: The URL that end users request to access your YouTrack installation. For example, https://youtrack.mydomain.com.
           schema:
             type: string
-            default: ""
+            default: http://YOUR.SCALE.SERVER.IP:18080
         - variable: webHooksBaseUrl
           label: Webhook Base URL
           description: Sets an alternative base URL for your YouTrack server when sending requests to create webhooks in external services.
@@ -50,7 +50,6 @@ questions:
           label: Auth Throttling Enabled
           description: Sets the status of the throttling feature for the Hub authentication module. When true, authentication throttling is enabled.
           schema:
-            show_if: [[ "hubURL", "!=", "" ]]
             type: boolean
             default: false
         - variable: disableCheckForUpdate
