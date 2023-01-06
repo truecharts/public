@@ -3,9 +3,10 @@
 
 {{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
 
-{{ $url := ( .Values.postgresql.url.plain | trimAll "\"" ) }}
-{{ $password := ( .Values.postgresql.postgresqlPassword | trimAll "\"" ) }}
-
+{{- $url := (.Values.postgresql.url.plain | trimAll "\"") }}
+{{- $password := (.Values.postgresql.postgresqlPassword | trimAll "\"") }}
+{{- $dbuser := .Values.postgresql.postgresqlUsername }}
+{{- $dbname := .Values.postgresql.postgresqlDatabase }}
 ---
 apiVersion: v1
 kind: Secret
@@ -14,25 +15,54 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
-  GOTIFY_SERVER_PORT: {{ .Values.service.main.ports.main.port }}
+  config.yml
+    database:
+      dialect: postgres
+      connection: {{ printf "host=%s port=5432 user=%s dbname=%s password=%s sslmode=disable" $url $dbuser $dbname $password }}
+    uploadedimagesdir: {{ printf "%s/images" .Values.persistence.data.mountPath }}
+    {{- if .Values.gotify.plugins_enabled }}
+    pluginsdir: {{ printf "%s/plugins" .Values.persistence.data.mountPath }}
+    {{- end }}
+    defaultuser:
+      name: {{ .Values.gotify.user }}
+      pass: {{ .Values.gotify.pass }}
+    passstrength: {{ .Values.gotify.password_strength }}
+    registration: {{ .Values.gotify.registration }}
+    server:
+      listenaddr: ""
+      keepaliveperiodseconds: {{ .Values.gotify.keep_alive_period_seconds }}
+      port: {{ .Values.service.main.ports.main.port }}
+      {{- with .Values.gotify.response_headers }}
+      responseheaders:
+        {{- range $item := . }}
+        {{ $item.key }}: {{ $item.value | quote }}
+        {{- end }}
+      {{- end }}
 
-  {{/* Auth */}}
-  GOTIFY_DEFAULTUSER_NAME: {{ .Values.gotify.user }}
-  GOTIFY_DEFAULTUSER_PASS: {{ .Values.gotify.pass }}
-
-  GOTIFY_REGISTRATION: {{ .Values.gotify.registration }}
-  GOTIFY_SERVER_KEEPALIVEPERIODSECONDS: {{ .Values.gotify.keep_alive_period_seconds }}
-  GOTIFY_SERVER_LISTENADDR: {{ .Values.gotify.listen_address }}
-  GOTIFY_SERVER_SSL_ENABLED: {{ .Values.gotify.ssl_enabled }}
-  GOTIFY_SERVER_RESPONSEHEADERS: {{ .Values.gotify.response_headers }}
-  GOTIFY_SERVER_STREAM_PINGPERIODSECONDS: {{ .Values.gotify.stream_period_seconds }}
-  GOTIFY_PASSSTRENGTH: {{ .Values.gotify.password_strength }}
-
-  {{/* Dirs */}}
-  GOTIFY_UPLOADEDIMAGESDIR: "data/images"
-  GOTIFY_PLUGINSDIR: "data/plugins"
-
-  {{/* Database */}}
-  GOTIFY_DATABASE_CONNECTION: "host={{ $url }} port=5432 user={{ .Values.postgresql.postgresqlUsername }} dbname={{ .Values.postgresql.postgresqlDatabase }} password={{ $password }} sslmode=disable"
-  GOTIFY_DATABASE_DIALECT: "postgres"
+      stream:
+        pingperiodseconds: {{ .Values.gotify.stream.ping_period_seconds }}
+        {{- with .Values.gotify.stream.allowed_origins }}
+        allowedorigins:
+          {{- range $item := . }}
+          - {{ $item | quote }}
+          {{- end }}
+        {{- end }}
+      cors:
+        {{- with .Values.gotify.cors.allowed_origins }}
+        alloworigins:
+          {{- range $item := . }}
+          - {{ $item | quote }}
+          {{- end }}
+        {{- end }}
+        allowmethods:
+          {{- range $item := . }}
+          - {{ $item | quote }}
+          {{- end }}
+        {{- end }}
+        {{- with .Values.gotify.cors.allowed_headers }}
+        allowheaders:
+          {{- range $item := . }}
+          - {{ $item | quote }}
+          {{- end }}
+        {{- end }}
 {{- end -}}

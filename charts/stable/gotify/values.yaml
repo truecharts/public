@@ -7,22 +7,27 @@ gotify:
   user: admin
   pass: admin
   registration: false
-  keep_alive_period_seconds: 0
-  listen_address: ""
-  ssl_enabled: false
-  # lists are a little weird but do-able (:
-  # ssl_letsencrypt_hosts: "- mydomain.tld\n- myotherdomain.tld"
-  response_headers: 'X-Custom-Header: "custom value"'
-  # cors_allow_origins: "- \".+.example.com\"\n- \"otherdomain.com\""
-  # cors_allow_methods: "- \"GET\"\n- \"POST\""
-  # cors_allow_headers: "- \"Authorization\"\n- \"content-type\""
-  # stream_allow_origins: "- \".+.example.com\"\n- \"otherdomain.com\""
-  stream_period_seconds: 45
   password_strength: 10
-
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
+  # Advanced
+  response_headers: []
+    # - key: X-Custom-Header
+      # value: "custom value"
+  keep_alive_period_seconds: 0
+  stream:
+    ping_period_seconds: 45
+    allowed_origins: []
+      # - example.com
+      # - domain.com
+  cors:
+    allowed_origins: []
+      # - ".+.example.com"
+      # - "otherdomain.com"
+    allowed_methods: []
+      # - GET
+      # - POST
+    allowed_headers: []
+      # - Authorization
+      # - content-type
 
 service:
   main:
@@ -33,11 +38,19 @@ service:
 persistence:
   data:
     enabled: true
-    mountPath: "/app/data"
+    mountPath: /app/data
+  config-file:
+    enabled: true
+    type: secret
+    readOnly: true
+    defaultMode: "0600"
+    objectName: '{{ include "tc.common.names.fullname" . }}-secret'
+    mountPath: /etc/gotify/config.yml
+    subPath: config.yml
 
 postgresql:
   enabled: true
-  existingSecret: "dbcreds"
+  existingSecret: dbcreds
   postgresqlUsername: gotify
   postgresqlDatabase: gotify
 
