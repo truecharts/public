@@ -18,9 +18,13 @@ args:
 
 {{- define "youtrack.args" -}}
 args:
-  - -J-Ddisable.configuration.wizard.on.clean.install=true
   - --listen-port={{ .Values.service.main.ports.main.port }}
+  - --base-url={{ .Values.youtrack.baseURL }}
   - --statistics-upload={{ .Values.youtrack.statisticsUpload }}
+  {{- with .Values.youtrack.hubURL }}
+  - --hub-url={{ . }}
+  {{- end }}
+  - -J-Ddisable.configuration.wizard.on.clean.install=true
   - -J-Djetbrains.youtrack.disableCheckForUpdate={{ .Values.youtrack.disableCheckForUpdate }}
   - -J-Djetbrains.dnq.textIndex.minPrefixQueryLength={{ .Values.youtrack.minPrefixQueryLength }}
   - -J-Djetbrains.youtrack.mailLimit={{ .Values.youtrack.mailLimit }}
@@ -29,7 +33,6 @@ args:
   - -J-Djetbrains.http.request.header.buffer.size={{ .Values.youtrack.requestHeaderBufferSize }}
   - -J-Djetbrains.youtrack.dumbMode={{ .Values.youtrack.dumbMode }}
   - -J-Djetbrains.hub.auth.login.throttling.enabled={{ .Values.youtrack.authThrottlingEnabled }}
-  - --base-url={{ .Values.youtrack.baseURL }}
   {{- with .Values.youtrack.licenseName }}
   - -J-Djetbrains.youtrack.licenseName={{ . }}
   {{- end }}
@@ -44,9 +47,6 @@ args:
   {{- end }}
   {{- with .Values.youtrack.support_email }}
   - -J-Djetbrains.youtrack.support.email= {{ . }}
-  {{- end }}
-  {{- with .Values.youtrack.hubURL }}
-  - --hub-url={{ . }}
   {{- end }}
   {{- with .Values.youtrack.jvm.maxHeapSize }}
   - -J-Xmx{{ . }}
