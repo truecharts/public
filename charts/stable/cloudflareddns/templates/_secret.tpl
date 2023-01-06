@@ -4,12 +4,12 @@
 {{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
 {{- $cfddns := .Values.cloudflareddns -}}
 {{- $domains := list }}
-{{- $records := list }}
 {{- $zones := list }}
+{{- $types := list }}
 {{- range $item := $cfddns.host_zone_record }}
   {{- $domains = mustAppend $domains $item.domain }}
-  {{- $records = mustAppend $records $item.record }}
   {{- $zones = mustAppend $zones $item.zone }}
+  {{- $types = mustAppend $types $item.type }}
 {{- end }}
 ---
 apiVersion: v1
@@ -34,7 +34,7 @@ stringData:
   INTERVAL: {{ $cfddns.interval | quote }}
   LOG_LEVEL: {{ $cfddns.log_level | quote }}
   DETECTION_MODE: {{ $cfddns.detect_override | default $cfddns.detect_mode | quote }}
-  CF_ZONES: {{ join ";" $zones | quote }}
   CF_HOSTS: {{ join ";" $domains | quote }}
-  CF_RECORDTYPES: {{ join ";" $records | quote }}
+  CF_ZONES: {{ join ";" $zones | quote }}
+  CF_RECORDTYPES: {{ join ";" $types | quote }}
 {{- end -}}
