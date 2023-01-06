@@ -21,15 +21,16 @@ cloudflareddns:
   detect_override: ""
   log_level: 3
   host_zone_record:
-    - domain: example.com
-      zone: example.com
-      record: A
-    - domain: foobar.com
-      zone: foobar.com
-      record: A
-    - domain: foobar.com
-      zone: foobar.com
-      record: AAAA
+    []
+    # - domain: example.com
+    #   zone: example.com
+    #   record: A
+    # - domain: foobar.com
+    #   zone: foobar.com
+    #   record: A
+    # - domain: foobar.com
+    #   zone: foobar.com
+    #   record: AAAA
 
 probes:
   liveness:
