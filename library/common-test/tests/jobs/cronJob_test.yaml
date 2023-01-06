@@ -227,7 +227,7 @@ tests:
             annotation1: val3
             annotation2: val4
 
-  - it: should pass with defaults defined defined in cronjob
+  - it: should pass with defaults in cronjob
     documentIndex: *cronJobDoc
     set:
       jobs:
@@ -247,8 +247,72 @@ tests:
             concurrencyPolicy: Forbid
             failedJobsHistoryLimit: 1
             successfulJobsHistoryLimit: 3
-            jobTemplate:
-              spec:
+
+  - it: should pass with defaults in multiple cronjob (1/2)
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          containers:
+            some-container:
+        other-job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          containers:
+            some-container:
+    asserts:
+      - isKind:
+          of: CronJob
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test-job-name
+      - isSubset:
+          path: spec
+          content:
+            schedule: "* * * * *"
+            timeZone: UTC
+            concurrencyPolicy: Forbid
+            failedJobsHistoryLimit: 1
+            successfulJobsHistoryLimit: 3
+
+  - it: should pass with defaults in multiple cronjob (2/2)
+    documentIndex: &otherCronJobDoc 4
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          containers:
+            some-container:
+        other-job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          containers:
+            some-container:
+    asserts:
+      - isKind:
+          of: CronJob
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test-other-job-name
+      - isSubset:
+          path: spec
+          content:
+            schedule: "* * * * *"
+            timeZone: UTC
+            concurrencyPolicy: Forbid
+            failedJobsHistoryLimit: 1
+            successfulJobsHistoryLimit: 3
 
   - it: should pass with schedule defined defined in cronjob
     documentIndex: *cronJobDoc
@@ -350,3 +414,32 @@ tests:
       - equal:
           path: spec.startingDeadLineSeconds
           value: 150
+
+  - it: should pass with values set in jobTemplate
+    documentIndex: *cronJobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          cron:
+            enabled: true
+            schedule: "* * * * *"
+          completions: 5
+          parallelism: 6
+          backoffLimit: 3
+          activeDeadlineSeconds: 120
+          ttlSecondsAfterFinished: 150
+          containers:
+            some-container:
+    asserts:
+      - isSubset:
+          path: spec.jobTemplate.spec
+          content:
+            completions: 5
+            parallelism: 6
+            backoffLimit: 3
+            activeDeadlineSeconds: 120
+            ttlSecondsAfterFinished: 150
+
+# TODO: add basic test to make sure jobTemplate spec (mostly containers part) is actually rendered
+# Most of the jobTemplate spec will be tested on another file

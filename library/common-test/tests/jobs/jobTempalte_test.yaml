@@ -128,3 +128,164 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: At least one container in <containers> is required in <job> (job-name).
+
+  - it: should pass with default in job
+    documentIndex: &jobDoc 3
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          containers:
+            some-container:
+    asserts:
+      - isKind:
+          of: Job
+      - isAPIVersion:
+          of: batch/v1
+      - isSubset:
+          path: spec
+          content:
+            backoffLimit: 6
+            completionMode: NonIndexed
+
+  - it: should pass with default in multiple job (1/2)
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          containers:
+            some-container:
+        other-job-name:
+          enabled: true
+          containers:
+            some-container:
+    asserts:
+      - isKind:
+          of: Job
+      - isAPIVersion:
+          of: batch/v1
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test-job-name
+      - isSubset:
+          path: spec
+          content:
+            backoffLimit: 6
+            completionMode: NonIndexed
+
+  - it: should pass with default in multiple job (2/2)
+    documentIndex: &otherJobDoc 4
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          containers:
+            some-container:
+        other-job-name:
+          enabled: true
+          containers:
+            some-container:
+    asserts:
+      - isKind:
+          of: Job
+      - isAPIVersion:
+          of: batch/v1
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test-other-job-name
+      - isSubset:
+          path: spec
+          content:
+            backoffLimit: 6
+            completionMode: NonIndexed
+
+  - it: should pass with backoffLimit set in job
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          backoffLimit: 3
+          containers:
+            some-container:
+    asserts:
+      - isSubset:
+          path: spec
+          content:
+            backoffLimit: 3
+
+  - it: should pass with completionMode set in job
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          completionMode: Indexed
+          containers:
+            some-container:
+    asserts:
+      - isSubset:
+          path: spec
+          content:
+            completionMode: Indexed
+
+  - it: should pass with ttlSecondsAfterFinished set in job
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          ttlSecondsAfterFinished: 150
+          containers:
+            some-container:
+    asserts:
+      - isSubset:
+          path: spec
+          content:
+            ttlSecondsAfterFinished: 150
+
+  - it: should pass with activeDeadlineSeconds set in job
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          activeDeadlineSeconds: 120
+          containers:
+            some-container:
+    asserts:
+      - isSubset:
+          path: spec
+          content:
+            activeDeadlineSeconds: 120
+
+  - it: should pass with parallelism set in job
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          parallelism: 5
+          containers:
+            some-container:
+    asserts:
+      - isSubset:
+          path: spec
+          content:
+            parallelism: 5
+
+  - it: should pass with completions set in job
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          completions: 5
+          containers:
+            some-container:
+    asserts:
+      - isSubset:
+          path: spec
+          content:
+            completions: 5
