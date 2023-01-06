@@ -15,8 +15,7 @@ service:
     ports:
       main:
         port: 18080
-        protocol: TCP
-        targetPort: 8080
+        protocol: HTTP
 
 persistence:
   data:
