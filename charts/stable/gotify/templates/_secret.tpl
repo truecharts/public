@@ -54,6 +54,7 @@ stringData:
           - {{ $item | quote }}
           {{- end }}
         {{- end }}
+        {{- with .Values.gotify.cors.allowed_methods }}
         allowmethods:
           {{- range $item := . }}
           - {{ $item | quote }}

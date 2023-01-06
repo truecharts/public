@@ -9,23 +9,28 @@ gotify:
   registration: false
   password_strength: 10
   # Advanced
-  response_headers: []
+  response_headers:
+    []
     # - key: X-Custom-Header
       # value: "custom value"
   keep_alive_period_seconds: 0
   stream:
     ping_period_seconds: 45
-    allowed_origins: []
+    allowed_origins:
+      []
       # - example.com
       # - domain.com
   cors:
-    allowed_origins: []
+    allowed_origins:
+      []
       # - ".+.example.com"
       # - "otherdomain.com"
-    allowed_methods: []
+    allowed_methods:
+      []
       # - GET
       # - POST
-    allowed_headers: []
+    allowed_headers:
+      []
       # - Authorization
       # - content-type
 
