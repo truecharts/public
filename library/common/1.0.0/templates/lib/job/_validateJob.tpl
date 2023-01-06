@@ -61,5 +61,8 @@
     {{- end -}}
   {{- end -}}
 
+  {{- if not $job.containers -}}
+    {{ fail (printf "At least one container in <containers> is required in <job> (%s)." $name) }}
+  {{- end -}}
 {{- end -}}
 {{/* TODO: Unit Tests */}}

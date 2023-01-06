@@ -1,0 +1,130 @@
+suite: jobTemplate test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &deploymentDoc 0
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Deployment
+
+  - it: should fail with zero value in backoffLimit in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          backoffLimit: 0
+    asserts:
+      - failedTemplate:
+          errorMessage: Zero value in <backoffLimit> (0) in <job> (job-name) is not allowed. Leave empty to use the default (6)
+
+  - it: should fail with negative value in backoffLimit in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          backoffLimit: -1
+    asserts:
+      - failedTemplate:
+          errorMessage: <backoffLimit> (-1) in <job> (job-name) must be a positive integer. Leave empty to use the default (6)
+
+  - it: should fail with zero value in ttlSecondsAfterFinished in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          ttlSecondsAfterFinished: 0
+    asserts:
+      - failedTemplate:
+          errorMessage: Zero value in <ttlSecondsAfterFinished> (0) in <job> (job-name) is not allowed.
+
+  - it: should fail with negative value in ttlSecondsAfterFinished in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          ttlSecondsAfterFinished: -1
+    asserts:
+      - failedTemplate:
+          errorMessage: <ttlSecondsAfterFinished> (-1) in <job> (job-name) must be a positive integer.
+
+  - it: should fail with zero value in activeDeadlineSeconds in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          activeDeadlineSeconds: 0
+    asserts:
+      - failedTemplate:
+          errorMessage: Zero value in <activeDeadlineSeconds> (0) in <job> (job-name) is not allowed.
+
+  - it: should fail with negative value in activeDeadlineSeconds in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          activeDeadlineSeconds: -1
+    asserts:
+      - failedTemplate:
+          errorMessage: <activeDeadlineSeconds> (-1) in <job> (job-name) must be a positive integer.
+
+  - it: should fail with zero value in parallelism in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          parallelism: 0
+    asserts:
+      - failedTemplate:
+          errorMessage: Zero value in <parallelism> (0) in <job> (job-name) is not allowed.
+
+  - it: should fail with negative value in parallelism in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          parallelism: -1
+    asserts:
+      - failedTemplate:
+          errorMessage: <parallelism> (-1) in <job> (job-name) must be a positive integer.
+
+  - it: should fail with zero value in completions in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          completions: 0
+    asserts:
+      - failedTemplate:
+          errorMessage: Zero value in <completions> (0) in <job> (job-name) is not allowed.
+
+  - it: should fail with negative value in completions in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          completions: -1
+    asserts:
+      - failedTemplate:
+          errorMessage: <completions> (-1) in <job> (job-name) must be a positive integer.
+
+  - it: should fail with invalid completionMode in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          completionMode: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Invalid option (invalid) for <completionMode> in <job> (job-name). Valid options are NonIndexed and Indexed. Leave empty to use the default (NonIndexed)
+
+  - it: should fail without containers jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: At least one container in <containers> is required in <job> (job-name).

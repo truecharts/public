@@ -1,4 +1,4 @@
-suite: jobs test
+suite: jobTemplate test
 templates:
   - common.yaml
 tests:
@@ -10,112 +10,106 @@ tests:
       - isKind:
           of: Deployment
 
-  - it: should fail with zero value in backoffLimit in jobs
+  - it: should pass with disabled job
     set:
       jobs:
         job-name:
-          enabled: true
-          backoffLimit: 0
+          enabled: false
+          containers:
+            some-container:
     asserts:
-      - failedTemplate:
-          errorMessage: Zero value in <backoffLimit> (0) in <job> (job-name) is not allowed. Leave empty to use the default (6)
+      - hasDocuments:
+          count: 3
 
-  - it: should fail with negative value in backoffLimit in jobs
+  - it: should pass with defined job
+    documentIndex: &jobDoc 3
     set:
       jobs:
         job-name:
           enabled: true
-          backoffLimit: -1
+          containers:
+            some-container:
     asserts:
-      - failedTemplate:
-          errorMessage: <backoffLimit> (-1) in <job> (job-name) must be a positive integer. Leave empty to use the default (6)
+      - isKind:
+          of: Job
+      - isAPIVersion:
+          of: batch/v1
+      - isNull:
+          path: metadata.annotations
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test-job-name
 
-  - it: should fail with zero value in ttlSecondsAfterFinished in jobs
+  - it: should pass with nameOverride defined in job
+    documentIndex: *jobDoc
     set:
       jobs:
         job-name:
           enabled: true
-          ttlSecondsAfterFinished: 0
+          nameOverride: other-job-name
+          containers:
+            some-container:
     asserts:
-      - failedTemplate:
-          errorMessage: Zero value in <ttlSecondsAfterFinished> (0) in <job> (job-name) is not allowed.
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test-other-job-name
 
-  - it: should fail with negative value in ttlSecondsAfterFinished in jobs
+  - it: should pass with global labels and labels from tpl defined in job
+    documentIndex: *jobDoc
     set:
+      l1: val1
+      l2: val2
+      global:
+        labels:
+          label1: val3
+          label2: val4
       jobs:
         job-name:
           enabled: true
-          ttlSecondsAfterFinished: -1
+          labels:
+            l1: "{{ .Values.l1 }}"
+            l2: "{{ .Values.l2 }}"
+          containers:
+            some-container:
     asserts:
-      - failedTemplate:
-          errorMessage: <ttlSecondsAfterFinished> (-1) in <job> (job-name) must be a positive integer.
+      - equal:
+          path: metadata.labels
+          value:
+            app: common-test
+            release: RELEASE-NAME
+            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/version: v1.0.0
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            l1: val1
+            l2: val2
+            label1: val3
+            label2: val4
 
-  - it: should fail with zero value in activeDeadlineSeconds in jobs
+  - it: should pass with annotations from tpl defined in job
+    documentIndex: *jobDoc
     set:
+      a1: val1
+      a2: val2
+      global:
+        annotations:
+          annotation1: val3
+          annotation2: val4
       jobs:
         job-name:
           enabled: true
-          activeDeadlineSeconds: 0
+          annotations:
+            a1: "{{ .Values.a1 }}"
+            a2: "{{ .Values.a2 }}"
+          containers:
+            some-container:
     asserts:
-      - failedTemplate:
-          errorMessage: Zero value in <activeDeadlineSeconds> (0) in <job> (job-name) is not allowed.
-
-  - it: should fail with negative value in activeDeadlineSeconds in jobs
-    set:
-      jobs:
-        job-name:
-          enabled: true
-          activeDeadlineSeconds: -1
-    asserts:
-      - failedTemplate:
-          errorMessage: <activeDeadlineSeconds> (-1) in <job> (job-name) must be a positive integer.
-
-  - it: should fail with zero value in parallelism in jobs
-    set:
-      jobs:
-        job-name:
-          enabled: true
-          parallelism: 0
-    asserts:
-      - failedTemplate:
-          errorMessage: Zero value in <parallelism> (0) in <job> (job-name) is not allowed.
-
-  - it: should fail with negative value in parallelism in jobs
-    set:
-      jobs:
-        job-name:
-          enabled: true
-          parallelism: -1
-    asserts:
-      - failedTemplate:
-          errorMessage: <parallelism> (-1) in <job> (job-name) must be a positive integer.
-
-  - it: should fail with zero value in completions in jobs
-    set:
-      jobs:
-        job-name:
-          enabled: true
-          completions: 0
-    asserts:
-      - failedTemplate:
-          errorMessage: Zero value in <completions> (0) in <job> (job-name) is not allowed.
-
-  - it: should fail with negative value in completions in jobs
-    set:
-      jobs:
-        job-name:
-          enabled: true
-          completions: -1
-    asserts:
-      - failedTemplate:
-          errorMessage: <completions> (-1) in <job> (job-name) must be a positive integer.
-
-  - it: should fail with invalid completionMode in jobs
-    set:
-      jobs:
-        job-name:
-          enabled: true
-          completionMode: invalid
-    asserts:
-      - failedTemplate:
-          errorMessage: Invalid option (invalid) for <completionMode> in <job> (job-name). Valid options are NonIndexed and Indexed. Leave empty to use the default (NonIndexed)
+      - equal:
+          path: metadata.annotations
+          value:
+            a1: val1
+            a2: val2
+            annotation1: val3
+            annotation2: val4
