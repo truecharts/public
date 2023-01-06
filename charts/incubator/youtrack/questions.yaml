@@ -27,12 +27,6 @@ questions:
           schema:
             type: string
             default: ""
-        - variable: hubURL
-          label: Hub URL
-          description: Stores the web address of an external Hub service, when used.
-          schema:
-            type: string
-            default: ""
         - variable: defaultPage
           label: Default Page
           description: Sets the default start page for your YouTrack server. Enter a relative path to your base URL with a leading slash.
@@ -46,6 +40,19 @@ questions:
           schema:
             type: string
             default: youtrack-feedback@jetbrains.com
+        - variable: hubURL
+          label: Hub URL
+          description: Stores the web address of an external Hub service, when used.
+          schema:
+            type: string
+            default: ""
+        - variable: authThrottlingEnabled
+          label: Auth Throttling Enabled
+          description: Sets the status of the throttling feature for the Hub authentication module. When true, authentication throttling is enabled.
+          schema:
+            show_if: [[ "hubURL", "!=", "" ]]
+            type: boolean
+            default: false
         - variable: disableCheckForUpdate
           label: Disable Check For Update
           description: Enables and disables checking for software updates on startup. When set to true, checking for software updates is disabled.

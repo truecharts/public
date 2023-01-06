@@ -45,8 +45,9 @@ args:
   {{- with .Values.youtrack.baseURL }}
   - --base-url={{ . }}
   {{- end }}
-  {{- with .Values.youtrack.hubURL }}
-  - --hub-url={{ . }}
+  {{- if .Values.youtrack.hubURL }}
+  - --jetbrains.hub.auth.login.throttling.enabled={{ .Values.youtrack.authThrottlingEnabled }}
+  - --hub-url={{ .Values.youtrack.hubURL }}
   {{- end }}
   {{- with .Values.youtrack.jvm.maxHeapSize }}
   - -J-Xmx{{ . }}
