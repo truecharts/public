@@ -22,7 +22,7 @@
 
   {{- with $cron.concurrencyPolicy -}}
     {{- if not (mustHas . (list "Allow" "Forbid" "Replace")) -}}
-      {{- fail (printf "Invalid option (%s) for <cron.concurrencyPolicy> in <job> (%s). Valid options are Allow, Forbid, Replace. Leave empty to use the default (%s)" . $name (int $default.concurrencyPolicy)) -}}
+      {{- fail (printf "Invalid option (%s) for <cron.concurrencyPolicy> in <job> (%s). Valid options are Allow, Forbid, Replace. Leave empty to use the default (%s)" . $name $default.concurrencyPolicy) -}}
     {{- end -}}
   {{- end -}}
 

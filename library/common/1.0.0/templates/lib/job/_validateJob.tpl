@@ -25,7 +25,7 @@
     {{- end -}}
   {{- end -}}
 
-  {{- if hasKey $job "parallelism" -}}
+  {{- if hasKey $job "activeDeadlineSeconds" -}}
     {{- if $job.activeDeadlineSeconds -}}
       {{- if or (not (mustHas (kindOf $job.activeDeadlineSeconds) (list "int" "float64"))) (lt (int $job.activeDeadlineSeconds) 0) -}}
         {{- fail (printf "<activeDeadlineSeconds> (%d) in <job> (%s) must be a positive integer." (int $job.activeDeadlineSeconds) $name) -}}
