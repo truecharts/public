@@ -12,10 +12,15 @@ We also document which versions of TrueNAS will receive TrueCharts updates and f
 
 | TrueNAS version  | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes                                                                                                          |
 | ---------------- | -------- | ---------------------- | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------- |
-| 22.02.3 or prior | `master` | :white_check_mark:     | :x:        | :x:    | Advised to update to 22.12.0 release of [TrueNAS SCALE](https://www.truenas.com/docs/scale/scalereleasenotes/) |
-| 22.02.4          | `master` | :white_check_mark:     | :white_check_mark:        | :x:    | Advised to update to 22.12.0 release of [TrueNAS SCALE](https://www.truenas.com/docs/scale/scalereleasenotes/) |
+| 22.02.4 or prior | `master` | :white_check_mark:     | :x:        | :x:    | Advised to update to 22.12.0 release of [TrueNAS SCALE](https://www.truenas.com/docs/scale/scalereleasenotes/) |  |
 | 22.12.0          | `master` | :white_check_mark:     | :white_check_mark:        | :white_check_mark:    | Most Stable Release as of 2022-12-13                                                                           |
 | Nightly          | `master` | :white_check_mark:     | :x:                       | :white_check_mark:    | Please only submit bug reports during codefreeze                                                               |
+::: warning Support Guidelines
+
+Our [Discord](https://discord.gg/tVsPTHWTtr) support (the ticketing system inside #support) is primarily limited to what is covered by our written guides. This includes installing, linking and editing apps. This doesn't mean the actual setup of the application. All #support tickets covered by the staff are done so in a **best effort** policy.
+
+:::
+
 
 ## Stable Train Charts
 
