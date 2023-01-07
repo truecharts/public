@@ -4,8 +4,8 @@ image:
   tag: 2.384-jdk17@sha256:7b28e73870aad9d6f62be09772b2b9ff8599f7348ad4cc66a918511aac08bdc9
 
 podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+  runAsGroup: 1000
+  runAsUser: 1000
   fsGroup: 1000
 
 securityContext:
@@ -21,6 +21,18 @@ jenkins:
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-secret'
+
+probes:
+  liveness:
+    type: HTTP
+    path: /login
+  readiness:
+    type: HTTP
+    path: /login
+  startup:
+    type: HTTP
+    path: /login
+
 
 service:
   main:

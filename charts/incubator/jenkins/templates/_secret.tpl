@@ -2,11 +2,6 @@
 {{- define "jenkins.secret" -}}
 
 {{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) -}}
-
-{{- $java_opts := list -}}
-{{- $java_opts = mustAppend $java_opts .Values.jenkins.java_opts -}}
-{{- $jenkin_opts := (include "jenkins.opts" . | fromYaml).opts -}}
-{{- $jenkin_opts = mustAppend $jenkin_opts .Values.jenkins.jenkins_java_opts }}
 ---
 apiVersion: v1
 kind: Secret
@@ -15,8 +10,8 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
-  JAVA_OPTS: {{ join " "  $java_opts | quote }}
-  JENKINS_JAVA_OPTS: {{ join " " $jenkin_opts | quote }}
+  JAVA_OPTS: {{ join " " (include "java.opts" . | fromYaml).opts | quote }}
+  JENKINS_JAVA_OPTS: {{ join " " (include "jenkins.opts" . | fromYaml).opts | quote }}
 
 
   PLUGINS_FORCE_UPGRADE: {{ default false .Values.jenkins.plugins_force_upgrade | quote }}
@@ -27,4 +22,15 @@ stringData:
 opts:
   - --httpPort={{ .Values.service.main.ports.main.port }}
   - -Djenkins.model.Jenkins.slaveAgentPort={{ .Values.service.agent.ports.agent.port }}
+  - -Djenkins.model.Jenkins.slaveAgentPortEnforce=true
+  {{- range $opt := .Values.jenkins.jenkins_java_opts }}
+  - {{ $opt }}
+  {{- end }}
+{{- end -}}
+
+{{- define "java.opts" -}}
+opts:
+  {{- range $opt := .Values.jenkins.java_opts }}
+  - {{ $opt }}
+  {{- end }}
 {{- end -}}
