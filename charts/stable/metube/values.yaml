@@ -4,6 +4,8 @@ image:
   pullPolicy: IfNotPresent
 
 env:
+  STATE_DIR: /config
+  DOWNLOAD_DIR: /downloads
   OUTPUT_TEMPLATE: "%(title)s.%(ext)s"
   YTDL_OPTIONS: "{}"
 
@@ -15,9 +17,9 @@ service:
         targetPort: 8081
 
 persistence:
-  downloads:
+  config:
     enabled: true
-    mountPath: "/downloads"
+    mountPath: /config
 
 portal:
   enabled: true
