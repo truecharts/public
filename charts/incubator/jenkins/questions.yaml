@@ -22,9 +22,23 @@ questions:
             type: list
             default: []
             items:
-              - variable: jenkins_opts_entry
+              - variable: jenkins_java_opts_entry
                 label: Jenkins Java Opts Entry
-                description: Single Opt per entry.
+                description: Single Jenkins Java Opt per entry.
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+        - variable: jenkins_opts
+          label: Jenkins Opts
+          description: Add the Jenkins Opts parameters, one per entry.
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: jenkins_opts_entry
+                label: Jenkins Opts Entry
+                description: Single Jenkins Opt per entry.
                 schema:
                   type: string
                   default: ""
@@ -38,7 +52,7 @@ questions:
             items:
               - variable: java_opts_entry
                 label: Java Opts Entry
-                description: Single Opt per entry.
+                description: Single Java Opt per entry.
                 schema:
                   type: string
                   default: ""
