@@ -8,15 +8,14 @@ podSecurityContext:
   runAsUser: 1000
   fsGroup: 1000
 
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+# securityContext:
+#   readOnlyRootFilesystem: false
 
 jenkins:
   java_opts: []
   jenkins_java_opts: []
-  plugins_force_upgrade: true
-  upgrade_if_no_marker: true
+  plugins_force_upgrade: false
+  upgrade_if_no_marker: false
 
 envFrom:
   - secretRef:
@@ -37,6 +36,7 @@ service:
   main:
     ports:
       main:
+        protocol: HTTP
         port: 10280
   agent:
     enabled: true

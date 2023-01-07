@@ -12,10 +12,8 @@ metadata:
 stringData:
   JAVA_OPTS: {{ join " " (include "java.opts" . | fromYaml).opts | quote }}
   JENKINS_JAVA_OPTS: {{ join " " (include "jenkins.opts" . | fromYaml).opts | quote }}
-
-
-  PLUGINS_FORCE_UPGRADE: {{ default false .Values.jenkins.plugins_force_upgrade | quote }}
-  TRY_UPGRADE_IF_NO_MARKER: {{ default false .Values.jenkins.upgrade_if_no_marker | quote }}
+  PLUGINS_FORCE_UPGRADE: {{ .Values.jenkins.plugins_force_upgrade | quote }}
+  TRY_UPGRADE_IF_NO_MARKER: {{ .Values.jenkins.upgrade_if_no_marker | quote }}
 {{- end -}}
 
 {{- define "jenkins.opts" -}}
