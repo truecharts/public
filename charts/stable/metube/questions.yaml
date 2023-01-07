@@ -15,12 +15,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: DOWNLOAD_DIR
-          label: Download Dir
-          description: Path to where the downloads will be saved.
-          schema:
-            type: string
-            default: /downloads
         - variable: OUTPUT_TEMPLATE
           label: Ouput Template
           description: The template for the filenames of the downloaded videos
@@ -65,6 +59,14 @@ questions:
         - variable: config
           label: App Config Storage
           description: Stores the Application Config.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: downloads
+          label: App Downloads Storage
+          description: Stores the Application Downloads.
           schema:
             additional_attrs: true
             type: dict

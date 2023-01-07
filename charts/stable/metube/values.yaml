@@ -20,6 +20,9 @@ persistence:
   config:
     enabled: true
     mountPath: /config
+  downloads:
+    enabled: true
+    mountPath: /downloads
 
 portal:
   enabled: true
