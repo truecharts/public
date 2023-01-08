@@ -7,7 +7,7 @@ apiVersion: v1
 kind: Secret
 type: Opaque
 metadata:
-  name: {{ $authentikSecretName }}
+  name: {{ $secretName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
