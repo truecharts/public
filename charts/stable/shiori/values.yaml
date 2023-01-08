@@ -10,6 +10,7 @@ securityContext:
 podSecurityContext:
   runAsUser: 568
   runAsGroup: 568
+
 envFrom:
   - secretRef:
       name: "{{ include "tc.common.names.fullname" . }}-secret"
