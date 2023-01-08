@@ -13,7 +13,7 @@ metadata:
 stringData:
   {{/* PMM */}}
   PMM_CONFIG: "/config/config.yml"
-  PMM_TIME: {{ join "," $times | quote }}
+  PMM_TIME: {{ join "," $pmm.times | quote }}
   {{- with $pmm.run }}
   PMM_RUN: {{ . | quote }}
   {{- end }}
