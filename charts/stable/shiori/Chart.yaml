@@ -1,21 +1,5 @@
 apiVersion: v2
-appVersion: "1.5.0"
-version: 10.0.16
-kubeVersion: ">=1.16.0-0"
-name: shiori
-description: A simple bookmark manager built with Go
-type: application
-home: https://truecharts.org/charts/stable/shiori
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/shiori.png
-keywords:
-  - shiori
-  - bookmark
-  - bookmark-manager
-  - web-interface
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/shiori
-  - https://github.com/go-shiori/shiori
-  - https://github.com/nicholaswilde/docker-shiori
+appVersion: "1.5.3"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -24,10 +8,27 @@ dependencies:
     name: postgresql
     repository: https://charts.truecharts.org/
     version: 11.0.18
+deprecated: false
+description: A simple bookmark manager built with Go.
+home: https://truecharts.org/charts/stable/shiori
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/shiori.png
+keywords:
+  - shiori
+  - bookmark
+  - bookmark-manager
+  - web-interface
+kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
     url: https://truecharts.org
+name: shiori
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/shiori
+  - https://github.com/go-shiori/shiori
+  - https://github.com/go-shiori/shiori/pkgs/container/shiori
+type: application
+version: 11.0.0
 annotations:
   truecharts.org/catagories: |
     - media
