@@ -30,7 +30,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 5000
+                              default: 15000
                               required: true
         - variable: receiver
           label: "Agent Receiver"
@@ -44,7 +44,7 @@ questions:
                 description: "This port exposes the container port on the service"
                 schema:
                   type: int
-                  default: 8000
+                  default: 18000
                   required: true
 # Include{serviceExpertRoot}
             default: false

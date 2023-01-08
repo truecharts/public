@@ -17,13 +17,13 @@ service:
       main:
         protocol: HTTP
         targetPort: 5000
-        port: 5000
+        port: 15000
   receiver:
     ports:
       main:
         protocol: HTTP
         targetPort: 8000
-        port: 8000
+        port: 18000
 
 probes:
   liveness:
