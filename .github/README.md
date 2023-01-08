@@ -79,7 +79,7 @@ This ensures freedom and flexibility for everyone involved and makes sure you, t
 
 Creating charts takes some getting used to, as it's based on Helm charts. We highly suggest prior know-how on creation/modifying Helm Charts, before taking on the challenge of creating SCALE Apps.
 
-For more information on creating SCALE Apps and Helm charts, please check out our [development manual](https://truecharts.org/docs/manual/development/License-headers)
+For more information on creating SCALE Apps and Helm charts, please check out our [development manual](https://truecharts.org/manual/development/License-headers)
 
 ### Automation and you
 
