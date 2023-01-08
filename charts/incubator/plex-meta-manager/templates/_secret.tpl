@@ -3,12 +3,6 @@
 
 {{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
 {{- $pmm := .Values.pmm -}}
-{{- $times := list }}
-{{- with $pmm.time -}}
-  {{- range . -}}
-    {{- $times = append $times . -}}
-  {{- end -}}
-{{- end }}
 ---
 apiVersion: v1
 kind: Secret
