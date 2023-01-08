@@ -26,7 +26,6 @@ stringData:
   {{- with $pmm.no_countdown }}
   PMM_NO_COUNTDOWN: {{ . | quote }}
   {{- end }}
-
   {{/* plex */}}
   {{- with $pmm.plex_url }}
   PMM_PLEX_URL: {{ . | quote }}
