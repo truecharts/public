@@ -11,11 +11,17 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-env:
-  PMM_CONFIG: "/config/config.yml"
-  # PMM_TIME: ""
-  PMM_RUN: true
-  PMM_NO_COUNTDOWN: true
+pmm:
+  run: false
+  no_countdown: true
+  time:
+    - "00:00"
+  # plex_url: ""
+  # plex_token: ""
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
 
 service:
   main:

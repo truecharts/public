@@ -6,30 +6,50 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
+  - variable: pmm
+    group: App Configuration
+    label: PMM Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: PMM_RUN
-          label: "PMM RUN"
-          description: "Perform a run immediately, bypassing the time to run flag."
+        - variable: plex_url
+          label: Plex Url
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: plex_token
+          label: Plex Token
+          schema:
+            type: string
+            required: true
+            private: true
+            default: ""
+        - variable: run
+          label: PMM Run
+          description: Perform a run immediately, bypassing the time to run flag.
           schema:
             type: boolean
-            default: true
+            default: false
             show_subquestions_if: false
             subquestions:
-              - variable: PMM_TIME
-                label: "PMM TIME"
+              - variable: times
+                label: PMM Time
                 description: "Specify the time of day that Plex Meta Manager will run. Format: HH:MM"
                 schema:
-                  type: string
-                  default: ""
-              - variable: PMM_NO_COUNTDOWN
-                label: "PMM NO COUNTDOWN"
-                description: "Run without displaying a countdown to the next scheduled run."
+                  type: list
+                  default: ["00:00"]
+                  items:
+                    - variable: timeEntry
+                      label: Time Entry
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+              - variable: no_countdown
+                label: PMM No Countdown
+                description: Run without displaying a countdown to the next scheduled run.
                 schema:
                   type: boolean
                   default: true
@@ -40,8 +60,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+          label: App Config Storage
+          description: Stores the Application Configuration.
           schema:
             additional_attrs: true
             type: dict
@@ -51,41 +71,41 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
