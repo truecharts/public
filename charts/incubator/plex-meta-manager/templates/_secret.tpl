@@ -13,13 +13,11 @@ metadata:
 stringData:
   {{/* PMM */}}
   PMM_CONFIG: "/config/config.yml"
+  {{- if not $pmm.run }}
   PMM_TIME: {{ join "," $pmm.times | quote }}
-  {{- with $pmm.run }}
-  PMM_RUN: {{ . | quote }}
+  PMM_NO_COUNTDOWN: {{ $pmm.no_countdown | quote }}
   {{- end }}
-  {{- with $pmm.no_countdown }}
-  PMM_NO_COUNTDOWN: {{ . | quote }}
-  {{- end }}
+  PMM_RUN: {{ $pmm.run | quote }}  
   {{/* plex */}}
   {{- with $pmm.plex_url }}
   PMM_PLEX_URL: {{ . | quote }}
