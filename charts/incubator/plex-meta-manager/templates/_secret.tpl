@@ -34,6 +34,4 @@ stringData:
   {{- with $pmm.plex_token }}
   PMM_PLEX_TOKEN: {{ . | quote }}
   {{- end }}
-
-
 {{- end -}}
