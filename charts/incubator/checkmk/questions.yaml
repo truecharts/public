@@ -76,8 +76,7 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: receiver
-                      label: Agent Receiver
-                      description: The service recieves data from agents
+                      label: Receiver Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
@@ -99,8 +98,7 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: livestatus_tcp
-                      label: Livestatus TCP
-                      description: The service recieves data from agents
+                      label: Livestatus TCP Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
