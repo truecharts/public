@@ -22,7 +22,7 @@ questions:
             type: string
             default: "%(title)s.%(ext)s"
         - variable: YTDL_OPTIONS
-          label: YTDL_OPTIONS
+          label: YTDL Options
           description: Additional options to pass to youtube-dl, in JSON format
           schema:
             type: string
