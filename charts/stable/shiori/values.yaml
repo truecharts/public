@@ -3,14 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.5.3@sha256:18dd8f354d6f23919c55ed7e63b85747659dad81173766146e81dd051b71c0df
 
-securityContext:
-  runAsNonRoot: true
-  readOnlyRootFilesystem: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-secret'
