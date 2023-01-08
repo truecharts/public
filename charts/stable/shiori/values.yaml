@@ -13,7 +13,8 @@ podSecurityContext:
 
 envFrom:
   - secretRef:
-      name: "{{ include "tc.common.names.fullname" . }}-secret"
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
+
 service:
   main:
     ports:
