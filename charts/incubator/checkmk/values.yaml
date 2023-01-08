@@ -1,0 +1,39 @@
+image:
+  repository: checkmk/check-mk-raw
+  pullPolicy: IfNotPresent
+  tag: 2.1.0-latest
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 5000
+        port: 5000
+  receiver:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 8000
+        port: 8000
+
+probes:
+  liveness:
+    path: "/cmk/check_mk"
+
+  readiness:
+    path: "/cmk/check_mk"
+
+  startup:
+    path: "/cmk/check_mk"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/omd/sites"
+
+portal:
+  enabled: true
