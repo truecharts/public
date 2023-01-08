@@ -11,7 +11,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
-  SHIORI_DIR: "/data"
+  SHIORI_DIR: {{ .Values.persistence.data.mountPath }}
 
   {{/* Database */}}
   SHIORI_DBMS: "postgresql"
