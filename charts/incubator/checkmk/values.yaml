@@ -27,21 +27,22 @@ service:
 
 probes:
   liveness:
-    path: "/cmk/check_mk"
+    path: /cmk/check_mk
 
   readiness:
-    path: "/cmk/check_mk"
+    path: /cmk/check_mk
 
   startup:
-    path: "/cmk/check_mk"
+    path: /cmk/check_mk
 
 persistence:
   config:
     enabled: true
-    mountPath: "/omd/sites"
+    mountPath: /omd/sites
   cmk-temp:
     enabled: true
     type: emptyDir
     mountPath: /opt/omd/sites/cmk/tmp
+
 portal:
   enabled: true
