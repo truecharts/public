@@ -17,7 +17,7 @@ stringData:
   PMM_TIME: {{ join "," $pmm.times | quote }}
   PMM_NO_COUNTDOWN: {{ $pmm.no_countdown | quote }}
   {{- end }}
-  PMM_RUN: {{ $pmm.run | quote }}  
+  PMM_RUN: {{ $pmm.run | quote }}
   {{/* plex */}}
   {{- with $pmm.plex_url }}
   PMM_PLEX_URL: {{ . | quote }}
