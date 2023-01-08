@@ -36,10 +36,10 @@ service:
         protocol: HTTP
         targetPort: 8000
         port: 18000
-  livestatus_tcp:
+  livestatustcp:
     enabled: true
     ports:
-      livestatus_tcp:
+      livestatustcp:
         enabled: true
         targetPort: 6557
         port: 6557

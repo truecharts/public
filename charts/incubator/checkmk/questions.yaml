@@ -88,7 +88,7 @@ questions:
                               type: int
                               default: 18000
                               required: true
-        - variable: livestatus_tcp
+        - variable: livestatustcp
           label: Livestatus TCP Service
           description: The Livestatus TCP service
           schema:
@@ -97,7 +97,7 @@ questions:
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: livestatus_tcp
+                    - variable: livestatustcp
                       label: Livestatus TCP Service Port Configuration
                       schema:
                         additional_attrs: true
