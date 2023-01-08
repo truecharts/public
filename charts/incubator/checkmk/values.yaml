@@ -75,6 +75,7 @@ persistence:
     mountPath: /omd/sites/cmk/tmp
   cmk-cron:
     enabled: true
+    type: emptyDir
     mountPath: /var/spool/cron/crontabs
 
 portal:
