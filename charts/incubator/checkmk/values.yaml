@@ -39,6 +39,9 @@ persistence:
   config:
     enabled: true
     mountPath: "/omd/sites"
-
+  cmk-temp:
+    enabled: true
+    type: emptyDir
+    mountPath: /opt/omd/sites/cmk/tmp
 portal:
   enabled: true
