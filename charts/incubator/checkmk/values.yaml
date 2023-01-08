@@ -11,6 +11,16 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+cmk:
+  password: secret
+  site_id: cmk
+  livestatus_tcp: true
+  mail_relay_host: ""
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
+
 service:
   main:
     ports:
@@ -19,11 +29,20 @@ service:
         targetPort: 5000
         port: 15000
   receiver:
+    enabled: true
     ports:
-      main:
+      receiver:
+        enabled: true
         protocol: HTTP
         targetPort: 8000
         port: 18000
+  livestatus_tcp:
+    enabled: true
+    ports:
+      livestatus_tcp:
+        enabled: true
+        targetPort: 6557
+        port: 6557
 
 probes:
   liveness:
