@@ -22,6 +22,52 @@ questions:
             type: string
             default: ""
             required: true
+        - variable: DEBUG
+          label: Debug
+          description: Display additional debug information, including all config values.
+          schema:
+            type: boolean
+            default: false
+        - variable: LOG
+          label: Log
+          description: Save raw IRC logs for each client connection.
+          schema:
+            type: boolean
+            default: false
+        - variable: SEARCH
+          label: Search
+          description: The IRC search operator to use.
+          schema:
+            type: string
+            default: false
+            enum:
+              - value: search
+                description: Search
+              - value: searchook
+                description: Searchook
+        - variable: PERSIST
+          label: Persist
+          description: Save eBook files after sending to browser.
+          schema:
+            type: boolean
+            default: false
+        - variable: NO_BROWSER_DOWNLOADS
+          label: No Browser Downloads
+          description: Don't send files to browser but save them to disk.
+          schema:
+            type: boolean
+            default: false
+        - variable: SERVER
+          label: Server
+          description: The IRC server:port to connect to.
+          schema:
+            type: string
+        - variable: TLS
+          label: TLS
+          description: Connect to IRC server over TLS.
+          schema:
+            type: boolean
+            default: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
