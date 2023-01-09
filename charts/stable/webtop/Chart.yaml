@@ -1,7 +1,3 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Tools-Utilities
 apiVersion: v2
 appVersion: "latest"
 dependencies:
@@ -9,7 +5,7 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 11.1.2
 deprecated: false
-description: Webtop(https://github.com/linuxserver/gclient) - Alpine, Ubuntu, Fedora, and Arch based Charts containing full desktop environments in officially supported flavors accessible via any modern web browser.
+description: Webtop full desktop environments in officially supported flavors accessible via any modern web browser.
 home: https://truecharts.org/charts/stable/webtop
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/webtop.png
 keywords:
@@ -27,4 +23,9 @@ sources:
   - https://github.com/orgs/linuxserver/packages/container/package/webtop
   - https://github.com/linuxserver/docker-webtop#readme
 type: application
-version: 3.0.13
+version: 4.0.0
+annotations:
+  truecharts.org/catagories: |
+    - Tools-Utilities
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
