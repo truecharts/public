@@ -3,3 +3,31 @@ service:
     ports:
       main:
         port: 65535
+
+# jobs:
+#   jobname:
+#     enabled: true
+#     nameOverride: ""
+#     cron:
+#       enabled: false
+#       annotations: {}
+#       labels: {}
+#       schedule: "* *"
+#       timezone:
+#       concurrencyPolicy:
+#       failedJobsHistoryLimit: 0
+#       successfulJobsHistoryLimit: 0
+#       startingDeadlineSeconds:
+#     annotations:
+#     labels:
+#     backoffLimit: 5
+#     ttlSecondsAfterFinished: 100
+#     activeDeadlineSeconds: 100
+#     parallelism: 1
+#     completions: 1
+#     completionMode: Indexed
+
+#     containers:
+#       containername:
+#         imageSelector: asdfas
+#         restartPolicy: Never

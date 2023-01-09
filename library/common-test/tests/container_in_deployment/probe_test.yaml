@@ -192,6 +192,16 @@ tests:
       - failedTemplate:
           errorMessage: Invalid probe type (not_valid_type) on probe (liveness) in (RELEASE-NAME-common-test) container. Valid types are tcp, http, https, grpc, exec, auto
 
+  - it: should fail with probe path not starting with /
+    set:
+      probes:
+        liveness:
+          type: http
+          path: a/random/path
+    asserts:
+      - failedTemplate:
+          errorMessage: Probe in container (RELEASE-NAME-common-test) with path (a/random/path), must start with a forward slash -> / <-
+
   - it: should fail with httpHeader value is defined as list
     set:
       probes:

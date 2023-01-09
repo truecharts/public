@@ -37,11 +37,23 @@ tests:
         some_volume:
           type: nfs
           enabled: true
-          path: some_path
+          path: /some_path
           noMount: true
     asserts:
       - failedTemplate:
           errorMessage: NFS Server not set on item some_volume
+
+  - it: should fail with path not starting with /
+    set:
+      persistence:
+        some_volume:
+          type: nfs
+          enabled: true
+          path: some/relative/path
+          noMount: true
+    asserts:
+      - failedTemplate:
+          errorMessage: NFS path (some/relative/path) on (some_volume) must start with a forward slash -> / <-
 
   - it: should fail with not set path on nfs
     set:

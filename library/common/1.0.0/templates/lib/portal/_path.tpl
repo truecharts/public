@@ -9,19 +9,21 @@
   {{/* If ingress is added at any point, here is the place to implement */}}
 
   {{/* Check if there are any overrides in .Values.portal */}}
-  {{- range $name, $svc := $root.Values.portal -}}
-    {{- if eq $svcName $name -}}
-      {{- range $name, $port := $svc -}}
-        {{- if eq $portName $name -}}
-          {{- if (hasKey $port "path") -}}
-            {{- $portalPath = (tpl (toString $port.path) $root) -}}
-            {{- if or (eq $portalPath "<nil>") (not $portalPath) -}} {{/* toString on a nil key returns the string "<nil>" */}}
-              {{- fail "You have defined empty <path> in <portal>. Define a path or remove the key." -}}
-            {{- end -}}
-          {{- end -}}
+  {{- $tmpSVCPortal := get $root.Values.portal $svcName -}}
+  {{- if $tmpSVCPortal -}}
+    {{- $tmpPortPortal := get $tmpSVCPortal $portName -}}
+    {{- if $tmpPortPortal -}}
+      {{- if (hasKey $tmpPortPortal "path") -}}
+        {{- if or (kindIs "invalid" $tmpPortPortal.path) (not $tmpPortPortal.path) -}}
+          {{- fail "You have defined empty <path> in <portal>. Define a path or remove the key." -}}
+        {{- end -}}
+        {{- $portalPath = (tpl (toString $tmpPortPortal.path) $root) -}}
+        {{- if not (hasPrefix "/" $portalPath) -}}
+          {{- fail (printf "Portal path (%s) must start with a forward slash -> / <-" $portalPath) -}}
         {{- end -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
-{{- $portalPath -}}
+
+  {{- $portalPath -}}
 {{- end -}}

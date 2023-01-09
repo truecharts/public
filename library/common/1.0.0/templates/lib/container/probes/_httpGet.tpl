@@ -9,10 +9,14 @@
   {{- end -}}
   {{- if not $probe.path -}}
     {{- fail (printf "<path> must be defined for <http>/<https> probe types in probe (%s) in (%s) container." $probe.name $containerName) -}}
-  {{- end }}
+  {{- end -}}
+  {{- $probePath := tpl $probe.path $root -}}
+  {{- if not (hasPrefix "/" $probePath) -}}
+    {{- fail (printf "Probe in container (%s) with path (%s), must start with a forward slash -> / <-" $containerName $probePath) -}}
+  {{- end -}}
 
 httpGet:
-  path: {{ tpl $probe.path $root }}
+  path: {{ $probePath }}
   scheme: {{ $probe.type | upper }}
   port: {{ $probe.port }}
   {{- with $probe.httpHeaders }}

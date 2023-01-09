@@ -28,6 +28,24 @@ tests:
       - failedTemplate:
           errorMessage: You have defined empty <path> in <portal>. Define a path or remove the key.
 
+  - it: should fail with portal override with path not starting with /
+    set:
+      portal:
+        main:
+          main:
+            path: a/relative/path
+      service:
+        main:
+          enabled: true
+          ports:
+            main:
+              enabled: true
+              port: 10000
+              targetPort: 80
+    asserts:
+      - failedTemplate:
+          errorMessage: Portal path (a/relative/path) must start with a forward slash -> / <-
+
   - it: should pass with defaults on single service/port
     documentIndex: &portalDoc 2
     set:

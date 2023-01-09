@@ -21,7 +21,19 @@ tests:
           noMount: true
     asserts:
       - failedTemplate:
-          errorMessage: hostPath not set on item some_volume
+          errorMessage: hostPath not set on item (some_volume)
+
+  - it: should fail with hostPath not starting with /
+    set:
+      persistence:
+        some_volume:
+          type: hostPath
+          enabled: true
+          mountPath: /some/path
+          hostPath: some/relative/path
+    asserts:
+      - failedTemplate:
+          errorMessage: Host path (some/relative/path) on item (some_volume) must start with a forward slash -> / <-
 
   - it: should fail with ValidateHostPath globally set on and invalid hostPath (/mnt/pool)
     set:

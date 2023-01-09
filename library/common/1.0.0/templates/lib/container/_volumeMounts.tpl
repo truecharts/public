@@ -62,12 +62,15 @@
   {{- $root := .root -}}
   {{- $item := .item -}}
   {{- $name := .name -}}
-
   {{- if not $item.mountPath -}} {{/* Make sure that we have a mountPath */}}
     {{- fail "<mountPath> must be defined, alternatively use the <noMount> flag." -}}
   {{- end -}}
+  {{- $mountPath := (tpl $item.mountPath $root) -}}
+  {{- if not (hasPrefix "/" $mountPath) -}}
+    {{- fail (printf "Mount path (%s), must start with a forward slash -> / <-" $mountPath) -}}
+  {{- end }}
 - name: {{ tpl $name $root }}
-  mountPath: {{ tpl $item.mountPath $root }}
+  mountPath: {{ $mountPath }}
   {{- with $item.subPath }}
   subPath: {{ tpl . $root }}
   {{- end -}}

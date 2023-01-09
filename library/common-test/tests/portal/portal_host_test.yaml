@@ -26,7 +26,7 @@ tests:
               targetPort: 80
     asserts:
       - failedTemplate:
-          errorMessage: You have defined empty <host> in <portal>. Define a path or remove the key.
+          errorMessage: You have defined empty <host> in <portal>. Define a host or remove the key.
 
   - it: should pass with defaults on single service/port
     documentIndex: &portalDoc 2

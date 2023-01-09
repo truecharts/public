@@ -20,19 +20,18 @@
   {{/* If ingress is added at any point, here is the place to implement */}}
 
   {{/* Check if there are any overrides in .Values.portal */}}
-  {{- range $name, $svc := $root.Values.portal -}}
-    {{- if eq $svcName $name -}}
-      {{- range $name, $port := $svc -}}
-        {{- if eq $portName $name -}}
-          {{- if (hasKey $port "port") -}}
-            {{- $portalPort = (tpl (toString $port.port) $root) -}}
-            {{- if or (lt (int $portalPort) 1) (gt (int $portalPort) 65535) (eq (int $portalPort) 0) -}}
-              {{- fail (printf "Port (%s) in <portal> is out of range. Range is 1-65535" $portalPort) -}}
-            {{- end -}}
-          {{- end -}}
+  {{- $tmpSVCPortal := get $root.Values.portal $svcName -}}
+  {{- if $tmpSVCPortal -}}
+    {{- $tmpPortPortal := get $tmpSVCPortal $portName -}}
+    {{- if $tmpPortPortal -}}
+      {{- if (hasKey $tmpPortPortal "port") -}}
+        {{- $portalPort = (tpl (toString $tmpPortPortal.port) $root) -}}
+        {{- if or (lt (int $portalPort) 1) (gt (int $portalPort) 65535) (eq (int $portalPort) 0) -}}
+          {{- fail (printf "Port (%s) in <portal> is out of range. Range is 1-65535" $portalPort) -}}
         {{- end -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
-{{- $portalPort -}}
+
+  {{- $portalPort -}}
 {{- end -}}

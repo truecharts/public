@@ -16,19 +16,18 @@
   {{/* If ingress is added at any point, here is the place to implement */}}
 
   {{/* Check if there are any overrides in .Values.portal */}}
-  {{- range $name, $svc := $root.Values.portal -}}
-    {{- if eq $svcName $name -}}
-      {{- range $name, $port := $svc -}}
-        {{- if eq $portName $name -}}
-          {{- if (hasKey $port "host") -}}
-            {{- $portalHost = (tpl (toString $port.host) $root) -}}
-            {{- if or (eq $portalHost "<nil>") (not $portalHost) -}} {{/* toString on a nil key returns the string "<nil>" */}}
-              {{- fail "You have defined empty <host> in <portal>. Define a path or remove the key." -}}
-            {{- end -}}
-          {{- end -}}
+  {{- $tmpSVCPortal := get $root.Values.portal $svcName -}}
+  {{- if $tmpSVCPortal -}}
+    {{- $tmpPortPortal := get $tmpSVCPortal $portName -}}
+    {{- if $tmpPortPortal -}}
+      {{- if (hasKey $tmpPortPortal "host") -}}
+        {{- if or (kindIs "invalid" $tmpPortPortal.host) (not $tmpPortPortal.host) -}}
+          {{- fail "You have defined empty <host> in <portal>. Define a host or remove the key." -}}
         {{- end -}}
+        {{- $portalHost = (tpl (toString $tmpPortPortal.host) $root) -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
-{{- $portalHost -}}
+
+  {{- $portalHost -}}
 {{- end -}}
