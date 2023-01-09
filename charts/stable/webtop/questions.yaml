@@ -4,6 +4,67 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
+  - variable: imageSelector
+    group: Container Image
+    label: Select Image
+    schema:
+      type: string
+      default: image
+      enum:
+        # XFCE
+        - value: image
+          description: XFCE Alpine
+        - value: ubuntuXFCEImage
+          description: XFCE Ubuntu
+        - value: fedoraXFCEImage
+          description: XFCE Fedora
+        - value: archXFCEImage
+          description: XFCE Arch
+        # KDE
+        - value: alpineKDEImage
+          description: KDE Alpine
+        - value: ubuntuKDEImage
+          description: KDE Ubuntu
+        - value: fedoraKDEImage
+          description: KDE Fedora
+        - value: archKDEImage
+          description: KDE Arch
+        # Mate
+        - value: alpineMATEImage
+          description: Mate Alpine
+        - value: ubuntuMATEImage
+          description: Mate Ubuntu
+        - value: fedoraMATEImage
+          description: Mate Fedora
+        - value: archMATEImage
+          description: Mate Arch
+        # I3
+        - value: alpineI3Image
+          description: I3 Alpine
+        - value: ubuntuI3Image
+          description: I3 Ubuntu
+        - value: fedoraI3Image
+          description: I3 Fedora
+        - value: archI3Image
+          description: I3 Arch
+        # OpenBox
+        - value: alpineOpenBoxImage
+          description: OpenBox Alpine
+        - value: ubuntuOpenBoxImage
+          description: OpenBox Ubuntu
+        - value: fedoraOpenBoxImage
+          description: OpenBox Fedora
+        - value: archOpenBoxImage
+          description: OpenBox Arch
+        # OpenBox
+        - value: alpineICEWMImage
+          description: ICEWM Alpine
+        - value: ubuntuICEWMImage
+          description: ICEWM Ubuntu
+        - value: fedoraICEWMImage
+          description: ICEWM Fedora
+        - value: archICEWMImage
+          description: ICEWM Arch
 # Include{controller}
 # Include{replicas}
 # Include{replica1}
@@ -16,17 +77,48 @@ questions:
       type: dict
       attrs:
         - variable: TITLE
-          label: TITLE
+          label: Title
           description: String which will be used as page/tab title in the web browser.
           schema:
             type: string
             default: Webtop
+        - variable: AUTO_LOGIN
+          label: Auto Login
+          description: force login on the '/' path.
+          schema:
+            type: boolean
+            default: false
         - variable: KEYBOARD
-          label: KEYBOARD
+          label: Keyboard Layout
           description: See the keyboard layouts in https://docs.linuxserver.io/images/docker-webtop#application-setup
           schema:
             type: string
             default: en-us-qwerty
+            enum:
+              - value: en-us-qwerty
+                description: English US Qwerty
+              - value: es-es-qwerty
+                description: Spanish Qwerty
+              - value: en-gb-qwerty
+                description: English UK Qwerty
+              - value: da-dk-qwerty
+                description: Danish Qwerty
+              - value: de-ch-qwertz
+                description: German Qwertz
+              - value: fr-ch-qwertz
+                description: Swiss French Qwertz
+              - value: fr-fr-azerty
+                description: French Azerty
+              - value: it-it-qwerty
+                description: Italian Qwerty
+              - value: ja-jp-qwerty
+                description: Japanese Qwerty
+              - value: pt-br-qwerty
+                description: Portuguese Brazilian Qwerty
+              - value: sv-se-qwerty
+                description: Swedish Qwerty
+              - value: tr-tr-qwerty
+                description: Turkish-Q Qwerty
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
