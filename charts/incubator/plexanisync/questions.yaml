@@ -149,6 +149,77 @@ questions:
                 schema:
                   type: boolean
                   default: true
+  - variable: custom-mappings
+    group: App Configuration
+    label: Custom Mappings
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: remote_urls
+          label: Remote URLs
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: remote_url_entry
+                label: Remote URL
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+        - variable: entries
+          label: Entries
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: entry
+                label: entry
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: title
+                      label: Title
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: seasons
+                      label: Seasons
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: season_entry
+                            label: Season Entry
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: season
+                                  label: Season
+                                  schema:
+                                    type: int
+                                    required: true
+                                - variable: anilist_id
+                                  label: ANI List ID
+                                  schema:
+                                    type: int
+                                    required: true
+                    - variable: synonyms
+                      label: Synonyms
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: synonym
+                            label: Synonym
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
 # Include{containerConfig}
 # Include{serviceExpertRoot}
             default: false
