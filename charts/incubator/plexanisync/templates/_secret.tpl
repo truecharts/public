@@ -2,6 +2,7 @@
 {{- define "plexanisync.secret" -}}
 
 {{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretConfigName := printf "%s-config-secret" (include "tc.common.names.fullname" .) }}
 {{- $pas := .Values.plexanisync -}}
 ---
 apiVersion: v1
@@ -11,19 +12,43 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
-  {{/* PLEX */}}
-  PLEX_URL: {{ $pas.plex_url | quote }}
-  PLEX_TOKEN: {{ $pas.plex_token | quote }}
-  PLEX_EPISODE_COUNT_PRIORITY: {{ ternary "True" "False" $pas.plex_ep_count_priority | quote }}
-  PLEX_SECTION: {{ join "|" $pas.plex_section | quote }}
-
-  {{/* ANIList */}}
-  ANI_USERNAME: {{ $pas.ani_username | quote }}
-  ANI_TOKEN: {{ $pas.ani_token | quote }}
-
-  SKIP_LIST_UPDATE: {{ ternary "True" "False" $pas.skip_list_update | quote }}
-  LOG_FAILED_MATCHES: {{ ternary "True" "False" $pas.log_failed_matches | quote }}
+  SETTINGS_FILE: {{ .Values.persistence.settings.mountPath }}
   INTERVAL: {{ $pas.interval | quote }}
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ $secretConfigName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+stringData:
+  settings.ini: |
+    [PLEX]
+    anime_section = {{ join "|" $pas.plex_section }}
 
+    authentication_method = {{ $pas.plex.plex_auth_method }}
 
+    {{- if eq $pas.plex.plex_auth_method "direct" }}
+    base_url = {{ $pas.plex.plex_url }}
+    token = {{ $pas.plex.plex_token }}
+    {{- end }}
+
+    {{- if eq $pas.plex.plex_auth_method "myplex" }}
+    server = {{ $pas.plex.myplex_server }}
+    myplex_user = {{ $pas.plex.myplex_user }}
+    myplex_token = {{ $pas.plex.myplex_token }}
+    {{- end }}
+
+    home_user_sync = {{ ternary "True" "False" $pas.plex.home_user_sync }}
+    {{- if $pas.plex.home_user_sync }}
+    home_username = {{ $pas.plex.home_username }}
+    home_server_base_url = {{ $pas.plex.home_server_url }}
+    {{- end }}
+
+    [ANILIST]
+    access_token = {{ $pas.anilist.ani_token }}
+    plex_episode_count_priority = {{ ternary "True" "False" $pas.anilist.plex_ep_count_priority }}
+    skip_list_update = {{ ternary "True" "False" $pas.anilist.skip_list_update }}
+    username = {{ $pas.anilist.ani_username }}
+    log_failed_matches = {{ ternary "True" "False" $pas.anilist.log_failed_matches }}
 {{- end -}}
