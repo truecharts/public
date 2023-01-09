@@ -3,7 +3,8 @@
 
 {{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
 {{- $secretConfigName := printf "%s-config-secret" (include "tc.common.names.fullname" .) }}
-{{- $pas := .Values.plexanisync -}}
+{{- $pas := .Values.plexanisync }}
+{{- $cm := .Values.custom_mappings }}
 ---
 apiVersion: v1
 kind: Secret
@@ -51,4 +52,32 @@ stringData:
     skip_list_update = {{ ternary "True" "False" $pas.anilist.skip_list_update }}
     username = {{ $pas.anilist.ani_username }}
     log_failed_matches = {{ ternary "True" "False" $pas.anilist.log_failed_matches }}
+  custom_mappings.yaml:
+    # https://github.com/RickDB/PlexAniSync/blob/master/custom_mappings.yaml.example
+    {{- with $cm.remote_urls }}
+    remote-urls:
+      {{- range $url := . }}
+      - {{ . | quote }}
+      {{- end }}
+    {{- end }}
+
+    {{- with $cm.entries }}
+    entries:
+      {{- range $entry := . }}
+      - title: {{ $entry.title | quote }}
+        {{- with $entry.seasons }}
+        seasons:
+          {{- range $season_entry := . }}
+          - season: {{ $season_entry.season }}
+            anilist-id: {{ $season_entry.anilist_id }}
+          {{- end }}
+        {{- end }}
+        {{- with $entry.synonyms }}
+        synonyms:
+          {{- range $synonym := . }}
+          - {{ . | quote }}
+          {{- end }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
 {{- end -}}
