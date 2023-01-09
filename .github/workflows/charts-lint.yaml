@@ -315,8 +315,55 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check lint matrix status
-        if: ${{ ( (needs.generate-lint-matrix.outputs.detected1 == 'true') && (needs.lint-charts1.result != 'success') ) && ( (needs.generate-lint-matrix.outputs.detected2 == 'true') && ( (needs.lint-charts2.result != 'success') || ( needs.lint-charts2.result != 'skipped' ) ) ) && ( (needs.generate-lint-matrix.outputs.detected3 == 'true') && ( (needs.lint-charts3.result != 'success') || ( needs.lint-charts3.result != 'skipped' ) ) ) && ( (needs.generate-lint-matrix.outputs.detected4 == 'true') && ( (needs.lint-charts4.result != 'success') || ( needs.lint-charts4.result != 'skipped' ) ) ) && ( (needs.generate-lint-matrix.outputs.detected5 == 'true') && ( (needs.lint-charts5.result != 'success') || ( needs.lint-charts5.result != 'skipped' ) ) ) && ( (needs.generate-lint-matrix.outputs.detected6 == 'true') && ( (needs.lint-charts6.result != 'success') || ( needs.lint-charts6.result != 'skipped' ) ) ) }}
-        run: exit 1
+        run: |
+          res1="${{needs.lint-charts1.result}}"
+          res2="${{needs.lint-charts2.result}}"
+          res3="${{needs.lint-charts3.result}}"
+          res4="${{needs.lint-charts4.result}}"
+          res5="${{needs.lint-charts5.result}}"
+          res6="${{needs.lint-charts6.result}}"
+          
+          if [[ $res1 == "success" || $res1 == "skipped" ]]; then
+            echo "lint tests 1 successfull..."
+          else
+            echo "lint tests 1 error, stopping due to failure..."
+            exit 1
+          fi
+          
+          if [[ $res2 == "success" || $res2 == "skipped" ]]; then
+            echo "lint tests 2 successfull..."
+          else
+            echo "lint tests 2 error, stopping due to failure..."
+            exit 1
+          fi
+          
+          if [[ $res3 == "success" || $res3 == "skipped" ]]; then
+            echo "lint tests 3 successfull..."
+          else
+            echo "lint tests 3 error, stopping due to failure..."
+            exit 1
+          fi
+          
+          if [[ $res4 == "success" || $res4 == "skipped" ]]; then
+            echo "lint tests 4 successfull..."
+          else
+            echo "lint tests 4 error, stopping due to failure..."
+            exit 1
+          fi
+          
+          if [[ $res5 == "success" || $res5 == "skipped" ]]; then
+            echo "lint tests 5 successfull..."
+          else
+            echo "lint tests 5 error, stopping due to failure..."
+            exit 1
+          fi
+          
+          if [[ $res6 == "success" || $res6 == "skipped" ]]; then
+            echo "lint tests 6 successfull..."
+          else
+            echo "lint tests 6 error, stopping due to failure..."
+            exit 1
+          fi
 
       - uses: vishnudxb/cancel-workflow@c3c77eb4383ba7d023e6614a07d94fe990501ac6 # tag=v1.2
         if: failure()
