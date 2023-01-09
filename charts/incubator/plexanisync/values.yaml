@@ -6,7 +6,8 @@ image:
 plexanisync:
   interval: 3600
   plex:
-    plex_section: []
+    plex_section:
+      []
       # - section1
       # - section2
     # direct | myplex
@@ -29,8 +30,8 @@ plexanisync:
     skip_list_update: false
     log_failed_matches: false
 
-custom-mappings: []
-
+custom-mappings:
+  []
   # remote_urls:
   #   - https://blabal
   # entries:
