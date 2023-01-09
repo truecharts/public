@@ -35,7 +35,7 @@ stringData:
     {{- end }}
 
     {{- if eq $pas.plex.plex_auth_method "myplex" }}
-    server = {{ $pas.plex.myplex_server }}
+    server = {{ $pas.plex.myplex_server_name }}
     myplex_user = {{ $pas.plex.myplex_user }}
     myplex_token = {{ $pas.plex.myplex_token }}
     {{- end }}

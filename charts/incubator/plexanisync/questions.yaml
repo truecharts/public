@@ -28,7 +28,7 @@ questions:
             attrs:
               - variable: plex_section
                 label: Plex Section
-                description: The library where your anime resides.
+                description: The libraries where your anime resides.
                 schema:
                   type: list
                   required: true
@@ -43,6 +43,7 @@ questions:
                         required: true
               - variable: plex_auth_method
                 label: Authentication Method
+                description: Select Direct if you plan to auth the admin user, select Myplex for all other home users.
                 schema:
                   type: string
                   required: true
@@ -62,15 +63,15 @@ questions:
                   default: ""
               - variable: plex_token
                 label: Plex Token
-                description: The address to your Plex Media Server.
                 schema:
                   type: string
                   show_if: [["plex_auth_method", "=", "direct"]]
                   required: true
                   private: true
                   default: ""
-              - variable: myplex_server
-                label: My Plex Server
+              - variable: myplex_server_name
+                label: Plex Server Name
+                description: The name of your Plex Media Server.
                 schema:
                   type: string
                   show_if: [["plex_auth_method", "=", "myplex"]]
