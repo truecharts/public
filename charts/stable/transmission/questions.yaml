@@ -380,19 +380,6 @@ questions:
                               type: int
                               default: 51414
                               required: true
-                    - variable: torrentudp
-                      label: "UDP Service Port Configuration"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 51413
-                              required: true
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
