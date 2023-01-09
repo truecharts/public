@@ -27,6 +27,13 @@ completions: {{ . }}
 completionMode: {{ $job.completionMode | default $default.completionMode }}
 template:
   spec:
-  {{/* TODO: create the job spec (containers) */}}
+  {{/*- with (include "ix.v1.common.controller.extraContainers" (dict "root" $root
+                                                                    "containerList" $job.containers
+                                                                    "type" "job") | trim) }}
+    containers:
+    {{- . | nindent 6 }}
+  {{- end -*/}}
 {{- end -}}
+
+{{/* TODO: create the job spec (containers) */}}
 {{/* TODO: Unit Tests */}}

@@ -5,10 +5,12 @@ can be dynamically configured via an env var.
 */}}
 {{/* Ports included by the container. */}}
 {{- define "ix.v1.common.container.ports" -}}
-  {{- $defaultPortProtocol := .Values.global.defaults.portProtocol -}}
+  {{- $root := .root -}}
+  {{- $services := .services -}}
+  {{- $defaultPortProtocol := $root.Values.global.defaults.portProtocol -}}
   {{- $ports := list -}}
 
-  {{- range $svcName, $svc := .Values.service -}}
+  {{- range $svcName, $svc := $services -}}
     {{- if $svc.enabled -}}
       {{- if not $svc.ports -}}
         {{- fail (printf "At least one port is required in an enabled service (%s)" $svcName) -}}
@@ -40,7 +42,7 @@ can be dynamically configured via an env var.
             {{- fail (printf "Not valid <protocol> (%s)" .) -}}
           {{- end -}}
         {{- end }}
-- name: {{ tpl .name $ }}
+- name: {{ tpl .name $root }}
   containerPort: {{ default .port .targetPort }}
   protocol: {{ $protocol }}
         {{- with .hostPort }}

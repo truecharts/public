@@ -7,8 +7,8 @@
     {{- fail "You have to specify the type of the container" -}}
   {{- end -}}
 
-  {{- if not (mustHas $type (list "init" "install" "upgrade" "addititional")) -}}
-    {{- fail (printf "Type (%s) is not valid. Valid types are init, install, upgrade, addititonal" $type) -}}
+  {{- if not (mustHas $type (list "init" "install" "upgrade" "job" "addititional")) -}}
+    {{- fail (printf "Type (%s) is not valid. Valid types are init, install, upgrade, job, addititonal" $type) -}}
   {{- end -}}
 
   {{- $sortedContainers := list -}}
@@ -59,14 +59,17 @@
   envFrom:
     {{- . | nindent 4 }}
   {{- end -}}
+  {{- if and (hasKey $container "probes") (mustHas $type (list "init" "install" "upgrade" "job")) -}} {{/* Init/(Cron)Job containers do not have probes... */}}
+    {{- fail (printf "Init/Install/Upgrade/(Cron)Job Container (%s) do not support probes" $name) -}}
+  {{- end -}}
   {{- with (include "ix.v1.common.container.probes" (dict "probes" $container.probes
                                                           "containerName" $name
                                                           "isMainContainer" false
                                                           "root" $root) | trim) }}
     {{- . | nindent 2 }}
   {{- end -}}
-  {{- if and (hasKey $container "lifecycle") (mustHas $type (list "init" "install" "upgrade")) -}} {{/* Init containers do not have lifecycle... */}}
-    {{- fail (printf "Init/Install/Upgrade Container (%s) do not support lifecycle hooks" $name) -}}
+  {{- if and (hasKey $container "lifecycle") (mustHas $type (list "init" "install" "upgrade" "job")) -}} {{/* Init/(Cron)Job containers do not have lifecycle... */}}
+    {{- fail (printf "Init/Install/Upgrade/(Cron)Job Container (%s) do not support lifecycle hooks" $name) -}}
   {{- end -}}
   {{- with (include "ix.v1.common.container.lifecycle" (dict "lifecycle" $container.lifecycle "root" $root)) | trim }}
   lifecycle:

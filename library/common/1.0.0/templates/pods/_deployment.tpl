@@ -51,5 +51,5 @@ spec:
         {{- . | toYaml | trim | nindent 8 }}
       {{- end }}
     spec:
-      {{- include "ix.v1.common.controller.pod" . | trim | nindent 6 }}
+      {{- include "ix.v1.common.controller.pod" (dict "root" . "values" .Values) | trim | nindent 6 }}
 {{- end }}

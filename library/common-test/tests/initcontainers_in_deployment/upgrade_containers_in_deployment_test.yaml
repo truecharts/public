@@ -442,7 +442,7 @@ tests:
           lifecycle:
     asserts:
       - failedTemplate:
-          errorMessage: Init/Install/Upgrade Container (RELEASE-NAME-common-test-some-name) do not support lifecycle hooks
+          errorMessage: Init/Install/Upgrade/(Cron)Job Container (RELEASE-NAME-common-test-some-name) do not support lifecycle hooks
 
   - it: should fail with env trying to override fixedEnvs in upgrade container
     documentIndex: *deploymentDoc
@@ -864,7 +864,7 @@ tests:
               runAsNonRoot: false
               runAsUser: 0
 
-  - it: should fail with probe type set to auto in upgrade container
+  - it: should fail with probes in upgrade container
     documentIndex: *deploymentDoc
     set:
       upgradeContainers:
@@ -872,95 +872,9 @@ tests:
           probes:
             liveness:
               enabled: true
-              type: auto
     asserts:
       - failedTemplate:
-          errorMessage: <auto> probe type in probe (liveness) in (RELEASE-NAME-common-test-some-name) container, is only supported for the main container and only if there is at least 1 port enabled
-
-  - it: should pass with probes defined in upgrade container
-    documentIndex: *deploymentDoc
-    set:
-      upgradeContainers:
-        some-name:
-          probes:
-            liveness:
-              enabled: true
-              type: tcp
-              port: 3000
-            readiness:
-              enabled: true
-              type: http
-              port: 3000
-              path: /
-            startup:
-              enabled: true
-              type: exec
-              command:
-                - /bin/bash
-                - -c
-                - |
-                  echo "start!"
-    asserts:
-      - isSubset:
-          path: spec.template.spec.containers[0]
-          content:
-            livenessProbe:
-              httpGet:
-                path: /
-                scheme: HTTP
-                port: 65535
-              initialDelaySeconds: 10
-              failureThreshold: 5
-              timeoutSeconds: 5
-              periodSeconds: 10
-            readinessProbe:
-              httpGet:
-                path: /
-                scheme: HTTP
-                port: 65535
-              initialDelaySeconds: 10
-              failureThreshold: 5
-              timeoutSeconds: 5
-              periodSeconds: 10
-            startupProbe:
-              httpGet:
-                path: /
-                scheme: HTTP
-                port: 65535
-              initialDelaySeconds: 10
-              failureThreshold: 60
-              timeoutSeconds: 2
-              periodSeconds: 5
-      - isSubset:
-          path: spec.template.spec.initContainers[0]
-          content:
-            livenessProbe:
-              tcpSocket:
-                port: 3000
-              initialDelaySeconds: 10
-              failureThreshold: 5
-              timeoutSeconds: 5
-              periodSeconds: 10
-            readinessProbe:
-              httpGet:
-                path: /
-                scheme: HTTP
-                port: 3000
-              initialDelaySeconds: 10
-              failureThreshold: 5
-              timeoutSeconds: 5
-              periodSeconds: 10
-            startupProbe:
-              exec:
-                command:
-                  - /bin/bash
-                  - -c
-                  - |
-                    echo "start!"
-              initialDelaySeconds: 10
-              failureThreshold: 60
-              timeoutSeconds: 2
-              periodSeconds: 5
+          errorMessage: Init/Install/Upgrade/(Cron)Job Container (RELEASE-NAME-common-test-some-name) do not support probes
 
   - it: should fail with invalid protocol in ports in upgrade container
     documentIndex: *deploymentDoc

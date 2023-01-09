@@ -1,12 +1,15 @@
 {{/* Returns dnsPolicy */}}
 {{- define "ix.v1.common.dnsPolicy" -}}
+  {{- $dnsPolicy := .dnsPolicy -}}
+  {{- $hostNetwork := .hostNetwork -}}
+
   {{- $policy := "ClusterFirst" -}}
-  {{- if .Values.dnsPolicy -}}
-    {{- if not (mustHas .Values.dnsPolicy (list "Default" "ClusterFirst" "ClusterFirstWithHostNet" "None"))  -}}
+  {{- if $dnsPolicy -}}
+    {{- if not (mustHas $dnsPolicy (list "Default" "ClusterFirst" "ClusterFirstWithHostNet" "None"))  -}}
       {{- fail "Not valid dnsPolicy. Valid options are ClusterFirst, Default, ClusterFirstWithHostNet, None" -}}
     {{- end -}}
-    {{- $policy = .Values.dnsPolicy -}}
-  {{- else if .Values.hostNetwork -}}
+    {{- $policy = $dnsPolicy -}}
+  {{- else if $hostNetwork -}}
     {{- $policy = "ClusterFirstWithHostNet" -}}
   {{- end -}}
 {{- $policy -}}
@@ -14,34 +17,39 @@
 
 {{/* Returns dnsConfig */}}
 {{- define "ix.v1.common.dnsConfig" -}}
-  {{- if and (eq .Values.dnsPolicy "None") (not .Values.dnsConfig.nameservers) -}}
+  {{- $values := .values -}}
+  {{- $dnsPolicy := .dnsPolicy -}}
+  {{- $dnsConfig := .dnsConfig -}}
+  {{- $root := .root -}}
+
+  {{- if and (eq $dnsPolicy "None") (not $dnsConfig.nameservers) -}}
     {{- fail "With dnsPolicy set to None, you must specify at least 1 nameservers on dnsConfig" -}}
   {{- end -}}
-  {{- if or .Values.dnsConfig.nameservers .Values.dnsConfig.searches .Values.dnsConfig.options -}}
-    {{- with .Values.dnsConfig.nameservers -}}
+  {{- if or $dnsConfig.nameservers $dnsConfig.searches $dnsConfig.options -}}
+    {{- with $dnsConfig.nameservers -}}
       {{- if gt (len .) 3 -}}
         {{- fail "There can be at most 3 nameservers specified in dnsConfig" -}}
       {{- end -}}
 nameservers:
       {{- range . }}
-  - {{ tpl . $ }}
+  - {{ tpl . $root }}
       {{- end }}
     {{- end -}}
-    {{- with .Values.dnsConfig.searches -}}
+    {{- with $dnsConfig.searches -}}
       {{- if gt (len .) 6 -}}
         {{- fail "There can be at most 6 search domains specified in dnsConfig" -}}
       {{- end }}
 searches:
       {{- range . }}
-  - {{  tpl . $ }}
+  - {{  tpl . $root }}
       {{- end }}
     {{- end -}}
-    {{- with .Values.dnsConfig.options }}
+    {{- with $dnsConfig.options }}
 options:
       {{- range . }}
-  - name: {{ tpl .name $ }}
+  - name: {{ tpl .name $root }}
         {{- with .value }}
-    value: {{ tpl (toString .)  $ | quote }}
+    value: {{ tpl (toString .) $root | quote }}
         {{- end }}
       {{- end -}}
     {{- end -}}
