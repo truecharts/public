@@ -1,0 +1,35 @@
+image:
+  repository: tccr.io/truecharts/plexanisync
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:783613decc1a1041affe73ad90d04c3604b95824c156e0380c1a403bbe24ae3b
+
+plexanisync:
+  SKIP_LIST_UPDATE: "True"
+  LOG_FAILED_MATCHES: "True"
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /plexanisync
+
+portal:
+  enabled: false
