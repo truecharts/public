@@ -1,0 +1,38 @@
+image:
+  repository: evanbuss/openbooks
+  pullPolicy: IfNotPresent
+  tag: 4.5.0@sha256:3f2e59a75b68950d57cfec5dc2b1b31d6c6b02706097c70b5438499b59fbdea2
+
+extraArgs:
+  - --port
+  - "{{ .Values.service.main.ports.main.port }}"
+  - --persist
+  - --name
+  - "{{.Values.env.USER_NAME}}"
+
+securityContext:
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+
+env:
+  BASE_PATH: "/"
+  USER_NAME: "truecharts"
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        port: 10607
+
+persistence:
+  books:
+    enabled: true
+    mountPath: /books
+
+portal:
+  enabled: true
