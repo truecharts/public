@@ -67,7 +67,13 @@ jobs:
 
       - name: Run tests
         run: |
-          helm plugin install https://github.com/quintush/helm-unittest --version v0.2.11
+          retries=5
+          x=$retries
+          while [ $x -gt 0 ];
+          do
+            helm plugin install https://github.com/quintush/helm-unittest --version v0.2.11 && x=1
+            x=$(($x-1))
+          done
           cd library/common-test/
           helm dependency update
           helm unittest --helm3 -f "tests/*/*.yaml" .
