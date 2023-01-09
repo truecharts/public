@@ -4,8 +4,18 @@ image:
   tag: latest@sha256:783613decc1a1041affe73ad90d04c3604b95824c156e0380c1a403bbe24ae3b
 
 plexanisync:
-  SKIP_LIST_UPDATE: "True"
-  LOG_FAILED_MATCHES: "True"
+  plex_url: plex_url
+  plex_token: plex_token
+  plex_section:
+    - section1
+    - section2
+  ani_username: ani_user
+  ani_token: ani_token
+  plex_ep_count_priority: false
+  skip_list_update: false
+  log_failed_matches: false
+  interval: 3600
+
 
 envFrom:
   - secretRef:

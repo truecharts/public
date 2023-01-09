@@ -33,6 +33,7 @@ questions:
           description: The library where your anime resides.
           schema:
             type: list
+            required: true
             default: []
             items:
               - variable: plex_section_library_entry
@@ -61,35 +62,20 @@ questions:
           label: Plex Episode Count Priority
           description: Plex episode watched count will take priority over AniList.
           schema:
-            type: string
-            default: "False"
-            enum:
-              - value: "False"
-                description: "False"
-              - value: "True"
-                description: "True"
+            type: boolean
+            default: false
         - variable: skip_list_update
           label: Skip List Update
-          description: will NOT update your AniList which is useful if you want to do a test run.
+          description: Will NOT update your AniList which is useful if you want to do a test run.
           schema:
-            type: string
-            default: "False"
-            enum:
-              - value: "False"
-                description: "False"
-              - value: "True"
-                description: "True"
+            type: boolean
+            default: false
         - variable: log_failed_matches
           label: Log Failed Matches
           description: Enables logs to be written when matches fail.
           schema:
-            type: string
-            default: "False"
-            enum:
-              - value: "False"
-                description: "False"
-              - value: "True"
-                description: "True"
+            type: boolean
+            default: true
         - variable: interval
           label: Interval
           description: The time in between syncs in seconds.
