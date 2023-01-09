@@ -16,7 +16,6 @@ plexanisync:
   log_failed_matches: false
   interval: 3600
 
-
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-secret'
