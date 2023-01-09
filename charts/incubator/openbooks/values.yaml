@@ -10,16 +10,7 @@ extraArgs:
   - --name
   - "{{.Values.env.USER_NAME}}"
 
-securityContext:
-  readOnlyRootFilesystem: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-
 env:
-  BASE_PATH: "/"
   USER_NAME: "truecharts"
 
 service:
