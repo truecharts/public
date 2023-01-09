@@ -6,6 +6,9 @@ image:
 plexanisync:
   interval: 3600
   plex:
+    plex_section: []
+      # - section1
+      # - section2
     # direct | myplex
     plex_auth_method: direct
     # myplex
@@ -15,9 +18,6 @@ plexanisync:
     # direct
     plex_url: ""
     plex_token: ""
-    plex_section: []
-      # - section1
-      # - section2
     # Home user sync
     home_user_sync: false
     home_username: ""

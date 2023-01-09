@@ -13,69 +13,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: plex_url
-          label: Plex URL
-          description: The address to your Plex Media Server.
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: plex_token
-          label: Plex Token
-          description: The address to your Plex Media Server.
-          schema:
-            type: string
-            required: true
-            private: true
-            default: ""
-        - variable: plex_section
-          label: Plex Section
-          description: The library where your anime resides.
-          schema:
-            type: list
-            required: true
-            default: []
-            items:
-              - variable: plex_section_library_entry
-                label: Plex Section Library Entry
-                description: Single library per entry.
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-        - variable: ani_username
-          label: Ani UserName
-          description: Your AniList.co username.
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: ani_token
-          label: Ani Token
-          description: Your AniList.co token.
-          schema:
-            type: string
-            required: true
-            private: true
-            default: ""
-        - variable: plex_ep_count_priority
-          label: Plex Episode Count Priority
-          description: Plex episode watched count will take priority over AniList.
-          schema:
-            type: boolean
-            default: false
-        - variable: skip_list_update
-          label: Skip List Update
-          description: Will NOT update your AniList which is useful if you want to do a test run.
-          schema:
-            type: boolean
-            default: false
-        - variable: log_failed_matches
-          label: Log Failed Matches
-          description: Enables logs to be written when matches fail.
-          schema:
-            type: boolean
-            default: true
         - variable: interval
           label: Interval
           description: The time in between syncs in seconds.
@@ -83,6 +20,135 @@ questions:
             type: int
             default: 3600
             min: 600
+        - variable: plex
+          label: Plex Integration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: plex_section
+                label: Plex Section
+                description: The library where your anime resides.
+                schema:
+                  type: list
+                  required: true
+                  default: []
+                  items:
+                    - variable: plex_section_library_entry
+                      label: Plex Section Library Entry
+                      description: Single library per entry.
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: plex_auth_method
+                label: Authentication Method
+                schema:
+                  type: string
+                  required: true
+                  default: direct
+                  enum:
+                    - value: direct
+                      description: Direct
+                    - value: myplex
+                      description: MyPlex
+              - variable: plex_url
+                label: Plex URL
+                description: The address to your Plex Media Server.
+                schema:
+                  type: string
+                  show_if: [["plex_auth_method", "=", "direct"]]
+                  required: true
+                  default: ""
+              - variable: plex_token
+                label: Plex Token
+                description: The address to your Plex Media Server.
+                schema:
+                  type: string
+                  show_if: [["plex_auth_method", "=", "direct"]]
+                  required: true
+                  private: true
+                  default: ""
+              - variable: myplex_server
+                label: My Plex Server
+                schema:
+                  type: string
+                  show_if: [["plex_auth_method", "=", "myplex"]]
+                  required: true
+                  default: ""
+              - variable: myplex_user
+                label: My Plex User
+                schema:
+                  type: string
+                  show_if: [["plex_auth_method", "=", "myplex"]]
+                  required: true
+                  default: ""
+              - variable: myplex_token
+                label: My Plex Token
+                schema:
+                  type: string
+                  show_if: [["plex_auth_method", "=", "myplex"]]
+                  required: true
+                  private: true
+                  default: ""
+              - variable: home_user_sync
+                label: Home User Sync
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: home_username
+                      label: Home Username
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: home_server_url
+                      label: Home Server URL
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+        - variable: anilist
+          label: Anilist Integration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: ani_username
+                label: Ani UserName
+                description: Your AniList.co username.
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: ani_token
+                label: Ani Token
+                description: Your AniList.co token.
+                schema:
+                  type: string
+                  required: true
+                  private: true
+                  default: ""
+              - variable: plex_ep_count_priority
+                label: Plex Episode Count Priority
+                description: Plex episode watched count will take priority over AniList.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: skip_list_update
+                label: Skip List Update
+                description: Will NOT update your AniList which is useful if you want to do a test run.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: log_failed_matches
+                label: Log Failed Matches
+                description: Enables logs to be written when matches fail.
+                schema:
+                  type: boolean
+                  default: true
 # Include{containerConfig}
 # Include{serviceExpertRoot}
             default: false
