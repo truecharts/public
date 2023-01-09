@@ -178,9 +178,9 @@ tests:
           cron:
             enabled: true
             schedule: "* * * * *"
-            labels:
-              l1: "{{ .Values.l1 }}"
-              l2: "{{ .Values.l2 }}"
+          labels:
+            l1: "{{ .Values.l1 }}"
+            l2: "{{ .Values.l2 }}"
           containers:
             some-container:
     asserts:
@@ -215,9 +215,9 @@ tests:
           cron:
             enabled: true
             schedule: "* * * * *"
-            annotations:
-              a1: "{{ .Values.a1 }}"
-              a2: "{{ .Values.a2 }}"
+          annotations:
+            a1: "{{ .Values.a1 }}"
+            a2: "{{ .Values.a2 }}"
           containers:
             some-container:
     asserts:

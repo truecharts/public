@@ -20,12 +20,12 @@ apiVersion: {{ include "ix.v1.common.capabilities.cronJob.apiVersion" . }}
 kind: CronJob
 metadata:
   name: {{ $jobName }}
-  {{- $labels := (mustMerge ($job.cron.labels | default dict) (include "ix.v1.common.labels" $root | fromYaml)) -}}
+  {{- $labels := (mustMerge ($job.labels | default dict) (include "ix.v1.common.labels" $root | fromYaml)) -}}
   {{- with (include "ix.v1.common.util.labels.render" (dict "root" $root "labels" $labels) | trim) }}
   labels:
     {{- . | nindent 4 }}
   {{- end }}
-  {{- $annotations := (mustMerge ($job.cron.annotations | default dict) (include "ix.v1.common.annotations" $root | fromYaml)) -}}
+  {{- $annotations := (mustMerge ($job.annotations | default dict) (include "ix.v1.common.annotations" $root | fromYaml)) -}}
   {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $root "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
