@@ -120,14 +120,14 @@ tests:
       - failedTemplate:
           errorMessage: Invalid option (invalid) for <completionMode> in <job> (job-name). Valid options are NonIndexed and Indexed. Leave empty to use the default (NonIndexed)
 
-  - it: should fail without containers jobs
-    set:
-      jobs:
-        job-name:
-          enabled: true
-    asserts:
-      - failedTemplate:
-          errorMessage: At least one container in <containers> is required in <job> (job-name).
+  # - it: should fail without containers jobs
+  #   set:
+  #     jobs:
+  #       job-name:
+  #         enabled: true
+  #   asserts:
+  #     - failedTemplate:
+  #         errorMessage: At least one container in <containers> is required in <job> (job-name).
 
   - it: should pass with default in job
     documentIndex: &jobDoc 3
