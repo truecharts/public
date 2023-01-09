@@ -1,0 +1,20 @@
+image:
+  repository: ghcr.io/wanjohiryan/qwantify
+  pullPolicy: IfNotPresent
+  tag: 20.04@sha256:3d7b9ecfee074ee8836f4e4f7a3d674af7f34763f9dacce6b653c072508d6645
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 8080
+        port: 10603
+
+persistence:
+  games:
+    enabled: true
+    mountPath: /games
+
+portal:
+  enabled: true
