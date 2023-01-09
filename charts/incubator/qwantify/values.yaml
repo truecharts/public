@@ -3,6 +3,18 @@ image:
   pullPolicy: IfNotPresent
   tag: 20.04@sha256:3d7b9ecfee074ee8836f4e4f7a3d674af7f34763f9dacce6b653c072508d6645
 
+env:
+  APPPATH: "/games"
+  APPFILE: "/game.exe"
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 service:
   main:
     ports:
