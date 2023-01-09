@@ -359,7 +359,7 @@ questions:
                               default: 10109
                               required: true
         - variable: torrent
-          label: "TCP Torrent Service"
+          label: "Torrent Service"
           description: "Torrent service"
           schema:
             additional_attrs: true
@@ -380,15 +380,6 @@ questions:
                               type: int
                               default: 51414
                               required: true
-        - variable: torrentudp
-          label: "UDP Torrent Service"
-          description: "Torrent service"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
                     - variable: torrentudp
                       label: "UDP Service Port Configuration"
                       schema:
