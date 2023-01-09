@@ -1,6 +1,8 @@
 suite: cronJobs test
 templates:
   - common.yaml
+chart:
+  appVersion: &appVer v1.2.3
 tests:
   - it: should pass with default values
     documentIndex: &deploymentDoc 0
@@ -190,7 +192,7 @@ tests:
             app.kubernetes.io/instance: RELEASE-NAME
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/name: common-test
-            app.kubernetes.io/version: v1.0.0
+            app.kubernetes.io/version: *appVer
             helm-revision: "0"
             helm.sh/chart: common-test-1.0.0
             l1: val1
