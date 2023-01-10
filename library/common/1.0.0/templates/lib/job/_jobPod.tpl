@@ -41,9 +41,9 @@
 {{- $hostname := "" -}}
 {{- with $values.hostname -}}
   {{- if eq . $inherit -}}
-    {{- $hotsname = (tpl $root.Values.hostname $root) -}}
+    {{- $hostname = (tpl $root.Values.hostname $root) -}}
   {{- else  -}}
-    {{- $hotsname = tpl . $root -}}
+    {{- $hostname = tpl . $root -}}
   {{- end -}}
 {{- else -}}
   {{/* If we ever have value in global.defaults */}}
