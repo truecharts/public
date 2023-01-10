@@ -61,8 +61,11 @@
     {{- end -}}
   {{- end -}}
 
-  {{/*- if not $job.containers -}}
-    {{ fail (printf "At least one container in <containers> is required in <job> (%s)." $name) }}
-  {{- end -*/}}
+  {{- if not $job.podSpec -}}
+    {{ fail (printf "A pod in <podSpec> is required in <job> (%s)." $name) }}
+  {{- end -}}
+
+  {{- if not $job.podSpec.containers -}}
+    {{ fail (printf "At least one container in <podSpec.containers> is required in <job> (%s)." $name) }}
+  {{- end -}}
 {{- end -}}
-{{/* TODO: Unit Tests / It's pods not containers */}}

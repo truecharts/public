@@ -120,14 +120,25 @@ tests:
       - failedTemplate:
           errorMessage: Invalid option (invalid) for <completionMode> in <job> (job-name). Valid options are NonIndexed and Indexed. Leave empty to use the default (NonIndexed)
 
-  # - it: should fail without containers jobs
-  #   set:
-  #     jobs:
-  #       job-name:
-  #         enabled: true
-  #   asserts:
-  #     - failedTemplate:
-  #         errorMessage: At least one container in <containers> is required in <job> (job-name).
+  - it: should fail without pod in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: A pod in <podSpec> is required in <job> (job-name).
+
+  - it: should fail without containers in pod in jobs
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            containers: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: At least one container in <podSpec.containers> is required in <job> (job-name).
 
   - it: should pass with default in job
     documentIndex: &jobDoc 3
@@ -135,8 +146,10 @@ tests:
       jobs:
         job-name:
           enabled: true
-          containers:
-            some-container:
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
     asserts:
       - isKind:
           of: Job
@@ -154,12 +167,16 @@ tests:
       jobs:
         job-name:
           enabled: true
-          containers:
-            some-container:
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
         other-job-name:
           enabled: true
-          containers:
-            some-container:
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
     asserts:
       - isKind:
           of: Job
@@ -180,12 +197,16 @@ tests:
       jobs:
         job-name:
           enabled: true
-          containers:
-            some-container:
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
         other-job-name:
           enabled: true
-          containers:
-            some-container:
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
     asserts:
       - isKind:
           of: Job
@@ -207,8 +228,10 @@ tests:
         job-name:
           enabled: true
           backoffLimit: 3
-          containers:
-            some-container:
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
     asserts:
       - isSubset:
           path: spec
@@ -222,8 +245,10 @@ tests:
         job-name:
           enabled: true
           completionMode: Indexed
-          containers:
-            some-container:
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
     asserts:
       - isSubset:
           path: spec
@@ -237,8 +262,10 @@ tests:
         job-name:
           enabled: true
           ttlSecondsAfterFinished: 150
-          containers:
-            some-container:
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
     asserts:
       - isSubset:
           path: spec
@@ -252,8 +279,10 @@ tests:
         job-name:
           enabled: true
           activeDeadlineSeconds: 120
-          containers:
-            some-container:
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
     asserts:
       - isSubset:
           path: spec
@@ -267,8 +296,10 @@ tests:
         job-name:
           enabled: true
           parallelism: 5
-          containers:
-            some-container:
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
     asserts:
       - isSubset:
           path: spec
@@ -282,8 +313,10 @@ tests:
         job-name:
           enabled: true
           completions: 5
-          containers:
-            some-container:
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
     asserts:
       - isSubset:
           path: spec

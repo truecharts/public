@@ -17,8 +17,10 @@ tests:
       jobs:
         job-name:
           enabled: false
-          containers:
-            some-container:
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
     asserts:
       - hasDocuments:
           count: 3
@@ -29,8 +31,10 @@ tests:
       jobs:
         job-name:
           enabled: true
-          containers:
-            some-container:
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
     asserts:
       - isKind:
           of: Job
@@ -49,8 +53,10 @@ tests:
         job-name:
           enabled: true
           nameOverride: other-job-name
-          containers:
-            some-container:
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
     asserts:
       - equal:
           path: metadata.name
@@ -71,8 +77,10 @@ tests:
           labels:
             l1: "{{ .Values.l1 }}"
             l2: "{{ .Values.l2 }}"
-          containers:
-            some-container:
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
     asserts:
       - equal:
           path: metadata.labels
@@ -105,8 +113,10 @@ tests:
           annotations:
             a1: "{{ .Values.a1 }}"
             a2: "{{ .Values.a2 }}"
-          containers:
-            some-container:
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
     asserts:
       - equal:
           path: metadata.annotations
