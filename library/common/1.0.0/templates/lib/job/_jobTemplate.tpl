@@ -4,6 +4,7 @@
   {{- $job := .job -}}
 
   {{- $default := $root.Values.global.defaults.job -}}
+  {{- $controllerType := $root.Values.controller.type -}}
 
   {{- include "ix.v1.common.validate.job" (dict "root" $root "job" $job) -}}
 
@@ -27,6 +28,11 @@ completions: {{ . }}
 completionMode: {{ $job.completionMode | default $default.completionMode }}
 template:
   spec:
+{{- if not (mustHas $controllerType (list "job" "cronjob")) -}}
+  {{- include "ix.v1.common.job.pod" (dict "values" $job.podSpec "root" $root) | trim | nindent 4 -}}
+{{- else -}}
+{{- end -}}
+
 {{/* TODO: create the pod/job spec */}}
 {{- end -}}
 

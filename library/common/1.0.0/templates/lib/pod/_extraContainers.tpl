@@ -16,7 +16,11 @@
   {{/* Sort containers */}}
   {{- range $index, $name := (keys $containerList | uniq | sortAlpha) -}}
     {{- $container := get $containerList $name -}}
-    {{- $_ := set $container "name" $name -}}
+    {{- if eq $type "job" -}}
+      {{- $_ := set $container "name" (printf "job-%s" $name) -}}
+    {{- else -}}
+      {{- $_ := set $container "name" $name -}}
+    {{- end -}}
     {{- $sortedContainers = mustAppend $sortedContainers $container -}}
   {{- end -}}
 

@@ -105,6 +105,8 @@ global:
     useExpiredCerts: false
     # If no restart Policy is defined, assume this
     restartPolicy: Always
+    # If no restart Policy for job is defined, assume this
+    jobRestartPolicy: Never
     # If no port Protocol is defined, assume this
     portProtocol: TCP
     # Define the minimum NodePort

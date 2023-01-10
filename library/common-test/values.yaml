@@ -3,7 +3,6 @@ service:
     ports:
       main:
         port: 65535
-
 # jobs:
 #   jobname:
 #     enabled: true
@@ -24,8 +23,9 @@ service:
 #     parallelism: 1
 #     completions: 1
 #     completionMode: Indexed
-
-#     containers:
-#       containername:
-#         imageSelector: image
-#         restartPolicy: Never
+#     podSpec:
+#       containers:
+#         asdf:
+#           imageSelector: image
+#           env:
+#             TZ: asdf
