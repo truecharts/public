@@ -230,6 +230,26 @@ tests:
             some_key: value
             some_key1: value1
 
+  - it: should pass with addAnnotations set to true and overridden metalLBSharedKey
+    documentIndex: *serviceDoc
+    set:
+      addAnnotations:
+        traefik: true
+        metallb: true
+      service:
+        main:
+          type: LoadBalancer
+          metalLBSharedKey: custom-shared-key
+          ports:
+            main:
+              protocol: HTTPS
+    asserts:
+      - equal:
+          path: metadata.annotations
+          value:
+            traefik.ingress.kubernetes.io/service.serversscheme: https
+            metallb.universe.tf/allow-shared-ip: custom-shared-key
+
   - it: should pass with labels
     documentIndex: *serviceDoc
     set:

@@ -32,13 +32,17 @@ metadata:
   {{- with (include "ix.v1.common.util.labels.render" (dict "root" $root "labels" $labels) | trim) }}
   labels:
     {{- . | nindent 4 }}
-  {{- end }}
+  {{- end -}}
   {{- $additionalAnnotations := dict -}}
-  {{- if and $root.Values.addAnnotations.traefik (eq ($primaryPort.protocol | default "") "HTTPS") }}
+  {{- if and $root.Values.addAnnotations.traefik (eq ($primaryPort.protocol | default "") "HTTPS") -}}
     {{- $_ := set $additionalAnnotations "traefik.ingress.kubernetes.io/service.serversscheme" "https" -}}
   {{- end -}}
-  {{- if and $root.Values.addAnnotations.metallb (eq $svcType "LoadBalancer") }}
-    {{- $_ := set $additionalAnnotations "metallb.universe.tf/allow-shared-ip" (include "ix.v1.common.names.fullname" $root) }}
+  {{- if and $root.Values.addAnnotations.metallb (eq $svcType "LoadBalancer") -}}
+    {{- $sharedLBKey := include "ix.v1.common.names.fullname" $root -}}
+    {{- with $svcValues.metalLBSharedKey -}}
+      {{- $sharedLBKey = tpl . $root -}}
+    {{- end -}}
+    {{- $_ := set $additionalAnnotations "metallb.universe.tf/allow-shared-ip" $sharedLBKey -}}
   {{- end -}}
   {{- $annotations := (mustMerge ($svcValues.annotations | default dict) (include "ix.v1.common.annotations" $root | fromYaml) $additionalAnnotations) -}}
   {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $root "annotations" $annotations) | trim) }}
