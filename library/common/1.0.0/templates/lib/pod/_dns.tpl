@@ -6,7 +6,7 @@
   {{- $policy := "ClusterFirst" -}}
   {{- if $dnsPolicy -}}
     {{- if not (mustHas $dnsPolicy (list "Default" "ClusterFirst" "ClusterFirstWithHostNet" "None"))  -}}
-      {{- fail "Not valid dnsPolicy. Valid options are ClusterFirst, Default, ClusterFirstWithHostNet, None" -}}
+      {{- fail (printf "Not valid dnsPolicy (%s). Valid options are ClusterFirst, Default, ClusterFirstWithHostNet, None" $dnsPolicy) -}}
     {{- end -}}
     {{- $policy = $dnsPolicy -}}
   {{- else if $hostNetwork -}}

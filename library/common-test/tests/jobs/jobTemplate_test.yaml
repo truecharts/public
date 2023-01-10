@@ -593,7 +593,7 @@ tests:
   - it: should pass with inherit set in dnsPolicy
     documentIndex: *jobDoc
     set:
-      dnsPolicy: ClusterFirstWithoutHostNet
+      dnsPolicy: ClusterFirstWithHostNet
       jobs:
         job-name:
           enabled: true
@@ -606,13 +606,13 @@ tests:
       - isSubset:
           path: spec.template.spec
           content:
-            dnsPolicy: ClusterFirstWithoutHostNet
+            dnsPolicy: ClusterFirstWithHostNet
 
   - it: should pass with custom dnsPolicy
     documentIndex: *jobDoc
     set:
       key: None
-      dnsPolicy: ClusterFirstWithoutHostNet
+      dnsPolicy: ClusterFirstWithHostNet
       jobs:
         job-name:
           enabled: true

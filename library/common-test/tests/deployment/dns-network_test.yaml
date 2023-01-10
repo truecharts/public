@@ -53,7 +53,7 @@ tests:
       dnsPolicy: invalid
     asserts:
       - failedTemplate:
-          errorMessage: Not valid dnsPolicy. Valid options are ClusterFirst, Default, ClusterFirstWithHostNet, None
+          errorMessage: Not valid dnsPolicy (invalid). Valid options are ClusterFirst, Default, ClusterFirstWithHostNet, None
 
   - it: should pass with changed dnsPolicy
     documentIndex: *deploymentDoc
