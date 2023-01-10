@@ -10,7 +10,7 @@
   {{- if eq . $inherit -}}
     {{- $saName = (include "ix.v1.common.names.serviceAccountName" $root) -}}
   {{- else -}}
-    {{- $saName = . -}}
+    {{- $saName = tpl . $root -}}
   {{- end -}}
 {{- else -}}
   {{/* If we ever have value in global.defaults */}}
@@ -21,7 +21,7 @@
   {{- if eq . $inherit -}}
     {{- $schedulerName = (tpl $root.Values.schedulerName $root) -}}
   {{- else  -}}
-    {{- $schedulerName = . -}}
+    {{- $schedulerName = tpl . $root -}}
   {{- end -}}
 {{- else -}}
   {{/* If we ever have value in global.defaults */}}
@@ -32,7 +32,7 @@
   {{- if eq . $inherit -}}
     {{- $priorityClassName = (tpl $root.Values.priorityClassName $root) -}}
   {{- else -}}
-    {{- $priorityClassName = . -}}
+    {{- $priorityClassName = tpl . $root -}}
   {{- end -}}
 {{- else -}}
   {{/* If we ever have value in global.defaults */}}
@@ -43,7 +43,7 @@
   {{- if eq . $inherit -}}
     {{- $hotsname = (tpl $root.Values.hostname $root) -}}
   {{- else  -}}
-    {{- $hotsname = . -}}
+    {{- $hotsname = tpl . $root -}}
   {{- end -}}
 {{- else -}}
   {{/* If we ever have value in global.defaults */}}
@@ -66,7 +66,7 @@
 
 {{- $dnsConfig := dict -}}
 {{- with $values.dnsConfig -}}
-  {{- if eq . $inherit -}}
+  {{- if eq (toString .) $inherit -}}
     {{- with (include "ix.v1.common.dnsConfig" (dict "dnsPolicy" $root.Values.dnsPolicy "dnsConfig" $root.Values.dnsConfig "root" $root) | trim ) -}}
       {{- $dnsConfig = . -}}
     {{- end -}}
@@ -81,7 +81,7 @@
 
 {{- $hostAliases := dict -}}
 {{- with $values.hostAliases -}}
-  {{- if eq . $inherit -}}
+  {{- if eq (toString .) $inherit -}}
     {{- with (include "ix.v1.common.hostAliases" (dict "hostAliases" $root.Values.hostAliases "root" $root) | trim) -}}
       {{- $hostAliases = . -}}
     {{- end -}}
@@ -96,7 +96,7 @@
 
 {{- $nodeSelector := "" -}}
 {{- with $values.nodeSelector -}}
-  {{- if eq . $inherit -}}
+  {{- if eq (toString .) $inherit -}}
     {{- with (include "ix.v1.common.nodeSelector" (dict "nodeSelector" $root.Values.nodeSelector "root" $root) | trim) -}}
       {{- $nodeSelector = . -}}
     {{- end -}}
@@ -111,7 +111,7 @@
 
 {{- $tolerations := dict -}}
 {{- with $values.tolerations -}}
-  {{- if eq . $inherit -}}
+  {{- if eq (toString .) $inherit -}}
     {{- with (include "ix.v1.common.tolerations" (dict "tolerations" $root.Values.tolerations "root" $root) | trim) -}}
       {{- $tolerations = . -}}
     {{- end -}}
@@ -126,7 +126,7 @@
 
 {{- $imagePullSecrets := dict -}}
 {{- with $values.imagePullSecrets -}}
-  {{- if eq . $inherit -}}
+  {{- if eq (toString .) $inherit -}}
     {{- with (include "ix.v1.common.imagePullSecrets" (dict "imagePullCredentials" $root.Values.imagePullCredentials "root" $root) | trim) -}}
       {{- $imagePullSecrets = . -}}
     {{- end -}}
@@ -147,7 +147,7 @@
     {{- end -}}
   {{- else -}}
     {{- with (include "ix.v1.common.runtimeClassName" (dict "root" $root "runtime" $root.Values.runtimeClassName) | trim) -}}
-      {{- $runtimeClassName = . -}}
+      {{- $runtimeClassName = . -}} {{/* TODO: fix scaleGPU here */}}
     {{- end -}}
   {{- end -}}
 {{- else -}}
@@ -156,7 +156,7 @@
 
 {{- $termSeconds := "" }}
 {{- with $values.termination -}}
-  {{- if eq . $inherit -}}
+  {{- if eq (toString .) $inherit -}}
     {{- with $root.Values.termination.gracePeriodSeconds }}
       {{- $termSeconds = . }}
     {{- end -}}
@@ -171,7 +171,7 @@
 
 {{- $secCont := dict -}}
 {{- with $values.securityContext -}}
-  {{- if eq . $inherit -}}
+  {{- if eq (toString .) $inherit -}}
     {{- with (include "ix.v1.common.container.podSecurityContext" (dict "podSecCont" $root.Values.podSecurityContext "root" $root) | trim) -}}
       {{- $secCont = . -}}
     {{- end -}}
@@ -184,7 +184,7 @@
 
 {{/* Now render the actual values */}}
 {{- if hasKey $values "hostNetwork" -}}
-  {{- if eq $values.hostNetwork $inherit }}
+  {{- if eq (toString $values.hostNetwork) $inherit }}
 hostNetwork: {{ $root.Values.hostNetwork }}
   {{- else if (kindIs "bool" $values.hostNetwork) }}
 hostNetwork: {{ $values.hostNetwork }}
@@ -194,7 +194,7 @@ hostNetwork: false
 {{- end -}}
 
 {{- if hasKey $values "enableServiceLinks" -}}
-  {{- if eq $values.enableServiceLinks $inherit }}
+  {{- if eq (toString $values.enableServiceLinks) $inherit }}
 enableServiceLinks: {{ $root.Values.enableServiceLinks }}
   {{- else if (kindIs "bool" $values.enableServiceLinks) }}
 enableServiceLinks: {{ $values.enableServiceLinks }}
@@ -272,3 +272,4 @@ volumes:
     {{- . | nindent 2 }}
 {{- end -}}
 {{- end -}}
+{{/* TODO: Unit Tests */}}

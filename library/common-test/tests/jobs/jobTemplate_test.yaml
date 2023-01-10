@@ -322,3 +322,307 @@ tests:
           path: spec
           content:
             completions: 5
+
+  - it: should pass with default podSpec
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            enableServiceLinks: false
+            hostNetwork: false
+            restartPolicy: Never
+            securityContext:
+              fsGroup: 568
+              fsGroupChangePolicy: OnRootMismatch
+              supplementalGroups: []
+
+  - it: should pass with inherit set in serviceAccountName
+    documentIndex: &saJobDoc 4
+    set:
+      serviceAccount:
+        main:
+          enabled: true
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            serviceAccountName: inherit
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isKind:
+          of: Job
+      - isSubset:
+          path: spec.template.spec
+          content:
+            serviceAccountName: RELEASE-NAME-common-test
+
+  - it: should pass with custom serviceAccountName
+    documentIndex: &saJobDoc 4
+    set:
+      saName: custom
+      serviceAccount:
+        main:
+          enabled: true
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            serviceAccountName: "{{ .Values.saName }}"
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isKind:
+          of: Job
+      - isSubset:
+          path: spec.template.spec
+          content:
+            serviceAccountName: custom
+
+  - it: should pass with inherit set in schedulerName
+    documentIndex: *jobDoc
+    set:
+      schedulerName: somename
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            schedulerName: inherit
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            schedulerName: somename
+
+  - it: should pass with custom schedulerName
+    documentIndex: *jobDoc
+    set:
+      key: somename
+      schedulerName: main-scheduler
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            schedulerName: "{{ .Values.key }}"
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            schedulerName: somename
+
+  - it: should pass with inherit set for hostNetwork
+    documentIndex: *jobDoc
+    set:
+      hostNetwork: true
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            hostNetwork: inherit
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            hostNetwork: true
+
+  - it: should pass with false on hostNetwork and true on main
+    documentIndex: *jobDoc
+    set:
+      hostNetwork: true
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            hostNetwork: false
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            hostNetwork: false
+
+  - it: should pass with inherit set for enableServiceLinks
+    documentIndex: *jobDoc
+    set:
+      enableServiceLinks: true
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            enableServiceLinks: inherit
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            enableServiceLinks: true
+
+  - it: should pass with false on enableServiceLinks and true on main
+    documentIndex: *jobDoc
+    set:
+      enableServiceLinks: true
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            enableServiceLinks: false
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            enableServiceLinks: false
+
+  - it: should pass with changed restartPolicy
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            restartPolicy: Always
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            restartPolicy: Always
+
+  - it: should pass with inherit set in priorityClassName
+    documentIndex: *jobDoc
+    set:
+      priorityClassName: somename
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            priorityClassName: inherit
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            priorityClassName: somename
+
+  - it: should pass with custom priorityClassName
+    documentIndex: *jobDoc
+    set:
+      key: somename
+      priorityClassName: main-priorityClass
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            priorityClassName: "{{ .Values.key }}"
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            priorityClassName: somename
+
+  - it: should pass with inherit set in hostname
+    documentIndex: *jobDoc
+    set:
+      hostname: somename
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            hostname: inherit
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            hostname: somename
+
+  - it: should pass with custom hostname
+    documentIndex: *jobDoc
+    set:
+      key: somename
+      hostname: main-hostname
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            hostname: "{{ .Values.key }}"
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            hostname: somename
+
+  - it: should pass with inherit set in dnsPolicy
+    documentIndex: *jobDoc
+    set:
+      dnsPolicy: somename
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            dnsPolicy: inherit
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            dnsPolicy: somename
+
+  - it: should pass with custom dnsPolicy
+    documentIndex: *jobDoc
+    set:
+      key: somename
+      dnsPolicy: main-dnsPolicy
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            dnsPolicy: "{{ .Values.key }}"
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            dnsPolicy: somename

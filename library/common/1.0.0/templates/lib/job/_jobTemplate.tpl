@@ -31,9 +31,7 @@ template:
 {{- if not (mustHas $controllerType (list "job" "cronjob")) -}}
   {{- include "ix.v1.common.job.pod" (dict "values" $job.podSpec "root" $root) | trim | nindent 4 -}}
 {{- else -}}
+  {{/* TODO: Call different template when run as standalone here? Or handle it hgiher pods/_job.tpl */}}
 {{- end -}}
 
-{{/* TODO: create the pod/job spec */}}
 {{- end -}}
-
-{{/* TODO: Unit Tests */}}
