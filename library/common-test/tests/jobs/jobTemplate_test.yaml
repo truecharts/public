@@ -611,13 +611,12 @@ tests:
   - it: should pass with custom dnsPolicy
     documentIndex: *jobDoc
     set:
-      key: None
       dnsPolicy: ClusterFirstWithHostNet
       jobs:
         job-name:
           enabled: true
           podSpec:
-            dnsPolicy: "{{ .Values.key }}"
+            dnsPolicy: None
             containers:
               main:
                 imageSelector: image
