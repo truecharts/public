@@ -162,7 +162,7 @@ tests:
           content:
             terminationMessagePath: somePath
             terminationMessagePolicy: File
-
+# TODO: copy and adapt tests to jobSpecContainer
   - it: should pass with resources inherited from main container and modified in init container
     documentIndex: *deploymentDoc
     set:
