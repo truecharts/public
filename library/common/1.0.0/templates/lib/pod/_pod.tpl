@@ -20,7 +20,7 @@ priorityClassName: {{ . }}
 hostname: {{ . }}
 {{- end -}}
 
-{{- with (include "ix.v1.common.dnsPolicy" (dict "dnsPolicy" $root.Values.dnsPolicy "hostNetwork" $root.Values.hostNetwork) | trim ) }}
+{{- with (include "ix.v1.common.dnsPolicy" (dict "dnsPolicy" $root.Values.dnsPolicy "hostNetwork" $root.Values.hostNetwork "root" $root) | trim ) }}
 dnsPolicy: {{ . }}
 {{- end -}}
 

@@ -52,11 +52,11 @@
 {{- $dnsPolicy := "" -}}
 {{- with $values.dnsPolicy -}}
   {{- if eq . $inherit -}}
-    {{- with (include "ix.v1.common.dnsPolicy" (dict "dnsPolicy" $root.Values.dnsPolicy "hostNetwork" $root.Values.hostNetwork) | trim ) -}}
+    {{- with (include "ix.v1.common.dnsPolicy" (dict "dnsPolicy" $root.Values.dnsPolicy "hostNetwork" $root.Values.hostNetwork "root" $root) | trim ) -}}
       {{- $dnsPolicy = . -}}
     {{- end -}}
   {{- else -}}
-    {{- with (include "ix.v1.common.dnsPolicy" (dict "dnsPolicy" $values.dnsPolicy "hostNetwork" ($values.hostNetwork | default $root.Values.hostNetwork)) | trim ) -}}
+    {{- with (include "ix.v1.common.dnsPolicy" (dict "dnsPolicy" $values.dnsPolicy "hostNetwork" ($values.hostNetwork | default $root.Values.hostNetwork) "root" $root) | trim ) -}}
       {{- $dnsPolicy = . -}}
     {{- end -}}
   {{- end -}}
@@ -146,23 +146,25 @@
       {{- $runtimeClassName = . -}}
     {{- end -}}
   {{- else -}}
-    {{- with (include "ix.v1.common.runtimeClassName" (dict "root" $root "runtime" $root.Values.runtimeClassName) | trim) -}}
-      {{- $runtimeClassName = . -}} {{/* TODO: fix scaleGPU here */}}
-    {{- end -}}
+    {{- $runtimeClassName = . -}}
   {{- end -}}
 {{- else -}}
-  {{/* If we ever have value in global.defaults */}}
+  {{- with (include "ix.v1.common.runtimeClassName" (dict "root" $root "runtime" $root.Values.runtimeClassName "isJob" true) | trim) -}}
+    {{- $runtimeClassName = . -}}
+  {{- end -}}
 {{- end -}}
 
-{{- $termSeconds := "" }}
-{{- with $values.termination -}}
-  {{- if eq (toString .) $inherit -}}
-    {{- with $root.Values.termination.gracePeriodSeconds }}
-      {{- $termSeconds = . }}
-    {{- end -}}
-  {{- else -}}
-    {{- with $values.termination.gracePeriodSeconds }}
-      {{- $termSeconds = . }}
+{{- $termSeconds := "" -}}
+{{- if (hasKey $values "termination") -}}
+  {{- with $values.termination.gracePeriodSeconds -}}
+    {{- if eq (toString .) $inherit -}}
+      {{- with $root.Values.termination.gracePeriodSeconds -}}
+        {{- $termSeconds = . -}}
+      {{- end -}}
+    {{- else -}}
+      {{- with $values.termination.gracePeriodSeconds -}}
+        {{- $termSeconds = . -}}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
 {{- else -}}
@@ -170,14 +172,18 @@
 {{- end -}}
 
 {{- $secCont := dict -}}
-{{- with $values.securityContext -}}
-  {{- if eq (toString .) $inherit -}}
-    {{- with (include "ix.v1.common.container.podSecurityContext" (dict "podSecCont" $root.Values.podSecurityContext "root" $root) | trim) -}}
+{{- with $values.podSecurityContext -}}
+  {{- if eq (toString .) $inherit -}} {{/* If inherti is set, use the main podSecCont */}}
+    {{- with (include "ix.v1.common.container.podSecurityContext" (dict "podSecCont" $root.Values.podSecurityContext "root" $root "isJob" true) | trim) -}}
+      {{- $secCont = . -}}
+    {{- end -}}
+  {{- else -}} {{/* Otherwise use the job's podpodSecCont values */}}
+    {{- with (include "ix.v1.common.container.podSecurityContext" (dict "podSecCont" $values.podSecurityContext "root" $root "isJob" true) | trim) -}}
       {{- $secCont = . -}}
     {{- end -}}
   {{- end -}}
-{{- else -}}
-  {{- with (include "ix.v1.common.container.podSecurityContext" (dict "podSecCont" $values.podSecurityContext "root" $root) | trim) -}}
+{{- else -}} {{/* Otherwise use the job's podSecCont values (if empty, will use the global defaults) */}}
+  {{- with (include "ix.v1.common.container.podSecurityContext" (dict "podSecCont" $values.podSecurityContext "root" $root "isJob" true) | trim) -}}
     {{- $secCont = . -}}
   {{- end -}}
 {{- end -}}
@@ -253,7 +259,7 @@ imagePullSecrets:
 {{- end -}}
 
 {{- with $runtimeClassName }}
-runtimeClassname: {{ . }}
+runtimeClassName: {{ . }}
 {{- end -}}
 
 {{- with $termSeconds }}

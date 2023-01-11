@@ -28,7 +28,9 @@ The reason is not splitted, is that on one of the places needs a combo of all va
   {{- end -}}
 
   {{/* Overwrite from values that user/dev passed on this container */}}
-  {{- $returnValue = mustMergeOverwrite $returnValue $secCont -}}
+  {{- if $secCont -}} {{/* If secCont is empty don't try to merge */}}
+    {{- $returnValue = mustMergeOverwrite $returnValue $secCont -}}
+  {{- end -}}
 
   {{- $isPrivilegedPort := false -}}
 
@@ -106,6 +108,7 @@ The reason is not splitted, is that on one of the places needs a combo of all va
 
 {{- define "ix.v1.common.lib.podSecurityContext" -}}
   {{- $root := .root -}}
+  {{- $isJob := .isJob -}}
   {{- $podSecCont := .podSecCont -}}
 
   {{/* Initialiaze Values */}}
@@ -128,23 +131,37 @@ The reason is not splitted, is that on one of the places needs a combo of all va
 
   {{/* If at least one of those is not true, lets make sure it's not needed by any other container */}}
   {{- if or (not $appendDeviceGroups) (not $appendGPUGroup) -}}
+    {{- if not $isJob -}}
+      {{- range $key := (list "initContainers" "installContainers" "upgradeContainers" "additionalContainers") -}}
+        {{/* If they have containers defined... */}}
+        {{- if (get $root.Values $key) -}}
 
-    {{- range $key := (list "initContainers" "installContainers" "upgradeContainers" "additionalContainers") -}}
-      {{/* If they have containers defined... */}}
-      {{- if (get $root.Values $key) -}}
-
-        {{/* Go over the containers */}}
-        {{- range $containerName, $container := (get $root.Values $key) -}}
-          {{/* If the container has deviceList */}}
-          {{- if hasKey $container "deviceList" -}}
-            {{- if $container.deviceList -}}
-              {{- $appendDeviceGroups = true -}}
+          {{/* Go over the containers */}}
+          {{- range $containerName, $container := (get $root.Values $key) -}}
+            {{/* If the container has deviceList */}}
+            {{- if hasKey $container "deviceList" -}}
+              {{- if $container.deviceList -}}
+                {{- $appendDeviceGroups = true -}}
+              {{- end -}}
+            {{- end -}}
+            {{/* If the container has scaleGPU */}}
+            {{- if hasKey $container "scaleGPU" -}}
+              {{- if $container.scaleGPU -}}
+                {{- $appendGPUGroup = true -}}
+              {{- end -}}
             {{- end -}}
           {{- end -}}
-          {{/* If the container has scaleGPU */}}
-          {{- if hasKey $container "scaleGPU" -}}
-            {{- if $container.scaleGPU -}}
-              {{- $appendGPUGroup = true -}}
+        {{- end -}}
+      {{- end -}}
+    {{- else -}}
+      {{- range $jobName, $job := $root.Values.jobs -}}
+        {{- if $job.enabled -}}
+          {{- range $name, $container := $job.podSpec.containers -}}
+            {{- if hasKey $container "scaleGPU" -}}
+              {{- if $container.scaleGPU -}}
+                {{/* If at least 1 container has GPU... */}}
+                {{- $appendGPUGroup = true -}}
+              {{- end -}}
             {{- end -}}
           {{- end -}}
         {{- end -}}

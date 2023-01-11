@@ -2,8 +2,9 @@
 {{- define "ix.v1.common.container.termination.messagePath" -}}
   {{- $msgPath := .msgPath -}}
   {{- $root := .root -}}
-
-  {{- tpl $msgPath $root -}}
+  {{- if $msgPath -}}
+    {{- tpl $msgPath $root -}}
+  {{- end -}}
 {{- end -}}
 
 {{/* Returns the terminationMessagePolicy for the container */}}
@@ -11,7 +12,11 @@
   {{- $msgPolicy := .msgPolicy -}}
   {{- $root := .root -}}
 
-  {{- $policy := (tpl $msgPolicy $root) -}}
+  {{- $policy := "" -}}
+  {{- if $msgPolicy -}}
+    {{- $policy = (tpl $msgPolicy $root) -}}
+  {{- end -}}
+
   {{- with $policy -}}
     {{- if not (mustHas . (list "File" "FallbackToLogsOnError")) }}
       {{- fail (printf "Not valid option for messagePolicy (%s). Valid options are FallbackToLogsOnError and File" $policy) -}}

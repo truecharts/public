@@ -103,6 +103,8 @@ global:
     useRevokedCerts: false
     # If not defined on the the cert item, assume this
     useExpiredCerts: false
+    # If not defined on the pod, assume this
+    dnsPolicy: ClusterFirst
     # If no restart Policy is defined, assume this
     restartPolicy: Always
     # If no restart Policy for job is defined, assume this

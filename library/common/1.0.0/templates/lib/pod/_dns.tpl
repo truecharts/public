@@ -2,8 +2,9 @@
 {{- define "ix.v1.common.dnsPolicy" -}}
   {{- $dnsPolicy := .dnsPolicy -}}
   {{- $hostNetwork := .hostNetwork -}}
+  {{- $root := .root -}}
 
-  {{- $policy := "ClusterFirst" -}}
+  {{- $policy := $root.Values.global.defaults.dnsPolicy -}}
   {{- if $dnsPolicy -}}
     {{- if not (mustHas $dnsPolicy (list "Default" "ClusterFirst" "ClusterFirstWithHostNet" "None"))  -}}
       {{- fail (printf "Not valid dnsPolicy (%s). Valid options are ClusterFirst, Default, ClusterFirstWithHostNet, None" $dnsPolicy) -}}
