@@ -52,9 +52,8 @@ stringData:
     skip_list_update = {{ ternary "True" "False" $pas.anilist.skip_list_update }}
     username = {{ $pas.anilist.ani_username }}
     log_failed_matches = {{ ternary "True" "False" $pas.anilist.log_failed_matches }}
-  custom_mappings.yaml:
+  custom_mappings.yaml: |
     # https://github.com/RickDB/PlexAniSync/blob/master/custom_mappings.yaml.example
-    {{- if $cm }}
     {{- with $cm.remote_urls }}
     remote-urls:
       {{- range $url := . }}
@@ -80,6 +79,5 @@ stringData:
           {{- end }}
         {{- end }}
       {{- end }}
-    {{- end }}
     {{- end }}
 {{- end -}}
