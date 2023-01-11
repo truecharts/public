@@ -174,3 +174,144 @@ tests:
           content:
             terminationMessagePath: somePath
             terminationMessagePolicy: File
+
+  - it: should pass with resources inherited from main container and modified in job container
+    documentIndex: *jobDoc
+    set:
+      resources:
+        requests:
+          cpu: 25m
+          memory: 80Mi
+      jobs:
+        some-name:
+          enabled: true
+          podSpec:
+            containers:
+              main:
+                resources:
+                  inherit: true
+                  limits:
+                    cpu: 1000m
+                    memory: 1Gi
+                  requests:
+                    memory: 120Mi
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 1000m
+                memory: 1Gi
+              requests:
+                cpu: 25m
+                memory: 120Mi
+
+  - it: should pass with resources defined in job container
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        some-name:
+          enabled: true
+          podSpec:
+            containers:
+              main:
+                nvidiaCaps:
+                  - compute
+                scaleGPU:
+                  gpu.intel.com/i915: "1"
+                resources:
+                  limits:
+                    cpu: 3000m
+                    memory: 4Gi
+                  requests:
+                    cpu: 20m
+                    memory: 100Mi
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 3000m
+                memory: 4Gi
+                gpu.intel.com/i915: "1"
+              requests:
+                cpu: 20m
+                memory: 100Mi
+      - contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: NVIDIA_DRIVER_CAPABILITIES
+            value: compute
+
+  - it: should pass with envFrom defined in job container
+    documentIndex: *jobDoc
+    set:
+      some_name: a_name
+      some_name2: a_name2
+      jobs:
+        some-name:
+          enabled: true
+          podSpec:
+            containers:
+              main:
+                envFrom:
+                  - configMapRef:
+                      name: "{{ .Values.some_name }}"
+                  - configMapRef:
+                      name: "{{ .Values.some_name2 }}"
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            envFrom:
+              - configMapRef:
+                  name: a_name
+              - configMapRef:
+                  name: a_name2
+
+  - it: should pass with env and envList defined in init container
+    documentIndex: *jobDoc
+    set:
+      some_value: value
+      some_value2: value2
+      some_value3: value3
+      some_value4: value4
+      jobs:
+        some-name:
+          enabled: true
+          podSpec:
+            containers:
+              main:
+                env:
+                  var1: "{{ .Values.some_value }}"
+                  var2: "{{ .Values.some_value2 }}"
+                envList:
+                  - name: var3
+                    value: "{{ .Values.some_value3 }}"
+                  - name: var4
+                    value: "{{ .Values.some_value4 }}"
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            env:
+              - name: TZ
+                value: UTC
+              - name: UMASK
+                value: "002"
+              - name: UMASK_SET
+                value: "002"
+              - name: NVIDIA_VISIBLE_DEVICES
+                value: void
+              - name: S6_READ_ONLY_ROOT
+                value: "1"
+              - name: var1
+                value: value
+              - name: var2
+                value: value2
+              - name: var3
+                value: value3
+              - name: var4
+                value: value4
