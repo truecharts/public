@@ -493,8 +493,7 @@ tests:
         job-name:
           enabled: true
           podSpec:
-            termination:
-              gracePeriodSeconds: inherit
+            termination: inherit
             containers:
               main:
                 imageSelector: image
@@ -823,3 +822,78 @@ tests:
               supplementalGroups:
                 - 50
                 - 44
+
+  - it: should pass with security Context set to inherit
+    documentIndex: *jobDoc
+    set:
+      podSecurityContext:
+        fsGroup: 100
+        fsGroupChangePolicy: Always
+        supplementalGroups:
+          - 100
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            podSecurityContext: inherit
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - isSubset:
+          path: spec.template.spec
+          content:
+            securityContext:
+              fsGroup: 100
+              fsGroupChangePolicy: Always
+              supplementalGroups:
+                - 100
+
+  - it: should pass with default container
+    documentIndex: *jobDoc
+    set:
+      jobs:
+        job-name:
+          enabled: true
+          podSpec:
+            containers:
+              main:
+                imageSelector: image
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0]
+          value:
+            name: RELEASE-NAME-common-test-job-main
+            image: repo:tag
+            imagePullPolicy: IfNotPresent
+            tty: false
+            stdin: false
+            env:
+              - name: "TZ"
+                value: "UTC"
+              - name: "UMASK"
+                value: "002"
+              - name: "UMASK_SET"
+                value: "002"
+              - name: "NVIDIA_VISIBLE_DEVICES"
+                value: "void"
+              - name: "S6_READ_ONLY_ROOT"
+                value: "1"
+            securityContext:
+              runAsNonRoot: true
+              runAsUser: 568
+              runAsGroup: 568
+              readOnlyRootFilesystem: true
+              allowPrivilegeEscalation: false
+              privileged: false
+              capabilities:
+                add: []
+                drop:
+                  - "ALL"
+            resources:
+              requests:
+                cpu: 10m
+                memory: 50Mi
+              limits:
+                cpu: 4000m
+                memory: 8Gi

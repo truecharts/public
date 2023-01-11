@@ -155,16 +155,14 @@
 {{- end -}}
 
 {{- $termSeconds := "" -}}
-{{- if (hasKey $values "termination") -}}
-  {{- with $values.termination.gracePeriodSeconds -}}
-    {{- if eq (toString .) $inherit -}}
-      {{- with $root.Values.termination.gracePeriodSeconds -}}
-        {{- $termSeconds = . -}}
-      {{- end -}}
-    {{- else -}}
-      {{- with $values.termination.gracePeriodSeconds -}}
-        {{- $termSeconds = . -}}
-      {{- end -}}
+{{- with $values.termination -}}
+  {{- if eq (toString .) $inherit -}}
+    {{- with $root.Values.termination.gracePeriodSeconds -}}
+      {{- $termSeconds = . -}}
+    {{- end -}}
+  {{- else -}}
+    {{- with $values.termination.gracePeriodSeconds -}}
+      {{- $termSeconds = . -}}
     {{- end -}}
   {{- end -}}
 {{- else -}}
