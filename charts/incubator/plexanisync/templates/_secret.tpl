@@ -82,7 +82,7 @@ stringData:
       {{- end }}
     {{- end }}
   {{- else }}
-  remote-urls: {}
-  entries: {}
+    remote-urls: {}
+    entries: {}
   {{- end }}
 {{- end -}}
