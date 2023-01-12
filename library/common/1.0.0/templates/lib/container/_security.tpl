@@ -176,7 +176,7 @@ The reason is not splitted, is that on one of the places needs a combo of all va
   {{- end -}}
 
   {{- if $appendDeviceGroups -}}
-    {{/* Append the "tty" Group */}}
+    {{/* Append the "tty" Group */}} {{/* TODO: Check groups */}}
     {{- $_ := set $returnValue "supplementalGroups" (mustAppend $returnValue.supplementalGroups 5) -}}
     {{/* Append the "uucp" Group (used for USB/TTY/RS232) */}}
     {{- $_ := set $returnValue "supplementalGroups" (mustAppend $returnValue.supplementalGroups 10) -}}
