@@ -2,8 +2,15 @@ image:
   repository: tccr.io/truecharts/plexanisync
   pullPolicy: IfNotPresent
   tag: latest@sha256:783613decc1a1041affe73ad90d04c3604b95824c156e0380c1a403bbe24ae3b
+
 securityContext:
   readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGrou: 0
+
 plexanisync:
   interval: 3600
   plex:
