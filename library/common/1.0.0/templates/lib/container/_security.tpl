@@ -138,13 +138,13 @@ The reason is not splitted, is that on one of the places needs a combo of all va
 
           {{/* Go over the containers */}}
           {{- range $containerName, $container := (get $root.Values $key) -}}
-            {{/* If the container has deviceList */}}
+            {{/* If at least 1 container has deviceList... */}}
             {{- if hasKey $container "deviceList" -}}
               {{- if $container.deviceList -}}
                 {{- $appendDeviceGroups = true -}}
               {{- end -}}
             {{- end -}}
-            {{/* If the container has scaleGPU */}}
+            {{/* If at least 1 container has GPU... */}}
             {{- if hasKey $container "scaleGPU" -}}
               {{- if $container.scaleGPU -}}
                 {{- $appendGPUGroup = true -}}
@@ -157,9 +157,15 @@ The reason is not splitted, is that on one of the places needs a combo of all va
       {{- range $jobName, $job := $root.Values.jobs -}}
         {{- if $job.enabled -}}
           {{- range $name, $container := $job.podSpec.containers -}}
+            {{/* If at least 1 container has deviceList... */}}
+            {{- if hasKey $container "deviceList" -}}
+              {{- if $container.deviceList -}}
+                {{- $appendDeviceGroups = true -}}
+              {{- end -}}
+            {{- end -}}
+            {{/* If at least 1 container has GPU... */}}
             {{- if hasKey $container "scaleGPU" -}}
               {{- if $container.scaleGPU -}}
-                {{/* If at least 1 container has GPU... */}}
                 {{- $appendGPUGroup = true -}}
               {{- end -}}
             {{- end -}}
@@ -186,7 +192,7 @@ The reason is not splitted, is that on one of the places needs a combo of all va
   {{- end -}}
 
   {{/* Validate values, as mergeOverwrite also passes null values */}}
-  {{- if eq (toString $returnValue.fsGroup) "<nil>" -}}
+  {{- if (kindIs "invalid" $returnValue.fsGroup) -}}
     {{- fail (printf "<fsGroup> key cannot be empty. Set a value or remove the key for the default (%v) to take effect." $defaultPodSecCont.fsGroup) -}}
   {{- else if not (mustHas (kindOf $returnValue.fsGroup) (list "int" "float64")) -}}
     {{- fail (printf "<fsGroup> key has value of (%q). But must be an int." $returnValue.fsGroup) -}}

@@ -162,7 +162,7 @@ tests:
           content:
             terminationMessagePath: somePath
             terminationMessagePolicy: File
-# TODO: copy and adapt tests to jobSpecContainer
+
   - it: should pass with resources inherited from main container and modified in init container
     documentIndex: *deploymentDoc
     set:
@@ -421,7 +421,6 @@ tests:
           path: spec.template.spec.initContainers[0].env
 
   - it: should fail with lifecycle defined in init container
-    documentIndex: *deploymentDoc
     set:
       initContainers:
         some-name:
@@ -431,7 +430,6 @@ tests:
           errorMessage: Init/Install/Upgrade/(Cron)Job Container (RELEASE-NAME-common-test-some-name) do not support lifecycle hooks
 
   - it: should fail with env trying to override fixedEnvs in init container
-    documentIndex: *deploymentDoc
     set:
       initContainers:
         some-name:
@@ -442,7 +440,6 @@ tests:
           errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (env)]
 
   - it: should fail with env trying to override configmap in init container
-    documentIndex: *deploymentDoc
     set:
       configmap:
         some-confmap:
@@ -460,7 +457,6 @@ tests:
           errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (configmap-RELEASE-NAME-common-test-some-confmap)]
 
   - it: should fail with env trying to override secret in init container
-    documentIndex: *deploymentDoc
     set:
       secret:
         some-secret:
@@ -476,7 +472,6 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (secret-RELEASE-NAME-common-test-some-secret)]
-
 
   - it: should pass with securityContext inherited
     documentIndex: *deploymentDoc
@@ -852,7 +847,6 @@ tests:
               runAsUser: 0
 
   - it: should fail with probes in init container
-    documentIndex: *deploymentDoc
     set:
       initContainers:
         some-name:
@@ -864,7 +858,6 @@ tests:
           errorMessage: Init/Install/Upgrade/(Cron)Job Container (RELEASE-NAME-common-test-some-name) do not support probes
 
   - it: should fail with invalid protocol in ports in init container
-    documentIndex: *deploymentDoc
     set:
       initContainers:
         some-name:
@@ -877,7 +870,6 @@ tests:
           errorMessage: Invalid <protocol> (invalid-proto) in port (tcp-port) in (RELEASE-NAME-common-test-some-name) container. Valid protocols are TCP and UDP.
 
   - it: should fail without name in ports in init container
-    documentIndex: *deploymentDoc
     set:
       initContainers:
         some-name:
@@ -890,7 +882,6 @@ tests:
           errorMessage: <name> is required in all <ports> in (RELEASE-NAME-common-test-some-name) container.
 
   - it: should fail without containerPort in ports in init container
-    documentIndex: *deploymentDoc
     set:
       initContainers:
         some-name:
@@ -902,7 +893,6 @@ tests:
           errorMessage: <containerPort> is required in port (tcp-port) in (RELEASE-NAME-common-test-some-name) container.
 
   - it: should fail with non-int containerPort in ports in init container
-    documentIndex: *deploymentDoc
     set:
       initContainers:
         some-name:
@@ -914,7 +904,6 @@ tests:
           errorMessage: Invalid <containerPort> (not-int) in port (tcp-port) in (RELEASE-NAME-common-test-some-name) container. Must be an int.
 
   - it: should fail with non-int hostPort in ports in init container
-    documentIndex: *deploymentDoc
     set:
       initContainers:
         some-name:
@@ -975,7 +964,6 @@ tests:
                 name: udp-port
 
   - it: should fail without trying to mount a non existent volume in volumeMounts defined in init container
-    documentIndex: *deploymentDoc
     set:
       initContainers:
         some-name:
@@ -987,7 +975,6 @@ tests:
           errorMessage: You are trying to mount a volume that does not exist (some-volume). Please define the volume in <persistence>.
 
   - it: should fail without name in volumeMounts defined in init container
-    documentIndex: *deploymentDoc
     set:
       initContainers:
         some-name:
