@@ -61,7 +61,7 @@ The reason is not splitted, is that on one of the places needs a combo of all va
   {{- end -}}
 
   {{/* Devices need privileged container */}}
-  {{- if $deviceList -}}
+  {{- if $deviceList -}} {{/* TODO: Check if devices actually need privileged */}}
     {{- $_ := set $returnValue "privileged" true -}}
     {{- $_ := set $returnValue "allowPrivilegeEscalation" true -}}
   {{- end -}}
