@@ -208,6 +208,31 @@ global:
       backoffLimit: 6
       completionMode: NonIndexed
 
+# - Bellow values are needed (in addition to the default global)
+# as those are being referenced on other values in values.yaml sometimes
+
+# Default podSecurityContext for main pod
+podSecurityContext:
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: OnRootMismatch
+# Default Security values for main container
+security:
+  PUID: 568
+  UMASK: "002"
+# Default securityContext for main container
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 568
+  runAsGroup: 568
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  privileged: false
+  capabilities:
+    add: []
+    drop:
+      - ALL
+
 nameOverride: ""
 
 fullnameOverride: ""
