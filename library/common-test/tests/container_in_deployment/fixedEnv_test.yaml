@@ -75,6 +75,34 @@ tests:
             - name: S6_READ_ONLY_ROOT
               value: "1"
 
+  - it: should pass with an env referencing TZ and PUID
+    documentIndex: *deploymentDoc
+    set:
+      securityContext:
+        runAsUser: 0
+        runAsNonRoot: false
+      env:
+        TIMEZONE: "{{ .Values.TZ }}"
+        APP_USER_ID: "{{ .Values.security.PUID }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: ETC
+            - name: UMASK
+              value: "003"
+            - name: UMASK_SET
+              value: "003"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: void
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: TIMEZONE
+              value: ETC
+            - name: APP_USER_ID
+              value: "568"
+
   - it: should pass without S6_READ_ONLY_ROOT
     documentIndex: *deploymentDoc
     set:

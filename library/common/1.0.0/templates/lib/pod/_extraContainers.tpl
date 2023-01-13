@@ -14,15 +14,14 @@
   {{- $sortedContainers := list -}}
 
   {{/* Sort containers */}}
-  {{- range $index, $name := (keys $containerList | uniq | sortAlpha) -}}
+  {{- range $index, $name := (keys $containerList | mustUniq | sortAlpha) -}}
     {{- $container := get $containerList $name -}}
     {{- $enabled := true -}} {{/* Default to enable */}}
 
     {{- if hasKey $container "enabled" -}} {{/* If has enabled key */}}
-      {{- if (kindIs "bool" (tpl $container.enabled $root)) -}} {{/* And its kind of bool */}}
-        {{- if not (tpl $container.enabled $root) -}} {{/* And it's false */}}
-          {{- $enabled = false -}} {{/* Disable the container */}}
-        {{- end -}}
+      {{- $flag := (tpl $container.enabled $root) -}}
+      {{- if eq "false" $flag -}} {{/* And its kind of bool */}}
+        {{- $enabled = false -}} {{/* Disable the container */}}
       {{- end -}}
     {{- end -}}
 

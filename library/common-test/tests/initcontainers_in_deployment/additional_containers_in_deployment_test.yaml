@@ -297,6 +297,10 @@ tests:
           env:
             var1: "{{ .Values.some_value }}"
             var2: "{{ .Values.some_value2 }}"
+            var5:
+              secretKeyRef:
+                key: key
+                name: name
           envList:
             - name: var3
               value: "{{ .Values.some_value3 }}"
@@ -333,6 +337,11 @@ tests:
                 value: value
               - name: var2
                 value: value2
+              - name: var5
+                valueFrom:
+                  secretKeyRef:
+                    name: name
+                    key: key
               - name: var3
                 value: value3
               - name: var4
@@ -1133,6 +1142,67 @@ tests:
                 readOnly: false
                 subPath: /some/other/sub/path
 
+  - it: should pass with volumeMounts inherit all in additional container
+    documentIndex: *deploymentDoc
+    set:
+      persistence:
+        some-volume:
+          enabled: true
+          noMount: true
+          mountPath: /some/path
+          type: emptyDir
+        some-other-volume:
+          enabled: true
+          noMount: true
+          mountPath: /some/other/path
+          type: emptyDir
+      additionalContainers:
+        some-name:
+          volumeMounts:
+            - inherit: all
+    asserts:
+      - isNull:
+          path: spec.template.spec.containers[0].volumeMounts
+      - isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            volumeMounts:
+              - name: some-other-volume
+                mountPath: /some/other/path
+              - name: some-volume
+                mountPath: /some/path
+
+  - it: should pass with volumeMounts inherit skipNoMount in additional container
+    documentIndex: *deploymentDoc
+    set:
+      persistence:
+        some-volume:
+          enabled: true
+          noMount: true
+          mountPath: /some/path
+          type: emptyDir
+        some-other-volume:
+          enabled: true
+          type: emptyDir
+          mountPath: /some/other/path
+      additionalContainers:
+        some-name:
+          volumeMounts:
+            - inherit: skipNoMount
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            volumeMounts:
+              - mountPath: /some/other/path
+                name: some-other-volume
+      - isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            volumeMounts:
+              - name: some-other-volume
+                mountPath: /some/other/path
+
   - it: should pass with deviceList and volumeMounts defined in additional container
     documentIndex: *deploymentDoc
     set:
@@ -1193,3 +1263,14 @@ tests:
                 mountPath: /host/dev/usb
               - name: device-some-name-1
                 mountPath: /host/dev/serial
+
+  - it: should pass with disabled additional container from tpl
+    documentIndex: *deploymentDoc
+    set:
+      flag: false
+      additionalContainers:
+        some-name:
+          enabled: "{{ .Values.flag }}"
+    asserts:
+      - isNull:
+          path: spec.template.spec.initContainers

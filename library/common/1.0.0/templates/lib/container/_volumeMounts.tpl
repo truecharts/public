@@ -29,32 +29,55 @@
     {{- range $name, $item := $root.Values.persistence -}}
       {{- $volNames = mustAppend $volNames $name -}}
     {{- end -}}
-    {{- range $index, $volMount := $extraContainerVolMounts }}
-      {{- if not $volMount.name -}}
-        {{- fail "<name> is required in volumeMounts in init/system/install/upgrade/additional containers." -}}
-      {{- end -}}
 
-      {{- if not (mustHas $volMount.name $volNames) -}}
-        {{- fail (printf "You are trying to mount a volume that does not exist (%s). Please define the volume in <persistence>." $volMount.name) -}}
-      {{- end -}}
+    {{- range $index, $volMount := $extraContainerVolMounts -}}
+      {{- if hasKey $volMount "inherit" -}} {{/* If has Key "inherit" */}}
+        {{- if eq $volMount.inherit "all" -}} {{/* Inherit all volumeMounts */}}
+          {{- range $name, $item := $root.Values.persistence -}}
+            {{- if $item.enabled -}}
+              {{- include "ix.v1.common.container.volumeMount" (dict "root" $root
+                                                                      "item" $item
+                                                                      "name" $name) | indent 0 -}}
+            {{- end -}}
+          {{- end -}}
+        {{- else if eq $volMount.inherit "skipNoMount" -}} {{/* Inherit all volumeMounts but skip the "noMount" volumeMounts */}}
+          {{- range $name, $item := $root.Values.persistence -}}
+            {{- if $item.enabled -}}
+              {{- if not $item.noMount -}}
+                {{- include "ix.v1.common.container.volumeMount" (dict "root" $root
+                                                                        "item" $item
+                                                                        "name" $name) | indent 0 -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}{{/* Here we can add other inherit cases */}}
+      {{- else -}}
+        {{- if not $volMount.name -}}
+          {{- fail "<name> is required in volumeMounts in init/system/install/upgrade/additional containers." -}}
+        {{- end -}}
 
-      {{- $item := dict -}}
+        {{- if not (mustHas $volMount.name $volNames) -}}
+          {{- fail (printf "You are trying to mount a volume that does not exist (%s). Please define the volume in <persistence>." $volMount.name) -}}
+        {{- end -}}
 
-      {{- $_ := set $item "mountPath" $volMount.mountPath -}}
-      {{- if hasKey $volMount "subPath" -}}
-        {{- $_ := set $item "subPath" $volMount.subPath -}}
-      {{- end -}}
-      {{- if hasKey $volMount "mountPropagation" -}}
-        {{- $_ := set $item "mountPropagation" $volMount.mountPropagation -}}
-      {{- end -}}
-      {{- if hasKey $volMount "readOnly" -}}
-        {{- $_ := set $item "readOnly" $volMount.readOnly -}}
-      {{- end -}}
+        {{- $item := dict -}}
 
-      {{- include "ix.v1.common.container.volumeMount" (dict "root" $root
-                                                              "item" $item
-                                                              "name" $volMount.name) | nindent 0 -}}
-    {{- end }}
+        {{- $_ := set $item "mountPath" $volMount.mountPath -}}
+        {{- if hasKey $volMount "subPath" -}}
+          {{- $_ := set $item "subPath" $volMount.subPath -}}
+        {{- end -}}
+        {{- if hasKey $volMount "mountPropagation" -}}
+          {{- $_ := set $item "mountPropagation" $volMount.mountPropagation -}}
+        {{- end -}}
+        {{- if hasKey $volMount "readOnly" -}}
+          {{- $_ := set $item "readOnly" $volMount.readOnly -}}
+        {{- end -}}
+
+        {{- include "ix.v1.common.container.volumeMount" (dict "root" $root
+                                                                "item" $item
+                                                                "name" $volMount.name) | indent 0 -}}
+      {{- end -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
 
