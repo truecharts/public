@@ -6,6 +6,9 @@ image:
 securityContext:
   readOnlyRootFilesystem: false
 
+env:
+  PROWLARR__AUTHENTICATION_METHOD: External
+
 service:
   main:
     ports:
