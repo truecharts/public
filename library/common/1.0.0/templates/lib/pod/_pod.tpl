@@ -73,6 +73,7 @@ containers:
 {{- $upgradeContainers := (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.upgradeContainers "type" "upgrade") | trim) -}}
 {{- $systemContainers := (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.systemContainers "type" "system") | trim) -}}
 {{- $initContainers := (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.initContainers "type" "init") | trim) -}}
+
 {{- if or $initContainers $systemContainers $installContainers $upgradeContainers }}
 initContainers:
   {{- with $installContainers -}}
