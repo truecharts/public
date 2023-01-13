@@ -17,7 +17,7 @@ jobs:
         helm-version:
           - v3.9.4
           - v3.10.3
-          - v3.11.0-rc.1
+          - v3.11.0-rc.2
     steps:
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
@@ -59,7 +59,7 @@ jobs:
         helm-version:
           - v3.9.4
           - v3.10.3
-          - v3.11.0-rc.1
+          - v3.11.0-rc.2
     steps:
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
@@ -71,9 +71,8 @@ jobs:
         with:
           path: |
             /home/runner/.local/share/helm/plugins/helm-unittest
-          key: helm-${{ matrix.helm-version }}-unittest-v${{ env.helmunitversion }}-${{ hashFiles('/home/runner/.local/share/helm/plugins/helm-unittest') }}
+          key: helm-${{ matrix.helm-version }}-unittest-v${{ env.helmunitversion }}
           restore-keys: |
-            helm-${{ matrix.helm-version }}-unittest-v${{ env.helmunitversion }}-${{ hashFiles('/home/runner/.local/share/helm/plugins/helm-unittest') }}
             helm-${{ matrix.helm-version }}-unittest-v${{ env.helmunitversion }}
 
       - name: Install Helm
@@ -104,7 +103,7 @@ jobs:
         helm-version:
           - v3.9.4
           - v3.10.3
-          - v3.11.0-rc.1
+          - v3.11.0-rc.2
     steps:
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
@@ -169,23 +168,170 @@ jobs:
         run: |
           mv library/common-test/ci library/common-test/runtests
 
+      - name: Install Kail
+        run: |
+          export KAIL_VERSION=v0.16.1
+          wget https://github.com/boz/kail/releases/download/${KAIL_VERSION}/kail_${KAIL_VERSION}_linux_amd64.tar.gz
+          tar -xvzf kail_${KAIL_VERSION}_linux_amd64.tar.gz
+          chmod +x kail
+
       - name: Run chart-testing (install) - Basic Values
         run: |
           mv -f library/common-test/runtests/basic-values.yaml library/common-test/values.yaml
+          ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
+          ct install  --config .github/ct-install-config/ct-install.yaml \
+                      --charts library/common-test \
+                      --debug || ((echo "" && echo "" && echo "--===PODLOGS===--" && echo "" && cat  /tmp/output.log && rm -f /tmp/output.log))
+          kill $!
+          echo ""
+          echo ""
+          echo "--===PODLOGS===--"
+          echo ""
+          cat  /tmp/output.log
+          rm -f /tmp/output.log
+
+      - name: Run chart-testing (install) - statefullset Values
+        run: |
+          mv -f library/common-test/runtests/statefullset-values.yaml library/common-test/values.yaml
+          ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
           ct install  --config .github/ct-install-config/ct-install.yaml \
                       --charts library/common-test \
                       --debug
+          kill $!
+          echo ""
+          echo ""
+          echo "--===PODLOGS===--"
+          echo ""
+          cat  /tmp/output.log
+          rm -f /tmp/output.log
+
+      - name: Run chart-testing (install) - daemonset Values
+        run: |
+          mv -f library/common-test/runtests/daemonset-values.yaml library/common-test/values.yaml
+          ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
+          ct install  --config .github/ct-install-config/ct-install.yaml \
+                      --charts library/common-test \
+                      --debug
+          kill $!
+          echo ""
+          echo ""
+          echo "--===PODLOGS===--"
+          echo ""
+          cat  /tmp/output.log
+          rm -f /tmp/output.log
+
+      - name: Run chart-testing (install) - jobcontroller Values
+        run: |
+          mv -f library/common-test/runtests/jobcontroller-values.yaml library/common-test/values.yaml
+          ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
+          ct install  --config .github/ct-install-config/ct-install.yaml \
+                      --charts library/common-test \
+                      --debug
+          kill $!
+          echo ""
+          echo ""
+          echo "--===PODLOGS===--"
+          echo ""
+          cat  /tmp/output.log
+          rm -f /tmp/output.log
 
       - name: Run chart-testing (install) - persistence Values
         run: |
           mv -f library/common-test/runtests/persistence-values.yaml library/common-test/values.yaml
+          ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
           ct install  --config .github/ct-install-config/ct-install.yaml \
                       --charts library/common-test \
                       --debug
+          kill $!
+          echo ""
+          echo ""
+          echo "--===PODLOGS===--"
+          echo ""
+          cat  /tmp/output.log
+          rm -f /tmp/output.log
 
       - name: Run chart-testing (install) - rbac Values
         run: |
           mv -f library/common-test/runtests/rbac-values.yaml library/common-test/values.yaml
+          ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
           ct install  --config .github/ct-install-config/ct-install.yaml \
                       --charts library/common-test \
                       --debug
+          kill $!
+          echo ""
+          echo ""
+          echo "--===PODLOGS===--"
+          echo ""
+          cat  /tmp/output.log
+          rm -f /tmp/output.log
+
+      - name: Run chart-testing (install) - configmaps Values
+        run: |
+          mv -f library/common-test/runtests/configmaps-values.yaml library/common-test/values.yaml
+          ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
+          ct install  --config .github/ct-install-config/ct-install.yaml \
+                      --charts library/common-test \
+                      --debug
+          kill $!
+          echo ""
+          echo ""
+          echo "--===PODLOGS===--"
+          echo ""
+          cat  /tmp/output.log
+          rm -f /tmp/output.log
+
+
+      - name: Run chart-testing (install) - secrets Values
+        run: |
+          mv -f library/common-test/runtests/secrets-values.yaml library/common-test/values.yaml
+          ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
+          ct install  --config .github/ct-install-config/ct-install.yaml \
+                      --charts library/common-test \
+                      --debug
+          kill $!
+          echo ""
+          echo ""
+          echo "--===PODLOGS===--"
+          echo ""
+          cat  /tmp/output.log
+          rm -f /tmp/output.log
+
+      - name: Run chart-testing (install) - extracontrainers Values
+        run: |
+          mv -f library/common-test/runtests/extracontrainers-values.yaml library/common-test/values.yaml
+          ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
+          ct install  --config .github/ct-install-config/ct-install.yaml \
+                      --charts library/common-test \
+                      --debug
+          kill $!
+          echo ""
+          echo ""
+          echo "--===PODLOGS===--"
+          echo ""
+          cat  /tmp/output.log
+          rm -f /tmp/output.log
+
+      - name: Run chart-testing (install) - jobs Values
+        run: |
+          mv -f library/common-test/runtests/jobs-values.yaml library/common-test/values.yaml
+          ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
+          ct install  --config .github/ct-install-config/ct-install.yaml \
+                      --charts library/common-test \
+                      --debug
+          kill $!
+          echo ""
+          echo ""
+          echo "--===PODLOGS===--"
+          echo ""
+          cat  /tmp/output.log
+          rm -f /tmp/output.log
+
+
+      - name: Print podlogs on failure
+        if: ${{ failure() }}
+        run: |
+          echo ""
+          echo ""
+          echo "--===PODLOGS===--"
+          echo ""
+          cat  /tmp/output.log
