@@ -232,6 +232,14 @@ securityContext:
     add: []
     drop:
       - ALL
+# Default resources for main container
+resources:
+  limits:
+    cpu: 4000m
+    memory: 8Gi
+  requests:
+    cpu: 10m
+    memory: 50Mi
 
 nameOverride: ""
 
@@ -301,8 +309,6 @@ controller:
     surge:
     # -- Set statefulset RollingUpdate partition
     partition:
-
-initContainers: {}
 
 # -- Configure the services for the chart here.
 # Additional services can be added by adding a dictionary key similar to the 'main' service.
