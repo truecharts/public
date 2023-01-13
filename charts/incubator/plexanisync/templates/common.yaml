@@ -15,7 +15,7 @@ subPath: custom_mappings.yaml
 {{- end -}}
 
 {{- if .Values.custom_mappings -}}
-  {{- $_ := set .Values.persistence "custommappings" (include "plexanisync.custom.mappings" | fromYaml) -}}
+  {{- $_ := set .Values.persistence "custommappings" (include "plexanisync.custom.mappings" . | fromYaml) -}}
 {{- end -}}
 
 {{/* Render the templates */}}
