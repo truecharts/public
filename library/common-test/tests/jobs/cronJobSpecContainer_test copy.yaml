@@ -426,7 +426,7 @@ tests:
                 lifecycle:
     asserts:
       - failedTemplate:
-          errorMessage: Init/Install/Upgrade/(Cron)Job Container (RELEASE-NAME-common-test-job-main) do not support lifecycle hooks
+          errorMessage: Init/System/Install/Upgrade/(Cron)Job Container (RELEASE-NAME-common-test-job-main) do not support lifecycle hooks
 
   - it: should fail with env trying to override fixedEnvs in job container
     set:
@@ -825,7 +825,7 @@ tests:
                     enabled: true
     asserts:
       - failedTemplate:
-          errorMessage: Init/Install/Upgrade/(Cron)Job Container (RELEASE-NAME-common-test-job-main) do not support probes
+          errorMessage: Init/System/Install/Upgrade/(Cron)Job Container (RELEASE-NAME-common-test-job-main) do not support probes
 
   - it: should fail with invalid protocol in ports in job container
     set:
