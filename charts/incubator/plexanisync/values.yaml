@@ -39,15 +39,16 @@ plexanisync:
     log_failed_matches: false
 
 custom_mappings:
-  remote_urls:
-    - https://blabal
-  entries:
-    - title: title
-      seasons:
-        - season: 1
-          anilist_id: 2345
-      synonyms:
-        - asfdasd
+  []
+  # remote_urls:
+  #   - https://blabal
+  # entries:
+  #   - title: title
+  #     seasons:
+  #       - season: 1
+  #         anilist_id: 2345
+  #     synonyms:
+  #       - asfdasd
 
 envFrom:
   - secretRef:
@@ -77,7 +78,6 @@ persistence:
     objectName: '{{ include "tc.common.names.fullname" . }}-config-secret'
     mountPath: /plexanisync/settings.ini
     subPath: settings.ini
-
 
 portal:
   enabled: false
