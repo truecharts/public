@@ -8,6 +8,26 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
+  - variable: env
+    group: "App Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: RADARR__AUTHENTICATION_METHOD
+          label: Radarr Authentication Method
+          description: Select the default auth method, choose External to disable basic/form auth.
+          schema:
+            type: string
+            default: External
+            enum:
+              - value: Basic
+                description: Basic
+              - value: External
+                description: External
+              - value: Forms
+                description: Forms
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

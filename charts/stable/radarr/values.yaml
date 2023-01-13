@@ -3,6 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: 4.3.2.6857@sha256:3fbed833aabee76fc6b55adefb0c308c904fe90c18243eede369b6ee645ad00e
 
+env:
+  RADARR__AUTHENTICATION_METHOD: External
+
 securityContext:
   readOnlyRootFilesystem: false
 
