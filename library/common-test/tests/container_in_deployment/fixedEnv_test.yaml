@@ -89,19 +89,31 @@ tests:
           path: spec.template.spec.containers[0].env
           value:
             - name: TZ
-              value: ETC
+              value: UTC
             - name: UMASK
-              value: "003"
+              value: "002"
             - name: UMASK_SET
-              value: "003"
+              value: "002"
             - name: NVIDIA_VISIBLE_DEVICES
               value: void
+            - name: PUID
+              value: "568"
+            - name: USER_ID
+              value: "568"
+            - name: UID
+              value: "568"
+            - name: PGID
+              value: "568"
+            - name: GROUP_ID
+              value: "568"
+            - name: GID
+              value: "568"
             - name: S6_READ_ONLY_ROOT
               value: "1"
-            - name: TIMEZONE
-              value: ETC
             - name: APP_USER_ID
               value: "568"
+            - name: TIMEZONE
+              value: UTC
 
   - it: should pass without S6_READ_ONLY_ROOT
     documentIndex: *deploymentDoc
