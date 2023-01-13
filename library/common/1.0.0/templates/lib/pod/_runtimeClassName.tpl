@@ -27,7 +27,7 @@
 
         {{- $containers := dict -}}
         {{/* Append containers if exist, to the $containers dict */}}
-        {{- range $key := (list "initContainers" "installContainers" "upgradeContainers" "additionalContainers") -}}
+        {{- range $key := (list "initContainers" "systemContainers" "installContainers" "upgradeContainers" "additionalContainers") -}}
           {{- if (get $root.Values $key) -}}
             {{- $containers = mustMerge $containers (get $root.Values $key) -}}
           {{- end -}}

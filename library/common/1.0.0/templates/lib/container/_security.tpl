@@ -132,7 +132,7 @@ The reason is not splitted, is that on one of the places needs a combo of all va
   {{/* If at least one of those is not true, lets make sure it's not needed by any other container */}}
   {{- if or (not $appendDeviceGroups) (not $appendGPUGroup) -}}
     {{- if not $isJob -}}
-      {{- range $key := (list "initContainers" "installContainers" "upgradeContainers" "additionalContainers") -}}
+      {{- range $key := (list "initContainers" "systemContainers" "installContainers" "upgradeContainers" "additionalContainers") -}}
         {{/* If they have containers defined... */}}
         {{- if (get $root.Values $key) -}}
 

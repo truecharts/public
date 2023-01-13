@@ -22,7 +22,7 @@
   {{- end -}}
 
   {{/* Go over all types of containers */}}
-  {{- range $key := (list "initContainers" "installContainers" "upgradeContainers" "additionalContainers") -}}
+  {{- range $key := (list "initContainers" "systemContainers" "installContainers" "upgradeContainers" "additionalContainers") -}}
     {{/* If they have containers defined... */}}
     {{- if (get $root.Values $key) -}}
       {{- include "ix.v1.common.lib.values.deviceList.containers" (dict "root" $root "containers" (get $root.Values $key)) -}}

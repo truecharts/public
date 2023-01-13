@@ -909,7 +909,7 @@ tests:
                     subPath: /some/sub/path
     asserts:
       - failedTemplate:
-          errorMessage: <name> is required in volumeMounts in init/install/upgrade/additional containers.
+          errorMessage: <name> is required in volumeMounts in init/system/install/upgrade/additional containers.
 
   - it: should pass with volumeMounts defined in job container
     documentIndex: *jobDoc

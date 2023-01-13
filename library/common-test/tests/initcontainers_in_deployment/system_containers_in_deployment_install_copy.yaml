@@ -1,4 +1,4 @@
-suite: initContainer in deployment test (onInstall)
+suite: systemContainer in deployment test
 templates:
   - common.yaml
 tests:
@@ -10,20 +10,20 @@ tests:
       - isKind:
           of: Deployment
 
-  - it: should pass with image defined in init container
+  - it: should pass with image defined in system container
     documentIndex: *deploymentDoc
     set:
       image:
         repository: some-repo
         tag: some-tag
         pullPolicy: Always
-      initImage:
-        repository: some-repo-init
-        tag: some-tag-init
+      systemImage:
+        repository: some-repo-system
+        tag: some-tag-system
         pullPolicy: Never
-      initContainers:
+      systemContainers:
         some-name:
-          imageSelector: initImage
+          imageSelector: systemImage
           pullPolicy: Never
     asserts:
       - isSubset:
@@ -34,30 +34,30 @@ tests:
       - isSubset:
           path: spec.template.spec.initContainers[0]
           content:
-            image: some-repo-init:some-tag-init
+            image: some-repo-system:some-tag-system
             imagePullPolicy: Never
 
-  - it: should pass with image defined in multiple init container
+  - it: should pass with image defined in multiple system container
     documentIndex: *deploymentDoc
     set:
       image:
         repository: some-repo
         tag: some-tag
         pullPolicy: Always
-      initImage:
-        repository: some-repo-init
-        tag: some-tag-init
+      systemImage:
+        repository: some-repo-system
+        tag: some-tag-system
         pullPolicy: Never
-      initImage2:
-        repository: some-repo-init2
-        tag: some-tag-init2
+      systemImage2:
+        repository: some-repo-system2
+        tag: some-tag-system2
         pullPolicy: IfNotPresent
-      initContainers:
+      systemContainers:
         some-name:
-          imageSelector: initImage
+          imageSelector: systemImage
           pullPolicy: Never
         some-name2:
-          imageSelector: initImage2
+          imageSelector: systemImage2
           pullPolicy: Never
     asserts:
       - isSubset:
@@ -68,18 +68,18 @@ tests:
       - isSubset:
           path: spec.template.spec.initContainers[0]
           content:
-            image: some-repo-init:some-tag-init
+            image: some-repo-system:some-tag-system
             imagePullPolicy: Never
       - isSubset:
           path: spec.template.spec.initContainers[1]
           content:
-            image: some-repo-init2:some-tag-init2
+            image: some-repo-system2:some-tag-system2
             imagePullPolicy: IfNotPresent
 
-  - it: should pass with tty and stdin defined in init container
+  - it: should pass with tty and stdin defined in system container
     documentIndex: *deploymentDoc
     set:
-      initContainers:
+      systemContainers:
         some-name:
           tty: true
           stdin: true
@@ -95,12 +95,12 @@ tests:
             tty: true
             stdin: true
 
-  - it: should pass with command and args defined in init container
+  - it: should pass with command and args defined in system container
     documentIndex: *deploymentDoc
     set:
       port: 8080
       entrypoint: ./run.sh
-      initContainers:
+      systemContainers:
         some-name:
           command:
             - /bin/sh
@@ -141,10 +141,10 @@ tests:
               - --data_dir
               - /data
 
-  - it: should pass with termination defined in init container
+  - it: should pass with termination defined in system container
     documentIndex: *deploymentDoc
     set:
-      initContainers:
+      systemContainers:
         some-name:
           termination:
             messagePath: somePath
@@ -161,14 +161,14 @@ tests:
             terminationMessagePath: somePath
             terminationMessagePolicy: File
 
-  - it: should pass with resources inherited from main container and modified in init container
+  - it: should pass with resources inherited from main container and modified in system container
     documentIndex: *deploymentDoc
     set:
       resources:
         requests:
           cpu: 25m
           memory: 80Mi
-      initContainers:
+      systemContainers:
         some-name:
           resources:
             inherit: true
@@ -199,10 +199,10 @@ tests:
                 cpu: 25m
                 memory: 120Mi
 
-  - it: should pass with resources defined in init container
+  - it: should pass with resources defined in system container
     documentIndex: *deploymentDoc
     set:
-      initContainers:
+      systemContainers:
         some-name:
           nvidiaCaps:
             - compute
@@ -255,12 +255,12 @@ tests:
             name: NVIDIA_DRIVER_CAPABILITIES
             value: compute
 
-  - it: should pass with envFrom defined in init container
+  - it: should pass with envFrom defined in system container
     documentIndex: *deploymentDoc
     set:
       some_name: a_name
       some_name2: a_name2
-      initContainers:
+      systemContainers:
         some-name:
           envFrom:
             - configMapRef:
@@ -285,14 +285,14 @@ tests:
               - configMapRef:
                   name: a_name2
 
-  - it: should pass with env and envList defined in init container
+  - it: should pass with env and envList defined in system container
     documentIndex: *deploymentDoc
     set:
       some_value: value
       some_value2: value2
       some_value3: value3
       some_value4: value4
-      initContainers:
+      systemContainers:
         some-name:
           env:
             var1: "{{ .Values.some_value }}"
@@ -341,7 +341,7 @@ tests:
   - it: should pass with changed PUID/UMASK
     documentIndex: *deploymentDoc
     set:
-      initContainers:
+      systemContainers:
         some-name:
           securityContext:
             runAsUser: 0
@@ -394,7 +394,7 @@ tests:
   - it: should pass with disabled injectFixedEnvs
     documentIndex: *deploymentDoc
     set:
-      initContainers:
+      systemContainers:
         some-name:
           securityContext:
             runAsUser: 0
@@ -418,26 +418,26 @@ tests:
       - isNull:
           path: spec.template.spec.initContainers[0].env
 
-  - it: should fail with lifecycle defined in init container
+  - it: should fail with lifecycle defined in system container
     set:
-      initContainers:
+      systemContainers:
         some-name:
           lifecycle:
     asserts:
       - failedTemplate:
-          errorMessage: Init/System/Install/Upgrade/(Cron)Job Container (RELEASE-NAME-common-test-init-some-name) do not support lifecycle hooks
+          errorMessage: Init/System/Install/Upgrade/(Cron)Job Container (RELEASE-NAME-common-test-system-some-name) do not support lifecycle hooks
 
-  - it: should fail with env trying to override fixedEnvs in init container
+  - it: should fail with env trying to override fixedEnvs in system container
     set:
-      initContainers:
+      systemContainers:
         some-name:
           env:
             TZ: something
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-init-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (env)]
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-system-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (env)]
 
-  - it: should fail with env trying to override configmap in init container
+  - it: should fail with env trying to override configmap in system container
     set:
       configmap:
         some-confmap:
@@ -445,16 +445,16 @@ tests:
           parseAsEnv: true
           content:
             TZ: something
-      initContainers:
+      systemContainers:
         some-name:
           envFrom:
             - configMapRef:
                 name: '{{ include "ix.v1.common.names.fullname" . }}-some-confmap'
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-init-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (configmap-RELEASE-NAME-common-test-some-confmap)]
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-system-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (configmap-RELEASE-NAME-common-test-some-confmap)]
 
-  - it: should fail with env trying to override secret in init container
+  - it: should fail with env trying to override secret in system container
     set:
       secret:
         some-secret:
@@ -462,14 +462,14 @@ tests:
           parseAsEnv: true
           content:
             TZ: something
-      initContainers:
+      systemContainers:
         some-name:
           envFrom:
             - secretRef:
                 name: '{{ include "ix.v1.common.names.fullname" . }}-some-secret'
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-init-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (secret-RELEASE-NAME-common-test-some-secret)]
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-system-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (secret-RELEASE-NAME-common-test-some-secret)]
 
   - it: should pass with securityContext inherited
     documentIndex: *deploymentDoc
@@ -486,7 +486,7 @@ tests:
             - Something
           drop:
             - Something_Else
-      initContainers:
+      systemContainers:
         some_container:
           imageSelector: image
           securityContext:
@@ -523,10 +523,10 @@ tests:
               runAsNonRoot: false
               runAsUser: 0
 
-  - it: should pass with deviceList defined in init container
+  - it: should pass with deviceList defined in system container
     documentIndex: *deploymentDoc
     set:
-      initContainers:
+      systemContainers:
         some_container:
           deviceList:
             - enabled: true
@@ -574,10 +574,10 @@ tests:
               runAsNonRoot: true
               runAsUser: 568
 
-  - it: should pass with deviceList and scaleGPU defined in init container
+  - it: should pass with deviceList and scaleGPU defined in system container
     documentIndex: *deploymentDoc
     set:
-      initContainers:
+      systemContainers:
         some_container:
           scaleGPU:
             nvidia: something
@@ -628,10 +628,10 @@ tests:
               runAsNonRoot: true
               runAsUser: 568
 
-  - it: should pass with port <=1024 defined in init container
+  - it: should pass with port <=1024 defined in system container
     documentIndex: *deploymentDoc
     set:
-      initContainers:
+      systemContainers:
         some_container:
           ports:
             - name: http
@@ -670,7 +670,7 @@ tests:
   - it: should pass with securityContext default
     documentIndex: *deploymentDoc
     set:
-      initContainers:
+      systemContainers:
         some_container:
           imageSelector: image
           securityContext:
@@ -708,7 +708,7 @@ tests:
   - it: should pass with securityContext changed
     documentIndex: *deploymentDoc
     set:
-      initContainers:
+      systemContainers:
         some_container:
           imageSelector: image
           securityContext:
@@ -757,7 +757,7 @@ tests:
   - it: should pass with securityContext with some values changed
     documentIndex: *deploymentDoc
     set:
-      initContainers:
+      systemContainers:
         some_container:
           imageSelector: image
           securityContext:
@@ -807,7 +807,7 @@ tests:
         capabilities:
           drop:
             - something_else
-      initContainers:
+      systemContainers:
         some_container:
           imageSelector: image
           securityContext:
@@ -844,20 +844,20 @@ tests:
               runAsNonRoot: false
               runAsUser: 0
 
-  - it: should fail with probes in init container
+  - it: should fail with probes in system container
     set:
-      initContainers:
+      systemContainers:
         some-name:
           probes:
             liveness:
               enabled: true
     asserts:
       - failedTemplate:
-          errorMessage: Init/System/Install/Upgrade/(Cron)Job Container (RELEASE-NAME-common-test-init-some-name) do not support probes
+          errorMessage: Init/System/Install/Upgrade/(Cron)Job Container (RELEASE-NAME-common-test-system-some-name) do not support probes
 
-  - it: should fail with invalid protocol in ports in init container
+  - it: should fail with invalid protocol in ports in system container
     set:
-      initContainers:
+      systemContainers:
         some-name:
           ports:
             - containerPort: 5678
@@ -865,11 +865,11 @@ tests:
               name: tcp-port
     asserts:
       - failedTemplate:
-          errorMessage: Invalid <protocol> (invalid-proto) in port (tcp-port) in (RELEASE-NAME-common-test-init-some-name) container. Valid protocols are TCP and UDP.
+          errorMessage: Invalid <protocol> (invalid-proto) in port (tcp-port) in (RELEASE-NAME-common-test-system-some-name) container. Valid protocols are TCP and UDP.
 
-  - it: should fail without name in ports in init container
+  - it: should fail without name in ports in system container
     set:
-      initContainers:
+      systemContainers:
         some-name:
           ports:
             - containerPort: 5678
@@ -877,33 +877,33 @@ tests:
               name: ""
     asserts:
       - failedTemplate:
-          errorMessage: <name> is required in all <ports> in (RELEASE-NAME-common-test-init-some-name) container.
+          errorMessage: <name> is required in all <ports> in (RELEASE-NAME-common-test-system-some-name) container.
 
-  - it: should fail without containerPort in ports in init container
+  - it: should fail without containerPort in ports in system container
     set:
-      initContainers:
+      systemContainers:
         some-name:
           ports:
             - containerPort: ""
               name: tcp-port
     asserts:
       - failedTemplate:
-          errorMessage: <containerPort> is required in port (tcp-port) in (RELEASE-NAME-common-test-init-some-name) container.
+          errorMessage: <containerPort> is required in port (tcp-port) in (RELEASE-NAME-common-test-system-some-name) container.
 
-  - it: should fail with non-int containerPort in ports in init container
+  - it: should fail with non-int containerPort in ports in system container
     set:
-      initContainers:
+      systemContainers:
         some-name:
           ports:
             - containerPort: not-int
               name: tcp-port
     asserts:
       - failedTemplate:
-          errorMessage: Invalid <containerPort> (not-int) in port (tcp-port) in (RELEASE-NAME-common-test-init-some-name) container. Must be an int.
+          errorMessage: Invalid <containerPort> (not-int) in port (tcp-port) in (RELEASE-NAME-common-test-system-some-name) container. Must be an int.
 
-  - it: should fail with non-int hostPort in ports in init container
+  - it: should fail with non-int hostPort in ports in system container
     set:
-      initContainers:
+      systemContainers:
         some-name:
           ports:
             - containerPort: 1234
@@ -911,12 +911,12 @@ tests:
               name: tcp-port
     asserts:
       - failedTemplate:
-          errorMessage: Invalid <hostPort> (not-int) in port (tcp-port) in (RELEASE-NAME-common-test-init-some-name) container. Must be an int.
+          errorMessage: Invalid <hostPort> (not-int) in port (tcp-port) in (RELEASE-NAME-common-test-system-some-name) container. Must be an int.
 
-  - it: should pass without protocol in ports in init container
+  - it: should pass without protocol in ports in system container
     documentIndex: *deploymentDoc
     set:
-      initContainers:
+      systemContainers:
         some-name:
           ports:
             - containerPort: 5678
@@ -930,10 +930,10 @@ tests:
                 protocol: TCP
                 name: tcp-port
 
-  - it: should pass with ports defined in init container
+  - it: should pass with ports defined in system container
     documentIndex: *deploymentDoc
     set:
-      initContainers:
+      systemContainers:
         some-name:
           ports:
             - containerPort: 5678
@@ -961,9 +961,9 @@ tests:
                 protocol: UDP
                 name: udp-port
 
-  - it: should fail without trying to mount a non existent volume in volumeMounts defined in init container
+  - it: should fail without trying to mount a non existent volume in volumeMounts defined in system container
     set:
-      initContainers:
+      systemContainers:
         some-name:
           volumeMounts:
             - name: some-volume
@@ -972,9 +972,9 @@ tests:
       - failedTemplate:
           errorMessage: You are trying to mount a volume that does not exist (some-volume). Please define the volume in <persistence>.
 
-  - it: should fail without name in volumeMounts defined in init container
+  - it: should fail without name in volumeMounts defined in system container
     set:
-      initContainers:
+      systemContainers:
         some-name:
           volumeMounts:
             - name:
@@ -985,7 +985,7 @@ tests:
       - failedTemplate:
           errorMessage: <name> is required in volumeMounts in init/system/install/upgrade/additional containers.
 
-  - it: should pass with volumeMounts defined in init container
+  - it: should pass with volumeMounts defined in system container
     documentIndex: *deploymentDoc
     set:
       persistence:
@@ -997,7 +997,7 @@ tests:
           enabled: true
           noMount: true
           type: emptyDir
-      initContainers:
+      systemContainers:
         some-name:
           volumeMounts:
             - name: some-volume
@@ -1024,7 +1024,7 @@ tests:
                 readOnly: false
                 subPath: /some/other/sub/path
 
-  - it: should pass with deviceList and volumeMounts defined in init container
+  - it: should pass with deviceList and volumeMounts defined in system container
     documentIndex: *deploymentDoc
     set:
       deviceList:
@@ -1041,7 +1041,7 @@ tests:
           enabled: true
           noMount: true
           type: emptyDir
-      initContainers:
+      systemContainers:
         some-name:
           deviceList:
             - enabled: true

@@ -66,16 +66,20 @@ securityContext:
 {{- with (include "ix.v1.common.controller.mainContainer" (dict "values" $root.Values "root" $root) | trim) }}
 containers:
   {{- . | nindent 2 }}
-  {{- (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.additionalContainers "type" "addititional") | trim) | nindent 2 }}
+  {{- (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.additionalContainers "type" "additional") | trim) | nindent 2 }}
 {{- end -}}
 
-{{- if or $root.Values.initContainers $root.Values.installContainers $root.Values.upgradeContainers }}
+{{- if or $root.Values.initContainers $root.Values.systemContainers $root.Values.installContainers $root.Values.upgradeContainers }}
 initContainers:
   {{- with (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.installContainers "type" "install") | trim) -}}
     {{- . | nindent 2 }}
   {{- end -}}
 
   {{- with (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.upgradeContainers "type" "upgrade") | trim) -}}
+    {{- . | nindent 2 }}
+  {{- end -}}
+
+  {{- with (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.systemContainers "type" "system") | trim) -}}
     {{- . | nindent 2 }}
   {{- end -}}
 

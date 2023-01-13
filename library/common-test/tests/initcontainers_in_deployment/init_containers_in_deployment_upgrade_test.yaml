@@ -427,7 +427,7 @@ tests:
           lifecycle:
     asserts:
       - failedTemplate:
-          errorMessage: Init/Install/Upgrade/(Cron)Job Container (RELEASE-NAME-common-test-some-name) do not support lifecycle hooks
+          errorMessage: Init/System/Install/Upgrade/(Cron)Job Container (RELEASE-NAME-common-test-init-some-name) do not support lifecycle hooks
 
   - it: should fail with env trying to override fixedEnvs in init container
     set:
@@ -437,7 +437,7 @@ tests:
             TZ: something
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (env)]
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-init-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (env)]
 
   - it: should fail with env trying to override configmap in init container
     set:
@@ -454,7 +454,7 @@ tests:
                 name: '{{ include "ix.v1.common.names.fullname" . }}-some-confmap'
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (configmap-RELEASE-NAME-common-test-some-confmap)]
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-init-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (configmap-RELEASE-NAME-common-test-some-confmap)]
 
   - it: should fail with env trying to override secret in init container
     set:
@@ -471,7 +471,7 @@ tests:
                 name: '{{ include "ix.v1.common.names.fullname" . }}-some-secret'
     asserts:
       - failedTemplate:
-          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (secret-RELEASE-NAME-common-test-some-secret)]
+          errorMessage: Environment Variable (TZ) on container (RELEASE-NAME-common-test-init-some-name) is set more than once. [to (UTC) on (fixedEnv)] and [to (something) on (secret-RELEASE-NAME-common-test-some-secret)]
 
   - it: should pass with securityContext inherited
     documentIndex: *deploymentDoc
@@ -855,7 +855,7 @@ tests:
               enabled: true
     asserts:
       - failedTemplate:
-          errorMessage: Init/Install/Upgrade/(Cron)Job Container (RELEASE-NAME-common-test-some-name) do not support probes
+          errorMessage: Init/System/Install/Upgrade/(Cron)Job Container (RELEASE-NAME-common-test-init-some-name) do not support probes
 
   - it: should fail with invalid protocol in ports in init container
     set:
@@ -867,7 +867,7 @@ tests:
               name: tcp-port
     asserts:
       - failedTemplate:
-          errorMessage: Invalid <protocol> (invalid-proto) in port (tcp-port) in (RELEASE-NAME-common-test-some-name) container. Valid protocols are TCP and UDP.
+          errorMessage: Invalid <protocol> (invalid-proto) in port (tcp-port) in (RELEASE-NAME-common-test-init-some-name) container. Valid protocols are TCP and UDP.
 
   - it: should fail without name in ports in init container
     set:
@@ -879,7 +879,7 @@ tests:
               name: ""
     asserts:
       - failedTemplate:
-          errorMessage: <name> is required in all <ports> in (RELEASE-NAME-common-test-some-name) container.
+          errorMessage: <name> is required in all <ports> in (RELEASE-NAME-common-test-init-some-name) container.
 
   - it: should fail without containerPort in ports in init container
     set:
@@ -890,7 +890,7 @@ tests:
               name: tcp-port
     asserts:
       - failedTemplate:
-          errorMessage: <containerPort> is required in port (tcp-port) in (RELEASE-NAME-common-test-some-name) container.
+          errorMessage: <containerPort> is required in port (tcp-port) in (RELEASE-NAME-common-test-init-some-name) container.
 
   - it: should fail with non-int containerPort in ports in init container
     set:
@@ -901,7 +901,7 @@ tests:
               name: tcp-port
     asserts:
       - failedTemplate:
-          errorMessage: Invalid <containerPort> (not-int) in port (tcp-port) in (RELEASE-NAME-common-test-some-name) container. Must be an int.
+          errorMessage: Invalid <containerPort> (not-int) in port (tcp-port) in (RELEASE-NAME-common-test-init-some-name) container. Must be an int.
 
   - it: should fail with non-int hostPort in ports in init container
     set:
@@ -913,7 +913,7 @@ tests:
               name: tcp-port
     asserts:
       - failedTemplate:
-          errorMessage: Invalid <hostPort> (not-int) in port (tcp-port) in (RELEASE-NAME-common-test-some-name) container. Must be an int.
+          errorMessage: Invalid <hostPort> (not-int) in port (tcp-port) in (RELEASE-NAME-common-test-init-some-name) container. Must be an int.
 
   - it: should pass without protocol in ports in init container
     documentIndex: *deploymentDoc
@@ -985,7 +985,7 @@ tests:
               subPath: /some/sub/path
     asserts:
       - failedTemplate:
-          errorMessage: <name> is required in volumeMounts in init/install/upgrade/additional containers.
+          errorMessage: <name> is required in volumeMounts in init/system/install/upgrade/additional containers.
 
   - it: should pass with volumeMounts defined in init container
     documentIndex: *deploymentDoc

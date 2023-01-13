@@ -7,8 +7,8 @@
     {{- fail "You have to specify the type of the container" -}}
   {{- end -}}
 
-  {{- if not (mustHas $type (list "init" "install" "upgrade" "job" "addititional")) -}}
-    {{- fail (printf "Type (%s) is not valid. Valid types are init, install, upgrade, job, addititonal" $type) -}}
+  {{- if not (mustHas $type (list "init" "system" "install" "upgrade" "job" "additional")) -}}
+    {{- fail (printf "Type (%s) is not valid. Valid types are init, system, install, upgrade, job, additional" $type) -}}
   {{- end -}}
 
   {{- $sortedContainers := list -}}
@@ -16,12 +16,20 @@
   {{/* Sort containers */}}
   {{- range $index, $name := (keys $containerList | uniq | sortAlpha) -}}
     {{- $container := get $containerList $name -}}
-    {{- if eq $type "job" -}}
-      {{- $_ := set $container "name" (printf "job-%s" $name) -}}
-    {{- else -}}
-      {{- $_ := set $container "name" $name -}}
+    {{- $enabled := true -}} {{/* Default to enable */}}
+
+    {{- if hasKey $container "enabled" -}} {{/* If has enabled key */}}
+      {{- if (kindIs "bool" (tpl $container.enabled $root)) -}} {{/* And its kind of bool */}}
+        {{- if not (tpl $container.enabled $root) -}} {{/* And it's false */}}
+          {{- $enabled = false -}} {{/* Disable the container */}}
+        {{- end -}}
+      {{- end -}}
     {{- end -}}
-    {{- $sortedContainers = mustAppend $sortedContainers $container -}}
+
+    {{- if $enabled -}}
+      {{- $_ := set $container "name" (printf "%s-%s" $type $name) -}}
+      {{- $sortedContainers = mustAppend $sortedContainers $container -}}
+    {{- end -}}
   {{- end -}}
 
   {{/* Empty the list if the phase does not match the container type */}}
@@ -63,8 +71,8 @@
   envFrom:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- if and (hasKey $container "probes") (mustHas $type (list "init" "install" "upgrade" "job")) -}} {{/* Init/(Cron)Job containers do not have probes... */}}
-    {{- fail (printf "Init/Install/Upgrade/(Cron)Job Container (%s) do not support probes" $name) -}}
+  {{- if and (hasKey $container "probes") (mustHas $type (list "init" "system" "install" "upgrade" "job")) -}} {{/* Init/(Cron)Job containers do not have probes... */}}
+    {{- fail (printf "Init/System/Install/Upgrade/(Cron)Job Container (%s) do not support probes" $name) -}}
   {{- end -}}
   {{- with (include "ix.v1.common.container.probes" (dict "probes" $container.probes
                                                           "containerName" $name
@@ -72,8 +80,8 @@
                                                           "root" $root) | trim) }}
     {{- . | nindent 2 }}
   {{- end -}}
-  {{- if and (hasKey $container "lifecycle") (mustHas $type (list "init" "install" "upgrade" "job")) -}} {{/* Init/(Cron)Job containers do not have lifecycle... */}}
-    {{- fail (printf "Init/Install/Upgrade/(Cron)Job Container (%s) do not support lifecycle hooks" $name) -}}
+  {{- if and (hasKey $container "lifecycle") (mustHas $type (list "init" "system" "install" "upgrade" "job")) -}} {{/* Init/(Cron)Job containers do not have lifecycle... */}}
+    {{- fail (printf "Init/System/Install/Upgrade/(Cron)Job Container (%s) do not support lifecycle hooks" $name) -}}
   {{- end -}}
   {{- with (include "ix.v1.common.container.lifecycle" (dict "lifecycle" $container.lifecycle "root" $root)) | trim }}
   lifecycle:

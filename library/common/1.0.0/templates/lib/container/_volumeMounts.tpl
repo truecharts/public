@@ -31,7 +31,7 @@
     {{- end -}}
     {{- range $index, $volMount := $extraContainerVolMounts }}
       {{- if not $volMount.name -}}
-        {{- fail "<name> is required in volumeMounts in init/install/upgrade/additional containers." -}}
+        {{- fail "<name> is required in volumeMounts in init/system/install/upgrade/additional containers." -}}
       {{- end -}}
 
       {{- if not (mustHas $volMount.name $volNames) -}}
