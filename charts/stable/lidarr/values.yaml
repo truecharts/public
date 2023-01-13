@@ -3,6 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: 1.1.1.2762@sha256:95c9520e6f5dbba909f1a6a6214fcf10de007fea4eb88fad30c3306238e21252
 
+env:
+  LIDARR__AUTHENTICATION_METHOD: External
+
 securityContext:
   readOnlyRootFilesystem: false
 
