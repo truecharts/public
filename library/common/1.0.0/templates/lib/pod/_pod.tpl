@@ -69,21 +69,25 @@ containers:
   {{- (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.additionalContainers "type" "additional") | trim) | nindent 2 }}
 {{- end -}}
 
-{{- if or $root.Values.initContainers $root.Values.systemContainers $root.Values.installContainers $root.Values.upgradeContainers }}
+{{- $installContainers := (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.installContainers "type" "install") | trim) -}}
+{{- $upgradeContainers := (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.upgradeContainers "type" "upgrade") | trim) -}}
+{{- $systemContainers := (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.systemContainers "type" "system") | trim) -}}
+{{- $initContainers := (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.initContainers "type" "init") | trim) -}}
+{{- if or $initContainers $systemContainers $installContainers $upgradeContainers }}
 initContainers:
-  {{- with (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.installContainers "type" "install") | trim) -}}
+  {{- with $installContainers -}}
     {{- . | nindent 2 }}
   {{- end -}}
 
-  {{- with (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.upgradeContainers "type" "upgrade") | trim) -}}
+  {{- with $upgradeContainers -}}
     {{- . | nindent 2 }}
   {{- end -}}
 
-  {{- with (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.systemContainers "type" "system") | trim) -}}
+  {{- with $systemContainers -}}
     {{- . | nindent 2 }}
   {{- end -}}
 
-  {{- with (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.initContainers "type" "init") | trim) -}}
+  {{- with $initContainers -}}
     {{- . | nindent 2 }}
   {{- end -}}
 {{- end -}}
