@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "0.25.4"
+appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -20,10 +20,9 @@ maintainers:
 name: sickgear
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/sickgear
-  - https://github.com/linuxserver/docker-sickgear
   - https://github.com/SickGear/SickGear
 type: application
-version: 5.0.7
+version: 6.0.0
 annotations:
   truecharts.org/catagories: |
     - media
