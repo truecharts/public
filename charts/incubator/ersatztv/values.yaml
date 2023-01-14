@@ -1,14 +1,14 @@
 image:
-  repository: jasongdove/ersatztv
+  repository: tccr.io/truecharts/ersatztv
   pullPolicy: IfNotPresent
-  tag: v0.7.2@sha256:37b0a19767ac32007f1148626c4ff6693a632ed9a250e0d42b5c2394d8d20767
+  tag: 0.7.2@sha256:9f5ef110bed1ff2de14ea95dbb221a302e81163eabca7fc72fc42bde51fddd15
 nvidiaImage:
-  repository: jasongdove/ersatztv
-  tag: v0.7.2-nvidia@sha256:9571985798caaaf428fb006693294266e7cc8539d194f12e80b3b7ede630d656
+  repository: tccr.io/truecharts/ersatztv-nvidia
+  tag: 0.7.2@sha256:1777bf12451f862e04a1cd79651a8f73147fb898f42de0bfc5e04c51f18e96af
   pullPolicy: Always
 vaapiImage:
-  repository: jasongdove/ersatztv
-  tag: v0.7.2-vaapi@sha256:65777444deec6a4f6b7d8ec681dc16588aa47dc032d9d759e6f4949e8904af6c
+  repository: tccr.io/truecharts/ersatztv-vaapi
+  tag: 0.7.2@sha256:be66630fc75980d66c5b8aace04583a6eac9d00d0d7ffe8c5bccbab9b0f8dc0b
   pullPolicy: Always
 
 imageSelector: image
