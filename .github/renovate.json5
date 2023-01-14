@@ -181,20 +181,100 @@
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^v(?<major>\\d+)-(?<minor>\\d+)$",
-      "matchPackagePrefixes": ["tccr.io/truecharts/jupyter-"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/jupyter"],
       "groupName": "jupyter",
     },
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
-      "matchPackagePrefixes": ["tccr.io/truecharts/jitsi-"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/jitsi"],
       "groupName": "jitsi",
     },
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)_\\d+$",
-      "matchPackagePrefixes": ["tccr.io/truecharts/immich-"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/immich"],
       "groupName": "immich",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/neko"],
+      "groupName": "neko",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/webtop"],
+      "groupName": "webtop",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/zabbix"],
+      "groupName": "zabbix",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/vikunja"],
+      "groupName": "vikunja",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/ml-workspace"],
+      "groupName": "ml-workspace",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/bungeecord"],
+      "groupName": "bungeecord",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/minecraft-java"],
+      "groupName": "minecraft-java",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/mealie"],
+      "groupName": "mealie",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/librephotos"],
+      "groupName": "librephotos",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/kitchenowl"],
+      "groupName": "kitchenowl",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/authentik"],
+      "groupName": "authentik",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/lama-cleaner"],
+      "groupName": "lama-cleaner",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/docspell"],
+      "groupName": "docspell",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/restreamer"],
+      "groupName": "restreamer",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/penpot"],
+      "groupName": "penpot",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/rdesktop"],
+      "groupName": "rdesktop",
     }
   ]
 }
