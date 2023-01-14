@@ -78,7 +78,7 @@ jobs:
       - charts-test
       - charts-lint
       - print_head_msg
-    if: needs.print_head_msg.outputs.head-commit-message == 'Commit bumped Chart Version' 
+    if: needs.print_head_msg.outputs.head-commit-message == 'Commit bumped Chart Version'
     name: Automerge build
     runs-on: ubuntu-latest
     steps:

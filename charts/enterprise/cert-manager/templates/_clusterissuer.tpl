@@ -12,20 +12,20 @@ spec:
     privateKeySecretRef:
       name: {{ .name }}-clusterissuer-account-key
     solvers:
-	{{- if -eq .type "cloudflare" }}
+    {{- if -eq .type "cloudflare" }}
     - dns01:
         cloudflare:
-		  email: {{ .email }}
-		 {{- if .cfapitoken }}
+          email: {{ .email }}
+         {{- if .cfapitoken }}
           apiTokenSecretRef:
           name: {{ .name }}-clusterissuer-cloudflare
           key: api-token
-		 {{- else .cfapikey }}
+         {{- else .cfapikey }}
           name: {{ .name }}-clusterissuer-cloudflare
           key: api-key
-		 {{- end }}
-	{{- end }}
-	
+         {{- end }}
+    {{- end }}
+
 {{- if -eq .type "cloudflare" }}
 ---
 apiVersion: v1
