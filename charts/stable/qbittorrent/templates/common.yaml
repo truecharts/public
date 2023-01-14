@@ -2,7 +2,7 @@
 {{- include "tc.common.loader.init" . }}
 
 {{/* Set it to the same port as "torrent" service/port */}}
-{{- $_ := set $.Values.service.torrentudp.ports.torrentudp "port" (int .Values.service.torrent.ports.torrent.port) -}}
+{{- $_ := set $.Values.service.torrent.ports.torrentudp "port" (int .Values.service.torrent.ports.torrent.port) -}}
 
 {{/* Render the configmap */}}
 {{ include "qbittorrent.configmap" . }}
