@@ -1,0 +1,63 @@
+# Include{groups}
+questions:
+# Include{global}
+  - variable: clusterIssuer
+    group: App Configuration
+    label: Cluster Certificate Issuer
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: clusterIssuerEntry
+          label: 'Cluster Certificate Issuer Entry'
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: name
+                label: Name
+                description: "Name to give the issuer"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: server
+                label: Server
+                description: "Server for ACME, for example: letsencrypt"
+                schema:
+                  type: string
+                  required: true
+                  default: 'https://acme-v02.api.letsencrypt.org/directory'
+              - variable: email
+                label: Email
+                description: "Email adress to use for certificate issuing must match your DNS provider email when required"
+                schema:
+                  type: string
+                  required: true
+                  default: "something@example.com"
+              - variable: type
+                label: Type/DNS-Provider
+                description: DNS Provider
+                schema:
+                  type: string
+                  required: true
+                  default: cloudflare
+                  enum:
+                    - value: cloudflare
+                      description: Cloudflare
+              - variable: cfapikey
+                label: CloudFlare API key
+                description: "CloudFlare API Key"
+                schema:
+                  show_if: [["type", "=", "cloudflare"]]
+                  type: string
+                  default: ""
+              - variable: cfapitoken
+                label: CloudFlare API Token
+                description: "CloudFlare API Token"
+                schema:
+                  show_if: [["type", "=", "cloudflare"]]
+                  type: string
+                  default: ""
+                  
+
