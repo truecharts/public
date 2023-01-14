@@ -1,23 +1,23 @@
 image:
   repository: tccr.io/truecharts/jupyter-base
   pullPolicy: IfNotPresent
-  tag: v2023-01@sha256:d8ca8a3b41bbea2213fb7d169e41a45940da4e3e41b9580457e37c48cd58a24b
+  tag: v2023-01@sha256:d3b3fc53be190aabe7a506c47073383d8502354828c054c72f46031e84b20db3
 minimalImage:
   repository: tccr.io/truecharts/jupyter-minimal
   pullPolicy: IfNotPresent
-  tag: v2023-01@sha256:d9841db5d50108988eb8f9e055753cbeb439303c7e472aed2b6c06727996d44b
+  tag: v2023-01@sha256:213b674fad5fe29c0a4ae508375e9fd837bdb2f58fe7d886fdef104afdcc83f4
 rImage:
   repository: tccr.io/truecharts/jupyter-r
   pullPolicy: IfNotPresent
-  tag: v2023-01@sha256:d231d94d7cd0351162e47bdb89c6745a7b7576c7163c9ef8b52f1ae91c0cfcaa
+  tag: v2023-01@sha256:400907922c10263e26ca96e9915b6a5b23a75f88998a30433f47c1abfc42f432
 scipyImage:
   repository: tccr.io/truecharts/jupyter-scipy
   pullPolicy: IfNotPresent
-  tag: v2023-01@sha256:78cf2794fe70b6e48f3ad6c3dc8ec50fcc8f6b432c1146b9e745a599637eeb33
+  tag: v2023-01@sha256:7274a9b2352960bc109afcf8ca742a5eac41aedfb9c82e7f4f9cf1cd78af1bd8
 tensorflowImage:
   repository: tccr.io/truecharts/jupyter-tensorflow
   pullPolicy: IfNotPresent
-  tag: v2023-01@sha256:db9bc5f5753938b0592d0ac10160885dabf61bc2d7879433b1fc3b716b98e827
+  tag: v2023-01@sha256:b09c44ff701c4e909a2ade07be97b7b33ff66ad8ddcebb19f854f7a7a6987d4a
 datascienceImage:
   repository: tccr.io/truecharts/jupyter-datascience
   pullPolicy: IfNotPresent
@@ -25,11 +25,11 @@ datascienceImage:
 pysparkImage:
   repository: tccr.io/truecharts/jupyter-pyspark
   pullPolicy: IfNotPresent
-  tag: v2023-01@sha256:1650fbf0ced97e212e54f145c972082385baa1a7d1e28fa0b08f19846cd0f171
+  tag: v2023-01@sha256:3d99068464b1fea22c2e116e31403fd854150a4f11b2edbd599f742787b44c6a
 allsparkImage:
   repository: tccr.io/truecharts/jupyter-all-spark
   pullPolicy: IfNotPresent
-  tag: v2023-01@sha256:6c6e0613c652432135e4766ae0396645540d839814b7d157c538c3be0b5c11df
+  tag: v2023-01@sha256:fa5b934945298aeee879a477aaa6d6bb0a930f9984b68ebe798610d2bb8637d2
 
 securityContext:
   readOnlyRootFilesystem: false

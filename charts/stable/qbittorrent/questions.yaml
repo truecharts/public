@@ -54,19 +54,6 @@ questions:
                               type: int
                               default: 6881
                               required: true
-                    - variable: torrentudp
-                      label: "UDP Service Port Configuration"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: "Port"
-                            description: "Does not have any effect. It defaults to the same port as torrent service"
-                            schema:
-                              type: int
-                              default: 6881
-                              required: true
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
