@@ -101,30 +101,9 @@ data:
       {{- end }}
     {{- end }}
 
-    {{- $ffmpeg := .Values.frigate.ffmpeg -}}
-    {{- if $ffmpeg.render_config }}
+    {{- if .Values.frigate.ffmpeg.render_config }}
     ffmpeg:
-      {{- with $ffmpeg.global_args }}
-      global_args: {{ . }}
-      {{- end }}
-      {{- with $ffmpeg.input_args }}
-      input_args: {{ . }}
-      {{- end }}
-      {{- with $ffmpeg.hwaccel_args }}
-      hwaccel_args: {{ . }}
-      {{- end }}
-      {{- if or $ffmpeg.output_args.detect $ffmpeg.output_args.record $ffmpeg.output_args.rtmp }}
-      output_args:
-        {{- with $ffmpeg.output_args.detect }}
-        detect: {{ . }}
-        {{- end }}
-        {{- with $ffmpeg.output_args.record }}
-        record: {{ . }}
-        {{- end }}
-        {{- with $ffmpeg.output_args.rtmp }}
-        rtmp: {{ . }}
-        {{- end }}
-      {{- end }}
+      {{- include "frigate.ffmpeg.args" .Values.frigate.ffmpeg | indent 6 }}
     {{- end }}
 
     {{- $detect := .Values.frigate.detect -}}
@@ -367,33 +346,14 @@ data:
             - path: {{ $input.path | required "You need to provide a path" }}
               roles:
               {{- range $role := $input.roles }}
-              - {{ $role }}
+                - {{ $role }}
               {{- else -}}
                 {{- fail "You need to provide roles" -}}
-              {{- end }}
-              {{- with $input.global_args }}
-              global_args: {{ . }}
-              {{- end }}
-              {{- with $input.hwaccel_args }}
-              hwaccel_args: {{ . }}
-              {{- end }}
-              {{- with $input.input_args }}
-              input_args: {{ . }}
-              {{- end }}
-            {{- end }} {{/* End range $cam.ffmpeg.inputs */}}
-          {{- with $cam.ffmpeg.global_args }}
-          global_args: {{ . }}
-          {{- end }}
-          {{- with $cam.ffmpeg.hwaccel_args }}
-          hwaccel_args: {{ . }}
-          {{- end }}
-          {{- with $cam.ffmpeg.input_args }}
-          input_args: {{ . }}
-          {{- end }}
-          {{- with $cam.ffmpeg.output_args }}
-          output_args: {{ . }}
-          {{- end }}
-        {{- with $cam.best_image_timeout -}}
+              {{- end -}}
+              {{- include "frigate.ffmpeg.args" $input | indent 14 }}
+            {{- end -}} {{/* End range $cam.ffmpeg.inputs */}}
+          {{- include "frigate.ffmpeg.args" $cam.ffmpeg | indent 10 }}
+        {{- with $cam.best_image_timeout }}
         best_image_timeout: {{ . }}
         {{- end -}}
         {{- with $cam.zones }}
@@ -457,3 +417,31 @@ data:
     {{- end }} {{/* end range cameras */}}
 
 {{- end }}
+
+{{- define "frigate.ffmpeg.args" -}}
+{{- $ffmpeg := . -}}
+
+{{- with $ffmpeg.global_args }}
+global_args: {{ . }}
+{{- end -}}
+{{- with $ffmpeg.input_args }}
+input_args: {{ . }}
+{{- end -}}
+{{- with $ffmpeg.hwaccel_args }}
+hwaccel_args: {{ . }}
+{{- end -}}
+{{- if $ffmpeg.output_args -}}
+{{- if or $ffmpeg.output_args.detect $ffmpeg.output_args.record $ffmpeg.output_args.rtmp }}
+output_args:
+  {{- with $ffmpeg.output_args.detect }}
+  detect: {{ . }}
+  {{- end -}}
+  {{- with $ffmpeg.output_args.record }}
+  record: {{ . }}
+  {{- end -}}
+  {{- with $ffmpeg.output_args.rtmp }}
+  rtmp: {{ . }}
+  {{- end -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}

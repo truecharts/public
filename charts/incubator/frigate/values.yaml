@@ -92,9 +92,9 @@ frigate:
 
   ffmpeg:
     # -- Enable it to add the configuration in the config file
-    render_config: false
+    render_config: true
     # -- Optional: global ffmpeg args
-    global_args: ""
+    global_args: somrthing
     # -- Optional: global input args
     input_args: ""
     # -- Optional: global hwaccel args
@@ -370,14 +370,22 @@ frigate:
             hwaccel_args: ""
             # - Optional: stream specific input args
             input_args: ""
+            # - Optional: stream specific output args
+            output_args:
+              detect: ""
+              record: ""
+              rtmp: ""
         # -- Optional: camera specific global args
-        global_args: ""
+        global_args: fas
         # -- Optional: camera specific hwaccel args
         hwaccel_args: ""
         # -- Optional: camera specific input args
         input_args: ""
         # -- Optional: camera specific output args
-        output_args: ""
+        output_args:
+          detect: ""
+          record: ""
+          rtmp: ""
       # -- Optional: timeout for highest scoring image before allowing it
       # - to be replaced by a newer image.
       best_image_timeout: 60
