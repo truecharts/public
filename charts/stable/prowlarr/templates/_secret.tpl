@@ -12,8 +12,8 @@ metadata:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
   {{/* AUTH */}}
-  {{- if $prowlarr.enable_external_auth }}
-  PROWLARR__AUTHENTICATION_METHOD: "External"
+  {{- with $prowlarr.auth_method }}
+  PROWLARR__AUTHENTICATION_METHOD: {{ . }}
   {{- end }}
 
   {{/* DB */}}
