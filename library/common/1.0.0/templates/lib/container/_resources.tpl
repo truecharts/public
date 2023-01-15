@@ -84,29 +84,26 @@ memory: {{ . }}
   {{- $value := .value -}}
   {{- $required := .required -}}
 
-  {{- with (toString $value) -}} {{/* Stringify to avoid falsy values evaluating as false */}}
-
-    {{- if $required -}} {{/* If requred and it's empty fail (requests are requried) */}}
-      {{- if eq . "<nil>" -}}
-        {{- fail (printf "<resources.%s.%s> cannot be empty." $object $key) -}}
-      {{- end -}}
+  {{- if $required -}} {{/* If requred and it's empty fail (requests are requried) */}}
+    {{- if kindIs "invalid" $value -}}
+      {{- fail (printf "<resources.%s.%s> cannot be empty." $object $key) -}}
     {{- end -}}
-
-    {{/* If it's not null validate input */}}
-    {{- if ne . "<nil>" -}} {{/* Limits can be null, means "no limit" */}}
-      {{- if eq $key "cpu" -}}
-        {{/* https://regex101.com/r/D4HouI/1 */}}
-        {{- if not (mustRegexMatch "^(0\\.[1-9]|[1-9][0-9]*)(\\.[0-9]|m?)$" .) -}}
-          {{- fail (printf "<resources.%s.%s> has invalid format in value (%s). Valid formats are (Plain Integer eg. 1) (Float eg. 0.5) (Milicpu 500m)." $object $key .) -}}
-        {{- end -}}
-
-      {{- else if eq $key "memory" -}}
-        {{/* https://regex101.com/r/NNPV2D/1 */}}
-        {{- if not (mustRegexMatch "^[1-9][0-9]*([EPTGMK]i?|e[0-9]+)?$" .) -}}
-          {{- fail (printf "<resources.%s.%s> has invalid format in value (%s). Valid formats are (Suffixed with EPTGMK eg. 1G) (Suffixed with EPTGMK + i eg. 1Gi) (Plain integer (in bytes) eg. 1024) (Exponent eg. 134e6)." $object $key .) -}}
-        {{- end -}}
-      {{- end -}}
-    {{- end -}}
-
   {{- end -}}
+
+  {{/* If it's not null validate input */}}
+  {{- if not (kindIs "invalid" $value) -}} {{/* Limits can be null, means "no limit" */}}
+    {{- if eq $key "cpu" -}}
+      {{/* https://regex101.com/r/D4HouI/1 */}}
+      {{- if not (mustRegexMatch "^(0\\.[1-9]|[1-9][0-9]*)(\\.[0-9]|m?)$" (toString $value)) -}}
+        {{- fail (printf "<resources.%s.%s> has invalid format in value (%v). Valid formats are (Plain Integer eg. 1) (Float eg. 0.5) (Milicpu 500m)." $object $key $value) -}}
+      {{- end -}}
+
+    {{- else if eq $key "memory" -}}
+      {{/* https://regex101.com/r/NNPV2D/1 */}}
+      {{- if not (mustRegexMatch "^[1-9][0-9]*([EPTGMK]i?|e[0-9]+)?$" (toString $value)) -}}
+        {{- fail (printf "<resources.%s.%s> has invalid format in value (%v). Valid formats are (Suffixed with EPTGMK eg. 1G) (Suffixed with EPTGMK + i eg. 1Gi) (Plain integer (in bytes) eg. 1024) (Exponent eg. 134e6)." $object $key $value) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
 {{- end -}}

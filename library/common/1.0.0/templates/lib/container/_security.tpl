@@ -83,13 +83,13 @@ The reason is not splitted, is that on one of the places needs a combo of all va
     {{- fail (printf "<privileged> key has value (%v). But it must be boolean." $returnValue.privileged) -}}
   {{- end -}}
 
-  {{- if eq (toString $returnValue.runAsUser) "<nil>" -}}
+  {{- if kindIs "invalid" $returnValue.runAsUser -}}
     {{- fail (printf "<runAsUser> key cannot be empty. Set a value or remove the key for the default (%v) to take effect." $defaultSecCont.runAsUser) -}}
   {{- else if not (mustHas (kindOf $returnValue.runAsUser) (list "int" "float64")) -}}
     {{- fail (printf "<runAsUser> key has value of (%q). But must be an int." $returnValue.runAsUser) -}}
   {{- end -}}
 
-  {{- if eq (toString $returnValue.runAsGroup) "<nil>" -}}
+  {{- if kindIs "invalid" $returnValue.runAsGroup -}}
     {{- fail (printf "<runAsGroup> key cannot be empty. Set a value or remove the key for the default (%v) to take effect." $defaultSecCont.runAsGroup) -}}
   {{- else if not (mustHas (kindOf $returnValue.runAsGroup) (list "int" "float64")) -}}
     {{- fail (printf "<runAsGroup> key has value of (%q). But must be an int." $returnValue.runAsGroup) -}}
@@ -227,7 +227,7 @@ The reason is not splitted, is that on one of the places needs a combo of all va
     {{- fail (printf "<UMASK> key must be a string, so the format is kept intact.") -}}
   {{- end -}}
 
-  {{- if eq (toString $returnValue.PUID) "<nil>" -}}
+  {{- if kindIs "invalid" $returnValue.PUID -}}
     {{- fail (printf "<PUID> key cannot be empty. Set a value or remove the key for the default (%v) to take effect." $defaultSecEnvs.PUID) -}}
   {{- else if not (mustHas (kindOf $returnValue.PUID) (list "int" "float64")) -}}
     {{- fail (printf "<PUID> key has value of (%q). But must be an int." $returnValue.PUID) -}}
