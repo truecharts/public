@@ -8,63 +8,65 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: env
+  - variable: openbooks
     group: App Configuration
-    label: Image Environment
+    label: OpenBooks Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: USER_NAME
+        - variable: user_name
           label: User Name
           description: Username used to connect to IRC server.
           schema:
             type: string
             default: ""
             required: true
-        - variable: DEBUG
-          label: Debug
-          description: Display additional debug information, including all config values.
+        - variable: server
+          label: Server
+          description: The IRC server:port to connect to.
+          schema:
+            type: string
+            default: "irc.irchighway.net:6697"
+            required: true
+        - variable: tls
+          label: TLS
+          description: Connect to IRC server over TLS.
           schema:
             type: boolean
-            default: false
-        - variable: LOG
-          label: Log
-          description: Save raw IRC logs for each client connection.
-          schema:
-            type: boolean
-            default: false
-        - variable: SEARCH
+            default: true
+        - variable: search
           label: Search
           description: The IRC search operator to use.
           schema:
-            type: boolean
-            default: false
+            type: string
+            default: search
             enum:
               - value: search
                 description: Search
               - value: searchook
                 description: Searchook
-        - variable: PERSIST
+        - variable: debug
+          label: Debug
+          description: Display additional debug information, including all config values.
+          schema:
+            type: boolean
+            default: false
+        - variable: log
+          label: Log
+          description: Save raw IRC logs for each client connection.
+          schema:
+            type: boolean
+            default: false
+        - variable: persist
           label: Persist
           description: Save eBook files after sending to browser.
           schema:
             type: boolean
-            default: false
-        - variable: NO_BROWSER_DOWNLOADS
+            default: true
+        - variable: no_browser_downloads
           label: No Browser Downloads
           description: Don't send files to browser but save them to disk.
-          schema:
-            type: boolean
-            default: false
-        - variable: SERVER
-          label: Server
-          description: The IRC server:port to connect to.
-          schema:
-            type: string
-        - variable: TLS
-          label: TLS
-          description: Connect to IRC server over TLS.
           schema:
             type: boolean
             default: true
@@ -90,7 +92,7 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 10607
+                              default: 10608
                               required: true
 # Include{serviceExpertRoot}
             default: false
@@ -128,7 +130,7 @@ questions:
                 label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
-                  default: true
+                  default: false
               - variable: allowPrivilegeEscalation
                 label: Allow Privilege Escalation
                 schema:
