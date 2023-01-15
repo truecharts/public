@@ -12,7 +12,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  config.yml: # TODO: |
+  config.yml: |
     database:
       path: /db/frigate.db
     mqtt:
