@@ -328,11 +328,11 @@ frigate:
     render_config: false
     # -- Optional: Position of the timestamp
     # - "tl" (top left), "tr" (top right), "bl" (bottom left), "br" (bottom right)
-    position: "tl"
+    position: ""
     # -- Optional: Format specifier conform to the Python package "datetime"
     # - Additional Examples:
     # - german: "%d.%m.%Y %H:%M:%S"
-    format: "%m/%d/%Y %H:%M:%S"
+    format: ""
     # -- Optional: Color of font
     color:
       # -- Enable it to add the configuration in the config file
@@ -342,12 +342,12 @@ frigate:
       green: 255
       blue: 255
     # -- Optional: Line thickness of font (default: shown below)
-    thickness: 2
+    thickness: null
     # -- Optional: Effect of lettering (default: shown below)
     # - None (No effect),
     # - "solid" (solid background in inverse color of font)
     # - "shadow" (shadow for font)
-    effect: None
+    effect: ""
 
   cameras:
     # -- Required: name of the camera

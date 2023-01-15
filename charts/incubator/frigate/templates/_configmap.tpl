@@ -334,25 +334,26 @@ data:
       {{- end }}
     {{- end }}
 
-    {{- if .Values.frigate.timestamp_style.render_config }}
+    {{- $timestamp_style := .Values.frigate.timestamp_style -}}
+    {{- if $timestamp_style.render_config }}
     timestamp_style:
-      {{- with .Values.frigate.timestamp_style.position }}
+      {{- with $timestamp_style.position }}
       position: {{ . }}
       {{- end }}
-      {{- with .Values.frigate.timestamp_style.format }}
+      {{- with $timestamp_style.format }}
       format: {{ . }}
       {{- end }}
-      {{- if .Values.frigate.timestamp_style.color.render_config }}
+      {{- if $timestamp_style.color.render_config }}
       color:
-        red: {{ .Values.frigate.timestamp_style.color.red | default 255 }}
-        green: {{ .Values.frigate.timestamp_style.color.green | default 255 }}
-        blue: {{ .Values.frigate.timestamp_style.color.blue | default 255 }}
+        red: {{ $timestamp_style.color.red }}
+        green: {{ $timestamp_style.color.green }}
+        blue: {{ $timestamp_style.color.blue }}
       {{- end }}
-      {{- with .Values.frigate.timestamp_style.thickness }}
+      {{- with $timestamp_style.thickness }}
       thickness: {{ . }}
       {{- end }}
-      {{- if ne .Values.frigate.timestamp_style.effect "None" }}
-      effect: {{ .Values.frigate.timestamp_style.effect }}
+      {{- with $timestamp_style.effect }}
+      effect: {{ $timestamp_style.effect }}
       {{- end }}
     {{- end }}
 

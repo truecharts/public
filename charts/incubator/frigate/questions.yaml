@@ -1092,13 +1092,16 @@ questions:
                       label: Effect
                       description: |
                         Effect of lettering
+                        Inherit - Inherit from default configuration
                         None - No effect
                         Solid - Solid background in inverse color of font
                         Shadow - Shadow for font
                       schema:
                         type: string
-                        default: None
+                        default: ""
                         enum:
+                          - value: ""
+                            description: Inherit
                           - value: None
                             description: None
                           - value: solid
