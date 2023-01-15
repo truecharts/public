@@ -274,67 +274,62 @@ data:
         {{- end }}
         {{- if $record.events.retain.render_config }}
         retain:
-          default: {{ $record.events.retain.default | required "You need to provide default days" }}
+          default: {{ $record.events.retain.default | required "You need to provide default retain days" }}
           {{- with $record.events.retain.mode }}
           mode: {{ . }}
           {{- end }}
           {{- with $record.events.retain.objects }}
           objects:
           {{- range $obj := . }}
-            {{ $obj.object | required "You need to provide an object" }}: {{ $obj.days | required "You need to provide default days" }}
+            {{ $obj.object | required "You need to provide an object" }}: {{ $obj.days | required "You need to provide default retain days" }}
           {{- end }}
           {{- end }}
         {{- end }}
       {{- end }}
     {{- end }}
 
-    {{- if .Values.frigate.snapshots.render_config }}
+    {{- $snapshots := .Values.frigate.snapshots -}}
+    {{- if $snapshots.render_config }}
     snapshots:
-      enabled: {{ ternary "True" "False" .Values.frigate.snapshots.enabled }}
-      {{- with .Values.frigate.snapshots.clean_copy }}
-      clean_copy: {{ ternary "True" "False" .Values.frigate.snapshots.clean_copy }}
-      {{- end }}
-      {{- with .Values.frigate.snapshots.timestamp }}
-      timestamp: {{ ternary "True" "False" .Values.frigate.snapshots.timestamp }}
-      {{- end }}
-      {{- with .Values.frigate.snapshots.bounding_box }}
-      bounding_box: {{ ternary "True" "False" .Values.frigate.snapshots.bounding_box }}
-      {{- end }}
-      {{- with .Values.frigate.snapshots.crop }}
-      crop: {{ ternary "True" "False" .Values.frigate.snapshots.crop }}
-      {{- end }}
-      {{- with .Values.frigate.snapshots.height }}
+      enabled: {{ ternary "True" "False" $snapshots.enabled }}
+      clean_copy: {{ ternary "True" "False" $snapshots.clean_copy }}
+      timestamp: {{ ternary "True" "False" $snapshots.timestamp }}
+      bounding_box: {{ ternary "True" "False" $snapshots.bounding_box }}
+      crop: {{ ternary "True" "False" $snapshots.crop }}
+      {{- with $snapshots.height }}
       height: {{ . }}
       {{- end }}
-      {{- with .Values.frigate.snapshots.required_zones }}
+      {{- with $snapshots.required_zones }}
       required_zones:
-        {{- range . }}
-        - {{ . }}
+        {{- range $zone := . }}
+        - {{ $zone }}
         {{- end }}
       {{- end }}
-      {{- if .Values.frigate.snapshots.retain.render_config }}
+      {{- if $snapshots.retain.render_config }}
       retain:
-        default: {{ .Values.frigate.snapshots.retain.default | default 10 }}
-        {{- with .Values.frigate.snapshots.retain.objects }}
+        default: {{ $snapshots.retain.default | required "You need to provide default retain days" }}
+        {{- with $snapshots.retain.objects }}
         objects:
-        {{- range . }}
-          {{ .object }}: {{ .days }}
+        {{- range $obj := . }}
+          {{ $obj.object | required "You need to provide an object" }}: {{ $obj.days | required "You need to provide default retain days" }}
         {{- end }}
         {{- end }}
       {{- end }}
     {{- end }}
 
-    {{- if .Values.frigate.rtmp.render_config }}
+    {{- $rtmp := .Values.frigate.rtmp -}}
+    {{- if $rtmp.render_config }}
     rtmp:
-      enabled: {{ ternary "True" "False" .Values.frigate.rtmp.enabled }}
+      enabled: {{ ternary "True" "False" $rtmp.enabled }}
     {{- end }}
 
-    {{- if .Values.frigate.live.render_config }}
+    {{- $live := .Values.frigate.live -}}
+    {{- if $live.render_config }}
     live:
-      {{- with .Values.frigate.live.height }}
+      {{- with $live.height }}
       height: {{ . }}
       {{- end }}
-      {{- with .Values.frigate.live.quality }}
+      {{- with $live.quality }}
       quality: {{ . }}
       {{- end }}
     {{- end }}

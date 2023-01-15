@@ -1002,7 +1002,7 @@ questions:
                         reduce bandwidth required for viewing the live stream. Width is computed to match known aspect ratio.
                       schema:
                         type: int
-                        default: 720
+                        "null": true
                     - variable: quality
                       label: Quality
                       description: |
