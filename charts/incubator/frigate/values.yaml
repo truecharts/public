@@ -151,11 +151,13 @@ frigate:
     render_config: false
     # -- Optional: list of objects to track from labelmap.txt
     track:
-      - person
+      []
+      # - person
+      # - car
     # -- Optional: mask to prevent all object types from being detected in certain areas (default: no mask)
     # - Checks based on the bottom center of the bounding box of the object.
     # - NOTE: This mask is COMBINED with the object type specific mask below
-    mask: 0,0,1000,0,1000,200,0,200
+    mask: ""
     # - Optional: filters to reduce false positives for specific object types
     filters:
       []

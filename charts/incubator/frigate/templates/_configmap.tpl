@@ -168,21 +168,22 @@ data:
       {{- end }}
     {{- end }}
 
-    {{- if .Values.frigate.objects.render_config }}
+    {{- $objects := .Values.frigate.objects -}}
+    {{- if $objects.render_config }}
     objects:
-      {{- with .Values.frigate.objects.track }}
+      {{- with $objects.track }}
       track:
         {{- range . }}
         - {{ . }}
         {{- end }}
       {{- end }}
-      {{- with .Values.frigate.objects.mask }}
+      {{- with $objects.mask }}
       mask: {{ . }}
       {{- end }}
-      {{- with .Values.frigate.objects.filters }}
+      {{- with $objects.filters }}
       filters:
         {{- range . }}
-        {{ .object }}:
+        {{ .object | required "You need to provide an object" }}:
           {{- with .min_area }}
           min_area: {{ . }}
           {{- end }}
