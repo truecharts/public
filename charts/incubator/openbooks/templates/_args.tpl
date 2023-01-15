@@ -9,8 +9,6 @@ args:
   {{- if .Values.openbooks.tls }}
   - --tls
   {{- end }}
-  - --searchbot
-  - {{ .Values.openbooks.search }}
   {{- if .Values.openbooks.log }}
   - --log
   {{- end -}}
