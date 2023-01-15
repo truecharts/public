@@ -16,6 +16,14 @@ openbooks:
   no_browser_downloads: false
   tls: true
 
+probes:
+  liveness:
+    type: HTTP
+  readiness:
+    type: HTTP
+  startup:
+    type: HTTP
+
 service:
   main:
     ports:
