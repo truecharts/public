@@ -605,7 +605,7 @@ questions:
                         50 - low sensitivity
                       schema:
                         type: int
-                        default: 30
+                        "null": true
                     - variable: delta_alpha
                       label: Delta Alpha
                       description: |
@@ -635,7 +635,7 @@ questions:
                         of higher CPU usage. Lower values result in less CPU, but small changes may not register as motion.
                       schema:
                         type: int
-                        default: 50
+                        "null": true
                     - variable: mask
                       label: Mask
                       description: See docs for more detailed info on creating masks
@@ -653,7 +653,7 @@ questions:
                       description: Delay when updating camera motion through MQTT from ON -> OFF
                       schema:
                         type: int
-                        default: 30
+                        "null": true
         - variable: record
           label: Record
           schema:

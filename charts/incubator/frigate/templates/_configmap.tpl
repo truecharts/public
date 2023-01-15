@@ -209,30 +209,29 @@ data:
       {{- end }}
     {{- end }}
 
-    {{- if .Values.frigate.motion.render_config }}
+    {{- $motion := .Values.frigate.motion -}}
+    {{- if $motion.render_config }}
     motion:
-      {{- with .Values.frigate.motion.threshold }}
+      {{- with $motion.threshold }}
       threshold: {{ . }}
       {{- end }}
-      {{- with .Values.frigate.motion.contour_area }}
+      {{- with $motion.contour_area }}
       contour_area: {{ . }}
       {{- end }}
-      {{- with .Values.frigate.motion.delta_alpha }}
+      {{- with $motion.delta_alpha }}
       delta_alpha: {{ . }}
       {{- end }}
-      {{- with .Values.frigate.motion.frame_alpha }}
+      {{- with $motion.frame_alpha }}
       frame_alpha: {{ . }}
       {{- end }}
-      {{- with .Values.frigate.motion.frame_height }}
+      {{- with $motion.frame_height }}
       frame_height: {{ . }}
       {{- end }}
-      {{- with .Values.frigate.motion.mask }}
+      {{- with $motion.mask }}
       mask: {{ . }}
       {{- end }}
-      {{- with .Values.frigate.motion.improve_contrast }}
-      improve_contrast: {{ ternary "True" "False" .Values.frigate.motion.improve_contrast }}
-      {{- end }}
-      {{- with .Values.frigate.motion.mqtt_off_delay }}
+      improve_contrast: {{ ternary "True" "False" $motion.improve_contrast }}
+      {{- with $motion.mqtt_off_delay }}
       mqtt_off_delay: {{ . }}
       {{- end }}
     {{- end }}
