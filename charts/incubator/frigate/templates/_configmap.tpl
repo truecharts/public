@@ -113,50 +113,19 @@ data:
       {{- include "frigate.record" .Values.frigate.record | indent 6 }}
     {{- end }}
 
-    {{- $snapshots := .Values.frigate.snapshots -}}
-    {{- if $snapshots.render_config }}
+    {{- if .Values.frigate.snapshots.render_config }}
     snapshots:
-      enabled: {{ ternary "True" "False" $snapshots.enabled }}
-      clean_copy: {{ ternary "True" "False" $snapshots.clean_copy }}
-      timestamp: {{ ternary "True" "False" $snapshots.timestamp }}
-      bounding_box: {{ ternary "True" "False" $snapshots.bounding_box }}
-      crop: {{ ternary "True" "False" $snapshots.crop }}
-      {{- with $snapshots.height }}
-      height: {{ . }}
-      {{- end }}
-      {{- with $snapshots.required_zones }}
-      required_zones:
-        {{- range $zone := . }}
-        - {{ $zone }}
-        {{- end }}
-      {{- end }}
-      {{- if $snapshots.retain.render_config }}
-      retain:
-        default: {{ $snapshots.retain.default | required "You need to provide default retain days" }}
-        {{- with $snapshots.retain.objects }}
-        objects:
-        {{- range $obj := . }}
-          {{ $obj.object | required "You need to provide an object" }}: {{ $obj.days | required "You need to provide default retain days" }}
-        {{- end }}
-        {{- end }}
-      {{- end }}
+      {{- include "frigate.snapshots" .Values.frigate.snapshots | indent 6 }}
     {{- end }}
 
-    {{- $rtmp := .Values.frigate.rtmp -}}
-    {{- if $rtmp.render_config }}
+    {{- if .Values.frigate.rtmp.render_config }}
     rtmp:
-      enabled: {{ ternary "True" "False" $rtmp.enabled }}
+      {{- include "frigate.rtmp" .Values.frigate.rtmp | indent 6 }}
     {{- end }}
 
-    {{- $live := .Values.frigate.live -}}
-    {{- if $live.render_config }}
+    {{- if .Values.frigate.live.render_config }}
     live:
-      {{- with $live.height }}
-      height: {{ . }}
-      {{- end }}
-      {{- with $live.quality }}
-      quality: {{ . }}
-      {{- end }}
+      {{- include "frigate.live" .Values.frigate.live | indent 6 }}
     {{- end }}
 
     {{- if .Values.frigate.timestamp_style.render_config }}
@@ -470,5 +439,48 @@ thickness: {{ . }}
 {{- end -}}
 {{- with $timestamp_style.effect }}
 effect: {{ $timestamp_style.effect }}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.live" -}}
+{{- $live := . -}}
+{{- with $live.height }}
+height: {{ . }}
+{{- end -}}
+{{- with $live.quality }}
+quality: {{ . }}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.rtmp" -}}
+{{- $rtmp := . }}
+enabled: {{ ternary "True" "False" $rtmp.enabled }}
+{{- end -}}
+
+{{- define "frigate.snapshots" -}}
+{{- $snapshots := . }}
+enabled: {{ ternary "True" "False" $snapshots.enabled }}
+clean_copy: {{ ternary "True" "False" $snapshots.clean_copy }}
+timestamp: {{ ternary "True" "False" $snapshots.timestamp }}
+bounding_box: {{ ternary "True" "False" $snapshots.bounding_box }}
+crop: {{ ternary "True" "False" $snapshots.crop }}
+{{- with $snapshots.height }}
+height: {{ . }}
+{{- end -}}
+{{- with $snapshots.required_zones }}
+required_zones:
+  {{- range $zone := . }}
+  - {{ $zone }}
+  {{- end -}}
+{{- end -}}
+{{- if $snapshots.retain.render_config }}
+retain:
+  default: {{ $snapshots.retain.default | required "You need to provide default retain days" }}
+  {{- with $snapshots.retain.objects }}
+  objects:
+  {{- range $obj := . }}
+    {{ $obj.object | required "You need to provide an object" }}: {{ $obj.days | required "You need to provide default retain days" }}
+  {{- end -}}
+  {{- end -}}
 {{- end -}}
 {{- end -}}
