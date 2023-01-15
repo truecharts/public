@@ -83,27 +83,14 @@ data:
       {{- end }}
     {{- end }}
 
-    {{- $birdseye := .Values.frigate.birdseye -}}
-    {{- if $birdseye.render_config }}
+    {{- if .Values.frigate.birdseye.render_config }}
     birdseye:
-      enabled: {{ ternary "True" "False" $birdseye.enabled }}
-      {{- with $birdseye.width }}
-      width: {{ . }}
-      {{- end }}
-      {{- with $birdseye.height }}
-      height: {{ . }}
-      {{- end }}
-      {{- with $birdseye.quality }}
-      quality: {{ . }}
-      {{- end }}
-      {{- with $birdseye.mode }}
-      mode: {{ . }}
-      {{- end }}
+      {{- include "frigate.birdseye" .Values.frigate.birdseye | indent 6 }}
     {{- end }}
 
     {{- if .Values.frigate.ffmpeg.render_config }}
     ffmpeg:
-      {{- include "frigate.ffmpeg.args" .Values.frigate.ffmpeg | indent 6 }}
+      {{- include "frigate.ffmpeg" .Values.frigate.ffmpeg | indent 6 }}
     {{- end }}
 
     {{- if .Values.frigate.detect.render_config }}
@@ -209,9 +196,9 @@ data:
               {{- else -}}
                 {{- fail "You need to provide roles" -}}
               {{- end -}}
-              {{- include "frigate.ffmpeg.args" $input | indent 14 }}
+              {{- include "frigate.ffmpeg" $input | indent 14 }}
             {{- end -}} {{/* End range $cam.ffmpeg.inputs */}}
-          {{- include "frigate.ffmpeg.args" $cam.ffmpeg | indent 10 }}
+          {{- include "frigate.ffmpeg" $cam.ffmpeg | indent 10 }}
         {{- with $cam.best_image_timeout }}
         best_image_timeout: {{ . }}
         {{- end -}}
@@ -277,7 +264,7 @@ data:
 
 {{- end }}
 
-{{- define "frigate.ffmpeg.args" -}}
+{{- define "frigate.ffmpeg" -}}
 {{- $ffmpeg := . -}}
 
 {{- with $ffmpeg.global_args }}
@@ -461,5 +448,22 @@ filters:
     mask: {{ . }}
     {{- end -}}
   {{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.birdseye" -}}
+{{- $birdseye := . }}
+enabled: {{ ternary "True" "False" $birdseye.enabled }}
+{{- with $birdseye.width }}
+width: {{ . }}
+{{- end -}}
+{{- with $birdseye.height }}
+height: {{ . }}
+{{- end -}}
+{{- with $birdseye.quality }}
+quality: {{ . }}
+{{- end -}}
+{{- with $birdseye.mode }}
+mode: {{ . }}
 {{- end -}}
 {{- end -}}
