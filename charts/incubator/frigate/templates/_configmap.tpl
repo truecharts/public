@@ -159,27 +159,9 @@ data:
       {{- end }}
     {{- end }}
 
-    {{- $timestamp_style := .Values.frigate.timestamp_style -}}
-    {{- if $timestamp_style.render_config }}
+    {{- if .Values.frigate.timestamp_style.render_config }}
     timestamp_style:
-      {{- with $timestamp_style.position }}
-      position: {{ . }}
-      {{- end }}
-      {{- with $timestamp_style.format }}
-      format: {{ . }}
-      {{- end }}
-      {{- if $timestamp_style.color.render_config }}
-      color:
-        red: {{ $timestamp_style.color.red }}
-        green: {{ $timestamp_style.color.green }}
-        blue: {{ $timestamp_style.color.blue }}
-      {{- end }}
-      {{- with $timestamp_style.thickness }}
-      thickness: {{ . }}
-      {{- end }}
-      {{- with $timestamp_style.effect }}
-      effect: {{ $timestamp_style.effect }}
-      {{- end }}
+      {{- include "frigate.timestamp_style" .Values.frigate.timestamp_style | indent 6 }}
     {{- end }}
 
     {{- $cameras := .Values.frigate.cameras }}
@@ -465,5 +447,28 @@ quality: {{ . }}
 {{- end -}}
 {{- with $birdseye.mode }}
 mode: {{ . }}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.timestamp_style" -}}
+{{- $timestamp_style := . -}}
+
+{{- with $timestamp_style.position }}
+position: {{ . }}
+{{- end -}}
+{{- with $timestamp_style.format }}
+format: {{ . }}
+{{- end -}}
+{{- if $timestamp_style.color.render_config }}
+color:
+  red: {{ $timestamp_style.color.red }}
+  green: {{ $timestamp_style.color.green }}
+  blue: {{ $timestamp_style.color.blue }}
+{{- end -}}
+{{- with $timestamp_style.thickness }}
+thickness: {{ . }}
+{{- end -}}
+{{- with $timestamp_style.effect }}
+effect: {{ $timestamp_style.effect }}
 {{- end -}}
 {{- end -}}
