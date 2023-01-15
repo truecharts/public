@@ -11,6 +11,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
+  PROWLARR__PORT: {{ .Values.service.main.ports.main.port | quote }}
   {{/* AUTH */}}
   {{- with $prowlarr.auth_method }}
   PROWLARR__AUTHENTICATION_METHOD: {{ . }}
