@@ -127,43 +127,42 @@ data:
       {{- end }}
     {{- end }}
 
-    {{- if .Values.frigate.detect.render_config }}
+    {{- $detect := .Values.frigate.detect -}}
+    {{- if $detect.render_config }}
     detect:
-      enabled: {{ ternary "True" "False" .Values.frigate.detect.enabled }}
-      {{- with .Values.frigate.detect.width }}
+      enabled: {{ ternary "True" "False" $detect.enabled }}
+      {{- with $detect.width }}
       width: {{ . }}
       {{- end }}
-      {{- with .Values.frigate.detect.height }}
+      {{- with $detect.height }}
       height: {{ . }}
       {{- end }}
-      {{- with .Values.frigate.detect.fps }}
+      {{- with $detect.fps }}
       fps: {{ . }}
       {{- end }}
-      {{- with .Values.frigate.detect.max_disappeared }}
+      {{- with $detect.max_disappeared }}
       max_disappeared: {{ . }}
       {{- end }}
-      {{- if or .Values.frigate.detect.stationary.interval .Values.frigate.detect.stationary.threshold .Values.frigate.detect.stationary.set_max_frames}}
+      {{- if or (not (kindIs "invalid" $detect.stationary.interval)) $detect.stationary.threshold $detect.stationary.set_max_frames }}
       stationary:
-        {{- with .Values.frigate.detect.stationary.interval }}
-        interval: {{ . }}
+        {{- if not (kindIs "invalid" $detect.stationary.interval) }} {{/* invalid kind means it's empty (0 is not empty) */}}
+        interval: {{ $detect.stationary.interval }}
         {{- end }}
-        {{- with .Values.frigate.detect.stationary.threshold }}
+        {{- with $detect.stationary.threshold }}
         threshold: {{ . }}
         {{- end }}
-        {{- if (hasKey .Values.frigate.detect.stationary "max_frames") }}
-        {{- if or (hasKey .Values.frigate.detect.stationary.max_frames "default") (hasKey .Values.frigate.detect.stationary.max_frames "objects") }}
-        {{- if or .Values.frigate.detect.stationary.max_frames.default .Values.frigate.detect.stationary.max_frames.objects }}
+        {{- if (hasKey $detect.stationary "max_frames") }}
+        {{- if or $detect.stationary.max_frames.default $detect.stationary.max_frames.objects }}
         max_frames:
-          {{- with .Values.frigate.detect.stationary.max_frames.default }}
+          {{- with $detect.stationary.max_frames.default }}
           default: {{ . }}
           {{- end }}
-          {{- with .Values.frigate.detect.stationary.max_frames.objects }}
+          {{- with $detect.stationary.max_frames.objects }}
           objects:
             {{- range . }}
-            {{ .object }}: {{ .frames }}
+            {{ .object | required "You need to provide an object" }}: {{ .frames required "You need to provide frames" }}
             {{- end }}
           {{- end }}
-        {{- end }}
         {{- end }}
         {{- end }}
       {{- end }}

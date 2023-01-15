@@ -383,25 +383,25 @@ questions:
                       description: Width of the frame for the input with the detect role
                       schema:
                         type: int
-                        default: 1280
+                        "null": true
                     - variable: height
                       label: Height
                       description: Height of the frame for the input with the detect role
                       schema:
                         type: int
-                        default: 720
+                        "null": true
                     - variable: fps
                       label: FPS
                       description: Desired fps for your camera for the input with the detect role. Recommended value of 5. Ideally, try and reduce your FPS on the camera.
                       schema:
                         type: int
-                        default: 5
+                        "null": true
                     - variable: max_disappeared
                       label: Max Disappeared
                       description: Number of frames without a detection before frigate considers an object to be gone.
                       schema:
                         type: int
-                        default: 25
+                        "null": true
                     - variable: stationary
                       label: Stationary
                       schema:
@@ -416,13 +416,13 @@ questions:
                               If set to 10, object detection will run to confirm the object still exists on every 10th frame.
                             schema:
                               type: int
-                              default: 0
+                              "null": true
                           - variable: threshold
                             label: Threshold
                             description: Number of frames without a position change for an object to be considered stationary
                             schema:
                               type: int
-                              default: 50
+                              "null": true
                           - variable: set_max_frames
                             label: Set Max Frames
                             schema:
