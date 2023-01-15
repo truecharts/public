@@ -6,8 +6,12 @@ image:
 securityContext:
   readOnlyRootFilesystem: false
 
-env:
-  PROWLARR__AUTHENTICATION_METHOD: Forms
+prowlarr:
+  auth: false
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
 
 service:
   main:

@@ -8,26 +8,19 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
+  - variable: prowlarr
+    group: App Configuration
+    label: Prowlarr Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: PROWLARR__AUTHENTICATION_METHOD
-          label: Prowlarr Authentication Method
-          description: Select the default auth method, choose External to disable basic/form auth.
+        - variable: auth
+          label: Disable Auth
+          description: Sets the default auth method to External to disable basic/form auth.
           schema:
-            type: string
-            default: Forms
-            enum:
-              - value: Basic
-                description: Basic
-              - value: External
-                description: External
-              - value: Forms
-                description: Forms
+            type: boolean
+            default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
