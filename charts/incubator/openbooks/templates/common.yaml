@@ -1,8 +1,7 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.common.loader.init" . }}
 
-{{- $newArgs := (include "openbooks.args" . | fromYaml) }}
-{{- $args := concat .Values.args $newArgs.args }}
+{{- $args := concat .Values.args (include "openbooks.args" . | fromYaml).args }}
 {{- $_ := set .Values "args" $args -}}
 
 {{/* Render the templates */}}
