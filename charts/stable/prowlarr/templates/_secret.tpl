@@ -1,8 +1,8 @@
 {{/* Define the secret */}}
 {{- define "prowlarr.secret" -}}
 
-{{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
-{{- $prowlarr := .Values.prowlarr -}}
+{{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) -}}
+{{- $prowlarr := .Values.prowlarr }}
 ---
 apiVersion: v1
 kind: Secret
