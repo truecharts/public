@@ -15,12 +15,21 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: enable_external_auth
-          label: Enable External Auth
-          description: Sets the default auth method to External to disable basic/form auth.
+        - variable: auth_method
+          label: Auth Method
+          description: Sets the auth method.
           schema:
-            type: boolean
-            default: true
+            type: string
+            default: ""
+            enum:
+              - value: ""
+                description: In-App Setting
+              - value: External
+                description: External
+              - value: Basic
+                description: Basic
+              - value: Forms
+                description: Forms
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
