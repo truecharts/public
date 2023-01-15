@@ -8,6 +8,28 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
+  - variable: readarr
+    group: App Configuration
+    label: Readarr Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: auth_method
+          label: Auth Method
+          description: Sets the auth method.
+          schema:
+            type: string
+            default: ""
+            enum:
+              - value: ""
+                description: In-App Setting
+              - value: External
+                description: External
+              - value: Basic
+                description: Basic
+              - value: Forms
+                description: Forms
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

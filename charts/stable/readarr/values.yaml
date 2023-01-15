@@ -6,12 +6,18 @@ image:
 securityContext:
   readOnlyRootFilesystem: false
 
+readarr:
+  auth_method: ""
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
+
 service:
   main:
     ports:
       main:
         port: 8787
-        targetPort: 8787
 
 probes:
   liveness:
@@ -38,6 +44,12 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlDatabase: readarr
+  postgresqlUsername: readarr
 
 portal:
   enabled: true
