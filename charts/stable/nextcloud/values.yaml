@@ -104,7 +104,7 @@ initContainers:
         /bin/sh <<'EOF'
         echo "Forcing permissions on userdata folder..."
         echo "Trying to override ownship using nfs4xdr_winacl..."
-        /usr/bin/nfs4xdr_winacl -a chown -G 33 -c '/var/www/html/data' -p '/var/www/html/data' || echo "Failed setting ownership..."
+        /usr/sbin/nfs4xdr_winacl -a chown -G 33 -c '/var/www/html/data' -p '/var/www/html/data' || echo "Failed setting ownership..."
         chmod 770 /var/www/html/data || echo "Failed to chmod..."
         EOF
 

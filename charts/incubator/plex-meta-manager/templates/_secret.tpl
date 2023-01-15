@@ -19,6 +19,6 @@ stringData:
   {{- end }}
   PMM_RUN: {{ $pmm.run | quote }}
   {{/* plex */}}
-  PMM_PLEX_URL: {{ . | quote }}
-  PMM_PLEX_TOKEN: {{ . | quote }}
+  PMM_PLEX_URL: {{ $pmm.plex_url | quote }}
+  PMM_PLEX_TOKEN: {{ $pmm.plex_token | quote }}
 {{- end -}}

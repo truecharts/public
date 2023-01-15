@@ -13,46 +13,34 @@ chart-dirs:
   - charts/SCALE
 excluded-charts:
   - charts/dependency/subchart
-  - charts/incubator/sdtd
+  - charts/incubator/frigate
+  - charts/incubator/orbital-sync
+  - charts/incubator/plex-meta-manager
+  - charts/library/common
+  - charts/stable/alertmanager-bot
   - charts/stable/alertmanager-bot
   - charts/stable/alertmanager-discord
   - charts/stable/amcrest2mqtt
+  - charts/stable/discordgsm
   - charts/stable/facebox
-  - charts/stable/rdesktop
   - charts/stable/foundryvtt
+  - charts/stable/foundryvtt
+  - charts/stable/frigate
   - charts/stable/heimdall
   - charts/stable/multus
+  - charts/stable/orbital-sync
+  - charts/stable/plex-meta-manager
   - charts/stable/pod-gateway
   - charts/stable/promcord
+  - charts/stable/promcord
+  - charts/stable/rdesktop
   - charts/stable/reg
   - charts/stable/ser2sock
+  - charts/stable/storj-node
+  - charts/stable/tailscale
+  - charts/stable/webtop
   - charts/stable/zalando-postgres-cluster
   - charts/stable/zigbee2mqtt
-  - charts/stable/alertmanager-bot
-  - charts/stable/storj-node
-  - charts/incubator/frigate
-  - charts/stable/frigate
-  - charts/stable/orbital-sync
-  - charts/incubator/orbital-sync
-  - charts/incubator/amcrest2mqtt
-  - charts/library/common
-  - charts/stable/foundryvtt
-  - charts/stable/promcord
-  - charts/stable/tailscale
-  - charts/incubator/zigbee2mqtt
-  - charts/dev/alienswarm-reactivedrop
-  - charts/dev/arksurvivalevolved
-  - charts/dev/arma3
-  - charts/dev/arma3exilemod
-  - charts/dev/assettocorsa
-  - charts/dev/server-7daystodie
-  - charts/dev/craftopia
-  - charts/dev/alienswarm
-  - charts/dev/csgo
-  - charts/dev/cstrike1-6
-  - charts/dev/cstrikeconditionzero
-  - charts/stable/plex-meta-manager
-  - charts/incubator/plex-meta-manager
 chart-repos:
   - truecharts=https://charts.truecharts.org
   - truecharts-library=https://library-charts.truecharts.org
