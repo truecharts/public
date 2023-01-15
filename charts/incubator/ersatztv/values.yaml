@@ -21,6 +21,14 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+probes:
+  liveness:
+    type: HTTP
+  readiness:
+    type: HTTP
+  startup:
+    type: HTTP
+
 service:
   main:
     ports:
