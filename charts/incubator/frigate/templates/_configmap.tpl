@@ -111,45 +111,9 @@ data:
       {{- include "frigate.detect" .Values.frigate.detect | indent 6 }}
     {{- end -}}
 
-    {{- $objects := .Values.frigate.objects -}}
-    {{- if $objects.render_config }}
+    {{- if .Values.frigate.objects.render_config }}
     objects:
-      {{- with $objects.track }}
-      track:
-        {{- range $track := . }}
-        - {{ $track }}
-        {{- end }}
-      {{- end }}
-      {{- with $objects.mask }}
-      mask: {{ . }}
-      {{- end }}
-      {{- with $objects.filters }}
-      filters:
-        {{- range $filter := . }}
-        {{ $filter.object | required "You need to provide an object" }}:
-          {{- with $filter.min_area }}
-          min_area: {{ . }}
-          {{- end }}
-          {{- with $filter.max_area }}
-          max_area: {{ . }}
-          {{- end }}
-          {{- with $filter.min_ratio }}
-          min_ratio: {{ . }}
-          {{- end }}
-          {{- with $filter.max_ratio }}
-          max_ratio: {{ . }}
-          {{- end }}
-          {{- with $filter.min_score }}
-          min_score: {{ . }}
-          {{- end }}
-          {{- with $filter.threshold }}
-          threshold: {{ . }}
-          {{- end }}
-          {{- with $filter.mask }}
-          mask: {{ . }}
-          {{- end }}
-        {{- end }}
-      {{- end }}
+      {{- include "frigate.objects" .Values.frigate.objects | indent 6 }}
     {{- end }}
 
     {{- if .Values.frigate.motion.render_config }}
@@ -454,6 +418,47 @@ events:
     {{- range $obj := . }}
       {{ $obj.object | required "You need to provide an object" }}: {{ $obj.days | required "You need to provide default retain days" }}
     {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.objects" -}}
+{{- $objects := . -}}
+
+{{- with $objects.track }}
+track:
+  {{- range $track := . }}
+  - {{ $track }}
+  {{- end -}}
+{{- end -}}
+{{- with $objects.mask }}
+mask: {{ . }}
+{{- end -}}
+{{- with $objects.filters }}
+filters:
+  {{- range $filter := . }}
+  {{ $filter.object | required "You need to provide an object" }}:
+    {{- with $filter.min_area }}
+    min_area: {{ . }}
+    {{- end -}}
+    {{- with $filter.max_area }}
+    max_area: {{ . }}
+    {{- end -}}
+    {{- with $filter.min_ratio }}
+    min_ratio: {{ . }}
+    {{- end -}}
+    {{- with $filter.max_ratio }}
+    max_ratio: {{ . }}
+    {{- end -}}
+    {{- with $filter.min_score }}
+    min_score: {{ . }}
+    {{- end -}}
+    {{- with $filter.threshold }}
+    threshold: {{ . }}
+    {{- end -}}
+    {{- with $filter.mask }}
+    mask: {{ . }}
     {{- end -}}
   {{- end -}}
 {{- end -}}
