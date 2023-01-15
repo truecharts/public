@@ -22,6 +22,5 @@ stringData:
   PROWLARR__POSTGRES_USER: {{ .Values.postgresql.postgresqlUsername }}
   PROWLARR__POSTGRES_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
   PROWLARR__POSTGRES_MAIN_DB: {{ .Values.postgresql.postgresqlDatabase }}
-  PROWLARR__POSTGRES_LOG_DB: "prowlarr_log"
 
 {{- end -}}
