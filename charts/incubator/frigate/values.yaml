@@ -44,14 +44,14 @@ frigate:
   model:
     # -- Enable it to add the configuration in the config file
     render_config: false
-    # -- Optional: Path to the model
-    path: /edgetpu_model.tflite
-    # -- Optional: Path to the labelmap
-    labelmap_path: /labelmap.txt
     # -- Required: Object detection model input width
     width: 320
     # -- Required: Object detection model input height
     height: 320
+    # -- Optional: Path to the model
+    path: ""
+    # -- Optional: Path to the labelmap
+    labelmap_path: ""
     # -- Optional: Label name modifications.
     labelmap:
       []

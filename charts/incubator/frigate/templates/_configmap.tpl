@@ -52,20 +52,21 @@ data:
       {{- end }}
     {{- end }}
 
-    {{- if .Values.frigate.model.render_config }}
+    {{- $model := .Values.frigate.model -}}
+    {{- if $model.render_config }}
     model:
-      {{- with .Values.frigate.model.path }}
+      width: {{ $model.width | required "You need to provide a model width" }}
+      height: {{ $model.height | required "You need to provide a model height" }}
+      {{- with $model.path }}
       path: {{ . }}
       {{- end }}
-      {{- with .Values.frigate.model.labelmap_path }}
+      {{- with $model.labelmap_path }}
       labelmap_path: {{ . }}
       {{- end }}
-      width: {{ .Values.frigate.model.width | default 320 }}
-      height: {{ .Values.frigate.model.height | default 320 }}
-      {{- with .Values.frigate.model.labelmap }}
+      {{- with $model.labelmap }}
       labelmap:
         {{- range . }}
-        {{ .model }}: {{ .name }}
+        {{ .model | required "You need to provide a labelmap model" }}: {{ .name | required "You need to provide a labelmap name" }}
         {{- end }}
       {{- end }}
     {{- end }}

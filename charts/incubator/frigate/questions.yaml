@@ -38,7 +38,7 @@ questions:
                 schema:
                   type: string
                   default: ""
-              - variable: topic_prefix
+              - variable: client_id
                 label: Client ID
                 description: Must be unique if you are running multiple instances
                 schema:
@@ -84,7 +84,7 @@ questions:
                         default: []
                         items:
                           - variable: detector_entry
-                            label: Detector Entry
+                            label: ""
                             schema:
                               additional_attrs: true
                               type: dict
@@ -135,16 +135,6 @@ questions:
                   default: false
                   show_subquestions_if: true
                   subquestions:
-                    - variable: path
-                      label: Path
-                      schema:
-                        type: string
-                        default: /edgetpu_model.tflite
-                    - variable: labelmap_path
-                      label: Label Map Path
-                      schema:
-                        type: string
-                        default: /labelmap.txt
                     - variable: width
                       label: Width
                       schema:
@@ -157,14 +147,24 @@ questions:
                         type: int
                         required: true
                         default: 320
+                    - variable: path
+                      label: Path
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: labelmap_path
+                      label: Label Map Path
+                      schema:
+                        type: string
+                        default: ""
                     - variable: labelmap
-                      label: LabelMap Configuration
+                      label: Label Map Configuration
                       schema:
                         type: list
                         default: []
                         items:
                           - variable: labelmap_entry
-                            label: LabelMap Entry
+                            label: ""
                             schema:
                               additional_attrs: true
                               type: dict
@@ -173,11 +173,13 @@ questions:
                                   label: Model
                                   schema:
                                     type: string
+                                    required: true
                                     default: ""
                                 - variable: name
                                   label: Name
                                   schema:
                                     type: string
+                                    required: true
                                     default: ""
         - variable: logger
           label: Logger
