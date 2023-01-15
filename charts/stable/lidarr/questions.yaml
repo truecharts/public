@@ -8,24 +8,26 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
+  - variable: lidarr
+    group: App Configuration
+    label: Lidarr Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: LIDARR__AUTHENTICATION_METHOD
-          label: Lidarr Authentication Method
-          description: Select the default auth method, choose External to disable basic/form auth.
+        - variable: auth_method
+          label: Auth Method
+          description: Sets the auth method.
           schema:
             type: string
-            default: Forms
+            default: ""
             enum:
-              - value: Basic
-                description: Basic
+              - value: ""
+                description: In-App Setting
               - value: External
                 description: External
+              - value: Basic
+                description: Basic
               - value: Forms
                 description: Forms
 # Include{containerConfig}
