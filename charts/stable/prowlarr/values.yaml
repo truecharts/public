@@ -7,7 +7,7 @@ securityContext:
   readOnlyRootFilesystem: false
 
 prowlarr:
-  auth: false
+  enable_external_auth: true
 
 envFrom:
   - secretRef:
@@ -24,6 +24,12 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlDatabase: prowlarr
+  postgresqlUsername: prowlarr
 
 portal:
   enabled: true

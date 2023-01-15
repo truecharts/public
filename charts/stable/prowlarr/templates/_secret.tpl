@@ -11,7 +11,17 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
-  {{- if $prowlarr.auth }}
+  {{/* AUTH */}}
+  {{- if $prowlarr.enable_external_auth }}
   PROWLARR__AUTHENTICATION_METHOD: "External"
   {{- end }}
+
+  {{/* DB */}}
+  PROWLARR__POSTGRES_HOST: {{ .Values.postgresql.url.complete | trimAll "\"" }}
+  PROWLARR__POSTGRES_PORT: 5432
+  PROWLARR__POSTGRES_USER: {{ .Values.postgresql.postgresqlUsername | quote }}
+  PROWLARR__POSTGRES_PASSWORD    : {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
+  PROWLARR__POSTGRES_MAIN_DB: {{ .Values.postgresql.postgresqlDatabase }}
+  PROWLARR__POSTGRES_LOG_DB: "prowlarr_log"
+
 {{- end -}}

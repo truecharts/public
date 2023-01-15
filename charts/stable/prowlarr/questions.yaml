@@ -15,12 +15,12 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: auth
-          label: Disable Auth
+        - variable: enable_external_auth
+          label: Enable External Auth
           description: Sets the default auth method to External to disable basic/form auth.
           schema:
             type: boolean
-            default: false
+            default: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
