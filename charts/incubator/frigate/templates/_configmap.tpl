@@ -357,93 +357,98 @@ data:
       {{- end }}
     {{- end }}
 
+    {{- $cameras := .Values.frigate.cameras }}
     cameras:
-    {{- range .Values.frigate.cameras }}
-      {{ .camera_name }}:
+    {{- range $cam := $cameras }}
+      {{ $cam.camera_name | required "You need to provide a camera name" }}:
         ffmpeg:
-          {{- with .ffmpeg }}
           inputs:
-          {{- range .inputs }}
-            - path: {{ .path }}
-              {{- with .roles }}
+            {{- range $input := $cam.ffmpeg.inputs }}
+            - path: {{ $input.path | required "You need to provide a path" }}
               roles:
-                {{- range . }}
-                - {{ . }}
-                {{- end }}
-              {{- end }} {{/* end with roles*/}}
-              {{- with .global_args }}
+              {{- range $role := $input.roles }}
+              - {{ $role }}
+              {{- else -}}
+                {{- fail "You need to provide roles" -}}
+              {{- end }}
+              {{- with $input.global_args }}
               global_args: {{ . }}
               {{- end }}
-              {{- with .hwaccel_args }}
+              {{- with $input.hwaccel_args }}
               hwaccel_args: {{ . }}
               {{- end }}
-              {{- with .input_args }}
+              {{- with $input.input_args }}
               input_args: {{ . }}
               {{- end }}
-          {{- end }} {{/* end range inputs */}}
-          {{- with .global_args }}
+            {{- end }} {{/* End range $cam.ffmpeg.inputs */}}
+          {{- with $cam.ffmpeg.global_args }}
           global_args: {{ . }}
           {{- end }}
-          {{- with .hwaccel_args }}
+          {{- with $cam.ffmpeg.hwaccel_args }}
           hwaccel_args: {{ . }}
           {{- end }}
-          {{- with .input_args }}
+          {{- with $cam.ffmpeg.input_args }}
           input_args: {{ . }}
           {{- end }}
-          {{- with .output_args }}
+          {{- with $cam.ffmpeg.output_args }}
           output_args: {{ . }}
           {{- end }}
-          {{- end }} {{/* end with ffmpeg */}}
-        best_image_timeout: {{ .best_image_timeout | default 60 }}
-        {{- with .zones }}
+        {{- with $cam.best_image_timeout -}}
+        best_image_timeout: {{ . }}
+        {{- end -}}
+        {{- with $cam.zones }}
         zones:
-          {{- range . }}
-          {{ .name }}:
+          {{- range $zone := . }}
+          {{ $zone.name | required "You have to specify a zone name" }}:
             coordinates: {{ required "You have to specify coordinates" .coordinates }}
-            {{- with .objects }}
+            {{- with $zone.objects }}
             objects:
-              {{- range . }}
-              - {{ . }}
+              {{- range $obj := . }}
+              - {{ $obj }}
               {{- end }}
-            {{- end }} {{/* end with objects*/}}
-            {{- with .filters }}
+            {{- end }}
+            {{- with $zone.filters }}
             filters:
-              {{- range . }}
-              {{ .object }}:
-                {{- with .min_area }}
+              {{- range $filter := . }}
+              {{ $filter.object | required "You have to specify an object" }}:
+                {{- with $filter.min_area }}
                 min_area: {{ . }}
                 {{- end }}
-                {{- with .max_area }}
+                {{- with $filter.max_area }}
                 max_area: {{ . }}
                 {{- end }}
-                {{- with .threshold }}
+                {{- with $filter.threshold }}
                 threshold: {{ . }}
                 {{- end }}
               {{- end }} {{/* end range filters */}}
             {{- end }} {{/* end with filter */}}
           {{- end }} {{/* end range zones */}}
         {{- end }} {{/* end with zones */}}
-        {{- if .mqtt.render_config }}
-        {{- with .mqtt }}
+        {{- if $cam.mqtt.render_config }}
+        {{- with $cam.mqtt }}
         mqtt:
           enabled: {{ ternary "True" "False" .enabled }}
           timestamp: {{ ternary "True" "False" .timestamp }}
           bounding_box: {{ ternary "True" "False" .bounding_box }}
           crop: {{ ternary "True" "False" .crop }}
-          height: {{ .height | default 270 }}
-          quality: {{ .quality | default 70 }}
+          {{- with .height }}
+          height: {{ . }}
+          {{- end }}
+          {{- with .quality }}
+          quality: {{ . }}
+          {{- end -}}
           {{- with .required_zones }}
           required_zones:
-            {{- range . }}
-            - {{ . }}
+            {{- range $zone := . }}
+            - {{ $zone }}
             {{- end }}
           {{- end }}
         {{- end }} {{/* end with mqtt */}}
         {{- end }} {{/* end if mqtt.render_config */}}
-        {{- if .ui.render_config }}
-        {{- with .ui }}
+        {{- if $cam.ui.render_config }}
+        {{- with $cam.ui }}
         ui:
-          {{- if or .order (eq (int .order) 0) }}
+          {{- if not (kindIs "invalid" .order) }}
           order: {{ .order }}
           {{- end }}
           dashboard: {{ ternary "True" "False" .dashboard }}

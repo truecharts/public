@@ -1046,7 +1046,7 @@ questions:
                             description: Bottom Right
                     - variable: format
                       label: Format
-                      description: Format specifier conform to the Python package "datetime"
+                      description: Format specifier conform to the Python package <datetime>
                       schema:
                         type: string
                         default: ""
@@ -1087,7 +1087,7 @@ questions:
                       description: Line thickness of font
                       schema:
                         type: int
-                        default: 2
+                        "null": true
                     - variable: effect
                       label: Effect
                       description: |
@@ -1142,7 +1142,7 @@ questions:
                               default: []
                               items:
                                 - variable: input_entry
-                                  label: Input Entry
+                                  label: ""
                                   schema:
                                     additional_attrs: true
                                     type: dict
@@ -1162,7 +1162,7 @@ questions:
                                           default: []
                                           items:
                                             - variable: role_entry
-                                              label: Role Entry
+                                              label: ""
                                               schema:
                                                 type: string
                                                 required: true
@@ -1203,8 +1203,7 @@ questions:
                       description: Timeout for highest scoring image before allowing it to be replaced by a newer image.
                       schema:
                         type: int
-                        required: true
-                        default: 60
+                        "null": true
                     - variable: zones
                       label: Zones
                       description: Zones for this camera
@@ -1213,7 +1212,7 @@ questions:
                         default: []
                         items:
                           - variable: zone_entry
-                            label: Zone Entry
+                            label: ""
                             schema:
                               additional_attrs: true
                               type: dict
@@ -1238,7 +1237,7 @@ questions:
                                     default: []
                                     items:
                                       - variable: object_entry
-                                        label: Object Entry
+                                        label: ""
                                         description: For example person
                                         schema:
                                           type: string
@@ -1331,15 +1330,13 @@ questions:
                                   description: Height to resize the snapshot to
                                   schema:
                                     type: int
-                                    required: true
-                                    default: 720
+                                    "null": true
                                 - variable: quality
                                   label: Quality
                                   description: JPEG encode quality
                                   schema:
                                     type: int
-                                    required: true
-                                    default: 70
+                                    "null": true
                                 - variable: required_zones
                                   label: Required Zones
                                   description: Restrict mqtt messages to objects that entered any of the listed zones
