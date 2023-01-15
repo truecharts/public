@@ -11,10 +11,11 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- In most cases the "enabled" key is only used internally to "render" or not the configuration
+# -- The "render_config" key is only used internally to "render" or not the configuration
 # - Some parts of the config bellow are slightly modified so they can be added on SCALE UI. Mainly lists.
-# - Do not blindly copy paste configuration from upstream.
-# - All of the frigate app config is in the questions, so we don't need to default any of it here
+# - Do not blindly copy paste configuration from upstream. As this won't work on all cases
+# - Where you see "null" set as default is ignored by the configmap. (Not all keys are supported).
+# - Those "nulls" should be replaced with integers (if you want to set a value)
 frigate:
   mqtt:
     host: mqtt.server.com
@@ -77,12 +78,12 @@ frigate:
     # -- Enables birdseye
     enabled: true
     # -- Optional: Width of the output resolution
-    width:
+    width: null
     # -- Optional: Height of the output resolution
-    height:
+    height: null
     # -- Optional: Encoding quality of the mpeg1 feed
     # - 1 is the highest quality, and 31 is the lowest. Lower quality feeds utilize less CPU resources.
-    quality:
+    quality: null
     # -- Optional: Mode of the view. Available options are: objects, motion, and continuous
     # - objects - cameras are included if they have had a tracked object within the last 30 seconds
     # - motion - cameras are included if motion was detected in the last 30 seconds
@@ -115,22 +116,22 @@ frigate:
     # - This value can be set via MQTT and will be updated in startup based on retained value
     enabled: true
     # -- Optional: width of the frame for the input with the detect role
-    width:
+    width: null
     # -- Optional: height of the frame for the input with the detect role
-    height:
+    height: null
     # -- Optional: desired fps for your camera for the input with the detect role
     # - NOTE: Recommended value of 5. Ideally, try and reduce your FPS on the camera.
-    fps:
+    fps: null
     # -- Optional: Number of frames without a detection before frigate considers an object to be gone. (default: 5x the frame rate)
-    max_disappeared:
+    max_disappeared: null
     # -- Optional: Configuration for stationary object tracking
     stationary:
       # -- Optional: Frequency for confirming stationary objects
       # - When set to 0, object detection will not confirm stationary objects until movement is detected.
       # - If set to 10, object detection will run to confirm the object still exists on every 10th frame.
-      interval:
+      interval: null
       # -- Optional: Number of frames without a position change for an object to be considered stationary (default: 10x the frame rate or 10s)
-      threshold:
+      threshold: null
       # -- Optional: Define a maximum number of frames for tracking a stationary object (default: not set, track forever)
       # - This can help with false positives for objects that should only be stationary for a limited amount of time.
       # - It can also be used to disable stationary object tracking. For example, you may want to set a value for person, but leave
@@ -184,7 +185,7 @@ frigate:
     # -- Optional: The threshold passed to cv2.threshold to determine if a pixel is different enough to be counted as motion.
     # - Increasing this value will make motion detection less sensitive and decreasing it will make motion detection more sensitive.
     # - The value should be between 1 and 255.
-    threshold:
+    threshold: null
     # -- Optional: Minimum size in pixels in the resized motion image that counts as motion
     # - Increasing this value will prevent smaller areas of motion from being detected. Decreasing will
     # - make motion detection more sensitive to smaller moving objects.
@@ -192,29 +193,29 @@ frigate:
     # - 15 - high sensitivity
     # - 30 - medium sensitivity
     # - 50 - low sensitivity
-    contour_area:
+    contour_area: null
     # -- Optional: Alpha value passed to cv2.accumulateWeighted when averaging the motion delta across multiple frames
     # - Higher values mean the current frame impacts the delta a lot, and a single raindrop may register as motion.
     # - Too low and a fast moving person wont be detected as motion.
-    delta_alpha:
+    delta_alpha: ""
     # -- Optional: Alpha value passed to cv2.accumulateWeighted when averaging frames to determine the background
     # - Higher values mean the current frame impacts the average a lot, and a new object will be averaged into the background faster.
     # - Low values will cause things like moving shadows to be detected as motion for longer.
     # - https://www.geeksforgeeks.org/background-subtraction-in-an-image-using-concept-of-running-average/
-    frame_alpha:
+    frame_alpha: ""
     # -- Optional: Height of the resized motion frame  (default: 50)
     # - This operates as an efficient blur alternative. Higher values will result in more granular motion detection at the expense
     # - of higher CPU usage. Lower values result in less CPU, but small changes may not register as motion.
-    frame_height:
+    frame_height: null
     # -- Optional: motion mask
     # - NOTE: see docs for more detailed info on creating masks
-    mask:
+    mask: ""
     # -- Optional: improve contrast
     # - Enables dynamic contrast improvement. This should help improve night detections at the cost of making motion detection more sensitive
     # - for daytime.
     improve_contrast: false
     # -- Optional: Delay when updating camera motion through MQTT from ON -> OFF
-    mqtt_off_delay:
+    mqtt_off_delay: null
 
   record:
     # -- Enable it to add the configuration in the config file
@@ -229,7 +230,7 @@ frigate:
     enabled: false
     # -- Optional: Number of minutes to wait between cleanup runs
     # - This can be used to reduce the frequency of deleting recording segments from disk if you want to minimize i/o
-    expire_interval: 60
+    expire_interval:
     # -- Optional: Retention settings for recording
     retain:
       # -- Render retain config
@@ -237,21 +238,21 @@ frigate:
       # -- Optional: Number of days to retain recordings regardless of events
       # - NOTE: This should be set to 0 and retention should be defined in events section below
       # - if you only want to retain recordings of events.
-      days: 0
+      days:
       # -- Optional: Mode for retention. Available options are: all, motion, and active_objects
       # - all - save all recording segments regardless of activity
       # - motion - save all recordings segments with any detected motion
       # - active_objects - save all recording segments with active/moving objects
       # - NOTE: this mode only applies when the days setting above is greater than 0
-      mode: all
+      mode: ""
     # -- Optional: Event recording settings
     events:
       # -- Enable it to add the configuration in the config file
       render_config: false
       # -- Optional: Number of seconds before the event to include
-      pre_capture: 5
+      pre_capture: null
       # -- Optional: Number of seconds after the event to include
-      post_capture: 5
+      post_capture: null
       # -- Optional: Objects to save recordings for. Defaults to all
       objects:
         []
@@ -268,11 +269,12 @@ frigate:
         # - all - save all recording segments for events regardless of activity
         # - motion - save all recordings segments for events with any detected motion
         # - active_objects - save all recording segments for event with active/moving objects
-        mode: motion
+        mode: ""
         # -- Optional: Per object retention days
         objects:
-          - object: person
-            days: 15
+          []
+          # - object: person
+          #   days: 15
 
   snapshots:
     # -- Enable it to add the configuration in the config file

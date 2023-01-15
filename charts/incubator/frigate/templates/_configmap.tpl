@@ -40,13 +40,13 @@ data:
     {{- $detectors := .Values.frigate.detectors -}}
     {{- if and $detectors.render_config $detectors.config }}
     detectors:
-      {{- range $detectors.config }}
-      {{ .name | required "You need to provide a detector name" }}:
-        type: {{ .type | required "You need to provide a detector type" }}
-        {{- with .device }}
+      {{- range $d := $detectors.config }}
+      {{ $d.name | required "You need to provide a detector name" }}:
+        type: {{ $d.type | required "You need to provide a detector type" }}
+        {{- with $d.device }}
         device: {{ . }}
         {{- end }}
-        {{- with .num_threads }}
+        {{- with $d.num_threads }}
         num_threads: {{ . }}
         {{- end }}
       {{- end }}
@@ -65,8 +65,8 @@ data:
       {{- end }}
       {{- with $model.labelmap }}
       labelmap:
-        {{- range . }}
-        {{ .model | required "You need to provide a labelmap model" }}: {{ .name | required "You need to provide a labelmap name" }}
+        {{- range $lmap := . }}
+        {{ $lmap.model | required "You need to provide a labelmap model" }}: {{ $lmap.name | required "You need to provide a labelmap name" }}
         {{- end }}
       {{- end }}
     {{- end }}
@@ -77,8 +77,8 @@ data:
       default: {{ $logger.default }}
       {{- with $logger.logs }}
       logs:
-        {{- range . }}
-        {{ .component | required "You need to provide a logger cmponent" }}: {{ .verbosity | required "You need to provide logger verbosity" }}
+        {{- range $log := . }}
+        {{ $log.component | required "You need to provide a logger cmponent" }}: {{ $log.verbosity | required "You need to provide logger verbosity" }}
         {{- end }}
       {{- end }}
     {{- end }}
@@ -159,8 +159,8 @@ data:
           {{- end }}
           {{- with $detect.stationary.max_frames.objects }}
           objects:
-            {{- range . }}
-            {{ .object | required "You need to provide an object" }}: {{ .frames required "You need to provide frames" }}
+            {{- range $obj := . }}
+            {{ $obj.object | required "You need to provide an object" }}: {{ $obj.frames required "You need to provide frames" }}
             {{- end }}
           {{- end }}
         {{- end }}
@@ -173,8 +173,8 @@ data:
     objects:
       {{- with $objects.track }}
       track:
-        {{- range . }}
-        - {{ . }}
+        {{- range $track := . }}
+        - {{ $track }}
         {{- end }}
       {{- end }}
       {{- with $objects.mask }}
@@ -182,27 +182,27 @@ data:
       {{- end }}
       {{- with $objects.filters }}
       filters:
-        {{- range . }}
-        {{ .object | required "You need to provide an object" }}:
-          {{- with .min_area }}
+        {{- range $filter := . }}
+        {{ $filter.object | required "You need to provide an object" }}:
+          {{- with $filter.min_area }}
           min_area: {{ . }}
           {{- end }}
-          {{- with .max_area }}
+          {{- with $filter.max_area }}
           max_area: {{ . }}
           {{- end }}
-          {{- with .min_ratio }}
+          {{- with $filter.min_ratio }}
           min_ratio: {{ . }}
           {{- end }}
-          {{- with .max_ratio }}
+          {{- with $filter.max_ratio }}
           max_ratio: {{ . }}
           {{- end }}
-          {{- with .min_score }}
+          {{- with $filter.min_score }}
           min_score: {{ . }}
           {{- end }}
-          {{- with .threshold }}
+          {{- with $filter.threshold }}
           threshold: {{ . }}
           {{- end }}
-          {{- with .mask }}
+          {{- with $filter.mask }}
           mask: {{ . }}
           {{- end }}
         {{- end }}
@@ -236,51 +236,52 @@ data:
       {{- end }}
     {{- end }}
 
-    {{- if .Values.frigate.record.render_config }}
+    {{- $record := .Values.frigate.record -}}
+    {{- if $record.render_config }}
     record:
-      enabled: {{ ternary "True" "False" .Values.frigate.record.enabled }}
-      {{- with .Values.frigate.record.expire_interval }}
+      enabled: {{ ternary "True" "False" $record.enabled }}
+      {{- with $record.expire_interval }}
       expire_interval: {{ . }}
       {{- end }}
-      {{- if .Values.frigate.record.retain.render_config }}
+      {{- if $record.retain.render_config }}
       retain:
-        {{- with .Values.frigate.record.retain.days }}
-        days: {{ . }}
+        {{- if not (kindIs "invalid" $record.retain.days) }}
+        days: {{ $record.retain.days }}
         {{- end }}
-        {{- with .Values.frigate.record.retain.mode }}
+        {{- with $record.retain.mode }}
         mode: {{ . }}
         {{- end }}
       {{- end }}
-      {{- if .Values.frigate.record.events.render_config }}
+      {{- if $record.events.render_config }}
       events:
-        {{- with .Values.frigate.record.events.pre_capture }}
-        pre_capture: {{ . }}
+        {{- if not (kindIs "invalid" $record.events.pre_capture) }}
+        pre_capture: {{ $record.events.pre_capture }}
         {{- end }}
-        {{- with .Values.frigate.record.events.post_capture }}
-        post_capture: {{ . }}
+        {{- if not (kindIs "invalid" $record.events.post_capture) }}
+        post_capture: {{ $record.events.post_capture }}
         {{- end }}
-        {{- with .Values.frigate.record.events.objects }}
+        {{- with $record.events.objects }}
         objects:
-          {{- range . }}
-          - {{ . }}
+          {{- range $obj := . }}
+          - {{ $obj }}
           {{- end }}
         {{- end }}
-        {{- with .Values.frigate.record.events.required_zones }}
+        {{- with $record.events.required_zones }}
         required_zones:
-          {{- range . }}
-          - {{ . }}
+          {{- range $zone := . }}
+          - {{ $zone }}
           {{- end }}
         {{- end }}
-        {{- if .Values.frigate.record.events.retain.render_config }}
+        {{- if $record.events.retain.render_config }}
         retain:
-          default: {{ .Values.frigate.record.events.retain.default | default 10 }}
-          {{- with .Values.frigate.record.events.retain.mode }}
+          default: {{ $record.events.retain.default | required "You need to provide default days" }}
+          {{- with $record.events.retain.mode }}
           mode: {{ . }}
           {{- end }}
-          {{- with .Values.frigate.record.events.retain.objects }}
+          {{- with $record.events.retain.objects }}
           objects:
-          {{- range . }}
-            {{ .object }}: {{ .days }}
+          {{- range $obj := . }}
+            {{ $obj.object | required "You need to provide an object" }}: {{ $obj.days | required "You need to provide default days" }}
           {{- end }}
           {{- end }}
         {{- end }}

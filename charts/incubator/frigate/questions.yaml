@@ -683,7 +683,7 @@ questions:
                       description: Number of minutes to wait between cleanup runs
                       schema:
                         type: int
-                        default: 60
+                        "null": true
                     - variable: retain
                       label: Record > Retain
                       description: Retention settings for recording
@@ -705,7 +705,7 @@ questions:
                                     NOTE: This should be set to 0 and retention should be defined in events section below if you only want to retain recordings of events.
                                   schema:
                                     type: int
-                                    default: 0
+                                    "null": true
                                 - variable: mode
                                   label: Mode
                                   description: |
@@ -762,7 +762,7 @@ questions:
                                     default: []
                                     items:
                                       - variable: object_entry
-                                        label: Object Entry
+                                        label: ""
                                         schema:
                                           type: string
                                           required: true
@@ -775,7 +775,7 @@ questions:
                                     default: []
                                     items:
                                       - variable: zone_entry
-                                        label: Zone Entry
+                                        label: ""
                                         schema:
                                           type: string
                                           required: true
@@ -810,7 +810,6 @@ questions:
                                                 Active Objects - save all recording segments for event with active/moving objects
                                               schema:
                                                 type: string
-                                                required: true
                                                 default: ""
                                                 enum:
                                                   - value: ""
@@ -829,7 +828,7 @@ questions:
                                                 default: []
                                                 items:
                                                   - variable: objects_entry
-                                                    label: Objects Entry
+                                                    label: ""
                                                     schema:
                                                       additional_attrs: true
                                                       type: dict
