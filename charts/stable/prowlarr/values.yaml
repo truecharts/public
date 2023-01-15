@@ -7,7 +7,7 @@ securityContext:
   readOnlyRootFilesystem: false
 
 prowlarr:
-  enable_external_auth: true
+  auth_method: ""
 
 envFrom:
   - secretRef:
