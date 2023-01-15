@@ -3,30 +3,30 @@ image:
   tag: v0.13.2@sha256:e25fe8c34101f63f2e2dd42b76509fe564d8a90ca838cdc462935412cf9dc668
   pullPolicy: IfNotPresent
 
-imageGPU:
+gpuImage:
   repository: tccr.io/truecharts/ml-workspace-gpu
   pullPolicy: IfNotPresent
-  tag: v0.13.2@sha256:9597b92b15fd4f4f07f84c3d4a93d5905519f5323f1584391122d6ee81abac95
+  tag: v0.13.2@sha256:c96934adbaf21916caff9e29a1b77350b6244995a401c3e7887a6af2df8b046d
 
-imageMinimal:
+minimalImage:
   repository: tccr.io/truecharts/ml-workspace-minimal
   pullPolicy: IfNotPresent
-  tag: v0.13.2@sha256:e95cfd15de0777db2ae5a60752a8cdfdf449bffa23ae6cef94662018e62f9c33
+  tag: v0.13.2@sha256:b2eb4fefe9c3bca11e5ffbc02417f446db44101c8611f137540c4b11a08e9b3c
 
-imageLight:
+lightImage:
   repository: tccr.io/truecharts/ml-workspace-light
   pullPolicy: IfNotPresent
-  tag: v0.13.2@sha256:57258c0496b6dd2e7b7e38378cf9b00de8dc71b4ddbf2c9effb4411333b31241
+  tag: v0.13.2@sha256:9846779a0174a49b115b3fa90f6274dd695e0601ac4c85bc405e03f8a31e840b
 
-imageR:
+rImage:
   repository: tccr.io/truecharts/ml-workspace-r
   pullPolicy: IfNotPresent
-  tag: v0.12.1@sha256:a67725dbac3e54b8b251c5cd6414cc03a6d4c73084c19fb9b825cbfc64ffb94a
+  tag: v0.12.1@sha256:3297f6ab963bae92e0bb2c76c073f2b481486d9765c9c0b34aaf189a51c821a9
 
-imageSpark:
+sparkImage:
   repository: tccr.io/truecharts/ml-workspace-spark
   pullPolicy: IfNotPresent
-  tag: v0.12.1@sha256:40af0bb4d9198b4bb467f529034c6b985ffcf8efb4526fff334a0bdb33ddd562
+  tag: v0.12.1@sha256:8ea62c5537cb4bc34112ef54c856f286370a2262649ba2e79ba849dd9460a792
 
 imageSelector: "image"
 
