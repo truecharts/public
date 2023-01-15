@@ -12,19 +12,28 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  config.yml: |
+  config.yml: # TODO: Add |
     database:
       path: /db/frigate.db
     mqtt:
-      host: {{ required "You need to provide an MQTT host" .Values.frigate.mqtt.host }}
-      port: {{ .Values.frigate.mqtt.port | default 1883 }}
-      topic_prefix: {{ .Values.frigate.mqtt.topic_prefix | default "frigate" }}
-      client_id: {{ .Values.frigate.mqtt.client_id | default "frigate" }}
-      stats_interval: {{ .Values.frigate.mqtt.stats_interval| default 60 }}
-      {{- with .Values.frigate.mqtt.user }}
+      {{- $mqtt := .Values.frigate.mqtt }}
+      host: {{ required "You need to provide an MQTT host" $mqtt.host }}
+      {{- with $mqtt.port }}
+      port: {{ . }}
+      {{- end }}
+      {{- with $mqtt.topic_prefix) }}
+      topic_prefix: {{ . }}
+      {{- end }}
+      {{- with $mqtt.client_id) }}
+      client_id: {{ . }}
+      {{- end }}
+      {{- if not (kindIs "invalid" $mqtt.stats_interval) }}
+      stats_interval: {{ $mqtt.stats_interval }}
+      {{- end }}
+      {{- with $mqtt.user }}
       user: {{ . }}
       {{- end }}
-      {{- with .Values.frigate.mqtt.password }}
+      {{- with $mqtt.password }}
       password: {{ . }}
       {{- end }}
 

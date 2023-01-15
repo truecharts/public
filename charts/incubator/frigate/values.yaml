@@ -11,9 +11,6 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-global:
-  isSCALE: true
-
 # -- In most cases the "enabled" key is only used internally to "render" or not the configuration
 # - Some parts of the config bellow are slightly modified so they can be added on SCALE UI. Mainly lists.
 # - Do not blindly copy paste configuration from upstream.
@@ -23,11 +20,11 @@ frigate:
     host: mqtt.server.com
     port: 1883
     # -- NOTE: Must be unique if you are running multiple instances
-    topic_prefix: frigate
+    topic_prefix: ""
     # -- NOTE: Must be unique if you are running multiple instances
-    client_id: frigate
-    user: mqtt_user
-    password: password
+    client_id: ""
+    user: ""
+    password: ""
     stats_interval: 60
 
   detectors:

@@ -31,28 +31,26 @@ questions:
                 label: Port
                 schema:
                   type: int
-                  required: true
                   default: 1883
               - variable: topic_prefix
                 label: Topic Prefix
                 description: Must be unique if you are running multiple instances
                 schema:
                   type: string
-                  required: true
-                  default: frigate
+                  default: ""
               - variable: topic_prefix
                 label: Client ID
                 description: Must be unique if you are running multiple instances
                 schema:
                   type: string
-                  required: true
-                  default: frigate
+                  required:
+                  default: ""
               - variable: stats_interval
                 label: Stats Interval
                 description: Interval in seconds for publishing stats
                 schema:
                   type: int
-                  required: true
+                  "null": true
                   default: 60
               - variable: user
                 label: Username
