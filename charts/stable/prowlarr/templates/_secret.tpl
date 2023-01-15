@@ -19,7 +19,7 @@ stringData:
   {{/* DB */}}
   PROWLARR__POSTGRES_HOST: {{ .Values.postgresql.url.plain | trimAll "\"" }}
   PROWLARR__POSTGRES_PORT: "5432"
-  PROWLARR__POSTGRES_USER: {{ .Values.postgresql.postgresqlUsername | quote }}
+  PROWLARR__POSTGRES_USER: {{ .Values.postgresql.postgresqlUsername }}
   PROWLARR__POSTGRES_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
   PROWLARR__POSTGRES_MAIN_DB: {{ .Values.postgresql.postgresqlDatabase }}
   PROWLARR__POSTGRES_LOG_DB: "prowlarr_log"
