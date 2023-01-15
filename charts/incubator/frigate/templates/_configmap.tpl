@@ -71,13 +71,14 @@ data:
       {{- end }}
     {{- end }}
 
-    {{- if .Values.frigate.logger.render_config }}
+    {{- $logger := .Values.frigate.logger -}}
+    {{- if $logger.render_config }}
     logger:
-      default: {{ .Values.frigate.logger.default | default "info" }}
-      {{- with .Values.frigate.logger.logs }}
+      default: {{ $logger.default }}
+      {{- with $logger.logs }}
       logs:
         {{- range . }}
-        {{ .component }}: {{ .verbosity }}
+        {{ .component | required "You need to provide a logger cmponent" }}: {{ .verbosity | required "You need to provide logger verbosity" }}
         {{- end }}
       {{- end }}
     {{- end }}

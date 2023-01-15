@@ -67,8 +67,9 @@ frigate:
     default: info
     # -- Optional: Component specific logger overrides
     logs:
-      - component: frigate.event
-        verbosity: debug
+      []
+      # - component: frigate.event
+      #   verbosity: debug
 
   birdseye:
     # -- Enable it to add the configuration in the config file
