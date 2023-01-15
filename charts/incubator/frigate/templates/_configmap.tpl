@@ -209,7 +209,7 @@ max_disappeared: {{ . }}
 {{- end -}}
 {{- if or (not (kindIs "invalid" $detect.stationary.interval)) $detect.stationary.threshold $detect.stationary.set_max_frames }}
 stationary:
-  {{- if not (kindIs "invalid" $detect.stationary.interval) }} {{/* invalid kind means it's empty (0 is not empty) */}}
+  {{- if not (kindIs "invalid" $detect.stationary.interval) }} {{/* invalid kind means its empty (0 is not empty) */}}
   interval: {{ $detect.stationary.interval }}
   {{- end -}}
   {{- with $detect.stationary.threshold }}
