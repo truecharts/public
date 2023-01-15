@@ -119,8 +119,8 @@ questions:
                                   description: This value is only used for CPU types
                                   schema:
                                     type: int
+                                    "null": true
                                     show_if: [["type", "=", "cpu"]]
-                                    default: 3
         - variable: model
           label: Model
           schema:

@@ -12,7 +12,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  config.yml: # TODO: Add |
+  config.yml: # TODO: |
     database:
       path: /db/frigate.db
     mqtt:
@@ -21,10 +21,10 @@ data:
       {{- with $mqtt.port }}
       port: {{ . }}
       {{- end }}
-      {{- with $mqtt.topic_prefix) }}
+      {{- with $mqtt.topic_prefix }}
       topic_prefix: {{ . }}
       {{- end }}
-      {{- with $mqtt.client_id) }}
+      {{- with $mqtt.client_id }}
       client_id: {{ . }}
       {{- end }}
       {{- if not (kindIs "invalid" $mqtt.stats_interval) }}
@@ -37,12 +37,12 @@ data:
       password: {{ . }}
       {{- end }}
 
-    {{- if .Values.frigate.detectors.render_config }}
-    {{- if .Values.frigate.detectors.config }}
+    {{- $detectors := .Values.frigate.detectors -}}
+    {{- if and $detectors.render_config $detectors.config }}
     detectors:
-      {{- range .Values.frigate.detectors.config }}
-      {{ required "You need to provide a detector name" .name }}:
-        type: {{ .type }}
+      {{- range $detectors.config }}
+      {{ .name | required "You need to provide a detector name" }}:
+        type: {{ .type | required "You need to provide a detector type" }}
         {{- with .device }}
         device: {{ . }}
         {{- end }}
@@ -50,7 +50,6 @@ data:
         num_threads: {{ . }}
         {{- end }}
       {{- end }}
-    {{- end }}
     {{- end }}
 
     {{- if .Values.frigate.model.render_config }}
