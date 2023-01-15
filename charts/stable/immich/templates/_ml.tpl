@@ -30,7 +30,7 @@ readinessProbe:
       - /bin/sh
       - -c
       - |
-        grep -q entrypoint /proc/1/cmdline || exit 1
+        grep -q main.js /proc/1/cmdline || exit 1
   initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
@@ -41,7 +41,7 @@ livenessProbe:
       - /bin/sh
       - -c
       - |
-        grep -q entrypoint /proc/1/cmdline || exit 1
+        grep -q main.js /proc/1/cmdline || exit 1
   initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
@@ -52,7 +52,7 @@ startupProbe:
       - /bin/sh
       - -c
       - |
-        grep -q entrypoint /proc/1/cmdline || exit 1
+        grep -q main.js /proc/1/cmdline || exit 1
   initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
   timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
   periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
