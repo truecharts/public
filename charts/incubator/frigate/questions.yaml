@@ -273,13 +273,13 @@ questions:
                       description: Width of the output resolution
                       schema:
                         type: int
-                        default: 1280
+                        "null": true
                     - variable: height
                       label: Height
                       description: Height of the output resolution
                       schema:
                         type: int
-                        default: 720
+                        "null": true
                     - variable: quality
                       label: Quality
                       description: Encoding quality of the mpeg1 feed. Where 1 is the highest quality, and 31 is the lowest. Lower quality feeds utilize less CPU resources.

@@ -77,17 +77,17 @@ frigate:
     # -- Enables birdseye
     enabled: true
     # -- Optional: Width of the output resolution
-    width: 1280
+    width:
     # -- Optional: Height of the output resolution
-    height: 720
+    height:
     # -- Optional: Encoding quality of the mpeg1 feed
     # - 1 is the highest quality, and 31 is the lowest. Lower quality feeds utilize less CPU resources.
-    quality: 8
+    quality:
     # -- Optional: Mode of the view. Available options are: objects, motion, and continuous
     # - objects - cameras are included if they have had a tracked object within the last 30 seconds
     # - motion - cameras are included if motion was detected in the last 30 seconds
     # - continuous - all cameras are included always
-    mode: objects
+    mode: ""
 
   ffmpeg:
     # -- Enable it to add the configuration in the config file

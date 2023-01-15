@@ -83,19 +83,20 @@ data:
       {{- end }}
     {{- end }}
 
-    {{- if .Values.frigate.birdseye.render_config }}
+    {{- $birdseye := .Values.frigate.birdseye -}}
+    {{- if $birdseye.render_config }}
     birdseye:
-      enabled: {{ ternary "True" "False" .Values.frigate.birdseye.enabled }}
-      {{- with .Values.frigate.birdseye.width }}
+      enabled: {{ ternary "True" "False" $birdseye.enabled }}
+      {{- with $birdseye.width }}
       width: {{ . }}
       {{- end }}
-      {{- with .Values.frigate.birdseye.height }}
+      {{- with $birdseye.height }}
       height: {{ . }}
       {{- end }}
-      {{- with .Values.frigate.birdseye.quality }}
+      {{- with $birdseye.quality }}
       quality: {{ . }}
       {{- end }}
-      {{- with .Values.frigate.birdseye.mode }}
+      {{- with $birdseye.mode }}
       mode: {{ . }}
       {{- end }}
     {{- end }}
