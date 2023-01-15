@@ -92,7 +92,7 @@ patch_apps() {
     echo "---" >> ${target}/app-readme.md
     echo "" >> ${target}/app-readme.md
     echo "TrueCharts can only exist due to the incredible effort of our staff." >> ${target}/app-readme.md
-    echo "Please consider making a [donation](https://truecharts.org/about/sponsor) or contributing back to the project any way you can!" >> ${target}/app-readme.md
+    echo "Please consider making a [donation](https://truecharts.org/sponsor) or contributing back to the project any way you can!" >> ${target}/app-readme.md
 }
 export -f patch_apps
 
