@@ -152,7 +152,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@5ccb29d8773c3f3f653e1705f474dfaa8a06a912 # v4
+      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
         with:
           python-version: "3.10"
 
@@ -163,7 +163,9 @@ jobs:
         uses: nolar/setup-k3d-k3s@v1
         with:
           version: v1.24
-          k3d-args: -p 31990-31999:31990-31999@server:0
+          # Flags found here https://github.com/k3d-io/k3d
+          k3d-args: --k3s-arg --disable=metrics-server@server:*
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Remove node taints
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
@@ -195,7 +197,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@5ccb29d8773c3f3f653e1705f474dfaa8a06a912 # v4
+      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
         with:
           python-version: "3.10"
 
@@ -206,7 +208,9 @@ jobs:
         uses: nolar/setup-k3d-k3s@v1
         with:
           version: v1.24
-          k3d-args: -p 31990-31999:31990-31999@server:0
+          # Flags found here https://github.com/k3d-io/k3d
+          k3d-args: --k3s-arg --disable=metrics-server@server:*
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Remove node taints
         run: |
@@ -239,7 +243,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@5ccb29d8773c3f3f653e1705f474dfaa8a06a912 # v4
+      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
         with:
           python-version: "3.10"
 
@@ -250,7 +254,9 @@ jobs:
         uses: nolar/setup-k3d-k3s@v1
         with:
           version: v1.24
-          k3d-args: -p 31990-31999:31990-31999@server:0
+          # Flags found here https://github.com/k3d-io/k3d
+          k3d-args: --k3s-arg --disable=metrics-server@server:*
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Remove node taints
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
@@ -282,7 +288,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@5ccb29d8773c3f3f653e1705f474dfaa8a06a912 # v4
+      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
         with:
           python-version: "3.10"
 
@@ -293,7 +299,9 @@ jobs:
         uses: nolar/setup-k3d-k3s@v1
         with:
           version: v1.24
-          k3d-args: -p 31990-31999:31990-31999@server:0
+          # Flags found here https://github.com/k3d-io/k3d
+          k3d-args: --k3s-arg --disable=metrics-server@server:*
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Remove node taints
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
@@ -325,7 +333,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@5ccb29d8773c3f3f653e1705f474dfaa8a06a912 # v4
+      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
         with:
           python-version: "3.10"
 
@@ -336,7 +344,9 @@ jobs:
         uses: nolar/setup-k3d-k3s@v1
         with:
           version: v1.24
-          k3d-args: -p 31990-31999:31990-31999@server:0
+          # Flags found here https://github.com/k3d-io/k3d
+          k3d-args: --k3s-arg --disable=metrics-server@server:*
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Remove node taints
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
@@ -368,7 +378,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@5ccb29d8773c3f3f653e1705f474dfaa8a06a912 # v4
+      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
         with:
           python-version: "3.10"
 
@@ -379,7 +389,9 @@ jobs:
         uses: nolar/setup-k3d-k3s@v1
         with:
           version: v1.24
-          k3d-args: -p 31990-31999:31990-31999@server:0
+          # Flags found here https://github.com/k3d-io/k3d
+          k3d-args: --k3s-arg --disable=metrics-server@server:*
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Remove node taints
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
