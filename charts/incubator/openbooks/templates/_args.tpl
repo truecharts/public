@@ -1,14 +1,14 @@
 {{- define "openbooks.args" -}}
 args:
   - --port
-  - {{ .Values.service.main.ports.main.port }}
+  - {{ .Values.service.main.ports.main.port | quote }}
   - --name
   - {{ .Values.openbooks.user_name }}
   - --searchbot
   - {{ .Values.openbooks.search }}
   {{- if .Values.openbooks.tls }}
   - --tls
-  {{- end }}
+  {{- end -}}
   {{- if .Values.openbooks.log }}
   - --log
   {{- end -}}
