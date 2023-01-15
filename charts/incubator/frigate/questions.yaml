@@ -326,14 +326,14 @@ questions:
                       schema:
                         type: string
                         default: ""
-                    - variable: input_args
-                      label: Input Args
-                      schema:
-                        type: string
-                        default: ""
                     - variable: hwaccel_args
                       label: HW Acceleration Args
                       description: See hardware acceleration docs for your specific device
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: input_args
+                      label: Input Args
                       schema:
                         type: string
                         default: ""
@@ -342,7 +342,7 @@ questions:
                       schema:
                         additional_attrs: true
                         type: dict
-                        attrs: &ffmpeg_output_args
+                        attrs:
                           - variable: detect
                             label: Detect
                             schema:
@@ -1176,19 +1176,19 @@ questions:
                                                     description: Record
                                       - variable: global_args
                                         label: Global Args
-                                        description: Camera specific global args
+                                        description: Stream specific global args
                                         schema:
                                           type: string
                                           default: ""
                                       - variable: hwaccel_args
                                         label: HW Acceleration Args
-                                        description: Camera specific hwaccel args
+                                        description: Stream specific hwaccel args
                                         schema:
                                           type: string
                                           default: ""
                                       - variable: input_args
                                         label: Input Args
-                                        description: Camera specific input args
+                                        description: Stream specific input args
                                         schema:
                                           type: string
                                           default: ""
