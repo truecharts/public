@@ -106,46 +106,10 @@ data:
       {{- include "frigate.ffmpeg.args" .Values.frigate.ffmpeg | indent 6 }}
     {{- end }}
 
-    {{- $detect := .Values.frigate.detect -}}
-    {{- if $detect.render_config }}
+    {{- if .Values.frigate.detect.render_config }}
     detect:
-      enabled: {{ ternary "True" "False" $detect.enabled }}
-      {{- with $detect.width }}
-      width: {{ . }}
-      {{- end }}
-      {{- with $detect.height }}
-      height: {{ . }}
-      {{- end }}
-      {{- with $detect.fps }}
-      fps: {{ . }}
-      {{- end }}
-      {{- with $detect.max_disappeared }}
-      max_disappeared: {{ . }}
-      {{- end }}
-      {{- if or (not (kindIs "invalid" $detect.stationary.interval)) $detect.stationary.threshold $detect.stationary.set_max_frames }}
-      stationary:
-        {{- if not (kindIs "invalid" $detect.stationary.interval) }} {{/* invalid kind means it's empty (0 is not empty) */}}
-        interval: {{ $detect.stationary.interval }}
-        {{- end }}
-        {{- with $detect.stationary.threshold }}
-        threshold: {{ . }}
-        {{- end }}
-        {{- if (hasKey $detect.stationary "max_frames") }}
-        {{- if or $detect.stationary.max_frames.default $detect.stationary.max_frames.objects }}
-        max_frames:
-          {{- with $detect.stationary.max_frames.default }}
-          default: {{ . }}
-          {{- end }}
-          {{- with $detect.stationary.max_frames.objects }}
-          objects:
-            {{- range $obj := . }}
-            {{ $obj.object | required "You need to provide an object" }}: {{ $obj.frames required "You need to provide frames" }}
-            {{- end }}
-          {{- end }}
-        {{- end }}
-        {{- end }}
-      {{- end }}
-    {{- end }}
+      {{- include "frigate.detect" .Values.frigate.detect | indent 6 }}
+    {{- end -}}
 
     {{- $objects := .Values.frigate.objects -}}
     {{- if $objects.render_config }}
@@ -188,83 +152,14 @@ data:
       {{- end }}
     {{- end }}
 
-    {{- $motion := .Values.frigate.motion -}}
-    {{- if $motion.render_config }}
+    {{- if .Values.frigate.motion.render_config }}
     motion:
-      {{- with $motion.threshold }}
-      threshold: {{ . }}
-      {{- end }}
-      {{- with $motion.contour_area }}
-      contour_area: {{ . }}
-      {{- end }}
-      {{- with $motion.delta_alpha }}
-      delta_alpha: {{ . }}
-      {{- end }}
-      {{- with $motion.frame_alpha }}
-      frame_alpha: {{ . }}
-      {{- end }}
-      {{- with $motion.frame_height }}
-      frame_height: {{ . }}
-      {{- end }}
-      {{- with $motion.mask }}
-      mask: {{ . }}
-      {{- end }}
-      improve_contrast: {{ ternary "True" "False" $motion.improve_contrast }}
-      {{- with $motion.mqtt_off_delay }}
-      mqtt_off_delay: {{ . }}
-      {{- end }}
+      {{- include "frigate.motion" .Values.frigate.motion | indent 6 }}
     {{- end }}
 
-    {{- $record := .Values.frigate.record -}}
-    {{- if $record.render_config }}
+    {{- if .Values.frigate.record.render_config }}
     record:
-      enabled: {{ ternary "True" "False" $record.enabled }}
-      {{- with $record.expire_interval }}
-      expire_interval: {{ . }}
-      {{- end }}
-      {{- if $record.retain.render_config }}
-      retain:
-        {{- if not (kindIs "invalid" $record.retain.days) }}
-        days: {{ $record.retain.days }}
-        {{- end }}
-        {{- with $record.retain.mode }}
-        mode: {{ . }}
-        {{- end }}
-      {{- end }}
-      {{- if $record.events.render_config }}
-      events:
-        {{- if not (kindIs "invalid" $record.events.pre_capture) }}
-        pre_capture: {{ $record.events.pre_capture }}
-        {{- end }}
-        {{- if not (kindIs "invalid" $record.events.post_capture) }}
-        post_capture: {{ $record.events.post_capture }}
-        {{- end }}
-        {{- with $record.events.objects }}
-        objects:
-          {{- range $obj := . }}
-          - {{ $obj }}
-          {{- end }}
-        {{- end }}
-        {{- with $record.events.required_zones }}
-        required_zones:
-          {{- range $zone := . }}
-          - {{ $zone }}
-          {{- end }}
-        {{- end }}
-        {{- if $record.events.retain.render_config }}
-        retain:
-          default: {{ $record.events.retain.default | required "You need to provide default retain days" }}
-          {{- with $record.events.retain.mode }}
-          mode: {{ . }}
-          {{- end }}
-          {{- with $record.events.retain.objects }}
-          objects:
-          {{- range $obj := . }}
-            {{ $obj.object | required "You need to provide an object" }}: {{ $obj.days | required "You need to provide default retain days" }}
-          {{- end }}
-          {{- end }}
-        {{- end }}
-      {{- end }}
+      {{- include "frigate.record" .Values.frigate.record | indent 6 }}
     {{- end }}
 
     {{- $snapshots := .Values.frigate.snapshots -}}
@@ -443,5 +338,123 @@ output_args:
   rtmp: {{ . }}
   {{- end -}}
 {{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.detect" -}}
+{{- $detect := . }}
+enabled: {{ ternary "True" "False" $detect.enabled }}
+{{- with $detect.width }}
+width: {{ . }}
+{{- end -}}
+{{- with $detect.height }}
+height: {{ . }}
+{{- end -}}
+{{- with $detect.fps }}
+fps: {{ . }}
+{{- end -}}
+{{- with $detect.max_disappeared }}
+max_disappeared: {{ . }}
+{{- end -}}
+{{- if or (not (kindIs "invalid" $detect.stationary.interval)) $detect.stationary.threshold $detect.stationary.set_max_frames }}
+stationary:
+  {{- if not (kindIs "invalid" $detect.stationary.interval) }} {{/* invalid kind means it's empty (0 is not empty) */}}
+  interval: {{ $detect.stationary.interval }}
+  {{- end -}}
+  {{- with $detect.stationary.threshold }}
+  threshold: {{ . }}
+  {{- end -}}
+  {{- if (hasKey $detect.stationary "max_frames") }}
+  {{- if or $detect.stationary.max_frames.default $detect.stationary.max_frames.objects }}
+  max_frames:
+    {{- with $detect.stationary.max_frames.default }}
+    default: {{ . }}
+    {{- end -}}
+    {{- with $detect.stationary.max_frames.objects }}
+    objects:
+      {{- range $obj := . }}
+      {{ $obj.object | required "You need to provide an object" }}: {{ $obj.frames | required "You need to provide frames" }}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.motion" -}}
+{{- $motion := . -}}
+
+{{- with $motion.threshold }}
+threshold: {{ . }}
+{{- end -}}
+{{- with $motion.contour_area }}
+contour_area: {{ . }}
+{{- end -}}
+{{- with $motion.delta_alpha }}
+delta_alpha: {{ . }}
+{{- end -}}
+{{- with $motion.frame_alpha }}
+frame_alpha: {{ . }}
+{{- end -}}
+{{- with $motion.frame_height }}
+frame_height: {{ . }}
+{{- end -}}
+{{- with $motion.mask }}
+mask: {{ . }}
+{{- end }}
+improve_contrast: {{ ternary "True" "False" $motion.improve_contrast }}
+{{- with $motion.mqtt_off_delay }}
+mqtt_off_delay: {{ . }}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.record" -}}
+{{- $record := . }}
+enabled: {{ ternary "True" "False" $record.enabled }}
+{{- with $record.expire_interval }}
+expire_interval: {{ . }}
+{{- end -}}
+{{- if $record.retain.render_config }}
+retain:
+  {{- if not (kindIs "invalid" $record.retain.days) }}
+  days: {{ $record.retain.days }}
+  {{- end -}}
+  {{- with $record.retain.mode }}
+  mode: {{ . }}
+  {{- end -}}
+{{- end -}}
+{{- if $record.events.render_config }}
+events:
+  {{- if not (kindIs "invalid" $record.events.pre_capture) }}
+  pre_capture: {{ $record.events.pre_capture }}
+  {{- end -}}
+  {{- if not (kindIs "invalid" $record.events.post_capture) }}
+  post_capture: {{ $record.events.post_capture }}
+  {{- end -}}
+  {{- with $record.events.objects }}
+  objects:
+    {{- range $obj := . }}
+    - {{ $obj }}
+    {{- end -}}
+  {{- end -}}
+  {{- with $record.events.required_zones }}
+  required_zones:
+    {{- range $zone := . }}
+    - {{ $zone }}
+    {{- end -}}
+  {{- end -}}
+  {{- if $record.events.retain.render_config }}
+  retain:
+    default: {{ $record.events.retain.default | required "You need to provide default retain days" }}
+    {{- with $record.events.retain.mode }}
+    mode: {{ . }}
+    {{- end -}}
+    {{- with $record.events.retain.objects }}
+    objects:
+    {{- range $obj := . }}
+      {{ $obj.object | required "You need to provide an object" }}: {{ $obj.days | required "You need to provide default retain days" }}
+    {{- end -}}
+    {{- end -}}
+  {{- end -}}
 {{- end -}}
 {{- end -}}
