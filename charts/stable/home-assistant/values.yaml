@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/home-assistant
   pullPolicy: IfNotPresent
-  tag: 2022.12.8@sha256:1beb11fc10780a2534b930c9f1cce1442101f601bb30a99c26ce889b682895f8
+  tag: 2023.1.2@sha256:a253c0c78b7cbf4da214bac2bccea20d802891e52deb934662c6f5a7a5d36ab5
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -33,6 +33,9 @@ initContainers:
 
 # # When hostNetwork is true set dnsPolicy to ClusterFirstWithHostNet
 # dnsPolicy: ClusterFirstWithHostNet
+
+homeassistant:
+  trusted_proxies: []
 
 # Enable a prometheus-operator servicemonitor
 prometheus:
@@ -138,8 +141,13 @@ configmap:
         http:
           use_x_forwarded_for: true
           trusted_proxies:
-            - 172.16.0.0/16
-
+            {{- if hasKey .Values "ixChartContext" }}
+            - {{ .Values.ixChartContext.kubernetes_config.cluster_cidr }}
+            {{- else }}
+              {{- range .Values.homeassistant.trusted_proxies }}
+            - {{ . }}
+              {{- end }}
+            {{- end }}
 postgresql:
   enabled: true
   postgresqlUsername: home-assistant

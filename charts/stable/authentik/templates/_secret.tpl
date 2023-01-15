@@ -8,7 +8,6 @@
 {{- $token := randAlphaNum 128 | b64enc }}
 
 ---
-
 {{/* This secrets are loaded on both main authentik container and worker */}}
 apiVersion: v1
 kind: Secret
@@ -47,8 +46,8 @@ data:
   AUTHENTIK_EMAIL__FROM: {{ . | b64enc }}
   {{- end }}
 
+{{- if .Values.geoip.enabled }}
 ---
-
 {{/* This secrets are loaded on geoip container */}}
 apiVersion: v1
 kind: Secret
@@ -72,9 +71,8 @@ data:
   {{- with .Values.geoip.proxy_user_pass }}
   GEOIPUPDATE_PROXY_USER_PASSWORD: {{ . | b64enc }}
   {{- end }}
-
+{{- end }}
 ---
-
 {{/* This secrets are loaded on ldap container */}}
 apiVersion: v1
 kind: Secret
@@ -91,7 +89,6 @@ data:
   {{- end }}
 
 ---
-
 {{/* This secrets are loaded on ldap container */}}
 apiVersion: v1
 kind: Secret

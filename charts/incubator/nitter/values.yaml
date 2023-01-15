@@ -1,0 +1,62 @@
+image:
+  repository: tccr.io/truecharts/nitter
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:207683c2209c22743b388d889cbd2bd1deb80e01131dc77d9c6ff6b7b5ddac74
+
+nitter:
+  general:
+    title: nitter
+    hostname: localhost:10606
+    httpMaxConnections: 100
+  cache:
+    listMinutes: 240
+    rssMinutes: 10
+  config:
+    base64Media: false
+    enableRSS: true
+    enableDebug: false
+    proxy: ""
+    proxyAuth: ""
+    tokenCount: 10
+  preferences:
+    theme: Nitter
+    replaceTwitter: nitter.net
+    replaceYouTube: piped.video
+    replaceReddit: teddit.net
+    replaceInstagram: ""
+    proxyVideos: true
+    hlsPlayback: false
+    infiniteScroll: false
+
+probes:
+  liveness:
+    type: HTTP
+    path: /
+  readiness:
+    type: HTTP
+    path: /
+  startup:
+    type: HTTP
+    path: /
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        port: 10606
+
+persistence:
+  nitter-conf:
+    enabled: true
+    mountPath: /src/nitter.conf
+    type: secret
+    objectName: '{{ template "tc.common.names.fullname" . }}-nitter-secret'
+    subPath: nitter.conf
+
+redis:
+  enabled: true
+  existingSecret: rediscreds
+
+portal:
+  enabled: true

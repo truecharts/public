@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/cloudflareddns
   pullPolicy: IfNotPresent
-  tag: latest@sha256:3ebf28e61f4a1661a4d0b73dbfdeba19fe49f18f3e846208d3ba13015d8934f5
+  tag: latest@sha256:363bfaf17566d4afb51fa52252811c4c16977cef8f92672a129e8e1ee27ea250
 
 securityContext:
   runAsNonRoot: false
@@ -11,23 +11,26 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secretEnv:
-  CF_APITOKEN: ""
-  CF_APIKEY: ""
-  CF_APITOKEN_ZONE: ""
-
-env:
-  DETECTION_MODE: '{{ ternary .Values.env.DETECT_MODE .Values.env.DETECT_OVERRIDE (eq .Values.env.DETECT_OVERRIDE "") }}'
-  # Use Defined
-  INTERVAL: 300
-  DETECT_MODE: "dig-whoami.cloudflare"
-  DETECT_OVERRIDE: ""
-  LOG_LEVEL: 3
-  cloudflareddns: ""
-  CF_USER: "your.cf.email@example.com"
-  CF_HOSTS: "test.example.com;test.foobar.com;test2.foobar.com"
-  CF_ZONES: "example.com;foobar.com;foobar.com"
-  CF_RECORDTYPES: "A;A;AAAA"
+cloudflareddns:
+  user: your.cf.email@example.com
+  api_token: ""
+  api_key: ""
+  api_token_zone: ""
+  interval: 300
+  detect_mode: dig-whoami.cloudflare
+  detect_override: ""
+  log_level: 3
+  host_zone_record:
+    []
+    # - domain: example.com
+    #   zone: example.com
+    #   record: A
+    # - domain: foobar.com
+    #   zone: foobar.com
+    #   record: A
+    # - domain: foobar.com
+    #   zone: foobar.com
+    #   record: AAAA
 
 probes:
   liveness:
@@ -36,6 +39,10 @@ probes:
     enabled: false
   startup:
     enabled: false
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
 
 service:
   main:
@@ -47,7 +54,7 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
   varrun:
     enabled: true
 

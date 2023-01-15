@@ -8,19 +8,67 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: env
+  - variable: jenkins
     group: App Configuration
-    label: Image Environment
+    label: Jenkins Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: JENKINS_JAVA_OPTS
-          label: JENKINS_JAVA_OPTS
-          description: You might need to customize the JVM running Jenkins, typically to adjust system properties or tweak heap memory settings.
+        - variable: jenkins_java_opts
+          label: Jenkins Java Opts
+          description: Add the Jenkins Java Opts parameters, one per entry.
           schema:
-            type: string
-            default: ""
+            type: list
+            default: []
+            items:
+              - variable: jenkins_java_opts_entry
+                label: Jenkins Java Opts Entry
+                description: Single Jenkins Java Opt per entry.
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+        - variable: jenkins_opts
+          label: Jenkins Opts
+          description: Add the Jenkins Opts parameters, one per entry.
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: jenkins_opts_entry
+                label: Jenkins Opts Entry
+                description: Single Jenkins Opt per entry.
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+        - variable: java_opts
+          label: Java Opts
+          description: Add the JVM parameters, one per entry.
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: java_opts_entry
+                label: Java Opts Entry
+                description: Single Java Opt per entry.
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+        - variable: plugins_force_upgrade
+          label: Plugins Force Upgrade
+          description: Set to true to force upgrades of plugins that have been manually upgraded.
+          schema:
+            type: boolean
+            default: false
+        - variable: upgrade_if_no_marker
+          label: Upgrade If No Marker
+          description: Set to true to upgrade existing plugins without marker.
+          schema:
+            type: boolean
+            default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -113,20 +161,20 @@ questions:
                 label: runAsNonRoot
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: runAsUser
           description: The UserID of the user running the application
           schema:
             type: int
-            default: 0
+            default: 1000
         - variable: runAsGroup
           label: runAsGroup
           description: The groupID this App of the user running the application
           schema:
             type: int
-            default: 0
+            default: 1000
         - variable: fsGroup
           label: fsGroup
           description: The group that should own ALL storage.
