@@ -16,71 +16,21 @@ data:
     database:
       path: /db/frigate.db
     mqtt:
-      {{- $mqtt := .Values.frigate.mqtt }}
-      host: {{ required "You need to provide an MQTT host" $mqtt.host }}
-      {{- with $mqtt.port }}
-      port: {{ . }}
-      {{- end }}
-      {{- with $mqtt.topic_prefix }}
-      topic_prefix: {{ . }}
-      {{- end }}
-      {{- with $mqtt.client_id }}
-      client_id: {{ . }}
-      {{- end }}
-      {{- if not (kindIs "invalid" $mqtt.stats_interval) }}
-      stats_interval: {{ $mqtt.stats_interval }}
-      {{- end }}
-      {{- with $mqtt.user }}
-      user: {{ . }}
-      {{- end }}
-      {{- with $mqtt.password }}
-      password: {{ . }}
-      {{- end }}
+      {{- include "frigate.mqtt" .Values.frigate.mqtt | indent 6 }}
 
-    {{- $detectors := .Values.frigate.detectors -}}
-    {{- if and $detectors.render_config $detectors.config }}
+    {{- if and .Values.frigate.detectors.render_config .Values.frigate.detectors.config }}
     detectors:
-      {{- range $d := $detectors.config }}
-      {{ $d.name | required "You need to provide a detector name" }}:
-        type: {{ $d.type | required "You need to provide a detector type" }}
-        {{- with $d.device }}
-        device: {{ . }}
-        {{- end }}
-        {{- with $d.num_threads }}
-        num_threads: {{ . }}
-        {{- end }}
-      {{- end }}
+      {{- include "frigate.detectors" .Values.frigate.detectors | indent 6 }}
     {{- end }}
 
-    {{- $model := .Values.frigate.model -}}
-    {{- if $model.render_config }}
+    {{- if .Values.frigate.model.render_config }}
     model:
-      width: {{ $model.width | required "You need to provide a model width" }}
-      height: {{ $model.height | required "You need to provide a model height" }}
-      {{- with $model.path }}
-      path: {{ . }}
-      {{- end }}
-      {{- with $model.labelmap_path }}
-      labelmap_path: {{ . }}
-      {{- end }}
-      {{- with $model.labelmap }}
-      labelmap:
-        {{- range $lmap := . }}
-        {{ $lmap.model | required "You need to provide a labelmap model" }}: {{ $lmap.name | required "You need to provide a labelmap name" }}
-        {{- end }}
-      {{- end }}
+      {{- include "frigate.model" .Values.frigate.model | indent 6 }}
     {{- end }}
 
-    {{- $logger := .Values.frigate.logger -}}
-    {{- if $logger.render_config }}
+    {{- if .Values.frigate.logger.render_config }}
     logger:
-      default: {{ $logger.default }}
-      {{- with $logger.logs }}
-      logs:
-        {{- range $log := . }}
-        {{ $log.component | required "You need to provide a logger cmponent" }}: {{ $log.verbosity | required "You need to provide logger verbosity" }}
-        {{- end }}
-      {{- end }}
+      {{- include "frigate.logger" .Values.frigate.logger | indent 6 }}
     {{- end }}
 
     {{- if .Values.frigate.birdseye.render_config }}
@@ -162,26 +112,26 @@ data:
             objects:
               {{- range $obj := . }}
               - {{ $obj }}
-              {{- end }}
-            {{- end }}
+              {{- end -}}
+            {{- end -}}
             {{- with $zone.filters }}
             filters:
               {{- range $filter := . }}
               {{ $filter.object | required "You have to specify an object" }}:
                 {{- with $filter.min_area }}
                 min_area: {{ . }}
-                {{- end }}
+                {{- end -}}
                 {{- with $filter.max_area }}
                 max_area: {{ . }}
-                {{- end }}
+                {{- end -}}
                 {{- with $filter.threshold }}
                 threshold: {{ . }}
-                {{- end }}
-              {{- end }} {{/* end range filters */}}
-            {{- end }} {{/* end with filter */}}
-          {{- end }} {{/* end range zones */}}
-        {{- end }} {{/* end with zones */}}
-        {{- if $cam.mqtt.render_config }}
+                {{- end -}}
+              {{- end -}} {{/* end range filters */}}
+            {{- end -}} {{/* end with filter */}}
+          {{- end -}} {{/* end range zones */}}
+        {{- end -}} {{/* end with zones */}}
+        {{- if $cam.mqtt.render_config -}}
         {{- with $cam.mqtt }}
         mqtt:
           enabled: {{ ternary "True" "False" .enabled }}
@@ -190,7 +140,7 @@ data:
           crop: {{ ternary "True" "False" .crop }}
           {{- with .height }}
           height: {{ . }}
-          {{- end }}
+          {{- end -}}
           {{- with .quality }}
           quality: {{ . }}
           {{- end -}}
@@ -198,21 +148,20 @@ data:
           required_zones:
             {{- range $zone := . }}
             - {{ $zone }}
-            {{- end }}
-          {{- end }}
-        {{- end }} {{/* end with mqtt */}}
-        {{- end }} {{/* end if mqtt.render_config */}}
-        {{- if $cam.ui.render_config }}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}} {{/* end with mqtt */}}
+        {{- end -}} {{/* end if mqtt.render_config */}}
+        {{- if $cam.ui.render_config -}}
         {{- with $cam.ui }}
         ui:
           {{- if not (kindIs "invalid" .order) }}
           order: {{ .order }}
           {{- end }}
           dashboard: {{ ternary "True" "False" .dashboard }}
-        {{- end }} {{/* end with ui */}}
-        {{- end }} {{/* end if ui.render_config */}}
-    {{- end }} {{/* end range cameras */}}
-
+        {{- end -}} {{/* end with ui */}}
+        {{- end -}} {{/* end if ui.render_config */}}
+    {{- end -}} {{/* end range cameras */}}
 {{- end }}
 
 {{- define "frigate.ffmpeg" -}}
@@ -482,5 +431,72 @@ retain:
     {{ $obj.object | required "You need to provide an object" }}: {{ $obj.days | required "You need to provide default retain days" }}
   {{- end -}}
   {{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.detectors" -}}
+{{- $detectors := . -}}
+
+{{- range $detector := $detectors.config }}
+{{ $detector.name | required "You need to provide a detector name" }}:
+  type: {{ $detector.type | required "You need to provide a detector type" }}
+  {{- with $detector.device }}
+  device: {{ . }}
+  {{- end -}}
+  {{- with $detector.num_threads }}
+  num_threads: {{ . }}
+  {{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.model" -}}
+{{ $model := . }}
+width: {{ $model.width | required "You need to provide a model width" }}
+height: {{ $model.height | required "You need to provide a model height" }}
+{{- with $model.path }}
+path: {{ . }}
+{{- end -}}
+{{- with $model.labelmap_path }}
+labelmap_path: {{ . }}
+{{- end -}}
+{{- with $model.labelmap }}
+labelmap:
+  {{- range $lmap := . }}
+  {{ $lmap.model | required "You need to provide a labelmap model" }}: {{ $lmap.name | required "You need to provide a labelmap name" }}
+  {{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.logger" -}}
+{{- $logger := . }}
+default: {{ $logger.default }}
+{{- with $logger.logs }}
+logs:
+  {{- range $log := . }}
+  {{ $log.component | required "You need to provide a logger cmponent" }}: {{ $log.verbosity | required "You need to provide logger verbosity" }}
+  {{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.mqtt" -}}
+{{- $mqtt := . }}
+host: {{ required "You need to provide an MQTT host" $mqtt.host }}
+{{- with $mqtt.port }}
+port: {{ . }}
+{{- end -}}
+{{- with $mqtt.topic_prefix }}
+topic_prefix: {{ . }}
+{{- end -}}
+{{- with $mqtt.client_id }}
+client_id: {{ . }}
+{{- end -}}
+{{- if not (kindIs "invalid" $mqtt.stats_interval) }}
+stats_interval: {{ $mqtt.stats_interval }}
+{{- end -}}
+{{- with $mqtt.user }}
+user: {{ . }}
+{{- end -}}
+{{- with $mqtt.password }}
+password: {{ . }}
 {{- end -}}
 {{- end -}}
