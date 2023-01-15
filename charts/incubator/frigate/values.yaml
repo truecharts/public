@@ -93,20 +93,20 @@ frigate:
     # -- Enable it to add the configuration in the config file
     render_config: false
     # -- Optional: global ffmpeg args
-    global_args: -hide_banner -loglevel warning
+    global_args: ""
     # -- Optional: global input args
-    input_args: -avoid_negative_ts make_zero -fflags +genpts+discardcorrupt -rtsp_transport tcp -timeout 5000000 -use_wallclock_as_timestamps 1
+    input_args: ""
     # -- Optional: global hwaccel args
     # - NOTE: See hardware acceleration docs for your specific device
     hwaccel_args: ""
     # -- Optional: global output args
     output_args:
       # -- Optional: output args for detect streams
-      detect: -f rawvideo -pix_fmt yuv420p
+      detect: ""
       # -- Optional: output args for record streams
-      record: -f segment -segment_time 10 -segment_format mp4 -reset_timestamps 1 -strftime 1 -c copy -an
+      record: ""
       # -- Optional: output args for rtmp streams
-      rtmp: -c copy -f flv
+      rtmp: ""
 
   detect:
     # -- Enable it to add the configuration in the config file

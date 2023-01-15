@@ -101,26 +101,27 @@ data:
       {{- end }}
     {{- end }}
 
-    {{- if .Values.frigate.ffmpeg.render_config }}
+    {{- $ffmpeg := .Values.frigate.ffmpeg -}}
+    {{- if $ffmpeg.render_config }}
     ffmpeg:
-      {{- with .Values.frigate.ffmpeg.global_args }}
+      {{- with $ffmpeg.global_args }}
       global_args: {{ . }}
       {{- end }}
-      {{- with .Values.frigate.ffmpeg.input_args }}
+      {{- with $ffmpeg.input_args }}
       input_args: {{ . }}
       {{- end }}
-      {{- with .Values.frigate.ffmpeg.hwaccel_args }}
+      {{- with $ffmpeg.hwaccel_args }}
       hwaccel_args: {{ . }}
       {{- end }}
-      {{- if or .Values.frigate.ffmpeg.output_args.detect .Values.frigate.ffmpeg.output_args.record .Values.frigate.ffmpeg.output_args.rtmp }}
+      {{- if or $ffmpeg.output_args.detect $ffmpeg.output_args.record $ffmpeg.output_args.rtmp }}
       output_args:
-        {{- with .Values.frigate.ffmpeg.output_args.detect }}
+        {{- with $ffmpeg.output_args.detect }}
         detect: {{ . }}
         {{- end }}
-        {{- with .Values.frigate.ffmpeg.output_args.record }}
+        {{- with $ffmpeg.output_args.record }}
         record: {{ . }}
         {{- end }}
-        {{- with .Values.frigate.ffmpeg.output_args.rtmp }}
+        {{- with $ffmpeg.output_args.rtmp }}
         rtmp: {{ . }}
         {{- end }}
       {{- end }}
