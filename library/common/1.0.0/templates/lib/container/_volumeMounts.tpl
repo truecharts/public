@@ -30,23 +30,38 @@
       {{- $volNames = mustAppend $volNames $name -}}
     {{- end -}}
 
+      {{/* Create a list of extraContainerVolMounts names, so we can run checks against it */}}
+    {{- $extraContainerVolNames := list -}}
+    {{- range $index, $item := $extraContainerVolMounts -}}
+      {{- if $item.name -}}
+        {{- $extraContainerVolNames = mustAppend $extraContainerVolNames $item.name -}}
+      {{- end -}}
+    {{- end -}}
+
     {{- range $index, $volMount := $extraContainerVolMounts -}}
       {{- if hasKey $volMount "inherit" -}} {{/* If has Key "inherit" */}}
         {{- if eq $volMount.inherit "all" -}} {{/* Inherit all volumeMounts */}}
           {{- range $name, $item := $root.Values.persistence -}}
             {{- if $item.enabled -}}
-              {{- include "ix.v1.common.container.volumeMount" (dict "root" $root
+              {{- include "ix.v1.common.container.volumeMount"  (dict "root" $root
                                                                       "item" $item
                                                                       "name" $name) | indent 0 -}}
+              {{- if (mustHas $name $extraContainerVolNames) -}} {{/* Remove it from the volNames so it does not get re-added */}}
+                {{- $extraContainerVolNames = mustWithout $extraContainerVolNames $name -}}
+              {{- end -}}
             {{- end -}}
           {{- end -}}
         {{- else if eq $volMount.inherit "skipNoMount" -}} {{/* Inherit all volumeMounts but skip the "noMount" volumeMounts */}}
           {{- range $name, $item := $root.Values.persistence -}}
             {{- if $item.enabled -}}
               {{- if not $item.noMount -}}
-                {{- include "ix.v1.common.container.volumeMount" (dict "root" $root
+                {{- include "ix.v1.common.container.volumeMount"  (dict "root" $root
                                                                         "item" $item
                                                                         "name" $name) | indent 0 -}}
+
+                {{- if (mustHas $name $extraContainerVolNames) -}} {{/* Remove it from the volNames so it does not get re-added */}}
+                  {{- $extraContainerVolNames = mustWithout $extraContainerVolNames $name -}}
+                {{- end -}}
               {{- end -}}
             {{- end -}}
           {{- end -}}
@@ -56,26 +71,29 @@
           {{- fail "<name> is required in volumeMounts in init/system/install/upgrade/additional containers." -}}
         {{- end -}}
 
-        {{- if not (mustHas $volMount.name $volNames) -}}
-          {{- fail (printf "You are trying to mount a volume that does not exist (%s). Please define the volume in <persistence>." $volMount.name) -}}
-        {{- end -}}
+        {{- if mustHas $volMount.name $extraContainerVolNames -}}
 
-        {{- $item := dict -}}
+          {{- if not (mustHas $volMount.name $volNames) -}}
+            {{- fail (printf "You are trying to mount a volume that does not exist (%s). Please define the volume in <persistence>." $volMount.name) -}}
+          {{- end -}}
 
-        {{- $_ := set $item "mountPath" $volMount.mountPath -}}
-        {{- if hasKey $volMount "subPath" -}}
-          {{- $_ := set $item "subPath" $volMount.subPath -}}
-        {{- end -}}
-        {{- if hasKey $volMount "mountPropagation" -}}
-          {{- $_ := set $item "mountPropagation" $volMount.mountPropagation -}}
-        {{- end -}}
-        {{- if hasKey $volMount "readOnly" -}}
-          {{- $_ := set $item "readOnly" $volMount.readOnly -}}
-        {{- end -}}
+          {{- $item := dict -}}
 
-        {{- include "ix.v1.common.container.volumeMount" (dict "root" $root
-                                                                "item" $item
-                                                                "name" $volMount.name) | indent 0 -}}
+          {{- $_ := set $item "mountPath" $volMount.mountPath -}}
+          {{- if hasKey $volMount "subPath" -}}
+            {{- $_ := set $item "subPath" $volMount.subPath -}}
+          {{- end -}}
+          {{- if hasKey $volMount "mountPropagation" -}}
+            {{- $_ := set $item "mountPropagation" $volMount.mountPropagation -}}
+          {{- end -}}
+          {{- if hasKey $volMount "readOnly" -}}
+            {{- $_ := set $item "readOnly" $volMount.readOnly -}}
+          {{- end -}}
+
+          {{- include "ix.v1.common.container.volumeMount" (dict "root" $root
+                                                                  "item" $item
+                                                                  "name" $volMount.name) | indent 0 -}}
+        {{- end -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
