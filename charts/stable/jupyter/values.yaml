@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/jupyter-base
   pullPolicy: IfNotPresent
-  tag: v2023-01@sha256:d3b3fc53be190aabe7a506c47073383d8502354828c054c72f46031e84b20db3
+  tag: v2023-01@sha256:923bb7f35b58ca4f02abf9740c4a1e4a5ee065bab36e40cf06d2e979c46c11e7
 minimalImage:
   repository: tccr.io/truecharts/jupyter-minimal
   pullPolicy: IfNotPresent
@@ -29,7 +29,7 @@ pysparkImage:
 allsparkImage:
   repository: tccr.io/truecharts/jupyter-all-spark
   pullPolicy: IfNotPresent
-  tag: v2023-01@sha256:fa5b934945298aeee879a477aaa6d6bb0a930f9984b68ebe798610d2bb8637d2
+  tag: v2023-01@sha256:681a690380c97811be305c7fbf9915364743febfa8d72ae7fc31881c704f514d
 
 securityContext:
   readOnlyRootFilesystem: false
