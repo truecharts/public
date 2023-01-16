@@ -23,9 +23,9 @@ tests:
           path: /nfs/path
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: volume1
             nfs:
               server: some.server.local

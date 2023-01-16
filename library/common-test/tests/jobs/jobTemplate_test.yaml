@@ -781,14 +781,13 @@ tests:
     asserts:
       - isKind:
           of: Job
-      - isSubset:
-          path: spec.template.spec
+      - contains:
+          path: spec.template.spec.volumes
           content:
-            volumes:
-              - name: some-volume
-                nfs:
-                  server: some-server
-                  path: /some/path
+            name: some-volume
+            nfs:
+              server: some-server
+              path: /some/path
 
   - it: should pass with security Context changed and added gpu
     documentIndex: *jobDoc

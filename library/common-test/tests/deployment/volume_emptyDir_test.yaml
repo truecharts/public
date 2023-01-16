@@ -22,9 +22,9 @@ tests:
           sizeLimit: 1Gi
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: volume1
             emptyDir:
               sizeLimit: 1Gi
@@ -38,9 +38,9 @@ tests:
           type: emptyDir
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: volume1
             emptyDir: {}
 
@@ -55,9 +55,9 @@ tests:
           sizeLimit: 1Gi
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: volume1
             emptyDir:
               medium: Memory
@@ -76,9 +76,9 @@ tests:
           sizeLimit: "{{ .Values.some_size }}"
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: volume1
             emptyDir:
               medium: Memory
@@ -94,9 +94,9 @@ tests:
           medium: Memory
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: volume1
             emptyDir:
               medium: Memory

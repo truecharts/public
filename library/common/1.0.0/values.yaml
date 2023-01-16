@@ -117,6 +117,8 @@ global:
     serviceType: ClusterIP
     # If no PVC Size is defined, assume this
     PVCSize: 1Gi
+    # If no VCT Size is defined, assume this
+    VCTSize: 999Gi
     # If no PVC type is defined, assume this
     persistenceType: pvc
     # If no validateHostPath key exists in the persistence item, assume this
@@ -344,14 +346,31 @@ service:
         # [[ref]](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
         nodePort:
 
-persistence: {}
 # TODO: Discuss if we are going to add defaults like:
   # - /dev/shm
-  # - /tmp
-  # - /var/log
-  # - /shared
+persistence:
+  # -- Create an emptyDir volume dedicated to be shared between all containers
+  # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
+  shared:
+    enabled: true
+    type: emptyDir
+    mountPath: /shared
 
-# -- Used in conjunction with `controller.type: statefulset` to create individual disks for each instance.
+  # -- Create an emptyDir volume to share between all containers
+  # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
+  varlogs:
+    enabled: true
+    type: emptyDir
+    mountPath: /var/logs
+
+  # -- Create an emptyDir volume (shared between all containers) for temporary storage
+  # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
+  tmp:
+    enabled: true
+    type: emptyDir
+    mountPath: /tmp
+
+# -- Used in conjunction with `controller.type: StatefulSet` to create individual disks for each instance.
 volumeClaimTemplates: {}
 # data:
 #   mountPath: /data

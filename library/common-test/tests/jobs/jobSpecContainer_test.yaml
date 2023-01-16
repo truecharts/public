@@ -939,18 +939,20 @@ tests:
                     readOnly: false
                     subPath: /some/other/sub/path
     asserts:
-      - isSubset:
-          path: spec.template.spec.containers[0]
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
           content:
-            volumeMounts:
-              - name: some-volume
-                mountPath: /some/path
-                readOnly: false
-                subPath: /some/sub/path
-              - name: some-other-volume
-                mountPath: /some/other/path
-                readOnly: false
-                subPath: /some/other/sub/path
+            name: some-volume
+            mountPath: /some/path
+            readOnly: false
+            subPath: /some/sub/path
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-other-volume
+            mountPath: /some/other/path
+            readOnly: false
+            subPath: /some/other/sub/path
 
   - it: should pass with deviceList and volumeMounts defined in job container
     documentIndex: *jobDoc
@@ -994,19 +996,27 @@ tests:
                     readOnly: false
                     subPath: /some/other/sub/path
     asserts:
-      - isSubset:
-          path: spec.template.spec.containers[0]
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
           content:
-            volumeMounts:
-              - name: some-volume
-                mountPath: /some/path
-                readOnly: false
-                subPath: /some/sub/path
-              - name: some-other-volume
-                mountPath: /some/other/path
-                readOnly: false
-                subPath: /some/other/sub/path
-              - name: device-job-main-0
-                mountPath: /host/dev/usb
-              - name: device-job-main-1
-                mountPath: /host/dev/serial
+            name: some-volume
+            mountPath: /some/path
+            readOnly: false
+            subPath: /some/sub/path
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-other-volume
+            mountPath: /some/other/path
+            readOnly: false
+            subPath: /some/other/sub/path
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: device-job-main-0
+            mountPath: /host/dev/usb
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: device-job-main-1
+            mountPath: /host/dev/serial

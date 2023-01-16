@@ -43,9 +43,9 @@ tests:
               - name: "{{ .Values.name }}"
                 something: test
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: some_volume
             arbitraryKey: value
             someDict:
@@ -88,9 +88,9 @@ tests:
               - name: "{{ .Values.name2 }}"
                 something: test
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: some_volume
             arbitraryKey: value
             someDict:
@@ -99,9 +99,9 @@ tests:
             someList:
               - name: some_name1
                 something: test
-      - equal:
-          path: spec.template.spec.volumes[1]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: some_volume2
             arbitraryKey: value
             someDict:

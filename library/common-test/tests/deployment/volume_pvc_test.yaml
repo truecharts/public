@@ -21,9 +21,9 @@ tests:
           enabled: true
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: some_volume
             persistentVolumeClaim:
               claimName: RELEASE-NAME-common-test-some_volume
@@ -38,9 +38,9 @@ tests:
           existingClaim: some_existing_claim
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: some_volume
             persistentVolumeClaim:
               claimName: some_existing_claim
@@ -56,9 +56,9 @@ tests:
           existingClaim: "{{ .Values.claim }}"
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: some_volume
             persistentVolumeClaim:
               claimName: some_existing_claim
@@ -73,9 +73,9 @@ tests:
           nameOverride: some_claim
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: some_volume
             persistentVolumeClaim:
               claimName: RELEASE-NAME-common-test-some_claim
@@ -91,9 +91,9 @@ tests:
           nameOverride: "{{ .Values.claim }}"
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: some_volume
             persistentVolumeClaim:
               claimName: RELEASE-NAME-common-test-some_claim
@@ -108,9 +108,9 @@ tests:
           forceName: forced_name
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: some_volume
             persistentVolumeClaim:
               claimName: forced_name
@@ -126,9 +126,9 @@ tests:
           forceName: "{{ .Values.claim }}"
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: some_volume
             persistentVolumeClaim:
               claimName: forced_name

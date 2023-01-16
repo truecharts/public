@@ -164,9 +164,9 @@ tests:
           hostPath: /not_allowed_path
           validateHostPath: false
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: some_volume
             hostPath:
               path: /not_allowed_path
@@ -184,9 +184,9 @@ tests:
           hostPath: /mnt/pool/test
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: volume1
             hostPath:
               path: /mnt/pool/test
@@ -204,9 +204,9 @@ tests:
           hostPath: /cluster/something
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: volume1
             hostPath:
               path: /cluster/something
@@ -224,9 +224,9 @@ tests:
           hostPath: /sys
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: volume1
             hostPath:
               path: /sys
@@ -244,9 +244,9 @@ tests:
           hostPath: /dev
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: volume1
             hostPath:
               path: /dev
@@ -261,9 +261,9 @@ tests:
           hostPath: /mnt/pool/test
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: volume1
             hostPath:
               path: /mnt/pool/test
@@ -280,9 +280,9 @@ tests:
           hostPath: /mnt/pool/test
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: volume1
             hostPath:
               path: /mnt/pool/test

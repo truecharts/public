@@ -91,3 +91,12 @@ tests:
               value: void
             - name: S6_READ_ONLY_ROOT
               value: "1"
+      - equal:
+          path: spec.template.spec.containers[0].volumeMounts
+          value:
+            - mountPath: /shared
+              name: shared
+            - mountPath: /tmp
+              name: tmp
+            - mountPath: /var/logs
+              name: varlogs

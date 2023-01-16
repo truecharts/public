@@ -1018,20 +1018,28 @@ tests:
               readOnly: false
               subPath: /some/other/sub/path
     asserts:
-      - isNull:
+      - notContains:
           path: spec.template.spec.containers[0].volumeMounts
-      - isSubset:
-          path: spec.template.spec.initContainers[0]
           content:
-            volumeMounts:
-              - name: some-volume
-                mountPath: /some/path
-                readOnly: false
-                subPath: /some/sub/path
-              - name: some-other-volume
-                mountPath: /some/other/path
-                readOnly: false
-                subPath: /some/other/sub/path
+            name: some-volume
+      - notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-other-volume
+      - contains:
+          path: spec.template.spec.initContainers[0].volumeMounts
+          content:
+            name: some-volume
+            mountPath: /some/path
+            readOnly: false
+            subPath: /some/sub/path
+      - contains:
+          path: spec.template.spec.initContainers[0].volumeMounts
+          content:
+            name: some-other-volume
+            mountPath: /some/other/path
+            readOnly: false
+            subPath: /some/other/sub/path
 
   - it: should pass with volumeMounts inherit all in system container
     documentIndex: *deploymentDoc
@@ -1052,16 +1060,24 @@ tests:
           volumeMounts:
             - inherit: all
     asserts:
-      - isNull:
+      - notContains:
           path: spec.template.spec.containers[0].volumeMounts
-      - isSubset:
-          path: spec.template.spec.initContainers[0]
           content:
-            volumeMounts:
-              - name: some-other-volume
-                mountPath: /some/other/path
-              - name: some-volume
-                mountPath: /some/path
+            name: some-volume
+      - notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-other-volume
+      - contains:
+          path: spec.template.spec.initContainers[0].volumeMounts
+          content:
+            name: some-other-volume
+            mountPath: /some/other/path
+      - contains:
+          path: spec.template.spec.initContainers[0].volumeMounts
+          content:
+            name: some-volume
+            mountPath: /some/path
 
   - it: should pass with volumeMounts inherit skipNoMount in system container
     documentIndex: *deploymentDoc
@@ -1081,18 +1097,16 @@ tests:
           volumeMounts:
             - inherit: skipNoMount
     asserts:
-      - isSubset:
-          path: spec.template.spec.containers[0]
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
           content:
-            volumeMounts:
-              - mountPath: /some/other/path
-                name: some-other-volume
-      - isSubset:
-          path: spec.template.spec.initContainers[0]
+            mountPath: /some/other/path
+            name: some-other-volume
+      - contains:
+          path: spec.template.spec.initContainers[0].volumeMounts
           content:
-            volumeMounts:
-              - name: some-other-volume
-                mountPath: /some/other/path
+            name: some-other-volume
+            mountPath: /some/other/path
 
   - it: should pass with deviceList and volumeMounts defined in system container
     documentIndex: *deploymentDoc
@@ -1132,28 +1146,43 @@ tests:
               readOnly: false
               subPath: /some/other/sub/path
     asserts:
-      - isSubset:
-          path: spec.template.spec.containers[0]
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
           content:
-            volumeMounts:
-              - name: device-0
-                mountPath: /host/dev/something
-      - isSubset:
-          path: spec.template.spec.initContainers[0]
+            name: device-0
+            mountPath: /host/dev/something
+      - notContains:
+          path: spec.template.spec.containers[0].volumeMounts
           content:
-            volumeMounts:
-              - name: some-volume
-                mountPath: /some/path
-                readOnly: false
-                subPath: /some/sub/path
-              - name: some-other-volume
-                mountPath: /some/other/path
-                readOnly: false
-                subPath: /some/other/sub/path
-              - name: device-some-name-0
-                mountPath: /host/dev/usb
-              - name: device-some-name-1
-                mountPath: /host/dev/serial
+            name: some-volume
+      - notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-other-volume
+      - contains:
+          path: spec.template.spec.initContainers[0].volumeMounts
+          content:
+            name: some-volume
+            mountPath: /some/path
+            readOnly: false
+            subPath: /some/sub/path
+      - contains:
+          path: spec.template.spec.initContainers[0].volumeMounts
+          content:
+            name: some-other-volume
+            mountPath: /some/other/path
+            readOnly: false
+            subPath: /some/other/sub/path
+      - contains:
+          path: spec.template.spec.initContainers[0].volumeMounts
+          content:
+            name: device-some-name-0
+            mountPath: /host/dev/usb
+      - contains:
+          path: spec.template.spec.initContainers[0].volumeMounts
+          content:
+            name: device-some-name-1
+            mountPath: /host/dev/serial
 
   - it: should pass with disabled system container from tpl
     documentIndex: *deploymentDoc

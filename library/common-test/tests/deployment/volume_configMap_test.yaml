@@ -55,9 +55,9 @@ tests:
           objectName: some_object_name
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: some_volume
             configMap:
               name: some_object_name
@@ -87,9 +87,9 @@ tests:
           defaultMode: "0777"
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: some_volume
             configMap:
               name: some_object_name
@@ -122,9 +122,9 @@ tests:
           defaultMode: "{{ .Values.mode }}"
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: some_volume
             configMap:
               name: some_object_name
@@ -143,9 +143,9 @@ tests:
               path: some_path
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: some_volume
             configMap:
               name: some_object_name
@@ -196,9 +196,9 @@ tests:
               path: "{{ .Values.path }}"
           noMount: true
     asserts:
-      - equal:
-          path: spec.template.spec.volumes[0]
-          value:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
             name: some_volume
             configMap:
               name: some_object_name
