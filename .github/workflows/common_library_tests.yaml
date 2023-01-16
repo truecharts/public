@@ -175,7 +175,7 @@ jobs:
           ./kail >> /tmp/output.log &
           ct install  --config .github/ct-install-config/ct-install.yaml \
                       --charts library/common-test \
-                      --debug || ((echo "" && echo "" && echo "--===PODLOGS===--" && echo "" && cat  /tmp/output.log && rm -f /tmp/output.log))
+                      --debug || ((echo "" && echo "" && echo "--===PODLOGS===--" && echo "" && cat  /tmp/output.log && rm -f /tmp/output.log)) exit 1
           kill $!
           echo ""
           echo ""
