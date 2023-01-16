@@ -1,0 +1,32 @@
+image:
+  repository: traefik/whoami
+  pullPolicy: IfNotPresent
+  tag: latest
+
+controller:
+  # -- Enable the controller.
+  enabled: true
+  # -- Set the controller type.
+  # Valid options are: Deployment | DaemonSet | StatefulSet
+  type: DaemonSet
+  # -- Number of desired pods
+  replicas: 2
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        port: 8080
+
+args:
+  - --port
+  - "8080"
+
+probes:
+  liveness:
+    enabled: true
+  readiness:
+    enabled: true
+  startup:
+    enabled: true
