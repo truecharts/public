@@ -18,10 +18,12 @@ stringData:
   {{- end }}
 
   {{/* DB */}}
+  {{- if .Values.postgresql.enabled }}
   SONARR__POSTGRES_HOST: {{ .Values.postgresql.url.plain | trimAll "\"" }}
   SONARR__POSTGRES_PORT: "5432"
   SONARR__POSTGRES_USER: {{ .Values.postgresql.postgresqlUsername }}
   SONARR__POSTGRES_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
   SONARR__POSTGRES_MAIN_DB: {{ .Values.postgresql.postgresqlDatabase }}
+  {{- end -}}
 
 {{- end -}}
