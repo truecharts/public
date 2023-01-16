@@ -296,9 +296,9 @@ jobs:
           cat  /tmp/output.log
           rm -f /tmp/output.log
 
-      - name: Run chart-testing (install) - extracontrainers Values
+      - name: Run chart-testing (install) - extracontainers Values
         run: |
-          mv -f library/common-test/runtests/extracontrainers-values.yaml library/common-test/values.yaml
+          mv -f library/common-test/runtests/extracontainers-values.yaml library/common-test/values.yaml
           ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
           ct install  --config .github/ct-install-config/ct-install.yaml \
                       --charts library/common-test \
