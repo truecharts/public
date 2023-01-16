@@ -120,6 +120,12 @@ jobs:
         values:
           - basic-values.yaml
           - configmap-values.yaml
+          - daemonset-values.yaml
+          - job-cron-values.yaml
+          - persistence-values.yaml
+          - rbac-values-values.yaml
+          - secrets-values.yaml
+          - statefulset-values.yaml
 
     steps:
       - name: Checkout
