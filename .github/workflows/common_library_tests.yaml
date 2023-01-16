@@ -123,7 +123,7 @@ jobs:
           - daemonset-values.yaml
           - job-cron-values.yaml
           - persistence-values.yaml
-          - rbac-values-values.yaml
+          - rbac-values.yaml
           - secrets-values.yaml
           - statefulset-values.yaml
 
@@ -199,11 +199,11 @@ jobs:
           ./kail --ignore-ns kube-system >> /tmp/output.log &
           ct install  --config .github/ct-install-config/ct-install.yaml \
                       --charts library/common-test \
-                      --debug || (echo -e "\n\n\n--===PODLOGS===--\n\n\n" && \
+                      --debug || (echo -e "\n\n--===PODLOGS===--\n\n" && \
                                   cat /tmp/output.log && \
                                   rm -f /tmp/output.log && exit 1)
 
           kill $!
-          echo -e "\n\n\n--===PODLOGS===--\n\n\n"
+          echo -e "\n\n--===PODLOGS===--\n\n"
           cat  /tmp/output.log
           rm -f /tmp/output.log
