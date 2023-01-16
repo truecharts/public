@@ -117,6 +117,9 @@ jobs:
           - v3.9.4
           - v3.10.3
           - v3.11.0-rc.2
+        values:
+          - basic-values.yaml
+          - configmap-values.yaml
 
     steps:
       - name: Checkout
@@ -174,8 +177,30 @@ jobs:
           # Flags found here https://github.com/k3d-io/k3d
           k3d-args: --k3s-arg --disable=metrics-server@server:*
 
+        # Move CI Values to a temp location
+      - name: Move CI values
+        run: |
+          mv library/common-test/ci library/common-test/runtests
+
+        # Install Kail to grab logs from tests, as there are cases ct-install fail to output logs
+      - name: Install Kail
+        run: |
+          export KAIL_VERSION=v0.16.1
+          wget https://github.com/boz/kail/releases/download/${KAIL_VERSION}/kail_${KAIL_VERSION}_linux_amd64.tar.gz
+          tar -xvzf kail_${KAIL_VERSION}_linux_amd64.tar.gz
+          chmod +x kail
+
       - name: Run chart-testing (install)
         run: |
+          mv -f library/common-test/runtests/${{ matrix.values }} library/common-test/values.yaml
+          ./kail --ns common-test-* >> /tmp/output.log &
           ct install  --config .github/ct-install-config/ct-install.yaml \
                       --charts library/common-test \
-                      --debug
+                      --debug || ((echo "" && echo "" && echo "--===PODLOGS===--" && echo "" && cat  /tmp/output.log && rm -f /tmp/output.log))
+          kill $!
+          echo ""
+          echo ""
+          echo "--===PODLOGS===--"
+          echo ""
+          cat  /tmp/output.log
+          rm -f /tmp/output.log
