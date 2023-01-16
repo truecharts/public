@@ -201,7 +201,7 @@ jobs:
                       --charts library/common-test \
                       --debug || (echo -e "\n\n\n--===PODLOGS===--\n\n\n" && \
                                   cat /tmp/output.log && \
-                                  rm -f /tmp/output.log) && exit 1
+                                  rm -f /tmp/output.log && exit 1)
 
           kill $!
           echo -e "\n\n\n--===PODLOGS===--\n\n\n"
