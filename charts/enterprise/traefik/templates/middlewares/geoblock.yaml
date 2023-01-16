@@ -24,6 +24,7 @@ spec:
       forceMonthlyUpdate: {{ $middlewareData.forceMonthlyUpdate }}
       allowUnknownCountries: {{ $middlewareData.allowUnknownCountries }}
       unknownCountryApiResponse: {{ $middlewareData.unknownCountryApiResponse }}
+      blackListMode: {{ $middlewareData.blackListMode }}
       {{- if not $middlewareData.countries }}
         {{- fail "You have to define at least one country..." }}
       {{- end }}
