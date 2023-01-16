@@ -194,9 +194,16 @@ jobs:
 
       - name: Run chart-testing (install)
         run: |
+          # Move all ci values on a temp location (or skip if already moved from another matrix job)
           mv library/common-test/ci library/common-test/runtests || echo "Nothing to move"
+
+          # Move one values.yaml to the correct location to run the test
           mv -f library/common-test/runtests/${{ matrix.values }} library/common-test/values.yaml
+
+          # Stat kail on the background to grab logs from tests
           ./kail --ignore-ns kube-system >> /tmp/output.log &
+
+          # Actually run the test
           ct install  --config .github/ct-install-config/ct-install.yaml \
                       --charts library/common-test \
                       --debug || (echo -e "\n\n--===PODLOGS===--\n\n" && \

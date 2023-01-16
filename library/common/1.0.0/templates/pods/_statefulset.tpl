@@ -56,6 +56,18 @@ spec:
         requests:
           storage: {{ tpl ($vct.size | default $.Values.global.defaults.VCTSize) $ | quote }}
     {{- end -}}
-  {{- end -}}
+  {{- end }}
+  template:
+    metadata:
+      {{- with (mustMerge (include "ix.v1.common.labels.selectorLabels" . | fromYaml) (include "ix.v1.common.annotations.workload" . | fromYaml) (include "ix.v1.common.podAnnotations" . | fromYaml)) }}
+      annotations:
+        {{- . | toYaml | trim | nindent 8 }}
+      {{- end -}}
+      {{- with (mustMerge (include "ix.v1.common.labels.selectorLabels" . | fromYaml) (include "ix.v1.common.podLabels" . | fromYaml)) }}
+      labels:
+        {{- . | toYaml | trim | nindent 8 }}
+      {{- end }}
+    spec:
+      {{- include "ix.v1.common.controller.pod" $ | trim | nindent 6 }}
 {{- end }}
 {{/*TODO: unittests*/}}
