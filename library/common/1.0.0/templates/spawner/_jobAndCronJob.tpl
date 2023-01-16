@@ -7,8 +7,10 @@
         {{- $_ := set $jobValues "nameOverride" $jobName -}}
       {{- end -}}
 
-      {{- if and (hasKey $job "cron") ($job.cron.enabled) -}}
-        {{- include "ix.v1.common.class.cronJob" (dict "root" $ "job" $jobValues) -}}
+      {{- if hasKey $job "cron" -}}
+        {{- if $job.cron.enabled -}}
+          {{- include "ix.v1.common.class.cronJob" (dict "root" $ "job" $jobValues) -}}
+        {{- end -}}
       {{- else -}}
         {{- include "ix.v1.common.class.job" (dict "root" $ "job" $jobValues) -}}
       {{- end -}}
