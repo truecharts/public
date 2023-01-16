@@ -13,7 +13,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # We run tests on Helm version of latest SCALE release, SCALE nightly and manually defined "latest"
         helm-version:
           - v3.9.4
           - v3.10.3
@@ -25,7 +24,7 @@ jobs:
           fetch-depth: 1
 
       - name: Install Helm
-        uses: azure/setup-helm@f382f75448129b3be48f8121b9857be18d815a82 # tag=v3
+        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # tag=v3
         with:
           version: ${{ matrix.helm-version }}
 
@@ -36,26 +35,24 @@ jobs:
       - name: Set up chart-testing
         uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
 
-
       - name: Run chart-testing (lint)
+        id: lint
         run: |
           ct lint --config .github/ct-install-config/ct-lint.yaml \
                   --lint-conf .github/ct-install-config/lint-conf.yaml \
                   --charts library/common-test \
                   --debug
 
-
-
-
   unittest:
+    needs:
+      - lint
     name: Unit Tests
     runs-on: ubuntu-22.04
     env:
-      helmunitversion: 0.2.11
+      helmUnitVersion: 0.2.11
     strategy:
       fail-fast: false
       matrix:
-        # We run tests on Helm version of latest SCALE release, SCALE nightly and manually defined "latest"
         helm-version:
           - v3.9.4
           - v3.10.3
@@ -66,15 +63,6 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Cache helm plugins
-        uses: actions/cache@v3
-        with:
-          path: |
-            /home/runner/.local/share/helm/plugins/helm-unittest
-          key: helm-${{ matrix.helm-version }}-unittest-v${{ env.helmunitversion }}
-          restore-keys: |
-            helm-${{ matrix.helm-version }}-unittest-v${{ env.helmunitversion }}
-
       - name: Install Helm
         uses: azure/setup-helm@f382f75448129b3be48f8121b9857be18d815a82 # tag=v3
         with:
@@ -82,7 +70,21 @@ jobs:
 
       - name: Run tests
         run: |
-          helm unittest -h || helm plugin install https://github.com/quintush/helm-unittest --version "v${helmunitversion}"
+          retries=5
+          x=$retries
+
+          if helm unittest -h > /dev/null; then
+            x=0
+          fi
+
+          while [ $x -gt 0 ];
+          do
+            # If it succeeds set it to 1 and the next command will make it zero and exit the loop
+            helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion} && x=1
+            x=$(($x-1))
+          done
+
+          # Run tests
           cd library/common-test/
           helm dependency update
           helm unittest --helm3 -f "tests/*/*.yaml" .
@@ -98,17 +100,27 @@ jobs:
         # We run tests on k3s version of latest SCALE release, SCALE nightly and manually defined "latest"
         k3s-version:
           - v1.25.3+k3s1
-          - v1.26.0+k3s1
+          - v1.26.0+k3s2
         # We run tests on Helm version of latest SCALE release, SCALE nightly and manually defined "latest"
         helm-version:
           - v3.9.4
           - v3.10.3
           - v3.11.0-rc.2
+        values:
+          - basic-values.yaml
+          - configmap-values.yaml
+          - daemonset-values.yaml
+          - job-cron-values.yaml
+          - persistence-values.yaml
+          - rbac-values.yaml
+          - secrets-values.yaml
+          - statefulset-values.yaml
+
     steps:
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
         with:
-          fetch-depth: 1
+          fetch-depth: 0
 
       - name: Install Helm
         uses: azure/setup-helm@f382f75448129b3be48f8121b9857be18d815a82 # tag=v3
@@ -136,7 +148,6 @@ jobs:
         if: steps.createc1.outcome=='failure'
         run: |
           sleep 10
-
       - name: Create k3d cluster - Attempt 2/3
         continue-on-error: true
         if: steps.createc1.outcome=='failure'
@@ -152,8 +163,6 @@ jobs:
         if: steps.createc2.outcome=='failure'
         run: |
           sleep 10
-
-
       - name: Create k3d cluster - Attempt 3/3
         id: createc3
         if: steps.createc2.outcome=='failure'
@@ -164,10 +173,7 @@ jobs:
           # Flags found here https://github.com/k3d-io/k3d
           k3d-args: --k3s-arg --disable=metrics-server@server:*
 
-      - name: Move CI values
-        run: |
-          mv library/common-test/ci library/common-test/runtests
-
+        # Install Kail to grab logs from tests, as there are cases ct-install fail to output logs
       - name: Install Kail
         run: |
           export KAIL_VERSION=v0.16.1
@@ -175,163 +181,25 @@ jobs:
           tar -xvzf kail_${KAIL_VERSION}_linux_amd64.tar.gz
           chmod +x kail
 
-      - name: Run chart-testing (install) - Basic Values
+      - name: Run chart-testing (install)
         run: |
-          mv -f library/common-test/runtests/basic-values.yaml library/common-test/values.yaml
-          ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
+          # Move all ci values on a temp location (or skip if already moved from another matrix job)
+          mv library/common-test/ci library/common-test/runtests || echo "Nothing to move"
+
+          # Move one values.yaml to the correct location to run the test
+          mv -f library/common-test/runtests/${{ matrix.values }} library/common-test/values.yaml
+
+          # Stat kail on the background to grab logs from tests
+          ./kail --ignore-ns kube-system >> /tmp/output.log &
+
+          # Actually run the test
           ct install  --config .github/ct-install-config/ct-install.yaml \
                       --charts library/common-test \
-                      --debug || ((echo "" && echo "" && echo "--===PODLOGS===--" && echo "" && cat  /tmp/output.log && rm -f /tmp/output.log))
+                      --debug || (echo -e "\n\n--===PODLOGS===--\n\n" && \
+                                  cat /tmp/output.log && \
+                                  rm -f /tmp/output.log && exit 1)
+
           kill $!
-          echo ""
-          echo ""
-          echo "--===PODLOGS===--"
-          echo ""
+          echo -e "\n\n--===PODLOGS===--\n\n"
           cat  /tmp/output.log
           rm -f /tmp/output.log
-
-      - name: Run chart-testing (install) - statefullset Values
-        run: |
-          mv -f library/common-test/runtests/statefullset-values.yaml library/common-test/values.yaml
-          ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
-          ct install  --config .github/ct-install-config/ct-install.yaml \
-                      --charts library/common-test \
-                      --debug
-          kill $!
-          echo ""
-          echo ""
-          echo "--===PODLOGS===--"
-          echo ""
-          cat  /tmp/output.log
-          rm -f /tmp/output.log
-
-      - name: Run chart-testing (install) - daemonset Values
-        run: |
-          mv -f library/common-test/runtests/daemonset-values.yaml library/common-test/values.yaml
-          ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
-          ct install  --config .github/ct-install-config/ct-install.yaml \
-                      --charts library/common-test \
-                      --debug
-          kill $!
-          echo ""
-          echo ""
-          echo "--===PODLOGS===--"
-          echo ""
-          cat  /tmp/output.log
-          rm -f /tmp/output.log
-
-      - name: Run chart-testing (install) - jobcontroller Values
-        run: |
-          mv -f library/common-test/runtests/jobcontroller-values.yaml library/common-test/values.yaml
-          ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
-          ct install  --config .github/ct-install-config/ct-install.yaml \
-                      --charts library/common-test \
-                      --debug
-          kill $!
-          echo ""
-          echo ""
-          echo "--===PODLOGS===--"
-          echo ""
-          cat  /tmp/output.log
-          rm -f /tmp/output.log
-
-      - name: Run chart-testing (install) - persistence Values
-        run: |
-          mv -f library/common-test/runtests/persistence-values.yaml library/common-test/values.yaml
-          ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
-          ct install  --config .github/ct-install-config/ct-install.yaml \
-                      --charts library/common-test \
-                      --debug
-          kill $!
-          echo ""
-          echo ""
-          echo "--===PODLOGS===--"
-          echo ""
-          cat  /tmp/output.log
-          rm -f /tmp/output.log
-
-      - name: Run chart-testing (install) - rbac Values
-        run: |
-          mv -f library/common-test/runtests/rbac-values.yaml library/common-test/values.yaml
-          ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
-          ct install  --config .github/ct-install-config/ct-install.yaml \
-                      --charts library/common-test \
-                      --debug
-          kill $!
-          echo ""
-          echo ""
-          echo "--===PODLOGS===--"
-          echo ""
-          cat  /tmp/output.log
-          rm -f /tmp/output.log
-
-      - name: Run chart-testing (install) - configmaps Values
-        run: |
-          mv -f library/common-test/runtests/configmaps-values.yaml library/common-test/values.yaml
-          ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
-          ct install  --config .github/ct-install-config/ct-install.yaml \
-                      --charts library/common-test \
-                      --debug
-          kill $!
-          echo ""
-          echo ""
-          echo "--===PODLOGS===--"
-          echo ""
-          cat  /tmp/output.log
-          rm -f /tmp/output.log
-
-
-      - name: Run chart-testing (install) - secrets Values
-        run: |
-          mv -f library/common-test/runtests/secrets-values.yaml library/common-test/values.yaml
-          ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
-          ct install  --config .github/ct-install-config/ct-install.yaml \
-                      --charts library/common-test \
-                      --debug
-          kill $!
-          echo ""
-          echo ""
-          echo "--===PODLOGS===--"
-          echo ""
-          cat  /tmp/output.log
-          rm -f /tmp/output.log
-
-      - name: Run chart-testing (install) - extracontainers Values
-        run: |
-          mv -f library/common-test/runtests/extracontainers-values.yaml library/common-test/values.yaml
-          ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
-          ct install  --config .github/ct-install-config/ct-install.yaml \
-                      --charts library/common-test \
-                      --debug
-          kill $!
-          echo ""
-          echo ""
-          echo "--===PODLOGS===--"
-          echo ""
-          cat  /tmp/output.log
-          rm -f /tmp/output.log
-
-      - name: Run chart-testing (install) - jobs Values
-        run: |
-          mv -f library/common-test/runtests/jobs-values.yaml library/common-test/values.yaml
-          ./kail --ignore-ns kube-system --ignore-ns metallb-system --ignore-ns prometheus-operator --ignore-ns cert-manager --ignore-ns truecharts-system >> /tmp/output.log &
-          ct install  --config .github/ct-install-config/ct-install.yaml \
-                      --charts library/common-test \
-                      --debug
-          kill $!
-          echo ""
-          echo ""
-          echo "--===PODLOGS===--"
-          echo ""
-          cat  /tmp/output.log
-          rm -f /tmp/output.log
-
-
-      - name: Print podlogs on failure
-        if: ${{ failure() }}
-        run: |
-          echo ""
-          echo ""
-          echo "--===PODLOGS===--"
-          echo ""
-          cat  /tmp/output.log
