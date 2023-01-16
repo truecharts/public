@@ -1,0 +1,57 @@
+
+
+image:
+  repository: traefik/whoami
+  pullPolicy: IfNotPresent
+  tag: latest
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        port: 8080
+
+args:
+  - --port
+  - "8080"
+
+probes:
+  liveness:
+    enabled: true
+  readiness:
+    enabled: true
+  startup:
+    enabled: true
+
+k1: value1
+k2: 80
+k3: pair
+k4: value2
+k5: 81
+k6: false
+configmap:
+  envparsetest:
+    enabled: true
+    parseAsEnv: true
+    content:
+      key1: 123
+      key2: value2
+  kvtest:
+    enabled: true
+    content:
+      key: "{{ .Values.k6 }}"
+
+  filetest:
+    enabled: true
+    content:
+      nginx.conf2: |
+        alias {{ .Values.k4 }}
+        listen {{ .Values.k5 }}
+        function {
+          # some json
+          "key": {
+            "key2": "value",
+            "key3": "value2"
+          }
+        }
