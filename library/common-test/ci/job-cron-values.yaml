@@ -21,3 +21,20 @@ probes:
     enabled: true
   startup:
     enabled: true
+
+jobs:
+  testjob:
+    enabled: true
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+  testchronjob:
+    enabled: true
+    cron:
+      enabled: true
+      schedule: "* * * * *"
+    podSpec:
+      containers:
+        main:
+          imageSelector: image

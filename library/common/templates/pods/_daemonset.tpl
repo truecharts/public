@@ -8,8 +8,16 @@ apiVersion: {{ include "ix.v1.common.capabilities.daemonset.apiVersion" $ }}
 kind: DaemonSet
 metadata:
   name: {{ include "ix.v1.common.names.fullname" . }}
+  {{- $labels := (mustMerge (default dict .Values.controller.labels) (include "ix.v1.common.labels" $ | fromYaml)) -}}
+  {{- with (include "ix.v1.common.util.labels.render" (dict "root" $ "labels" $labels) | trim) }}
   labels:
+    {{- . | nindent 4 }}
+  {{- end }}
+  {{- $annotations := (mustMerge (default dict .Values.controller.annotations) (include "ix.v1.common.annotations" $ | fromYaml) (include "ix.v1.common.annotations.workload.spec" $ | fromYaml)) -}}
+  {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $ "annotations" $annotations) | trim) }}
   annotations:
+    {{- . | nindent 4 }}
+  {{- end }}
 spec:
   revisionHistoryLimit: {{ .Values.controller.revisionHistoryLimit }}
   {{- $strategy := default "RollingUpdate" .Values.controller.strategy -}}

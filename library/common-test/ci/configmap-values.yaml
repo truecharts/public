@@ -46,7 +46,6 @@ configmap:
       nginx.conf2: |
         alias {{ .Values.k4 }}
         listen {{ .Values.k5 }}
-
         function {
           # some json
           "key": {
