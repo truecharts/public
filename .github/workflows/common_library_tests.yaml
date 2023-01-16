@@ -199,7 +199,7 @@ jobs:
 
       - name: Run chart-testing (install)
         run: |
-          mv -f library/common-test/runtests/${{ matrix.values }} library/common-test/ci/values.yaml
+          mv -f library/common-test/runtests/${{ matrix.values }} library/common-test/values.yaml
           ./kail --ignore-ns kube-system >> /tmp/output.log &
           ct install  --config .github/ct-install-config/ct-install.yaml \
                       --charts library/common-test \
