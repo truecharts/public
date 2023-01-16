@@ -129,6 +129,7 @@ questions:
                 description: Your AniList.co token.
                 schema:
                   type: string
+                  max_length: 2000
                   required: true
                   private: true
                   default: ""
