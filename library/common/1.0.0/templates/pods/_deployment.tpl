@@ -21,21 +21,21 @@ metadata:
 spec:
   revisionHistoryLimit: {{ .Values.controller.revisionHistoryLimit }}
   replicas: {{ .Values.controller.replicas }}
-  {{- $strategy := default "Recreate" .Values.controller.strategy }}
-  {{- if not (mustHas $strategy (list "Recreate" "RollingUpdate")) }}
-    {{- fail (printf "Not a valid strategy type for Deployment (%s)" $strategy) }}
+  {{- $strategy := default "Recreate" .Values.controller.strategy -}}
+  {{- if not (mustHas $strategy (list "Recreate" "RollingUpdate")) -}}
+    {{- fail (printf "Not a valid strategy type for Deployment (%s)" $strategy) -}}
   {{- end }}
   strategy:
     type: {{ $strategy }}
-    {{- $rollingUpdate := .Values.controller.rollingUpdate }}
+    {{- $rollingUpdate := .Values.controller.rollingUpdate -}}
     {{- if and (eq $strategy "RollingUpdate") (or $rollingUpdate.surge $rollingUpdate.unavailable) }}
     rollingUpdate:
       {{- with $rollingUpdate.unavailable }}
       maxUnavailable: {{ . }}
-      {{- end }}
+      {{- end -}}
       {{- with $rollingUpdate.surge }}
       maxSurge: {{ . }}
-      {{- end }}
+      {{- end -}}
     {{- end }}
   selector:
     matchLabels:
