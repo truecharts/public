@@ -172,7 +172,7 @@ jobs:
       - name: Run chart-testing (install)
         run: |
           mv -f library/common-test/runtests/${{ matrix.values }} library/common-test/values.yaml
-          ./kail --ns common-test-* >> /tmp/output.log &
+          ./kail >> /tmp/output.log &
           ct install  --config .github/ct-install-config/ct-install.yaml \
                       --charts library/common-test \
                       --debug || ((echo "" && echo "" && echo "--===PODLOGS===--" && echo "" && cat  /tmp/output.log && rm -f /tmp/output.log))
