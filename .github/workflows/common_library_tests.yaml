@@ -73,7 +73,7 @@ jobs:
           retries=5
           x=$retries
 
-          if helm unittest -h > /dev/null; then
+          if (helm unittest -h > /dev/null); then
             x=0
           fi
 
