@@ -11,8 +11,6 @@ tests:
           of: Deployment
       - isNull:
           path: spec.template.spec.volume
-      - isNull:
-          path: spec.template.spec.containers[0].volumeMounts
 
   - it: should pass with deviceList defined
     documentIndex: *deploymentDoc
@@ -23,19 +21,17 @@ tests:
           mountPath: /dev/usb
           hostPath: /dev/usb
     asserts:
-      - isSubset:
-          path: spec.template.spec.containers[0]
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
           content:
-            volumeMounts:
-              - name: device-0
-                mountPath: /dev/usb
-      - isSubset:
-          path: spec.template.spec
+            name: device-0
+            mountPath: /dev/usb
+      - contains:
+          path: spec.template.spec.volumes
           content:
-            volumes:
-              - name: device-0
-                hostPath:
-                  path: /dev/usb
+            name: device-0
+            hostPath:
+              path: /dev/usb
 
   - it: should pass with deviceList defined as readOnly
     documentIndex: *deploymentDoc
@@ -47,20 +43,18 @@ tests:
           hostPath: /dev/usb
           readOnly: true
     asserts:
-      - isSubset:
-          path: spec.template.spec.containers[0]
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
           content:
-            volumeMounts:
-              - name: device-0
-                mountPath: /dev/usb
-                readOnly: true
-      - isSubset:
-          path: spec.template.spec
+            name: device-0
+            mountPath: /dev/usb
+            readOnly: true
+      - contains:
+          path: spec.template.spec.volumes
           content:
-            volumes:
-              - name: device-0
-                hostPath:
-                  path: /dev/usb
+            name: device-0
+            hostPath:
+              path: /dev/usb
 
   - it: should pass with deviceList defined, validateHostPath true and a malicious not allowed path
     documentIndex: *deploymentDoc

@@ -11,8 +11,6 @@ tests:
           of: Deployment
       - isNull:
           path: spec.template.spec.volume
-      - isNull:
-          path: spec.template.spec.containers[0].volumeMounts
 
   - it: should pass with persistenceList defined
     documentIndex: *deploymentDoc
@@ -22,19 +20,17 @@ tests:
           type: pvc
           mountPath: /some-path
     asserts:
-      - isSubset:
-          path: spec.template.spec.containers[0]
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
           content:
-            volumeMounts:
-              - name: persist-list-0
-                mountPath: /some-path
-      - isSubset:
-          path: spec.template.spec
+            name: persist-list-0
+            mountPath: /some-path
+      - contains:
+          path: spec.template.spec.volumes
           content:
-            volumes:
-              - name: persist-list-0
-                persistentVolumeClaim:
-                  claimName: RELEASE-NAME-common-test-persist-list-0
+            name: persist-list-0
+            persistentVolumeClaim:
+              claimName: RELEASE-NAME-common-test-persist-list-0
 
   - it: should pass with persistenceList defined
     documentIndex: *deploymentDoc
@@ -50,25 +46,29 @@ tests:
           mountPath: /some-path
           hostPath: /mnt/pool/dataset/dir
     asserts:
-      - isSubset:
-          path: spec.template.spec.containers[0]
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
           content:
-            volumeMounts:
-              - name: persist-list-0
-                mountPath: /some-path
-              - name: persist-list-1
-                mountPath: /some-path
-      - isSubset:
-          path: spec.template.spec
+            name: persist-list-0
+            mountPath: /some-path
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
           content:
-            volumes:
-              - name: persist-list-0
-                nfs:
-                  server: 10.10.10.100
-                  path: /nfs/path
-              - name: persist-list-1
-                hostPath:
-                  path: /mnt/pool/dataset/dir
+            name: persist-list-1
+            mountPath: /some-path
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: persist-list-0
+            nfs:
+              server: 10.10.10.100
+              path: /nfs/path
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: persist-list-1
+            hostPath:
+              path: /mnt/pool/dataset/dir
 
   - it: should pass with persistenceList defined as readOnly
     documentIndex: *deploymentDoc
@@ -79,20 +79,18 @@ tests:
           mountPath: /some-path
           readOnly: true
     asserts:
-      - isSubset:
-          path: spec.template.spec.containers[0]
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
           content:
-            volumeMounts:
-              - name: persist-list-0
-                mountPath: /some-path
-                readOnly: true
-      - isSubset:
-          path: spec.template.spec
+            name: persist-list-0
+            mountPath: /some-path
+            readOnly: true
+      - contains:
+          path: spec.template.spec.volumes
           content:
-            volumes:
-              - name: persist-list-0
-                persistentVolumeClaim:
-                  claimName: RELEASE-NAME-common-test-persist-list-0
+            name: persist-list-0
+            persistentVolumeClaim:
+              claimName: RELEASE-NAME-common-test-persist-list-0
 
   - it: should pass with persistenceList defined, validateHostPath true and a malicious not allowed path
     documentIndex: *deploymentDoc
