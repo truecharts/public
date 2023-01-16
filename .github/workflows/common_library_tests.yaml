@@ -184,11 +184,6 @@ jobs:
           # Flags found here https://github.com/k3d-io/k3d
           k3d-args: --k3s-arg --disable=metrics-server@server:*
 
-        # Move CI Values to a temp location
-      - name: Move CI values
-        run: |
-          mv library/common-test/ci library/common-test/runtests
-
         # Install Kail to grab logs from tests, as there are cases ct-install fail to output logs
       - name: Install Kail
         run: |
@@ -199,6 +194,7 @@ jobs:
 
       - name: Run chart-testing (install)
         run: |
+          mv library/common-test/ci library/common-test/runtests || echo "Nothing to move"
           mv -f library/common-test/runtests/${{ matrix.values }} library/common-test/values.yaml
           ./kail --ignore-ns kube-system >> /tmp/output.log &
           ct install  --config .github/ct-install-config/ct-install.yaml \
