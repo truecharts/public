@@ -73,6 +73,10 @@ jobs:
           retries=5
           x=$retries
 
+          if helm unittest -h > /dev/null; then
+            x=0
+          fi
+
           while [ $x -gt 0 ];
           do
             # If it succeeds set it to 1 and the next command will make it zero and exit the loop
