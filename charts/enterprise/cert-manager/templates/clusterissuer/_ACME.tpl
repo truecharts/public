@@ -13,8 +13,8 @@ spec:
       name: {{ .name }}-clusterissuer-account-key
     solvers:
     {{- if eq .type "HTTP01" }}
+    {{- fail "HTTP01 is not supported yet..." }}
     {{- else }}
-
     - dns01:
       {{- if eq .type "cloudflare" }}
         cloudflare:
@@ -42,8 +42,6 @@ spec:
     {{- else }}
     {{- fail "No correct ACME type entered..." }}
     {{- end }}
-
-
 ---
 apiVersion: v1
 kind: Secret
@@ -51,8 +49,8 @@ metadata:
   name: {{ .name }}-clusterissuer-secret
 type: Opaque
 stringData:
-  cf-api-token: {{ .cfapitoken || default "" }}
-  cf-api-key: {{ .cfapikey || default "" }}
-  route53-secret-access-key: {{ .route53SecretAccessKey || default "" }}
+  cf-api-token: {{ .cfapitoken | default "" }}
+  cf-api-key: {{ .cfapikey | default "" }}
+  route53-secret-access-key: {{ .route53SecretAccessKey | default "" }}
 {{- end }}
 {{- end -}}
