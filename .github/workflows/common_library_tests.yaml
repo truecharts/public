@@ -77,22 +77,10 @@ jobs:
           restore-keys: |
             helm-${{ matrix.helm-version }}-unittest-v${{ env.helmUnitVersion }}
 
-      - name: Run tests
+      - name: Run Unittests
         shell: bash
         run: |
-          retries=5
-          x=$retries
-
-          if (helm unittest -h > /dev/null); then
-            x=0
-          fi
-
-          while [ $x -gt 0 ];
-          do
-            # If it succeeds set it to 1 and the next command will make it zero and exit the loop
-            helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion} && x=1
-            x=$(($x-1))
-          done
+          (helm unittest -h > /dev/null) || helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion} || (sleep 10 && helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion})
 
           # Run tests
           cd library/common-test/
