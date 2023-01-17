@@ -18,7 +18,7 @@ questions:
                 label: enabled
                 description: "Enable self-signed issuer"
                 schema:
-                  type: bool
+                  type: boolean
                   default: true
               - variable: name
                 label: Name
@@ -240,7 +240,7 @@ questions:
                       label: selfSigned
                       description: "Create Self Signed CA cert"
                       schema:
-                        type: bool
+                        type: boolean
                         default: true
                     - variable: selfSignedCommonName
                       label: selfSigned CommonName
