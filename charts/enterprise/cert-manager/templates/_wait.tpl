@@ -31,23 +31,6 @@ spec:
               kubectl wait --namespace cert-manager --for=condition=ready pod --selector=app=cert-manager --timeout=90s || echo "cert-manager wait failed..."
               kubectl wait --namespace cert-manager-webhook --for=condition=ready pod --selector=app=cert-manager --timeout=90s || echo "cert-manager-webhook wait failed..."
               kubectl wait --namespace cert-manager-cainjector --for=condition=ready pod --selector=app=cert-manager --timeout=90s || echo "cert-manager-cainjector wait failed..."
-              timeout=0
-              while (kubectl describe endpoints cert-manager -n cert-manager | grep '  Addresses' | grep '<none>'); do
-                sleep 5
-                (($timeout++))
-                if [[ $timeout -eq 20 ]]; then
-                  echo "waiting for cert-manager endpoint failed..."
-                  exit 0
-                fi
-              done
-              while (kubectl describe endpoints cert-manager-webhook -n cert-manager | grep '  Addresses' | grep '<none>'); do
-                sleep 5
-                (($timeout++))
-                if [[ $timeout -eq 20 ]]; then
-                  echo "waiting for cert-manager webhook endpoint failed..."
-                  exit 0
-                fi
-              done
               cmctl check api --wait=2m
               EOF
           volumeMounts:
