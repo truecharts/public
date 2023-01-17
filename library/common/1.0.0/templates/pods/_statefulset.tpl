@@ -27,7 +27,7 @@ spec:
   serviceName: {{ include "ix.v1.common.names.fullname" . }}
   {{- $strategy := default "RollingUpdate" .Values.controller.strategy -}}
   {{- if not (mustHas $strategy (list "OnDelete" "RollingUpdate")) -}}
-    {{- fail (printf "Not a valid strategy type for Deployment (%s)" $strategy) -}}
+    {{- fail (printf "Not a valid strategy type for StatefulSet (%s)" $strategy) -}}
   {{- end }}
   updateStrategy:
     type: {{ $strategy }}

@@ -1,16 +1,21 @@
-suite: deployment default test
+suite: statefulset default test
 templates:
   - common.yaml
 tests:
-  - it: should pass with default values
-    documentIndex: &deploymentDoc 0
+  - it: should pass with controller set to StatefulSet
+    documentIndex: &statefulsetDoc 0
+    set:
+      controller.type: StatefulSet
     asserts:
       - hasDocuments:
           count: 3
       - isKind:
-          of: Deployment
+          of: StatefulSet
       - isAPIVersion:
           of: apps/v1
+      - equal:
+          path: spec.serviceName
+          value: RELEASE-NAME-common-test
       - equal:
           path: spec.revisionHistoryLimit
           value: 3
@@ -18,8 +23,8 @@ tests:
           path: spec.replicas
           value: 1
       - equal:
-          path: spec.strategy.type
-          value: Recreate
+          path: spec.updateStrategy.type
+          value: RollingUpdate
       - equal:
           path: spec.template.spec.serviceAccountName
           value: default
