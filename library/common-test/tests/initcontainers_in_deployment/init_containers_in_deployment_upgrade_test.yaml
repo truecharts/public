@@ -78,6 +78,36 @@ tests:
             image: some-repo-init2:some-tag-init2
             imagePullPolicy: IfNotPresent
 
+  - it: should pass with enabled false from tpl defined in init container
+    documentIndex: *deploymentDoc
+    set:
+      flag: false
+      initContainers:
+        some-name:
+          enabled: "{{ .Values.flag }}"
+          tty: true
+          stdin: true
+    asserts:
+      - isNotNull:
+          path: spec.template.spec.containers[0]
+      - isNull:
+          path: spec.template.spec.initContainers
+
+  - it: should pass with enabled true from tpl defined in init container
+    documentIndex: *deploymentDoc
+    set:
+      flag: true
+      initContainers:
+        some-name:
+          enabled: "{{ .Values.flag }}"
+          tty: true
+          stdin: true
+    asserts:
+      - isNotNull:
+          path: spec.template.spec.containers[0]
+      - isNotNull:
+          path: spec.template.spec.initContainers
+
   - it: should pass with tty and stdin defined in init container
     documentIndex: *deploymentDoc
     set:

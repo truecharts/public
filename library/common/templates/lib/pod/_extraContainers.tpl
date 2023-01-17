@@ -19,7 +19,7 @@
     {{- $enabled := true -}} {{/* Default to enable */}}
 
     {{- if hasKey $container "enabled" -}} {{/* If has enabled key */}}
-      {{- $flag := (tpl $container.enabled $root) -}}
+      {{- $flag := (tpl (toString $container.enabled) $root) -}}
       {{- if eq "false" $flag -}} {{/* And its kind of bool */}}
         {{- $enabled = false -}} {{/* Disable the container */}}
       {{- end -}}

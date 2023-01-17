@@ -76,6 +76,36 @@ tests:
             image: some-repo-additional2:some-tag-additional2
             imagePullPolicy: IfNotPresent
 
+  - it: should pass with enabled false from tpl defined in additional container
+    documentIndex: *deploymentDoc
+    set:
+      flag: false
+      additionalContainers:
+        some-name:
+          enabled: "{{ .Values.flag }}"
+          tty: true
+          stdin: true
+    asserts:
+      - isNotNull:
+          path: spec.template.spec.containers[0]
+      - isNull:
+          path: spec.template.spec.containers[1]
+
+  - it: should pass with enabled true from tpl defined in additional container
+    documentIndex: *deploymentDoc
+    set:
+      flag: true
+      additionalContainers:
+        some-name:
+          enabled: "{{ .Values.flag }}"
+          tty: true
+          stdin: true
+    asserts:
+      - isNotNull:
+          path: spec.template.spec.containers[0]
+      - isNotNull:
+          path: spec.template.spec.containers[1]
+
   - it: should pass with tty and stdin defined in additional container
     documentIndex: *deploymentDoc
     set:

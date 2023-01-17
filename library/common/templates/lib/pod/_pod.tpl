@@ -66,7 +66,9 @@ securityContext:
 {{- with (include "ix.v1.common.controller.mainContainer" (dict "values" $root.Values "root" $root) | trim) }}
 containers:
   {{- . | nindent 2 }}
-  {{- (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.additionalContainers "type" "additional") | trim) | nindent 2 }}
+  {{- with (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.additionalContainers "type" "additional") | trim) }}
+    {{- . | nindent 2 }}
+  {{- end -}}
 {{- end -}}
 
 {{- $installContainers := (include "ix.v1.common.controller.extraContainers" (dict "root" $root "containerList" $root.Values.installContainers "type" "install") | trim) -}}
