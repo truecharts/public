@@ -34,6 +34,14 @@ clusterIssuer:
 #     # Used primarily for the SCALE GUI
 #     customServer: 'https://acme-staging-v02.api.letsencrypt.org/directory'
 #     email: ""
-#     type: cloudflare
+#     # Options: HTTP01, cloudflare, route53
+#     type: ""
+#     # for cloudflare
 #     cfapikey: ""
 #     cfapitoken: ""
+#     # for route53
+#     region: ""
+#     accessKeyID: ""
+#     route53SecretAccessKey: ""
+#     # optional for route53
+#     role: ""
