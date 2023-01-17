@@ -16,7 +16,7 @@ spec:
       serviceAccountName: {{ $fullName }}-wait
       containers:
         - name: {{ $fullName }}-wait
-          image: {{ .Values.kubectlImage.repository }}:{{ .Values.kubectlImage.tag }}
+          image: {{ .Values.kubectlImage.repository }}:v1.26.0
           securityContext:
             runAsUser: 568
             runAsGroup: 568
@@ -48,6 +48,7 @@ spec:
                   exit 0
                 fi
               done
+              cmctl check api --wait=2m
               EOF
           volumeMounts:
             - name: {{ $fullName }}-manifests-temp
