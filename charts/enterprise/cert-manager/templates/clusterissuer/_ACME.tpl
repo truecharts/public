@@ -13,7 +13,8 @@ spec:
       name: {{ .name }}-clusterissuer-account-key
     solvers:
     {{- if eq .type "HTTP01" }}
-    {{- fail "HTTP01 is not supported yet..." }}
+    - http01:
+        ingress:
     {{- else }}
     - dns01:
       {{- if eq .type "cloudflare" }}
