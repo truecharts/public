@@ -6,4 +6,4 @@
 
 {{- include "certmanager.clusterissuer.acme" . }}
 {{- include "certmanager.clusterissuer.selfsigned" . }}
-{{- define "certmanager.metrics" -}}
+{{- include "certmanager.metrics" . }}
