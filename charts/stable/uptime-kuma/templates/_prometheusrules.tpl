@@ -1,4 +1,5 @@
 {{- define "uptime.prometheusrule" -}}
+{{- if hasKey .Values "metrics }}
 {{- if and .Values.metrics.enabled .Values.metrics.prometheusRule.enabled }}
 ---
 apiVersion: monitoring.coreos.com/v1
@@ -17,5 +18,6 @@ spec:
         {{- with .Values.metrics.prometheusRule.rules }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
+{{- end }}
 {{- end }}
 {{- end -}}
