@@ -71,9 +71,11 @@ questions:
                           - value: cloudflare
                             description: Cloudflare
                           - value: route53
-                            description: route53
+                            description: Route53
                           - value: akamai
-                            description: akamai
+                            description: Akamai
+                          - value: digitalocean
+                            description: Digitalocean
                           - value: HTTP01
                             description: HTTP01 (experimental)
                     - variable: cfapikey
@@ -150,6 +152,14 @@ questions:
                       description: "Akamai Access Token"
                       schema:
                         show_if: [["type", "=", "akamai"]]
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: doaccessToken
+                      label: Digitalocean Access Token
+                      description: "Digitalocean Access Token"
+                      schema:
+                        show_if: [["type", "=", "digitalocean"]]
                         type: string
                         required: true
                         default: ""

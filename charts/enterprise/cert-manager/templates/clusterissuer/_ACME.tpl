@@ -51,6 +51,10 @@ spec:
           accessTokenSecretRef:
             name: {{ .name }}-clusterissuer-secret
             key: akaccessToken
+      {{- else if eq .type "digitalocean" }}
+          tokenSecretRef:
+            name: {{ .name }}-clusterissuer-secret
+            key: doaccessToken
       {{- else }}
       {{- fail "No correct ACME type entered..." }}
       {{- end }}
@@ -68,5 +72,6 @@ stringData:
   akclientToken: {{ .akclientToken | default "" }}
   akclientSecret: {{ .akclientSecret | default "" }}
   akaccessToken: {{ .akaccessToken | default "" }}
+  doaccessToken: {{ .doaccessToken | default "" }}
 {{- end }}
 {{- end -}}
