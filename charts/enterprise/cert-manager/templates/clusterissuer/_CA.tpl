@@ -1,6 +1,3 @@
-{{- define "certmanager.clusterissuer.selfsigned" -}}
-{{- range .Values.clusterIssuer.CA }}
----
 {{- define "certmanager.clusterissuer.ca" -}}
 {{- range .Values.clusterIssuer.CA }}
 {{- if .selfSigned }}
