@@ -100,10 +100,10 @@ jobs:
       matrix:
         # We run tests on k3s version of latest SCALE release, SCALE nightly and manually defined "latest"
         k3s-version:
+          - v1.22.4+k3s1 # Replace with Bluefin's version
           - v1.25.3+k3s1
         # We run tests on Helm version of latest SCALE release, SCALE nightly and manually defined "latest"
         helm-version:
-          - v3.9.4
           - v3.11.0-rc.2
         values:
           - basic-values.yaml
