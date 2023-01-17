@@ -15,7 +15,7 @@ dependencies:
 deprecated: false
 description: kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/prometheus.png
-home: https://truecharts.org/charts/stable/prometheus
+home: https://truecharts.org/charts/enterprise/prometheus
 keywords:
   - metrics
 kubeVersion: ">=1.16.0-0"
@@ -25,7 +25,7 @@ maintainers:
     url: https://truecharts.org
 name: prometheus
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/prometheus
+  - https://github.com/truecharts/charts/tree/master/charts/enterprise/prometheus
   - https://github.com/prometheus-community/helm-charts
   - https://github.com/prometheus-operator/kube-prometheus
 type: application
