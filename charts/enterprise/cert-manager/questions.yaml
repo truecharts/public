@@ -71,14 +71,6 @@ questions:
                         type: string
                         show_if: [["server", "=", "custom"]]
                         default: 'https://acme-staging-v02.api.letsencrypt.org/directory'
-                    - variable: email
-                      label: Email
-                      description: "Email adress to use for certificate issuing must match your DNS provider email when required"
-                      schema:
-                        type: string
-                        required: true
-                        show_if: [["type", "!=", "HTTP01"]]
-                        default: "something@example.com"
                     - variable: type
                       label: Type or DNS-Provider
                       description: DNS Provider
@@ -99,6 +91,14 @@ questions:
                             description: rfc2136 (Advanced)
                           - value: HTTP01
                             description: HTTP01 (Experimental)
+                    - variable: email
+                      label: Email
+                      description: "Email adress to use for certificate issuing must match your DNS provider email when required"
+                      schema:
+                        type: string
+                        required: true
+                        show_if: [["type", "!=", "HTTP01"]]
+                        default: "something@example.com"
                     - variable: cfapikey
                       label: CloudFlare API key
                       description: "CloudFlare API Key"
