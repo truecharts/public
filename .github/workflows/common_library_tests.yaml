@@ -78,6 +78,7 @@ jobs:
             helm-${{ matrix.helm-version }}-unittest-v${{ env.helmUnitVersion }}
 
       - name: Run tests
+        shell: bash
         run: |
           retries=5
           x=$retries
