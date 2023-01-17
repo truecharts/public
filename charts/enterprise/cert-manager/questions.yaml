@@ -28,7 +28,7 @@ questions:
                   required: true
                   default: "selfSigned"
         - variable: ACME
-          label: ACME Issuer
+          label: 'ACME Issuer'
           schema:
             type: list
             default: []
@@ -46,6 +46,26 @@ questions:
                         type: string
                         required: true
                         default: ""
+                    - variable: type
+                      label: Type or DNS-Provider
+                      description: DNS Provider
+                      schema:
+                        type: string
+                        required: true
+                        default: cloudflare
+                        enum:
+                          - value: cloudflare
+                            description: Cloudflare
+                          - value: route53
+                            description: Route53
+                          - value: akamai
+                            description: Akamai
+                          - value: digitalocean
+                            description: Digitalocean
+                          - value: rfc2136
+                            description: rfc2136 (Advanced)
+                          - value: HTTP01
+                            description: HTTP01 (Experimental)
                     - variable: server
                       label: Server
                       description: "Server for ACME, for example: letsencrypt"
@@ -71,26 +91,6 @@ questions:
                         type: string
                         show_if: [["server", "=", "custom"]]
                         default: 'https://acme-staging-v02.api.letsencrypt.org/directory'
-                    - variable: type
-                      label: Type or DNS-Provider
-                      description: DNS Provider
-                      schema:
-                        type: string
-                        required: true
-                        default: cloudflare
-                        enum:
-                          - value: cloudflare
-                            description: Cloudflare
-                          - value: route53
-                            description: Route53
-                          - value: akamai
-                            description: Akamai
-                          - value: digitalocean
-                            description: Digitalocean
-                          - value: rfc2136
-                            description: rfc2136 (Advanced)
-                          - value: HTTP01
-                            description: HTTP01 (Experimental)
                     - variable: email
                       label: Email
                       description: "Email adress to use for certificate issuing must match your DNS provider email when required"
