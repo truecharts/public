@@ -76,8 +76,10 @@ questions:
                             description: Akamai
                           - value: digitalocean
                             description: Digitalocean
+                          - value: rfc2136
+                            description: rfc2136 (Advanced)
                           - value: HTTP01
-                            description: HTTP01 (experimental)
+                            description: HTTP01 (Experimental)
                     - variable: cfapikey
                       label: CloudFlare API key
                       description: "CloudFlare API Key"
@@ -158,6 +160,38 @@ questions:
                     - variable: doaccessToken
                       label: Digitalocean Access Token
                       description: "Digitalocean Access Token"
+                      schema:
+                        show_if: [["type", "=", "digitalocean"]]
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: nameserver
+                      label: rfc2136 Namesever
+                      description: "rfc2136 Namesever"
+                      schema:
+                        show_if: [["type", "=", "digitalocean"]]
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: tsigKeyName
+                      label: rfc2136 tsig Key Name
+                      description: "rfc2136 tsig Key Name"
+                      schema:
+                        show_if: [["type", "=", "digitalocean"]]
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: tsigAlgorithm
+                      label: rfc2136 tsig Algorithm
+                      description: "rfc2136 tsig Algorithm"
+                      schema:
+                        show_if: [["type", "=", "digitalocean"]]
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: rfctsigSecret
+                      label: rfc2136 sig Secret
+                      description: "rfc2136 sig Secret"
                       schema:
                         show_if: [["type", "=", "digitalocean"]]
                         type: string

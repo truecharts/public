@@ -41,6 +41,7 @@ spec:
             name: prod-route53-credentials-secret
             key: route53-secret-access-key
       {{- else if eq .type "akamai" }}
+        akamai:
           serviceConsumerDomain: {{ .serviceConsumerDomain }}
           clientTokenSecretRef:
             name: {{ .name }}-clusterissuer-secret
@@ -52,9 +53,18 @@ spec:
             name: {{ .name }}-clusterissuer-secret
             key: akaccessToken
       {{- else if eq .type "digitalocean" }}
+        digitalocean:
           tokenSecretRef:
             name: {{ .name }}-clusterissuer-secret
             key: doaccessToken
+      {{- else if eq .type "rfc2136" }}
+        rfc2136:
+          nameserver: {{ .nameserver }}
+          tsigKeyName: {{ .tsigKeyName }}
+          tsigAlgorithm: {{ .tsigAlgorithm }}
+          tsigSecretSecretRef:
+            name: {{ .name }}-clusterissuer-secret
+            key: rfctsigSecret
       {{- else }}
       {{- fail "No correct ACME type entered..." }}
       {{- end }}
@@ -73,5 +83,6 @@ stringData:
   akclientSecret: {{ .akclientSecret | default "" }}
   akaccessToken: {{ .akaccessToken | default "" }}
   doaccessToken: {{ .doaccessToken | default "" }}
+  rfctsigSecret: {{ .rfctsigSecret | default "" }}
 {{- end }}
 {{- end -}}
