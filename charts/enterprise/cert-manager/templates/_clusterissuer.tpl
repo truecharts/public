@@ -12,7 +12,7 @@ spec:
     privateKeySecretRef:
       name: {{ .name }}-clusterissuer-account-key
     solvers:
-    {{- if -eq .type "cloudflare" }}
+    {{- if eq .type "cloudflare" }}
     - dns01:
         cloudflare:
           email: {{ .email }}
@@ -26,7 +26,7 @@ spec:
          {{- end }}
     {{- end }}
 
-{{- if -eq .type "cloudflare" }}
+{{- if eq .type "cloudflare" }}
 ---
 apiVersion: v1
 kind: Secret
