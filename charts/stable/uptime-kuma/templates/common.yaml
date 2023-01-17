@@ -1,1 +1,11 @@
 {{ include "tc.common.loader.all" . }}
+
+{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/port" (.Values.service.http.ports.http.port | toString) -}}
+
+{{- include "blocky.servicemonitor" . -}}
+{{- include "blocky.prometheusrule" . -}}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}
