@@ -27,9 +27,26 @@ spec:
             - "-c"
             - |
               /bin/sh <<'EOF'
-              kubectl wait --namespace cert-manager --for=condition=ready pod --selector=app=cert-manager --timeout=90s
+              kubectl wait --namespace metallb-system --for=condition=ready pod --selector=app=metallb --timeout=90s || echo "metallb-system wait failed..."
+              kubectl wait --namespace cert-manager --for=condition=ready pod --selector=app=cert-manager --timeout=90s || echo "cert-manager wait failed..."
+              kubectl wait --namespace cert-manager-webhook --for=condition=ready pod --selector=app=cert-manager --timeout=90s || echo "cert-manager-webhook wait failed..."
+              kubectl wait --namespace cert-manager-cainjector --for=condition=ready pod --selector=app=cert-manager --timeout=90s || echo "cert-manager-cainjector wait failed..."
+              timeout=0
+              while (k3s kubectl describe endpoints cert-manager -n cert-manager | grep '  Addresses' | grep '<none>'); do
+                sleep 5
+                (($timeout++))
+                if [[ $timeout -eq 20 ]]; then
+                  echo "waiting for cert-manager endpoint failed..."
+                  exit 0
+                fi
+              done
               while (k3s kubectl describe endpoints cert-manager-webhook -n cert-manager | grep '  Addresses' | grep '<none>'); do
-                sleep 3
+                sleep 5
+                (($timeout++))
+                if [[ $timeout -eq 20 ]]; then
+                  echo "waiting for cert-manager webhook endpoint failed..."
+                  exit 0
+                fi
               done
               EOF
           volumeMounts:
