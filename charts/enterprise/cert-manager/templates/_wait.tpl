@@ -17,14 +17,31 @@ spec:
       containers:
         - name: {{ $fullName }}-wait
           image: {{ .Values.kubectlImage.repository }}:{{ .Values.kubectlImage.tag }}
+          securityContext:
+            runAsUser: 568
+            runAsGroup: 568
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
           command:
             - "/bin/sh"
             - "-c"
             - |
               /bin/sh <<'EOF'
               kubectl wait --namespace cert-manager --for=condition=ready pod --selector=app=cert-manager --timeout=90s
+              sleep 10
               EOF
       restartPolicy: OnFailure
+          volumeMounts:
+            - name: {{ $fullName }}-manifests-temp
+              mountPath: /tmp
+            - name: {{ $fullName }}-manifests-home
+              mountPath: /home/apps/
+      restartPolicy: Never
+      volumes:
+        - name: {{ $fullName }}-manifests-temp
+          emptyDir: {}
+        - name: {{ $fullName }}-manifests-home
+          emptyDir: {}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
