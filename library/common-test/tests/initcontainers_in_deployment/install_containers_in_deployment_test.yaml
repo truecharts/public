@@ -90,6 +90,36 @@ tests:
             image: some-repo-init:some-tag-init
             imagePullPolicy: Never
 
+  - it: should pass with enabled false from tpl defined in install container
+    documentIndex: *deploymentDoc
+    set:
+      flag: false
+      installContainers:
+        some-name:
+          enabled: "{{ .Values.flag }}"
+          tty: true
+          stdin: true
+    asserts:
+      - isNotNull:
+          path: spec.template.spec.containers[0]
+      - isNull:
+          path: spec.template.spec.initContainers[0]
+
+  - it: should pass with enabled true from tpl defined in install container
+    documentIndex: *deploymentDoc
+    set:
+      flag: true
+      installContainers:
+        some-name:
+          enabled: "{{ .Values.flag }}"
+          tty: true
+          stdin: true
+    asserts:
+      - isNotNull:
+          path: spec.template.spec.containers[0]
+      - isNotNull:
+          path: spec.template.spec.initContainers[0]
+
   - it: should pass with tty and stdin defined in install container
     documentIndex: *deploymentDoc
     set:

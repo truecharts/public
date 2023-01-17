@@ -76,6 +76,36 @@ tests:
             image: some-repo-system2:some-tag-system2
             imagePullPolicy: IfNotPresent
 
+  - it: should pass with enabled false from tpl defined in system container
+    documentIndex: *deploymentDoc
+    set:
+      flag: false
+      systemContainers:
+        some-name:
+          enabled: "{{ .Values.flag }}"
+          tty: true
+          stdin: true
+    asserts:
+      - isNotNull:
+          path: spec.template.spec.containers[0]
+      - isNull:
+          path: spec.template.spec.initContainers[0]
+
+  - it: should pass with enabled true from tpl defined in system container
+    documentIndex: *deploymentDoc
+    set:
+      flag: true
+      systemContainers:
+        some-name:
+          enabled: "{{ .Values.flag }}"
+          tty: true
+          stdin: true
+    asserts:
+      - isNotNull:
+          path: spec.template.spec.containers[0]
+      - isNotNull:
+          path: spec.template.spec.initContainers[0]
+
   - it: should pass with tty and stdin defined in system container
     documentIndex: *deploymentDoc
     set:
