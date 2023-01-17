@@ -8,25 +8,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: selfSigned
-          label: 'SelfSigned Issuer'
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: enabled
-                label: enabled
-                description: "Enable self-signed issuer"
-                schema:
-                  type: boolean
-                  default: true
-              - variable: name
-                label: Name
-                description: "Name to give the issuer"
-                schema:
-                  type: string
-                  required: true
-                  default: "selfSigned"
         - variable: ACME
           label: 'ACME Issuer'
           schema:
@@ -215,6 +196,26 @@ questions:
                         type: string
                         required: true
                         default: ""
+
+        - variable: selfSigned
+          label: 'SelfSigned Issuer'
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: enabled
+                description: "Enable self-signed issuer"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: name
+                label: Name
+                description: "Name to give the issuer"
+                schema:
+                  type: string
+                  required: true
+                  default: "selfSigned"
 
         - variable: CA
           label: Certiticate Authority Issuer
