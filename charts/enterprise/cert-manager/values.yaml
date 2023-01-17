@@ -29,6 +29,15 @@ clusterIssuer:
   selfSigned:
     enabled: true
     name: "selfSigned"
+  CA: []
+  #   - name: myCA
+  #     selfSigned: true
+  #     selfSignedCommonName: "my-selfsigned-ca"
+  #     # Used to manually define a CA-crt not used when selfSigned is enabled
+  #     crt: ""
+  #     key: ""
+  #     # TODO: Add option to use SCALE CA certs
+
   ACME: []
 #   - name: letsencrypt
 #     # Used for both logging in to the DNS provider AND ACME registration

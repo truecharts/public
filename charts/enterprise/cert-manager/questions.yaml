@@ -217,5 +217,57 @@ questions:
                         required: true
                         default: ""
 
+        - variable: CA
+          label: Certiticate Authority Issuer
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: CAEntry
+                label: 'CA Issuer Entry'
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: Name
+                      description: "Name to give the issuer"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: selfSigned
+                      label: selfSigned
+                      description: "Create Self Signed CA cert"
+                      schema:
+                        type: bool
+                        default: true
+                    - variable: selfSignedCommonName
+                      label: selfSigned CommonName
+                      description: "Common name for selfSigned Certiticate Authority"
+                      schema:
+                        type: string
+                        required: true
+                        show_if: [["selfSigned", "=", "true"]]
+                        default: "my-selfsigned-ca"
+                    - variable: crt
+                      label: "Custom CA cert (experimental)"
+                      description: "certificate for Certiticate Authority"
+                      schema:
+                        type: string
+                        required: true
+                        show_if: [["selfSigned", "=", "false"]]
+                        default: ""
+                    - variable: key
+                      label: "Custom CA key (experimental)"
+                      description: "key Certiticate Authority"
+                      schema:
+                        type: string
+                        required: true
+                        show_if: [["selfSigned", "=", "false"]]
+                        default: ""
+
+
+
 # Include{metrics}
 # Include{documentation}
