@@ -1,4 +1,4 @@
-{{- define "certmanager.clusterissuer.acme" -}}
+{{- define "certmanager.clusterissuer.selfsigned" -}}
 {{- if .Values.clusterissuer.selfSigned.enabled }}
 ---
 apiVersion: cert-manager.io/v1
