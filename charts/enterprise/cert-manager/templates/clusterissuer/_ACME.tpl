@@ -39,8 +39,9 @@ spec:
           secretAccessKeySecretRef:
             name: prod-route53-credentials-secret
             key: route53-secret-access-key
-    {{- else }}
-    {{- fail "No correct ACME type entered..." }}
+      {{- else }}
+      {{- fail "No correct ACME type entered..." }}
+      {{- end }}
     {{- end }}
 ---
 apiVersion: v1
