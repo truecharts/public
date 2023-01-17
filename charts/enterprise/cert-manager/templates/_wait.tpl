@@ -28,9 +28,9 @@ spec:
             - |
               /bin/sh <<'EOF'
               kubectl wait --namespace cert-manager --for=condition=ready pod --selector=app=cert-manager --timeout=90s
-              kubectl describe endpoints cert-manager-webhook -n cert-manager | grep "  Addresses" | grep -v "<none>" || sleep 10
-              kubectl describe endpoints cert-manager-webhook -n cert-manager | grep "  Addresses" | grep -v "<none>" || sleep 10
-              kubectl describe endpoints cert-manager-webhook -n cert-manager | grep "  Addresses" | grep -v "<none>" || sleep 10
+              while (k3s kubectl describe endpoints cert-manager-webhook -n cert-manager | grep '  Addresses' | grep '<none>'); do
+                sleep 3
+              done
               EOF
           volumeMounts:
             - name: {{ $fullName }}-manifests-temp
