@@ -72,6 +72,8 @@ questions:
                             description: Cloudflare
                           - value: route53
                             description: route53
+                          - value: akamai
+                            description: akamai
                           - value: HTTP01
                             description: HTTP01 (experimental)
                     - variable: cfapikey
@@ -118,4 +120,36 @@ questions:
                       schema:
                         show_if: [["type", "=", "route53"]]
                         type: string
+                        default: ""
+                    - variable: serviceConsumerDomain
+                      label: Akamai Service Consumer Domain
+                      description: "Akamai Service Consumer Domain"
+                      schema:
+                        show_if: [["type", "=", "akamai"]]
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: akclientToken
+                      label: Akamai Client Token
+                      description: "Client Token"
+                      schema:
+                        show_if: [["type", "=", "akamai"]]
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: akclientSecret
+                      label: Akamai Client Secret
+                      description: "Akamai Client Secret"
+                      schema:
+                        show_if: [["type", "=", "akamai"]]
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: akaccessToken
+                      label: Akamai Access Token
+                      description: "Akamai Access Token"
+                      schema:
+                        show_if: [["type", "=", "akamai"]]
+                        type: string
+                        required: true
                         default: ""

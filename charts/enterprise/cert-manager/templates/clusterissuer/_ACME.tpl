@@ -40,6 +40,17 @@ spec:
           secretAccessKeySecretRef:
             name: prod-route53-credentials-secret
             key: route53-secret-access-key
+      {{- else if eq .type "akamai" }}
+          serviceConsumerDomain: {{ .serviceConsumerDomain }}
+          clientTokenSecretRef:
+            name: {{ .name }}-clusterissuer-secret
+            key: akclientToken
+          clientSecretSecretRef:
+            name: {{ .name }}-clusterissuer-secret
+            key: akclientSecret
+          accessTokenSecretRef:
+            name: {{ .name }}-clusterissuer-secret
+            key: akaccessToken
       {{- else }}
       {{- fail "No correct ACME type entered..." }}
       {{- end }}
@@ -54,5 +65,8 @@ stringData:
   cf-api-token: {{ .cfapitoken | default "" }}
   cf-api-key: {{ .cfapikey | default "" }}
   route53-secret-access-key: {{ .route53SecretAccessKey | default "" }}
+  akclientToken: {{ .akclientToken | default "" }}
+  akclientSecret: {{ .akclientSecret | default "" }}
+  akaccessToken: {{ .akaccessToken | default "" }}
 {{- end }}
 {{- end -}}
