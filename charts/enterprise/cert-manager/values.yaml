@@ -26,6 +26,9 @@ probes:
     enabled: false
 
 clusterIssuer:
+  selfSigned:
+    enabled: true
+    name: "selfSigned"
   ACME: []
 #   - name: letsencrypt
 #     # Used for both logging in to the DNS provider AND ACME registration
