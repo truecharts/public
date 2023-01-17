@@ -8,3 +8,6 @@
 ---
 
 - If you are passing through devices such as `Optical Drives`, you have to Click `Container Security Settings` and set `PUID` to `0`.
+- Mount USB Devices
+  Host Device Path `/dev/dvd`
+  Container Device Path `/dev/dvd`
