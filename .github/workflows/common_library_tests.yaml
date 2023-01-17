@@ -68,18 +68,19 @@ jobs:
         with:
           version: ${{ matrix.helm-version }}
 
-      - name: Run tests
+      - name: Run Unit-tests
+        shell: bash
+        env:
+          retries: 5
         run: |
-          retries=5
           x=$retries
-
-          if (helm unittest -h > /dev/null); then
-            x=0
-          fi
 
           while [ $x -gt 0 ];
           do
-            # If it succeeds set it to 1 and the next command will make it zero and exit the loop
+            if (helm unittest -h > /dev/null); then
+              # If it succeeds set it to 1 and the next command will make it zero and exit the loop
+              x=1
+            fi
             helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion} && x=1
             x=$(($x-1))
           done
@@ -108,6 +109,7 @@ jobs:
           - basic-values.yaml
           - configmap-values.yaml
           - daemonset-values.yaml
+          - extracontainers-values.yaml
           - job-cron-values.yaml
           - persistence-values.yaml
           - rbac-values.yaml
@@ -118,7 +120,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: Install Helm
         uses: azure/setup-helm@f382f75448129b3be48f8121b9857be18d815a82 # tag=v3
