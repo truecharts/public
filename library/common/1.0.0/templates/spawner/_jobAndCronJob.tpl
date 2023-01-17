@@ -7,8 +7,10 @@
     {{- $_ := set $jobValues "enabled" true -}}
     {{- $_ := set $jobValues "podSpec" dict -}}
 
-    {{- if hasKey .Values "cron" -}}
-      {{- $_ := set $jobValues "cron" .Values.cron -}}
+    {{- range $key := (list "cron" "labels" "annotations") -}}
+      {{- if hasKey $.Values $key -}}
+        {{- $_ := set $jobValues $key (get $.Values $key) -}}
+      {{- end -}}
     {{- end -}}
 
     {{- $_ := set $jobValues.podSpec "containers" dict -}}
