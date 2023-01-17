@@ -2,7 +2,7 @@
 
 {{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
 {{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
-{{- $_ := set .Values.podAnnotations "prometheus.io/port" (.Values.service.metrics.ports.metrics.port | toString) -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/port" (.Values.service.metrics.ports.metrics.targetPort | default 3002 | quote) -}}
 
 {{- include "uptime.servicemonitor" . -}}
 {{- include "uptime.prometheusrule" . -}}
