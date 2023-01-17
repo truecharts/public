@@ -14,8 +14,6 @@ service:
         enabled: false
         port: 9999
 
-updateCRD: false
-
 portal:
   enabled: false
 
@@ -27,10 +25,14 @@ probes:
   startup:
     enabled: false
 
-clusterIssuer: []
+clusterIssuer:
+  ACME: []
 #   - name: letsencrypt
+#     # Used for both logging in to the DNS provider AND ACME registration
 #     email: ""
 #     server: 'https://acme-staging-v02.api.letsencrypt.org/directory'
+#     # Used primarily for the SCALE GUI
+#     customServer: 'https://acme-staging-v02.api.letsencrypt.org/directory'
 #     email: ""
 #     type: cloudflare
 #     cfapikey: ""

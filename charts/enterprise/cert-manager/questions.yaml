@@ -5,57 +5,78 @@ questions:
     group: App Configuration
     label: Cluster Certificate Issuer
     schema:
-      type: list
-      default: []
-      items:
-        - variable: clusterIssuerEntry
-          label: 'Cluster Certificate Issuer Entry'
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: ACME
+          label: ACME Issuer
           schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: name
-                label: Name
-                description: "Name to give the issuer"
+            type: list
+            default: []
+            items:
+              - variable: ACMEEntry
+                label: 'ACME Issuer Entry'
                 schema:
-                  type: string
-                  required: true
-                  default: ""
-              - variable: server
-                label: Server
-                description: "Server for ACME, for example: letsencrypt"
-                schema:
-                  type: string
-                  required: true
-                  default: 'https://acme-v02.api.letsencrypt.org/directory'
-              - variable: email
-                label: Email
-                description: "Email adress to use for certificate issuing must match your DNS provider email when required"
-                schema:
-                  type: string
-                  required: true
-                  default: "something@example.com"
-              - variable: type
-                label: Type/DNS-Provider
-                description: DNS Provider
-                schema:
-                  type: string
-                  required: true
-                  default: cloudflare
-                  enum:
-                    - value: cloudflare
-                      description: Cloudflare
-              - variable: cfapikey
-                label: CloudFlare API key
-                description: "CloudFlare API Key"
-                schema:
-                  show_if: [["type", "=", "cloudflare"]]
-                  type: string
-                  default: ""
-              - variable: cfapitoken
-                label: CloudFlare API Token
-                description: "CloudFlare API Token"
-                schema:
-                  show_if: [["type", "=", "cloudflare"]]
-                  type: string
-                  default: ""
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: Name
+                      description: "Name to give the issuer"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: server
+                      label: Server
+                      description: "Server for ACME, for example: letsencrypt"
+                      schema:
+                        type: string
+                        show_if: [["type", "!=", "HTTP01"]]
+                        default: 'Letsencrypt-Production'
+                        enum:
+                          - value: 'https://acme-v02.api.letsencrypt.org/directory'
+                            description: Letsencrypt-Production
+                          - value: 'https://acme-staging-v02.api.letsencrypt.org/directory'
+                            description: Letsencrypt-Staging
+                          - value: custom
+                            description: Custom
+                    - variable: customServer
+                      label: Custom ACME Server (Advanced)
+                      description: "This can be used to enter your own custom ACME server"
+                      schema:
+                        type: string
+                        show_if: [["server", "=", "custom"]]
+                        default: 'https://acme-staging-v02.api.letsencrypt.org/directory'
+                    - variable: email
+                      label: Email
+                      description: "Email adress to use for certificate issuing must match your DNS provider email when required"
+                      schema:
+                        type: string
+                        required: true
+                        show_if: [["type", "!=", "HTTP01"]]
+                        default: "something@example.com"
+                    - variable: type
+                      label: Type or DNS-Provider
+                      description: DNS Provider
+                      schema:
+                        type: string
+                        required: true
+                        default: cloudflare
+                        enum:
+                          - value: cloudflare
+                            description: Cloudflare
+                    - variable: cfapikey
+                      label: CloudFlare API key
+                      description: "CloudFlare API Key"
+                      schema:
+                        show_if: [["type", "=", "cloudflare"]]
+                        type: string
+                        default: ""
+                    - variable: cfapitoken
+                      label: CloudFlare API Token
+                      description: "CloudFlare API Token"
+                      schema:
+                        show_if: [["type", "=", "cloudflare"]]
+                        type: string
+                        default: ""

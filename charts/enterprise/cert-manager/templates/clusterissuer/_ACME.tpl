@@ -1,5 +1,5 @@
-{{- define "certmanager.clusterissuer" -}}
-{{- range .Values.clusterIssuer }}
+{{- define "certmanager.clusterissuer.ACME" -}}
+{{- range .Values.clusterIssuer.ACME }}
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -8,7 +8,7 @@ metadata:
 spec:
   acme:
     email: {{ .email }}
-    server: {{ .server }}
+    server: {{ if eq .server "custom" }}{{ .customServer }}{{ else }}{{ .server }}{{ end }}
     privateKeySecretRef:
       name: {{ .name }}-clusterissuer-account-key
     solvers:
@@ -24,6 +24,7 @@ spec:
           name: {{ .name }}-clusterissuer-cloudflare
           key: api-key
          {{- end }}
+    {{- else if eq .type "HTTP01" }}
     {{- end }}
 
 {{- if eq .type "cloudflare" }}
