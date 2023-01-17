@@ -10,7 +10,7 @@
         {{- if not $item.noMount -}}
           {{- include "ix.v1.common.container.volumeMount"  (dict "root" $root
                                                                   "item" $item
-                                                                  "name" $name) | nindent 0 -}}
+                                                                  "name" $name) | indent 0 -}}
         {{- end -}}
       {{- end -}}
     {{- end -}}
@@ -20,7 +20,7 @@
       {{- range $index, $vct := $root.Values.volumeClaimTemplates -}}
         {{- include "ix.v1.common.container.volumeMount"  (dict "root" $root
                                                                 "item" $vct
-                                                                "name" (toString $index)) | nindent 0 -}}
+                                                                "name" (toString $index)) | indent 0 -}}
       {{- end -}}
     {{- end -}}
   {{- else if not $isMainContainer -}}

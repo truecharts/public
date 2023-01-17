@@ -105,7 +105,7 @@ tests:
       - isNotNull:
           path: spec.template.spec.containers[0]
       - isNull:
-          path: spec.template.spec.initContainers[0]
+          path: spec.template.spec.initContainers
 
   - it: should pass with enabled true from tpl defined in upgrade container
     documentIndex: *deploymentDoc
@@ -120,7 +120,7 @@ tests:
       - isNotNull:
           path: spec.template.spec.containers[0]
       - isNotNull:
-          path: spec.template.spec.initContainers[0]
+          path: spec.template.spec.initContainers
 
   - it: should pass with tty and stdin defined in upgrade container
     documentIndex: *deploymentDoc
