@@ -1,0 +1,357 @@
+# Include{groups}
+portals:
+  open:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+questions:
+  - variable: portal
+    group: "Container Image"
+    label: "Configure Portal Button"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          description: "enable the portal button"
+          schema:
+            hidden: true
+            editable: false
+            type: boolean
+            default: true
+# Include{global}
+  - variable: controller
+    group: "Controller"
+    label: ""
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: advanced
+          label: "Show Advanced Controller Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: type
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Controller Type"
+                schema:
+                  type: string
+                  default: "deployment"
+                  required: true
+                  enum:
+                    - value: "deployment"
+                      description: "Deployment"
+                    - value: "statefulset"
+                      description: "Statefulset"
+                    - value: "daemonset"
+                      description: "Daemonset"
+                  enum:
+                    - value: "Recreate"
+                      description: "Recreate: Kill existing pods before creating new ones"
+                    - value: "RollingUpdate"
+                      description: "RollingUpdate: Create new pods and then kill old ones"
+                    - value: "OnDelete"
+                      description: "(Legacy) OnDelete: ignore .spec.template changes"
+# Include{controllerExpert}
+  - variable: tfa-auth-options
+    group: App Configuration
+    label: Auth Options
+    schema:
+      type: dict
+      attrs:
+        - variable: operation-mode
+          label: Operation mode
+          description: Use auth host if using subdomains. In turn, you have to route the given FQDN to the service.
+          schema:
+            type: string
+            default: "overlay"
+            enum:
+              - value: overlay
+                description: Overlay
+              - value: auth-host
+                description: Auth host
+        - variable: auth-host
+          label: Auth host
+          description: Single host to use when returning from 3rd party auth.
+          show_if: [["operation-mode", "=", "auth-host"]]
+          schema:
+            type: string
+            default: ""
+        - variable: url-path
+          label: Callback URL Path
+          show_if: [["operation-mode", "=", "overlay"]]
+          schema:
+            type: string
+            default: "/_oauth"
+        - variable: default-action
+          label: Default action
+          schema:
+            type: string
+            default: "auth"
+            enum:
+              - "auth"
+              - "allow"
+        - variable: default-provider
+          label: Default provider
+          schema:
+            type: string
+            default: "auth"
+            enum:
+              - "google"
+              - "oidc"
+              - "generic-oauth"
+        - variable: domain
+          label: Domains
+          description: Only allow given email domains.
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: cookie-domain-host
+                label: Host
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+        - variable: whitelist
+          label: Whitelist
+          description: Only allow given email addresses.
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: cookie-domain-host
+                label: Host
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+        - variable: logout-redirect
+          label: Logout redirect
+          description: URL to redirect to following logout.
+          schema:
+            type: string
+            default: ""
+  - variable: tfa-cookie-options
+    group: App Configuration
+    label: Cookie Options
+    schema:
+      type: dict
+      attrs:
+        - variable: cookie-domain
+          label: Cookie domain hosts
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: cookie-domain-host
+                label: Host
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+        - variable: cookie-name
+          label: Cookie name
+          schema:
+            type: string
+            default: "_forward_auth"
+        - variable: csrf-cookie-name
+          label: CSRF cookie name
+          schema:
+            type: string
+            default: "_forward_auth_csrf"
+        - variable: lifetime
+          label: Lifetime
+          description: Lifetime in seconds.
+          schema:
+            type: int
+            default: 43200
+        - variable: insecure-cookie
+          label: Use insecure cookies
+          schema:
+            type: boolean
+            default: false
+  - variable: tfa-app-options
+    group: App Configuration
+    label: Application Options
+    schema:
+      type: dict
+      attrs:
+        - variable: secret
+          label: Secret
+          description: Mandatory, can be any string.
+          schema:
+            type: string
+            default: ""
+            required: true
+        - variable: port
+          label: Port
+          schema:
+            type: int
+            default: 4181
+        - variable: log-level
+          label: Log level
+          schema:
+            type: string
+            default: "warn"
+            enum:
+              - "trace"
+              - "debug"
+              - "info"
+              - "warn"
+              - "error"
+              - "fatal"
+              - "panic"
+        - variable: log-format
+          label: Log format
+          schema:
+            type: string
+            default: "rating"
+            enum:
+              - "text"
+              - "json"
+              - "pretty"
+# Include{fixedEnv}
+# Include{containerConfig}
+# Include{serviceRoot}
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 4181
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: enabled
+                                  label: "Enable the port"
+                                  schema:
+                                    type: boolean
+                                    default: true
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: "HTTP"
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 4181
+# Include{serviceExpertRoot}
+            default: false
+# Include{serviceExpert}
+# Include{serviceList}
+# Include{ingressRoot}
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressExpert}
+# Include{ingressList}
+  - variable: advancedSecurity
+    label: "Show Advanced Security Settings"
+    group: "Security and Permissions"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: securityContext
+          label: "Security Context"
+          schema:
+            type: dict
+            attrs:
+              - variable: privileged
+                label: "Privileged mode"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: "ReadOnly Root Filesystem"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: allowPrivilegeEscalation
+                label: "Allow Privilege Escalation"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: "runAsNonRoot"
+                schema:
+                  type: boolean
+                  default: true
+# Include{securityContextAdvanced}
+# Include{podSecurityContextRoot}
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 568
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: "The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 568
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
+# Include{podSecurityContextAdvanced}
+# Include{resources}
+# Include{advanced}
+# Include{addons}
+# Include{codeserver}
+# Include{promtail}
+# Include{netshoot}
+# Include{vpn}

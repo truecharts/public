@@ -1,0 +1,13 @@
+image:
+  repository: tccr.io/truecharts/traefik-forward-auth
+  pullPolicy: IfNotPresent
+  tag: CHARTTAG
+
+env: {}
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 4181
+        port: 4181
