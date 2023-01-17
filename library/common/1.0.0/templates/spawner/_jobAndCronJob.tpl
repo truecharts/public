@@ -1,5 +1,33 @@
 {{- define "ix.v1.common.spawner.jobAndCronJob" -}}
-  {{- range $jobName, $job := .Values.jobs -}}
+  {{- $jobs := dict -}}
+
+  {{- if eq .Values.controller.type "Job" -}}
+    {{- $jobValues := dict -}}
+
+    {{- $_ := set $jobValues "enabled" true -}}
+    {{- $_ := set $jobValues "podSpec" dict -}}
+
+    {{- if hasKey .Values "cron" -}}
+      {{- $_ := set $jobValues "cron" .Values.cron -}}
+    {{- end -}}
+
+    {{- $_ := set $jobValues.podSpec "containers" dict -}}
+    {{- $_ := set $jobValues.podSpec.containers "main" .Values -}}
+    {{- $_ := set $jobValues.podSpec.containers.main "enabled" "true" -}}
+
+    {{- $_ := unset $jobValues.podSpec.containers.main "probes" -}}
+    {{- $_ := unset $jobValues.podSpec.containers.main "lifecycle" -}}
+
+    {{- if not $jobValues.nameOverride -}}
+      {{- $_ := set $jobValues "nameOverride" (include "ix.v1.common.names.fullname" $) -}}
+    {{- end -}}
+
+    {{- $_ := set $jobs "main" $jobValues -}}
+  {{- else -}}
+    {{- $jobs = .Values.jobs -}}
+  {{- end -}}
+
+  {{- range $jobName, $job := $jobs -}}
     {{- if $job.enabled -}}
 
       {{- $jobValues := $job -}}
