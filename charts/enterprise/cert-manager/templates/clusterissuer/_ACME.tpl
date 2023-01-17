@@ -23,9 +23,11 @@ spec:
           apiTokenSecretRef:
             name: {{ .name }}-clusterissuer-secret
             key: cf-api-token
-         {{- else .cfapikey }}
+         {{- else if .cfapikey }}
             name: {{ .name }}-clusterissuer-secret
             key: cf-api-key
+         {{ else }}
+         {{- fail "A cloudflare API key or token is required" }}
          {{- end }}
       {{- else if eq .type "route53" }}
         route53:
@@ -37,6 +39,8 @@ spec:
           secretAccessKeySecretRef:
             name: prod-route53-credentials-secret
             key: route53-secret-access-key
+    {{- else }}
+    {{- fail "No correct ACME type entered..." }}
     {{- end }}
 
 
