@@ -39,6 +39,10 @@ questions:
                             description: Letsencrypt-Production
                           - value: 'https://acme-staging-v02.api.letsencrypt.org/directory'
                             description: Letsencrypt-Staging
+                          - value: 'https://api.buypass.no/acme-v02/directory'
+                            description: BuyPass-Production
+                          - value: 'https://api.test4.buypass.no/acme-v02/directory'
+                            description: BuyPass-Staging
                           - value: custom
                             description: Custom
                     - variable: customServer
