@@ -29,8 +29,6 @@ spec:
               /bin/sh <<'EOF'
               kubectl wait --namespace metallb-system --for=condition=ready pod --selector=app=metallb --timeout=90s || echo "metallb-system wait failed..."
               kubectl wait --namespace cert-manager --for=condition=ready pod --selector=app=cert-manager --timeout=90s || echo "cert-manager wait failed..."
-              kubectl wait --namespace cert-manager-webhook --for=condition=ready pod --selector=app=cert-manager --timeout=90s || echo "cert-manager-webhook wait failed..."
-              kubectl wait --namespace cert-manager-cainjector --for=condition=ready pod --selector=app=cert-manager --timeout=90s || echo "cert-manager-cainjector wait failed..."
               cmctl check api --wait=2m
               EOF
           volumeMounts:
