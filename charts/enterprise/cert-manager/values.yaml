@@ -28,9 +28,9 @@ probes:
 clusterIssuer:
   selfSigned:
     enabled: true
-    name: "selfSigned"
+    name: "selfsigned"
   CA: []
-  #   - name: myCA
+  #   - name: myca
   #     selfSigned: true
   #     selfSignedCommonName: "my-selfsigned-ca"
   #     # Used to manually define a CA-crt not used when selfSigned is enabled

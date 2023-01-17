@@ -28,7 +28,9 @@ spec:
             - |
               /bin/sh <<'EOF'
               kubectl wait --namespace cert-manager --for=condition=ready pod --selector=app=cert-manager --timeout=90s
-              sleep 10
+              kubectl describe endpoints cert-manager-webhook -n cert-manager | grep "  Addresses" | grep -v "<none>" || sleep 10
+              kubectl describe endpoints cert-manager-webhook -n cert-manager | grep "  Addresses" | grep -v "<none>" || sleep 10
+              kubectl describe endpoints cert-manager-webhook -n cert-manager | grep "  Addresses" | grep -v "<none>" || sleep 10
               EOF
       restartPolicy: OnFailure
           volumeMounts:

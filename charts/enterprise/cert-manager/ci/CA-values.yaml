@@ -1,8 +1,8 @@
 clusterIssuer:
   selfSigned:
     enabled: true
-    name: "selfSigned"
+    name: "selfsigned"
   CA:
-    - name: myCA
+    - name: myca
       selfSigned: true
       selfSignedCommonName: "my-selfsigned-ca"
