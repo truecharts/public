@@ -32,7 +32,6 @@ spec:
               kubectl describe endpoints cert-manager-webhook -n cert-manager | grep "  Addresses" | grep -v "<none>" || sleep 10
               kubectl describe endpoints cert-manager-webhook -n cert-manager | grep "  Addresses" | grep -v "<none>" || sleep 10
               EOF
-      restartPolicy: OnFailure
           volumeMounts:
             - name: {{ $fullName }}-manifests-temp
               mountPath: /tmp
