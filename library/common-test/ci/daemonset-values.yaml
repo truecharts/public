@@ -9,8 +9,6 @@ controller:
   # -- Set the controller type.
   # Valid options are: Deployment | DaemonSet | StatefulSet
   type: DaemonSet
-  # -- Number of desired pods
-  replicas: 2
 
 service:
   main:
