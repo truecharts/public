@@ -6,7 +6,7 @@ image:
 someImage:
   repository: traefik/whoami
   tag: latest
-  pullPolicy: Never
+  pullPolicy: IfNotPresent
 
 service:
   main:
@@ -22,7 +22,7 @@ args:
 additionalContainers:
   some-name:
     imageSelector: someImage
-    pullPolicy: Never
+    pullPolicy: IfNotPresent
     args:
       - --port
       - "8081"
@@ -45,7 +45,7 @@ additionalContainers:
 initContainers:
   some-name:
     imageSelector: someImage
-    pullPolicy: Never
+    pullPolicy: IfNotPresent
     command:
       - /bin/sh
       - -c
@@ -53,7 +53,7 @@ initContainers:
 systemContainers:
   some-name:
     imageSelector: someImage
-    pullPolicy: Never
+    pullPolicy: IfNotPresent
     command:
       - /bin/sh
       - -c
@@ -61,7 +61,7 @@ systemContainers:
 installContainers:
   some-name:
     imageSelector: someImage
-    pullPolicy: Never
+    pullPolicy: IfNotPresent
     command:
       - /bin/sh
       - -c
