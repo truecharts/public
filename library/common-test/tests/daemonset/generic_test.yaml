@@ -1,0 +1,61 @@
+suite: daemonset generic test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with controller set to DaemonSet
+    documentIndex: &daemonsetDoc 0
+    set:
+      controller.type: DaemonSet
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: DaemonSet
+      - isAPIVersion:
+          of: apps/v1
+
+
+  - it: should pass with podSecurityContext changed
+    documentIndex: *daemonsetDoc
+    set:
+      controller.type: DaemonSet
+      podSecurityContext:
+        fsGroup: 0
+        fsGroupChangePolicy: Always
+        supplementalGroups:
+          - 1000
+    asserts:
+      - equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 0
+            fsGroupChangePolicy: Always
+            supplementalGroups:
+              - 1000
+
+
+  - it: should pass with podSecurityContext changed
+    documentIndex: *daemonsetDoc
+    set:
+      controller.type: DaemonSet
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        capabilities:
+          add:
+            - something
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].securityContext
+          value:
+            allowPrivilegeEscalation: false
+            privileged: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 1000
+            runAsGroup: 1000
+            capabilities:
+              add:
+                - something
+              drop:
+                - ALL
