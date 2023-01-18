@@ -1,5 +1,4 @@
-{{- define "certmanager.metrics" -}}
-{{- if .Values.metrics.enabled }}
+{{- define "certmanager.prometheusrule" -}}
 {{- if and .Values.metrics.enabled .Values.metrics.prometheusRule.enabled }}
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
