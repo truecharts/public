@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/jitsi-web
   pullPolicy: IfNotPresent
-  tag: 8138@sha256:839443339eda77c350a98cba9ee4f2e148d1f33e3a51ab2b2fd3999978a1cef5
+  tag: 8218@sha256:55785fdc9b4483a4f75d2493241d5e3403d30fdf34471200fb0b299a7caeee28
 
 prosodyImage:
   repository: tccr.io/truecharts/jitsi-prosody
-  tag: 8138@sha256:e50bf3e11dfdb705a3259fcce1f2b7ffe5e910556020cc0f4f76f9a2fbe731a4
+  tag: 8218@sha256:c457cdd66e52f331fd210482d0ede35b60c5805130ddc000d8b80fb25eeb02fb
 
 jicofoImage:
   repository: tccr.io/truecharts/jitsi-jicofo
@@ -13,7 +13,7 @@ jicofoImage:
 
 jvbImage:
   repository: tccr.io/truecharts/jitsi-jvb
-  tag: 8138@sha256:e881c46467f59287df37ef1ba76e1467e8989328cee642840c06bf7cdff7864c
+  tag: 8218@sha256:13fe7447df768ea2967859824da4f98090c5c39ede139f8e93c483501beb615f
 
 securityContext:
   readOnlyRootFilesystem: false
