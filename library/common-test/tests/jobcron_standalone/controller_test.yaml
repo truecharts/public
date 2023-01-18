@@ -1,0 +1,15 @@
+suite: cronjob strategy test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with strategy changed in cronjob
+    documentIndex: &cronJobDoc 2
+    set:
+      controller:
+        type: CronJob
+        schedule: "* * * * *"
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: CronJob

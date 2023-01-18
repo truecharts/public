@@ -19,10 +19,10 @@
       {{- include "ix.v1.common.daemonset" . | nindent 0 -}}
     {{- else if eq .Values.controller.type "StatefulSet" -}}
       {{- include "ix.v1.common.statefulset" . | nindent 0 -}}
-    {{- else if eq .Values.controller.type "Job" -}}
+    {{- else if (mustHas .Values.controller.type (list "Job" "CronJob")) -}}
       {{/* Pass, it will render from the spawner.jobAndCronJob bellow */}}
     {{- else -}}
-      {{- fail (printf "Not a valid controller.type (%s). Valid options are Deployment, DaemonSet, StatefulSet, Job" .Values.controller.type) -}}
+      {{- fail (printf "Not a valid controller.type (%s). Valid options are Deployment, DaemonSet, StatefulSet, Job, CronJob" .Values.controller.type) -}}
     {{- end -}}
   {{- end -}}
 
