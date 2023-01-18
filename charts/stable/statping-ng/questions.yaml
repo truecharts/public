@@ -17,49 +17,76 @@ questions:
       attrs:
         - variable: admin_user
           label: Admin User
+          description: Username for administrator account
           schema:
             type: string
             required: true
             default: ""
         - variable: admin_pass
           label: Admin Password
+          description: Password for administrator account
           schema:
             type: string
             required: true
+            private: true
             default: ""
         - variable: admin_email
           label: Admin Email
+          description: E-mail for administrator account
           schema:
             type: string
             required: true
             default: ""
         - variable: name
           label: Name
+          description: Set a name for the Statping status page
           schema:
             type: string
             default: Statping Example
         - variable: description
           label: Description
+          description: Set a description for the Statping status page
           schema:
             type: string
             default: This is a Statping instance deployed as Helm chart
         - variable: domain
           label: Domain
+          description: Set a URL for the Statping status page
           schema:
             type: string
             default: ""
         - variable: language
           label: Language
+          description: Language to use
           schema:
             type: string
-            default: ""
+            default: en
+            enum:
+              - value: en
+                description: EN
+              - value: fr
+                description: FR
+              - value: it
+                description: IT
+              - value: ru
+                description: RU
+              - value: zh
+                description: ZH
+              - value: de
+                description: DE
+              - value: ko
+                description: KO
+              - value: ja
+                description: JA
         - variable: remove_after
           label: Remove After
+          description: Automatically delete records after time
           schema:
             type: string
             default: ""
         - variable: cleanup_interval
           label: Cleanup Interval
+          description: Interval to check for old records
           schema:
             type: string
             default: ""
@@ -70,11 +97,25 @@ questions:
             default: true
         - variable: allow_reports
           label: Allow Reports
+          description: Send Statping anonymous error reports
+          schema:
+            type: boolean
+            default: false
+        - variable: disable_logs
+          label: Disable Logs
+          description: Disable logs from appearing and writing to disk
+          schema:
+            type: boolean
+            default: false
+        - variable: disable_colors
+          label: Disable Colors
+          description: Disable colors in terminal logs
           schema:
             type: boolean
             default: false
         - variable: sample_data
           label: Sample Data
+          description: Insert sample services, groups and more
           schema:
             type: boolean
             default: false

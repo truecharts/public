@@ -37,6 +37,9 @@ data:
   SAMPLE_DATA: {{ .Values.statping.sample_data | quote }}
   ALLOW_REPORTS: {{ .Values.statping.allow_reports | quote }}
   USE_CDN: {{ .Values.statping.use_cdn | quote }}
+  DISABLE_LOGS: {{ .Values.statping.disable_logs | quote }}
+  DISABLE_COLORS: {{ .Values.statping.disable_colors | quote }}
+
   {{- with .Values.statping.remove_after }}
   REMOVE_AFTER: {{ . | quote }}
   {{- end }}
