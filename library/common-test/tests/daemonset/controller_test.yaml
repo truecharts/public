@@ -1,21 +1,21 @@
-suite: statefulset strategy test
+suite: daemonset strategy test
 templates:
   - common.yaml
 tests:
-  - it: should pass with strategy changed in StatefulSet
-    documentIndex: &statefulsetDoc 0
+  - it: should pass with strategy changed in DaemonSet
+    documentIndex: &dameonsetDoc 0
     set:
       controller:
-        type: StatefulSet
+        type: DaemonSet
         strategy: OnDelete
         rollingUpdate:
-          partition: 5
+          surge: 5
           unavailable: 6
     asserts:
       - hasDocuments:
           count: 3
       - isKind:
-          of: StatefulSet
+          of: DaemonSet
       - equal:
           path: spec.updateStrategy
           value:
@@ -23,14 +23,14 @@ tests:
       - isNull:
           path: spec.updateStrategy.rollingUpdate
 
-  - it: should pass with strategy changed in StatefulSet
-    documentIndex: *statefulsetDoc
+  - it: should pass with strategy changed in DaemonSet
+    documentIndex: *dameonsetDoc
     set:
       controller:
-        type: StatefulSet
+        type: DaemonSet
         strategy: RollingUpdate
         rollingUpdate:
-          partition: 5
+          surge: 5
           unavailable: 6
     asserts:
       - equal:
@@ -38,37 +38,26 @@ tests:
           value:
             type: RollingUpdate
             rollingUpdate:
-              partition: 5
+              maxSurge: 5
               maxUnavailable: 6
 
   - it: should fail with wrong strategy
-    documentIndex: *statefulsetDoc
+    documentIndex: *dameonsetDoc
     set:
       controller:
-        type: StatefulSet
+        type: DaemonSet
         strategy: not_valid_strategy
     asserts:
       - failedTemplate:
-          errorMessage: Not a valid strategy type for StatefulSet (not_valid_strategy)
+          errorMessage: Not a valid strategy type for DaemonSet (not_valid_strategy)
 
   - it: should pass with revisionHistoryLimit changed
-    documentIndex: *statefulsetDoc
+    documentIndex: *dameonsetDoc
     set:
       controller:
-        type: StatefulSet
+        type: DaemonSet
         revisionHistoryLimit: 1
     asserts:
       - equal:
           path: spec.revisionHistoryLimit
           value: 1
-
-  - it: should pass with replicas changed
-    documentIndex: *statefulsetDoc
-    set:
-      controller:
-        type: StatefulSet
-        replicas: 6
-    asserts:
-      - equal:
-          path: spec.replicas
-          value: 6

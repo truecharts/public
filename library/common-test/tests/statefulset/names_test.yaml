@@ -1,9 +1,11 @@
-suite: deployment name test
+suite: statefulset name test
 templates:
   - common.yaml
 tests:
   - it: should pass with default values
-    documentIndex: &deploymentDoc 0
+    documentIndex: &statefulsetDoc 0
+    set:
+      controller.type: StatefulSet
     asserts:
       - hasDocuments:
           count: 3
@@ -14,8 +16,9 @@ tests:
           value: RELEASE-NAME-common-test
 
   - it: should pass with nameOverride
-    documentIndex: *deploymentDoc
+    documentIndex: *statefulsetDoc
     set:
+      controller.type: StatefulSet
       nameOverride: overrodeName
     asserts:
       - equal:
@@ -23,8 +26,9 @@ tests:
           value: RELEASE-NAME-overrodeName
 
   - it: should pass with global.nameOverride
-    documentIndex: *deploymentDoc
+    documentIndex: *statefulsetDoc
     set:
+      controller.type: StatefulSet
       nameOverride: overrodeName
       global:
         nameOverride: globalOverrodeName

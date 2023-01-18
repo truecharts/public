@@ -78,3 +78,23 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Not a valid strategy type for Deployment (not_valid_strategy)
+
+  - it: should pass with revisionHistoryLimit changed
+    documentIndex: *deploymentDoc
+    set:
+      controller:
+        revisionHistoryLimit: 1
+    asserts:
+      - equal:
+          path: spec.revisionHistoryLimit
+          value: 1
+
+  - it: should pass with replicas changed
+    documentIndex: *deploymentDoc
+    set:
+      controller:
+        replicas: 6
+    asserts:
+      - equal:
+          path: spec.replicas
+          value: 6

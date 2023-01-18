@@ -21,9 +21,6 @@ metadata:
 spec:
   revisionHistoryLimit: {{ .Values.controller.revisionHistoryLimit }}
   replicas: {{ .Values.controller.replicas }}
-  selector:
-    matchLabels:
-      {{- include "ix.v1.common.labels.selectorLabels" . | nindent 6 }}
   serviceName: {{ include "ix.v1.common.names.fullname" . }}
   {{- $strategy := default "RollingUpdate" .Values.controller.strategy -}}
   {{- if not (mustHas $strategy (list "OnDelete" "RollingUpdate")) -}}
@@ -40,7 +37,22 @@ spec:
       {{- with $rollingUpdate.partition }}
       partition: {{ . }}
       {{- end -}}
-    {{- end -}}
+    {{- end }}
+  selector:
+    matchLabels:
+      {{- include "ix.v1.common.labels.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with (mustMerge (include "ix.v1.common.labels.selectorLabels" . | fromYaml) (include "ix.v1.common.annotations.workload" . | fromYaml) (include "ix.v1.common.podAnnotations" . | fromYaml)) }}
+      annotations:
+        {{- . | toYaml | trim | nindent 8 }}
+      {{- end -}}
+      {{- with (mustMerge (include "ix.v1.common.labels.selectorLabels" . | fromYaml) (include "ix.v1.common.podLabels" . | fromYaml)) }}
+      labels:
+        {{- . | toYaml | trim | nindent 8 }}
+      {{- end }}
+    spec:
+      {{- include "ix.v1.common.controller.pod" $ | trim | nindent 6 }}
   {{- if .Values.volumeClaimTemplates }}
   volumeClaimTemplates:
     {{- range $index, $vct := .Values.volumeClaimTemplates }}
@@ -56,18 +68,6 @@ spec:
         requests:
           storage: {{ tpl ($vct.size | default $.Values.global.defaults.VCTSize) $ | quote }}
     {{- end -}}
-  {{- end }}
-  template:
-    metadata:
-      {{- with (mustMerge (include "ix.v1.common.labels.selectorLabels" . | fromYaml) (include "ix.v1.common.annotations.workload" . | fromYaml) (include "ix.v1.common.podAnnotations" . | fromYaml)) }}
-      annotations:
-        {{- . | toYaml | trim | nindent 8 }}
-      {{- end -}}
-      {{- with (mustMerge (include "ix.v1.common.labels.selectorLabels" . | fromYaml) (include "ix.v1.common.podLabels" . | fromYaml)) }}
-      labels:
-        {{- . | toYaml | trim | nindent 8 }}
-      {{- end }}
-    spec:
-      {{- include "ix.v1.common.controller.pod" $ | trim | nindent 6 }}
+  {{- end -}}
 {{- end }}
 {{/*TODO: unittests*/}}

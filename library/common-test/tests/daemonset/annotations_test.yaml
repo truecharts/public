@@ -1,16 +1,16 @@
-suite: statefulset annotation test
+suite: daemonset annotation test
 templates:
   - common.yaml
 tests:
   - it: should pass with default values
-    documentIndex: &statefulsetDoc 0
+    documentIndex: &daemonsetDoc 0
     set:
-      controller.type: StatefulSet
+      controller.type: DaemonSet
     asserts:
       - hasDocuments:
           count: 3
       - isKind:
-          of: StatefulSet
+          of: DaemonSet
       - isNull:
           path: metadata.annotations
       - matchRegex:
@@ -18,9 +18,9 @@ tests:
           pattern: "^[a-zA-Z0-9]{5}$"
 
   - it: should pass with controller and global annotations
-    documentIndex: *statefulsetDoc
+    documentIndex: *daemonsetDoc
     set:
-      controller.type: StatefulSet
+      controller.type: DaemonSet
       some_key: some_value
       controller:
         annotations:
@@ -45,9 +45,9 @@ tests:
           pattern: "^[a-zA-Z0-9]{5}$"
 
   - it: should pass with podAnnotations set
-    documentIndex: *statefulsetDoc
+    documentIndex: *daemonsetDoc
     set:
-      controller.type: StatefulSet
+      controller.type: DaemonSet
       some_key: some_value2
       podAnnotations:
         test: some_value

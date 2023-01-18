@@ -22,7 +22,7 @@ spec:
   revisionHistoryLimit: {{ .Values.controller.revisionHistoryLimit }}
   {{- $strategy := default "RollingUpdate" .Values.controller.strategy -}}
   {{- if not (mustHas $strategy (list "OnDelete" "RollingUpdate")) -}}
-    {{- fail (printf "Not a valid strategy type for Daemonset (%s)" $strategy) -}}
+    {{- fail (printf "Not a valid strategy type for DaemonSet (%s)" $strategy) -}}
   {{- end }}
   updateStrategy:
     type: {{ $strategy }}

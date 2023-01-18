@@ -1,0 +1,110 @@
+suite: daemonset default test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with controller set to DaemonSet
+    documentIndex: &daemonsetDoc 0
+    set:
+      controller.type: DaemonSet
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: DaemonSet
+      - isAPIVersion:
+          of: apps/v1
+      - equal:
+          path: spec.revisionHistoryLimit
+          value: 3
+      - equal:
+          path: spec.updateStrategy.type
+          value: RollingUpdate
+      - equal:
+          path: spec.template.spec.serviceAccountName
+          value: default
+      - equal:
+          path: spec.template.spec.hostNetwork
+          value: false
+      - equal:
+          path: spec.template.spec.terminationGracePeriodSeconds
+          value: 10
+      - equal:
+          path: spec.template.spec.enableServiceLinks
+          value: false
+      - equal:
+          path: spec.template.spec.terminationGracePeriodSeconds
+          value: 10
+      - isNull:
+          path: spec.template.spec.hostname
+      - equal:
+          path: spec.template.spec.dnsPolicy
+          value: ClusterFirst
+      - isNull:
+          path: spec.template.spec.dnsConfig
+      - isNull:
+          path: spec.template.spec.priorityClassName
+      - isNull:
+          path: spec.template.spec.schedulerName
+      - equal:
+          path: spec.template.spec.containers[0].name
+          value: RELEASE-NAME-common-test
+      - equal:
+          path: spec.template.spec.containers[0].image
+          value: repo:tag
+      - isNull:
+          path: spec.template.spec.containers[0].command
+      - isNull:
+          path: spec.template.spec.containers[0].args
+      - equal:
+          path: spec.template.spec.containers[0].tty
+          value: false
+      - equal:
+          path: spec.template.spec.containers[0].stdin
+          value: false
+      - isNull:
+          path: spec.template.spec.containers[0].lifecycle
+      - isNull:
+          path: spec.template.spec.containers[0].terminationMessagePath
+      - isNull:
+          path: spec.template.spec.containers[0].terminationMessagePolicy
+      - equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups: []
+      - equal:
+          path: spec.template.spec.containers[0].securityContext
+          value:
+            allowPrivilegeEscalation: false
+            privileged: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 568
+            runAsGroup: 568
+            capabilities:
+              add: []
+              drop:
+                - ALL
+      - equal:
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: UTC
+            - name: UMASK
+              value: "002"
+            - name: UMASK_SET
+              value: "002"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: void
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+      - equal:
+          path: spec.template.spec.containers[0].volumeMounts
+          value:
+            - mountPath: /shared
+              name: shared
+            - mountPath: /tmp
+              name: tmp
+            - mountPath: /var/logs
+              name: varlogs
