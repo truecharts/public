@@ -10,7 +10,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  PORT: {{ .Values.service.main.ports.main.port }}
+  PORT: {{ .Values.service.main.ports.main.port | quote }}
   DB_CONN: "postgres"
   DB_DATABASE: {{ .Values.postgresql.postgresqlDatabase | quote }}
   DB_USER: {{ .Values.postgresql.postgresqlUsername | quote }}
@@ -28,7 +28,7 @@ data:
   {{- end -}}
   {{- with .Values.statping.language }}
   LANGUAGE: {{ . | quote }}
-  {{- end -}}
+  {{- end }}
 
   ADMIN_USER: {{ .Values.statping.admin_user | quote }}
   ADMIN_PASS: {{ .Values.statping.admin_pass | quote }}
@@ -42,8 +42,8 @@ data:
 
   {{- with .Values.statping.remove_after }}
   REMOVE_AFTER: {{ . | quote }}
-  {{- end }}
+  {{- end -}}
   {{- with .Values.statping.cleanup_interval }}
   CLEANUP_INTERVAL: {{ . | quote }}
-  {{- end }}
+  {{- end -}}
 {{- end -}}
