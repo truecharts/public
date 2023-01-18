@@ -1,13 +1,5 @@
 {{- include "tc.common.loader.init" . }}
 
-{{- if hasKey .Values "metrics" -}}
-{{- if .Values.metrics.enabled -}}
-{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
-{{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
-{{- $_ := set .Values.podAnnotations "prometheus.io/port" (.Values.service.main.ports.main.port | toString) -}}
-{{- end -}}
-{{- end -}}
-
 {{- include "uptime.servicemonitor" . -}}
 {{- include "uptime.prometheusrule" . -}}
 
