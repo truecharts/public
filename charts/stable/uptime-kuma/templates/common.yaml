@@ -1,1 +1,15 @@
-{{ include "tc.common.loader.all" . }}
+{{- include "tc.common.loader.init" . }}
+
+{{- if hasKey .Values "metrics" -}}
+{{- if .Values.metrics.enabled -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/port" (.Values.service.metrics.ports.metrics.targetPort | quote) -}}
+{{- end -}}
+{{- end -}}
+
+{{- include "uptime.servicemonitor" . -}}
+{{- include "uptime.prometheusrule" . -}}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}

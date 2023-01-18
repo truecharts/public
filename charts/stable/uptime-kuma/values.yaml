@@ -20,6 +20,17 @@ service:
         port: 3001
         targetPort: 3001
 
+  # Metrics Services
+  metrics:
+    enabled: true
+    type: ClusterIP
+    ports:
+      metrics:
+        enabled: true
+        protocol: HTTP
+        port: 3002
+        targetPort: 3002
+
 persistence:
   config:
     enabled: true
