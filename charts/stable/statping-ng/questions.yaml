@@ -8,65 +8,73 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
+  - variable: statping
+    group: App Configuration
+    label: Statping Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: ADMIN_USER
-          label: "ADMIN_USER"
-          description: "Sets the ADMIN_USER env var"
+        - variable: admin_user
+          label: Admin User
           schema:
             type: string
-            default: "admin"
-        - variable: ADMIN_PASSWORD
-          label: "ADMIN_PASSWORD"
-          description: "Sets the ADMIN_PASSWORD env var"
+            required: true
+            default: ""
+        - variable: admin_pass
+          label: Admin Password
           schema:
             type: string
-            default: "changeme"
-        - variable: ADMIN_EMAIL
-          label: "ADMIN_EMAIL"
-          description: "Sets the ADMIN_EMAIL env var"
+            required: true
+            default: ""
+        - variable: admin_email
+          label: Admin Email
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: name
+          label: Name
+          schema:
+            type: string
+            default: Statping Example
+        - variable: description
+          label: Description
+          schema:
+            type: string
+            default: This is a Statping instance deployed as Helm chart
+        - variable: domain
+          label: Domain
           schema:
             type: string
             default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: NAME
-          label: "NAME"
-          description: "Sets the NAME env var"
-          schema:
-            type: string
-            default: "Statping Example"
-        - variable: DESCRIPTION
-          label: "DESCRIPTION"
-          description: "Sets the DESCRIPTION env var"
-          schema:
-            type: string
-            default: "This is a Statping instance deployed as Helm chart"
-        - variable: VIRTUAL_HOST
-          label: "VIRTUAL_HOST"
-          description: "Sets the VIRTUAL_HOST env var"
+        - variable: language
+          label: Language
           schema:
             type: string
             default: ""
-        - variable: USE_CDN
-          label: "USE_CDN"
-          description: "Sets the USE_CDN env var"
+        - variable: remove_after
+          label: Remove After
+          schema:
+            type: string
+            default: ""
+        - variable: cleanup_interval
+          label: Cleanup Interval
+          schema:
+            type: string
+            default: ""
+        - variable: use_cdn
+          label: Use CDN
+          schema:
+            type: boolean
+            default: true
+        - variable: allow_reports
+          label: Allow Reports
           schema:
             type: boolean
             default: false
-        - variable: DISABLE_LOGS
-          label: "DISABLE_LOGS"
-          description: "Sets the DISABLE_LOGS env var"
+        - variable: sample_data
+          label: Sample Data
           schema:
             type: boolean
             default: false
