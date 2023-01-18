@@ -1,0 +1,38 @@
+suite: daemonset name test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &daemonsetDoc 0
+    set:
+      controller.type: DaemonSet
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: DaemonSet
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test
+
+  - it: should pass with nameOverride
+    documentIndex: *daemonsetDoc
+    set:
+      controller.type: DaemonSet
+      nameOverride: overrodeName
+    asserts:
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-overrodeName
+
+  - it: should pass with global.nameOverride
+    documentIndex: *daemonsetDoc
+    set:
+      controller.type: DaemonSet
+      nameOverride: overrodeName
+      global:
+        nameOverride: globalOverrodeName
+    asserts:
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-globalOverrodeName

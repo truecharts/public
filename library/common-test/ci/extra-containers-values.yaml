@@ -3,6 +3,11 @@ image:
   pullPolicy: IfNotPresent
   tag: latest
 
+someImage:
+  repository: traefik/whoami
+  tag: latest
+  pullPolicy: IfNotPresent
+
 service:
   main:
     ports:
@@ -14,7 +19,49 @@ args:
   - --port
   - "8080"
 
-# TODO: Add extra containers
+additionalContainers:
+  some-name:
+    imageSelector: someImage
+    args:
+      - --port
+      - "8081"
+    probes:
+      liveness:
+        enabled: true
+        port: 8081
+        type: http
+        path: /
+      readiness:
+        enabled: true
+        port: 8081
+        type: http
+        path: /
+      startup:
+        enabled: true
+        port: 8081
+        type: http
+        path: /
+initContainers:
+  some-name:
+    imageSelector: someImage
+    command:
+      - /bin/sh
+      - -c
+      - echo "Hello World"
+systemContainers:
+  some-name:
+    imageSelector: someImage
+    command:
+      - /bin/sh
+      - -c
+      - echo "Hello World"
+installContainers:
+  some-name:
+    imageSelector: someImage
+    command:
+      - /bin/sh
+      - -c
+      - echo "Hello World"
 
 probes:
   liveness:

@@ -1,0 +1,63 @@
+suite: daemonset strategy test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with strategy changed in DaemonSet
+    documentIndex: &dameonsetDoc 0
+    set:
+      controller:
+        type: DaemonSet
+        strategy: OnDelete
+        rollingUpdate:
+          surge: 5
+          unavailable: 6
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: DaemonSet
+      - equal:
+          path: spec.updateStrategy
+          value:
+            type: OnDelete
+      - isNull:
+          path: spec.updateStrategy.rollingUpdate
+
+  - it: should pass with strategy changed in DaemonSet
+    documentIndex: *dameonsetDoc
+    set:
+      controller:
+        type: DaemonSet
+        strategy: RollingUpdate
+        rollingUpdate:
+          surge: 5
+          unavailable: 6
+    asserts:
+      - equal:
+          path: spec.updateStrategy
+          value:
+            type: RollingUpdate
+            rollingUpdate:
+              maxSurge: 5
+              maxUnavailable: 6
+
+  - it: should fail with wrong strategy
+    documentIndex: *dameonsetDoc
+    set:
+      controller:
+        type: DaemonSet
+        strategy: not_valid_strategy
+    asserts:
+      - failedTemplate:
+          errorMessage: Not a valid strategy type for DaemonSet (not_valid_strategy)
+
+  - it: should pass with revisionHistoryLimit changed
+    documentIndex: *dameonsetDoc
+    set:
+      controller:
+        type: DaemonSet
+        revisionHistoryLimit: 1
+    asserts:
+      - equal:
+          path: spec.revisionHistoryLimit
+          value: 1

@@ -1,0 +1,125 @@
+suite: statefulset vct test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with vct defined in StatefulSet
+    documentIndex: &statefulsetDoc 0
+    set:
+      controller.type: StatefulSet
+      volumeClaimTemplates:
+        data:
+          enabled: true
+          mountPath: "/bitnami/mariadb"
+    asserts:
+      - isKind:
+          of: StatefulSet
+      - equal:
+          path: spec.volumeClaimTemplates[0]
+          value:
+            metadata:
+              name: data
+            spec:
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 999Gi
+
+  - it: should pass with multiple vct defined in StatefulSet
+    documentIndex: *statefulsetDoc
+    set:
+      controller.type: StatefulSet
+      volumeClaimTemplates:
+        data:
+          enabled: true
+          mountPath: "/bitnami/mariadb"
+        other-data:
+          enabled: true
+          mountPath: "/bitnami/mariadb"
+    asserts:
+      - isKind:
+          of: StatefulSet
+      - equal:
+          path: spec.volumeClaimTemplates[0]
+          value:
+            metadata:
+              name: data
+            spec:
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 999Gi
+      - equal:
+          path: spec.volumeClaimTemplates[1]
+          value:
+            metadata:
+              name: other-data
+            spec:
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 999Gi
+      - equal:
+          path: spec.template.spec.containers[0].volumeMounts
+          value:
+            - mountPath: /shared
+              name: shared
+            - mountPath: /tmp
+              name: tmp
+            - mountPath: /var/logs
+              name: varlogs
+            - mountPath: /bitnami/mariadb
+              name: data
+            - mountPath: /bitnami/mariadb
+              name: other-data
+
+  - it: should pass with vct size changed in StatefulSet
+    documentIndex: *statefulsetDoc
+    set:
+      controller.type: StatefulSet
+      volumeClaimTemplates:
+        data:
+          enabled: true
+          size: 10Gi
+          mountPath: "/bitnami/mariadb"
+    asserts:
+      - isKind:
+          of: StatefulSet
+      - equal:
+          path: spec.volumeClaimTemplates[0]
+          value:
+            metadata:
+              name: data
+            spec:
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 10Gi
+
+  - it: should pass with accessMode changed in StatefulSet
+    documentIndex: *statefulsetDoc
+    set:
+      controller.type: StatefulSet
+      volumeClaimTemplates:
+        data:
+          enabled: true
+          size: 10Gi
+          accessMode: ReadWriteMany
+          mountPath: "/bitnami/mariadb"
+    asserts:
+      - isKind:
+          of: StatefulSet
+      - equal:
+          path: spec.volumeClaimTemplates[0]
+          value:
+            metadata:
+              name: data
+            spec:
+              accessModes:
+                - ReadWriteMany
+              resources:
+                requests:
+                  storage: 10Gi

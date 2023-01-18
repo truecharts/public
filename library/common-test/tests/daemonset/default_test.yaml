@@ -1,25 +1,24 @@
-suite: deployment default test
+suite: daemonset default test
 templates:
   - common.yaml
 tests:
-  - it: should pass with default values
-    documentIndex: &deploymentDoc 0
+  - it: should pass with controller set to DaemonSet
+    documentIndex: &daemonsetDoc 0
+    set:
+      controller.type: DaemonSet
     asserts:
       - hasDocuments:
           count: 3
       - isKind:
-          of: Deployment
+          of: DaemonSet
       - isAPIVersion:
           of: apps/v1
       - equal:
           path: spec.revisionHistoryLimit
           value: 3
       - equal:
-          path: spec.replicas
-          value: 1
-      - equal:
-          path: spec.strategy.type
-          value: Recreate
+          path: spec.updateStrategy.type
+          value: RollingUpdate
       - equal:
           path: spec.template.spec.serviceAccountName
           value: default

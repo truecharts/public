@@ -9,8 +9,7 @@
 
     {{/* If it's CronJob prepare the cron dict with enabled forced */}}
     {{- if eq $.Values.controller.type "CronJob" -}}
-      {{- $_ := set $jobValues "cron" dict -}}
-      {{- $_ := set $jobValues.cron $.Values.controller -}}
+      {{- $_ := set $jobValues "cron" $.Values.controller -}}
       {{- $_ := set $jobValues.cron "enabled" true -}}
     {{- end -}}
 

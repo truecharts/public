@@ -1,0 +1,14 @@
+suite: job strategy test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with strategy changed in job
+    documentIndex: &jobDoc 2
+    set:
+      controller:
+        type: Job
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: Job
