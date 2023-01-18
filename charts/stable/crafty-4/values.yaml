@@ -43,6 +43,14 @@ service:
         enabled: true
         port: 25565
         targetPort: 25565
+  bedrock:
+    enabled: true
+    ports:
+      bedrock:
+        enabled: true
+        port: 19132
+        protocol: UDP
+        targetPort: 19132
 
 persistence:
   config:
