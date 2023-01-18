@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "upstream"
+appVersion: "latest"
 deprecated: false
 description: Certificate management for Kubernetes
 home: https://truecharts.org/charts/enterprise/cert-manager
@@ -18,9 +18,10 @@ maintainers:
     url: https://truecharts.org
 name: cert-manager
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/enterprise/cert-manager
   - https://cert-manager.io/
 type: application
-version: 0.0.2
+version: 0.0.4
 annotations:
   truecharts.org/catagories: |
     - core
