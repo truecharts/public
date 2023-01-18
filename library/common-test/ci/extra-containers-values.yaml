@@ -3,8 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: latest
 
-someImage:
-  repository: traefik/whoami
+alpineImage:
+  repository: alpine
   tag: latest
   pullPolicy: IfNotPresent
 
@@ -21,7 +21,7 @@ args:
 
 additionalContainers:
   some-name:
-    imageSelector: someImage
+    imageSelector: image
     args:
       - --port
       - "8081"
@@ -43,21 +43,21 @@ additionalContainers:
         path: /
 initContainers:
   some-name:
-    imageSelector: someImage
+    imageSelector: alpineImage
     command:
       - /bin/sh
       - -c
       - echo "Hello World"
 systemContainers:
   some-name:
-    imageSelector: someImage
+    imageSelector: alpineImage
     command:
       - /bin/sh
       - -c
       - echo "Hello World"
 installContainers:
   some-name:
-    imageSelector: someImage
+    imageSelector: alpineImage
     command:
       - /bin/sh
       - -c
