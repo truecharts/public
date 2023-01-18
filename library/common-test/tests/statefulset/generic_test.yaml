@@ -59,3 +59,76 @@ tests:
                 - something
               drop:
                 - ALL
+
+  - it: should pass with multiple envs defined via tpl
+    documentIndex: *statefulsetDoc
+    set:
+      controller.type: StatefulSet
+      some_string: a_string
+      some_int: 123
+      some_bool: false
+      env:
+        ENVVAR: "{{ .Values.some_string }}"
+        ENVVAR2: "{{ .Values.some_int }}"
+        ENVVAR3: "{{ .Values.some_bool }}"
+    asserts:
+      - equal:
+          path: spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: "UTC"
+            - name: UMASK
+              value: "002"
+            - name: UMASK_SET
+              value: "002"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+            - name: ENVVAR
+              value: "a_string"
+            - name: ENVVAR2
+              value: "123"
+            - name: ENVVAR3
+              value: "false"
+
+  - it: should pass with image defined in init containers
+    documentIndex: *statefulsetDoc
+    set:
+      controller.type: StatefulSet
+      image:
+        repository: some-repo
+        tag: some-tag
+        pullPolicy: Always
+      someImage:
+        repository: some-other-repo
+        tag: some-other-tag
+        pullPolicy: Never
+      additionalContainers:
+        some-name:
+          imageSelector: someImage
+          pullPolicy: Never
+      initContainers:
+        some-name:
+          imageSelector: someImage
+          pullPolicy: Never
+      systemContainers:
+        some-name:
+          imageSelector: someImage
+          pullPolicy: Never
+      installContainers:
+        some-name:
+          imageSelector: someImage
+          pullPolicy: Never
+    asserts:
+      - isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            image: some-repo:some-tag
+            imagePullPolicy: Always
+      - lengthEqual:
+          path: spec.template.spec.containers
+          count: 2
+      - lengthEqual:
+          path: spec.template.spec.initContainers
+          count: 3

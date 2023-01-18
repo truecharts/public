@@ -3,6 +3,11 @@ image:
   pullPolicy: IfNotPresent
   tag: latest
 
+someImage:
+  repository: some-other-repo
+  tag: some-other-tag
+  pullPolicy: Never
+
 service:
   main:
     ports:
@@ -14,7 +19,22 @@ args:
   - --port
   - "8080"
 
-# TODO: Add extra containers
+additionalContainers:
+  some-name:
+    imageSelector: someImage
+    pullPolicy: Never
+initContainers:
+  some-name:
+    imageSelector: someImage
+    pullPolicy: Never
+systemContainers:
+  some-name:
+    imageSelector: someImage
+    pullPolicy: Never
+installContainers:
+  some-name:
+    imageSelector: someImage
+    pullPolicy: Never
 
 probes:
   liveness:
