@@ -4,7 +4,7 @@ image:
   tag: latest
 
 someImage:
-  repository: traefik/whoami
+  repository: hello-world
   tag: latest
   pullPolicy: IfNotPresent
 
@@ -21,7 +21,7 @@ args:
 
 additionalContainers:
   some-name:
-    imageSelector: someImage
+    imageSelector: image
     args:
       - --port
       - "8081"
@@ -44,24 +44,12 @@ additionalContainers:
 initContainers:
   some-name:
     imageSelector: someImage
-    command:
-      - /bin/sh
-      - -c
-      - echo "Hello World"
 systemContainers:
   some-name:
     imageSelector: someImage
-    command:
-      - /bin/sh
-      - -c
-      - echo "Hello World"
 installContainers:
   some-name:
     imageSelector: someImage
-    command:
-      - /bin/sh
-      - -c
-      - echo "Hello World"
 
 probes:
   liveness:

@@ -69,7 +69,7 @@ tests:
         type: not_valid_controller
     asserts:
       - failedTemplate:
-          errorMessage: Not a valid controller.type (not_valid_controller). Valid options are Deployment, DaemonSet, StatefulSet, Job
+          errorMessage: Not a valid controller.type (not_valid_controller). Valid options are Deployment, DaemonSet, StatefulSet, Job, CronJob
 
   - it: should fail with wrong strategy
     set:
