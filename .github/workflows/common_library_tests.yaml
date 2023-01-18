@@ -70,20 +70,12 @@ jobs:
 
       - name: Run Unit-tests
         shell: bash
-        env:
-          retries: 5
         run: |
-          x=$retries
-
-          while [ $x -gt 0 ];
-          do
-            if (helm plugin list | grep unittest); then
-              # If it succeeds set it to 1 and the next command will make it zero and exit the loop
-              x=1
-            fi
-            helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion} && x=1
-            x=$(($x-1))
-          done
+          # Retry helm plugin install
+          helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion} || \
+          helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion} || \
+          helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion} || \
+          helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion}
 
           # Run tests
           cd library/common-test/
