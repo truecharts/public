@@ -70,4 +70,3 @@ spec:
     {{- end -}}
   {{- end -}}
 {{- end }}
-{{/*TODO: unittests*/}}

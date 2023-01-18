@@ -52,4 +52,3 @@ spec:
     spec:
       {{- include "ix.v1.common.controller.pod" $ | trim | nindent 6 }}
 {{- end }}
-{{/*TODO: unittests*/}}

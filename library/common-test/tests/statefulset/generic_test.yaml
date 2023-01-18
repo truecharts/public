@@ -132,3 +132,98 @@ tests:
       - lengthEqual:
           path: spec.template.spec.initContainers
           count: 3
+
+  - it: should pass with added persistence
+    documentIndex: *statefulsetDoc
+    set:
+      controller.type: StatefulSet
+      persistence:
+        volume0:
+          type: pvc
+          enabled: true
+          mountPath: /pvc./path
+        volume1:
+          enabled: true
+          type: nfs
+          server: some.server.local
+          path: /nfs/path
+          mountPath: /nfs
+        volume2:
+          enabled: true
+          type: ixVolume
+          datasetName: ix-app
+          mountPath: /ixVol
+        volume3:
+          enabled: true
+          type: hostPath
+          hostPath: /mnt/pool/test
+          mountPath: /some/path
+        volume4:
+          enabled: true
+          type: emptyDir
+          medium: Memory
+          sizeLimit: 1Gi
+          mountPath: /temp-path
+        volume5:
+          type: secret
+          enabled: true
+          objectName: some_object_name
+          defaultMode: "0777"
+          mountPath: /secret-path
+        volume6:
+          type: configMap
+          enabled: true
+          objectName: some_object_name
+          defaultMode: "0777"
+          mountPath: /configmap-path
+      ixVolumes:
+        - /mnt/pool/ix-applications/ix-app
+    asserts:
+      - hasDocuments:
+          count: 4
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: volume0
+            persistentVolumeClaim:
+              claimName: RELEASE-NAME-common-test-volume0
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: volume1
+            nfs:
+              path: /nfs/path
+              server: some.server.local
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: volume2
+            hostPath:
+              path: /mnt/pool/ix-applications/ix-app
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: volume3
+            hostPath:
+              path: /mnt/pool/test
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: volume4
+            emptyDir:
+              medium: Memory
+              sizeLimit: 1Gi
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: volume5
+            secret:
+              defaultMode: 511
+              secretName: some_object_name
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: volume6
+            configMap:
+              defaultMode: 511
+              name: some_object_name
