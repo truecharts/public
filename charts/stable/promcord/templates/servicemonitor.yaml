@@ -14,7 +14,7 @@ spec:
     matchLabels:
       {{- include "tc.common.labels.selectorLabels" . | nindent 6 }}
   endpoints:
-    - port: metrics
+    - port: main
       {{- with .Values.metrics.serviceMonitor.interval }}
       interval: {{ . }}
       {{- end }}
