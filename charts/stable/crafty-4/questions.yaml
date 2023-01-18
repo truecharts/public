@@ -76,6 +76,28 @@ questions:
                               type: int
                               default: 25565
                               required: true
+        - variable: bedrock
+          label: Bedrock Service
+          description: Bedrock Service Port
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: bedrock
+                      label: Bedrock Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 19132
+                              required: true
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
