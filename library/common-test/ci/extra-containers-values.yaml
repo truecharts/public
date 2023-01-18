@@ -4,8 +4,8 @@ image:
   tag: latest
 
 someImage:
-  repository: some-other-repo
-  tag: some-other-tag
+  repository: traefik/whoami
+  tag: latest
   pullPolicy: Never
 
 service:
@@ -23,18 +23,49 @@ additionalContainers:
   some-name:
     imageSelector: someImage
     pullPolicy: Never
+    args:
+      - --port
+      - "8081"
+    probes:
+      liveness:
+        enabled: true
+        port: 8081
+        type: http
+        path: /
+      readiness:
+        enabled: true
+        port: 8081
+        type: http
+        path: /
+      startup:
+        enabled: true
+        port: 8081
+        type: http
+        path: /
 initContainers:
   some-name:
     imageSelector: someImage
     pullPolicy: Never
+    command:
+      - /bin/sh
+      - -c
+      - echo "Hello World"
 systemContainers:
   some-name:
     imageSelector: someImage
     pullPolicy: Never
+    command:
+      - /bin/sh
+      - -c
+      - echo "Hello World"
 installContainers:
   some-name:
     imageSelector: someImage
     pullPolicy: Never
+    command:
+      - /bin/sh
+      - -c
+      - echo "Hello World"
 
 probes:
   liveness:
