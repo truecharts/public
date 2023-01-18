@@ -3,8 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: latest
 
-alpineImage:
-  repository: alpine
+someImage:
+  repository: hello-world
   tag: latest
   pullPolicy: IfNotPresent
 
@@ -43,21 +43,21 @@ additionalContainers:
         path: /
 initContainers:
   some-name:
-    imageSelector: alpineImage
+    imageSelector: someImage
     command:
       - /bin/sh
       - -c
       - echo "Hello World"
 systemContainers:
   some-name:
-    imageSelector: alpineImage
+    imageSelector: someImage
     command:
       - /bin/sh
       - -c
       - echo "Hello World"
 installContainers:
   some-name:
-    imageSelector: alpineImage
+    imageSelector: someImage
     command:
       - /bin/sh
       - -c
