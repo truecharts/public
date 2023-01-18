@@ -13,12 +13,14 @@ podSecurityContext:
 security:
   PUID: 0
 
+env:
+  UPTIME_KUMA_PORT: "{{ .Values.service.main.ports.main.port }}"
+
 service:
   main:
     ports:
       main:
         port: 3001
-        targetPort: 3001
 
 persistence:
   config:
