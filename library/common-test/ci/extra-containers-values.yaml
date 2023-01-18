@@ -22,7 +22,6 @@ args:
 additionalContainers:
   some-name:
     imageSelector: someImage
-    pullPolicy: IfNotPresent
     args:
       - --port
       - "8081"
@@ -45,7 +44,6 @@ additionalContainers:
 initContainers:
   some-name:
     imageSelector: someImage
-    pullPolicy: IfNotPresent
     command:
       - /bin/sh
       - -c
@@ -53,7 +51,6 @@ initContainers:
 systemContainers:
   some-name:
     imageSelector: someImage
-    pullPolicy: IfNotPresent
     command:
       - /bin/sh
       - -c
@@ -61,7 +58,6 @@ systemContainers:
 installContainers:
   some-name:
     imageSelector: someImage
-    pullPolicy: IfNotPresent
     command:
       - /bin/sh
       - -c
