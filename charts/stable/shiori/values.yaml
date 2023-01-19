@@ -14,6 +14,14 @@ service:
         port: 10098
         targetPort: 8080
 
+installContainers:
+  initdb:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: config
+        mountPath: "/data"
+    command: ["shiori", "migrate"]
+
 persistence:
   data:
     enabled: true
