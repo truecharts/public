@@ -13,23 +13,14 @@ podSecurityContext:
 security:
   PUID: 0
 
+env:
+  UPTIME_KUMA_PORT: "{{ .Values.service.main.ports.main.port }}"
+
 service:
   main:
     ports:
       main:
         port: 3001
-        targetPort: 3001
-
-  # Metrics Services
-  metrics:
-    enabled: true
-    type: ClusterIP
-    ports:
-      metrics:
-        enabled: true
-        protocol: HTTP
-        port: 3002
-        targetPort: 3002
 
 persistence:
   config:
