@@ -13,3 +13,40 @@ tests:
           count: 3
       - isKind:
           of: CronJob
+
+  - it: should pass with job options changed in cronJob
+    documentIndex: *cronJobDoc
+    set:
+      controller:
+        type: CronJob
+        backoffLimit: 11
+        ttlSecondsAfterFinished: 22
+        activeDeadlineSeconds: 33
+        parallelism: 44
+        completions: 55
+        completionMode: Indexed
+        schedule: "* * * * *"
+        concurrencyPolicy: Allow
+        failedJobsHistoryLimit: 7
+        successfulJobsHistoryLimit: 11
+        timezone: "America/New_York"
+        startingDeadlineSeconds: 13
+    asserts:
+      - isSubset:
+          path: spec
+          content:
+            schedule: "* * * * *"
+            timeZone: "America/New_York"
+            concurrencyPolicy: Allow
+            failedJobsHistoryLimit: 7
+            successfulJobsHistoryLimit: 11
+            startingDeadlineSeconds: 13
+      - isSubset:
+          path: spec.jobTemplate.spec
+          content:
+            backoffLimit: 11
+            ttlSecondsAfterFinished: 22
+            activeDeadlineSeconds: 33
+            parallelism: 44
+            completions: 55
+            completionMode: Indexed

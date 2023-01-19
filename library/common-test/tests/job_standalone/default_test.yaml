@@ -1,56 +1,53 @@
-suite: statefulset default test
+suite: job default test
 templates:
   - common.yaml
 tests:
-  - it: should pass with controller set to StatefulSet
-    documentIndex: &statefulsetDoc 0
+  - it: should pass with controller set to Job
+    documentIndex: &jobDoc 2
     set:
-      controller.type: StatefulSet
+      controller.type: Job
     asserts:
       - hasDocuments:
           count: 3
       - isKind:
-          of: StatefulSet
+          of: Job
       - isAPIVersion:
-          of: apps/v1
+          of: batch/v1
       - equal:
-          path: spec.serviceName
-          value: RELEASE-NAME-common-test
+          path: spec.backoffLimit
+          value: 6
+      - isNull:
+          path: spec.ttlSecondsAfterFinished
+      - isNull:
+          path: spec.activeDeadlineSeconds
+      - isNull:
+          path: spec.parallelism
+      - isNull:
+          path: spec.completions
       - equal:
-          path: spec.revisionHistoryLimit
-          value: 3
-      - equal:
-          path: spec.replicas
-          value: 1
-      - equal:
-          path: spec.updateStrategy.type
-          value: RollingUpdate
-      - equal:
-          path: spec.template.spec.serviceAccountName
-          value: default
+          path: spec.completionMode
+          value: NonIndexed
       - equal:
           path: spec.template.spec.hostNetwork
           value: false
       - equal:
-          path: spec.template.spec.terminationGracePeriodSeconds
-          value: 10
-      - equal:
           path: spec.template.spec.enableServiceLinks
           value: false
-      - equal:
-          path: spec.template.spec.terminationGracePeriodSeconds
-          value: 10
       - isNull:
-          path: spec.template.spec.hostname
+          path: spec.template.spec.serviceAccountName
       - equal:
-          path: spec.template.spec.dnsPolicy
-          value: ClusterFirst
+          path: spec.template.spec.restartPolicy
+          value: Never
       - isNull:
-          path: spec.template.spec.dnsConfig
+          path: spec.template.spec.schedulerName
       - isNull:
           path: spec.template.spec.priorityClassName
       - isNull:
-          path: spec.template.spec.schedulerName
+          path: spec.template.spec.hostname
+      - isNull:
+          path: spec.template.spec.dnsPolicy
+      - isNull:
+          path: spec.template.spec.dnsConfig
       - isNull:
           path: spec.template.spec.hostAliases
       - isNull:
@@ -61,9 +58,11 @@ tests:
           path: spec.template.spec.imagePullSecrets
       - isNull:
           path: spec.template.spec.runtimeClassName
+      - isNull:
+          path: spec.template.spec.terminationGracePeriodSeconds
       - equal:
           path: spec.template.spec.containers[0].name
-          value: RELEASE-NAME-common-test
+          value: RELEASE-NAME-common-test-job-main
       - equal:
           path: spec.template.spec.containers[0].image
           value: repo:tag
@@ -124,3 +123,12 @@ tests:
               name: tmp
             - mountPath: /var/logs
               name: varlogs
+      - equal:
+          path: spec.template.spec.volumes
+          value:
+            - name: shared
+              emptyDir: {}
+            - name: tmp
+              emptyDir: {}
+            - name: varlogs
+              emptyDir: {}
