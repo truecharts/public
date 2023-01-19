@@ -99,6 +99,45 @@ tests:
             - name: ENVVAR3
               value: "false"
 
+  - it: should pass with addNvidiaRuntimeClass and nvidiaRuntimeClassName set
+    documentIndex: *cronjobDoc
+    set:
+      controller:
+        type: CronJob
+        schedule: "* * * * *"
+      scaleGPU:
+        something: blabla
+      global:
+        ixChartContext:
+          addNvidiaRuntimeClass: true
+          nvidiaRuntimeClassName: something
+    asserts:
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.runtimeClassName
+          value: something
+
+  - it: should pass with deviceList set
+    documentIndex: *cronjobDoc
+    set:
+      controller:
+        type: CronJob
+        schedule: "* * * * *"
+      deviceList:
+        - enabled: true
+          hostPath: /dev/usb
+          mountPath: /host/dev/usb
+    asserts:
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 5
+              - 10
+              - 20
+              - 24
+
   - it: should pass with added persistence
     documentIndex: &cronjobDoc 3
     set:

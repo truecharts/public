@@ -98,6 +98,43 @@ tests:
             - name: ENVVAR3
               value: "false"
 
+  - it: should pass with addNvidiaRuntimeClass and nvidiaRuntimeClassName set
+    documentIndex: *jobDoc
+    set:
+      controller:
+        type: Job
+      scaleGPU:
+        something: blabla
+      global:
+        ixChartContext:
+          addNvidiaRuntimeClass: true
+          nvidiaRuntimeClassName: something
+    asserts:
+      - equal:
+          path: spec.template.spec.runtimeClassName
+          value: something
+
+  - it: should pass with deviceList set
+    documentIndex: *jobDoc
+    set:
+      controller:
+        type: Job
+      deviceList:
+        - enabled: true
+          hostPath: /dev/usb
+          mountPath: /host/dev/usb
+    asserts:
+      - equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 5
+              - 10
+              - 20
+              - 24
+
   - it: should pass with added persistence
     documentIndex: &jobDoc 3
     set:
