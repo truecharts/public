@@ -19,8 +19,8 @@
 
     {{/* Add labels/annotations if any. */}}
     {{- range $key := (list "labels" "annotations") -}}
-      {{- if hasKey $.Values $key -}}
-        {{- $_ := set $jobValues $key (get $.Values $key) -}}
+      {{- if hasKey $.Values.controller $key -}}
+        {{- $_ := set $jobValues $key (get $.Values.controller $key) -}}
       {{- end -}}
     {{- end -}}
 
