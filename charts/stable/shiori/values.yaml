@@ -23,6 +23,10 @@ installContainers:
     env:
       - name: SHIORI_DIR
         value: "/data"
+      - name: SHIORI_DBMS
+        value: "postgresql"
+      - name: SHIORI_PG_PORT
+        value: "5432"
     command: ["shiori", "migrate"]
 
 persistence:
