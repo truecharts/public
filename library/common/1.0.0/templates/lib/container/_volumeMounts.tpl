@@ -4,6 +4,10 @@
   {{- $root := .root -}}
   {{- $extraContainerVolMounts := .extraContainerVolMounts -}}
 
+  {{- if (mustHas $root.Values.controller.type (list "Job" "CronJob")) -}}
+    {{- $isMainContainer = true -}}
+  {{- end -}}
+
   {{- if $isMainContainer -}}
     {{- range $name, $item := $root.Values.persistence -}}
       {{- if $item.enabled -}}
