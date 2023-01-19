@@ -27,6 +27,20 @@ installContainers:
         value: "postgresql"
       - name: SHIORI_PG_PORT
         value: "5432"
+      - name: SHIORI_PG_USER
+        value: "{{ .Values.postgresql.postgresqlUsername }}"
+      - name: SHIORI_PG_NAME
+        value: "{{ .Values.postgresql.postgresqlDatabase }}"
+      - name: SHIORI_PG_PASS
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: postgresql-password
+      - name: SHIORI_PG_HOST
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: plainhost
     command: ["shiori", "migrate"]
 
 persistence:
