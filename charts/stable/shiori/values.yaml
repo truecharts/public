@@ -18,7 +18,7 @@ installContainers:
   initdb:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
-      - name: config
+      - name: data
         mountPath: "/data"
     command: ["shiori", "migrate"]
 
