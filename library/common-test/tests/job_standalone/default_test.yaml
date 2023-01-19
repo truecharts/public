@@ -58,8 +58,9 @@ tests:
           path: spec.template.spec.imagePullSecrets
       - isNull:
           path: spec.template.spec.runtimeClassName
-      - isNull:
+      - equal:
           path: spec.template.spec.terminationGracePeriodSeconds
+          value: 10
       - equal:
           path: spec.template.spec.containers[0].name
           value: RELEASE-NAME-common-test-job-main

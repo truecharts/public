@@ -1,0 +1,154 @@
+suite: cronjob default test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with controller set to CronJob
+    documentIndex: &cronjobDoc 2
+    set:
+      controller:
+        type: CronJob
+        schedule: "*/5 * * * *"
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: CronJob
+      - isAPIVersion:
+          of: batch/v1
+      - equal:
+          path: spec.schedule
+          value: "*/5 * * * *"
+      - equal:
+          path: spec.timeZone
+          value: UTC
+      - equal:
+          path: spec.concurrencyPolicy
+          value: Forbid
+      - equal:
+          path: spec.failedJobsHistoryLimit
+          value: 1
+      - equal:
+          path: spec.successfulJobsHistoryLimit
+          value: 3
+      - isNull:
+          path: spec.startingDeadlineSeconds
+      - equal:
+          path: spec.jobTemplate.spec.backoffLimit
+          value: 6
+      - isNull:
+          path: spec.jobTemplate.spec.ttlSecondsAfterFinished
+      - isNull:
+          path: spec.jobTemplate.spec.activeDeadlineSeconds
+      - isNull:
+          path: spec.jobTemplate.spec.parallelism
+      - isNull:
+          path: spec.jobTemplate.spec.completions
+      - equal:
+          path: spec.jobTemplate.spec.completionMode
+          value: NonIndexed
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.hostNetwork
+          value: false
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.enableServiceLinks
+          value: false
+      - isNull:
+          path: spec.jobTemplate.spec.template.spec.serviceAccountName
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.restartPolicy
+          value: Never
+      - isNull:
+          path: spec.jobTemplate.spec.template.spec.schedulerName
+      - isNull:
+          path: spec.jobTemplate.spec.template.spec.priorityClassName
+      - isNull:
+          path: spec.jobTemplate.spec.template.spec.hostname
+      - isNull:
+          path: spec.jobTemplate.spec.template.spec.dnsPolicy
+      - isNull:
+          path: spec.jobTemplate.spec.template.spec.dnsConfig
+      - isNull:
+          path: spec.jobTemplate.spec.template.spec.hostAliases
+      - isNull:
+          path: spec.jobTemplate.spec.template.spec.nodeSelector
+      - isNull:
+          path: spec.jobTemplate.spec.template.spec.tolerations
+      - isNull:
+          path: spec.jobTemplate.spec.template.spec.imagePullSecrets
+      - isNull:
+          path: spec.jobTemplate.spec.template.spec.runtimeClassName
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.terminationGracePeriodSeconds
+          value: 10
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.containers[0].name
+          value: RELEASE-NAME-common-test-job-main
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.containers[0].image
+          value: repo:tag
+      - isNull:
+          path: spec.jobTemplate.spec.template.spec.containers[0].command
+      - isNull:
+          path: spec.jobTemplate.spec.template.spec.containers[0].args
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.containers[0].tty
+          value: false
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.containers[0].stdin
+          value: false
+      - isNull:
+          path: spec.jobTemplate.spec.template.spec.containers[0].lifecycle
+      - isNull:
+          path: spec.jobTemplate.spec.template.spec.containers[0].terminationMessagePath
+      - isNull:
+          path: spec.jobTemplate.spec.template.spec.containers[0].terminationMessagePolicy
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups: []
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.containers[0].securityContext
+          value:
+            allowPrivilegeEscalation: false
+            privileged: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 568
+            runAsGroup: 568
+            capabilities:
+              add: []
+              drop:
+                - ALL
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.containers[0].env
+          value:
+            - name: TZ
+              value: UTC
+            - name: UMASK
+              value: "002"
+            - name: UMASK_SET
+              value: "002"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: void
+            - name: S6_READ_ONLY_ROOT
+              value: "1"
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.containers[0].volumeMounts
+          value:
+            - mountPath: /shared
+              name: shared
+            - mountPath: /tmp
+              name: tmp
+            - mountPath: /var/logs
+              name: varlogs
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.volumes
+          value:
+            - name: shared
+              emptyDir: {}
+            - name: tmp
+              emptyDir: {}
+            - name: varlogs
+              emptyDir: {}

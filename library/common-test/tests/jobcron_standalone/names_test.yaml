@@ -1,0 +1,44 @@
+suite: cronjob name test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with default values
+    documentIndex: &cronjobDoc 2
+    set:
+      controller:
+        type: CronJob
+        schedule: "* * * * *"
+    asserts:
+      - hasDocuments:
+          count: 3
+      - isKind:
+          of: CronJob
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test
+
+  - it: should pass with nameOverride
+    documentIndex: *cronjobDoc
+    set:
+      controller:
+        type: CronJob
+        schedule: "* * * * *"
+      nameOverride: overrodeName
+    asserts:
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-overrodeName
+
+  - it: should pass with global.nameOverride
+    documentIndex: *cronjobDoc
+    set:
+      controller:
+        type: CronJob
+        schedule: "* * * * *"
+      nameOverride: overrodeName
+      global:
+        nameOverride: globalOverrodeName
+    asserts:
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-globalOverrodeName
