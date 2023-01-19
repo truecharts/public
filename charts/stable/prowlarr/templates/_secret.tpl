@@ -3,6 +3,8 @@
 
 {{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) -}}
 {{- $prowlarr := .Values.prowlarr }}
+{{- $dbuser := .Values.postgresql.postgresqlUsername }}
+{{- $dbname := .Values.postgresql.postgresqlDatabase }}
 ---
 apiVersion: v1
 kind: Secret
@@ -18,10 +20,8 @@ stringData:
   {{- end }}
 
   {{/* DB */}}
-  PROWLARR__POSTGRES_HOST: {{ .Values.postgresql.url.plain | trimAll "\"" }}
-  PROWLARR__POSTGRES_PORT: "5432"
-  PROWLARR__POSTGRES_USER: {{ .Values.postgresql.postgresqlUsername }}
-  PROWLARR__POSTGRES_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
-  PROWLARR__POSTGRES_MAIN_DB: {{ .Values.postgresql.postgresqlDatabase }}
+  PROWLARR__POSTGRES_PORT: 5432
+  PROWLARR__POSTGRES_MAIN_DB: {{ $dbname }}
+  PROWLARR__POSTGRES_USER: {{ $dbuser }}
 
 {{- end -}}
