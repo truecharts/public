@@ -300,11 +300,15 @@ nameOverride applies only to the current chart
 
   {{- $jobName := include "ix.v1.common.names.fullname" $root -}}
 
-  {{- if and (hasKey $jobValues "nameOverride") $jobValues.nameOverride -}}
-    {{- if not (eq $jobValues.nameOverride "-") -}}
-      {{- $jobName = printf "%v-%v" $jobName $jobValues.nameOverride -}}
+    {{- if and (hasKey $jobValues "nameOverride") $jobValues.nameOverride -}}
+      {{- if not (eq $jobValues.nameOverride "-") -}}
+        {{- if (mustHas $root.Values.controller.type (list "Job" "CronJob")) -}}
+          {{- $jobName = $jobValues.nameOverride -}}
+        {{- else -}}
+          {{- $jobName = printf "%v-%v" $jobName $jobValues.nameOverride -}}
+        {{- end -}}
+      {{- end -}}
     {{- end -}}
-  {{- end -}}
 
   {{- $jobName -}}
 {{- end -}}
