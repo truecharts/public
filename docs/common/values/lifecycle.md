@@ -2,6 +2,8 @@
 
 ## Key: lifecycle
 
+Info:
+
 - Type: `dict`
 - Default: `{}`
 - Helm Template:
@@ -9,6 +11,13 @@
   - lifecycle.preStop.command - List entry: ✅
   - lifecycle.postStart.command - String: ✅
   - lifecycle.postStart.command - List entry: ✅
+
+Can be defined in:
+
+- `.Values`.lifecycle
+- `.Values.additionalContainers.[container-name]`.lifecycle
+
+---
 
 `lifecycle` key defines hooks that can run on the pod. Like `preStop` or `postStart`
 

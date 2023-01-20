@@ -2,7 +2,9 @@
 
 ## key: portal
 
-- type: `dict`
+Info:
+
+- Type: `dict`
 - Default:
 
   ```yaml
@@ -11,6 +13,12 @@
   ```
 
 - Helm Template: ✅ (Except on the `enabled` key)
+
+Can be defined in:
+
+- `.Values`.portal
+
+---
 
 Enables configMap generation for portal. You can also apply overrides for each setting.
 (`port`, `host`, `path`, `protocol`), instead of the automatic generation.
