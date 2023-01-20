@@ -2,9 +2,17 @@
 
 ## key: hostAliases
 
+Info:
+
 - Type: `list`
 - Default: `[]`
 - Helm Template: ✅
+
+Can be defined in:
+
+- `.Values`.hostAliases
+
+---
 
 Adds entries to a Pod's `/etc/hosts` file.
 
