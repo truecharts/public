@@ -3,6 +3,14 @@ image:
   pullPolicy: IfNotPresent
   tag: 2.5.11@sha256:b130e05eb470b43194232a64c7e8eb5d38f53c1bd493500101488b6c8312e33a
 
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 args:
   - --user-profiles
   - /profiles
@@ -11,9 +19,6 @@ args:
 
 rhasspy:
   lang: en
-
-securityContext:
-  readOnlyRootFilesystem: false
 
 service:
   main:
