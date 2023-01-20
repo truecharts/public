@@ -2,13 +2,27 @@
 
 ## Key: command
 
-- Type: `list`
-- Default: `string` or `[]`
+Info:
+
+- Type: `list` or `string`
+- Default: `""` or `[]`
 - Helm Template:
   - String: ✅
   - List entry: ✅
 
-`command` key overrides the entrypoint of the container
+Can be defined in:
+
+- `.Values`.command
+- `.Values.additionalContainers.[container-name]`.command
+- `.Values.initContainers.[container-name]`.command
+- `.Values.installContainers.[container-name]`.command
+- `.Values.upgradeContainers.[container-name]`.command
+- `.Values.systemContainers.[container-name]`.command
+- `.Values.jobs.[job-name].podSpec.containers.[container-name].[container-name]`.command
+
+---
+
+Overrides the entrypoint of the container
 
 Examples:
 
@@ -31,7 +45,12 @@ command:
   - "{{ .Values.service.main.ports.main.port }}"
 ```
 
+---
+---
+
 ## Key: args
+
+Info:
 
 - Type: `list`
 - Default: `string` or `[]`
@@ -39,7 +58,19 @@ command:
   - String: ✅
   - List entry: ✅
 
-`args` key adds arguments to the entrypoint of the container
+Can be defined in:
+
+- `.Values`.args
+- `.Values.additionalContainers.[container-name]`.args
+- `.Values.initContainers.[container-name]`.args
+- `.Values.installContainers.[container-name]`.args
+- `.Values.upgradeContainers.[container-name]`.args
+- `.Values.systemContainers.[container-name]`.args
+- `.Values.jobs.[job-name].podSpec.containers.[container-name].[container-name]`.args
+
+---
+
+Adds arguments to the entrypoint of the container
 
 Examples:
 
@@ -59,7 +90,12 @@ arg:
   - "{{ .Values.service.main.ports.main.port }}"
 ```
 
+---
+---
+
 ## Key: extraArgs
+
+Info:
 
 - Type: `list`
 - Default: `string` or `[]`
@@ -67,7 +103,19 @@ arg:
   - String: ✅
   - List entry: ✅
 
-`extraArgs` key appends arguments to `args` of the container.
+Can be defined in:
+
+- `.Values`.extraArgs
+- `.Values.additionalContainers.[container-name]`.extraArgs
+- `.Values.initContainers.[container-name]`.extraArgs
+- `.Values.installContainers.[container-name]`.extraArgs
+- `.Values.upgradeContainers.[container-name]`.extraArgs
+- `.Values.systemContainers.[container-name]`.extraArgs
+- `.Values.jobs.[job-name].podSpec.containers.[container-name].[container-name]`.extraArgs
+
+---
+
+Appends arguments to `args` of the container.
 This is useful for exposing it on SCALE GUI, so users can append
 arguments on top of the ones defined from the chart developer
 

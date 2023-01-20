@@ -2,6 +2,8 @@
 
 ## Key: rbac
 
+Info:
+
 - Type: `dict`
 - Default:
 
@@ -25,7 +27,13 @@
   - rbac.NAME.subjects[].name ✅
   - rbac.NAME.subjects[].apiGroup ✅
 
-For every `rbac.NAME` that is enabled it will create a `Role` and a `RoleBinding`
+Can be defined in:
+
+- `.Values`.rbac
+
+---
+
+For every `rbac.[NAME]` that is enabled it will create a `Role` and a `RoleBinding`
 or a `ClusterRole` and a `ClusterRoleBinding` if `clusterWide` flag is set.
 
 You can define the rules under the `rules` key, the same way

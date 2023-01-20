@@ -1,6 +1,8 @@
 # Service Account
 
-## Key: rbac
+## Key: serviceAccount
+
+Info:
 
 - Type: `dict`
 - Default:
@@ -10,11 +12,18 @@
     main:
       enabled: false
       primary: true
+      automountServiceAccountToken: true
   ```
 
 - Helm Template: ❌
 
-For every `serviceAccount.NAME` that is enabled it will
+Can be defined in:
+
+- `.Values`.serviceAccount
+
+---
+
+For every `serviceAccount.[NAME]` that is enabled it will
 create a `ServiceAccount` object.
 
 `primary` flag is used to decide what `serviceAccountName`
