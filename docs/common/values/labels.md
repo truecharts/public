@@ -1,5 +1,7 @@
 # Labels
 
+Labels can be defined in nearly all resources.
+
 ## Key: podLabels
 
 Info:

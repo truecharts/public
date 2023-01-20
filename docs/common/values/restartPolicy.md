@@ -2,9 +2,18 @@
 
 ## key: restartPolicy
 
+Info:
+
 - Type: `string`
 - Default: `Always`
+- Default((Cron)Job): `Never`
 - Helm Template: ❌
+
+Can be defined in:
+
+- `.Values`.restartPolicy
+
+---
 
 Sets the container's restart policy.
 
@@ -16,6 +25,7 @@ restartPolicy:
 ```
 
 `Deployment`, `StatefulSet`, `ReplicaSet` and `DaemonSet` only allows `Always`
+`Job` and `CronJob` don't have that restriction.
 
 Examples:
 
@@ -24,5 +34,5 @@ restartPolicy: OnFailure
 
 restartPolicy: Never
 
-restartPolicy: Never
+restartPolicy: Always
 ```

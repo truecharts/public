@@ -1,15 +1,23 @@
 # External Interfaces
 
-## key: externalInterfaces
+## Key: externalInterfaces
+
+Info:
 
 - Type: `list`
 - Default: `[]`
 - Helm Template: ❌
 
-It's used in SCALE GUI. Configuration added in this key, is parsed from the middleware.
-Middleware then injects 2 other `lists`. `ixExternalInterfacesConfiguration` and
-`ixExternalInterfacesConfigurationNames`. Which are parsed from the Chart
-to create the objects.
+Can be defined in:
+
+- `.Values`.externalInterfaces
+
+---
+
+It's used in SCALE GUI. Configuration added in this key (from the GUI),
+is parsed from the middleware. Middleware then injects 2 other `lists`.
+`ixExternalInterfacesConfiguration` and`ixExternalInterfacesConfigurationNames`.
+Which are parsed from the Chart to create the objects.
 
 Examples:
 

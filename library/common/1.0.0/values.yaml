@@ -95,10 +95,7 @@ scaleCerts: {}
 # Used for SCALE / GUI Focused
 scaleCertsList: []
 
-# - Everything bellow needs documentation
-
-hostname: ""
-
+# Defines the probes
 probes:
   liveness:
     enabled: true
@@ -107,6 +104,9 @@ probes:
   startup:
     enabled: true
 
+portal:
+  enabled: true
+
 # Used for SCALE / GUI Focused
 externalInterfaces: []
 
@@ -114,13 +114,14 @@ externalInterfaces: []
 ixExternalInterfacesConfiguration: []
 # Injected from middleware
 ixExternalInterfacesConfigurationNames: []
+
+# - Everything bellow needs documentation
+hostname: ""
+
 # Injected from middleware
 ixCertificates: []
 # Injected from middleware
 ixVolumes: []
-
-portal:
-  enabled: true
 
 global:
   nameOverride: ""

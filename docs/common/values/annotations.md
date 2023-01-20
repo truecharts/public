@@ -1,5 +1,7 @@
 # Annotations
 
+Annotations can be defined in nearly all resources.
+
 ## Key: addAnnotations
 
 Info:
