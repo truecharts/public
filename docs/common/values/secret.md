@@ -2,6 +2,8 @@
 
 ## key: secret
 
+Info:
+
 - Type: `dict`
 - Default: `{}`
 - Helm Template:
@@ -9,7 +11,12 @@
   - content.KEY: ❌
   - content.KEY.value: ✅
 
-`secret` dict creates a secret based on the `content`
+Can be defined in:
+
+- `.Values`.secret
+
+---
+Creates a secret based on the `content`
 
 Options:
 
@@ -25,9 +32,10 @@ secret:
     nameOverride: ""
     # Optional - Defaults to Opaque
     secretType: ""
-    # Tells to common that this contains environment variables
+    # Tells to common library that this contains environment variables.
     # So it wil be checked for duplicates among `env`, `envList`, `fixedEnvs`
     # and other `secrets` / `configmaps` (with parseAsEnv set)
+    # Optional
     parseAsEnv: true
     # Key/Value
     content:

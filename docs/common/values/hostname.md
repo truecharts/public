@@ -2,9 +2,17 @@
 
 ## key: hostname
 
+Info:
+
 - Type: `string`
 - Default: `""`
 - Helm Template: ✅
+
+Can be defined in:
+
+- `.Values`.hostname
+
+---
 
 Specifies pod's hostname
 
