@@ -1,12 +1,20 @@
 # Certificates
 
-## scaleCerts
+## Key: scaleCerts
+
+Info:
 
 - Type: `dict`
 - Default: `{}`
 - Helm Template:
   - certPath: ✅
   - keyPath: ✅
+
+Can be defined in:
+
+- `.Values`.scaleCerts
+
+---
 
 Before taking any action, it will check if middleware have populated
 the `ixCertificates` list, and that the `id` is included.
@@ -20,7 +28,7 @@ container as files.
 Examples:
 
 ```yaml
-scaleCerts: {}
+scaleCerts:
   some_cert_name:
     # ID Comes from the definitions on the GUI
     id: 1
@@ -36,13 +44,24 @@ scaleCerts: {}
     useExpired: false
 ```
 
-## scaleCertsList
+---
+---
+
+## Key: scaleCertsList
+
+Info:
 
 - Type: `list`
 - Default: `[]`
 - Helm Template:
   - certPath: ✅
   - keyPath: ✅
+
+Can be defined in:
+
+- `.Values`.scaleCertsList
+
+---
 
 Anything that applies to `scaleCerts` applies here too.
 
@@ -53,7 +72,7 @@ This list can used for Scale GUI as it's easier to build lists.
 Example:
 
 ```yaml
-scaleCertsList: []
+scaleCertsList:
   - name: some_cert_name
     id: 1
     # Optional
