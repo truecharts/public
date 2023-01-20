@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "2.5.11"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 11.1.2
+deprecated: false
+description: Rhasspy an open source, fully offline set of voice assistant services for many human languages.
+home: https://truecharts.org/charts/incubator/rhasspy
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/rhasspy.png
+keywords:
+  - rhasspy
+  - ai
+  - voice
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: rhasspy
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/rhasspy
+  - https://github.com/rhasspy/rhasspy
+  - https://hub.docker.com/r/rhasspy/rhasspy
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - ai
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
