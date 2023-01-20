@@ -17,12 +17,12 @@ Info:
 Can be defined in:
 
 - `.Values`.env
-- `.Values.additionalContainers`.env
-- `.Values.initContainers`.env
-- `.Values.installContainers`.env
-- `.Values.upgradeContainers`.env
-- `.Values.systemContainers`.env
-- `.Values.jobs.[job-name].podSpec.containers.[container-name]`.env
+- `.Values.additionalContainers.[container-name]`.env
+- `.Values.initContainers.[container-name]`.env
+- `.Values.installContainers.[container-name]`.env
+- `.Values.upgradeContainers.[container-name]`.env
+- `.Values.systemContainers.[container-name]`.env
+- `.Values.jobs.[job-name].podSpec.containers.[container-name].[container-name]`.env
 
 ---
 
@@ -78,12 +78,12 @@ Info:
 Can be defined in:
 
 - `.Values`.envList
-- `.Values.additionalContainers`.envList
-- `.Values.initContainers`.envList
-- `.Values.installContainers`.envList
-- `.Values.upgradeContainers`.envList
-- `.Values.systemContainers`.envList
-- `.Values.jobs.[job-name].podSpec.containers.[container-name]`.envList
+- `.Values.additionalContainers.[container-name]`.envList
+- `.Values.initContainers.[container-name]`.envList
+- `.Values.installContainers.[container-name]`.envList
+- `.Values.upgradeContainers.[container-name]`.envList
+- `.Values.systemContainers.[container-name]`.envList
+- `.Values.jobs.[job-name].podSpec.containers.[container-name].[container-name]`.envList
 
 ---
 
@@ -118,12 +118,12 @@ Info:
 Can be defined in:
 
 - `.Values`.envFrom
-- `.Values.additionalContainers`.envFrom
-- `.Values.initContainers`.envFrom
-- `.Values.installContainers`.envFrom
-- `.Values.upgradeContainers`.envFrom
-- `.Values.systemContainers`.envFrom
-- `.Values.jobs.[job-name].podSpec.containers.[container-name]`.envFrom
+- `.Values.additionalContainers.[container-name]`.envFrom
+- `.Values.initContainers.[container-name]`.envFrom
+- `.Values.installContainers.[container-name]`.envFrom
+- `.Values.upgradeContainers.[container-name]`.envFrom
+- `.Values.systemContainers.[container-name]`.envFrom
+- `.Values.jobs.[job-name].podSpec.containers.[container-name].[container-name]`.envFrom
 
 ---
 
@@ -162,12 +162,12 @@ Info:
 Can be defined in:
 
 - `.Values`.TZ
-- `.Values.additionalContainers`.TZ
-- `.Values.initContainers`.TZ
-- `.Values.installContainers`.TZ
-- `.Values.upgradeContainers`.TZ
-- `.Values.systemContainers`.TZ
-- `.Values.jobs.[job-name].podSpec.containers.[container-name]`.TZ
+- `.Values.additionalContainers.[container-name]`.TZ
+- `.Values.initContainers.[container-name]`.TZ
+- `.Values.installContainers.[container-name]`.TZ
+- `.Values.upgradeContainers.[container-name]`.TZ
+- `.Values.systemContainers.[container-name]`.TZ
+- `.Values.jobs.[job-name].podSpec.containers.[container-name].[container-name]`.TZ
 
 ---
 
@@ -208,12 +208,12 @@ Info:
 Can be defined in:
 
 - `.Values`.security
-- `.Values.additionalContainers`.security
-- `.Values.initContainers`.security
-- `.Values.installContainers`.security
-- `.Values.upgradeContainers`.security
-- `.Values.systemContainers`.security
-- `.Values.jobs.[job-name].podSpec.containers.[container-name]`.security
+- `.Values.additionalContainers.[container-name]`.security
+- `.Values.initContainers.[container-name]`.security
+- `.Values.installContainers.[container-name]`.security
+- `.Values.upgradeContainers.[container-name]`.security
+- `.Values.systemContainers.[container-name]`.security
+- `.Values.jobs.[job-name].podSpec.containers.[container-name].[container-name]`.security
 
 ---
 
@@ -250,12 +250,12 @@ Info:
 Can be defined in:
 
 - `.Values`.nvidiaCaps
-- `.Values.additionalContainers`.nvidiaCaps
-- `.Values.initContainers`.nvidiaCaps
-- `.Values.installContainers`.nvidiaCaps
-- `.Values.upgradeContainers`.nvidiaCaps
-- `.Values.systemContainers`.nvidiaCaps
-- `.Values.jobs.[job-name].podSpec.containers.[container-name]`.nvidiaCaps
+- `.Values.additionalContainers.[container-name]`.nvidiaCaps
+- `.Values.initContainers.[container-name]`.nvidiaCaps
+- `.Values.installContainers.[container-name]`.nvidiaCaps
+- `.Values.upgradeContainers.[container-name]`.nvidiaCaps
+- `.Values.systemContainers.[container-name]`.nvidiaCaps
+- `.Values.jobs.[job-name].podSpec.containers.[container-name].[container-name]`.nvidiaCaps
 
 ---
 
@@ -286,12 +286,12 @@ Info:
 Can be defined in:
 
 - `.Values`.injectFixedEnvs
-- `.Values.additionalContainers`.injectFixedEnvs
-- `.Values.initContainers`.injectFixedEnvs
-- `.Values.installContainers`.injectFixedEnvs
-- `.Values.upgradeContainers`.injectFixedEnvs
-- `.Values.systemContainers`.injectFixedEnvs
-- `.Values.jobs.[job-name].podSpec.containers.[container-name]`.injectFixedEnvs
+- `.Values.additionalContainers.[container-name]`.injectFixedEnvs
+- `.Values.initContainers.[container-name]`.injectFixedEnvs
+- `.Values.installContainers.[container-name]`.injectFixedEnvs
+- `.Values.upgradeContainers.[container-name]`.injectFixedEnvs
+- `.Values.systemContainers.[container-name]`.injectFixedEnvs
+- `.Values.jobs.[job-name].podSpec.containers.[container-name].[container-name]`.injectFixedEnvs
 
 If **enabled**, injects environment variables to the container.
 > If not defined, it will use the `.Values.global.defaults.injectFixedEnvs`

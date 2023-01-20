@@ -58,12 +58,12 @@ Info:
 Can be defined in:
 
 - `.Values`.imageSelector
-- `.Values.additionalContainers`.imageSelector
-- `.Values.initContainers`.imageSelector
-- `.Values.installContainers`.imageSelector
-- `.Values.upgradeContainers`.imageSelector
-- `.Values.systemContainers`.imageSelector
-- `.Values.jobs.[job-name].podSpec.containers.[container-name]`.imageSelector
+- `.Values.additionalContainers.[container-name]`.imageSelector
+- `.Values.initContainers.[container-name]`.imageSelector
+- `.Values.installContainers.[container-name]`.imageSelector
+- `.Values.upgradeContainers.[container-name]`.imageSelector
+- `.Values.systemContainers.[container-name]`.imageSelector
+- `.Values.jobs.[job-name].podSpec.containers.[container-name].[container-name]`.imageSelector
 
 ---
 
