@@ -44,6 +44,9 @@ imageName:
   pullPolicy: IfNotPresents
 ```
 
+---
+---
+
 ## Key: imageSelector
 
 Info:

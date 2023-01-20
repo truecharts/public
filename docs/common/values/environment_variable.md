@@ -2,6 +2,8 @@
 
 ## Key: env
 
+Info:
+
 - Type: `dict`
 - Default: `{}`
 - Helm Template:
@@ -12,7 +14,19 @@
   - configMapKeyRef.name: ✅
   - configMapKeyRef.key: ✅
 
-`env` dict contains environment variables and can be defined in few different formats
+Can be defined in:
+
+- `.Values`.env
+- `.Values.additionalContainers`.env
+- `.Values.initContainers`.env
+- `.Values.installContainers`.env
+- `.Values.upgradeContainers`.env
+- `.Values.systemContainers`.env
+- `.Values.jobs.[job-name].podSpec.containers.[container-name]`.env
+
+---
+
+Contains environment variables and can be defined in few different formats
 
 Examples:
 
@@ -48,7 +62,12 @@ env:
       key: "{{ .Values.config.key }}"
 ```
 
+---
+---
+
 ## Key: envList
+
+Info:
 
 - Type: `list`
 - Default: `[]`
@@ -56,7 +75,19 @@ env:
   - name: ✅
   - value: ✅
 
-`envList` key is mainly designed to be used in the SCALE GUI.
+Can be defined in:
+
+- `.Values`.envList
+- `.Values.additionalContainers`.envList
+- `.Values.initContainers`.envList
+- `.Values.installContainers`.envList
+- `.Values.upgradeContainers`.envList
+- `.Values.systemContainers`.envList
+- `.Values.jobs.[job-name].podSpec.containers.[container-name]`.envList
+
+---
+
+Mainly designed to be used in the SCALE GUI.
 So users can pass additional environment variables.
 
 Examples:
@@ -71,7 +102,12 @@ envList:
     value: "{{ .Values.password }}"
 ```
 
+---
+---
+
 ## Key: envFrom
+
+Info:
 
 - Type: `list`
 - Default: `[]`
@@ -79,7 +115,19 @@ envList:
   - name: ✅
   - value: ✅
 
-`envFrom` key is used to load multiple environment variables
+Can be defined in:
+
+- `.Values`.envFrom
+- `.Values.additionalContainers`.envFrom
+- `.Values.initContainers`.envFrom
+- `.Values.installContainers`.envFrom
+- `.Values.upgradeContainers`.envFrom
+- `.Values.systemContainers`.envFrom
+- `.Values.jobs.[job-name].podSpec.containers.[container-name]`.envFrom
+
+---
+
+Used to load multiple environment variables
 from a `configMap` or a `secret`. With a single list entry,
 it will load all keys as environment variables
 defined in the specified object.
@@ -100,13 +148,30 @@ envFrom:
       name: "{{ .Values.configMapName }}"
 ```
 
+---
+---
+
 ## Key: TZ
+
+Info:
 
 - Type: `string`
 - Default: `UTC`
 - Helm Template: ❌
 
-`TZ` key is usually defined from the SCALE's GUI dropdown.
+Can be defined in:
+
+- `.Values`.TZ
+- `.Values.additionalContainers`.TZ
+- `.Values.initContainers`.TZ
+- `.Values.installContainers`.TZ
+- `.Values.upgradeContainers`.TZ
+- `.Values.systemContainers`.TZ
+- `.Values.jobs.[job-name].podSpec.containers.[container-name]`.TZ
+
+---
+
+Usually defined from the SCALE's GUI dropdown.
 It is also injected as environment variable into the container.
 It can also be used to pass timezone to other environment variables
 an app would use.
@@ -122,7 +187,12 @@ env:
   PHP_TZ: "{{ .Values.TZ }}"
 ```
 
+---
+---
+
 ## Key: security
+
+Info:
 
 - Type: `dict`
 - Default:
@@ -135,8 +205,21 @@ env:
 
 - Helm Template: ❌
 
-`security` key is used to define a default `PUID` and `UMASK` to containers.
+Can be defined in:
 
+- `.Values`.security
+- `.Values.additionalContainers`.security
+- `.Values.initContainers`.security
+- `.Values.installContainers`.security
+- `.Values.upgradeContainers`.security
+- `.Values.systemContainers`.security
+- `.Values.jobs.[job-name].podSpec.containers.[container-name]`.security
+
+---
+
+Used to define a default `PUID` and `UMASK` to containers.
+
+> If not defined it will use the `.Values.global.defaults.security`
 > Only applied used when `injectFixedEnvs` is set to `true`.
 
 Examples:
@@ -147,10 +230,15 @@ security:
   UMASK: 002
 ```
 
+---
+---
+
 ## Key: nvidiaCaps
 
+Info:
+
 - Type: `list`
-- Default
+- Default:
 
   ```yaml
   nvidiaCaps:
@@ -159,7 +247,22 @@ security:
 
 - Helm Template: ❌
 
+Can be defined in:
+
+- `.Values`.nvidiaCaps
+- `.Values.additionalContainers`.nvidiaCaps
+- `.Values.initContainers`.nvidiaCaps
+- `.Values.installContainers`.nvidiaCaps
+- `.Values.upgradeContainers`.nvidiaCaps
+- `.Values.systemContainers`.nvidiaCaps
+- `.Values.jobs.[job-name].podSpec.containers.[container-name]`.nvidiaCaps
+
+---
+
 Defines the value of nvidia capabilities variable that will be injected in the container.
+
+> If it's empty it will use the `.Values.global.defaults.nvidiaCaps`
+> Only applied when a GPU is passed through
 
 Example:
 
@@ -169,13 +272,29 @@ nvidiaCaps:
   - utility
 ```
 
+---
+---
+
 ## Key: injectFixedEnvs
+
+Info:
 
 - Type: `boolean`
 - Default: `true`
 - Helm Template: ❌
 
-Injects environment variables to the container, based on conditions
+Can be defined in:
+
+- `.Values`.injectFixedEnvs
+- `.Values.additionalContainers`.injectFixedEnvs
+- `.Values.initContainers`.injectFixedEnvs
+- `.Values.installContainers`.injectFixedEnvs
+- `.Values.upgradeContainers`.injectFixedEnvs
+- `.Values.systemContainers`.injectFixedEnvs
+- `.Values.jobs.[job-name].podSpec.containers.[container-name]`.injectFixedEnvs
+
+If **enabled**, injects environment variables to the container.
+> If not defined, it will use the `.Values.global.defaults.injectFixedEnvs`
 
 `TZ`:
 > Applied always. No conditions.
