@@ -1,9 +1,18 @@
 apiVersion: v2
-name: common
-description: A library chart for iX Official Catalog
-type: library
-version: 1.0.0
-appVersion: v1
+appVersion: "latest"
+description: Function library for TrueCharts
+home: https://github.com/truecharts/apps/tree/master/charts/common
+icon: https://avatars.githubusercontent.com/u/76400755
+keywords:
+- truecharts
+- library-chart
+- common
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - name: truenas
-    url: https://www.truenas.com/
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: common
+sources: null
+type: library
+version: 12.0.0

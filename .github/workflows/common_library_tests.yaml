@@ -16,7 +16,7 @@ jobs:
         helm-version:
           - v3.9.4
           - v3.10.3
-          - v3.11.0
+          - v3.11.0-rc.2
     steps:
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
@@ -56,7 +56,7 @@ jobs:
         helm-version:
           - v3.9.4
           - v3.10.3
-          - v3.11.0
+          - v3.11.0-rc.2
     steps:
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
@@ -68,14 +68,19 @@ jobs:
         with:
           version: ${{ matrix.helm-version }}
 
-      - name: Run Unit-tests
+      - name: Cache helm plugins
+        uses: actions/cache@v3
+        with:
+          path: |
+            /home/runner/.local/share/helm/plugins/helm-unittest
+          key: helm-${{ matrix.helm-version }}-unittest-v${{ env.helmUnitVersion }}
+          restore-keys: |
+            helm-${{ matrix.helm-version }}-unittest-v${{ env.helmUnitVersion }}
+
+      - name: Run Unittests
         shell: bash
         run: |
-          # Retry helm plugin install
-          helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion} || \
-          helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion} || \
-          helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion} || \
-          helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion}
+          (helm unittest -h > /dev/null) || helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion} || (sleep 10 && helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion})
 
           # Run tests
           cd library/common-test/
@@ -90,12 +95,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # We run tests on k3s version of latest SCALE release, SCALE nightly and manually defined "latest"
+        # We run tests on k3s version of latest SCALE release and SCALE nightly
         k3s-version:
           - v1.25.3+k3s1
-        # We run tests on Helm version of latest SCALE release, SCALE nightly and manually defined "latest"
+        # We run tests on Helm version of latest SCALE release
         helm-version:
-          - v3.11.0
+          - v3.9.4
         values:
           - basic-values.yaml
           - configmap-values.yaml

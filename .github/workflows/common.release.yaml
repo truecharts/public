@@ -1,0 +1,40 @@
+name: "Charts: Release"
+
+concurrency: helm-release
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - main
+    paths:
+    - 'charts/*'
+
+jobs:
+  release-charts:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # tag=v3
+      with:
+        token: ${{ secrets.BOT_TOKEN }}
+        ref: main
+        fetch-depth: 0
+
+    - name: Configure Git
+      run: |
+        git config user.name "TrueCharts-Bot"
+        git config user.email "bot@truecharts.org"
+
+    - name: Install Helm
+      uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # tag=v3
+      with:
+        version: v3.5.4
+
+    - name: Run chart-releaser
+      uses: helm/chart-releaser-action@a3454e46a6f5ac4811069a381e646961dda2e1bf # tag=v1.4.0
+      with:
+        charts_repo_url: https://library-charts.truecharts.org
+      env:
+        CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
+        CR_SKIP_EXISTING: "true"

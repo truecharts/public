@@ -1,0 +1,25 @@
+---
+name: "Schedule: Sync labels"
+
+on: # yamllint disable-line rule:truthy
+  workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *"
+
+jobs:
+  labels:
+    name: Sync Labels
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # tag=v3
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+
+      - name: Sync Labels
+        uses: EndBug/label-sync@2155ba23e047b09a88c8a2f577fa370307d171f4 # tag=v2
+        with:
+          config-file: |
+              https://raw.githubusercontent.com/truecharts/.github/main/.github/labels.yaml
+          token: "${{ secrets.BOT_TOKEN }}"
+          delete-other-labels: true

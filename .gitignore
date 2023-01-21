@@ -12,7 +12,12 @@ config.py
 auto_config.py
 .DS_Store
 .idea/
-.vscode/
+.vscode/*
+# IDE resources
+!.vscode/extensions.json
+.idea
+Gemfile.lock
+.ignore/
 /docs/api/_build/
 /docs/userguide/_build/
 /gui/local_settings.py
@@ -34,6 +39,16 @@ npm-debug.log
 tests/artifacts/
 tests/test-report.txt
 tests/test-report.xml
-__snapshot__/
-library/common-test/Chart.lock
-library/common-test/charts
+private_values.yaml
+temp/
+charts/library/common-test/charts/
+.cr-release-packages/
+Chart.lock
+charts/**/charts/*.tgz
+charts/**/render/*
+catalog/
+dh_catalog/
+charts/*/Chart.lock
+charts/*/charts
+helper-charts/*/Chart.lock
+helper-charts/*/charts

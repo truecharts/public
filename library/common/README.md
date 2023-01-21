@@ -1,20 +1,29 @@
-# Common Library
+# Introduction
 
-## Values flow
+Function library for TrueCharts
 
-Values are applied with this order, the last overrides the previous.
+Function library for TrueCharts
+Since a lot of the TrueCharts Apps and Charts follow a similar pattern, this library was built to reduce maintenance cost between the charts that use it and try achieve a goal of being DRY.
 
-- common/values.yaml
-- chart/ix-values.yaml
-- chart/questions.yaml
+## Requirements
 
-TODO: Clarify while testing, in which place does `test-values.yaml` is.
+Kubernetes: `>=1.16.0-0`
 
-This is so we can set some sane defaults values on the common library, but have
-the option to override those when developing a new chart. And lastly, end user
-can override those, based on the interface we create on the `questions.yaml`
+## Dependencies
 
-## common.yaml
+| Repository | Name | Version |
+|------------|------|---------|
 
-The file `common.yaml` in `templates` directory is the main entrypoint to the
-common library. It's the one responsible to call all the templates
+## Installing the Chart
+
+This is a Helm Library Chart.
+WARNING: THIS CHART IS NOT MEANT TO BE INSTALLED DIRECTLY
+
+## Support
+
+- Please check our [quick-start guides](https://truecharts.org/manual/Quick-Start%20Guides/01-Adding-TrueCharts/) first.
+- See the [Wiki](https://truecharts.org)
+- Check our [Discord](https://discord.gg/tVsPTHWTtr)
+- Open a [issue](https://github.com/truecharts/apps/issues/new/choose)
+---
+All Rights Reserved - The TrueCharts Project
