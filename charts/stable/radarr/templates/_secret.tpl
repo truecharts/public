@@ -3,6 +3,8 @@
 
 {{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) -}}
 {{- $radarr := .Values.radarr }}
+{{- $dbuser := .Values.postgresql.postgresqlUsername }}
+{{- $dbname := .Values.postgresql.postgresqlDatabase }}
 ---
 apiVersion: v1
 kind: Secret
@@ -18,10 +20,8 @@ stringData:
   {{- end }}
 
   {{/* DB */}}
-  RADARR__POSTGRES_HOST: {{ .Values.postgresql.url.plain | trimAll "\"" }}
   RADARR__POSTGRES_PORT: "5432"
-  RADARR__POSTGRES_USER: {{ .Values.postgresql.postgresqlUsername }}
-  RADARR__POSTGRES_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
-  RADARR__POSTGRES_MAIN_DB: {{ .Values.postgresql.postgresqlDatabase }}
+  RADARR__POSTGRES_USER: {{ $dbuser }}
+  RADARR__POSTGRES_MAIN_DB: {{ $dbname }}
 
 {{- end -}}
