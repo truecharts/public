@@ -1,0 +1,66 @@
+{{- define "custom.introheader" -}}
+# Introduction
+{{- end -}}
+{{- define "custom.repository.organization" -}}
+TrueCharts
+{{- end -}}
+{{- define "custom.repository.url" -}}
+https://github.com/truecharts/apps
+{{- end -}}
+{{- define "custom.helm.url" -}}
+https://truecharts.org
+{{- end -}}
+{{- define "custom.helm.path" -}}
+{{ template "custom.repository.organization" . }}/{{ template "chart.name" . }}
+{{- end -}}
+{{- define "custom.notes" -}}
+Function library for TrueCharts
+Since a lot of the TrueCharts Apps and Charts follow a similar pattern, this library was built to reduce maintenance cost between the charts that use it and try achieve a goal of being DRY.
+{{- end -}}
+{{- define "custom.requirements" -}}
+## Requirements
+
+{{ template "chart.kubeVersionLine" . }}
+{{- end -}}
+{{- define "custom.dependencies" -}}
+## Dependencies
+
+{{ template "chart.requirementsTable" . }}
+{{- end -}}
+{{- define "custom.install" -}}
+## Installing the Chart
+
+This is a Helm Library Chart.
+WARNING: THIS CHART IS NOT MEANT TO BE INSTALLED DIRECTLY
+{{- end -}}
+{{- define "custom.support" -}}
+## Support
+
+- Please check our [quick-start guides](https://truecharts.org/manual/Quick-Start%20Guides/01-Open-Apps/) first.
+- See the [Wiki](https://truecharts.org)
+- Check our [Discord](https://discord.gg/tVsPTHWTtr)
+- Open a [issue](https://github.com/truecharts/apps/issues/new/choose)
+{{- end -}}
+{{- define "custom.copyright" -}}
+All Rights Reserved - The TrueCharts Project
+{{- end -}}
+{{ template "custom.introheader" . }}
+
+{{ template "chart.description" . }}
+
+{{ template "chart.deprecationWarning" . }}
+
+{{ template "custom.notes" . }}
+
+{{ template "chart.sourcesSection" . }}
+
+{{ template "custom.requirements" . }}
+
+{{ template "custom.dependencies" . }}
+
+{{ template "custom.install" . }}
+
+
+{{ template "custom.support" . }}
+---
+{{ template "custom.copyright" . }}

@@ -1,0 +1,19 @@
+{{- define "custom.helm.introheader" -}}
+# Default Helm-Values
+{{- end -}}
+{{- define "custom.helm.notes" -}}
+TrueCharts is primarily build to supply TrueNAS SCALE Apps.
+However, we also supply all Apps as standard Helm-Charts. In this document we aim to document the default values in our Common Chart.
+This chart is used by a lot of our Apps to provide sane defaults and logic.
+{{- end -}}
+
+{{- define "custom.helm.copyright" -}}
+All Rights Reserved - The TrueCharts Project
+{{- end -}}
+{{ template "custom.helm.introheader" . }}
+
+{{ template "custom.helm.notes" . }}
+
+{{ template "chart.valuesSection" . }}
+
+{{ template "custom.helm.copyright" . }}
