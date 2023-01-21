@@ -6,6 +6,16 @@ image:
 securityContext:
   readOnlyRootFilesystem: false
 
+env:
+  READARR__POSTGRES_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  READARR__POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+
 readarr:
   auth_method: ""
 
