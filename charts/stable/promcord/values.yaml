@@ -7,11 +7,20 @@ service:
   main:
     ports:
       main:
-        enabled: false
-      metrics:
+        type: ClusterIP
         enabled: true
-        port: 10101
-        targetPort: 8080
+        port: 8080
+
+# -- Configure the Security Context for the Pod
+#podSecurityContext:
+#  runAsUser: 568
+#  runAsGroup: 568
+#  fsGroup: 568
+
+# -- Configure the Security Context for the main container
+securityContext:
+  readOnlyRootFilesystem: false
+#  runAsNonRoot: true
 
 # env:
 #   DISCORD_TOKEN:

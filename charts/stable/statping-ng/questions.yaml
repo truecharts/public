@@ -8,65 +8,114 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
+  - variable: statping
+    group: App Configuration
+    label: Statping Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: ADMIN_USER
-          label: "ADMIN_USER"
-          description: "Sets the ADMIN_USER env var"
+        - variable: admin_user
+          label: Admin User
+          description: Username for administrator account
           schema:
             type: string
-            default: "admin"
-        - variable: ADMIN_PASSWORD
-          label: "ADMIN_PASSWORD"
-          description: "Sets the ADMIN_PASSWORD env var"
+            required: true
+            default: ""
+        - variable: admin_pass
+          label: Admin Password
+          description: Password for administrator account
           schema:
             type: string
-            default: "changeme"
-        - variable: ADMIN_EMAIL
-          label: "ADMIN_EMAIL"
-          description: "Sets the ADMIN_EMAIL env var"
+            required: true
+            private: true
+            default: ""
+        - variable: admin_email
+          label: Admin Email
+          description: E-mail for administrator account
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: name
+          label: Name
+          description: Set a name for the Statping status page
+          schema:
+            type: string
+            default: Statping Example
+        - variable: description
+          label: Description
+          description: Set a description for the Statping status page
+          schema:
+            type: string
+            default: This is a Statping instance deployed as Helm chart
+        - variable: domain
+          label: Domain
+          description: Set a URL for the Statping status page
           schema:
             type: string
             default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: NAME
-          label: "NAME"
-          description: "Sets the NAME env var"
+        - variable: language
+          label: Language
+          description: Language to use
           schema:
             type: string
-            default: "Statping Example"
-        - variable: DESCRIPTION
-          label: "DESCRIPTION"
-          description: "Sets the DESCRIPTION env var"
-          schema:
-            type: string
-            default: "This is a Statping instance deployed as Helm chart"
-        - variable: VIRTUAL_HOST
-          label: "VIRTUAL_HOST"
-          description: "Sets the VIRTUAL_HOST env var"
+            default: en
+            enum:
+              - value: en
+                description: EN
+              - value: fr
+                description: FR
+              - value: it
+                description: IT
+              - value: ru
+                description: RU
+              - value: zh
+                description: ZH
+              - value: de
+                description: DE
+              - value: ko
+                description: KO
+              - value: ja
+                description: JA
+        - variable: remove_after
+          label: Remove After
+          description: Automatically delete records after time
           schema:
             type: string
             default: ""
-        - variable: USE_CDN
-          label: "USE_CDN"
-          description: "Sets the USE_CDN env var"
+        - variable: cleanup_interval
+          label: Cleanup Interval
+          description: Interval to check for old records
+          schema:
+            type: string
+            default: ""
+        - variable: use_cdn
+          label: Use CDN
+          schema:
+            type: boolean
+            default: true
+        - variable: allow_reports
+          label: Allow Reports
+          description: Send Statping anonymous error reports
           schema:
             type: boolean
             default: false
-        - variable: DISABLE_LOGS
-          label: "DISABLE_LOGS"
-          description: "Sets the DISABLE_LOGS env var"
+        - variable: disable_logs
+          label: Disable Logs
+          description: Disable logs from appearing and writing to disk
+          schema:
+            type: boolean
+            default: false
+        - variable: disable_colors
+          label: Disable Colors
+          description: Disable colors in terminal logs
+          schema:
+            type: boolean
+            default: false
+        - variable: sample_data
+          label: Sample Data
+          description: Insert sample services, groups and more
           schema:
             type: boolean
             default: false
@@ -162,6 +211,7 @@ questions:
             default: 568
 # Include{podSecurityContextAdvanced}
 # Include{resources}
+# Include{metrics}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
