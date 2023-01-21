@@ -1,8 +1,0 @@
-{{ $values := (. | mustDeepCopy) }}
-{{ $_ := set $values "common" (dict "nameSuffix" "postgres") }}
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: posgress-configmap
-data:
-  database_url: {{ template "common.names.fullname" $values }}

@@ -1,6 +1,0 @@
-{{ $svc := .Values.service }}
-{{ $ports := list }}
-{{ $ports = mustAppend $ports (dict "name" "ui" "port" $svc.nodePort "nodePort" $svc.nodePort "targetPort" 19999) }}
-{{ $params := . }}
-{{ $_ := set $params "commonService" (dict "type" "NodePort" "ports" $ports ) }}
-{{ include "common.classes.service" $params }}

@@ -1,6 +1,0 @@
-{{ $ports := list }}
-{{ $ports = mustAppend $ports (dict "name" "es-port" "port" 9200 "targetPort" 9200) }}
-{{ $values := (. | mustDeepCopy) }}
-{{ $_ := set $values "common" (dict "nameSuffix" "elasticsearch") }}
-{{ $_1 := set $values "commonService" (dict "type" "ClusterIP" "ports" $ports ) }}
-{{ include "common.classes.service" $values }}

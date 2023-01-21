@@ -1,6 +1,0 @@
-{{ $svc := .Values }}
-{{ $ports := list }}
-{{ $ports = mustAppend $ports (dict "name" "pms" "port" $svc.machinaris_ui_port "nodePort" $svc.machinaris_ui_port "targetPort" "machinaris-ui") }}
-{{ $params := . }}
-{{ $_ := set $params "commonService" (dict "ports" $ports "type" "NodePort" ) }}
-{{ include "common.classes.service" $params }}

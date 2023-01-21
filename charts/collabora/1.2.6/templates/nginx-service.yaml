@@ -1,6 +1,0 @@
-{{ $port := .Values.nodePort }}
-{{ $ports := list }}
-{{ $ports = mustAppend $ports (dict "name" "https" "nodePort" $port "targetPort" 443 "port" 443) }}
-{{ $params := (. | mustDeepCopy) }}
-{{ $_ := set $params "commonService" (dict "ports" $ports "type" "NodePort" ) }}
-{{ include "common.classes.service" $params }}

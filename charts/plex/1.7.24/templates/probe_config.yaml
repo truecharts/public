@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: "plex-probe-check"
-data:
-  entrypoint.sh: |-
-    #!/bin/sh
-    curl -ksf http://$POD_IP:32400/identity -o /dev/null || curl -ksf https://$POD_IP:32400/identity -o /dev/null
