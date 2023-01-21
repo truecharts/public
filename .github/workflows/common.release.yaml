@@ -4,11 +4,11 @@ concurrency: helm-release
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-    - main
-    paths:
-    - 'charts/*'
+#  push:
+#    branches:
+#    - main
+#    paths:
+#    - 'charts/*'
 
 jobs:
   release-charts:
