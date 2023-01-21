@@ -7,11 +7,11 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 11.0.18
+    version: 11.0.20
   - condition: redis.enabled
     name: redis
     repository: https://charts.truecharts.org
-    version: 5.0.24
+    version: 5.0.26
 description: "ONLYOFFICE Document Server is an online office suite comprising viewers and editors for texts, spreadsheets and presentations, fully compatible with Office Open XML formats: .docx, .xlsx, .pptx and enabling collaborative editing in real time."
 home: https://truecharts.org/charts/stable/onlyoffice-document-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/onlyoffice-document-server.png
@@ -28,7 +28,7 @@ sources:
   - https://github.com/ONLYOFFICE/DocumentServer
   - https://github.com/ONLYOFFICE/Docker-DocumentServer
   - https://hub.docker.com/r/onlyoffice/documentserver/
-version: 9.0.18
+version: 9.0.19
 annotations:
   truecharts.org/catagories: |
     - office

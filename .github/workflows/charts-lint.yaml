@@ -322,42 +322,42 @@ jobs:
           res4="${{needs.lint-charts4.result}}"
           res5="${{needs.lint-charts5.result}}"
           res6="${{needs.lint-charts6.result}}"
-          
+
           if [[ $res1 == "success" || $res1 == "skipped" ]]; then
             echo "lint tests 1 successfull..."
           else
             echo "lint tests 1 error, stopping due to failure..."
             exit 1
           fi
-          
+
           if [[ $res2 == "success" || $res2 == "skipped" ]]; then
             echo "lint tests 2 successfull..."
           else
             echo "lint tests 2 error, stopping due to failure..."
             exit 1
           fi
-          
+
           if [[ $res3 == "success" || $res3 == "skipped" ]]; then
             echo "lint tests 3 successfull..."
           else
             echo "lint tests 3 error, stopping due to failure..."
             exit 1
           fi
-          
+
           if [[ $res4 == "success" || $res4 == "skipped" ]]; then
             echo "lint tests 4 successfull..."
           else
             echo "lint tests 4 error, stopping due to failure..."
             exit 1
           fi
-          
+
           if [[ $res5 == "success" || $res5 == "skipped" ]]; then
             echo "lint tests 5 successfull..."
           else
             echo "lint tests 5 error, stopping due to failure..."
             exit 1
           fi
-          
+
           if [[ $res6 == "success" || $res6 == "skipped" ]]; then
             echo "lint tests 6 successfull..."
           else
