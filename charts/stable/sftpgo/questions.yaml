@@ -16,24 +16,24 @@ questions:
       type: dict
       attrs:
         - variable: SFTPGO_FTPD__BINDINGS__0__FORCE_PASSIVE_IP
-          label: "SFTPGo Bindings"
+          label: "SFTPGO_FTPD__BINDINGS__0__FORCE_PASSIVE_IP"
           description: "Put your server IP here for local access, or your public IP for public access via port forwarding."
           schema:
             type: string
             default: "10.0.0.10"
         - variable: SFTPGO_COMMON__DEFENDER__ENABLED
-          label: "SFTPGO_COMMON__DEFENDER__ENABLED"
+          label: "Enable SFTPGo Built-in Defender"
           description: "The built-in defender allows you to configure an auto-blocking policy for SFTPGo and thus helps to prevent DoS (Denial of Service) and brute force password guessing."
           schema:
             type: string
             default: "true"
         - variable: SFTPGO_FTPD__PASSIVE_PORT_RANGE__START
-          label: "SFTPGO_FTPD__PASSIVE_PORT_RANGE__START"
+          label: "SFTPGo Passive Range Start"
           schema:
             type: string
             default: "50000"
         - variable: SFTPGO_FTPD__PASSIVE_PORT_RANGE__END
-          label: "SFTPGO_FTPD__PASSIVE_PORT_RANGE__END"
+          label: "SFTPGo Passive Range End"
           schema:
             type: string
             default: "50100"
@@ -48,7 +48,7 @@ questions:
             type: string
             default: "10080"
         - variable: SFTPGO_FTPD__BINDINGS__0__DEBUG
-          label: "SFTPGO_FTPD__BINDINGS__0__DEBUG"
+          label: "SFTPGo FTD Bindings Debug (Disabled by default)"
           description: "0 = false, 1 = true"
           schema:
             type: string
@@ -86,7 +86,7 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: ftpport
-                      label: "ftpport Service Port Configuration"
+                      label: "FTP Port"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -107,7 +107,7 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: sftpport
-                      label: "sftpport Service Port Configuration"
+                      label: "SFTP Port"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -128,7 +128,7 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: passiveports
-                      label: "passiveports Service Port Configuration"
+                      label: "Passive Ports Beginning Range"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -149,7 +149,7 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: webdavport
-                      label: "webdavport Service Port Configuration"
+                      label: "WebDAV Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
