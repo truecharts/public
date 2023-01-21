@@ -3,6 +3,8 @@
 
 {{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) -}}
 {{- $lidarr := .Values.lidarr }}
+{{- $dbuser := .Values.postgresql.postgresqlUsername }}
+{{- $dbname := .Values.postgresql.postgresqlDatabase }}
 ---
 apiVersion: v1
 kind: Secret
@@ -18,10 +20,8 @@ stringData:
   {{- end }}
 
   {{/* DB */}}
-  LIDARR__POSTGRES_HOST: {{ .Values.postgresql.url.plain | trimAll "\"" }}
   LIDARR__POSTGRES_PORT: "5432"
-  LIDARR__POSTGRES_USER: {{ .Values.postgresql.postgresqlUsername }}
-  LIDARR__POSTGRES_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
-  LIDARR__POSTGRES_MAIN_DB: {{ .Values.postgresql.postgresqlDatabase }}
+  LIDARR__POSTGRES_USER: {{ $dbuser }}
+  LIDARR__POSTGRES_MAIN_DB: {{ $dbname }}
 
 {{- end -}}
