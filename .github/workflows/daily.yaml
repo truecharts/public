@@ -15,10 +15,10 @@ jobs:
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
-          
+
       - name: Setting repo parent dir as safe safe.directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
-        
+
       - name: generate readme.md
         shell: bash
         run: |
@@ -44,7 +44,7 @@ jobs:
               fi
             done
           done
-          
+
       - name: Bump and Sync
         shell: bash
         run: |
@@ -91,7 +91,7 @@ jobs:
               echo "Sources of ${chartname} updated!"
               }
           export -f sync_tag
-          
+
           for train in enterprise stable incubator dependency; do
             echo "Correcting Chart.yaml for Train: ${train}..."
             for chart in $(ls "charts/${train}"); do
@@ -99,7 +99,7 @@ jobs:
               sync_tag "charts/${train}/${chart}" "${chart}" "${train}"
             done
           done
-          
+
       - name: Cleanup
         run: |
           rm -rf changes.json
@@ -113,7 +113,7 @@ jobs:
           git add --all
           git commit -sm "Commit daily changes" || exit 0
           git push
-          
+
   generate-security-reports:
     runs-on: ubuntu-latest
     name: "Generate Security Reports"
@@ -151,7 +151,7 @@ jobs:
           repository: truecharts/website
           token: ${{ secrets.BOT_TOKEN }}
           path: website
-          
+
       - name: fetch dependencies
         shell: bash
         run: |
