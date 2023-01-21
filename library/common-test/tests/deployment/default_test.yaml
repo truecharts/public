@@ -46,6 +46,16 @@ tests:
           path: spec.template.spec.priorityClassName
       - isNull:
           path: spec.template.spec.schedulerName
+      - isNull:
+          path: spec.template.spec.hostAliases
+      - isNull:
+          path: spec.template.spec.nodeSelector
+      - isNull:
+          path: spec.template.spec.tolerations
+      - isNull:
+          path: spec.template.spec.imagePullSecrets
+      - isNull:
+          path: spec.template.spec.runtimeClassName
       - equal:
           path: spec.template.spec.containers[0].name
           value: RELEASE-NAME-common-test

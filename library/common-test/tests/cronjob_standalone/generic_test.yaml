@@ -1,24 +1,27 @@
-suite: statefulset generic test
+suite: cronjob generic test
 templates:
   - common.yaml
 tests:
-  - it: should pass with controller set to StatefulSet
-    documentIndex: &statefulsetDoc 0
+  - it: should pass with controller set to CronJob
+    documentIndex: &cronjobDoc 2
     set:
-      controller.type: StatefulSet
+      controller:
+        type: CronJob
+        schedule: "*/5 * * * *"
     asserts:
       - hasDocuments:
           count: 3
       - isKind:
-          of: StatefulSet
+          of: CronJob
       - isAPIVersion:
-          of: apps/v1
-
+          of: batch/v1
 
   - it: should pass with podSecurityContext changed
-    documentIndex: *statefulsetDoc
+    documentIndex: *cronjobDoc
     set:
-      controller.type: StatefulSet
+      controller:
+        type: CronJob
+        schedule: "* * * * *"
       podSecurityContext:
         fsGroup: 0
         fsGroupChangePolicy: Always
@@ -26,7 +29,7 @@ tests:
           - 1000
     asserts:
       - equal:
-          path: spec.template.spec.securityContext
+          path: spec.jobTemplate.spec.template.spec.securityContext
           value:
             fsGroup: 0
             fsGroupChangePolicy: Always
@@ -35,9 +38,11 @@ tests:
 
 
   - it: should pass with podSecurityContext changed
-    documentIndex: *statefulsetDoc
+    documentIndex: *cronjobDoc
     set:
-      controller.type: StatefulSet
+      controller:
+        type: CronJob
+        schedule: "* * * * *"
       securityContext:
         runAsUser: 1000
         runAsGroup: 1000
@@ -46,7 +51,7 @@ tests:
             - something
     asserts:
       - equal:
-          path: spec.template.spec.containers[0].securityContext
+          path: spec.jobTemplate.spec.template.spec.containers[0].securityContext
           value:
             allowPrivilegeEscalation: false
             privileged: false
@@ -61,9 +66,11 @@ tests:
                 - ALL
 
   - it: should pass with multiple envs defined via tpl
-    documentIndex: *statefulsetDoc
+    documentIndex: *cronjobDoc
     set:
-      controller.type: StatefulSet
+      controller:
+        type: CronJob
+        schedule: "* * * * *"
       some_string: a_string
       some_int: 123
       some_bool: false
@@ -73,7 +80,7 @@ tests:
         ENVVAR3: "{{ .Values.some_bool }}"
     asserts:
       - equal:
-          path: spec.template.spec.containers[0].env
+          path: spec.jobTemplate.spec.template.spec.containers[0].env
           value:
             - name: TZ
               value: "UTC"
@@ -92,51 +99,51 @@ tests:
             - name: ENVVAR3
               value: "false"
 
-  - it: should pass with image defined in init containers
-    documentIndex: *statefulsetDoc
+  - it: should pass with addNvidiaRuntimeClass and nvidiaRuntimeClassName set
+    documentIndex: *cronjobDoc
     set:
-      controller.type: StatefulSet
-      image:
-        repository: some-repo
-        tag: some-tag
-        pullPolicy: Always
-      someImage:
-        repository: some-other-repo
-        tag: some-other-tag
-        pullPolicy: Never
-      additionalContainers:
-        some-name:
-          imageSelector: someImage
-          pullPolicy: Never
-      initContainers:
-        some-name:
-          imageSelector: someImage
-          pullPolicy: Never
-      systemContainers:
-        some-name:
-          imageSelector: someImage
-          pullPolicy: Never
-      installContainers:
-        some-name:
-          imageSelector: someImage
-          pullPolicy: Never
+      controller:
+        type: CronJob
+        schedule: "* * * * *"
+      scaleGPU:
+        something: blabla
+      global:
+        ixChartContext:
+          addNvidiaRuntimeClass: true
+          nvidiaRuntimeClassName: something
     asserts:
-      - isSubset:
-          path: spec.template.spec.containers[0]
-          content:
-            image: some-repo:some-tag
-            imagePullPolicy: Always
-      - lengthEqual:
-          path: spec.template.spec.containers
-          count: 2
-      - lengthEqual:
-          path: spec.template.spec.initContainers
-          count: 3
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.runtimeClassName
+          value: something
+
+  - it: should pass with deviceList set
+    documentIndex: *cronjobDoc
+    set:
+      controller:
+        type: CronJob
+        schedule: "* * * * *"
+      deviceList:
+        - enabled: true
+          hostPath: /dev/usb
+          mountPath: /host/dev/usb
+    asserts:
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 5
+              - 10
+              - 20
+              - 24
 
   - it: should pass with added persistence
-    documentIndex: *statefulsetDoc
+    documentIndex: &cronjobDoc 3
     set:
-      controller.type: StatefulSet
+      controller:
+        type: CronJob
+        schedule: "* * * * *"
       persistence:
         volume0:
           type: pvc
@@ -179,49 +186,51 @@ tests:
       ixVolumes:
         - /mnt/pool/ix-applications/ix-app
     asserts:
+      - isKind:
+          of: CronJob
       - hasDocuments:
           count: 4
       - contains:
-          path: spec.template.spec.volumes
+          path: spec.jobTemplate.spec.template.spec.volumes
           content:
             name: volume0
             persistentVolumeClaim:
               claimName: RELEASE-NAME-common-test-volume0
       - contains:
-          path: spec.template.spec.volumes
+          path: spec.jobTemplate.spec.template.spec.volumes
           content:
             name: volume1
             nfs:
               path: /nfs/path
               server: some.server.local
       - contains:
-          path: spec.template.spec.volumes
+          path: spec.jobTemplate.spec.template.spec.volumes
           content:
             name: volume2
             hostPath:
               path: /mnt/pool/ix-applications/ix-app
       - contains:
-          path: spec.template.spec.volumes
+          path: spec.jobTemplate.spec.template.spec.volumes
           content:
             name: volume3
             hostPath:
               path: /mnt/pool/test
       - contains:
-          path: spec.template.spec.volumes
+          path: spec.jobTemplate.spec.template.spec.volumes
           content:
             name: volume4
             emptyDir:
               medium: Memory
               sizeLimit: 1Gi
       - contains:
-          path: spec.template.spec.volumes
+          path: spec.jobTemplate.spec.template.spec.volumes
           content:
             name: volume5
             secret:
               defaultMode: 511
               secretName: some_object_name
       - contains:
-          path: spec.template.spec.volumes
+          path: spec.jobTemplate.spec.template.spec.volumes
           content:
             name: volume6
             configMap:

@@ -19,12 +19,14 @@
 
     {{/* Add labels/annotations if any. */}}
     {{- range $key := (list "labels" "annotations") -}}
-      {{- if hasKey $.Values $key -}}
-        {{- $_ := set $jobValues $key (get $.Values $key) -}}
+      {{- if hasKey $.Values.controller $key -}}
+        {{- $_ := set $jobValues $key (get $.Values.controller $key) -}}
       {{- end -}}
     {{- end -}}
 
-    {{/* Add the .Values as the main container */}}
+    {{/* Add the .Values as the main container and as pod */}}
+    {{/* This needs some redesign tbh */}}
+    {{- $_ := set $jobValues "podSpec" .Values -}}
     {{- $_ := set $jobValues.podSpec "containers" dict -}}
     {{- $_ := set $jobValues.podSpec.containers "main" .Values -}}
     {{- $_ := set $jobValues.podSpec.containers.main "enabled" "true" -}}

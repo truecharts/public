@@ -3,6 +3,13 @@
 {{- define "ix.v1.common.class.serviceAccount" -}}
   {{- $saValues := .serviceAccount -}}
   {{- $root := .root -}}
+  {{- if hasKey $saValues "automountServiceAccountToken" -}}
+    {{- if not (kindIs "bool" $saValues.automountServiceAccountToken) -}}
+      {{- fail (printf "<automountServiceAccountToken> value (%s) must be boolean" $saValues.automountServiceAccountToken ) -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $_ := set $saValues "automountServiceAccountToken" true -}}
+  {{- end -}}
 
   {{- $saName := include "ix.v1.common.names.serviceAccount" (dict "root" $root "saValues" $saValues) }}
 ---
@@ -19,5 +26,6 @@ metadata:
   {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $root "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
-  {{- end -}}
+  {{- end }}
+automountServiceAccountToken: {{ $saValues.automountServiceAccountToken }}
 {{- end }}

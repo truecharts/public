@@ -52,9 +52,5 @@ tests:
       - isSubset:
           path: spec.template.metadata.annotations
           content:
-            app: common-test
-            app.kubernetes.io/instance: RELEASE-NAME
-            app.kubernetes.io/name: common-test
-            release: RELEASE-NAME
             test2: some_value2
             test: some_value

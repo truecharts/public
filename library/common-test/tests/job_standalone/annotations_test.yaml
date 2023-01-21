@@ -1,28 +1,25 @@
-suite: daemonset annotation test
+suite: job annotation test
 templates:
   - common.yaml
 tests:
   - it: should pass with default values
-    documentIndex: &daemonsetDoc 0
+    documentIndex: &jobDoc 2
     set:
-      controller.type: DaemonSet
+      controller.type: Job
     asserts:
       - hasDocuments:
           count: 3
       - isKind:
-          of: DaemonSet
+          of: Job
       - isNull:
           path: metadata.annotations
-      - matchRegex:
-          path: spec.template.metadata.annotations.rollme
-          pattern: "^[a-zA-Z0-9]{5}$"
 
   - it: should pass with controller and global annotations
-    documentIndex: *daemonsetDoc
+    documentIndex: *jobDoc
     set:
-      controller.type: DaemonSet
       some_key: some_value
       controller:
+        type: Job
         annotations:
           controller_key: controller_value
           controller_key2: "{{ .Values.some_key }}"
@@ -31,30 +28,27 @@ tests:
           global_key: global_value
           global_key2: "{{ .Values.some_key }}"
     asserts:
-      - equal:
+      - isSubset:
           path: metadata.annotations
-          value:
+          content:
             controller_key: controller_value
             controller_key2: some_value
             global_key: global_value
             global_key2: some_value
       - isNull:
           path: metadata.annotations.rollme
-      - matchRegex:
-          path: spec.template.metadata.annotations.rollme
-          pattern: "^[a-zA-Z0-9]{5}$"
 
   - it: should pass with podAnnotations set
-    documentIndex: *daemonsetDoc
+    documentIndex: *jobDoc
     set:
-      controller.type: DaemonSet
+      controller.type: Job
       some_key: some_value2
       podAnnotations:
         test: some_value
         test2: "{{ .Values.some_key }}"
     asserts:
       - isSubset:
-          path: spec.template.metadata.annotations
+          path: metadata.annotations
           content:
             test2: some_value2
             test: some_value

@@ -15,6 +15,7 @@
       {{- $_ := set $root.Values "persistence" dict -}}
     {{- end -}}
 
+    {{- $_ := set $device "type" "hostPath" -}}
     {{/* Add the device as a persistence dict,
     other templates will take care of the
     volume and volumeMounts */}}
@@ -42,6 +43,11 @@
   {{- $containers := .containers -}}
   {{- $root := .root -}}
   {{- $isJob := .isJob -}}
+
+  {{- if (mustHas $root.Values.controller.type (list "Job" "CronJob")) -}}
+    {{- $isJob = false -}}
+  {{- end -}}
+
   {{/* Go over the containers */}}
   {{- range $containerName, $container := $containers -}}
     {{/* If the container has deviceList */}}

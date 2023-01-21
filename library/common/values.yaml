@@ -2,60 +2,100 @@
 # All values can be overridden per chart, in their values.yaml
 # For Examples and Explanation view the "Values.yaml Explained" markdown file
 
+# Defines image info
 image:
   repository: repo
   tag: tag
   pullPolicy: IfNotPresent
 
+# Defines the image that will be used
 imageSelector: ""
 
+# Defines the imagePullSecrets
 imagePullCredentials: []
 
-command: []
-
-args: []
-
-extraArgs: []
-
+# Defines environment variables
 env: {}
 
+# SCALE / GUI Focused
 envList: []
 
+# Defines the environment variables from a secret or configmap
 envFrom: []
 
-configmap: {}
-
-secret: {}
-
+# Defines the timezone for the container
 TZ: UTC
 
-lifecycle: {}
+# Default Security values for main container
+security:
+  PUID: 568
+  UMASK: "002"
 
+# Nvidia Caps will be assigned via environment variable
+# If empty, global defaults will be used
+nvidiaCaps: []
+
+stdin: false
+
+tty: false
+
+# Overrides the default entrypoint
+command: []
+
+# Overrides the default args
+args: []
+
+# Appends to args
+extraArgs: []
+
+# Adds hosts to /etc/hosts
+hostAliases: []
+
+# Binds to host network
+hostNetwork: false
+
+# Creates a service account
+serviceAccount:
+  main:
+    enabled: false
+    primary: true
+    automountServiceAccountToken: true
+
+# Creates Role and RoleBinding
+# (or ClusterRole and ClusterRoleBinding if clusterWide is true)
 rbac:
   main:
     enabled: false
     primary: true
     clusterWide: false
 
-serviceAccount:
-  main:
-    enabled: false
-    primary: true
+# Creates a configmap
+configmap: {}
 
+# Creates a secret
+secret: {}
+
+# Defines lifecycle hooks
+lifecycle: {}
+
+# Used for SCALE / GUI Focused
+scaleGPU: {}
+
+# Adds annotations to the pod
+podAnnotations: {}
+
+# Adds annotations to the service
 addAnnotations:
   traefik: true
   metallb: true
 
-hostAliases: []
+# Used for SCALE
+scaleCerts: {}
 
-hostNetwork: false
+# Used for SCALE / GUI Focused
+scaleCertsList: []
 
-hostname: ""
-
-tty: false
-
-stdin: false
-
+# Defines the probes
 probes:
   liveness:
     enabled: true
@@ -64,31 +104,24 @@ probes:
   startup:
     enabled: true
 
-# Used for SCALE / GUI Focused
-scaleGPU: {}
+portal:
+  enabled: true
 
 # Used for SCALE / GUI Focused
 externalInterfaces: []
-
-# Used for SCALE
-scaleCerts: {}
-
-# Used for SCALE / GUI Focused
-scaleCertsList: []
 
 # Injected from middleware
 ixExternalInterfacesConfiguration: []
 # Injected from middleware
 ixExternalInterfacesConfigurationNames: []
+
+# - Everything bellow needs documentation
+hostname: ""
+
 # Injected from middleware
 ixCertificates: []
 # Injected from middleware
 ixVolumes: []
-
-portal:
-  enabled: true
-
-# - Everything bellow needs documentation
 
 global:
   nameOverride: ""
@@ -218,10 +251,7 @@ podSecurityContext:
   fsGroup: 568
   supplementalGroups: []
   fsGroupChangePolicy: OnRootMismatch
-# Default Security values for main container
-security:
-  PUID: 568
-  UMASK: "002"
+
 # Default securityContext for main container
 securityContext:
   runAsNonRoot: true
@@ -246,8 +276,6 @@ resources:
 nameOverride: ""
 
 fullnameOverride: ""
-
-podAnnotations: {}
 
 podLabels: {}
 

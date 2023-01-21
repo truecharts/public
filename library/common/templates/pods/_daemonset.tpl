@@ -41,7 +41,7 @@ spec:
       {{- include "ix.v1.common.labels.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with (mustMerge (include "ix.v1.common.labels.selectorLabels" . | fromYaml) (include "ix.v1.common.annotations.workload" . | fromYaml) (include "ix.v1.common.podAnnotations" . | fromYaml)) }}
+      {{- with (mustMerge (include "ix.v1.common.annotations.workload" . | fromYaml) (include "ix.v1.common.podAnnotations" . | fromYaml)) }}
       annotations:
         {{- . | toYaml | trim | nindent 8 }}
       {{- end -}}

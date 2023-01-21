@@ -1,6 +1,7 @@
 {{- define "ix.v1.common.util.envCheckDupes" -}}
   {{- $root := .root -}}
 
+  {{/* TODO: Needs desperately optimization */}}
   {{- range $kOut, $vOut := $root.Values.envsForDupeCheck -}}
     {{- range $kIn, $vIn := $root.Values.envsForDupeCheck -}}
       {{- if and (ne $vOut.source $vIn.source) (eq $vOut.key $vIn.key) -}}

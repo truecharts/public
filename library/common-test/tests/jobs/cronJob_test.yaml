@@ -428,7 +428,7 @@ tests:
           path: spec.successfulJobsHistoryLimit
           value: 5
 
-  - it: should pass with startingDeadLineSeconds defined in cronjob
+  - it: should pass with startingDeadlineSeconds defined in cronjob
     documentIndex: *cronJobDoc
     set:
       jobs:
@@ -437,14 +437,14 @@ tests:
           cron:
             enabled: true
             schedule: "* * * * *"
-            startingDeadLineSeconds: 150
+            startingDeadlineSeconds: 150
           podSpec:
             containers:
               main:
                 imageSelector: image
     asserts:
       - equal:
-          path: spec.startingDeadLineSeconds
+          path: spec.startingDeadlineSeconds
           value: 150
 
   - it: should pass with values set in jobTemplate

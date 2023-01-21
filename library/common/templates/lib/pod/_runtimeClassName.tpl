@@ -8,6 +8,10 @@
     {{- $runtimeName = . -}}
   {{- end -}}
 
+  {{- if (mustHas $root.Values.controller.type (list "Job" "CronJob")) -}}
+    {{- $isJob = false -}}
+  {{- end -}}
+
   {{/* Override previous if a runtime is passed from values */}}
   {{- with $runtime -}}
     {{- $runtimeName = . -}}
