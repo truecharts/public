@@ -17,8 +17,8 @@ env:
   SFTPGO_FTPD__BINDINGS__0__FORCE_PASSIVE_IP: 10.0.0.10
   SFTPGO_FTPD__BINDINGS__0__PORT: "{{ .Values.service.ftpport.ports.ftpport.port }}"
   SFTPGO_SFTPD__BINDINGS__0__PORT: "{{ .Values.service.sftpport.ports.sftpport.port }}"
-  SFTPGO_FTPD__PASSIVE_PORT_RANGE__END: "50100"
-  SFTPGO_FTPD__PASSIVE_PORT_RANGE__START: "50000"
+  SFTPGO_FTPD__PASSIVE_PORT_RANGE__END: "{{ .Values.service.passiveportsend.ports.passiveportsend.port }}"
+  SFTPGO_FTPD__PASSIVE_PORT_RANGE__START: "{{ .Values.service.passiveportsstart.ports.passiveportsstart.port }}"
   SFTPGO_WEBDAVD__BINDINGS__0__PORT: "{{ .Values.service.webdavport.ports.webdavport.port }}"
 
 service:
@@ -36,10 +36,18 @@ service:
         port: 2221
         protocol: HTTP
         targetPort: 8080
-  passiveports:
+  passiveportsstart:
     enabled: true
     ports:
-      passiveports:
+      passiveportsstart:
+        enabled: true
+        port: 50000
+        protocol: TCP
+        targetPort: 50000
+  passiveportsend:
+    enabled: true
+    ports:
+      passiveportsend:
         enabled: true
         port: 50000
         protocol: TCP

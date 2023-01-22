@@ -27,26 +27,6 @@ questions:
           schema:
             type: string
             default: "true"
-        - variable: SFTPGO_FTPD__PASSIVE_PORT_RANGE__START
-          label: "SFTPGo Passive Range Start"
-          schema:
-            type: string
-            default: "50000"
-        - variable: SFTPGO_FTPD__PASSIVE_PORT_RANGE__END
-          label: "SFTPGo Passive Range End"
-          schema:
-            type: string
-            default: "50100"
-        - variable: SFTPGO_FTPD__BINDINGS__0__PORT
-          label: "SFTPGO_FTPD__BINDINGS__0__PORT"
-          schema:
-            type: string
-            default: "2121"
-        - variable: SFTPGO_WEBDAVD__BINDINGS__0__PORT
-          label: "SFTPGO_WEBDAVD__BINDINGS__0__PORT"
-          schema:
-            type: string
-            default: "10080"
         - variable: SFTPGO_FTPD__BINDINGS__0__DEBUG
           label: "SFTPGo FTD Bindings Debug (Disabled by default)"
           description: "0 = false, 1 = true"
@@ -119,7 +99,7 @@ questions:
                               type: int
                               default: 2022
                               required: true
-        - variable: passiveports
+        - variable: passiveportsstart
           label: 'passiveports service'
           schema:
             additional_attrs: true
@@ -127,7 +107,7 @@ questions:
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: passiveports
+                    - variable: passiveportsstart
                       label: "Passive Ports Beginning Range"
                       schema:
                         additional_attrs: true
@@ -139,6 +119,27 @@ questions:
                             schema:
                               type: int
                               default: 50000
+                              required: true
+        - variable: passiveportsend
+          label: 'passiveports service'
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: passiveportsend
+                      label: "Passive Ports Ending Range"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 51000
                               required: true
         - variable: webdavport
           label: 'webdavport service'
@@ -182,13 +183,6 @@ questions:
 # Include{persistenceBasic}
         - variable: configpath
           label: "configpath Storage"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-        - variable: shareaccess
-          label: "shareaccess Storage"
           schema:
             additional_attrs: true
             type: dict
