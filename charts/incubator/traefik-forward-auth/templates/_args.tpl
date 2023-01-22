@@ -1,36 +1,36 @@
 {{- define "tfa.args" -}}
 args:
-  - --log-level={{ .Values.tfa-app-options.log-level }}
-  - --log-format={{ .Values.tfa-app-options.log-format }}
-  {{- if .Values.tfa-auth-options.auth-host }}
-  - --auth-host={{ .Values.tfa-auth-options.auth-host }}
+  - --log-level={{ .Values.tfaAppOptions.logLevel }}
+  - --log-format={{ .Values.tfaAppOptions.logFormat }}
+  {{- if .Values.tfaAuthOptions.authHost }}
+  - --auth-host={{ .Values.tfaAuthOptions.authHost }}
   {{- end }}
-  {{- range .Values.tfa-cookie-options.cookie-domain }}
+  {{- range .Values.tfaCookieOptions.cookieDomain }}
   - --cookie-domain={{ . }}
   {{- end }}
-  {{- if .Values.tfa-cookie-options.insecure-cookie }}
+  {{- if .Values.tfaCookieOptions.insecureCookie }}
   - --insecure-cookie
   {{- end }}
-  - --cookie-name={{ .Values.tfa-cookie-options.cookie-name }}
-  - --csrf-cookie-name={{ .Values.tfa-cookie-options.csrf-cookie-name }}
-  - --default-action={{ .Values.tfa-auth-options.default-action }}
-  - --default-provider={{ .Values.tfa-auth-options.default-provider }}
-  {{- range .Values.tfa-auth-options.domain }}
+  - --cookie-name={{ .Values.tfaCookieOptions.cookieName }}
+  - --csrf-cookie-name={{ .Values.tfaCookieOptions.csrfCookieName }}
+  - --default-action={{ .Values.tfaAuthOptions.defaultAction }}
+  - --default-provider={{ .Values.tfaAuthOptions.defaultProvider }}
+  {{- range .Values.tfaAuthOptions.domain }}
   - --domain={{ . }}
   {{- end }}
-  - --lifetime={{ .Values.tfa-cookie-options.lifetime }}
-  {{- if .Values.tfa-auth-options.logout-redirect }}
-  - --logout-redirect={{ .Values.tfa-auth-options.logout-redirect }}
+  - --lifetime={{ .Values.tfaCookieOptions.lifetime }}
+  {{- if .Values.tfaAuthOptions.logoutRedirect }}
+  - --logout-redirect={{ .Values.tfaAuthOptions.logoutRedirect }}
   {{- end }}
-  {{- if .Values.tfa-auth-options.url-path }}
-  - --url-path={{ .Values.tfa-auth-options.url-path }}
+  {{- if .Values.tfaAuthOptions.urlPath }}
+  - --url-path={{ .Values.tfaAuthOptions.urlPath }}
   {{- end }}
-  - --url-path={{ .Values.tfa-app-options.secret }}
-  {{- range .Values.tfa-auth-options.whitelist }}
+  - --url-path={{ .Values.tfaAppOptions.secret }}
+  {{- range .Values.tfaAuthOptions.whitelist }}
   - --whitelist={{ . }}
   {{- end }}
-  - --port={{ .Values.tfa-app-options.port }}
-  {{- range .Values.tfa-auth-options.rules }}
+  - --port={{ .Values.tfaAppOptions.port }}
+  {{- range .Values.tfaAuthOptions.rules }}
   - --{{ . }}
   {{- end }}
 {{- end -}}

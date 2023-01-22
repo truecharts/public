@@ -1,28 +1,5 @@
 # Include{groups}
-portals:
-  open:
-    protocols:
-      - "$kubernetes-resource_configmap_portal_protocol"
-    host:
-      - "$kubernetes-resource_configmap_portal_host"
-    ports:
-      - "$kubernetes-resource_configmap_portal_port"
 questions:
-  - variable: portal
-    group: "Container Image"
-    label: "Configure Portal Button"
-    schema:
-      type: dict
-      hidden: true
-      attrs:
-        - variable: enabled
-          label: "Enable"
-          description: "enable the portal button"
-          schema:
-            hidden: true
-            editable: false
-            type: boolean
-            default: true
 # Include{global}
   - variable: controller
     group: "Controller"
@@ -60,53 +37,57 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  - variable: tfa-auth-options
+  - variable: tfaAuthOptions
     group: App Configuration
     label: Auth Options
     schema:
       type: dict
       attrs:
-        - variable: operation-mode
+        - variable: operationMode
           label: Operation mode
           description: Use auth host if using subdomains. In turn, you have to route the given FQDN to the service.
           schema:
             type: string
-            default: "overlay"
+            default: overlay
             enum:
               - value: overlay
                 description: Overlay
               - value: auth-host
                 description: Auth host
-        - variable: auth-host
+        - variable: authHost
           label: Auth host
           description: Single host to use when returning from 3rd party auth.
-          show_if: [["operation-mode", "=", "auth-host"]]
+          show_if: [["operationMode", "=", "auth-host"]]
           schema:
             type: string
-            default: ""
-        - variable: url-path
+        - variable: urlPath
           label: Callback URL Path
-          show_if: [["operation-mode", "=", "overlay"]]
+          show_if: [["operationMode", "=", "overlay"]]
           schema:
             type: string
             default: "/_oauth"
-        - variable: default-action
+        - variable: defaultAction
           label: Default action
           schema:
             type: string
-            default: "auth"
+            default: auth
             enum:
-              - "auth"
-              - "allow"
-        - variable: default-provider
+              - value: auth
+                description: Authenticate
+              - value: allow
+                description: Allow (do not require authentication)
+        - variable: defaultProvider
           label: Default provider
           schema:
             type: string
-            default: "auth"
+            default: google
             enum:
-              - "google"
-              - "oidc"
-              - "generic-oauth"
+              - value: google
+                description: Google Provider
+              - value: oidc
+                description: OIDC Provider
+              - value: generic-oauth
+                description: Generic OAuth2 Provider
         - variable: domain
           label: Domains
           description: Only allow given email domains.
@@ -114,11 +95,10 @@ questions:
             type: list
             default: []
             items:
-              - variable: cookie-domain-host
+              - variable: allowedDomain
                 label: Host
                 schema:
                   type: string
-                  default: ""
                   required: true
         - variable: whitelist
           label: Whitelist
@@ -127,42 +107,51 @@ questions:
             type: list
             default: []
             items:
-              - variable: cookie-domain-host
+              - variable: allowedEmail
                 label: Host
                 schema:
                   type: string
-                  default: ""
                   required: true
-        - variable: logout-redirect
+        - variable: rules
+          label: Rules
+          description: Additional rules in rule.<name>.<param>=<value> format.
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: rule
+                label: Rule
+                schema:
+                  type: string
+                  required: true
+        - variable: logoutRedirect
           label: Logout redirect
           description: URL to redirect to following logout.
           schema:
             type: string
-            default: ""
-  - variable: tfa-cookie-options
+  - variable: tfaCookieOptions
     group: App Configuration
     label: Cookie Options
     schema:
       type: dict
       attrs:
-        - variable: cookie-domain
+        - variable: cookieDomain
           label: Cookie domain hosts
           schema:
             type: list
             default: []
             items:
-              - variable: cookie-domain-host
+              - variable: cookieDomainHost
                 label: Host
                 schema:
                   type: string
-                  default: ""
                   required: true
-        - variable: cookie-name
+        - variable: cookieName
           label: Cookie name
           schema:
             type: string
             default: "_forward_auth"
-        - variable: csrf-cookie-name
+        - variable: csrfCookieName
           label: CSRF cookie name
           schema:
             type: string
@@ -173,12 +162,108 @@ questions:
           schema:
             type: int
             default: 43200
-        - variable: insecure-cookie
+        - variable: insecureCookie
           label: Use insecure cookies
           schema:
             type: boolean
             default: false
-  - variable: tfa-app-options
+  - variable: tfaGoogleOptions
+    group: App Configuration
+    label: Google Provider
+    schema:
+      type: dict
+      attrs:
+        - variable: clientId
+          label: Client ID
+          schema:
+            type: string
+            private: true
+        - variable: clientSecret
+          label: Client Secret
+          schema:
+            type: string
+            private: true
+        - variable: prompt
+          label: Prompt
+          description: Space separated list of OpenID prompt options.
+          schema:
+            type: string
+  - variable: tfaOidcOptions
+    group: App Configuration
+    label: OIDC Provider
+    schema:
+      type: dict
+      attrs:
+        - variable: issuerUrl
+          label: Issuer URL
+          schema:
+            type: string
+        - variable: clientId
+          label: Client ID
+          schema:
+            type: string
+            private: true
+        - variable: clientSecret
+          label: Client Secret
+          schema:
+            type: string
+            private: true
+        - variable: resource
+          label: Resource
+          description: Optional resource indicator.
+          schema:
+            type: string
+  - variable: tfaOauthOptions
+    group: App Configuration
+    label: Generic OAuth2 Provider
+    schema:
+      type: dict
+      attrs:
+        - variable: authUrl
+          label: Auth/Login URL
+          schema:
+            type: string
+        - variable: tokenUrl
+          label: Token URL
+          schema:
+            type: string
+        - variable: userUrl
+          label: User URL
+          description: URL used to retrieve user info.
+          schema:
+            type: string
+        - variable: clientId
+          label: Client ID
+          schema:
+            type: string
+            private: true
+        - variable: clientSecret
+          label: Client Secret
+          schema:
+            type: string
+            private: true
+        - variable: scopes
+          label: Scopes
+          schema:
+            type: string
+            default: profile, email
+        - variable: tokenStyle
+          label: Token style
+          description: How token is presented when querying the User URL
+          schema:
+            type: string
+            default: header
+            enum:
+              - value: header
+                description: Header
+              - value: query
+                description: Query
+        - variable: resource
+          label: Resource
+          description: Optional resource indicator.
+          schema:
+            type: string
+  - variable: tfaAppOptions
     group: App Configuration
     label: Application Options
     schema:
@@ -189,35 +274,45 @@ questions:
           description: Mandatory, can be any string.
           schema:
             type: string
-            default: ""
             required: true
+            private: true
         - variable: port
           label: Port
           schema:
             type: int
             default: 4181
-        - variable: log-level
+        - variable: logLevel
           label: Log level
           schema:
             type: string
-            default: "warn"
+            default: warn
             enum:
-              - "trace"
-              - "debug"
-              - "info"
-              - "warn"
-              - "error"
-              - "fatal"
-              - "panic"
-        - variable: log-format
+              - value: trace
+                description: Trace (most detailed)
+              - value: debug
+                description: Debug
+              - value: info
+                description: Information
+              - value: warn
+                description: Warning
+              - value: error
+                description: Error
+              - value: fatal
+                description: Fatal
+              - value: panic
+                description: Panic (least detailed)
+        - variable: logFormat
           label: Log format
           schema:
             type: string
-            default: "rating"
+            default: rating
             enum:
-              - "text"
-              - "json"
-              - "pretty"
+              - value: text
+                description: Text
+              - value: json
+                description: JSON
+              - value: pretty
+                description: Pretty
 # Include{fixedEnv}
 # Include{containerConfig}
 # Include{serviceRoot}
