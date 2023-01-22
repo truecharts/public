@@ -8,7 +8,7 @@ nginx: |
     }
     location ~* ^/(api|dav|\.well-known)/ {
         proxy_pass http://localhost:{{ .Values.vikunja.service.interface | replace ":" "" }};
-        client_max_body_size {{ .Values.env.VIKUNJA_FILES_MAXSIZE | upper | trimSuffix "B" }};
+        client_max_body_size {{ .Values.vikunja.files.maxsize | upper | trimSuffix "B" }};
     }
   }
 {{- end -}}
