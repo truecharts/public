@@ -128,11 +128,11 @@ stringData:
       enabled: {{ .Values.vikunja.backgrounds.enabled }}
       providers:
         upload:
-          enabled: {{ .Values.vikunja.backgrounds.upload.enabled }}
+          enabled: {{ .Values.vikunja.backgrounds.providers.upload.enabled }}
         unsplash:
-          enabled: {{ .Values.vikunja.backgrounds.unsplash.enabled }}
-          accesstoken: {{ .Values.vikunja.backgrounds.unsplash.accesstoken | quote }}
-          applicationid: {{ .Values.vikunja.backgrounds.unsplash.applicationid | quote }}
+          enabled: {{ .Values.vikunja.backgrounds.providers.unsplash.enabled }}
+          accesstoken: {{ .Values.vikunja.backgrounds.providers.unsplash.accesstoken | quote }}
+          applicationid: {{ .Values.vikunja.backgrounds.providers.unsplash.applicationid | quote }}
 
     migration:
       todoist:
