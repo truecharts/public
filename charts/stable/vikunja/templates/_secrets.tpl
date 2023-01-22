@@ -178,6 +178,10 @@ stringData:
       overdue_tasks_reminders_time: {{ .Values.vikunja.defaultsettings.overdue_tasks_reminders_time | quote }}
       default_list_id: {{ .Values.vikunja.defaultsettings.default_list_id }}
       week_start: {{ .Values.vikunja.defaultsettings.week_start }}
-      language: {{ .Values.vikunja.defaultsettings.language | quote }}
-      timezone: {{ .Values.vikunja.defaultsettings.timezone | quote }}
+      {{- with .Values.vikunja.defaultsettings.language }}
+      language: {{ . | quote }}
+      {{- end }}
+      {{- with .Values.vikunja.defaultsettings.timezone }}
+      timezone: {{ . | quote }}
+      {{- end }}
 {{- end -}}

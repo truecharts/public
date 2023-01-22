@@ -387,6 +387,7 @@ questions:
                       description: Whether or not to log database queries. Useful for debugging.
                       schema:
                         type: string
+                        required: true
                         default: "off"
                         enum:
                           - value: stdout
@@ -423,6 +424,7 @@ questions:
                       description: Whether to log http requests or not.
                       schema:
                         type: string
+                        required: true
                         default: stdout
                         enum:
                           - value: stdout
@@ -438,6 +440,7 @@ questions:
                       description: Echo has its own logging which usually is unnecessary, which is why it is disabled by default.
                       schema:
                         type: string
+                        required: true
                         default: "off"
                         enum:
                           - value: stdout
@@ -453,6 +456,7 @@ questions:
                       description: Whether or not to log events.
                       schema:
                         type: string
+                        required: true
                         default: stdout
                         enum:
                           - value: stdout
@@ -478,6 +482,160 @@ questions:
                             description: ERROR
                           - value: DEBUG
                             description: DEBUG
+        - variable: defaultsettings
+          label: Default Settings
+          description: |
+            Provide default settings for new users. When a new user is created, these settings will automatically be set for the user.
+            If you change them in the config file afterwards they will not be changed back for existing users.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: avatar_provider
+                label: Avatar Provider
+                description: The avatar source for the user.
+                schema:
+                  type: string
+                  required: true
+                  default: initials
+                  enum:
+                    - value: initials
+                      description: Initials
+                    - value: gravatar
+                      description: Gravatar
+                    - value: marble
+                      description: Marble
+                    - value: upload
+                      description: Upload
+              - variable: avatar_file_id
+                label: Avatar File ID
+                description: The id of the file used as avatar.
+                schema:
+                  type: int
+                  show_if: [["avatar_provider", "=", "upload"]]
+                  required: true
+                  default: 0
+              - variable: email_reminders_enabled
+                label: Enable Email Reminders
+                description: If set to true users will get task reminders via email.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: discoverable_by_name
+                label: Discoverable by Name
+                description: If set to true will allow other users to find this user when searching for parts of their name.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: discoverable_by_email
+                label: Discoverable by E-Mail
+                description: If set to true will allow other users to find this user when searching for their exact email.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: overdue_tasks_reminders_enabled
+                label: Enable Overdue Task Reminders
+                description: If set to true will send an email every day with all overdue tasks at a configured time.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: overdue_tasks_reminders_time
+                label: Overdue Task Reminder Time
+                description: When to send the overdue task reminder email.
+                schema:
+                  type: string
+                  required: true
+                  default: "09:00"
+              - variable: default_list_id
+                label: Default List ID
+                description: The id of the default list. Make sure users actually have access to this list when setting this value.
+                schema:
+                  type: int
+                  required: true
+                  default: 0
+              - variable: week_start
+                label: Week Start
+                description: Start of the week for the user. 0 is sunday, 1 is monday and so on.
+                schema:
+                  type: int
+                  required: true
+                  default: 0
+              - variable: language
+                label: Language
+                description: |
+                  The language of the user interface. Must be an ISO 639-1 language code.
+                  Will default to the browser language the user uses when signing up.
+                schema:
+                  type: string
+                  default: ""
+              - variable: timezone
+                label: Timezone
+                description: The time zone of each individual user. This will affect when users get reminders and overdue task emails.
+                schema:
+                  type: string
+                  default: ""
+        - variable: backgrounds
+          label: Backgrounds
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enabled
+                description: Whether to enable backgrounds for lists at all.
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: providers
+                      label: Providers
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: upload
+                            label: Upload
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: Enabled
+                                  description: Whether to enable uploaded list backgrounds
+                                  schema:
+                                    type: boolean
+                                    default: true
+                          - variable: unsplash
+                            label: Unsplash
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: Enabled
+                                  description: Whether to enable setting backgrounds from unsplash as list backgrounds
+                                  schema:
+                                    type: boolean
+                                    default: false
+                                    show_subquestions_if: true
+                                    subquestions:
+                                      - variable: accesstoken
+                                        label: Access Token
+                                        description: |
+                                           You need to create an application for your installation at
+                                           https://unsplash.com/oauth/applications/new and set the access token below.
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: applicationid
+                                        label: Application ID
+                                        description: The unsplash application id is only used for ping back and required as per their api guidelines.
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
