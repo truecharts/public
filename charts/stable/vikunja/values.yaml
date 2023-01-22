@@ -75,26 +75,22 @@ vikunja:
     authtype: plain
     username: ""
     password: ""
-    skiptlsverify: false
     fromemail: ""
+    skiptlsverify: false
+    forcessl: true
     queuelength: 100
     queuetimeout: 30
-    forcessl: true
   log:
     enabled: true
+    path: /app/vikunja/logs
     standard: stdout
     level: INFO
-    database: false
+    database: "off"
     databaselevel: WARNING
     http: stdout
-    echo: false
+    echo: "off"
     events: stdout
     eventslevel: info
-
-  metrics:
-    enabled: false
-    username: ""
-    password: ""
   defaultsettings:
     avatar_provider: initials
     avatar_file_id: 0
@@ -144,6 +140,10 @@ vikunja:
         #   logouturl: ""
         #   clientid: ""
         #   clientsecret: ""
+  metrics:
+    enabled: false
+    username: ""
+    password: ""
 
 service:
   main:

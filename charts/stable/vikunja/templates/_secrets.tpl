@@ -98,12 +98,13 @@ stringData:
 
     log:
       enabled: {{ .Values.vikunja.log.enabled }}
+      path: {{ .Values.vikunja.log.path | quote }}
       standard: {{ .Values.vikunja.log.standard | quote }}
       level: {{ .Values.vikunja.log.level | quote }}
-      database: {{ ternary "off" "on" .Values.vikunja.log.database | quote }}}
+      database: {{ .Values.vikunja.log.database | quote }}}
       databaselevel: {{ .Values.vikunja.log.databaselevel | quote }}
       http: {{ .Values.vikunja.log.http | quote }}
-      echo: {{ ternary "off" "on" .Values.vikunja.log.echo | quote }}}
+      echo: {{ .Values.vikunja.log.echo | quote }}}
       events: {{ .Values.vikunja.log.events | quote }}
       eventslevel: {{ .Values.vikunja.log.eventslevel | quote }}
 
