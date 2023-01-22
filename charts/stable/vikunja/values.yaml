@@ -29,8 +29,6 @@ configmap:
 
 vikunja:
   service:
-    # API Port, internal
-    interface: ":3456"
     jwtttl: 259200
     jwtttllong: 2592000
     frontendurl: http://localhost:10220
@@ -123,16 +121,18 @@ vikunja:
       clientid: ""
       clientsecret: ""
       redirecturl: ""
-  serviceExtra: {}
-  filesExtra: {}
-  defaultsettingsExtra: {}
-  metricsExtra: {}
-  legalExtra: {}
-  avatarExtra: {}
-  ratelimitExtra: {}
-  corsExtra: {}
-  logExtra: {}
-  mailerExtra: {}
+  auth:
+    local:
+      enabled: true
+    openid:
+      enabled: false
+      redirecturl: ""
+      providers: []
+        # - name: ""
+        #   authurl: ""
+        #   logouturl: ""
+        #   clientid: ""
+        #   clientsecret: ""
 
 service:
   main:

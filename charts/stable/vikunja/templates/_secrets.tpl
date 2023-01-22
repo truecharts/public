@@ -47,11 +47,29 @@ stringData:
     keyvalue:
       type: redis
 
+    service:
+      interface: ":3456"
+      JWTSecret: {{ $jwtSecret }}
+      timezone: {{ .Values.TZ | quote }}
+      jwtttl: {{ .Values.vikunja.service.jwtttl | int }}
+      jwtttllong: {{ .Values.vikunja.service.jwtttllong | int }}
+      frontendurl: {{ .Values.vikunja.service.frontendurl | quote }}
+      maxitemsperpage: {{ .Values.vikunja.service.maxitemsperpage }}
+      enablecaldav: {{ .Values.vikunja.service.enablecaldav }}
+      motd: {{ .Values.vikunja.service.motd | quote }}
+      enablelinksharing: {{ .Values.vikunja.service.enablelinksharing }}
+      enableregistration: {{ .Values.vikunja.service.enableregistration }}
+      enabletaskattachments: {{ .Values.vikunja.service.enabletaskattachments }}
+      enabletaskcomments: {{ .Values.vikunja.service.enabletaskcomments }}
+      enabletotp: {{ .Values.vikunja.service.enabletotp }}
+      enableemailreminders: {{ .Values.vikunja.service.enableemailreminders }}
+      enableuserdeletion: {{ .Values.vikunja.service.enableuserdeletion }}
+      maxavatarsize: {{ .Values.vikunja.service.maxavatarsize }}
+
     metrics:
       enabled: {{ .Values.vikunja.metrics.enabled }}
       username: {{ .Values.vikunja.metrics.username | quote }}
       password: {{ .Values.vikunja.metrics.password | quote }}
-      {{ include "vikunja.extra" (dict "curr" .Values.vikunja.metrics "extra" .Values.vikunja.metricsExtra) | nindent 4 }}
 
     cors:
       enabled: {{ .Values.vikunja.cors.enabled }}
@@ -64,7 +82,6 @@ stringData:
       origins: []
       {{- end }}
       maxage: {{ .Values.vikunja.cors.maxage }}
-      {{ include "vikunja.extra" (dict "curr" .Values.vikunja.cors "extra" .Values.vikunja.corsExtra) | nindent 4 }}
 
     mailer:
       enabled: {{ .Values.vikunja.mailer.enabled }}
@@ -78,7 +95,6 @@ stringData:
       queuelength: {{ .Values.vikunja.mailer.queuelength }}
       queuetimeout: {{ .Values.vikunja.mailer.queuetimeout }}
       forcessl: {{ .Values.vikunja.mailer.forcessl }}
-      {{ include "vikunja.extra" (dict "curr" .Values.vikunja.mailer "extra" .Values.vikunja.mailerExtra) | nindent 4 }}
 
     log:
       enabled: {{ .Values.vikunja.log.enabled }}
@@ -90,7 +106,6 @@ stringData:
       echo: {{ ternary "off" "on" .Values.vikunja.log.echo | quote }}}
       events: {{ .Values.vikunja.log.events | quote }}
       eventslevel: {{ .Values.vikunja.log.eventslevel | quote }}
-      {{ include "vikunja.extra" (dict "curr" .Values.vikunja.log "extra" .Values.vikunja.logExtra) | nindent 4 }}
 
     ratelimit:
       enabled: {{ .Values.vikunja.ratelimit.enabled }}}
@@ -98,20 +113,16 @@ stringData:
       period: {{ .Values.vikunja.ratelimit.period }}
       limit: {{ .Values.vikunja.ratelimit.limit }}
       store: redis
-      {{ include "vikunja.extra" (dict "curr" .Values.vikunja.ratelimit "extra" .Values.vikunja.ratelimitExtra "disallow" (list "store")) | nindent 4 }}
 
     files:
       maxsize: {{ .Values.vikunja.files.maxsize }}
-      {{ include "vikunja.extra" (dict "curr" .Values.vikunja.files "extra" .Values.vikunja.filesExtra) | nindent 4 }}
 
     avatar:
       gravatarexpiration: {{ .Values.vikunja.avatar.gravatarexpiration }}
-      {{ include "vikunja.extra" (dict "curr" .Values.vikunja.avatar "extra" .Values.vikunja.avatarExtra) | nindent 4 }}
 
     legal:
       imprinturl: {{ .Values.vikunja.legal.imprinturl | quote }}
       privacyurl: {{ .Values.vikunja.legal.privacyurl | quote }}
-      {{ include "vikunja.extra" (dict "curr" .Values.vikunja.legal "extra" .Values.vikunja.legalExtra) | nindent 4 }}
 
     backgrounds:
       enabled: {{ .Values.vikunja.backgrounds.enabled }}
@@ -139,25 +150,22 @@ stringData:
         clientsecret: {{ .Values.vikunja.migration.microsofttodo.clientsecret | quote }}
         redirecturl: {{ .Values.vikunja.migration.microsofttodo.redirecturl | quote }}
 
-    service:
-      interface: {{ .Values.vikunja.service.interface | quote }}
-      JWTSecret: {{ $jwtSecret }}
-      timezone: {{ .Values.TZ | quote }}
-      jwtttl: {{ .Values.vikunja.service.jwtttl | int }}
-      jwtttllong: {{ .Values.vikunja.service.jwtttllong | int }}
-      frontendurl: {{ .Values.vikunja.service.frontendurl | quote }}
-      maxitemsperpage: {{ .Values.vikunja.service.maxitemsperpage }}
-      enablecaldav: {{ .Values.vikunja.service.enablecaldav }}
-      motd: {{ .Values.vikunja.service.motd | quote }}
-      enablelinksharing: {{ .Values.vikunja.service.enablelinksharing }}
-      enableregistration: {{ .Values.vikunja.service.enableregistration }}
-      enabletaskattachments: {{ .Values.vikunja.service.enabletaskattachments }}
-      enabletaskcomments: {{ .Values.vikunja.service.enabletaskcomments }}
-      enabletotp: {{ .Values.vikunja.service.enabletotp }}
-      enableemailreminders: {{ .Values.vikunja.service.enableemailreminders }}
-      enableuserdeletion: {{ .Values.vikunja.service.enableuserdeletion }}
-      maxavatarsize: {{ .Values.vikunja.service.maxavatarsize }}
-      {{ include "vikunja.extra" (dict "curr" .Values.vikunja.service "extra" .Values.vikunja.serviceExtra) | nindent 4 }}
+    auth:
+      local:
+        enabled: {{ .Values.vikunja.auth.local.enabled }}
+      openid:
+        enabled: {{ .Values.vikunja.auth.openid.enabled }}
+        redirecturl: {{ .Values.vikunja.auth.openid.redirecturl | quote }}
+        {{- with .Values.vikunja.auth.openid.providers }}
+        providers:
+          {{- range . }}
+          - name: {{ .name | quote }}
+            authurl: {{ .authurl | quote }}
+            logouturl: {{ .logouturl | quote }}
+            clientid: {{ .clientid | quote }}
+            clientsecret: {{ .clientsecret | quote }}
+          {{- end }}
+        {{- end }}
 
     defaultsettings:
       avatar_provider: {{ .Values.vikunja.defaultsettings.avatar_provider | quote }}
@@ -171,25 +179,4 @@ stringData:
       week_start: {{ .Values.vikunja.defaultsettings.week_start }}
       language: {{ .Values.vikunja.defaultsettings.language | quote }}
       timezone: {{ .Values.vikunja.defaultsettings.timezone | quote }}
-      {{ include "vikunja.extra" (dict "curr" .Values.vikunja.defaultsettings "extra" .Values.vikunja.defaultsettingsExtra) | nindent 4 }}
-{{- end -}}
-
-{{- define "vikunja.extra" -}}
-  {{/* TODO: Improve for nested */}}
-  {{- $curr := .curr -}}
-  {{- $extra := .extra -}}
-  {{- $disallow := .disallow -}}
-
-  {{- $keys := $curr | keys -}}
-  {{- range $k, $v := $extra -}}
-    {{- if mustHas $k $keys -}}
-      {{- fail (printf "Key (%s) can already be configured from the provided interface" $k) -}}
-    {{- end -}}
-
-    {{- if mustHas $k $disallow -}}
-      {{- fail (printf "Key (%s) is not allowed to be altered" $k) -}}
-    {{- end -}}
-
-    {{ $k }}: {{ $v }}
-  {{- end -}}
 {{- end -}}
