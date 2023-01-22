@@ -151,6 +151,9 @@ additionalContainers:
   frontend:
     name: frontend
     image: "{{ .Values.frontendImage.repository }}:{{ .Values.frontendImage.tag }}"
+    ports:
+      - containerPort: 80
+        name: http
   proxy:
     name: proxy
     image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
