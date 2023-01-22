@@ -8,215 +8,120 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
+  - variable: vikunja
+    group: App Configuration
+    label: Vikunja Configuration
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: VIKUNJA_SERVICE_FRONTENDURL
-          label: "VIKUNJA_SERVICE_FRONTENDURL"
-          description: "The URL of the frontend, used to send password reset emails. eg. https://vikunjka.example.com (be sure to include the servicePort when needed)"
+        - variable: service
+          label: Service
           schema:
-            type: string
-            required: true
-            default: ""
-        - variable: VIKUNJA_SERVICE_MOTD
-          label: "VIKUNJA_SERVICE_MOTD"
-          description: "Set the motd message, available from the /info endpoint"
-          schema:
-            type: string
-            default: ""
-        - variable: VIKUNJA_SERVICE_JWTTTL
-          label: "VIKUNJA_SERVICE_JWTTTL"
-          description: "The duration of the issed JWT tokens in seconds. The default is 259200 seconds (3 Days)."
-          schema:
-            type: int
-            required: true
-            default: 259200
-        - variable: VIKUNJA_SERVICE_JWTTTLLONG
-          label: "VIKUNJA_SERVICE_JWTTTLLONG"
-          description: "The duration of the remember me time in seconds. When the login request is made with the long param set, the token returned will be valid for this period. The default is 2592000 seconds (30 Days)."
-          schema:
-            type: int
-            required: true
-            default: 2592000
-        - variable: VIKUNJA_SERVICE_MAXITEMSPERPAGE
-          label: "VIKUNJA_SERVICE_MAXITEMSPERPAGE"
-          description: "The max number of items which can be returned per page."
-          schema:
-            type: int
-            required: true
-            default: 50
-        - variable: VIKUNJA_FILES_MAXSIZE
-          label: "VIKUNJA_FILES_MAXSIZE"
-          description: "The maximum size of a file, as a human-readable string. Warning: The max size is limited 2^64-1 bytes due to the underlying datatype"
-          schema:
-            type: string
-            required: true
-            default: "20MB"
-        - variable: VIKUNJA_SERVICE_ENABLECALDAV
-          label: "VIKUNJA_SERVICE_ENABLECALDAV"
-          description: "Enable the caldav endpoint, see the docs for more details"
-          schema:
-            type: boolean
-            default: true
-        - variable: VIKUNJA_SERVICE_ENABLELINKSHARING
-          label: "VIKUNJA_SERVICE_ENABLELINKSHARING"
-          description: "Enable sharing of lists via a link"
-          schema:
-            type: boolean
-            default: true
-        - variable: VIKUNJA_SERVICE_ENABLEREGISTRATION
-          label: "VIKUNJA_SERVICE_ENABLEREGISTRATION"
-          description: "Whether to let new users registering themselves or not"
-          schema:
-            type: boolean
-            default: true
-        - variable: VIKUNJA_SERVICE_ENABLETASKATTACHMENTS
-          label: "VIKUNJA_SERVICE_ENABLETASKATTACHMENTS"
-          description: "Whether to enable task attachments or not"
-          schema:
-            type: boolean
-            default: true
-        - variable: VIKUNJA_SERVICE_ENABLETASKCOMMENTS
-          label: "VIKUNJA_SERVICE_ENABLETASKCOMMENTS"
-          description: "Whether task comments should be enabled or not"
-          schema:
-            type: boolean
-            default: true
-        - variable: VIKUNJA_SERVICE_ENABLETOTP
-          label: "VIKUNJA_SERVICE_ENABLETOTP"
-          description: "Whether totp is enabled. In most cases you want to leave that enabled."
-          schema:
-            type: boolean
-            default: true
-        - variable: VIKUNJA_SERVICE_ENABLEEMAILREMINDERS
-          label: "VIKUNJA_SERVICE_ENABLEEMAILREMINDERS"
-          description: "If enabled, vikunja will send an email to everyone who is either assigned to a task or created it when a task reminder is due."
-          schema:
-            type: boolean
-            default: true
-        - variable: VIKUNJA_SERVICE_ENABLEUSERDELETION
-          label: "VIKUNJA_SERVICE_ENABLEUSERDELETION"
-          description: "If true, will allow users to request the complete deletion of their account. When using external authentication methods it may be required to coordinate with them in order to delete the account. This setting will not affect the cli commands for user deletion."
-          schema:
-            type: boolean
-            default: true
-        - variable: VIKUNJA_BACKGROUNDS_ENABLED
-          label: "VIKUNJA_BACKGROUNDS_ENABLED"
-          description: "Whether to enable backgrounds for lists at all."
-          schema:
-            type: boolean
-            default: true
-        - variable: VIKUNJA_RATELIMIT_ENABLED
-          label: "VIKUNJA_RATELIMIT_ENABLED"
-          description: "Whether or not to enable the rate limit"
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: VIKUNJA_RATELIMIT_KIND
-                label: "VIKUNJA_RATELIMIT_KIND"
-                description: "The kind on which rates are based. Can be either for a rate limit per user or for an ip-based rate limit."
-                schema:
-                  type: string
-                  required: true
-                  default: "user"
-                  enum:
-                    - value: user
-                      description: "user"
-                    - value: ip
-                      description: "ip"
-              - variable: VIKUNJA_RATELIMIT_PERIOD
-                label: "VIKUNJA_RATELIMIT_PERIOD"
-                description: "The time period in seconds for the limit"
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: jwtttl
+                label: JWT TTL
+                description: The duration of the issued JWT tokens in seconds.
                 schema:
                   type: int
                   required: true
-                  default: 60
-              - variable: VIKUNJA_RATELIMIT_LIMIT
-                label: "VIKUNJA_RATELIMIT_LIMIT"
-                description: "The max number of requests a user is allowed to do in the configured time period"
+                  default: 259200
+              - variable: jwtttllong
+                label: JWT TTL Long
+                description: The duration of the “remember me” time in seconds. When the login request is made with the long param set, the token returned will be valid for this period.
                 schema:
                   type: int
                   required: true
-                  default: 100
-        - variable: VIKUNJA_MAILER_ENABLED
-          label: "VIKUNJA_MAILER_ENABLED"
-          description: "Whether to enable the mailer or not. If it is disabled, all users are enabled right away and password reset is not possible."
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: VIKUNJA_MAILER_HOST
-                label: "VIKUNJA_MAILER_HOST"
-                description: "SMTP Host"
+                  default: 2592000
+              - variable: motd
+                label: Message of the Day
+                description: Set the motd message, available from the /info endpoint
+                schema:
+                  type: string
+                  default: ""
+              - variable: frontendurl
+                label: Frontend URL
+                description: The URL of the frontend, used to send password reset emails.
                 schema:
                   type: string
                   required: true
                   default: ""
-              - variable: VIKUNJA_MAILER_PORT
-                label: "VIKUNJA_MAILER_PORT"
-                description: "SMTP Host Port"
+              - variable: maxitemsperpage
+                label: Max Item per Page
+                description: The max number of items which can be returned per page.
                 schema:
                   type: int
                   required: true
-                  default: 587
-              - variable: VIKUNJA_MAILER_USERNAME
-                label: "VIKUNJA_MAILER_USERNAME"
-                description: "SMTP username"
+                  default: 50
+              - variable: maxavatarsize
+                label: Max Avatar Size
+                description: |
+                  The maximum size clients will be able to request for user avatars.
+                  If clients request a size bigger than this, it will be changed on the fly.
                 schema:
-                  type: string
-                  default: ""
-              - variable: VIKUNJA_MAILER_PASSWORD
-                label: "VIKUNJA_MAILER_PASSWORD"
-                description: "SMTP password"
-                schema:
-                  type: string
-                  private: true
-                  default: ""
-              - variable: VIKUNJA_MAILER_FROMEMAIL
-                label: "VIKUNJA_MAILER_FROMEMAIL"
-                description: "The default from address when sending emails"
-                schema:
-                  type: string
+                  type: int
                   required: true
-                  default: ""
-              - variable: VIKUNJA_MAILER_SKIPTLSVERIFY
-                label: "VIKUNJA_MAILER_SKIPTLSVERIFY"
-                description: "Wether to skip verification of the tls certificate on the server"
+                  default: 1024
+              - variable: enablecaldav
+                label: Enable CalDAV
+                description: Enable the CalDAV endpoint, see the docs for more details.
                 schema:
                   type: boolean
-                  default: false
-              - variable: VIKUNJA_MAILER_FORCESSL
-                label: "VIKUNJA_MAILER_FORCESSL"
-                description: "By default, vikunja will try to connect with starttls, use this option to force it to use ssl."
+                  default: true
+              - variable: enablelinksharing
+                label: Enable Link Sharing
+                description: Enable sharing of lists via a link.
                 schema:
                   type: boolean
-                  default: false
-              - variable: VIKUNJA_MAILER_QUEUELENGTH
-                label: "VIKUNJA_MAILER_QUEUELENGTH"
-                description: "The length of the mail queue."
+                  default: true
+              - variable: enableregistration
+                label: Enable Registration
+                description: Whether to let new users registering themselves or not
                 schema:
-                  type: int
-                  required: true
-                  default: 100
-              - variable: VIKUNJA_MAILER_QUEUETIMEOUT
-                label: "VIKUNJA_MAILER_QUEUETIMEOUT"
-                description: "The timeout in seconds after which the current open connection to the mailserver will be closed."
+                  type: boolean
+                  default: true
+              - variable: enabletaskattachments
+                label: Enable Task Attachments
+                description: Whether to enable task attachments or not
                 schema:
-                  type: int
-                  required: true
-                  default: 30
+                  type: boolean
+                  default: true
+              - variable: enabletaskcomments
+                label: Enable Task Comments
+                description: Whether task comments should be enabled or not
+                schema:
+                  type: boolean
+                  default: true
+              - variable: enabletotp
+                label: Enable TOTP
+                description: Whether TOTP is enabled. In most cases you want to leave that enabled.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: enableemailreminders
+                label: Enable E-Mail Reminders
+                description: |
+                  If enabled, vikunja will send an email to everyone who is either assigned to a task
+                  or created it when a task reminder is due.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: enableuserdeletion
+                label: Enable User Deletion
+                description: |
+                  If true, will allow users to request the complete deletion of their account.
+                  When using external authentication methods it may be required to coordinate with
+                  them in order to delete the account. This setting will not affect the cli commands for user deletion.
+                schema:
+                  type: boolean
+                  default: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -224,14 +129,14 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 10220
@@ -242,8 +147,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: files
-          label: "App Files Storage"
-          description: "Stores the Application Files."
+          label: App Files Storage
+          description: Stores the Application Files.
           schema:
             additional_attrs: true
             type: dict
@@ -252,7 +157,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -264,41 +169,41 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
