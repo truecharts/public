@@ -95,8 +95,8 @@ vikunja:
     overdue_tasks_reminders_time: "9:00"
     default_list_id: 0
     week_start: 0
-    language: <unset>
-    timezone: <time zone set at service.timezone>
+    language: ""
+    timezone: ""
   backgrounds:
     enabled: true
     providers:
@@ -153,7 +153,7 @@ additionalContainers:
         name: main
     volumeMounts:
       - name: vikunja-nginx
-        mountPath: "/etc/nginx/conf.d/default.conf"
+        mountPath: /etc/nginx/conf.d/default.conf
         subPath: nginx-config
         readOnly: true
 

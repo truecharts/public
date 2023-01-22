@@ -1,6 +1,5 @@
 {{- include "tc.common.loader.init" . }}
 
 {{ include "vikunja.secrets" . }}
-{{ include "vikunja.nginx" . }}
 
 {{ include "tc.common.loader.apply" . }}
