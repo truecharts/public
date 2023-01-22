@@ -99,6 +99,30 @@ vikunja:
     week_start: 0
     language: <unset>
     timezone: <time zone set at service.timezone>
+  backgrounds:
+    enabled: true
+    providers:
+      upload:
+        enabled: true
+      unsplash:
+        enabled: false
+        accesstoken: ""
+        applicationid: ""
+  migration:
+    todoist:
+      enable: false
+      clientid: ""
+      clientsecret: ""
+      redirecturl: ""
+    trello:
+      enable: false
+      key: ""
+      redirecturl: ""
+    microsofttodo:
+      enable: false
+      clientid: ""
+      clientsecret: ""
+      redirecturl: ""
   serviceExtra: {}
   filesExtra: {}
   defaultsettingsExtra: {}

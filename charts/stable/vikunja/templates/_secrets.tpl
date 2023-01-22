@@ -113,6 +113,32 @@ stringData:
       privacyurl: {{ .Values.vikunja.legal.privacyurl | quote }}
       {{ include "vikunja.extra" (dict "curr" .Values.vikunja.legal "extra" .Values.vikunja.legalExtra) | nindent 4 }}
 
+    backgrounds:
+      enabled: {{ .Values.vikunja.backgrounds.enabled }}
+      providers:
+        upload:
+          enabled: {{ .Values.vikunja.backgrounds.upload.enabled }}
+        unsplash:
+          enabled: {{ .Values.vikunja.backgrounds.unsplash.enabled }}
+          accesstoken: {{ .Values.vikunja.backgrounds.unsplash.accesstoken | quote }}
+          applicationid: {{ .Values.vikunja.backgrounds.unsplash.applicationid | quote }}
+
+    migration:
+      todoist:
+        enable: {{ .Values.vikunja.migration.todoist.enable }}
+        clientid: {{ .Values.vikunja.migration.todoist.clientid | quote }}
+        clientsecret: {{ .Values.vikunja.migration.todoist.clientsecret | quote }}
+        redirecturl: {{ .Values.vikunja.migration.todoist.redirecturl | quote }}
+      trello:
+        enable: {{ .Values.vikunja.migration.trello.enable }}
+        key: {{ .Values.vikunja.migration.trello.key | quote }}
+        redirecturl: {{ .Values.vikunja.migration.trello.redirecturl | quote }}
+      microsofttodo:
+        enable: {{ .Values.vikunja.migration.microsofttodo.enable }}
+        clientid: {{ .Values.vikunja.migration.microsofttodo.clientid | quote }}
+        clientsecret: {{ .Values.vikunja.migration.microsofttodo.clientsecret | quote }}
+        redirecturl: {{ .Values.vikunja.migration.microsofttodo.redirecturl | quote }}
+
     service:
       interface: {{ .Values.vikunja.service.interface | quote }}
       JWTSecret: {{ $jwtSecret }}
@@ -132,6 +158,7 @@ stringData:
       enableuserdeletion: {{ .Values.vikunja.service.enableuserdeletion }}
       maxavatarsize: {{ .Values.vikunja.service.maxavatarsize }}
       {{ include "vikunja.extra" (dict "curr" .Values.vikunja.service "extra" .Values.vikunja.serviceExtra) | nindent 4 }}
+
     defaultsettings:
       avatar_provider: {{ .Values.vikunja.defaultsettings.avatar_provider | quote }}
       avatar_file_id: {{ .Values.vikunja.defaultsettings.avatar_file_id }}
@@ -148,6 +175,7 @@ stringData:
 {{- end -}}
 
 {{- define "vikunja.extra" -}}
+  {{/* TODO: Improve for nested */}}
   {{- $curr := .curr -}}
   {{- $extra := .extra -}}
   {{- $disallow := .disallow -}}
