@@ -721,6 +721,118 @@ questions:
                                           type: string
                                           required: true
                                           default: ""
+        - variable: migration
+          label: Migration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: todoist
+                label: Todoist
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enabled
+                      description: Whether to enable the todoist migrator or not
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: clientid
+                            label: Client ID
+                            description: |
+                              The client id, required for making requests to the todoist api
+                              You need to register your vikunja instance at https://developer.todoist.com/appconsole.html to get this
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: clientsecret
+                            label: Client Secret
+                            description: The client secret, also required for making requests to the todoist api
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: redirecturl
+                            label: Redirect URL
+                            description: The url where clients are redirected after they authorized Vikunja to access their todoist items.
+                            schema:
+                              type: string
+                              required: true
+                              default: <frontend url>/migrate/todoist
+              - variable: trello
+                label: Trello
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enabled
+                      description: Whether to enable the trello migrator or not
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: key
+                            label: Key
+                            description: |
+                              The client id, required for making requests to the trello api.
+                              You need to register your vikunja instance at https://trello.com/app-key,
+                              (log in before you visit that link) to get this.
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: redirecturl
+                            label: Redirect URL
+                            description: The url where clients are redirected after they authorized Vikunja to access their trello cards.
+                            schema:
+                              type: string
+                              required: true
+                              default: <frontend url>/migrate/trello
+              - variable: microsofttodo
+                label: Microsoft To Do
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enabled
+                      description: Wheter to enable the microsoft todo migrator or not
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: clientid
+                            label: Client ID
+                            description: |
+                              The client id, required for making requests to the microsoft graph api
+                              See https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#register-an-application
+                              for information about how to register your Vikunja instance.
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: clientsecret
+                            label: Client Secret
+                            description: The client secret, also required for making requests to the microsoft graph api
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: redirecturl
+                            label: Redirect URL
+                            description: The url where clients are redirected after they authorized Vikunja to access their microsoft todo tasks.
+                            schema:
+                              type: string
+                              required: true
+                              default: <frontend url>/migrate/microsoft-todo
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
