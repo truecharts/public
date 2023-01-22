@@ -33,7 +33,7 @@ service:
   main:
     ports:
       main:
-        port: 2221
+        port: 10621
         protocol: HTTP
         targetPort: 8080
   passiveportsstart:
@@ -65,7 +65,7 @@ service:
     ports:
       webdavport:
         enabled: true
-        port: 10080
+        port: 10622
         protocol: TCP
         targetPort: 10080
 

@@ -55,7 +55,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 2221
+                              default: 10621
                               required: true
         - variable: ftpport
           label: 'ftpport service'
@@ -160,7 +160,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10080
+                              default: 10622
                               required: true
 # Include{serviceExpertRoot}
             default: false
