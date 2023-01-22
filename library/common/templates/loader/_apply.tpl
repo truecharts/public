@@ -36,4 +36,5 @@
 
   {{- include "ix.v1.common.util.envCheckDupes" (dict "root" .) -}}
 
+  {{- include "tc.v1.common.loader.apply" . | nindent 0 -}}
 {{- end -}}

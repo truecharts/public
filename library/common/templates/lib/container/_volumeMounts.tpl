@@ -69,6 +69,16 @@
               {{- end -}}
             {{- end -}}
           {{- end -}}
+        {{- else if eq $volMount.inherit "setPermissions" -}} {{/* Inherit all volumes with setPermissions enabled */}}
+          {{- range $name, $item := $root.Values.persistence -}}
+            {{- if $item.enabled -}}
+              {{- if $item.setPermissions -}}
+                {{- include "ix.v1.common.container.volumeMount" (dict "root" $root
+                                                                        "item" $item
+                                                                        "name" $name) | indent 0 -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
         {{- end -}}{{/* Here we can add other inherit cases */}}
       {{- else -}}
         {{- if not $volMount.name -}}

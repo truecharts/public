@@ -1,0 +1,47 @@
+suite: addon codeserver
+templates:
+  - common.yaml
+tests:
+  - it: default should pass
+    asserts:
+      - hasDocuments:
+          count: 3
+      - documentIndex: 1
+        isKind:
+          of: Service
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDocument
+        notEqual:
+          path: spec.template.spec.containers[0].name
+          value: RELEASE-NAME-common-test-additional-codeserver
+
+  - it: addon enabled should pass
+    set:
+      addons:
+        codeserver:
+          enabled: true
+          volumeMounts:
+            - name: "config"
+              mountPath: "/data/config"
+    asserts:
+      - hasDocuments:
+          count: 4
+      - documentIndex: 2
+        isKind:
+          of: Service
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: RELEASE-NAME-common-test-additional-codeserver
+      - documentIndex: &AddonServiceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *AddonServiceDocument
+        equal:
+          path: metadata.name
+          value: RELEASE-NAME-common-test-codeserver

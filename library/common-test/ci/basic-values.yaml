@@ -10,6 +10,10 @@ service:
         protocol: HTTP
         port: 8080
 
+manifests:
+  enabled: false
+  staging: false
+
 args:
   - --port
   - "8080"

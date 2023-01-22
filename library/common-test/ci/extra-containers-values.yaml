@@ -3,11 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: latest
 
-someImage:
-  repository: hello-world
-  tag: latest
-  pullPolicy: IfNotPresent
-
 service:
   main:
     ports:
@@ -43,13 +38,13 @@ additionalContainers:
         path: /
 initContainers:
   some-name:
-    imageSelector: someImage
+    imageSelector: scratchImage
 systemContainers:
   some-name:
-    imageSelector: someImage
+    imageSelector: scratchImage
 installContainers:
   some-name:
-    imageSelector: someImage
+    imageSelector: scratchImage
 
 probes:
   liveness:

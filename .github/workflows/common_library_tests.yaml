@@ -16,7 +16,7 @@ jobs:
         helm-version:
           - v3.9.4
           - v3.10.3
-          - v3.11.0-rc.2
+          - v3.11.0
     steps:
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
@@ -56,7 +56,7 @@ jobs:
         helm-version:
           - v3.9.4
           - v3.10.3
-          - v3.11.0-rc.2
+          - v3.11.0
     steps:
       - name: Checkout
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
@@ -73,6 +73,7 @@ jobs:
         with:
           path: |
             /home/runner/.local/share/helm/plugins/helm-unittest
+            /tmp/_dist/
           key: helm-${{ matrix.helm-version }}-unittest-v${{ env.helmUnitVersion }}
           restore-keys: |
             helm-${{ matrix.helm-version }}-unittest-v${{ env.helmUnitVersion }}
@@ -80,7 +81,7 @@ jobs:
       - name: Run Unittests
         shell: bash
         run: |
-          (helm unittest -h > /dev/null) || helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion} || (sleep 10 && helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion})
+          (helm unittest -h > /dev/null) || helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion} || (sleep 10 && helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion}) || echo "finished unittest reinstall tries"
 
           # Run tests
           cd library/common-test/
@@ -111,6 +112,12 @@ jobs:
           - rbac-values.yaml
           - secrets-values.yaml
           - statefulset-values.yaml
+          - ingress-values.yaml
+          - networkPolicy-values.yaml
+          - codeserver-values.yaml
+          - metrics-values.yaml
+          - manifest-values.yaml
+          - stagingmanifest-values.yaml
 
     steps:
       - name: Checkout
@@ -186,7 +193,7 @@ jobs:
           mv -f library/common-test/runtests/${{ matrix.values }} library/common-test/values.yaml
 
           # Stat kail on the background to grab logs from tests
-          ./kail --ignore-ns kube-system >> /tmp/output.log &
+          ./kail --ignore-ns kube-system --ignore-ns cert-manager --ignore-ns metallb-system  --ignore-ns prometheus-operator >> /tmp/output.log &
 
           # Actually run the test
           ct install  --config .github/ct-install-config/ct-install.yaml \

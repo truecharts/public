@@ -139,6 +139,8 @@ tests:
           value:
             - mountPath: /shared
               name: shared
+            - mountPath: /dev/shm
+              name: shm
             - mountPath: /tmp
               name: tmp
             - mountPath: /var/logs
@@ -148,6 +150,9 @@ tests:
           value:
             - name: shared
               emptyDir: {}
+            - name: shm
+              emptyDir:
+                medium: Memory
             - name: tmp
               emptyDir: {}
             - name: varlogs

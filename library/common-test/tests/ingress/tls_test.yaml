@@ -1,0 +1,72 @@
+suite: ingress tls
+templates:
+  - common.yaml
+tests:
+  - it: default should pass
+    set:
+      ingress.main.enabled: true
+    asserts:
+      - documentIndex: &ingressDocument 3
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDocument
+        isNull:
+          path: spec.tls
+
+  - it: tls enabled should pass
+    set:
+      ingress.main:
+        enabled: true
+        tls:
+          - secretName: test
+            hosts:
+              - hostname
+    asserts:
+      - documentIndex: &ingressDocument 3
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDocument
+        equal:
+          path: spec.tls[0]
+          value:
+            secretName: test
+            hosts:
+              - hostname
+
+  - it: tls enabled without secret should pass
+    set:
+      ingress.main:
+        enabled: true
+        tls:
+          - hosts:
+              - hostname
+    asserts:
+      - documentIndex: &ingressDocument 3
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDocument
+        equal:
+          path: spec.tls[0]
+          value:
+            hosts:
+              - hostname
+
+  - it: tls enabled with secret template should pass
+    set:
+      ingress.main:
+        enabled: true
+        tls:
+          - secretName: "{{ .Release.Name }}-secret"
+            hosts:
+              - hostname
+    asserts:
+      - documentIndex: &ingressDocument 3
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDocument
+        equal:
+          path: spec.tls[0]
+          value:
+            secretName: RELEASE-NAME-secret
+            hosts:
+              - hostname

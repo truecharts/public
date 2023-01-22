@@ -115,6 +115,8 @@ tests:
           value:
             - mountPath: /shared
               name: shared
+            - mountPath: /dev/shm
+              name: shm
             - mountPath: /tmp
               name: tmp
             - mountPath: /var/logs

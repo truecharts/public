@@ -1,0 +1,14 @@
+suite: metrics defaults
+templates:
+  - common.yaml
+tests:
+  - it: default should pass
+    asserts:
+      - hasDocuments:
+          count: 3
+      - documentIndex: 1
+        isKind:
+          of: Service
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment

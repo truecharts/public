@@ -13,6 +13,10 @@ args:
   - --port
   - '8080'
 
+manifests:
+  enabled: false
+  staging: false
+
 probes:
   liveness:
     enabled: true
