@@ -636,6 +636,91 @@ questions:
                                           type: string
                                           required: true
                                           default: ""
+        - variable: auth
+          label: Auth
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: local
+                label: Local
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enabled
+                      description: Enable or disable local authentication
+                      schema:
+                        type: boolean
+                        default: true
+              - variable: openid
+                label: OpenID
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enabled
+                      description: Enable or disable OpenID Connect authentication
+                      schema:
+                        type: boolean
+                        default: true
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: redirecturl
+                            label: Redirect URL
+                            description: The URL to redirect clients to. Defaults to the configured frontend URL.
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: providers
+                            label: Providers
+                            schema:
+                              additional_attrs: true
+                              type: list
+                              default: []
+                              items:
+                                - variable: providerEntry
+                                  label: ""
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: name
+                                        label: Name
+                                        description: The name of the provider as it will appear in the frontend.
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: authurl
+                                        label: Auth URL
+                                        description: The auth url to send users to if they want to authenticate using OpenID Connect.
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: logouturl
+                                        label: Logout URL
+                                        description: The oidc logout url that users will be redirected to on logout.
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: clientid
+                                        label: Client ID
+                                        description: The client ID used to authenticate Vikunja at the OpenID Connect provider.
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: clientsecret
+                                        label: Client Secret
+                                        description: The client secret used to authenticate Vikunja at the OpenID Connect provider.
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -728,6 +813,7 @@ questions:
             default: 568
 # Include{podSecurityContextAdvanced}
 # Include{resources}
+# Include{metrics}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}

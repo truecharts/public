@@ -112,6 +112,19 @@ vikunja:
         enabled: false
         accesstoken: ""
         applicationid: ""
+  auth:
+    local:
+      enabled: true
+    openid:
+      enabled: false
+      redirecturl: ""
+      providers:
+        []
+        # - name: ""
+        #   authurl: ""
+        #   logouturl: ""
+        #   clientid: ""
+        #   clientsecret: ""
   migration:
     todoist:
       enable: false
@@ -127,23 +140,6 @@ vikunja:
       clientid: ""
       clientsecret: ""
       redirecturl: ""
-  auth:
-    local:
-      enabled: true
-    openid:
-      enabled: false
-      redirecturl: ""
-      providers:
-        []
-        # - name: ""
-        #   authurl: ""
-        #   logouturl: ""
-        #   clientid: ""
-        #   clientsecret: ""
-  metrics:
-    enabled: false
-    username: ""
-    password: ""
 
 service:
   main:
@@ -184,6 +180,33 @@ persistence:
     subPath: config.yml
     type: secret
     objectName: '{{ template "tc.common.names.fullname" . }}-secret'
+
+metrics:
+  # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
+  # @default -- See values.yaml
+  enabled: true
+  serviceMonitor:
+    interval: 1m
+    scrapeTimeout: 30s
+    labels: {}
+  # -- Enable and configure Prometheus Rules for the chart under this key.
+  # @default -- See values.yaml
+  prometheusRule:
+    enabled: false
+    labels: {}
+    # -- Configure additionial rules for the chart under this key.
+    # @default -- See prometheusrules.yaml
+    rules:
+      []
+      # - alert: UnifiPollerAbsent
+      #   annotations:
+      #     description: Unifi Poller has disappeared from Prometheus service discovery.
+      #     summary: Unifi Poller is down.
+      #   expr: |
+      #     absent(up{job=~".*unifi-poller.*"} == 1)
+      #   for: 5m
+      #   labels:
+      #     severity: critical
 
 postgresql:
   enabled: true

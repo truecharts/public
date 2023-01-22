@@ -67,9 +67,7 @@ stringData:
       maxavatarsize: {{ .Values.vikunja.service.maxavatarsize }}
 
     metrics:
-      enabled: {{ .Values.vikunja.metrics.enabled }}
-      username: {{ .Values.vikunja.metrics.username | quote }}
-      password: {{ .Values.vikunja.metrics.password | quote }}
+      enabled: {{ .Values.metrics.enabled }}
 
     cors:
       enabled: {{ .Values.vikunja.cors.enabled }}
@@ -156,13 +154,17 @@ stringData:
         enabled: {{ .Values.vikunja.auth.local.enabled }}
       openid:
         enabled: {{ .Values.vikunja.auth.openid.enabled }}
-        redirecturl: {{ .Values.vikunja.auth.openid.redirecturl | quote }}
+        {{- with .Values.vikunja.auth.openid.redirecturl }}
+        redirecturl: {{ . | quote }}
+        {{- end }}
         {{- with .Values.vikunja.auth.openid.providers }}
         providers:
           {{- range . }}
           - name: {{ .name | quote }}
             authurl: {{ .authurl | quote }}
-            logouturl: {{ .logouturl | quote }}
+            {{- with .logouturl }}
+            logouturl: {{ . | quote }}
+            {{- end }}
             clientid: {{ .clientid | quote }}
             clientsecret: {{ .clientsecret | quote }}
           {{- end }}
