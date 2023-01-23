@@ -1,12 +1,3 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Backup
-    - Downloaders
-    - MediaApp-Video
-    - MediaApp-Music
-    - MediaApp-Photos
-    - MediaApp-Other
 apiVersion: v2
 appVersion: "latest"
 dependencies:
@@ -14,7 +5,7 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 11.1.2
 deprecated: false
-description: Tired of searching for media on different torrent websites or paying for Usenet server access? Well look no further! You can now use PlexRipper to download "everything" from the Plex servers you have access to and expand your collection that way! Let others collect media for you and then just download everything!
+description: PlexRipper is a cross-platform media downloader that indexes the Plex servers you have access to and allows you to download everything while adding it to your own Plex server.
 home: https://truecharts.org/charts/incubator/plexripper
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plexripper.png
 keywords:
@@ -36,4 +27,15 @@ sources:
   - https://github.com/PlexRipper/PlexRipper/
   - https://hub.docker.com/r/plexripper/plexripper/
 type: application
-version: 2.0.9
+version: 3.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+    - Backup
+    - Downloaders
+    - MediaApp-Video
+    - MediaApp-Music
+    - MediaApp-Photos
+    - MediaApp-Other
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
