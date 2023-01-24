@@ -22,9 +22,21 @@
                                           type: string
                                           default: ""
                                           required: true
+                                          
+                                - variable: clusterIssuer
+                                  label: clusterIssuer
+                                  description: 'add the name of your cert-manager clusterIssuer here for automatic tls certificates. Cannot be used combined with tls option below'
+                                  schema:
+                                    type: string
+                                    default: ""
                                 - variable: scaleCert
-                                  label: Select TrueNAS SCALE Certificate
+                                  label: Use TrueNAS SCALE Certificate (Deprecated)
                                   schema:
                                     type: int
                                     $ref:
                                       - "definitions/certificate"
+                                - variable: secretName
+                                  label: Use Custom Secret (Advanced)
+                                  schema:
+                                    type: string
+                                    default: ""
