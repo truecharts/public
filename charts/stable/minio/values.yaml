@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/minio
-  tag: latest@sha256:c5d677cff2f8d7963e610f3f39c4a447466ff8319877caff1878cc971c05bcd6
+  tag: latest@sha256:481a999d7f301fd120a06cafe33589dc41d6d30698e46348d612200b8f37e836
   pullPolicy: IfNotPresent
 
 args: ["server", "/data", "--address", ":10106", "--console-address", ":10107"]
