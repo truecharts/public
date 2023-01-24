@@ -2,6 +2,7 @@
                       label: TLS-Settings
                       schema:
                         type: list
+                        show_if: [["clusterIssuer", "=", ""]]
                         default: []
                         items:
                           - variable: tlsEntry
@@ -22,9 +23,23 @@
                                           type: string
                                           default: ""
                                           required: true
-                                - variable: scaleCert
-                                  label: Select TrueNAS SCALE Certificate
+                                          
+                                - variable: clusterIssuer
+                                  label: Use Cert-Manager clusterIssuer
+                                  description: 'add the name of your cert-manager clusterIssuer here for automatic tls certificates.'
                                   schema:
+                                    type: string
+                                    default: ""
+                                - variable: scaleCert
+                                  label: Use TrueNAS SCALE Certificate (Deprecated)
+                                  schema:
+                                    show_if: [["clusterIssuer", "=", ""]]
                                     type: int
                                     $ref:
                                       - "definitions/certificate"
+                                - variable: secretName
+                                  label: Use Custom Secret (Advanced)
+                                  schema:
+                                    show_if: [["clusterIssuer", "=", ""]]
+                                    type: string
+                                    default: ""
