@@ -25,8 +25,8 @@
                                           required: true
                                           
                                 - variable: clusterIssuer
-                                  label: clusterIssuer
-                                  description: 'add the name of your cert-manager clusterIssuer here for automatic tls certificates. Cannot be used combined with tls option below'
+                                  label: Use Cert-Manager clusterIssuer
+                                  description: 'add the name of your cert-manager clusterIssuer here for automatic tls certificates.'
                                   schema:
                                     type: string
                                     default: ""
