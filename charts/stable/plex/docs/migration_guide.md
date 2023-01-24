@@ -52,8 +52,8 @@ The above assumes your app is named `plex`, if its not the dir `name` will be **
 
 You have two options here:
 
-1.  [Copy and Delete](###Copy-and-Delete)
-2.  [Install New](###Install-New)
+1.  [Copy and Delete](#Copy-and-Delete)
+2.  [Install New](#Install-New)
 
 ### Copy and Delete
 
@@ -105,7 +105,7 @@ Edit the old app and change its port to 32399 or something else that wont confli
 
 ### Backup Option
 
-If you want to re-use the same name and port without having to edit the app back and forth, i suggest [Copy and Delete](###Copy-and-Delete), but if you want to be safe and keep the old app until the new one is active then [Install New](###Install-New) is doable.
+If you want to re-use the same name and port without having to edit the app back and forth, i suggest [Copy and Delete](#Copy-and-Delete), but if you want to be safe and keep the old app until the new one is active then [Install New](#Install-New) is doable.
 
 ## Accessing App Data HostPath
 
