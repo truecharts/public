@@ -7,7 +7,7 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 11.0.21
+    version: 11.0.22
   - condition: redis.enabled
     name: redis
     repository: https://charts.truecharts.org
@@ -28,7 +28,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/librephotos
   - https://github.com/LibrePhotos/librephotos
   - https://hub.docker.com/r/reallibrephotos/librephotos
-version: 7.0.19
+version: 7.0.20
 annotations:
   truecharts.org/catagories: |
     - media

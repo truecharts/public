@@ -7,7 +7,7 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 11.0.21
+    version: 11.0.22
 deprecated: false
 description: A Helm chart to deploy a Matrix homeserver stack into Kubernetes
 home: https://truecharts.org/charts/stable/synapse
@@ -25,7 +25,7 @@ name: synapse
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/synapse
 type: application
-version: 7.0.21
+version: 7.0.22
 annotations:
   truecharts.org/catagories: |
     - cloud
