@@ -7,7 +7,7 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 11.0.21
+    version: 11.0.22
   - condition: redis.enabled
     name: redis
     repository: https://charts.truecharts.org
@@ -27,7 +27,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/baserow
   - https://hub.docker.com/r/baserow/baserow
   - https://gitlab.com/bramw/baserow/
-version: 6.0.23
+version: 6.0.24
 annotations:
   truecharts.org/catagories: |
     - productivity
