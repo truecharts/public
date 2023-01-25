@@ -5,11 +5,11 @@ image:
 
 securityContext:
   readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  runAsNonRoot: true
 
 podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  runAsUser: 568
+  runAsGroup: 568
 
 secretEnv:
   RPC_SECRET: "ChangemeNow"
@@ -17,6 +17,7 @@ secretEnv:
 env:
   RPC_PORT: "{{ .Values.service.main.ports.main.port }}"
   LISTEN_PORT: "{{ .Values.service.listen.ports.listen.port }}"
+  UMASK_SET: "{{ .Values.security.UMASK }}"
 
 service:
   main:
