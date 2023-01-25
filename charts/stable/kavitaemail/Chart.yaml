@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "0.1.11"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 11.1.2
+deprecated: false
+description: Simple email relay server for kavita.
+home: https://truecharts.org/charts/stable/kavitaemail
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kavitaemail.png
+keywords:
+  - kavitaemail
+  - email
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: kavitaemail
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/kavitaemail
+  - https://github.com/Kareadita/KavitaEmail
+  - https://hub.docker.com/r/kizaing/kavitaemail
+type: application
+version: 3.0.0
+annotations:
+  truecharts.org/catagories: |
+    - email
+    - relay
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

@@ -29,10 +29,5 @@ service:
         port: 15003
         targetPort: 5003
 
-persistence:
-  config:
-    enabled: false
-    mountPath: /app/config
-
 portal:
   enabled: false
