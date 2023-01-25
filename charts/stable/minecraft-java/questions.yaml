@@ -354,32 +354,32 @@ questions:
             required: true
             default: 10000
         - variable: ALLOW_NETHER
-          label: Enable/Disable Nether
+          label: Enable Nether
           schema:
             type: boolean
             default: true
         - variable: ANNOUNCE_PLAYER_ACHIEVEMENTS
-          label: Enable/Disable Announceing Player Achievements
+          label: Enable Announceing Player Achievements
           schema:
             type: boolean
             default: true
         - variable: ENABLE_COMMAND_BLOCK
-          label: Enable/Disable Command Blocks
+          label: Enable Command Blocks
           schema:
             type: boolean
             default: false
         - variable: FORCE_GAMEMODE
-          label: Enable/Disable Force Gamemode
+          label: Enable Force Gamemode
           schema:
             type: boolean
             default: false
         - variable: GENERATE_STRUCTURES
-          label: Enable/Disable Generate Structures
+          label: Enable Generate Structures
           schema:
             type: boolean
             default: true
         - variable: HARDCORE
-          label: Enable/Disable Hardcore Mode
+          label: Enable Hardcore Mode
           schema:
             type: boolean
             default: false
@@ -396,17 +396,17 @@ questions:
             required: true
             default: 60000
         - variable: SPAWN_ANIMALS
-          label: Enable/Disable Spawning Animals
+          label: Enable Spawning Animals
           schema:
             type: boolean
             default: true
         - variable: SPAWN_MONSTERS
-          label: Enable/Disable Spawning Monsters
+          label: Enable Spawning Monsters
           schema:
             type: boolean
             default: true
         - variable: SPAWN_NPCS
-          label: Enable/Disable Spawning NPCs
+          label: Enable Spawning NPCs
           schema:
             type: boolean
             default: true
@@ -442,7 +442,7 @@ questions:
             type: string
             default: Welcome to Minecraft on TrueNAS Scale!
         - variable: PVP
-          label: Enable/Disable PVP
+          label: Enable PVP
           schema:
             type: boolean
             default: false
@@ -480,7 +480,7 @@ questions:
               - value: "true"
                 description: "True"
         - variable: ONLINE_MODE
-          label: Enable/Disable Online Mode
+          label: Enable Online Mode
           schema:
             type: boolean
             default: true
