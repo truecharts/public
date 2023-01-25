@@ -484,6 +484,12 @@ questions:
           schema:
             type: boolean
             default: true
+        - variable: USE_AIKAR_FLAGS
+          label: Use Aikar Flags
+          description: Optimal JVM flags for GC tuning
+          schema:
+            type: boolean
+            default: true
         - variable: advanced
           label: Show Advanced Server Settings
           schema:
