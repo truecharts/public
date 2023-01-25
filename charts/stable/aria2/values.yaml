@@ -5,11 +5,11 @@ image:
 
 securityContext:
   readOnlyRootFilesystem: false
-  runAsNonRoot: true
+  runAsNonRoot: false
 
 podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
+  runAsUser: 0
+  runAsGroup: 0
 
 secretEnv:
   RPC_SECRET: "ChangemeNow"
