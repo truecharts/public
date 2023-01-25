@@ -8,4 +8,4 @@
 
 - The servers are stored in `/var/games/minecraft/*SERVER_NAME*` so in order to add plugins/mods/additional files if the config volume is set to PVC(simple) which is default...is to use the bash truetool to mount the pvc volume to a temporarily dataset/dir, here's the guide for [truetool](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/pvc-access).
 
-- To add additional ports to run your minecraft servers, please follow the [minecraft-java guide](https://truecharts.org/docs/charts/stable/minecraft-java/community-guide#pluginsmods-that-need-additional-ports) at the extra ports section.
+- To add additional ports to run your minecraft servers, please follow the [minecraft-java guide](https://truecharts.org/charts/stable/minecraft-java/community-guide/#pluginsmods-that-need-additional-ports) at the extra ports section.
