@@ -46,6 +46,7 @@ secretEnv:
 env:
   SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
   EULA: "TRUE"
+  GUI: "FALSE"
   OVERRIDE_SERVER_PROPERTIES: true
   VERSION: "LATEST"
   TYPE: "VANILLA"
@@ -71,7 +72,6 @@ env:
   LEVEL: world
   ONLINE_MODE: true
   MEMORY: 2048M
-  USE_AIKAR_FLAGS: true
   # CUSTOM_SERVER: ""
   # QUILT_LOADER_VERSION: ""
   # QUILT_LAUNCHER: ""
@@ -112,6 +112,8 @@ env:
   # WORLD: ""
   # FORCE_REDOWNLOAD: false
   # USE_FLARE_FLAGS: false
+  # USE_AIKAR_FLAGS: true
+  # USE_SIMD_FLAGS: false
   # JVM_OPTS: ""
   # JVM_XX_OPTS: ""
 

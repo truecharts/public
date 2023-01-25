@@ -45,19 +45,20 @@ questions:
       type: dict
       attrs:
         - variable: EULA
-          label: Minecraft Eula - Link in readme sources
+          label: Minecraft Eula
           schema:
             type: boolean
             required: true
             default: false
         - variable: OVERRIDE_SERVER_PROPERTIES
           label: Override Server Properties
-          description: Enable this so RCON_PASSWORD will always have effect.
+          description: Enable this to automatically manage the server.properties in the GUI.
           schema:
             type: boolean
             default: false
         - variable: VERSION
-          label: Minecraft Version - LATEST, SNAPSHOT, or verison
+          label: Minecraft Version
+          description: Set the Minecraft Version - LATEST, SNAPSHOT, or specific version.
           schema:
             type: string
             required: true
@@ -354,32 +355,33 @@ questions:
             required: true
             default: 10000
         - variable: ALLOW_NETHER
-          label: Enable/Disable Nether
+          label: Enable Nether
           schema:
             type: boolean
             default: true
         - variable: ANNOUNCE_PLAYER_ACHIEVEMENTS
-          label: Enable/Disable Announceing Player Achievements
+          label: Enable Announcing Player Achievements
           schema:
             type: boolean
             default: true
         - variable: ENABLE_COMMAND_BLOCK
-          label: Enable/Disable Command Blocks
+          label: Enable Command Blocks
           schema:
             type: boolean
             default: false
         - variable: FORCE_GAMEMODE
-          label: Enable/Disable Force Gamemode
+          label: Enable Force Game Mode
           schema:
             type: boolean
             default: false
         - variable: GENERATE_STRUCTURES
-          label: Enable/Disable Generate Structures
+          label: Enable Generate Structures
           schema:
             type: boolean
             default: true
         - variable: HARDCORE
-          label: Enable/Disable Hardcore Mode
+          label: Enable Hardcore Mode
+          description: If set to true, players will be set to spectator mode if they die.
           schema:
             type: boolean
             default: false
@@ -396,17 +398,17 @@ questions:
             required: true
             default: 60000
         - variable: SPAWN_ANIMALS
-          label: Enable/Disable Spawning Animals
+          label: Enable Spawning Animals
           schema:
             type: boolean
             default: true
         - variable: SPAWN_MONSTERS
-          label: Enable/Disable Spawning Monsters
+          label: Enable Spawning Monsters
           schema:
             type: boolean
             default: true
         - variable: SPAWN_NPCS
-          label: Enable/Disable Spawning NPCs
+          label: Enable Spawning NPCs
           schema:
             type: boolean
             default: true
@@ -442,7 +444,7 @@ questions:
             type: string
             default: Welcome to Minecraft on TrueNAS Scale!
         - variable: PVP
-          label: Enable/Disable PVP
+          label: Enable PVP
           schema:
             type: boolean
             default: false
@@ -480,16 +482,28 @@ questions:
               - value: "true"
                 description: "True"
         - variable: ONLINE_MODE
-          label: Enable/Disable Online Mode
+          label: Enable Online Mode
           schema:
             type: boolean
             default: true
+        - variable: USE_FLARE_FLAGS
+          label: Use Flare Flags
+          description: Enable to add appropriate flags for the Flare profiler on selected server types - https://github.com/itzg/docker-minecraft-server#enable-flare-flags
+          schema:
+            type: boolean
+            default: false
         - variable: USE_AIKAR_FLAGS
           label: Use Aikar Flags
-          description: Optimal JVM flags for GC tuning
+          description: Optimal JVM flags for GC tuning.
           schema:
             type: boolean
             default: true
+        - variable: USE_SIMD_FLAGS
+          label: Use SIMD Flags
+          description: Enable support for optimized SIMD operations.
+          schema:
+            type: boolean
+            default: false
         - variable: advanced
           label: Show Advanced Server Settings
           schema:
@@ -508,12 +522,6 @@ questions:
                 schema:
                   type: string
                   default: ""
-              - variable: USE_FLARE_FLAGS
-                label: Enable to add appropriate flags for the Flare profiler
-                description: "Only select server types can use these flags. please checkout the upstream project for more info -> https://github.com/itzg/docker-minecraft-server#enable-flare-flags"
-                schema:
-                  type: boolean
-                  default: false
               - variable: JVM_XX_OPTS
                 label: JVM -X Options
                 schema:
@@ -523,7 +531,7 @@ questions:
 # Include{serviceRoot}
         - variable: main
           label: Main Service
-          description: The Primary service on which the healthcheck runs, often the webUI
+          description: The Primary service on which the Minecraft Server runs on
           schema:
             additional_attrs: true
             type: dict
@@ -545,7 +553,7 @@ questions:
                               required: true
         - variable: rcon
           label: RCON Service
-          description: The Primary service on which the healthcheck runs, often the webUI
+          description: The RCON service.
           schema:
             additional_attrs: true
             type: dict
@@ -572,7 +580,7 @@ questions:
 # Include{persistenceRoot}
         - variable: data
           label: App Data Storage
-          description: Stores the Application Configuration.
+          description: Stores the Application Data.
           schema:
             additional_attrs: true
             type: dict
