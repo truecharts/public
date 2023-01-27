@@ -24,6 +24,8 @@
     {{- else -}}
       {{- print $className -}}
     {{- end -}}
+  {{- else if $root.Values.ixChartContext -}}
+    {{- print (tpl $root.Values.global.ixChartContext.storageClassName $root) -}}
   {{- else if $root.Values.global.defaults.storageClass -}}
     {{- print $root.Values.global.defaults.storageClass -}}
   {{- end -}}

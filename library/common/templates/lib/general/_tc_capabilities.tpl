@@ -32,3 +32,13 @@
 {{- define "tc.v1.common.capabilities.cert-manager.certificate.apiVersion" -}}
   {{- print "cert-manager.io/v1" -}}
 {{- end -}}
+
+{{/* Return the appropriate apiVersion for Cert-Manager certificates */}}
+{{- define "tc.v1.common.capabilities.cnpg.cluster.apiVersion" -}}
+  {{- print "postgresql.cnpg.io/v1" -}}
+{{- end -}}
+
+{{/* Return the appropriate apiVersion for Cert-Manager certificates */}}
+{{- define "tc.v1.common.capabilities.cnpg.pooler.apiVersion" -}}
+  {{- print "postgresql.cnpg.io/v1" -}}
+{{- end -}}

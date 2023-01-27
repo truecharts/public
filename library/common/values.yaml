@@ -50,7 +50,7 @@ wgetImage:
   pullPolicy: IfNotPresent
 
 postgresClientImage:
-  repository: tccr.io/truecharts/db-wait-postgresql
+  repository: tccr.io/truecharts/db-wait-postgres
   tag: v0.0.1
   pullPolicy: IfNotPresent
 
@@ -242,7 +242,7 @@ global:
     # Leave empty to rely on the node's default storageClass
     storageClass:
     # When SCALE-ZFS is set for storageClass, return this name
-    scaleZFSStorageClass:
+    scaleZFSStorageClass: '{{ printf "ix-storage-class-%v" .Release.Name}}'
     # Default security context used for all
     # init/install/upgrade/additional
     # and main containers if not specified
@@ -638,7 +638,7 @@ systemContainers:
       - "/bin/sh"
       - "-c"
       - |
-        /bin/bash <<'EOF'
+        /bin/sh <<'EOF'
         echo "Executing DB waits..."
         {{- $pghost := printf "%v-%v" .Release.Name "postgresql" }}
         until
@@ -648,7 +648,7 @@ systemContainers:
         EOF
 
   cnpg-wait:
-    enabled: "{{ if .Values.cnpg.enabled }}true{{ else }}false{{end}}"
+    enabled: '{{ $result := false }}{{ range .Values.cnpg }}{{ if .enabled }}{{ $result = true }}{{ end }}{{ end }}{{ $result }}'
     imageSelector: postgresClientImage
     securityContext:
       runAsUser: 568
@@ -661,19 +661,42 @@ systemContainers:
       - "/bin/sh"
       - "-c"
       - |
-        /bin/bash <<'EOF'
+        /bin/sh <<'EOF'
+        {{ range $name, $cnpg := .Values.cnpg }}
+        {{ if $cnpg.enabled }}
         echo "Executing DB waits..."
-        {{- $cnpgName := include "ix.v1.common.names.fullname" . -}}
-        {{- $cnpgName = printf "%v-%v" $cnpgName "cnpg" -}}
-        {{- $pghost := printf "%s-rw" $cnpgName }}
+        {{ $cnpgName := include "ix.v1.common.names.fullname" $ }}
+        {{ $nameOverride := $cnpg.nameOverride }}
+
+        {{ if and (not $cnpg.nameOverride ) (ne $name (include "tc.v1.common.lib.util.cnpg.primary" $)) }}
+          {{ $_ := set $cnpg.nameOverride $name }}
+        {{ end }}
+
+        {{ if $cnpg.nameOverride }}
+          {{ $cnpgName = printf "%v-%v" $cnpgName $nameOverride }}
+        {{ end }}
+
         until
-          pg_isready -U {{ .Values.cnpg.user }} -h {{ $pghost }}
+          pg_isready -U {{ .user }} -h cnpg-{{ $cnpgName }}-rw
           do sleep 2
         done
         until
-          pg_isready -U {{ .Values.cnpg.user }} -h pooler-{{ $pghost }}
+          pg_isready -U {{ .user }} -h cnpg-pooler-{{ $cnpgName }}-rw
           do sleep 2
         done
+        {{ if $cnpg.acceptRO }}
+        until
+          pg_isready -U {{ .user }} -h cnpg-{{ $cnpgName }}-ro
+          do sleep 2
+        done
+        until
+          pg_isready -U {{ .user }} -h cnpg-pooler-{{ $cnpgName }}-ro
+          do sleep 2
+        done
+        {{ end }}
+
+        {{ end }}
+        {{ end }}
         EOF
 
 initContainers: {}
@@ -1015,31 +1038,35 @@ postgresql:
     enabled: false
 
 cnpg:
-  enabled: false
-  # -- number of instances for both postgres and pgbouncer
-  instances: 2
-  database: "app"
-  user: "app"
-  # password:
-  # superUserPassword:
-  # -- change to supervised to disable unsupervised updates
-  # Example of rolling update strategy:
-  # - unsupervised: automated update of the primary once all
-  #                 replicas have been upgraded (default)
-  # - supervised: requires manual supervision to perform
-  #               the switchover of the primary
-  primaryUpdateStrategy: unsupervised
-  # -- enable to create extra pgbouncer for readonly access
-  acceptRO: false
-  # -- storage size for the two pvc's per instance
-  storage:
-    size: "256Gi"
-    walsize: "256Gi"
-  # -- set to enable prometheus metrics
-  monitoring:
-    enablePodMonitor: true
-  # -- contains credentials and urls output by generator
-  creds: {}
+  main:
+    enabled: false
+    primary: true
+    # -- number of instances for both postgres and pgbouncer
+    instances: 2
+    database: "app"
+    user: "app"
+    # password:
+    # superUserPassword:
+    # -- change to supervised to disable unsupervised updates
+    # Example of rolling update strategy:
+    # - unsupervised: automated update of the primary once all
+    #                 replicas have been upgraded (default)
+    # - supervised: requires manual supervision to perform
+    #               the switchover of the primary
+    primaryUpdateStrategy: unsupervised
+    # -- enable to create extra pgbouncer for readonly access
+    acceptRO: false
+    # -- storage size for the two pvc's per instance
+    storage:
+      size: "256Gi"
+      walsize: "256Gi"
+    pooler:
+      instances: 2
+    # -- set to enable prometheus metrics
+    monitoring:
+      enablePodMonitor: true
+    # -- contains credentials and urls output by generator
+    creds: {}
 
 # -- Redis dependency configuration
 # @default -- See below

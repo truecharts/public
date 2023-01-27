@@ -1,0 +1,112 @@
+image:
+  repository: ghcr.io/truecharts/whoami
+  pullPolicy: IfNotPresent
+  tag: 1.8.7@sha256:8c61f0ca92fd806fcb4ed1465cb793c05443f37951554b105b0f2dc686a95772
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+
+args:
+  - --port
+  - '8080'
+
+manifests:
+  enabled: true
+  staging: true
+
+probes:
+  liveness:
+    enabled: true
+  readiness:
+    enabled: true
+  startup:
+    enabled: true
+
+cnpg:
+  main:
+    enabled: true
+    # -- number of instances for both postgres and pgbouncer
+    instances: 2
+    database: "app"
+    user: "app"
+    # password:
+    # superUserPassword:
+    # -- change to supervised to disable unsupervised updates
+    # Example of rolling update strategy:
+    # - unsupervised: automated update of the primary once all
+    #                 replicas have been upgraded (default)
+    # - supervised: requires manual supervision to perform
+    #               the switchover of the primary
+    primaryUpdateStrategy: unsupervised
+    # -- enable to create extra pgbouncer for readonly access
+    acceptRO: false
+    # -- storage size for the two pvc's per instance
+    storage:
+      size: "256Gi"
+      walsize: "256Gi"
+    pooler:
+      instances: 2
+    # -- set to enable prometheus metrics
+    monitoring:
+      enablePodMonitor: false
+    # -- contains credentials and urls output by generator
+    creds: {}
+  ro:
+    enabled: true
+    # -- number of instances for both postgres and pgbouncer
+    instances: 2
+    database: "app2"
+    user: "app2"
+    # password:
+    # superUserPassword:
+    # -- change to supervised to disable unsupervised updates
+    # Example of rolling update strategy:
+    # - unsupervised: automated update of the primary once all
+    #                 replicas have been upgraded (default)
+    # - supervised: requires manual supervision to perform
+    #               the switchover of the primary
+    primaryUpdateStrategy: unsupervised
+    # -- enable to create extra pgbouncer for readonly access
+    acceptRO: true
+    # -- storage size for the two pvc's per instance
+    storage:
+      size: "256Gi"
+      walsize: "256Gi"
+    pooler:
+      instances: 2
+    # -- set to enable prometheus metrics
+    monitoring:
+      enablePodMonitor: false
+    # -- contains credentials and urls output by generator
+    creds: {}
+  mon:
+    enabled: true
+    # -- number of instances for both postgres and pgbouncer
+    instances: 2
+    database: "app2"
+    user: "app2"
+    # password:
+    # superUserPassword:
+    # -- change to supervised to disable unsupervised updates
+    # Example of rolling update strategy:
+    # - unsupervised: automated update of the primary once all
+    #                 replicas have been upgraded (default)
+    # - supervised: requires manual supervision to perform
+    #               the switchover of the primary
+    primaryUpdateStrategy: unsupervised
+    # -- enable to create extra pgbouncer for readonly access
+    acceptRO: true
+    # -- storage size for the two pvc's per instance
+    storage:
+      size: "256Gi"
+      walsize: "256Gi"
+    pooler:
+      instances: 2
+    # -- set to enable prometheus metrics
+    monitoring:
+      enablePodMonitor: true
+    # -- contains credentials and urls output by generator
+    creds: {}
