@@ -3,6 +3,11 @@ image:
   pullPolicy: IfNotPresent
   tag: 0.6.1@sha256:a321f67dd7d397ec42a4b52674a5d44cb1ad9352d7f8bc083d45594e39e64d80
 
+emailImage:
+  repository: tccr.io/truecharts/kavitaemail
+  pullPolicy: IfNotPresent
+  tag: 0.1.11@sha256:42d14c38c8885c713f6da0f2c51482422d665c644023b2208b3d55d87010019f
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -11,20 +16,38 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+kavita:
+  SMTP_USER: ""
+  SMTP_PASS: ""
+  DISP_NAME: kavita
+  SMTP_HOST: ""
+  SMTP_PORT: 587
+  SEND_ADDR: ""
+
 service:
   main:
     ports:
       main:
         targetPort: 5000
         port: 10189
+  backend:
+    enabled: true
+    ports:
+      email:
+        enabled: true
+        protocol: HTTP
+        port: 5003
 
 persistence:
   config:
     enabled: true
-    mountPath: "/kavita/config"
+    mountPath: /kavita/config
   manga:
     enabled: true
-    mountPath: "/manga"
+    mountPath: /manga
+
+email:
+  enabled: true
 
 portal:
   enabled: true

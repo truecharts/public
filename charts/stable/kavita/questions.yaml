@@ -8,6 +8,56 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
+  - variable: kavita
+    group: App Configuration
+    label: Kavita Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: SMTP_USER
+          label: SMTP Username
+          description: Set the SMTP username
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: SMTP_PASS
+          label: SMTP Password
+          description: Set the SMTP password
+          schema:
+            type: string
+            required: true
+            private: true
+            default: ""
+        - variable: SMTP_HOST
+          label: SMTP Host
+          description: Set the SMTP host
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: SMTP_PORT
+          label: SMTP Port
+          description: Set the SMTP port
+          schema:
+            type: int
+            required: true
+            default: 587
+        - variable: SEND_ADDR
+          label: Sender Address
+          description: Set the sender email
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: DISP_NAME
+          label: Display Name
+          description: Set the display name
+          schema:
+            type: string
+            required: true
+            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -31,6 +81,28 @@ questions:
                             schema:
                               type: int
                               default: 10189
+                              required: true
+        - variable: backend
+          label: "Backend Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: email
+                      label: "Email Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 5003
                               required: true
 # Include{serviceExpertRoot}
             default: false
