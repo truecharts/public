@@ -1,5 +1,4 @@
 # Default Username/Password
 
-**UserName**: `admin`
-
-**Password**: `password`
+- **Username**: `admin`
+- **Password**: `password`
