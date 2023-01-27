@@ -1,7 +1,11 @@
 image:
-  repository: ghcr.io/truecharts/whoami
+  repository: tccr.io/truecharts/whoami
   pullPolicy: IfNotPresent
   tag: 1.8.7@sha256:8c61f0ca92fd806fcb4ed1465cb793c05443f37951554b105b0f2dc686a95772
+
+global:
+  ixChartContext:
+    something: something
 
 service:
   main:
@@ -48,21 +52,50 @@ ingress:
               port:
     tls: []
 
-# TODO: Enable when SCALE Certs are readded
-#  scalecert:
-#    enabled: true
-#    hosts:
-#      - host: scalecert.chart-example.local
-#        paths:
-#          - path: /
-#            pathType: Prefix
-#            service:
-#              name:
-#              port:
-#    tls:
-#     - scaleCert: "1"
-#       hosts:
-#         - scalecert.chart-example.local
+  scalecert:
+    enabled: true
+    hosts:
+      - host: scalecert.chart-example.local
+        paths:
+          - path: /
+            pathType: Prefix
+            service:
+              name:
+              port:
+    tls:
+    - scaleCert: "1"
+      hosts:
+        - scalecert.chart-example.local
+
+  certificateissuer:
+    enabled: true
+    certificateIssuer: someissuer
+    hosts:
+      - host: ci.chart-example.local
+        paths:
+          - path: /
+            pathType: Prefix
+            service:
+              name:
+              port:
+    tls:
+    - hosts:
+        - ci.chart-example.local
+
+  tlscertificateissuer:
+    enabled: true
+    hosts:
+      - host: citls.chart-example.local
+        paths:
+          - path: /
+            pathType: Prefix
+            service:
+              name:
+              port:
+    tls:
+    - certificateIssuer: sometlsissuer
+      hosts:
+        - citls.chart-example.local
 
   label:
     enabled: true

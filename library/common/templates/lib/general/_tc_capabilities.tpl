@@ -27,3 +27,8 @@
 {{- define "tc.v1.common.capabilities.hpa.apiVersion" -}}
   {{- print "autoscaling/v2" -}}
 {{- end -}}
+
+{{/* Return the appropriate apiVersion for Cert-Manager certificates */}}
+{{- define "tc.v1.common.capabilities.cert-manager.certificate.apiVersion" -}}
+  {{- print "cert-manager.io/v1" -}}
+{{- end -}}

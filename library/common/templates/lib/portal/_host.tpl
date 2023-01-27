@@ -1,8 +1,13 @@
 {{- define "ix.v1.common.portal.host" -}}
+  {{- $portalName := .portalName -}}
+  {{- $svcType := .svcType -}}
   {{- $svcName := .svcName -}}
   {{- $portName := .portName -}}
+  {{- $ingressName := .ingressName -}}
+  {{- $ingress := .ingress -}}
   {{- $port := .port -}}
   {{- $root := .root -}}
+  {{- $portal := get $root.Values.portalGenerator $portalName -}}
 
   {{- $portalHost := "$node_ip" -}}
 
@@ -13,20 +18,25 @@
     {{- end -}}
   {{- end -}}
 
-  {{/* If ingress is added at any point, here is the place to implement */}}
+  {{/* Configure portal for Ingress support */}}
+  {{- if $ingress -}}
+    {{- with (first $ingress.hosts) }}
+      {{- if .hostTpl }}
+        {{ $portalHost = ( tpl .hostTpl $ ) }}
+      {{- else if .host }}
+        {{ $portalHost = .host }}
+      {{- else }}
+        {{ $portalHost = "$node_ip" }}
+      {{- end }}
+    {{- end }}
+  {{- end -}}
 
-  {{/* Check if there are any overrides in .Values.portal */}}
-  {{- $tmpSVCPortal := get $root.Values.portal $svcName -}}
-  {{- if $tmpSVCPortal -}}
-    {{- $tmpPortPortal := get $tmpSVCPortal $portName -}}
-    {{- if $tmpPortPortal -}}
-      {{- if (hasKey $tmpPortPortal "host") -}}
-        {{- if or (kindIs "invalid" $tmpPortPortal.host) (not $tmpPortPortal.host) -}}
-          {{- fail "You have defined empty <host> in <portal>. Define a host or remove the key." -}}
-        {{- end -}}
-        {{- $portalHost = (tpl (toString $tmpPortPortal.host) $root) -}}
-      {{- end -}}
+  {{/* Check if there are any overrides in .Values.portalGenerator */}}
+  {{- if $portal.host -}}
+    {{- if or (kindIs "invalid" $portal.host) (not $portal.host) -}}
+      {{- fail "You have defined empty <host> in <portal>. Define a host or remove the key." -}}
     {{- end -}}
+    {{- $portalHost = (tpl (toString $portal.host) $root) -}}
   {{- end -}}
 
   {{- $portalHost -}}

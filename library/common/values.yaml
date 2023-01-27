@@ -115,6 +115,9 @@ hostAliases: []
 # Binds to host network
 hostNetwork: false
 
+notes: |
+  This Chart/App does not have any additional Notes
+
 # Creates a service account
 serviceAccount:
   main:
@@ -156,6 +159,9 @@ scaleCerts: {}
 # Used for SCALE / GUI Focused
 scaleCertsList: []
 
+# Used to generate custom cert-manager certificates
+certificates: {}
+
 # Defines the probes
 probes:
   liveness:
@@ -165,8 +171,16 @@ probes:
   startup:
     enabled: true
 
-portal:
-  enabled: true
+portalGenerator:
+  main:
+    enabled: true
+    # linkedService: ""
+    # linkedPort: ""
+    # linkedIngress: ""
+    # protocol: ""
+    # host: ""
+    # port: 80
+    # path: ""
 
 # Used for SCALE / GUI Focused
 externalInterfaces: []
@@ -821,16 +835,17 @@ ingress:
 metrics:
   main:
     enabled: false
+    primary: true
     # options: servicemonitor, podmonitor
     type: "servicemonitor"
     # defaults to selectorLabels
-    matchLabels: ""
+    selector: {}
     endpoints:
-      port: ""
-      interval: ""
-      scrapeTimeout: ""
-      path: ""
-      honorLabels: ""
+     - port: 3000
+       interval: 5
+       scrapeTimeout: 5
+       path: /
+       honorLabels: false
     prometheusRule:
       enabled: false
       groups: {}

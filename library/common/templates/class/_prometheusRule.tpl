@@ -1,10 +1,10 @@
-{{- define "ix.v1.common.class.prometheusrule" -}}
+{{- define "tc.v1.common.class.prometheusrule" -}}
   {{- $fullName := include "ix.v1.common.names.fullname" . -}}
   {{- $prometheusruleName := $fullName -}}
   {{- $values := .Values.prometheusrule -}}
 
   {{- if hasKey . "ObjectValues" -}}
-    {{- with .ObjectValues.prometheusrule -}}
+    {{- with .ObjectValues.metrics -}}
       {{- $values = . -}}
     {{- end -}}
   {{- end -}}
@@ -23,12 +23,12 @@ metadata:
   {{- with (include "ix.v1.common.util.labels.render" (dict "root" $ "labels" $labels) | trim) }}
   labels:
     {{- . | nindent 4 }}
-  {{- end -}}
+  {{- end }}
   {{- $annotations := (mustMerge ($prometheusruleAnnotations | default dict) (include "ix.v1.common.annotations" $ | fromYaml)) -}}
   {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $ "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
-  {{- end -}}
+  {{- end }}
 spec:
   groups:
     {{- range $name, $groupValues := .groups }}
@@ -36,19 +36,19 @@ spec:
       rules:
         {{- with $groupValues.rules }}
           {{- toYaml . | nindent 8 }}
-        {{- end -}}
+        {{- end }}
         {{- with $groupValues.additionalrules }}
           {{- toYaml . | nindent 8 }}
-        {{- end -}}
-    {{- end -}}
+        {{- end }}
+    {{- end }}
     {{- range $id, $groupValues := .additionalgroups }}
     - name: {{ $prometheusruleName }}-{{ if $groupValues.name }}{{ $groupValues.name }}{{ else }}{{ $id }}{{ end }}
       rules:
         {{- with $groupValues.rules }}
           {{- toYaml . | nindent 8 }}
-        {{- end -}}
+        {{- end }}
         {{- with $groupValues.additionalrules }}
           {{- toYaml . | nindent 8 }}
-        {{- end -}}
-    {{- end -}}
+        {{- end }}
+    {{- end }}
 {{- end -}}
