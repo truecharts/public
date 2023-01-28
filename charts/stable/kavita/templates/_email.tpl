@@ -8,7 +8,7 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 ports:
-  - containerPort: "{{ .Values.service.backend.ports.main.email }}"
+  - containerPort: "{{ .Values.service.backend.ports.email.port }}"
 env:
   - name: 'SMTP_USER'
     value: '{{ .Values.kavita.smtp_user }}'
