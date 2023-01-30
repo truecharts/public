@@ -86,7 +86,7 @@ truetool --mount
 
 You can delete the original app at this point.
 
-Please move on to [Migrating App Data to New App](#migrating-app-data-to-new-app).
+Please move on to [Migrating App Data to the New App](#migrating-app-data-to-the-new-app).
 
 ## Migrating Data from HostPath
 
@@ -94,7 +94,7 @@ If your plex config is available on your own dataset, validate its perms.
 
 ![perms](./img/media-dataset-perms.png)
 
-If the perms are good you can move on to [migrate to new app](#migrating-app-data-to-new-app).
+Follow the prerequisites and then uninstall the original app. If the perms are good you can move on to [migrating to the new app](#migrating-app-data-to-the-new-app).
 
 ### Migrating Data from HostPath-ix-applications
 
@@ -138,13 +138,13 @@ Verify if the the temp dataset contains the `Library` dir by running this comman
 ls /mnt/POOL/DATASET
 ```
 
-If it does please move on to [migrate to new app](#migrating-app-data-to-new-app).
+If it does please move on to [migrate to the new app](#migrating-app-data-to-the-new-app).
 
-## Migrating App Data to New App
+## Migrating App Data to the New App
 
 If the new plex app is not installed yet, please do so now. Verify that the **new** app can go active with just the defaults for now.
 
-If it works, dont sign in yet, simply turn off the app and then go to **system settings** -> **shell**.
+If it works, don't sign in yet, simply turn off the app and then go to **system settings** -> **shell**.
 
 We're going to mount the new plex app config data. Run the following commands in the shell.
 
@@ -208,7 +208,7 @@ If everything is set you can proceed to run the rsync copy command to the mounte
 
 :::note
 
-This process can a while to complete depending on how large your config is and how your pools are setup. Make sure scale doesnt time out, simply keep the tab active and interact with the page menu top right will suffice until its done.
+This process can a while to complete depending on how large your config is and how your pools are setup. Make sure scale doesn't time out, simply keep the tab active and interact with the page menu top right will suffice until its done.
 
 :::
 
