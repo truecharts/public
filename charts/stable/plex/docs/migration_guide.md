@@ -162,7 +162,7 @@ You will get list similar like this for example.
 
 To mount the directory just enter the correct number...so for me I have to enter `51`. Verify the number you are entering is for plex-config.
 
-you will get a unmount command similar to this:
+You will get a unmount command similar to this:
 
 ```console
 zfs set mountpoint=legacy root/ix-applications/releases/plex-config/volumes/pvc-af2b9242-ecf6-4659-ace4-d601211cf448 && rmdir /mnt/truetool/plex-config
