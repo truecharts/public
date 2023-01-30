@@ -6,7 +6,7 @@ This guide does not fall under support, use at your own risk. You can create a t
 
 :::
 
-This guide will walk you through on migrating your plex config data from a _old_ to the new plex instance. IE official to truecharts or truecharts to truecharts.
+This guide will walk you through on migrating your plex config data from an _old_ to a new plex instance.
 
 The first thing you need to do is go to **settings** and then **Library**.
 
