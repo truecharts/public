@@ -14,7 +14,7 @@ The first thing you need to do is go to **settings** and then **Library**.
 
 Go to **Settings** -> **General** and `Sign Out` of your server completely.
 
-In scale, go to **apps** -> **Installed Applications** turn the _old_ app **off**.
+In TrueNAS Scale, go to **Apps** -> **Installed Applications** and stop the _old_ app.
 
 Follow the sub section depending on how your app config was stored.
 
