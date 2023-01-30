@@ -1,9 +1,17 @@
 image:
   repository: tccr.io/truecharts/traefik-forward-auth
   pullPolicy: IfNotPresent
-  tag: "2"
+  tag: latest@sha256:edd7eb812cb38e59d32b5a00398b57a78506db2390cbe295f5df590a38a5d44e
 
 env: {}
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-google-secret'
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-oidc-secret'
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-oauth2-secret'
 
 service:
   main:

@@ -43,26 +43,13 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: operationMode
-          label: Operation mode
-          description: Use auth host if using subdomains. In turn, you have to route the given FQDN to the service.
-          schema:
-            type: string
-            default: overlay
-            enum:
-              - value: overlay
-                description: Overlay
-              - value: auth-host
-                description: Auth host
         - variable: authHost
           label: Auth host
           description: Single host to use when returning from 3rd party auth.
-          show_if: [["operationMode", "=", "auth-host"]]
           schema:
             type: string
         - variable: urlPath
           label: Callback URL Path
-          show_if: [["operationMode", "=", "overlay"]]
           schema:
             type: string
             default: "/_oauth"
