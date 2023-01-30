@@ -8,19 +8,6 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: UMASK
-          label: "UMASK"
-          description: "Container Variable UMASK"
-          schema:
-            type: string
-            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -43,7 +30,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 80
+                              default: 10609
                               required: true
 # Include{serviceExpertRoot}
             default: false
@@ -51,16 +38,16 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: "config Storage"
-          description: "COPS Application Data."
+          label: "App Config Storage"
+          description: "Stores the Application Configuration."
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: pathbooks
-          label: "pathbooks Storage"
-          description: "Calibre metadata.db location."
+        - variable: books
+          label: "App Books Storage"
+          description: "Stores the Application Books."
           schema:
             additional_attrs: true
             type: dict
