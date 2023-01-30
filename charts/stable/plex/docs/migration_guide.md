@@ -6,7 +6,7 @@ This guide does not fall under support, use at your own risk. You can create a t
 
 :::
 
-This guide will walk you through on migrating your plex config data from a _old_ to the new plex instance. IE official to truecharts.
+This guide will walk you through on migrating your plex config data from a _old_ to the new plex instance. IE official to truecharts or truecharts to truecharts.
 
 The first thing you need to do is go to **settings** and then **Library**.
 
@@ -18,9 +18,13 @@ In scale, go to **apps** -> **Installed Applications** turn the _old_ app **off*
 
 Follow the sub section depending on how your app config was stored.
 
-## Backing up App Data From PVC
+- App config on PVC -> [Backing up App Data From PVC](#migrating-data-from-pvc)
+- App config on HostPath -> [Accessing App Data HostPath](#migrating-data-from-hostpath)
+- App config on HostPath(ix-applications) -> [Accessing App Data HostPath IX-Applications](#migrating-data-from-hostpath-ix-applications)
 
-To access the app's data from **PVC**, we are going to use [**truetool**](https://github.com/truecharts/truetool#how-to-install) mount flag.
+## Migrating Data from PVC
+
+To access the old app's data from **PVC**, we are going to use [**truetool**](https://github.com/truecharts/truetool#how-to-install) mount flag.
 
 Go to **system settings** -> **shell**.
 
@@ -50,38 +54,27 @@ The old plex app is mounted in a dir for example `/mnt/truetool/plex-config`.
 
 The above assumes your app is named `plex`, if its not the dir `name` will be **different**.
 
-You have two options here:
+```console
+cd /mnt/truetool/plex-config
+```
 
-1.  [Copy and Delete](#Copy-and-Delete)
-2.  [Install New](#Install-New)
+run this command to verify you see a single dir called **Library**.
 
-### Copy and Delete
+```console
+ls
+```
 
-Create a dataset in **storage** -> **datasets** for your old app plex config with the follow perms as **apps** since its our default user and group for most of our charts:
+Create a temp dataset in **storage** -> **datasets** for your old app plex config with the follow perms as **apps** since its our default user and group for most of our charts:
 
 ![perms](./img/media-dataset-perms.png)
 
-- run the following commands:
+Replace this command's path with your **OWN** `pool` and `dataset` name.
 
-  Make sure you are in the correct working dir.
+```console
+rsync -rav Library /mnt/POOL/DATASET
+```
 
-  ```console
-  cd /mnt/truetool/plex-config
-  ```
-
-  run this command to verify you see a single dir called **Library**.
-
-  ```console
-  ls
-  ```
-
-  Replace this command's path with your **OWN** `pool name`, `dataset name` and `dir` if you created one specifically for the config.
-
-  ```console
-  rsync -rav Library /mnt/POOL/DATASET/PLEX_CONFIG_DIR
-  ```
-
-Unmount the PVC
+Check the dir if it contains a dir called `Library` if it does then unmount the PVC.
 
 ```console
 truetool --mount
@@ -91,34 +84,63 @@ truetool --mount
 2
 ```
 
-- Delete the old app afterwards.
+You can delete the original app at this point.
 
-:::note
+Please move on to [Migrating App Data to New App](#migrating-app-data-to-new-app).
 
-This is just temporary dataset, you will be setting up the config data for the new app as PVC as its our [recommended and supported](https://truecharts.org/manual/FAQ#why-pvc-is-recommended-over-hostpath) storage type for the majority of our apps.
+## Migrating Data from HostPath
+
+If your plex config is available on your own dataset, validate its perms.
+
+![perms](./img/media-dataset-perms.png)
+
+If the perms are good you can move on to [migrate to new app](#migrating-app-data-to-new-app).
+
+### Migrating Data from HostPath-ix-applications
+
+This section is only for the official app where users didn't specify their own hostpath.
+
+![bad-hostpath-plex](./img/plex-config-volume-hostpath.png)
+
+::: warn
+
+Be very cautious while in this particular dataset. Run the commands carefully.
 
 :::
 
-### Install New
+To quickly get the correct directory run the following commands:
 
-Edit the old app and change its port to 32399 or something else that wont conflict with the new app - Install the new plex app and give a different name like `plex-media-server` or something. - Keep it strictly default for now and don't add anything yet. - Wait for it to go active and access it via its ip:port - Check if the setup/auth page can be reach. If it can, **DON'T** sign in and just turn the new app off.
+```console
+cd /mnt/POOL/ix-applications
+```
 
-### Backup Option
+```console
+find /mnt/POOL/ix-applications -name Preferences.xml
+```
 
-If you want to re-use the same name and port without having to edit the app back and forth, i suggest [Copy and Delete](#Copy-and-Delete), but if you want to be safe and keep the old app until the new one is active then [Install New](#Install-New) is doable.
+You should see an output like so -> `/mnt/POOL/ix-applications/releases/plex/volumes/ix_volumes/ix-plex_config/Library/Application Support/Plex Media Server/Preferences.xml`
 
-## Accessing App Data HostPath
+We are only interested for this location as its the start of the config dir for plex -> `/mnt/POOL/ix-applications/releases/plex/volumes/ix_volumes/ix-plex_config/Library`.
 
-While its not wise or recommended to have the app config data permanently as hostpath, read our faq about [PVC](https://truecharts.org/manual/FAQ#why-pvc-is-recommended-over-hostpath).
+Create a temp dataset in **storage** -> **datasets** for your old app plex config with the follow perms as **apps** since its our default user and group for most of our charts:
 
-Verify the dataset that holds the old app config permissions are for example default:
 ![perms](./img/media-dataset-perms.png)
 
-There's not much to do other than recommend copying the config data over to the new app.
+Go back to the system shell and replace this command's path with your **OWN** `path`, `pool` and `dataset` name.
 
----
+```console
+rsync -rav /mnt/POOL/ix-applications/releases/plex/volumes/ix_volumes/ix-plex_config/Library /mnt/POOL/DATASET
+```
 
-## App Data Migration
+Verify if the the temp dataset contains the `Library` dir by running this command.
+
+```console
+ls /mnt/POOL/DATASET
+```
+
+If it does please move on to [migrate to new app](#migrating-app-data-to-new-app).
+
+## Migrating App Data to New App
 
 If the new plex app is not installed yet, please do so now. Verify that the **new** app can go active with just the defaults for now.
 
@@ -172,7 +194,7 @@ now grab the path for your dataset that holds your plex config.
 
 for example...my path would be `/mnt/tank/configs/plex`.
 
-run the `LS` command on the dir to verify that its correct and you see a single dir called `Library`.
+run the `ls` command on the dir to verify that its correct and you see a single dir called `Library`.
 
 ```console
 ls /mnt/tank/configs/plex
@@ -200,8 +222,6 @@ truetool --mount
 2
 ```
 
----
-
 ## New Plex App
 
 Before you start the new plex app edit the app and add your media via additional storage with the correct **mountpath** from the original app and update any variables as needed.
@@ -214,9 +234,13 @@ To get a claim token from plex, go to [Plex Claim Token](https://plex.tv/claim).
 
 Once set, save and wait a min for the task to finish and then start the app.
 
+The app will take some time to migrate the db after startup and rest assured its normal to see something like this:
+
+![error 503](./img/plex-503-error.png)
+
 ---
 
-You should now be able to access plex's web service as normal with all your data intact.
+You should now be able to access plex's web service as normal with all your data intact, sign in if needed.
 
 You can remove the temp dataset that holds your plex config as its not needed anymore.
 
