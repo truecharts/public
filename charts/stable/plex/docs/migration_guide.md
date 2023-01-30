@@ -144,7 +144,7 @@ If it does please move on to [migrate to the new app](#migrating-app-data-to-the
 
 If the new plex app is not installed yet, please do so now. Verify that the **new** app can go active with just the defaults for now.
 
-If it works, don't sign in yet, simply turn off the app and then go to **system settings** -> **shell**.
+If it works, don't sign in yet, simply turn off the app and then go to **System Settings** -> **Shell**.
 
 We're going to mount the new plex app config data. Run the following commands in the shell.
 
