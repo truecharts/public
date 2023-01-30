@@ -1,7 +1,15 @@
 image:
   repository: tccr.io/truecharts/alist
   pullPolicy: IfNotPresent
-  tag: 3.6.0@sha256:cebe7188dd270e61456d7ec6249d07af9b0a62e63db5c28dc931685720bfc14b
+  tag: 3.9.1@sha256:7c2d63af639c41fbc23e43f17297c2759673bb8575eb3eb43e7e40d4d4fc2ab9
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:

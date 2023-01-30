@@ -1,0 +1,82 @@
+image:
+  repository: tccr.io/truecharts/check-mk-raw
+  pullPolicy: IfNotPresent
+  tag: v2.1.0@sha256:61f375fc513ffcd041c6d60ac8a1812267c5a557829e2cb4e73f688c290df049
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+cmk:
+  password: secret
+  site_id: cmk
+  livestatus_tcp: true
+  mail_relay_host: ""
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 5000
+        port: 15000
+  receiver:
+    enabled: true
+    ports:
+      receiver:
+        enabled: true
+        protocol: HTTP
+        targetPort: 8000
+        port: 18000
+  livestatustcp:
+    enabled: true
+    ports:
+      livestatustcp:
+        enabled: true
+        targetPort: 6557
+        port: 6557
+
+probes:
+  liveness:
+    spec:
+      exec:
+        command:
+          - /bin/sh
+          - -c
+          - omd status
+  readiness:
+    exec:
+      command:
+        - /bin/sh
+        - -c
+        - omd status
+  startup:
+    exec:
+      command:
+        - /bin/sh
+        - -c
+        - omd status
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /omd/sites
+  cmk-temp:
+    enabled: true
+    type: emptyDir
+    mountPath: /omd/sites/cmk/tmp
+  cmk-cron:
+    enabled: true
+    type: emptyDir
+    mountPath: /var/spool/cron/crontabs
+
+portal:
+  enabled: true

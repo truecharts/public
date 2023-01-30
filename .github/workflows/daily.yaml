@@ -8,17 +8,17 @@ jobs:
     runs-on: ubuntu-latest
     name: "Generate readme files"
     container:
-      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:f0ecaa533663f88346b745eb497f6f6acf63561ad88e345cd71c8280963b8c1e
+      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:3b53132c6c6e14393f8f69e64e2237c8460a466753c285542324aa993ed1795d
     steps:
       - name: Checkout
-        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
-          
+
       - name: Setting repo parent dir as safe safe.directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
-        
+
       - name: generate readme.md
         shell: bash
         run: |
@@ -44,7 +44,7 @@ jobs:
               fi
             done
           done
-          
+
       - name: Bump and Sync
         shell: bash
         run: |
@@ -91,7 +91,7 @@ jobs:
               echo "Sources of ${chartname} updated!"
               }
           export -f sync_tag
-          
+
           for train in enterprise stable incubator dependency; do
             echo "Correcting Chart.yaml for Train: ${train}..."
             for chart in $(ls "charts/${train}"); do
@@ -99,7 +99,7 @@ jobs:
               sync_tag "charts/${train}/${chart}" "${chart}" "${train}"
             done
           done
-          
+
       - name: Cleanup
         run: |
           rm -rf changes.json
@@ -113,12 +113,12 @@ jobs:
           git add --all
           git commit -sm "Commit daily changes" || exit 0
           git push
-          
+
   generate-security-reports:
     runs-on: ubuntu-latest
     name: "Generate Security Reports"
     container:
-      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:f0ecaa533663f88346b745eb497f6f6acf63561ad88e345cd71c8280963b8c1e
+      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:3b53132c6c6e14393f8f69e64e2237c8460a466753c285542324aa993ed1795d
     steps:
       - name: Install Kubernetes tools
         uses: yokawasa/action-setup-kube-tools@b91bb02bc122bd84ac7bbea5f25ed6b0f2ec6275 # tag=v0.9.2
@@ -136,7 +136,7 @@ jobs:
           helm repo update
 
       - name: Checkout
-        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
@@ -145,13 +145,13 @@ jobs:
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Checkout website
-        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
         with:
           fetch-depth: 1
           repository: truecharts/website
           token: ${{ secrets.BOT_TOKEN }}
           path: website
-          
+
       - name: fetch dependencies
         shell: bash
         run: |

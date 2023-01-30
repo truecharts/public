@@ -1,7 +1,10 @@
 image:
   repository: tccr.io/truecharts/sickgear
   pullPolicy: IfNotPresent
-  tag: version-release_0.25.4@sha256:6a78e9f784cf298552402143bee239858956f4783c7619e9a2b960c0d0d15d73
+  tag: latest@sha256:fb719e3e74a3dc4bbedd4fce61438ab25481b60de9adb9b545127ab925ec2f88
+
+env:
+  APP_DATA: /config
 
 securityContext:
   readOnlyRootFilesystem: false

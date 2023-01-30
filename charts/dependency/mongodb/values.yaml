@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/mongodb
   pullPolicy: IfNotPresent
-  tag: 6.0.3@sha256:36fa249ef35680d9397952668d1515fa9a08b40ca4c3eb5e6365fd7a6b1cccd2
+  tag: 6.0.4@sha256:e62f402b73e6663d7d1ab8195906153eb9f1487b464673e627125171478b40de
 
 controller:
   # -- Set the controller type.
@@ -122,4 +122,7 @@ env:
       key: "mongodb-root-password"
 
 portal:
+  enabled: false
+
+manifests:
   enabled: false

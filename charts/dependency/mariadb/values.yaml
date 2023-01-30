@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/mariadb
   pullPolicy: IfNotPresent
-  tag: 10.10.2@sha256:ce108313bfb68b0677f76154fe74d04e4c9f0d19a4b52ee04159040b532ba642
+  tag: 10.10.2@sha256:1a90d0e738834982de7e9f0046f2bbdf1f4b3388987359fb868e610c2cca6efa
 
 controller:
   # -- Set the controller type.
@@ -121,4 +121,7 @@ mariadbRootPassword: "testroot"
 existingSecret: ""
 
 portal:
+  enabled: false
+
+manifests:
   enabled: false

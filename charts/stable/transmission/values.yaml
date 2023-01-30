@@ -15,14 +15,10 @@ service:
       torrent:
         enabled: true
         port: 51414
-        targetPort: 51414
-  torrentudp:
-    enabled: true
-    ports:
+        protocol: TCP
       torrentudp:
         enabled: true
         port: 51414
-        targetPort: 51414
         protocol: UDP
 secretEnv:
   {}
@@ -57,7 +53,7 @@ env:
   # TRANSMISSION_PEER_ID_TTL_HOURS: 6
   # TRANSMISSION_PEER_LIMIT_GLOBAL: 200
   # TRANSMISSION_PEER_LIMIT_PER_TORRENT: 50
-  TRANSMISSION_PEER_PORT: "{{ .Values.service.torrent.ports.torrent.targetPort }}"
+  TRANSMISSION_PEER_PORT: "{{ .Values.service.torrent.ports.torrent.port }}"
   # TRANSMISSION_PEER_PORT_RANDOM_HIGH: 65535
   # TRANSMISSION_PEER_PORT_RANDOM_LOW: 49152
   # TRANSMISSION_PEER_PORT_RANDOM_ON_START: false
@@ -76,7 +72,7 @@ env:
   # TRANSMISSION_RPC_ENABLED: true
   # TRANSMISSION_RPC_HOST_WHITELIST: ""
   # TRANSMISSION_RPC_HOST_WHITELIST_ENABLED: false
-  TRANSMISSION_RPC_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
+  TRANSMISSION_RPC_PORT: "{{ .Values.service.main.ports.main.port }}"
   # TRANSMISSION_RPC_URL: "/transmission/"
   # TRANSMISSION_RPC_WHITELIST: ""
   # TRANSMISSION_RPC_WHITELIST_ENABLED: false

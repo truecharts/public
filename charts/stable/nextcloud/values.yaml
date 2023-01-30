@@ -6,7 +6,7 @@ image:
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: 1.23.3@sha256:1a46c4845514d3f32debb53346f747f6a3be42ce5ae35138a8a99a88b075a1e9
+  tag: 1.23.3@sha256:ab4537802f0b8cd47a1e88b2e31c25516c11a34ea801f7501a65cfc4f22d0956
 
 imaginaryImage:
   repository: h2non/imaginary
@@ -104,7 +104,7 @@ initContainers:
         /bin/sh <<'EOF'
         echo "Forcing permissions on userdata folder..."
         echo "Trying to override ownship using nfs4xdr_winacl..."
-        /usr/bin/nfs4xdr_winacl -a chown -G 33 -c '/var/www/html/data' -p '/var/www/html/data' || echo "Failed setting ownership..."
+        /usr/sbin/nfs4xdr_winacl -a chown -G 33 -c '/var/www/html/data' -p '/var/www/html/data' || echo "Failed setting ownership..."
         chmod 770 /var/www/html/data || echo "Failed to chmod..."
         EOF
 

@@ -1,33 +1,50 @@
 image:
   repository: tccr.io/truecharts/jenkins
   pullPolicy: IfNotPresent
-  tag: v2.362@sha256:6ead1a1da8711e3da9bbdbe95dc8c4cf72389a5c22ddaba13b94028fdbf5f425
+  tag: 2.387.0@sha256:3c3e21f50271ebaa89727310066d762e1f0d2f9433b9a09701e3618ceb8d7235
 
 podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+  runAsGroup: 1000
+  runAsUser: 1000
   fsGroup: 1000
 
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+# securityContext:
+#   readOnlyRootFilesystem: false
 
-env:
-  JENKINS_JAVA_OPTS: ""
+jenkins:
+  java_opts: []
+  jenkins_opts: []
+  jenkins_java_opts: []
+  plugins_force_upgrade: false
+  upgrade_if_no_marker: false
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
+
+probes:
+  liveness:
+    type: HTTP
+    path: /login
+  readiness:
+    type: HTTP
+    path: /login
+  startup:
+    type: HTTP
+    path: /login
 
 service:
   main:
     ports:
       main:
+        protocol: HTTP
         port: 10280
-        targetPort: 8080
   agent:
     enabled: true
     ports:
       agent:
         enabled: true
         port: 50000
-        targetPort: 50000
 
 persistence:
   data:

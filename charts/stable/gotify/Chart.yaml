@@ -1,21 +1,5 @@
 apiVersion: v2
-appVersion: "2.2.0"
-version: 11.0.16
-kubeVersion: ">=1.16.0-0"
-name: gotify
-description: a simple server for sending and receiving messages
-type: application
-home: https://truecharts.org/charts/stable/gotify
-keywords:
-  - server
-  - gotify
-  - messages
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/gotify.png
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/gotify
-  - https://gotify.net/
-  - https://github.com/gotify/server
-  - https://hub.docker.com/r/gotify/server
+appVersion: "2.2.4"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -23,13 +7,29 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 11.0.17
+    version: 11.0.22
+deprecated: false
+description: A simple server for sending and receiving messages.
+home: https://truecharts.org/charts/stable/gotify
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/gotify.png
+keywords:
+  - gotify
+  - notifications
+kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
     url: https://truecharts.org
+name: gotify
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/gotify
+  - https://gotify.net/
+  - https://github.com/gotify/server
+  - https://hub.docker.com/r/gotify/server
+type: application
+version: 12.0.5
 annotations:
   truecharts.org/catagories: |
-    - media
+    - notifications
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U

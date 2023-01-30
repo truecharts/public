@@ -1,10 +1,11 @@
 image:
   repository: tccr.io/truecharts/habridge
   pullPolicy: IfNotPresent
-  tag: v5.4.1@sha256:507156bd814ab95984078aa278162eb80283b92f7017f45381f263fd1bc89a8a
+  tag: v5.4.1@sha256:62a13a2942c721e2590892b456f8b65456e649d5484c8ff5e8cadf190e10bbdb
 
 securityContext:
   runAsNonRoot: false
+  readOnlyRootFilesystem: false
 
 podSecurityContext:
   runAsUser: 0

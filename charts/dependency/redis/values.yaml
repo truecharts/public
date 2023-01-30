@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/redis
   pullPolicy: IfNotPresent
-  tag: 7.0.7@sha256:a9c688ff993714c849d6132e7d78c078781202cc10c718441517e9e48b38a0a9
+  tag: 7.0.8@sha256:b762d1eb8579cdb3543f5da78561d2ce9936667e79db2af2f8d94c95bf095209
 
 controller:
   # -- Set the controller type.
@@ -206,4 +206,7 @@ persistence:
         name: '{{ include "tc.common.names.fullname" . }}-health'
 
 portal:
+  enabled: false
+
+manifests:
   enabled: false

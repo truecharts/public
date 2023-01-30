@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/clickhouse
   pullPolicy: IfNotPresent
-  tag: 22.12.1.1752@sha256:45f7725ae167da165aec76399c5b8c43cee8f2beb5d01c004d35a79d7690ad32
+  tag: 22.12.3.5@sha256:539315e8dcdc99674581fc285da14176cb92cfef6efb742d9ee1f7a1d744aa03
 
 controller:
   type: statefulset
@@ -67,4 +67,7 @@ env:
       key: "clickhouse-password"
 
 portal:
+  enabled: false
+
+manifests:
   enabled: false

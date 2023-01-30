@@ -1,10 +1,109 @@
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/webtop
-  tag: latest@sha256:212fe831b602b1acd3764214b6825432d5733389216948885d9ab20b5b617aab
+  tag: latest@sha256:679bdcb5e4481b4a958dacf35bc6f4337fddb41f11d96572ba42852584c7550a
+ubuntuXFCEImage:
+  repository: tccr.io/truecharts/webtop-ubuntu-xfce
+  tag: latest@sha256:af350c99af7d1d9be243e5ce135e1a159001e842df8f3b3ecc6bc7cc898ca8f6
+  pullPolicy: Always
+fedoraXFCEImage:
+  repository: tccr.io/truecharts/webtop-fedora-xfce
+  tag: latest@sha256:2ae0d701dd3035c806fa1bf425be13992b7caf6798e2d24ebb28da341b9cda68
+  pullPolicy: Always
+archXFCEImage:
+  repository: tccr.io/truecharts/webtop-arch-xfce
+  tag: latest@sha256:ca2e604522a833e1574e1817b7840eb205762a0e7c9dc1e51b5060da2e453195
+  pullPolicy: Always
+
+alpineKDEImage:
+  repository: tccr.io/truecharts/webtop-alpine-kde
+  tag: latest@sha256:01b65e42fbe45d5f7c9899f654b4b76bdb9a1102ade40e99d5098b83e3fa4905
+  pullPolicy: Always
+ubuntuKDEImage:
+  repository: tccr.io/truecharts/webtop-ubuntu-kde
+  tag: latest@sha256:03d9f7a398a585552a3a14095d4b64a6c9e690fb587c6fb4f4d5de53b26cb154
+  pullPolicy: Always
+fedoraKDEImage:
+  repository: tccr.io/truecharts/webtop-fedora-kde
+  tag: latest@sha256:3225fc0f3173d5a50bc00f82f6f13a69f8c0856318d01fa161a73676613aec7b
+  pullPolicy: Always
+archKDEImage:
+  repository: tccr.io/truecharts/webtop-arch-kde
+  tag: latest@sha256:a8cfb62b6f5b9155db55f4782c5c5fcc6af8f759982445846421d914ed94160b
+  pullPolicy: Always
+
+alpineMATEImage:
+  repository: tccr.io/truecharts/webtop-alpine-mate
+  tag: latest@sha256:07e0b43e7d7a87be029c38a066fd1fac6735fdf8c47e58022633049f4062b31d
+  pullPolicy: Always
+ubuntuMATEImage:
+  repository: tccr.io/truecharts/webtop-ubuntu-mate
+  tag: latest@sha256:215235f0a5b07489200d2b3c6a3844c2688ac17bf6078079a2f1c2b849e2f5c1
+  pullPolicy: Always
+fedoraMATEImage:
+  repository: tccr.io/truecharts/webtop-fedora-mate
+  tag: latest@sha256:6c1fbc4794cbbdadc7409c3ac70908137732f8da79e05f46084d647c3bb7fa92
+  pullPolicy: Always
+archMATEImage:
+  repository: tccr.io/truecharts/webtop-arch-mate
+  tag: latest@sha256:01976ea4b9af91f94753894337ad05ec6b8e87077c597b8dd1ca7a8d6f20fa58
+  pullPolicy: Always
+
+alpineI3Image:
+  repository: tccr.io/truecharts/webtop-alpine-i3
+  tag: latest@sha256:666c1d516aa8e6de4c646dfc3e673de7a1eaf8350280d87bbccb8ba3fc2d0ca7
+  pullPolicy: Always
+ubuntuI3Image:
+  repository: tccr.io/truecharts/webtop-ubuntu-i3
+  tag: latest@sha256:8433411785e2b6b22eb728167594bf646f83c46fce8a3dd4e131af2d12f2f8bd
+  pullPolicy: Always
+fedoraI3Image:
+  repository: tccr.io/truecharts/webtop-fedora-i3
+  tag: latest@sha256:04f46fadbf0370d6ef3e55e4240d47329061b0d85c7a16e0e72d784e4e5018f4
+  pullPolicy: Always
+archI3Image:
+  repository: tccr.io/truecharts/webtop-arch-i3
+  tag: latest@sha256:c8c7dffe22fd527dff9e62170d13e7fb0c1c0e03c1df9f3f79e878f5e927633e
+  pullPolicy: Always
+
+alpineOpenBoxImage:
+  repository: tccr.io/truecharts/webtop-alpine-openbox
+  tag: latest@sha256:953a0edeb7eae08febb6be7f163df31a4afd9997e51e96e495098f8f6cfbc2b0
+  pullPolicy: Always
+ubuntuOpenBoxImage:
+  repository: tccr.io/truecharts/webtop-ubuntu-openbox
+  tag: latest@sha256:93e17963ec84fdeb5a52cfa277f1dc71dd7029011bca4827f09301236f1b6f18
+  pullPolicy: Always
+fedoraOpenBoxImage:
+  repository: tccr.io/truecharts/webtop-fedora-openbox
+  tag: latest@sha256:16d36f5c7868fed43e6e2e46431e07113c188c5f0966ded8c83e37c180dfcb0c
+  pullPolicy: Always
+archOpenBoxImage:
+  repository: tccr.io/truecharts/webtop-arch-openbox
+  tag: latest@sha256:f543d416ebccf4489a2f8a3e49b161b182c7da74a0fff10f7a8f884d46616e41
+  pullPolicy: Always
+
+alpineICEWMImage:
+  repository: tccr.io/truecharts/webtop-alpine-icewm
+  tag: latest@sha256:525532f45d6dce0786fe46975f7e423f4ae1270e9756c490e6f4620374eebf0a
+  pullPolicy: Always
+ubuntuICEWMImage:
+  repository: tccr.io/truecharts/webtop-ubuntu-icewm
+  tag: latest@sha256:12fe891ea665d67418e962c7d287e3601e256286ab1ee765fbbe26ba14e41cca
+  pullPolicy: Always
+fedoraICEWMImage:
+  repository: tccr.io/truecharts/webtop-fedora-icewm
+  tag: latest@sha256:0b0b579ce91a109928035904cb9a049d9ec6bb94c7b2f44202e2d1a0595aa293
+  pullPolicy: Always
+archICEWMImage:
+  repository: tccr.io/truecharts/webtop-arch-icewm
+  tag: latest@sha256:3c0fdd6e029032fb3cb17bc069571182e87f0bb2cac157984a0cf8674042292d
+  pullPolicy: Always
+
+imageSelector: image
 
 env:
-  KEYBOARD: ""
+  KEYBOARD: "en-us-qwerty"
   CUSTOM_PORT: "{{ .Values.service.main.ports.main.port }}"
 
 podSecurityContext:

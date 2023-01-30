@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/uptime-kuma
   pullPolicy: IfNotPresent
-  tag: 1.19.0@sha256:5f1d141ec35ede1fbfb56667f827b9df29d3fc31bc8b12e90ee583f0b478d591
+  tag: 1.19.6@sha256:412f3b11565cca7bbbbde5fd00414796ddc879fda3973245514d61c4a9f077e3
 
 securityContext:
   runAsNonRoot: false
@@ -13,12 +13,14 @@ podSecurityContext:
 security:
   PUID: 0
 
+env:
+  UPTIME_KUMA_PORT: "{{ .Values.service.main.ports.main.port }}"
+
 service:
   main:
     ports:
       main:
         port: 3001
-        targetPort: 3001
 
 persistence:
   config:
@@ -36,3 +38,19 @@ metrics:
     interval: 1m
     scrapeTimeout: 30s
     labels: {}
+  prometheusRule:
+    enabled: false
+    labels: {}
+    # -- Configure additionial rules for the chart under this key.
+    # @default -- See prometheusrules.yaml
+    rules:
+      []
+      # - alert: UnifiPollerAbsent
+      #   annotations:
+      #     description: Unifi Poller has disappeared from Prometheus service discovery.
+      #     summary: Unifi Poller is down.
+      #   expr: |
+      #     absent(up{job=~".*unifi-poller.*"} == 1)
+      #   for: 5m
+      #   labels:
+      #     severity: critical

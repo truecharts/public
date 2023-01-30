@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
@@ -81,7 +81,7 @@ jobs:
       detected6: ${{ steps.list-changed.outputs.detected6 }}
     steps:
       - name: Checkout
-        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
@@ -140,7 +140,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
@@ -152,7 +152,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@5ccb29d8773c3f3f653e1705f474dfaa8a06a912 # v4
+      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
         with:
           python-version: "3.10"
 
@@ -163,7 +163,9 @@ jobs:
         uses: nolar/setup-k3d-k3s@v1
         with:
           version: v1.24
-          k3d-args: -p 31990-31999:31990-31999@server:0
+          # Flags found here https://github.com/k3d-io/k3d
+          k3d-args: --k3s-arg --disable=metrics-server@server:*
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Remove node taints
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
@@ -183,7 +185,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
@@ -195,7 +197,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@5ccb29d8773c3f3f653e1705f474dfaa8a06a912 # v4
+      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
         with:
           python-version: "3.10"
 
@@ -206,7 +208,9 @@ jobs:
         uses: nolar/setup-k3d-k3s@v1
         with:
           version: v1.24
-          k3d-args: -p 31990-31999:31990-31999@server:0
+          # Flags found here https://github.com/k3d-io/k3d
+          k3d-args: --k3s-arg --disable=metrics-server@server:*
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Remove node taints
         run: |
@@ -227,7 +231,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
@@ -239,7 +243,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@5ccb29d8773c3f3f653e1705f474dfaa8a06a912 # v4
+      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
         with:
           python-version: "3.10"
 
@@ -250,7 +254,9 @@ jobs:
         uses: nolar/setup-k3d-k3s@v1
         with:
           version: v1.24
-          k3d-args: -p 31990-31999:31990-31999@server:0
+          # Flags found here https://github.com/k3d-io/k3d
+          k3d-args: --k3s-arg --disable=metrics-server@server:*
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Remove node taints
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
@@ -270,7 +276,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
@@ -282,7 +288,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@5ccb29d8773c3f3f653e1705f474dfaa8a06a912 # v4
+      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
         with:
           python-version: "3.10"
 
@@ -293,7 +299,9 @@ jobs:
         uses: nolar/setup-k3d-k3s@v1
         with:
           version: v1.24
-          k3d-args: -p 31990-31999:31990-31999@server:0
+          # Flags found here https://github.com/k3d-io/k3d
+          k3d-args: --k3s-arg --disable=metrics-server@server:*
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Remove node taints
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
@@ -313,7 +321,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
@@ -325,7 +333,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@5ccb29d8773c3f3f653e1705f474dfaa8a06a912 # v4
+      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
         with:
           python-version: "3.10"
 
@@ -336,7 +344,9 @@ jobs:
         uses: nolar/setup-k3d-k3s@v1
         with:
           version: v1.24
-          k3d-args: -p 31990-31999:31990-31999@server:0
+          # Flags found here https://github.com/k3d-io/k3d
+          k3d-args: --k3s-arg --disable=metrics-server@server:*
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Remove node taints
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
@@ -356,7 +366,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkoutCommit }}
@@ -368,7 +378,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@5ccb29d8773c3f3f653e1705f474dfaa8a06a912 # v4
+      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
         with:
           python-version: "3.10"
 
@@ -379,7 +389,9 @@ jobs:
         uses: nolar/setup-k3d-k3s@v1
         with:
           version: v1.24
-          k3d-args: -p 31990-31999:31990-31999@server:0
+          # Flags found here https://github.com/k3d-io/k3d
+          k3d-args: --k3s-arg --disable=metrics-server@server:*
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Remove node taints
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
@@ -397,18 +409,57 @@ jobs:
       - install-charts4
       - install-charts5
       - install-charts6
-    if: |
-      always()
+    if: ${{ always() }}
     name: Install successful
     runs-on: ubuntu-latest
     steps:
       - name: Check install matrix status
-        if: ${{ ( (needs.generate-install-matrix.outputs.detected1 == 'true') && (needs.install-charts1.result != 'success') ) && ( (needs.generate-install-matrix.outputs.detected2 == 'true') && ( (needs.install-charts2.result != 'success') || ( needs.install-charts2.result != 'skipped' ) ) ) && ( (needs.generate-install-matrix.outputs.detected3 == 'true') && ( (needs.install-charts3.result != 'success') || ( needs.install-charts3.result != 'skipped' ) ) ) && ( (needs.generate-install-matrix.outputs.detected4 == 'true') && ( (needs.install-charts4.result != 'success') || ( needs.install-charts4.result != 'skipped' ) ) ) && ( (needs.generate-install-matrix.outputs.detected5 == 'true') && ( (needs.install-charts5.result != 'success') || ( needs.install-charts5.result != 'skipped' ) ) ) && ( (needs.generate-install-matrix.outputs.detected6 == 'true') && ( (needs.install-charts6.result != 'success') || ( needs.install-charts6.result != 'skipped' ) ) ) }}
-        run: exit 1
+        run: |
+          res1="${{needs.install-charts1.result}}"
+          res2="${{needs.install-charts2.result}}"
+          res3="${{needs.install-charts3.result}}"
+          res4="${{needs.install-charts4.result}}"
+          res5="${{needs.install-charts5.result}}"
+          res6="${{needs.install-charts6.result}}"
 
-      - uses: vishnudxb/cancel-workflow@c3c77eb4383ba7d023e6614a07d94fe990501ac6 # tag=v1.2
-        if: failure()
-        with:
-          repo: truecharts/charts
-          workflow_id: ${{ github.run_id }}
-          access_token: ${{ github.token }}
+          if [[ $res1 == "success" || $res1 == "skipped" ]]; then
+            echo "install tests 1 successfull..."
+          else
+            echo "install tests 1 error, stopping due to failure..."
+            exit 1
+          fi
+
+          if [[ $res2 == "success" || $res2 == "skipped" ]]; then
+            echo "install tests 2 successfull..."
+          else
+            echo "install tests 2 error, stopping due to failure..."
+            exit 1
+          fi
+
+          if [[ $res3 == "success" || $res3 == "skipped" ]]; then
+            echo "install tests 3 successfull..."
+          else
+            echo "install tests 3 error, stopping due to failure..."
+            exit 1
+          fi
+
+          if [[ $res4 == "success" || $res4 == "skipped" ]]; then
+            echo "install tests 4 successfull..."
+          else
+            echo "install tests 4 error, stopping due to failure..."
+            exit 1
+          fi
+
+          if [[ $res5 == "success" || $res5 == "skipped" ]]; then
+            echo "install tests 5 successfull..."
+          else
+            echo "install tests 5 error, stopping due to failure..."
+            exit 1
+          fi
+
+          if [[ $res6 == "success" || $res6 == "skipped" ]]; then
+            echo "install tests 6 successfull..."
+          else
+            echo "install tests 6 error, stopping due to failure..."
+            exit 1
+          fi

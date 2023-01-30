@@ -1,0 +1,40 @@
+image:
+  repository: tccr.io/truecharts/openbooks
+  pullPolicy: IfNotPresent
+  tag: 4.5.0@sha256:fe1b693d63397e01a5673b8b16180539c1cb952abfe4ebfb58d0950ab9886adc
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+openbooks:
+  user_name: truecharts
+  server: irc.irchighway.net:6697
+  debug: true
+  log: true
+  search: search
+  persist: false
+  no_browser_downloads: false
+  tls: true
+
+probes:
+  liveness:
+    type: HTTP
+  readiness:
+    type: HTTP
+  startup:
+    type: HTTP
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        port: 10608
+
+persistence:
+  books:
+    enabled: true
+    mountPath: /books/books
+
+portal:
+  enabled: true

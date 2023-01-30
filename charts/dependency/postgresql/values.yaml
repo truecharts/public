@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/postgresql
   pullPolicy: IfNotPresent
-  tag: 14.6.0@sha256:5f33a63266313d2456b0e3517aa8d27e5a0cc24c7e34c46c7c85b336ca4c2d68
+  tag: 14.6.0@sha256:101b616f2cd0d4d3c1963ecdffd5ffc5704f202967288e718f7aa2ae526600bc
 
 controller:
   # -- Set the controller type.
@@ -126,4 +126,7 @@ env:
 # POSTGRESQL_PASSWORD: "{{ .Values.password }}"
 
 portal:
+  enabled: false
+
+manifests:
   enabled: false

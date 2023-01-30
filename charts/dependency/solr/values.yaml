@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/solr
   pullPolicy: IfNotPresent
-  tag: 9.1.0@sha256:45f3be7460ffcf2bcd0e664232771cc774b666ba481d7d663d501459023c9c04
+  tag: 9.1.0@sha256:5e55b1fe7bd00391d54c69dbe2e4d1b848854580c82fa9cb5451742460e92ec1
 
 controller:
   # -- Set the controller type.
@@ -138,3 +138,6 @@ env:
 
 portal:
   enabled: true
+
+manifests:
+  enabled: false

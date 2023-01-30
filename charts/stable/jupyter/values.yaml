@@ -1,0 +1,68 @@
+image:
+  repository: tccr.io/truecharts/jupyter-base
+  pullPolicy: IfNotPresent
+  tag: v2023-01@sha256:498ec86ccf3b5af0e3a11612adff3bb7c869442e53a5710df26b286d6a2610e6
+minimalImage:
+  repository: tccr.io/truecharts/jupyter-minimal
+  pullPolicy: IfNotPresent
+  tag: v2023-01@sha256:2943038be6bc56c0591144a8c8292d7a1422613b5c531603395977fd310f2591
+rImage:
+  repository: tccr.io/truecharts/jupyter-r
+  pullPolicy: IfNotPresent
+  tag: v2023-01@sha256:8a91e416316ca0b9259eb1daeb7dd78c6ab00a5188308efa2145bf7c549b3e37
+scipyImage:
+  repository: tccr.io/truecharts/jupyter-scipy
+  pullPolicy: IfNotPresent
+  tag: v2023-01@sha256:bf85dce496bc826d645203ded14ca7586ecfa256b01987b35beb3a357ffc3a35
+tensorflowImage:
+  repository: tccr.io/truecharts/jupyter-tensorflow
+  pullPolicy: IfNotPresent
+  tag: v2023-01@sha256:e06e5d9b1822a316b2c97b104074aae6c466ddcf284f11834a7866e0ac7a0fe9
+datascienceImage:
+  repository: tccr.io/truecharts/jupyter-datascience
+  pullPolicy: IfNotPresent
+  tag: v2023-01@sha256:124264c87036e894b578b7702850989b90e634e03e7fddab96308f181bd991ac
+pysparkImage:
+  repository: tccr.io/truecharts/jupyter-pyspark
+  pullPolicy: IfNotPresent
+  tag: v2023-01@sha256:c80d87997616146648476b05a8e7f4624b8ceb25650ce4404ba0b2ef224704b8
+allsparkImage:
+  repository: tccr.io/truecharts/jupyter-all-spark
+  pullPolicy: IfNotPresent
+  tag: v2023-01@sha256:a544a33598596a8b9a3a5ebf168a2b3f01e25f7274715f56985a937df3061ade
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+jupyter:
+  jupyter_cmd: lab
+  restartable: true
+
+env:
+  NB_UID: "{{ .Values.security.PUID }}"
+  NB_GID: "{{ .Values.podSecurityContext.fsGroup }}"
+  NB_UMASK: "{{ .Values.security.UMASK }}"
+  # User Defined
+  DOCKER_STACKS_JUPYTER_CMD: "{{ .Values.jupyter.jupyter_cmd }}"
+  RESTARTABLE: '{{ ternary "yes" "no" .Values.jupyter.restartable }}'
+
+service:
+  main:
+    ports:
+      main:
+        port: 10300
+        protocol: HTTP
+        targetPort: 8888
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /home/jovyan/work
+
+portal:
+  enabled: true

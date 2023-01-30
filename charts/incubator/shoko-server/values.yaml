@@ -1,24 +1,16 @@
-env: {}
 image:
-  pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/shoko-server
-  tag: vdaily@sha256:f1226f4bc2c3a4a2e3b68a32d8667669dfd1b4e2754ae21bc8c79910c804bb46
-persistence:
-  animefolder:
-    enabled: true
-    mountPath: /anime
-  appdata:
-    enabled: true
-    mountPath: /home/shoko/.shoko/
-  importfolder:
-    enabled: true
-    mountPath: /import
+  pullPolicy: IfNotPresent
+  tag: 4.1.2@sha256:5bde0f9457716b9142c6dd5827a1583f387dcdc6a971247f99b769a44f65fa5f
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
 service:
   main:
     ports:
@@ -26,6 +18,11 @@ service:
         port: 8111
         protocol: TCP
         targetPort: 8111
+
+persistence:
+  appdata:
+    enabled: true
+    mountPath: /home/shoko/.shoko/
 
 portal:
   enabled: true
