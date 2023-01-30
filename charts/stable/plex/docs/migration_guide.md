@@ -24,7 +24,7 @@ Follow the sub section depending on how your app config was stored.
 
 ## Migrating Data from PVC
 
-To access the old app's data from **PVC**, we are going to use [**truetool**](https://github.com/truecharts/truetool#how-to-install) mount flag.
+To access the old app's data from **PVC**, we are going to use [**truetool**](https://github.com/truecharts/truetool#how-to-install) `mount` flag.
 
 Go to **System Settings** -> **Shell**.
 
