@@ -20,7 +20,7 @@ Follow the sub section depending on how your app config was stored.
 
 - App config on PVC -> [Backing up App Data From PVC](#migrating-data-from-pvc)
 - App config on HostPath -> [Accessing App Data HostPath](#migrating-data-from-hostpath)
-- App config on HostPath(ix-applications) -> [Accessing App Data HostPath IX-Applications](#migrating-data-from-hostpath-ix-applications)
+- App config on HostPath(ix-applications) -> [Accessing App Data HostPath iX-Applications](#migrating-data-from-hostpath-ix-applications)
 
 ## Migrating Data from PVC
 
