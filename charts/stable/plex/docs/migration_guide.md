@@ -26,7 +26,7 @@ Follow the sub section depending on how your app config was stored.
 
 To access the old app's data from **PVC**, we are going to use [**truetool**](https://github.com/truecharts/truetool#how-to-install) mount flag.
 
-Go to **system settings** -> **shell**.
+Go to **System Settings** -> **Shell**.
 
 Make sure truetool is installed and active (refer to the link above for the how to guide) before running the following commands:
 
