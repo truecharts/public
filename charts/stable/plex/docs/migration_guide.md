@@ -190,11 +190,11 @@ Delete this dir from the new app.
 rm -r Library
 ```
 
-now grab the path for your dataset that holds your plex config.
+Now grab the path for your dataset that holds your plex config.
 
-for example...my path would be `/mnt/tank/configs/plex`.
+For example...my path would be `/mnt/tank/configs/plex`.
 
-run the `ls` command on the dir to verify that its correct and you see a single dir called `Library`.
+Run the `ls` command on the dir to verify that its correct and you see a single dir called `Library`.
 
 ```console
 ls /mnt/tank/configs/plex
