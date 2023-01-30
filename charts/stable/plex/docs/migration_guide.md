@@ -58,7 +58,7 @@ The above assumes your app is named `plex`, if its not the dir `name` will be **
 cd /mnt/truetool/plex-config
 ```
 
-run this command to verify you see a single dir called **Library**.
+Run this command to verify you see a single dir called **Library**.
 
 ```console
 ls
