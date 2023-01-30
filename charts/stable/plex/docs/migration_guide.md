@@ -122,7 +122,7 @@ You should see an output like so -> `/mnt/POOL/ix-applications/releases/plex/vol
 
 We are only interested for this location as its the start of the config dir for plex -> `/mnt/POOL/ix-applications/releases/plex/volumes/ix_volumes/ix-plex_config/Library`.
 
-Create a temp dataset in **storage** -> **datasets** for your old app plex config with the follow perms as **apps** since its our default user and group for most of our charts:
+Create a temp dataset in **Storage** -> **Datasets** for your old app plex config with the follow perms as **apps** since its our default user and group for most of our charts:
 
 ![perms](./img/media-dataset-perms.png)
 
