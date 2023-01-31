@@ -2,21 +2,53 @@ image:
   repository: tccr.io/truecharts/minecraft-java
   tag: 2022.16.0@sha256:4383ccf13cc03c19b5dad37d2fbadff9e37dac0b62275f555e55c8a071db6a32
   pullPolicy: Always
+j19Image:
+  repository: tccr.io/truecharts/minecraft-java19
+  tag: latest@sha256:27458a02fe03d0189f22273d630b36625a0b3f065305e8bac377d6439a36fee1
+  pullPolicy: Always
+j17j9Image:
+  repository: tccr.io/truecharts/minecraft-java17-openj9
+  tag: 2022.16.0@sha256:3fa728d5a9eb49c5042dbf00ec7379c03cc17ad7321a09e61184cfc22e195909
+  pullPolicy: Always
+j17jdkImage:
+  repository: tccr.io/truecharts/minecraft-java17-jdk
+  tag: 2022.16.0@sha256:7ee567e31b724b2717549865afd81cb49e0f283f1926e3f4451e3ba02ca4319e
+  pullPolicy: Always
+j17gceImage:
+  repository: tccr.io/truecharts/minecraft-java17-graalvm-ce
+  tag: latest@sha256:33a60248da06c40c6181afa3dd1a588bd07e4550ce2288577fa035fae6b4335e
+  pullPolicy: Always
+j17alpineImage:
+  repository: tccr.io/truecharts/minecraft-java17-alpine
+  tag: 2022.16.0@sha256:927920b484d67d66720e9b49de6346543c84b7dc80ae95102847e2c4d07f5250
+  pullPolicy: Always
 j11Image:
   repository: tccr.io/truecharts/minecraft-java11
-  tag: latest@sha256:ef6dc135581334d190cd635d3bead07370d60d9bd35df8367f6e5268d6681fb4
+  tag: latest@sha256:6019e0f8346d3931fcd05b92260a73807bfdfefa512529695c3513941a212106
+  pullPolicy: Always
+j11jdkImage:
+  repository: tccr.io/truecharts/minecraft-java11-jdk
+  tag: 2022.16.0@sha256:b6c30dd4bb9351f0350688929c9a4703cfd7d6dd8a86f5b0b63bdc51f1a8d0f6
   pullPolicy: Always
 j11j9Image:
   repository: tccr.io/truecharts/minecraft-java11-openj9
-  tag: latest@sha256:248ecbdca94efa8ab7c0b0437a0b59ba82ca9dabe6cd1f90a8cbd43319f15b82
+  tag: 2022.16.0@sha256:3e47a0633f405d428798ea7f9dc97538c04597cc22ff920e5286307f608e468c
   pullPolicy: Always
 j8Image:
-  repository: tccr.io/truecharts/minecraft-java8-openj9
-  tag: latest@sha256:d63ca3899678fa48737a1a6e95c8edbf0a4a7c3c420a06d64e64b1b866799fb9
+  repository: tccr.io/truecharts/minecraft-java8
+  tag: latest@sha256:8a27e22566ed0698a4692314c32588fcd0216da8cd7c7a7924b7cead14f2ace7
+  pullPolicy: Always
+j8gceImage:
+  repository: tccr.io/truecharts/minecraft-java8-graalvm-ce
+  tag: latest@sha256:f6bbaa144fe201a733c01dc37f2cd1073839b32337503940f910dec26fc39858
+  pullPolicy: Always
+j8jdkImage:
+  repository: tccr.io/truecharts/minecraft-java8-jdk
+  tag: 2022.16.0@sha256:a3b6513a693f241bd20c0f2b0cd0a55d76d86dbc735338019c0fac32f7e11163
   pullPolicy: Always
 j8j9Image:
   repository: tccr.io/truecharts/minecraft-java8-openj9
-  tag: latest@sha256:d63ca3899678fa48737a1a6e95c8edbf0a4a7c3c420a06d64e64b1b866799fb9
+  tag: 2022.16.0@sha256:cf576f7b1dd5c46f0efc3018ae98fb512ba2efe186f5a7aa5d1fc09906f2d1cd
   pullPolicy: Always
 
 imageSelector: image

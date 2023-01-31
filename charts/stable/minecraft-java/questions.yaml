@@ -11,12 +11,28 @@ questions:
       enum:
         - value: image
           description: Java 17 HotSpot
+        - value: j19Image
+          description: Java 19 HotSpot
+        - value: j17j9Image
+          description: Java 17 OpenJ9
+        - value: j17jdkImage
+          description: Java 17 JDK
+        - value: j17gceImage
+          description: Java 17 GraalVM CE
+        - value: j17alpineImage
+          description: Java 17 Hotspot(Alpine)
+        - value: j11jdkImage
+          description: Java 11 JDK
         - value: j11Image
           description: Java 11 HotSpot
         - value: j11j9Image
           description: Java 11 OpenJ9
         - value: j8Image
           description: Java 8 HotSpot
+        - value: j8gceImage
+          description: Java 8 GraalVM CE
+        - value: j8jdkImage
+          description: Java 8 JDK
         - value: j8j9Image
           description: Java 8 OpenJ9
 # Include{controller}
