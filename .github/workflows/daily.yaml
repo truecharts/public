@@ -94,7 +94,15 @@ jobs:
               tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" go-yq -i '.sources += env(tcsource)' "${chart}/Chart.yaml"
               container=$(cat website/docs/charts/description_list.md | grep "${chartname}" | cut -f3 -d '|' | grep -v 'Not Found' || echo "")
               if [ ! -z "$container" ]; then
-                container="${container}" go-yq -i '.sources += env(container)' "${chart}/Chart.yaml"
+                prefix="https://hub.docker.com/"
+                if echo ${container} | grep 'ghcr'; then
+                prefix="https://ghcr.com/"
+                elif echo ${container} | grep 'quay'; then
+                prefix="https://quay.com/"
+                elif echo ${container} | grep 'tccr'; then
+                prefix="https://github.com/truecharts/containers/tree/master/mirror/"
+                fi
+                container="${prefix}${container}" go-yq -i '.sources += env(container)' "${chart}/Chart.yaml"
               fi
               # Add the rest of the sources
               while IFS= read -r line; do
