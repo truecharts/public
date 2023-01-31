@@ -151,7 +151,7 @@ jobs:
         uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: Setting repo parent dir as safe safe.directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
