@@ -1,0 +1,15 @@
+image:
+  repository: tccr.io/truecharts/passky-client
+  pullPolicy: IfNotPresent
+  tag: 8.1.1@sha256:9c144ceb22920c60dc659c8635f48a92be4bffdb7dc768aba0d26a9a42c3005d
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 80
+        port: 10610
+
+portal:
+  enabled: true
