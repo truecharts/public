@@ -1,15 +1,12 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/factorio
   tag: vstable@sha256:e4416027bef1991be2d73689402073b85e6f2812bc9c72422990a38a58967eba
-persistence:
-  path:
-    enabled: true
-    mountPath: /factorio
+
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+
 probes:
   liveness:
     enabled: false
@@ -17,9 +14,19 @@ probes:
     enabled: false
   startup:
     enabled: false
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+
+env: 
+  GENERATE_NEW_SAVE: false
+  LOAD_LATEST_SAVE: true
+  SAVE_NAME: "_autosave1"
+  TOKEN: ""
+  UPDATE_MODS_ON_START: ""
+  USERNAME: ""
+
 service:
   main:
     ports:
@@ -27,6 +34,15 @@ service:
         port: 34197
         protocol: UDP
         targetPort: 34197
+      rcon:
+        port: 27015
+        protocol: TCP
+        targetPort: 27015
+
+persistence:
+  path:
+    enabled: true
+    mountPath: /factorio
 
 portal:
-  enabled: true
+  enabled: false

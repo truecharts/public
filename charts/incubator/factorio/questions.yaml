@@ -8,6 +8,50 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
+ - variable: env
+    group: "App Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: GENERATE_NEW_SAVE
+          label: "GENERATE_NEW_SAVE"
+          description: "Generate a new save if one does not exist before starting the server"
+          schema:
+            type: string
+            required: true
+            default: "false"
+        - variable: LOAD_LATEST_SAVE
+          label: "LOAD_LATEST_SAVE"
+          description: "Load latest when true. Otherwise load SAVE_NAME"
+          schema:
+            type: int
+            default: true
+        - variable: SAVE_NAME
+          label: "SAVE_NAME"
+          description: "Name to use for the save file"
+          schema:
+            type: int
+            default: "_autosave1"
+        - variable: TOKEN
+          label: "TOKEN"
+          description: "factorio.com token"
+          schema:
+            type: string
+            default: ""
+        - variable: UPDATE_MODS_ON_START:
+          label: "UPDATE_MODS_ON_START"
+          description: "If mods should be updated before starting the server"
+          schema:
+            type: string
+            default: ""
+        - variable: USERNAME
+          label: "USERNAME"
+          description: "factorio.com username"
+          schema:
+            type: string
+            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -27,10 +71,32 @@ questions:
                         attrs:
                           - variable: port
                             label: "Port"
-                            description: "This port exposes the container port on the service"
+                            description: "UDP port the server listens on"
                             schema:
                               type: int
                               default: 34197
+                              required: true
+        - variable: rcon
+          label: "Rcon Port"
+          description: "TCP port the rcon server listens on"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: rcon
+                      label: "Rcon Server Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 27015
                               required: true
 # Include{serviceExpertRoot}
             default: false
