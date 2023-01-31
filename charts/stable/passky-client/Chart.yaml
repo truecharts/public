@@ -1,0 +1,31 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: passky-client
+version: 1.0.0
+appVersion: "8.1.1"
+description: Passky is a simple, modern, lightweight, open-source and secure password manager.
+type: application
+deprecated: false
+home: https://truecharts.org/charts/stable/passky-client
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/passky-client.png
+keywords:
+  - passky
+  - bitwarden
+  - vaultwarden
+  - password
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/passky-client
+  - https://github.com/Rabbit-Company/Passky-Website
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 11.1.2
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - security
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
