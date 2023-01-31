@@ -45,6 +45,14 @@ jobs:
             done
           done
 
+      - name: Checkout
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        with:
+          repository: truecharts/website
+          path: website
+          fetch-depth: 1
+          token: ${{ secrets.BOT_TOKEN }}
+
       - name: Bump and Sync
         shell: bash
         run: |
@@ -84,6 +92,10 @@ jobs:
               go-yq -i 'del(.sources.[])' "${chart}/Chart.yaml"
               # Add truechart source
               tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" go-yq -i '.sources += env(tcsource)' "${chart}/Chart.yaml"
+              container=$(cat website/docs/charts/description_list.md | grep "${chartname}" | cut -f3 -d '|' | grep -v 'Not Found')
+              if ${container}; then
+                container="${container}" go-yq -i '.sources += env(container)' "${chart}/Chart.yaml"
+              fi
               # Add the rest of the sources
               while IFS= read -r line; do
                 src="$line" go-yq -i '.sources += env(src)' "${chart}/Chart.yaml" || echo "src set error"
