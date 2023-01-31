@@ -202,7 +202,7 @@ jobs:
               echo "" >> website/docs/charts/${train}/${chartname}/helm-security.md
               echo "##### Scan Results" >> website/docs/charts/${train}/${chartname}/helm-security.md
               echo "" >> website/docs/charts/${train}/${chartname}/helm-security.md
-              trivy config --policy kubernetes -f template --template "@./templates/trivy-config.tpl" ${chart}/render >> website/docs/charts/${train}/${chartname}/helm-security.md || echo "trivy scan failed..."
+              trivy config --namespaces builtin.kubernetes.* -f template --template "@./templates/trivy-config.tpl" ${chart}/render >> website/docs/charts/${train}/${chartname}/helm-security.md || echo "trivy scan failed..."
               }
           container_sec_scan() {
               local chart="$1"
