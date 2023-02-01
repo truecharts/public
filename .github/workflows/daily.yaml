@@ -87,9 +87,9 @@ jobs:
               echo "Attempting to update sources of ${chartname}..."
               echo "Using go-yq verion: <$(go-yq -V)>"
               # Get all sources (except truecharts)
-              curr_sources=$(go-yq '.sources[] | select(. != "https://github.com/truecharts*")' "${chart}/Chart.yaml")
+              curr_sources=$(go-yq '.sources[] | select(. != "https://github.com/truecharts*" | select(. != "https://hub.docker*" | select(. != "https://ghcr*" | select(. != "https://quay*" | select(. != "https://github.com/truecharts/containers*")' "${chart}/Chart.yaml")
               # Empty sources list in-place
-              go-yq -i 'del(.sources.[])' "${chart}/Chart.yaml"
+              go-yq -i 'del(.sources.[])' "${chart}/Chart.yaml
               # Add truechart source
               tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" go-yq -i '.sources += env(tcsource)' "${chart}/Chart.yaml"
               container=$(cat website/docs/charts/description_list.md | grep "\[${chartname}\]" | cut -f3 -d '|' | grep -v 'Not Found' || echo "")
