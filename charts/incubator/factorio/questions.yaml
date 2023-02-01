@@ -1,5 +1,5 @@
 # Include{groups}
-portals: {}
+portals:
 # Include{portalLink}
 questions:
 # Include{global}
@@ -18,20 +18,20 @@ questions:
           label: "Generate new save on startup"
           description: "Generate a new save if one does not exist before starting the server"
           schema:
-            type: string
+            type: bool
             required: true
             default: "false"
         - variable: LOAD_LATEST_SAVE
           label: "Load latest save game"
           description: "Load latest when true. Otherwise load SAVE_NAME"
           schema:
-            type: int
+            type: bool
             default: true
         - variable: SAVE_NAME
           label: "Game save name (change this to use multiple saves)"
           description: "Name to use for the save file"
           schema:
-            type: int
+            type: string
             default: "_autosave1"
         - variable: TOKEN
           label: "Factorio.com Token"
