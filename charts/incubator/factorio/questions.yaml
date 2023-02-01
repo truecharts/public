@@ -1,6 +1,5 @@
 # Include{groups}
-portals:
-  open:
+portals: {}
 # Include{portalLink}
 questions:
 # Include{global}
@@ -16,39 +15,39 @@ questions:
       type: dict
       attrs:
         - variable: GENERATE_NEW_SAVE
-          label: "GENERATE_NEW_SAVE"
+          label: "Generate new save on startup"
           description: "Generate a new save if one does not exist before starting the server"
           schema:
             type: string
             required: true
             default: "false"
         - variable: LOAD_LATEST_SAVE
-          label: "LOAD_LATEST_SAVE"
+          label: "Load latest save game"
           description: "Load latest when true. Otherwise load SAVE_NAME"
           schema:
             type: int
             default: true
         - variable: SAVE_NAME
-          label: "SAVE_NAME"
+          label: "Game save name (change this to use multiple saves)"
           description: "Name to use for the save file"
           schema:
             type: int
             default: "_autosave1"
         - variable: TOKEN
-          label: "TOKEN"
-          description: "factorio.com token"
+          label: "Factorio.com Token"
+          description: "Import your factorio.com token"
           schema:
             type: string
             default: ""
-        - variable: UPDATE_MODS_ON_START:
-          label: "UPDATE_MODS_ON_START"
+        - variable: UPDATE_MODS_ON_START
+          label: "Update server mods BEFORE starting the server"
           description: "If mods should be updated before starting the server"
           schema:
             type: string
             default: ""
         - variable: USERNAME
-          label: "USERNAME"
-          description: "factorio.com username"
+          label: "Factorio.com Username"
+          description: "Import your factorio.com username"
           schema:
             type: string
             default: ""
