@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "12"
+appVersion: "12.4.3"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -23,10 +23,14 @@ maintainers:
 name: openproject
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/openproject
+  - https://hub.docker.com/openproject/community
+  - https://hub.docker.com/openproject/community
+  - https://hub.docker.com/openproject/community
+  - openproject/community
   - http://openproject.org
   - https://hub.docker.com/u/openproject
 type: application
-version: 3.0.19
+version: 3.0.21
 annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |

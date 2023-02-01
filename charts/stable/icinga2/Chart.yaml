@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "2.13.5"
+appVersion: "2.13.6"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -22,9 +22,13 @@ maintainers:
 name: icinga2
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/icinga2
+  - https://hub.docker.com/jordan/icinga2
+  - https://hub.docker.com/jordan/icinga2
+  - https://hub.docker.com/jordan/icinga2
+  - jordan/icinga2
   - https://github.com/jjethwa/icinga2
   - https://icinga.com/
-version: 6.0.17
+version: 6.0.18
 annotations:
   truecharts.org/catagories: |
     - monitoring

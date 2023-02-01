@@ -1,15 +1,11 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Tools-Utilities
 apiVersion: v2
-appVersion: "daily"
+appVersion: "4.1.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 11.1.2
 deprecated: false
-description: Shoko server is the core component of the Shoko suite and with it's client-server architecture which allows any program or plugin to access Shoko. You'll have access to your entire collection locally and over the internet with no additional work outside the initial configuration required.
+description: Shoko is an anime cataloging program designed to automate the cataloging of your collection.
 home: https://truecharts.org/charts/incubator/shoko-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/shoko-server.png
 keywords:
@@ -23,7 +19,17 @@ maintainers:
 name: shoko-server
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/shoko-server
+  - https://hub.docker.com/shokoanime/server
+  - https://hub.docker.com/shokoanime/server
+  - https://hub.docker.com/shokoanime/server
+  - shokoanime/server
   - https://github.com/ShokoAnime/ShokoServer
   - https://hub.docker.com/r/shokoanime/server/
 type: application
-version: 2.0.10
+version: 3.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+    - Tools-Utilities
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

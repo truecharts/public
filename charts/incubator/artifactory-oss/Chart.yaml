@@ -4,7 +4,7 @@ annotations:
     - Productivity
     - Tools-Utilities
 apiVersion: v2
-appVersion: "7.49.5"
+appVersion: "7.49.6"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -25,7 +25,11 @@ maintainers:
 name: artifactory-oss
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/artifactory-oss
+  - https://hub.docker.com/docker.bintray.io/jfrog/artifactory-oss
+  - https://hub.docker.com/docker.bintray.io/jfrog/artifactory-oss
+  - https://hub.docker.com/docker.bintray.io/jfrog/artifactory-oss
+  - docker.bintray.io/jfrog/artifactory-oss
   - https://jfrog.com/
   - https://registry.hub.docker.com/r/docker.bintray.io/jfrog/artifactory-oss
 type: application
-version: 2.0.15
+version: 2.0.16

@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "1.1.0.2322"
+appVersion: "1.1.1.2377"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -19,9 +19,13 @@ maintainers:
 name: prowlarr
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/prowlarr
+  - https://ghcr.com/ghcr.io/onedr0p/prowlarr-develop
+  - https://ghcr.com/ghcr.io/onedr0p/prowlarr-develop
+  - https://ghcr.com/ghcr.io/onedr0p/prowlarr-develop
+  - ghcr.io/onedr0p/prowlarr-develop
   - https://github.com/Prowlarr/Prowlarr
   - https://github.com/k8s-at-home/container-images
-version: 8.0.18
+version: 8.0.19
 annotations:
   truecharts.org/catagories: |
     - media

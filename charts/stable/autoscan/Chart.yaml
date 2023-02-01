@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: autoscan
-version: 3.0.7
+version: 3.0.8
 appVersion: "latest"
 description: Autoscan replaces the default Plex and Emby behaviour for picking up file changes on the file system.
 type: application
@@ -13,6 +13,10 @@ keywords:
   - media
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/autoscan
+  - https://hub.docker.com/cr.hotio.dev/hotio/autoscan knex666/prpdf
+  - https://hub.docker.com/cr.hotio.dev/hotio/autoscan knex666/prpdf
+  - https://hub.docker.com/cr.hotio.dev/hotio/autoscan knex666/prpdf
+  - cr.hotio.dev/hotio/autoscan knex666/prpdf
   - https://hotio.dev/containers/autoscan
   - https://hub.docker.com/r/hotio/autoscan
 dependencies:

@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "0.6.2"
+appVersion: "0.6.4"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -17,8 +17,12 @@ maintainers:
 name: homepage
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/homepage
+  - https://ghcr.com/ghcr.io/ajnart/homarr ghcr.io/benphelps/homepage b4bz/homer corneliousjd/sui-startpage
+  - https://ghcr.com/ghcr.io/ajnart/homarr ghcr.io/benphelps/homepage b4bz/homer corneliousjd/sui-startpage
+  - https://ghcr.com/ghcr.io/ajnart/homarr ghcr.io/benphelps/homepage b4bz/homer corneliousjd/sui-startpage
+  - ghcr.io/ajnart/homarr ghcr.io/benphelps/homepage b4bz/homer corneliousjd/sui-startpage
   - https://github.com/benphelps/homepage
-version: 2.0.18
+version: 2.0.19
 annotations:
   truecharts.org/catagories: |
     - dashboard

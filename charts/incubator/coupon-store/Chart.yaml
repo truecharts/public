@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "1.2.0"
+appVersion: "1.3.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -21,8 +21,12 @@ maintainers:
 name: coupon-store
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/coupon-store
+  - https://hub.docker.com/metikular/coupon-store
+  - https://hub.docker.com/metikular/coupon-store
+  - https://hub.docker.com/metikular/coupon-store
+  - metikular/coupon-store
   - https://github.com/linuxserver/docker-airsonic
-version: 3.0.19
+version: 3.0.20
 annotations:
   truecharts.org/catagories: |
     - utilities

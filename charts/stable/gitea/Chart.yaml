@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "1.18.2"
+appVersion: "1.18.3"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -31,11 +31,15 @@ maintainers:
 name: gitea
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/gitea
+  - https://hub.docker.com/gitea/gitea
+  - https://hub.docker.com/gitea/gitea
+  - https://hub.docker.com/gitea/gitea
+  - gitea/gitea
   - https://gitea.com/gitea/helm-chart
   - https://github.com/go-gitea/gitea
   - https://hub.docker.com/r/gitea/gitea/
 type: application
-version: 12.0.24
+version: 12.0.25
 annotations:
   truecharts.org/catagories: |
     - GIT
