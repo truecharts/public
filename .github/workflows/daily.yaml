@@ -92,7 +92,7 @@ jobs:
               go-yq -i 'del(.sources.[])' "${chart}/Chart.yaml"
               # Add truechart source
               tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" go-yq -i '.sources += env(tcsource)' "${chart}/Chart.yaml"
-              container=$(cat website/docs/charts/description_list.md | grep "${chartname}" | cut -f3 -d '|' | grep -v 'Not Found' || echo "")
+              container=$(cat website/docs/charts/description_list.md | grep "\[${chartname}\]" | cut -f3 -d '|' | grep -v 'Not Found' || echo "")
               if [ ! -z "$container" ]; then
                 prefix="https://hub.docker.com/"
                 if echo ${container} | grep 'ghcr'; then
