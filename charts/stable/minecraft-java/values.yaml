@@ -74,6 +74,29 @@ service:
         port: 25575
         targetPort: 25575
 
+probes:
+  liveness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - mc-health
+  readiness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - mc-health
+  startup:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - mc-health
+
 secretEnv:
   RCON_PASSWORD: "secretrconpass"
 
