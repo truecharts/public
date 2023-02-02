@@ -1,6 +1,6 @@
 apiVersion: v2
 appVersion: "2.1.4"
-version: 2.0.8
+version: 2.0.9
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -20,7 +20,6 @@ name: cleanarr
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/cleanarr
   - https://hub.docker.com/selexin/cleanarr
-  - selexin/cleanarr
   - https://github.com/se1exin/cleanarr
 type: application
 annotations:
