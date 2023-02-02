@@ -34,7 +34,11 @@ service:
         port: 34197
         protocol: UDP
         targetPort: 34197
+  rcon:
+    enabled: true
+    ports:
       rcon:
+        enabled: true
         port: 27015
         protocol: TCP
         targetPort: 27015
