@@ -5,13 +5,12 @@ The app has no configuration. The following is just a basic guide on how to stre
 ## Stream
 
 - This is the URL to use to stream `rtmp://<server_ip>:1935/live/<stream_key>`
-  - replace <server_ip> and <stream_key> respectively.
-  - change the port if its not default.
+  - Replace <server_ip> and <stream_key> respectively.
+  - Change the port if its not default.
 
 ## View
 
 - VLC
-
   - Go to Media > Open Network Stream.
     /code/charts/truecharts/charts/charts/rtmpserver - `rtmp://<server ip>:1935/live/<stream-key>`
 
@@ -30,7 +29,7 @@ The default basic builtin stream sites use a default key, "test".
 
 ## Customizaton
 
-- If you want to mount a modified version of a ngix.conf you can do so by manually mounting `/etc/nginx/` as PVC or hostpath and then add the custom files after. Take a look at upstream's [configs](https://github.com/TareqAlqutami/rtmp-hls-server/tree/master/conf).
+- If you want to mount a modified version of a nginx.conf you can do so by manually mounting `/etc/nginx/` as PVC or hostpath and then add the custom files after. Take a look at upstream's [configs](https://github.com/TareqAlqutami/rtmp-hls-server/tree/master/conf).
 
 - If you want to mount and customized the web players you can do so by mounting `/usr/local/nginx/html/players` and adding the files in that dir, here are example players [htmls](https://github.com/TareqAlqutami/rtmp-hls-server/tree/master/players).
 
