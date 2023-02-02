@@ -17,14 +17,13 @@ questions:
           label: Generate new save on startup
           description: Generate a new save if one does not exist before starting the server
           schema:
-            type: bool
-            required: true
+            type: boolean
             default: false
         - variable: LOAD_LATEST_SAVE
           label: Load latest save game
           description: Load latest when true. Otherwise load SAVE_NAME
           schema:
-            type: bool
+            type: boolean
             default: true
         - variable: SAVE_NAME
           label: Game save name (change this to use multiple saves)
