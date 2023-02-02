@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: kavitaemail
-version: 2.0.9
+version: 2.0.10
 appVersion: "0.1.12"
 description: Simple email relay server for kavita.
 type: application
@@ -14,7 +14,6 @@ keywords:
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/kavitaemail
   - https://hub.docker.com/kizaing/kavitaemail
-  - kizaing/kavitaemail
   - https://truecharts.org/docs/charts/incubator/kavitaemail
   - https://github.com/Kareadita/KavitaEmail
 dependencies:

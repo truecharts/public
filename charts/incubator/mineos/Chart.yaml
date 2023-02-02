@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: mineos
-version: 2.0.7
+version: 2.0.8
 appVersion: "latest"
 description: MineOS is a server front-end to ease managing Minecraft administrative tasks.
 type: application
@@ -14,7 +14,6 @@ keywords:
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/mineos
   - https://hub.docker.com/hexparrot/mineos
-  - hexparrot/mineos
   - https://github.com/hexparrot/mineos-node
 dependencies:
   - name: common
