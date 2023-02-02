@@ -7,7 +7,7 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 11.0.20
+    version: 11.0.22
 deprecated: false
 description: A simple bookmark manager built with Go.
 home: https://truecharts.org/charts/stable/shiori
@@ -25,10 +25,12 @@ maintainers:
 name: shiori
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/shiori
+  - https://ghcr.com/ghcr.io/go-shiori/shiori
+  - ghcr.io/go-shiori/shiori
   - https://github.com/go-shiori/shiori
   - https://github.com/go-shiori/shiori/pkgs/container/shiori
 type: application
-version: 11.0.2
+version: 11.0.4
 annotations:
   truecharts.org/catagories: |
     - media

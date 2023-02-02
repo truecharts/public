@@ -21,9 +21,10 @@ maintainers:
 name: postgresql
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/dependency/postgresql
+  - https://hub.docker.com/bitnami/postgresql
   - https://www.postgresql.org/
 type: application
-version: 11.0.21
+version: 11.0.23
 annotations:
   truecharts.org/catagories: |
     - database

@@ -7,7 +7,7 @@ dependencies:
   - condition: redis.enabled
     name: redis
     repository: https://charts.truecharts.org
-    version: 5.0.26
+    version: 5.0.29
 deprecated: false
 description: A free & open source IMDb front-end.
 home: https://truecharts.org/charts/stable/libremdb
@@ -24,11 +24,12 @@ maintainers:
 name: libremdb
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/libremdb
+  - https://quay.com/quay.io/pussthecatorg/libremdb
+  - quay.io/pussthecatorg/libremdb
   - https://github.com/zyachel/libremdb
-  - https://quay.io/pussthecatorg/libremdb
   - https://github.com/PussTheCat-org/docker-libremdb-quay
 type: application
-version: 1.0.5
+version: 1.0.7
 annotations:
   truecharts.org/catagories: |
     - media

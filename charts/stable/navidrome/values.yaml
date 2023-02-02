@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/navidrome
   pullPolicy: IfNotPresent
-  tag: 0.48.0@sha256:a133b55a3a0b5840f3412a96a34a099cc2f24b5d42418eca84a0ad72d5c8fa40
+  tag: 0.49.0@sha256:fa734369c106a978df306b4229bdf256a99ef5e36874064c03af4e00bf63987d
 
 service:
   main:
@@ -21,6 +21,9 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
+  music:
+    enabled: true
+    mountPath: "/music"
 
 portal:
   enabled: true

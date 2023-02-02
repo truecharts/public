@@ -7,7 +7,7 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 11.0.20
+    version: 11.0.22
 deprecated: false
 description: PrivateBin is a minimalist, open source online pastebin where the server has zero knowledge of pasted data.
 home: https://truecharts.org/charts/incubator/privatebin
@@ -23,11 +23,11 @@ maintainers:
 name: privatebin
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/privatebin
+  - https://hub.docker.com/privatebin/pdo
   - https://privatebin.info/
   - https://github.com/PrivateBin/PrivateBin
-  - https://hub.docker.com/r/privatebin/pdo
 type: application
-version: 3.0.20
+version: 3.0.24
 annotations:
   truecharts.org/catagories: |
     - productivity

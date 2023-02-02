@@ -1,18 +1,5 @@
 apiVersion: v2
-appVersion: "0.90.78"
-description: Status page for monitoring your websites and applications
-name: statping-ng
-version: 11.0.0
-kubeVersion: ">=1.16.0-0"
-keywords:
-  - statping
-  - status
-  - status-page
-home: https://truecharts.org/charts/stable/statping
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/statping.png
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/statping
-  - https://github.com/statping/statping
+appVersion: "0.90.80"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -20,13 +7,30 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 11.0.20
+    version: 11.0.22
+deprecated: false
+description: Status page for monitoring your websites and applications.
+home: https://truecharts.org/charts/stable/statping-ng
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/statping-ng.png
+keywords:
+  - statping-ng
+  - status
+  - status-page
+kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
     url: https://truecharts.org
+name: statping-ng
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/statping-ng
+  - https://quay.com/quay.io/statping-ng/statping-ng
+  - quay.io/statping-ng/statping-ng
+  - https://github.com/statping/statping
+type: application
+version: 11.0.3
 annotations:
   truecharts.org/catagories: |
-    - media
+    - statistics
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U
