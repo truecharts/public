@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "0.211.2"
+appVersion: "0.213.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -26,10 +26,11 @@ maintainers:
 name: n8n
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/n8n
+  - https://hub.docker.com/n8nio/n8n
+  - n8nio/n8n
   - https://docs.n8n.io/
   - https://github.com/n8n-io/n8n
-  - https://hub.docker.com/r/n8nio/n8n
-version: 7.0.35
+version: 7.0.36
 annotations:
   truecharts.org/catagories: |
     - media
