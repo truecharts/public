@@ -1,7 +1,7 @@
 apiVersion: v2
 appVersion: "1.5.1"
 kubeVersion: ">=1.16.0-0"
-version: 7.0.22
+version: 7.0.23
 name: spotweb
 description: Spotweb is a decentralized usenet community based on the Spotnet protocol.
 type: application
@@ -14,11 +14,7 @@ keywords:
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/spotweb
   - https://hub.docker.com/jbaten/spotweb
-  - https://hub.docker.com/jbaten/spotweb
-  - https://hub.docker.com/jbaten/spotweb
-  - jbaten/spotweb
   - https://github.com/spotweb/spotweb
-  - https://hub.docker.com/r/jbaten/spotweb
   - https://github.com/joachimbaten/spotweb-docker
 dependencies:
   - name: common

@@ -27,13 +27,10 @@ name: prometheus
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/enterprise/prometheus
   - https://hub.docker.com/bitnami/prometheus
-  - https://hub.docker.com/bitnami/prometheus
-  - https://hub.docker.com/bitnami/prometheus
-  - bitnami/prometheus
   - https://github.com/prometheus-community/helm-charts
   - https://github.com/prometheus-operator/kube-prometheus
 type: application
-version: 7.0.46
+version: 7.0.47
 annotations:
   truecharts.org/catagories: |
     - metrics

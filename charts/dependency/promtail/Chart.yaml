@@ -20,14 +20,11 @@ name: promtail
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/dependency/promtail
   - https://hub.docker.com/grafana/promtail
-  - https://hub.docker.com/grafana/promtail
-  - https://hub.docker.com/grafana/promtail
-  - grafana/promtail
   - https://github.com/grafana/loki
   - https://grafana.com/oss/loki/
   - https://grafana.com/docs/loki/latest/
 type: application
-version: 6.0.12
+version: 6.0.13
 annotations:
   truecharts.org/catagories: |
     - metrics

@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: pydio-cells
-version: 7.0.19
+version: 7.0.20
 appVersion: "4.0.6"
 description: Pydio-cells is the nextgen file sharing platform for organizations.
 type: application
@@ -13,10 +13,6 @@ keywords:
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/pydio-cells
   - https://hub.docker.com/pydio/cells
-  - https://hub.docker.com/pydio/cells
-  - https://hub.docker.com/pydio/cells
-  - pydio/cells
-  - https://hub.docker.com/r/linuxserver/pydio-cells
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
