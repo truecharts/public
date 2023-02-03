@@ -1,6 +1,6 @@
 # Community Migration Guide
 
-:::warn
+:::caution
 
 This guide does not fall under support, use at your own risk. You can create a thread in our discord channel [#📚・tc-scale-apps](https://discord.gg/a5fj3FJ9Mx) for basic support for the guide itself.
 
@@ -19,8 +19,14 @@ In TrueNAS Scale, go to **Apps** -> **Installed Applications** and stop the _old
 Follow the sub section depending on how your app config was stored.
 
 - App config on PVC -> [Backing up App Data From PVC](#migrating-data-from-pvc)
-- App config on HostPath -> [Accessing App Data HostPath](#migrating-data-from-hostpath)
-- App config on HostPath(ix-applications) -> [Accessing App Data HostPath iX-Applications](#migrating-data-from-hostpath-ix-applications)
+- App config on HostPath -> [Accessing App Data From HostPath](#migrating-data-from-hostpath)
+- App config on HostPath(ix-applications) -> [Accessing App Data From IxVolumes](#migrating-data-from-ixvolumes)
+
+## Dataset Permissions
+
+This is our default perms for our plex app. Please make sure to keep plex perms set to `568`.
+
+![perms](./img/media-dataset-perms.png)
 
 ## Migrating Data from PVC
 
@@ -64,9 +70,7 @@ Run this command to verify you see a single dir called **Library**.
 ls
 ```
 
-Create a temp dataset in **storage** -> **datasets** for your old app plex config with the follow perms as **apps** since its our default user and group for most of our charts:
-
-![perms](./img/media-dataset-perms.png)
+Create a temp dataset in **storage** -> **datasets** for your old app plex config with the follow [perms](#dataset-permissions).
 
 Replace this command's path with your **OWN** `pool` and `dataset` name.
 
@@ -90,19 +94,17 @@ Please move on to [Migrating App Data to the New App](#migrating-app-data-to-the
 
 ## Migrating Data from HostPath
 
-If your plex config is available on your own dataset, validate its perms.
-
-![perms](./img/media-dataset-perms.png)
+If your plex config is available on your own dataset, validate its [perms](#dataset-permissions).
 
 Follow the prerequisites and then uninstall the original app. If the perms are good you can move on to [migrating to the new app](#migrating-app-data-to-the-new-app).
 
-### Migrating Data from HostPath-ix-applications
+### Migrating Data from ixVolumes
 
 This section is only for the official app where users didn't specify their own hostpath.
 
 ![bad-hostpath-plex](./img/plex-config-volume-hostpath.png)
 
-::: warn
+:::danger
 
 Be very cautious while in this particular dataset. Run the commands carefully.
 
@@ -122,9 +124,7 @@ You should see an output like so -> `/mnt/POOL/ix-applications/releases/plex/vol
 
 We are only interested for this location as its the start of the config dir for plex -> `/mnt/POOL/ix-applications/releases/plex/volumes/ix_volumes/ix-plex_config/Library`.
 
-Create a temp dataset in **Storage** -> **Datasets** for your old app plex config with the follow perms as **apps** since its our default user and group for most of our charts:
-
-![perms](./img/media-dataset-perms.png)
+Create a temp dataset in **Storage** -> **Datasets** for your old app plex config with the follow [perms](#dataset-permissions).
 
 Go back to the system shell and replace this command's path with your **OWN** `path`, `pool` and `dataset` name.
 
@@ -243,9 +243,3 @@ The app will take some time to migrate the db after startup and rest assured its
 You should now be able to access plex's web service as normal with all your data intact, sign in if needed.
 
 You can remove the temp dataset that holds your plex config as its not needed anymore.
-
-:::warn
-
-This guide does not fall under support, use at your own risk. You can create a thread in our discord channel [#📚・tc-scale-apps](https://discord.gg/a5fj3FJ9Mx) for basic support for the guide itself.
-
-:::
