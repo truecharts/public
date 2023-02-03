@@ -26,12 +26,6 @@ questions:
           schema:
             type: string
             default: "64M"
-        - variable: IPV6_MODE
-          label: IPV6 Mode
-          description: Whether to enable IPv6 support for Aria2.
-          schema:
-            type: boolean
-            default: false
         - variable: UPDATE_TRACKERS
           label: Update Trackers
           description: Whether to update BT Trackers List automatically.
