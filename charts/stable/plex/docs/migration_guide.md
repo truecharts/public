@@ -20,7 +20,7 @@ Follow the sub section depending on how your app config was stored.
 
 - App config on PVC -> [Backing up App Data From PVC](#migrating-data-from-pvc)
 - App config on HostPath -> [Accessing App Data From HostPath](#migrating-data-from-hostpath)
-- App config on HostPath(ix-applications) -> [Accessing App Data From IxVolumes](#migrating-data-from-ixvolumes)
+- App config on HostPath(ix-applications) -> [Migrating App Data From IxVolumes](#migrating-data-from-ixvolumes)
 
 ## Dataset Permissions
 
