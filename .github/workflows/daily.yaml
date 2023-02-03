@@ -118,6 +118,10 @@ jobs:
                 prefix="https://"
                 elif echo ${container} | grep 'ocir'; then
                 prefix="https://"
+                elif echo ${container} | grep 'https://hub.docker'; then
+                prefix=""
+                elif echo ${container} | grep 'hub.docker'; then
+                prefix="https://"
                 fi
                 container="${prefix}${container}" go-yq -i '.sources += env(container) | .sources |= unique' "${chart}/Chart.yaml"
               fi
