@@ -107,7 +107,7 @@ jobs:
                 if echo ${container} | grep 'tccr'; then
                 container="https://github.com/truecharts/containers/tree/master/mirror/"
                 prefix=""
-                if echo ${container} | grep 'lscr'; then
+                elif echo ${container} | grep 'lscr'; then
                 container="https://fleet.linuxserver.io/"
                 prefix=""
                 fi
