@@ -110,6 +110,14 @@ jobs:
                 elif echo ${container} | grep 'lscr'; then
                 container="https://fleet.linuxserver.io/"
                 prefix=""
+                elif echo ${container} | grep 'gcr'; then
+                prefix="https://"
+                elif echo ${container} | grep 'azurecr'; then
+                prefix="https://"
+                elif echo ${container} | grep 'ecr'; then
+                prefix="https://"
+                elif echo ${container} | grep 'ocir'; then
+                prefix="https://"
                 fi
                 container="${prefix}${container}" go-yq -i '.sources += env(container) | .sources |= unique' "${chart}/Chart.yaml"
               fi
