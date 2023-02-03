@@ -96,7 +96,7 @@ jobs:
               echo "Attempting to update sources of ${chartname}..."
               echo "Using go-yq verion: <$(go-yq -V)>"
               # Get all sources (except truecharts)
-              curr_sources=$(go-yq '.sources[] | select(. != "https://github.com/truecharts*" and . != "https://ghcr*" and . != "https://hub.docker*" and . != "https://fleet.*" and . != "https://github.com/truecharts/containers/tree/master/mirror/*" and . != "https://public.ecr*" and . != "https://ocir*" and . != "https://gcr*" and . != "https://azurecr*"  and . != "https://quay*" and . != "https://lscr*" and . != "https://github.com/truecharts/containers*" and . == "http*")' "${chart}/Chart.yaml")
+              curr_sources=$(go-yq '.sources[] | select(. != "https://github.com/truecharts*" and . != "https://ghcr*" and . != "docker.io*" and . != "https://docker.io*" and . != "https://hub.docker*" and . != "https://fleet.*" and . != "https://github.com/truecharts/containers/tree/master/mirror/*" and . != "https://public.ecr*" and . != "https://ocir*" and . != "https://gcr*" and . != "https://azurecr*"  and . != "https://quay*" and . != "https://lscr*" and . != "https://github.com/truecharts/containers*" and . == "http*")' "${chart}/Chart.yaml")
               # Empty sources list in-place
               go-yq -i 'del(.sources.[])' "${chart}/Chart.yaml"
               # Add truechart source
@@ -118,8 +118,10 @@ jobs:
                 prefix="https://"
                 elif echo ${container} | grep 'ocir'; then
                 prefix="https://"
-                elif echo ${container} | grep 'https://hub.docker'; then
-                prefix=""
+                elif echo ${container} | grep 'hub.docker'; then
+                prefix="https://"
+                elif echo ${container} | grep 'docker.io'; then
+                prefix="https://"
                 elif echo ${container} | grep 'hub.docker'; then
                 prefix="https://"
                 fi
@@ -289,7 +291,7 @@ jobs:
   lock-threads:
     runs-on: ubuntu-latest
     steps:
-      - uses: dessant/lock-threads@c1b35aecc5cdb1a34539d14196df55838bb2f836 # v4
+      - uses: dessant/lock-threads@v4
         with:
           github-token: ${{ secrets.BOT_TOKEN }}
           issue-inactive-days: '7'
