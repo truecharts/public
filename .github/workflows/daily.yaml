@@ -110,6 +110,16 @@ jobs:
                 prefix="https://quay.com/"
                 elif echo ${container} | grep 'tccr'; then
                 prefix="https://github.com/truecharts/containers/tree/master/mirror/"
+                elif echo ${container} | grep 'lscr'; then
+                prefix="https://lscr.io/"
+                elif echo ${container} | grep 'gcr'; then
+                prefix="https://gcr.io/"
+                elif echo ${container} | grep 'azurecr'; then
+                prefix="https://azurecr.io/"
+                elif echo ${container} | grep 'ecr'; then
+                prefix="https://public.ecr.aws/"
+                elif echo ${container} | grep 'ocir'; then
+                prefix="https://ocir.io/"
                 fi
                 container="${prefix}${container}" go-yq -i '.sources += env(container) | .sources |= unique' "${chart}/Chart.yaml"
               fi
