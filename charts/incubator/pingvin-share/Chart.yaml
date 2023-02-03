@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "0.7.0"
+appVersion: "0.8.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -19,10 +19,11 @@ maintainers:
 name: pingvin-share
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/pingvin-share
+  - https://hub.docker.com/stonith404/pingvin-share
+  - stonith404/pingvin-share
   - https://github.com/stonith404/pingvin-share
-  - https://hub.docker.com/r/stonith404/pingvin-share
 type: application
-version: 0.0.16
+version: 0.0.17
 annotations:
   truecharts.org/catagories: |
     - productivity
