@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "1.4.4"
+appVersion: "1.4.5"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -18,10 +18,11 @@ maintainers:
 name: satisfactory
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/satisfactory
+  - https://hub.docker.com/wolveix/satisfactory-server
+  - wolveix/satisfactory-server
   - https://github.com/wolveix/satisfactory-server
-  - https://hub.docker.com/r/wolveix/satisfactory-server
 type: application
-version: 4.0.11
+version: 4.0.12
 annotations:
   truecharts.org/catagories: |
     - games

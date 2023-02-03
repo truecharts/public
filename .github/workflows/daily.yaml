@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: Setting repo parent dir as safe safe.directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
@@ -44,6 +44,14 @@ jobs:
               fi
             done
           done
+
+      - name: Checkout
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        with:
+          repository: truecharts/website
+          path: website
+          fetch-depth: 1
+          token: ${{ secrets.BOT_TOKEN }}
 
       - name: Bump and Sync
         shell: bash
@@ -79,11 +87,23 @@ jobs:
               echo "Attempting to update sources of ${chartname}..."
               echo "Using go-yq verion: <$(go-yq -V)>"
               # Get all sources (except truecharts)
-              curr_sources=$(go-yq '.sources[] | select(. != "https://github.com/truecharts*")' "${chart}/Chart.yaml")
+              curr_sources=$(go-yq '.sources[] | select(. != "https://github.com/truecharts*" and . != "https://ghcr*" and . != "https://hub.docker*" and . != "https://quay*" and . != "https://github.com/truecharts/containers*")' "${chart}/Chart.yaml")
               # Empty sources list in-place
               go-yq -i 'del(.sources.[])' "${chart}/Chart.yaml"
               # Add truechart source
               tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" go-yq -i '.sources += env(tcsource)' "${chart}/Chart.yaml"
+              container=$(cat website/docs/charts/description_list.md | grep "\[${chartname}\]" | cut -f3 -d '|' | grep -v 'Not Found' || echo "")
+              if [ ! -z "$container" ]; then
+                prefix="https://hub.docker.com/"
+                if echo ${container} | grep 'ghcr'; then
+                prefix="https://ghcr.com/"
+                elif echo ${container} | grep 'quay'; then
+                prefix="https://quay.com/"
+                elif echo ${container} | grep 'tccr'; then
+                prefix="https://github.com/truecharts/containers/tree/master/mirror/"
+                fi
+                container="${prefix}${container}" go-yq -i '.sources += env(container) | .sources |= unique' "${chart}/Chart.yaml"
+              fi
               # Add the rest of the sources
               while IFS= read -r line; do
                 src="$line" go-yq -i '.sources += env(src)' "${chart}/Chart.yaml" || echo "src set error"
@@ -139,7 +159,7 @@ jobs:
         uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: Setting repo parent dir as safe safe.directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
@@ -182,7 +202,7 @@ jobs:
               echo "" >> website/docs/charts/${train}/${chartname}/helm-security.md
               echo "##### Scan Results" >> website/docs/charts/${train}/${chartname}/helm-security.md
               echo "" >> website/docs/charts/${train}/${chartname}/helm-security.md
-              trivy config -f template --template "@./templates/trivy-config.tpl" ${chart}/render >> website/docs/charts/${train}/${chartname}/helm-security.md || echo "trivy scan failed..."
+              trivy config --namespaces builtin.kubernetes.* -f template --template "@./templates/trivy-config.tpl" ${chart}/render >> website/docs/charts/${train}/${chartname}/helm-security.md || echo "trivy scan failed..."
               }
           container_sec_scan() {
               local chart="$1"
@@ -217,15 +237,20 @@ jobs:
               local train="$3"
               echo "sanitising website output for ${chartname}..."
               rm -rf ${chart}/render
-              sed -i 's|<br>|<br />|g' website/docs/charts/${train}/${chartname}/helm-security.md
-              # sed -i 's|<br>|<br />|g' website/docs/charts/${train}/${chartname}/container-security.md
-              sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/helm-security.md
-              # sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/container-security.md
+              sed -i 's|<br>|<br />|g' website/docs/charts/${train}/${chartname}/helm-security.md ||:
+              sed -i 's|<br>|<br />|g' website/docs/charts/${train}/${chartname}/container-security.md ||:
+              sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/helm-security.md ||:
+              sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/container-security.md ||:
               }
           for train in enterprise stable incubator dependency; do
             echo "Processing Charts for Train: ${train}..."
             for chart in $(ls "charts/${train}"); do
-              render "charts/${train}/${chart}" ${chart} ${train} && helm_sec_scan "charts/${train}/${chart}" ${chart} ${train} && cleanfiles "charts/${train}/${chart}" ${chart} ${train} || echo "processing failed for ${chart}"
+              render "charts/${train}/${chart}" ${chart} ${train} || echo "rendering failed for ${chart}"
+             helm_sec_scan "charts/${train}/${chart}" ${chart} ${train} || echo "helm chart processing failed for ${chart}"
+              if [ ${train} == "enterprise" ]; then
+                container_sec_scan "charts/${train}/${chart}" ${chart} ${train} || echo "container processing failed for ${chart}"
+              fi
+              cleanfiles "charts/${train}/${chart}" ${chart} ${train} || echo "cleaning failed for ${chart}"
             done
           done
           echo "finsihed security scan"
