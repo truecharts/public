@@ -95,7 +95,7 @@ jobs:
             sed -i -e "s|home: .*|home: https:\/\/truecharts.org\/charts\/${train}\/${chartname}|" "${chart}/Chart.yaml"
             echo "Attempting to update sources of ${chartname}..."
             echo "Using go-yq verion: <$(go-yq -V)>"
-            # Get all sources (except truecharts)
+            # Get current sources, exluding those that may have been added automatically.
             curr_sources=$(
               go-yq '
                 .sources[] |
