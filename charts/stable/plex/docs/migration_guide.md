@@ -203,7 +203,7 @@ ls /mnt/tank/configs/plex
 If everything is set you can proceed to run the rsync copy command to the mounted PVC location.
 
 ```console
-  rsync -rav Library /mnt/truetool/plex-config
+rsync -rav Library /mnt/truetool/plex-config
 ```
 
 :::note
