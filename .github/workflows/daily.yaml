@@ -96,7 +96,7 @@ jobs:
               echo "Attempting to update sources of ${chartname}..."
               echo "Using go-yq verion: <$(go-yq -V)>"
               # Get all sources (except truecharts)
-              curr_sources=$(go-yq '.sources[] | select(. != "https://github.com/truecharts*" and . != "https://ghcr*" and . != "https://hub.docker*" and . != "https://quay*" and . != "https://github.com/truecharts/containers*" and . == "http*")' "${chart}/Chart.yaml")
+              curr_sources=$(go-yq '.sources[] | select(. != "https://github.com/truecharts*" and . != "https://ghcr*" and . != "https://hub.docker*" and . != "https://public.ecr*" and . != "https://ocir*" and . != "https://gcr*" and . != "https://azurecr*"  and . != "https://quay*" and . != "https://lscr*" and . != "https://github.com/truecharts/containers*" and . == "http*")' "${chart}/Chart.yaml")
               # Empty sources list in-place
               go-yq -i 'del(.sources.[])' "${chart}/Chart.yaml"
               # Add truechart source
@@ -104,22 +104,12 @@ jobs:
               container=$(cat website/docs/charts/description_list.md | grep "\[${chartname}\]" | cut -f3 -d '|' | grep -v 'Not Found' || echo "")
               if [ ! -z "$container" ]; then
                 prefix="https://hub.docker.com/"
-                if echo ${container} | grep 'ghcr'; then
-                prefix="https://ghcr.com/"
-                elif echo ${container} | grep 'quay'; then
-                prefix="https://quay.com/"
-                elif echo ${container} | grep 'tccr'; then
-                prefix="https://github.com/truecharts/containers/tree/master/mirror/"
-                elif echo ${container} | grep 'lscr'; then
-                prefix="https://lscr.io/"
-                elif echo ${container} | grep 'gcr'; then
-                prefix="https://gcr.io/"
-                elif echo ${container} | grep 'azurecr'; then
-                prefix="https://azurecr.io/"
-                elif echo ${container} | grep 'ecr'; then
-                prefix="https://public.ecr.aws/"
-                elif echo ${container} | grep 'ocir'; then
-                prefix="https://ocir.io/"
+                if echo ${container} | grep 'tccr'; then
+                container="https://github.com/truecharts/containers/tree/master/mirror/"
+                prefix=""
+                if echo ${container} | grep 'lscr'; then
+                container="https://fleet.linuxserver.io/"
+                prefix=""
                 fi
                 container="${prefix}${container}" go-yq -i '.sources += env(container) | .sources |= unique' "${chart}/Chart.yaml"
               fi
