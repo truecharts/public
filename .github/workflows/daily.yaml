@@ -96,7 +96,7 @@ jobs:
               echo "Attempting to update sources of ${chartname}..."
               echo "Using go-yq verion: <$(go-yq -V)>"
               # Get all sources (except truecharts)
-              curr_sources=$(go-yq '.sources[] | select(. != "https://github.com/truecharts*" and . != "https://ghcr*" and . != "docker.io*" and . != "https://docker.io*" and . != "https://hub.docker*" and . != "https://fleet.*" and . != "https://github.com/truecharts/containers/tree/master/mirror/*" and . != "https://public.ecr*" and . != "https://ocir*" and . != "https://gcr*" and . != "https://azurecr*"  and . != "https://quay*" and . != "https://lscr*" and . != "https://github.com/truecharts/containers*" and . == "http*")' "${chart}/Chart.yaml")
+              curr_sources=$(go-yq '.sources[] | select(. != "https://github.com/truecharts*" and . != "https://ghcr*" and . != "docker.io*" and . != "https://docker.io*" and . != "https://hub.docker*" and . != "https://fleet.*" and . != "https://github.com/truecharts/containers/tree/master/mirror/*" and . != "https://public.ecr.aws*" and . != "https://ocir.io*" and . != "https://gcr*" and . != "https://azurecr*"  and . != "https://quay*" and . != "https://lscr*" and . != "https://github.com/truecharts/containers*" and . == "http*")' "${chart}/Chart.yaml")
               # Empty sources list in-place
               go-yq -i 'del(.sources.[])' "${chart}/Chart.yaml"
               # Add truechart source
@@ -104,8 +104,10 @@ jobs:
               container=$(cat website/docs/charts/description_list.md | grep "\[${chartname}\]" | cut -f3 -d '|' | grep -v 'Not Found' || echo "")
               if [ ! -z "$container" ]; then
                 prefix="https://hub.docker.com/"
+                container=${container#https://}
                 if echo ${container} | grep 'tccr'; then
-                container="https://github.com/truecharts/containers/tree/master/mirror/"
+                container=${container#tccr.io}
+                container="https://github.com/truecharts/containers/tree/master/mirror"
                 prefix=""
                 elif echo ${container} | grep 'lscr'; then
                 container="https://fleet.linuxserver.io/"
@@ -114,14 +116,15 @@ jobs:
                 prefix="https://"
                 elif echo ${container} | grep 'azurecr'; then
                 prefix="https://"
-                elif echo ${container} | grep 'ecr'; then
+                elif echo ${container} | grep 'public.ecr.aws'; then
                 prefix="https://"
-                elif echo ${container} | grep 'ocir'; then
+                elif echo ${container} | grep 'ocir.io'; then
                 prefix="https://"
                 elif echo ${container} | grep 'hub.docker'; then
                 prefix="https://"
                 elif echo ${container} | grep 'docker.io'; then
-                prefix="https://"
+                container=${container#docker.io}
+                prefix="https://hub.docker.com"
                 elif echo ${container} | grep 'hub.docker'; then
                 prefix="https://"
                 fi
