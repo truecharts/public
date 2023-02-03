@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: st-reborn-server
-version: 2.0.7
+version: 2.0.8
 appVersion: "1.2.0"
 description: Skyrim Together Reborn server files.
 type: application
@@ -14,13 +14,11 @@ keywords:
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/st-reborn-server
   - https://hub.docker.com/tiltedphoques/st-reborn-server
-  - tiltedphoques/st-reborn-server
   - https://github.com/tiltedphoques/TiltedEvolution
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 11.1.2
-    # condition:
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
