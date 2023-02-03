@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: hedgedoc
-version: 7.0.23
+version: 7.0.24
 appVersion: "1.9.6"
 description: HedgeDoc lets you create real-time collaborative markdown notes.
 type: application
@@ -12,8 +12,7 @@ keywords:
   - hedgedoc
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/hedgedoc
-  - https://quay.com/quay.io/hedgedoc/hedgedoc
-  - quay.io/hedgedoc/hedgedoc
+  - https://hub.docker.com/quay.io/hedgedoc/hedgedoc
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
