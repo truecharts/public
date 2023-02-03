@@ -1,7 +1,16 @@
 name: "Chore: Daily Tasks"
 
 on:
+  schedule:
+    - cron: '0 0 * * *'
   workflow_dispatch:
+
+permissions:
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: lock
 
 jobs:
   generate-readme:
@@ -264,3 +273,18 @@ jobs:
           git add --all
           git commit -sm "Commit released docs for TrueCharts" || exit 0
           git push
+
+  lock-threads:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dessant/lock-threads@v4
+        with:
+          github-token: ${{ secrets.BOT_TOKEN }}
+          issue-inactive-days: '7'
+          exclude-any-issue-labels: ''
+          issue-comment: 'This issue is locked to prevent necro-posting on closed issues. Please create a new issue or contact staff on discord of the problem persists'
+          issue-lock-reason: ''
+          pr-inactive-days: '7'
+          pr-comment: 'This PR is locked to prevent necro-posting on closed PRs. Please create a issue or contact staff on discord if you want to further discuss this'
+          pr-lock-reason: 'resolved'
+          log-output: true
