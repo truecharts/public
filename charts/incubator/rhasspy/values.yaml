@@ -8,7 +8,7 @@ securityContext:
 
 args:
   - --user-profiles
-  - /profiles
+  - {{ .Values.persistence.profiles.mountPath }}
   - --profile
   - "{{ .Values.rhasspy.lang }}"
 
