@@ -96,7 +96,7 @@ jobs:
               echo "Attempting to update sources of ${chartname}..."
               echo "Using go-yq verion: <$(go-yq -V)>"
               # Get all sources (except truecharts)
-              curr_sources=$(go-yq '.sources[] | select(. != "https://github.com/truecharts*" and . != "https://ghcr*" and . != "https://hub.docker*" and . != "https://quay*" and . != "https://github.com/truecharts/containers*" and . == "https://")' "${chart}/Chart.yaml")
+              curr_sources=$(go-yq '.sources[] | select(. != "https://github.com/truecharts*" and . != "https://ghcr*" and . != "https://hub.docker*" and . != "https://quay*" and . != "https://github.com/truecharts/containers*" and . == "https://*")' "${chart}/Chart.yaml")
               # Empty sources list in-place
               go-yq -i 'del(.sources.[])' "${chart}/Chart.yaml"
               # Add truechart source
