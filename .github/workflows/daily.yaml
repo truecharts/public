@@ -133,9 +133,9 @@ jobs:
                   prefix="https://github.com/truecharts/containers/tree/master/mirror"
                   container=${container#tccr.io/truecharts/}
                   ;;
-                *lscr*)
-                  container="https://fleet.linuxserver.io/"
-                  prefix=""
+                lscr.io/linuxserver/*)
+                  prefix="https://fleet.linuxserver.io/image?name="
+                  container=${container#lscr.io/}
                   ;;
                 *gcr*)
                   prefix="https://"
