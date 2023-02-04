@@ -44,7 +44,7 @@ The traefik instance has to be made aware of the forward authentication. Edit yo
 - Add your default gateway (internal router IP) to `Trusted IPs` if using hairpin NAT. If you are using DNS override for your
   domain name, you can probably skip this step.
 
- ![traefik-forwarded-headers](img/traefik-forwarded-headers.png)
+![traefik-forwarded-headers](img/traefik-forwarded-headers.png)
 
 - Go to `Middlewares` and add a `forward-auth` one.
 - Name it (use a short one if planning to add to many apps).
