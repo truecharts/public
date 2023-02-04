@@ -175,6 +175,13 @@ jobs:
                     prefix="https://hub.docker.com/_/"
                     container=${container#library/}
                   fi
+                  # Avoid creating a bad link since an unsupported registry may have been used.
+                  slashes=${container//[^\/]/}
+                  # Bail out if the image name has more than 1 slash.
+                  if [ ${#slashes} -gt 1 ]; then
+                    prefix=""
+                    echo "WARNING: Not assuming '$container' is a Docker Hub image"
+                  fi
                   ;;
               esac
               if [ -n "${prefix}" ]; then
