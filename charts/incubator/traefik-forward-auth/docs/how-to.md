@@ -23,15 +23,15 @@ Assuming you have set up the `Client ID for Web application` in the developer co
 - Set `Auth host` to `auth.example.com`.
 - Add your email to `Whitelist`.
 
-  ![auth-options](img/auth-options.png)
+![auth-options](img/auth-options.png)
 
 - Add your root domain to `Cookie options`.
 
-  ![cookie-options](img/cookie-options.png)
+![cookie-options](img/cookie-options.png)
 
 - Set the `Client ID` and `Client Secret` to the ones presented on the developer console. `Prompt` can be left empty.
 
-  ![google-options](img/google-options.png)
+![google-options](img/google-options.png)
 
 - Set up Ingress for the app as `auth.example.com` as usual.
 - That's it, since this is a stateless program, it doesn't need any special permissions or storage.
@@ -42,7 +42,7 @@ The traefik instance has to be made aware of the forward authentication. Edit yo
 
 - Go to `websecure` entrypoint and enable `Accept forwarded headers`.
 - Add your default gateway (internal router IP) to `Trusted IPs` if using hairpin NAT. If you are using DNS override for your
-domain name, you can probably skip this step.
+  domain name, you can probably skip this step.
 
  ![traefik-forwarded-headers](img/traefik-forwarded-headers.png)
 
@@ -52,13 +52,13 @@ domain name, you can probably skip this step.
 - Check `trustForwardHeader`.
 - Add `X-Forwarded-User` to `authResponseHeaders`.
 
- ![traefik-middleware](img/traefik-middleware.png)
+![traefik-middleware](img/traefik-middleware.png)
 
 ### Applying the middleware on apps
 
 To actually use the forward authentication, you have to add it to either a chain or by itself to existing app Ingresses.
 
- ![ingress-middleware](img/ingress-middleware.png)
+![ingress-middleware](img/ingress-middleware.png)
 
 ### Per-app whitelist
 
