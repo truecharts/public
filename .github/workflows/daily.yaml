@@ -127,7 +127,7 @@ jobs:
             container=$(cat website/docs/charts/description_list.md | grep "\[${chartname}\]" | cut -f3 -d '|' | grep -v 'Not Found' || echo "")
             # Convert the container image name to a URL.
             if [ ! -z "$container" ]; then
-              prefix="https://hub.docker.com/"
+              prefix=""
               case "$container" in
                 tccr.io/truecharts/*)
                   prefix="https://github.com/truecharts/containers/tree/master/mirror"
@@ -160,7 +160,9 @@ jobs:
                   prefix="https://"
                   ;;
               esac
-              container="${prefix}${container}" go-yq -i '.sources += env(container) | .sources |= unique' "${chart}/Chart.yaml"
+              if [ -n "${prefix}" ]; then
+                container="${prefix}${container}" go-yq -i '.sources += env(container) | .sources |= unique' "${chart}/Chart.yaml"
+              fi
             fi
             # Add the rest of the sources
             while IFS= read -r line; do
