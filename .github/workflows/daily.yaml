@@ -146,8 +146,9 @@ jobs:
                 mcr.microsoft.com/*)
                   prefix=""
                   ;;
-                *public.ecr.aws*)
-                  prefix="https://"
+                public.ecr.aws/*)
+                  prefix="https://gallery.ecr.aws/"
+                  container=${container#public.ecr.aws/}
                   ;;
                 *ocir.io*)
                   prefix="https://"
