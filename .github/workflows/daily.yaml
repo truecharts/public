@@ -143,6 +143,9 @@ jobs:
                 *.azurecr.io/*)
                   prefix=""
                   ;;
+                mcr.microsoft.com/*)
+                  prefix=""
+                  ;;
                 *public.ecr.aws*)
                   prefix="https://"
                   ;;
