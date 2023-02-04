@@ -17,8 +17,7 @@ metadata:
 data:
   PROVIDERS_GOOGLE_CLIENT_ID: {{ .Values.tfaGoogleOptions.clientId | trimAll "\"" | b64enc }}
   PROVIDERS_GOOGLE_CLIENT_SECRET: {{ .Values.tfaGoogleOptions.clientSecret | trimAll "\"" | b64enc }}
-  PROVIDERS_GOOGLE_PROMPT: {{ .Values.tfaGoogleOptions.prompt | quote | b64enc }}
-{{- end }}
+  PROVIDERS_GOOGLE_PROMPT: {{ .Values.tfaGoogleOptions.prompt | trimAll "\"" | b64enc }}
 
 ---
 
@@ -33,8 +32,7 @@ data:
   PROVIDERS_OIDC_ISSUER_URL: {{ .Values.tfaOidcOptions.issuerUrl | trimAll "\"" | b64enc }}
   PROVIDERS_OIDC_CLIENT_ID: {{ .Values.tfaOidcOptions.clientId | trimAll "\"" | b64enc }}
   PROVIDERS_OIDC_CLIENT_SECRET: {{ .Values.tfaOidcOptions.clientSecret | trimAll "\"" | b64enc }}
-  PROVIDERS_OIDC_RESOURCE: {{ .Values.tfaOidcOptions.resource | quote | b64enc }}
-{{- end }}
+  PROVIDERS_OIDC_RESOURCE: {{ .Values.tfaOidcOptions.resource | trimAll "\"" | b64enc }}
 
 ---
 
@@ -52,5 +50,8 @@ data:
   PROVIDERS_GENERIC_OAUTH_CLIENT_ID: {{ .Values.tfaOauthOptions.clientId | trimAll "\"" | b64enc }}
   PROVIDERS_GENERIC_OAUTH_CLIENT_SECRET: {{ .Values.tfaOauthOptions.clientSecret | trimAll "\"" | b64enc }}
   PROVIDERS_GENERIC_OAUTH_TOKEN_STYLE: {{ .Values.tfaOauthOptions.tokenStyle | trimAll "\"" | b64enc }}
-  PROVIDERS_GENERIC_OAUTH_RESOURCE: {{ .Values.tfaOauthOptions.resource | quote | b64enc }}
+  PROVIDERS_GENERIC_OAUTH_RESOURCE: {{ .Values.tfaOauthOptions.resource | trimAll "\"" | b64enc }}
+
+---
+
 {{- end }}

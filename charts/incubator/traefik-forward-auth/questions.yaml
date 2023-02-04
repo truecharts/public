@@ -1,42 +1,62 @@
 # Include{groups}
 questions:
 # Include{global}
-  - variable: controller
-    group: "Controller"
-    label: ""
+# Include{controller}
+# Include{replicas}
+# Include{replica1}
+# Include{controllerExpertExtraArgs}
+# Include{containerConfig}
+# Include{controllerExpert}
+  - variable: tfaAppOptions
+    group: App Configuration
+    label: Application Options
     schema:
-      additional_attrs: true
       type: dict
       attrs:
-        - variable: advanced
-          label: "Show Advanced Controller Settings"
+        - variable: secret
+          label: Secret
+          description: Mandatory, can be any string.
           schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: type
-                description: "Please specify type of workload to deploy"
-                label: "(Advanced) Controller Type"
-                schema:
-                  type: string
-                  default: "deployment"
-                  required: true
-                  enum:
-                    - value: "deployment"
-                      description: "Deployment"
-                    - value: "statefulset"
-                      description: "Statefulset"
-                    - value: "daemonset"
-                      description: "Daemonset"
-                  enum:
-                    - value: "Recreate"
-                      description: "Recreate: Kill existing pods before creating new ones"
-                    - value: "RollingUpdate"
-                      description: "RollingUpdate: Create new pods and then kill old ones"
-                    - value: "OnDelete"
-                      description: "(Legacy) OnDelete: ignore .spec.template changes"
-# Include{controllerExpert}
+            type: string
+            required: true
+            private: true
+        - variable: port
+          label: Port
+          schema:
+            type: int
+            default: 4181
+        - variable: logLevel
+          label: Log level
+          schema:
+            type: string
+            default: warn
+            enum:
+              - value: trace
+                description: Trace (most detailed)
+              - value: debug
+                description: Debug
+              - value: info
+                description: Information
+              - value: warn
+                description: Warning
+              - value: error
+                description: Error
+              - value: fatal
+                description: Fatal
+              - value: panic
+                description: Panic (least detailed)
+        - variable: logFormat
+          label: Log format
+          schema:
+            type: string
+            default: text
+            enum:
+              - value: text
+                description: Text
+              - value: json
+                description: JSON
+              - value: pretty
+                description: Pretty
   - variable: tfaAuthOptions
     group: App Configuration
     label: Auth Options
@@ -250,56 +270,6 @@ questions:
           description: Optional resource indicator.
           schema:
             type: string
-  - variable: tfaAppOptions
-    group: App Configuration
-    label: Application Options
-    schema:
-      type: dict
-      attrs:
-        - variable: secret
-          label: Secret
-          description: Mandatory, can be any string.
-          schema:
-            type: string
-            required: true
-            private: true
-        - variable: port
-          label: Port
-          schema:
-            type: int
-            default: 4181
-        - variable: logLevel
-          label: Log level
-          schema:
-            type: string
-            default: warn
-            enum:
-              - value: trace
-                description: Trace (most detailed)
-              - value: debug
-                description: Debug
-              - value: info
-                description: Information
-              - value: warn
-                description: Warning
-              - value: error
-                description: Error
-              - value: fatal
-                description: Fatal
-              - value: panic
-                description: Panic (least detailed)
-        - variable: logFormat
-          label: Log format
-          schema:
-            type: string
-            default: rating
-            enum:
-              - value: text
-                description: Text
-              - value: json
-                description: JSON
-              - value: pretty
-                description: Pretty
 # Include{fixedEnv}
 # Include{containerConfig}
 # Include{serviceRoot}

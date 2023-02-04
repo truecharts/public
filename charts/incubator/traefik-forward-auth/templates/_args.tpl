@@ -22,10 +22,8 @@ args:
   {{- if .Values.tfaAuthOptions.logoutRedirect }}
   - --logout-redirect={{ .Values.tfaAuthOptions.logoutRedirect }}
   {{- end }}
-  {{- if .Values.tfaAuthOptions.urlPath }}
   - --url-path={{ .Values.tfaAuthOptions.urlPath }}
-  {{- end }}
-  - --url-path={{ .Values.tfaAppOptions.secret }}
+  - --secret={{ .Values.tfaAppOptions.secret }}
   {{- range .Values.tfaAuthOptions.whitelist }}
   - --whitelist={{ . }}
   {{- end }}
