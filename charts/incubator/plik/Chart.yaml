@@ -7,7 +7,7 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 11.0.20
+    version: 11.0.22
 deprecated: false
 description: A scalable file uploading system with multiple backends.
 home: https://truecharts.org/charts/incubator/plik
@@ -23,9 +23,10 @@ maintainers:
 name: plik
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/plik
+  - https://hub.docker.com/rootgg/plik
   - https://github.com/root-gg/plik
 type: application
-version: 0.0.5
+version: 0.0.8
 annotations:
   truecharts.org/catagories: |
     - files

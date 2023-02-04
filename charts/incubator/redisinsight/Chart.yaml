@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: redisinsight
-version: 2.0.7
+version: 2.0.8
 appVersion: "latest"
 description: GUI for Redis.
 type: application
@@ -13,8 +13,8 @@ keywords:
   - Tools-Utilities
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/redisinsight
+  - https://hub.docker.com/redislabs/redisinsight
   - https://redis.com/redis-enterprise/redis-insight/
-  - https://hub.docker.com/r/redislabs/redisinsight
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org

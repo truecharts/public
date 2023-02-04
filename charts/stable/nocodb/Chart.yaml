@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "0.101.2"
+appVersion: "0.104.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -7,11 +7,11 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
-    version: 11.0.20
+    version: 11.0.22
   - condition: redis.enabled
     name: redis
     repository: https://charts.truecharts.org
-    version: 5.0.26
+    version: 5.0.29
 description: Turns any MySQL, PostgreSQL, SQL Server, SQLite & MariaDB into a smart-spreadsheet.
 home: https://truecharts.org/charts/stable/nocodb
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nocodb.png
@@ -25,9 +25,9 @@ maintainers:
 name: nocodb
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/nocodb
-  - https://hub.docker.com/r/nocodb/nocodb
+  - https://hub.docker.com/nocodb/nocodb
   - https://github.com/nocodb/nocodb
-version: 6.0.24
+version: 6.0.28
 annotations:
   truecharts.org/catagories: |
     - productivity
