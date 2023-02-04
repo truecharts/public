@@ -140,8 +140,8 @@ jobs:
                 gcr.io/*)
                   prefix="https://"
                   ;;
-                *azurecr*)
-                  prefix="https://"
+                *.azurecr.io/*)
+                  prefix=""
                   ;;
                 *public.ecr.aws*)
                   prefix="https://"
