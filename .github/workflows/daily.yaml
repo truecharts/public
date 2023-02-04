@@ -150,8 +150,8 @@ jobs:
                   prefix="https://gallery.ecr.aws/"
                   container=${container#public.ecr.aws/}
                   ;;
-                *ocir.io*)
-                  prefix="https://"
+                *.ocir.io/*)
+                  prefix=""
                   ;;
                 *hub.docker*)
                   prefix="https://"
