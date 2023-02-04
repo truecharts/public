@@ -153,6 +153,9 @@ jobs:
                 *.ocir.io/*)
                   prefix=""
                   ;;
+                ghcr.io/*)
+                  prefix="https://"
+                  ;;
                 # There have been a number of domains used for the Docker Hub registry over the years.
                 # NOTE:  This is also the default case!
                 docker.io/*|index.docker.io/*|registry-1.docker.io/*|registry.hub.docker.com/*|*)
