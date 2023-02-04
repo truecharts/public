@@ -137,7 +137,7 @@ jobs:
                   prefix="https://fleet.linuxserver.io/image?name="
                   container=${container#lscr.io/}
                   ;;
-                *gcr*)
+                gcr.io/*)
                   prefix="https://"
                   ;;
                 *azurecr*)
