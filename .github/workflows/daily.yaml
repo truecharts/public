@@ -128,7 +128,6 @@ jobs:
             # Convert the container image name to a URL.
             if [ ! -z "$container" ]; then
               prefix="https://hub.docker.com/"
-              container=${container#https://}
               case "$container" in
                 *tccr*)
                   container=${container#tccr.io}
