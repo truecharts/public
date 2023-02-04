@@ -129,10 +129,9 @@ jobs:
             if [ ! -z "$container" ]; then
               prefix="https://hub.docker.com/"
               case "$container" in
-                *tccr*)
-                  container=${container#tccr.io}
-                  container="https://github.com/truecharts/containers/tree/master/mirror"
-                  prefix=""
+                tccr.io/truecharts/*)
+                  prefix="https://github.com/truecharts/containers/tree/master/mirror"
+                  container=${container#tccr.io/truecharts/}
                   ;;
                 *lscr*)
                   container="https://fleet.linuxserver.io/"
