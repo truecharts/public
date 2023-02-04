@@ -153,15 +153,22 @@ jobs:
                 *.ocir.io/*)
                   prefix=""
                   ;;
-                *hub.docker*)
-                  prefix="https://"
-                  ;;
-                *docker.io*)
-                  container=${container#docker.io}
-                  prefix="https://hub.docker.com"
-                  ;;
-                *hub.docker*)
-                  prefix="https://"
+                # There have been a number of domains used for the Docker Hub registry over the years.
+                # NOTE:  This is also the default case!
+                docker.io/*|index.docker.io/*|registry-1.docker.io/*|registry.hub.docker.com/*|*)
+                  prefix="https://hub.docker.com/r/"
+                  container=${container#docker.io/}
+                  container=${container#index.docker.io/}
+                  container=${container#registry-1.docker.io/}
+                  container=${container#registry.hub.docker.com/}
+                  # If the image name does not contain a slash it is a Docker Official Image.
+                  if [ "$container" == "${container////}" ]; then
+                    prefix="https://hub.docker.com/_/"
+                  # If the user name is library it is a Docker Official Image.
+                  elif [ "${container%%/*}" == "library" ]; then
+                    prefix="https://hub.docker.com/_/"
+                    container=${container#library/}
+                  fi
                   ;;
               esac
               if [ -n "${prefix}" ]; then
