@@ -129,19 +129,13 @@ jobs:
             if [ ! -z "$container" ]; then
               prefix=""
               case "$container" in
-                tccr.io/truecharts/*)
-                  prefix="https://github.com/truecharts/containers/tree/master/mirror"
-                  container=${container#tccr.io/truecharts/}
-                  ;;
                 lscr.io/linuxserver/*)
                   prefix="https://fleet.linuxserver.io/image?name="
                   container=${container#lscr.io/}
                   ;;
-                gcr.io/*)
-                  prefix="https://"
-                  ;;
-                *.azurecr.io/*)
-                  prefix=""
+                tccr.io/truecharts/*)
+                  prefix="https://github.com/truecharts/containers/tree/master/mirror"
+                  container=${container#tccr.io/truecharts/}
                   ;;
                 mcr.microsoft.com/*)
                   prefix=""
@@ -150,14 +144,20 @@ jobs:
                   prefix="https://gallery.ecr.aws/"
                   container=${container#public.ecr.aws/}
                   ;;
-                *.ocir.io/*)
-                  prefix=""
-                  ;;
                 ghcr.io/*)
                   prefix="https://"
                   ;;
                 quay.io/*)
                   prefix="https://"
+                  ;;
+                gcr.io/*)
+                  prefix="https://"
+                  ;;
+                *.azurecr.io/*)
+                  prefix=""
+                  ;;
+                *.ocir.io/*)
+                  prefix=""
                   ;;
                 # There have been a number of domains used for the Docker Hub registry over the years.
                 # NOTE:  This is also the default case!
