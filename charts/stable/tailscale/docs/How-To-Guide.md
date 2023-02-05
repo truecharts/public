@@ -44,7 +44,7 @@ Leave defaults here.
 ### Container Configuration
 
 - `Auth Key`: The key you received from tailscale in prerequisites above
-- `Userspace`: Now enabled by default, as it is _required_ when using local routes and as an exit node (see below). Userspace restricts clients to only accessing the GUI and Samba. This needs to be _unchecked_ if you need give Tailscale full access to all the features inside TrueNAS SCALE (not just GUI/SMB, but RSYNC, PING and directly connect to other Tailscale IPs, etc). More info in the [Tailscale Userspace Guide](https://tailscale.com/kb/1112/userspace-networking/).
+- `Userspace`: Now enabled by default, as it is _required_ when using local routes and as an exit node (see below). Userspace restricts clients to only accessing the GUI and Samba. This needs to be _unchecked_ if you need to give Tailscale full access to all the features inside TrueNAS SCALE (not just GUI/SMB, but RSYNC, PING and directly connect to other Tailscale IPs, etc). More info in the [Tailscale Userspace Guide](https://tailscale.com/kb/1112/userspace-networking/).
 - `Accept DNS`: Enabling it will pass your Global Nameservers from Tailscale to your local install.
 - `Routes`: Change to the routes you wish Tailscale to have access to on the devices it's connected, such as my LAN in the example. Required if you want to access APPS over Tailscale using TrueNASIP:Port from any Tailscale connected client.
 - `Extra Args` passes arguments/flags to the `tailscale up` command.
