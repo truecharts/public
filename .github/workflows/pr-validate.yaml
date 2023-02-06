@@ -84,7 +84,7 @@ jobs:
     steps:
       - uses: hmarr/auto-approve-action@v3
         with:
-          github-token: "${{ secrets.BOT_TOKEN }}"
+          github-token: "${{ secrets.PERS_PAT }}"
       - name: automerge
         uses: pascalgn/automerge-action@eb68b061739cb9d81564f8e812d0b3c45f0fb09a # tag=v0.15.5
         env:
