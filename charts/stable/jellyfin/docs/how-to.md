@@ -1,4 +1,4 @@
-# Jellyfin Setup Guide
+# Setup Guide
 
 **Jellyfin** Media Server is a free fully open-source solution to watch your media from anywhere
 and our app is a simple way to install it on your TrueNAS SCALE server.
