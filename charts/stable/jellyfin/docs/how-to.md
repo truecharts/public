@@ -39,7 +39,7 @@ More advanced users with a large amount of RAM in their TrueNAS machine might co
 
 To add your media directory inside Jellyfin you have to click on `Add` in the `Additional App Storage` section
 
-Depedning on your media type (Hostpath or NFS) feel free to follow the guides linked earlier in this guide. As an example we'll add an exisiting `NFS Share` as many users will have that for their media storage.
+Depending on your media type (HostPath or NFS) feel free to follow the guides linked earlier in this guide. As an example we'll add an existing `NFS Share` as many users will have that for their media storage.
 
 - Select an NFS Share for the type of storage, and enter `localhost` or the `IP address` for your NFS server. Enter the path to your media folder, making sure to match the capitalization, and then provide and take note of a Mount Path that your Jellyfin server will access it through. Mark this as Read Only.
 
