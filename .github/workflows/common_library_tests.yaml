@@ -254,7 +254,7 @@ jobs:
           path: 'library/common-test'
           cliArguments: ''
           isHelmChart: true
-          helmArguments: '--values ci/${{ matrix.values }}'
+          helmArguments: '--values library/common-test/ci/${{ matrix.values }}'
           
       - name: Generate Sarif Report
         uses: datreeio/action-datree@main
@@ -262,7 +262,7 @@ jobs:
           path: 'library/common-test'
           cliArguments: '-o sarif'
           isHelmChart: true
-          helmArguments: '--values ci/${{ matrix.values }}'
+          helmArguments: '--values library/common-test/ci/${{ matrix.values }}'
           
       - name: Upload Results
         uses: github/codeql-action/upload-sarif@v2
