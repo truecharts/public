@@ -5,6 +5,9 @@ on:
     paths:
       - library/**
       - .github/workflows/common_library_tests.yaml
+      
+env:
+  DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }} 
 
 jobs:
   lint:
@@ -207,3 +210,53 @@ jobs:
           echo -e "\n\n--===PODLOGS===--\n\n"
           cat  /tmp/output.log
           rm -f /tmp/output.log
+          
+  security:
+    needs:
+      - lint
+    name: Security Scans
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        values:
+          - basic-values.yaml
+          - configmap-values.yaml
+          - daemonset-values.yaml
+          - extra-containers-values.yaml
+          - job-cron-values.yaml
+          - persistence-values.yaml
+          - rbac-values.yaml
+          - secrets-values.yaml
+          - statefulset-values.yaml
+          - ingress-values.yaml
+          - networkPolicy-values.yaml
+          - codeserver-values.yaml
+          - metrics-values.yaml
+          - cnpg-values.yaml
+          - manifest-values.yaml
+          - stagingmanifest-values.yaml
+          
+    steps:
+      - name: Run Security Scan
+        uses: datreeio/action-datree@main
+        with:
+          path: 'library/common-test'
+          cliArguments: ''
+          isHelmChart: true
+          helmArguments: '--values ci/${{ matrix.values }}'
+          
+      - name: Generate Sarif Report
+        uses: datreeio/action-datree@main
+        with:
+          path: 'library/common-test'
+          cliArguments: '-o sarif'
+          isHelmChart: true
+          helmArguments: '--values ci/${{ matrix.values }}'
+          
+      - name: Upload Results
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: datree.sarif
+          wait-for-processing: true
+          
