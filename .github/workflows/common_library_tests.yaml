@@ -279,7 +279,7 @@ jobs:
         uses: datreeio/action-datree@main
         with:
           path: 'library/common-test'
-          cliArguments: '-o sarif'
+          cliArguments: 'sarif'
           isHelmChart: true
           helmArguments: '--values library/common-test/ci/${{ matrix.values }}'
           
