@@ -11,10 +11,12 @@ The app has no configuration. The following is just a basic guide on how to stre
 ## View
 
 - VLC
+
   - Go to Media > Open Network Stream.
     /code/charts/truecharts/charts/charts/rtmpserver - `rtmp://<server ip>:1935/live/<stream-key>`
 
 - Web
+
   - ~~To play RTMP content: `http://<server_ip>:10610/players/rtmp.html`~~ (requires Flash, this tech is dead!)
   - To play HLS content: `http://<server_ip>:10610/players/hls.html`
   - To play HLS content using hls.js library: `http://<server_ip>:10610/players/hls_hlsjs.html`
