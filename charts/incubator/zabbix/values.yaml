@@ -5,7 +5,7 @@ image:
 
 frontendImage:
   repository: tccr.io/truecharts/zabbix-web
-  tag: 6.2.7@sha256:db93d816319ab06add2cec50565a6fa471240ae91d9994f937eeb10eeb49109b
+  tag: 6.2.7@sha256:0e819e67912de672093ad41b5f140b8d29f094652f5aa395f8e34c6cb6f38922
   pullPolicy: IfNotPresent
 
 agent2Image:
@@ -15,7 +15,7 @@ agent2Image:
 
 snmptrapsImage:
   repository: tccr.io/truecharts/zabbix-snmptraps
-  tag: 6.2.7@sha256:053a07d1b09df6c8dd3f48c0b21716e09d09060f46a95a3943b3b5e9dad3264b
+  tag: 6.2.7@sha256:1f74067d505b3908cd585ee43f9d683abc970954bdfac582a8728ec2a334cdc3
   pullPolicy: IfNotPresent
 
 javaGatewayImage:
@@ -25,7 +25,7 @@ javaGatewayImage:
 
 webServiceImage:
   repository: tccr.io/truecharts/zabbix-web-service
-  tag: 6.2.7@sha256:1630d5e186ce713a216fcc5fe0a814c511a5b194342fa7aefb87adba97a40fd7
+  tag: 6.2.7@sha256:104c982c53f062d40b41b80fb280a5ea3e67ede25ab8547e239689f8951fcbc4
   pullPolicy: IfNotPresent
 
 tty: true
