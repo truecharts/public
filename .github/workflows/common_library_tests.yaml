@@ -273,14 +273,19 @@ jobs:
           isHelmChart: true
           helmArguments: '--values ci/${{ matrix.values }}'
           
+      - name: generate security reports
+        shell: bash
+        run: |
+          echo "Rendering helm-template for ${chartname}"
+          mkdir -p ./render
+          helm template . >> ./render/app.yaml || echo "Helm template failed..."
+          
       - name: Generate Sarif Report
         continue-on-error: true
         uses: datreeio/action-datree@main
         with:
-          path: '.'
+          path: './render/app.yaml'
           cliArguments: '--output sarif'
-          isHelmChart: true
-          helmArguments: '--values ci/${{ matrix.values }}'
           
       - name: Upload Results
         uses: github/codeql-action/upload-sarif@v2
