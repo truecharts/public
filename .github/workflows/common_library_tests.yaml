@@ -259,32 +259,30 @@ jobs:
         with:
           fetch-depth: 1
           
-      - name: build helm deps
+      - name: preparing scans
         run: |
           cd library/common-test
           helm dependency update
+          echo "Rendering helm-template for ${chartname}"
+          mkdir -p ./render
+          helm template . --values library/common-test/ci/${{ matrix.values }} >> ./render/app.yaml || echo "Helm template failed..."
+          cd -
           
       - name: Run Security Scan
         uses: datreeio/action-datree@main
         continue-on-error: true
         with:
-          path: '.'
+          path: 'library/common-test'
           cliArguments: ''
           isHelmChart: true
-          helmArguments: '--values ci/${{ matrix.values }}'
+          helmArguments: '--values library/common-test/ci/${{ matrix.values }}'
           
-      - name: generate security reports
-        shell: bash
-        run: |
-          echo "Rendering helm-template for ${chartname}"
-          mkdir -p ./render
-          helm template . >> ./render/app.yaml || echo "Helm template failed..."
           
       - name: Generate Sarif Report
         continue-on-error: true
         uses: datreeio/action-datree@main
         with:
-          path: './render/app.yaml'
+          path: 'library/common-test/render/app.yaml'
           cliArguments: '--output sarif'
           
       - name: Upload Results
