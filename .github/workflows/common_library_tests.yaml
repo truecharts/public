@@ -288,7 +288,6 @@ jobs:
           
       - name: Run Security Scan
         uses: datreeio/action-datree@main
-        continue-on-error: true
         with:
           path: 'library/common-test'
           cliArguments: ''
