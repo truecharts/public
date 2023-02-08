@@ -268,15 +268,6 @@ jobs:
           helm template . --values library/common-test/ci/${{ matrix.values }} >> ./render/app.yaml || echo "Helm template failed..."
           cd -
           
-      - name: Run Security Scan
-        uses: datreeio/action-datree@main
-        continue-on-error: true
-        with:
-          path: 'library/common-test'
-          cliArguments: ''
-          isHelmChart: true
-          helmArguments: '--values library/common-test/ci/${{ matrix.values }}'
-          
           
       - name: Generate Sarif Report
         continue-on-error: true
@@ -285,9 +276,22 @@ jobs:
           path: 'library/common-test/render/app.yaml'
           cliArguments: '--output sarif'
           
+      - name: Show Sarif
+        run: |
+          cat datree.sarif
+          
       - name: Upload Results
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: datree.sarif
           wait-for-processing: true
+          
+      - name: Run Security Scan
+        uses: datreeio/action-datree@main
+        continue-on-error: true
+        with:
+          path: 'library/common-test'
+          cliArguments: ''
+          isHelmChart: true
+          helmArguments: '--values library/common-test/ci/${{ matrix.values }}'
           
