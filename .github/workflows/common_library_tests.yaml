@@ -263,29 +263,28 @@ jobs:
         run: |
           cd library/common-test
           helm dependency update
-          cd -
           
       - name: Run Security Scan
         uses: datreeio/action-datree@main
         continue-on-error: true
         with:
-          path: 'library/common-test'
+          path: '.'
           cliArguments: ''
           isHelmChart: true
-          helmArguments: '--values library/common-test/ci/${{ matrix.values }}'
+          helmArguments: '--values ci/${{ matrix.values }}'
           
       - name: Generate Sarif Report
         continue-on-error: true
         uses: datreeio/action-datree@main
         with:
-          path: 'library/common-test'
+          path: '.'
           cliArguments: '--output sarif'
           isHelmChart: true
-          helmArguments: '--values library/common-test/ci/${{ matrix.values }}'
+          helmArguments: '--values ci/${{ matrix.values }}'
           
       - name: Upload Results
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: library/common-test/datree.sarif
+          sarif_file: datree.sarif
           wait-for-processing: true
           
