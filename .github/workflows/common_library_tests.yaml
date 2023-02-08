@@ -254,16 +254,17 @@ jobs:
         with:
           version: ${{ matrix.helm-version }}
     
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        with:
+          fetch-depth: 1
+          
+    
       - name: build helm deps
         run: |
           cd library/common-test
           helm dependency update
           cd -
-    
-      - name: Checkout
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
-        with:
-          fetch-depth: 1
           
       - name: Run Security Scan
         uses: datreeio/action-datree@main
