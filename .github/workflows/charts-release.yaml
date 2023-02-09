@@ -43,7 +43,7 @@ jobs:
         run: |
           rm -rf helm/charts
           mkdir helm/charts
-          cp -rf charts helm/charts
+          cp -rf charts helm
 
       - name: Commit Helm Changes
         run: |
