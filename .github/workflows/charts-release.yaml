@@ -278,7 +278,7 @@ jobs:
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
           charts_dir: charts/dependency
-          charts_repo_url: https://charts.truecharts.org
+          charts_repo_url: https://deps.truecharts.org
         env:
           CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
           CR_SKIP_EXISTING: "true"
