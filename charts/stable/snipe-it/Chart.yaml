@@ -6,11 +6,11 @@ dependencies:
     version: 11.1.2
   - condition: mariadb.enabled
     name: mariadb
-    repository: https://charts.truecharts.org/
+    repository: https://deps.truecharts.org/
     version: 5.0.25
   - condition: redis.enabled
     name: redis
-    repository: https://charts.truecharts.org
+    repository: https://deps.truecharts.org
     version: 5.0.29
 description: "Open source asset management"
 home: https://truecharts.org/charts/stable/snipe-it
