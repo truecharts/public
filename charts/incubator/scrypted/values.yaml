@@ -1,0 +1,38 @@
+image:
+  repository: tccr.io/truecharts/scrypted-thin
+  pullPolicy: IfNotPresent
+  tag: 0.6.14@sha256:4de1541011cb56935ba5a8e28a58f6cbcf62a903393dc94581eda0b6e2aa117c
+
+liteImage:
+  repository: tccr.io/truecharts/scrypted-lite
+  tag: 0.6.14@sha256:8b9f7a6169c9ee827970779eace6c1681013e919cce13589156106ef1e5b30bc
+  pullPolicy: Always
+
+fullImage:
+  repository: tccr.io/truecharts/scrypted-full
+  tag: 0.6.14@sha256:8b9f7a6169c9ee827970779eace6c1681013e919cce13589156106ef1e5b30bc
+  pullPolicy: Always
+
+imageSelector: image
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 8080
+        port: 10611
+
+persistence:
+  server:
+    enabled: true
+    mountPath: /server/volume
+  media:
+    enabled: true
+    mountPath: /media/external
+
+portal:
+  enabled: true
