@@ -3,6 +3,12 @@
 This is a quick how-to or setup-guide to use Tailscale using on your TrueNAS box.
 This can be applied to other systems but this specific guide is SCALE specific with the prerequisites.
 
+:::caution
+
+This guide doesn't cover using Tailscale with individual applications. While there are methods to use Tailscale (as an app) with other individual apps this requires `Host-Networking` and beyond the scope of this guide and may not work for all apps. The suggested use in the future will be the Tailscale Add-On
+
+:::
+
 ## Requirements
 
 - Tailscale Account (Free accounts available at [Tailscale's Official website](https://www.tailscale.com))
@@ -38,9 +44,9 @@ Leave defaults here.
 ### Container Configuration
 
 - `Auth Key`: The key you received from tailscale in prerequisites above
-- `Userspace`: Now enabled by default, as it is _required_ when using local routes and as an exit node (see below). However may need to be _unchecked_ if you need give Tailscale full access to all the features inside scale (not just GUI/SMB, but Rsync, ping other Tailscale IPs, etc). More info in the [Tailscale Userspace Guide](https://tailscale.com/kb/1112/userspace-networking/).
+- `Userspace`: Now enabled by default, as it is _required_ when using local routes and as an exit node (see below). Userspace restricts clients to only accessing the GUI and Samba. This needs to be _unchecked_ if you need to give Tailscale full access to all the features inside TrueNAS SCALE (not just GUI/SMB, but RSYNC, PING and directly connect to other Tailscale IPs, etc). More info in the [Tailscale Userspace Guide](https://tailscale.com/kb/1112/userspace-networking/).
 - `Accept DNS`: Enabling it will pass your Global Nameservers from Tailscale to your local install.
-- `Routes`: Change to the routes you wish Tailscale to have access to on the devices it's connected, such as my LAN in the example.
+- `Routes`: Change to the routes you wish Tailscale to have access to on the devices it's connected, such as my LAN in the example. Required if you want to access APPS over Tailscale using TrueNASIP:Port from any Tailscale connected client.
 - `Extra Args` passes arguments/flags to the `tailscale up` command.
 - `Hostname` You can specify a specific hostname for use inside Tailscale (see image below). (Passes `--hostname HOSTNAME` to `Extra args`)
 - `Advertise as exit node` This is used to pass traffic through tailscale like a private VPN. (Passes `--advertise-exit-node` to `Extra args`)
@@ -58,13 +64,6 @@ TODO: Update image with the new fields
 ### Networking and Services
 
 The default ports are fine for this chart, you shouldn't need to port forward or open ports on your router.
-
-:::caution
-
-In case you want to access their SMB shares or TrueNAS GUI via Tailscale.
-You will have to ensure that `Host Networking` is enabled and `Userspace` is disabled.
-
-:::
 
 ![tailscale-step-4](img/How-To-Image-3.png)
 

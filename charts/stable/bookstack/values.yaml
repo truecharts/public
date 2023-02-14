@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/bookstack
   pullPolicy: IfNotPresent
-  tag: 22.11.20221130@sha256:1f9e53ffb1f24664e57f2185ec73b6ec2f9f0fdba49bc8bd25a7bb1ceb22469b
+  tag: 23.01.20230131@sha256:c6bfd7603aab1cafbce32e1b89c2efa4456b859c7e80a108a04f1fb2b205843b
 
 env:
   DB_USER: "{{ .Values.mariadb.mariadbUsername }}"

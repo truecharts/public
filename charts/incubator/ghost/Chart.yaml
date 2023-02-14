@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "5.31.0"
+appVersion: "5.33.8"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 11.1.2
   - condition: mariadb.enabled
     name: mariadb
-    repository: https://charts.truecharts.org/
+    repository: https://deps.truecharts.org/
     version: 5.0.25
 description: Ghost is an open source, professional publishing platform built on a modern Node.js technology stack designed for teams who need power, flexibility and performance.
 home: https://truecharts.org/charts/incubator/ghost
@@ -23,10 +23,10 @@ maintainers:
 name: ghost
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/ghost
-  - https://github.com/TryGhost/Ghost
   - https://hub.docker.com/_/ghost
+  - https://github.com/TryGhost/Ghost
   - https://ghost.org/docs/
-version: 6.0.41
+version: 6.0.49
 annotations:
   truecharts.org/catagories: |
     - productivity

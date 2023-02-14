@@ -71,7 +71,7 @@ jobs:
         id: get_head_commit_message
         run: echo "::set-output name=headCommitMsg::$(git show -s --format=%s)"
 
-  automerge:
+  automerge-and-approve:
     needs:
       - pr-metadata
       - catalog-test
@@ -79,9 +79,12 @@ jobs:
       - charts-lint
       - print_head_msg
     if: needs.print_head_msg.outputs.head-commit-message == 'Commit bumped Chart Version'
-    name: Automerge build
+    name: Automerge and Approve build
     runs-on: ubuntu-latest
     steps:
+      - uses: hmarr/auto-approve-action@v3
+        with:
+          github-token: "${{ secrets.PERS_PAT }}"
       - name: automerge
         uses: pascalgn/automerge-action@eb68b061739cb9d81564f8e812d0b3c45f0fb09a # tag=v0.15.5
         env:
