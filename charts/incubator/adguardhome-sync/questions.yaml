@@ -15,58 +15,54 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: origin
-          label: Show Origin Settings
+        - variable: ORIGIN_URL
+          label: Origin Url
+          schema:
+            type: string
+            default: ""
+            required: true
+        - variable: ORIGIN_USERNAME
+          label: Origin Username
+          schema:
+            type: string
+            default: ""
+            required: true
+        - variable: ORIGIN_PASSWORD
+          label: Origin Password
+          schema:
+            type: string
+            default: ""
+            private: true
+            required: true
+        - variable: REPLICA_URL
+          label: Replica Url
+          schema:
+            type: string
+            default: ""
+            required: true
+        - variable: REPLICA_USERNAME
+          label: Replica Username
+          schema:
+            type: string
+            default: ""
+            required: true
+        - variable: REPLICA_PASSWORD
+          label: Replica Password
+          schema:
+          type: string
+          default: ""
+          private: true
+          required: true
+        - variable: CRON
+          label: CRON
+          schema:
+            type: string
+            default: "*/10 * * * *"
+        - variable: RUNONSTART
+          label: Run On Start
           schema:
             type: boolean
             default: true
-            show_subquestions_if: true
-            subquestions:
-              - variable: ORIGIN_URL
-                label: Origin Url
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-              - variable: ORIGIN_USERNAME
-                label: Origin Username
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-              - variable: ORIGIN_PASSWORD
-                label: Origin Password
-                schema:
-                  type: string
-                  default: ""
-                  private: true
-                  required: true
-        - variable: replica
-          label: Show Replica Settings
-          schema:
-            type: boolean
-            default: true
-            show_subquestions_if: true
-            subquestions:
-              - variable: REPLICA_URL
-                label: Replica Url
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-              - variable: REPLICA_USERNAME
-                label: Replica Username
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-              - variable: REPLICA_PASSWORD
-                label: Replica Password
-                schema:
-                  type: string
-                  default: ""
-                  private: true
-                  required: true
         - variable: sync
           label: Show Sync Features
           schema:
@@ -129,16 +125,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-        - variable: CRON
-          label: CRON
-          schema:
-            type: string
-            default: "*/10 * * * *"
-        - variable: RUNONSTART
-          label: Run On Start
-          schema:
-            type: boolean
-            default: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
