@@ -1,15 +1,11 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - MediaServer-Video
 apiVersion: v2
-appVersion: "latest"
+appVersion: "2.0.2.8"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 11.1.2
 deprecated: false
-description: "Acestream-engine"
+description: IPTV service providing streaming, playlist, search engine and epg.
 home: https://truecharts.org/charts/incubator/acestream
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/acestream.png
 keywords:
@@ -26,4 +22,9 @@ sources:
   - https://hub.docker.com/r/vstavrinov/acestream-service
   - https://github.com/vstavrinov/acestream-service
 type: application
-version: 2.0.17
+version: 3.0.0
+annotations:
+  truecharts.org/catagories: |
+    - MediaServer-Video
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
