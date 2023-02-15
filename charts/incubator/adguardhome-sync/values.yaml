@@ -6,14 +6,6 @@ image:
 args:
   - run
 
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
 env:
   ORIGIN_URL: https://192.168.1.2:3000
   ORIGIN_USERNAME: username
