@@ -23,12 +23,14 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+env:
+  SCRYPTED_INSECURE_PORT: "{{ .Values.service.main.ports.main.port }}"
+
 service:
   main:
     ports:
       main:
         protocol: HTTP
-        targetPort: 8080
         port: 10611
 
 persistence:
