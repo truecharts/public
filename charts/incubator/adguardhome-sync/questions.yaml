@@ -63,68 +63,61 @@ questions:
           schema:
             type: boolean
             default: true
-        - variable: sync
-          label: Show Sync Features
+        - variable: FEATURES_GENERALSETTINGS
+          label: Features General Settings
           schema:
             type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: FEATURES_GENERALSETTINGS
-                label: Features General Settings
-                schema:
-                  type: boolean
-                  default: true
-              - variable: FEATURES_QUERYLOGCONFIG
-                label: Features Query Log Config
-                schema:
-                  type: boolean
-                  default: true
-              - variable: FEATURES_STATSCONFIG
-                label: Features Stats Config
-                schema:
-                  type: boolean
-                  default: true
-              - variable: FEATURES_CLIENTSETTINGS
-                label: Features Clients Settings
-                schema:
-                  type: boolean
-                  default: true
-              - variable: FEATURES_SERVICES
-                label: Features Services
-                schema:
-                  type: boolean
-                  default: true
-              - variable: FEATURES_FILTERS
-                label: Features Filters
-                schema:
-                  type: boolean
-                  default: true
-              - variable: FEATURES_DHCP_SERVERCONFIG
-                label: Features DHCP Server Config
-                schema:
-                  type: boolean
-                  default: true
-              - variable: FEATURES_DHCP_STATICLEASES
-                label: Features DHCP Static Leases
-                schema:
-                  type: boolean
-                  default: true
-              - variable: FEATURES_DNS_SERVERCONFIG
-                label: Features DNS Server Config
-                schema:
-                  type: boolean
-                  default: true
-              - variable: FEATURES_DNS_ACCESSLISTS
-                label: Features DNS Access Lists
-                schema:
-                  type: boolean
-                  default: true
-              - variable: FEATURES_DNS_REWRITES
-                label: Features DNS Rewrites
-                schema:
-                  type: boolean
-                  default: true
+            default: true
+        - variable: FEATURES_QUERYLOGCONFIG
+          label: Features Query Log Config
+          schema:
+            type: boolean
+            default: true
+        - variable: FEATURES_STATSCONFIG
+          label: Features Stats Config
+          schema:
+            type: boolean
+            default: true
+        - variable: FEATURES_CLIENTSETTINGS
+          label: Features Clients Settings
+          schema:
+            type: boolean
+            default: true
+        - variable: FEATURES_SERVICES
+          label: Features Services
+          schema:
+            type: boolean
+            default: true
+        - variable: FEATURES_FILTERS
+          label: Features Filters
+          schema:
+            type: boolean
+            default: true
+        - variable: FEATURES_DHCP_SERVERCONFIG
+          label: Features DHCP Server Config
+          schema:
+            type: boolean
+            default: true
+        - variable: FEATURES_DHCP_STATICLEASES
+          label: Features DHCP Static Leases
+          schema:
+          type: boolean
+          default: true
+        - variable: FEATURES_DNS_SERVERCONFIG
+          label: Features DNS Server Config
+          schema:
+            type: boolean
+            default: true
+        - variable: FEATURES_DNS_ACCESSLISTS
+          label: Features DNS Access Lists
+          schema:
+            type: boolean
+            default: true
+        - variable: FEATURES_DNS_REWRITES
+          label: Features DNS Rewrites
+          schema:
+            type: boolean
+            default: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
