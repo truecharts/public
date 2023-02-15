@@ -33,9 +33,13 @@ secretEnv:
   VNC_PASSWORD: ""
 
 mkvtoolnix:
+  # General Settings
   KEEP_APP_RUNNING: false
+  # GUI Settings
   DISPLAY_WIDTH: 1280
   DISPLAY_HEIGHT: 768
+  DARK_MODE: false
+  # App Settings
   SECURE_CONNECTION: false
   ENABLE_CJK_FONT: false
 
@@ -48,6 +52,7 @@ configmap:
       SECURE_CONNECTION: '{{ ternary "1" "0" .Values.mkvtoolnix.SECURE_CONNECTION }}'
       DISPLAY_WIDTH: "{{ .Values.mkvtoolnix.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.mkvtoolnix.DISPLAY_HEIGHT }}"
+      DARK_MODE: '{{ ternary "1" "0" .Values.mkvtoolnix.DARK_MODE }}'
 
 persistence:
   config:
