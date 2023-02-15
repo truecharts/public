@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/rsshub
   pullPolicy: IfNotPresent
-  tag: latest@sha256:296c535b7beb0232e28784dcd7c08b5b3a9652862a3ce601e5c0378e6770de7c
+  tag: latest@sha256:40e8ff5bee17d156c77a3daa671c5c2fa3b45fca72e22b2f73e0f203fe9fd794
 
 browserlessImage:
   repository: tccr.io/truecharts/browserless-chrome
-  tag: v1.54.0-chrome@sha256:b078160d79d98b8ec67ef9e367856f466f1454b87da808c76a8dcb3c5e5d3c18
+  tag: 1.57.0-chrome@sha256:e93bbd67d81a9b8ce854096d9cc2aa5b671f1fe1911b14607512144b6bd18e18
 
 securityContext:
   runAsNonRoot: false

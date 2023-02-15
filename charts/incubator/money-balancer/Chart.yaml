@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "1.2.0"
+appVersion: "1.3.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -19,11 +19,10 @@ maintainers:
 name: money-balancer
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/money-balancer
-  - https://ghcr.com/ghcr.io/dorianim/money-balancer
-  - ghcr.io/dorianim/money-balancer
+  - https://ghcr.io/dorianim/money-balancer
   - https://github.com/dorianim/money-balancer
 type: application
-version: 2.0.7
+version: 2.0.9
 annotations:
   truecharts.org/catagories: |
     - finance

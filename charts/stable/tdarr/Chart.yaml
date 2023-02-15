@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "2.00.18.2"
+appVersion: "2.00.19.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -20,10 +20,10 @@ maintainers:
 name: tdarr
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/tdarr
-  - https://hub.docker.com/haveagitgat/tdarr
+  - https://hub.docker.com/r/haveagitgat/tdarr
   - https://github.com/HaveAGitGat/Tdarr
 type: application
-version: 4.0.8
+version: 4.0.10
 annotations:
   truecharts.org/catagories: |
     - media
