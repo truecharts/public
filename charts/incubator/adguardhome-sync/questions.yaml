@@ -49,10 +49,10 @@ questions:
         - variable: REPLICA_PASSWORD
           label: Replica Password
           schema:
-          type: string
-          default: ""
-          private: true
-          required: true
+            type: string
+            default: ""
+            private: true
+            required: true
         - variable: CRON
           label: CRON
           schema:
