@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "2.9.6"
+appVersion: "2.9.7"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -19,11 +19,12 @@ maintainers:
 name: traefik
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/enterprise/traefik
+  - https://hub.docker.com/_/traefik
   - https://github.com/traefik/traefik
   - https://github.com/traefik/traefik-helm-chart
   - https://traefik.io/
 type: application
-version: 16.0.12
+version: 16.0.15
 annotations:
   truecharts.org/catagories: |
     - network
