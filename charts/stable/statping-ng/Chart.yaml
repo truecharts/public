@@ -6,7 +6,7 @@ dependencies:
     version: 11.1.2
   - condition: postgresql.enabled
     name: postgresql
-    repository: https://charts.truecharts.org/
+    repository: https://deps.truecharts.org/
     version: 11.0.22
 deprecated: false
 description: Status page for monitoring your websites and applications.
@@ -24,10 +24,10 @@ maintainers:
 name: statping-ng
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/statping-ng
-  - https://hub.docker.com/quay.io/statping-ng/statping-ng
+  - https://quay.io/statping-ng/statping-ng
   - https://github.com/statping/statping
 type: application
-version: 11.0.3
+version: 11.0.4
 annotations:
   truecharts.org/catagories: |
     - statistics

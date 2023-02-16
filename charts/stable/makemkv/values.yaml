@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/makemkv
-  tag: 1.22.2@sha256:5f1304e5cf378eea96f5f43ca42d595f6d681fe52661f2ad203e860c2618c049
+  tag: 23.02.3@sha256:c197ce61a93b0d85d9f69bfae981f17a1e4a489a11a17a06b17d4f0ced45484c
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -24,6 +24,7 @@ makemkv:
   # GUI Settings
   DISPLAY_WIDTH: 1280
   DISPLAY_HEIGHT: 768
+  DARK_MODE: false
   # App Settings
   MAKEMKV_KEY: "BETA"
   AUTO_DISC_RIPPER_INTERVAL: 5
@@ -60,6 +61,7 @@ configmap:
       SECURE_CONNECTION: '{{ ternary "1" "0" .Values.makemkv.SECURE_CONNECTION }}'
       DISPLAY_WIDTH: "{{ .Values.makemkv.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.makemkv.DISPLAY_HEIGHT }}"
+      DARK_MODE: '{{ ternary "1" "0" .Values.makemkv.DARK_MODE }}'
       MAKEMKV_KEY: "{{ .Values.makemkv.MAKEMKV_KEY }}"
       AUTO_DISC_RIPPER_INTERVAL: "{{ .Values.makemkv.AUTO_DISC_RIPPER_INTERVAL }}"
       AUTO_DISC_RIPPER_BD_MODE: "{{ .Values.makemkv.AUTO_DISC_RIPPER_BD_MODE }}"

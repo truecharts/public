@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: st-reborn-server
-version: 2.0.8
+version: 2.0.9
 appVersion: "1.2.0"
 description: Skyrim Together Reborn server files.
 type: application
@@ -13,7 +13,7 @@ keywords:
   - gameserver
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/st-reborn-server
-  - https://hub.docker.com/tiltedphoques/st-reborn-server
+  - https://hub.docker.com/r/tiltedphoques/st-reborn-server
   - https://github.com/tiltedphoques/TiltedEvolution
 dependencies:
   - name: common

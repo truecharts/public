@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "5.0.5"
+appVersion: "5.1.3"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -20,10 +20,10 @@ maintainers:
 name: ring-mqtt
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/ring-mqtt
-  - https://hub.docker.com/tsightler/ring-mqtt
+  - https://hub.docker.com/r/tsightler/ring-mqtt
   - https://github.com/tsightler/ring-mqtt
 type: application
-version: 3.0.8
+version: 3.0.11
 annotations:
   truecharts.org/catagories: |
     - HomeAutomation

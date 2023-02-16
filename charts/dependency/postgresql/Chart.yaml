@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "14.6.0"
+appVersion: "14.7.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -21,10 +21,10 @@ maintainers:
 name: postgresql
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/dependency/postgresql
-  - https://hub.docker.com/bitnami/postgresql
+  - https://hub.docker.com/r/bitnami/postgresql
   - https://www.postgresql.org/
 type: application
-version: 11.0.24
+version: 11.0.29
 annotations:
   truecharts.org/catagories: |
     - database

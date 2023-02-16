@@ -11,6 +11,50 @@ on:
       - "charts/**"
 
 jobs:
+
+  release-helm:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:3b53132c6c6e14393f8f69e64e2237c8460a466753c285542324aa993ed1795d
+    steps:
+      - name: Checkout
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          fetch-depth: 1
+          
+      - name: Checkout Helm-Staging
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        with:
+          fetch-depth: 1
+          repository: truecharts/helm-staging
+          token: ${{ secrets.BOT_TOKEN }}
+          path: helm
+          
+      - name: Fix Pre-Commit issues
+        shell: bash
+        run: |
+          echo "Running pre-commit test-and-cleanup..."
+          pre-commit run --all ||:
+          # Fix sh files to always be executable
+          find . -name '*.sh' | xargs chmod +x
+          
+      - name: Commit Helm Changes
+        run: |
+          rm -rf helm/charts
+          mkdir helm/charts
+          cp -rf charts helm
+
+      - name: Commit Helm Changes
+        run: |
+          cd helm
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Commit released Helm Charts for TrueCharts" || exit 0
+          git push
+          cd -
+
   release-scale:
     runs-on: ubuntu-latest
     outputs:
@@ -179,6 +223,7 @@ jobs:
           git add --all
           git commit -sm "Commit released docs for TrueCharts" || exit 0
           git push
+        
 
       - name: Checkout Catalog
         uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
@@ -233,7 +278,7 @@ jobs:
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
           charts_dir: charts/dependency
-          charts_repo_url: https://charts.truecharts.org
+          charts_repo_url: https://deps.truecharts.org
         env:
           CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
           CR_SKIP_EXISTING: "true"

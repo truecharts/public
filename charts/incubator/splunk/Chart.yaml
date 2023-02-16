@@ -4,7 +4,7 @@ annotations:
     - Tools-Utilities
     - Network-Management
 apiVersion: v2
-appVersion: "9.0.3"
+appVersion: "9.0.4"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -25,7 +25,7 @@ maintainers:
 name: splunk
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/splunk
-  - https://hub.docker.com/atunnecliffe/splunk
+  - https://hub.docker.com/r/atunnecliffe/splunk
   - https://splunk.github.io/docker-splunk
 type: application
-version: 3.0.7
+version: 3.0.9

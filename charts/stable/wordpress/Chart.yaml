@@ -6,7 +6,7 @@ dependencies:
     version: 11.1.2
   - condition: mariadb.enabled
     name: mariadb
-    repository: https://charts.truecharts.org/
+    repository: https://deps.truecharts.org/
     version: 5.0.25
 description: The WordPress rich content management system can utilize plugins, widgets, and themes.
 home: https://truecharts.org/charts/stable/wordpress
@@ -22,9 +22,9 @@ maintainers:
 name: wordpress
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/wordpress
-  - https://hub.docker.com/bitnami/wordpress
+  - https://hub.docker.com/r/bitnami/wordpress
   - https://www.wordpress.org
-version: 1.1.12
+version: 1.1.14
 annotations:
   truecharts.org/catagories: |
     - website
