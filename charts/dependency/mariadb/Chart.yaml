@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "10.10.2"
+appVersion: "10.10.3"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -21,12 +21,12 @@ maintainers:
 name: mariadb
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/dependency/mariadb
-  - https://hub.docker.com/bitnami/mariadb
+  - https://hub.docker.com/r/bitnami/mariadb
   - https://github.com/bitnami/bitnami-docker-mariadb
   - https://github.com/prometheus/mysqld_exporter
   - https://mariadb.org
 type: application
-version: 5.0.26
+version: 5.0.32
 annotations:
   truecharts.org/catagories: |
     - database

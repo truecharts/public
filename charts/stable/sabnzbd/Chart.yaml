@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "3.7.1"
+appVersion: "3.7.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -19,11 +19,10 @@ maintainers:
 name: sabnzbd
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/sabnzbd
-  - https://ghcr.com/ghcr.io/onedr0p/sabnzbd
-  - ghcr.io/onedr0p/sabnzbd
+  - https://ghcr.io/onedr0p/sabnzbd
   - https://sabnzbd.org/
 type: application
-version: 13.0.14
+version: 13.0.17
 annotations:
   truecharts.org/catagories: |
     - media

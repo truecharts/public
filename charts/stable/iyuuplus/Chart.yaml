@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: iyuuplus
-version: 4.0.7
+version: 4.0.8
 appVersion: "latest"
 description: The IYUU automatic seeding tool can automatically seed most PT sites in China, support downloader clusters, multiple disks, multiple download directories, connecting to remote downloaders, etc.
 type: application
@@ -13,8 +13,7 @@ keywords:
   - pt
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/iyuuplus
-  - https://hub.docker.com/docker.io/iyuucn/iyuuplus
-  - docker.io/iyuucn/iyuuplus
+  - https://hub.docker.com/r/iyuucn/iyuuplus
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org

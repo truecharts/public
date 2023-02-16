@@ -12,6 +12,19 @@ service:
       main:
         port: 10183
         targetPort: 8866
+  nextpvr-udp:
+    enabled: true
+    ports:
+      nextpvr-udp1:
+        enabled: true
+        protocol: UDP
+        port: 16891
+        targetPort: 16891
+      nextpvr-udp2:
+        enabled: true
+        protocol: UDP
+        port: 8026
+        targetPort: 8026
 
 persistence:
   config:

@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "23.01.1"
+appVersion: "23.02.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -20,11 +20,11 @@ maintainers:
 name: czkawka
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/czkawka
-  - https://hub.docker.com/jlesage/czkawka
+  - https://hub.docker.com/r/jlesage/czkawka
   - https://github.com/jlesage/docker-czkawka
   - https://github.com/qarmin/czkawka
 type: application
-version: 3.0.13
+version: 3.0.16
 annotations:
   truecharts.org/catagories: |
     - duplicates
