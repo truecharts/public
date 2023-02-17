@@ -1,0 +1,34 @@
+image:
+  repository: tccr.io/truecharts/muse
+  pullPolicy: IfNotPresent
+  tag: 2.1.9@sha256:4de1541011cb56935ba5a8e28a58f6cbcf62a903393dc94581eda0b6e2aa117c
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+env:
+  DATA_DIR: /config
+  DISCORD_TOKEN: ""
+  SPOTIFY_CLIENT_ID: ""
+  SPOTIFY_CLIENT_SECRET: ""
+  YOUTUBE_API_KEY: ""
+  # CACHE_LIMIT: 2GB
+  # BOT_STATUS: online
+  # BOT_ACTIVITY_TYPE: PLAYING
+  # BOT_ACTIVITY: A incubator app
+  # BOT_ACTIVITY_URL: https://www.youtube.com/truecharts
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+
+portal:
+  enabled: false
