@@ -91,6 +91,7 @@ questions:
                   show_if: [[BOT_ACTIVITY_TYPE, "=", "STREAMING"]]
               - variable: REGISTER_COMMANDS_ON_BOT
                 label: Register Commands On Bot
+                description: Enable Bot-wide commands if your muse instance is running on 10+ guilds.
                 schema:
                   type: boolean
                   default: false
