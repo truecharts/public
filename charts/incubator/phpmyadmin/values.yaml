@@ -1,25 +1,29 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/phpmyadmin
+  tag: latest@sha256:34b663ed38d6c87e061f431b02199bc4ace35d95a71aba6ab1125137dc477a78
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
 env:
   MYSQL_PASSWORD: root
   MYSQL_USER: root
   PMA_HOST: 192.168.70.99
   PMA_PORT: "3306"
-image:
-  pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/phpmyadmin
-  tag: latest@sha256:34b663ed38d6c87e061f431b02199bc4ace35d95a71aba6ab1125137dc477a78
-persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  # PMA_ABSOLUTE_URI: ""
+
 service:
   main:
     ports:
       main:
         port: 8080
-        protocol: TCP
+        protocol: HTTP
         targetPort: 80
 
 portal:
