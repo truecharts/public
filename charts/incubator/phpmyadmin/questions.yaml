@@ -36,7 +36,7 @@ questions:
           description: define port of the MySQL server
           schema:
             type: string
-            default: 3306
+            default: "3306"
         - variable: PMA_ABSOLUTE_URI
           label: PWA Absolute URi
           description: The full URL to phpMyAdmin
