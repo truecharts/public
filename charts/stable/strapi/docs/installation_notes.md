@@ -19,4 +19,4 @@
     npm run build
     ```
 
-- Restart the app afterward the command is ran successfully.
+- Restart the app after the command is ran successfully.
