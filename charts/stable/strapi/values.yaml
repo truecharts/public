@@ -14,7 +14,7 @@ podSecurityContext:
 secretEnv:
   JWT_SECRET: my_jwt_secret
   ADMIN_JWT_SECRET: my_admin_jwt_secret
-  APP_KEYS: my_app_keys
+  APP_KEYS: ["keya", "keyb"]
 
 env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
@@ -31,10 +31,11 @@ env:
       name: dbcreds
       key: postgresql-password
   # STRAPI_LICENSE
+  # PUBLIC_URL
   NODE_ENV: production
   STRAPI_DISABLE_UPDATE_NOTIFICATION: true
   FAST_REFRESH: false
-  EXTRA_ARGS: ""
+  EXTRA_ARGS: "npm run build"
 
 service:
   main:
