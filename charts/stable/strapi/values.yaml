@@ -61,7 +61,7 @@ initContainers:
       - name: DATABASE_CLIENT
         value: postgres
       - name: DATABASE_PORT
-        value: 5432
+        value: "5432"
       - name: DATABASE_NAME
         value: "{{ .Values.postgresql.postgresqlDatabase }}"
       - name: DATABASE_HOST
