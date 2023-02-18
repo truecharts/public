@@ -25,6 +25,8 @@ podSecurityContext:
 
 env:
   SCRYPTED_INSECURE_PORT: "{{ .Values.service.main.ports.main.port }}"
+  # SCRYPTED_WEBHOOK_UPDATE_AUTHORIZATION: Bearer SET_THIS_TO_SOME_RANDOM_TEXT
+  # SCRYPTED_WEBHOOK_UPDATE: http://localhost:10444/v1/update
 
 service:
   main:
