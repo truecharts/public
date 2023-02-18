@@ -11,6 +11,9 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+args:
+  - npm run build
+
 secretEnv:
   JWT_SECRET: my_jwt_secret
   ADMIN_JWT_SECRET: my_admin_jwt_secret
@@ -41,14 +44,6 @@ service:
     ports:
       main:
         port: 1337
-
-initContainers:
-  init:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    command: ["cd /srv/app && npm run build"]
-    volumeMounts:
-      - name: data
-        mountPath: /srv/app
 
 persistence:
   data:
