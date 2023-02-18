@@ -43,6 +43,14 @@ service:
       main:
         port: 1337
 
+initContainers:
+  init:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    command: ["yarn run build"]
+    volumeMounts:
+      - name: data
+        mountPath: /srv/app
+
 persistence:
   data:
     enabled: true
