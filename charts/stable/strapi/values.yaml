@@ -78,7 +78,7 @@ initContainers:
         value: "{{ .Values.env.FAST_REFRESH }}"
       - name: EXTRA_ARGS
         value: "{{ .Values.env.EXTRA_ARGS }}"
-    command: ["/bin/sh", "-c", "npm run build"]
+    command: ["/bin/sh", "-c", "yarn run build"]
 
 persistence:
   data:
