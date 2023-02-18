@@ -1,31 +1,33 @@
-{{/* Template for a ServiceAccount object, can only be called by the spawner */}}
-{{/* A serviceAccount object and "root" is passed from the spawner */}}
-{{- define "ix.v1.common.class.serviceAccount" -}}
-  {{- $saValues := .serviceAccount -}}
-  {{- $root := .root -}}
-  {{- if hasKey $saValues "automountServiceAccountToken" -}}
-    {{- if not (kindIs "bool" $saValues.automountServiceAccountToken) -}}
-      {{- fail (printf "<automountServiceAccountToken> value (%s) must be boolean" $saValues.automountServiceAccountToken ) -}}
-    {{- end -}}
-  {{- else -}}
-    {{- $_ := set $saValues "automountServiceAccountToken" true -}}
-  {{- end -}}
+{{/* Service Account Class */}}
+{{/* Call this template:
+{{ include "tc.v1.common.class.serviceAccount" (dict "rootCtx" $ "objectData" $objectData) }}
 
-  {{- $saName := include "ix.v1.common.names.serviceAccount" (dict "root" $root "saValues" $saValues) }}
+rootCtx: The root context of the chart.
+objectData:
+  name: The name of the serviceAccount.
+  labels: The labels of the serviceAccount.
+  annotations: The annotations of the serviceAccount.
+  autoMountToken: Whether to mount the ServiceAccount token or not.
+*/}}
+
+{{- define "tc.v1.common.class.serviceAccount" -}}
+
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData }}
 ---
-apiVersion: {{ include "ix.v1.common.capabilities.serviceAccount.apiVersion" $root }}
+apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: {{ $saName }}
-  {{- $labels := (mustMerge ($saValues.labels | default dict) (include "ix.v1.common.labels" $root | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.labels.render" (dict "root" $root "labels" $labels) | trim) }}
+  name: {{ $objectData.name }}
+  {{- $labels := (mustMerge ($objectData.labels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $rootCtx | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "labels" $labels) | trim) }}
   labels:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- $annotations := (mustMerge ($saValues.annotations | default dict) (include "ix.v1.common.annotations" $root | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $root "annotations" $annotations) | trim) }}
+  {{- $annotations := (mustMerge ($objectData.annotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
   {{- end }}
-automountServiceAccountToken: {{ $saValues.automountServiceAccountToken }}
-{{- end }}
+automountServiceAccountToken: {{ $objectData.automountServiceAccountToken | default false }}
+{{- end -}}

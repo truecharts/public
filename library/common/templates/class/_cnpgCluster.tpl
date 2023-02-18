@@ -15,13 +15,13 @@ apiVersion: {{ include "tc.v1.common.capabilities.cnpg.cluster.apiVersion" $ }}
 kind: Cluster
 metadata:
   name: {{ $cnpgClusterName }}
-  {{- $labels := (mustMerge ($cnpgClusterLabels | default dict) (include "ix.v1.common.labels" $ | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.labels.render" (dict "root" $ "labels" $labels) | trim) }}
+  {{- $labels := (mustMerge ($cnpgClusterLabels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $ | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "labels" $labels) | trim) }}
   labels:
     {{- . | nindent 4 }}
   {{- end }}
-  {{- $annotations := (mustMerge ($cnpgClusterAnnotations | default dict) (include "ix.v1.common.annotations" $ | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $ "annotations" $annotations) | trim) }}
+  {{- $annotations := (mustMerge ($cnpgClusterAnnotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $ | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
   {{- end }}
@@ -42,25 +42,25 @@ spec:
 
   storage:
     pvcTemplate:
-      {{- with (include "ix.v1.common.storage.storageClassName" (dict "persistence" $values.storage "root" . )) | trim }}
+      {{- with (include "tc.v1.common.lib.storage.storageClassName" (dict "persistence" $values.storage "root" . )) | trim }}
       storageClassName: {{ . }}
       {{- end }}
       accessModes:
         - ReadWriteOnce
       resources:
         requests:
-          storage: {{ tpl ($values.storage.walsize | default $.Values.global.defaults.VCTSize) $ | quote }}
+          storage: {{ tpl ($values.storage.walsize | default $.Values.fallbackDefaults.vctSize) $ | quote }}
 
   walStorage:
     pvcTemplate:
-      {{- with (include "ix.v1.common.storage.storageClassName" (dict "persistence" $values.storage "root" $ )) | trim }}
+      {{- with (include "tc.v1.common.lib.storage.storageClassName" (dict "persistence" $values.storage "root" $ )) | trim }}
       storageClassName: {{ . }}
       {{- end }}
       accessModes:
         - ReadWriteOnce
       resources:
         requests:
-          storage: {{ tpl ($values.storage.walsize | default $.Values.global.defaults.VCTSize) $ | quote }}
+          storage: {{ tpl ($values.storage.walsize | default $.Values.fallbackDefaults.vctSize) $ | quote }}
 
   monitoring:
     enablePodMonitor: {{ $values.monitoring.enablePodMonitor | default true }}

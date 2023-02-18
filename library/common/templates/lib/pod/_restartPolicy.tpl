@@ -1,25 +1,33 @@
-{{- define "ix.v1.common.restartPolicy" -}}
-  {{- $root := .root -}}
-  {{- $restartPolicy := .restartPolicy -}}
-  {{- $isJob := .isJob | default false -}}
-  {{- $policy := $root.Values.global.defaults.restartPolicy -}}
+{{/* Returns Restart Policy */}}
+{{/* Call this template:
+{{ include "tc.v1.common.lib.pod.restartPolicy" (dict "rootCtx" $ "objectData" $objectData) }}
+rootCtx: The root context of the chart.
+objectData: The object data to be used to render the Pod.
+*/}}
+{{- define "tc.v1.common.lib.pod.restartPolicy" -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData -}}
 
-  {{- if $isJob -}}
-    {{- $policy = $root.Values.global.defaults.jobRestartPolicy -}}
+  {{- $policy := "Always" -}}
+
+  {{/* Initialize from the "defaults" */}}
+  {{- with $rootCtx.Values.podOptions.restartPolicy -}}
+    {{- $policy = tpl . $rootCtx -}}
   {{- end -}}
 
-  {{- with $restartPolicy -}}
-    {{- $policy = . -}}
+  {{/* Override from the pod values, if defined */}}
+  {{- with $objectData.podSpec.restartPolicy -}}
+    {{- $policy = tpl . $rootCtx -}}
   {{- end -}}
 
-  {{- if not (mustHas $policy (list "Always" "Never" "OnFailure")) -}}
-    {{- fail (printf "Invalid <restartPolicy> (%s). Valid options are Always, Never, OnFailure" $policy) -}}
+  {{- $policies := (list "Never" "Always" "OnFailure") -}}
+  {{- if not (mustHas $policy $policies) -}}
+    {{- fail (printf "Expected <restartPolicy to be one of [%s] but got [%s]" (join ", " $policies) $policy) -}}
   {{- end -}}
 
-  {{- if and (not $isJob) (mustHas $root.Values.controller.type (list "Deployment" "ReplicaSet" "DaemonSet" "StatefulSet")) -}}
-    {{- if and (ne $policy "Always") -}}
-      {{- fail (printf "Invalid <restartPolicy (%s). Valid option for Deployment, StatefulSet, DaemonSet and ReplicaSet is Always" $policy) -}}
-    {{- end -}}
+  {{- $types := (list "Deployment" "DaemonSet" "StatefulSet") -}}
+  {{- if and (ne "Always" $policy) (mustHas $objectData.type $types) -}}
+    {{- fail (printf "Expected <restartPolicy to be [Always] for [%s] but got [%s]" $objectData.type $policy) -}}
   {{- end -}}
 
   {{- $policy -}}

@@ -1,0 +1,42 @@
+suite: imagePullSecret name test
+templates:
+  - common.yaml
+tests:
+  - it: should generate correct name
+    set:
+      imagePullSecret:
+        my-pull-secret1:
+          enabled: true
+          data:
+            registry: reg1
+            username: user1
+            password: pass1
+            email: mail1
+        my-pull-secret2:
+          enabled: true
+          data:
+            registry: reg2
+            username: user2
+            password: pass2
+            email: mail2
+    asserts:
+      - documentIndex: &secretDoc 0
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: release-name-common-test-my-pull-secret1
+      - documentIndex: &otherSecretDoc 1
+        isKind:
+          of: Secret
+      - documentIndex: *otherSecretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *otherSecretDoc
+        equal:
+          path: metadata.name
+          value: release-name-common-test-my-pull-secret2

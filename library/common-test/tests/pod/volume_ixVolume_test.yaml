@@ -1,0 +1,137 @@
+suite: pod ixVolume volume test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with ixVolume volume
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      ixVolumes:
+        - /mnt/pool/ix-applications/ix-app
+      persistence:
+        ix-vol:
+          enabled: true
+          type: ixVolume
+          datasetName: ix-app
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: ix-vol
+            hostPath:
+              path: /mnt/pool/ix-applications/ix-app
+
+  - it: should pass with hostPath volume and type
+    set:
+      some_dataset: ix-app
+      some_type: DirectoryOrCreate
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      ixVolumes:
+        - /mnt/pool/ix-applications/ix-app
+      persistence:
+        ix-vol:
+          enabled: true
+          type: ixVolume
+          datasetName: "{{ .Values.some_dataset }}"
+          hostPathType: "{{ .Values.some_type }}"
+    asserts:
+      - documentIndex: *deploymentDoc
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: ix-vol
+            hostPath:
+              path: /mnt/pool/ix-applications/ix-app
+              type: DirectoryOrCreate
+
+# Failures
+  - it: should fail without datasetName
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: ixVolume
+          datasetname: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected non-empty <datasetName> on <ixVolume> type
+
+  - it: should fail with empty ixVolumes
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      ixVolumes: []
+      persistence:
+        volume1:
+          enabled: true
+          type: ixVolume
+          datasetName: ix-app
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected non-empty <ixVolumes> in values on <ixVolume> type
+
+  - it: should fail with empty ixVolumes
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      ixVolumes:
+        - /mnt/pool/ix-applications/ix-wrong-app
+        - /mnt/pool/ix-applications/ix-other-app
+      persistence:
+        volume1:
+          enabled: true
+          type: ixVolume
+          datasetName: ix-app
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected <datasetName> [ix-app] to exist on <ixVolumes> list, but list contained [/mnt/pool/ix-applications/ix-wrong-app, /mnt/pool/ix-applications/ix-other-app] on <ixVolume> type
+
+  - it: should fail with invalid hostPathType
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      ixVolumes:
+        - /mnt/pool/ix-applications/ix-app
+      persistence:
+        volume1:
+          enabled: true
+          type: ixVolume
+          datasetName: ix-app
+          hostPathType: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected <hostPathType> to be one of [DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice, BlockDevice], but got [invalid]

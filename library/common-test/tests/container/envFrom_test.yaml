@@ -1,0 +1,258 @@
+suite: container envFrom test
+templates:
+  - common.yaml
+tests:
+  - it: should create the correct envFrom
+    set:
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      configmap:
+        configmap-name:
+          enabled: true
+          data:
+            key1: value1
+            key2: value2
+      secret:
+        secret-name:
+          enabled: true
+          data:
+            key3: value3
+            key4: value4
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: &probes
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+                envFrom:
+                  - configMapRef:
+                      name: configmap-name
+                  - secretRef:
+                      name: secret-name
+    asserts:
+      - documentIndex: &deploymentDoc 2
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            envFrom:
+              - configMapRef:
+                  name: release-name-common-test-configmap-name
+              - secretRef:
+                  name: release-name-common-test-secret-name
+
+  - it: should create the correct envFrom without expanding the name
+    set:
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      some_config_name: configmap-name
+      some_secret_name: secret-name
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: &probes
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+                envFrom:
+                  - configMapRef:
+                      name: "{{ .Values.some_config_name }}"
+                      expandObjectName: false
+                  - secretRef:
+                      name: "{{ .Values.some_secret_name }}"
+                      expandObjectName: false
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            envFrom:
+              - configMapRef:
+                  name: configmap-name
+              - secretRef:
+                  name: secret-name
+
+  # Failures
+  - it: it should fail without a valid ref
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                envFrom:
+                  - invalidRef:
+                      name: invalid-name
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <envFrom> entry to have one of [configMapRef, secretRef]
+
+  - it: it should fail with both refs in the same entry
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                envFrom:
+                  - configMapRef:
+                      name: configmap-name
+                    secretRef:
+                      name: secret-name
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <envFrom> entry to have only one of [configMapRef, secretRef], but got both
+
+  - it: it should fail with empty name in configMapRef
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                envFrom:
+                  - configMapRef:
+                      name: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty <envFrom.configMapRef.name>
+
+  - it: it should fail with empty name in secretRef
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                envFrom:
+                  - secretRef:
+                      name: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty <envFrom.secretRef.name>
+
+  - it: it should fail without defined configmap
+    set:
+      image: *image
+      configmap:
+        configmap-name:
+          enabled: true
+          data:
+            key1: value1
+            key2: value2
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                envFrom:
+                  - configMapRef:
+                      name: configmap-other-name
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected ConfigMap [configmap-other-name] defined in <envFrom> to exist
+
+  - it: it should fail without defined secret
+    set:
+      image: *image
+      secret:
+        secret-name:
+          enabled: true
+          data:
+            key1: value1
+            key2: value2
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                envFrom:
+                  - secretRef:
+                      name: secret-other-name
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected Secret [secret-other-name] defined in <envFrom> to exist

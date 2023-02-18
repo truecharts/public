@@ -1,0 +1,77 @@
+suite: service account validation test
+templates:
+  - common.yaml
+tests:
+  - it: should fail with name longer than 63 characters
+    set:
+      serviceAccount:
+        my-sa:
+          enabled: true
+          primary: true
+        my-service-account-super-long-name-that-is-longer-than-63-characters:
+          enabled: true
+          primary: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [release-name-common-test-my-service-account-super-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with name starting with underscore
+    set:
+      serviceAccount:
+        my-sa1:
+          enabled: true
+          primary: true
+        _my-sa2:
+          enabled: true
+          primary: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [release-name-common-test-_my-sa2] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with labels not a dict
+    set:
+      serviceAccount:
+        my-sa:
+          enabled: true
+          primary: true
+          labels: "not a dict"
+    asserts:
+      - failedTemplate:
+          errorMessage: Service Account - Expected <labels> to be a dictionary, but got [string]
+
+  - it: should fail with annotations not a dict
+    set:
+      serviceAccount:
+        my-sa:
+          enabled: true
+          primary: true
+          annotations: "not a dict"
+    asserts:
+      - failedTemplate:
+          errorMessage: Service Account - Expected <annotations> to be a dictionary, but got [string]
+
+  - it: should fail with more than 1 primary service accounts
+    set:
+      serviceAccount:
+        my-sa:
+          enabled: true
+          primary: true
+        my-sa2:
+          enabled: true
+          primary: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Service Account - Only one service account can be primary
+
+  - it: should fail without any primary on enabled service accounts
+    set:
+      serviceAccount:
+        my-sa:
+          enabled: true
+          primary: false
+        my-sa2:
+          enabled: true
+          primary: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Service Account - At least one enabled service account must be primary

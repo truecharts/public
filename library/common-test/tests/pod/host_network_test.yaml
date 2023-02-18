@@ -1,0 +1,75 @@
+suite: pod hostnetwork test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with hostnetwork disabled from "global"
+    set:
+      podOptions:
+        hostNetwork: false
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostNetwork
+          value: false
+
+  - it: should pass with hostnetwork enabled from "global"
+    set:
+      podOptions:
+        hostNetwork: true
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostNetwork
+          value: true
+
+  - it: should pass with disabled hostnetwork from pod
+    set:
+      podOptions:
+        hostNetwork: true
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            hostNetwork: false
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostNetwork
+          value: false
+
+  - it: should pass with enabled hostnetwork from pod
+    set:
+      podOptions:
+        hostNetwork: false
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            hostNetwork: true
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostNetwork
+          value: true

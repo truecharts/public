@@ -1,20 +1,35 @@
-{{- define "ix.v1.common.controller.volumes.hostPath" -}}
-  {{- $index := .index -}}
-  {{- $vol := .volume -}}
-  {{- $root := .root -}}
+{{/* Returns hostPath Volume */}}
+{{/* Call this template:
+{{ include "tc.v1.common.lib.pod.volume.hostPath" (dict "rootCtx" $ "objectData" $objectData) }}
+rootCtx: The root context of the chart.
+objectData: The object data to be used to render the volume.
+*/}}
+{{- define "tc.v1.common.lib.pod.volume.hostPath" -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData -}}
 
-  {{- include "ix.v1.common.controller.volumes.hostPath.validation" (dict "volume" $vol "root" $root) -}} {{/* hostPath validation (if enabled) */}}
-  {{- if not $vol.hostPath -}}
-    {{- fail (printf "hostPath not set on item (%s)" $index) -}}
-  {{- else if not (hasPrefix "/" $vol.hostPath) -}}
-    {{- fail (printf "Host path (%s) on item (%s) must start with a forward slash -> / <-" $vol.hostPath $index) -}}
-  {{- end }}
-- name: {{ $index }}
-  hostPath:
-    path: {{ $vol.hostPath }}
-  {{- with $vol.hostPathType -}}
-    {{- $type := (tpl . $root) -}}
-    {{- include "ix.v1.common.controller.hostPathType.validation" (dict "index" $index "type" $type) }}
-    type: {{ $type }}
+  {{- $hostPathType := "" -}}
+  {{- if $objectData.hostPathType -}}
+    {{- $hostPathType = tpl $objectData.hostPathType $rootCtx -}}
   {{- end -}}
+
+  {{- if not $objectData.hostPath -}}
+    {{- fail "Persistence - Expected non-empty <hostPath> on <hostPath> type" -}}
+  {{- end -}}
+  {{- $hostPath := tpl $objectData.hostPath $rootCtx -}}
+
+  {{- if not (hasPrefix "/" $hostPath) -}}
+    {{- fail "Persistence - Expected <hostPath> to start with a forward slash [/] on <hostPath> type" -}}
+  {{- end -}}
+
+  {{- $types := (list "DirectoryOrCreate" "Directory" "FileOrCreate" "File" "Socket" "CharDevice" "BlockDevice") -}}
+  {{- if and $hostPathType (not (mustHas $hostPathType $types)) -}}
+    {{- fail (printf "Persistence - Expected <hostPathType> to be one of [%s], but got [%s]" (join ", " $types) $hostPathType) -}}
+  {{- end }}
+- name: {{ $objectData.shortName }}
+  hostPath:
+    path: {{ $hostPath }}
+    {{- with $hostPathType }}
+    type: {{ $hostPathType }}
+    {{- end -}}
 {{- end -}}

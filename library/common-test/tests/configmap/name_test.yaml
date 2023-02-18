@@ -1,0 +1,36 @@
+suite: configmap name test
+templates:
+  - common.yaml
+tests:
+  - it: should generate correct name
+    set:
+      configmap:
+        my-configmap1:
+          enabled: true
+          data:
+            foo: bar
+        my-configmap2:
+          enabled: true
+          data:
+            foo: bar
+    asserts:
+      - documentIndex: &configmapDoc 0
+        isKind:
+          of: ConfigMap
+      - documentIndex: *configmapDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *configmapDoc
+        equal:
+          path: metadata.name
+          value: release-name-common-test-my-configmap1
+      - documentIndex: &otherConfigmapDoc 1
+        isKind:
+          of: ConfigMap
+      - documentIndex: *otherConfigmapDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *otherConfigmapDoc
+        equal:
+          path: metadata.name
+          value: release-name-common-test-my-configmap2

@@ -1,6 +1,6 @@
 {{/* A dict containing .values and .serviceName is passed when this function is called */}}
 {{/* Return the primary port for a given Service object. */}}
-{{- define "ix.v1.common.lib.util.service.ports.primary" -}}
+{{- define "tc.v1.common.lib.util.service.ports.primary" -}}
   {{- $svcName := .svcName -}}
   {{- $svcValues := .svcValues -}}
 

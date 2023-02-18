@@ -2,7 +2,7 @@
 Blueprint for the NetworkPolicy object
 */}}
 {{- define "tc.v1.common.class.networkpolicy" -}}
-  {{- $fullName := include "ix.v1.common.names.fullname" . -}}
+  {{- $fullName := include "tc.v1.common.lib.chart.names.fullname" . -}}
   {{- $networkPolicyName := $fullName -}}
   {{- $values := .Values.networkPolicy -}}
 
@@ -22,26 +22,30 @@ kind: NetworkPolicy
 apiVersion: {{ include "tc.v1.common.capabilities.networkpolicy.apiVersion" $ }}
 metadata:
   name: {{ $networkPolicyName }}
-  {{- $labels := (mustMerge ($networkpolicyLabels | default dict) (include "ix.v1.common.labels" $ | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.labels.render" (dict "root" $ "labels" $labels) | trim) }}
+  {{- $labels := (mustMerge ($networkpolicyLabels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $ | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "labels" $labels) | trim) }}
   labels:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- $annotations := (mustMerge ($networkpolicyAnnotations | default dict) (include "ix.v1.common.annotations" $ | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $ "annotations" $annotations) | trim) }}
+  {{- $annotations := (mustMerge ($networkpolicyAnnotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $ | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
   {{- end }}
 spec:
   podSelector:
   {{- if $values.podSelector }}
-  {{- with $values.podSelector }}
-    {{- . | toYaml | nindent 4 }}
-  {{- end -}}
+  {{- tpl (toYaml $values.podSelector) $ | nindent 4 }}
+  {{- else if $values.targetSelector }}
+    {{- $objectData := dict "targetSelector" $values.targetSelector }}
+    {{- $selectedPod := fromYaml ( include "tc.v1.common.lib.helpers.getSelectedPodValues" (dict "rootCtx" $ "objectData" $objectData)) }}
+    {{- $selectedPodName := $selectedPod.shortName }}
+    matchLabels:
+      {{- include "tc.v1.common.lib.metadata.selectorLabels" (dict "rootCtx" $ "objectType" "pod" "objectName" $selectedPodName) | indent 8 }}
   {{- else }}
     matchLabels:
-    {{- include "ix.v1.common.labels.selectorLabels" . | nindent 6 }}
-  {{- end -}}
+      {{- include "tc.v1.common.lib.metadata.selectorLabels" (dict "rootCtx" $ "objectType" "" "objectName" "") | indent 8 }}
+  {{- end }}
 
   {{- if $values.policyType }}
   {{- if eq $values.policyType "ingress" }}

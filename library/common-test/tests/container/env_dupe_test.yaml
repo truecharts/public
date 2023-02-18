@@ -1,0 +1,252 @@
+suite: container env dupe test
+templates:
+  - common.yaml
+tests:
+# Failures
+  - it: should fail with dupe env in env and envList
+    set:
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: &probes
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+                env:
+                  VAR1: some_value
+                envList:
+                  - name: VAR1
+                    value: 123
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Environment Variable [VAR1] in [envList] tried to override the Environment Variable that is already defined in [env]
+
+  - it: should fail with dupe env in env and envFrom configmap
+    set:
+      image: *image
+      configmap:
+        configmap-name:
+          enabled: true
+          data:
+            VAR1: value
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                env:
+                  VAR1: some_value
+                envFrom:
+                  - configMapRef:
+                      name: configmap-name
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Environment Variable [VAR1] in [env] tried to override the Environment Variable that is already defined in [ConfigMap - configmap-name]
+
+  - it: should fail with dupe env in env and envFrom secret
+    set:
+      image: *image
+      secret:
+        secret-name:
+          enabled: true
+          data:
+            VAR1: value
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                env:
+                  VAR1: some_value
+                envFrom:
+                  - secretRef:
+                      name: secret-name
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Environment Variable [VAR1] in [env] tried to override the Environment Variable that is already defined in [Secret - secret-name]
+
+  - it: should fail with dupe env in envList and envFrom secret
+    set:
+      image: *image
+      secret:
+        secret-name:
+          enabled: true
+          data:
+            VAR1: value
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                envList:
+                  - name: VAR1
+                    value: some_value
+                envFrom:
+                  - secretRef:
+                      name: secret-name
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Environment Variable [VAR1] in [envList] tried to override the Environment Variable that is already defined in [Secret - secret-name]
+
+  - it: should fail with dupe env in envList and envFrom configmap
+    set:
+      image: *image
+      configmap:
+        configmap-name:
+          enabled: true
+          data:
+            VAR1: value
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                envList:
+                  - name: VAR1
+                    value: some_value
+                envFrom:
+                  - configMapRef:
+                      name: configmap-name
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Environment Variable [VAR1] in [envList] tried to override the Environment Variable that is already defined in [ConfigMap - configmap-name]
+
+  - it: should fail with dupe env in fixedEnv and env
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                env:
+                  TZ: some_value
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Environment Variable [TZ] in [env] tried to override the Environment Variable that is already defined in [fixedEnv]
+
+  - it: should fail with dupe env in fixedEnv and envList
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                envList:
+                  - name: TZ
+                    value: some_value
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Environment Variable [TZ] in [envList] tried to override the Environment Variable that is already defined in [fixedEnv]
+
+  - it: should fail with dupe env in fixedEnv and envFrom configmap
+    set:
+      image: *image
+      configmap:
+        configmap-name:
+          enabled: true
+          data:
+            TZ: value
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                envFrom:
+                  - configMapRef:
+                      name: configmap-name
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Environment Variable [TZ] in [fixedEnv] tried to override the Environment Variable that is already defined in [ConfigMap - configmap-name]
+
+  - it: should fail with dupe env in fixedEnv and envFrom secret
+    set:
+      image: *image
+      secret:
+        secret-name:
+          enabled: true
+          data:
+            TZ: value
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                envFrom:
+                  - secretRef:
+                      name: secret-name
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Environment Variable [TZ] in [fixedEnv] tried to override the Environment Variable that is already defined in [Secret - secret-name]

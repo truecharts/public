@@ -1,0 +1,201 @@
+suite: pod tolerations test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with empty tolerations
+    set:
+      podOptions:
+        tolerations: []
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isNull:
+          path: spec.template.spec.tolerations
+
+  - it: should pass with tolerations from "global"
+    set:
+      podOptions:
+        tolerations:
+          - operator: Exists
+            effect: NoExecute
+            tolerationSeconds: 3600
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.tolerations
+          value:
+            - operator: Exists
+              effect: NoExecute
+              tolerationSeconds: 3600
+
+  - it: should pass with tolerations from "pod"
+    set:
+      podOptions:
+        tolerations:
+          - operator: Exists
+            effect: NoExecute
+            tolerationSeconds: 3600
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            tolerations:
+              - operator: Exists
+                effect: NoSchedule
+                tolerationSeconds: 1800
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.tolerations
+          value:
+            - operator: Exists
+              effect: NoSchedule
+              tolerationSeconds: 1800
+
+  - it: should pass with tolerations from "pod" with tpl
+    set:
+      op: Exists
+      effect: NoSchedule
+      op1: Equal
+      effect1: PreferNoSchedule
+      key: key
+      value: value
+      podOptions:
+        tolerations:
+          - operator: Exists
+            effect: NoExecute
+            tolerationSeconds: 3600
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            tolerations:
+              - operator: "{{ .Values.op }}"
+                effect: "{{ .Values.effect }}"
+                tolerationSeconds: 1800
+              - operator: "{{ .Values.op1 }}"
+                effect: "{{ .Values.effect1 }}"
+                tolerationSeconds: 1800
+                key: "{{ .Values.key }}"
+                value: "{{ .Values.value }}"
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.tolerations
+          value:
+            - operator: Exists
+              effect: NoSchedule
+              tolerationSeconds: 1800
+            - operator: Equal
+              effect: PreferNoSchedule
+              tolerationSeconds: 1800
+              key: key
+              value: value
+
+  # Failures
+  - it: should fail with invalid operator
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            tolerations:
+              - operator: Invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected <tolerations.operator> to be one of [Exists, Equal] but got [Invalid]
+
+  - it: should fail with empty key and operator set to Equal
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            tolerations:
+              - operator: Equal
+                value: value
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected non-empty <tolerations.key> and <tolerations.value> with <tolerations.operator> set to [Equal]
+
+  - it: should fail with empty value and operator set to Equal
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            tolerations:
+              - operator: Equal
+                key: key
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected non-empty <tolerations.key> and <tolerations.value> with <tolerations.operator> set to [Equal]
+
+  - it: should fail with value set and operator set to Exists
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            tolerations:
+              - operator: Exists
+                value: value
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected empty <tolerations.value> with <tolerations.operator> set to [Exists], but got [value]
+
+  - it: should fail with effect set to Invalid
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            tolerations:
+              - operator: Exists
+                effect: Invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected <tolerations.effect> to be one of [NoExecute, NoSchedule, PreferNoSchedule], but got [Invalid]
+
+  - it: should fail with tolerationSeconds not a number
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            tolerations:
+              - operator: Exists
+                tolerationSeconds: not-a-number
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected <tolerations.tolerationSeconds> to be a number, but got [not-a-number]

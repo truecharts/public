@@ -3,8 +3,8 @@ This template serves as a blueprint for horizontal pod autoscaler objects that a
 using the common library.
 */}}
 {{- define "tc.v1.common.class.hpa" -}}
-  {{- $targetName := include "ix.v1.common.names.fullname" . -}}
-  {{- $fullName := include "ix.v1.common.names.fullname" . -}}
+  {{- $targetName := include "tc.v1.common.lib.chart.names.fullname" . -}}
+  {{- $fullName := include "tc.v1.common.lib.chart.names.fullname" . -}}
   {{- $hpaName := $fullName -}}
   {{- $values := .Values.hpa -}}
 
@@ -24,20 +24,20 @@ apiVersion: {{ include "tc.v1.common.capabilities.hpa.apiVersion" $ }}
 kind: HorizontalPodAutoscaler
 metadata:
   name: {{ $hpaName }}
-  {{- $labels := (mustMerge ($hpaLabels | default dict) (include "ix.v1.common.labels" $ | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.labels.render" (dict "root" $ "labels" $labels) | trim) }}
+  {{- $labels := (mustMerge ($hpaLabels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $ | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "labels" $labels) | trim) }}
   labels:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- $annotations := (mustMerge ($hpaAnnotations | default dict) (include "ix.v1.common.annotations" $ | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $ "annotations" $annotations) | trim) }}
+  {{- $annotations := (mustMerge ($hpaAnnotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $ | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
   {{- end -}}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
-    kind: {{ $values.targetKind | default ( include "ix.v1.common.names.controllerType" . ) }}
+    kind: {{ $values.targetKind | default ( include "tc.v1.common.names.controllerType" . ) }}
     name: {{ $values.target | default $targetName }}
   minReplicas: {{ $values.minReplicas | default 1 }}
   maxReplicas: {{ $values.maxReplicas | default 3 }}

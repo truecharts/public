@@ -1,0 +1,232 @@
+suite: volumeClaimTemplates data name test
+templates:
+  - common.yaml
+tests:
+  - it: should create vct
+    set:
+      volumeClaimTemplates:
+        my-volume1:
+          enabled: true
+          mountPath: /some/path
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: &statefulSetDoc 0
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].metadata.name
+          value: my-volume1
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.accessModes
+          value:
+            - ReadWriteOnce
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.resources.requests.storage
+          value: 100Gi
+      - documentIndex: *statefulSetDoc
+        isNull:
+          path: spec.volumeClaimTemplates[0].spec.storageClassName
+
+  - it: should create vct with accessModes set as string
+    set:
+      some_mode: ReadWriteMany
+      volumeClaimTemplates:
+        my-volume1:
+          enabled: true
+          mountPath: /some/path
+          accessModes: "{{ .Values.some_mode }}"
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.accessModes
+          value:
+            - ReadWriteMany
+
+  - it: should create pvc with accessModes set as list
+    set:
+      some_mode: ReadWriteMany
+      volumeClaimTemplates:
+        my-volume1:
+          enabled: true
+          mountPath: /some/path
+          accessModes:
+            - "{{ .Values.some_mode }}"
+            - ReadWriteOnce
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.accessModes
+          value:
+            - ReadWriteMany
+            - ReadWriteOnce
+
+  - it: should create pvc with size set
+    set:
+      volumeClaimTemplates:
+        my-volume1:
+          enabled: true
+          mountPath: /some/path
+          size: 20Gi
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.resources.requests.storage
+          value: 20Gi
+
+  - it: should create vct with storageClass set "-"
+    set:
+      some_storage_class: "-"
+      volumeClaimTemplates:
+        my-volume1:
+          enabled: true
+          mountPath: /some/path
+          storageClass: "{{ .Values.some_storage_class }}"
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.storageClassName
+          value: ""
+
+  - it: should create vct with storageClass set
+    set:
+      some_storage_class: some-storage-class
+      volumeClaimTemplates:
+        my-volume1:
+          enabled: true
+          mountPath: /some/path
+          storageClass: "{{ .Values.some_storage_class }}"
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.storageClassName
+          value: some-storage-class
+
+  - it: should create vct with storageClass not set, but have fallbackDefaults set
+    set:
+      fallbackDefaults:
+        storageClass: some-storage-class
+      volumeClaimTemplates:
+        my-volume1:
+          enabled: true
+          mountPath: /some/path
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.storageClassName
+          value: some-storage-class
+
+  - it: should create vct with storageClass set "SCALE-ZFS" and within ixChartContext
+    set:
+      global:
+        ixChartContext:
+          storageClassName: ix-storage-class-releasename
+      some_storage_class: "SCALE-ZFS"
+      volumeClaimTemplates:
+        my-volume1:
+          enabled: true
+          mountPath: /some/path
+          storageClass: "{{ .Values.some_storage_class }}"
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.storageClassName
+          value: ix-storage-class-releasename
+
+  - it: should create pvc with storageClass not set and within ixChartContext
+    set:
+      global:
+        ixChartContext:
+          storageClassName: ix-storage-class-releasename
+      some_storage_class: "SCALE-ZFS"
+      volumeClaimTemplates:
+        my-volume1:
+          enabled: true
+          mountPath: /some/path
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.storageClassName
+          value: ix-storage-class-releasename

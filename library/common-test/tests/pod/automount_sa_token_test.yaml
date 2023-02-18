@@ -1,0 +1,75 @@
+suite: pod auto mount sa token test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with automountServiceAccountToken disabled from "global"
+    set:
+      podOptions:
+        automountServiceAccountToken: false
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.automountServiceAccountToken
+          value: false
+
+  - it: should pass with automountServiceAccountToken enabled from "global"
+    set:
+      podOptions:
+        automountServiceAccountToken: true
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.automountServiceAccountToken
+          value: true
+
+  - it: should pass with disabled automountServiceAccountToken from pod
+    set:
+      podOptions:
+        automountServiceAccountToken: true
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            automountServiceAccountToken: false
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.automountServiceAccountToken
+          value: false
+
+  - it: should pass with enabled automountServiceAccountToken from pod
+    set:
+      podOptions:
+        automountServiceAccountToken: false
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            automountServiceAccountToken: true
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.automountServiceAccountToken
+          value: true

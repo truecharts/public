@@ -1,0 +1,41 @@
+suite: container validation test
+templates:
+  - common.yaml
+tests:
+  - it: should fail with more than one primary container on a workload
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+              container-name2:
+                enabled: true
+                primary: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Only one container can be primary per workload
+
+  - it: should fail with no primary container on a workload
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: false
+              container-name2:
+                enabled: true
+                primary: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - At least one enabled container must be primary per workload

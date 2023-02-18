@@ -1,0 +1,54 @@
+suite: job spec test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with workload enabled
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Job
+          podSpec: {}
+    asserts:
+      - documentIndex: &jobDoc 0
+        isKind:
+          of: Job
+      - documentIndex: *jobDoc
+        isAPIVersion:
+          of: batch/v1
+      - documentIndex: *jobDoc
+        isSubset:
+          path: spec
+          content:
+            backoffLimit: 5
+            completionMode: NonIndexed
+            completions:
+            parallelism: 1
+            ttlSecondsAfterFinished: 120
+
+  - it: should apply spec correctly
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Job
+          backoffLimit: 5
+          completionMode: Indexed
+          completions: 5
+          parallelism: 5
+          ttlSecondsAfterFinished: 100
+          activeDeadlineSeconds: 100
+          podSpec: {}
+    asserts:
+      - documentIndex: *jobDoc
+        isSubset:
+          path: spec
+          content:
+            backoffLimit: 5
+            completionMode: Indexed
+            completions: 5
+            parallelism: 5
+            ttlSecondsAfterFinished: 100
+            activeDeadlineSeconds: 100

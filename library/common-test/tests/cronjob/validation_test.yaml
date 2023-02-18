@@ -1,0 +1,43 @@
+suite: cronjob validation test
+templates:
+  - common.yaml
+tests:
+  - it: should fail with invalid concurrencyPolicy
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: CronJob
+          concurrencyPolicy: not-a-policy
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: CronJob - Expected <concurrencyPolicy> to be one of [Allow, Forbid, Replace], but got [not-a-policy]
+
+  - it: should fail with empty schedule
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule:
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: CronJob - Expected non-empty <schedule>
+
+  - it: should fail with invalid completionMode (make sure job validation kicks in)
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "* * * * *"
+          completionMode: not-a-mode
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Job - Expected <completionMode> to be one of [Indexed, NonIndexed], but got [not-a-mode]

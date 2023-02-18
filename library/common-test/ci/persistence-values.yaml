@@ -5,25 +5,40 @@ image:
 
 service:
   main:
+    enabled: true
+    primary: true
     ports:
       main:
+        enabled: true
+        primary: true
         port: 8080
 
-args:
-  - --port
-  - '8080'
-
-manifests:
-  enabled: false
-  staging: false
-
-probes:
-  liveness:
+workload:
+  main:
     enabled: true
-  readiness:
-    enabled: true
-  startup:
-    enabled: true
+    primary: true
+    type: Deployment
+    podSpec:
+      containers:
+        main:
+          enabled: true
+          primary: true
+          args:
+            - --port
+            - "8080"
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+            readiness:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+            startup:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
 
 persistence:
   pvc-stock:
@@ -36,12 +51,6 @@ persistence:
     type: pvc
     mountPath: /pvcsize
     size: 1Gi
-
-  pvc-forcedname:
-    enabled: true
-    type: pvc
-    forceName: "testname"
-    mountPath: /pvcfn
 
   pvc-readonly:
     enabled: true
@@ -63,13 +72,6 @@ persistence:
     readOnly: false
     storageClass: ""
 
-  pvc-auto:
-    enabled: true
-    setPermissions: true
-    type: pvc
-    mountPath: /autotest
-    readOnly: false
-
   emptydir:
     enabled: true
     type: emptyDir
@@ -85,14 +87,14 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: /emptydirsize
-    sizeLimit: 1Gi
+    size: 1Gi
 
   emptydir-memsize:
     enabled: true
     type: emptyDir
     mountPath: /emptydirmemsize
     medium: Memory
-    sizeLimit: 1Gi
+    size: 1Gi
 
   hostpath-stock:
     enabled: true
@@ -100,3 +102,6 @@ persistence:
     hostPath: /usr
     mountPath: /hptest
     hostPathType: ""
+
+manifestManager:
+  enabled: false

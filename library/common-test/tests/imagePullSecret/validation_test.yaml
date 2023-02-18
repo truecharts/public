@@ -1,0 +1,129 @@
+suite: imagePullSecret validation test
+templates:
+  - common.yaml
+tests:
+  - it: should fail with name longer than 63 characters
+    set:
+      imagePullSecret:
+        my-pull-secret-super-long-name-that-is-longer-than-63-characters:
+          enabled: true
+          data: &data
+            registry: reg
+            username: user
+            password: pass
+            email: mail
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [release-name-common-test-my-pull-secret-super-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with name starting with underscore
+    set:
+      imagePullSecret:
+        _my-pull-secret:
+          enabled: true
+          data: *data
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [release-name-common-test-_my-pull-secret] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with labels not a dict
+    set:
+      imagePullSecret:
+        my-pull-secret:
+          enabled: true
+          labels: "not a dict"
+          data: *data
+    asserts:
+      - failedTemplate:
+          errorMessage: Image Pull Secret - Expected <labels> to be a dictionary, but got [string]
+
+  - it: should fail with annotations not a dict
+    set:
+      imagePullSecret:
+        my-pull-secret:
+          enabled: true
+          annotations: "not a dict"
+          data: *data
+    asserts:
+      - failedTemplate:
+          errorMessage: Image Pull Secret - Expected <annotations> to be a dictionary, but got [string]
+
+  - it: should fail with data not a dict
+    set:
+      imagePullSecret:
+        my-pull-secret:
+          enabled: true
+          data: "not a dict"
+    asserts:
+      - failedTemplate:
+          errorMessage: Image Pull Secret - Expected <data> to be a dictionary, but got [string]
+
+  - it: should fail with empty data
+    set:
+      imagePullSecret:
+        my-pull-secret:
+          enabled: true
+          data: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Image Pull Secret - Expected non-empty <data>
+
+  - it: should fail with empty registry key
+    set:
+      imagePullSecret:
+        my-pull-secret:
+          enabled: true
+          type: ""
+          data:
+            registry: ""
+            username: user
+            password: pass
+            email: mail
+    asserts:
+      - failedTemplate:
+          errorMessage: Image Pull Secret - Expected non-empty <registry>
+
+  - it: should fail with empty username key
+    set:
+      imagePullSecret:
+        my-pull-secret:
+          enabled: true
+          type: ""
+          data:
+            registry: registry
+            username: ""
+            password: pass
+            email: mail
+    asserts:
+      - failedTemplate:
+          errorMessage: Image Pull Secret - Expected non-empty <username>
+
+  - it: should fail with empty password key
+    set:
+      imagePullSecret:
+        my-pull-secret:
+          enabled: true
+          type: ""
+          data:
+            registry: registry
+            username: user
+            password: ""
+            email: mail
+    asserts:
+      - failedTemplate:
+          errorMessage: Image Pull Secret - Expected non-empty <password>
+
+  - it: should fail with empty email key
+    set:
+      imagePullSecret:
+        my-pull-secret:
+          enabled: true
+          type: ""
+          data:
+            registry: registry
+            username: user
+            password: pass
+            email: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Image Pull Secret - Expected non-empty <email>

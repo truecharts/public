@@ -1,0 +1,673 @@
+suite: container probe test
+templates:
+  - common.yaml
+tests:
+  - it: should create the probes correctly
+    set:
+      some_port: 80
+      some_path: /healthz
+      some_command: echo
+      probe_type: exec
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: &probes
+                  liveness:
+                    enabled: true
+                    type: http
+                    port: "{{ .Values.some_port }}"
+                    path: "{{ .Values.some_path }}"
+                  readiness:
+                    enabled: true
+                    type: tcp
+                    port: 123
+                  startup:
+                    enabled: true
+                    type: "{{ .Values.probe_type }}"
+                    command:
+                      - "{{ .Values.some_command }}"
+                      - hello
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            livenessProbe:
+              httpGet:
+                path: /healthz
+                port: 80
+                scheme: HTTP
+              failureThreshold: 5
+              initialDelaySeconds: 10
+              periodSeconds: 10
+              successThreshold: 1
+              timeoutSeconds: 5
+            readinessProbe:
+              tcpSocket:
+                port: 123
+              failureThreshold: 5
+              initialDelaySeconds: 10
+              periodSeconds: 10
+              successThreshold: 2
+              timeoutSeconds: 5
+            startupProbe:
+              exec:
+                command:
+                  - echo
+                  - hello
+              failureThreshold: 60
+              initialDelaySeconds: 10
+              periodSeconds: 5
+              successThreshold: 1
+              timeoutSeconds: 2
+
+  - it: should create https probe
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: &probes
+                  liveness:
+                    enabled: true
+                    type: https
+                    port: 443
+                    spec:
+                      initialDelaySeconds: 120
+                      timeoutSeconds: 10
+                      periodSeconds: 15
+                      successThreshold: 1
+                      failureThreshold: 3
+                  readiness:
+                    enabled: true
+                    type: tcp
+                    port: 443
+                    spec:
+                      initialDelaySeconds: 50
+                      timeoutSeconds: 30
+                      periodSeconds: 8
+                      successThreshold: 5
+                      failureThreshold: 9
+                  startup:
+                    enabled: true
+                    type: tcp
+                    port: 443
+                    spec:
+                      initialDelaySeconds: 25
+                      timeoutSeconds: 40
+                      periodSeconds: 7
+                      successThreshold: 1
+                      failureThreshold: 12
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            livenessProbe:
+              httpGet:
+                path: /
+                port: 443
+                scheme: HTTPS
+              failureThreshold: 3
+              initialDelaySeconds: 120
+              periodSeconds: 15
+              successThreshold: 1
+              timeoutSeconds: 10
+            readinessProbe:
+              tcpSocket:
+                port: 443
+              failureThreshold: 9
+              initialDelaySeconds: 50
+              periodSeconds: 8
+              successThreshold: 5
+              timeoutSeconds: 30
+            startupProbe:
+              tcpSocket:
+                port: 443
+              failureThreshold: 12
+              initialDelaySeconds: 25
+              periodSeconds: 7
+              successThreshold: 1
+              timeoutSeconds: 40
+
+  # Failures
+  - it: should fail with invalid probe
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+                  invalid:
+                    enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected probe to be one of [liveness, readiness, startup], but got [invalid]
+
+  - it: should fail without probes defined
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty <probes>
+
+  - it: should fail without liveness defined
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <probes.liveness> to be defined
+
+  - it: should fail without readiness defined
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  liveness:
+                    enabled: false
+                  startup:
+                    enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <probes.readiness> to be defined
+
+  - it: should fail without startup defined
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <probes.startup> to be defined
+
+  - it: should fail with invalid type
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  liveness:
+                    enabled: true
+                    type: invalid
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected probe type to be one of [http, https, tcp, grpc, exec], but got [invalid]
+
+  - it: should fail with successThreshold more than 1 on liveness
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  liveness:
+                    enabled: true
+                    type: http
+                    port: 8080
+                    spec:
+                      successThreshold: 2
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <probes> <successThreshold> to be 1 on [liveness] probe
+
+  - it: should fail with successThreshold more than 1 on startup
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  startup:
+                    enabled: true
+                    type: http
+                    port: 8080
+                    spec:
+                      successThreshold: 2
+                  readiness:
+                    enabled: false
+                  liveness:
+                    enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <probes> <successThreshold> to be 1 on [startup] probe
+
+  - it: should fail with initialDelaySeconds not a number
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  liveness:
+                    enabled: true
+                    type: http
+                    port: 8080
+                    spec:
+                      initialDelaySeconds: invalid
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <probes> <initialDelaySeconds> to be a number, but got [invalid]
+
+  - it: should fail with failureThreshold not a number
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  liveness:
+                    enabled: true
+                    type: http
+                    port: 8080
+                    spec:
+                      failureThreshold: invalid
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <probes> <failureThreshold> to be a number, but got [invalid]
+
+  - it: should fail with successThreshold not a number
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  liveness:
+                    enabled: true
+                    type: http
+                    port: 8080
+                    spec:
+                      successThreshold: invalid
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <probes> <successThreshold> to be a number, but got [invalid]
+
+  - it: should fail with timeoutSeconds not a number
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  liveness:
+                    enabled: true
+                    type: http
+                    port: 8080
+                    spec:
+                      timeoutSeconds: invalid
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <probes> <timeoutSeconds> to be a number, but got [invalid]
+
+  - it: should fail with periodSeconds not a number
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  liveness:
+                    enabled: true
+                    type: http
+                    port: 8080
+                    spec:
+                      periodSeconds: invalid
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <probes> <periodSeconds> to be a number, but got [invalid]
+
+  - it: should fail with empty command on exec type
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  liveness:
+                    enabled: true
+                    type: exec
+                    command: []
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty <probes> <command> on [exec] type
+
+  - it: should fail with empty port on grpc type
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  liveness:
+                    enabled: true
+                    type: grpc
+                    port: ""
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty <probes> <port> on [grpc] type
+
+  - it: should fail with empty port on tcp type
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  liveness:
+                    enabled: true
+                    type: tcp
+                    port: ""
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty <probes> <port> on [tcp] type
+
+  - it: should fail with empty port on http type
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  liveness:
+                    enabled: true
+                    type: http
+                    port: ""
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty <probes> <port> on [http] type
+
+  - it: should fail with invalid path on http type
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  liveness:
+                    enabled: true
+                    type: http
+                    port: 8080
+                    path: not-starting-with-slash
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <probes> <path> to start with a forward slash [/] on <http> type
+
+  - it: should fail with empty value in http headers
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes:
+                  liveness:
+                    enabled: true
+                    type: http
+                    port: not-starting-with-slash
+                    httpHeaders:
+                      key:
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty <value> on <httpHeaders>

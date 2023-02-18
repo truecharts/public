@@ -1,0 +1,272 @@
+suite: container lifecycle test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with lifecycle
+    set:
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: &probes
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+                lifecycle:
+                  postStart:
+                    type: exec
+                    command:
+                      - echo
+                      - hello
+                  preStop:
+                    type: http
+                    port: 80
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            lifecycle:
+              postStart:
+                exec:
+                  command:
+                    - echo
+                    - hello
+              preStop:
+                httpGet:
+                  port: 80
+                  path: /
+                  scheme: HTTP
+
+  - it: should pass with lifecycle
+    set:
+      image: *image
+      some_command: ./some_command
+      some_port: 80
+      some_host: some_host
+      some_path: /api/v1
+      some_value: 123
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                lifecycle:
+                  postStart:
+                    type: https
+                    port: "{{ .Values.some_port }}"
+                    host: "{{ .Values.some_host }}"
+                    path: "{{ .Values.some_path }}"
+                    httpHeaders:
+                      key: "{{ .Values.some_value }}"
+                  preStop:
+                    type: exec
+                    command: "{{ .Values.some_command }}"
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            lifecycle:
+              postStart:
+                httpGet:
+                  port: 80
+                  path: /api/v1
+                  scheme: HTTPS
+                  host: some_host
+                  httpHeaders:
+                    - name: key
+                      value: "123"
+              preStop:
+                exec:
+                  command:
+                    - ./some_command
+
+  # Failures
+  - it: should fail with invalid lifecycle hook
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                probes: *probes
+                imageSelector: image
+                lifecycle:
+                  invalid: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <lifecycle> <hook> to be one of [preStop, postStart], but got [invalid]
+
+  - it: should fail with empty lifecycle type
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                lifecycle:
+                  preStop:
+                    command: []
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty <lifecycle> <type>
+
+  - it: should fail with invalid lifecycle type
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                lifecycle:
+                  preStop:
+                    type: invalid
+                    command: []
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <lifecycle> <type> to be one of [exec, http, https], but got [invalid]
+
+  - it: should fail with empty command on exec lifecycle type
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                lifecycle:
+                  preStop:
+                    type: exec
+                    command: []
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty <lifecycle> <command> on [exec] type
+
+  - it: should fail with empty port on http lifecycle type
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                lifecycle:
+                  preStop:
+                    type: http
+                    port: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty <lifecycle> <port> on [http] type
+
+  - it: should fail with path not starting with / on http lifecycle type
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                lifecycle:
+                  preStop:
+                    type: http
+                    port: 80
+                    path: "api/v1"
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <lifecycle> <path> to start with a forward slash [/] on <http> type
+
+  - it: should fail with empty value on httpHeaders on http lifecycle type
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                lifecycle:
+                  preStop:
+                    type: http
+                    port: 80
+                    httpHeaders:
+                      key: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty <value> on <httpHeaders>

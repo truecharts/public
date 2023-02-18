@@ -1,0 +1,191 @@
+suite: pod runtime class name test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with empty runtimeClassName
+    set:
+      podOptions:
+        runtimeClassName: ""
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isNull:
+          path: spec.template.spec.runtimeClassName
+
+  - it: should pass with runtimeClassName from "global"
+    set:
+      podOptions:
+        runtimeClassName: some-runtime-class
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.runtimeClassName
+          value: some-runtime-class
+
+  - it: should pass with runtimeClassName from "pod"
+    set:
+      podOptions:
+        runtimeClassName: some-runtime-class
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            runtimeClassName: some-other-runtime-class
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.runtimeClassName
+          value: some-other-runtime-class
+
+  - it: should pass with runtimeClassName from "pod" with tpl
+    set:
+      runtimeClass: some-other-runtime-class
+      podOptions:
+        runtimeClassName: some-runtime-class
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            runtimeClassName: "{{ .Values.runtimeClass }}"
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.runtimeClassName
+          value: some-other-runtime-class
+
+  - it: should pass with runtimeClassName from ixChartContext with targetSelector
+    set:
+      scaleGPU:
+        - gpu:
+            key: value
+          targetSelector:
+            workload-name1:
+              - container-name1
+            workload-name3:
+              - container-name1
+      global:
+        ixChartContext:
+          addNvidiaRuntimeClass: true
+          nvidiaRuntimeClassName: ix-runtime
+      podOptions:
+        runtimeClassName: some-class
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            runtimeClassName: some-other-class
+        workload-name2:
+          enabled: true
+          primary: false
+          type: DaemonSet
+          podSpec:
+            runtimeClassName: some-class
+        workload-name3:
+          enabled: true
+          primary: false
+          type: StatefulSet
+          podSpec:
+            runtimeClassName: some-class
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.runtimeClassName
+          value: ix-runtime
+      - documentIndex: &daemonSetDoc 1
+        isKind:
+          of: DaemonSet
+      - documentIndex: *daemonSetDoc
+        equal:
+          path: spec.template.spec.runtimeClassName
+          value: some-class
+      - documentIndex: &statefulSetDoc 2
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.template.spec.runtimeClassName
+          value: ix-runtime
+
+  - it: should pass with runtimeClassName from ixChartContext without targetSelector (on primary workload)
+    set:
+      scaleGPU:
+        - gpu:
+            key: value
+      global:
+        ixChartContext:
+          addNvidiaRuntimeClass: true
+          nvidiaRuntimeClassName: ix-runtime
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Job
+          podSpec:
+            runtimeClassName: some-other-class
+        workload-name2:
+          enabled: true
+          primary: false
+          type: CronJob
+          schedule: "* * * * *"
+          podSpec: {}
+    asserts:
+      - documentIndex: &jobDoc 0
+        isKind:
+          of: Job
+      - documentIndex: *jobDoc
+        equal:
+          path: spec.template.spec.runtimeClassName
+          value: ix-runtime
+      - documentIndex: &cronJobDoc 1
+        isKind:
+          of: CronJob
+      - documentIndex: *cronJobDoc
+        isNull:
+          path: spec.jobTemplate.spec.template.spec.runtimeClassName
+
+  - it: should pass with runtimeClassName not set from ixChartContext without gpu value
+    set:
+      scaleGPU:
+        - gpu: {}
+          targetSelector:
+            workload-name1:
+              - container-name1
+      global:
+        ixChartContext:
+          addNvidiaRuntimeClass: true
+          nvidiaRuntimeClassName: ix-runtime
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Job
+          podSpec:
+            runtimeClassName: some-other-class
+    asserts:
+      - documentIndex: *jobDoc
+        isKind:
+          of: Job
+      - documentIndex: *jobDoc
+        equal:
+          path: spec.template.spec.runtimeClassName
+          value: some-other-class

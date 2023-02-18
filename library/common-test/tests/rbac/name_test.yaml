@@ -1,0 +1,105 @@
+suite: rbac name test
+templates:
+  - common.yaml
+tests:
+  - it: should generate correct name
+    set:
+      serviceAccount:
+        my-sa:
+          enabled: true
+          primary: true
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              verbs:
+                - get
+        my-rbac2:
+          enabled: true
+          clusterWide: true
+          allServiceAccounts: true
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              verbs:
+                - get
+        my-rbac3:
+          enabled: true
+          allServiceAccounts: true
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              verbs:
+                - get
+    asserts:
+      - documentIndex: &roleDoc 1
+        isKind:
+          of: Role
+      - documentIndex: *roleDoc
+        isAPIVersion:
+          of: rbac.authorization.k8s.io/v1
+      - documentIndex: *roleDoc
+        equal:
+          path: metadata.name
+          value: release-name-common-test
+      - documentIndex: &roleBindingDoc 2
+        isKind:
+          of: RoleBinding
+      - documentIndex: *roleBindingDoc
+        isAPIVersion:
+          of: rbac.authorization.k8s.io/v1
+      - documentIndex: *roleBindingDoc
+        equal:
+          path: metadata.name
+          value: release-name-common-test
+
+      - documentIndex: &clusterRoleDoc 3
+        isKind:
+          of: ClusterRole
+      - documentIndex: *clusterRoleDoc
+        isAPIVersion:
+          of: rbac.authorization.k8s.io/v1
+      - documentIndex: *clusterRoleDoc
+        equal:
+          path: metadata.name
+          value: release-name-common-test-my-rbac2
+      - documentIndex: &clusterRoleBindingDoc 4
+        isKind:
+          of: ClusterRoleBinding
+      - documentIndex: *clusterRoleBindingDoc
+        isAPIVersion:
+          of: rbac.authorization.k8s.io/v1
+      - documentIndex: *clusterRoleBindingDoc
+        equal:
+          path: metadata.name
+          value: release-name-common-test-my-rbac2
+
+      - documentIndex: &otherRoleDoc 5
+        isKind:
+          of: Role
+      - documentIndex: *otherRoleDoc
+        isAPIVersion:
+          of: rbac.authorization.k8s.io/v1
+      - documentIndex: *otherRoleDoc
+        equal:
+          path: metadata.name
+          value: release-name-common-test-my-rbac3
+      - documentIndex: &otherRoleBindingDoc 6
+        isKind:
+          of: RoleBinding
+      - documentIndex: *otherRoleBindingDoc
+        isAPIVersion:
+          of: rbac.authorization.k8s.io/v1
+      - documentIndex: *otherRoleBindingDoc
+        equal:
+          path: metadata.name
+          value: release-name-common-test-my-rbac3

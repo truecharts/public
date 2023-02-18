@@ -1,33 +1,37 @@
-{{/* Returns the lifecycle for the container */}}
-{{- define "ix.v1.common.container.lifecycle" -}}
-  {{- $root := .root -}}
-  {{- $lifecycle := .lifecycle -}}
+{{/* Returns lifecycle */}}
+{{/* Call this template:
+{{ include "tc.v1.common.lib.container.lifecycle" (dict "rootCtx" $ "objectData" $objectData) }}
+rootCtx: The root context of the chart.
+objectData: The object data to be used to render the container.
+*/}}
+{{- define "tc.v1.common.lib.container.lifecycle" -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData -}}
 
-  {{- with $lifecycle -}}
-    {{- range $k, $v := . -}}
-      {{- if not (mustHas $k (list "preStop" "postStart")) -}}
-        {{- fail (printf "Invalid key (%s) in lifecycle. Valid keys are preStop and postStart" $k) -}}
+  {{- $hooks := (list "preStop" "postStart") -}}
+  {{- $types := (list "exec" "http" "https") -}}
+  {{- with $objectData.lifecycle -}}
+    {{- range $hook, $hookValues := . -}}
+      {{- if not (mustHas $hook $hooks) -}}
+        {{- fail (printf "Container - Expected <lifecycle> <hook> to be one of [%s], but got [%s]" (join ", " $hooks) $hook) -}}
       {{- end -}}
+
+      {{- if not $hookValues.type -}}
+        {{- fail "Container - Expected non-empty <lifecycle> <type>" -}}
+      {{- end -}}
+
+      {{- if not (mustHas $hookValues.type $types) -}}
+        {{- fail (printf "Container - Expected <lifecycle> <type> to be one of [%s], but got [%s]" (join ", " $types) $hookValues.type) -}}
+      {{- end }}
+{{ $hook }}:
+      {{- if eq $hookValues.type "exec" -}}
+        {{- include "tc.v1.common.lib.container.actions.exec" (dict "rootCtx" $rootCtx "objectData" $hookValues "caller" "lifecycle") | trim | nindent 2 -}}
+      {{- else if mustHas $hookValues.type (list "http" "https") -}}
+        {{- include "tc.v1.common.lib.container.actions.httpGet" (dict "rootCtx" $rootCtx "objectData" $hookValues "caller" "lifecycle") | trim | nindent 2 -}}
+      {{- end -}}
+
     {{- end -}}
   {{- end -}}
-  {{- if (hasKey $lifecycle "preStop") -}}
-    {{- with $lifecycle.preStop.command }}
-      {{- print "preStop:" | nindent 0 }}
-      {{- print "exec:" | nindent 2 }}
-      {{- print "command:" | nindent 4 }}
-      {{- include "ix.v1.common.container.command" (dict "commands" . "root" $root) | trim | nindent 6 }}
-    {{- else -}}
-      {{- fail "No commands were given for preStop lifecycle hook" -}}
-    {{- end -}}
-  {{- end -}}
-  {{- if (hasKey $lifecycle "postStart") -}}
-    {{- with $lifecycle.postStart.command }}
-      {{- print "postStart:" | nindent 0 }}
-      {{- print "exec:" | nindent 2 }}
-      {{- print "command:" | nindent 4 }}
-      {{- include "ix.v1.common.container.command" (dict "commands" . "root" $root) | trim | nindent 6 }}
-    {{- else -}}
-      {{- fail "No commands were given for postStart lifecycle hook" -}}
-    {{- end -}}
-  {{- end -}}
+
+
 {{- end -}}

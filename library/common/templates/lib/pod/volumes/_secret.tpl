@@ -1,24 +1,57 @@
-{{- define "ix.v1.common.controller.volumes.secret" -}}
-  {{- $index := .index -}}
-  {{- $vol := .volume -}}
-  {{- $root := .root -}}
-  {{- $objectName := tpl (required (printf "objectName not set for persistence item %s" (toString $index)) $vol.objectName) $root }}
-- name: {{ $index }}
+{{/* Returns Secret Volume */}}
+{{/* Call this template:
+{{ include "tc.v1.common.lib.pod.volume.secret" (dict "rootCtx" $ "objectData" $objectData) }}
+rootCtx: The root context of the chart.
+objectData: The object data to be used to render the volume.
+*/}}
+{{- define "tc.v1.common.lib.pod.volume.secret" -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData -}}
+
+  {{- if not $objectData.objectName -}}
+    {{- fail "Persistence - Expected non-empty <objectName> on <secret> type" -}}
+  {{- end -}}
+
+  {{- $objectName := tpl $objectData.objectName $rootCtx -}}
+  {{- $expandName := true -}}
+  {{- if kindIs "bool" $objectData.expandObjectName -}}
+    {{- $expandName = $objectData.expandObjectName -}}
+  {{- end -}}
+
+  {{- if $expandName -}}
+    {{- $objectName = (printf "%s-%s" (include "tc.v1.common.lib.chart.names.fullname" $rootCtx) $objectName) -}}
+  {{- end -}}
+
+  {{- $defMode := "" -}}
+
+  {{- if (and $objectData.defaultMode (not (kindIs "string" $objectData.defaultMode))) -}}
+    {{- fail (printf "Persistence - Expected <defaultMode> to be [string], but got [%s]" (kindOf $objectData.defaultMode)) -}}
+  {{- end -}}
+
+  {{- with $objectData.defaultMode -}}
+    {{- $defMode = tpl $objectData.defaultMode $rootCtx -}}
+  {{- end -}}
+
+  {{- if and $defMode (not (mustRegexMatch "^[0-9]{4}$" $defMode)) -}}
+    {{- fail (printf "Persistence - Expected <defaultMode> to have be in format of [\"0777\"], but got [%q]" $defMode) -}}
+  {{- end }}
+- name: {{ $objectData.shortName }}
   secret:
     secretName: {{ $objectName }}
-  {{- with $vol.defaultMode }}
-    {{- $defMode := tpl (toString .) $root -}}
-    {{- if (mustRegexMatch "^[0-9]{4}$" $defMode) }} {{/* TODO: Document that "0700" equals to 448 in octal, k8s accepts both */}}
-    defaultMode: {{ $defMode }} {{/* TODO: But because when octal values pass from go variables they covert to octal, we require them as string to avoid confusion */}}
-    {{- else -}}
-      {{- fail (printf "<defaultMode> (%s, converted to octal) is not valid format. Valid format is string with 4 digits <0777>." $defMode) -}}
+    {{- with $defMode }}
+    defaultMode: {{ . }}
     {{- end -}}
-  {{- end -}}
-  {{- with $vol.items }}
+    {{- with $objectData.items }}
     items:
-    {{- range . }}
-      - key: {{ tpl (required (printf "No key was given for persistence item %s" (toString $index)) .key) $root }}
-        path: {{ tpl (required (printf "No path was given for persistence item %s" (toString $index)) .path) $root }}
+      {{- range . -}}
+        {{- if not .key -}}
+          {{- fail "Persistence - Expected non-empty <items.key>" -}}
+        {{- end -}}
+        {{- if not .path -}}
+          {{- fail "Persistence - Expected non-empty <items.path>" -}}
+        {{- end }}
+    - key: {{ tpl .key $rootCtx }}
+      path: {{ tpl .path $rootCtx }}
+        {{- end -}}
     {{- end -}}
-  {{- end -}}
 {{- end -}}

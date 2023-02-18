@@ -4,7 +4,7 @@
   {{- range $name, $cert := .Values.cert -}}
     {{- if $cert.enabled -}}
       {{- $certValues := $cert -}}
-      {{- $certName := include "ix.v1.common.names.fullname" $ -}}
+      {{- $certName := include "tc.v1.common.lib.chart.names.fullname" $ -}}
 
       {{/* set defaults */}}
       {{- if and (not $certValues.nameOverride) (ne $name (include "tc.v1.common.lib.util.cert.primary" $)) -}}

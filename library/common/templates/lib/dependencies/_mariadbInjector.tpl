@@ -1,18 +1,15 @@
 {{/*
 This template generates a random password and ensures it persists across updates/edits to the chart
 */}}
-{{- define "tc.v1.common.dependencies.mariadb.injector" -}}
+{{- define "tc.v1.common.dependencies.mariadb.secret" -}}
 {{- $pghost := printf "%v-%v" .Release.Name "mariadb" }}
 
 {{- if .Values.mariadb.enabled }}
----
-apiVersion: v1
-kind: Secret
-metadata:
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-  name: mariadbcreds
-{{- $dbprevious := lookup "v1" "Secret" .Release.Namespace "mariadbcreds" }}
+enabled: true
+{{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+{{- $fetchname := printf "%s-mariadbcreds" $basename -}}
+{{- $dbprevious := lookup "v1" "Secret" .Release.Namespace $fetchname }}
+{{- $dbpreviousold := lookup "v1" "Secret" .Release.Namespace "mariadbcreds" }}
 {{- $dbPass := "" }}
 {{- $rootPass := "" }}
 data:
@@ -21,6 +18,11 @@ data:
   {{- $rootPass = ( index $dbprevious.data "mariadb-root-password" ) | b64dec  }}
   mariadb-password: {{ ( index $dbprevious.data "mariadb-password" ) }}
   mariadb-root-password: {{ ( index $dbprevious.data "mariadb-root-password" ) }}
+{{- else if $dbpreviousold }}
+  {{- $dbPass = ( index $dbpreviousold.data "mariadb-password" ) | b64dec  }}
+  {{- $rootPass = ( index $dbpreviousold.data "mariadb-root-password" ) | b64dec  }}
+  mariadb-password: {{ ( index $dbpreviousold.data "mariadb-password" ) }}
+  mariadb-root-password: {{ ( index $dbpreviousold.data "mariadb-root-password" ) }}
 {{- else }}
   {{- $dbPass = randAlphaNum 50 }}
   {{- $rootPass = randAlphaNum 50 }}
@@ -45,4 +47,11 @@ type: Opaque
 {{- $_ := set .Values.mariadb.url "jdbc" ( ( printf "jdbc:sqlserver://%v-mariadb:3306/%v" .Release.Name .Values.mariadb.mariadbDatabase  ) | quote ) }}
 
 {{- end }}
+{{- end -}}
+
+{{- define "tc.v1.common.dependencies.mariadb.injector" -}}
+  {{- $secret := include "tc.v1.common.dependencies.mariadb.secret" . | fromYaml -}}
+  {{- if $secret -}}
+    {{- $_ := set .Values.secret "mariadbcreds" $secret -}}
+  {{- end -}}
 {{- end -}}

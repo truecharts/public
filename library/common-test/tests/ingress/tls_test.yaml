@@ -4,9 +4,23 @@ templates:
 tests:
   - it: default should pass
     set:
+      service:
+        main:
+          enabled: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
       ingress.main.enabled: true
     asserts:
-      - documentIndex: &ingressDocument 3
+      - documentIndex: &ingressDocument 2
         isKind:
           of: Ingress
       - documentIndex: *ingressDocument
@@ -15,6 +29,20 @@ tests:
 
   - it: tls enabled should pass
     set:
+      service:
+        main:
+          enabled: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
       ingress.main:
         enabled: true
         tls:
@@ -22,7 +50,7 @@ tests:
             hosts:
               - hostname
     asserts:
-      - documentIndex: &ingressDocument 3
+      - documentIndex: &ingressDocument 2
         isKind:
           of: Ingress
       - documentIndex: *ingressDocument
@@ -35,13 +63,27 @@ tests:
 
   - it: tls enabled without secret should pass
     set:
+      service:
+        main:
+          enabled: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
       ingress.main:
         enabled: true
         tls:
           - hosts:
               - hostname
     asserts:
-      - documentIndex: &ingressDocument 3
+      - documentIndex: &ingressDocument 2
         isKind:
           of: Ingress
       - documentIndex: *ingressDocument
@@ -53,6 +95,20 @@ tests:
 
   - it: tls enabled with secret template should pass
     set:
+      service:
+        main:
+          enabled: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
       ingress.main:
         enabled: true
         tls:
@@ -60,7 +116,7 @@ tests:
             hosts:
               - hostname
     asserts:
-      - documentIndex: &ingressDocument 3
+      - documentIndex: &ingressDocument 2
         isKind:
           of: Ingress
       - documentIndex: *ingressDocument

@@ -1,30 +1,35 @@
-{{- define "ix.v1.common.class.configmap" -}}
-  {{- $configName := .configName -}}
-  {{- $data := .data -}}
-  {{- $contentType := .contentType -}}
-  {{- $configLabels := .labels -}}
-  {{- $configAnnotations := .annotations -}}
-  {{- $root := .root }}
+{{/* Configmap Class */}}
+{{/* Call this template:
+{{ include "tc.v1.common.class.configmap" (dict "rootCtx" $ "objectData" $objectData) }}
 
+rootCtx: The root context of the chart.
+objectData:
+  name: The name of the configmap.
+  labels: The labels of the configmap.
+  annotations: The annotations of the configmap.
+  data: The data of the configmap.
+*/}}
+
+{{- define "tc.v1.common.class.configmap" -}}
+
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData }}
 ---
-apiVersion: {{ include "ix.v1.common.capabilities.configMap.apiVersion" $root }}
+apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ $configName }}
-  {{- $labels := (mustMerge ($configLabels | default dict) (include "ix.v1.common.labels" $root | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.labels.render" (dict "root" $root "labels" $labels) | trim) }}
+  name: {{ $objectData.name }}
+  {{- $labels := (mustMerge ($objectData.labels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $rootCtx | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "labels" $labels) | trim) }}
   labels:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- $annotations := (mustMerge ($configAnnotations | default dict) (include "ix.v1.common.annotations" $root | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $root "annotations" $annotations) | trim) }}
+  {{- $annotations := (mustMerge ($objectData.annotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
   {{- end }}
 data:
-  {{- if eq $contentType "yaml" }}
-    {{- $data | nindent 2 }}
-  {{- else -}} {{/* This should never happen, unless there is a mistake in the caller of this class */}}
-    {{- fail (printf "Invalid content type (%s) for configmap. Valid types are scalar and key_value" $contentType) -}}
-  {{- end -}}
+  {{- tpl (toYaml $objectData.data) $rootCtx | nindent 2 }}
+  {{/* This comment is here to add a new line */}}
 {{- end -}}

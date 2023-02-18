@@ -5,23 +5,33 @@ tests:
   - it: default should pass
     asserts:
       - hasDocuments:
-          count: 3
-      - documentIndex: 0
-        not: true
-        isKind:
-          of: Ingress
-      - documentIndex: 1
-        not: true
-        isKind:
-          of: Ingress
-      - documentIndex: 2
-        not: true
-        isKind:
-          of: Ingress
+          count: 0
+
 
   - it: explicitly disabled should pass
     set:
       ingress.main.enabled: false
+    asserts:
+      - hasDocuments:
+          count: 0
+
+  - it: explicitly enabled should pass
+    set:
+      ingress.main.enabled: true
+      service:
+        main:
+          enabled: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
     asserts:
       - hasDocuments:
           count: 3
@@ -34,13 +44,27 @@ tests:
         isKind:
           of: Ingress
       - documentIndex: 2
-        not: true
         isKind:
           of: Ingress
 
-  - it: explicitly enabled should pass
+  - it: multiple enabled should pass
     set:
       ingress.main.enabled: true
+      ingress.test.enabled: true
+      service:
+        main:
+          enabled: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
     asserts:
       - hasDocuments:
           count: 4
@@ -53,35 +77,8 @@ tests:
         isKind:
           of: Ingress
       - documentIndex: 2
-        not: true
         isKind:
           of: Ingress
       - documentIndex: 3
-        isKind:
-          of: Ingress
-
-  - it: multiple enabled should pass
-    set:
-      ingress.main.enabled: true
-      ingress.test.enabled: true
-    asserts:
-      - hasDocuments:
-          count: 5
-      - documentIndex: 0
-        not: true
-        isKind:
-          of: Ingress
-      - documentIndex: 1
-        not: true
-        isKind:
-          of: Ingress
-      - documentIndex: 2
-        not: true
-        isKind:
-          of: Ingress
-      - documentIndex: 3
-        isKind:
-          of: Ingress
-      - documentIndex: 4
         isKind:
           of: Ingress

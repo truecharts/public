@@ -1,0 +1,30 @@
+suite: deployment validation test
+templates:
+  - common.yaml
+tests:
+  - it: should fail with invalid strategy
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          strategy: not-a-strategy
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Deployment - Expected <strategy> to be one of [Recreate, RollingUpdate], but got [not-a-strategy]
+
+  - it: should fail with rollingUpdate not a dict
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          strategy: RollingUpdate
+          rollingUpdate: "not a dict"
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Deployment - Expected <rollingUpdate> to be a dictionary, but got [string]

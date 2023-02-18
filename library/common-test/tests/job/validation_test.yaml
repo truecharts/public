@@ -1,0 +1,45 @@
+suite: job validation test
+templates:
+  - common.yaml
+tests:
+  - it: should fail with invalid completionMode
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Job
+          completionMode: not-a-mode
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Job - Expected <completionMode> to be one of [Indexed, NonIndexed], but got [not-a-mode]
+
+  - it: should fail with completionMode to Indexed and no completions
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Job
+          completionMode: Indexed
+          completions:
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Job - Expected <completions> to be set when <completionMode> is set to [Indexed]
+
+  - it: should fail with completionMode to Indexed and no parallelism
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Job
+          completionMode: Indexed
+          completions: 5
+          parallelism:
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Job - Expected <parallelism> to be set when <completionMode> is set to [Indexed]

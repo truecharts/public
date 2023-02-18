@@ -1,45 +1,51 @@
-{{- define "ix.v1.common.class.cronJob" -}}
-  {{- $job := .job -}}
-  {{- $root := .root -}}
+{{/* CronJob Class */}}
+{{/* Call this template:
+{{ include "tc.v1.common.class.cronjob" (dict "rootCtx" $ "objectData" $objectData) }}
 
-  {{- $default := $root.Values.global.defaults.job.cron -}}
-  {{- $jobName := include "ix.v1.common.names.jobAndCronJob" (dict "root" $root "jobValues" $job) -}}
-  {{- include "ix.v1.common.validate.cronJob" (dict "root" $root "job" $job) -}}
+rootCtx: The root context of the chart.
+objectData: The object data to be used to render the CronJob.
+*/}}
 
-  {{- $failLimit := $default.failedJobsHistoryLimit -}}
-  {{- if (mustHas (kindOf $job.cron.failedJobsHistoryLimit) (list "int" "float64")) -}}
-    {{- $failLimit = $job.cron.failedJobsHistoryLimit -}}
-  {{- end -}}
+{{- define "tc.v1.common.class.cronjob" -}}
 
-  {{- $successLimit := $default.successfulJobsHistoryLimit -}}
-  {{- if (mustHas (kindOf $job.cron.successfulJobsHistoryLimit) (list "int" "float64")) -}}
-    {{- $successLimit = $job.cron.successfulJobsHistoryLimit -}}
-  {{- end }}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData -}}
+  {{- include "tc.v1.common.lib.workload.cronjobValidation" (dict "objectData" $objectData) }}
 ---
-apiVersion: {{ include "ix.v1.common.capabilities.cronJob.apiVersion" . }}
+apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: {{ $jobName }}
-  {{- $labels := (mustMerge ($job.labels | default dict) (include "ix.v1.common.labels" $root | fromYaml) (include "ix.v1.common.podLabels" $root | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.labels.render" (dict "root" $root "labels" $labels) | trim) }}
+  name: {{ $objectData.name }}
+  {{- $labels := (mustMerge ($objectData.labels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $rootCtx | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "labels" $labels) | trim) }}
   labels:
     {{- . | nindent 4 }}
-  {{- end }}
-  {{- $annotations := (mustMerge ($job.annotations | default dict) (include "ix.v1.common.annotations" $root | fromYaml) (include "ix.v1.common.podAnnotations" $root | fromYaml) (include "ix.v1.common.annotations.workload.spec" $root | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $root "annotations" $annotations) | trim) }}
+  {{- end -}}
+  {{- $annotations := (mustMerge ($objectData.annotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
   {{- end }}
 spec:
-  schedule: {{ $job.cron.schedule | quote }}
-  timeZone: {{ $job.cron.timezone | default $root.Values.TZ }}
-  concurrencyPolicy: {{ $job.cron.concurrencyPolicy | default $default.concurrencyPolicy }}
-  failedJobsHistoryLimit: {{ $failLimit }}
-  successfulJobsHistoryLimit: {{ $successLimit }}
-  {{- with $job.cron.startingDeadlineSeconds }}
-  startingDeadlineSeconds: {{ . }}
-  {{- end }}
-  jobTemplate:
-    spec:
-  {{- include "ix.v1.common.lib.job" (dict "root" $root "job" $job) | indent 6 -}}
+  {{- include "tc.v1.common.lib.workload.cronjobSpec" (dict "rootCtx" $rootCtx "objectData" $objectData) | nindent 2 }}
+      template:
+        metadata:
+            {{- $labels := (mustMerge ($objectData.podSpec.labels | default dict)
+                                      (include "tc.v1.common.lib.metadata.allLabels" $rootCtx | fromYaml)
+                                      (include "tc.v1.common.lib.metadata.podLabels" $rootCtx | fromYaml)
+                                      (include "tc.v1.common.lib.metadata.selectorLabels" (dict "rootCtx" $rootCtx "objectType" "pod" "objectName" $objectData.shortName) | fromYaml)) -}}
+            {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "labels" $labels) | trim) }}
+          labels:
+            {{- . | nindent 12 }}
+            {{- end -}}
+            {{- $annotations := (mustMerge ($objectData.podSpec.annotations | default dict)
+                                            (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)
+                                            (include "tc.v1.common.lib.metadata.externalInterfacePodAnnotations" (dict "rootCtx" $rootCtx "objectData" $objectData) | fromYaml)
+                                            (include "tc.v1.common.lib.metadata.podAnnotations" $rootCtx | fromYaml)) -}}
+            {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
+          annotations:
+            {{- . | nindent 12 }}
+            {{- end }}
+        spec:
+          {{- include "tc.v1.common.lib.workload.pod" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim | nindent 10 }}
 {{- end -}}

@@ -1,0 +1,126 @@
+suite: service clusterIP test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with type ClusterIP
+    set:
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ClusterIP
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &serviceDoc 1
+        isKind:
+          of: Service
+      - documentIndex: *serviceDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *serviceDoc
+        equal:
+          path: metadata.name
+          value: release-name-common-test
+      - documentIndex: *serviceDoc
+        equal:
+          path: spec
+          value:
+            type: ClusterIP
+            publishNotReadyAddresses: false
+            ports:
+            - name: port-name
+              port: 12345
+              protocol: TCP
+              targetPort: 12345
+            selector:
+              app.kubernetes.io/instance: RELEASE-NAME
+              app.kubernetes.io/name: common-test
+              pod.name: my-workload
+
+  - it: should pass with type ClusterIP and available options set
+    set:
+      some_policy: PreferDualStack
+      some_family: IPv6
+      some_ip: 172.16.20.35
+      some_other_ip: 10.200.34.53
+      some_affinity: ClientIP
+      some_timeout: 100
+      some_port: 12344
+      some_target_port: 12346
+      some_protocol: http
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ClusterIP
+          clusterIP: "{{ .Values.some_ip }}"
+          publishNotReadyAddresses: true
+          ipFamilyPolicy: "{{ .Values.some_policy }}"
+          ipFamilies:
+            - IPv4
+            - "{{ .Values.some_family }}"
+          externalIPs:
+            - "{{ .Values.some_other_ip }}"
+            - 10.200.34.54
+          sessionAffinity: "{{ .Values.some_affinity }}"
+          sessionAffinityConfig:
+            clientIP:
+              timeoutSeconds: "{{ .Values.some_timeout }}"
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+            port-name2:
+              enabled: true
+              port: "{{ .Values.some_port }}"
+              targetPort: "{{ .Values.some_target_port }}"
+              protocol: "{{ .Values.some_protocol }}"
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *serviceDoc
+        equal:
+          path: spec
+          value:
+            type: ClusterIP
+            clusterIP: 172.16.20.35
+            ipFamilyPolicy: PreferDualStack
+            publishNotReadyAddresses: true
+            ipFamilies:
+              - IPv4
+              - IPv6
+            externalIPs:
+              - 10.200.34.53
+              - 10.200.34.54
+            sessionAffinity: ClientIP
+            sessionAffinityConfig:
+              clientIP:
+                timeoutSeconds: 100
+            ports:
+            - name: port-name
+              port: 12345
+              protocol: TCP
+              targetPort: 12345
+            - name: port-name2
+              port: 12344
+              protocol: TCP
+              targetPort: 12346
+            selector:
+              app.kubernetes.io/instance: RELEASE-NAME
+              app.kubernetes.io/name: common-test
+              pod.name: my-workload

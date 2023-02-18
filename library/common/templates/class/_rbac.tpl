@@ -1,112 +1,64 @@
-{{/* Template for RBAC object ((Cluster)Role, (Cluster)RoleBinding), can only be called by the spawner */}}
-{{/* An rbac object, an SA object and "root" is passed from the spawner */}}
-{{- define "ix.v1.common.class.rbac" -}}
-  {{- $rbacValues := .rbac -}}
-  {{- $root := .root -}}
+{{/* RBAC Class */}}
+{{/* Call this template:
+{{ include "tc.v1.common.class.rbac" (dict "rootCtx" $ "objectData" $objectData) }}
 
-  {{- $saName := include "ix.v1.common.names.serviceAccountName" $root -}}
-  {{- $rbacName := include "ix.v1.common.names.rbac" (dict "root" $root "rbacValues" $rbacValues) -}}
+rootCtx: The root context of the chart.
+objectData:
+  name: The name of the rbac.
+  labels: The labels of the rbac.
+  annotations: The annotations of the rbac.
+  clusterWide: Whether the rbac is cluster wide or not.
+  rules: The rules of the rbac.
+  subjects: The subjects of the rbac.
+*/}}
 
-  {{/* Prepare values for either cluster rbac or namespaced rbac */}}
-  {{- $roleAPI := include "ix.v1.common.capabilities.role.apiVersion" $root -}}
-  {{- $roleBindingAPI := include "ix.v1.common.capabilities.roleBinding.apiVersion" $root -}}
-  {{- $roleKind := "Role" -}}
-  {{- $roleBindingKind := "RoleBinding" -}}
-  {{- $clusterWide := false -}}
+{{- define "tc.v1.common.class.rbac" -}}
 
-  {{- if hasKey $rbacValues "clusterWide" -}}
-    {{- if $rbacValues.clusterWide -}}
-      {{- $roleKind = "ClusterRole" -}}
-      {{- $roleBindingKind = "ClusterRoleBinding" -}}
-      {{- $clusterWide = true -}}
-      {{- $roleAPI = include "ix.v1.common.capabilities.clusterRole.apiVersion" $root -}}
-      {{- $roleBindingAPI = include "ix.v1.common.capabilities.clusterRoleBinding.apiVersion" $root -}}
-    {{- end -}}
-  {{- end }}
-
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData }}
 ---
-apiVersion: {{ $roleAPI }}
-kind: {{ $roleKind }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: {{ ternary "ClusterRole" "Role" $objectData.clusterWide }}
 metadata:
-  name: {{ $rbacName }}
-  {{- if not $clusterWide }}
-  namespace: {{ $root.Release.Namespace }}
+  name: {{ $objectData.name }}
+  {{- if not $objectData.clusterWide }}
+  namespace: {{ $rootCtx.Release.Namespace }}
   {{- end }}
-  {{- $labels := (mustMerge ($rbacValues.labels | default dict) (include "ix.v1.common.labels" $root | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.labels.render" (dict "root" $root "labels" $labels) | trim) }}
+  {{- $labels := (mustMerge ($objectData.labels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $rootCtx | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "labels" $labels) | trim) }}
   labels:
     {{- . | nindent 4 }}
-  {{- end }}
-  {{- $annotations := (mustMerge ($rbacValues.annotations | default dict) (include "ix.v1.common.annotations" $root | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $root "annotations" $annotations) | trim) }}
+  {{- end -}}
+  {{- $annotations := (mustMerge ($objectData.annotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
   {{- end }}
-{{- if not $rbacValues.rules -}}
-  {{- fail "<rules> cannot be empty in RBAC." -}}
-{{- end -}}
-{{- with $rbacValues.rules }}
 rules:
-  {{- range . }}
-    {{- if not .apiGroups  -}}
-      {{- fail "<apiGroups> cannot be empty in RBAC rules." -}}
-    {{- end -}}
-    {{- if not .resources -}}
-      {{- fail "<resources> cannot be empty in RBAC rules." -}}
-    {{- end -}}
-    {{- if not .verbs -}}
-      {{- fail "<verbs> cannot be empty in RBAC rules." -}}
-    {{- end }}
-  - apiGroups:
-    {{- range .apiGroups }}
-      {{- if eq . "" }}
-      - ""
-      {{- else }}
-      - {{ tpl . $root | quote }}
-      {{- end }}
-    {{- end }}
-    resources:
-    {{- range .resources }}
-      - {{ tpl . $root | quote }}
-    {{- end }}
-    verbs:
-    {{- range .verbs }}
-      - {{ tpl . $root | quote }}
-    {{- end }}
-  {{- end }}
-{{- end }}
-
+  {{- include "tc.v1.common.lib.rbac.rules" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim | nindent 2 }}
 ---
-apiVersion: {{ $roleBindingAPI }}
-kind: {{ $roleBindingKind }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: {{ ternary "ClusterRoleBinding" "RoleBinding" $objectData.clusterWide }}
 metadata:
-  name: {{ $rbacName }}
-  {{- if not $clusterWide }}
-  namespace: {{ $root.Release.Namespace }}
+  name: {{ $objectData.name }}
+  {{- if not $objectData.clusterWide }}
+  namespace: {{ $rootCtx.Release.Namespace }}
   {{- end }}
-  {{- $labels := (mustMerge ($rbacValues.labels | default dict) (include "ix.v1.common.labels" $root | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.labels.render" (dict "root" $root "labels" $labels) | trim) }}
+  {{- $labels := (mustMerge ($objectData.labels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $rootCtx | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "labels" $labels) | trim) }}
   labels:
     {{- . | nindent 4 }}
-  {{- end }}
-  {{- $annotations := (mustMerge ($rbacValues.annotations | default dict) (include "ix.v1.common.annotations" $root | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $root "annotations" $annotations) | trim) }}
+  {{- end -}}
+  {{- $annotations := (mustMerge ($objectData.annotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
   {{- end }}
 roleRef:
-  apiGroup: {{ include "ix.v1.common.capabilities.roleRef.apiGroup.apiVersion" $root }}
-  kind: {{ $roleKind }}
-  name: {{ $rbacName }}
+  apiGroup: rbac.authorization.k8s.io
+  kind: {{ ternary "ClusterRole" "Role" $objectData.clusterWide }}
+  name: {{ $objectData.name }}
 subjects:
-  - kind: ServiceAccount
-    name: {{ $saName }}
-    namespace: {{ $root.Release.Namespace }}
-  {{- with $rbacValues.subjects -}}
-    {{- range . }}
-  - kind: {{ tpl (required "<kind> cannot be empty in RBAC subjects." .kind) $root | quote }}
-    name: {{ tpl (required "<name> cannot be empty in RBAC subjects." .name) $root | quote }}
-    apiGroup: {{ tpl (required "<apiGroup> cannot be empty in RBAC subjects." .apiGroup) $root | quote }}
-    {{- end }}
-  {{- end -}}
+  {{- include "tc.v1.common.lib.rbac.serviceAccount" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim | nindent 2 }}
+  {{- include "tc.v1.common.lib.rbac.subjects" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim | nindent 2 }}
 {{- end -}}

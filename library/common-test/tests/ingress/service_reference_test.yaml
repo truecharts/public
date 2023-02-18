@@ -5,21 +5,49 @@ tests:
   - it: default should pass
     set:
       ingress.main.enabled: true
+      service:
+        main:
+          enabled: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
     asserts:
-      - documentIndex: &ingressDocument 3
+      - documentIndex: &ingressDocument 2
         isKind:
           of: Ingress
       - documentIndex: *ingressDocument
         equal:
           path: spec.rules[0].http.paths[0].backend.service
           value:
-            name: RELEASE-NAME-common-test
+            name: release-name-common-test
             port:
-              number: 65535
+              number: 12345
 
 
   - it: custom service reference should pass
     set:
+      service:
+        main:
+          enabled: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
       ingress.main:
         enabled: true
         hosts:
@@ -30,7 +58,7 @@ tests:
                   name: pathService
                   port: 1234
     asserts:
-      - documentIndex: &ingressDocument 3
+      - documentIndex: &ingressDocument 2
         isKind:
           of: Ingress
       - documentIndex: *ingressDocument

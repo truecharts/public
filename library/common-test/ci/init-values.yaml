@@ -1,0 +1,60 @@
+initImage:
+  repository: tccr.io/truecharts/alpine
+  tag: v3.17.0@sha256:f8607e14a5e456c1b8fe50b7f0c9371b4aae543d23080f5e2fe0bdbb06d2413b
+  pullPolicy: IfNotPresent
+
+workload:
+  main:
+    enabled: true
+    primary: true
+    type: Deployment
+    podSpec:
+      containers:
+        main:
+          enabled: true
+          primary: true
+          args:
+            - --port
+            - "8080"
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+            readiness:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+            startup:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+      initContainers:
+        init-cont:
+          enabled: true
+          type: init
+          imageSelector: initImage
+          args:
+            - echo
+            - "Hello World"
+        install-cont:
+          enabled: true
+          type: install
+          imageSelector: initImage
+          args:
+            - echo
+            - "Hello World"
+
+service:
+  main:
+    enabled: true
+    primary: true
+    ports:
+      main:
+        enabled: true
+        primary: true
+        protocol: http
+        port: 8080
+
+manifestManager:
+  enabled: false

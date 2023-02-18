@@ -1,0 +1,81 @@
+suite: persistence validation test
+templates:
+  - common.yaml
+tests:
+  - it: should fail with annotations not a dict
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          annotations: not-a-dict
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected <annotations> to be a dictionary, but got [string]
+
+  - it: should fail with labels not a dict
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          labels: not-a-dict
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected <labels> to be a dictionary, but got [string]
+
+  - it: should fail with pod targetSelector not a map
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          targetSelector: not-a-map
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected <targetSelector> to be [dict], but got [string]
+
+  - it: should fail with invalid type
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: not-a-type
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected <type> to be one of [pvc, emptyDir, nfs, hostPath, ixVolume, secret, configmap, device], but got [not-a-type]
+
+  - it: should fail with invalid accessMode
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          accessModes:
+            - not-an-access-mode
+    asserts:
+      - failedTemplate:
+          errorMessage: PVC - Expected <accessModes> entry to be one of [ReadWriteOnce, ReadOnlyMany, ReadWriteMany, ReadWriteOncePod], but got [not-an-access-mode]
+
+  - it: should fail without storageClassName in ixChartContext
+    set:
+      global:
+        ixChartContext:
+          storageClassName: ""
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+    asserts:
+      - failedTemplate:
+          errorMessage: PVC - Expected non-empty <global.ixChartContext.storageClassName>
+
+  - it: should fail without storageClassName in ixChartContext with SCALE-ZFS explicitly set
+    set:
+      global:
+        ixChartContext:
+          storageClassName: ""
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          storageClass: SCALE-ZFS
+    asserts:
+      - failedTemplate:
+          errorMessage: PVC - Expected non-empty <global.ixChartContext.storageClassName> on [SCALE-ZFS] storageClass

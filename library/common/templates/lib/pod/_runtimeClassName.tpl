@@ -1,74 +1,48 @@
-{{- define "ix.v1.common.runtimeClassName" -}}
-  {{- $root := .root -}}
-  {{- $runtime := .runtime -}}
-  {{- $isJob := .isJob -}}
-  {{/* Override previous if a runtime is passed from global defaults */}}
-  {{- $runtimeName := "" -}}
-  {{- with $root.Values.global.defaults.runtimeClassName -}}
-    {{- $runtimeName = . -}}
+{{/* Returns Runtime Class Name */}}
+{{/* Call this template:
+{{ include "tc.v1.common.lib.pod.runtimeClassName" (dict "rootCtx" $ "objectData" $objectData) }}
+rootCtx: The root context of the chart.
+objectData: The object data to be used to render the Pod.
+*/}}
+{{- define "tc.v1.common.lib.pod.runtimeClassName" -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData -}}
+
+  {{- $runtime := "" -}}
+
+  {{/* Initialize from the "defaults" */}}
+  {{- with $rootCtx.Values.podOptions.runtimeClassName -}}
+    {{- $runtime = tpl . $rootCtx -}}
   {{- end -}}
 
-  {{- if (mustHas $root.Values.controller.type (list "Job" "CronJob")) -}}
-    {{- $isJob = false -}}
+  {{/* Override from the pod values, if defined */}}
+  {{- with $objectData.podSpec.runtimeClassName -}}
+    {{- $runtime = tpl . $rootCtx -}}
   {{- end -}}
 
-  {{/* Override previous if a runtime is passed from values */}}
-  {{- with $runtime -}}
-    {{- $runtimeName = . -}}
-  {{- end -}}
+  {{- if hasKey $rootCtx.Values.global "ixChartContext" -}}
+    {{- if $rootCtx.Values.global.ixChartContext.addNvidiaRuntimeClass -}}
 
-  {{/* Override all previous if running in Scale and it's defined */}}
-  {{- if hasKey $root.Values.global "ixChartContext" -}}
-    {{- if $root.Values.global.ixChartContext.addNvidiaRuntimeClass -}}
+      {{- range $rootCtx.Values.scaleGPU -}}
+        {{- if .gpu -}} {{/* Make sure it has a value... */}}
 
-      {{- $nvidiaRunTime := false -}}
-
-      {{- if not $isJob -}}
-        {{/* If main container has GPU... */}}
-        {{- if $root.Values.scaleGPU -}}
-          {{- $nvidiaRunTime = true -}}
-        {{- end -}}
-
-        {{- $containers := dict -}}
-        {{/* Append containers if exist, to the $containers dict */}}
-        {{- range $key := (list "initContainers" "systemContainers" "installContainers" "upgradeContainers" "additionalContainers") -}}
-          {{- if (get $root.Values $key) -}}
-            {{- $containers = mustMerge $containers (get $root.Values $key) -}}
-          {{- end -}}
-        {{- end -}}
-
-        {{/* Check containers if they have GPU assigned */}}
-        {{- range $name, $container := $containers -}}
-          {{- if hasKey $container "scaleGPU" -}}
-            {{- if $container.scaleGPU -}}
-              {{/* If at least 1 container has GPU... */}}
-              {{- $nvidiaRunTime = true -}}
-            {{- end -}}
-          {{- end -}}
-        {{- end -}}
-      {{- else -}}
-        {{- range $jobName, $job := $root.Values.jobs -}}
-          {{- if $job.enabled -}}
-            {{- range $name, $container := $job.podSpec.containers -}}
-              {{- if hasKey $container "scaleGPU" -}}
-                {{- if $container.scaleGPU -}}
-                  {{/* If at least 1 container has GPU... */}}
-                  {{- $nvidiaRunTime = true -}}
-                {{- end -}}
+          {{- if (kindIs "map" .targetSelector) -}}
+            {{- range $podName, $containers := .targetSelector -}}
+              {{- if eq $objectData.shortName $podName -}} {{/* If the pod is selected */}}
+                {{- $runtime = $rootCtx.Values.global.ixChartContext.nvidiaRuntimeClassName -}}
               {{- end -}}
             {{- end -}}
+
+          {{- else if $objectData.primary -}}
+
+            {{/* If the pod is primary and no targetSelector is given, assign to primary */}}
+            {{- $runtime = $rootCtx.Values.global.ixChartContext.nvidiaRuntimeClassName -}}
+
           {{- end -}}
         {{- end -}}
-      {{- end -}}
-
-      {{- if $nvidiaRunTime -}}
-        {{- $runtimeName = $root.Values.global.ixChartContext.nvidiaRuntimeClassName -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
 
-  {{/* Still check that any of the above applies before returning it */}}
-  {{- if $runtimeName -}}
-    {{- print $runtimeName -}}
-  {{- end -}}
+  {{- $runtime -}}
 {{- end -}}

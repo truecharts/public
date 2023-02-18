@@ -1,16 +1,40 @@
-{{/* Renders the PVC objects */}}
-{{- define "ix.v1.common.spawner.pvc" -}}
-  {{- $defaultType := .Values.global.defaults.persistenceType -}}
-  {{- range $name, $pvc := .Values.persistence -}}
-    {{- if and $pvc.enabled (eq (default $defaultType $pvc.type) "pvc") (not ($pvc.existingClaim)) -}}
-      {{- $pvcValues := $pvc -}}
+{{/* PVC Spawwner */}}
+{{/* Call this template:
+{{ include "tc.v1.common.spawner.pvc" $ -}}
+*/}}
 
-      {{/* Default to $name if there is not a nameOverride given */}}
-      {{- if not $pvcValues.nameOverride -}}
-        {{- $_ := set $pvcValues "nameOverride" $name -}}
+{{- define "tc.v1.common.spawner.pvc" -}}
+
+  {{- range $name, $persistence := .Values.persistence -}}
+
+    {{- if $persistence.enabled -}}
+
+      {{/* Create a copy of the persistence */}}
+      {{- $objectData := (mustDeepCopy $persistence) -}}
+
+      {{- $_ := set $objectData "type" ($objectData.type | default $.Values.fallbackDefaults.persistenceType) -}}
+
+      {{/* Perform general validations */}}
+      {{- include "tc.v1.common.lib.persistence.validation" (dict "rootCtx" $ "objectData" $objectData) -}}
+      {{- include "tc.v1.common.lib.metadata.validation" (dict "objectData" $objectData "caller" "Persistence") -}}
+
+      {{/* Only spawn PVC if it's enabled and type of "pvc" */}}
+      {{- if and (eq "pvc" $objectData.type) (not $objectData.existingClaim) -}}
+
+        {{- $objectName := (printf "%s-%s" (include "tc.v1.common.lib.chart.names.fullname" $) $name) -}}
+        {{/* Perform validations */}}
+        {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $objectName) -}}
+
+        {{/* Set the name of the secret */}}
+        {{- $_ := set $objectData "name" $objectName -}}
+        {{- $_ := set $objectData "shortName" $name -}}
+
+        {{/* Call class to create the object */}}
+        {{- include "tc.v1.common.class.pvc" (dict "rootCtx" $ "objectData" $objectData) -}}
+
       {{- end -}}
-
-      {{- include "ix.v1.common.class.pvc" (dict "pvc" $pvcValues "root" $) -}}
     {{- end -}}
+
   {{- end -}}
+
 {{- end -}}

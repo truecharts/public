@@ -1,0 +1,92 @@
+suite: configmap data test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with key-value data
+    set:
+      configmap:
+        my-configmap1:
+          enabled: true
+          data:
+            foo: bar
+    asserts:
+      - documentIndex: &configmapDoc 0
+        isKind:
+          of: ConfigMap
+      - documentIndex: *configmapDoc
+        equal:
+          path: data
+          value:
+            foo: bar
+
+  - it: should pass with key-value data from tpl
+    set:
+      data: bar
+      configmap:
+        my-configmap1:
+          enabled: true
+          data:
+            foo: "{{ .Values.data }}"
+    asserts:
+      - documentIndex: *configmapDoc
+        equal:
+          path: data
+          value:
+            foo: bar
+
+  - it: should pass with scalar data
+    set:
+      configmap:
+        my-configmap1:
+          enabled: true
+          data:
+            foo: |
+              some multi line
+              string text
+    asserts:
+      - documentIndex: *configmapDoc
+        equal:
+          path: data
+          value:
+            foo: |
+              some multi line
+              string text
+
+  - it: should pass with scalar data with tpl
+    set:
+      data: Some other text
+      configmap:
+        my-configmap:
+          enabled: true
+          data:
+            foo: |
+              file start
+              {{ .Values.data }}
+    asserts:
+      - documentIndex: *configmapDoc
+        equal:
+          path: data
+          value:
+            foo: |
+              file start
+              Some other text
+
+  - it: should pass with scalar data from tpl
+    set:
+      data: |
+        Some other text
+        some_text
+      configmap:
+        my-configmap1:
+          enabled: true
+          data:
+            foo: |
+              {{- .Values.data | nindent 2 }}
+    asserts:
+      - documentIndex: *configmapDoc
+        equal:
+          path: data
+          value:
+            foo: |
+              Some other text
+              some_text

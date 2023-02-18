@@ -1,0 +1,143 @@
+suite: container termination test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with termination set
+    set:
+      some_path: /dev/termination-log
+      some_policy: File
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: &probes
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+                termination:
+                  messagePath: "{{ .Values.some_path }}"
+                  messagePolicy: "{{ .Values.some_policy }}"
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            terminationMessagePath: /dev/termination-log
+            terminationMessagePolicy: File
+
+  - it: should pass with termination path only
+    set:
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                termination:
+                  messagePath: /some/path
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            terminationMessagePath: /some/path
+      - documentIndex: *deploymentDoc
+        isNull:
+          path: spec.template.spec.containers[0].terminationMessagePolicy
+
+  - it: should pass with termination policy only
+    set:
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                termination:
+                  messagePolicy: File
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            terminationMessagePolicy: File
+      - documentIndex: *deploymentDoc
+        isNull:
+          path: spec.template.spec.containers[0].terminationMessagePath
+
+  # Failures
+  - it: should fail with invalid policy
+    set:
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                termination:
+                  messagePolicy: SomeInvalidPolicy
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <termination.messagePolicy> to be one of [File, FallbackToLogsOnError], but got [SomeInvalidPolicy]

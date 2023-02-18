@@ -1,5 +1,5 @@
 {{- define "tc.v1.common.class.servicemonitor" -}}
-  {{- $fullName := include "ix.v1.common.names.fullname" . -}}
+  {{- $fullName := include "tc.v1.common.lib.chart.names.fullname" . -}}
   {{- $servicemonitorName := $fullName -}}
   {{- $values := .Values.servicemonitor -}}
 
@@ -19,13 +19,13 @@ apiVersion: {{ include "tc.v1.common.capabilities.servicemonitor.apiVersion" $ }
 kind: ServiceMonitor
 metadata:
   name: {{ $servicemonitorName }}
-  {{- $labels := (mustMerge ($servicemonitorLabels | default dict) (include "ix.v1.common.labels" $ | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.labels.render" (dict "root" $ "labels" $labels) | trim) }}
+  {{- $labels := (mustMerge ($servicemonitorLabels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $ | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "labels" $labels) | trim) }}
   labels:
     {{- . | nindent 4 }}
   {{- end }}
-  {{- $annotations := (mustMerge ($servicemonitorAnnotations | default dict) (include "ix.v1.common.annotations" $ | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $ "annotations" $annotations) | trim) }}
+  {{- $annotations := (mustMerge ($servicemonitorAnnotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $ | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
   {{- end }}
@@ -35,8 +35,11 @@ spec:
     {{- if $values.selector }}
     {{- tpl (toYaml $values.selector) $ | nindent 4 }}
     {{- else }}
+    {{- $objectData := dict "targetSelector" $values.targetSelector }}
+    {{- $selectedService := fromYaml ( include "tc.v1.common.lib.helpers.getSelectedServiceValues" (dict "rootCtx" $ "objectData" $objectData)) }}
+    {{- $selectedServiceName := $selectedService.shortName }}
     matchLabels:
-      {{- include "ix.v1.common.labels.selectorLabels" $ | nindent 6 }}
+      {{- include "tc.v1.common.lib.metadata.selectorLabels" (dict "rootCtx" $ "objectType" "service" "objectName" $selectedServiceName) | indent 6 }}
     {{- end }}
   endpoints:
     {{- tpl (toYaml $values.endpoints) $ | nindent 4 }}

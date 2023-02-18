@@ -1,0 +1,50 @@
+suite: container name test
+templates:
+  - common.yaml
+tests:
+  - it: should generate correct container name
+    set:
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: &probes
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+              container-name2:
+                enabled: true
+                primary: false
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            name: release-name-common-test
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            name: release-name-common-test-container-name2

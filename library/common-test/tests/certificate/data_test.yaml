@@ -1,0 +1,30 @@
+suite: certificate data test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
+tests:
+  - it: should pass with secret created for certificate
+    set:
+      ixCertificates:
+        "1":
+          certificate: some_cert
+          privatekey: some_key
+      scaleCertificate:
+        my-cert:
+          enabled: true
+          id: 1
+    asserts:
+      - documentIndex: &secretDoc 0
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        equal:
+          path: data
+          value:
+            tls.crt: c29tZV9jZXJ0
+            tls.key: c29tZV9rZXk=
+      - documentIndex: *secretDoc
+        equal:
+          path: type
+          value: kubernetes.io/tls

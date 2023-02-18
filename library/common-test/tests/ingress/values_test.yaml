@@ -4,9 +4,23 @@ templates:
 tests:
   - it: default should pass
     set:
+      service:
+        main:
+          enabled: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
       ingress.main.enabled: true
     asserts:
-      - documentIndex: &ingressDocument 3
+      - documentIndex: &ingressDocument 2
         isKind:
           of: Ingress
       - documentIndex: *ingressDocument
@@ -20,6 +34,20 @@ tests:
 
   - it: custom host and path should pass
     set:
+      service:
+        main:
+          enabled: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
       ingress.main:
         enabled: true
         hosts:
@@ -27,7 +55,7 @@ tests:
             paths:
               - path: /test
     asserts:
-      - documentIndex: &ingressDocument 3
+      - documentIndex: &ingressDocument 2
         isKind:
           of: Ingress
       - documentIndex: *ingressDocument
@@ -41,12 +69,26 @@ tests:
 
   - it: host with template should pass
     set:
+      service:
+        main:
+          enabled: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
       ingress.main:
         enabled: true
         hosts:
           - host: "{{ .Release.Name }}.hostname"
     asserts:
-      - documentIndex: &ingressDocument 3
+      - documentIndex: &ingressDocument 2
         isKind:
           of: Ingress
       - documentIndex: *ingressDocument
@@ -56,6 +98,20 @@ tests:
 
   - it: path with template should pass
     set:
+      service:
+        main:
+          enabled: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
       ingress.main:
         enabled: true
         hosts:
@@ -63,7 +119,7 @@ tests:
             paths:
               - path: "/{{ .Release.Name }}.path"
     asserts:
-      - documentIndex: &ingressDocument 3
+      - documentIndex: &ingressDocument 2
         isKind:
           of: Ingress
       - documentIndex: *ingressDocument

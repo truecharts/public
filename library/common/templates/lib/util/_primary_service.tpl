@@ -1,5 +1,5 @@
 {{/* Returns the primary service object */}}
-{{- define "ix.v1.common.lib.util.service.primary" -}}
+{{- define "tc.v1.common.lib.util.service.primary" -}}
   {{- $services := .services -}}
 
   {{- $enabledServices := dict -}}
@@ -31,5 +31,9 @@
     {{- end -}}
   {{- end -}}
 
+  {{- if $result -}}
   {{- $result -}}
+  {{- else -}}
+  {{- fail "No primary and enabled service found" -}}
+  {{- end -}}
 {{- end -}}

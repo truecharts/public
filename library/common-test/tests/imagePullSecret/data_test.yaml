@@ -1,0 +1,48 @@
+suite: imagePullSecret data test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with data
+    set:
+      imagePullSecret:
+        my-secret1:
+          enabled: true
+          data:
+            registry: reg
+            username: user
+            password: pass
+            email: mail
+    asserts:
+      - documentIndex: &secretDoc 0
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        equal:
+          path: data
+          value:
+            .dockerconfigjson: eyJhdXRocyI6eyJyZWdpc3RyeSI6eyJhdXRoIjoiZFhObGNqcHdZWE56IiwiZW1haWwiOiJtYWlsIiwicGFzc3dvcmQiOiJwYXNzIiwidXNlcm5hbWUiOiJ1c2VyIn19fQ==
+      - documentIndex: *secretDoc
+        equal:
+          path: type
+          value: kubernetes.io/dockerconfigjson
+
+  - it: should pass with data from tpl
+    set:
+      registry: quay.io
+      user: user
+      pass: secret_pass
+      email: mail@example.com
+      imagePullSecret:
+        my-secret1:
+          enabled: true
+          data:
+            registry: "{{ .Values.registry }}"
+            username: "{{ .Values.user }}"
+            password: "{{ .Values.pass }}"
+            email: "{{ .Values.email }}"
+    asserts:
+      - documentIndex: *secretDoc
+        equal:
+          path: data
+          value:
+            .dockerconfigjson: eyJhdXRocyI6eyJyZWdpc3RyeSI6eyJhdXRoIjoiZFhObGNqcHpaV055WlhSZmNHRnpjdz09IiwiZW1haWwiOiJtYWlsQGV4YW1wbGUuY29tIiwicGFzc3dvcmQiOiJzZWNyZXRfcGFzcyIsInVzZXJuYW1lIjoidXNlciJ9fX0=

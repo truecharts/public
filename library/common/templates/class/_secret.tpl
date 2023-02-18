@@ -1,51 +1,56 @@
-{{- define "ix.v1.common.class.secret" -}}
-  {{- $secretName := .secretName -}}
-  {{- $data := .data -}}
-  {{- $contentType := .contentType -}}
-  {{- $secretType := .secretType -}} {{/* Optional */}}
-  {{- $secretLabels := .labels -}}
-  {{- $secretAnnotations := .annotations -}}
-  {{- $root := .root -}}
+{{/* Secret Class */}}
+{{/* Call this template:
+{{ include "tc.v1.common.class.secret" (dict "rootCtx" $ "objectData" $objectData) }}
 
-  {{- $typeClass := "Opaque" -}} {{/* Default to Opaque */}}
-  {{- if eq $contentType "certificate" -}} {{/* Certificate content has specific type */}}
-    {{- $typeClass = (include "ix.v1.common.capabilities.secret.certificate.type" $root) -}}
-  {{- else if eq $contentType "pullSecret" -}} {{/* imagePullSecrets content has specific type */}}
-    {{- $typeClass = (include "ix.v1.common.capabilities.secret.imagePullSecret.type" $root) -}}
-  {{- end -}}
+rootCtx: The root context of the chart.
+objectData:
+  name: The name of the secret.
+  labels: The labels of the secret.
+  annotations: The annotations of the secret.
+  type: The type of the secret.
+  data: The data of the secret.
+*/}}
 
-  {{- if $secretType -}} {{/* If custom type is defined */}}
-    {{- $typeClass = $secretType -}}
+{{- define "tc.v1.common.class.secret" -}}
+
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData -}}
+  {{- $secretType := "Opaque" -}}
+
+  {{- if eq $objectData.type "certificate" -}}
+    {{- $secretType = "kubernetes.io/tls" -}}
+  {{- else if eq $objectData.type "imagePullSecret" -}}
+    {{- $secretType = "kubernetes.io/dockerconfigjson" -}}
+  {{- else if $objectData.type -}}
+    {{- $secretType = $objectData.type -}}
   {{- end }}
 ---
-apiVersion: {{ include "ix.v1.common.capabilities.secret.apiVersion" $root }}
+apiVersion: v1
 kind: Secret
-type: {{ $typeClass }}
+type: {{ $secretType }}
 metadata:
-  name: {{ $secretName }}
-  {{- $labels := (mustMerge ($secretLabels | default dict) (include "ix.v1.common.labels" $root | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.labels.render" (dict "root" $root "labels" $labels) | trim) }}
+  name: {{ $objectData.name }}
+  {{- $labels := (mustMerge ($objectData.labels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $rootCtx | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "labels" $labels) | trim) }}
   labels:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- $annotations := (mustMerge ($secretAnnotations | default dict) (include "ix.v1.common.annotations" $root | fromYaml)) -}}
-  {{- with (include "ix.v1.common.util.annotations.render" (dict "root" $root "annotations" $annotations) | trim) }}
+  {{- $annotations := (mustMerge ($objectData.annotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- if (mustHas $contentType (list "pullSecret" "certificate")) }}
+  {{- if (mustHas $objectData.type (list "certificate" "imagePullSecret")) }}
 data:
-  {{- if eq $contentType "pullSecret" }}
-  .dockerconfigjson: {{ $data | toJson | b64enc }}
-    {{- else if eq $contentType "certificate"  }}
-      {{- range $k, $v := $data }}
-        {{- $k | nindent 2 }}: {{ $v | b64enc }}
-      {{- end -}}
+    {{- if eq $objectData.type "certificate" }}
+  tls.crt: {{ $objectData.data.certificate | trim | b64enc }}
+  tls.key: {{ $objectData.data.privatekey | trim | b64enc }}
+    {{- else if eq $objectData.type "imagePullSecret" }}
+  .dockerconfigjson: {{ $objectData.data | trim | b64enc }}
     {{- end -}}
-  {{- else if eq $contentType "yaml" }}
+  {{- else }}
 stringData:
-    {{- $data | nindent 2 }}
-  {{- else -}}
-    {{- fail (printf "Invalid content type (%s) for secret. Valid types are pullSecret, certificate, scalar and key_value" $contentType) -}}
+    {{- tpl (toYaml $objectData.data) $rootCtx | nindent 2 }}
+    {{/* This comment is here to add a new line */}}
   {{- end -}}
 {{- end -}}

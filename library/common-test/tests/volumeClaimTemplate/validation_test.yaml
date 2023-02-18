@@ -1,0 +1,105 @@
+suite: volumeClaimTemplates validation test
+templates:
+  - common.yaml
+tests:
+  - it: should fail with annotations not a dict
+    set:
+      volumeClaimTemplates:
+        volume1:
+          enabled: true
+          annotations: not-a-dict
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Volume Claim Templates - Expected <annotations> to be a dictionary, but got [string]
+
+  - it: should fail with labels not a dict
+    set:
+      volumeClaimTemplates:
+        volume1:
+          enabled: true
+          labels: not-a-dict
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Volume Claim Templates - Expected <labels> to be a dictionary, but got [string]
+
+  - it: should fail with pod targetSelector not a map
+    set:
+      volumeClaimTemplates:
+        volume1:
+          enabled: true
+          targetSelector: not-a-map
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Volume Claim Templates - Expected <targetSelector> to be [dict], but got [string]
+
+  - it: should fail without storageClassName in ixChartContext
+    set:
+      global:
+        ixChartContext:
+          storageClassName: ""
+      volumeClaimTemplates:
+        volume1:
+          enabled: true
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Volume Claim Templates - Expected non-empty <global.ixChartContext.storageClassName>
+
+  - it: should fail without storageClassName in ixChartContext with SCALE-ZFS explicitly set
+    set:
+      global:
+        ixChartContext:
+          storageClassName: ""
+      volumeClaimTemplates:
+        volume1:
+          enabled: true
+          storageClass: SCALE-ZFS
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Volume Claim Templates - Expected non-empty <global.ixChartContext.storageClassName> on [SCALE-ZFS] storageClass
+
+  - it: should fail with invalid accessMode
+    set:
+      volumeClaimTemplates:
+        volume1:
+          enabled: true
+          accessModes:
+            - not-an-access-mode
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Volume Claim Templates - Expected <accessModes> entry to be one of [ReadWriteOnce, ReadOnlyMany, ReadWriteMany, ReadWriteOncePod], but got [not-an-access-mode]

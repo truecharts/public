@@ -4,7 +4,7 @@
   {{- range $name, $ingress := .Values.ingress -}}
     {{- if $ingress.enabled -}}
       {{- $ingressValues := $ingress -}}
-      {{- $ingressName := include "ix.v1.common.names.fullname" $ -}}
+      {{- $ingressName := include "tc.v1.common.lib.chart.names.fullname" $ -}}
 
       {{/* set defaults */}}
       {{- if and (not $ingressValues.nameOverride) (ne $name (include "tc.v1.common.lib.util.ingress.primary" $)) -}}
@@ -25,10 +25,31 @@
         {{- if $tlsValues.certificateIssuer -}}
           {{- include "tc.v1.common.class.certificate" (dict "root" $ "name" ( printf "%v-%v" $ingressName $tlsName ) "certificateIssuer" $tlsValues.certificateIssuer "hosts" $tlsValues.hosts ) -}}
         {{- else if and ( $tlsValues.scaleCert ) ( $.Values.global.ixChartContext ) -}}
-          {{- $cert := dict -}}
-          {{- $_ := set $cert "nameOverride" $tlsName -}}
-          {{- $_ := set $cert "id" .scaleCert -}}
-          {{- include "ix.v1.common.certificate.secret" (dict "root" $ "cert" $cert "name" $cert.nameOverride) -}}
+
+          {{/* Create certificate object and use it to construct a secret */}}
+          {{- $objectData := dict -}}
+          {{- $_ := set $objectData "id" .scaleCert -}}
+
+          {{- $objectName := (printf "%s-%s" (include "tc.v1.common.lib.chart.names.fullname" $) $tlsName) -}}
+          {{/* Perform validations */}}
+          {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $objectName) -}}
+          {{- include "tc.v1.common.lib.scaleCertificate.validation" (dict "objectData" $objectData) -}}
+          {{- include "tc.v1.common.lib.metadata.validation" (dict "objectData" $objectData "caller" "Certificate") -}}
+
+          {{/* Prepare data */}}
+          {{- $data := fromJson (include "tc.v1.common.lib.scaleCertificate.getData" (dict "rootCtx" $ "objectData" $objectData)) -}}
+          {{- $_ := set $objectData "data" $data -}}
+
+          {{/* Set the type to certificate */}}
+          {{- $_ := set $objectData "type" "certificate" -}}
+
+          {{/* Set the name of the certificate */}}
+          {{- $_ := set $objectData "name" $objectName -}}
+          {{- $_ := set $objectData "shortName" $name -}}
+
+          {{/* Call class to create the object */}}
+          {{- include "tc.v1.common.class.secret" (dict "rootCtx" $ "objectData" $objectData) -}}
+
         {{- end -}}
       {{- end -}}
       {{- end -}}

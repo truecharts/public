@@ -1,0 +1,42 @@
+suite: init container name test
+templates:
+  - common.yaml
+tests:
+  - it: should generate correct init container name
+    set:
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            initContainers:
+              container-name1:
+                enabled: true
+                type: init
+                imageSelector: image
+              container-name2:
+                enabled: true
+                type: install
+                imageSelector: image
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            name: release-name-common-test-install-container-name2
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.initContainers[1]
+          content:
+            name: release-name-common-test-init-container-name1

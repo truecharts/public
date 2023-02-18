@@ -1,26 +1,33 @@
-{{/* Returns the terminationMessagePath for the container */}}
-{{- define "ix.v1.common.container.termination.messagePath" -}}
-  {{- $msgPath := .msgPath -}}
-  {{- $root := .root -}}
-  {{- if $msgPath -}}
-    {{- tpl $msgPath $root -}}
-  {{- end -}}
-{{- end -}}
+{{/* Returns termination */}}
+{{/* Call this template:
+{{ include "tc.v1.common.lib.container.termination" (dict "rootCtx" $ "objectData" $objectData) }}
+rootCtx: The root context of the chart.
+objectData: The object data to be used to render the container.
+*/}}
+{{- define "tc.v1.common.lib.container.termination" -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData -}}
 
-{{/* Returns the terminationMessagePolicy for the container */}}
-{{- define "ix.v1.common.container.termination.messagePolicy" -}}
-  {{- $msgPolicy := .msgPolicy -}}
-  {{- $root := .root -}}
+  {{- $termination := (dict "messagePath" "" "messagePolicy" "") -}}
 
-  {{- $policy := "" -}}
-  {{- if $msgPolicy -}}
-    {{- $policy = (tpl $msgPolicy $root) -}}
+  {{- with $objectData.termination -}}
+    {{- with .messagePath -}}
+      {{- $_ := set $termination "messagePath" (tpl . $rootCtx) -}}
+    {{- end -}}
+
+    {{- with .messagePolicy -}}
+
+      {{- $policy := (tpl . $rootCtx) -}}
+
+      {{- $policies := (list "File" "FallbackToLogsOnError") -}}
+      {{- if not (mustHas $policy $policies) -}}
+        {{- fail (printf "Container - Expected <termination.messagePolicy> to be one of [%s], but got [%s]" (join ", " $policies) $policy) -}}
+      {{- end -}}
+
+      {{- $_ := set $termination "messagePolicy" $policy -}}
+    {{- end -}}
+
   {{- end -}}
 
-  {{- with $policy -}}
-    {{- if not (mustHas . (list "File" "FallbackToLogsOnError")) }}
-      {{- fail (printf "Not valid option for messagePolicy (%s). Valid options are FallbackToLogsOnError and File" $policy) -}}
-    {{- end }}
-    {{- $policy }}
-  {{- end -}}
+  {{- $termination | toJson -}}
 {{- end -}}

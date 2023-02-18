@@ -1,0 +1,110 @@
+suite: pod hostPath volume test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with hostPath volume
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        host-vol:
+          enabled: true
+          type: hostPath
+          hostPath: /some-path
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: host-vol
+            hostPath:
+              path: /some-path
+
+  - it: should pass with hostPath volume and type
+    set:
+      some_path: /some-path
+      some_type: DirectoryOrCreate
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        host-vol:
+          enabled: true
+          type: hostPath
+          hostPath: "{{ .Values.some_path }}"
+          hostPathType: "{{ .Values.some_type }}"
+    asserts:
+      - documentIndex: *deploymentDoc
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: host-vol
+            hostPath:
+              path: /some-path
+              type: DirectoryOrCreate
+
+# Failures
+  - it: should fail without hostPath
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: hostPath
+          hostPath: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected non-empty <hostPath> on <hostPath> type
+
+  - it: should fail with relative hostPath
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: hostPath
+          hostPath: some-path
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected <hostPath> to start with a forward slash [/] on <hostPath> type
+
+  - it: should fail with invalid hostPathType
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: hostPath
+          hostPath: /some-path
+          hostPathType: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected <hostPathType> to be one of [DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice, BlockDevice], but got [invalid]

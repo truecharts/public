@@ -1,142 +1,98 @@
-{{/* Volume Mounts included by the container. */}}
-{{- define "ix.v1.common.container.volumeMounts" -}}
-  {{- $isMainContainer := .isMainContainer -}}
-  {{- $root := .root -}}
-  {{- $extraContainerVolMounts := .extraContainerVolMounts -}}
+{{/* Returns volumeMount list */}}
+{{/* Call this template:
+{{ include "tc.v1.common.lib.container.volumeMount" (dict "rootCtx" $ "objectData" $objectData) }}
+rootCtx: The root context of the chart.
+objectData: The object data to be used to render the container.
+*/}}
+{{- define "tc.v1.common.lib.container.volumeMount" -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData -}}
 
-  {{- if (mustHas $root.Values.controller.type (list "Job" "CronJob")) -}}
-    {{- $isMainContainer = true -}}
+  {{- $volMounts := list -}}
+
+  {{- $keys := (list "persistence") -}}
+  {{- if eq $objectData.podType "StatefulSet" -}}
+    {{- $keys = mustAppend $keys "volumeClaimTemplates" -}}
   {{- end -}}
 
-  {{- if $isMainContainer -}}
-    {{- range $name, $item := $root.Values.persistence -}}
-      {{- if $item.enabled -}}
-        {{- if not $item.noMount -}}
-          {{- include "ix.v1.common.container.volumeMount"  (dict "root" $root
-                                                                  "item" $item
-                                                                  "name" $name) | indent 0 -}}
-        {{- end -}}
-      {{- end -}}
-    {{- end -}}
+  {{- range $key := $keys -}}
+    {{- range $persistenceName, $persistenceValues := (get $rootCtx.Values $key) -}}
 
-    {{/* TODO: write tests when statefulset is ready */}}
-    {{- if eq $root.Values.controller.type "StatefulSet" -}}
-      {{- range $index, $vct := $root.Values.volumeClaimTemplates -}}
-        {{- include "ix.v1.common.container.volumeMount"  (dict "root" $root
-                                                                "item" $vct
-                                                                "name" (toString $index)) | indent 0 -}}
-      {{- end -}}
-    {{- end -}}
-  {{- else if not $isMainContainer -}}
-    {{/* Create a list of volume names, so we can run checks against it */}}
-    {{- $volNames := list -}}
-    {{- range $name, $item := $root.Values.persistence -}}
-      {{- $volNames = mustAppend $volNames $name -}}
-    {{- end -}}
+      {{/* Initialize from the default values */}}
+      {{- $volMount := dict -}}
+      {{- $_ := set $volMount "name" $persistenceName -}}
+      {{- $_ := set $volMount "key" $key -}}
+      {{- $_ := set $volMount "mountPath" ($persistenceValues.mountPath | default "") -}}
+      {{- $_ := set $volMount "subPath" ($persistenceValues.subPath | default "") -}}
+      {{- $_ := set $volMount "readOnly" ($persistenceValues.readOnly | default false) -}}
+      {{- $_ := set $volMount "mountPropagation" ($persistenceValues.mountPropagation | default "") -}}
 
-      {{/* Create a list of extraContainerVolMounts names, so we can run checks against it */}}
-    {{- $extraContainerVolNames := list -}}
-    {{- range $index, $item := $extraContainerVolMounts -}}
-      {{- if $item.name -}}
-        {{- $extraContainerVolNames = mustAppend $extraContainerVolNames $item.name -}}
-      {{- end -}}
-    {{- end -}}
+      {{/* If persistence is enabled... */}}
+      {{- if $persistenceValues.enabled -}}
+        {{/* If targetSelectAll is set, means all pods/containers */}} {{/* targetSelectAll does not make sense for vct */}}
+        {{- if and $persistenceValues.targetSelectAll (ne $key "volumeClaimTemplates") -}}
+          {{- $volMounts = mustAppend $volMounts $volMount -}}
 
-    {{- range $index, $volMount := $extraContainerVolMounts -}}
-      {{- if hasKey $volMount "inherit" -}} {{/* If has Key "inherit" */}}
-        {{- if eq $volMount.inherit "all" -}} {{/* Inherit all volumeMounts */}}
-          {{- range $name, $item := $root.Values.persistence -}}
-            {{- if $item.enabled -}}
-              {{- include "ix.v1.common.container.volumeMount"  (dict "root" $root
-                                                                      "item" $item
-                                                                      "name" $name) | indent 0 -}}
-              {{- if (mustHas $name $extraContainerVolNames) -}} {{/* Remove it from the volNames so it does not get re-added */}}
-                {{- $extraContainerVolNames = mustWithout $extraContainerVolNames $name -}}
-              {{- end -}}
+        {{/* Else if selector is defined */}}
+        {{- else if $persistenceValues.targetSelector -}}
+          {{/* If pod is selected */}}
+          {{- if mustHas $objectData.podShortName ($persistenceValues.targetSelector | keys) -}}
+            {{- $selectorValues := (get $persistenceValues.targetSelector $objectData.podShortName) -}}
+            {{- if not (kindIs "map" $selectorValues) -}}
+              {{- fail (printf "%s - Expected <targetSelector.%s> to be a [dict], but got [%s]" (camelcase $key) $objectData.podShortName (kindOf $selectorValues)) -}}
+            {{- end -}}
+
+            {{- if not $selectorValues -}}
+              {{- fail (printf "%s - Expected non-empty <targetSelector.%s>" (camelcase $key) $objectData.podShortName) -}}
+            {{- end -}}
+
+            {{/* If container is selected */}}
+            {{- if mustHas $objectData.shortName ($selectorValues | keys) -}}
+              {{/* Merge with values that might be set for the specific container */}}
+              {{- $volMount = mustMergeOverwrite $volMount (get $selectorValues $objectData.shortName) -}}
+              {{- $volMounts = mustAppend $volMounts $volMount -}}
             {{- end -}}
           {{- end -}}
-        {{- else if eq $volMount.inherit "skipNoMount" -}} {{/* Inherit all volumeMounts but skip the "noMount" volumeMounts */}}
-          {{- range $name, $item := $root.Values.persistence -}}
-            {{- if $item.enabled -}}
-              {{- if not $item.noMount -}}
-                {{- include "ix.v1.common.container.volumeMount"  (dict "root" $root
-                                                                        "item" $item
-                                                                        "name" $name) | indent 0 -}}
 
-                {{- if (mustHas $name $extraContainerVolNames) -}} {{/* Remove it from the volNames so it does not get re-added */}}
-                  {{- $extraContainerVolNames = mustWithout $extraContainerVolNames $name -}}
-                {{- end -}}
-              {{- end -}}
-            {{- end -}}
-          {{- end -}}
-        {{- else if eq $volMount.inherit "setPermissions" -}} {{/* Inherit all volumes with setPermissions enabled */}}
-          {{- range $name, $item := $root.Values.persistence -}}
-            {{- if $item.enabled -}}
-              {{- if $item.setPermissions -}}
-                {{- include "ix.v1.common.container.volumeMount" (dict "root" $root
-                                                                        "item" $item
-                                                                        "name" $name) | indent 0 -}}
-              {{- end -}}
-            {{- end -}}
-          {{- end -}}
-        {{- end -}}{{/* Here we can add other inherit cases */}}
-      {{- else -}}
-        {{- if not $volMount.name -}}
-          {{- fail "<name> is required in volumeMounts in init/system/install/upgrade/additional containers." -}}
-        {{- end -}}
-
-        {{- if mustHas $volMount.name $extraContainerVolNames -}}
-
-          {{- if not (mustHas $volMount.name $volNames) -}}
-            {{- fail (printf "You are trying to mount a volume that does not exist (%s). Please define the volume in <persistence>." $volMount.name) -}}
-          {{- end -}}
-
-          {{- $item := dict -}}
-
-          {{- $_ := set $item "mountPath" $volMount.mountPath -}}
-          {{- if hasKey $volMount "subPath" -}}
-            {{- $_ := set $item "subPath" $volMount.subPath -}}
-          {{- end -}}
-          {{- if hasKey $volMount "mountPropagation" -}}
-            {{- $_ := set $item "mountPropagation" $volMount.mountPropagation -}}
-          {{- end -}}
-          {{- if hasKey $volMount "readOnly" -}}
-            {{- $_ := set $item "readOnly" $volMount.readOnly -}}
-          {{- end -}}
-
-          {{- include "ix.v1.common.container.volumeMount" (dict "root" $root
-                                                                  "item" $item
-                                                                  "name" $volMount.name) | indent 0 -}}
+        {{/* Else if not selector, but pod and container is primary */}}
+        {{- else if and $objectData.podPrimary $objectData.primary -}}
+          {{- $volMounts = mustAppend $volMounts $volMount -}}
         {{- end -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
-{{- end -}}
 
-{{- define "ix.v1.common.container.volumeMount" -}}
-  {{- $root := .root -}}
-  {{- $item := .item -}}
-  {{- $name := .name -}}
-  {{- if not $item.mountPath -}} {{/* Make sure that we have a mountPath */}}
-    {{- fail "<mountPath> must be defined, alternatively use the <noMount> flag." -}}
-  {{- end -}}
-  {{- $mountPath := (tpl $item.mountPath $root) -}}
-  {{- if not (hasPrefix "/" $mountPath) -}}
-    {{- fail (printf "Mount path (%s), must start with a forward slash -> / <-" $mountPath) -}}
-  {{- end }}
-- name: {{ tpl $name $root }}
-  mountPath: {{ $mountPath }}
-  {{- with $item.subPath }}
-  subPath: {{ tpl . $root }}
-  {{- end -}}
-  {{- if (hasKey $item "readOnly") -}}
-    {{- if or (eq $item.readOnly true) (eq $item.readOnly false) }}
-  readOnly: {{ $item.readOnly }}
-    {{- else -}}
-      {{- fail (printf "<readOnly> cannot be empty on item (%s)" $name) -}}
+  {{- range $volMount := $volMounts -}}
+    {{/* Expand values */}}
+    {{- $_ := set $volMount "mountPath" (tpl $volMount.mountPath $rootCtx) -}}
+    {{- $_ := set $volMount "subPath" (tpl $volMount.subPath $rootCtx) -}}
+    {{- $_ := set $volMount "mountPropagation" (tpl $volMount.mountPropagation $rootCtx) -}}
+
+    {{- if not $volMount.mountPath -}}
+      {{- fail (printf "%s - Expected non-empty <mountPath>" (camelcase $volMount.key)) -}}
     {{- end -}}
+
+    {{- if not (hasPrefix "/" $volMount.mountPath) -}}
+      {{- fail (printf "%s - Expected <mountPath> to start with a forward slash [/]" (camelcase $volMount.key)) -}}
+    {{- end -}}
+
+    {{- $propagationTypes := (list "None" "HostToContainer" "Bidirectional") -}}
+    {{- if and $volMount.mountPropagation (not (mustHas $volMount.mountPropagation $propagationTypes)) -}}
+      {{- fail (printf "%s - Expected <mountPropagation> to be one of [%s], but got [%s]" (camelcase $volMount.key) (join ", " $propagationTypes) $volMount.mountPropagation) -}}
+    {{- end -}}
+
+    {{- if not (kindIs "bool" $volMount.readOnly) -}}
+      {{- fail (printf "%s - Expected <readOnly> to be [boolean], but got [%s]" (camelcase $volMount.key) (kindOf $volMount.readOnly)) -}}
+    {{- end }}
+- name: {{ $volMount.name }}
+  mountPath: {{ $volMount.mountPath }}
+  readOnly: {{ $volMount.readOnly }}
+      {{- with $volMount.subPath }}
+  subPath: {{ . }}
+      {{- end -}}
+      {{- with $volMount.mountPropagation }}
+  mountPropagation: {{ . }}
+      {{- end -}}
   {{- end -}}
-  {{- with $item.mountPropagation }}
-  mountPropagation: {{ tpl . $root }}
-  {{- end -}}
+
 {{- end -}}

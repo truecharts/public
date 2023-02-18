@@ -1,0 +1,877 @@
+suite: container resources test
+templates:
+  - common.yaml
+tests:
+  - it: should create the resources correctly
+    set:
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: &probes
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+
+  - it: should override the default limits
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                resources:
+                  limits:
+                    cpu: 2000m
+                    memory: 4Gi
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 2000m
+                memory: 4Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+
+  - it: should override the default limits.cpu
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                resources:
+                  limits:
+                    cpu: 2000m
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 2000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+
+  - it: should override the default limits.memory
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                resources:
+                  limits:
+                    memory: 4Gi
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 4Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+
+  - it: should not render limits.cpu
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                resources:
+                  limits:
+                    cpu: 0
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+
+  - it: should not render limits.memory
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                resources:
+                  limits:
+                    memory: 0
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+              requests:
+                cpu: 10m
+                memory: 50Mi
+
+  - it: should override the default requests
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                resources:
+                  requests:
+                    cpu: 200m
+                    memory: 1Gi
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 200m
+                memory: 1Gi
+
+  - it: should override the default requests.cpu
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                resources:
+                  requests:
+                    cpu: 200m
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 200m
+                memory: 50Mi
+
+  - it: should override the default requests.memory
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                resources:
+                  requests:
+                    memory: 1Gi
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 1Gi
+
+  - it: should assign GPU on the primary pod/container
+    set:
+      image: *image
+      scaleGPU:
+        - gpu:
+            nvidia.com/gpu: 1
+      global:
+        ixChartContext:
+          addNvidiaRuntimeClass: true
+          nvidiaRuntimeClassName: nvidia
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+              container-name2:
+                enabled: true
+                primary: false
+                imageSelector: image
+                probes: *probes
+        workload-name2:
+          enabled: true
+          primary: false
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.runtimeClassName
+          value: nvidia
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: "1"
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: &otherDeploymentDoc 1
+        isKind:
+          of: Deployment
+      - documentIndex: *otherDeploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *otherDeploymentDoc
+        isNull:
+          path: spec.template.spec.runtimeClassName
+      - documentIndex: *otherDeploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+
+  - it: should assign GPU on the selected pod/container
+    set:
+      image: *image
+      global:
+        ixChartContext:
+          addNvidiaRuntimeClass: true
+          nvidiaRuntimeClassName: nvidia
+      scaleGPU:
+        - gpu:
+            nvidia.com/gpu: 1
+          targetSelector:
+            workload-name2:
+              - container-name1
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+              container-name2:
+                enabled: true
+                primary: false
+                imageSelector: image
+                probes: *probes
+        workload-name2:
+          enabled: true
+          primary: false
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isNull:
+          path: spec.template.spec.runtimeClassName
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: &otherDeploymentDoc 1
+        isKind:
+          of: Deployment
+      - documentIndex: *otherDeploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *otherDeploymentDoc
+        equal:
+          path: spec.template.spec.runtimeClassName
+          value: nvidia
+      - documentIndex: *otherDeploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: "1"
+              requests:
+                cpu: 10m
+                memory: 50Mi
+
+  - it: should assign GPU on the selected pods/containers
+    set:
+      image: *image
+      global:
+        ixChartContext:
+          addNvidiaRuntimeClass: true
+          nvidiaRuntimeClassName: nvidia
+      scaleGPU:
+        - gpu:
+            nvidia.com/gpu: 1
+          targetSelector:
+            workload-name1:
+              - container-name1
+              - container-name2
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+              container-name2:
+                enabled: true
+                primary: false
+                imageSelector: image
+                probes: *probes
+        workload-name2:
+          enabled: true
+          primary: false
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.runtimeClassName
+          value: nvidia
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: "1"
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: "1"
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: &otherDeploymentDoc 1
+        isKind:
+          of: Deployment
+      - documentIndex: *otherDeploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *otherDeploymentDoc
+        isNull:
+          path: spec.template.spec.runtimeClassName
+      - documentIndex: *otherDeploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+
+  # Failures
+  - it: should fail with empty requests
+    set:
+      image: *image
+      containerOptions:
+        resources:
+          requests:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty <resources.requests>
+
+  - it: should fail with empty requests.cpu
+    set:
+      image: *image
+      containerOptions:
+        resources:
+          requests:
+            cpu: ""
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty <resources.requests.cpu>
+
+  - it: should fail with empty requests.memory
+    set:
+      image: *image
+      containerOptions:
+        resources:
+          requests:
+            cpu: 10m
+            memory: ""
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty <resources.requests.memory>
+
+  - it: should fail with invalid format in requests.cpu
+    set:
+      image: *image
+      containerOptions:
+        resources:
+          requests:
+            cpu: 10MB
+            memory: 50Mi
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <resources.requests.cpu> to have one of the following formats [(Plain Integer - eg. 1), (Float - eg. 0.5), (Milicpu - eg. 500m)], but got [10MB]
+
+  - it: should fail with invalid format in limits.cpu
+    set:
+      image: *image
+      containerOptions:
+        resources:
+          requests:
+            cpu: 10m
+            memory: 50Mi
+          limits:
+            cpu: 10MB
+            memory: 8Gi
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <resources.limits.cpu> to have one of the following formats [(Plain Integer - eg. 1), (Float - eg. 0.5), (Milicpu - eg. 500m)], but got [10MB]
+
+  - it: should fail with invalid format in requests.memory
+    set:
+      image: *image
+      containerOptions:
+        resources:
+          requests:
+            cpu: 10m
+            memory: 50MB
+          limits:
+            cpu: 4000m
+            memory: 8Gi
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <resources.requests.memory> to have one of the following formats [(Suffixed with E/P/T/G/M/K - eg. 1G), (Suffixed with Ei/Pi/Ti/Gi/Mi/Ki - eg. 1Gi), (Plain Integer in bytes - eg. 1024), (Exponent - eg. 134e6)], but got [50MB]
+
+  - it: should fail with invalid format in limits.memory
+    set:
+      image: *image
+      containerOptions:
+        resources:
+          requests:
+            cpu: 10m
+            memory: 50Mi
+          limits:
+            cpu: 4000m
+            memory: 8GB
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <resources.limits.memory> to have one of the following formats [(Suffixed with E/P/T/G/M/K - eg. 1G), (Suffixed with Ei/Pi/Ti/Gi/Mi/Ki - eg. 1Gi), (Plain Integer in bytes - eg. 1024), (Exponent - eg. 134e6)], but got [8GB]
+
+  - it: should fail with empty gpu in defined entry
+    set:
+      image: *image
+      scaleGPU:
+        - gpu:
+          targetSelector:
+            workload-name1:
+              - container-name1
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty <scaleGPU.gpu>
+
+  - it: should fail with empty list under workload in targetSelector
+    set:
+      image: *image
+      scaleGPU:
+        - gpu:
+            key: value
+          targetSelector:
+            workload-name1: []
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty list under pod in <scaleGPU.targetSelector>
+
+  - it: should fail with empty value in gpu
+    set:
+      image: *image
+      scaleGPU:
+        - gpu:
+            key: ""
+          targetSelector:
+            workload-name1:
+              - container-name1
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty <scaleGPU> <value>

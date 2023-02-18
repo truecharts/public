@@ -1,0 +1,45 @@
+suite: service account name test
+templates:
+  - common.yaml
+tests:
+  - it: should generate correct name
+    set:
+      serviceAccount:
+        my-sa:
+          enabled: true
+          primary: true
+        my-sa1:
+          enabled: true
+        my-sa2:
+          enabled: true
+    asserts:
+      - documentIndex: &primaryServiceAccount 0
+        isKind:
+          of: ServiceAccount
+      - documentIndex: *primaryServiceAccount
+        isAPIVersion:
+          of: v1
+      - documentIndex: *primaryServiceAccount
+        equal:
+          path: metadata.name
+          value: release-name-common-test
+      - documentIndex: &serviceAccount 1
+        isKind:
+          of: ServiceAccount
+      - documentIndex: *serviceAccount
+        isAPIVersion:
+          of: v1
+      - documentIndex: *serviceAccount
+        equal:
+          path: metadata.name
+          value: release-name-common-test-my-sa1
+      - documentIndex: &otherServiceAccount 2
+        isKind:
+          of: ServiceAccount
+      - documentIndex: *otherServiceAccount
+        isAPIVersion:
+          of: v1
+      - documentIndex: *otherServiceAccount
+        equal:
+          path: metadata.name
+          value: release-name-common-test-my-sa2

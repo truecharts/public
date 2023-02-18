@@ -1,29 +1,24 @@
-# Introduction
+# Common Library
 
-Function library for TrueCharts
+## Naming Scheme
 
-Function library for TrueCharts
-Since a lot of the TrueCharts Apps and Charts follow a similar pattern, this library was built to reduce maintenance cost between the charts that use it and try achieve a goal of being DRY.
+- ServiceAccount:
+  - Primary: `$FullName`
+  - Others: `$FullName-$ServiceAccountName`
+- RBAC:
+  - Primary: `$FullName`
+  - Others: `$FullName-$RBACName`
+- Service:
+  - Primary: `$FullName`
+  - Others: `$FullName-$ServiceName`
+- Pods:
+  - Primary: `$FullName`
+  - Others: `$FullName-$PodName`
+- Containers: `$ContainerName`
+- ConfigMap: `$FullName-$ConfigMapName`
+- Secret: `$FullName-$SecretName`
+- Scale Certificate: `$FullName-$CertName`
+- Scale External Interface: `ix-$ReleaseName-$index`
 
-## Requirements
-
-Kubernetes: `>=1.16.0-0`
-
-## Dependencies
-
-| Repository | Name | Version |
-|------------|------|---------|
-
-## Installing the Chart
-
-This is a Helm Library Chart.
-WARNING: THIS CHART IS NOT MEANT TO BE INSTALLED DIRECTLY
-
-## Support
-
-- Please check our [quick-start guides](https://truecharts.org/manual/Quick-Start%20Guides/01-Adding-TrueCharts/) first.
-- See the [Wiki](https://truecharts.org)
-- Check our [Discord](https://discord.gg/tVsPTHWTtr)
-- Open a [issue](https://github.com/truecharts/apps/issues/new/choose)
----
-All Rights Reserved - The TrueCharts Project
+> Full name -> `$ReleaseName-$ChartName`
+> Any name that exceeds 63 characters, will throw an error

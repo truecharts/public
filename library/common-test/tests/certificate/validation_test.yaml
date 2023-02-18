@@ -1,0 +1,143 @@
+suite: certificate validation test
+templates:
+  - common.yaml
+tests:
+  - it: should fail with name longer than 63 characters
+    set:
+      scaleCertificate:
+        my-certificate-super-long-name-that-is-longer-than-63-characters:
+          enabled: true
+          id: 1
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [release-name-common-test-my-certificate-super-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with name starting with underscore
+    set:
+      scaleCertificate:
+        _my-cert:
+          enabled: true
+          id: 1
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [release-name-common-test-_my-cert] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with labels not a dict
+    set:
+      scaleCertificate:
+        my-cert:
+          enabled: true
+          labels: "not a dict"
+          id: 1
+    asserts:
+      - failedTemplate:
+          errorMessage: Certificate - Expected <labels> to be a dictionary, but got [string]
+
+  - it: should fail with annotations not a dict
+    set:
+      scaleCertificate:
+        my-cert:
+          enabled: true
+          annotations: "not a dict"
+          id: 1
+    asserts:
+      - failedTemplate:
+          errorMessage: Certificate - Expected <annotations> to be a dictionary, but got [string]
+
+  - it: should fail without id
+    set:
+      scaleCertificate:
+        my-cert:
+          enabled: true
+          id: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Certificate - Expected non-empty <id>
+
+  - it: should fail with targetSelector not a dict
+    set:
+      scaleCertificate:
+        my-cert:
+          enabled: true
+          id: 1
+          targetSelector: "not a dict"
+    asserts:
+      - failedTemplate:
+          errorMessage: Certificate - Expected <targetSelector> to be a [map], but got [string]
+
+  - it: should fail with empty ixCertificates when cert is defined
+    set:
+      ixCertificates: []
+      scaleCertificate:
+        my-cert:
+          enabled: true
+          id: 1
+    asserts:
+      - failedTemplate:
+          errorMessage: Certificate - Expected non-empty <ixCertificates>
+
+  - it: should fail with not defined id in ixCertificates when cert is defined
+    set:
+      ixCertificates:
+        "2":
+          key: value
+      scaleCertificate:
+        my-cert:
+          enabled: true
+          id: 1
+    asserts:
+      - failedTemplate:
+          errorMessage: Certificate - Expected certificate with <id> ["1"] to exist in <ixCertificates>
+
+  - it: should fail with with revoked cert
+    set:
+      ixCertificates:
+        "1":
+          revoked: true
+      scaleCertificate:
+        my-cert:
+          enabled: true
+          id: 1
+    asserts:
+      - failedTemplate:
+          errorMessage: Certificate - Expected non-revoked certificate with <id> ["1"]
+
+  - it: should fail with with expired cert
+    set:
+      ixCertificates:
+        "1":
+          expired: true
+      scaleCertificate:
+        my-cert:
+          enabled: true
+          id: 1
+    asserts:
+      - failedTemplate:
+          errorMessage: Certificate - Expected non-expired certificate with <id> ["1"]
+
+  - it: should fail with with empty certificate
+    set:
+      ixCertificates:
+        "1":
+          certificate: ""
+      scaleCertificate:
+        my-cert:
+          enabled: true
+          id: 1
+    asserts:
+      - failedTemplate:
+          errorMessage: Certificate - Expected non-empty [certificate] in certificate with <id> ["1"] in <ixCertificates>
+
+  - it: should fail with with empty privatekey
+    set:
+      ixCertificates:
+        "1":
+          certificate: some_value
+          privatekey: ""
+      scaleCertificate:
+        my-cert:
+          enabled: true
+          id: 1
+    asserts:
+      - failedTemplate:
+          errorMessage: Certificate - Expected non-empty [privatekey] in certificate with <id> ["1"] in <ixCertificates>

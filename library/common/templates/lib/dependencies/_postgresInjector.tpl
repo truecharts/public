@@ -1,18 +1,15 @@
 {{/*
 This template generates a random password and ensures it persists across updates/edits to the chart
 */}}
-{{- define "tc.v1.common.dependencies.postgresql.injector" -}}
+{{- define "tc.v1.common.dependencies.postgresql.secret" -}}
 {{- $pghost := printf "%v-%v" .Release.Name "postgresql" }}
 
 {{- if .Values.postgresql.enabled }}
----
-apiVersion: v1
-kind: Secret
-metadata:
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-  name: dbcreds
-{{- $dbprevious := lookup "v1" "Secret" .Release.Namespace "dbcreds" }}
+enabled: true
+{{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+{{- $fetchname := printf "%s-dbcreds" $basename -}}
+{{- $dbprevious := lookup "v1" "Secret" .Release.Namespace $fetchname }}
+{{- $dbpreviousold := lookup "v1" "Secret" .Release.Namespace "dbcreds" }}
 {{- $dbPass := "" }}
 {{- $pgPass := "" }}
 data:
@@ -21,6 +18,11 @@ data:
   {{- $pgPass = ( index $dbprevious.data "postgresql-postgres-password" ) | b64dec  }}
   postgresql-password: {{ ( index $dbprevious.data "postgresql-password" ) }}
   postgresql-postgres-password: {{ ( index $dbprevious.data "postgresql-postgres-password" ) }}
+{{- else if $dbpreviousold }}
+  {{- $dbPass = ( index $dbpreviousold.data "postgresql-password" ) | b64dec  }}
+  {{- $pgPass = ( index $dbpreviousold.data "postgresql-postgres-password" ) | b64dec  }}
+  postgresql-password: {{ ( index $dbpreviousold.data "postgresql-password" ) }}
+  postgresql-postgres-password: {{ ( index $dbpreviousold.data "postgresql-postgres-password" ) }}
 {{- else }}
   {{- $dbPass = randAlphaNum 50 }}
   {{- $pgPass = randAlphaNum 50 }}
@@ -45,4 +47,11 @@ type: Opaque
 {{- $_ := set .Values.postgresql.url "jdbc" ( ( printf "jdbc:postgresql://%v-postgresql:5432/%v" .Release.Name .Values.postgresql.postgresqlDatabase  ) | quote ) }}
 
 {{- end }}
+{{- end -}}
+
+{{- define "tc.v1.common.dependencies.postgresql.injector" -}}
+  {{- $secret := include "tc.v1.common.dependencies.postgresql.secret" . | fromYaml -}}
+  {{- if $secret -}}
+    {{- $_ := set .Values.secret "postgresqlcreds" $secret -}}
+  {{- end -}}
 {{- end -}}

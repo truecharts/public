@@ -1,25 +1,35 @@
-{{/*
-If the `SizeMemoryBackedVolumes` feature gate is enabled,
-you can specify a size for memory backed volumes.
+{{/* Returns emptyDir Volume */}}
+{{/* Call this template:
+{{ include "tc.v1.common.lib.pod.volume.emptyDir" (dict "rootCtx" $ "objectData" $objectData) }}
+rootCtx: The root context of the chart.
+objectData: The object data to be used to render the volume.
 */}}
-{{- define "ix.v1.common.controller.volumes.emptyDir" -}}
-  {{- $index := .index -}}
-  {{- $vol := .volume -}}
-  {{- $root := .root }}
-- name: {{ $index }}
-  {{- if not (or $vol.medium $vol.sizeLimit) }}
-  emptyDir: {}
-  {{- else }}
+{{- define "tc.v1.common.lib.pod.volume.emptyDir" -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData -}}
+
+  {{- $medium := "" -}}
+  {{- $size := "" -}}
+  {{- with $objectData.medium -}}
+    {{- $medium = tpl . $rootCtx -}}
+  {{- end -}}
+  {{- with $objectData.size -}}
+    {{- $size = tpl . $rootCtx -}}
+  {{- end -}}
+
+  {{- if and $medium (ne $medium "Memory") -}}
+    {{- fail (printf "Persistence - Expected [medium] to be one of [\"\", Memory], but got [%s] on <emptyDir> type" $medium)  -}}
+  {{- end }}
+- name: {{ $objectData.shortName }}
+  {{- if or $medium $size }}
   emptyDir:
-    {{- with $vol.medium -}}
-      {{- if eq (tpl . $root) "Memory" }}
-    medium: Memory
-      {{- else -}}
-        {{- fail (printf "You can only set <medium> as Memory on item (%s)" $index) -}}
-      {{- end -}}
+    {{- if $medium }}
+    medium: {{ $medium }}
     {{- end -}}
-    {{- with $vol.sizeLimit }}
-    sizeLimit: {{ tpl . $root }}
+    {{- if $size }}
+    sizeLimit: {{ $size }}
     {{- end -}}
+  {{- else }}
+  emptyDir: {}
   {{- end -}}
 {{- end -}}

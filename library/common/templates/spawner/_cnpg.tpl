@@ -4,7 +4,7 @@
   {{- range $name, $cnpg := .Values.cnpg -}}
     {{- if $cnpg.enabled -}}
       {{- $cnpgValues := $cnpg -}}
-      {{- $cnpgName := include "ix.v1.common.names.fullname" $ -}}
+      {{- $cnpgName := include "tc.v1.common.lib.chart.names.fullname" $ -}}
 
       {{/* set defaults */}}
       {{- if and (not $cnpgValues.nameOverride) (ne $name (include "tc.v1.common.lib.util.cnpg.primary" $)) -}}

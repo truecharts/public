@@ -1,58 +1,90 @@
-{{/* Returns dnsPolicy */}}
-{{- define "ix.v1.common.dnsPolicy" -}}
-  {{- $dnsPolicy := .dnsPolicy -}}
-  {{- $hostNetwork := .hostNetwork -}}
-  {{- $root := .root -}}
+{{/* Returns DNS Policy and Config */}}
+{{/* Call this template:
+{{ include "tc.v1.common.lib.pod.dns" (dict "rootCtx" $ "objectData" $objectData) }}
+rootCtx: The root context of the chart.
+objectData: The object data to be used to render the Pod.
+*/}}
+{{- define "tc.v1.common.lib.pod.dns" -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData -}}
 
-  {{- $policy := $root.Values.global.defaults.dnsPolicy -}}
-  {{- if $dnsPolicy -}}
-    {{- if not (mustHas $dnsPolicy (list "Default" "ClusterFirst" "ClusterFirstWithHostNet" "None"))  -}}
-      {{- fail (printf "Not valid dnsPolicy (%s). Valid options are ClusterFirst, Default, ClusterFirstWithHostNet, None" $dnsPolicy) -}}
-    {{- end -}}
-    {{- $policy = $dnsPolicy -}}
-  {{- else if $hostNetwork -}}
+  {{- $policy := "ClusterFirst" -}}
+  {{- $config := dict -}}
+
+  {{/* Initialize from the "global" option */}}
+  {{- with $rootCtx.Values.podOptions.dnsPolicy -}}
+    {{- $policy = . -}}
+  {{- end -}}
+
+  {{- with $rootCtx.Values.podOptions.dnsConfig -}}
+    {{- $config = . -}}
+  {{- end -}}
+
+  {{/* Override with pod's option */}}
+  {{- with $objectData.podSpec.dnsPolicy -}}
+    {{- $policy = . -}}
+  {{- end -}}
+
+  {{- with $objectData.podSpec.dnsConfig -}}
+    {{- $config = . -}}
+  {{- end -}}
+
+  {{/* Expand policy */}}
+  {{- $policy = (tpl $policy $rootCtx) -}}
+
+  {{/* If hostNetwork is enabled, then use ClusterFirstWithHostNet */}}
+  {{- $hostNet := include "tc.v1.common.lib.pod.hostNetwork" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
+  {{- if or (and (kindIs "string" $hostNet) (eq $hostNet "true")) (and (kindIs "bool" $hostNet) $hostNet) -}}
     {{- $policy = "ClusterFirstWithHostNet" -}}
   {{- end -}}
-{{- $policy -}}
-{{- end -}}
 
-{{/* Returns dnsConfig */}}
-{{- define "ix.v1.common.dnsConfig" -}}
-  {{- $values := .values -}}
-  {{- $dnsPolicy := .dnsPolicy -}}
-  {{- $dnsConfig := .dnsConfig -}}
-  {{- $root := .root -}}
-
-  {{- if and (eq $dnsPolicy "None") (not $dnsConfig.nameservers) -}}
-    {{- fail "With dnsPolicy set to None, you must specify at least 1 nameservers on dnsConfig" -}}
+  {{- $policies := (list "ClusterFirst" "ClusterFirstWithHostNet" "Default" "None") -}}
+  {{- if not (mustHas $policy $policies) -}}
+    {{- fail (printf "Expected <dnsPolicy> to be one of [%s], but got [%s]" (join ", " $policies) $policy) -}}
   {{- end -}}
-  {{- if or $dnsConfig.nameservers $dnsConfig.searches $dnsConfig.options -}}
-    {{- with $dnsConfig.nameservers -}}
+
+  {{/* When policy is set to None all keys are required */}}
+  {{- if eq $policy "None" -}}
+
+    {{- range $key := (list "nameservers" "searches" "options") -}}
+      {{- if not (get $config $key) -}}
+        {{- fail (printf "Expected non-empty <dnsConfig.%s> with <dnsPolicy> set to [None]." $key) -}}
+      {{- end -}}
+    {{- end -}}
+
+  {{- end }}
+dnsPolicy: {{ $policy }}
+  {{- if or $config.nameservers $config.options $config.searches }}
+dnsConfig:
+    {{- with $config.nameservers -}}
       {{- if gt (len .) 3 -}}
-        {{- fail "There can be at most 3 nameservers specified in dnsConfig" -}}
-      {{- end -}}
-nameservers:
-      {{- range . }}
-  - {{ tpl . $root }}
+        {{- fail (printf "Expected no more than [3] <dnsConfig.nameservers>, but got [%v]" (len .)) -}}
       {{- end }}
+  nameservers:
+      {{- range . }}
+  - {{ tpl . $rootCtx }}
+      {{- end -}}
     {{- end -}}
-    {{- with $dnsConfig.searches -}}
+
+    {{- with $config.searches -}}
       {{- if gt (len .) 6 -}}
-        {{- fail "There can be at most 6 search domains specified in dnsConfig" -}}
+        {{- fail (printf "Expected no more than [6] <dnsConfig.searches>, but got [%v]" (len .)) -}}
       {{- end }}
-searches:
+  searches:
       {{- range . }}
-  - {{  tpl . $root }}
-      {{- end }}
-    {{- end -}}
-    {{- with $dnsConfig.options }}
-options:
-      {{- range . }}
-  - name: {{ tpl .name $root }}
-        {{- with .value }}
-    value: {{ tpl (toString .) $root | quote }}
-        {{- end }}
+  - {{ tpl . $rootCtx }}
       {{- end -}}
     {{- end -}}
+
+    {{- with $config.options }}
+  options:
+      {{- range . }}
+    - name: {{ tpl .name $rootCtx }}
+        {{- with .value }}
+      value: {{ tpl . $rootCtx | quote }}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
   {{- end -}}
 {{- end -}}

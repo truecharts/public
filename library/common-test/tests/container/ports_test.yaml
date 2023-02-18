@@ -1,0 +1,284 @@
+suite: container ports test
+templates:
+  - common.yaml
+tests:
+  - it: should create the correct ports without selector
+    set:
+      some_port: 80
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: &probes
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+        workload-name2:
+          enabled: true
+          primary: false
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: "{{ .Values.some_port }}"
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            ports:
+              - name: port-name
+                containerPort: 80
+                protocol: TCP
+      - documentIndex: &otherDeploymentDoc 1
+        isKind:
+          of: Deployment
+      - documentIndex: *otherDeploymentDoc
+        isNull:
+          path: spec.template.spec.containers[0].ports
+
+  - it: should create the correct ports with selector
+    set:
+      some_port: 53
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+        workload-name2:
+          enabled: true
+          primary: false
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          targetSelector: workload-name1
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              targetSelector: container-name1
+              port: 1234
+        my-service2:
+          enabled: true
+          primary: false
+          targetSelector: workload-name2
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              targetSelector: container-name1
+              port: 54
+              targetPort: "{{ .Values.some_port }}"
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            ports:
+              - name: port-name
+                containerPort: 1234
+                protocol: TCP
+      - documentIndex: &otherDeploymentDoc 1
+        isKind:
+          of: Deployment
+      - documentIndex: *otherDeploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            ports:
+              - name: port-name
+                containerPort: 53
+                protocol: TCP
+
+  - it: should create the correct ports with hostPort
+    set:
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 1234
+              targetPort: 5678
+              hostPort: 20000
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            ports:
+              - name: port-name
+                containerPort: 5678
+                protocol: TCP
+                hostPort: 20000
+
+  - it: should create the correct protocol from tpl
+    set:
+      some_protocol: https
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 1234
+              protocol: "{{ .Values.some_protocol }}"
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            ports:
+              - name: port-name
+                containerPort: 1234
+                protocol: TCP
+
+  - it: should create the correct protocol
+    set:
+      image: &image
+        repository: nginx
+        tag: 1.19.0
+        pullPolicy: IfNotPresent
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 1234
+              protocol: udp
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            ports:
+              - name: port-name
+                containerPort: 1234
+                protocol: UDP

@@ -1,33 +1,78 @@
-image:
-  repository: tccr.io/truecharts/whoami
-  pullPolicy: IfNotPresent
-  tag: 1.8.7@sha256:8c61f0ca92fd806fcb4ed1465cb793c05443f37951554b105b0f2dc686a95772
-
 service:
   main:
+    enabled: true
+    primary: true
     ports:
       main:
+        enabled: true
+        primary: true
+        protocol: http
         port: 8080
 
-args:
-  - --port
-  - '8080'
-
-manifests:
-  enabled: false
-  staging: false
-
-probes:
-  liveness:
+workload:
+  main:
     enabled: true
-  readiness:
+    primary: true
+    type: Deployment
+    podSpec:
+      containers:
+        main:
+          enabled: true
+          primary: true
+          args:
+            - --port
+            - "8080"
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+            readiness:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+            startup:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+  workload2:
     enabled: true
-  startup:
-    enabled: true
+    primary: false
+    type: Deployment
+    podSpec:
+      containers:
+        main:
+          enabled: true
+          primary: true
+          args:
+            - --port
+            - "8080"
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+            readiness:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+            startup:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
 
 rbac:
   main:
     enabled: true
+    primary: true
+    clusterWide: true
+    allServiceAccounts: true
+    labels:
+      key: value
+      key1: value1
+    annotations:
+      key: value
+      key1: value1
     rules:
       - apiGroups:
           - ""
@@ -40,39 +85,28 @@ rbac:
           - list
           - watch
       - apiGroups:
-          - extensions
-          - networking.k8s.io
+          - ""
         resources:
-          - ingresses
-          - ingressclasses
-        verbs:
-          - get
-          - list
-          - watch
-      - apiGroups:
-          - extensions
-          - networking.k8s.io
-        resources:
-          - ingresses/status
-        verbs:
-          - update
-      - apiGroups:
-          - traefik.containo.us
-        resources:
-          - ingressroutes
-          - ingressroutetcps
-          - ingressrouteudps
-          - middlewares
-          - middlewaretcps
-          - tlsoptions
-          - tlsstores
-          - traefikservices
-          - serverstransports
+          - pods
         verbs:
           - get
           - list
           - watch
 
 serviceAccount:
-  main:
-    create: true
+  sa-name:
+    enabled: true
+    primary: true
+    labels:
+      key: value
+      key2: value
+    annotations:
+      key: value
+      key2: value
+  other-sa-name:
+    enabled: true
+    targetSelector:
+      - workload2
+
+manifestManager:
+  enabled: false

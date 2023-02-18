@@ -46,7 +46,7 @@ env:
 {{- if or ( .Values.addons.vpn.openvpn.username ) ( .Values.addons.vpn.openvpn.password ) }}
 envFrom:
   - secretRef:
-      name: {{ include "ix.v1.common.names.fullname" . }}-openvpn
+      name: {{ include "tc.v1.common.names.fullname" . }}-openvpn
 {{- end }}
 volumeMounts:
   - mountPath: {{ .Values.persistence.shared.mountPath }}

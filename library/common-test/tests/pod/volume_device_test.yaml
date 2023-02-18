@@ -1,0 +1,110 @@
+suite: pod device volume test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with device volume
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        dev-vol:
+          enabled: true
+          type: device
+          hostPath: /dev/something
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: dev-vol
+            hostPath:
+              path: /dev/something
+
+  - it: should pass with device volume and type
+    set:
+      some_path: /dev/something
+      some_type: BlockDevice
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        dev-vol:
+          enabled: true
+          type: device
+          hostPath: "{{ .Values.some_path }}"
+          hostPathType: "{{ .Values.some_type }}"
+    asserts:
+      - documentIndex: *deploymentDoc
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: dev-vol
+            hostPath:
+              path: /dev/something
+              type: BlockDevice
+
+# Failures
+  - it: should fail without hostPath
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: device
+          hostPath: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected non-empty <hostPath> on <device> type
+
+  - it: should fail with relative hostPath
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: device
+          hostPath: some-path
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected <hostPath> to start with a forward slash [/] on <device> type
+
+  - it: should fail with invalid hostPathType
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: device
+          hostPath: /some-path
+          hostPathType: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected <hostPathType> to be one of [DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice, BlockDevice], but got [invalid]

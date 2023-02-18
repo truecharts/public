@@ -1,45 +1,67 @@
-{{/* Returns tolerations */}}
-{{- define "ix.v1.common.tolerations" -}}
-  {{- $tolerations := .tolerations -}}
-  {{- $root := .root -}}
+{{/* Returns Tolerations */}}
+{{/* Call this template:
+{{ include "tc.v1.common.lib.pod.tolerations" (dict "rootCtx" $ "objectData" $objectData) }}
+rootCtx: The root context of the chart.
+objectData: The object data to be used to render the Pod.
+*/}}
+{{- define "tc.v1.common.lib.pod.tolerations" -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData -}}
 
-  {{- range $tolerations }}
-    {{- $operator := (tpl (default "Equal" .operator) $root)  -}}
-    {{- if not (mustHas $operator (list "Exists" "Equal")) -}}
-      {{- fail "Invalid <operator>. Valid options are Exists, Equal." -}}
+  {{- $tolerations := list -}}
+
+  {{/* Initialize from the "global" option */}}
+  {{- with $rootCtx.Values.podOptions.tolerations -}}
+    {{- $tolerations = . -}}
+  {{- end -}}
+
+  {{/* Override from the "pod" option */}}
+  {{- with $objectData.podSpec.tolerations -}}
+    {{- $tolerations = . -}}
+  {{- end -}}
+
+  {{- range $tolerations -}}
+    {{/* Expand values */}}
+    {{- $operator := (tpl (.operator | default "") $rootCtx) -}}
+    {{- $key := (tpl (.key | default "") $rootCtx) -}}
+    {{- $value := (tpl (.value | default "") $rootCtx) -}}
+    {{- $effect := (tpl (.effect | default "") $rootCtx) -}}
+    {{- $tolSeconds := .tolerationSeconds -}}
+
+    {{- $operators := (list "Exists" "Equal") -}}
+    {{- if not (mustHas $operator $operators) -}}
+      {{- fail (printf "Expected <tolerations.operator> to be one of [%s] but got [%s]" (join ", " $operators) $operator) -}}
     {{- end -}}
 
-    {{- $key := (tpl (default "" .key) $root) -}} {{/* Empty key matches all keys */}}
-    {{- if and (eq $operator "Equal") (not $key) -}}
-      {{- fail "<key> is required when <operator> is set to <Equal>" -}}
+    {{- if and (eq $operator "Equal") (or (not $key) (not $value)) -}}
+      {{- fail "Expected non-empty <tolerations.key> and <tolerations.value> with <tolerations.operator> set to [Equal]" -}}
     {{- end -}}
 
-    {{- $value := (tpl (default "" .value) $root) -}}
     {{- if and (eq $operator "Exists") $value -}}
-      {{- fail "When <operator> is set to <Exists>, you cannot define a <value>" -}}
+      {{- fail (printf "Expected empty <tolerations.value> with <tolerations.operator> set to [Exists], but got [%s]" $value) -}}
     {{- end -}}
 
-    {{- $effect := (tpl (default "" .effect) $root) -}} {{/* Empty effect matches all effects with the key */}}
-    {{- if and $effect (not (mustHas $effect (list "NoExecute" "NoSchedule" "PreferNoSchedule"))) -}}
-      {{- fail (printf "Invalid <effect> (%s). Valid options are NoExecute, NoSchedule, PreferNoSchedule" $effect) -}}
+    {{- $effects := (list "NoExecute" "NoSchedule" "PreferNoSchedule") -}}
+    {{- if and $effect (not (mustHas $effect $effects)) -}}
+      {{- fail (printf "Expected <tolerations.effect> to be one of [%s], but got [%s]" (join ", " $effects) $effect) -}}
     {{- end -}}
 
-    {{- $tolSeconds := (default "" .tolerationSeconds) -}}
-    {{- if and $tolSeconds (not (mustHas (kindOf $tolSeconds) (list "float64" "int"))) -}}
-      {{- fail "<tolerationSeconds> must result to an integer." -}}
+    {{- if and (not (kindIs "invalid" $tolSeconds)) (not (mustHas (kindOf $tolSeconds) (list "int" "float64"))) -}}
+      {{- fail (printf "Expected <tolerations.tolerationSeconds> to be a number, but got [%s]" $tolSeconds) -}}
     {{- end }}
 - operator: {{ $operator }}
     {{- with $key }}
-  key: {{ . }}
-    {{- end }}
+  key: {{ $key }}
+    {{- end -}}
     {{- with $effect }}
-  effect: {{ . }}
-    {{- end }}
+  effect: {{ $effect }}
+    {{- end -}}
     {{- with $value }}
   value: {{ . }}
     {{- end -}}
-    {{- with $tolSeconds }}
-  tolerationSeconds: {{ . }}
+    {{- if (mustHas (kindOf $tolSeconds) (list "int" "float64")) }}
+  tolerationSeconds: {{ $tolSeconds }}
     {{- end -}}
+
   {{- end -}}
 {{- end -}}

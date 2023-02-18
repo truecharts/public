@@ -1,0 +1,123 @@
+suite: pod emptyDir volume test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with emptyDir volume
+    set:
+      some_medium: Memory
+      some_size: 2Gi
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        emptyDir-vol:
+          enabled: true
+          type: emptyDir
+          medium: "{{ .Values.some_medium }}"
+          size: "{{ .Values.some_size }}"
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: emptyDir-vol
+            emptyDir:
+              medium: Memory
+              sizeLimit: 2Gi
+
+  - it: should pass with emptyDir volume bare bones
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        emptyDir-vol:
+          enabled: true
+          type: emptyDir
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: emptyDir-vol
+            emptyDir: {}
+
+  - it: should pass with emptyDir volume with medium set
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        emptyDir-vol:
+          enabled: true
+          type: emptyDir
+          medium: Memory
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: emptyDir-vol
+            emptyDir:
+              medium: Memory
+
+  - it: should pass with emptyDir volume with size set
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        emptyDir-vol:
+          enabled: true
+          type: emptyDir
+          size: 3Gi
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: emptyDir-vol
+            emptyDir:
+              sizeLimit: 3Gi
+
+# Failures
+  - it: should fail with invalid medium in emptyDir
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: emptyDir
+          medium: not-a-valid-medium
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected [medium] to be one of ["", Memory], but got [not-a-valid-medium] on <emptyDir> type

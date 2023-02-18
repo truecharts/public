@@ -1,14 +1,27 @@
-{{- define "ix.v1.common.controller.volumes.nfs" -}}
-  {{- $index := .index -}}
-  {{- $vol := .volume -}}
-  {{- $root := .root -}}
-  {{- if not $vol.path  -}}
-    {{- fail (printf "NFS Path not set on item %s" $index) -}}
-  {{- else if not (hasPrefix "/" $vol.path ) -}}
-    {{- fail (printf "NFS path (%s) on (%s) must start with a forward slash -> / <-" $vol.path $index) -}}
+{{/* Returns NFS Volume */}}
+{{/* Call this template:
+{{ include "tc.v1.common.lib.pod.volume.nfs" (dict "rootCtx" $ "objectData" $objectData) }}
+rootCtx: The root context of the chart.
+objectData: The object data to be used to render the volume.
+*/}}
+{{- define "tc.v1.common.lib.pod.volume.nfs" -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData -}}
+
+  {{- if not $objectData.path -}}
+    {{- fail "Persistence - Expected non-empty <path> on <nfs> type" -}}
+  {{- end -}}
+
+  {{- $path := tpl $objectData.path $rootCtx -}}
+  {{- if not (hasPrefix "/" $path) -}}
+    {{- fail "Persistence - Expected <path> to start with a forward slash [/] on <nfs> type" -}}
+  {{- end -}}
+
+  {{- if not $objectData.server -}}
+    {{- fail "Persistence - Expected non-empty <server> on <nfs> type" -}}
   {{- end }}
-- name: {{ $index }}
+- name: {{ $objectData.shortName }}
   nfs:
-    server: {{ required (printf "NFS Server not set on item %s" $index) $vol.server }}
-    path: {{ $vol.path }}
+    path: {{ $path }}
+    server: {{ tpl $objectData.server $rootCtx }}
 {{- end -}}

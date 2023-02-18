@@ -1,0 +1,237 @@
+suite: pod dns config test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with empty dnsConfig
+    set:
+      podOptions:
+        dnsConfig:
+          nameservers: []
+          searches: []
+          options: []
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isNull:
+          path: spec.template.spec.dnsConfig
+
+  - it: should pass with dnsConfig from "global"
+    set:
+      podOptions:
+        dnsConfig:
+          nameservers:
+            - 1.1.1.1
+            - 2.2.2.2
+          searches:
+            - example.com
+            - example.org
+          options:
+            - name: ndots
+              value: "2"
+            - name: edns0
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.dnsConfig
+          value:
+            nameservers:
+              - 1.1.1.1
+              - 2.2.2.2
+            searches:
+              - example.com
+              - example.org
+            options:
+              - name: ndots
+                value: "2"
+              - name: edns0
+
+  - it: should pass with dnsPolicy from "pod"
+    set:
+      podOptions:
+        dnsConfig:
+          nameservers:
+            - 1.1.1.1
+          searches:
+            - example.org
+          options:
+            - name: edns0
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            dnsConfig:
+              nameservers:
+                - 1.1.1.1
+                - 2.2.2.2
+              searches:
+                - example.com
+                - example.org
+              options:
+                - name: ndots
+                  value: "2"
+                - name: edns0
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.dnsConfig
+          value:
+            nameservers:
+              - 1.1.1.1
+              - 2.2.2.2
+            searches:
+              - example.com
+              - example.org
+            options:
+              - name: ndots
+                value: "2"
+              - name: edns0
+
+  - it: should pass with dnsPolicy from "pod" with tpl
+    set:
+      ns1: 1.1.1.1
+      s1: example.com
+      property: ndots
+      value: 2
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            dnsPolicy: None
+            dnsConfig:
+              nameservers:
+                - "{{ .Values.ns1 }}"
+                - 2.2.2.2
+              searches:
+                - "{{ .Values.s1 }}"
+                - example.org
+              options:
+                - name: "{{ .Values.property }}"
+                  value: "{{ .Values.value }}"
+                - name: edns0
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.dnsConfig
+          value:
+            nameservers:
+              - 1.1.1.1
+              - 2.2.2.2
+            searches:
+              - example.com
+              - example.org
+            options:
+              - name: ndots
+                value: "2"
+              - name: edns0
+
+  # Failures
+  - it: should fail with dnsPolicy set to None and no nameservers
+    set:
+      podOptions:
+        dnsPolicy: None
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            dnsConfig:
+              nameservers: []
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected non-empty <dnsConfig.nameservers> with <dnsPolicy> set to [None].
+
+  - it: should fail with dnsPolicy set to None and no searches
+    set:
+      podOptions:
+        dnsPolicy: None
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            dnsConfig:
+              nameservers:
+                - 1.1.1.1
+              searches: []
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected non-empty <dnsConfig.searches> with <dnsPolicy> set to [None].
+
+  - it: should fail with dnsPolicy set to None and no options
+    set:
+      podOptions:
+        dnsPolicy: None
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            dnsConfig:
+              nameservers:
+                - 1.1.1.1
+              searches:
+                - example.com
+              options: []
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected non-empty <dnsConfig.options> with <dnsPolicy> set to [None].
+
+  - it: should fail with more than 3 nameservers
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            dnsConfig:
+              nameservers:
+                - 1.1.1.1
+                - 1.1.1.1
+                - 1.1.1.1
+                - 1.1.1.1
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected no more than [3] <dnsConfig.nameservers>, but got [4]
+
+  - it: should fail with more than 6 Searches
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            dnsConfig:
+              searches:
+                - example.com
+                - example.com
+                - example.com
+                - example.com
+                - example.com
+                - example.com
+                - example.com
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected no more than [6] <dnsConfig.searches>, but got [7]

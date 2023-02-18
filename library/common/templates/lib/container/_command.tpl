@@ -1,19 +1,18 @@
-{{/*
-A custom dict is expected with commands and root.
-It's designed to work for mainContainer AND initContainers.
-Calling this from an initContainer, wouldn't work, as it would have a different "root" context,
-and "tpl" on "$" would cause erors.
-That's why the custom dict is expected.
+{{/* Returns command list */}}
+{{/* Call this template:
+{{ include "tc.v1.common.lib.container.command" (dict "rootCtx" $ "objectData" $objectData) }}
+rootCtx: The root context of the chart.
+objectData: The object data to be used to render the container.
 */}}
-{{/* Command included by the container */}}
-{{- define "ix.v1.common.container.command" -}}
-{{- $commands := .commands -}}
-{{- $root := .root -}}
-{{- if $commands }}
-{{- if kindIs "string" $commands -}}
-- {{ tpl $commands $root }}
-{{- else }}
-  {{- tpl (toYaml $commands) $root }}
-{{- end }}
-{{- end }}
+{{- define "tc.v1.common.lib.container.command" -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData -}}
+
+  {{- if kindIs "string" $objectData.command }}
+- {{ tpl $objectData.command $rootCtx | quote }}
+  {{- else if kindIs "slice" $objectData.command -}}
+    {{- range $objectData.command }}
+- {{ tpl . $rootCtx | quote }}
+    {{- end -}}
+  {{- end -}}
 {{- end -}}

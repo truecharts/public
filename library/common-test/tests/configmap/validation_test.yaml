@@ -1,0 +1,69 @@
+suite: configmap validation test
+templates:
+  - common.yaml
+tests:
+  - it: should fail with name longer than 63 characters
+    set:
+      configmap:
+        my-configmap-super-long-name-that-is-longer-than-63-characters:
+          enabled: true
+          data:
+            foo: bar
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [release-name-common-test-my-configmap-super-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with name starting with underscore
+    set:
+      configmap:
+        _my-configmap:
+          enabled: true
+          data:
+            foo: bar
+    asserts:
+      - failedTemplate:
+          errorMessage: Name [release-name-common-test-_my-configmap] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with labels not a dict
+    set:
+      configmap:
+        my-configmap:
+          enabled: true
+          labels: "not a dict"
+          data:
+            foo: bar
+    asserts:
+      - failedTemplate:
+          errorMessage: ConfigMap - Expected <labels> to be a dictionary, but got [string]
+
+  - it: should fail with annotations not a dict
+    set:
+      configmap:
+        my-configmap:
+          enabled: true
+          annotations: "not a dict"
+          data:
+            foo: bar
+    asserts:
+      - failedTemplate:
+          errorMessage: ConfigMap - Expected <annotations> to be a dictionary, but got [string]
+
+  - it: should fail with data not a dict
+    set:
+      configmap:
+        my-configmap:
+          enabled: true
+          data: "not a dict"
+    asserts:
+      - failedTemplate:
+          errorMessage: ConfigMap - Expected <data> to be a dictionary, but got [string]
+
+  - it: should fail with empty data
+    set:
+      configmap:
+        my-configmap:
+          enabled: true
+          data: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: ConfigMap - Expected non-empty <data>

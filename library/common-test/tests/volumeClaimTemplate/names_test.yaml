@@ -1,0 +1,32 @@
+suite: volumeClaimTemplates name test
+templates:
+  - common.yaml
+tests:
+  - it: should generate correct name
+    set:
+      volumeClaimTemplates:
+        my-volume1:
+          enabled: true
+        my-volume2:
+          enabled: true
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: &statefulSetDoc 0
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].metadata.name
+          value: my-volume1
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[1].metadata.name
+          value: my-volume2

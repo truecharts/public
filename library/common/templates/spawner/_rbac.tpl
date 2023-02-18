@@ -1,23 +1,43 @@
-{{/* Renders the RBAC object(s) */}}
-{{- define "ix.v1.common.spawner.rbac" -}}
-  {{- range $name, $rbac := .Values.rbac -}}
-    {{- if $rbac.enabled -}}
-      {{- $rbacValues := $rbac -}}
+{{/* RBAC Spawner */}}
+{{/* Call this template:
+{{ include "tc.v1.common.spawner.rbac" $ -}}
+*/}}
 
-      {{/*
-      If it's not the primary RBAC, and no name override is defined, make sure
-      we have a unique name passed to the RBAC class.
-      Primary RBAC cannot have it's nameOverride
-      */}}
-      {{- if and (not $rbacValues.nameOverride) (ne $name (include "ix.v1.common.lib.util.rbac.primary" $)) -}}
-        {{- $_ := set $rbacValues "nameOverride" $name -}}
+{{- define "tc.v1.common.spawner.rbac" -}}
+
+  {{/* Primary validation for enabled rbacs. */}}
+  {{- include "tc.v1.common.lib.rbac.primaryValidation" $ -}}
+
+  {{- range $name, $rbac := .Values.rbac -}}
+
+    {{- if $rbac.enabled -}}
+
+      {{/* Create a copy of the configmap */}}
+      {{- $objectData := (mustDeepCopy $rbac) -}}
+
+      {{- $objectName := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+      {{- if not $objectData.primary -}}
+        {{- $objectName = (printf "%s-%s" (include "tc.v1.common.lib.chart.names.fullname" $) $name) -}}
       {{- end -}}
 
-      {{/*
-      Pass a RBAC object containing this single RBAC to the class,
-      in order to create the object. Also pass "root" for includes to work.
-      */}}
-      {{- include "ix.v1.common.class.rbac" (dict "rbac" $rbacValues "root" $) -}}
+      {{/* Perform validations */}}
+      {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $objectName) -}}
+      {{- include "tc.v1.common.lib.metadata.validation" (dict "objectData" $objectData "caller" "RBAC") -}}
+
+      {{/* Set the name of the rbac */}}
+      {{- $_ := set $objectData "name" $objectName -}}
+      {{- $_ := set $objectData "shortName" $name -}}
+
+      {{/* If clusteWide key does not exist, assume false */}}
+      {{- if not (hasKey $objectData "clusterWide") -}}
+        {{- $_ := set $objectData "clusterWide" false -}}
+      {{- end -}}
+
+      {{/* Call class to create the object */}}
+      {{- include "tc.v1.common.class.rbac" (dict "rootCtx" $ "objectData" $objectData) -}}
+
     {{- end -}}
+
   {{- end -}}
+
 {{- end -}}

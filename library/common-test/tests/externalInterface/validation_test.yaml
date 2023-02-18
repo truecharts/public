@@ -1,0 +1,137 @@
+suite: external interface validation test
+templates:
+  - common.yaml
+release:
+  name: release-name
+tests:
+  - it: should fail with targetSelector not a list
+    set:
+      scaleExternalInterface:
+        - targetSelector: "not a list"
+    asserts:
+      - failedTemplate:
+          errorMessage: External Interface - Expected <targetSelector> to be a [list], but got [string]
+
+  - it: should fail with empty hostInterface
+    set:
+      scaleExternalInterface:
+        - hostInterface: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: External Interface - Expected non-empty <hostInterface>
+
+  - it: should fail with empty ipam
+    set:
+      scaleExternalInterface:
+        - hostInterface: enp0s3
+          ipam: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: External Interface - Expected non-empty <ipam>
+
+  - it: should fail with empty ipam.type
+    set:
+      scaleExternalInterface:
+        - hostInterface: enp0s3
+          ipam:
+            type: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: External Interface - Expected non-empty <ipam.type>
+
+  - it: should fail with invalid ipam.type
+    set:
+      scaleExternalInterface:
+        - hostInterface: enp0s3
+          ipam:
+            type: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: External Interface - Expected <ipam.type> to be one of [dhcp, static], but got [invalid]
+
+  - it: should fail with non-empty staticIPConfigurations on dhcp
+    set:
+      scaleExternalInterface:
+        - hostInterface: enp0s3
+          ipam:
+            type: dhcp
+          staticIPConfigurations:
+            - ipAddress: 1.2.3.4
+    asserts:
+      - failedTemplate:
+          errorMessage: External Interface - Expected empty <staticIPConfigurations> and <staticRoutes> when <ipam.type> is not [static]
+
+  - it: should fail with non-empty staticRoutes on dhcp
+    set:
+      scaleExternalInterface:
+        - hostInterface: enp0s3
+          ipam:
+            type: dhcp
+          staticRoutes:
+            - gateway: 1.2.3.4
+              destination: 1.2.3.4
+    asserts:
+      - failedTemplate:
+          errorMessage: External Interface - Expected empty <staticIPConfigurations> and <staticRoutes> when <ipam.type> is not [static]
+
+  - it: should fail with empty staticIPConfigurations on static
+    set:
+      scaleExternalInterface:
+        - hostInterface: enp0s3
+          ipam:
+            type: static
+          staticIPConfigurations: []
+    asserts:
+      - failedTemplate:
+          errorMessage: External Interface - Expected non-empty <staticIPConfigurations> when <ipam.type> is [static]
+
+  - it: should fail with empty gateway on staticRoutes on static
+    set:
+      scaleExternalInterface:
+        - hostInterface: enp0s3
+          ipam:
+            type: static
+          staticIPConfigurations:
+            - ipAddress: 1.2.3.4
+          staticRoutes:
+            - gateway: ""
+              destination: 1.2.3.4
+    asserts:
+      - failedTemplate:
+          errorMessage: External Interface - Expected non-empty <gateway> in <staticRoutes>
+
+  - it: should fail with empty destination on staticRoutes on static
+    set:
+      scaleExternalInterface:
+        - hostInterface: enp0s3
+          ipam:
+            type: static
+          staticIPConfigurations:
+            - ipAddress: 1.2.3.4
+          staticRoutes:
+            - gateway: 1.2.3.4
+              destination: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: External Interface - Expected non-empty <destination> in <staticRoutes>
+
+  - it: should fail with empty ixExternalInterfaceConfigurationNames when interface is defined
+    set:
+      # Simulate middleware injection
+      ixExternalInterfacesConfiguration:
+        - '{"cniVersion": "0.3.1", "name": "ix-release-name-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfaceConfigurationNames: []
+      scaleExternalInterface:
+        - hostInterface: enp0s3
+          ipam:
+            type: dhcp
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "*/1 * * * *"
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: External Interface - Expected non empty <ixExternalInterfaceConfigurationNames>
