@@ -17,11 +17,11 @@ Optionally you can enable the `advanced` settings and set the following:
   - Watching
   - Streaming
 - Set `Bot Activity` to whatever you want that follows the activity type.
-- if you plan to publicly share your bot with more servers other than your own, its recommended by the upstream project to set `Register Commands On Bot` to **true** if its more than 10 guilds. The bot is purpose built to support multiple servers.
+- If you plan to publicly share your bot with more servers other than your own, its recommended by the upstream project to set `Register Commands On Bot` to **true** if its more than 10 guilds. The bot is purpose built to support multiple servers.
 
 :::note
 
-If `Bot Activity Type` set to **Streaming** then `Bot Activity URL` will be shown and is required to be set either a youtube or twitch stream url.
+If `Bot Activity Type` set to **Streaming** then `Bot Activity URL` will be shown and is required to be set by adding either a youtube or twitch stream url.
 
 :::
 
