@@ -9,7 +9,7 @@
 - Set `Strapi License` to activate the Enterprise Edition.
 - Enable/Disable `Strapi Disable Update Notifications` for strapi update notifications.
 - Enable/Disable `Fast Refresh` for react near-instant feedback.
-- `Extra Args` can be left empty for the standard defaults.
+- `Extra Args` can be left empty for the standard defaults or get args from [strapi-new](https://strapi.io/documentation/developer-docs/latest/developer-resources/cli/CLI.html#strapi-new).
 - After the app is installed you might get a `Content Security Policy` error. To solve this you have to manually shell into the app.
 
   - Apps -> strapi -> 3 dot -> shell:
