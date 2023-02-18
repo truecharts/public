@@ -43,43 +43,6 @@ service:
       main:
         port: 1337
 
-initContainers:
-  init:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    volumeMounts:
-      - name: data
-        mountPath: /srv/app
-    env:
-      - name: JWT_SECRET
-        value: "{{ .Values.secret.JWT_SECRET }}"
-      - name: ADMIN_JWT_SECRET
-        value: "{{ .Values.secret.ADMIN_JWT_SECRET }}"
-      - name: APP_KEYS
-        value: "{{ .Values.secret.APP_KEYS }}"
-      - name: PORT
-        value: "{{ .Values.service.main.ports.main.port }}"
-      - name: DATABASE_CLIENT
-        value: postgres
-      - name: DATABASE_PORT
-        value: "5432"
-      - name: DATABASE_NAME
-        value: "{{ .Values.postgresql.postgresqlDatabase }}"
-      - name: DATABASE_HOST
-        value: '{{ .Values.postgresql.url.plain | trimAll "\"" }}'
-      - name: DATABASE_USERNAME
-        value: "{{ .Values.postgresql.postgresqlUsername }}"
-      - name: DATABASE_PASSWORD
-        value: "{{ .Values.postgresql.postgresqlPassword }}"
-      - name: NODE_ENV
-        value: "{{ .Values.env.NODE_ENV }}"
-      - name: STRAPI_DISABLE_UPDATE_NOTIFICATION
-        value: "{{ .Values.env.STRAPI_DISABLE_UPDATE_NOTIFICATION }}"
-      - name: FAST_REFRESH
-        value: "{{ .Values.env.FAST_REFRESH }}"
-      - name: EXTRA_ARGS
-        value: "{{ .Values.env.EXTRA_ARGS }}"
-    command: ["/bin/sh", "-c", "yarn run build"]
-
 persistence:
   data:
     enabled: true
