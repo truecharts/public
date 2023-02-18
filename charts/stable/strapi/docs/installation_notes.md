@@ -5,8 +5,8 @@
 - Set `App Keys` as a json array:
   - `['keya', 'keyb']`.
 - Set `Node Environment` to **Development** initially.
-- Set `Public URL` to a FDQN with https, ex: `https://api.example.com`.
-- Set `Strapi License` to activate the Enterprise Edition.
+- Optionally set `Public URL` to a FDQN with https, ex: `https://api.example.com`.
+- Optionally set `Strapi License` to activate the Enterprise Edition.
 - Enable/Disable `Strapi Disable Update Notifications` for strapi update notifications.
 - Enable/Disable `Fast Refresh` for react near-instant feedback.
 - `Extra Args` can be left empty for the standard defaults or get args from [strapi-new](https://strapi.io/documentation/developer-docs/latest/developer-resources/cli/CLI.html#strapi-new).
