@@ -4,7 +4,12 @@ image:
   tag: 2.1.9@sha256:4de1541011cb56935ba5a8e28a58f6cbcf62a903393dc94581eda0b6e2aa117c
 
 securityContext:
+  runAsNonRoot: false
   readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:
