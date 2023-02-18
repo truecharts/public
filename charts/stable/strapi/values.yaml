@@ -12,12 +12,13 @@ podSecurityContext:
   runAsGroup: 0
 
 secretEnv:
-  JWT_SECRET: "my_jwt_secret"
-  ADMIN_JWT_SECRET: "my_admin_jwt_secret"
-  APP_KEYS: "my_app_keys"
+  JWT_SECRET: my_jwt_secret
+  ADMIN_JWT_SECRET: my_admin_jwt_secret
+  APP_KEYS: '["keya", "keyb"]'
 
 env:
-  DATABASE_CLIENT: "postgres"
+  PORT: "{{ .Values.service.main.ports.main.port }}"
+  DATABASE_CLIENT: postgres
   DATABASE_PORT: 5432
   DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   DATABASE_HOST:
@@ -30,7 +31,8 @@ env:
       name: dbcreds
       key: postgresql-password
   # STRAPI_LICENSE
-  NODE_ENV: "production"
+  # PUBLIC_URL
+  NODE_ENV: development
   STRAPI_DISABLE_UPDATE_NOTIFICATION: true
   FAST_REFRESH: false
   EXTRA_ARGS: ""
@@ -40,17 +42,16 @@ service:
     ports:
       main:
         port: 1337
-        targetPort: 1337
 
 persistence:
   data:
     enabled: true
-    mountPath: "/srv/app"
+    mountPath: /srv/app
 
 # Enabled postgres
 postgresql:
   enabled: true
-  existingSecret: "dbcreds"
+  existingSecret: dbcreds
   postgresqlUsername: strapi
   postgresqlDatabase: strapi
 
