@@ -45,7 +45,7 @@ service:
 initContainers:
   init:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    command: ["npm run build"]
+    command: ["cd /srv/app && npm run build"]
     volumeMounts:
       - name: data
         mountPath: /srv/app
