@@ -2,47 +2,16 @@
 portals:
   open:
 # Include{portalLink}
+    path: /players/hls.html
+  stats:
+# Include{portalLink}
+    path: /stats.html
 questions:
 # Include{global}
 # Include{controller}
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: MYSQL_USER
-          label: MYSQL User
-          schema:
-            type: string
-            default: ""
-        - variable: MYSQL_PASSWORD
-          label: MYSQL Password
-          schema:
-            type: string
-            default: ""
-        - variable: PMA_HOST
-          label: PWA Host
-          description: define address/host name of the db
-          schema:
-            type: string
-            default: "192.168.70.99"
-        - variable: PMA_PORT
-          label: PWA Port
-          description: define port of the MySQL server
-          schema:
-            type: string
-            default: "3306"
-        - variable: PMA_ABSOLUTE_URI
-          label: PWA Absolute URi
-          description: The full URL to phpMyAdmin
-          schema:
-            type: string
-            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -65,16 +34,62 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 8080
+                              default: 10610
+                              required: true
+        - variable: rtmp
+          label: RTMP Service
+          description: The RTMP service
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: rtmp
+                      label: RTMP Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 1935
                               required: true
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
+# Include{persistenceRoot}
+        - variable: dash
+          label: App Dash Storage
+          description: Stores the Application Dash.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: hls
+          label: App HLS Storage
+          description: Stores the Application HLS.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
           label: Main Ingress
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+        - variable: rtmp
+          label: RTMP Ingress
           schema:
             additional_attrs: true
             type: dict
