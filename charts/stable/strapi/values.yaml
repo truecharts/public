@@ -82,7 +82,7 @@ initContainers:
     args:
       - |-
         echo "Creating admin panel..."
-        yarn run build
+        cd /srv/app && yarn run build
 
 persistence:
   data:
