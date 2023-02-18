@@ -12,7 +12,7 @@ podSecurityContext:
   runAsGroup: 0
 
 args:
-  - npm run build
+  - yarn strapi
 
 secretEnv:
   JWT_SECRET: my_jwt_secret
@@ -44,6 +44,14 @@ service:
     ports:
       main:
         port: 1337
+
+initContainers:
+  init:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    command: ["cd /srv/app && npm run build"]
+    volumeMounts:
+      - name: data
+        mountPath: /srv/app
 
 persistence:
   data:
