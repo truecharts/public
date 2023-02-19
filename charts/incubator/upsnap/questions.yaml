@@ -62,9 +62,9 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: pb_data
-          label: App PB Data Storage
-          description: Stores the Application PB Data.
+        - variable: data
+          label: App Data Storage
+          description: Stores the Application Data.
           schema:
             additional_attrs: true
             type: dict
