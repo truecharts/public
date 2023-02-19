@@ -7,11 +7,11 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://deps.truecharts.org/
-    version: 11.0.22
+    version: 11.0.29
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
-    version: 5.0.29
+    version: 5.0.32
 deprecated: false
 description: A PHP-based self-hosted URL shortener that can be used to serve shortened URLs under your own custom domain.
 home: https://truecharts.org/charts/stable/shlink
@@ -30,7 +30,7 @@ sources:
   - https://hub.docker.com/r/shlinkio/shlink
   - https://github.com/shlinkio/shlink
 type: application
-version: 7.0.24
+version: 7.0.25
 annotations:
   truecharts.org/catagories: |
     - utilities
