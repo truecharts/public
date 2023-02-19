@@ -67,6 +67,16 @@ questions:
                   required: true
                   private: true
                   default: ""
+              - variable: REPLICA_AUTOSETUP
+                label: Replica Auto Setup
+                schema:
+                  type: boolean
+                  default: false
+              - variable: REPLICA_INTERFACENAME
+                label: Replica Interface Name
+                schema:
+                  type: string
+                  default: ""
         - variable: CRON
           label: CRON
           description: Set a cron task.
