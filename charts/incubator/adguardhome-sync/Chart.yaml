@@ -1,15 +1,11 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Other
 apiVersion: v2
-appVersion: "latest"
+appVersion: "0.4.12"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 11.1.2
 deprecated: false
-description: Adguardhome-sync(https://github.com/bakito/adguardhome-sync/) is a tool to synchronize AdGuardHome config to replica instances.
+description: Synchronize AdGuardHome config to replica instances.
 home: https://truecharts.org/charts/incubator/adguardhome-sync
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/adguardhome-sync.png
 keywords:
@@ -23,9 +19,12 @@ maintainers:
 name: adguardhome-sync
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/adguardhome-sync
-  - https://ghcr.io/bakito/adguardhome-sync
   - https://github.com/bakito/adguardhome-sync/
-  - https://github.com/orgs/linuxserver/packages/container/package/adguardhome-sync
-  - https://github.com/linuxserver/docker-adguardhome-sync#readme
+  - https://ghcr.io/bakito/adguardhome-sync
 type: application
-version: 2.0.13
+version: 3.0.0
+annotations:
+  truecharts.org/catagories: |
+    - Other
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
