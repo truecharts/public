@@ -15,8 +15,8 @@ env:
   REPLICA_PASSWORD: "password"
   CRON: "*/10 * * * *"
   RUNONSTART: true
-  REPLICA_AUTOSETUP: false # if true, AdGuardHome is automatically initialized.
-  REPLICA_INTERFACENAME: "" # use custom dhcp interface name
+  REPLICA_AUTOSETUP: false
+  REPLICA_INTERFACENAME: ""
   # Configure sync features; by default all features are enabled.
   FEATURES_GENERALSETTINGS: true
   FEATURES_QUERYLOGCONFIG: true
