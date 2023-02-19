@@ -1,0 +1,35 @@
+image:
+  repository: tccr.io/truecharts/upsnap
+  pullPolicy: IfNotPresent
+  tag: 3.0.5@sha256:4de1541011cb56935ba5a8e28a58f6cbcf62a903393dc94581eda0b6e2aa117c
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+hostNetwork: true
+
+env:
+  UPSNAP_INTERVAL: "@every 10s"
+  UPSNAP_SCAN_RANGE: 192.168.1.0/24
+  UPSNAP_WEBSITE_TITLE: Truecharts WOL
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 8090
+        port: 10611
+
+persistence:
+  pb_data:
+    enabled: true
+    mountPath: /app/pb_data
+
+portal:
+  enabled: true
