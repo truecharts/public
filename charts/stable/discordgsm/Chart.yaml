@@ -7,7 +7,7 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://deps.truecharts.org/
-    version: 11.0.22
+    version: 11.0.29
 description: A discord bot that monitors your game server and tracks the live data of your game servers.
 home: https://truecharts.org/charts/stable/discordgsm
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/discordgsm.png
@@ -24,7 +24,7 @@ name: discordgsm
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/discordgsm
   - https://github.com/DiscordGSM/GameServerMonitor
-version: 1.0.4
+version: 1.0.5
 annotations:
   truecharts.org/catagories: |
     - monitor
