@@ -32,10 +32,6 @@ somfyprotect2mqtt:
   delay_device: 60
   manual_snapshot: false
 
-envFrom:
-  - secretRef:
-      name: "{{ include tc.common.names.fullname . }}-secret"
-
 service:
   main:
     enabled: false
