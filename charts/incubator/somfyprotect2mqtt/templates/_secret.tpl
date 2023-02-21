@@ -16,8 +16,10 @@ stringData:
     somfy_protect:
       username: {{ $sp2mqtt.somfy.username | quote }}
       password: {{ $sp2mqtt.somfy.password | quote }}
+
+      {{- with $sp2mqtt.somfy.sites }}
       sites:
-        {{- range $sp2mqtt.somfy.sites := . }}
+        {{- range $site := . }}
         - {{ . | quote }}
         {{- end }}
       {{- end }}
