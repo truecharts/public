@@ -2,13 +2,15 @@
 {{- define "somfyprotect2mqtt.secret" -}}
 
 {{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
-{{- $secretConfigName := printf "%s-config-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretStorageName := printf "%s-storage-secret" (include "tc.common.names.fullname" .) }}
+
 {{- $sp2mqtt := .Values.somfyprotect2mqtt }}
 ---
 apiVersion: v1
 kind: Secret
+type: Opaque
 metadata:
-  name: {{ $secretConfigName }}
+  name: {{ $secretName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
