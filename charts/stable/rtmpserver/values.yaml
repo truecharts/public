@@ -19,8 +19,10 @@ service:
         targetPort: 8080
         port: 10610
   rtmp:
+    enabled: true
     ports:
       rtmp:
+        enabled: true
         protocol: TCP
         targetPort: 1935
         port: 1935
