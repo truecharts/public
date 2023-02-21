@@ -40,5 +40,5 @@ stringData:
 
     delay_site: {{ $sp2mqtt.delay_site | quote }}
     delay_device: {{ $sp2mqtt.delay_device | quote }}
-    manual_snapshot: {{ ternary "true" "false" $sp2mqtt.delay_site }}
+    manual_snapshot: {{ ternary "true" "false" $sp2mqtt.manual_snapshot }}
 {{- end -}}
