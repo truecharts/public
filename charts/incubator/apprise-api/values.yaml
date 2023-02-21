@@ -4,13 +4,13 @@ image:
   tag: 0.8.3@sha256:a3e8b4574a28dfcd0853d80eb7c941a8629d0830106f58eb15f34c67277ac2b0
 
 podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+  runAsGroup: 33
+  runAsUser: 33
   fsGroup: 33
 
 securityContext:
   readOnlyRootFilesystem: False
-  runAsNonRoot: false
+  # runAsNonRoot: false
 
 secretEnv:
   SECRET_KEY: "abc123"
