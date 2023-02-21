@@ -8,36 +8,36 @@ questions:
 # Include{controllerExpertExtraArgs}
 # Include{containerConfig}
   - variable: secretEnv
-    group: "App Configuration"
-    label: "Secret Image Environment"
+    group: App Configuration
+    label: Secret Image Environment
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: UP_UNIFI_DEFAULT_PASS
-          label: "Unifi Password"
-          description: "Password for the Unifi user specified below"
+          label: Unifi Password
+          description: Password for the Unifi user specified below
           schema:
             type: string
             default: ""
             required: true
   - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
+    group: App Configuration
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: UP_UNIFI_DEFAULT_URL
-          label: "Unifi URL"
-          description: "Unifi URL including Port and http(s) prefix"
+          label: Unifi URL
+          description: Unifi URL including Port and http(s) prefix
           schema:
             type: string
-            default: "https://127.0.0.1:8443"
+            default: https://127.0.0.1:8443
             required: true
         - variable: UP_UNIFI_DEFAULT_USER
-          label: "Unifi User"
-          description: "User on Unifi with access to the data"
+          label: Unifi User
+          description: User on Unifi with access to the data
           schema:
             type: string
             default: ""
@@ -50,41 +50,41 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: true
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 568
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 568
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
