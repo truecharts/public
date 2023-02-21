@@ -7,11 +7,11 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://deps.truecharts.org/
-    version: 11.0.22
+    version: 11.0.29
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
-    version: 5.0.29
+    version: 5.0.32
 deprecated: false
 description: Secure, end-to-end encrypted, and privacy respecting sync for your contacts, calendars, tasks and notes.
 home: https://truecharts.org/charts/incubator/etesync
@@ -36,7 +36,7 @@ sources:
   - https://github.com/etesync
   - https://github.com/victor-rds/docker-etebase
 type: application
-version: 3.0.23
+version: 3.0.24
 annotations:
   truecharts.org/catagories: |
     - productivity

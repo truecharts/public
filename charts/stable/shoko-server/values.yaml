@@ -16,7 +16,7 @@ service:
     ports:
       main:
         port: 8111
-        protocol: TCP
+        protocol: HTTP
         targetPort: 8111
 
 persistence:
