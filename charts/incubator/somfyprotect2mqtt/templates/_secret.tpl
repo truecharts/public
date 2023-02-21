@@ -31,14 +31,14 @@ stringData:
 
     mqtt:
       host: {{ $sp2mqtt.mqtt.host | quote }}
-      port: {{ $sp2mqtt.mqtt.port }}
+      port: {{ $sp2mqtt.mqtt.port | b64enc }}
       username: {{ $sp2mqtt.mqtt.username | quote }}
       password: {{ $sp2mqtt.mqtt.password | quote }}
       client-id: {{ $sp2mqtt.mqtt.client_id | quote }}
       topic_prefix: {{ $sp2mqtt.mqtt.topic_prefix | quote }}
       ha_discover_prefix: {{ $sp2mqtt.mqtt.ha_discover_prefix | quote }}
 
-    delay_site: {{ $sp2mqtt.delay_site }}
-    delay_device: {{ $sp2mqtt.delay_device }}
+    delay_site: {{ $sp2mqtt.delay_site | b64enc }}
+    delay_device: {{ $sp2mqtt.delay_device | b64enc }}
     manual_snapshot: {{ ternary "true" "false" $sp2mqtt.delay_site }}
 {{- end -}}
