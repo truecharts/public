@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "0.2.9"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 11.1.2
+deprecated: false
+description: Somfy Protect to MQTT
+home: https://truecharts.org/charts/incubator/somfyprotect2mqtt
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/somfyprotect2mqtt.png
+keywords:
+  - somfyprotect2mqtt
+  - mqtt
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: somfyprotect2mqtt
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/somfyprotect2mqtt
+  - https://github.com/Minims/SomfyProtect2MQTT
+  - https://hub.docker.com/r/minims/somfyprotect2mqtt
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - homeautomation
+    - mqtt
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
