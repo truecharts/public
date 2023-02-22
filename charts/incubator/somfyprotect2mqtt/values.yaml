@@ -48,14 +48,13 @@ probes:
     enabled: false
 
 persistence:
-  config:
+  configfile:
     enabled: true
     type: secret
     readOnly: true
-    defaultMode: 0600
-    objectName: "{{ include tc.common.names.fullname . }}-config-secret"
+    defaultMode: "0600"
+    objectName: '{{ include "tc.common.names.fullname" . }}-secret'
     mountPath: /config/config.yaml
     subPath: config.yaml
-
 portal:
   enabled: false
