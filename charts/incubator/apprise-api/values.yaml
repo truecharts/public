@@ -1,26 +1,44 @@
-env:
-  UMASK: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/apprise-api
-  tag: latest@sha256:bbb548e29f6e4c8f11782aece465b0237eeea1b91aa14304a714e7b93a023588
-persistence:
-  config:
-    enabled: true
-    mountPath: /config
+  tag: 0.8.3@sha256:a3e8b4574a28dfcd0853d80eb7c941a8629d0830106f58eb15f34c67277ac2b0
+
 podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+  runAsGroup: 33
+  runAsUser: 33
+  fsGroup: 33
+
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  readOnlyRootFilesystem: False
+  # runAsNonRoot: false
+
+secretEnv:
+  SECRET_KEY: "abc123"
+
+env:
+  APPRISE_CONFIG_DIR: /config
+  APPRISE_STATEFUL_MODE: hash
+  APPRISE_DENY_SERVICES: windows,dbus,gnome,macos,syslog
+  LOG_LEVEL: INFO
+  DEBUG: "no"
+  APPRISE_RECURSION_MAX: 1
+  APPRISE_CONFIG_LOCK: no
+  APPRISE_ALLOW_SERVICES: ""
+  ALLOWED_HOSTS: "*"
+  # APPRISE_STATELESS_URLS
+
 service:
   main:
     ports:
       main:
         port: 8000
-        protocol: TCP
+        protocol: HTTP
         targetPort: 8000
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
 
 portal:
   enabled: true

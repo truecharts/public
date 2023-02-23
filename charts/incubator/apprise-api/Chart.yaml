@@ -1,20 +1,17 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Other
 apiVersion: v2
-appVersion: "latest"
+appVersion: "0.8.3"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 11.1.2
 deprecated: false
-description: "Apprise-api(https://github.com/caronc/apprise-api) Takes advantage of Apprise(https://github.com/caronc/apprise) through your network with a user-friendly API.\n"
+description: Push notifications that work with just about every platform!
 home: https://truecharts.org/charts/incubator/apprise-api
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/apprise-api.png
 keywords:
   - apprise-api
-  - Other
+  - notifications
+  - usenet
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
@@ -23,9 +20,12 @@ maintainers:
 name: apprise-api
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/apprise-api
-  - https://hub.docker.com/r/caronc/apprise
   - https://github.com/caronc/apprise-api
-  - https://github.com/orgs/linuxserver/packages/container/package/apprise-api
-  - https://github.com/linuxserver/docker-apprise-api#readme
+  - https://hub.docker.com/r/caronc/apprise
 type: application
-version: 2.0.13
+version: 3.0.0
+annotations:
+  truecharts.org/catagories: |
+    - notifications
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
