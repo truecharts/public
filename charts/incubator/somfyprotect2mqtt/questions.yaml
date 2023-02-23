@@ -57,8 +57,8 @@ questions:
                 label: Alarm Code
                 description: Code to arm/disarm, Remove code to disable.
                 schema:
-                  type: string
-                  default: ""
+                  type: int
+                  default: 1234
               - variable: alarm_code_arm_required
                 label: Alarm Code Required
                 schema:
