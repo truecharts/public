@@ -121,15 +121,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-        - variable: tftp
-          label: TFTP Ingress
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressList}
 # Include{security}
 # Include{securityContextAdvancedRoot}
