@@ -8,11 +8,24 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
+  - variable: env
+    group: App Configuration
+    label: Image Environment
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: MENU_VERSION
+          label: Menu Version
+          description: Specify a specific version of boot files you want to use (unset pulls latest)
+          schema:
+            type: string
+            default: "2.0.59"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -20,17 +33,52 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 9117
+                              default: 10612
+                              required: true
+                    - variable: assets
+                      label: Assets Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 10613
+                              required: true
+        - variable: tftp
+          label: TFTP Service
+          description: The TFTP service
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: tftp
+                      label: TFTP Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 69
                               required: true
 # Include{serviceExpertRoot}
             default: false
@@ -38,8 +86,16 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+          label: App Config Storage
+          description: Stores the Application Configuration.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: assets
+          label: App Assets Storage
+          description: Stores the Application Assets.
           schema:
             additional_attrs: true
             type: dict
@@ -48,7 +104,25 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+        - variable: assets
+          label: Assets Ingress
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+        - variable: tftp
+          label: TFTP Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -60,41 +134,41 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: true
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 568
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 568
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
