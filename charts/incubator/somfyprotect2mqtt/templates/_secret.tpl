@@ -27,20 +27,20 @@ stringData:
       {{- end }}
 
     homeassistant_config:
-      code: {{ $sp2mqtt.ha.alarm_code }}
+      code: {{ $sp2mqtt.ha.alarm_code | b64enc }}
       code_arm_required: {{ ternary "true" "false" $sp2mqtt.ha.alarm_code_arm_required }}
       code_disarm_required: {{ ternary "true" "false" $sp2mqtt.ha.alarm_code_disarm_required }}
 
     mqtt:
-      host: {{ $sp2mqtt.mqtt.host | quote }}
-      port: {{ $sp2mqtt.mqtt.port | quote }}
+      host: {{ $sp2mqtt.mqtt.host }}
+      port: {{ $sp2mqtt.mqtt.port | b64enc }}
       username: {{ $sp2mqtt.mqtt.username | quote }}
       password: {{ $sp2mqtt.mqtt.password | quote }}
-      client-id: {{ $sp2mqtt.mqtt.client_id | quote }}
+      client-id: {{ $sp2mqtt.mqtt.client_id }}
       topic_prefix: {{ $sp2mqtt.mqtt.topic_prefix | quote }}
       ha_discover_prefix: {{ $sp2mqtt.mqtt.ha_discover_prefix | quote }}
 
-    delay_site: {{ $sp2mqtt.delay_site | quote }}
-    delay_device: {{ $sp2mqtt.delay_device | quote }}
+    delay_site: {{ $sp2mqtt.delay_site | b64enc  }}
+    delay_device: {{ $sp2mqtt.delay_device | b64enc  }}
     manual_snapshot: {{ ternary "true" "false" $sp2mqtt.manual_snapshot }}
 {{- end -}}
