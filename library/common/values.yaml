@@ -279,27 +279,27 @@ wireguardImage:
 tailscaleImage:
   repository: tailscale/tailscale
   # TODO: Switch to stable once a v1.33.x is released
-  tag: v1.34.1@sha256:69bec9fdea25765e1b9dd129ccaeaf1e160f1132bb390535772fa939f0bf620b
+  tag: v1.36.2@sha256:37f0cfade6dae8adb2244e86342c9664b905f575fa30f94b22620dc81b8ca5b2
   pullPolicy: IfNotPresent
 
 codeserverImage:
   repository: tccr.io/truecharts/code-server
-  tag: 4.9.1@sha256:b339bd8f6da4c73c0259d6951991278aa1595a6be570a207ce635c75aac9893d
+  tag: 4.10.0@sha256:9bc3830cf56d56e06fbaba9734a409b1d9456249dc8c635bbc11fe79bc08e63f
   pullPolicy: IfNotPresent
 
 alpineImage:
   repository: tccr.io/truecharts/alpine
-  tag: v3.17.0@sha256:f8607e14a5e456c1b8fe50b7f0c9371b4aae543d23080f5e2fe0bdbb06d2413b
+  tag: 3.17.2@sha256:711ef8a1f34f18df5f6dc1e85f0324f737e331ac734307baf455675cdc868ce4
   pullPolicy: IfNotPresent
 
 scratchImage:
   repository: tccr.io/truecharts/scratch
-  tag: latest@sha256:b4289ea433ec1308f6f2e8bff3f23bcd52b751ccb691284210ed826385ba9317
+  tag: latest@sha256:93878048bbc350e69bf246556ef3520f343487c7ffc40f0b0655ed8a360cb932
   pullPolicy: IfNotPresent
 
 kubectlImage:
   repository: tccr.io/truecharts/kubectl
-  tag: v1.26.0@sha256:e56d1c8dd3ba85bb8410cc9f5c04f03f814e4b76ffcc7f12730868faba5b9c52
+  tag: v1.26.0@sha256:06902a576090e5bfae3fd4e9eccc60bfe614adf00fa50ab233772a66062558a7
   pullPolicy: IfNotPresent
 
 wgetImage:
@@ -309,22 +309,22 @@ wgetImage:
 
 postgresClientImage:
   repository: tccr.io/truecharts/db-wait-postgres
-  tag: v0.0.1@sha256:b03a81433b82a24289bd461d7713e20721d8f4479781f337dfb48d5f84ffddc4
+  tag: v0.0.1@sha256:ae7188d06a705fc60497ddda0cc519f46e5d1475b8976536a73598d26f576c5b
   pullPolicy: IfNotPresent
 
 mariadbClientImage:
   repository: tccr.io/truecharts/db-wait-mariadb
-  tag: v0.0.1@sha256:b9c82f29daafe72d07b23951bdd5654561cb95e5ca4a493ca1f68688c625e6bb
+  tag: v0.0.1@sha256:2a8b4f9b158b7374ccd5dbd27a689f39b2d7ef10b45367a787d071eb4fafe24e
   pullPolicy: IfNotPresent
 
 redisClientImage:
   repository: tccr.io/truecharts/db-wait-redis
-  tag: v0.0.1@sha256:190b199bebf88a6def50cf8efd38651d79595a1e69566062843062a8c34bb0ff
+  tag: v0.0.1@sha256:fcb9f8c06dee4c72b09c3893b8570134c6856ad85b9005c0deb0a04a247b5e36
   pullPolicy: IfNotPresent
 
 mongodbClientImage:
   repository: tccr.io/truecharts/db-wait-mongodb
-  tag: v0.0.1@sha256:d2d237297cbcde63a038ef8dc1634241c476396d03d370ffa2814177ff56d1e7
+  tag: v0.0.1@sha256:932d6a3d55852aeae266ff696831bab4b34a1f5bffd7e54303542d4c58c259f6
   pullPolicy: IfNotPresent
 
 
