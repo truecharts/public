@@ -1,0 +1,46 @@
+image:
+  repository: tccr.io/truecharts/netbootxyz
+  pullPolicy: IfNotPresent
+  tag: v2.0.53@sha256:21b383affc9c70ab803bc1894ef5313480d6488d41365e95d854414900fb4e80
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  MENU_VERSION: "2.0.59"
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTP
+        targetPort: 3000
+        port: 10612
+      assets:
+        protocol: HTTP
+        targetPort: 80
+        port: 10613
+  tftp:
+    enabled: true
+    ports:
+      tftp:
+        enabled: true
+        protocol: UDP
+        targetPort: 69
+        port: 69
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  assets:
+    enabled: true
+    mountPath: /assets
+
+portal:
+  enabled: true
