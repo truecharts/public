@@ -27,7 +27,9 @@ stringData:
       {{- end }}
 
     homeassistant_config:
-      code: {{ $sp2mqtt.ha.alarm_code | b64enc }}
+      {{- with $sp2mqtt.ha.alarm_code }}
+      code: {{ . | b64enc }}
+      {{- end }}
       code_arm_required: {{ ternary "true" "false" $sp2mqtt.ha.alarm_code_arm_required }}
       code_disarm_required: {{ ternary "true" "false" $sp2mqtt.ha.alarm_code_disarm_required }}
 
