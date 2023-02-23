@@ -1,7 +1,3 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - GameServers
 apiVersion: v2
 appVersion: "latest"
 dependencies:
@@ -9,7 +5,7 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 11.1.2
 deprecated: false
-description: "Vault Hunters - 1.13.4 Modded Minecraft Server[br][br][b]Vault Hunters - 1.13.4[/b][br]Level up, loot the vaults and defeat the bosses to collect 16 artifacts![br][br]Setup:[br][li]You must accept the EULA by setting the [b]EULA[/b] variable to [span style='color: #00E800;']true[/span] or the install will fail.[br]Optional:[br][li]You can setup a comma separated list of players who will have admin privileges in game by setting [b]OPS[/b]"
+description: Vault Hunters - Modded Minecraft Server
 home: https://truecharts.org/charts/incubator/vaulthunters
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/vaulthunters.png
 keywords:
@@ -24,6 +20,12 @@ name: vaulthunters
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/vaulthunters
   - https://hub.docker.com/r/goobaroo/vaulthunters
+  - https://hub.docker.com/r/goobaroo/vaulthunters3
   - https://vaulthunters.gg
 type: application
-version: 2.0.9
+version: 2.1.0
+annotations:
+  truecharts.org/catagories: |
+    - GameServers
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

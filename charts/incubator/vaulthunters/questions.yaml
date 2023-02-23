@@ -1,43 +1,52 @@
 # Include{groups}
-portals:
-  open:
-# Include{portalLink}
+portals: {}
 questions:
 # Include{global}
+  - variable: imageSelector
+    group: Container Image
+    label: Select Image
+    schema:
+      type: string
+      default: image
+      enum:
+        - value: image
+          description: Vault Hunters 2nd Edition
+        - value: thirdImage
+          description: Vault Hunters 3rd Edition
 # Include{controller}
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
   - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
+    group: App Configuration
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: EULA
-          label: "EULA"
-          description: "By typing TRUE you are indicating your agreement to the EULA of Mojang. Read it at httpsaccount.mojang.comdocumentsminecrafteula before accepting it."
+          label: Eula
+          description: Mojang's end user license agreement.
           schema:
             type: string
-            default: "false"
+            default: false
         - variable: OPS
-          label: "OPS"
-          description: "Comma separated list of players to have op capability"
+          label: Ops
+          description: Comma separated list of players to have op capability
           schema:
             type: string
-            default: ""
+            default:
         - variable: JVM_OPTS
-          label: "JVM_OPTS"
-          description: "JAVA Options"
+          label: Jvm Opts
+          description: Java Options
           schema:
             type: string
-            default: "-Xms6144m -Xmx8192m"
+            default: -Xms6144m -Xmx8192m
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -45,14 +54,14 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 25565
@@ -63,8 +72,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: data
-          label: "data Storage"
-          description: "Path to store the installed server files."
+          label: App Data Storage
+          description: Stores the Application Data.
           schema:
             additional_attrs: true
             type: dict
@@ -73,7 +82,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -85,41 +94,41 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568
