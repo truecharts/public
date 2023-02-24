@@ -16,9 +16,11 @@ command:
   - scr/main.py
 volumeMounts:
   - name: uploads
-    mountPath: /usr/src/app/upload
+    mountPath: {{ .Values.persistence.uploads.mountPath }}
+  {{- if .Values.persistence.modelcache }}
   - name: modelcache
-    mountPath: /cache
+    mountPath: {{ .Values.persistence.modelcache.mountPath }}
+  {{- end }}
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-common-config'
