@@ -16,9 +16,9 @@ command:
   - scr/main.py
 volumeMounts:
   - name: uploads
-    mountPath: {{ .Values.persistence.uploads.mountPath }}
+    mountPath: /usr/src/app/upload
   - name: modelcache
-    mountPath: {{ .Values.persistence.modelcache.mountPath | default "/cache" }}
+    mountPath: /cache
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-common-config'
