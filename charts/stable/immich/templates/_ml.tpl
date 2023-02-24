@@ -14,7 +14,7 @@ securityContext:
 command:
   {{- if .Values.persistence.modelcache }}{{/* Only change command after upgrade */}}
   - python
-  - scr/main.py
+  - src/main.py
   {{- else }}
   - /bin/sh
   - ./entrypoint.sh
