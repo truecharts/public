@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-144-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-145-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -321,6 +321,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/hughes5"><img src="https://avatars.githubusercontent.com/u/6740468?v=4?s=100" width="100px;" alt="hughes5"/><br /><sub><b>hughes5</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=hughes5" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/sdimovv"><img src="https://avatars.githubusercontent.com/u/36302090?v=4?s=100" width="100px;" alt="sdimovv"/><br /><sub><b>sdimovv</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=sdimovv" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/AllieQpzm"><img src="https://avatars.githubusercontent.com/u/2895565?v=4?s=100" width="100px;" alt="AllieQpzm"/><br /><sub><b>AllieQpzm</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=AllieQpzm" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://www.dominik.net.pl"><img src="https://avatars.githubusercontent.com/u/10815109?v=4?s=100" width="100px;" alt="Dominik"/><br /><sub><b>Dominik</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Adominch" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
