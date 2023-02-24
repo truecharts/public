@@ -12,8 +12,13 @@ securityContext:
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 command:
+  {{- if .Values.persistence.modelcache }}{{/* Only change command after upgrade */}}
   - python
   - scr/main.py
+  {{- else }}
+  - /bin/sh
+  - ./entrypoint.sh
+  {{- end }}
 volumeMounts:
   - name: uploads
     mountPath: {{ .Values.persistence.uploads.mountPath }}
