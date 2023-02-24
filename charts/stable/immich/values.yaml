@@ -74,6 +74,10 @@ persistence:
   uploads:
     enabled: true
     mountPath: /usr/src/app/upload
+  model-cache:
+    enabled: true
+    type: emptyDir
+    mountPath: /cache
 
 postgresql:
   enabled: true

@@ -12,11 +12,13 @@ securityContext:
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 command:
-  - /bin/sh
-  - ./entrypoint.sh
+  - python
+  - scr/main.py
 volumeMounts:
   - name: uploads
     mountPath: {{ .Values.persistence.uploads.mountPath }}
+  - name: model-cache
+    mountPath: {{ .Values.persistence.model-cache.mountPath }}
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-common-config'
