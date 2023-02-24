@@ -17,8 +17,8 @@ command:
 volumeMounts:
   - name: uploads
     mountPath: {{ .Values.persistence.uploads.mountPath }}
-  - name: model-cache
-    mountPath: {{ .Values.persistence.modelcache.mountPath }}
+  - name: modelcache
+    mountPath: {{ .Values.persistence.modelcache.mountPath | default /cache }}
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-common-config'
