@@ -70,22 +70,7 @@ questions:
                 schema:
                   type: int
                   default: 568
-              - variable: privileged
-                label: "Privileged mode"
-                schema:
-                  type: boolean
-                  default: false
-              - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
-                schema:
-                  type: boolean
-                  default: false
-              - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
-                schema:
-                  type: boolean
-                  default: false
-
+# Include{securityContextAdvanced}
 # Include{securityContextPod}
               - variable: fsGroup
                 label: "fsGroup"
@@ -93,8 +78,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
-
 # Include{resources}
 # Include{advanced}
 # Include{postgresql}
