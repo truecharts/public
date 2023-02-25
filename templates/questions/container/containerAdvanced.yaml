@@ -6,13 +6,13 @@
                                     default: false
                                     show_subquestions_if: true
                                     subquestions:
-                                      - variable: extraArgs
-                                        label: Extra Args
+                                      - variable: command
+                                        label: Command
                                         schema:
                                           type: list
                                           default: []
                                           items:
-                                            - variable: arg
-                                              label: Arg
+                                            - variable: param
+                                              label: Param
                                               schema:
                                                 type: string

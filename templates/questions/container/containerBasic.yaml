@@ -1,9 +1,3 @@
-                          - variable: main
-                            label: Main Container
-                            schema:
-                              additional_attrs: true
-                              type: dict
-                              attrs:
                                 - variable: envList
                                   label: Extra Environment Variables
                                   description: "Please be aware that some variables are set in the background, adding duplicates here might cause issues or prevent the app from starting..."
@@ -34,15 +28,5 @@
                                     items:
                                       - variable: arg
                                         label: Arg
-                                        schema:
-                                          type: string
-                                - variable: command
-                                  label: Command
-                                  schema:
-                                    type: list
-                                    default: []
-                                    items:
-                                      - variable: param
-                                        label: Param
                                         schema:
                                           type: string
