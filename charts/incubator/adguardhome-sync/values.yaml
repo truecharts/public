@@ -6,29 +6,37 @@ image:
 args:
   - run
 
-env:
-  ORIGIN_URL: "https://192.168.1.2:3000"
-  ORIGIN_USERNAME: "username"
-  ORIGIN_PASSWORD: "password"
-  REPLICA_URL: "http://192.168.1.3"
-  REPLICA_USERNAME: "username"
-  REPLICA_PASSWORD: "password"
-  CRON: "*/10 * * * *"
-  RUNONSTART: true
-  REPLICA_AUTOSETUP: false
-  REPLICA_INTERFACENAME: ""
+adguardhomesync:
+  origin_url: "https://192.168.1.2:3000"
+  origin_username: "username"
+  origin_password: "password"
+  origin_api_path: "/control"
+  replicas:
+    []
+    # - replica_url: https://192.168.1.3:3000
+    #   replica_username: replica
+    #   replica_password: 123
+    #   replica_auto_setup: false
+    #   replica_interface_name: "eth0"
+    #   replica_api_path: "/control"
+  cron: "*/10 * * * *"
+  runonstart: true
   # Configure sync features; by default all features are enabled.
-  FEATURES_GENERALSETTINGS: true
-  FEATURES_QUERYLOGCONFIG: true
-  FEATURES_STATSCONFIG: true
-  FEATURES_CLIENTSETTINGS: true
-  FEATURES_SERVICES: true
-  FEATURES_FILTERS: true
-  FEATURES_DHCP_SERVERCONFIG: true
-  FEATURES_DHCP_STATICLEASES: true
-  FEATURES_DNS_SERVERCONFIG: true
-  FEATURES_DNS_ACCESSLISTS: true
-  FEATURES_DNS_REWRITES: true
+  feat_gen_settings: true
+  feat_query_log_config: true
+  feat_stats_config: true
+  feat_client_settings: true
+  feat_services: true
+  feat_filters: true
+  feat_dhcp_server_config: true
+  feat_dhcp_static_leases: true
+  feat_dns_server_config: true
+  dns_access_lists: true
+  feat_dns_rewrites: true
+
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
 
 service:
   main:
