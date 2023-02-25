@@ -1,0 +1,10 @@
+              - variable: type
+                label: Type (Advanced)
+                schema:
+                  type: string
+                  default: Daemonset
+                  enum:
+                    - value: Deployment
+                      description: Deployment
+                    - value: Daemonset
+                      description: Daemonset

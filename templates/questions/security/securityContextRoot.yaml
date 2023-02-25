@@ -11,16 +11,4 @@
             additional_attrs: true
             type: dict
             attrs:
-              - variable: PUID
-                label: Process User ID - PUID
-                description: When supported by the container, this sets the User ID running the Application Process. Not supported by all Apps
-                schema:
-                  type: int
-                  default: 568
-              - variable: UMASK
-                label: UMASK
-                description: When supported by the container, this sets the UMASK for the App. Not supported by all Apps
-                schema:
-                  type: string
-                  default: "002"
               # Settings from questions.yaml get appended here on a per-app basis
