@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/wizarr
   pullPolicy: IfNotPresent
-  tag: 1.6.5@sha256:a3e49f7ada50f5b231720a82e1c7ed48bf5cfa8a73d641fd42be4c1a593c2098
+  tag: 2.0.0@sha256:de2c3ab3f1a241e8ba05b52ee188a6499495dca64b897d7d53abc0479f71add4
 
 env:
   APP_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
