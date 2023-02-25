@@ -1,12 +1,12 @@
-  - variable: Workload
-    group: "Workload Settings"
+  - variable: cnpg
+    group: Postgresql
     label: ""
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: main
-          label: ""
+          label: "Main Postgresql Database"
           schema:
             additional_attrs: true
             type: dict
