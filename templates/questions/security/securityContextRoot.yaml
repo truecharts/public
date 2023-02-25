@@ -1,18 +1,16 @@
-  - variable: security
-    label: Container Security Settings
+  - variable: securityContext
     group: Security and Permissions
+    label: Security Context
     schema:
-      type: dict
       additional_attrs: true
+      type: dict
       attrs:
-        - variable: editsecurity
-          label: Change PUID / UMASK values
-          description: By enabling this you override default set values.
+        - variable: container
+          label: Container
           schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
+            additional_attrs: true
+            type: dict
+            attrs:
               - variable: PUID
                 label: Process User ID - PUID
                 description: When supported by the container, this sets the User ID running the Application Process. Not supported by all Apps
@@ -25,3 +23,4 @@
                 schema:
                   type: string
                   default: "002"
+              # Settings from questions.yaml get appended here on a per-app basis
