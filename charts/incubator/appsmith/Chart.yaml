@@ -7,7 +7,7 @@ dependencies:
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
-    version: 5.0.32
+    version: 5.0.33
 # - condition: mongodb.enabled
 #   name: mongodb
 #   repository: https://deps.truecharts.org
@@ -27,7 +27,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/appsmith
   - https://hub.docker.com/r/appsmith/appsmith-ce
   - https://github.com/appsmithorg/appsmith
-version: 5.0.33
+version: 5.0.34
 annotations:
   truecharts.org/catagories: |
     - productivity

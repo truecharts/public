@@ -7,7 +7,7 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://deps.truecharts.org/
-    version: 11.0.29
+    version: 11.0.31
 deprecated: false
 description: Unofficial Bitwarden compatible server written in Rust
 home: https://truecharts.org/charts/stable/vaultwarden
@@ -30,7 +30,7 @@ sources:
   - https://hub.docker.com/r/vaultwarden/server
   - https://github.com/dani-garcia/vaultwarden
 type: application
-version: 19.0.22
+version: 19.0.23
 annotations:
   truecharts.org/catagories: |
     - security

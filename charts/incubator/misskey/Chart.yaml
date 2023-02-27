@@ -8,11 +8,11 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://deps.truecharts.org/
-    version: 11.0.29
+    version: 11.0.31
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
-    version: 5.0.32
+    version: 5.0.33
 deprecated: false
 description: "Misskey is an open source, decentralized social media platform that's free forever!"
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/misskey.png
@@ -38,4 +38,4 @@ annotations:
   truecharts.org/catagories: |
     - Social
 type: application
-version: 3.0.42
+version: 3.0.43
