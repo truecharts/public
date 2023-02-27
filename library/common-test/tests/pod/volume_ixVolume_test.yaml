@@ -11,7 +11,7 @@ tests:
           type: Deployment
           podSpec: {}
       ixVolumes:
-        - /mnt/pool/ix-applications/ix-app
+        - hostPath: /mnt/pool/ix-applications/ix-app
       persistence:
         ix-vol:
           enabled: true
@@ -29,7 +29,46 @@ tests:
             hostPath:
               path: /mnt/pool/ix-applications/ix-app
 
-  - it: should pass with hostPath volume and type
+  - it: should pass with multiple ixVolume volumes
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      ixVolumes:
+        - hostPath: /mnt/pool/ix-applications/ix-app1
+        - hostPath: /mnt/pool/ix-applications/ix-app2
+      persistence:
+        ix-vol1:
+          enabled: true
+          type: ixVolume
+          datasetName: ix-app1
+        ix-vol2:
+          enabled: true
+          type: ixVolume
+          datasetName: ix-app2
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: ix-vol1
+            hostPath:
+              path: /mnt/pool/ix-applications/ix-app1
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: ix-vol2
+            hostPath:
+              path: /mnt/pool/ix-applications/ix-app2
+
+  - it: should pass with ixVolume and hostPathType
     set:
       some_dataset: ix-app
       some_type: DirectoryOrCreate
@@ -40,7 +79,7 @@ tests:
           type: Deployment
           podSpec: {}
       ixVolumes:
-        - /mnt/pool/ix-applications/ix-app
+        - hostPath: /mnt/pool/ix-applications/ix-app
       persistence:
         ix-vol:
           enabled: true
@@ -96,7 +135,7 @@ tests:
       - failedTemplate:
           errorMessage: Persistence - Expected non-empty <ixVolumes> in values on <ixVolume> type
 
-  - it: should fail with empty ixVolumes
+  - it: should fail with wrong ixVolumes
     set:
       workload:
         some-workload:
@@ -105,8 +144,8 @@ tests:
           type: Deployment
           podSpec: {}
       ixVolumes:
-        - /mnt/pool/ix-applications/ix-wrong-app
-        - /mnt/pool/ix-applications/ix-other-app
+        - hostPath: /mnt/pool/ix-applications/ix-wrong-app
+        - hostPath: /mnt/pool/ix-applications/ix-other-app
       persistence:
         volume1:
           enabled: true
@@ -114,7 +153,7 @@ tests:
           datasetName: ix-app
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected <datasetName> [ix-app] to exist on <ixVolumes> list, but list contained [/mnt/pool/ix-applications/ix-wrong-app, /mnt/pool/ix-applications/ix-other-app] on <ixVolume> type
+          errorMessage: Persistence - Expected <datasetName> [ix-app] to exist on <ixVolumes> list, but list contained [ix-wrong-app, ix-other-app] on <ixVolume> type
 
   - it: should fail with invalid hostPathType
     set:
@@ -125,7 +164,7 @@ tests:
           type: Deployment
           podSpec: {}
       ixVolumes:
-        - /mnt/pool/ix-applications/ix-app
+        - hostPath: /mnt/pool/ix-applications/ix-app
       persistence:
         volume1:
           enabled: true

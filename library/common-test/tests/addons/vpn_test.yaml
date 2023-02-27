@@ -1,0 +1,569 @@
+suite: addon vpn
+templates:
+  - common.yaml
+tests:
+  - it: addon vpn gluetun enabled with config and env should pass
+    set:
+      addons:
+        vpn:
+          type: gluetun
+          config: |
+            some vpn config
+            with multiple lines
+          env:
+            key: value
+            key1: value1
+      workload: &workload
+        main:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              main:
+                enabled: true
+                primary: true
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+    asserts:
+      - hasDocuments:
+          count: 3
+      - documentIndex: &SecretDocument 0
+        isKind:
+          of: Secret
+      - documentIndex: &DeploymentDocument 1
+        isKind:
+          of: Deployment
+      - documentIndex: &ServiceDocument 2
+        isKind:
+          of: Service
+      - documentIndex: *SecretDocument
+        equal:
+          path: metadata.name
+          value: release-name-common-test-vpnconfig
+      - documentIndex: *SecretDocument
+        equal:
+          path: stringData
+          value:
+            vpn.conf: |-
+              some vpn config
+              with multiple lines
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: metadata.name
+          value: release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: release-name-common-test-vpn
+      - documentIndex: *ServiceDocument
+        equal:
+          path: metadata.name
+          value: release-name-common-test
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /vpn
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: key
+            value: value
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: key1
+            value: value1
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: key
+            value: value
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: key1
+            value: value1
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /vpn
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnconfig
+            secret:
+              secretName: release-name-common-test-vpnconfig
+              defaultMode: 0777
+              items:
+                - key: vpn.conf
+                  path: vpn.conf
+
+  - it: addon vpn gluetun enabled with scripts added
+    set:
+      addons:
+        vpn:
+          type: gluetun
+          config: |
+            some vpn config
+            with multiple lines
+          scripts:
+            up: |
+              echo "up"
+              echo "done"
+            down: |
+              echo "down"
+              echo "done"
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              main:
+                enabled: true
+                primary: true
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+    asserts:
+      - hasDocuments:
+          count: 4
+      - documentIndex: &ConfigMapDocument 0
+        isKind:
+          of: ConfigMap
+      - documentIndex: &SecretDocument 1
+        isKind:
+          of: Secret
+      - documentIndex: &DeploymentDocument 2
+        isKind:
+          of: Deployment
+      - documentIndex: &ServiceDocument 3
+        isKind:
+          of: Service
+      - documentIndex: *SecretDocument
+        equal:
+          path: metadata.name
+          value: release-name-common-test-vpnconfig
+      - documentIndex: *ConfigMapDocument
+        equal:
+          path: metadata.name
+          value: release-name-common-test-vpnscripts
+      - documentIndex: *ConfigMapDocument
+        equal:
+          path: data
+          value:
+            up.sh: |-
+              echo "up"
+              echo "done"
+            down.sh: |-
+              echo "down"
+              echo "done"
+      - documentIndex: *SecretDocument
+        equal:
+          path: stringData
+          value:
+            vpn.conf: |-
+              some vpn config
+              with multiple lines
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: release-name-common-test
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /vpn
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: vpnscripts
+            mountPath: /vpn
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /vpn
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vpnscripts
+            mountPath: /vpn
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: release-name-common-test-vpn
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnconfig
+            secret:
+              secretName: release-name-common-test-vpnconfig
+              defaultMode: 0777
+              items:
+                - key: vpn.conf
+                  path: vpn.conf
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnscripts
+            configMap:
+              name: vpnscripts
+              defaultMode: 0777
+              items:
+                - key: up.sh
+                  path: up.sh
+                - key: down.sh
+                  path: down.sh
+
+  - it: addon vpn gluetun enabled with existing secret
+    set:
+      addons:
+        vpn:
+          type: gluetun
+          existingSecret: existing-secret
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              main:
+                enabled: true
+                primary: true
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: &ServiceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: release-name-common-test
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /vpn
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /vpn
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: release-name-common-test-vpn
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnconfig
+            secret:
+              secretName: existing-secret
+              defaultMode: 0777
+              items:
+                - key: vpn.conf
+                  path: vpn.conf
+
+  - it: addon vpn gluetun enabled with configFile
+    set:
+      addons:
+        vpn:
+          type: gluetun
+          configFile: /path/to/file
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              main:
+                enabled: true
+                primary: true
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: &ServiceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: release-name-common-test
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /vpn
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /vpn
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: release-name-common-test-vpn
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnconfig
+            hostPath:
+              path: /path/to/file
+              type: File
+
+  - it: addon vpn gluetun enabled with configFolder
+    set:
+      addons:
+        vpn:
+          type: gluetun
+          configFolder: /path/to/folder
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              main:
+                enabled: true
+                primary: true
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: &ServiceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: release-name-common-test
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: vpnfolder
+            mountPath: /vpn
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vpnfolder
+            mountPath: /vpn
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: release-name-common-test-vpn
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnfolder
+            hostPath:
+              path: /path/to/folder
+
+  - it: tailscale addon enabled with authkey should pass
+    set:
+      addons:
+        vpn:
+          type: tailscale
+          tailscale:
+            authkey: something
+          env:
+            key: value
+            key1: value1
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              main:
+                enabled: true
+                primary: true
+    asserts:
+      - hasDocuments:
+          count: 1
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: release-name-common-test-tailscale
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: TS_KUBE_SECRET
+            value: ""
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: TS_SOCKET
+            value: /var/run/tailscale/tailscaled.sock
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: TS_STATE_DIR
+            value: /var/lib/tailscale
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: TS_AUTH_ONCE
+            value: "true"
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: TS_USERSPACE
+            value: "true"
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: TS_ACCEPT_DNS
+            value: "false"
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: key
+            value: value
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: key1
+            value: value1
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: key
+            value: value
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: key1
+            value: value1
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: tailscalestate
+            mountPath: /var/lib/tailscale
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: tailscalestate
+            mountPath: /var/lib/tailscale
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: tailscalestate
+            emptyDir: {}

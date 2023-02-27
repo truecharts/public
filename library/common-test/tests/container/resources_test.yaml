@@ -632,9 +632,8 @@ tests:
   - it: should fail with empty requests
     set:
       image: *image
-      containerOptions:
-        resources:
-          requests:
+      resources:
+        requests:
       workload:
         workload-name1:
           enabled: true
@@ -654,10 +653,9 @@ tests:
   - it: should fail with empty requests.cpu
     set:
       image: *image
-      containerOptions:
-        resources:
-          requests:
-            cpu: ""
+      resources:
+        requests:
+          cpu: ""
       workload:
         workload-name1:
           enabled: true
@@ -677,11 +675,10 @@ tests:
   - it: should fail with empty requests.memory
     set:
       image: *image
-      containerOptions:
-        resources:
-          requests:
-            cpu: 10m
-            memory: ""
+      resources:
+        requests:
+          cpu: 10m
+          memory: ""
       workload:
         workload-name1:
           enabled: true
@@ -701,11 +698,10 @@ tests:
   - it: should fail with invalid format in requests.cpu
     set:
       image: *image
-      containerOptions:
-        resources:
-          requests:
-            cpu: 10MB
-            memory: 50Mi
+      resources:
+        requests:
+          cpu: 10MB
+          memory: 50Mi
       workload:
         workload-name1:
           enabled: true
@@ -725,14 +721,13 @@ tests:
   - it: should fail with invalid format in limits.cpu
     set:
       image: *image
-      containerOptions:
-        resources:
-          requests:
-            cpu: 10m
-            memory: 50Mi
-          limits:
-            cpu: 10MB
-            memory: 8Gi
+      resources:
+        requests:
+          cpu: 10m
+          memory: 50Mi
+        limits:
+          cpu: 10MB
+          memory: 8Gi
       workload:
         workload-name1:
           enabled: true
@@ -752,14 +747,13 @@ tests:
   - it: should fail with invalid format in requests.memory
     set:
       image: *image
-      containerOptions:
-        resources:
-          requests:
-            cpu: 10m
-            memory: 50MB
-          limits:
-            cpu: 4000m
-            memory: 8Gi
+      resources:
+        requests:
+          cpu: 10m
+          memory: 50MB
+        limits:
+          cpu: 4000m
+          memory: 8Gi
       workload:
         workload-name1:
           enabled: true
@@ -779,14 +773,13 @@ tests:
   - it: should fail with invalid format in limits.memory
     set:
       image: *image
-      containerOptions:
-        resources:
-          requests:
-            cpu: 10m
-            memory: 50Mi
-          limits:
-            cpu: 4000m
-            memory: 8GB
+      resources:
+        requests:
+          cpu: 10m
+          memory: 50Mi
+        limits:
+          cpu: 4000m
+          memory: 8GB
       workload:
         workload-name1:
           enabled: true

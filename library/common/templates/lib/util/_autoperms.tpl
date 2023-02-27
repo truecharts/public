@@ -93,7 +93,7 @@ spec:
                   {{- $_ := set $hostPathMounts $name $mount -}}
                 {{- end -}}
               {{- end }}
-              {{- if and ( .Values.addons.vpn.configFile.enabled ) ( ne .Values.addons.vpn.type "disabled" ) ( ne .Values.addons.vpn.type "tailscale" ) }}
+              {{- if and ( .Values.addons.vpn.configFile ) ( ne .Values.addons.vpn.type "disabled" ) ( ne .Values.addons.vpn.type "tailscale" ) }}
               echo "Automatically correcting permissions for vpn config file..."
               {{- if $.Values.ixChartContext }}
               /usr/sbin/nfs4xdr_winacl -a chown -O 568 -G 568 -c /vpn/vpn.conf -p /vpn/vpn.conf || echo "Failed setting permissions using winacl..."

@@ -41,6 +41,12 @@ args:
   - --port
   - '8080'
 
+persistence:
+  testpvc:
+    enabled: true
+    type: pvc
+    mountPath: /testpvc
+
 manifestManager:
   enabled: false
   staging: false

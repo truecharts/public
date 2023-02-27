@@ -1,6 +1,6 @@
 {{/* Return the name of the primary ingress object */}}
 {{- define "tc.v1.common.lib.util.ingress.primary" -}}
-  {{- $ingresses := .ingresses -}}
+  {{- $ingresses := $.Values.ingress -}}
 
   {{- $enabledIngresses := dict -}}
   {{- range $name, $ingress := $ingresses -}}

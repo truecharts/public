@@ -51,7 +51,8 @@ objectData: The service data, that will be used to render the Service object.
     {{- if $hasHostPort -}}
       {{- $svcType = "ClusterIP" -}}
     {{- end -}}
-  {{- end }}
+  {{- end -}}
+  {{- $_ := set $objectData "type" $svcType  }}
 
 ---
 apiVersion: v1
@@ -65,7 +66,7 @@ metadata:
     {{- . | nindent 4 }}
   {{- end -}}
   {{- $annotations := (mustMerge ($objectData.annotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
-  {{- if eq $svcType "LoadBalancer" -}}
+  {{- if eq $objectData.type "LoadBalancer" -}}
     {{- include "tc.v1.common.lib.service.metalLBAnnotations" (dict "rootCtx" $rootCtx "objectData" $objectData "annotations" $annotations) -}}
   {{- end -}}
   {{- if $hasHTTPSPort -}}
@@ -76,26 +77,26 @@ metadata:
     {{- . | nindent 4 }}
   {{- end }}
 spec:
-  {{- if eq $svcType "ClusterIP" -}}
+  {{- if eq $objectData.type "ClusterIP" -}}
     {{- include "tc.v1.common.lib.service.spec.clusterIP" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim | nindent 2 -}}
-  {{- else if eq $svcType "LoadBalancer" -}}
+  {{- else if eq $objectData.type "LoadBalancer" -}}
     {{- include "tc.v1.common.lib.service.spec.loadBalancer" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim | nindent 2 -}}
-  {{- else if eq $svcType "NodePort" -}}
+  {{- else if eq $objectData.type "NodePort" -}}
     {{- include "tc.v1.common.lib.service.spec.nodePort" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim | nindent 2 -}}
-  {{- else if eq $svcType "ExternalName" -}}
+  {{- else if eq $objectData.type "ExternalName" -}}
     {{- include "tc.v1.common.lib.service.spec.externalName" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim | nindent 2 -}}
-  {{- else if eq $svcType "ExternalIP" -}}
+  {{- else if eq $objectData.type "ExternalIP" -}}
     {{- include "tc.v1.common.lib.service.spec.externalIP" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim | nindent 2 -}}
   {{- end -}}
   {{- with (include "tc.v1.common.lib.service.ports" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim) }}
   ports:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- if not (mustHas $svcType $specialTypes) }}
+  {{- if not (mustHas $objectData.type $specialTypes) }}
   selector:
     {{- include "tc.v1.common.lib.metadata.selectorLabels" (dict "rootCtx" $rootCtx "objectType" "pod" "objectName" $podValues.shortName) | trim | nindent 4 -}}
   {{- end -}}
-  {{- if eq $svcType "ExternalIP" -}}
+  {{- if eq $objectData.type "ExternalIP" -}}
     {{- include "tc.v1.common.class.endpointSlice" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim | nindent 0 }}
   {{- end -}}
 {{- end -}}

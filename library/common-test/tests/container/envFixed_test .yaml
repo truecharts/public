@@ -312,6 +312,60 @@ tests:
               - name: S6_READ_ONLY_ROOT
                 value: "1"
 
+  - it: should create the correct fixed envs with PUID set to 0 on container level
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                fixedEnv:
+                  PUID: 0
+                securityContext:
+                  runAsUser: 0
+                  runAsGroup: 0
+                  runAsNonRoot: false
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            env:
+              - name: TZ
+                value: UTC
+              - name: UMASK
+                value: "002"
+              - name: UMASK_SET
+                value: "002"
+              - name: PUID
+                value: "0"
+              - name: USER_ID
+                value: "0"
+              - name: UID
+                value: "0"
+              - name: PGID
+                value: "568"
+              - name: GROUP_ID
+                value: "568"
+              - name: GID
+                value: "568"
+              - name: S6_READ_ONLY_ROOT
+                value: "1"
+
   # Failures
   - it: it should fail with NVIDIA_CAPS having invalid values
     set:

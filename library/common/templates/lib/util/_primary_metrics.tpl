@@ -24,10 +24,6 @@
   {{- if not $result -}}
     {{- if eq (len $enabledMetrics) 1 -}}
       {{- $result = keys $enabledMetrics | mustFirst -}}
-    {{- else -}}
-      {{- if $enabledMetrics -}}
-        {{- fail "At least one Metric must be set as primary" -}}
-      {{- end -}}
     {{- end -}}
   {{- end -}}
   {{- $result -}}

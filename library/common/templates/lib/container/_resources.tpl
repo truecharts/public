@@ -8,7 +8,7 @@ objectData: The object data to be used to render the container.
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
 
-  {{- $resources := $rootCtx.Values.containerOptions.resources -}}
+  {{- $resources := $rootCtx.Values.resources -}}
 
   {{- if $objectData.resources -}}
     {{- $resources = mustMergeOverwrite $resources $objectData.resources -}}

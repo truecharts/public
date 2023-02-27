@@ -94,7 +94,7 @@ jobs:
           # Run tests
           cd library/common-test/
           helm dependency update
-          helm unittest --helm3 -f "tests/*/*.yaml" .
+          helm unittest --helm3 -f "tests/**/*.yaml" .
 
   install:
     needs:
@@ -120,13 +120,15 @@ jobs:
           - cron-values.yaml
           - statefulset-values.yaml
           - persistence-values.yaml
-          # - extra-containers-values.yaml
+          - extra-containers-values.yaml
           - rbac-values.yaml
           - ingress-values.yaml
           - networkPolicy-values.yaml
           - codeserver-values.yaml
+          - netshoot-values.yaml
           - metrics-values.yaml
           - cnpg-values.yaml
+          - cnpg-multi-values.yaml
           - manifest-values.yaml
           - stagingmanifest-values.yaml
 
@@ -244,10 +246,58 @@ jobs:
           - persistence-values.yaml
           - extra-containers-values.yaml
           - rbac-values.yaml
-          - ingress-values.yaml
           - networkPolicy-values.yaml
+          # Runs as root, so test results become obviously red
+          # - codeserver-values.yaml
+          # - netshoot-values.yaml
+
+
+    steps:
+      - name: Install Helm
+        uses: azure/setup-helm@f382f75448129b3be48f8121b9857be18d815a82 # tag=v3
+        with:
+          version: ${{ matrix.helm-version }}
+
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        with:
+          fetch-depth: 1
+
+
+      - name: build helm deps
+        run: |
+          cd library/common-test
+          helm dependency update
+          cd -
+
+      - name: Run Security Scan
+        uses: datreeio/action-datree@main
+        with:
+          path: 'library/common-test'
+          cliArguments: '--ignore-missing-schemas --policy CommonBasic'
+          isHelmChart: true
+          helmArguments: '--values library/common-test/ci/${{ matrix.values }}'
+
+
+  security-man:
+    needs:
+      - lint
+    name: Security Scans (manifests)
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        # We run tests on k3s version of latest SCALE release and SCALE nightly
+        k3s-version:
+          - v1.25.3+k3s1
+        # We run tests on Helm version of latest SCALE release
+        helm-version:
+          - v3.9.4
+        values:
+          - ingress-values.yaml
           - metrics-values.yaml
           - cnpg-values.yaml
+          - cnpg-multi-values.yaml
           - manifest-values.yaml
           - stagingmanifest-values.yaml
 
@@ -274,5 +324,49 @@ jobs:
         with:
           path: 'library/common-test'
           cliArguments: '--ignore-missing-schemas --policy ManifestManager'
+          isHelmChart: true
+          helmArguments: '--values library/common-test/ci/${{ matrix.values }}'
+
+  security-vpn:
+    needs:
+      - lint
+    name: Security Scans (vpn)
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        # We run tests on k3s version of latest SCALE release and SCALE nightly
+        k3s-version:
+          - v1.25.3+k3s1
+        # We run tests on Helm version of latest SCALE release
+        helm-version:
+          - v3.9.4
+        values:
+          - vpn-gluetun-values.yaml
+          - vpn-tailscale-values.yaml
+
+    steps:
+      - name: Install Helm
+        uses: azure/setup-helm@f382f75448129b3be48f8121b9857be18d815a82 # tag=v3
+        with:
+          version: ${{ matrix.helm-version }}
+
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        with:
+          fetch-depth: 1
+
+
+      - name: build helm deps
+        run: |
+          cd library/common-test
+          helm dependency update
+          cd -
+
+      - name: Run Security Scan
+        uses: datreeio/action-datree@main
+        with:
+          path: 'library/common-test'
+          cliArguments: '--ignore-missing-schemas --policy WithVPN'
           isHelmChart: true
           helmArguments: '--values library/common-test/ci/${{ matrix.values }}'

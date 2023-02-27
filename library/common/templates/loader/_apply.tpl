@@ -34,6 +34,9 @@
   {{/* Render ingress(s) */}}
   {{- include "tc.v1.common.spawner.ingress" . | nindent 0 -}}
 
+  {{/* Render Gateway API Route(s) */}}
+  {{- include "tc.v1.common.spawner.routes" . | nindent 0 -}}
+
   {{/* Render Horizontal Pod Autoscalers(s) */}}
   {{- include "tc.v1.common.spawner.hpa" . | nindent 0 -}}
 
@@ -46,6 +49,10 @@
   {{/* Render Cert-Manager Certificates(s) */}}
   {{- include "tc.v1.common.spawner.certificate" . | nindent 0 -}}
 
+  {{/* Ensure automatic permissions containers are injected */}}
   {{- include "tc.v1.common.lib.util.autoperms" . | nindent 0 -}}
+
+  {{/* Render/Set portal configmap, .Values.iXPortals and APPURL */}}
+  {{- include "tc.v1.common.spawner.portal" . | nindent 0 -}}
 
 {{- end -}}

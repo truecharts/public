@@ -396,6 +396,55 @@ tests:
               - 44
             sysctls: []
 
+  - it: should pass with with device assigned to selected pod
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+        workload-name2:
+          enabled: true
+          primary: false
+          type: Deployment
+          podSpec: {}
+      persistence:
+        dev01:
+          enabled: true
+          type: device
+          hostPath: /dev/sda
+          mountPath: /test
+          targetSelector:
+            workload-name2:
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups: []
+            sysctls: []
+      - documentIndex: &otherDeploymentDoc 1
+        isKind:
+          of: Deployment
+      - documentIndex: *otherDeploymentDoc
+        equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 5
+              - 10
+              - 20
+              - 24
+            sysctls: []
+
   # Failures
   - it: should fail with empty securityContext from "global"
     set:

@@ -2,6 +2,17 @@
 The code-server sidecar container to be inserted.
 */}}
 {{- define "tc.v1.common.addon.codeserver.container" -}}
+enabled: true
+probes:
+  liveness:
+    enabled: true
+    port: {{ .Values.addons.codeserver.service.ports.codeserver.port }}
+  readiness:
+    enabled: true
+    port: {{ .Values.addons.codeserver.service.ports.codeserver.port }}
+  startup:
+    enabled: true
+    port: {{ .Values.addons.codeserver.service.ports.codeserver.port }}
 imageSelector: "codeserverImage"
 imagePullPolicy: {{ .Values.codeserverImage.pullPolicy }}
 securityContext:
@@ -33,8 +44,4 @@ args:
 - "--port"
 - "{{ .Values.addons.codeserver.service.ports.codeserver.port }}"
 - {{ .Values.addons.codeserver.workingDir | default "/" }}
-volumeMounts:
-  - inherit: all
-resources:
-  inherit: true
 {{- end -}}

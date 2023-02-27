@@ -17,45 +17,9 @@ objectData: The object data to be used to render the container.
 
   {{- range $key := $keys -}}
     {{- range $persistenceName, $persistenceValues := (get $rootCtx.Values $key) -}}
-
-      {{/* Initialize from the default values */}}
-      {{- $volMount := dict -}}
-      {{- $_ := set $volMount "name" $persistenceName -}}
-      {{- $_ := set $volMount "key" $key -}}
-      {{- $_ := set $volMount "mountPath" ($persistenceValues.mountPath | default "") -}}
-      {{- $_ := set $volMount "subPath" ($persistenceValues.subPath | default "") -}}
-      {{- $_ := set $volMount "readOnly" ($persistenceValues.readOnly | default false) -}}
-      {{- $_ := set $volMount "mountPropagation" ($persistenceValues.mountPropagation | default "") -}}
-
-      {{/* If persistence is enabled... */}}
       {{- if $persistenceValues.enabled -}}
-        {{/* If targetSelectAll is set, means all pods/containers */}} {{/* targetSelectAll does not make sense for vct */}}
-        {{- if and $persistenceValues.targetSelectAll (ne $key "volumeClaimTemplates") -}}
-          {{- $volMounts = mustAppend $volMounts $volMount -}}
-
-        {{/* Else if selector is defined */}}
-        {{- else if $persistenceValues.targetSelector -}}
-          {{/* If pod is selected */}}
-          {{- if mustHas $objectData.podShortName ($persistenceValues.targetSelector | keys) -}}
-            {{- $selectorValues := (get $persistenceValues.targetSelector $objectData.podShortName) -}}
-            {{- if not (kindIs "map" $selectorValues) -}}
-              {{- fail (printf "%s - Expected <targetSelector.%s> to be a [dict], but got [%s]" (camelcase $key) $objectData.podShortName (kindOf $selectorValues)) -}}
-            {{- end -}}
-
-            {{- if not $selectorValues -}}
-              {{- fail (printf "%s - Expected non-empty <targetSelector.%s>" (camelcase $key) $objectData.podShortName) -}}
-            {{- end -}}
-
-            {{/* If container is selected */}}
-            {{- if mustHas $objectData.shortName ($selectorValues | keys) -}}
-              {{/* Merge with values that might be set for the specific container */}}
-              {{- $volMount = mustMergeOverwrite $volMount (get $selectorValues $objectData.shortName) -}}
-              {{- $volMounts = mustAppend $volMounts $volMount -}}
-            {{- end -}}
-          {{- end -}}
-
-        {{/* Else if not selector, but pod and container is primary */}}
-        {{- else if and $objectData.podPrimary $objectData.primary -}}
+        {{- $volMount := (fromJson (include "tc.v1.common.lib.container.volumeMount.isSelected" (dict "persistenceName" $persistenceName "persistenceValues" $persistenceValues "objectData" $objectData "key" $key))) -}}
+        {{- if $volMount -}}
           {{- $volMounts = mustAppend $volMounts $volMount -}}
         {{- end -}}
       {{- end -}}
@@ -95,4 +59,57 @@ objectData: The object data to be used to render the container.
       {{- end -}}
   {{- end -}}
 
+{{- end -}}
+
+{{- define "tc.v1.common.lib.container.volumeMount.isSelected" -}}
+  {{- $persistenceName := .persistenceName -}}
+  {{- $persistenceValues := .persistenceValues -}}
+  {{- $objectData := .objectData -}}
+  {{- $key := .key -}}
+
+  {{/* Initialize from the default values */}}
+  {{- $volMount := dict -}}
+  {{- $_ := set $volMount "name" $persistenceName -}}
+  {{- $_ := set $volMount "key" $key -}}
+  {{- $_ := set $volMount "mountPath" ($persistenceValues.mountPath | default "") -}}
+  {{- $_ := set $volMount "subPath" ($persistenceValues.subPath | default "") -}}
+  {{- $_ := set $volMount "readOnly" ($persistenceValues.readOnly | default false) -}}
+  {{- $_ := set $volMount "mountPropagation" ($persistenceValues.mountPropagation | default "") -}}
+
+  {{- $return := false -}}
+  {{/* If targetSelectAll is set, means all pods/containers */}} {{/* targetSelectAll does not make sense for vct */}}
+  {{- if and $persistenceValues.targetSelectAll (ne $key "volumeClaimTemplates") -}}
+    {{- $return = true -}}
+
+  {{/* Else if selector is defined */}}
+  {{- else if $persistenceValues.targetSelector -}}
+    {{/* If pod is selected */}}
+    {{- if mustHas $objectData.podShortName ($persistenceValues.targetSelector | keys) -}}
+      {{- $selectorValues := (get $persistenceValues.targetSelector $objectData.podShortName) -}}
+      {{- if not (kindIs "map" $selectorValues) -}}
+        {{- fail (printf "%s - Expected <targetSelector.%s> to be a [dict], but got [%s]" (camelcase $key) $objectData.podShortName (kindOf $selectorValues)) -}}
+      {{- end -}}
+
+      {{- if not $selectorValues -}}
+        {{- fail (printf "%s - Expected non-empty <targetSelector.%s>" (camelcase $key) $objectData.podShortName) -}}
+      {{- end -}}
+
+      {{/* If container is selected */}}
+      {{- if or ( mustHas $objectData.shortName ($selectorValues | keys) ) ( eq $objectData.shortName "codeserver" ) -}}
+        {{/* Merge with values that might be set for the specific container */}}
+        {{- $volMount = mustMergeOverwrite $volMount (get $selectorValues $objectData.shortName) -}}
+        {{- $return = true -}}
+      {{- end -}}
+    {{- end -}}
+
+  {{/* Else if not selector, but pod and container is primary */}}
+  {{- else if and $objectData.podPrimary ( or $objectData.primary ( eq $objectData.shortName "codeserver" ) ) -}}
+    {{- $return = true -}}
+  {{- end -}}
+
+  {{- if $return -}} {{/* If it's selected, return the volumeMount */}}
+    {{- $volMount | toJson -}}
+  {{- else -}} {{/* Else return an empty dict */}}
+    {{- dict | toJson -}}
+  {{- end -}}
 {{- end -}}

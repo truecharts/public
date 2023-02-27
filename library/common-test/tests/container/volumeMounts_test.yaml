@@ -152,21 +152,12 @@ tests:
             name: some-vol
             mountPath: /some/path
             readOnly: true
-      - documentIndex: *deploymentDoc
-        isNull:
-          path: spec.template.spec.containers[1].volumeMounts
       - documentIndex: &jobDoc 1
         isKind:
           of: Job
       - documentIndex: *jobDoc
         isAPIVersion:
           of: batch/v1
-      - documentIndex: *jobDoc
-        isNull:
-          path: spec.template.spec.containers[0].volumeMounts
-      - documentIndex: *jobDoc
-        isNull:
-          path: spec.template.spec.containers[1].volumeMounts
 
   - it: should pass with volume with selected pod and container
     set:
@@ -223,9 +214,6 @@ tests:
         isAPIVersion:
           of: apps/v1
       - documentIndex: *deploymentDoc
-        isNull:
-          path: spec.template.spec.containers[0].volumeMounts
-      - documentIndex: *deploymentDoc
         contains:
           path: spec.template.spec.containers[1].volumeMounts
           content:
@@ -245,9 +233,6 @@ tests:
             name: some-vol
             mountPath: /some/path
             readOnly: true
-      - documentIndex: *jobDoc
-        isNull:
-          path: spec.template.spec.containers[1].volumeMounts
 
   - it: should pass with volume with selected pod and multiple containers
     set:
@@ -323,11 +308,61 @@ tests:
         isAPIVersion:
           of: batch/v1
       - documentIndex: *jobDoc
-        isNull:
+        contains:
           path: spec.template.spec.containers[0].volumeMounts
+          content:
+            mountPath: /dev/shm
+            name: devshm
+            readOnly: false
       - documentIndex: *jobDoc
-        isNull:
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            mountPath: /shared
+            name: shared
+            readOnly: false
+      - documentIndex: *jobDoc
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            mountPath: /tmp
+            name: tmp
+            readOnly: false
+      - documentIndex: *jobDoc
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            mountPath: /var/logs
+            name: varlogs
+            readOnly: false
+      - documentIndex: *jobDoc
+        contains:
           path: spec.template.spec.containers[1].volumeMounts
+          content:
+            mountPath: /dev/shm
+            name: devshm
+            readOnly: false
+      - documentIndex: *jobDoc
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            mountPath: /shared
+            name: shared
+            readOnly: false
+      - documentIndex: *jobDoc
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            mountPath: /tmp
+            name: tmp
+            readOnly: false
+      - documentIndex: *jobDoc
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            mountPath: /var/logs
+            name: varlogs
+            readOnly: false
 
   - it: should pass with volume with selected pod and containers and specific values
     set:
@@ -408,12 +443,6 @@ tests:
       - documentIndex: *jobDoc
         isAPIVersion:
           of: batch/v1
-      - documentIndex: *jobDoc
-        isNull:
-          path: spec.template.spec.containers[0].volumeMounts
-      - documentIndex: *jobDoc
-        isNull:
-          path: spec.template.spec.containers[1].volumeMounts
 
   - it: should pass with volume with selected pod and containers and specific values from tpl
     set:
@@ -633,9 +662,6 @@ tests:
       - documentIndex: *otherStatefulSetDoc
         isAPIVersion:
           of: apps/v1
-      - documentIndex: *otherStatefulSetDoc
-        isNull:
-          path: spec.template.spec.containers[0].volumeMounts
 
   # Failures
   - it: should fail with invalid mountPropagation

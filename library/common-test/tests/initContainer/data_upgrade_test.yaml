@@ -86,8 +86,20 @@ tests:
               - |
                 echo "Using image bash"
             volumeMounts:
-              - name: shared-vol
-                mountPath: /some/path
+              - mountPath: /dev/shm
+                name: devshm
+                readOnly: false
+              - mountPath: /shared
+                name: shared
+                readOnly: false
+              - mountPath: /some/path
+                name: shared-vol
+                readOnly: false
+              - mountPath: /tmp
+                name: tmp
+                readOnly: false
+              - mountPath: /var/logs
+                name: varlogs
                 readOnly: false
       - documentIndex: *deploymentDoc
         isNull:
@@ -107,8 +119,33 @@ tests:
         isNull:
           path: spec.template.spec.initContainers[1].command
       - documentIndex: *deploymentDoc
-        isNull:
+        contains:
           path: spec.template.spec.initContainers[1].volumeMounts
+          content:
+            mountPath: /dev/shm
+            name: devshm
+            readOnly: false
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.initContainers[1].volumeMounts
+          content:
+            mountPath: /shared
+            name: shared
+            readOnly: false
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.initContainers[1].volumeMounts
+          content:
+            mountPath: /tmp
+            name: tmp
+            readOnly: false
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.initContainers[1].volumeMounts
+          content:
+            mountPath: /var/logs
+            name: varlogs
+            readOnly: false
       - documentIndex: *deploymentDoc
         isNull:
           path: spec.template.spec.initContainers[2]

@@ -14,6 +14,7 @@ metadata:
 spec:
   template:
     spec:
+      automountServiceAccountToken: true
       serviceAccountName: {{ $fullName }}-manifests
       containers:
         - name: {{ $fullName }}-manifests
@@ -44,7 +45,7 @@ spec:
               - cat
               - /tmp/healthy
             initialDelaySeconds: 10
-            failureThreshold: 5
+            failureThreshold: 60
             successThreshold: 1
             timeoutSeconds: 5
             periodSeconds: 10
@@ -54,7 +55,7 @@ spec:
               - cat
               - /tmp/healthy
             initialDelaySeconds: 10
-            failureThreshold: 5
+            failureThreshold: 60
             successThreshold: 2
             timeoutSeconds: 5
             periodSeconds: 10
@@ -76,6 +77,8 @@ spec:
               touch /tmp/healthy
               echo "installing manifests..."
               kubectl apply --server-side --force-conflicts --grace-period 30 --v=4 -k https://github.com/truecharts/manifests/{{ if .Values.manifestManager.staging }}staging{{ else }}manifests{{ end }} || kubectl apply --server-side --force-conflicts --grace-period 30 -k https://github.com/truecharts/manifests/{{ if .Values.manifestManager.staging }}staging{{ else }}manifests || echo "job failed..."{{ end }}
+              echo "Install finished..."
+              echo "Starting waits and checks..."
               kubectl wait --namespace cnpg-system --for=condition=ready pod --selector=app.kubernetes.io/name=cloudnative-pg --timeout=90s || echo "metallb-system wait failed..."
               kubectl wait --namespace metallb-system --for=condition=ready pod --selector=app=metallb --timeout=90s || echo "metallb-system wait failed..."
               kubectl wait --namespace cert-manager --for=condition=ready pod --selector=app.kubernetes.io/instance=cert-manager --timeout=90s || echo "cert-manager wait failed..."
@@ -104,7 +107,7 @@ metadata:
 rules:
   - apiGroups:  ["*"]
     resources:  ["*"]
-    verbs:  ["watch", "create", "update", "patch"]
+    verbs:  ["*"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding

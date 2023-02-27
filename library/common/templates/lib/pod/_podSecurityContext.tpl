@@ -20,26 +20,43 @@ objectData: The object data to be used to render the Pod.
     {{- $secContext = mustMergeOverwrite $secContext . -}}
   {{- end -}}
 
-  {{/* TODO: Add supplemental groups
-    devices (5, 10, 20, 24) (Only when devices is assigned on the pod's containers)
-    TODO: Unit Test the above cases
-  */}}
-
-  {{- $addSupplemental := list -}}
+  {{- $gpuAdded := false -}}
   {{- range $GPUValues := $rootCtx.Values.scaleGPU -}}
     {{/* If there is a selector and pod is selected */}}
     {{- if $GPUValues.targetSelector -}}
       {{- if mustHas $objectData.shortName ($GPUValues.targetSelector | keys) -}}
-        {{- $addSupplemental = mustAppend $addSupplemental 44 -}}
+        {{- $gpuAdded = true -}}
       {{- end -}}
     {{/* If there isn't a selector, but pod is primary */}}
     {{- else if $objectData.primary -}}
-      {{- $addSupplemental = mustAppend $addSupplemental 44 -}}
+      {{- $gpuAdded = true -}}
     {{- end -}}
   {{- end -}}
 
-  {{- if $addSupplemental -}}
-    {{- $_ := set $secContext "supplementalGroups" (concat $secContext.supplementalGroups $addSupplemental) -}}
+  {{- $deviceGroups := (list 5 10 20 24) -}}
+  {{- $deviceAdded := false -}}
+  {{- range $persistenceName, $persistenceValues := $rootCtx.Values.persistence -}}
+    {{- if $persistenceValues.enabled -}}
+      {{- if eq $persistenceValues.type "device" -}}
+        {{- if $persistenceValues.targetSelectAll -}}
+          {{- $deviceAdded = true -}}
+        {{- else if $persistenceValues.targetSelector -}}
+          {{- if mustHas $objectData.shortName ($persistenceValues.targetSelector | keys) -}}
+            {{- $deviceAdded = true -}}
+          {{- end -}}
+        {{- else if $objectData.podPrimary -}}
+          {{- $deviceAdded = true -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if $gpuAdded -}}
+    {{- $_ := set $secContext "supplementalGroups" (concat $secContext.supplementalGroups (list 44)) -}}
+  {{- end -}}
+
+  {{- if $deviceAdded -}}
+    {{- $_ := set $secContext "supplementalGroups" (concat $secContext.supplementalGroups $deviceGroups) -}}
   {{- end -}}
 
   {{- $portRange := fromJson (include "tc.v1.common.lib.helpers.securityContext.getPortRange" (dict "rootCtx" $rootCtx "objectData" $objectData)) -}}

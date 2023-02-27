@@ -50,6 +50,18 @@ objectData: The object data to be used to render the container.
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
 
+  {{- $mustPrivileged := false -}}
+  {{- range $persistenceName, $persistenceValues := $rootCtx.Values.persistence -}}
+    {{- if $persistenceValues.enabled -}}
+      {{- if eq $persistenceValues.type "device" -}}
+        {{- $volume := (fromJson (include "tc.v1.common.lib.container.volumeMount.isSelected" (dict "persistenceName" $persistenceName "persistenceValues" $persistenceValues "objectData" $objectData "key" "persistence"))) -}}
+        {{- if $volume -}} {{/* If a volume is returned, it means that the container has an assigned device */}}
+          {{- $mustPrivileged = true -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
   {{- if not $rootCtx.Values.securityContext.container -}}
     {{- fail "Container - Expected non-empty <.Values.securityContext.container>" -}}
   {{- end -}}
@@ -63,17 +75,31 @@ objectData: The object data to be used to render the container.
   {{- end -}}
 
   {{/* Validations, as we might endup with null values after merge */}}
-  {{- range $key := (list "privileged" "allowPrivilegeEscalation" "runAsNonRoot" "readOnlyRootFilesystem") -}}
-    {{- $value := (get $secContext $key) -}}
-    {{- if not (kindIs "bool" $value) -}}
-      {{- fail (printf "Container - Expected <securityContext.%s> to be [bool], but got [%s] of type [%s]" $key $value (kindOf $value)) -}}
-    {{- end -}}
-  {{- end -}}
-
   {{- range $key := (list "runAsUser" "runAsGroup") -}}
     {{- $value := (get $secContext $key) -}}
     {{- if not (mustHas (kindOf $value) (list "float64" "int")) -}}
       {{- fail (printf "Container - Expected <securityContext.%s> to be [int], but got [%s] of type [%s]" $key $value (kindOf $value)) -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if or (eq (int $secContext.runAsUser) 0) (eq (int $secContext.runAsGroup) 0) -}}
+    {{- $_ := set $secContext "runAsNonRoot" false -}}
+  {{- else -}}
+    {{- $_ := set $secContext "runAsNonRoot" true -}}
+  {{- end -}}
+
+  {{- if $mustPrivileged -}}
+    {{- $_ := set $secContext "privileged" true -}}
+    {{- $_ := set $secContext "allowPrivilegeEscalation" true -}}
+    {{- $_ := set $secContext "runAsNonRoot" false -}}
+    {{- $_ := set $secContext "runAsUser" 0 -}}
+    {{- $_ := set $secContext "runAsGroup" 0 -}}
+  {{- end -}}
+
+  {{- range $key := (list "privileged" "allowPrivilegeEscalation" "runAsNonRoot" "readOnlyRootFilesystem") -}}
+    {{- $value := (get $secContext $key) -}}
+    {{- if not (kindIs "bool" $value) -}}
+      {{- fail (printf "Container - Expected <securityContext.%s> to be [bool], but got [%s] of type [%s]" $key $value (kindOf $value)) -}}
     {{- end -}}
   {{- end -}}
 
@@ -106,12 +132,6 @@ objectData: The object data to be used to render the container.
       {{- if not (kindIs "string" .) -}}
         {{- fail (printf "Container - Expected items of <securityContext.capabilities.%s> to be [string], but got [%s]" $key (kindOf .)) -}}
       {{- end -}}
-    {{- end -}}
-  {{- end -}}
-
-  {{- if or (eq (int $secContext.runAsUser) 0) (eq (int $secContext.runAsGroup) 0) -}}
-    {{- if $secContext.runAsNonRoot -}}
-      {{- fail "Container - Expected <securityContext.runAsNonRoot> to be [false] with either [runAsUser, runAsGroup] set to [0]" -}}
     {{- end -}}
   {{- end -}}
 
