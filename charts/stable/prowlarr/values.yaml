@@ -1,12 +1,17 @@
 image:
   repository: tccr.io/truecharts/prowlarr
-  tag: 1.0.1.2220@sha256:f376c2b13e1f002aeaac9eda5225f3e7d7937a45304cee63a9447b21fe51c4b3
+  tag: 1.3.1.2796@sha256:64a815f6eb0ec4d553c3797413a520fa40d0ac1e137a1b11c685e21e32d66764
   pullPolicy: IfNotPresent
 
 securityContext:
   readOnlyRootFilesystem: false
 
 env:
+  PROWLARR__PORT: "{{ .Values.service.main.ports.main.port }}"
+  PROWLARR__AUTHENTICATION_METHOD: ""
+  PROWLARR__POSTGRES_PORT: 5432
+  PROWLARR__POSTGRES_USE: "{{ .Values.postgresql.postgresqlUsername }}"
+  PROWLARR__POSTGRES_MAIN_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
   PROWLARR__POSTGRES_HOST:
     secretKeyRef:
       name: dbcreds
@@ -15,13 +20,6 @@ env:
     secretKeyRef:
       name: dbcreds
       key: postgresql-password
-
-prowlarr:
-  auth_method: ""
-
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
 
 service:
   main:
@@ -32,7 +30,7 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
 
 postgresql:
   enabled: true
