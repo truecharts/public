@@ -345,10 +345,10 @@ configmap:
                     fastcgi_intercept_errors on;
                     fastcgi_request_buffering off;
 
-                    proxy_send_timeout 300s;
-                    proxy_read_timeout 300s;
-                    fastcgi_send_timeout 300s;
-                    fastcgi_read_timeout 300s;
+                    proxy_send_timeout 3600s;
+                    proxy_read_timeout 3600s;
+                    fastcgi_send_timeout 3600s;
+                    fastcgi_read_timeout 3600s;
                 }
 
                 location ~ \.(?:css|js|svg|gif)$ {
