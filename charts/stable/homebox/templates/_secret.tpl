@@ -18,7 +18,7 @@ stringData:
   HBOX_WEB_PORT: {{ .Values.service.main.ports.main.port | quote }}
   HBOX_SWAGGER_HOST: {{ .Values.service.main.ports.main.port | quote }}
   {{/* User Defined */}}
-  HBOX_OPTIONS_ALLOWREGISTRATION: {{ .Values.homebox.allow_registration | quote }}
+  HBOX_OPTIONS_ALLOW_REGISTRATION: {{ .Values.homebox.allow_registration | quote }}
   HBOX_OPTIONS_AUTO_INCREMENT_ASSET_ID: {{ .Values.homebox.auto_increment_asset_id | quote }}
   HBOX_WEB_MAX_UPLOAD_SIZE: {{ (.Values.homebox.max_upload_size | default 10) | quote }}
   HBOX_LOG_LEVEL: {{ .Values.homebox.log_level | default "info" }}

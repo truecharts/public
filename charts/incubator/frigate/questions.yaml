@@ -31,28 +31,25 @@ questions:
                 label: Port
                 schema:
                   type: int
-                  required: true
                   default: 1883
               - variable: topic_prefix
                 label: Topic Prefix
                 description: Must be unique if you are running multiple instances
                 schema:
                   type: string
-                  required: true
-                  default: frigate
-              - variable: topic_prefix
+                  default: ""
+              - variable: client_id
                 label: Client ID
                 description: Must be unique if you are running multiple instances
                 schema:
                   type: string
-                  required: true
-                  default: frigate
+                  default: ""
               - variable: stats_interval
                 label: Stats Interval
                 description: Interval in seconds for publishing stats
                 schema:
                   type: int
-                  required: true
+                  "null": true
                   default: 60
               - variable: user
                 label: Username
@@ -86,7 +83,7 @@ questions:
                         default: []
                         items:
                           - variable: detector_entry
-                            label: Detector Entry
+                            label: ""
                             schema:
                               additional_attrs: true
                               type: dict
@@ -121,8 +118,8 @@ questions:
                                   description: This value is only used for CPU types
                                   schema:
                                     type: int
+                                    "null": true
                                     show_if: [["type", "=", "cpu"]]
-                                    default: 3
         - variable: model
           label: Model
           schema:
@@ -137,34 +134,36 @@ questions:
                   default: false
                   show_subquestions_if: true
                   subquestions:
-                    - variable: path
-                      label: Path
-                      schema:
-                        type: string
-                        default: /edgetpu_model.tflite
-                    - variable: labelmap_path
-                      label: Label Map Path
-                      schema:
-                        type: string
-                        default: /labelmap.txt
                     - variable: width
                       label: Width
                       schema:
                         type: int
+                        required: true
                         default: 320
                     - variable: height
                       label: Height
                       schema:
                         type: int
+                        required: true
                         default: 320
+                    - variable: path
+                      label: Path
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: labelmap_path
+                      label: Label Map Path
+                      schema:
+                        type: string
+                        default: ""
                     - variable: labelmap
-                      label: LabelMap Configuration
+                      label: Label Map Configuration
                       schema:
                         type: list
                         default: []
                         items:
                           - variable: labelmap_entry
-                            label: LabelMap Entry
+                            label: ""
                             schema:
                               additional_attrs: true
                               type: dict
@@ -173,11 +172,13 @@ questions:
                                   label: Model
                                   schema:
                                     type: string
+                                    required: true
                                     default: ""
                                 - variable: name
                                   label: Name
                                   schema:
                                     type: string
+                                    required: true
                                     default: ""
         - variable: logger
           label: Logger
@@ -217,7 +218,7 @@ questions:
                         default: []
                         items:
                           - variable: component_entry
-                            label: Component Specific Log Entry
+                            label: ""
                             schema:
                               additional_attrs: true
                               type: dict
@@ -271,15 +272,13 @@ questions:
                       description: Width of the output resolution
                       schema:
                         type: int
-                        required: true
-                        default: 1280
+                        "null": true
                     - variable: height
                       label: Height
                       description: Height of the output resolution
                       schema:
                         type: int
-                        required: true
-                        default: 720
+                        "null": true
                     - variable: quality
                       label: Quality
                       description: Encoding quality of the mpeg1 feed. Where 1 is the highest quality, and 31 is the lowest. Lower quality feeds utilize less CPU resources.
@@ -287,7 +286,6 @@ questions:
                         type: int
                         min: 1
                         max: 31
-                        required: true
                         default: 8
                     - variable: mode
                       label: Mode
@@ -298,9 +296,10 @@ questions:
                         Continuous - All cameras are included always.
                       schema:
                         type: string
-                        required: true
-                        default: objects
+                        default: ""
                         enum:
+                          - value: ""
+                            description: Inherit
                           - value: objects
                             description: Objects
                           - value: motion
@@ -325,17 +324,15 @@ questions:
                       label: Global Args
                       schema:
                         type: string
-                        required: true
-                        default: -hide_banner -loglevel warning
-                    - variable: input_args
-                      label: Input Args
-                      schema:
-                        type: string
-                        required: true
-                        default: -avoid_negative_ts make_zero -fflags +genpts+discardcorrupt -rtsp_transport tcp -timeout 5000000 -use_wallclock_as_timestamps 1
+                        default: ""
                     - variable: hwaccel_args
                       label: HW Acceleration Args
                       description: See hardware acceleration docs for your specific device
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: input_args
+                      label: Input Args
                       schema:
                         type: string
                         default: ""
@@ -349,20 +346,17 @@ questions:
                             label: Detect
                             schema:
                               type: string
-                              required: true
-                              default: -f rawvideo -pix_fmt yuv420p
+                              default: ""
                           - variable: record
                             label: Record
                             schema:
                               type: string
-                              required: true
-                              default: -f segment -segment_time 10 -segment_format mp4 -reset_timestamps 1 -strftime 1 -c copy -an
+                              default: ""
                           - variable: rtmp
                             label: RTMP
                             schema:
                               type: string
-                              required: true
-                              default: -c copy -f flv
+                              default: ""
         - variable: detect
           label: Detect
           schema:
@@ -388,29 +382,25 @@ questions:
                       description: Width of the frame for the input with the detect role
                       schema:
                         type: int
-                        required: true
-                        default: 1280
+                        "null": true
                     - variable: height
                       label: Height
                       description: Height of the frame for the input with the detect role
                       schema:
                         type: int
-                        required: true
-                        default: 720
+                        "null": true
                     - variable: fps
                       label: FPS
                       description: Desired fps for your camera for the input with the detect role. Recommended value of 5. Ideally, try and reduce your FPS on the camera.
                       schema:
                         type: int
-                        required: true
-                        default: 5
+                        "null": true
                     - variable: max_disappeared
                       label: Max Disappeared
                       description: Number of frames without a detection before frigate considers an object to be gone.
                       schema:
                         type: int
-                        required: true
-                        default: 25
+                        "null": true
                     - variable: stationary
                       label: Stationary
                       schema:
@@ -425,15 +415,13 @@ questions:
                               If set to 10, object detection will run to confirm the object still exists on every 10th frame.
                             schema:
                               type: int
-                              required: true
-                              default: 0
+                              "null": true
                           - variable: threshold
                             label: Threshold
                             description: Number of frames without a position change for an object to be considered stationary
                             schema:
                               type: int
-                              required: true
-                              default: 50
+                              "null": true
                           - variable: set_max_frames
                             label: Set Max Frames
                             schema:
@@ -616,7 +604,7 @@ questions:
                         50 - low sensitivity
                       schema:
                         type: int
-                        default: 30
+                        "null": true
                     - variable: delta_alpha
                       label: Delta Alpha
                       description: |
@@ -646,7 +634,7 @@ questions:
                         of higher CPU usage. Lower values result in less CPU, but small changes may not register as motion.
                       schema:
                         type: int
-                        default: 50
+                        "null": true
                     - variable: mask
                       label: Mask
                       description: See docs for more detailed info on creating masks
@@ -664,7 +652,7 @@ questions:
                       description: Delay when updating camera motion through MQTT from ON -> OFF
                       schema:
                         type: int
-                        default: 30
+                        "null": true
         - variable: record
           label: Record
           schema:
@@ -694,10 +682,9 @@ questions:
                       description: Number of minutes to wait between cleanup runs
                       schema:
                         type: int
-                        required: true
-                        default: 60
+                        "null": true
                     - variable: retain
-                      label: Retain
+                      label: Record > Retain
                       description: Retention settings for recording
                       schema:
                         additional_attrs: true
@@ -717,8 +704,7 @@ questions:
                                     NOTE: This should be set to 0 and retention should be defined in events section below if you only want to retain recordings of events.
                                   schema:
                                     type: int
-                                    required: true
-                                    default: 0
+                                    "null": true
                                 - variable: mode
                                   label: Mode
                                   description: |
@@ -730,9 +716,10 @@ questions:
                                   schema:
                                     type: string
                                     show_if: [["days", "!=", 0]]
-                                    required: true
-                                    default: all
+                                    default: ""
                                     enum:
+                                      - value: ""
+                                        description: Inherit
                                       - value: all
                                         description: All
                                       - value: motion
@@ -740,118 +727,125 @@ questions:
                                       - value: active_objects
                                         description: Active Objects
                     - variable: events
-                      label: Events
+                      label: Record > Events
                       description: Event recording settings
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
-                          - variable: pre_capture
-                            label: Pre Capture
-                            description: Number of seconds before the event to include
+                          - variable: render_config
+                            label: Render Configuration
+                            description: Enable it to add the configuration in the config file
                             schema:
-                              type: int
-                              required: true
-                              default: 5
-                          - variable: post_capture
-                            label: Post Capture
-                            description: Number of seconds after the event to include
-                            schema:
-                              type: int
-                              required: true
-                              default: 5
-                          - variable: objects
-                            label: Objects
-                            description: Objects to save recordings for. Defaults to all objects.
-                            schema:
-                              type: list
-                              default: []
-                              items:
-                                - variable: object_entry
-                                  label: Object Entry
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: pre_capture
+                                  label: Pre Capture
+                                  description: Number of seconds before the event to include
                                   schema:
-                                    type: string
-                                    required: true
-                                    default: ""
-                          - variable: required_zones
-                            label: Required Zones
-                            description: Restrict recordings to objects that entered any of the listed zones
-                            schema:
-                              type: list
-                              default: []
-                              items:
-                                - variable: zone_entry
-                                  label: Zone Entry
+                                    type: int
+                                    "null": true
+                                - variable: post_capture
+                                  label: Post Capture
+                                  description: Number of seconds after the event to include
                                   schema:
-                                    type: string
-                                    required: true
-                                    default: ""
-                          - variable: retain
-                            label: Retain
-                            description: Retention settings for recordings of events
-                            schema:
-                              additional_attrs: true
-                              type: dict
-                              attrs:
-                                - variable: render_config
-                                  label: Render Retain Config
+                                    type: int
+                                    "null": true
+                                - variable: objects
+                                  label: Objects
+                                  description: Objects to save recordings for. Defaults to all objects.
                                   schema:
-                                    type: boolean
-                                    default: false
-                                    show_subquestions_if: true
-                                    subquestions:
-                                      - variable: default
-                                        label: Default
-                                        description: Default retention days
-                                        schema:
-                                          type: int
-                                          required: true
-                                          default: 10
-                                      - variable: mode
-                                        label: Mode
-                                        description: |
-                                          Mode for retention.
-                                          All - save all recording segments for events regardless of activity
-                                          Motion - save all recordings segments for events with any detected motion
-                                          Active Objects - save all recording segments for event with active/moving objects
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: object_entry
+                                        label: ""
                                         schema:
                                           type: string
                                           required: true
-                                          default: motion
-                                          enum:
-                                            - value: all
-                                              description: All
-                                            - value: motion
-                                              description: Motion
-                                            - value: active_objects
-                                              description: Active Objects
-                                      - variable: objects
-                                        label: Objects
-                                        description: Per object retention days
+                                          default: ""
+                                - variable: required_zones
+                                  label: Required Zones
+                                  description: Restrict recordings to objects that entered any of the listed zones
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: zone_entry
+                                        label: ""
                                         schema:
-                                          type: list
-                                          default: []
-                                          items:
-                                            - variable: objects_entry
-                                              label: Objects Entry
+                                          type: string
+                                          required: true
+                                          default: ""
+                                - variable: retain
+                                  label: Record > Events > Retain
+                                  description: Retention settings for recordings of events
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: render_config
+                                        label: Render Retain Config
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                          show_subquestions_if: true
+                                          subquestions:
+                                            - variable: default
+                                              label: Default
+                                              description: Default retention days
                                               schema:
-                                                additional_attrs: true
-                                                type: dict
-                                                attrs:
-                                                  - variable: object
-                                                    label: Object
-                                                    description: For example Person
+                                                type: int
+                                                required: true
+                                                default: 10
+                                            - variable: mode
+                                              label: Mode
+                                              description: |
+                                                Mode for retention.
+                                                All - save all recording segments for events regardless of activity
+                                                Motion - save all recordings segments for events with any detected motion
+                                                Active Objects - save all recording segments for event with active/moving objects
+                                              schema:
+                                                type: string
+                                                default: ""
+                                                enum:
+                                                  - value: ""
+                                                    description: Inherit
+                                                  - value: all
+                                                    description: All
+                                                  - value: motion
+                                                    description: Motion
+                                                  - value: active_objects
+                                                    description: Active Objects
+                                            - variable: objects
+                                              label: Objects
+                                              description: Per object retention days
+                                              schema:
+                                                type: list
+                                                default: []
+                                                items:
+                                                  - variable: objects_entry
+                                                    label: ""
                                                     schema:
-                                                      type: string
-                                                      required: true
-                                                      default: ""
-                                                  - variable: days
-                                                    label: Retention Days
-                                                    description: Retention days for the object
-                                                    schema:
-                                                      type: int
-                                                      required: true
-                                                      default: 15
+                                                      additional_attrs: true
+                                                      type: dict
+                                                      attrs:
+                                                        - variable: object
+                                                          label: Object
+                                                          description: For example Person
+                                                          schema:
+                                                            type: string
+                                                            required: true
+                                                            default: ""
+                                                        - variable: days
+                                                          label: Retention Days
+                                                          description: Retention days for the object
+                                                          schema:
+                                                            type: int
+                                                            required: true
+                                                            default: 15
         - variable: snapshots
           label: Snapshots
           schema:
@@ -918,8 +912,8 @@ questions:
                               required: true
                               default: ""
                     - variable: retain
-                      label: Retain
-                      description: Retention settings for recordings of events
+                      label: Snapshots > Retain
+                      description: Retention settings for snapshots of events
                       schema:
                         additional_attrs: true
                         type: dict
@@ -1007,8 +1001,7 @@ questions:
                         reduce bandwidth required for viewing the live stream. Width is computed to match known aspect ratio.
                       schema:
                         type: int
-                        required: true
-                        default: 720
+                        "null": true
                     - variable: quality
                       label: Quality
                       description: |
@@ -1016,7 +1009,6 @@ questions:
                         1 is the highest quality, and 31 is the lowest. Lower quality feeds utilize less CPU resources.
                       schema:
                         type: int
-                        required: true
                         min: 1
                         max: 31
                         default: 8
@@ -1039,9 +1031,10 @@ questions:
                       description: Position of the timestamp
                       schema:
                         type: string
-                        required: true
-                        default: tl
+                        default: ""
                         enum:
+                          - value: ""
+                            description: Inherit
                           - value: tl
                             description: Top Left
                           - value: tr
@@ -1052,54 +1045,62 @@ questions:
                             description: Bottom Right
                     - variable: format
                       label: Format
-                      description: Format specifier conform to the Python package "datetime"
+                      description: Format specifier conform to the Python package <datetime>
                       schema:
                         type: string
-                        required: true
-                        default: "%m/%d/%Y %H:%M:%S"
+                        default: ""
                     - variable: color
-                      label: Color
+                      label: Timestamp Style > Color
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
-                          - variable: red
-                            label: Red
+                          - variable: render_config
+                            label: Render Configuration
+                            description: Enable it to add the configuration in the config file
                             schema:
-                              type: int
-                              default: 255
-                              required: true
-                          - variable: green
-                            label: Green
-                            schema:
-                              type: int
-                              required: true
-                              default: 255
-                          - variable: blue
-                            label: Blue
-                            schema:
-                              type: int
-                              required: true
-                              default: 255
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: red
+                                  label: Red
+                                  schema:
+                                    type: int
+                                    default: 255
+                                    required: true
+                                - variable: green
+                                  label: Green
+                                  schema:
+                                    type: int
+                                    required: true
+                                    default: 255
+                                - variable: blue
+                                  label: Blue
+                                  schema:
+                                    type: int
+                                    required: true
+                                    default: 255
                     - variable: thickness
                       label: Thickness
                       description: Line thickness of font
                       schema:
                         type: int
-                        required: true
-                        default: 2
+                        "null": true
                     - variable: effect
                       label: Effect
                       description: |
                         Effect of lettering
+                        Inherit - Inherit from default configuration
                         None - No effect
                         Solid - Solid background in inverse color of font
                         Shadow - Shadow for font
                       schema:
                         type: string
-                        required: true
-                        default: None
+                        default: ""
                         enum:
+                          - value: ""
+                            description: Inherit
                           - value: None
                             description: None
                           - value: solid
@@ -1140,7 +1141,7 @@ questions:
                               default: []
                               items:
                                 - variable: input_entry
-                                  label: Input Entry
+                                  label: ""
                                   schema:
                                     additional_attrs: true
                                     type: dict
@@ -1160,7 +1161,7 @@ questions:
                                           default: []
                                           items:
                                             - variable: role_entry
-                                              label: Role Entry
+                                              label: ""
                                               schema:
                                                 type: string
                                                 required: true
@@ -1172,6 +1173,45 @@ questions:
                                                     description: RTMP
                                                   - value: record
                                                     description: Record
+                                      - variable: global_args
+                                        label: Global Args
+                                        description: Stream specific global args
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: hwaccel_args
+                                        label: HW Acceleration Args
+                                        description: Stream specific hwaccel args
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: input_args
+                                        label: Input Args
+                                        description: Stream specific input args
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: output_args
+                                        label: Output Args
+                                        schema:
+                                          additional_attrs: true
+                                          type: dict
+                                          attrs:
+                                            - variable: detect
+                                              label: Detect
+                                              schema:
+                                                type: string
+                                                default: ""
+                                            - variable: record
+                                              label: Record
+                                              schema:
+                                                type: string
+                                                default: ""
+                                            - variable: rtmp
+                                              label: RTMP
+                                              schema:
+                                                type: string
+                                                default: ""
                           - variable: global_args
                             label: Global Args
                             description: Camera specific global args
@@ -1192,17 +1232,31 @@ questions:
                               default: ""
                           - variable: output_args
                             label: Output Args
-                            description: Camera specific output args
                             schema:
-                              type: string
-                              default: ""
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: detect
+                                  label: Detect
+                                  schema:
+                                    type: string
+                                    default: ""
+                                - variable: record
+                                  label: Record
+                                  schema:
+                                    type: string
+                                    default: ""
+                                - variable: rtmp
+                                  label: RTMP
+                                  schema:
+                                    type: string
+                                    default: ""
                     - variable: best_image_timeout
                       label: Best Image Timeout
                       description: Timeout for highest scoring image before allowing it to be replaced by a newer image.
                       schema:
                         type: int
-                        required: true
-                        default: 60
+                        "null": true
                     - variable: zones
                       label: Zones
                       description: Zones for this camera
@@ -1211,7 +1265,7 @@ questions:
                         default: []
                         items:
                           - variable: zone_entry
-                            label: Zone Entry
+                            label: ""
                             schema:
                               additional_attrs: true
                               type: dict
@@ -1236,7 +1290,7 @@ questions:
                                     default: []
                                     items:
                                       - variable: object_entry
-                                        label: Object Entry
+                                        label: ""
                                         description: For example person
                                         schema:
                                           type: string
@@ -1329,15 +1383,13 @@ questions:
                                   description: Height to resize the snapshot to
                                   schema:
                                     type: int
-                                    required: true
-                                    default: 720
+                                    "null": true
                                 - variable: quality
                                   label: Quality
                                   description: JPEG encode quality
                                   schema:
                                     type: int
-                                    required: true
-                                    default: 70
+                                    "null": true
                                 - variable: required_zones
                                   label: Required Zones
                                   description: Restrict mqtt messages to objects that entered any of the listed zones

@@ -14,7 +14,7 @@ if [[ -d "charts/${1}" ]]; then
     rm -rf ${chart}/app-changelog.md || echo "changelog not found..."
     echo "Generating changelogs for: ${chartname}"
     # SCALE "Changelog" containing only last change
-    git-chglog --next-tag ${chartname}-${chartversion} --tag-filter-pattern ${chartname} --path ${chart} -o ${chart}/app-changelog.md ${chartname}-${chartversion} || echo "changelog generation failed..."
+    git-chglog --next-tag ${chartname}-${chartversion} --tag-filter-pattern "^${chartname}-\d+\.\d+\.\d+\$" --path ${chart} -o ${chart}/app-changelog.md ${chartname}-${chartversion} || echo "changelog generation failed..."
 else
     echo "Chart 'charts/${1}' no longer exists in repo. Skipping it..."
 fi

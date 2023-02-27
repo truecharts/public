@@ -42,6 +42,12 @@ Ensure you are accessing your WebUI from the new ports before proceeding.
 
 ### Installing the Traefik Scale App
 
+:::note
+
+Traefik is part of the `enterprise` train, so make sure you have it enabled as specified in the [guide](https://truecharts.org/manual/guides/Adding-TrueCharts#adding-truecharts).
+
+:::
+
 In the TrueNAS Menu, navigate to **Apps** > **Available Applications**. Use the search bar to search for or manually
 find the Traefik app in the list of apps, and click **Install**
 
@@ -56,12 +62,6 @@ The setup of Traefik is relatively straight-forward. Most of the settings remain
 
 Continue to section 12, and select **Next**. Traefik will now be installed.
 After installation you can access the Traefik dashboard using your host IP address followed by `:9000`, or by simply clicking "Web Portal" on the application's entry under **Apps** > **Installed Applications**.
-
-:::note
-
-Traefik is part of the `stable` train, so make sure you have it enabled as specified in [Step 1](https://truecharts.org/manual/Quick-Start%20Guides/01-Adding-TrueCharts/) of our Quick Start Guides
-
-:::
 
 ## Video Guide
 

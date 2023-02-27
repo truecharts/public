@@ -10,7 +10,7 @@ env:
   PROWLARR__PORT: "{{ .Values.service.main.ports.main.port }}"
   PROWLARR__AUTHENTICATION_METHOD: ""
   PROWLARR__POSTGRES_PORT: 5432
-  PROWLARR__POSTGRES_USE: "{{ .Values.postgresql.postgresqlUsername }}"
+  PROWLARR__POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   PROWLARR__POSTGRES_MAIN_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
   PROWLARR__POSTGRES_HOST:
     secretKeyRef:

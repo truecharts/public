@@ -1,21 +1,21 @@
 image:
   repository: tccr.io/truecharts/immich-server
-  tag: 1.41.1_64@sha256:e28a36ee635c6151f2c4de50aa7fee7d2eddd3b9d112bc6ea1551cb073bc8fbe
+  tag: 1.49.0@sha256:baa95afb670ee0e8d013a29eacff6ddc96751998854ba6882c242ce257ac8fbd
   pullPolicy: IfNotPresent
 
 mlImage:
   repository: tccr.io/truecharts/immich-ml
-  tag: 1.41.1_64@sha256:5b5acd62edd988e6eeb346bb496e559544996020ed75fc04309305344edb0032
+  tag: 1.49.0@sha256:779e1d486d7ac5a1ed98b67b6f4a556e8e5baf334e4f0b9480315226384922c4
   pullPolicy: IfNotPresent
 
 webImage:
   repository: tccr.io/truecharts/immich-web
-  tag: 1.41.1_64@sha256:6ae7c91f77702abbea207180980dba795693bc448dc093ca3ae9b5f68b06630d
+  tag: 1.49.0@sha256:983a1f8b736ba337e7370fa19232febf0469c7748f670f15fb0ed4f35f9d88af
   pullPolicy: IfNotPresent
 
 proxyImage:
   repository: tccr.io/truecharts/immich-proxy
-  tag: 1.41.1_64@sha256:8f5c90ffdf09cc6952376988aee4449555a161458e3686a9b3ff1468df9dbf0f
+  tag: 1.49.0@sha256:08e467d09e6f4abf10e4ea93e0310e6bc323e4ea6b0a6c05fb128bb46ed38578
   pullPolicy: IfNotPresent
 
 command:
@@ -74,6 +74,10 @@ persistence:
   uploads:
     enabled: true
     mountPath: /usr/src/app/upload
+  modelcache:
+    enabled: true
+    type: emptyDir
+    mountPath: /cache
 
 postgresql:
   enabled: true

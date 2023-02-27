@@ -60,6 +60,11 @@ questions:
                 description: Production
               - value: development
                 description: Development
+        - variable: PUBLIC_URL
+          label: Public URL
+          schema:
+            type: string
+            default: ""
         - variable: STRAPI_LICENSE
           label: Strapi License
           description: The license key to activate the Enterprise Edition.

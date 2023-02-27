@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "0.8.3"
+appVersion: "0.9.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -18,8 +18,9 @@ maintainers:
 name: watchyourlan
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/watchyourlan
+  - https://hub.docker.com/r/aceberg/watchyourlan
   - https://github.com/aceberg/WatchYourLAN
-version: 3.1.8
+version: 3.1.11
 annotations:
   truecharts.org/catagories: |
     - network
