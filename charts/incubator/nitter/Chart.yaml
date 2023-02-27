@@ -6,8 +6,8 @@ dependencies:
     version: 11.1.2
   - condition: redis.enabled
     name: redis
-    repository: https://charts.truecharts.org
-    version: 5.0.29
+    repository: https://deps.truecharts.org
+    version: 5.0.33
 deprecated: false
 description: A free and open source alternative Twitter front-end focused on privacy and performance.
 home: https://truecharts.org/charts/incubator/nitter
@@ -23,9 +23,10 @@ maintainers:
 name: nitter
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/nitter
+  - https://hub.docker.com/r/zedeus/nitter
   - https://github.com/zedeus/nitter
 type: application
-version: 1.0.5
+version: 1.0.12
 annotations:
   truecharts.org/catagories: |
     - media

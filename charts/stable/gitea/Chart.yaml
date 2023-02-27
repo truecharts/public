@@ -1,17 +1,17 @@
 apiVersion: v2
-appVersion: "1.18.2"
+appVersion: "1.18.5"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 11.1.2
   - condition: postgresql.enabled
     name: postgresql
-    repository: https://charts.truecharts.org/
-    version: 11.0.21
+    repository: https://deps.truecharts.org/
+    version: 11.0.31
   - condition: memcached.enabled
     name: memcached
-    repository: https://charts.truecharts.org/
-    version: 5.0.23
+    repository: https://deps.truecharts.org/
+    version: 5.0.31
 deprecated: false
 description: Self hosted GIT repositories
 home: https://truecharts.org/charts/stable/gitea
@@ -31,11 +31,11 @@ maintainers:
 name: gitea
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/gitea
+  - https://hub.docker.com/r/gitea/gitea
   - https://gitea.com/gitea/helm-chart
   - https://github.com/go-gitea/gitea
-  - https://hub.docker.com/r/gitea/gitea/
 type: application
-version: 12.0.23
+version: 12.0.31
 annotations:
   truecharts.org/catagories: |
     - GIT

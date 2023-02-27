@@ -3,27 +3,6 @@ image:
   tag: latest@sha256:08a35fe3204c00dbdc609b1abc8c05c349764c3caecb9dadb970dc470c5b1f41
   pullPolicy: IfNotPresent
 
-secretEnv:
-  RPC_SECRET: "ChangemeNow"
-
-env:
-  RPC_PORT: 6800
-  # LISTEN_PORT: 6888
-
-service:
-  main:
-    ports:
-      main:
-        port: 6800
-        targetPort: 6800
-  listen:
-    enabled: true
-    ports:
-      listen:
-        enabled: true
-        port: 6888
-        targetPort: 6888
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -32,12 +11,36 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+secretEnv:
+  RPC_SECRET: "ChangemeNow"
+
+env:
+  RPC_PORT: "{{ .Values.service.main.ports.main.port }}"
+  LISTEN_PORT: "{{ .Values.service.listen.ports.listen.port }}"
+  UMASK_SET: "{{ .Values.security.UMASK }}"
+  DISK_CACHE: 64M
+  IPV6_MODE: false
+  UPDATE_TRACKERS: false
+  CUSTOM_TRACKER_URL: "https://trackerslist.com/all_aria2.txt"
+
+service:
+  main:
+    ports:
+      main:
+        port: 6800
+  listen:
+    enabled: true
+    ports:
+      listen:
+        enabled: true
+        port: 6888
+
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
   varrun:
     enabled: true
 
 portal:
-  enabled: true
+  enabled: false

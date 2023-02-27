@@ -31,7 +31,7 @@ data:
   {{- end }}
 
   ADMIN_USER: {{ .Values.statping.admin_user | quote }}
-  ADMIN_PASS: {{ .Values.statping.admin_pass | quote }}
+  ADMIN_PASSWORD: {{ .Values.statping.admin_pass | quote }}
   ADMIN_EMAIL: {{ .Values.statping.admin_email | quote }}
 
   SAMPLE_DATA: {{ .Values.statping.sample_data | quote }}
