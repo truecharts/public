@@ -8,14 +8,14 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  - variable: lidarr
+  - variable: env
     group: App Configuration
-    label: Lidarr Configuration
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: auth_method
+        - variable: LIDARR__AUTHENTICATION_METHOD
           label: Auth Method
           description: Sets the auth method.
           schema:

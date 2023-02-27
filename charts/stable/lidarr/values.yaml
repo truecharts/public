@@ -1,9 +1,17 @@
 image:
   repository: tccr.io/truecharts/lidarr
   pullPolicy: IfNotPresent
-  tag: 1.1.1.2762@sha256:95c9520e6f5dbba909f1a6a6214fcf10de007fea4eb88fad30c3306238e21252
+  tag: 1.1.3.2982@sha256:0f635e1c21c6e6ef8a67f246b3e7f1ca3409f1f08bf8d2006abfaa89da55d534
+
+securityContext:
+  readOnlyRootFilesystem: false
 
 env:
+  LIDARR__PORT: "{{ .Values.service.main.ports.main.port }}"
+  LIDARR__AUTHENTICATION_METHOD: ""
+  LIDARR__POSTGRES_PORT: 5432
+  LIDARR__POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  LIDARR__POSTGRES_MAIN_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
   LIDARR__POSTGRES_HOST:
     secretKeyRef:
       name: dbcreds
@@ -12,16 +20,6 @@ env:
     secretKeyRef:
       name: dbcreds
       key: postgresql-password
-
-lidarr:
-  auth_method: ""
-
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
-
-securityContext:
-  readOnlyRootFilesystem: false
 
 service:
   main:
