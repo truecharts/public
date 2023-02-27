@@ -1,35 +1,35 @@
 image:
   repository: tccr.io/truecharts/jupyter-base
   pullPolicy: IfNotPresent
-  tag: v2023-02@sha256:bc98437d40090e189748a12617ba290ebcf40f33919a090c3a1fcc1a842f77c5
+  tag: v2023-02@sha256:5ecd118b72b7776fd4ebb224951659c27c13241cb5b1c2f76fd0a88eda825f8e
 minimalImage:
   repository: tccr.io/truecharts/jupyter-minimal
   pullPolicy: IfNotPresent
-  tag: v2023-02@sha256:922c87d17ef1cec44cbbc4bfba58f4ca7bc3c94761eea9c3d9dc208feb987a55
+  tag: v2023-02@sha256:8d304f2278b4290be9bfbc74c39217fcb685f4ec8db819ba758b470b610a666a
 rImage:
   repository: tccr.io/truecharts/jupyter-r
   pullPolicy: IfNotPresent
-  tag: v2023-02@sha256:c1c16fefe226c0070c431d88c861d603b61ba8c31001d42e9b84bc20f5ed1e18
+  tag: v2023-02@sha256:eae18e0088945f90e33b828e0495d7f369fc0e39e48ab6b66ebc42482ba135a0
 scipyImage:
   repository: tccr.io/truecharts/jupyter-scipy
   pullPolicy: IfNotPresent
-  tag: v2023-02@sha256:9ed19c354a4f067790837c4a4e252b7c0020b04391d8ffc6e3eb47b25a2804b4
+  tag: v2023-02@sha256:d5ddd03802ac329fc9fa64f933367e455fbcd6bbcd686aae1a4e200fbed26421
 tensorflowImage:
   repository: tccr.io/truecharts/jupyter-tensorflow
   pullPolicy: IfNotPresent
-  tag: v2023-02@sha256:84ed4cc0c03dbe7cb6345a54fccb504a58bc60a4af7b088c03d72c58393c422b
+  tag: v2023-02@sha256:3de87e752abdb676eb6882a51819c0ea24e78b107837a2723ed9175e8a13569a
 datascienceImage:
   repository: tccr.io/truecharts/jupyter-datascience
   pullPolicy: IfNotPresent
-  tag: v2023-02@sha256:b813ad9102045684987dceee69639ec97ffafceba2cbaf06dd357e30144dbaba
+  tag: v2023-02@sha256:4d616ad831c1fe374d4c2c60a2c9d393d1719d5cbb163f7c5405960cdfa73d91
 pysparkImage:
   repository: tccr.io/truecharts/jupyter-pyspark
   pullPolicy: IfNotPresent
-  tag: v2023-02@sha256:9bc0ed060830528ef530d1d4c19400eabfe4a3098618e4744c9a63baf254d616
+  tag: v2023-02@sha256:b7bac31b159a5d4d40159068aab3f28ce9b6cdebe3b6b9c54862b7db13ee215c
 allsparkImage:
   repository: tccr.io/truecharts/jupyter-all-spark
   pullPolicy: IfNotPresent
-  tag: v2023-02@sha256:26738539b2aa1066d8f9405607673359838bd12c9102cb7a99ad245c3917569a
+  tag: v2023-02@sha256:fe321309b5a660918a6a77928e59b67a33d6b881aeebfc215e0a22fe80e63eb0
 
 securityContext:
   readOnlyRootFilesystem: false
