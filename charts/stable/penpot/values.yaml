@@ -1,17 +1,17 @@
 image:
   repository: tccr.io/truecharts/penpot-frontend
   pullPolicy: IfNotPresent
-  tag: 1.17.1@sha256:a5fcb1af3a65633cd20e7442eb5dece2b1ae2c5402dde8368b64c4adc96eb986
+  tag: 1.17.1@sha256:2791ce78df3a860016c191de6365ef5c8768356bfffc2c0d2c0dd459b8359ef3
 
 backendImage:
   repository: tccr.io/truecharts/penpot-backend
   pullPolicy: IfNotPresent
-  tag: 1.17.1@sha256:871761316190430284f9154114362911a70021cb87477e79c16ec5db1194a825
+  tag: 1.17.1@sha256:7f556ae605b6e6842979920dc234bd0c64ecd0183c06477ecfe2198a446b4c9c
 
 exporterImage:
   repository: tccr.io/truecharts/penpot-exporter
   pullPolicy: IfNotPresent
-  tag: 1.17.1@sha256:a2479e89f56c9b3126ad597849ac8685bbea5f43a6635b108aa5646cc71150b9
+  tag: 1.17.1@sha256:79e61372b31afc0c2f3a7a02144c16033f0f1f5b82ffcb5fdb2d28bb65e8885b
 
 securityContext:
   runAsNonRoot: false
