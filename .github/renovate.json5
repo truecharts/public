@@ -262,6 +262,11 @@
     },
     {
       "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/scrypted"],
+      "groupName": "scrypted",
+    },
+    {
+      "matchDatasources": ["docker"],
       "matchPackagePrefixes": ["tccr.io/truecharts/docspell"],
       "groupName": "docspell",
     },

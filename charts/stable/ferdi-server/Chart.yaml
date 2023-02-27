@@ -7,7 +7,7 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://deps.truecharts.org/
-    version: 11.0.29
+    version: 11.0.31
 description: Server for Ferdi that you can re-use to run your own
 home: https://truecharts.org/charts/stable/ferdi-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ferdi-server.png
@@ -23,7 +23,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/ferdi-server
   - https://hub.docker.com/r/getferdi/ferdi-server
   - https://github.com/getferdi/server
-version: 6.0.22
+version: 6.0.23
 annotations:
   truecharts.org/catagories: |
     - media

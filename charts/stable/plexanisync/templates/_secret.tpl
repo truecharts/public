@@ -25,7 +25,7 @@ metadata:
 stringData:
   settings.ini: |
     [PLEX]
-    anime_section = {{ join "|" $pas.plex_section }}
+    anime_section = {{ join "|" $pas.plex.plex_section }}
 
     authentication_method = {{ $pas.plex.plex_auth_method }}
 
