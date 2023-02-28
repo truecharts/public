@@ -17,18 +17,23 @@ service:
         port: 3012
         targetPort: 3012
 
-env:
-  DOMAIN: "https://{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ else }}placeholder.com{{ end }}{{ else }}placeholder.com{{ end }}"
-  DATABASE_URL:
-    secretKeyRef:
-      name: cnpg-main-urls
-      key: url
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DOMAIN: "https://{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ else }}placeholder.com{{ end }}{{ else }}placeholder.com{{ end }}"
+            DATABASE_URL:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: url
 
-envFrom:
-  - configMapRef:
-      name: vaultwardenconfig
-  - secretRef:
-      name: vaultwardensecret
+          envFrom:
+            - configMapRef:
+                name: vaultwardenconfig
+            - secretRef:
+                name: vaultwardensecret
 
 database:
   # -- Database type,
@@ -148,12 +153,11 @@ persistence:
     enabled: true
     mountPath: "/data"
 
-# Enabled postgres
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: vaultwarden
-  postgresqlDatabase: vaultwarden
+cnpg:
+  main:
+    enabled: true
+    username: vaultwarden
+    database: vaultwarden
 
 portal:
   open:

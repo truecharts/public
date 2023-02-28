@@ -1,10 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "vaultwarden.configmap" -}}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: vaultwardenconfig
+enabled: true
 data:
   ROCKET_PORT: "8080"
   SIGNUPS_ALLOWED: {{ .Values.vaultwarden.allowSignups | quote }}

@@ -3,10 +3,16 @@
 
 
 {{/* Render configmap for vaultwarden */}}
-{{- include "vaultwarden.configmap" . }}
+{{- $configmapFile := include "vaultwarden.configmap" . | fromYaml -}}
+{{- if $configmapFile -}}
+  {{- $_ := set .Values.configmap "vaultwardenconfig" $configmapFile -}}
+{{- end -}}
 
 {{/* Render secrets for vaultwarden */}}
-{{- include "vaultwarden.secrets" . }}
+{{- $secret := include "vaultwarden.secrets" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "vaultwardensecret" $secret -}}
+{{- end -}}
 
 {{/* Define path for websocket */}}
 {{- define "vaultwarden.websocket" -}}

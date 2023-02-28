@@ -15,12 +15,7 @@
 {{- if eq .Values.vaultwarden.yubico.enabled true }}
 {{- $yubicoClientId = required "Yubico Client ID required" .Values.vaultwarden.yubico.clientId | toString | b64enc | quote }}
 {{- end -}}
----
-
-apiVersion: v1
-kind: Secret
-metadata:
-  name: vaultwardensecret
+enabled: true
 data:
   {{- if ne $adminToken "" }}
   ADMIN_TOKEN: {{ $adminToken }}
