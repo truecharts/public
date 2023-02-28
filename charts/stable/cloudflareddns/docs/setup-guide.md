@@ -17,7 +17,7 @@ Cloudflareddns chart
 
 ## Prerequisites
 
-This guide assumes you've followed our main [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/adding-letsencrypt) with your domain on TrueNAS and done the configuration for your DNS on Cloudflare
+This guide assumes you've followed our main [Guide](https://truecharts.org/manual/guides/adding-letsencrypt/) with your domain on TrueNAS and done the configuration for your DNS on Cloudflare
 (see this video on our YouTube channel)
 
 <iframe width="560" height="315" src="https://www.youtube.com/watch?v=hJVghecs3rE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

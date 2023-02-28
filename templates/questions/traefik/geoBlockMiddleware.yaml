@@ -82,15 +82,22 @@
                         type: string
                         required: true
                         default: nil
+                    - variable: blackListMode
+                      label: Blacklist Mode
+                      description: When set to true the filter logic is inverted, i.e. requests originating from countries listed in the countries list are blocked.
+                      schema:
+                        type: boolean
+                        default: false
                     - variable: countries
-                      label: Blocked Countries
+                      description: Country codes (2 characters) from which connections to the service should be allowed or blocked, based on the mode.
+                      label: Countries
                       schema:
                         type: list
                         default: []
                         items:
-                          - variable: blockedCountryEntry
-                            label: Blocked Country
-                            description: Country codes (2 characters) from which connections to the service should be allowed.
+                          - variable: countryEntry
+                            label: Country
+                            description: Country codes (2 characters) from which connections to the service should be allowed or blocked, based on the mode.
                             schema:
                               type: string
                               required: true

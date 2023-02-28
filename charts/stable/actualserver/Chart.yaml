@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "22.12.9"
+appVersion: "23.2.9"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -19,11 +19,11 @@ maintainers:
 name: actualserver
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/actualserver
+  - https://hub.docker.com/r/jlongster/actual-server
   - https://github.com/Kippenhof/docker-templates
-  - https://hub.docker.com/r/kippenhof/actual-server
 type: application
 annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - finance
-version: 3.0.8
+version: 3.0.13

@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/traefik
   # defaults to appVersion
-  tag: 2.9.6@sha256:a4f065a7a34902e7d8179680b8c344e70cf90ed80c7a396b5f42ecabfa3c0321
+  tag: 2.9.8@sha256:4a2d3dda380990d825532e661b42457fc9871061dbc22b310468616378214a2e
   pullPolicy: IfNotPresent
 
 # -- Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x
@@ -376,7 +376,7 @@ middlewares:
   addPrefix: []
   # - name: addPrefixName
   #   prefix: "/foo"
-  geoBlockVersion: v0.2.3
+  geoBlockVersion: v0.2.4
   geoBlock: []
   # -- https://github.com/PascalMinder/geoblock
   # - name: geoBlockName
@@ -390,6 +390,7 @@ middlewares:
   #   forceMonthlyUpdate: true
   #   allowUnknownCountries: false
   #   unknownCountryApiResponse: nil
+  #   blackListMode: false
   #   countries:
   #     - RU
 

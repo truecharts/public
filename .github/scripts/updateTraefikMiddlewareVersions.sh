@@ -1,10 +1,10 @@
 #! /bin/bash
 
 trainsPath="./charts"
-traefikTrain="stable"
+traefikTrain="enterprise"
 
 get_latest_release() {
-    # Get latest release from GitHub api
+    # Get latest release from GitHub api, NOTE: Remove the header when running locally (or add a valid token)
     curl --silent \
          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
          --url "https://api.github.com/repos/$1/releases/latest" |

@@ -1,0 +1,74 @@
+image:
+  repository: tccr.io/truecharts/scratch
+  tag: latest@sha256:93878048bbc350e69bf246556ef3520f343487c7ffc40f0b0655ed8a360cb932
+  pullPolicy: IfNotPresent
+
+controller:
+  enabled: false
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+        port: 9999
+
+portal:
+  enabled: false
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+clusterIssuer:
+  selfSigned:
+    enabled: true
+    name: "selfsigned"
+  CA: []
+  #   - name: myca
+  #     selfSigned: true
+  #     selfSignedCommonName: "my-selfsigned-ca"
+  #     # Used to manually define a CA-crt not used when selfSigned is enabled
+  #     crt: ""
+  #     key: ""
+  #     # TODO: Add option to use SCALE CA certs
+
+  ACME: []
+#   - name: letsencrypt
+#     # Used for both logging in to the DNS provider AND ACME registration
+#     email: ""
+#     server: 'https://acme-staging-v02.api.letsencrypt.org/directory'
+#     # Used primarily for the SCALE GUI
+#     customServer: 'https://acme-staging-v02.api.letsencrypt.org/directory'
+#     email: ""
+#     # Options: HTTP01, cloudflare, route53
+#     type: ""
+#     # for cloudflare
+#     cfapikey: ""
+#     cfapitoken: ""
+#     # for route53
+#     region: ""
+#     accessKeyID: ""
+#     route53SecretAccessKey: ""
+#     # optional for route53
+#     role: ""
+#     # for akamai
+#     serviceConsumerDomain: ""
+#     akclientToken: ""
+#     akclientSecret: ""
+#     akaccessToken: ""
+#     # for digitalocean
+#     doaccessToken: ""
+#     # for rfc2136
+#     nameserver: ""
+#     tsigKeyName: ""
+#     tsigAlgorithm: ""
+#     rfctsigSecret: ""
+
+metrics:
+  enabled: true

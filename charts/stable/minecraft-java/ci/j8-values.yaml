@@ -1,7 +1,4 @@
-image:
-  repository: tccr.io/truecharts/minecraft-java8-openj9
-  tag: latest@sha256:ded4175b110a5dfb67cd3e0fd547f09c49b734af01c24cac1551bb49429765ff
-  pullPolicy: Always
+imageSelector: j8Image
 
 env:
   VERSION: "1.16.1"

@@ -1,8 +1,8 @@
 name: Renovate
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 */1 * * *"
+  # schedule:
+  #   - cron: "0 */1 * * *"
 jobs:
   renovate:
     runs-on: ubuntu-latest
@@ -12,7 +12,7 @@ jobs:
         with:
           token: ${{ secrets.BOT_TOKEN }}
       - name: Self-hosted Renovate
-        uses: renovatebot/github-action@2e905f096a53611d8389341afdecf46ddc12e570 # v34.102.7
+        uses: renovatebot/github-action@1b6d32d6058e85e60825f27572934f36b00ebbd3 # v34.153.1
         with:
           configurationFile: .github/renovate-config.js
           token: ${{ secrets.BOT_TOKEN }}

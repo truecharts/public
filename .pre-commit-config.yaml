@@ -23,7 +23,7 @@ repos:
       - id: requirements-txt-fixer # sorts entries in requirements.txt.
       - id: check-added-large-files # prevents giant files from being committed.
       - id: check-yaml # checks yaml files for parseable syntax.
-        exclude: (templates\/.*|questions.yaml|chart_schema.yaml)
+        exclude: (templates\/.*|crds\/.*|questions.yaml|chart_schema.yaml)
       - id: detect-private-key # detects the presence of private keys.
 
   - repo: https://github.com/pre-commit/pygrep-hooks
@@ -36,5 +36,5 @@ repos:
     rev: v2.5.1
     hooks:
       - id: prettier
-        exclude: (templates\/.*|README.md|CHANGELOG.md|questions.yaml|devcontainer.json)
+        exclude: (templates\/.*|crds\/.*|README.md|CHANGELOG.md|questions.yaml|devcontainer.json)
         files: \.(js|ts|jsx|tsx|css|less|html|json|markdown|md|yaml|yml)$

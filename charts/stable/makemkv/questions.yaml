@@ -47,6 +47,12 @@ questions:
           schema:
             type: boolean
             default: false
+        - variable: DARK_MODE
+          label: "DARK_MODE"
+          description: "When set to true, MakeMKV UI is changed to Dark Mode"
+          schema:
+            type: boolean
+            default: false
         - variable: DISPLAY_WIDTH
           label: "DISPLAY_WIDTH"
           description: "Width (in pixels) of the application's window."

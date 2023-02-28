@@ -1,3 +1,4 @@
+{{- define "promcord.metrics" -}}
 {{- if .Values.metrics.enabled }}
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
@@ -13,7 +14,7 @@ spec:
     matchLabels:
       {{- include "tc.common.labels.selectorLabels" . | nindent 6 }}
   endpoints:
-    - port: metrics
+    - port: main
       {{- with .Values.metrics.serviceMonitor.interval }}
       interval: {{ . }}
       {{- end }}
@@ -22,3 +23,4 @@ spec:
       {{- end }}
       path: /metrics
 {{- end }}
+{{- end -}}
