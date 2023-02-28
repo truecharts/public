@@ -11,7 +11,8 @@ service:
         targetPort: 11211
 
 portal:
-  enabled: false
+  open:
+    enabled: false
 
 manifests:
   enabled: false

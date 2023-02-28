@@ -206,7 +206,8 @@ persistence:
         name: '{{ include "tc.v1.common.names.fullname" . }}-health'
 
 portal:
-  enabled: false
+  open:
+    enabled: false
 
 manifests:
   enabled: false
