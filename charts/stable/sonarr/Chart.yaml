@@ -4,6 +4,10 @@ dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 11.1.2
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 11.0.18
 deprecated: false
 description: Smart PVR for newsgroup and bittorrent users
 home: https://truecharts.org/charts/stable/sonarr
@@ -20,10 +24,9 @@ maintainers:
 name: sonarr
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/sonarr
-  - https://ghcr.io/onedr0p/sonarr
   - https://github.com/Sonarr/Sonarr
 type: application
-version: 13.0.8
+version: 14.0.0
 annotations:
   truecharts.org/catagories: |
     - media
