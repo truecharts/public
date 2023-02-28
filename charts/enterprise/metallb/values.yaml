@@ -17,7 +17,8 @@ service:
 updateCRD: false
 
 portal:
-  enabled: false
+  open:
+    enabled: false
 
 probes:
   liveness:
