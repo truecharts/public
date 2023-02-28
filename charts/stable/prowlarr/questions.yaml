@@ -8,7 +8,28 @@ questions:
 # Include{replicas}
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
-  # Docker specific env
+  - variable: env
+    group: App Configuration
+    label: Image Environment
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: PROWLARR__AUTHENTICATION_METHOD
+          label: Auth Method
+          description: Sets the auth method.
+          schema:
+            type: string
+            default: ""
+            enum:
+              - value: ""
+                description: In-App Setting
+              - value: External
+                description: External/None
+              - value: Basic
+                description: Basic
+              - value: Forms
+                description: Forms
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

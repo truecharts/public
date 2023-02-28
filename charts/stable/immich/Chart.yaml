@@ -7,11 +7,11 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://deps.truecharts.org/
-    version: 11.0.29
+    version: 11.0.31
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
-    version: 5.0.32
+    version: 5.0.33
 description: High performance self-hosted photo and video backup solution.
 home: https://truecharts.org/charts/stable/immich
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/immich.png
@@ -26,7 +26,7 @@ name: immich
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/immich
   - https://github.com/immich-app/immich
-version: 5.0.15
+version: 5.0.16
 annotations:
   truecharts.org/catagories: |
     - media

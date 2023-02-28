@@ -7,11 +7,11 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://deps.truecharts.org/
-    version: 11.0.29
+    version: 11.0.31
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
-    version: 5.0.32
+    version: 5.0.33
 deprecated: false
 description: Lychee is a free photo-management tool, which runs on your server or web-space
 home: https://truecharts.org/charts/stable/lychee
@@ -30,7 +30,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/lychee
   - https://github.com/LycheeOrg/Lychee
 type: application
-version: 16.0.24
+version: 16.0.25
 annotations:
   truecharts.org/catagories: |
     - media
