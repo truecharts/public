@@ -29,7 +29,7 @@ jobs:
           list-files: json
           filters: |
             changed:
-            - 'charts/**'
+            - 'library/**'
       - name: Filter filter-output
         run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
       - name: Bump
