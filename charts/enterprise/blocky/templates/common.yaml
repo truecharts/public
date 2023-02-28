@@ -1,44 +1,52 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
-{{ include "blocky.configmap" . }}
+
+{{/* Render configmap for blocky */}}
+{{- $configmapFile := include "blocky.configmap" . | fromYaml -}}
+{{- if $configmapFile -}}
+  {{- $_ := set .Values.configmap "config" $configmapFile -}}
+{{- end -}}
+
+{{- $gatewayconfig := include "k8sgateway.configmap" . | fromYaml -}}
+{{- if $gatewayconfig -}}
+  {{- $_ := set .Values.configmap "corefile" $gatewayconfig -}}
+{{- end -}}
 
 {{/* Always mount the configmap, with the basic config, plus the 'blockyConfig' */}}
 {{- define "blocky.configmap.mount" -}}
 enabled: true
-type: custom
+type: configmap
 mountPath: /app/config.yml
-subPath: config.yml
+objectName: config
 readOnly: true
-volumeSpec:
-  configMap:
-    name: '{{ printf "%s-config" (include "tc.v1.common.names.fullname" .) }}'
+items:
+  - key: config.yml
+    path: config.yml
 {{- end -}}
 
 {{/* Append the general configMap volume to the volumes */}}
 {{- define "k8sgateway.configvolume" -}}
-enabled: "true"
+enabled: true
+type: configmap
 mountPath: "/etc/coredns"
+objectName: corefile
 readOnly: true
-type: "custom"
-volumeSpec:
-  configMap:
-    name: {{ include "tc.v1.common.names.fullname" . }}-corefile
-    items:
-    - key: Corefile
-      path: Corefile
+items:
+   - key: Corefile
+     path: Corefile
 {{- end -}}
 
 {{- $_ := set .Values.persistence "tc-config" (include "blocky.configmap.mount" . | fromYaml) -}}
 
 {{- if .Values.webUI.enabled -}}
-{{- $_ := set .Values.additionalContainers "frontend" (include "blocky.frontend" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "frontend" (include "blocky.frontend" . | fromYaml) -}}
 {{- end -}}
 
 {{- if and .Values.k8sgateway.enabled .Values.k8sgateway.domains -}}
 {{- include "k8sgateway.configmap" . }}
 {{- $_ := set .Values.persistence "config-volume" (include "k8sgateway.configvolume" . | fromYaml) -}}
-{{- $_ := set .Values.additionalContainers "k8sgateway" (include "k8sgateway.container" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "k8sgateway" (include "k8sgateway.container" . | fromYaml) -}}
 {{- end -}}
 
 {{/* Define path for api */}}
