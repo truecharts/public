@@ -335,17 +335,17 @@ postgresClientImage:
 
 mariadbClientImage:
   repository: tccr.io/truecharts/db-wait-mariadb
-  tag: v0.0.1@sha256:2a8b4f9b158b7374ccd5dbd27a689f39b2d7ef10b45367a787d071eb4fafe24e
+  tag: 1.1.0@sha256:b9c82f29daafe72d07b23951bdd5654561cb95e5ca4a493ca1f68688c625e6bb
   pullPolicy: IfNotPresent
 
 redisClientImage:
   repository: tccr.io/truecharts/db-wait-redis
-  tag: v0.0.1@sha256:fcb9f8c06dee4c72b09c3893b8570134c6856ad85b9005c0deb0a04a247b5e36
+  tag: 1.1.0@sha256:190b199bebf88a6def50cf8efd38651d79595a1e69566062843062a8c34bb0ff
   pullPolicy: IfNotPresent
 
 mongodbClientImage:
   repository: tccr.io/truecharts/db-wait-mongodb
-  tag: v0.0.1@sha256:932d6a3d55852aeae266ff696831bab4b34a1f5bffd7e54303542d4c58c259f6
+  tag: 1.1.0@sha256:d2d237297cbcde63a038ef8dc1634241c476396d03d370ffa2814177ff56d1e7
   pullPolicy: IfNotPresent
 
 # -- OpenVPN specific configuration
