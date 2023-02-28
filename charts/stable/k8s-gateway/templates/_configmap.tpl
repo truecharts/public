@@ -37,7 +37,8 @@ data:
            fallthrough
         }
         {{- end }}
-        k8s_gateway "{{ required "Delegated domain ('domain') is mandatory " .domain }}" {
+        {{- end }}
+        k8s_gateway {{ range .Values.domains }}"{{ required "Delegated domain ('domain') is mandatory " .domain }}"{{ end }} {
           apex {{ $values.apex | default $fqdn }}
           ttl {{ $values.ttl }}
           {{- if $values.secondary }}
@@ -48,7 +49,7 @@ data:
           {{- end }}
           fallthrough
         }
-        {{- end }}
+
         prometheus 0.0.0.0:9153
         {{- if .Values.forward.enabled }}
         forward . {{ .Values.forward.primary }} {{ .Values.forward.secondary }} {

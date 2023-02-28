@@ -16,349 +16,487 @@ data:
     database:
       path: /db/frigate.db
     mqtt:
-      host: {{ required "You need to provide an MQTT host" .Values.frigate.mqtt.host }}
-      port: {{ .Values.frigate.mqtt.port | default 1883 }}
-      topic_prefix: {{ .Values.frigate.mqtt.topic_prefix | default "frigate" }}
-      client_id: {{ .Values.frigate.mqtt.client_id | default "frigate" }}
-      stats_interval: {{ .Values.frigate.mqtt.stats_interval| default 60 }}
-      {{- with .Values.frigate.mqtt.user }}
-      user: {{ . }}
-      {{- end }}
-      {{- with .Values.frigate.mqtt.password }}
-      password: {{ . }}
-      {{- end }}
+      {{- include "frigate.mqtt" .Values.frigate.mqtt | indent 6 }}
 
-    {{- if .Values.frigate.detectors.render_config }}
-    {{- if .Values.frigate.detectors.config }}
+    {{- if and .Values.frigate.detectors.render_config .Values.frigate.detectors.config }}
     detectors:
-      {{- range .Values.frigate.detectors.config }}
-      {{ required "You need to provide a detector name" .name }}:
-        type: {{ .type }}
-        {{- with .device }}
-        device: {{ . }}
-        {{- end }}
-        {{- with .num_threads }}
-        num_threads: {{ . }}
-        {{- end }}
-      {{- end }}
-    {{- end }}
+      {{- include "frigate.detectors" .Values.frigate.detectors | indent 6 }}
     {{- end }}
 
     {{- if .Values.frigate.model.render_config }}
     model:
-      {{- with .Values.frigate.model.path }}
-      path: {{ . }}
-      {{- end }}
-      {{- with .Values.frigate.model.labelmap_path }}
-      labelmap_path: {{ . }}
-      {{- end }}
-      width: {{ .Values.frigate.model.width | default 320 }}
-      height: {{ .Values.frigate.model.height | default 320 }}
-      {{- with .Values.frigate.model.labelmap }}
-      labelmap:
-        {{- range . }}
-        {{ .model }}: {{ .name }}
-        {{- end }}
-      {{- end }}
+      {{- include "frigate.model" .Values.frigate.model | indent 6 }}
     {{- end }}
 
     {{- if .Values.frigate.logger.render_config }}
     logger:
-      default: {{ .Values.frigate.logger.default | default "info" }}
-      {{- with .Values.frigate.logger.logs }}
-      logs:
-        {{- range . }}
-        {{ .component }}: {{ .verbosity }}
-        {{- end }}
-      {{- end }}
+      {{- include "frigate.logger" .Values.frigate.logger | indent 6 }}
     {{- end }}
 
     {{- if .Values.frigate.birdseye.render_config }}
     birdseye:
-      enabled: {{ ternary "True" "False" .Values.frigate.birdseye.enabled }}
-      width: {{ .Values.frigate.birdseye.width | default 1280 }}
-      height: {{ .Values.frigate.birdseye.height | default 720 }}
-      quality: {{ .Values.frigate.birdseye.quality | default 8 }}
-      mode: {{ .Values.frigate.birdseye.mode | default "objects" }}
+      {{- include "frigate.birdseye" .Values.frigate.birdseye | indent 6 }}
     {{- end }}
 
     {{- if .Values.frigate.ffmpeg.render_config }}
     ffmpeg:
-      global_args: {{ .Values.frigate.ffmpeg.global_args | default "-hide_banner -loglevel warning" }}
-      input_args: {{ .Values.frigate.ffmpeg.input_args | default "-avoid_negative_ts make_zero -fflags +genpts+discardcorrupt -rtsp_transport tcp -timeout 5000000 -use_wallclock_as_timestamps 1" }}
-      {{- with .Values.frigate.ffmpeg.hwaccel_args }}
-      hwaccel_args: {{ . }}
-      {{- end }}
-      output_args:
-        detect: {{ .Values.frigate.ffmpeg.output_args.detect | default "-f rawvideo -pix_fmt yuv420p" }}
-        record: {{ .Values.frigate.ffmpeg.output_args.record | default "-f segment -segment_time 10 -segment_format mp4 -reset_timestamps 1 -strftime 1 -c copy -an" }}
-        rtmp: {{ .Values.frigate.ffmpeg.output_args.rtmp | default "-c copy -f flv" }}
+      {{- include "frigate.ffmpeg" .Values.frigate.ffmpeg | indent 6 }}
     {{- end }}
 
     {{- if .Values.frigate.detect.render_config }}
     detect:
-      enabled: {{ ternary "True" "False" .Values.frigate.detect.enabled }}
-      width: {{ .Values.frigate.detect.width | default 1280 }}
-      height: {{ .Values.frigate.detect.height | default 720 }}
-      fps: {{ .Values.frigate.detect.fps | default 5 }}
-      max_disappeared: {{ .Values.frigate.detect.max_disappeared | default 25 }}
-      stationary:
-        interval: {{ .Values.frigate.detect.stationary.interval | default 0 }}
-        threshold: {{ .Values.frigate.detect.stationary.threshold | default 50 }}
-        {{- if (hasKey .Values.frigate.detect.stationary "max_frames") }}
-        {{- if or (hasKey .Values.frigate.detect.stationary.max_frames "default") (hasKey .Values.frigate.detect.stationary.max_frames "objects") }}
-        {{- if or .Values.frigate.detect.stationary.max_frames.default .Values.frigate.detect.stationary.max_frames.objects }}
-        max_frames:
-          {{- with .Values.frigate.detect.stationary.max_frames.default }}
-          default: {{ . }}
-          {{- end }}
-          {{- with .Values.frigate.detect.stationary.max_frames.objects }}
-          objects:
-            {{- range . }}
-            {{ .object }}: {{ .frames }}
-            {{- end }}
-          {{- end }}
-        {{- end }}
-        {{- end }}
-        {{- end }}
-    {{- end }}
+      {{- include "frigate.detect" .Values.frigate.detect | indent 6 }}
+    {{- end -}}
 
     {{- if .Values.frigate.objects.render_config }}
     objects:
-      {{- with .Values.frigate.objects.track }}
-      track:
-        {{- range . }}
-        - {{ . }}
-        {{- end }}
-      {{- end }}
-      {{- with .Values.frigate.objects.mask }}
-      mask: {{ . }}
-      {{- end }}
-      {{- with .Values.frigate.objects.filters }}
-      filters:
-        {{- range . }}
-        {{ .object }}:
-          {{- with .min_area }}
-          min_area: {{ . }}
-          {{- end }}
-          {{- with .max_area }}
-          max_area: {{ . }}
-          {{- end }}
-          {{- with .min_ratio }}
-          min_ratio: {{ . }}
-          {{- end }}
-          {{- with .max_ratio }}
-          max_ratio: {{ . }}
-          {{- end }}
-          {{- with .min_score }}
-          min_score: {{ . }}
-          {{- end }}
-          {{- with .threshold }}
-          threshold: {{ . }}
-          {{- end }}
-          {{- with .mask }}
-          mask: {{ . }}
-          {{- end }}
-        {{- end }}
-      {{- end }}
+      {{- include "frigate.objects" .Values.frigate.objects | indent 6 }}
     {{- end }}
 
     {{- if .Values.frigate.motion.render_config }}
     motion:
-      threshold: {{ .Values.frigate.motion.threshold | default 25 }}
-      contour_area: {{ .Values.frigate.motion.contour_area | default 30 }}
-      delta_alpha: {{ .Values.frigate.motion.delta_alpha | default 0.2 }}
-      frame_alpha: {{ .Values.frigate.motion.frame_alpha | default 0.2 }}
-      frame_height: {{ .Values.frigate.motion.frame_height | default 50 }}
-      {{- with .Values.frigate.motion.mask }}
-      mask: {{ . }}
-      {{- end }}
-      improve_contrast: {{ ternary "True" "False" .Values.frigate.motion.improve_contrast }}
-      mqtt_off_delay: {{ .Values.frigate.motion.mqtt_off_delay | default 30 }}
+      {{- include "frigate.motion" .Values.frigate.motion | indent 6 }}
     {{- end }}
 
     {{- if .Values.frigate.record.render_config }}
     record:
-      enabled: {{ ternary "True" "False" .Values.frigate.record.enabled }}
-      expire_interval: {{ .Values.frigate.record.expire_interval | default 60 }}
-      {{- if .Values.frigate.record.retain.render_config }}
-      retain:
-        days: {{ .Values.frigate.record.retain.days | default 0 }}
-        mode: {{ .Values.frigate.record.retain.mode | default "all" }}
-      {{- end }}
-      events:
-        pre_capture: {{ .Values.frigate.record.events.pre_capture | default 5 }}
-        post_capture: {{ .Values.frigate.record.events.post_capture | default 5 }}
-        {{- with .Values.frigate.record.events.objects }}
-        objects:
-          {{- range . }}
-          - {{ . }}
-          {{- end }}
-        {{- end }}
-        {{- with .Values.frigate.record.events.required_zones }}
-        required_zones:
-          {{- range . }}
-          - {{ . }}
-          {{- end }}
-        {{- end }}
-        {{- if .Values.frigate.record.events.retain.render_config }}
-        retain:
-          default: {{ .Values.frigate.record.events.retain.default | default 10 }}
-          mode: {{ .Values.frigate.record.events.retain.mode | default "motion" }}
-          {{- with .Values.frigate.record.events.retain.objects }}
-          objects:
-          {{- range . }}
-            {{ .object }}: {{ .days }}
-          {{- end }}
-          {{- end }}
-        {{- end }}
+      {{- include "frigate.record" .Values.frigate.record | indent 6 }}
     {{- end }}
 
     {{- if .Values.frigate.snapshots.render_config }}
     snapshots:
-      enabled: {{ ternary "True" "False" .Values.frigate.snapshots.enabled }}
-      clean_copy: {{ ternary "True" "False" .Values.frigate.snapshots.clean_copy }}
-      timestamp: {{ ternary "True" "False" .Values.frigate.snapshots.timestamp }}
-      bounding_box: {{ ternary "True" "False" .Values.frigate.snapshots.bounding_box }}
-      crop: {{ ternary "True" "False" .Values.frigate.snapshots.crop }}
-      {{- with .Values.frigate.snapshots.height }}
-      height: {{ . }}
-      {{- end }}
-      {{- with .Values.frigate.snapshots.required_zones }}
-      required_zones:
-        {{- range . }}
-        - {{ . }}
-        {{- end }}
-      {{- end }}
-      {{- if .Values.frigate.snapshots.retain.render_config }}
-      retain:
-        default: {{ .Values.frigate.snapshots.retain.default | default 10 }}
-        {{- with .Values.frigate.snapshots.retain.objects }}
-        objects:
-        {{- range . }}
-          {{ .object }}: {{ .days }}
-        {{- end }}
-        {{- end }}
-      {{- end }}
+      {{- include "frigate.snapshots" .Values.frigate.snapshots | indent 6 }}
     {{- end }}
 
     {{- if .Values.frigate.rtmp.render_config }}
     rtmp:
-      enabled: {{ ternary "True" "False" .Values.frigate.rtmp.enabled }}
+      {{- include "frigate.rtmp" .Values.frigate.rtmp | indent 6 }}
     {{- end }}
 
     {{- if .Values.frigate.live.render_config }}
     live:
-      height: {{ .Values.frigate.live.height | default 720 }}
-      quality: {{ .Values.frigate.live.quality | default 8 }}
+      {{- include "frigate.live" .Values.frigate.live | indent 6 }}
     {{- end }}
 
     {{- if .Values.frigate.timestamp_style.render_config }}
     timestamp_style:
-      position: {{ .Values.frigate.timestamp_style.position | default "tl" }}
-      format: {{ .Values.frigate.timestamp_style.format | quote }}
-      color:
-        red: {{ .Values.frigate.timestamp_style.color.red | default 255 }}
-        green: {{ .Values.frigate.timestamp_style.color.green | default 255 }}
-        blue: {{ .Values.frigate.timestamp_style.color.blue | default 255 }}
-      thickness: {{ .Values.frigate.timestamp_style.thickness | default 2 }}
-      {{- if ne .Values.frigate.timestamp_style.effect "None" }}
-      effect: {{ .Values.frigate.timestamp_style.effect }}
-      {{- end }}
+      {{- include "frigate.timestamp_style" .Values.frigate.timestamp_style | indent 6 }}
     {{- end }}
 
+    {{- $cameras := .Values.frigate.cameras }}
     cameras:
-    {{- range .Values.frigate.cameras }}
-      {{ .camera_name }}:
+    {{- range $cam := $cameras }}
+      {{ $cam.camera_name | required "You need to provide a camera name" }}:
         ffmpeg:
-          {{- with .ffmpeg }}
           inputs:
-          {{- range .inputs }}
-            - path: {{ .path }}
-              {{- with .roles }}
+            {{- range $input := $cam.ffmpeg.inputs }}
+            - path: {{ $input.path | required "You need to provide a path" }}
               roles:
-                {{- range . }}
-                - {{ . }}
-                {{- end }}
-              {{- end }} {{/* end with roles*/}}
-              {{- with .global_args }}
-              global_args: {{ . }}
-              {{- end }}
-              {{- with .hwaccel_args }}
-              hwaccel_args: {{ . }}
-              {{- end }}
-              {{- with .input_args }}
-              input_args: {{ . }}
-              {{- end }}
-          {{- end }} {{/* end range inputs */}}
-          {{- with .global_args }}
-          global_args: {{ . }}
-          {{- end }}
-          {{- with .hwaccel_args }}
-          hwaccel_args: {{ . }}
-          {{- end }}
-          {{- with .input_args }}
-          input_args: {{ . }}
-          {{- end }}
-          {{- with .output_args }}
-          output_args: {{ . }}
-          {{- end }}
-          {{- end }} {{/* end with ffmpeg */}}
-        best_image_timeout: {{ .best_image_timeout | default 60 }}
-        {{- with .zones }}
+              {{- range $role := $input.roles }}
+                - {{ $role }}
+              {{- else -}}
+                {{- fail "You need to provide roles" -}}
+              {{- end -}}
+              {{- include "frigate.ffmpeg" $input | indent 14 }}
+            {{- end -}} {{/* End range $cam.ffmpeg.inputs */}}
+          {{- include "frigate.ffmpeg" $cam.ffmpeg | indent 10 }}
+        {{- with $cam.best_image_timeout }}
+        best_image_timeout: {{ . }}
+        {{- end -}}
+        {{- with $cam.zones }}
         zones:
-          {{- range . }}
-          {{ .name }}:
+          {{- range $zone := . }}
+          {{ $zone.name | required "You have to specify a zone name" }}:
             coordinates: {{ required "You have to specify coordinates" .coordinates }}
-            {{- with .objects }}
+            {{- with $zone.objects }}
             objects:
-              {{- range . }}
-              - {{ . }}
-              {{- end }}
-            {{- end }} {{/* end with objects*/}}
-            {{- with .filters }}
+              {{- range $obj := . }}
+              - {{ $obj }}
+              {{- end -}}
+            {{- end -}}
+            {{- with $zone.filters }}
             filters:
-              {{- range . }}
-              {{ .object }}:
-                {{- with .min_area }}
+              {{- range $filter := . }}
+              {{ $filter.object | required "You have to specify an object" }}:
+                {{- with $filter.min_area }}
                 min_area: {{ . }}
-                {{- end }}
-                {{- with .max_area }}
+                {{- end -}}
+                {{- with $filter.max_area }}
                 max_area: {{ . }}
-                {{- end }}
-                {{- with .threshold }}
+                {{- end -}}
+                {{- with $filter.threshold }}
                 threshold: {{ . }}
-                {{- end }}
-              {{- end }} {{/* end range filters */}}
-            {{- end }} {{/* end with filter */}}
-          {{- end }} {{/* end range zones */}}
-        {{- end }} {{/* end with zones */}}
-        {{- if .mqtt.render_config }}
-        {{- with .mqtt }}
+                {{- end -}}
+              {{- end -}} {{/* end range filters */}}
+            {{- end -}} {{/* end with filter */}}
+          {{- end -}} {{/* end range zones */}}
+        {{- end -}} {{/* end with zones */}}
+        {{- if $cam.mqtt.render_config -}}
+        {{- with $cam.mqtt }}
         mqtt:
           enabled: {{ ternary "True" "False" .enabled }}
           timestamp: {{ ternary "True" "False" .timestamp }}
           bounding_box: {{ ternary "True" "False" .bounding_box }}
           crop: {{ ternary "True" "False" .crop }}
-          height: {{ .height | default 270 }}
-          quality: {{ .quality | default 70 }}
+          {{- with .height }}
+          height: {{ . }}
+          {{- end -}}
+          {{- with .quality }}
+          quality: {{ . }}
+          {{- end -}}
           {{- with .required_zones }}
           required_zones:
-            {{- range . }}
-            - {{ . }}
-            {{- end }}
-          {{- end }}
-        {{- end }} {{/* end with mqtt */}}
-        {{- end }} {{/* end if mqtt.render_config */}}
-        {{- if .ui.render_config }}
-        {{- with .ui }}
+            {{- range $zone := . }}
+            - {{ $zone }}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}} {{/* end with mqtt */}}
+        {{- end -}} {{/* end if mqtt.render_config */}}
+        {{- if $cam.ui.render_config -}}
+        {{- with $cam.ui }}
         ui:
-          {{- if or .order (eq (int .order) 0) }}
+          {{- if not (kindIs "invalid" .order) }}
           order: {{ .order }}
           {{- end }}
           dashboard: {{ ternary "True" "False" .dashboard }}
-        {{- end }} {{/* end with ui */}}
-        {{- end }} {{/* end if ui.render_config */}}
-    {{- end }} {{/* end range cameras */}}
-
+        {{- end -}} {{/* end with ui */}}
+        {{- end -}} {{/* end if ui.render_config */}}
+    {{- end -}} {{/* end range cameras */}}
 {{- end }}
+
+{{- define "frigate.ffmpeg" -}}
+{{- $ffmpeg := . -}}
+
+{{- with $ffmpeg.global_args }}
+global_args: {{ . }}
+{{- end -}}
+{{- with $ffmpeg.input_args }}
+input_args: {{ . }}
+{{- end -}}
+{{- with $ffmpeg.hwaccel_args }}
+hwaccel_args: {{ . }}
+{{- end -}}
+{{- if $ffmpeg.output_args -}}
+{{- if or $ffmpeg.output_args.detect $ffmpeg.output_args.record $ffmpeg.output_args.rtmp }}
+output_args:
+  {{- with $ffmpeg.output_args.detect }}
+  detect: {{ . }}
+  {{- end -}}
+  {{- with $ffmpeg.output_args.record }}
+  record: {{ . }}
+  {{- end -}}
+  {{- with $ffmpeg.output_args.rtmp }}
+  rtmp: {{ . }}
+  {{- end -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.detect" -}}
+{{- $detect := . }}
+enabled: {{ ternary "True" "False" $detect.enabled }}
+{{- with $detect.width }}
+width: {{ . }}
+{{- end -}}
+{{- with $detect.height }}
+height: {{ . }}
+{{- end -}}
+{{- with $detect.fps }}
+fps: {{ . }}
+{{- end -}}
+{{- with $detect.max_disappeared }}
+max_disappeared: {{ . }}
+{{- end -}}
+{{- if or (not (kindIs "invalid" $detect.stationary.interval)) $detect.stationary.threshold $detect.stationary.set_max_frames }}
+stationary:
+  {{- if not (kindIs "invalid" $detect.stationary.interval) }} {{/* invalid kind means its empty (0 is not empty) */}}
+  interval: {{ $detect.stationary.interval }}
+  {{- end -}}
+  {{- with $detect.stationary.threshold }}
+  threshold: {{ . }}
+  {{- end -}}
+  {{- if (hasKey $detect.stationary "max_frames") }}
+  {{- if or $detect.stationary.max_frames.default $detect.stationary.max_frames.objects }}
+  max_frames:
+    {{- with $detect.stationary.max_frames.default }}
+    default: {{ . }}
+    {{- end -}}
+    {{- with $detect.stationary.max_frames.objects }}
+    objects:
+      {{- range $obj := . }}
+      {{ $obj.object | required "You need to provide an object" }}: {{ $obj.frames | required "You need to provide frames" }}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.motion" -}}
+{{- $motion := . -}}
+
+{{- with $motion.threshold }}
+threshold: {{ . }}
+{{- end -}}
+{{- with $motion.contour_area }}
+contour_area: {{ . }}
+{{- end -}}
+{{- with $motion.delta_alpha }}
+delta_alpha: {{ . }}
+{{- end -}}
+{{- with $motion.frame_alpha }}
+frame_alpha: {{ . }}
+{{- end -}}
+{{- with $motion.frame_height }}
+frame_height: {{ . }}
+{{- end -}}
+{{- with $motion.mask }}
+mask: {{ . }}
+{{- end }}
+improve_contrast: {{ ternary "True" "False" $motion.improve_contrast }}
+{{- with $motion.mqtt_off_delay }}
+mqtt_off_delay: {{ . }}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.record" -}}
+{{- $record := . }}
+enabled: {{ ternary "True" "False" $record.enabled }}
+{{- with $record.expire_interval }}
+expire_interval: {{ . }}
+{{- end -}}
+{{- if $record.retain.render_config }}
+retain:
+  {{- if not (kindIs "invalid" $record.retain.days) }}
+  days: {{ $record.retain.days }}
+  {{- end -}}
+  {{- with $record.retain.mode }}
+  mode: {{ . }}
+  {{- end -}}
+{{- end -}}
+{{- if $record.events.render_config }}
+events:
+  {{- if not (kindIs "invalid" $record.events.pre_capture) }}
+  pre_capture: {{ $record.events.pre_capture }}
+  {{- end -}}
+  {{- if not (kindIs "invalid" $record.events.post_capture) }}
+  post_capture: {{ $record.events.post_capture }}
+  {{- end -}}
+  {{- with $record.events.objects }}
+  objects:
+    {{- range $obj := . }}
+    - {{ $obj }}
+    {{- end -}}
+  {{- end -}}
+  {{- with $record.events.required_zones }}
+  required_zones:
+    {{- range $zone := . }}
+    - {{ $zone }}
+    {{- end -}}
+  {{- end -}}
+  {{- if $record.events.retain.render_config }}
+  retain:
+    default: {{ $record.events.retain.default | required "You need to provide default retain days" }}
+    {{- with $record.events.retain.mode }}
+    mode: {{ . }}
+    {{- end -}}
+    {{- with $record.events.retain.objects }}
+    objects:
+    {{- range $obj := . }}
+      {{ $obj.object | required "You need to provide an object" }}: {{ $obj.days | required "You need to provide default retain days" }}
+    {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.objects" -}}
+{{- $objects := . -}}
+
+{{- with $objects.track }}
+track:
+  {{- range $track := . }}
+  - {{ $track }}
+  {{- end -}}
+{{- end -}}
+{{- with $objects.mask }}
+mask: {{ . }}
+{{- end -}}
+{{- with $objects.filters }}
+filters:
+  {{- range $filter := . }}
+  {{ $filter.object | required "You need to provide an object" }}:
+    {{- with $filter.min_area }}
+    min_area: {{ . }}
+    {{- end -}}
+    {{- with $filter.max_area }}
+    max_area: {{ . }}
+    {{- end -}}
+    {{- with $filter.min_ratio }}
+    min_ratio: {{ . }}
+    {{- end -}}
+    {{- with $filter.max_ratio }}
+    max_ratio: {{ . }}
+    {{- end -}}
+    {{- with $filter.min_score }}
+    min_score: {{ . }}
+    {{- end -}}
+    {{- with $filter.threshold }}
+    threshold: {{ . }}
+    {{- end -}}
+    {{- with $filter.mask }}
+    mask: {{ . }}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.birdseye" -}}
+{{- $birdseye := . }}
+enabled: {{ ternary "True" "False" $birdseye.enabled }}
+{{- with $birdseye.width }}
+width: {{ . }}
+{{- end -}}
+{{- with $birdseye.height }}
+height: {{ . }}
+{{- end -}}
+{{- with $birdseye.quality }}
+quality: {{ . }}
+{{- end -}}
+{{- with $birdseye.mode }}
+mode: {{ . }}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.timestamp_style" -}}
+{{- $timestamp_style := . -}}
+
+{{- with $timestamp_style.position }}
+position: {{ . }}
+{{- end -}}
+{{- with $timestamp_style.format }}
+format: {{ . }}
+{{- end -}}
+{{- if $timestamp_style.color.render_config }}
+color:
+  red: {{ $timestamp_style.color.red }}
+  green: {{ $timestamp_style.color.green }}
+  blue: {{ $timestamp_style.color.blue }}
+{{- end -}}
+{{- with $timestamp_style.thickness }}
+thickness: {{ . }}
+{{- end -}}
+{{- with $timestamp_style.effect }}
+effect: {{ $timestamp_style.effect }}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.live" -}}
+{{- $live := . -}}
+{{- with $live.height }}
+height: {{ . }}
+{{- end -}}
+{{- with $live.quality }}
+quality: {{ . }}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.rtmp" -}}
+{{- $rtmp := . }}
+enabled: {{ ternary "True" "False" $rtmp.enabled }}
+{{- end -}}
+
+{{- define "frigate.snapshots" -}}
+{{- $snapshots := . }}
+enabled: {{ ternary "True" "False" $snapshots.enabled }}
+clean_copy: {{ ternary "True" "False" $snapshots.clean_copy }}
+timestamp: {{ ternary "True" "False" $snapshots.timestamp }}
+bounding_box: {{ ternary "True" "False" $snapshots.bounding_box }}
+crop: {{ ternary "True" "False" $snapshots.crop }}
+{{- with $snapshots.height }}
+height: {{ . }}
+{{- end -}}
+{{- with $snapshots.required_zones }}
+required_zones:
+  {{- range $zone := . }}
+  - {{ $zone }}
+  {{- end -}}
+{{- end -}}
+{{- if $snapshots.retain.render_config }}
+retain:
+  default: {{ $snapshots.retain.default | required "You need to provide default retain days" }}
+  {{- with $snapshots.retain.objects }}
+  objects:
+  {{- range $obj := . }}
+    {{ $obj.object | required "You need to provide an object" }}: {{ $obj.days | required "You need to provide default retain days" }}
+  {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.detectors" -}}
+{{- $detectors := . -}}
+
+{{- range $detector := $detectors.config }}
+{{ $detector.name | required "You need to provide a detector name" }}:
+  type: {{ $detector.type | required "You need to provide a detector type" }}
+  {{- with $detector.device }}
+  device: {{ . }}
+  {{- end -}}
+  {{- with $detector.num_threads }}
+  num_threads: {{ . }}
+  {{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.model" -}}
+{{ $model := . }}
+width: {{ $model.width | required "You need to provide a model width" }}
+height: {{ $model.height | required "You need to provide a model height" }}
+{{- with $model.path }}
+path: {{ . }}
+{{- end -}}
+{{- with $model.labelmap_path }}
+labelmap_path: {{ . }}
+{{- end -}}
+{{- with $model.labelmap }}
+labelmap:
+  {{- range $lmap := . }}
+  {{ $lmap.model | required "You need to provide a labelmap model" }}: {{ $lmap.name | required "You need to provide a labelmap name" }}
+  {{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.logger" -}}
+{{- $logger := . }}
+default: {{ $logger.default }}
+{{- with $logger.logs }}
+logs:
+  {{- range $log := . }}
+  {{ $log.component | required "You need to provide a logger cmponent" }}: {{ $log.verbosity | required "You need to provide logger verbosity" }}
+  {{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.mqtt" -}}
+{{- $mqtt := . }}
+host: {{ required "You need to provide an MQTT host" $mqtt.host }}
+{{- with $mqtt.port }}
+port: {{ . }}
+{{- end -}}
+{{- with $mqtt.topic_prefix }}
+topic_prefix: {{ . }}
+{{- end -}}
+{{- with $mqtt.client_id }}
+client_id: {{ . }}
+{{- end -}}
+{{- if not (kindIs "invalid" $mqtt.stats_interval) }}
+stats_interval: {{ $mqtt.stats_interval }}
+{{- end -}}
+{{- with $mqtt.user }}
+user: {{ . }}
+{{- end -}}
+{{- with $mqtt.password }}
+password: {{ . }}
+{{- end -}}
+{{- end -}}

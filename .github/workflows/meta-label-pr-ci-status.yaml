@@ -19,7 +19,7 @@ jobs:
           token: ${{ secrets.BOT_TOKEN }}
 
       - name: Download workflow artifact
-        uses: dawidd6/action-download-artifact@bd10f381a96414ce2b13a11bfa89902ba7cea07f # v2.24.3
+        uses: dawidd6/action-download-artifact@5e780fc7bbd0cac69fc73271ed86edf5dcb72d67 # v2.26.0
         with:
           github_token: ${{ secrets.BOT_TOKEN }}
           workflow: pr-validate.yaml
@@ -34,7 +34,7 @@ jobs:
           path: ./pr_metadata/pr_number.txt
 
       - name: "Get workflow job status"
-        uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0 # tag=v6
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975 # v6
         id: get-workflow-jobs
         with:
           github-token: ${{ secrets.BOT_TOKEN }}
