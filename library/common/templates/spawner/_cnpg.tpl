@@ -26,11 +26,21 @@
       {{- include "tc.v1.common.class.cnpg.pooler" $ -}}
       {{- end }}
 
+    {{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+    {{- $fetchname := printf "%s-dbcreds" $basename -}}
+    {{- $olddbprevious1 := lookup "v1" "Secret" $.Release.Namespace $fetchname }}
+    {{- $olddbprevious2 := lookup "v1" "Secret" $.Release.Namespace "dbcreds" }}
+
+
     {{/* Inject the required secrets */}}
     {{- $dbPass := "" }}
     {{- $dbprevious := lookup "v1" "Secret" $.Release.Namespace ( printf "%s-user" $cnpgValues.name ) }}
     {{- if $dbprevious }}
       {{- $dbPass = ( index $dbprevious.data "user-password" ) | b64dec  }}
+    {{- else if and $.Values.postgresql.enabled $olddbprevious1 $.Release.IsUpgrade }}
+      {{- $dbPass = ( index $olddbprevious1.data "postgresql-password" ) | b64dec  }}
+    {{- else if and $.Values.postgresql.enabled $olddbprevious2 $.Release.IsUpgrade }}
+      {{- $dbPass = ( index $olddbprevious2.data "postgresql-password" ) | b64dec  }}
     {{- else }}
       {{- $dbPass = $cnpgValues.password | default ( randAlphaNum 62 ) }}
     {{- end }}
@@ -39,6 +49,10 @@
     {{- $pgprevious := lookup "v1" "Secret" $.Release.Namespace ( printf "%s-superuser" $cnpgValues.name ) }}
     {{- if $pgprevious }}
       {{- $pgPass = ( index $dbprevious.data "superuser-password" ) | b64dec  }}
+    {{- else if and $.Values.postgresql.enabled $olddbprevious1 $.Release.IsUpgrade }}
+      {{- $pgPass = ( index $olddbprevious1.data "postgresql-postgres-password" ) | b64dec  }}
+    {{- else if and $.Values.postgresql.enabled $olddbprevious2 $.Release.IsUpgrade }}
+      {{- $pgPass = ( index $olddbprevious2.data "postgresql-postgres-password" ) | b64dec  }}
     {{- else }}
       {{- $pgPass = $cnpgValues.superUserPassword | default ( randAlphaNum 62 ) }}
     {{- end }}

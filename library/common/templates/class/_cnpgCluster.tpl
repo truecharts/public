@@ -31,8 +31,18 @@ spec:
   superuserSecret:
     name: {{ $cnpgClusterName }}-superuser
 
+  {{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+  {{- $fetchname := printf "%s-dbcreds" $basename -}}
+  {{- $olddbprevious1 := lookup "v1" "Secret" .Release.Namespace $fetchname }}
+  {{- $olddbprevious2 := lookup "v1" "Secret" .Release.Namespace "dbcreds" }}
+
   bootstrap:
+  {{- if and $.Values.postgresql.enabled ( or $olddbprevious1 $olddbprevious2 ) $.Release.IsUpgrade }}
+    pg_basebackup:
+      source: old-db
+  {{- else }}
     initdb:
+  {{- end }}
       database: {{ $values.database | default "app" }}
       owner: {{ $values.user | default "app" }}
       secret:
@@ -68,5 +78,16 @@ spec:
   nodeMaintenanceWindow:
     inProgress: false
     reusePVC: on
+
+  externalClusters:
+  {{- if and $.Values.postgresql.enabled ( or $olddbprevious1 $olddbprevious2 ) $.Release.IsUpgrade }}
+  - name: old-db
+    connectionParameters:
+      host: {{ (printf "%v-%v" .Release.Name "postgresql" ) }}
+      user: postgres
+    password:
+      name: {{ $cnpgClusterName }}-superuser
+      key: password
+  {{- end }}
 
 {{- end -}}
