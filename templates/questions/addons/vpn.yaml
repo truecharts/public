@@ -17,9 +17,28 @@
                     - value: tailscale
                       description: Tailscale
                     - value: openvpn
-                      description: OpenVPN (deprecated/removed)
+                      description: OpenVPN (Deprecated)
                     - value: wireguard
-                      description: Wireguard (deprecated/removed)
+                      description: Wireguard (Deprecated)
+              - variable: openvpn
+                label: OpenVPN Settings
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "openvpn"]]
+                  attrs:
+                    - variable: username
+                      label: Authentication Username (Optional)
+                      description: Authentication Username, Optional
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: password
+                      label: Authentication Password
+                      description: Authentication Credentials
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
               - variable: tailscale
                 label: Tailscale Settings
                 schema:
@@ -91,14 +110,14 @@
                 label: Enable Killswitch
                 schema:
                   type: boolean
-                  show_if: [["type", "==", "tailscale"]]
+                  show_if: [["type", "!=", "disabled"]]
                   default: true
               - variable: excludedNetworks_IPv4
                 label: Killswitch Excluded IPv4 networks
                 description: List of Killswitch Excluded IPv4 Addresses
                 schema:
                   type: list
-                  show_if: [["type", "==", "tailscale"]]
+                  show_if: [["type", "!=", "disabled"]]
                   default: []
                   items:
                     - variable: networkv4
@@ -111,7 +130,7 @@
                 description: "List of Killswitch Excluded IPv6 Addresses"
                 schema:
                   type: list
-                  show_if: [["type", "==", "tailscale"]]
+                  show_if: [["type", "!=", "disabled"]]
                   default: []
                   items:
                     - variable: networkv6
