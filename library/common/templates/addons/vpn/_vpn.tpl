@@ -65,6 +65,18 @@ It will include / inject the required templates based on the given values.
         {{- $workload := get $.Values.workload . -}}
         {{- $_ := set $workload.podSpec.containers "tailscale" $container -}}
       {{- end -}}
+    {{- else if eq "openvpn" $.Values.addons.vpn.type -}}
+      {{- $container := include "tc.v1.common.addon.vpn.openvpn.container" $ | fromYaml -}}
+      {{- if $container -}}
+        {{- $workload := get $.Values.workload . -}}
+        {{- $_ := set $workload.podSpec.containers "vpn" $container -}}
+      {{- end -}}
+    {{- else if eq "wireguard" $.Values.addons.vpn.type -}}
+      {{- $container := include "tc.v1.common.addon.vpn.wireguard.container" $ | fromYaml -}}
+      {{- if $container -}}
+        {{- $workload := get $.Values.workload . -}}
+        {{- $_ := set $workload.podSpec.containers "vpn" $container -}}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
 

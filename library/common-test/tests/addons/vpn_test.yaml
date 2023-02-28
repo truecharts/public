@@ -567,3 +567,133 @@ tests:
           content:
             name: tailscalestate
             emptyDir: {}
+
+  - it: addon vpn openvpn enabled with configFile
+    set:
+      addons:
+        vpn:
+          type: openvpn
+          configFile: /path/to/file
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              main:
+                enabled: true
+                primary: true
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: &ServiceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: release-name-common-test
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /vpn
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /vpn
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: release-name-common-test-vpn
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnconfig
+            hostPath:
+              path: /path/to/file
+              type: File
+
+  - it: addon vpn wireguard enabled with configFile
+    set:
+      addons:
+        vpn:
+          type: wireguard
+          configFile: /path/to/file
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              main:
+                enabled: true
+                primary: true
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: &ServiceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: release-name-common-test
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /vpn
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: vpnconfig
+            mountPath: /vpn
+            readOnly: false
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: release-name-common-test-vpn
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: vpnconfig
+            hostPath:
+              path: /path/to/file
+              type: File
