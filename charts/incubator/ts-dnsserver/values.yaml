@@ -20,13 +20,13 @@ service:
       dnsport:
         enabled: true
         port: 53
-        protocol: UDP
+        protocol: udp
         targetPort: 53
   main:
     ports:
       main:
         port: 5380
-        protocol: HTTP
+        protocol: http
         targetPort: 5380
 
 portal:

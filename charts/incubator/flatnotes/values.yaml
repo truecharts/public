@@ -14,7 +14,7 @@ secretEnv:
 env:
   FLATNOTES_SECRET_KEY:
     secretKeyRef:
-      name: '{{ (include "tc.common.names.fullname" .) }}-secret'
+      name: '{{ (include "tc.v1.common.names.fullname" .) }}-secret'
       key: FLATNOTES_SECRET_KEY
   # User Defined
   FLATNOTES_SESSION_EXPIRY_DAYS: 30
@@ -24,7 +24,7 @@ service:
     ports:
       main:
         port: 10350
-        protocol: HTTP
+        protocol: http
         targetPort: 80
 
 persistence:

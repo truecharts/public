@@ -502,7 +502,7 @@ service:
     ports:
       main:
         port: 10320
-        protocol: HTTP
+        protocol: http
   joex:
     enabled: true
     type: ClusterIP
@@ -510,7 +510,7 @@ service:
       joex:
         enabled: true
         port: 10321
-        protocol: HTTP
+        protocol: http
 
 persistence:
   server:
@@ -518,7 +518,7 @@ persistence:
     type: secret
     readOnly: true
     defaultMode: "0600"
-    objectName: '{{ include "tc.common.names.fullname" . }}-server-secret'
+    objectName: '{{ include "tc.v1.common.names.fullname" . }}-server-secret'
     mountPath: /opt/server.conf
     subPath: server.conf
   joex:
@@ -527,7 +527,7 @@ persistence:
     noMount: true
     readOnly: true
     defaultMode: "0600"
-    objectName: '{{ include "tc.common.names.fullname" . }}-joex-secret'
+    objectName: '{{ include "tc.v1.common.names.fullname" . }}-joex-secret'
     mountPath: /opt/joex.conf
     subPath: joex.conf
   import:

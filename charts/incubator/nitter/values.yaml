@@ -43,7 +43,7 @@ service:
   main:
     ports:
       main:
-        protocol: HTTP
+        protocol: http
         port: 10606
 
 persistence:
@@ -51,7 +51,7 @@ persistence:
     enabled: true
     mountPath: /src/nitter.conf
     type: secret
-    objectName: '{{ template "tc.common.names.fullname" . }}-nitter-secret'
+    objectName: '{{ template "tc.v1.common.names.fullname" . }}-nitter-secret'
     subPath: nitter.conf
 
 redis:

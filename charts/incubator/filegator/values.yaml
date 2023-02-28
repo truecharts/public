@@ -25,7 +25,7 @@ service:
     ports:
       main:
         port: 8048
-        protocol: HTTP
+        protocol: http
         targetPort: 80
   webuihttps:
     enabled: true
@@ -33,7 +33,7 @@ service:
       webuihttps:
         enabled: true
         port: 8049
-        protocol: TCP
+        protocol: tcp
         targetPort: 443
 
 portal:

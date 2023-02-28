@@ -16,7 +16,7 @@ service:
   main:
     ports:
       main:
-        protocol: HTTP
+        protocol: http
         targetPort: 5000
         port: 10602
 

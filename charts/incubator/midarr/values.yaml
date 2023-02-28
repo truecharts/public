@@ -29,16 +29,16 @@ midarr:
 
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
+      name: '{{ include "tc.v1.common.names.fullname" . }}-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-config'
+      name: '{{ include "tc.v1.common.names.fullname" . }}-config'
 
 service:
   main:
     ports:
       main:
         port: 10347
-        protocol: HTTP
+        protocol: http
         targetPort: 4000
 
 postgresql:

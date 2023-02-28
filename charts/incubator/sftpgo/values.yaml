@@ -36,13 +36,13 @@ service:
       ftpport:
         enabled: true
         port: 2121
-        protocol: TCP
+        protocol: tcp
         targetPort: 2121
   main:
     ports:
       main:
         port: 2221
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
   passiveports:
     enabled: true
@@ -50,7 +50,7 @@ service:
       passiveports:
         enabled: true
         port: 50000
-        protocol: TCP
+        protocol: tcp
         targetPort: 50000
   sftpport:
     enabled: true
@@ -58,7 +58,7 @@ service:
       sftpport:
         enabled: true
         port: 2022
-        protocol: TCP
+        protocol: tcp
         targetPort: 2022
   webdavport:
     enabled: true
@@ -66,7 +66,7 @@ service:
       webdavport:
         enabled: true
         port: 10080
-        protocol: TCP
+        protocol: tcp
         targetPort: 10080
 
 portal:

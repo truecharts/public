@@ -145,18 +145,18 @@ zabbix:
 
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-common-secret'
+      name: '{{ include "tc.v1.common.names.fullname" . }}-common-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-common-config'
+      name: '{{ include "tc.v1.common.names.fullname" . }}-common-config'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-server-config'
+      name: '{{ include "tc.v1.common.names.fullname" . }}-server-config'
 
 service:
   main:
     ports:
       main:
         port: 10211
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
   server:
     enabled: true
@@ -174,7 +174,7 @@ service:
     enabled: true
     ports:
       snmptraps:
-        protocol: UDP
+        protocol: udp
         enabled: true
         port: 162
         targetPort: 1162
@@ -191,7 +191,7 @@ service:
     ports:
       webservice:
         enabled: true
-        protocol: HTTP
+        protocol: http
         port: 10053
 
 probes:

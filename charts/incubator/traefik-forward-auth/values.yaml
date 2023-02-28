@@ -5,11 +5,11 @@ image:
 
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-google-secret'
+      name: '{{ include "tc.v1.common.names.fullname" . }}-google-secret'
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-oidc-secret'
+      name: '{{ include "tc.v1.common.names.fullname" . }}-oidc-secret'
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-oauth2-secret'
+      name: '{{ include "tc.v1.common.names.fullname" . }}-oauth2-secret'
 
 service:
   main:

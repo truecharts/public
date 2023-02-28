@@ -16,7 +16,7 @@ service:
     ports:
       main:
         port: 8003
-        protocol: HTTPS
+        protocol: https
         targetPort: 443
   http:
     enabled: true
@@ -24,7 +24,7 @@ service:
       http:
         enabled: true
         port: 8004
-        protocol: HTTP
+        protocol: http
         targetPort: 80
 
 ingress:

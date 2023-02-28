@@ -21,7 +21,7 @@ pmm:
 
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
+      name: '{{ include "tc.v1.common.names.fullname" . }}-secret'
 
 service:
   main:

@@ -43,7 +43,7 @@ service:
     ports:
       main:
         port: 27017
-        protocol: UDP
+        protocol: udp
         targetPort: 27017
 
 portal:

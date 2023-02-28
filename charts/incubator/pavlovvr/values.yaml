@@ -24,7 +24,7 @@ service:
     ports:
       main:
         port: 7777
-        protocol: TCP
+        protocol: tcp
         targetPort: 7777
   udp2:
     enabled: true
@@ -32,7 +32,7 @@ service:
       udp2:
         enabled: true
         port: 8177
-        protocol: UDP
+        protocol: udp
         targetPort: 8177
   udp3:
     enabled: true
@@ -40,7 +40,7 @@ service:
       udp3:
         enabled: true
         port: 7977
-        protocol: UDP
+        protocol: udp
         targetPort: 7977
   udpgameport:
     enabled: true
@@ -48,7 +48,7 @@ service:
       udpgameport:
         enabled: true
         port: 7777
-        protocol: UDP
+        protocol: udp
         targetPort: 7777
 
 persistence:

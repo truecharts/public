@@ -24,7 +24,7 @@ service:
     ports:
       main:
         port: 9023
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
   udpgameport:
     enabled: true
@@ -32,7 +32,7 @@ service:
       udpgameport:
         enabled: true
         port: 14159
-        protocol: UDP
+        protocol: udp
         targetPort: 14159
 
 portal:

@@ -18,7 +18,7 @@ service:
     ports:
       main:
         port: 5800
-        protocol: HTTP
+        protocol: http
         targetPort: 5800
   vncport:
     enabled: true
@@ -26,7 +26,7 @@ service:
       vncport:
         enabled: true
         port: 5900
-        protocol: TCP
+        protocol: tcp
         targetPort: 5900
 
 portal:

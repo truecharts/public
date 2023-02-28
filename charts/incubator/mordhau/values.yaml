@@ -36,7 +36,7 @@ service:
     ports:
       main:
         port: 7777
-        protocol: UDP
+        protocol: udp
         targetPort: 7777
   beaconport:
     enabled: true
@@ -44,7 +44,7 @@ service:
       beaconport:
         enabled: true
         port: 15000
-        protocol: UDP
+        protocol: udp
         targetPort: 15000
   udp:
     enabled: true
@@ -52,7 +52,7 @@ service:
       udp:
         enabled: true
         port: 27015
-        protocol: UDP
+        protocol: udp
         targetPort: 27015
 
 persistence:

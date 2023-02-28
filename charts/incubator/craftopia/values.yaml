@@ -25,7 +25,7 @@ service:
     ports:
       main:
         port: 8787
-        protocol: TCP
+        protocol: tcp
         targetPort: 8787
   udpgameport:
     enabled: true
@@ -33,7 +33,7 @@ service:
       udpgameport:
         enabled: true
         port: 8787
-        protocol: UDP
+        protocol: udp
         targetPort: 8787
 
 persistence:

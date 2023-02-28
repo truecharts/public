@@ -29,7 +29,7 @@ service:
     ports:
       main:
         port: 10265
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
 
 netbox:
@@ -250,7 +250,7 @@ persistence:
   configfile:
     enabled: true
     type: secret
-    objectName: '{{ include "tc.common.names.fullname" . }}-secret'
+    objectName: '{{ include "tc.v1.common.names.fullname" . }}-secret'
     mountPath: /etc/netbox/config/01-config.py
     subPath: config.py
 

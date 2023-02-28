@@ -38,7 +38,7 @@ service:
     ports:
       main:
         port: 9996
-        protocol: HTTP
+        protocol: http
 
 persistence:
   music:
@@ -49,7 +49,7 @@ persistence:
     type: secret
     readOnly: true
     defaultMode: "0600"
-    objectName: '{{ include "tc.common.names.fullname" . }}-secret'
+    objectName: '{{ include "tc.v1.common.names.fullname" . }}-secret'
     mountPath: /root/.euterpe/config.json
     subPath: config.json
 

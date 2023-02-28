@@ -22,7 +22,7 @@ service:
     ports:
       main:
         port: 9200
-        protocol: TCP
+        protocol: tcp
         targetPort: 9200
 
 portal:

@@ -16,7 +16,7 @@ service:
     ports:
       main:
         port: 9001
-        protocol: HTTP
+        protocol: http
         targetPort: 9001
   sub:
     enabled: true
@@ -24,7 +24,7 @@ service:
       sub:
         enabled: true
         port: 1044
-        protocol: TCP
+        protocol: tcp
         targetPort: 1044
   api:
     enabled: true
@@ -32,7 +32,7 @@ service:
       api:
         enabled: true
         port: 5001
-        protocol: TCP
+        protocol: tcp
         targetPort: 5001
 
 persistence:

@@ -33,7 +33,7 @@ service:
     ports:
       main:
         port: 3000
-        protocol: HTTP
+        protocol: http
         targetPort: 3000
   port2:
     enabled: true
@@ -41,7 +41,7 @@ service:
       port2:
         enabled: true
         port: 3001
-        protocol: TCP
+        protocol: tcp
         targetPort: 3001
 
 portal:

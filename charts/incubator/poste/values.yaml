@@ -20,7 +20,7 @@ service:
       containerhttps:
         enabled: true
         port: 443
-        protocol: TCP
+        protocol: tcp
         targetPort: 443
   containerimaps:
     enabled: true
@@ -28,7 +28,7 @@ service:
       containerimaps:
         enabled: true
         port: 993
-        protocol: TCP
+        protocol: tcp
         targetPort: 993
   containermsa:
     enabled: true
@@ -36,7 +36,7 @@ service:
       containermsa:
         enabled: true
         port: 587
-        protocol: TCP
+        protocol: tcp
         targetPort: 587
   containerpop3s:
     enabled: true
@@ -44,7 +44,7 @@ service:
       containerpop3s:
         enabled: true
         port: 995
-        protocol: TCP
+        protocol: tcp
         targetPort: 995
   containersmtps:
     enabled: true
@@ -52,7 +52,7 @@ service:
       containersmtps:
         enabled: true
         port: 465
-        protocol: TCP
+        protocol: tcp
         targetPort: 465
   externalsievef:
     enabled: true
@@ -60,7 +60,7 @@ service:
       externalsievef:
         enabled: true
         port: 4190
-        protocol: TCP
+        protocol: tcp
         targetPort: 4190
   imap:
     enabled: true
@@ -68,13 +68,13 @@ service:
       imap:
         enabled: true
         port: 143
-        protocol: TCP
+        protocol: tcp
         targetPort: 143
   main:
     ports:
       main:
         port: 8280
-        protocol: HTTP
+        protocol: http
         targetPort: 80
   pop3port:
     enabled: true
@@ -82,7 +82,7 @@ service:
       pop3port:
         enabled: true
         port: 110
-        protocol: TCP
+        protocol: tcp
         targetPort: 110
   port25:
     enabled: true
@@ -90,7 +90,7 @@ service:
       port25:
         enabled: true
         port: 25
-        protocol: TCP
+        protocol: tcp
         targetPort: 25
 
 portal:

@@ -30,7 +30,7 @@ service:
     ports:
       main:
         port: 8765
-        protocol: HTTPS
+        protocol: https
         targetPort: 443
 
 persistence:

@@ -34,7 +34,7 @@ service:
     ports:
       main:
         port: 10027
-        protocol: UDP
+        protocol: udp
         targetPort: 10027
   queryport:
     enabled: true
@@ -42,7 +42,7 @@ service:
       queryport:
         enabled: true
         port: 10037
-        protocol: UDP
+        protocol: udp
         targetPort: 10037
 
 persistence:

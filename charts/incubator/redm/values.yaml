@@ -24,7 +24,7 @@ service:
     ports:
       main:
         port: 9016
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
   tcp1:
     enabled: true
@@ -32,7 +32,7 @@ service:
       tcp1:
         enabled: true
         port: 30110
-        protocol: TCP
+        protocol: tcp
         targetPort: 30110
   tcp2:
     enabled: true
@@ -40,7 +40,7 @@ service:
       tcp2:
         enabled: true
         port: 30120
-        protocol: TCP
+        protocol: tcp
         targetPort: 30120
   udp1:
     enabled: true
@@ -48,7 +48,7 @@ service:
       udp1:
         enabled: true
         port: 30110
-        protocol: UDP
+        protocol: udp
         targetPort: 30110
   udp2:
     enabled: true
@@ -56,7 +56,7 @@ service:
       udp2:
         enabled: true
         port: 30120
-        protocol: UDP
+        protocol: udp
         targetPort: 30120
 
 portal:

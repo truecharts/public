@@ -448,7 +448,7 @@ service:
     ports:
       main:
         port: 10500
-        protocol: HTTP
+        protocol: http
         targetPort: 5000
   rtmp:
     enabled: true
@@ -481,7 +481,7 @@ persistence:
     enabled: true
     mountPath: /config
     type: configMap
-    objectName: '{{ template "tc.common.names.fullname" . }}-frigate-config'
+    objectName: '{{ template "tc.v1.common.names.fullname" . }}-frigate-config'
     items:
       - key: config.yml
         path: config.yml

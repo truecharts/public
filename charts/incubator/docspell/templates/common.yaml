@@ -1,5 +1,5 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secret */}}
 {{- include "docspell.secret" . }}
@@ -10,4 +10,4 @@
 {{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

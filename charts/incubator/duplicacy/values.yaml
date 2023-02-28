@@ -16,7 +16,7 @@ service:
     ports:
       main:
         port: 3875
-        protocol: HTTP
+        protocol: http
         targetPort: 3875
 
 persistence:

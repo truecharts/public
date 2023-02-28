@@ -33,7 +33,7 @@ service:
     ports:
       main:
         port: 27015
-        protocol: UDP
+        protocol: udp
         targetPort: 27015
   steamqueryport:
     enabled: true
@@ -41,7 +41,7 @@ service:
       steamqueryport:
         enabled: true
         port: 27016
-        protocol: UDP
+        protocol: udp
         targetPort: 27016
 
 persistence:

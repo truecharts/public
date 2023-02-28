@@ -52,7 +52,7 @@ service:
   main:
     ports:
       main:
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
         port: 10248
 
@@ -73,7 +73,7 @@ persistence:
     mountPath: "/srv/cfg"
     volumeSpec:
       secret:
-        secretName: '{{ include "tc.common.names.fullname" . }}-secret'
+        secretName: '{{ include "tc.v1.common.names.fullname" . }}-secret'
   conf-php:
     enabled: true
     type: "custom"
@@ -82,7 +82,7 @@ persistence:
     subPath: "sizelimits-php.ini"
     volumeSpec:
       configMap:
-        name: '{{ include "tc.common.names.fullname" . }}-config'
+        name: '{{ include "tc.v1.common.names.fullname" . }}-config'
   conf-nginx:
     enabled: true
     type: "custom"
@@ -91,7 +91,7 @@ persistence:
     subPath: "sizelimits-nginx.conf"
     volumeSpec:
       configMap:
-        name: '{{ include "tc.common.names.fullname" . }}-config'
+        name: '{{ include "tc.v1.common.names.fullname" . }}-config'
 
 postgresql:
   enabled: true

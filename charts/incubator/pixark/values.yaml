@@ -40,7 +40,7 @@ service:
     ports:
       main:
         port: 27015
-        protocol: UDP
+        protocol: udp
         targetPort: 27015
   cubeport:
     enabled: true
@@ -48,7 +48,7 @@ service:
       cubeport:
         enabled: true
         port: 27018
-        protocol: UDP
+        protocol: udp
         targetPort: 27018
   queryport:
     enabled: true
@@ -56,7 +56,7 @@ service:
       queryport:
         enabled: true
         port: 27016
-        protocol: UDP
+        protocol: udp
         targetPort: 27016
 
 persistence:

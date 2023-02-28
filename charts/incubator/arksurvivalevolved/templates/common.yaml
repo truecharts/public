@@ -1,5 +1,5 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{- if ne (int .Values.service.udp2.ports.udp2.port) (add1 (int .Values.service.main.ports.main.port)) -}}
   {{- fail (printf "In the service udp2, the port for udp2 must be greater by 1 than the main service's port. You have to set it to <%s>." (add1 .Values.service.main.ports.main.port)) }}
@@ -13,4 +13,4 @@
 {{- include "ark.secret" . }}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

@@ -15,7 +15,7 @@ service:
     ports:
       main:
         port: 23389
-        protocol: HTTP
+        protocol: http
         targetPort: 3389
   tcpport1:
     enabled: true
@@ -23,7 +23,7 @@ service:
       tcpport1:
         enabled: true
         port: 6080
-        protocol: TCP
+        protocol: tcp
         targetPort: 6080
   tcpport2:
     enabled: true
@@ -31,7 +31,7 @@ service:
       tcpport2:
         enabled: true
         port: 5900
-        protocol: TCP
+        protocol: tcp
         targetPort: 5900
 
 persistence:

@@ -84,7 +84,7 @@ service:
     ports:
       main:
         port: 10294
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
   mux-udp:
     enabled: true
@@ -92,7 +92,7 @@ service:
       mux-udp:
         enabled: true
         port: 52100
-        protocol: UDP
+        protocol: udp
         targetPort: 52100
   mux-tcp:
     enabled: true
@@ -100,7 +100,7 @@ service:
       mux-tcp:
         enabled: true
         port: 52100
-        protocol: TCP
+        protocol: tcp
         targetPort: 52100
 
 portal:

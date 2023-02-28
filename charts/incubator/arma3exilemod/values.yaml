@@ -29,7 +29,7 @@ service:
     ports:
       main:
         port: 2302
-        protocol: TCP
+        protocol: tcp
         targetPort: 2302
   tcpmariadb:
     enabled: true
@@ -37,7 +37,7 @@ service:
       tcpmariadb:
         enabled: true
         port: 3306
-        protocol: TCP
+        protocol: tcp
         targetPort: 3306
   udpbattleyetra:
     enabled: true
@@ -45,7 +45,7 @@ service:
       udpbattleyetra:
         enabled: true
         port: 2306
-        protocol: UDP
+        protocol: udp
         targetPort: 2306
   udpgameport:
     enabled: true
@@ -53,7 +53,7 @@ service:
       udpgameport:
         enabled: true
         port: 2302
-        protocol: UDP
+        protocol: udp
         targetPort: 2302
   udpsteammaster:
     enabled: true
@@ -61,7 +61,7 @@ service:
       udpsteammaster:
         enabled: true
         port: 2304
-        protocol: UDP
+        protocol: udp
         targetPort: 2304
   udpsteamquerry:
     enabled: true
@@ -69,7 +69,7 @@ service:
       udpsteamquerry:
         enabled: true
         port: 2303
-        protocol: UDP
+        protocol: udp
         targetPort: 2303
   udpvonport:
     enabled: true
@@ -77,7 +77,7 @@ service:
       udpvonport:
         enabled: true
         port: 2305
-        protocol: UDP
+        protocol: udp
         targetPort: 2305
 
 persistence:

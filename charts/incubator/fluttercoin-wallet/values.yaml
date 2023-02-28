@@ -25,13 +25,13 @@ service:
       jsonremoteport:
         enabled: true
         port: 7474
-        protocol: TCP
+        protocol: tcp
         targetPort: 7474
   main:
     ports:
       main:
         port: 8080
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
   peertopeerconn:
     enabled: true
@@ -39,7 +39,7 @@ service:
       peertopeerconn:
         enabled: true
         port: 7408
-        protocol: TCP
+        protocol: tcp
         targetPort: 7408
 
 portal:

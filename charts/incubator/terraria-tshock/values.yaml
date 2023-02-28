@@ -31,14 +31,14 @@ persistence:
 
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
+      name: '{{ include "tc.v1.common.names.fullname" . }}-secret'
 
 service:
   main:
     ports:
       main:
         port: 9014
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
   tcp:
     enabled: true

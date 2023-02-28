@@ -23,7 +23,7 @@ service:
 
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-config'
+      name: '{{ include "tc.v1.common.names.fullname" . }}-config'
 
 env:
   INTERVAL_MINUTES: 30

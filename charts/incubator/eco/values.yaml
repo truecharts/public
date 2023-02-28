@@ -26,7 +26,7 @@ service:
     ports:
       main:
         port: 3001
-        protocol: HTTP
+        protocol: http
         targetPort: 3001
   udpgameport:
     enabled: true
@@ -34,7 +34,7 @@ service:
       udpgameport:
         enabled: true
         port: 3000
-        protocol: UDP
+        protocol: udp
         targetPort: 3000
 
 persistence:

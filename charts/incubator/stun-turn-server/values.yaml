@@ -40,7 +40,7 @@ service:
     ports:
       main:
         port: 5349
-        protocol: TCP
+        protocol: tcp
         targetPort: 5349
   udpports:
     enabled: true
@@ -48,7 +48,7 @@ service:
       udpports:
         enabled: true
         port: 5349
-        protocol: UDP
+        protocol: udp
         targetPort: 5349
 
 portal:

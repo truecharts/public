@@ -20,13 +20,13 @@ service:
       localrpc:
         enabled: true
         port: 8332
-        protocol: TCP
+        protocol: tcp
         targetPort: 8332
   main:
     ports:
       main:
         port: 8333
-        protocol: TCP
+        protocol: tcp
         targetPort: 8333
 
 portal:

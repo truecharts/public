@@ -20,7 +20,7 @@ jenkins:
 
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
+      name: '{{ include "tc.v1.common.names.fullname" . }}-secret'
 
 probes:
   liveness:
@@ -37,7 +37,7 @@ service:
   main:
     ports:
       main:
-        protocol: HTTP
+        protocol: http
         port: 10280
   agent:
     enabled: true

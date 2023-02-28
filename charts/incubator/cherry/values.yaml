@@ -13,9 +13,9 @@ securityContext:
 
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-cherry-secret'
+      name: '{{ include "tc.v1.common.names.fullname" . }}-cherry-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-cherry-configmap'
+      name: '{{ include "tc.v1.common.names.fullname" . }}-cherry-configmap'
 
 cherry:
   insecure_cookie: true
@@ -41,7 +41,7 @@ service:
     ports:
       main:
         port: 10303
-        protocol: HTTP
+        protocol: http
         targetPort: 8000
 
 persistence:

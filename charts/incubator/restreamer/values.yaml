@@ -25,9 +25,9 @@ securityContext:
 
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-restreamer-secret'
+      name: '{{ include "tc.v1.common.names.fullname" . }}-restreamer-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-restreamer-configmap'
+      name: '{{ include "tc.v1.common.names.fullname" . }}-restreamer-configmap'
 
 restreamer:
   general:
@@ -115,34 +115,34 @@ service:
     ports:
       main:
         port: 8080
-        protocol: HTTP
+        protocol: http
   https:
     enabled: true
     ports:
       https:
         enabled: true
-        protocol: HTTPS
+        protocol: https
         port: 8081
   rtmp:
     enabled: true
     ports:
       rtmp:
         enabled: true
-        protocol: TCP
+        protocol: tcp
         port: 1935
   rtmps:
     enabled: true
     ports:
       rtmps:
         enabled: true
-        protocol: TCP
+        protocol: tcp
         port: 1936
   srt:
     enabled: true
     ports:
       srt:
         enabled: true
-        protocol: UDP
+        protocol: udp
         port: 6000
 
 ingress:

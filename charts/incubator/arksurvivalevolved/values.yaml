@@ -32,7 +32,7 @@ ark:
 
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
+      name: '{{ include "tc.v1.common.names.fullname" . }}-secret'
 
 probes:
   liveness:
@@ -47,7 +47,7 @@ service:
     ports:
       main:
         port: 7777
-        protocol: UDP
+        protocol: udp
   udp2:
     enabled: true
     ports:
@@ -55,21 +55,21 @@ service:
         enabled: true
         # This should always be main +1
         port: 7778
-        protocol: UDP
+        protocol: udp
   udpsteam:
     enabled: true
     ports:
       udpsteam:
         enabled: true
         port: 27015
-        protocol: UDP
+        protocol: udp
   rcontcp:
     enabled: true
     ports:
       rcontcp:
         enabled: true
         port: 27020
-        protocol: TCP
+        protocol: tcp
 
 persistence:
   serverfiles:

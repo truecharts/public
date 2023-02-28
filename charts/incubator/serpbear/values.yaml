@@ -12,13 +12,13 @@ serpbear:
 
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-env-secret'
+      name: '{{ include "tc.v1.common.names.fullname" . }}-env-secret'
 
 service:
   main:
     ports:
       main:
-        protocol: HTTP
+        protocol: http
         targetPort: 3000
         port: 10605
 
