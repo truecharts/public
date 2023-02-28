@@ -6,7 +6,7 @@ image:
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: 1.23.3@sha256:abd9cd302669a960ef7533d4b84778c35d21a62bd2df76a5d4d0395383e40a16
+  tag: 1.23.3@sha256:ed53beb90e3550017807bf762b3c2c10d72e3399d28847b7505fd43d0bd3f039
 
 imaginaryImage:
   repository: h2non/imaginary
@@ -345,10 +345,10 @@ configmap:
                     fastcgi_intercept_errors on;
                     fastcgi_request_buffering off;
 
-                    proxy_send_timeout 300s;
-                    proxy_read_timeout 300s;
-                    fastcgi_send_timeout 300s;
-                    fastcgi_read_timeout 300s;
+                    proxy_send_timeout 3600s;
+                    proxy_read_timeout 3600s;
+                    fastcgi_send_timeout 3600s;
+                    fastcgi_read_timeout 3600s;
                 }
 
                 location ~ \.(?:css|js|svg|gif)$ {

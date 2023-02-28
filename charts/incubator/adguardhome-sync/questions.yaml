@@ -9,29 +9,152 @@ questions:
 # Include{replica1}
 # Include{controllerExpertExtraArgs}
   - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
+    group: App Configuration
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: CONFIGFILE
-          label: "CONFIGFILE"
-          description: "Set a custom config file."
+        - variable: original
+          label: Original Server Settings
+          schema:
+            type: boolean
+            default: true
+            show_subquestions_if: true
+            subquestions:
+              - variable: ORIGIN_URL
+                label: Origin Url
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: ORIGIN_USERNAME
+                label: Origin Username
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: ORIGIN_PASSWORD
+                label: Origin Password
+                schema:
+                  type: string
+                  required: true
+                  private: true
+                  default: ""
+        - variable: replica
+          label: Replica Server Settings
+          schema:
+            type: boolean
+            default: true
+            show_subquestions_if: true
+            subquestions:
+              - variable: REPLICA_URL
+                label: Replica Url
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: REPLICA_USERNAME
+                label: Replica Username
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: REPLICA_PASSWORD
+                label: Replica Password
+                schema:
+                  type: string
+                  required: true
+                  private: true
+                  default: ""
+              - variable: REPLICA_AUTOSETUP
+                label: Replica Auto Setup
+                schema:
+                  type: boolean
+                  default: false
+              - variable: REPLICA_INTERFACENAME
+                label: Replica Interface Name
+                schema:
+                  type: string
+                  default: ""
+        - variable: CRON
+          label: CRON
+          description: Set a cron task.
           schema:
             type: string
-            default: ""
-        - variable: UMASK
-          label: "UMASK"
-          description: "Container Variable UMASK"
+            default: "*/10 * * * *"
+        - variable: RUNONSTART
+          label: Run On Start
           schema:
-            type: string
-            default: ""
+            type: boolean
+            default: true
+        - variable: sync
+          label: Sync Features Settings
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: FEATURES_GENERALSETTINGS
+                label: Features General Settings
+                schema:
+                  type: boolean
+                  default: true
+              - variable: FEATURES_QUERYLOGCONFIG
+                label: Features Query Log Config
+                schema:
+                  type: boolean
+                  default: true
+              - variable: FEATURES_STATSCONFIG
+                label: Features Stats Config
+                schema:
+                  type: boolean
+                  default: true
+              - variable: FEATURES_CLIENTSETTINGS
+                label: Features Clients Settings
+                schema:
+                  type: boolean
+                  default: true
+              - variable: FEATURES_SERVICES
+                label: Features Services
+                schema:
+                  type: boolean
+                  default: true
+              - variable: FEATURES_FILTERS
+                label: Features Filters
+                schema:
+                  type: boolean
+                  default: true
+              - variable: FEATURES_DHCP_SERVERCONFIG
+                label: Features DHCP Server Config
+                schema:
+                  type: boolean
+                  default: true
+              - variable: FEATURES_DHCP_STATICLEASES
+                label: Features DHCP Static Leases
+                schema:
+                  type: boolean
+                  default: true
+              - variable: FEATURES_DNS_SERVERCONFIG
+                label: Features DNS Server Config
+                schema:
+                  type: boolean
+                  default: true
+              - variable: FEATURES_DNS_ACCESSLISTS
+                label: Features DNS Access Lists
+                schema:
+                  type: boolean
+                  default: true
+              - variable: FEATURES_DNS_REWRITES
+                label: Features DNS Rewrites
+                schema:
+                  type: boolean
+                  default: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -39,14 +162,14 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 8080
@@ -55,19 +178,10 @@ questions:
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-# Include{persistenceRoot}
-        - variable: config
-          label: "config Storage"
-          description: "Contains all relevant configuration files."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -79,41 +193,41 @@ questions:
 # Include{security}
 # Include{securityContextAdvancedRoot}
               - variable: privileged
-                label: "Privileged mode"
+                label: Privileged mode
                 schema:
                   type: boolean
                   default: false
               - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                label: ReadOnly Root Filesystem
                 schema:
                   type: boolean
                   default: false
               - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                label: Allow Privilege Escalation
                 schema:
                   type: boolean
                   default: false
               - variable: runAsNonRoot
-                label: "runAsNonRoot"
+                label: runAsNonRoot
                 schema:
                   type: boolean
                   default: false
 # Include{podSecurityContextRoot}
         - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
+          label: runAsUser
+          description: The UserID of the user running the application
           schema:
             type: int
             default: 0
         - variable: runAsGroup
-          label: "runAsGroup"
-          description: The groupID this App of the user running the application"
+          label: runAsGroup
+          description: The groupID this App of the user running the application
           schema:
             type: int
             default: 0
         - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
+          label: fsGroup
+          description: The group that should own ALL storage.
           schema:
             type: int
             default: 568

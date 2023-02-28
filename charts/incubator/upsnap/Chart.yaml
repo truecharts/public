@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: "3.0.6"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 11.1.2
+deprecated: false
+description: A simple wake on lan app written with SvelteKit, Go, PocketBase and nmap.
+home: https://truecharts.org/charts/incubator/upsnap
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/upsnap.png
+keywords:
+  - upsnap
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: upsnap
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/upsnap
+  - https://ghcr.io/seriousm4x/upsnap
+  - https://github.com/seriousm4x/UpSnap
+type: application
+version: 0.0.2
+annotations:
+  truecharts.org/catagories: |
+    - networking
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

@@ -12,6 +12,6 @@ jobs:
         uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
         with:
           fetch-depth: 0
-      - uses: actions/delete-package-versions@a31a43afa6c2d3afdf8b5f1e311b2dc75585932e # tag=v3
+      - uses: actions/delete-package-versions@ba4d22f25141387e5ab82cfec079de6d2df96815 # v4
         with:
           min-versions-to-keep: 200

@@ -1,23 +1,57 @@
 image:
   repository: tccr.io/truecharts/minecraft-java
-  tag: 2022.16.0@sha256:4383ccf13cc03c19b5dad37d2fbadff9e37dac0b62275f555e55c8a071db6a32
+  tag: 2023.1.0@sha256:6d68d2efe1d1f947535d6da262a21817b1bc1e127024f03677ebd6b218c57bdf
+  pullPolicy: Always
+j19Image:
+  repository: tccr.io/truecharts/minecraft-java19
+  tag: latest@sha256:912fadcab8e17dd6f4254e16f4c6de9eed68e23cafd35274d6ce9ade735bc334
+  pullPolicy: Always
+j17j9Image:
+  repository: tccr.io/truecharts/minecraft-java17-openj9
+  tag: 2023.1.0@sha256:a8bba5dce3d92c4646c3a9c4c2028161e0ec11b65fa52c240f71fa417ebeec20
+  pullPolicy: Always
+j17jdkImage:
+  repository: tccr.io/truecharts/minecraft-java17-jdk
+  tag: 2023.1.0@sha256:b4553d1f71ab9a2a5fcdb3ad34c80f8ff8d2d26aaba989079d07fe3f0884323a
+  pullPolicy: Always
+j17gceImage:
+  repository: tccr.io/truecharts/minecraft-java17-graalvm-ce
+  tag: latest@sha256:33a60248da06c40c6181afa3dd1a588bd07e4550ce2288577fa035fae6b4335e
+  pullPolicy: Always
+j17alpineImage:
+  repository: tccr.io/truecharts/minecraft-java17-alpine
+  tag: 2023.1.0@sha256:a13dc809a104863ec4974f7ace1e771611806ceb4aa8d88858c6685d24fa83cc
   pullPolicy: Always
 j11Image:
   repository: tccr.io/truecharts/minecraft-java11
-  tag: latest@sha256:28fb64a84a0a0813087ea72a0d2d654c90d266912c78d304e9e794a1d0edc725
+  tag: latest@sha256:74c172718f2a78f7752414b8b3fb98229895de15634ebfbcd9b77b1d762c1447
+  pullPolicy: Always
+j11jdkImage:
+  repository: tccr.io/truecharts/minecraft-java11-jdk
+  tag: 2023.1.0@sha256:b7c9c91dd3732396478000e715c11972a133c7676d8074745be0073cd587a692
   pullPolicy: Always
 j11j9Image:
   repository: tccr.io/truecharts/minecraft-java11-openj9
-  tag: latest@sha256:248ecbdca94efa8ab7c0b0437a0b59ba82ca9dabe6cd1f90a8cbd43319f15b82
+  tag: 2023.1.0@sha256:5808303bac04bb2c287f321f1ee6674f7ee93e6ef1fcc45113b25408dcec9747
   pullPolicy: Always
 j8Image:
-  repository: tccr.io/truecharts/minecraft-java8-openj9
-  tag: latest@sha256:0bcfe112fb60a2e33a71f7a86c4dfd7d95e6f6a611f133601f9f757ba13b8178
+  repository: tccr.io/truecharts/minecraft-java8
+  tag: latest@sha256:b452f19dd1ad52fe4538cf99a0887bc17415104d67da8cdbcb817c3717ebb11a
+  pullPolicy: Always
+j8gceImage:
+  repository: tccr.io/truecharts/minecraft-java8-graalvm-ce
+  tag: latest@sha256:1705933c0632654b24937409517efe9c94175ba38ef148fc140befee6088b0d5
+  pullPolicy: Always
+j8jdkImage:
+  repository: tccr.io/truecharts/minecraft-java8-jdk
+  tag: 2023.1.0@sha256:198e8f0c0adb6b8713a73f1d3769dc59d8b9d398c493f154844fd4f50c993ab4
   pullPolicy: Always
 j8j9Image:
   repository: tccr.io/truecharts/minecraft-java8-openj9
-  tag: latest@sha256:0bcfe112fb60a2e33a71f7a86c4dfd7d95e6f6a611f133601f9f757ba13b8178
+  tag: 2023.1.0@sha256:c0d6473a7d23fb5cd6fd4776c4d3346c8266a217ada91362b87029f63e677cb4
   pullPolicy: Always
+
+imageSelector: image
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -40,12 +74,36 @@ service:
         port: 25575
         targetPort: 25575
 
+probes:
+  liveness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - mc-health
+  readiness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - mc-health
+  startup:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - mc-health
+
 secretEnv:
   RCON_PASSWORD: "secretrconpass"
 
 env:
   SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
   EULA: "TRUE"
+  GUI: "FALSE"
   OVERRIDE_SERVER_PROPERTIES: true
   VERSION: "LATEST"
   TYPE: "VANILLA"
@@ -111,6 +169,8 @@ env:
   # WORLD: ""
   # FORCE_REDOWNLOAD: false
   # USE_FLARE_FLAGS: false
+  # USE_AIKAR_FLAGS: true
+  # USE_SIMD_FLAGS: false
   # JVM_OPTS: ""
   # JVM_XX_OPTS: ""
 
