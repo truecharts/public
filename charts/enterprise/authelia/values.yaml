@@ -19,12 +19,12 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-# Enabled postgres
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: authelia
-  postgresqlDatabase: authelia
+
+cnpg:
+  main:
+    enabled: true
+    username: authelia
+    database: authelia
 
 # Enabled redis
 # ... for more options see https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/redis
