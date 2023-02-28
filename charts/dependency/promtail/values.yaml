@@ -67,7 +67,7 @@ persistence:
   config:
     enabled: true
     type: secret
-    objectName: '{{ include "tc.common.names.fullname" . }}-config'
+    objectName: '{{ include "tc.v1.common.names.fullname" . }}-config'
     mountPath: /etc/promtail
 
 # -- Whether Role Based Access Control objects like roles and rolebindings should be created

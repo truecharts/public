@@ -114,11 +114,11 @@ env:
   MONGODB_DATABASE: "{{ .Values.mongodbDatabase }}"
   MONGODB_PASSWORD:
     secretKeyRef:
-      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
+      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.v1.common.names.fullname" . ) ) }}'
       key: "mongodb-password"
   MONGODB_ROOT_PASSWORD:
     secretKeyRef:
-      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
+      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.v1.common.names.fullname" . ) ) }}'
       key: "mongodb-root-password"
 
 portal:

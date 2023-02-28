@@ -26,7 +26,7 @@ service:
     ports:
       main:
         port: 8123
-        protocol: HTTP
+        protocol: http
         targetPort: 8123
 
 volumeClaimTemplates:
@@ -63,7 +63,7 @@ env:
   CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: "{{ .Values.clickhouseDefaultAccessManagement }}"
   CLICKHOUSE_PASSWORD:
     secretKeyRef:
-      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
+      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.v1.common.names.fullname" . ) ) }}'
       key: "clickhouse-password"
 
 portal:

@@ -115,7 +115,7 @@ env:
   REDIS_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
   REDIS_PASSWORD:
     secretKeyRef:
-      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
+      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.v1.common.names.fullname" . ) ) }}'
       key: "redis-password"
 
 redisPassword: "testpass"
@@ -203,7 +203,7 @@ persistence:
     volumeSpec:
       configMap:
         defaultMode: 0755
-        name: '{{ include "tc.common.names.fullname" . }}-health'
+        name: '{{ include "tc.v1.common.names.fullname" . }}-health'
 
 portal:
   enabled: false
