@@ -16,7 +16,7 @@
 
 {{/* Define path for websocket */}}
 {{- define "vaultwarden.websocket" -}}
-{{- $fullname := include "tc.v1.common.names.fullname" . -}}
+{{- $fullname := include "tc.v1.common.lib.chart.names.fullname" . -}}
 path: "/notifications/hub"
 # -- Ignored if not kubeVersion >= 1.14-0
 pathType: Prefix

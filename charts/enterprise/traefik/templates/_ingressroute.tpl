@@ -5,7 +5,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: {{ include "tc.common.names.fullname" . }}-dashboard
+  name: {{ include "tc.v1.common.lib.chart.names.fullname" . }}-dashboard
   annotations:
   {{- with .Values.ingressRoute.dashboard.annotations }}
   {{- toYaml . | nindent 4 }}

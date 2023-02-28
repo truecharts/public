@@ -13,7 +13,7 @@
 {{- end -}}
 
 {{/* Render secrets for authelia */}}
-{{- $secret := include "authelia.secret" . | fromYaml -}}
+{{- $secret := include "authelia.secrets" . | fromYaml -}}
 {{- if $secret -}}
   {{- $_ := set .Values.secret "authelia-secrets" $secret -}}
 {{- end -}}

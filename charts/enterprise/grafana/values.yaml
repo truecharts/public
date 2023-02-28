@@ -20,19 +20,19 @@ workload:
     podSpec:
       containers:
         main:
+          env:
+            GF_SECURITY_ADMIN_USER: "admin"
+            GF_SECURITY_ADMIN_PASSWORD: "testpassword"
+            GF_INSTALL_PLUGINS: ""
+            GF_PATHS_PLUGINS: "/opt/bitnami/grafana/data/plugins"
+            GF_AUTH_LDAP_ENABLED: "false"
+            GF_AUTH_LDAP_CONFIG_FILE: "/opt/bitnami/grafana/conf/ldap.toml"
+            GF_AUTH_LDAP_ALLOW_SIGN_UP: "false"
+            GF_PATHS_PROVISIONING: "/opt/bitnami/grafana/conf/provisioning"
+            GF_PATHS_CONFIG: "/opt/bitnami/grafana/conf/grafana.ini"
+            GF_PATHS_DATA: "/opt/bitnami/grafana/data"
+            GF_PATHS_LOGS: "/opt/bitnami/grafana/logs"
           probes:
-            env:
-              GF_SECURITY_ADMIN_USER: "admin"
-              GF_SECURITY_ADMIN_PASSWORD: "testpassword"
-              GF_INSTALL_PLUGINS: ""
-              GF_PATHS_PLUGINS: "/opt/bitnami/grafana/data/plugins"
-              GF_AUTH_LDAP_ENABLED: "false"
-              GF_AUTH_LDAP_CONFIG_FILE: "/opt/bitnami/grafana/conf/ldap.toml"
-              GF_AUTH_LDAP_ALLOW_SIGN_UP: "false"
-              GF_PATHS_PROVISIONING: "/opt/bitnami/grafana/conf/provisioning"
-              GF_PATHS_CONFIG: "/opt/bitnami/grafana/conf/grafana.ini"
-              GF_PATHS_DATA: "/opt/bitnami/grafana/data"
-              GF_PATHS_LOGS: "/opt/bitnami/grafana/logs"
             liveness:
               path: "/api/health"
 

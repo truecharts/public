@@ -51,7 +51,7 @@ items:
 
 {{/* Define path for api */}}
 {{- define "blocky.api" -}}
-{{- $fullname := include "tc.v1.common.names.fullname" . -}}
+{{- $fullname := include "tc.v1.common.lib.chart.names.fullname" . -}}
 path: "/api"
 # -- Ignored if not kubeVersion >= 1.14-0
 pathType: Prefix
@@ -78,7 +78,7 @@ service:
 
 {{/* Define path for DoH */}}
 {{- define "blocky.doh" -}}
-{{- $fullname := include "tc.v1.common.names.fullname" . -}}
+{{- $fullname := include "tc.v1.common.lib.chart.names.fullname" . -}}
 path: "/dns-query"
 # -- Ignored if not kubeVersion >= 1.14-0
 pathType: Prefix
