@@ -1,18 +1,10 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
-{{- if .Values.metrics }}
-{{- if .Values.metrics.prometheus }}
-{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
-{{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
-{{- $_ := set .Values.podAnnotations "prometheus.io/port" "9180" -}}
-{{- end }}
-{{- end }}
-
 {{- $newArgs :=  (include "traefik.args" . | fromYaml) }}
 {{- $_ := set .Values "newArgs" $newArgs -}}
-{{- $mergedargs := concat .Values.args .Values.newArgs.args }}
-{{- $_ := set .Values "args" $mergedargs -}}
+{{- $mergedargs := concat .Values.workload.main.podSpec.container.main.args .Values.newArgs.args }}
+{{- $_ := set .Values.workload.main.podSpec.container.main "args" $mergedargs -}}
 
 {{- include "traefik.portalhook" . }}
 {{- include "traefik.tlsOptions" . }}
