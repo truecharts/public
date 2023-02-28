@@ -82,7 +82,7 @@ questions:
                 description: Configure how authentik should show avatars for users
                 schema:
                   type: string
-                  default: gravatar
+                  default: gravatar,initials
               - variable: token_length
                 label: Token Length
                 description: Configure the length of generated tokens

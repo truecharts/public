@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/guacamole-client
   pullPolicy: IfNotPresent
-  tag: v1.4.0@sha256:ee47f0bfa10658683f46cd08316dac56dfb78a0a71a579db0efecd59466adfee
+  tag: v1.5.0@sha256:d4903a81d902753a8ca5f7ff2ac76ed620002b530fff45be3ac335cb8d58d1ad
 
 podSecurityContext:
   runAsUser: 1001
@@ -178,16 +178,10 @@ probes:
 persistence:
   initdbdata:
     enabled: true
+    type: emptyDir
     mountPath: "/initdbdata"
-  # Both temphack and temphackalso will be removed on the next image release
-  temphack:
-    enabled: true
-    mountPath: "/opt/guacamole/postgresql-hack"
-  temphackalso:
-    enabled: true
-    mountPath: "/opt/guacamole/postgresql"
 
-initContainers:
+installContainers:
   1-creat-initdb-file:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
@@ -244,69 +238,6 @@ initContainers:
             echo "DB's schema failed to initialize."
             exit 1
           fi
-        fi
-
-    # Until they release an image with the updated driver, we need to manually replace it.
-    # https://issues.apache.org/jira/browse/GUACAMOLE-1433
-    # https://github.com/apache/guacamole-client/pull/655
-    # Both 3-temp-hach and 4-temp-hack will be removed on the next image release
-  3-temp-hack:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    securityContext:
-      runAsUser: 1001
-      runAsGroup: 1001
-    volumeMounts:
-      - name: temphack
-        mountPath: "/opt/guacamole/postgresql-hack"
-    command: ["/bin/sh", "-c"]
-    args:
-      - |-
-        echo "Checking postgresql driver version..."
-        if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ]; then
-          echo "Version found is correct."
-          exit 0
-        else
-          echo "Old version found. Will try to download a known-to-work version."
-          echo "Downloading (postgresql-42.2.24.jre7.jar)..."
-          curl -L "https://jdbc.postgresql.org/download/postgresql-42.2.24.jre7.jar" >"/opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar"
-          if [ -e /opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar ]; then
-            echo "Downloaded successfully!"
-            cp -r /opt/guacamole/postgresql/* /opt/guacamole/postgresql-hack/
-            if [ -e /opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar ]; then
-              echo "Removing old version... (postgresql-9.4-1201.jdbc41.jar)"
-              rm "/opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar"
-              if [ $? -eq 0 ]; then
-                echo "Removed successfully!"
-              else
-                echo "Failed to remove."
-                exit 1
-              fi
-            fi
-          else
-            echo "Failed to download."
-            exit 1
-          fi
-        fi
-
-  4-temp-hack:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    securityContext:
-      runAsUser: 1001
-      runAsGroup: 1001
-    volumeMounts:
-      - name: temphack
-        mountPath: "/opt/guacamole/postgresql-hack"
-      - name: temphackalso
-        mountPath: "/opt/guacamole/postgresql"
-    command: ["/bin/sh", "-c"]
-    args:
-      - |-
-        echo "Copying postgres driver into the final destination."
-        cp -r /opt/guacamole/postgresql-hack/* /opt/guacamole/postgresql/
-        if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ]; then
-          echo "Driver copied successfully!"
-        else
-          echo "Failed to copy the driver"
         fi
 
 portal:
