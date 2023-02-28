@@ -1,17 +1,31 @@
 image:
   repository: tccr.io/truecharts/radarr
   pullPolicy: IfNotPresent
-  tag: 4.3.2.6857@sha256:acf777d014d869d93a6a5a53dde62f05f185c5f2f2089c37ee2ed687eefd16cc
+  tag: 4.3.2.6857@sha256:b51ca8472ed45f8979ef4bf86608449d620a7b698c718bbfc57dfbe20af8033a
 
 securityContext:
   readOnlyRootFilesystem: false
+
+env:
+  RADARR__PORT: "{{ .Values.service.main.ports.main.port }}"
+  RADARR__AUTHENTICATION_METHOD: ""
+  RADARR__POSTGRES_PORT: 5432
+  RADARR__POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  RADARR__POSTGRES_MAIN_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
+  RADARR__POSTGRES_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  RADARR__POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
 
 service:
   main:
     ports:
       main:
         port: 7878
-        targetPort: 7878
 
 probes:
   liveness:
@@ -37,7 +51,13 @@ probes:
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
+
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlDatabase: radarr
+  postgresqlUsername: radarr
 
 portal:
   enabled: true
