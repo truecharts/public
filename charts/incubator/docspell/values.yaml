@@ -536,7 +536,7 @@ persistence:
     mountPath: /import
 postgresql:
   enabled: true
-  existingSecret: dbcreds
+  existingSecret: "dbcreds"
   postgresqlUsername: docspell
   postgresqlDatabase: docspell
 

@@ -43,7 +43,7 @@ service:
 
 postgresql:
   enabled: true
-  existingSecret: dbcreds
+  existingSecret: "dbcreds"
   postgresqlUsername: midarr
   postgresqlDatabase: midarr
 

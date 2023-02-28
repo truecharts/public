@@ -8,7 +8,7 @@ env:
   LENPASTE_DB_DRIVER: postgres
   LENPASTE_DB_SOURCE:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: urlnossl
   # User Defined
   LENPASTE_ADMIN_NAME: admin
@@ -33,7 +33,7 @@ persistence:
 
 postgresql:
   enabled: true
-  existingSecret: dbcreds
+  existingSecret: "dbcreds"
   postgresqlUsername: lenpaste
   postgresqlDatabase: lenpaste
 

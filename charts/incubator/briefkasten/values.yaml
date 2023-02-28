@@ -58,7 +58,7 @@ probes:
 
 postgresql:
   enabled: true
-  existingSecret: dbcreds
+  existingSecret: "dbcreds"
   postgresqlUsername: briefkasten
   postgresqlDatabase: briefkasten
 

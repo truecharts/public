@@ -33,7 +33,7 @@ env:
   DATABASE_TYPE: postgresql
   DATABASE_URL:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: url
   FORCE_SSL: '{{ ternary "1" "0" .Values.umami.force_ssl }}'
   HOSTNAME: "{{ .Values.umami.hostname }}"

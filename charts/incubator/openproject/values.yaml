@@ -18,7 +18,7 @@ env:
       key: SECRET_KEY_BASE
   DATABASE_URL:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: url-noql
 
 persistence:
