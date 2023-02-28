@@ -84,7 +84,7 @@ service:
     ports:
       main:
         port: 10315
-        protocol: HTTP
+        protocol: http
         targetPort: 80
   dnstcp:
     enabled: true
@@ -99,7 +99,7 @@ service:
       dnsudp:
         enabled: true
         port: 53
-        protocol: UDP
+        protocol: udp
         targetPort: 53
   dot:
     enabled: true
@@ -107,7 +107,7 @@ service:
       dot:
         enabled: true
         port: 853
-        protocol: TCP
+        protocol: tcp
         targetPort: 853
   http:
     enabled: true
@@ -115,7 +115,7 @@ service:
       http:
         enabled: true
         port: 4000
-        protocol: HTTP
+        protocol: http
         targetPort: 4000
   https:
     enabled: true
@@ -123,7 +123,7 @@ service:
       https:
         enabled: true
         port: 4443
-        protocol: HTTPS
+        protocol: https
         targetPort: 4443
   k8sgateway:
     enabled: true
@@ -131,7 +131,7 @@ service:
       k8sgateway:
         enabled: true
         port: 5353
-        protocol: UDP
+        protocol: udp
         targetPort: 5353
 
 ## TODO Add support for SCALE certificates and certificates secrets here

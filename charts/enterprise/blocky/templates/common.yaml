@@ -1,5 +1,5 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{ include "blocky.configmap" . }}
 
@@ -12,7 +12,7 @@ subPath: config.yml
 readOnly: true
 volumeSpec:
   configMap:
-    name: '{{ printf "%s-config" (include "tc.common.names.fullname" .) }}'
+    name: '{{ printf "%s-config" (include "tc.v1.common.names.fullname" .) }}'
 {{- end -}}
 
 {{/* Append the general configMap volume to the volumes */}}
@@ -23,7 +23,7 @@ readOnly: true
 type: "custom"
 volumeSpec:
   configMap:
-    name: {{ include "tc.common.names.fullname" . }}-corefile
+    name: {{ include "tc.v1.common.names.fullname" . }}-corefile
     items:
     - key: Corefile
       path: Corefile
@@ -47,7 +47,7 @@ volumeSpec:
 
 {{/* Define path for api */}}
 {{- define "blocky.api" -}}
-{{- $fullname := include "tc.common.names.fullname" . -}}
+{{- $fullname := include "tc.v1.common.names.fullname" . -}}
 path: "/api"
 # -- Ignored if not kubeVersion >= 1.14-0
 pathType: Prefix
@@ -74,7 +74,7 @@ service:
 
 {{/* Define path for DoH */}}
 {{- define "blocky.doh" -}}
-{{- $fullname := include "tc.common.names.fullname" . -}}
+{{- $fullname := include "tc.v1.common.names.fullname" . -}}
 path: "/dns-query"
 # -- Ignored if not kubeVersion >= 1.14-0
 pathType: Prefix
@@ -103,4 +103,4 @@ service:
 {{- include "blocky.prometheusrule" . -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

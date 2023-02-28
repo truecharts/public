@@ -25,7 +25,7 @@ service:
       main:
         port: 10086
         targetPort: 9090
-        protocol: HTTP
+        protocol: http
   alertmanager:
     enabled: true
     selector:
@@ -36,7 +36,7 @@ service:
         enabled: true
         port: 10087
         targetPort: 9093
-        protocol: HTTP
+        protocol: http
   thanos:
     enabled: true
     selector:
@@ -47,7 +47,7 @@ service:
         enabled: true
         port: 10901
         targetPort: 10901
-        protocol: HTTP
+        protocol: http
 
 ingress:
   main:
@@ -812,7 +812,7 @@ prometheus:
       ##   - name: http
       ##     port: 10902
       ##     targetPort: http
-      ##     protocol: TCP
+      ##     protocol: tcp
       ##
       extraPorts: []
   ## @param prometheus.portName Port name used for the pods and governing service. This defaults to web
