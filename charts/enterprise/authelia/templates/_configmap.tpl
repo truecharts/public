@@ -1,10 +1,6 @@
 {{/* Define the configmap */}}
-{{- define "authelia.configmap" -}}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: authelia-paths
+{{- define "authelia.configmap.paths" -}}
+enabled: true
 data:
   AUTHELIA_SERVER_DISABLE_HEALTHCHECK: "true"
   AUTHELIA_JWT_SECRET_FILE: "/secrets/JWT_TOKEN"
@@ -29,12 +25,10 @@ data:
   AUTHELIA_IDENTITY_PROVIDERS_OIDC_ISSUER_PRIVATE_KEY_FILE: "/secrets/OIDC_PRIVATE_KEY"
   {{- end }}
 
----
+{{- end -}}
 
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: authelia-configfile
+{{- define "authelia.configmap.configfile" -}}
+enabled: true
 data:
   configuration.yaml: |
     ---

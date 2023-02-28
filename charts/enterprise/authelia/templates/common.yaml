@@ -2,10 +2,21 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render configmap for authelia */}}
-{{- include "authelia.configmap" . }}
+{{- $configmapPaths := include "authelia.configmap.paths" . | fromYaml -}}
+{{- if $configmapPaths -}}
+  {{- $_ := set .Values.configmap "authelia-paths" $configmapPaths -}}
+{{- end -}}
+
+{{- $configmapFile := include "authelia.configmap.configfile" . | fromYaml -}}
+{{- if $configmapFile -}}
+  {{- $_ := set .Values.configmap "authelia-configfile" $configmapFile -}}
+{{- end -}}
 
 {{/* Render secrets for authelia */}}
-{{- include "authelia.secrets" . }}
+{{- $secret := include "authelia.secret" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "authelia-secrets" $secret -}}
+{{- end -}}
 
 {{/* Append the general configMap volume to the volumes */}}
 {{- define "authelia.configmapVolume" -}}
@@ -13,10 +24,9 @@ enabled: "true"
 mountPath: " /configuration.yaml"
 readOnly: true
 subPath: configuration.yaml
-type: "custom"
-volumeSpec:
-  configMap:
-    name: authelia-configfile
+type: "configmap"
+objectName: authelia-configfile
+  items:
     items:
     - key: configuration.yaml
       path: configuration.yaml
@@ -27,11 +37,9 @@ volumeSpec:
 enabled: "true"
 mountPath: "/secrets"
 readOnly: true
-type: "custom"
-volumeSpec:
-  secret:
-    secretName: authelia-secrets
-    items:
+type: "secret"
+objectName: authelia-secrets
+  items:
     - key: "JWT_TOKEN"
       path: JWT_TOKEN
     - key: "SESSION_ENCRYPTION_KEY"

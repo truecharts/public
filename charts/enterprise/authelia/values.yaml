@@ -3,10 +3,28 @@ image:
   pullPolicy: IfNotPresent
   tag: 4.37.5@sha256:76a4617539534cec140fd98a12f721b878524f2df3a3653f3df8ff2b7eaab586
 
-command: ["authelia"]
-args: ["--config=/configuration.yaml"]
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          command: ["authelia"]
+          args: ["--config=/configuration.yaml"]
+          envFrom:
+            - configMapRef:
+                name: authelia-paths
+          # probes:
+          #   liveness:
+          #     type: HTTP
+          #     path: /api/health"
 
-enableServiceLinks: false
+          #   readiness:
+          #     type: HTTP
+          #     path: "/api/health"
+
+          #   startup:
+          #     type: HTTP
+          #     path: "/api/health"
 
 service:
   main:
@@ -31,33 +49,6 @@ cnpg:
 redis:
   enabled: true
   existingSecret: "rediscreds"
-
-resources:
-  limits: {}
-  # limits:
-  #   cpu: "4.00"
-  #   memory: 125Mi
-  requests: {}
-  # requests:
-  #   cpu: "0.25"
-  #   memory: 50Mi
-
-envFrom:
-  - configMapRef:
-      name: authelia-paths
-
-# probes:
-#   liveness:
-#     type: HTTP
-#     path: /api/health"
-
-#   readiness:
-#     type: HTTP
-#     path: "/api/health"
-
-#   startup:
-#     type: HTTP
-#     path: "/api/health"
 
 domain: example.com
 

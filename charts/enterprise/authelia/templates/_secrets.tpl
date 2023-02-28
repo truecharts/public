@@ -1,18 +1,12 @@
 {{/* Define the secrets */}}
 {{- define "authelia.secrets" -}}
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: authelia-secrets
 {{- $autheliaprevious := lookup "v1" "Secret" .Release.Namespace "authelia-secrets" }}
 {{- $oidckey := "" }}
 {{- $oidcsecret := "" }}
 {{- $jwtsecret := "" }}
 {{- $sessionsecret := "" }}
 {{- $encryptionkey := "" }}
+enabled: true
 data:
   {{- if $autheliaprevious }}
   SESSION_ENCRYPTION_KEY: {{ index $autheliaprevious.data "SESSION_ENCRYPTION_KEY"  }}
@@ -62,6 +56,4 @@ data:
   OIDC_HMAC_SECRET: {{ $oidcsecret | b64enc }}
   {{- end }}
   {{- end }}
-
-
 {{- end -}}
