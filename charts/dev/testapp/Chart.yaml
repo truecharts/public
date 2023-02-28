@@ -1,0 +1,32 @@
+apiVersion: v2
+appVersion: "0.20.2297"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.0
+deprecated: false
+description: testing app for truecharts
+home: https://truecharts.org/charts/stable/jackett
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/jackett.png
+keywords:
+  - jackett
+  - torrent
+  - usenet
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: testapp
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/jackett
+  - https://ghcr.io/onedr0p/jackett
+  - https://github.com/Jackett/Jackett
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - media
+    - test
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

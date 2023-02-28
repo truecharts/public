@@ -3,6 +3,8 @@ groups:
     description: Image to be used for container
   - name: General Settings
     description: General Deployment Settings
+  - name: Workload Settings
+    description: Workload Settings
   - name: App Configuration
     description: App Specific Config Options
   - name: Networking and Services
@@ -19,11 +21,11 @@ groups:
     description: Traefik Middlewares
   - name: Metrics
     description: Metrics
-  - name: VPN
-    description: VPN
   - name: Addons
     description: Addon Configuration
   - name: Advanced
     description: Advanced Configuration
+  - name: Postgresql
+    description: Postgresql
   - name: Documentation
     description: Documentation
