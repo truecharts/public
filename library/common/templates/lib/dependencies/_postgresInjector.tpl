@@ -52,6 +52,6 @@ type: Opaque
 {{- define "tc.v1.common.dependencies.postgresql.injector" -}}
   {{- $secret := include "tc.v1.common.dependencies.postgresql.secret" . | fromYaml -}}
   {{- if $secret -}}
-    {{- $_ := set .Values.secret "postgresqlcreds" $secret -}}
+    {{- $_ := set .Values.secret "dbcreds" $secret -}}
   {{- end -}}
 {{- end -}}
