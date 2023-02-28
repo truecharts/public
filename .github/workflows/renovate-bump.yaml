@@ -43,15 +43,15 @@ jobs:
                 return
               fi
               echo "Comparing versions for ${chart}"
-              main=$(cat ./main/charts/${chart}/Chart.yaml | grep "^version")
-              current=$(cat ./charts/${chart}/Chart.yaml | grep "^version")
+              main=$(cat ./main/library/${chart}/Chart.yaml | grep "^version")
+              current=$(cat ./library/${chart}/Chart.yaml | grep "^version")
               echo "main version: ${main}"
               echo "current version: ${current}"
               if [[ "${main}" != "${current}" ]]; then
                 echo "Version does not have to be bumped"
               else
                 echo "Bumping patch version for ${chart}"
-                ./tools/bump.sh patch ./charts/${chart}
+                ./tools/bump.sh patch ./library/${chart}
               fi
             done
       - name: Cleanup
