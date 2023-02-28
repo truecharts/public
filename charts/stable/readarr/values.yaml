@@ -1,17 +1,31 @@
 image:
   repository: tccr.io/truecharts/readarr
   pullPolicy: IfNotPresent
-  tag: 0.1.4.1596@sha256:31ec42eddeff7af9919ef5312289c74eace114b7fa532cf6040afaf54e3b5c98
+  tag: v0.1.4.1596@sha256:8228fb87ef5626392c481849a7f8d089e7ae16afc148da54e7ef0a1bd4669483
 
 securityContext:
   readOnlyRootFilesystem: false
+
+env:
+  READARR__PORT: "{{ .Values.service.main.ports.main.port }}"
+  READARR__AUTHENTICATION_METHOD: ""
+  READARR__POSTGRES_PORT: 5432
+  READARR__POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  READARR__POSTGRES_MAIN_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
+  READARR__POSTGRES_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  READARR__POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
 
 service:
   main:
     ports:
       main:
         port: 8787
-        targetPort: 8787
 
 probes:
   liveness:
@@ -37,7 +51,13 @@ probes:
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
+
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlDatabase: readarr
+  postgresqlUsername: readarr
 
 portal:
   enabled: true
