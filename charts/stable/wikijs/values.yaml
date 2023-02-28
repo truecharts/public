@@ -5,16 +5,16 @@ image:
 
 env:
   DB_TYPE: "postgres"
-  DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
-  DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_NAME: "{{ .Values.cnpg.database }}"
+  DB_USER: "{{ .Values.cnpg.user }}"
   DB_PORT: "5432"
   DB_PASS:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: postgresql-password
   DB_HOST:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: plainhost
 
 probes:

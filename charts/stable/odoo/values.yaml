@@ -4,15 +4,15 @@ image:
   tag: v15.0@sha256:f7d2ab13cf5214ddfbc09d5322bd61ad064a877edbec1620579392838a0a44d7
 
 env:
-  USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  USER: "{{ .Values.cnpg.user }}"
   PORT: 5432
   PASSWORD:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: postgresql-password
   HOST:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: plainhost
 
 service:

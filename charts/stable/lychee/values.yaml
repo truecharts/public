@@ -38,8 +38,8 @@ env:
   PHP_TZ: "{{ .Values.TZ }}"
   DB_CONNECTION: "pgsql"
   DB_PORT: "5432"
-  DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
-  DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_DATABASE: "{{ .Values.cnpg.database }}"
+  DB_USERNAME: "{{ .Values.cnpg.user }}"
   REDIS_PORT: "6379"
   CACHE_DRIVER: "redis"
   SESSION_DRIVER: "redis"
@@ -53,11 +53,11 @@ env:
   APP_URL: http://localhost
   DB_PASSWORD:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: postgresql-password
   DB_HOST:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: plainhost
   REDIS_HOST:
     secretKeyRef:

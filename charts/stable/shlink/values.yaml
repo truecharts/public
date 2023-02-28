@@ -33,15 +33,15 @@ env:
   IS_HTTPS_ENABLED: true
   PORT: "{{ .Values.service.main.ports.main.port }}"
   DB_DRIVER: "postgres"
-  DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DB_USER: "{{ .Values.cnpg.user }}"
+  DB_NAME: "{{ .Values.cnpg.database }}"
   DB_PASSWORD:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: postgresql-password
   DB_HOST:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: plainhost
   REDIS_SERVERS:
     secretKeyRef:

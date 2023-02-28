@@ -13,7 +13,7 @@ env:
   PHOTOVIEW_DISABLE_RAW_PROCESSING: false
   PHOTOVIEW_POSTGRES_URL:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: url
 
 service:

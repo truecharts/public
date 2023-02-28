@@ -45,11 +45,11 @@ env:
   MAIL_SECURE: true
   DB_HOST:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: plainhost
   DB_PASSWORD:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: postgresql-password
   REDIS_HOST:
     secretKeyRef:

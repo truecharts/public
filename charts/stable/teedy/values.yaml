@@ -13,14 +13,14 @@ env:
   DOCS_BASE_URL: ""
   DOCS_SMTP_HOSTNAME: ""
   DOCS_SMTP_PORT: 0
-  DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  DATABASE_USER: "{{ .Values.cnpg.user }}"
   DATABASE_PASSWORD:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: postgresql-password
   DATABASE_URL:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: jdbc
 
 service:

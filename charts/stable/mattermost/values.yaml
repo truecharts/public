@@ -10,7 +10,7 @@ env:
   MM_SERVICESETTINGS_SITEURL: "https://test.example.com"
   MM_SQLSETTINGS_DATASOURCE:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: urlnossl
 
 service:

@@ -13,18 +13,18 @@ podSecurityContext:
 
 env:
   WEBLATE_TIME_ZONE: "{{ .Values.TZ }}"
-  POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  POSTGRES_USER: "{{ .Values.cnpg.user }}"
+  POSTGRES_DATABASE: "{{ .Values.cnpg.database }}"
   POSTGRES_PORT: 5432
   REDIS_PORT: 6379
   REDIS_DB: "0"
   POSTGRES_PASSWORD:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: postgresql-password
   POSTGRES_HOST:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: plainhost
   REDIS_HOST:
     secretKeyRef:

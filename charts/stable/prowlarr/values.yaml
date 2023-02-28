@@ -10,15 +10,15 @@ env:
   PROWLARR__PORT: "{{ .Values.service.main.ports.main.port }}"
   PROWLARR__AUTHENTICATION_METHOD: ""
   PROWLARR__POSTGRES_PORT: 5432
-  PROWLARR__POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  PROWLARR__POSTGRES_MAIN_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
+  PROWLARR__POSTGRES_USER: "{{ .Values.cnpg.user }}"
+  PROWLARR__POSTGRES_MAIN_DB: "{{ .Values.cnpg.database }}"
   PROWLARR__POSTGRES_HOST:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: plainhost
   PROWLARR__POSTGRES_PASSWORD:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: postgresql-password
 
 service:
@@ -34,7 +34,7 @@ persistence:
 
 postgresql:
   enabled: true
-  existingSecret: dbcreds
+  existingSecret: "dbcreds"
   postgresqlDatabase: prowlarr
   postgresqlUsername: prowlarr
 

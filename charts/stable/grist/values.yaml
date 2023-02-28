@@ -67,7 +67,7 @@ persistence:
 
 postgresql:
   enabled: true
-  existingSecret: dbcreds
+  existingSecret: "dbcreds"
   postgresqlUsername: grist
   postgresqlDatabase: grist
 

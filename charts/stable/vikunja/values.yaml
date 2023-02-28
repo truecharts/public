@@ -213,7 +213,7 @@ metrics:
 
 postgresql:
   enabled: true
-  existingSecret: dbcreds
+  existingSecret: "dbcreds"
   postgresqlUsername: vikunja
   postgresqlDatabase: vikunja
 

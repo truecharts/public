@@ -4,8 +4,8 @@ image:
   tag: 5.0.4@sha256:d1c1d5d4560e9165491d7691f3b0f617536b4b6fda2896d38d67e87cd81c71a7
 
 env:
-  REDMINE_DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
-  REDMINE_DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+  REDMINE_DB_DATABASE: "{{ .Values.cnpg.database }}"
+  REDMINE_DB_USERNAME: "{{ .Values.cnpg.user }}"
   REDMINE_DB_PORT: "5432"
 
   # Anything but empty means true, empty means false
@@ -13,11 +13,11 @@ env:
   REDMINE_PLUGINS_MIGRATE: '{{ ternary "true" "" .Values.redmine.plugins_migrate }}'
   REDMINE_DB_PASSWORD:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: postgresql-password
   REDMINE_DB_POSTGRES:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: plainhost
   REDMINE_SECRET_KEY_BASE:
     secretKeyRef:

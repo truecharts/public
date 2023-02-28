@@ -17,14 +17,14 @@ env:
   JAVA_OPTS:
   CONTEXT_PATH: "/"
   spring_liquibase_parameters_userTableQuote: '"'
-  spring_datasource_username: "{{ .Values.postgresql.postgresqlUsername }}"
+  spring_datasource_username: "{{ .Values.cnpg.user }}"
   spring_datasource_url:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: jdbc
   spring_datasource_password:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: postgresql-password
 
 service:

@@ -12,8 +12,8 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
-  DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  DATABASE_NAME: "{{ .Values.cnpg.database }}"
+  DATABASE_USER: "{{ .Values.cnpg.user }}"
   DATABASE_PORT: "5432"
   REDIS_USER: "{{ .Values.redis.redisUsername }}"
   REDIS_PORT: "6379"
@@ -30,11 +30,11 @@ env:
   EMAIL_SMTP_PASSWORD: ""
   DATABASE_HOST:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: plainhost
   DATABASE_PASSWORD:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: postgresql-password
   REDIS_HOST:
     secretKeyRef:

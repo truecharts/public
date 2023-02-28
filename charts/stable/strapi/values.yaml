@@ -20,15 +20,15 @@ env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
   DATABASE_CLIENT: postgres
   DATABASE_PORT: 5432
-  DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DATABASE_NAME: "{{ .Values.cnpg.database }}"
   DATABASE_HOST:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: plainhost
-  DATABASE_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+  DATABASE_USERNAME: "{{ .Values.cnpg.user }}"
   DATABASE_PASSWORD:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: postgresql-password
   # STRAPI_LICENSE
   # PUBLIC_URL
@@ -51,7 +51,7 @@ persistence:
 # Enabled postgres
 postgresql:
   enabled: true
-  existingSecret: dbcreds
+  existingSecret: "dbcreds"
   postgresqlUsername: strapi
   postgresqlDatabase: strapi
 

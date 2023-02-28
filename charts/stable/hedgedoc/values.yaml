@@ -8,19 +8,19 @@ env:
   CMD_PORT: "{{ .Values.service.main.ports.main.port }}"
   CMD_DB_PORT: "5432"
   CMD_DB_DIALECT: "postgres"
-  CMD_DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
-  CMD_DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  CMD_DB_USERNAME: "{{ .Values.cnpg.user }}"
+  CMD_DB_DATABASE: "{{ .Values.cnpg.database }}"
   CMD_SESSION_SECRET:
     secretKeyRef:
       name: hedgedoc-secrets
       key: CMD_SESSION_SECRET
   CMD_DB_HOST:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: plainhost
   CMD_DB_PASSWORD:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: postgresql-password
   # User Defined
   CMD_FORBIDDEN_NOTE_IDS: "robots.txt, favicon.ico, api, build, css, docs, fonts, js, uploads, vendor, views"

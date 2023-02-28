@@ -102,7 +102,7 @@ probes:
 
 postgresql:
   enabled: true
-  existingSecret: dbcreds
+  existingSecret: "dbcreds"
   postgresqlUsername: plausible
   postgresqlDatabase: plausible
 

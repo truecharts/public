@@ -14,15 +14,15 @@ podSecurityContext:
 env:
   DB_CONNECTION: pgsql
   DB_PORT: 5432
-  DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
-  DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_DATABASE: "{{ .Values.cnpg.database }}"
+  DB_USERNAME: "{{ .Values.cnpg.user }}"
   DB_HOST:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: plainhost
   DB_PASSWORD:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: postgresql-password
 
 service:
@@ -40,7 +40,7 @@ persistence:
 
 postgresql:
   enabled: true
-  existingSecret: dbcreds
+  existingSecret: "dbcreds"
   postgresqlDatabase: speedtest_tracker
   postgresqlUsername: speedtest_tracker
 

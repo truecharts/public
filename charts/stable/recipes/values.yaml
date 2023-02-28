@@ -56,16 +56,16 @@ env:
   SHOPPING_MIN_AUTOSYNC_INTERVAL: 5
   TIMEZONE: "{{ .Values.TZ }}"
   DB_ENGINE: "django.db.backends.postgresql"
-  POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
-  POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  POSTGRES_DB: "{{ .Values.cnpg.database }}"
+  POSTGRES_USER: "{{ .Values.cnpg.user }}"
   POSTGRES_PORT: "5432"
   POSTGRES_PASSWORD:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: postgresql-password
   POSTGRES_HOST:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: plainhost
   SECRET_KEY:
     secretKeyRef:

@@ -62,7 +62,7 @@ env:
 
   DATABASE_URL:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: url-noql
   REDIS_URL:
     secretKeyRef:
@@ -111,7 +111,7 @@ initContainers:
       - name: DATABASE_URL
         valueFrom:
           secretKeyRef:
-            name: dbcreds
+            name: cnpg-main-urls
             key: url-noql
       - name: REDIS_URL
         valueFrom:

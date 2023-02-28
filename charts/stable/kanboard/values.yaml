@@ -15,16 +15,16 @@ env:
   MAIL_CONFIGURATION: false
   LOG_DRIVER: stdout
   DB_DRIVER: "postgres"
-  DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
-  DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_NAME: "{{ .Values.cnpg.database }}"
+  DB_USERNAME: "{{ .Values.cnpg.user }}"
   DB_PORT: "5432"
   DB_PASSWORD:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: postgresql-password
   DB_HOSTNAME:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: plainhost
 
 service:

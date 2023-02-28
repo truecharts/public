@@ -12,17 +12,17 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DB_USER: "{{ .Values.cnpg.user }}"
+  DB_DATABASE: "{{ .Values.cnpg.database }}"
   # User Defined
   JAVA_OPTS: ""
   DB_HOST:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: plainhost
   DB_PASSWORD:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: postgresql-password
 
 service:

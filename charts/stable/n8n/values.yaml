@@ -14,18 +14,18 @@ podSecurityContext:
 env:
   GENERIC_TIMEZONE: "{{ .Values.TZ }}"
   DB_TYPE: "postgresdb"
-  DB_POSTGRESDB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  DB_POSTGRESDB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DB_POSTGRESDB_USER: "{{ .Values.cnpg.user }}"
+  DB_POSTGRESDB_DATABASE: "{{ .Values.cnpg.database }}"
   DB_POSTGRESDB_PORT: 5432
   QUEUE_BULL_REDIS_PORT: 6379
   N8N_USER_FOLDER: "/data"
   DB_POSTGRESDB_HOST:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: plainhost
   DB_POSTGRESDB_PASSWORD:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: postgresql-password
   QUEUE_BULL_REDIS_HOST:
     secretKeyRef:

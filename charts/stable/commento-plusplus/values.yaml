@@ -19,7 +19,7 @@ env:
   COMMENTO_SMTP_PORT: 587
   COMMENTO_POSTGRES:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: urlnossl
 
 service:

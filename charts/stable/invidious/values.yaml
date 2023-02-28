@@ -126,7 +126,7 @@ probes:
 
 postgresql:
   enabled: true
-  existingSecret: dbcreds
+  existingSecret: "dbcreds"
   postgresqlDatabase: invidious
   # DB User cannot be changed
   # hardcoded from upstream

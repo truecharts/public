@@ -15,16 +15,16 @@ env:
   APP_BASE_URL: http://localhost:22300
   APP_PORT: 22300
   DB_CLIENT: "pg"
-  POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
-  POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  POSTGRES_DATABASE: "{{ .Values.cnpg.database }}"
+  POSTGRES_USER: "{{ .Values.cnpg.user }}"
   POSTGRES_PORT: "5432"
   POSTGRES_PASSWORD:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: postgresql-password
   POSTGRES_HOST:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: plainhost
   MAILER_ENABLED: 0
   MAILER_HOST: ""

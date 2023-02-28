@@ -13,7 +13,7 @@ env:
   CREATE_ADMIN: 1
   DATABASE_URL:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: urlnossl
 
 service:

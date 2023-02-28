@@ -256,7 +256,7 @@ persistence:
 
 postgresql:
   enabled: true
-  existingSecret: dbcreds
+  existingSecret: "dbcreds"
   postgresqlUsername: netbox
   postgresqlDatabase: netbox
 

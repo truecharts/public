@@ -11,16 +11,16 @@ env:
   SPOTWEB_RETRIEVE: "15min"
   DB_ENGINE: "pdo_pgsql"
   DB_PORT: "5432"
-  DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
-  DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_DATABASE: "{{ .Values.cnpg.database }}"
+  DB_USER: "{{ .Values.cnpg.user }}"
   DB_SCHEMA: "public"
   DB_PASSWORD:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: postgresql-password
   DB_HOST:
     secretKeyRef:
-      name: dbcreds
+      name: cnpg-main-urls
       key: plainhost
 
 secretEnv:
