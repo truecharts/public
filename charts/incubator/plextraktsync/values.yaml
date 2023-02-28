@@ -39,7 +39,8 @@ persistence:
     mountPath: /app/config
 
 portal:
-  enabled: false
+  open:
+    enabled: false
 
 cronjob:
   annotations: {}

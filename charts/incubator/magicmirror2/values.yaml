@@ -52,4 +52,5 @@ persistence:
     objectName: '{{ printf "%s-magicmirror-config" (include "tc.v1.common.names.fullname" .) }}'
 
 portal:
-  enabled: true
+  open:
+    enabled: true
