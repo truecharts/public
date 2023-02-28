@@ -1,0 +1,4 @@
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.init" . }}
+{{ include "tc.promtail.servicemonitor" . }}
+{{ include "tc.v1.common.loader.apply" . }}
