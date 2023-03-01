@@ -36,7 +36,7 @@
     {{- $dbPass := "" }}
     {{- $dbprevious := lookup "v1" "Secret" $.Release.Namespace ( printf "%s-user" $cnpgValues.name ) }}
     {{- if $dbprevious }}
-      {{- $dbPass = ( index $dbprevious.data "user-password" ) | b64dec  }}
+      {{- $dbPass = ( index $dbprevious.data "password" ) }}
     {{- else if and $.Values.postgresql.enabled $olddbprevious1 $.Release.IsUpgrade }}
       {{- $dbPass = ( index $olddbprevious1.data "postgresql-password" ) | b64dec  }}
     {{- else if and $.Values.postgresql.enabled $olddbprevious2 $.Release.IsUpgrade }}
@@ -48,7 +48,7 @@
     {{- $pgPass := "" }}
     {{- $pgprevious := lookup "v1" "Secret" $.Release.Namespace ( printf "%s-superuser" $cnpgValues.name ) }}
     {{- if $pgprevious }}
-      {{- $pgPass = ( index $dbprevious.data "superuser-password" ) | b64dec  }}
+      {{- $pgPass = ( index $pgprevious.data "password" ) }}
     {{- else if and $.Values.postgresql.enabled $olddbprevious1 $.Release.IsUpgrade }}
       {{- $pgPass = ( index $olddbprevious1.data "postgresql-postgres-password" ) | b64dec  }}
     {{- else if and $.Values.postgresql.enabled $olddbprevious2 $.Release.IsUpgrade }}

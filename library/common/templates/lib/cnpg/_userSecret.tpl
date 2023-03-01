@@ -3,7 +3,7 @@
 {{- $values := .values -}}
 enabled: true
 type: kubernetes.io/basic-auth
-data:
-  username: {{ $values.user | b64enc | quote }}
-  password: {{ $dbPass | b64enc | quote }}
+stringData:
+  username: {{ $values.user }}
+  password: {{ $dbPass }}
 {{- end -}}
