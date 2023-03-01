@@ -3,26 +3,78 @@ image:
   pullPolicy: IfNotPresent
   tag: 6.0.4@sha256:3600c9f13d96311ddad4d2de6520d54c89a8708ee36798e4dc6fb93f59c1eab4
 
-controller:
-  # -- Set the controller type.
-  # Valid options are deployment, daemonset or statefulset
-  type: statefulset
-  # -- Number of desired pods
-  replicas: 1
-  # -- Set the controller upgrade strategy
-  # For Deployments, valid values are Recreate (default) and RollingUpdate.
-  # For StatefulSets, valid values are OnDelete and RollingUpdate (default).
-  # DaemonSets ignore this.
-  strategy: RollingUpdate
-  rollingUpdate:
-    # -- Set deployment RollingUpdate max unavailable
-    unavailable: 1
-    # -- Set deployment RollingUpdate max surge
-    surge:
-    # -- Set statefulset RollingUpdate partition
-    partition:
-  # -- ReplicaSet revision history limit
-  revisionHistoryLimit: 3
+workload:
+  main:
+    replicas: 1
+    type: StatefulSet
+    strategy: RollingUpdate
+    podSpec:
+      containers:
+        main:
+          env:
+            MONGODB_USERNAME: "{{ .Values.mongodbUsername }}"
+            MONGODB_DATABASE: "{{ .Values.mongodbDatabase }}"
+            MONGODB_PASSWORD:
+              secretKeyRef:
+                name: "credentials"
+                key: "mongodb-password"
+            MONGODB_ROOT_PASSWORD:
+              secretKeyRef:
+                name: "credentials"
+                key: "mongodb-root-password"
+          # -- Probe configuration
+          # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+          # @default -- See below
+          probes:
+            # -- Liveness probe configuration
+            # @default -- See below
+            liveness:
+              # -- Enable the liveness probe
+              enabled: true
+              # -- Set this to `true` if you wish to specify your own livenessProbe
+              custom: true
+              # -- The spec field contains the values for the default livenessProbe.
+              # If you selected `custom: true`, this field holds the definition of the livenessProbe.
+              # @default -- See below
+              spec:
+                exec:
+                  command:
+                    - /bin/bash
+                    - -ec
+                    - echo "db.runCommand(\"ping\")" | mongosh --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
+
+            # -- Redainess probe configuration
+            # @default -- See below
+            readiness:
+              # -- Enable the readiness probe
+              enabled: true
+              # -- Set this to `true` if you wish to specify your own readinessProbe
+              custom: true
+              # -- The spec field contains the values for the default readinessProbe.
+              # If you selected `custom: true`, this field holds the definition of the readinessProbe.
+              # @default -- See below
+              spec:
+                exec:
+                  command:
+                    - /bin/bash
+                    - -ec
+                    - echo "db.runCommand(\"ping\")" | mongosh --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
+
+            # -- Startup probe configuration
+            # @default -- See below
+            startup:
+              # -- Enable the startup probe
+              enabled: true
+              custom: true
+              # -- The spec field contains the values for the default livenessProbe.
+              # If you selected `custom: true`, this field holds the definition of the livenessProbe.
+              # @default -- See below
+              spec:
+                exec:
+                  command:
+                    - /bin/bash
+                    - -ec
+                    - echo "db.runCommand(\"ping\")" | mongosh --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
 
 service:
   main:
@@ -32,69 +84,14 @@ service:
         targetPort: 27017
 
 securityContext:
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsGroup: 0
+  container:
+    runAsGroup: 0
+    readOnlyRootFilesystem: false
 
 volumeClaimTemplates:
   data:
     enabled: true
     mountPath: "/bitnami/mongodb"
-
-# -- Probe configuration
-# -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
-# @default -- See below
-probes:
-  # -- Liveness probe configuration
-  # @default -- See below
-  liveness:
-    # -- Enable the liveness probe
-    enabled: true
-    # -- Set this to `true` if you wish to specify your own livenessProbe
-    custom: true
-    # -- The spec field contains the values for the default livenessProbe.
-    # If you selected `custom: true`, this field holds the definition of the livenessProbe.
-    # @default -- See below
-    spec:
-      exec:
-        command:
-          - /bin/bash
-          - -ec
-          - echo "db.runCommand(\"ping\")" | mongosh --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
-
-  # -- Redainess probe configuration
-  # @default -- See below
-  readiness:
-    # -- Enable the readiness probe
-    enabled: true
-    # -- Set this to `true` if you wish to specify your own readinessProbe
-    custom: true
-    # -- The spec field contains the values for the default readinessProbe.
-    # If you selected `custom: true`, this field holds the definition of the readinessProbe.
-    # @default -- See below
-    spec:
-      exec:
-        command:
-          - /bin/bash
-          - -ec
-          - echo "db.runCommand(\"ping\")" | mongosh --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
-
-  # -- Startup probe configuration
-  # @default -- See below
-  startup:
-    # -- Enable the startup probe
-    enabled: true
-    custom: true
-    # -- The spec field contains the values for the default livenessProbe.
-    # If you selected `custom: true`, this field holds the definition of the livenessProbe.
-    # @default -- See below
-    spec:
-      exec:
-        command:
-          - /bin/bash
-          - -ec
-          - echo "db.runCommand(\"ping\")" | mongosh --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
 
 mongodbPassword: "testpass"
 mongodbUsername: "test"
@@ -109,20 +106,9 @@ secret:
       mongodb-password: '{{ ( .Values.mongodbPassword | default "empty" ) }}'
       mongodb-root-password: '{{ ( .Values.mongodbRootPassword | default "empty" ) }}'
 
-env:
-  MONGODB_USERNAME: "{{ .Values.mongodbUsername }}"
-  MONGODB_DATABASE: "{{ .Values.mongodbDatabase }}"
-  MONGODB_PASSWORD:
-    secretKeyRef:
-      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
-      key: "mongodb-password"
-  MONGODB_ROOT_PASSWORD:
-    secretKeyRef:
-      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
-      key: "mongodb-root-password"
-
 portal:
-  enabled: false
+  open:
+    enabled: false
 
 manifests:
   enabled: false

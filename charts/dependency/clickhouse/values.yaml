@@ -3,47 +3,59 @@ image:
   pullPolicy: IfNotPresent
   tag: 23.2.1.2537@sha256:669278d98936a2d12bf8f331067afb6a34e5570fdcb37b854bb5d0b2d8f30108
 
-controller:
-  type: statefulset
-  strategy: RollingUpdate
-  rollingUpdate:
-    unavailable: 1
+workload:
+  main:
+    type: StatefulSet
+    replicas: 1
+    strategy: RollingUpdate
+    podSpec:
+      containers:
+        main:
+          env:
+            CLICKHOUSE_DB: "{{ .Values.clickhouseDatabase }}"
+            CLICKHOUSE_USER: "{{ .Values.clickhouseUsername }}"
+            CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: "{{ .Values.clickhouseDefaultAccessManagement }}"
+            CLICKHOUSE_PASSWORD:
+              secretKeyRef:
+                name: "credentials"
+                key: "clickhouse-password"
+
+          probes:
+            liveness:
+              type: http
+              path: /ping
+            readiness:
+              type: http
+              path: /ping
+            startup:
+              type: http
+              path: /ping
 
 securityContext:
-  readOnlyRootFilesystem: false
-  # Optional capabilities advanced ClickHouse features. See also:
-  # https://github.com/ClickHouse/ClickHouse/blob/master/docker/server/README.md#linux-capabilities
-  # https://kb.altinity.com/altinity-kb-setup-and-maintenance/altinity-kb-clickhouse-in-docker/
-  # https://github.com/ClickHouse/ClickHouse/blob/b844c36a9d5e76300a88b4f49e6debccf1ad22e4/programs/install/Install.cpp#L793-L804
-  # capabilities:
-  #   add:
-  #     - IPC_LOCK
-  #     - NET_ADMIN
-  #     - SYS_NICE
+  container:
+    readOnlyRootFilesystem: false
+    # Optional capabilities advanced ClickHouse features. See also:
+    # https://github.com/ClickHouse/ClickHouse/blob/master/docker/server/README.md#linux-capabilities
+    # https://kb.altinity.com/altinity-kb-setup-and-maintenance/altinity-kb-clickhouse-in-docker/
+    # https://github.com/ClickHouse/ClickHouse/blob/b844c36a9d5e76300a88b4f49e6debccf1ad22e4/programs/install/Install.cpp#L793-L804
+    # capabilities:
+    #   add:
+    #     - IPC_LOCK
+    #     - NET_ADMIN
+    #     - SYS_NICE
 
 service:
   main:
     ports:
       main:
         port: 8123
-        protocol: HTTP
+        protocol: http
         targetPort: 8123
 
 volumeClaimTemplates:
   data:
     enabled: true
     mountPath: /var/lib/clickhouse
-
-probes:
-  liveness:
-    type: HTTP
-    path: /ping
-  readiness:
-    type: HTTP
-    path: /ping
-  startup:
-    type: HTTP
-    path: /ping
 
 clickhouseDatabase: "test"
 clickhouseUsername: "test"
@@ -57,17 +69,9 @@ secret:
     data:
       clickhouse-password: '{{ ( .Values.clickhousePassword | default "empty" ) }}'
 
-env:
-  CLICKHOUSE_DB: "{{ .Values.clickhouseDatabase }}"
-  CLICKHOUSE_USER: "{{ .Values.clickhouseUsername }}"
-  CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: "{{ .Values.clickhouseDefaultAccessManagement }}"
-  CLICKHOUSE_PASSWORD:
-    secretKeyRef:
-      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
-      key: "clickhouse-password"
-
 portal:
-  enabled: false
+  open:
+    enabled: false
 
 manifests:
   enabled: false

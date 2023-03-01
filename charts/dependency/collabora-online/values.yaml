@@ -3,34 +3,29 @@ image:
   tag: 22.05.10.2.1@sha256:8d0f870dfb100c8b72e97a3b5729e420a52e92e8fbef6ef35e51abf65c8660c9
   pullPolicy: IfNotPresent
 
-controller:
-  # -- Set the controller type.
-  # Valid options are deployment, daemonset or statefulset
-  type: statefulset
-  # -- Number of desired pods
-  replicas: 1
-  # -- Set the controller upgrade strategy
-  # For Deployments, valid values are Recreate (default) and RollingUpdate.
-  # For StatefulSets, valid values are OnDelete and RollingUpdate (default).
-  # DaemonSets ignore this.
-  strategy: RollingUpdate
-  rollingUpdate:
-    # -- Set deployment RollingUpdate max unavailable
-    unavailable: 1
-    # -- Set deployment RollingUpdate max surge
-    surge:
-    # -- Set statefulset RollingUpdate partition
-    partition:
-  # -- ReplicaSet revision history limit
-  revisionHistoryLimit: 3
+workload:
+  main:
+    replicas: 1
+    type: StatefulSet
+    strategy: RollingUpdate
+    podSpec:
+      containers:
+        main:
+          env:
+            aliasgroup1: ""
+            dictionaries: "de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru"
+            extra_params: "--o:welcome.enable=false --o:logging.level=information --o:user_interface.mode=notebookbar --o:ssl.termination=true --o:ssl.enable=false "
+            server_name: "collabora.domain.tld"
+            DONT_GEN_SSL_CERT: true
+            username: ""
+            password: ""
 
 securityContext:
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-
-podSecurityContext:
-  runAsUser: 104
-  runAsGroup: 106
+  container:
+    readOnlyRootFilesystem: false
+    allowPrivilegeEscalation: true
+    runAsUser: 104
+    runAsGroup: 106
 
 service:
   main:
@@ -39,16 +34,6 @@ service:
         port: 10105
         targetPort: 9980
 
-secretEnv:
-  username: ""
-  password: ""
-
-env:
-  aliasgroup1: ""
-  dictionaries: "de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru"
-  extra_params: "--o:welcome.enable=false --o:logging.level=information --o:user_interface.mode=notebookbar --o:ssl.termination=true --o:ssl.enable=false "
-  server_name: "collabora.domain.tld"
-  DONT_GEN_SSL_CERT: true
-
 portal:
-  enabled: true
+  open:
+    enabled: true
