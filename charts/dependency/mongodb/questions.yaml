@@ -97,11 +97,11 @@ questions:
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
               - variable: fsGroup
-                 label: "fsGroup"
-                 description: "The group that should own ALL storage."
-                 schema:
-                   type: int
-                   default: 568568
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568568
 
 # Include{resources}
 # Include{advanced}
