@@ -15,34 +15,34 @@ data:
   ENCRYPTION_KEY: {{ index $autheliaprevious.data "ENCRYPTION_KEY"  }}
   {{- else }}
   {{- $encryptionkey := randAlphaNum 100 }}
-  ENCRYPTION_KEY: {{ $encryptionkey | b64enc }}
+  ENCRYPTION_KEY: {{ $encryptionkey }}
   {{- end }}
   {{- else }}
   {{- $jwtsecret := randAlphaNum 50 }}
   {{- $sessionsecret := randAlphaNum 50 }}
   {{- $encryptionkey := randAlphaNum 100 }}
-  SESSION_ENCRYPTION_KEY: {{ $sessionsecret | b64enc }}
-  JWT_TOKEN: {{ $jwtsecret | b64enc}}
-  ENCRYPTION_KEY: {{ $encryptionkey | b64enc }}
+  SESSION_ENCRYPTION_KEY: {{ $sessionsecret }}
+  JWT_TOKEN: {{ $jwtsecret}}
+  ENCRYPTION_KEY: {{ $encryptionkey }}
   {{- end }}
 
   {{- if .Values.authentication_backend.ldap.enabled }}
-  LDAP_PASSWORD: {{ .Values.authentication_backend.ldap.plain_password | b64enc | quote }}
+  LDAP_PASSWORD: {{ .Values.authentication_backend.ldap.plain_password }}
   {{- end }}
 
   {{- if and .Values.notifier.smtp.enabled .Values.notifier.smtp.plain_password }}
-  SMTP_PASSWORD: {{ .Values.notifier.smtp.plain_password | b64enc | quote }}
+  SMTP_PASSWORD: {{ .Values.notifier.smtp.plain_password }}
   {{- end }}
 
   {{- if .Values.duo_api.enabled }}
-  DUO_API_KEY: {{ .Values.duo_api.plain_api_key | b64enc }}
+  DUO_API_KEY: {{ .Values.duo_api.plain_api_key }}
   {{- end }}
 
-  STORAGE_PASSWORD: {{ $.Values.cnpg.main.creds.password | trimAll "\"" | b64enc }}
+  STORAGE_PASSWORD: {{ $.Values.cnpg.main.creds.password | trimAll "\"" }}
 
-  REDIS_PASSWORD: {{ .Values.redis.redisPassword | trimAll "\"" | b64enc }}
+  REDIS_PASSWORD: {{ .Values.redis.redisPassword | trimAll "\"" }}
   {{- if .Values.redisProvider.high_availability.enabled}}
-  REDIS_SENTINEL_PASSWORD: {{ .Values.redis.sentinelPassword | trimAll "\"" | b64enc }}
+  REDIS_SENTINEL_PASSWORD: {{ .Values.redis.sentinelPassword | trimAll "\"" }}
   {{- end }}
 
   {{- if $autheliaprevious }}
@@ -52,8 +52,8 @@ data:
   {{- else }}
   {{- $oidckey := genPrivateKey "rsa"   }}
   {{- $oidcsecret := randAlphaNum 32 }}
-  OIDC_PRIVATE_KEY: {{ $oidckey | b64enc }}
-  OIDC_HMAC_SECRET: {{ $oidcsecret | b64enc }}
+  OIDC_PRIVATE_KEY: {{ $oidckey }}
+  OIDC_HMAC_SECRET: {{ $oidcsecret }}
   {{- end }}
   {{- end }}
 {{- end -}}
