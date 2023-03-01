@@ -56,7 +56,10 @@
 Common Labels
 */}}
 {{- define "kube-prometheus.labels" -}}
-{{ include "tc.v1.common.labels" . }}
+  {{- $labels := (include "tc.v1.common.lib.metadata.allLabels" $ | fromYaml) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "labels" $labels) | trim) }}
+    {{- . | nindent 0 }}
+  {{- end }}
 {{- if .Values.global.labels }}
 {{ toYaml .Values.global.labels }}
 {{- end }}
@@ -66,7 +69,10 @@ Common Labels
 Labels for operator
 */}}
 {{- define "kube-prometheus.operator.labels" -}}
-{{ include "tc.v1.common.labels" . }}
+  {{- $labels := (include "tc.v1.common.lib.metadata.allLabels" $ | fromYaml) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "labels" $labels) | trim) }}
+    {{- . | nindent 0 }}
+  {{- end }}
 app.kubernetes.io/component: operator
 {{- end -}}
 
@@ -74,7 +80,10 @@ app.kubernetes.io/component: operator
 Labels for prometheus
 */}}
 {{- define "kube-prometheus.prometheus.labels" -}}
-{{ include "tc.v1.common.labels" . }}
+  {{- $labels := (include "tc.v1.common.lib.metadata.allLabels" $ | fromYaml) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "labels" $labels) | trim) }}
+    {{- . | nindent 0 }}
+  {{- end }}
 app.kubernetes.io/component: prometheus
 {{- end -}}
 
@@ -82,7 +91,10 @@ app.kubernetes.io/component: prometheus
 Labels for alertmanager
 */}}
 {{- define "kube-prometheus.alertmanager.labels" -}}
-{{ include "tc.v1.common.labels" . }}
+  {{- $labels := (include "tc.v1.common.lib.metadata.allLabels" $ | fromYaml) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "labels" $labels) | trim) }}
+    {{- . | nindent 0 }}
+  {{- end }}
 app.kubernetes.io/component: alertmanager
 {{- end -}}
 
@@ -90,7 +102,7 @@ app.kubernetes.io/component: alertmanager
 matchLabels for operator
 */}}
 {{- define "kube-prometheus.operator.matchLabels" -}}
-{{ include "tc.v1.common.labels.selectorLabels" . }}
+{{ include "tc.v1.common.lib.metadata.selectorLabels" (dict "rootCtx" $ )}}
 app.kubernetes.io/component: operator
 {{- end -}}
 
@@ -98,7 +110,7 @@ app.kubernetes.io/component: operator
 matchLabels for prometheus
 */}}
 {{- define "kube-prometheus.prometheus.matchLabels" -}}
-{{ include "tc.v1.common.labels.selectorLabels" . }}
+{{ include "tc.v1.common.lib.metadata.selectorLabels" (dict "rootCtx" $ )}}
 app.kubernetes.io/component: prometheus
 {{- end -}}
 
@@ -106,7 +118,7 @@ app.kubernetes.io/component: prometheus
 matchLabels for alertmanager
 */}}
 {{- define "kube-prometheus.alertmanager.matchLabels" -}}
-{{ include "tc.v1.common.labels.selectorLabels" . }}
+{{ include "tc.v1.common.lib.metadata.selectorLabels" (dict "rootCtx" $ )}}
 app.kubernetes.io/component: alertmanager
 {{- end -}}
 
