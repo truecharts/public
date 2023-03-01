@@ -76,41 +76,6 @@ blocky:
   # -- Enable prometheus annotations
   enablePrometheus: true
 
-probes:
-  liveness:
-    enabled: false
-    # TODO: Enable after v0.20 is released.
-    # Current version does not include the healthcheck command
-    # enabled: true
-    # custom: true
-    # spec:
-    #   exec:
-    #     command:
-    #       - /app/blocky
-    #       - healthcheck
-  readiness:
-    enabled: false
-    # TODO: Enable after v0.20 is released.
-    # Current version does not include the healthcheck command
-    # enabled: true
-    # custom: true
-    # spec:
-    #   exec:
-    #     command:
-    #       - /app/blocky
-    #       - healthcheck
-  startup:
-    enabled: false
-    # TODO: Enable after v0.20 is released.
-    # Current version does not include the healthcheck command
-    # enabled: true
-    # custom: true
-    # spec:
-    #   exec:
-    #     command:
-    #       - /app/blocky
-    #       - healthcheck
-
 service:
   main:
     ports:
