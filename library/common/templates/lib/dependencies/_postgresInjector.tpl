@@ -26,15 +26,15 @@ data:
 {{- else }}
   {{- $dbPass = randAlphaNum 50 }}
   {{- $pgPass = randAlphaNum 50 }}
-  postgresql-password: {{ $dbPass | b64enc | quote }}
-  postgresql-postgres-password: {{ $pgPass | b64enc | quote }}
+  postgresql-password: {{ $dbPass }}
+  postgresql-postgres-password: {{ $pgPass }}
 {{- end }}
-  url: {{ ( printf "postgresql://%v:%v@%v-postgresql:5432/%v" .Values.postgresql.postgresqlUsername $dbPass .Release.Name .Values.postgresql.postgresqlDatabase  ) | b64enc | quote }}
-  url-noql: {{ ( printf "postgres://%v:%v@%v-postgresql:5432/%v" .Values.postgresql.postgresqlUsername $dbPass .Release.Name .Values.postgresql.postgresqlDatabase  ) | b64enc | quote }}
-  urlnossl: {{ ( printf "postgresql://%v:%v@%v-postgresql:5432/%v?sslmode=disable" .Values.postgresql.postgresqlUsername $dbPass .Release.Name .Values.postgresql.postgresqlDatabase  ) | b64enc | quote }}
-  plainporthost: {{ ( printf "%v-%v" .Release.Name "postgresql" ) | b64enc | quote }}
-  plainhost: {{ ( printf "%v-%v" .Release.Name "postgresql" ) | b64enc | quote }}
-  jdbc: {{ ( printf "jdbc:postgresql://%v-postgresql:5432/%v" .Release.Name .Values.postgresql.postgresqlDatabase  ) | b64enc | quote }}
+  url: {{ ( printf "postgresql://%v:%v@%v-postgresql:5432/%v" .Values.postgresql.postgresqlUsername $dbPass .Release.Name .Values.postgresql.postgresqlDatabase  ) }}
+  url-noql: {{ ( printf "postgres://%v:%v@%v-postgresql:5432/%v" .Values.postgresql.postgresqlUsername $dbPass .Release.Name .Values.postgresql.postgresqlDatabase  ) }}
+  urlnossl: {{ ( printf "postgresql://%v:%v@%v-postgresql:5432/%v?sslmode=disable" .Values.postgresql.postgresqlUsername $dbPass .Release.Name .Values.postgresql.postgresqlDatabase  ) }}
+  plainporthost: {{ ( printf "%v-%v" .Release.Name "postgresql" ) }}
+  plainhost: {{ ( printf "%v-%v" .Release.Name "postgresql" ) }}
+  jdbc: {{ ( printf "jdbc:postgresql://%v-postgresql:5432/%v" .Release.Name .Values.postgresql.postgresqlDatabase  ) }}
 type: Opaque
 {{- $_ := set .Values.postgresql "postgresqlPassword" ( $dbPass | quote ) }}
 {{- $_ := set .Values.postgresql "postgrespassword" ( $pgPass | quote ) }}

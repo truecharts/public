@@ -26,15 +26,15 @@ data:
 {{- else }}
   {{- $dbPass = randAlphaNum 50 }}
   {{- $rootPass = randAlphaNum 50 }}
-  mongodb-password: {{ $dbPass | b64enc | quote }}
-  mongodb-root-password: {{ $rootPass | b64enc | quote }}
+  mongodb-password: {{ $dbPass }}
+  mongodb-root-password: {{ $rootPass }}
 {{- end }}
-  url: {{ ( printf "mongodb://%v:%v@%v-mongodb:27017/%v" .Values.mongodb.mongodbUsername $dbPass .Release.Name .Values.mongodb.mongodbDatabase  ) | b64enc | quote }}
-  urlssl: {{ ( printf "mongodb://%v:%v@%v-mongodb:27017/%v?ssl=true" .Values.mongodb.mongodbUsername $dbPass .Release.Name .Values.mongodb.mongodbDatabase  ) | b64enc | quote }}
-  urltls: {{ ( printf "mongodb://%v:%v@%v-mongodb:27017/%v?tls=true" .Values.mongodb.mongodbUsername $dbPass .Release.Name .Values.mongodb.mongodbDatabase  ) | b64enc | quote }}
-  jdbc: {{ ( printf "jdbc:mongodb://%v-mongodb:27017/%v" .Release.Name .Values.mongodb.mongodbDatabase  ) | b64enc | quote }}
-  plainhost: {{ ( printf "%v-%v" .Release.Name "mongodb" ) | b64enc | quote }}
-  plainporthost: {{ ( printf "%v-%v:27017" .Release.Name "mongodb" ) | b64enc | quote }}
+  url: {{ ( printf "mongodb://%v:%v@%v-mongodb:27017/%v" .Values.mongodb.mongodbUsername $dbPass .Release.Name .Values.mongodb.mongodbDatabase  ) }}
+  urlssl: {{ ( printf "mongodb://%v:%v@%v-mongodb:27017/%v?ssl=true" .Values.mongodb.mongodbUsername $dbPass .Release.Name .Values.mongodb.mongodbDatabase  ) }}
+  urltls: {{ ( printf "mongodb://%v:%v@%v-mongodb:27017/%v?tls=true" .Values.mongodb.mongodbUsername $dbPass .Release.Name .Values.mongodb.mongodbDatabase  ) }}
+  jdbc: {{ ( printf "jdbc:mongodb://%v-mongodb:27017/%v" .Release.Name .Values.mongodb.mongodbDatabase  ) }}
+  plainhost: {{ ( printf "%v-%v" .Release.Name "mongodb" ) }}
+  plainporthost: {{ ( printf "%v-%v:27017" .Release.Name "mongodb" ) }}
 type: Opaque
 {{- $_ := set .Values.mongodb "mongodbPassword" ( $dbPass | quote ) }}
 {{- $_ := set .Values.mongodb "mongodbRootPassword" ( $rootPass | quote ) }}

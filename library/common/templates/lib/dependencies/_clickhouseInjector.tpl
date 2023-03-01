@@ -19,7 +19,7 @@ data:
   clickhouse-password: {{ ( index $dbpreviousold.data "redis-password" ) }}
 {{- else }}
   {{- $dbPass = randAlphaNum 50 }}
-  clickhouse-password: {{ $dbPass | b64enc | quote }}
+  clickhouse-password: {{ $dbPass }}
 {{- end }}
 
 
@@ -28,11 +28,11 @@ data:
 {{- $ping     := printf       "http://%v-clickhouse:8123/ping" .Release.Name }}
 {{- $url      := printf "http://%v:%v@%v-clickhouse:8123/%v"   .Values.clickhouse.clickhouseUsername $dbPass .Release.Name .Values.clickhouse.clickhouseDatabase }}
 {{- $jdbc     := printf    "jdbc:ch://%v-clickhouse:8123/%v"   .Release.Name }}
-  plainhost:           {{ $host | b64enc | quote }}
-  plainporthost:       {{ $portHost | b64enc | quote }}
-  ping:                {{ $ping | b64enc | quote }}
-  url:                 {{ $url | b64enc | quote }}
-  jdbc:                {{ $jdbc | b64enc | quote }}
+  plainhost:           {{ $host }}
+  plainporthost:       {{ $portHost }}
+  ping:                {{ $ping }}
+  url:                 {{ $url }}
+  jdbc:                {{ $jdbc }}
 
 {{- $_ := set .Values.clickhouse     "clickhousePassword" ($dbPass | quote) }}
 {{- $_ := set .Values.clickhouse.url "plain"              ($host | quote) }}

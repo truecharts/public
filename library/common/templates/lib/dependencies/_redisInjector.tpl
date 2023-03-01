@@ -22,12 +22,12 @@ data:
   redis-password: {{ ( index $dbpreviousold.data "redis-password" ) }}
 {{- else }}
   {{- $dbPass = randAlphaNum 50 }}
-  redis-password: {{ $dbPass | b64enc | quote }}
+  redis-password: {{ $dbPass }}
 {{- end }}
-  url: {{ ( printf "redis://%v:%v@%v-redis:6379/%v" .Values.redis.redisUsername $dbPass .Release.Name $dbIndex ) | b64enc | quote }}
-  plainhostpass: {{ ( printf "%v:%v@%v-redis" .Values.redis.redisUsername $dbPass .Release.Name ) | b64enc | quote }}
-  plainporthost: {{ ( printf "%v-%v:6379" .Release.Name "redis" ) | b64enc | quote }}
-  plainhost: {{ ( printf "%v-%v" .Release.Name "redis" ) | b64enc | quote }}
+  url: {{ ( printf "redis://%v:%v@%v-redis:6379/%v" .Values.redis.redisUsername $dbPass .Release.Name $dbIndex ) }}
+  plainhostpass: {{ ( printf "%v:%v@%v-redis" .Values.redis.redisUsername $dbPass .Release.Name ) }}
+  plainporthost: {{ ( printf "%v-%v:6379" .Release.Name "redis" ) }}
+  plainhost: {{ ( printf "%v-%v" .Release.Name "redis" ) }}
 type: Opaque
 {{- $_ := set .Values.redis "redisPassword" ( $dbPass | quote ) }}
 {{- $_ := set .Values.redis.url "plain" ( ( printf "%v-%v" .Release.Name "redis" ) | quote ) }}
