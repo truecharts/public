@@ -13,7 +13,7 @@
   {{- end -}}
 
   {{- if not $enabledPorts -}}
-    {{- fail (printf "No ports are enabled for the service") -}}
+    {{- fail (printf "No ports are enabled for the service: (%s)" $svcName) -}}
   {{- end -}}
 
   {{- $result := "" -}}
@@ -21,7 +21,7 @@
     {{- if (hasKey $port "primary") -}}
       {{- if $port.primary -}}
         {{- if $result -}}
-          {{- fail "More than one ports are set as primary in the primary service. This is not supported." -}}
+          {{- fail (printf "More than one ports are set as primary in the (%s) service. This is not supported." $svcName ) -}}
         {{- end -}}
         {{- $result = $name -}}
       {{- end -}}
@@ -37,6 +37,5 @@
       {{- end -}}
     {{- end -}}
   {{- end -}}
-
   {{- $result -}}
 {{- end -}}

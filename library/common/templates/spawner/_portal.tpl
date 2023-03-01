@@ -20,11 +20,9 @@
         {{- $url := "" -}}
 
 
-
         {{/* Get service, default to primary */}}
         {{- $serviceData := dict "targetSelector" $targetSelector.service -}}
         {{- $selectedService := fromYaml ( include "tc.v1.common.lib.helpers.getSelectedServiceValues" (dict "rootCtx" $ "objectData" $serviceData)) }}
-
 
         {{/* read loadbalancer IP's for metallb */}}
         {{- if eq $selectedService.type "LoadBalancer" -}}
@@ -38,12 +36,13 @@
 
         {{/* Fetch port values */}}
         {{- if $targetSelector.port -}}
-        {{- $targetPort := $targetSelector.port -}}
+        {{- $targetPort = $targetSelector.port -}}
         {{- else -}}
-        {{- $targetPort := include "tc.v1.common.lib.util.service.ports.primary" $selectedService -}}
+        {{- $targetPort = include "tc.v1.common.lib.util.service.ports.primary" (dict "svcName" $selectedService.shortName "svcValues" $selectedService ) -}}
         {{- end -}}
 
-        {{- $selectedPort = get $selectedService.port $targetPort -}}
+
+        {{- $selectedPort = get $selectedService.ports $targetPort -}}
 
         {{/* store port number */}}
         {{- $port = $selectedPort.port -}}
@@ -91,6 +90,8 @@
         {{- end }}
         {{- end }}
 
+
+        {{- $port = ( toString $port ) -}}
 
         {{/* Apply overrides */}}
         {{- if $override.protocol -}}
