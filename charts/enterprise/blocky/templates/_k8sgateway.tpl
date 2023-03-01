@@ -39,7 +39,7 @@ Create the matchable regex from domain
 {{/* Define the configmap */}}
 {{- define "k8sgateway.configmap" -}}
 {{- $values := .Values.k8sgateway }}
-{{- $fqdn := ( include "tc.v1.common.names.fqdn" . ) }}
+{{- $fqdn := ( include "tc.v1.common.lib.chart.names.fqdn" . ) }}
 enabled: true
 data:
   Corefile: |-
