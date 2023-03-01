@@ -44,7 +44,6 @@ items:
 {{- end -}}
 
 {{- if and .Values.k8sgateway.enabled .Values.k8sgateway.domains -}}
-{{- include "k8sgateway.configmap" . }}
 {{- $_ := set .Values.persistence "config-volume" (include "k8sgateway.configvolume" . | fromYaml) -}}
 {{- $_ := set .Values.workload.main.podSpec.containers "k8sgateway" (include "k8sgateway.container" . | fromYaml) -}}
 {{- end -}}
