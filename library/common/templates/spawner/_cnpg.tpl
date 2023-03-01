@@ -45,28 +45,11 @@
       {{- $dbPass = $cnpgValues.password | default ( randAlphaNum 62 ) }}
     {{- end }}
 
-    {{- $pgPass := "" }}
-    {{- $pgprevious := lookup "v1" "Secret" $.Release.Namespace ( printf "%s-superuser" $cnpgValues.name ) }}
-    {{- if $pgprevious }}
-      {{- $pgPass = ( index $pgprevious.data "password" ) }}
-    {{- else if and $.Values.postgresql.enabled $olddbprevious1 $.Release.IsUpgrade }}
-      {{- $pgPass = ( index $olddbprevious1.data "postgresql-postgres-password" ) | b64dec  }}
-    {{- else if and $.Values.postgresql.enabled $olddbprevious2 $.Release.IsUpgrade }}
-      {{- $pgPass = ( index $olddbprevious2.data "postgresql-postgres-password" ) | b64dec  }}
-    {{- else }}
-      {{- $pgPass = $cnpgValues.superUserPassword | default ( randAlphaNum 62 ) }}
-    {{- end }}
-
-    {{- $std := ( ( printf "postgresql://%v:%v@%v-rw:5432/%v" $cnpgValues.user $dbPass $cnpgValues.name $cnpgValues.database  ) | b64enc | quote ) }}
-    {{- $nossl := ( ( printf "postgresql://%v:%v@%v-rw:5432/%v?sslmode=disable" $cnpgValues.user $dbPass $cnpgValues.name $cnpgValues.database  ) | b64enc | quote ) }}
-    {{- $porthost := ( ( printf "%s-rw:5432" $cnpgValues.name ) | b64enc | quote ) }}
-    {{- $host := ( ( printf "%s-rw" $cnpgValues.name ) | b64enc | quote ) }}
-    {{- $jdbc := ( ( printf "jdbc:postgresql://%v-rw:5432/%v" $cnpgValues.name $cnpgValues.database  ) | b64enc | quote ) }}
-
-    {{- $superuserSecret := include "tc.v1.common.lib.cnpg.secret.superuser" (dict "pgPass" $pgPass ) | fromYaml }}
-    {{- if $superuserSecret }}
-      {{- $_ := set $.Values.secret ( printf "cnpg-%s-superuser" $cnpgValues.shortName ) $superuserSecret }}
-    {{- end }}
+    {{- $std := ( ( printf "postgresql://%v:%v@%v-rw:5432/%v" $cnpgValues.user $dbPass $cnpgValues.name $cnpgValues.database  ) | quote ) }}
+    {{- $nossl := ( ( printf "postgresql://%v:%v@%v-rw:5432/%v?sslmode=disable" $cnpgValues.user $dbPass $cnpgValues.name $cnpgValues.database  ) | quote ) }}
+    {{- $porthost := ( ( printf "%s-rw:5432" $cnpgValues.name ) | quote ) }}
+    {{- $host := ( ( printf "%s-rw" $cnpgValues.name ) | quote ) }}
+    {{- $jdbc := ( ( printf "jdbc:postgresql://%v-rw:5432/%v" $cnpgValues.name $cnpgValues.database  ) | quote ) }}
 
     {{- $userSecret := include "tc.v1.common.lib.cnpg.secret.user" (dict "values" $cnpgValues "dbPass" $dbPass ) | fromYaml }}
     {{- if $userSecret }}
@@ -79,7 +62,6 @@
     {{- end }}
 
     {{- $_ := set $cnpgValues.creds "password" ( $dbPass | quote ) }}
-    {{- $_ := set $cnpgValues.creds "superUserPassword" ( $pgPass | quote ) }}
     {{- $_ := set $cnpgValues.creds "std" $std }}
     {{- $_ := set $cnpgValues.creds "nossl" $nossl }}
     {{- $_ := set $cnpgValues.creds "porthost" $porthost }}

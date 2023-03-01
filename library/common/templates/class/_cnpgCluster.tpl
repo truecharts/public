@@ -28,9 +28,6 @@ metadata:
 spec:
   instances: {{ $values.instances | default 2  }}
 
-  superuserSecret:
-    name: {{ $cnpgClusterName }}-superuser
-
   {{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
   {{- $fetchname := printf "%s-dbcreds" $basename -}}
   {{- $olddbprevious1 := lookup "v1" "Secret" .Release.Namespace $fetchname }}

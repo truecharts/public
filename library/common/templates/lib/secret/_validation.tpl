@@ -10,11 +10,11 @@ objectData:
 {{- define "tc.v1.common.lib.secret.validation" -}}
   {{- $objectData := .objectData -}}
 
-  {{- if not $objectData.data -}}
-    {{- fail "Secret - Expected non-empty <data>" -}}
+  {{- if and ( not $objectData.data ) ( not $objectData.stringData ) -}}
+    {{- fail "Secret - Expected non-empty <data> or <stringData>" -}}
   {{- end -}}
 
-  {{- if not (kindIs "map" $objectData.data) -}}
+  {{- if and $objectData.data (not (kindIs "map" $objectData.data)) -}}
     {{- fail (printf "Secret - Expected <data> to be a dictionary, but got [%v]" (kindOf $objectData.data)) -}}
   {{- end -}}
 
