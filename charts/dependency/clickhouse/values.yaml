@@ -5,7 +5,7 @@ image:
 
 workload:
   main:
-    type: statefulset
+    type: StatefulSet
     replicas: 1
     strategy: RollingUpdate
     podSpec:
@@ -22,13 +22,13 @@ workload:
 
           probes:
             liveness:
-              type: HTTP
+              type: http
               path: /ping
             readiness:
-              type: HTTP
+              type: http
               path: /ping
             startup:
-              type: HTTP
+              type: http
               path: /ping
 
 securityContext:

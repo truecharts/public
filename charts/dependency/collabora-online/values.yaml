@@ -6,7 +6,7 @@ image:
 workload:
   main:
     replicas: 1
-    type: statefulset
+    type: StatefulSet
     strategy: RollingUpdate
     podSpec:
       containers:
