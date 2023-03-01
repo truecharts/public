@@ -103,8 +103,5 @@ service:
 {{/* inject api paths in ingress */}}
 {{- include "blocky.dohinjector" . }}
 
-{{- include "blocky.servicemonitor" . -}}
-{{- include "blocky.prometheusrule" . -}}
-
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
