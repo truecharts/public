@@ -8,39 +8,44 @@ workload:
   main:
     replicas: 2
     strategy: RollingUpdate
-    podSpec:
-      containers:
-        main:
-        # probes:
-        #   # -- Liveness probe configuration
-        #   # @default -- See below
-        #   liveness:
-        #     # -- sets the probe type when not using a custom probe
-        #     # @default -- "TCP"
-        #     type: HTTP
-        #     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
-        #     # @default -- "/"
-        #     path: "/ping"
+    # podSpec:
+    # containers:
+    # main:
+    # probes:
+    #   # -- Liveness probe configuration
+    #   # @default -- See below
+    #   liveness:
+    #     # -- sets the probe type when not using a custom probe
+    #     # @default -- "TCP"
+    #     type: HTTP
+    #     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
+    #     # @default -- "/"
+    #     path: "/ping"
 
-        #   # -- Redainess probe configuration
-        #   # @default -- See below
-        #   readiness:
-        #     # -- sets the probe type when not using a custom probe
-        #     # @default -- "TCP"
-        #     type: HTTP
-        #     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
-        #     # @default -- "/"
-        #     path: "/ping"
+    #   # -- Redainess probe configuration
+    #   # @default -- See below
+    #   readiness:
+    #     # -- sets the probe type when not using a custom probe
+    #     # @default -- "TCP"
+    #     type: HTTP
+    #     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
+    #     # @default -- "/"
+    #     path: "/ping"
 
-        #   # -- Startup probe configuration
-        #   # @default -- See below
-        #   startup:
-        #     # -- sets the probe type when not using a custom probe
-        #     # @default -- "TCP"
-        #     type: HTTP
-        #     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
-        #     # @default -- "/"
-        #     path: "/ping"
+    #   # -- Startup probe configuration
+    #   # @default -- See below
+    #   startup:
+    #     # -- sets the probe type when not using a custom probe
+    #     # @default -- "TCP"
+    #     type: HTTP
+    #     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
+    #     # @default -- "/"
+    #     path: "/ping"
+
+# -- Options for all pods
+# Can be overruled per pod
+podOptions:
+  automountServiceAccountToken: true
 
 # -- Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x
 ingressClass:
@@ -258,6 +263,7 @@ service:
 rbac:
   main:
     enabled: true
+    primary: true
     rules:
       - apiGroups:
           - ""
@@ -307,6 +313,7 @@ rbac:
 serviceAccount:
   main:
     enabled: true
+    primary: true
 
 # -- SCALE Middleware Handlers
 middlewares:
