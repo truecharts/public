@@ -312,6 +312,9 @@ hostsFile:
 #   creationAttempts: 3
 #   CreationCooldown: 2
 
+podOptions:
+  automountServiceAccountToken: true
+
 portal:
   open:
     enabled: true
@@ -320,6 +323,7 @@ serviceAccount:
   main:
     # -- Specifies whether a service account should be created
     enabled: true
+    primary: true
 
 # -- Create a ClusterRole and ClusterRoleBinding
 # @default -- See below
@@ -327,6 +331,7 @@ rbac:
   main:
     # -- Enables or disables the ClusterRole and ClusterRoleBinding
     enabled: true
+    primary: true
 
     # -- Set Rules on the ClusterRole
     rules:

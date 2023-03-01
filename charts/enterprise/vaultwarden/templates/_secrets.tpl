@@ -17,6 +17,7 @@
 {{- end -}}
 enabled: true
 data:
+  placeholder: placeholdervalue
   {{- if ne $adminToken "" }}
   ADMIN_TOKEN: {{ $adminToken }}
   {{- end }}

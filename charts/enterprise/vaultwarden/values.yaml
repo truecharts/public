@@ -27,7 +27,7 @@ workload:
             DATABASE_URL:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: url
+                key: std
 
           envFrom:
             - configMapRef:

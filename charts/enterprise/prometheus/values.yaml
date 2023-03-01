@@ -67,10 +67,14 @@ env:
       name: prometheus-operator-config
       key: prometheus-config-reloader
 
+podOptions:
+  automountServiceAccountToken: true
+
 # -- Whether Role Based Access Control objects like roles and rolebindings should be created
 rbac:
   main:
     enabled: true
+    primary: true
     rules:
       - apiGroups:
           - apiextensions.k8s.io
@@ -168,6 +172,7 @@ rbac:
 serviceAccount:
   main:
     enabled: true
+    primary: true
 
 securityContext:
   readOnlyRootFilesystem: false
