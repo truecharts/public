@@ -2,7 +2,7 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{- $newArgs :=  (include "traefik.args" . | fromYaml) }}
-{{- $_ := set .Values.workload.main.podSpec.container.main "args" $newArgs -}}
+{{- $_ := set .Values.workload.main.podSpec.containers.main "args" $newArgs -}}
 
 {{- include "traefik.portalhook" . }}
 {{- include "traefik.tlsOptions" . }}
