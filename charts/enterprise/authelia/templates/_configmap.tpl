@@ -147,7 +147,7 @@ data:
     regulation: {{ toYaml .Values.regulation | nindent 6 }}
     storage:
       postgres:
-        host: {{ printf "%v-%v" .Release.Name "postgresql" }}
+        host: {{ $.Values.cnpg.main.creds.host }}
     {{- with $storage := .Values.storage }}
         port: {{ default 5432 $storage.postgres.port }}
         database: {{ default "authelia" $storage.postgres.database }}

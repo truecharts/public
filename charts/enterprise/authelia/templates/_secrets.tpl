@@ -38,7 +38,7 @@ data:
   DUO_API_KEY: {{ .Values.duo_api.plain_api_key | b64enc }}
   {{- end }}
 
-  STORAGE_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
+  STORAGE_PASSWORD: {{ $.Values.cnpg.main.creds.password | trimAll "\"" | b64enc }}
 
   REDIS_PASSWORD: {{ .Values.redis.redisPassword | trimAll "\"" | b64enc }}
   {{- if .Values.redisProvider.high_availability.enabled}}
