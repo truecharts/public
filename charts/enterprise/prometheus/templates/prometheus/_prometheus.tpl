@@ -168,17 +168,6 @@ spec:
   {{- end }}
   {{- if .Values.prometheus.affinity }}
   affinity: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.affinity "context" $) | nindent 4 }}
-  {{- else }}
-  affinity:
-    {{- if not (empty .Values.prometheus.podAffinityPreset) }}
-    podAffinity: {{- include "tc.v1.common.affinities.pods" (dict "type" .Values.prometheus.podAffinityPreset "component" "prometheus" "context" $) | nindent 6 }}
-    {{- end }}
-    {{- if not (empty .Values.prometheus.podAntiAffinityPreset) }}
-    podAntiAffinity: {{- include "tc.v1.common.affinities.pods" (dict "type" .Values.prometheus.podAntiAffinityPreset "component" "prometheus" "context" $) | nindent 6 }}
-    {{- end }}
-    {{- if not (empty .Values.prometheus.nodeAffinityPreset.values) }}
-    nodeAffinity: {{- include "tc.v1.common.affinities.nodes" (dict "type" .Values.prometheus.nodeAffinityPreset.type "key" .Values.prometheus.nodeAffinityPreset.key "values" .Values.prometheus.nodeAffinityPreset.values) | nindent 6 }}
-    {{- end }}
   {{- end }}
   {{- if .Values.prometheus.nodeSelector }}
   nodeSelector: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.nodeSelector "context" $) | nindent 4 }}

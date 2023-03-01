@@ -72,17 +72,6 @@ spec:
   {{- end }}
   {{- if .Values.alertmanager.affinity }}
   affinity: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.alertmanager.affinity "context" $) | nindent 4 }}
-  {{- else }}
-  affinity:
-    {{- if not (empty .Values.alertmanager.podAffinityPreset) }}
-    podAffinity: {{- include "tc.v1.common.affinities.pods" (dict "type" .Values.alertmanager.podAffinityPreset "component" "alertmanager" "context" $) | nindent 6 }}
-    {{- end }}
-    {{- if not (empty .Values.alertmanager.podAntiAffinityPreset) }}
-    podAntiAffinity: {{- include "tc.v1.common.affinities.pods" (dict "type" .Values.alertmanager.podAntiAffinityPreset "component" "alertmanager" "context" $) | nindent 6 }}
-    {{- end }}
-    {{- if not (empty .Values.alertmanager.nodeAffinityPreset.values) }}
-    nodeAffinity: {{- include "tc.v1.common.affinities.nodes" (dict "type" .Values.alertmanager.nodeAffinityPreset.type "key" .Values.alertmanager.nodeAffinityPreset.key "values" .Values.alertmanager.nodeAffinityPreset.values) | nindent 6 }}
-    {{- end }}
   {{- end }}
   {{- if .Values.alertmanager.nodeSelector }}
   nodeSelector: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.alertmanager.nodeSelector "context" $) | nindent 4 }}
