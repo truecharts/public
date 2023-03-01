@@ -58,6 +58,22 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
+        - variable: comic
+          label: "Comic Storage"
+          description: "Stores Comic."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: book
+          label: "Book Storage"
+          description: "Stores Book."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
