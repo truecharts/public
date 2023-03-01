@@ -246,7 +246,7 @@ questions:
                         required: true
                         show_if: [["selfSigned", "=", "false"]]
                         default: ""
-                        
+
         - variable: selfSigned
           label: 'SelfSigned Issuer'
           schema:
@@ -270,4 +270,5 @@ questions:
 
 
 # Include{metrics}
+# Include{prometheusRule}
 # Include{documentation}
