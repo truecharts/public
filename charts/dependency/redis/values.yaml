@@ -177,7 +177,7 @@ persistence:
     type: configmap
     objectName: health
     mountPath: "/health"
-    defaultMode: 0755
+    defaultMode: "0755"
     items:
       - key: ping_readiness_local.sh
         path: ping_readiness_local.sh
