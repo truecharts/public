@@ -435,6 +435,6 @@ command:
     {{ end }}
     {{ end }}
     {{ end }}
-    do sleep 5
+    sleep 5
     EOF
 {{- end -}}
