@@ -21,13 +21,11 @@
 {{/* Append the general configMap volume to the volumes */}}
 {{- define "authelia.configmapVolume" -}}
 enabled: true
-mountPath: /
+mountPath: /configuration.yaml
+subPath: configuration.yaml
 readOnly: true
 type: "configmap"
 objectName: authelia-configfile
-items:
-- key: configuration.yaml
-  path: configuration.yaml
 {{- end -}}
 
 {{/* Append the general secret volumes to the volumes */}}
