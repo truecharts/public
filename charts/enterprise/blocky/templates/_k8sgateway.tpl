@@ -15,26 +15,14 @@ probe:
     httpGet:
       path: /ready
       port: 8181
-    initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
-    timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
-    periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
-    failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
   liveness:
     httpGet:
       path: /health
       port: 8080
-    initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
-    timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
-    periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
-    failureThreshold: {{ .Values.probes.liveness.spec.failureThreshold }}
   startup:
     httpGet:
       path: /ready
       port: 8181
-    initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
-    timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
-    periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
-    failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
 {{- end -}}
 
 {{/*
@@ -51,7 +39,7 @@ Create the matchable regex from domain
 {{/* Define the configmap */}}
 {{- define "k8sgateway.configmap" -}}
 {{- $values := .Values.k8sgateway }}
-{{- $fqdn := ( include "tc.common.names.fqdn" . ) }}
+{{- $fqdn := ( include "tc.v1.common.names.fqdn" . ) }}
 enabled: true
 data:
   Corefile: |-
