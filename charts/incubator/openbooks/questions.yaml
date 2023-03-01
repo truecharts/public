@@ -4,10 +4,15 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
-# Include{controller}
-# Include{replicas}
-# Include{replica1}
-# Include{controllerExpertExtraArgs}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+# Include{containerBasic}
+# Include{containerAdvanced}
+
   - variable: openbooks
     group: App Configuration
     label: OpenBooks Configuration

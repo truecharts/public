@@ -21,10 +21,15 @@ questions:
           description: "Uses an onClick method with a poster image | 1080p quality"
         - value: "fhdonclickImage"
           description: "Uses an onClick method with a poster image | SD quality"
-# Include{controller}
-# Include{replicas}
-# Include{replica1}
-# Include{controllerExpertExtraArgs}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+# Include{containerBasic}
+# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

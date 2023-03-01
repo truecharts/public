@@ -16,10 +16,15 @@ questions:
           description: "CPU"
         - value: "gpuImage"
           description: "GPU"
-# Include{controller}
-# Include{replicas}
-# Include{replica1}
-# Include{controllerExpertExtraArgs}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+# Include{containerBasic}
+# Include{containerAdvanced}
+
   - variable: secretEnv
     group: "App Configuration"
     label: "Image Secrets"

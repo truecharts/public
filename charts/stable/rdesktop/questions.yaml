@@ -65,10 +65,15 @@ questions:
           description: ICEWM Fedora
         - value: archICEWMImage
           description: ICEWM Arch
-# Include{controller}
-# Include{replicas}
-# Include{replica1}
-# Include{controllerExpertExtraArgs}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+# Include{containerBasic}
+# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

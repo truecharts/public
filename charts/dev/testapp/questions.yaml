@@ -4,13 +4,13 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
-# Include{workload}
-# Include{workloadDeployment}
+# Include{workload}\n# Include{workloadDeployment}
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

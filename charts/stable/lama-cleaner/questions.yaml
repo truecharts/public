@@ -15,10 +15,15 @@ questions:
           description: CPU Image
         - value: imageGPU
           description: GPU Image
-# Include{controller}
-# Include{replicas}
-# Include{replica1}
-# Include{controllerExpertExtraArgs}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+# Include{containerBasic}
+# Include{containerAdvanced}
+
   - variable: lamacleaner
     group: App Configuration
     label: Lama Cleaner Configuration

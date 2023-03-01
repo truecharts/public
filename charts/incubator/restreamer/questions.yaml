@@ -17,10 +17,15 @@ questions:
           description: CUDA
         - value: vaapiImage
           description: VAAPI
-# Include{controller}
-# Include{replicas}
-# Include{replica1}
-# Include{controllerExpertExtraArgs}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+# Include{containerBasic}
+# Include{containerAdvanced}
+
   - variable: restreamer
     group: App Configuration
     label: Restreamer Configuration
