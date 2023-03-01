@@ -15,15 +15,47 @@ k8sgatewayImage:
   pullPolicy: IfNotPresent
   tag: 0.3.3@sha256:246e7006afaf57a398b02e417a31d6f14fb43562901388772778f60be586b807
 
-controller:
-  # -- Set additional annotations on the deployment/statefulset/daemonset
-  # -- Number of desired pods
-  replicas: 2
-  # -- Set the controller upgrade strategy
-  # For Deployments, valid values are Recreate (default) and RollingUpdate.
-  # For StatefulSets, valid values are OnDelete and RollingUpdate (default).
-  # DaemonSets ignore this.
-  strategy: RollingUpdate
+workload:
+  main:
+    replicas: 2
+    strategy: RollingUpdate
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+              # TODO: Enable after v0.20 is released.
+              # Current version does not include the healthcheck command
+              # enabled: true
+              # custom: true
+              # spec:
+              #   exec:
+              #     command:
+              #       - /app/blocky
+              #       - healthcheck
+            readiness:
+              enabled: false
+              # TODO: Enable after v0.20 is released.
+              # Current version does not include the healthcheck command
+              # enabled: true
+              # custom: true
+              # spec:
+              #   exec:
+              #     command:
+              #       - /app/blocky
+              #       - healthcheck
+            startup:
+              enabled: false
+              # TODO: Enable after v0.20 is released.
+              # Current version does not include the healthcheck command
+              # enabled: true
+              # custom: true
+              # spec:
+              #   exec:
+              #     command:
+              #       - /app/blocky
+              #       - healthcheck
 
 # -- Blocky Config File content
 blockyConfig: {}
