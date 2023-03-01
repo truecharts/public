@@ -213,8 +213,8 @@ service:
         # -- Proxy Protocol should never be enabled on Metrics entrypoint
         proxyProtocol:
           enabled: false
-  udp:
-    enabled: false
+  # udp:
+  #   enabled: false
 
 # probes:
 #   # -- Liveness probe configuration
