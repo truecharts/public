@@ -20,7 +20,7 @@ workload:
               type: tcp
               # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
               # @default -- "/"
-              #path: "/ping"
+              # path: "/ping"
 
             # -- Redainess probe configuration
             # @default -- See below
@@ -30,7 +30,7 @@ workload:
               type: tcp
               # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
               # @default -- "/"
-              #path: "/ping"
+              # path: "/ping"
 
             # -- Startup probe configuration
             # @default -- See below
@@ -40,7 +40,7 @@ workload:
               type: tcp
               # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
               # @default -- "/"
-              #path: "/ping"
+              # path: "/ping"
 
 # -- Options for all pods
 # Can be overruled per pod
