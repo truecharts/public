@@ -1,33 +1,33 @@
 {{/* Renders the cnpg objects required by the chart */}}
 {{- define "tc.v1.common.spawner.cnpg" -}}
   {{/* Generate named cnpges as required */}}
-  {{- range $name, $cnpg := .Values.cnpg -}}
-    {{- if $cnpg.enabled -}}
-      {{- $cnpgValues := $cnpg -}}
-      {{- $cnpgName := include "tc.v1.common.lib.chart.names.fullname" $ -}}
-      {{- $_ := set $cnpgValues "shortName" $name -}}
+  {{- range $name, $cnpg := $.Values.cnpg }}
+    {{- if $cnpg.enabled }}
+      {{- $cnpgValues := $cnpg }}
+      {{- $cnpgName := include "tc.v1.common.lib.chart.names.fullname" $ }}
+      {{- $_ := set $cnpgValues "shortName" $name }}
 
       {{/* set defaults */}}
-      {{- $_ := set $cnpgValues "nameOverride" ( printf "cnpg-%v" $name ) -}}
+      {{- $_ := set $cnpgValues "nameOverride" ( printf "cnpg-%v" $name ) }}
 
-      {{- $cnpgName := printf "%v-%v" $cnpgName $cnpgValues.nameOverride -}}
+      {{- $cnpgName := printf "%v-%v" $cnpgName $cnpgValues.nameOverride }}
 
-      {{- $_ := set $cnpgValues "name" $cnpgName -}}
+      {{- $_ := set $cnpgValues "name" $cnpgName }}
 
-      {{- $_ := set $ "ObjectValues" (dict "cnpg" $cnpgValues) -}}
-      {{- include "tc.v1.common.class.cnpg.cluster" $ -}}
+      {{- $_ := set $ "ObjectValues" (dict "cnpg" $cnpgValues) }}
+      {{- include "tc.v1.common.class.cnpg.cluster" $ }}
 
-      {{- $_ := set $cnpgValues.pooler "type" "rw" -}}
+      {{- $_ := set $cnpgValues.pooler "type" "rw" }}
       {{- if not $cnpgValues.acceptRO }}
-      {{- include "tc.v1.common.class.cnpg.pooler" $ -}}
+      {{- include "tc.v1.common.class.cnpg.pooler" $ }}
       {{- else }}
-      {{- include "tc.v1.common.class.cnpg.pooler" $ -}}
-      {{- $_ := set $cnpgValues.pooler "type" "ro" -}}
-      {{- include "tc.v1.common.class.cnpg.pooler" $ -}}
+      {{- include "tc.v1.common.class.cnpg.pooler" $ }}
+      {{- $_ := set $cnpgValues.pooler "type" "ro" }}
+      {{- include "tc.v1.common.class.cnpg.pooler" $ }}
       {{- end }}
 
-    {{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
-    {{- $fetchname := printf "%s-dbcreds" $basename -}}
+    {{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ }}
+    {{- $fetchname := printf "%s-dbcreds" $basename }}
     {{- $olddbprevious1 := lookup "v1" "Secret" $.Release.Namespace $fetchname }}
     {{- $olddbprevious2 := lookup "v1" "Secret" $.Release.Namespace "dbcreds" }}
 
@@ -63,20 +63,20 @@
     {{- $host := ( ( printf "%s-rw" $cnpgValues.name ) | b64enc | quote ) }}
     {{- $jdbc := ( ( printf "jdbc:postgresql://%v-rw:5432/%v" $cnpgValues.name $cnpgValues.database  ) | b64enc | quote ) }}
 
-    {{- $superuserSecret := include "tc.v1.common.lib.cnpg.secret.superuser" (dict "pgPass" $pgPass ) | fromYaml -}}
-    {{- if $superuserSecret -}}
-      {{- $_ := set $.Values.secret ( printf "cnpg-%s-superuser" $cnpgValues.shortName ) $superuserSecret -}}
-    {{- end -}}
+    {{- $superuserSecret := include "tc.v1.common.lib.cnpg.secret.superuser" (dict "pgPass" $pgPass ) | fromYaml }}
+    {{- if $superuserSecret }}
+      {{- $_ := set $.Values.secret ( printf "cnpg-%s-superuser" $cnpgValues.shortName ) $superuserSecret }}
+    {{- end }}
 
-    {{- $userSecret := include "tc.v1.common.lib.cnpg.secret.user" (dict "values" $cnpgValues "dbPass" $dbPass ) | fromYaml -}}
-    {{- if $userSecret -}}
-      {{- $_ := set $.Values.secret ( printf "cnpg-%s-user" $cnpgValues.shortName ) $userSecret -}}
-    {{- end -}}
+    {{- $userSecret := include "tc.v1.common.lib.cnpg.secret.user" (dict "values" $cnpgValues "dbPass" $dbPass ) | fromYaml }}
+    {{- if $userSecret }}
+      {{- $_ := set $.Values.secret ( printf "cnpg-%s-user" $cnpgValues.shortName ) $userSecret }}
+    {{- end }}
 
-    {{- $urlSecret := include "tc.v1.common.lib.cnpg.secret.urls" (dict "std" $std "nossl" $nossl "porthost" $porthost "host" $host "jdbc" $jdbc) | fromYaml -}}
-    {{- if $urlSecret -}}
-      {{- $_ := set $.Values.secret ( printf "cnpg-%s-urls" $cnpgValues.shortName ) $urlSecret -}}
-    {{- end -}}
+    {{- $urlSecret := include "tc.v1.common.lib.cnpg.secret.urls" (dict "std" $std "nossl" $nossl "porthost" $porthost "host" $host "jdbc" $jdbc) | fromYaml }}
+    {{- if $urlSecret }}
+      {{- $_ := set $.Values.secret ( printf "cnpg-%s-urls" $cnpgValues.shortName ) $urlSecret }}
+    {{- end }}
 
     {{- $_ := set $cnpgValues.creds "password" ( $dbPass | quote ) }}
     {{- $_ := set $cnpgValues.creds "superUserPassword" ( $pgPass | quote ) }}
@@ -89,16 +89,16 @@
 
     {{- if $cnpgValues.monitoring }}
       {{- if $cnpgValues.monitoring.enablePodMonitor }}
-        {{- $poolermetrics :=  include "tc.v1.common.lib.cnpg.metrics.pooler" (dict "poolerName" ( printf "%s-rw" $cnpgValues.name) ) | fromYaml -}}
+        {{- $poolermetrics :=  include "tc.v1.common.lib.cnpg.metrics.pooler" (dict "poolerName" ( printf "%s-rw" $cnpgValues.name) ) | fromYaml }}
 
         {{- $_ := set $.Values.metrics ( printf "cnpg-%s-rw" $cnpgValues.shortName ) $poolermetrics }}
         {{- if $cnpgValues.acceptRO }}
-          {{- $poolermetricsRO :=  include "tc.v1.common.lib.cnpg.metrics.pooler" (dict "poolerName" ( printf "%s-ro" $cnpgValues.name) ) | fromYaml -}}
+          {{- $poolermetricsRO :=  include "tc.v1.common.lib.cnpg.metrics.pooler" (dict "poolerName" ( printf "%s-ro" $cnpgValues.name) ) | fromYaml }}
           {{- $_ := set $.Values.metrics ( printf "cnpg-%s-ro" $cnpgValues.shortName ) $poolermetricsRO }}
         {{- end }}
       {{- end }}
     {{- end }}
 
-    {{- end -}}
-  {{- end -}}
+    {{- end }}
+  {{- end }}
 {{- end -}}
