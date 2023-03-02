@@ -28,51 +28,32 @@ workload:
           probes:
             liveness:
               enabled: false
-              # TODO: Enable after v0.20 is released.
-              # Current version does not include the healthcheck command
-              # enabled: true
-              # custom: true
-              # spec:
-              #   exec:
-              #     command:
-              #       - /app/blocky
-              #       - healthcheck
+              type: exec
+              command:
+                - /app/blocky
+                - healthcheck
             readiness:
               enabled: false
-              # TODO: Enable after v0.20 is released.
-              # Current version does not include the healthcheck command
-              # enabled: true
-              # custom: true
-              # spec:
-              #   exec:
-              #     command:
-              #       - /app/blocky
-              #       - healthcheck
+              type: exec
+              command:
+                - /app/blocky
+                - healthcheck
             startup:
               enabled: false
-              # TODO: Enable after v0.20 is released.
-              # Current version does not include the healthcheck command
-              # enabled: true
-              # custom: true
-              # spec:
-              #   exec:
-              #     command:
-              #       - /app/blocky
-              #       - healthcheck
+              type: exec
+              command:
+                - /app/blocky
+                - healthcheck
+
+securityContext:
+  container:
+    runAsUser: 100
 
 # -- Blocky Config File content
 blockyConfig: {}
 # upstream:
 #   default:
 #     - 1.1.1.1
-
-# -- Configures blocky webUI
-# Requires apiURL or ingress
-webUI:
-  # -- Enable the WebUI
-  enabled: true
-  # -- url to the api, used by the WebUI. Only required when not using ingress
-  apiURL: "127.0.0.1:4000"
 
 # -- some general blocky settings
 blocky:
