@@ -17,7 +17,7 @@
 {{- define "blocky.configmap.mount" -}}
 enabled: true
 type: configmap
-mountPath: /app/config.yml
+mountPath: /config/config.yml
 objectName: config
 readOnly: true
 items:
@@ -38,10 +38,6 @@ items:
 {{- end -}}
 
 {{- $_ := set .Values.persistence "tc-config" (include "blocky.configmap.mount" . | fromYaml) -}}
-
-{{- if .Values.webUI.enabled -}}
-{{- $_ := set .Values.workload.main.podSpec.containers "frontend" (include "blocky.frontend" . | fromYaml) -}}
-{{- end -}}
 
 {{- if and .Values.k8sgateway.enabled .Values.k8sgateway.domains -}}
 {{- $_ := set .Values.persistence "config-volume" (include "k8sgateway.configvolume" . | fromYaml) -}}

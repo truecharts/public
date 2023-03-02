@@ -22,6 +22,9 @@ workload:
     podSpec:
       containers:
         main:
+          env:
+          BLOCKY_CONFIG_FILE: /config/config.yml
+          CONFIG_FILE: /config/config.yml
           probes:
             liveness:
               enabled: false
