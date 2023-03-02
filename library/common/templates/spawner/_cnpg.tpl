@@ -26,9 +26,6 @@
       {{- include "tc.v1.common.class.cnpg.pooler" $ }}
       {{- end }}
 
-    {{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ }}
-    {{- $fetchname := printf "%s-dbcreds" $basename }}
-
     {{/* Inject the required secrets */}}
     {{- $dbPass := "" }}
     {{- $dbprevious := lookup "v1" "Secret" $.Release.Namespace ( printf "%s-user" $cnpgValues.name ) }}
@@ -60,7 +57,6 @@
     {{- $_ := set $cnpgValues.creds "porthost" $porthost }}
     {{- $_ := set $cnpgValues.creds "host" $host }}
     {{- $_ := set $cnpgValues.creds "jdbc" $jdbc }}
-
 
     {{- if $cnpgValues.monitoring }}
       {{- if $cnpgValues.monitoring.enablePodMonitor }}

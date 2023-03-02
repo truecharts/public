@@ -69,13 +69,4 @@ spec:
     inProgress: false
     reusePVC: on
 
-  # externalClusters:
-  # - name: old-db
-  #   connectionParameters:
-  #     host: somehost
-  #     user: postgres
-  #   password:
-  #     name: somepass-superuser
-  #     key: password
-
 {{- end -}}
