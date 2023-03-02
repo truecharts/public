@@ -728,6 +728,9 @@ redis:
   url: {}
   manifestManager:
     enabled: false
+  secret:
+    credentials:
+      enabled: false
 
 # -- mariadb dependency configuration
 # @default -- See below

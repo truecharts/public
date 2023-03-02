@@ -23,6 +23,7 @@ objectData: The object data to be used to render the container.
       {{- $expandName := true -}}
       {{- $name := "" -}}
 
+
       {{- range $key := (list "configMapKeyRef" "secretKeyRef") -}}
         {{- if hasKey $v $key }}
     {{ $key }}:

@@ -88,8 +88,6 @@
 {{- end -}}
 
 {{- define "tc.v1.common.lib.deps.wait.redis" -}}
-{{ $fullname := include "tc.v1.common.lib.chart.names.fullname" $ }}
-{{- $redissecret := ( printf "%s-rediscreds" $fullname ) }}
 enabled: true
 type: system
 imageSelector: redisClientImage
@@ -106,21 +104,15 @@ securityContext:
     add: []
     drop:
       - ALL
-resources:
-  requests:
-    cpu: 10m
-    memory: 50Mi
-  limits:
-    cpu: 4000m
-    memory: 8Gi
 env:
   REDIS_HOST:
     secretKeyRef:
-      name: rediscreds
+      expandObjectName: false
+      name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
       key: plainhost
   REDIS_PASSWORD:
     secretKeyRef:
-      name: rediscreds
+      name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
       key: redis-password
   REDIS_PORT: "6379"
 command:

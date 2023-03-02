@@ -13,6 +13,7 @@ enabled: true
 {{- $dbpreviousold := lookup "v1" "Secret" .Release.Namespace $name }}
 {{- $dbPass := "" }}
 {{- $dbIndex := default "0" .Values.redis.redisDatabase }}
+expandObjectName: false
 data:
 {{- if $dbprevious }}
   {{- $dbPass = ( index $dbprevious.data "redis-password" ) | b64dec  }}
@@ -41,6 +42,6 @@ type: Opaque
 {{- define "tc.v1.common.dependencies.redis.injector" -}}
   {{- $secret := include "tc.v1.common.dependencies.redis.secret" . | fromYaml -}}
   {{- if $secret -}}
-    {{- $_ := set .Values.secret "rediscreds" $secret -}}
+    {{- $_ := set .Values.secret ( printf "%s-%s" .Release.Name "rediscreds" ) $secret -}}
   {{- end -}}
 {{- end -}}

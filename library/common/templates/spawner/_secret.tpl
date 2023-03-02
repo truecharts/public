@@ -13,6 +13,12 @@
       {{- $objectData := (mustDeepCopy $secret) -}}
 
       {{- $objectName := (printf "%s-%s" (include "tc.v1.common.lib.chart.names.fullname" $) $name) -}}
+      {{- if hasKey $objectData "expandObjectName" -}}
+        {{- if not $objectData.expandObjectName -}}
+          {{- $objectName = $name -}}
+        {{- end -}}
+      {{- end -}}
+
       {{/* Perform validations */}}
       {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $objectName) -}}
       {{- include "tc.v1.common.lib.secret.validation" (dict "objectData" $objectData) -}}
