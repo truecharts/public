@@ -10,11 +10,20 @@ alertmanagerImage:
   repository: tccr.io/truecharts/alertmanager
   tag: 0.25.0@sha256:6c59cf9e8332a23a3b629cb4d1b2ec8200bd645ea053cbf14fd04582ced81b72
 
-global:
-  labels: {}
-
-controller:
-  enabled: false
+workload:
+  main:
+    enabled: false
+    podSpec:
+      containers:
+        main:
+          enabled: false
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
 
 service:
   main:
