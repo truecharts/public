@@ -17,7 +17,7 @@ workload:
             REDIS_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
             REDIS_PASSWORD:
               secretKeyRef:
-                name: "credentials"
+                name: '{{ .Values.existingSecret | default "credentials" }}'
                 key: "redis-password"
           probes:
             liveness:
