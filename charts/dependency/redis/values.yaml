@@ -18,7 +18,7 @@ workload:
             REDIS_PASSWORD:
               secretKeyRef:
                 expandObjectName: false
-                name: '{{ if .Values.isDep }}{{ printf "%s-%s" .Release.Name "rediscreds" }}{{ else }}{{ .Values.existingSecret | default "credentials" }}{{ end }}'
+                name: '{{ if .Values.redisPassword }}"credentials"{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "rediscreds" }}{{ end }}'
                 key: "redis-password"
           probes:
             liveness:
@@ -130,9 +130,8 @@ secret:
     data:
       redis-password: '{{ ( .Values.redisPassword | default "nothing" ) }}'
 
-redisPassword: "testpass"
+redisPassword: ""
 existingSecret: ""
-isDep: false
 
 service:
   main:
