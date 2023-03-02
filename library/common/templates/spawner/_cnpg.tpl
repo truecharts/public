@@ -28,19 +28,12 @@
 
     {{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ }}
     {{- $fetchname := printf "%s-dbcreds" $basename }}
-    {{- $olddbprevious1 := lookup "v1" "Secret" $.Release.Namespace $fetchname }}
-    {{- $olddbprevious2 := lookup "v1" "Secret" $.Release.Namespace "dbcreds" }}
-
 
     {{/* Inject the required secrets */}}
     {{- $dbPass := "" }}
     {{- $dbprevious := lookup "v1" "Secret" $.Release.Namespace ( printf "%s-user" $cnpgValues.name ) }}
     {{- if $dbprevious }}
       {{- $dbPass = ( index $dbprevious.data "password" ) | b64dec }}
-    {{- else if and $.Values.postgresql.enabled $olddbprevious1 $.Release.IsUpgrade }}
-      {{- $dbPass = ( index $olddbprevious1.data "postgresql-password" ) | b64dec  }}
-    {{- else if and $.Values.postgresql.enabled $olddbprevious2 $.Release.IsUpgrade }}
-      {{- $dbPass = ( index $olddbprevious2.data "postgresql-password" ) | b64dec  }}
     {{- else }}
       {{- $dbPass = $cnpgValues.password | default ( randAlphaNum 62 ) }}
     {{- end }}
