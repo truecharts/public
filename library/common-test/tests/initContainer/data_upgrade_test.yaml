@@ -47,6 +47,14 @@ tests:
                 enabled: true
                 type: init
                 imageSelector: initImage
+                env:
+                  key: value
+                  key2: "{{ .Values.initImage.repository }}"
+                  key3:
+                    secretKeyRef:
+                      expandObjectName: false
+                      name: '{{ printf "secret-name" }}'
+                      key: secret-key
               container-name3:
                 enabled: true
                 type: install
@@ -118,6 +126,28 @@ tests:
       - documentIndex: *deploymentDoc
         isNull:
           path: spec.template.spec.initContainers[1].command
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.initContainers[1]
+          content:
+            env:
+              - name: "TZ"
+                value: "UTC"
+              - name: "UMASK"
+                value: "002"
+              - name: "UMASK_SET"
+                value: "002"
+              - name: "S6_READ_ONLY_ROOT"
+                value: "1"
+              - name: "key"
+                value: "value"
+              - name: "key2"
+                value: "bash"
+              - name: "key3"
+                valueFrom:
+                  secretKeyRef:
+                    key: "secret-key"
+                    name: "secret-name"
       - documentIndex: *deploymentDoc
         contains:
           path: spec.template.spec.initContainers[1].volumeMounts
