@@ -10,8 +10,6 @@ alertmanagerImage:
   repository: tccr.io/truecharts/alertmanager
   tag: 0.25.0@sha256:6c59cf9e8332a23a3b629cb4d1b2ec8200bd645ea053cbf14fd04582ced81b72
 
-global:
-  labels: {}
 workload:
   main:
     enabled: false
@@ -29,7 +27,7 @@ workload:
 
 service:
   main:
-    selector:
+    selectorLabels:
       app.kubernetes.io/name: prometheus
       prometheus: '{{ template "kube-prometheus.prometheus.fullname" . }}'
     ports:
@@ -39,7 +37,7 @@ service:
         protocol: http
   alertmanager:
     enabled: true
-    selector:
+    selectorLabels:
       app.kubernetes.io/name: alertmanager
       alertmanager: '{{ template "kube-prometheus.alertmanager.fullname" . }}'
     ports:
@@ -50,7 +48,7 @@ service:
         protocol: http
   thanos:
     enabled: true
-    selector:
+    selectorLabels:
       app.kubernetes.io/name: prometheus
       prometheus: '{{ template "kube-prometheus.prometheus.fullname" . }}'
     ports:
