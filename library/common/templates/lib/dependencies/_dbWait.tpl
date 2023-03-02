@@ -100,6 +100,7 @@ env:
       key: plainhost
   REDIS_PASSWORD:
     secretKeyRef:
+      expandObjectName: false
       name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
       key: redis-password
   REDIS_PORT: "6379"
@@ -161,10 +162,12 @@ resources:
 env:
   MARIADB_HOST:
     secretKeyRef:
+      expandObjectName: false
       name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
       key: plainhost
   MARIADB_ROOT_PASSWORD:
     secretKeyRef:
+      expandObjectName: false
       name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
       key: mariadb-root-password
 command:
@@ -209,6 +212,7 @@ resources:
 env:
   MONGODB_HOST:
     secretKeyRef:
+      expandObjectName: false
       name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
       key: plainhost
   MONGODB_DATABASE: "{{ .Values.mongodb.mongodbDatabase }}"
@@ -253,6 +257,7 @@ resources:
 env:
   CLICKHOUSE_PING:
     secretKeyRef:
+      expandObjectName: false
       name: '{{ printf "%s-%s" .Release.Name "clickhousecreds" }}'
       key: ping
 command:
@@ -296,6 +301,7 @@ resources:
 env:
   SOLR_HOST:
     secretKeyRef:
+      expandObjectName: false
       name: '{{ printf "%s-%s" .Release.Name "solrcreds" }}'
       key: plainhost
   SOLR_CORES: "{{ .Values.solr.solrCores }}"
@@ -303,6 +309,7 @@ env:
   SOLR_ADMIN_USERNAME: "{{ .Values.solr.solrUsername }}"
   SOLR_ADMIN_PASSWORD:
     secretKeyRef:
+      expandObjectName: false
       name: '{{ printf "%s-%s" .Release.Name "solrcreds" }}'
       key: solr-password
 
