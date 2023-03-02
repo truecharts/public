@@ -70,11 +70,11 @@ env:
 podOptions:
   automountServiceAccountToken: true
 
-# -- Whether Role Based Access Control objects like roles and rolebindings should be created
 rbac:
   main:
     enabled: true
     primary: true
+    clusterWide: true
     rules:
       - apiGroups:
           - apiextensions.k8s.io

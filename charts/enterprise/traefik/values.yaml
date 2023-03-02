@@ -265,6 +265,7 @@ rbac:
   main:
     enabled: true
     primary: true
+    clusterWide: true
     rules:
       - apiGroups:
           - ""

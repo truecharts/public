@@ -297,7 +297,7 @@ rbac:
     # -- Enables or disables the ClusterRole and ClusterRoleBinding
     enabled: true
     primary: true
-
+    clusterWide: true
     # -- Set Rules on the ClusterRole
     rules:
       - apiGroups:
