@@ -34,12 +34,7 @@ spec:
   {{- $olddbprevious2 := lookup "v1" "Secret" .Release.Namespace "dbcreds" }}
 
   bootstrap:
-  {{- if and $.Values.postgresql.enabled ( or $olddbprevious1 $olddbprevious2 ) $.Release.IsUpgrade }}
-    pg_basebackup:
-      source: old-db
-  {{- else }}
     initdb:
-  {{- end }}
       database: {{ $values.database | default "app" }}
       owner: {{ $values.user | default "app" }}
       secret:
