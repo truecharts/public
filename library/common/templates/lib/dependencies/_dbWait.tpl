@@ -60,18 +60,6 @@
 {{- end -}}
 {{- end }}
 
-{{ if .Values.postgresql.enabled }}
-{{- $container := include "tc.v1.common.lib.deps.wait.postgresql" $ | fromYaml -}}
-{{- if $container -}}
-  {{- range .Values.workload -}}
-    {{- if not (hasKey . "initContainers") -}}
-      {{- $_ := set .podSpec "initContainers" dict -}}
-    {{- end -}}
-  {{- $_ := set .podSpec.initContainers "postgresql-wait" $container -}}
-  {{- end }}
-{{- end -}}
-{{- end }}
-
 {{ $result := false }}{{ range .Values.cnpg }}{{ if .enabled }}{{ $result = true }}{{ end }}{{ end }}
 {{ if $result }}
 {{- $container := include "tc.v1.common.lib.deps.wait.cnpg" $ | fromYaml -}}
@@ -173,11 +161,11 @@ resources:
 env:
   MARIADB_HOST:
     secretKeyRef:
-      name: mariadbcreds
+      name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
       key: plainhost
   MARIADB_ROOT_PASSWORD:
     secretKeyRef:
-      name: mariadbcreds
+      name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
       key: mariadb-root-password
 command:
   - "/bin/sh"
@@ -221,7 +209,7 @@ resources:
 env:
   MONGODB_HOST:
     secretKeyRef:
-      name: mongodbcreds
+      name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
       key: plainhost
   MONGODB_DATABASE: "{{ .Values.mongodb.mongodbDatabase }}"
 command:
@@ -265,7 +253,7 @@ resources:
 env:
   CLICKHOUSE_PING:
     secretKeyRef:
-      name: "clickhousecreds"
+      name: '{{ printf "%s-%s" .Release.Name "clickhousecreds" }}'
       key: ping
 command:
   - "/bin/sh"
@@ -308,14 +296,14 @@ resources:
 env:
   SOLR_HOST:
     secretKeyRef:
-      name: solrcreds
+      name: '{{ printf "%s-%s" .Release.Name "solrcreds" }}'
       key: plainhost
   SOLR_CORES: "{{ .Values.solr.solrCores }}"
   SOLR_ENABLE_AUTHENTICATION: "{{ .Values.solr.solrEnableAuthentication }}"
   SOLR_ADMIN_USERNAME: "{{ .Values.solr.solrUsername }}"
   SOLR_ADMIN_PASSWORD:
     secretKeyRef:
-      name: solrcreds
+      name: '{{ printf "%s-%s" .Release.Name "solrcreds" }}'
       key: solr-password
 
 command:
@@ -337,45 +325,6 @@ command:
     fi;
     EOF
 {{ end }}
-
-{{- define "tc.v1.common.lib.deps.wait.postgresql" -}}
-enabled: true
-type: system
-imageSelector: postgresClientImage
-securityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  readOnlyRootFilesystem: true
-  runAsNonRoot: true
-  allowPrivilegeEscalation: false
-  privileged: false
-  seccompProfile:
-    type: RuntimeDefault
-  capabilities:
-    add: []
-    drop:
-      - ALL
-resources:
-  requests:
-    cpu: 10m
-    memory: 50Mi
-  limits:
-    cpu: 4000m
-    memory: 8Gi
-command:
-  - "/bin/sh"
-  - "-c"
-  - |
-    /bin/sh <<'EOF'
-    echo "Executing DB waits..."
-    {{- $pghost := printf "%v-%v" .Release.Name "postgresql" }}
-    until
-      pg_isready -U {{ .Values.postgresql.postgresqlUsername }} -h {{ $pghost }}
-      do sleep 2
-    done
-    EOF
-{{ end }}
-
 
 {{- define "tc.v1.common.lib.deps.wait.cnpg" -}}
 enabled: true

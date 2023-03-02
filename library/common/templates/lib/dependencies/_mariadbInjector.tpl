@@ -6,6 +6,7 @@ This template generates a random password and ensures it persists across updates
 
 {{- if .Values.mariadb.enabled }}
 enabled: true
+expandObjectName: false
 {{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
 {{- $fetchname := printf "%s-mariadbcreds" $basename -}}
 {{- $dbprevious := lookup "v1" "Secret" .Release.Namespace $fetchname }}
@@ -52,6 +53,6 @@ type: Opaque
 {{- define "tc.v1.common.dependencies.mariadb.injector" -}}
   {{- $secret := include "tc.v1.common.dependencies.mariadb.secret" . | fromYaml -}}
   {{- if $secret -}}
-    {{- $_ := set .Values.secret "mariadbcreds" $secret -}}
+    {{- $_ := set .Values.secret ( printf "%s-%s" .Release.Name "mariadbcreds" ) $secret -}}
   {{- end -}}
 {{- end -}}

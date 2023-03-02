@@ -4,6 +4,7 @@
 {{- define "tc.v1.common.dependencies.clickhouse.secret" -}}
 {{- if .Values.clickhouse.enabled }}
 enabled: true
+expandObjectName: false
 {{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
 {{- $fetchname := printf "%s-clickhousecreds" $basename -}}
 {{- $dbprevious := lookup "v1" "Secret" .Release.Namespace $fetchname }}
@@ -49,6 +50,6 @@ data:
 {{- define "tc.v1.common.dependencies.clickhouse.injector" -}}
   {{- $secret := include "tc.v1.common.dependencies.clickhouse.secret" . | fromYaml -}}
   {{- if $secret -}}
-    {{- $_ := set .Values.secret "clickhousecreds" $secret -}}
+    {{- $_ := set .Values.secret ( printf "%s-%s" .Release.Name "clickhousecreds" ) $secret -}}
   {{- end -}}
 {{- end -}}

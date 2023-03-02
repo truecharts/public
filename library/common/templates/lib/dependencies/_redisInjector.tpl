@@ -7,13 +7,13 @@ This template generates a random password and ensures it persists across updates
 
 {{- if .Values.redis.enabled }}
 enabled: true
+expandObjectName: false
 {{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
 {{- $fetchname := printf "%s-rediscreds" $basename -}}
 {{- $dbprevious := lookup "v1" "Secret" .Release.Namespace $fetchname }}
 {{- $dbpreviousold := lookup "v1" "Secret" .Release.Namespace $name }}
 {{- $dbPass := "" }}
 {{- $dbIndex := default "0" .Values.redis.redisDatabase }}
-expandObjectName: false
 data:
 {{- if $dbprevious }}
   {{- $dbPass = ( index $dbprevious.data "redis-password" ) | b64dec  }}

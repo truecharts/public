@@ -6,6 +6,7 @@ This template generates a random password and ensures it persists across updates
 
 {{- if .Values.mongodb.enabled }}
 enabled: true
+expandObjectName: false
 {{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
 {{- $fetchname := printf "%s-mongodbcreds" $basename -}}
 {{- $dbprevious := lookup "v1" "Secret" .Release.Namespace $fetchname }}
@@ -51,6 +52,6 @@ type: Opaque
 {{- define "tc.v1.common.dependencies.mongodb.injector" -}}
   {{- $secret := include "tc.v1.common.dependencies.mongodb.secret" . | fromYaml -}}
   {{- if $secret -}}
-    {{- $_ := set .Values.secret "mongodbcreds" $secret -}}
+    {{- $_ := set .Values.secret ( printf "%s-%s" .Release.Name "mongodbcreds" ) $secret -}}
   {{- end -}}
 {{- end -}}

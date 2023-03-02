@@ -76,15 +76,13 @@ spec:
     inProgress: false
     reusePVC: on
 
-  externalClusters:
-  {{- if and $.Values.postgresql.enabled ( or $olddbprevious1 $olddbprevious2 ) $.Release.IsUpgrade }}
-  - name: old-db
-    connectionParameters:
-      host: {{ (printf "%v-%v" .Release.Name "postgresql" ) }}
-      user: postgres
-    password:
-      name: {{ $cnpgClusterName }}-superuser
-      key: password
-  {{- end }}
+  # externalClusters:
+  # - name: old-db
+  #   connectionParameters:
+  #     host: somehost
+  #     user: postgres
+  #   password:
+  #     name: somepass-superuser
+  #     key: password
 
 {{- end -}}

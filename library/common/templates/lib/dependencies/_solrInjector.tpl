@@ -6,6 +6,7 @@ This template generates a random password and ensures it persists across updates
 
 {{- if .Values.solr.enabled }}
 enabled: true
+expandObjectName: false
 {{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
 {{- $fetchname := printf "%s-solrcreds" $basename -}}
 {{- $solrprevious := lookup "v1" "Secret" .Release.Namespace $fetchname }}
@@ -35,6 +36,6 @@ type: Opaque
 {{- define "tc.v1.common.dependencies.solr.injector" -}}
   {{- $secret := include "tc.v1.common.dependencies.solr.secret" . | fromYaml -}}
   {{- if $secret -}}
-    {{- $_ := set .Values.secret "solrcreds" $secret -}}
+    {{- $_ := set .Values.secret ( printf "%s-%s" .Release.Name "solrcreds" ) $secret -}}
   {{- end -}}
 {{- end -}}
