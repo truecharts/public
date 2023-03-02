@@ -28,9 +28,6 @@ metadata:
 spec:
   instances: {{ $values.instances | default 2  }}
 
-  {{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
-  {{- $fetchname := printf "%s-dbcreds" $basename -}}
-
   bootstrap:
     initdb:
       database: {{ $values.database | default "app" }}
