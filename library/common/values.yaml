@@ -290,7 +290,7 @@ manifestManager:
 
 gluetunImage:
   repository: tccr.io/truecharts/gluetun
-  tag: latest@sha256:0a6ab5a5f8b93e2b8fe89002da4b965229f31b84ab77bb79ef112ddd760120a9
+  tag: latest@sha256:a3429789f72bedf877e30c3534cb30b78766ada9cb2967fd779b2c9e2d39042c
   pullPolicy: IfNotPresent
 
 netshootImage:
@@ -330,22 +330,22 @@ wgetImage:
 
 postgresClientImage:
   repository: tccr.io/truecharts/db-wait-postgres
-  tag: 1.1.0@sha256:b03a81433b82a24289bd461d7713e20721d8f4479781f337dfb48d5f84ffddc4
+  tag: 1.1.0@sha256:f9c64c07029fabeb730c7d2107588bdbd3d70083bc8c6f48ff83d78d35a932ac
   pullPolicy: IfNotPresent
 
 mariadbClientImage:
   repository: tccr.io/truecharts/db-wait-mariadb
-  tag: 1.1.0@sha256:b9c82f29daafe72d07b23951bdd5654561cb95e5ca4a493ca1f68688c625e6bb
+  tag: 1.1.0@sha256:5941896596d824965b50be1668dca8c181285fb854b62788f1287b2cc5514cf3
   pullPolicy: IfNotPresent
 
 redisClientImage:
   repository: tccr.io/truecharts/db-wait-redis
-  tag: 1.1.0@sha256:190b199bebf88a6def50cf8efd38651d79595a1e69566062843062a8c34bb0ff
+  tag: 1.1.0@sha256:df03b0bc1d1cfc0d036ad60c36409ef6e7d94e8981c3da9e68b37c5d84bf88da
   pullPolicy: IfNotPresent
 
 mongodbClientImage:
   repository: tccr.io/truecharts/db-wait-mongodb
-  tag: 1.1.0@sha256:d2d237297cbcde63a038ef8dc1634241c476396d03d370ffa2814177ff56d1e7
+  tag: 1.1.0@sha256:a7165a1c789a5980d0abced6745062a9c1a800fd07f986e77990288c36f8a3d0
   pullPolicy: IfNotPresent
 
 # -- OpenVPN specific configuration
