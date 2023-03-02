@@ -19,58 +19,31 @@ workload:
               secretKeyRef:
                 name: "credentials"
                 key: "redis-password"
-          # -- Probe configuration
-          # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
-          # @default -- See below
           probes:
-            # -- Liveness probe configuration
-            # @default -- See below
             liveness:
-              # -- Enable the liveness probe
               enabled: true
-              # -- Set this to `true` if you wish to specify your own livenessProbe
-              custom: true
-              # -- The spec field contains the values for the default livenessProbe.
-              # If you selected `custom: true`, this field holds the definition of the livenessProbe.
-              # @default -- See below
-              spec:
-                exec:
-                  command:
-                    - sh
-                    - -c
-                    - /health/ping_liveness_local.sh 2
-
-            # -- Redainess probe configuration
-            # @default -- See below
+              type: exec
+              command:
+                - sh
+                - -c
+                - /health/ping_liveness_local.sh 2
             readiness:
-              # -- Enable the readiness probe
               enabled: true
-              # -- Set this to `true` if you wish to specify your own readinessProbe
-              custom: true
-              # -- The spec field contains the values for the default readinessProbe.
-              # If you selected `custom: true`, this field holds the definition of the readinessProbe.
-              # @default -- See below
-              spec:
-                exec:
-                  command:
-                    - sh
-                    - -c
-                    - /health/ping_readiness_local.sh 2
+              type: exec
+              command:
+                - sh
+                - -c
+                - /health/ping_readiness_local.sh 2
             # -- Startup probe configuration
             # @default -- See below
             startup:
               # -- Enable the startup probe
               enabled: true
-              custom: true
-              # -- The spec field contains the values for the default livenessProbe.
-              # If you selected `custom: true`, this field holds the definition of the livenessProbe.
-              # @default -- See below
-              spec:
-                exec:
-                  command:
-                    - sh
-                    - -c
-                    - /health/ping_readiness_local.sh 2
+              type: exec
+              command:
+                - sh
+                - -c
+                - /health/ping_readiness_local.sh 2
 
 securityContext:
   container:
