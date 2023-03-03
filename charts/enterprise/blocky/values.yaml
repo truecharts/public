@@ -41,6 +41,9 @@ workload:
 securityContext:
   container:
     runAsUser: 100
+    runAsGroup: 100
+  pod:
+    fsGroup: 100
 
 # -- Blocky Config File content
 blockyConfig: {}
@@ -259,7 +262,7 @@ podOptions:
 
 portal:
   open:
-    enabled: true
+    enabled: false
 
 serviceAccount:
   main:
