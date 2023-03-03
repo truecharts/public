@@ -17,7 +17,7 @@
 {{- define "blocky.configmap.mount" -}}
 enabled: true
 type: configmap
-mountPath: /config/config.yml
+mountPath: /app/config.yml
 objectName: config
 readOnly: true
 items:
