@@ -40,10 +40,10 @@ workload:
 
 securityContext:
   container:
-    runAsUser: 100
-    runAsGroup: 100
+    runAsUser: 0
+    runAsGroup: 0
   pod:
-    fsGroup: 100
+    fsGroup: 0
 
 # -- Blocky Config File content
 blockyConfig: {}
