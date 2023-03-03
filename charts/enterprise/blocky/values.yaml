@@ -42,6 +42,8 @@ securityContext:
   container:
     runAsUser: 0
     runAsGroup: 0
+    capabilities:
+      drop: []
 
 # -- Blocky Config File content
 blockyConfig: {}
