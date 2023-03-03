@@ -25,6 +25,7 @@ data:
   {{- $dbPass = randAlphaNum 50 }}
   redis-password: {{ $dbPass }}
 {{- end }}
+  plain: {{ printf "%v-%v" .Release.Name "redis" }}
   url: {{ ( printf "redis://%v:%v@%v-redis:6379/%v" .Values.redis.redisUsername $dbPass .Release.Name $dbIndex ) }}
   plainhostpass: {{ ( printf "%v:%v@%v-redis" .Values.redis.redisUsername $dbPass .Release.Name ) }}
   plainporthost: {{ ( printf "%v-%v:6379" .Release.Name "redis" ) }}
