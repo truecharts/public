@@ -37,8 +37,6 @@ workload:
 
 securityContext:
   container:
-    runAsUser: 0
-    runAsGroup: 0
     capabilities:
       drop: []
 
