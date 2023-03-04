@@ -53,11 +53,13 @@ blocky:
 
 service:
   main:
+    enabled: true
     ports:
       main:
-        port: 10315
+        enabled: true
+        port: 4000
         protocol: http
-        targetPort: 80
+        targetPort: 4000
   dnstcp:
     enabled: true
     ports:
@@ -81,14 +83,6 @@ service:
         port: 853
         protocol: tcp
         targetPort: 853
-  http:
-    enabled: true
-    ports:
-      http:
-        enabled: true
-        port: 4000
-        protocol: http
-        targetPort: 4000
   https:
     enabled: true
     ports:
@@ -356,3 +350,23 @@ metrics:
 
 redis:
   enabled: true
+
+# CANNOT be defined in above yaml section
+queryLog:
+  # optional one of: mysql, postgresql, csv, csv-client. If empty, log to console
+  type: ""
+  # directory (should be mounted as volume in docker) for csv, db connection string for mysql/postgresql
+  # target: /var/log/something
+  #postgresql target: postgres://user:password@db_host_or_ip:5432/db_name
+  # if > 0, deletes log files which are older than ... days
+  logRetentionDays: 0
+  # optional: Max attempts to create specific query log writer, default: 3
+  creationAttempts: 3
+  # optional: Time between the creation attempts, default: 2s
+  creationCooldown: 2s
+
+cnpg:
+  main:
+    enabled: true
+    user: blocky
+    database: blocky

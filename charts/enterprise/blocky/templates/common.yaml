@@ -50,8 +50,8 @@ path: "/api"
 pathType: Prefix
 service:
   # -- Overrides the service name reference for this path
-  name: {{ printf "%s-http" $fullname }}
-  port: {{ .Values.service.http.ports.http.port }}
+  name: {{ printf "%s-main" $fullname }}
+  port: {{ .Values.service.main.ports.main.port }}
 {{- end -}}
 
 {{/* inject websocket path to all main ingress hosts*/}}
@@ -77,8 +77,8 @@ path: "/dns-query"
 pathType: Prefix
 service:
   # -- Overrides the service name reference for this path
-  name: {{ printf "%s-http" $fullname }}
-  port: {{ .Values.service.http.ports.http.port }}
+  name: {{ printf "%s-main" $fullname }}
+  port: {{ .Values.service.main.ports.main.port }}
 {{- end -}}
 
 {{/* inject websocket path to all main ingress hosts*/}}
