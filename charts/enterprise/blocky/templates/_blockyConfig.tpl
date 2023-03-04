@@ -1,6 +1,6 @@
 {{/* Define the config */}}
 {{- define "blocky.configmap" -}}
-{{- $config := merge ( include "blocky.config" . | fromYaml ) ( .Values.blockyConfig ) }}
+{{- $config := mustMerge ( include "blocky.config" . | fromYaml ) ( .Values.blockyConfig ) }}
 enabled: true
 data:
   config.yml: |
