@@ -122,6 +122,16 @@ objectData: The object data to be used to render the container.
     {{- fail "Container - Expected <securityContext.capabilities> to be defined" -}}
   {{- end -}}
 
+  {{- $tempObjectData := (dict "shortName" $objectData.podShortName "primary" $objectData.podPrimary) -}}
+  {{- $portRange := fromJson (include "tc.v1.common.lib.helpers.securityContext.getPortRange" (dict "rootCtx" $rootCtx "objectData" $tempObjectData)) -}}
+  {{- if and $portRange.low (le (int $portRange.low) 1024) -}} {{/* If a container wants to bind a port <= 1024 add NET_BIND_SERVICE */}}
+    {{- $addCap := $secContext.capabilities.add -}}
+    {{- if not (mustHas "NET_BIND_SERIVCE" $addCap) -}}
+      {{- $addCap = mustAppend $addCap "NET_BIND_SERVICE" -}}
+    {{- end -}}
+    {{- $_ := set $secContext.capabilities "add" $addCap -}}
+  {{- end -}}
+
   {{- range $key := (list "add" "drop") -}}
     {{- $item := (get $secContext.capabilities $key) -}}
     {{- if not (kindIs "slice" $item) -}}

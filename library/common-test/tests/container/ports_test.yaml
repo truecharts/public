@@ -136,6 +136,13 @@ tests:
               - name: port-name
                 containerPort: 1234
                 protocol: TCP
+      - documentIndex: *deploymentDoc
+        isNotSubset:
+          path: spec.template.spec.containers[0].securityContext.capabilities
+          content:
+            add:
+              - NET_BIND_SERVICE
+
       - documentIndex: &otherDeploymentDoc 1
         isKind:
           of: Deployment
@@ -147,6 +154,12 @@ tests:
               - name: port-name
                 containerPort: 53
                 protocol: TCP
+      - documentIndex: *otherDeploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0].securityContext.capabilities
+          content:
+            add:
+              - NET_BIND_SERVICE
 
   - it: should create the correct ports with hostPort
     set:
