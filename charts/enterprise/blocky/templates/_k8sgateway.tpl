@@ -7,36 +7,22 @@ securityContext:
   readOnlyRootFilesystem: true
   runAsNonRoot: false
 args: ["-conf", "/etc/coredns/Corefile"]
-ports:
-  - containerPort: {{ .Values.service.k8sgateway.ports.k8sgateway.targetPort }}
-    name: main
 volumeMounts:
   - name: config-volume
     mountPath: /etc/coredns
-readinessProbe:
-  httpGet:
-    path: /ready
-    port: 8181
-  initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
-  timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
-  periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
-  failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
-livenessProbe:
-  httpGet:
-    path: /health
-    port: 8080
-  initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
-  timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
-  periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
-  failureThreshold: {{ .Values.probes.liveness.spec.failureThreshold }}
-startupProbe:
-  httpGet:
-    path: /ready
-    port: 8181
-  initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
-  timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
-  periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
-  failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
+probe:
+  readiness:
+    httpGet:
+      path: /ready
+      port: 8181
+  liveness:
+    httpGet:
+      path: /health
+      port: 8080
+  startup:
+    httpGet:
+      path: /ready
+      port: 8181
 {{- end -}}
 
 {{/*
@@ -53,14 +39,8 @@ Create the matchable regex from domain
 {{/* Define the configmap */}}
 {{- define "k8sgateway.configmap" -}}
 {{- $values := .Values.k8sgateway }}
-{{- $fqdn := ( include "tc.common.names.fqdn" . ) }}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ include "tc.common.names.fullname" . }}-corefile
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+{{- $fqdn := ( include "tc.v1.common.lib.chart.names.fqdn" . ) }}
+enabled: true
 data:
   Corefile: |-
     .:{{ .Values.service.k8sgateway.ports.k8sgateway.targetPort }} {

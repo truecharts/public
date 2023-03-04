@@ -16,8 +16,8 @@ args:
   {{- end }}
   {{- range $name, $config := $ports }}
   {{- if $config }}
-  {{- if or ( eq $config.protocol "HTTP" ) ( eq $config.protocol "HTTPS" ) ( eq $config.protocol "TCP" ) }}
-  {{- $_ := set $config "protocol" "TCP" }}
+  {{- if or ( eq $config.protocol "http" ) ( eq $config.protocol "https" ) ( eq $config.protocol "tcp" ) }}
+  {{- $_ := set $config "protocol" "tcp" }}
   {{- end }}
   - "--entryPoints.{{$name}}.address=:{{ $config.port }}/{{ default "tcp" $config.protocol | lower }}"
   {{- end }}
@@ -98,8 +98,8 @@ args:
   - "--entrypoints.{{ $entrypoint }}.http.redirections.entryPoint.scheme=https"
   {{- end }}
   {{- end }}
-  {{- if or ( $config.tls ) ( eq $config.protocol "HTTPS" ) }}
-  {{- if or ( $config.tls.enabled ) ( eq $config.protocol "HTTPS" ) }}
+  {{- if or ( $config.tls ) ( eq $config.protocol "https" ) }}
+  {{- if or ( $config.tls.enabled ) ( eq $config.protocol "https" ) }}
   - "--entrypoints.{{ $entrypoint }}.http.tls=true"
   {{- if $config.tls.options }}
   - "--entrypoints.{{ $entrypoint }}.http.tls.options={{ $config.tls.options }}"

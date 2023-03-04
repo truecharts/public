@@ -3,8 +3,20 @@ image:
   tag: latest@sha256:93878048bbc350e69bf246556ef3520f343487c7ffc40f0b0655ed8a360cb932
   pullPolicy: IfNotPresent
 
-controller:
-  enabled: false
+workload:
+  main:
+    enabled: false
+    podSpec:
+      containers:
+        main:
+          enabled: false
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
 
 service:
   main:
@@ -15,14 +27,7 @@ service:
         port: 9999
 
 portal:
-  enabled: false
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
+  open:
     enabled: false
 
 clusterIssuer:
@@ -70,5 +75,5 @@ clusterIssuer:
 #     tsigAlgorithm: ""
 #     rfctsigSecret: ""
 
-metrics:
+customMetrics:
   enabled: true

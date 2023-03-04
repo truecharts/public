@@ -12,23 +12,34 @@ alertmanagerImage:
 
 global:
   labels: {}
-
-controller:
-  enabled: false
+workload:
+  main:
+    enabled: false
+    podSpec:
+      containers:
+        main:
+          enabled: false
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
 
 service:
   main:
-    selector:
+    selectorLabels:
       app.kubernetes.io/name: prometheus
       prometheus: '{{ template "kube-prometheus.prometheus.fullname" . }}'
     ports:
       main:
         port: 10086
         targetPort: 9090
-        protocol: HTTP
+        protocol: http
   alertmanager:
     enabled: true
-    selector:
+    selectorLabels:
       app.kubernetes.io/name: alertmanager
       alertmanager: '{{ template "kube-prometheus.alertmanager.fullname" . }}'
     ports:
@@ -36,10 +47,10 @@ service:
         enabled: true
         port: 10087
         targetPort: 9093
-        protocol: HTTP
+        protocol: http
   thanos:
     enabled: true
-    selector:
+    selectorLabels:
       app.kubernetes.io/name: prometheus
       prometheus: '{{ template "kube-prometheus.prometheus.fullname" . }}'
     ports:
@@ -47,7 +58,7 @@ service:
         enabled: true
         port: 10901
         targetPort: 10901
-        protocol: HTTP
+        protocol: http
 
 ingress:
   main:
@@ -67,10 +78,14 @@ env:
       name: prometheus-operator-config
       key: prometheus-config-reloader
 
-# -- Whether Role Based Access Control objects like roles and rolebindings should be created
+podOptions:
+  automountServiceAccountToken: true
+
 rbac:
   main:
     enabled: true
+    primary: true
+    clusterWide: true
     rules:
       - apiGroups:
           - apiextensions.k8s.io
@@ -168,6 +183,7 @@ rbac:
 serviceAccount:
   main:
     enabled: true
+    primary: true
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -812,7 +828,7 @@ prometheus:
       ##   - name: http
       ##     port: 10902
       ##     targetPort: http
-      ##     protocol: TCP
+      ##     protocol: tcp
       ##
       extraPorts: []
   ## @param prometheus.portName Port name used for the pods and governing service. This defaults to web
@@ -1361,4 +1377,5 @@ kubeProxy:
   enabled: false
 
 portal:
-  enabled: true
+  open:
+    enabled: true

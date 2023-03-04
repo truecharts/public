@@ -11,24 +11,24 @@ spec:
   replicas: {{ .Values.prometheus.replicaCount }}
   serviceAccountName: {{ template "kube-prometheus.prometheus.serviceAccountName" . }}
   {{- if .Values.prometheus.serviceMonitorSelector }}
-  serviceMonitorSelector: {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.serviceMonitorSelector "context" $) | nindent 4 }}
+  serviceMonitorSelector: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.serviceMonitorSelector "context" $) | nindent 4 }}
   {{- else }}
   serviceMonitorSelector: {}
   {{- end }}
   {{- if .Values.prometheus.podMonitorSelector }}
-  podMonitorSelector: {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.podMonitorSelector "context" $) | nindent 4 }}
+  podMonitorSelector: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.podMonitorSelector "context" $) | nindent 4 }}
   {{- else }}
   podMonitorSelector: {}
   {{- end }}
   {{- if .Values.prometheus.probeSelector }}
-  probeSelector: {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.probeSelector "context" $) | nindent 4 }}
+  probeSelector: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.probeSelector "context" $) | nindent 4 }}
   {{- else }}
   probeSelector: {}
   {{- end }}
   alerting:
     alertmanagers:
     {{- if .Values.prometheus.alertingEndpoints }}
-    {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.alertingEndpoints "context" $) | nindent 6 }}
+    {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.alertingEndpoints "context" $) | nindent 6 }}
     {{- else if .Values.alertmanager.enabled }}
       - namespace: {{ .Release.Namespace }}
         name: {{ template "kube-prometheus.alertmanager.fullname" . }}
@@ -41,7 +41,7 @@ spec:
   image: {{ template "kube-prometheus.prometheus.image" . }}
   {{- end }}
   {{- if .Values.prometheus.externalLabels }}
-  externalLabels: {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.externalLabels "context" $) | nindent 4 }}
+  externalLabels: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.externalLabels "context" $) | nindent 4 }}
   {{- end }}
   {{- if .Values.prometheus.prometheusExternalLabelNameClear }}
   prometheusExternalLabelName: ""
@@ -93,47 +93,47 @@ spec:
   portName: "{{ .Values.prometheus.portName }}"
   routePrefix: "{{ .Values.prometheus.routePrefix }}"
   {{- if .Values.prometheus.secrets }}
-  secrets: {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.secrets "context" $) | nindent 4 }}
+  secrets: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.secrets "context" $) | nindent 4 }}
   {{- end }}
   {{- if .Values.prometheus.configMaps }}
-  configMaps: {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.configMaps "context" $) | nindent 4 }}
+  configMaps: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.configMaps "context" $) | nindent 4 }}
   {{- end }}
   {{- if .Values.prometheus.serviceMonitorNamespaceSelector }}
-  serviceMonitorNamespaceSelector: {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.serviceMonitorNamespaceSelector "context" $) | nindent 4 }}
+  serviceMonitorNamespaceSelector: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.serviceMonitorNamespaceSelector "context" $) | nindent 4 }}
   {{- else }}
   serviceMonitorNamespaceSelector: {}
   {{- end }}
   {{- if .Values.prometheus.podMonitorNamespaceSelector }}
-  podMonitorNamespaceSelector: {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.podMonitorNamespaceSelector "context" $) | nindent 4 }}
+  podMonitorNamespaceSelector: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.podMonitorNamespaceSelector "context" $) | nindent 4 }}
   {{- else }}
   podMonitorNamespaceSelector: {}
   {{- end }}
   {{- if .Values.prometheus.probeNamespaceSelector }}
-  probeNamespaceSelector: {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.probeNamespaceSelector "context" $) | nindent 4 }}
+  probeNamespaceSelector: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.probeNamespaceSelector "context" $) | nindent 4 }}
   {{- else }}
   probeNamespaceSelector: {}
   {{- end }}
   {{- if .Values.prometheus.remoteRead }}
-  remoteRead: {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.remoteRead "context" $) | nindent 4 }}
+  remoteRead: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.remoteRead "context" $) | nindent 4 }}
   {{- end }}
   {{- if .Values.prometheus.remoteWrite }}
-  remoteWrite: {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.remoteWrite "context" $) | nindent 4 }}
+  remoteWrite: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.remoteWrite "context" $) | nindent 4 }}
   {{- end }}
   {{- if .Values.prometheus.podSecurityContext.enabled }}
   securityContext: {{- omit .Values.prometheus.podSecurityContext "enabled" | toYaml | nindent 4 }}
   {{- end }}
   {{- if .Values.prometheus.ruleNamespaceSelector }}
-  ruleNamespaceSelector: {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.ruleNamespaceSelector "context" $) | nindent 4 }}
+  ruleNamespaceSelector: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.ruleNamespaceSelector "context" $) | nindent 4 }}
   {{- else }}
   ruleNamespaceSelector: {}
   {{- end }}
   {{- if .Values.prometheus.ruleSelector }}
-  ruleSelector: {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.ruleSelector "context" $) | nindent 4 }}
+  ruleSelector: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.ruleSelector "context" $) | nindent 4 }}
   {{- else }}
   ruleSelector: {}
   {{- end }}
   {{- if .Values.prometheus.storageSpec }}
-  storage: {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.storageSpec "context" $) | nindent 4 }}
+  storage: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.storageSpec "context" $) | nindent 4 }}
   {{- else if .Values.prometheus.persistence.enabled }}
   storage:
     volumeClaimTemplate:
@@ -145,50 +145,41 @@ spec:
         resources:
           requests:
             storage: {{ .Values.prometheus.persistence.size | quote }}
-        {{- include "tc.common.storage.storageClassName" (dict "persistence" .Values.prometheus.persistence "global" $ ) | nindent 8 }}
+        {{- with (include "tc.v1.common.lib.storage.storageClassName" (dict "persistence" .Values.prometheus.persistence "root" . )) | trim }}
+        storageClassName: {{ . }}
+        {{- end }}
   {{- end }}
   {{- if or .Values.prometheus.podMetadata.labels .Values.prometheus.podMetadata.annotations (eq .Values.prometheus.podAntiAffinityPreset "soft") (eq .Values.prometheus.podAntiAffinityPreset "hard") }}
   podMetadata:
     labels:
     {{- if .Values.prometheus.podMetadata.labels }}
-    {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.podMetadata.labels "context" $) | nindent 6 }}
+    {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.podMetadata.labels "context" $) | nindent 6 }}
     {{- end }}
     {{- if or (eq .Values.prometheus.podAntiAffinityPreset "soft") (eq .Values.prometheus.podAntiAffinityPreset "hard") }}
     {{- include "kube-prometheus.prometheus.matchLabels" . | nindent 6 }}
     {{- end }}
     {{- if .Values.prometheus.podMetadata.annotations }}
     annotations:
-    {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.podMetadata.annotations "context" $) | nindent 6 }}
+    {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.podMetadata.annotations "context" $) | nindent 6 }}
     {{- end }}
   {{- end }}
   {{- if .Values.prometheus.querySpec }}
-  query: {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.querySpec "context" $) | nindent 4 }}
+  query: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.querySpec "context" $) | nindent 4 }}
   {{- end }}
   {{- if .Values.prometheus.affinity }}
-  affinity: {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.affinity "context" $) | nindent 4 }}
-  {{- else }}
-  affinity:
-    {{- if not (empty .Values.prometheus.podAffinityPreset) }}
-    podAffinity: {{- include "tc.common.affinities.pods" (dict "type" .Values.prometheus.podAffinityPreset "component" "prometheus" "context" $) | nindent 6 }}
-    {{- end }}
-    {{- if not (empty .Values.prometheus.podAntiAffinityPreset) }}
-    podAntiAffinity: {{- include "tc.common.affinities.pods" (dict "type" .Values.prometheus.podAntiAffinityPreset "component" "prometheus" "context" $) | nindent 6 }}
-    {{- end }}
-    {{- if not (empty .Values.prometheus.nodeAffinityPreset.values) }}
-    nodeAffinity: {{- include "tc.common.affinities.nodes" (dict "type" .Values.prometheus.nodeAffinityPreset.type "key" .Values.prometheus.nodeAffinityPreset.key "values" .Values.prometheus.nodeAffinityPreset.values) | nindent 6 }}
-    {{- end }}
+  affinity: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.affinity "context" $) | nindent 4 }}
   {{- end }}
   {{- if .Values.prometheus.nodeSelector }}
-  nodeSelector: {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.nodeSelector "context" $) | nindent 4 }}
+  nodeSelector: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.nodeSelector "context" $) | nindent 4 }}
   {{- end }}
   {{- if .Values.prometheus.tolerations }}
-  tolerations: {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.tolerations "context" $) | nindent 4 }}
+  tolerations: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.tolerations "context" $) | nindent 4 }}
   {{- end }}
   {{- if .Values.prometheus.volumes }}
-  volumes: {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.volumes "context" $) | nindent 4 }}
+  volumes: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.volumes "context" $) | nindent 4 }}
   {{- end }}
   {{- if .Values.prometheus.volumeMounts }}
-  volumeMounts: {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.volumeMounts "context" $) | nindent 4 }}
+  volumeMounts: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.volumeMounts "context" $) | nindent 4 }}
   {{- end }}
   {{- if or .Values.prometheus.additionalScrapeConfigs.enabled .Values.prometheus.additionalScrapeConfigsExternal.enabled }}
   additionalScrapeConfigs:
@@ -252,7 +243,7 @@ spec:
           subPath: prometheus-db
           {{- end }}
         {{- if .Values.prometheus.thanos.extraVolumeMounts }}
-        {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.thanos.extraVolumeMounts "context" $) | nindent 8 }}
+        {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.thanos.extraVolumeMounts "context" $) | nindent 8 }}
         {{- end }}
       {{- if .Values.prometheus.thanos.containerSecurityContext.enabled }}
       # yamllint disable rule:indentation
@@ -351,7 +342,7 @@ spec:
       {{- end }}
     {{- end }}
     {{- if .Values.prometheus.containers }}
-    {{- include "tc.common.tplvalues.render" (dict "value" .Values.prometheus.containers "context" $) | nindent 4 }}
+    {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.containers "context" $) | nindent 4 }}
     {{- end }}
   {{- end }}
   {{- if .Values.prometheus.priorityClassName }}

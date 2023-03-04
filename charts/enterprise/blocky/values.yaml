@@ -1,13 +1,6 @@
 image:
-  # repository: spx01/blocky
-  # tag: development@sha256:ddb35986cbc924de11cd37ccf625ff6bd0896fad456e57ee9c0bd67bd034770e
   repository: tccr.io/truecharts/blocky
-  tag: v0.19@sha256:77a474542f12f480deca33ff0a6375846918b86988c13f858620839d8818ca84
-  pullPolicy: IfNotPresent
-
-WebUIImage:
-  repository: tccr.io/truecharts/blocky-frontend
-  tag: v0.0.3@sha256:81058f20520dcdb80c9883b6f21b338446fefc333e3ca8bd7d17336a24a5d842
+  tag: v0.20.0@sha256:873c357493403b5985c38b7cc16f278b8268ba51bc6e95b076fd00cfb010f085
   pullPolicy: IfNotPresent
 
 k8sgatewayImage:
@@ -15,15 +8,32 @@ k8sgatewayImage:
   pullPolicy: IfNotPresent
   tag: 0.3.3@sha256:246e7006afaf57a398b02e417a31d6f14fb43562901388772778f60be586b807
 
-controller:
-  # -- Set additional annotations on the deployment/statefulset/daemonset
-  # -- Number of desired pods
-  replicas: 2
-  # -- Set the controller upgrade strategy
-  # For Deployments, valid values are Recreate (default) and RollingUpdate.
-  # For StatefulSets, valid values are OnDelete and RollingUpdate (default).
-  # DaemonSets ignore this.
-  strategy: RollingUpdate
+workload:
+  main:
+    replicas: 2
+    strategy: RollingUpdate
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+              type: exec
+              command:
+                - /app/blocky
+                - healthcheck
+            readiness:
+              enabled: false
+              type: exec
+              command:
+                - /app/blocky
+                - healthcheck
+            startup:
+              enabled: false
+              type: exec
+              command:
+                - /app/blocky
+                - healthcheck
 
 # -- Blocky Config File content
 blockyConfig: {}
@@ -31,61 +41,20 @@ blockyConfig: {}
 #   default:
 #     - 1.1.1.1
 
-# -- Configures blocky webUI
-# Requires apiURL or ingress
-webUI:
-  # -- Enable the WebUI
-  enabled: true
-  # -- url to the api, used by the WebUI. Only required when not using ingress
-  apiURL: "127.0.0.1:4000"
-
 # -- some general blocky settings
 blocky:
   # -- Enable prometheus annotations
   enablePrometheus: true
 
-probes:
-  liveness:
-    enabled: false
-    # TODO: Enable after v0.20 is released.
-    # Current version does not include the healthcheck command
-    # enabled: true
-    # custom: true
-    # spec:
-    #   exec:
-    #     command:
-    #       - /app/blocky
-    #       - healthcheck
-  readiness:
-    enabled: false
-    # TODO: Enable after v0.20 is released.
-    # Current version does not include the healthcheck command
-    # enabled: true
-    # custom: true
-    # spec:
-    #   exec:
-    #     command:
-    #       - /app/blocky
-    #       - healthcheck
-  startup:
-    enabled: false
-    # TODO: Enable after v0.20 is released.
-    # Current version does not include the healthcheck command
-    # enabled: true
-    # custom: true
-    # spec:
-    #   exec:
-    #     command:
-    #       - /app/blocky
-    #       - healthcheck
-
 service:
   main:
+    enabled: true
     ports:
       main:
-        port: 10315
-        protocol: HTTP
-        targetPort: 80
+        enabled: true
+        port: 4000
+        protocol: http
+        targetPort: 4000
   dnstcp:
     enabled: true
     ports:
@@ -99,7 +68,7 @@ service:
       dnsudp:
         enabled: true
         port: 53
-        protocol: UDP
+        protocol: udp
         targetPort: 53
   dot:
     enabled: true
@@ -107,23 +76,15 @@ service:
       dot:
         enabled: true
         port: 853
-        protocol: TCP
+        protocol: tcp
         targetPort: 853
-  http:
-    enabled: true
-    ports:
-      http:
-        enabled: true
-        port: 4000
-        protocol: HTTP
-        targetPort: 4000
   https:
     enabled: true
     ports:
       https:
         enabled: true
         port: 4443
-        protocol: HTTPS
+        protocol: https
         targetPort: 4443
   k8sgateway:
     enabled: true
@@ -131,7 +92,7 @@ service:
       k8sgateway:
         enabled: true
         port: 5353
-        protocol: UDP
+        protocol: udp
         targetPort: 5353
 
 ## TODO Add support for SCALE certificates and certificates secrets here
@@ -280,13 +241,18 @@ hostsFile:
 #   creationAttempts: 3
 #   CreationCooldown: 2
 
+podOptions:
+  automountServiceAccountToken: true
+
 portal:
-  enabled: true
+  open:
+    enabled: false
 
 serviceAccount:
   main:
     # -- Specifies whether a service account should be created
     enabled: true
+    primary: true
 
 # -- Create a ClusterRole and ClusterRoleBinding
 # @default -- See below
@@ -294,7 +260,8 @@ rbac:
   main:
     # -- Enables or disables the ClusterRole and ClusterRoleBinding
     enabled: true
-
+    primary: true
+    clusterWide: true
     # -- Set Rules on the ClusterRole
     rules:
       - apiGroups:
@@ -348,32 +315,53 @@ k8sgateway:
         value: cloudflare-dns.com
 
 metrics:
-  # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
-  # @default -- See values.yaml
-  enabled: true
-  serviceMonitor:
-    interval: 1m
-    scrapeTimeout: 30s
-    labels: {}
-  # -- Enable and configure Prometheus Rules for the chart under this key.
-  # @default -- See values.yaml
-  prometheusRule:
-    enabled: false
-    labels: {}
-    # -- Configure additionial rules for the chart under this key.
-    # @default -- See prometheusrules.yaml
-    rules:
-      []
-      # - alert: UnifiPollerAbsent
-      #   annotations:
-      #     description: Unifi Poller has disappeared from Prometheus service discovery.
-      #     summary: Unifi Poller is down.
-      #   expr: |
-      #     absent(up{job=~".*unifi-poller.*"} == 1)
-      #   for: 5m
-      #   labels:
-      #     severity: critical
+  main:
+    # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
+    # @default -- See values.yaml
+    enabled: true
+    type: serviceMonitor
+    endpoints:
+      - port: main
+        path: /metrics
+
+    # -- Enable and configure Prometheus Rules for the chart under this key.
+    # @default -- See values.yaml
+    prometheusRule:
+      enabled: false
+      labels: {}
+      # -- Configure additionial rules for the chart under this key.
+      # @default -- See prometheusrules.yaml
+      rules:
+        []
+        # - alert: UnifiPollerAbsent
+        #   annotations:
+        #     description: Unifi Poller has disappeared from Prometheus service discovery.
+        #     summary: Unifi Poller is down.
+        #   expr: |
+        #     absent(up{job=~".*unifi-poller.*"} == 1)
+        #   for: 5m
+        #   labels:
+        #     severity: critical
 
 redis:
   enabled: true
-  existingSecret: "rediscreds"
+
+# CANNOT be defined in above yaml section
+queryLog:
+  # optional one of: mysql, postgresql, csv, csv-client. If empty, log to console
+  type: ""
+  # directory (should be mounted as volume in docker) for csv, db connection string for mysql/postgresql
+  # target: /var/log/something
+  # postgresql target: postgres://user:password@db_host_or_ip:5432/db_name
+  # if > 0, deletes log files which are older than ... days
+  logRetentionDays: 0
+  # optional: Max attempts to create specific query log writer, default: 3
+  creationAttempts: 3
+  # optional: Time between the creation attempts, default: 2s
+  creationCooldown: 2s
+
+cnpg:
+  main:
+    enabled: true
+    user: blocky
+    database: blocky

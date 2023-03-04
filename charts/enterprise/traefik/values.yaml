@@ -4,6 +4,50 @@ image:
   tag: 2.9.8@sha256:4a2d3dda380990d825532e661b42457fc9871061dbc22b310468616378214a2e
   pullPolicy: IfNotPresent
 
+workload:
+  main:
+    replicas: 2
+    strategy: RollingUpdate
+    podSpec:
+      containers:
+        main:
+          args: []
+          probes:
+            # -- Liveness probe configuration
+            # @default -- See below
+            liveness:
+              # -- sets the probe type when not using a custom probe
+              # @default -- "TCP"
+              type: tcp
+              # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
+              # @default -- "/"
+              # path: "/ping"
+
+            # -- Redainess probe configuration
+            # @default -- See below
+            readiness:
+              # -- sets the probe type when not using a custom probe
+              # @default -- "TCP"
+              type: tcp
+              # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
+              # @default -- "/"
+              # path: "/ping"
+
+            # -- Startup probe configuration
+            # @default -- See below
+            startup:
+              # -- sets the probe type when not using a custom probe
+              # @default -- "TCP"
+              type: tcp
+              # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
+              # @default -- "/"
+              # path: "/ping"
+
+# -- Options for all pods
+# Can be overruled per pod
+podOptions:
+  automountServiceAccountToken: true
+
 # -- Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x
 ingressClass:
   # true is not unit-testable yet, pending https://github.com/rancher/helm-unittest/pull/12
@@ -20,12 +64,6 @@ ingressRoute:
     annotations: {}
     # Additional ingressRoute labels (e.g. for filtering IngressRoute by custom labels)
     labels: {}
-
-podAnnotations:
-  prometheus.io/scrape: "true"
-  prometheus.io/path: "/metrics"
-  prometheus.io/port: "9180"
-
 #
 # -- Configure providers
 providers:
@@ -140,7 +178,7 @@ service:
       main:
         port: 9000
         targetPort: 9000
-        protocol: HTTP
+        protocol: http
         # -- Forwarded Headers should never be enabled on Main entrypoint
         forwardedHeaders:
           enabled: false
@@ -154,7 +192,7 @@ service:
       web:
         enabled: true
         port: 9080
-        protocol: HTTP
+        protocol: http
         redirectTo: websecure
         # Options: Empty, 0 (ingore), or positive int
         # redirectPort:
@@ -175,7 +213,7 @@ service:
       websecure:
         enabled: true
         port: 9443
-        protocol: HTTPS
+        protocol: https
         # -- Configure (Forwarded Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#forwarded-headers] Support
         forwardedHeaders:
           enabled: false
@@ -193,7 +231,7 @@ service:
   #      tcpexample:
   #        enabled: true
   #        targetPort: 9443
-  #        protocol: TCP
+  #        protocol: tcp
   #        tls:
   #          enabled: false
   #          # this is the name of a TLSOption definition
@@ -212,51 +250,22 @@ service:
         enabled: true
         port: 9180
         targetPort: 9180
-        protocol: HTTP
+        protocol: http
         # -- Forwarded Headers should never be enabled on Metrics entrypoint
         forwardedHeaders:
           enabled: false
         # -- Proxy Protocol should never be enabled on Metrics entrypoint
         proxyProtocol:
           enabled: false
-  udp:
-    enabled: false
-
-# probes:
-#   # -- Liveness probe configuration
-#   # @default -- See below
-#   liveness:
-#     # -- sets the probe type when not using a custom probe
-#     # @default -- "TCP"
-#     type: HTTP
-#     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
-#     # @default -- "/"
-#     path: "/ping"
-
-#   # -- Redainess probe configuration
-#   # @default -- See below
-#   readiness:
-#     # -- sets the probe type when not using a custom probe
-#     # @default -- "TCP"
-#     type: HTTP
-#     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
-#     # @default -- "/"
-#     path: "/ping"
-
-#   # -- Startup probe configuration
-#   # @default -- See below
-#   startup:
-#     # -- sets the probe type when not using a custom probe
-#     # @default -- "TCP"
-#     type: HTTP
-#     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
-#     # @default -- "/"
-#     path: "/ping"
+  # udp:
+  #   enabled: false
 
 # -- Whether Role Based Access Control objects like roles and rolebindings should be created
 rbac:
   main:
     enabled: true
+    primary: true
+    clusterWide: true
     rules:
       - apiGroups:
           - ""
@@ -306,6 +315,7 @@ rbac:
 serviceAccount:
   main:
     enabled: true
+    primary: true
 
 # -- SCALE Middleware Handlers
 middlewares:
@@ -404,4 +414,5 @@ persistence:
     type: emptyDir
 
 portal:
-  enabled: true
+  open:
+    enabled: true

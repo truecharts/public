@@ -8,6 +8,6 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels: {{- include "kube-prometheus.prometheus.labels" . | nindent 4 }}
 data:
-  scrape-jobs.yaml: {{ include "tc.common.tplvalues.render" ( dict "value" .Values.prometheus.additionalScrapeConfigs.internal.jobList "context" $ ) | b64enc | quote }}
+  scrape-jobs.yaml: {{ include "tc.v1.common.tplvalues.render" ( dict "value" .Values.prometheus.additionalScrapeConfigs.internal.jobList "context" $ ) | b64enc | quote }}
 {{- end }}
 {{- end }}
