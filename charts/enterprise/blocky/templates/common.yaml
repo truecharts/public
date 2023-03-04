@@ -20,9 +20,7 @@ type: configmap
 mountPath: /app/config.yml
 objectName: config
 readOnly: true
-items:
-  - key: config.yml
-    path: config.yml
+subPath: config.yml
 {{- end -}}
 
 {{/* Append the general configMap volume to the volumes */}}
