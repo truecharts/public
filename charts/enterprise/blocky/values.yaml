@@ -35,12 +35,6 @@ workload:
                 - /app/blocky
                 - healthcheck
 
-securityContext:
-  container:
-    capabilities:
-      add:
-        - NET_BIND_SERVICE
-
 # -- Blocky Config File content
 blockyConfig: {}
 # upstream:
