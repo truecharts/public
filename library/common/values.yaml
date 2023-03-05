@@ -708,6 +708,9 @@ cnpg:
       enablePodMonitor: true
     # -- contains credentials and urls output by generator
     creds: {}
+    # -- contains postgresql settings
+    # ref: https://cloudnative-pg.io/documentation/1.19/postgresql_conf/#the-postgresql-section
+    postgresql: {}
 
 # -- Redis dependency configuration
 # @default -- See below

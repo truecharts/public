@@ -66,4 +66,7 @@ spec:
     inProgress: false
     reusePVC: on
 
+  postgresql:
+    {{- tpl ( $values.postgresql | toYaml ) $ | nindent 4 }}
+
 {{- end -}}
