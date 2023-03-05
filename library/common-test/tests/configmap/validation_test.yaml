@@ -67,3 +67,14 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: ConfigMap - Expected non-empty <data>
+
+  - it: should fail with empty enabled
+    set:
+      configmap:
+        my-configmap:
+          enabled:
+          data:
+            foo: bar
+    asserts:
+      - failedTemplate:
+          errorMessage: ConfigMap - Expected the defined key [enabled] in <configmap.my-configmap> to not be empty

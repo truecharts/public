@@ -7,14 +7,23 @@
 
   {{- range $name, $configmap := .Values.configmap -}}
 
-    {{- $enabled := $configmap.enabled | default false -}}
+    {{- $enabled := false -}}
+    {{- if hasKey $configmap "enabled" -}}
+      {{- if not (kindIs "invalid" $configmap.enabled) -}}
+        {{- $enabled = $configmap.enabled -}}
+      {{- else -}}
+        {{- fail (printf "ConfigMap - Expected the defined key [enabled] in <configmap.%s> to not be empty" $name) -}}
+      {{- end -}}
+    {{- end -}}
+
+
     {{- if kindIs "string" $enabled -}}
       {{- $enabled = tpl $enabled $ -}}
 
       {{/* After tpl it becomes a string, not a bool */}}
       {{-  if eq $enabled "true" -}}
         {{- $enabled = true -}}
-      {{- else -}}
+      {{- else if eq $enabled "false" -}}
         {{- $enabled = false -}}
       {{- end -}}
     {{- end -}}

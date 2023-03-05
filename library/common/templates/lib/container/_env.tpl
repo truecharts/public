@@ -38,14 +38,22 @@ objectData: The object data to be used to render the container.
 
           {{- $name = tpl $obj.name $rootCtx -}}
 
-          {{- $expandName := $obj.expandObjectName | default true -}}
+          {{- $expandName := true -}}
+          {{- if (hasKey $obj "expandObjectName") -}}
+            {{- if not (kindIs "invalid" $obj.expandObjectName) -}}
+              {{- $expandName = $obj.expandObjectName -}}
+            {{- else -}}
+              {{- fail (printf "Container - Expected the defined key [expandObjectName] in <env.%s> to not be empty" $k) -}}
+            {{- end -}}
+          {{- end -}}
+
           {{- if kindIs "string" $expandName -}}
             {{- $expandName = tpl $expandName $rootCtx -}}
 
             {{/* After tpl it becomes a string, not a bool */}}
             {{-  if eq $expandName "true" -}}
               {{- $expandName = true -}}
-            {{- else -}}
+            {{- else if eq $expandName "false" -}}
               {{- $expandName = false -}}
             {{- end -}}
           {{- end -}}

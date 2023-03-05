@@ -400,3 +400,28 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Container - Expected non-empty <env.fieldRef.fieldPath>
+
+  - it: it should fail empty expandObjectName
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                env:
+                  key1:
+                    secretKeyRef:
+                      expandObjectName:
+                      name: '{{ printf "secret-name" }}'
+                      key: secret-key
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected the defined key [expandObjectName] in <env.key1> to not be empty

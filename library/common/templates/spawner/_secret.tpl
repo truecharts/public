@@ -7,14 +7,22 @@
 
   {{- range $name, $secret := .Values.secret -}}
 
-    {{- $enabled := $secret.enabled | default false -}}
+    {{- $enabled := false -}}
+    {{- if hasKey $secret "enabled" -}}
+      {{- if not (kindIs "invalid" $secret.enabled) -}}
+        {{- $enabled = $secret.enabled -}}
+      {{- else -}}
+        {{- fail (printf "Secret - Expected the defined key [enabled] in <secret.%s> to not be empty" $name) -}}
+      {{- end -}}
+    {{- end -}}
+
     {{- if kindIs "string" $enabled -}}
       {{- $enabled = tpl $enabled $ -}}
 
       {{/* After tpl it becomes a string, not a bool */}}
       {{-  if eq $enabled "true" -}}
         {{- $enabled = true -}}
-      {{- else -}}
+      {{- else if eq $enabled "false" -}}
         {{- $enabled = false -}}
       {{- end -}}
     {{- end -}}

@@ -26,7 +26,7 @@ objectData: The object data to be used to render the Pod.
       {{/* After tpl it becomes a string, not a bool */}}
       {{-  if eq $enabled "true" -}}
         {{- $enabled = true -}}
-      {{- else -}}
+      {{- else if eq $enabled "false" -}}
         {{- $enabled = false -}}
       {{- end -}}
     {{- end -}}

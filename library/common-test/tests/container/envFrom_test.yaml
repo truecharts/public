@@ -256,3 +256,27 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Container - Expected Secret [secret-other-name] defined in <envFrom> to exist
+
+
+  - it: it should fail empty expandObjectName
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                envFrom:
+                  - secretRef:
+                      expandObjectName:
+                      name: '{{ printf "secret-name" }}'
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected the defined key [expandObjectName] in <envFrom.secretRef> to not be empty
