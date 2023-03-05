@@ -84,7 +84,7 @@ securityContext:
     PUID: 568
     # -- UMASK for all containers
     # Can be overruled per container
-    UMASK: "002"
+    UMASK: "0022"
   # -- Pod security context for all pods
   # Can be overruled per pod
   pod:
