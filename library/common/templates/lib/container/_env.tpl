@@ -38,8 +38,11 @@ objectData: The object data to be used to render the container.
       key: {{ $obj.key | quote }}
 
           {{- $name = tpl $obj.name $rootCtx -}}
+
           {{- if kindIs "bool" $obj.expandObjectName -}}
             {{- $expandName = $obj.expandObjectName -}}
+          {{- else if eq $obj.expandObjectName "false" -}}
+            {{- $expandName = false -}}
           {{- end -}}
 
           {{- if $expandName -}}

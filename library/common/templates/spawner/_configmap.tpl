@@ -7,7 +7,15 @@
 
   {{- range $name, $configmap := .Values.configmap -}}
 
-    {{- if $configmap.enabled -}}
+    {{- $enabled := false -}}
+
+    {{- if kindIs "bool" $configmap.enabled -}}
+      {{- $enabled = $configmap.enabled -}}
+    {{- else if eq $configmap.enabled "true" -}}
+      {{- $enabled = true -}}
+    {{- end -}}
+
+    {{- if $enabled -}}
 
       {{/* Create a copy of the configmap */}}
       {{- $objectData := (mustDeepCopy $configmap) -}}

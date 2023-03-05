@@ -7,7 +7,15 @@
 
   {{- range $name, $secret := .Values.secret -}}
 
-    {{- if $secret.enabled -}}
+    {{- $enabled := false -}}
+
+    {{- if kindIs "bool" $secret.enabled -}}
+      {{- $enabled = $secret.enabled -}}
+    {{- else if eq $secret.enabled "true" -}}
+      {{- $enabled = true -}}
+    {{- end -}}
+
+    {{- if $enabled -}}
 
       {{/* Create a copy of the secret */}}
       {{- $objectData := (mustDeepCopy $secret) -}}
