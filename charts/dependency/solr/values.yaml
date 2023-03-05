@@ -18,7 +18,7 @@ workload:
             SOLR_OPTS: "{{ .Values.solrOpts }}"
             SOLR_ADMIN_PASSWORD:
               secretKeyRef:
-                expandObjectName: false
+                expandObjectName: "{{ if .Values.solrPassword }}true{{ else }}false{{ end }}"
                 name: '{{ if .Values.solrPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "solrcreds" }}{{ end }}'
                 key: "solr-password"
 

@@ -17,7 +17,7 @@ workload:
             CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: "{{ .Values.clickhouseDefaultAccessManagement }}"
             CLICKHOUSE_PASSWORD:
               secretKeyRef:
-                expandObjectName: false
+                expandObjectName: "{{ if .Values.clickhousePassword }}true{{ else }}false{{ end }}"
                 name: '{{ if .Values.clickhousePassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "clickhousecreds" }}{{ end }}'
                 key: "clickhouse-password"
 

@@ -17,7 +17,7 @@ workload:
             REDIS_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
             REDIS_PASSWORD:
               secretKeyRef:
-                expandObjectName: false
+                expandObjectName: "{{ if .Values.redisPassword }}true{{ else }}false{{ end }}"
                 name: '{{ if .Values.redisPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "rediscreds" }}{{ end }}'
                 key: "redis-password"
           probes:

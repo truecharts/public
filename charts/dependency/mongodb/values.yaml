@@ -16,12 +16,12 @@ workload:
             MONGODB_DATABASE: "{{ .Values.mongodbDatabase }}"
             MONGODB_PASSWORD:
               secretKeyRef:
-                expandObjectName: false
+                expandObjectName: "{{ if .Values.mongodbPassword }}true{{ else }}false{{ end }}"
                 name: '{{ if .Values.mongodbPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mongodbcreds" }}{{ end }}'
                 key: "mongodb-password"
             MONGODB_ROOT_PASSWORD:
               secretKeyRef:
-                expandObjectName: false
+                expandObjectName: "{{ if .Values.mongodbPassword }}true{{ else }}false{{ end }}"
                 name: '{{ if .Values.mongodbPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mongodbcreds" }}{{ end }}'
                 key: "mongodb-root-password"
           # -- Probe configuration
