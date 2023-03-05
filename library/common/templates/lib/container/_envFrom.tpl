@@ -26,12 +26,17 @@ objectData: The object data to be used to render the container.
 
         {{- $objectName := tpl .name $rootCtx -}}
 
-        {{- $expandName := true -}}
-          {{- if kindIs "bool" .expandObjectName -}}
-            {{- $expandName = .expandObjectName -}}
-          {{- else if eq .expandObjectName "false" -}}
+        {{- $expandName := .expandName | default true -}}
+        {{- if kindIs "string" $expandName -}}
+          {{- $expandName = tpl $expandName $rootCtx -}}
+
+          {{/* After tpl it becomes a string, not a bool */}}
+          {{-  if eq $expandName "true" -}}
+            {{- $expandName = true -}}
+          {{- else -}}
             {{- $expandName = false -}}
           {{- end -}}
+        {{- end -}}
 
         {{- if $expandName -}}
           {{- $object := dict -}}
