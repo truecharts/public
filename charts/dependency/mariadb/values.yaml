@@ -15,12 +15,12 @@ workload:
             MARIADB_PASSWORD:
               secretKeyRef:
                 expandObjectName: false
-                name: '{{ if .Values.mariadbPassword }}"credentials"{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mariadbcreds" }}{{ end }}'
+                name: '{{ if .Values.mariadbPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mariadbcreds" }}{{ end }}'
                 key: "mariadb-password"
             MARIADB_ROOT_PASSWORD:
               secretKeyRef:
                 expandObjectName: false
-                name: '{{ if .Values.mariadbPassword }}"credentials"{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mariadbcreds" }}{{ end }}'
+                name: '{{ if .Values.mariadbPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mariadbcreds" }}{{ end }}'
                 key: "mariadb-root-password"
             MARIADB_USER: "{{ .Values.mariadbUsername }}"
             MARIADB_DATABASE: "{{ .Values.mariadbDatabase }}"
@@ -102,10 +102,13 @@ volumeClaimTemplates:
     enabled: true
     mountPath: "/bitnami/mariadb"
 
-mariadbPassword: ""
 mariadbUsername: "test"
 mariadbDatabase: "test"
 mariadbRootPassword: "testroot"
+
+# -- Secret or password
+# One of these options is required, unless used as a dependency for another TrueCharts chart.
+mariadbPassword: ""
 existingSecret: ""
 
 portal:

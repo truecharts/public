@@ -17,12 +17,12 @@ workload:
             MONGODB_PASSWORD:
               secretKeyRef:
                 expandObjectName: false
-                name: '{{ if .Values.mongodbPassword }}"credentials"{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mongodbcreds" }}{{ end }}'
+                name: '{{ if .Values.mongodbPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mongodbcreds" }}{{ end }}'
                 key: "mongodb-password"
             MONGODB_ROOT_PASSWORD:
               secretKeyRef:
                 expandObjectName: false
-                name: '{{ if .Values.mongodbPassword }}"credentials"{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mongodbcreds" }}{{ end }}'
+                name: '{{ if .Values.mongodbPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mongodbcreds" }}{{ end }}'
                 key: "mongodb-root-password"
           # -- Probe configuration
           # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
@@ -95,10 +95,13 @@ volumeClaimTemplates:
     enabled: true
     mountPath: "/bitnami/mongodb"
 
-mongodbPassword: ""
 mongodbUsername: "test"
 mongodbDatabase: "test"
 mongodbRootPassword: "testroot"
+
+# -- Secret or password
+# One of these options is required, unless used as a dependency for another TrueCharts chart.
+mongodbPassword: ""
 existingSecret: ""
 
 secret:

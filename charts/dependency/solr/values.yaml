@@ -19,7 +19,7 @@ workload:
             SOLR_ADMIN_PASSWORD:
               secretKeyRef:
                 expandObjectName: false
-                name: '{{ if .Values.solrPassword }}"credentials"{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "solrcreds" }}{{ end }}'
+                name: '{{ if .Values.solrPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "solrcreds" }}{{ end }}'
                 key: "solr-password"
 
           # -- Probe configuration
@@ -113,10 +113,13 @@ volumeClaimTemplates:
 solrCores: "testcore"
 solrEnableAuthentication: "yes"
 solrUsername: "test"
-solrPassword: ""
 # Used to pass a comma separated list of optional options like '-XX:G1HeapRegionSize=8m'
 solrOpts: ""
+
+# -- Secret or password
+# One of these options is required, unless used as a dependency for another TrueCharts chart.
 existingSecret: ""
+solrPassword: ""
 
 secret:
   credentials:
