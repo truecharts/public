@@ -8,7 +8,7 @@ service:
     ports:
       main:
         port: 11211
-        type: tcp
+        protocol: tcp
         targetPort: 11211
 
 portal:
