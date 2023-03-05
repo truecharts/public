@@ -14,11 +14,11 @@ workload:
           env:
             MARIADB_PASSWORD:
               secretKeyRef:
-                name: "credentials"
+                name: '{{ if .Values.mariadbPassword }}"credentials"{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mariadbcreds" }}{{ end }}'
                 key: "mariadb-password"
             MARIADB_ROOT_PASSWORD:
               secretKeyRef:
-                name: "credentials"
+                name: '{{ if .Values.mariadbPassword }}"credentials"{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mariadbcreds" }}{{ end }}'
                 key: "mariadb-root-password"
             MARIADB_USER: "{{ .Values.mariadbUsername }}"
             MARIADB_DATABASE: "{{ .Values.mariadbDatabase }}"
@@ -100,7 +100,7 @@ volumeClaimTemplates:
     enabled: true
     mountPath: "/bitnami/mariadb"
 
-mariadbPassword: "testpass"
+mariadbPassword: ""
 mariadbUsername: "test"
 mariadbDatabase: "test"
 mariadbRootPassword: "testroot"

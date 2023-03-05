@@ -17,7 +17,7 @@ workload:
             CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: "{{ .Values.clickhouseDefaultAccessManagement }}"
             CLICKHOUSE_PASSWORD:
               secretKeyRef:
-                name: "credentials"
+                name: '{{ if .Values.clickhousePassword }}"credentials"{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "clickhousecreds" }}{{ end }}'
                 key: "clickhouse-password"
 
           probes:
@@ -59,7 +59,7 @@ volumeClaimTemplates:
 
 clickhouseDatabase: "test"
 clickhouseUsername: "test"
-clickhousePassword: "testpass"
+clickhousePassword: ""
 clickhouseDefaultAccessManagement: 0
 existingSecret: ""
 

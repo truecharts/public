@@ -16,11 +16,11 @@ workload:
             MONGODB_DATABASE: "{{ .Values.mongodbDatabase }}"
             MONGODB_PASSWORD:
               secretKeyRef:
-                name: "credentials"
+                name: '{{ if .Values.mongodbPassword }}"credentials"{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mongodbcreds" }}{{ end }}'
                 key: "mongodb-password"
             MONGODB_ROOT_PASSWORD:
               secretKeyRef:
-                name: "credentials"
+                name: '{{ if .Values.mongodbPassword }}"credentials"{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mongodbcreds" }}{{ end }}'
                 key: "mongodb-root-password"
           # -- Probe configuration
           # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
@@ -93,7 +93,7 @@ volumeClaimTemplates:
     enabled: true
     mountPath: "/bitnami/mongodb"
 
-mongodbPassword: "testpass"
+mongodbPassword: ""
 mongodbUsername: "test"
 mongodbDatabase: "test"
 mongodbRootPassword: "testroot"

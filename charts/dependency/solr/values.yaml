@@ -18,7 +18,7 @@ workload:
             SOLR_OPTS: "{{ .Values.solrOpts }}"
             SOLR_ADMIN_PASSWORD:
               secretKeyRef:
-                name: "credentials"
+                name: '{{ if .Values.solrPassword }}"credentials"{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "solrcreds" }}{{ end }}'
                 key: "solr-password"
 
           # -- Probe configuration
@@ -112,7 +112,7 @@ volumeClaimTemplates:
 solrCores: "testcore"
 solrEnableAuthentication: "yes"
 solrUsername: "test"
-solrPassword: "testpass"
+solrPassword: ""
 # Used to pass a comma separated list of optional options like '-XX:G1HeapRegionSize=8m'
 solrOpts: ""
 existingSecret: ""
