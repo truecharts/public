@@ -14,67 +14,38 @@ workload:
           env:
             MARIADB_PASSWORD:
               secretKeyRef:
-                name: "credentials"
+                expandObjectName: "{{ if .Values.mariadbPassword }}true{{ else }}false{{ end }}"
+                name: '{{ if .Values.mariadbPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mariadbcreds" }}{{ end }}'
                 key: "mariadb-password"
             MARIADB_ROOT_PASSWORD:
               secretKeyRef:
-                name: "credentials"
+                expandObjectName: "{{ if .Values.mariadbPassword }}true{{ else }}false{{ end }}"
+                name: '{{ if .Values.mariadbPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mariadbcreds" }}{{ end }}'
                 key: "mariadb-root-password"
             MARIADB_USER: "{{ .Values.mariadbUsername }}"
             MARIADB_DATABASE: "{{ .Values.mariadbDatabase }}"
-
-          # -- Probe configuration
-          # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
-          # @default -- See below
           probes:
-            # -- Liveness probe configuration
-            # @default -- See below
             liveness:
-              # -- Enable the liveness probe
               enabled: true
-              # -- Set this to `true` if you wish to specify your own livenessProbe
-              custom: true
-              # -- The spec field contains the values for the default livenessProbe.
-              # If you selected `custom: true`, this field holds the definition of the livenessProbe.
-              # @default -- See below
-              spec:
-                exec:
-                  command:
-                    - /bin/bash
-                    - -ec
-                    - "until /opt/bitnami/scripts/mariadb/healthcheck.sh; do sleep 2; done"
-
-            # -- Redainess probe configuration
-            # @default -- See below
+              type: exec
+              command:
+                - /bin/bash
+                - -ec
+                - "until /opt/bitnami/scripts/mariadb/healthcheck.sh; do sleep 2; done"
             readiness:
-              # -- Enable the readiness probe
               enabled: true
-              # -- Set this to `true` if you wish to specify your own readinessProbe
-              custom: true
-              # -- The spec field contains the values for the default readinessProbe.
-              # If you selected `custom: true`, this field holds the definition of the readinessProbe.
-              # @default -- See below
-              spec:
-                exec:
-                  command:
-                    - /bin/bash
-                    - -ec
-                    - "until /opt/bitnami/scripts/mariadb/healthcheck.sh; do sleep 2; done"
-            # -- Startup probe configuration
-            # @default -- See below
+              type: exec
+              command:
+                - /bin/bash
+                - -ec
+                - "until /opt/bitnami/scripts/mariadb/healthcheck.sh; do sleep 2; done"
             startup:
-              # -- Enable the startup probe
               enabled: true
-              custom: true
-              # -- The spec field contains the values for the default livenessProbe.
-              # If you selected `custom: true`, this field holds the definition of the livenessProbe.
-              # @default -- See below
-              spec:
-                exec:
-                  command:
-                    - /bin/bash
-                    - -ec
-                    - "until /opt/bitnami/scripts/mariadb/healthcheck.sh; do sleep 2; done"
+              type: exec
+              command:
+                - /bin/bash
+                - -ec
+                - "until /opt/bitnami/scripts/mariadb/healthcheck.sh; do sleep 2; done"
 
 service:
   main:
@@ -100,10 +71,13 @@ volumeClaimTemplates:
     enabled: true
     mountPath: "/bitnami/mariadb"
 
-mariadbPassword: "testpass"
 mariadbUsername: "test"
 mariadbDatabase: "test"
 mariadbRootPassword: "testroot"
+
+# -- Secret or password
+# One of these options is required, unless used as a dependency for another TrueCharts chart.
+mariadbPassword: ""
 existingSecret: ""
 
 portal:

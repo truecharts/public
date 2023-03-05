@@ -17,7 +17,8 @@ workload:
             CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: "{{ .Values.clickhouseDefaultAccessManagement }}"
             CLICKHOUSE_PASSWORD:
               secretKeyRef:
-                name: "credentials"
+                expandObjectName: "{{ if .Values.clickhousePassword }}true{{ else }}false{{ end }}"
+                name: '{{ if .Values.clickhousePassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "clickhousecreds" }}{{ end }}'
                 key: "clickhouse-password"
 
           probes:
@@ -59,8 +60,11 @@ volumeClaimTemplates:
 
 clickhouseDatabase: "test"
 clickhouseUsername: "test"
-clickhousePassword: "testpass"
 clickhouseDefaultAccessManagement: 0
+
+# -- Secret or password
+# One of these options is required, unless used as a dependency for another TrueCharts chart.
+clickhousePassword: ""
 existingSecret: ""
 
 secret:
