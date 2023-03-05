@@ -26,7 +26,7 @@ objectData: The object data to be used to render the container.
 
         {{- $objectName := tpl .name $rootCtx -}}
 
-        {{- $expandName := .expandName | default true -}}
+        {{- $expandName := .expandObjectName | default true -}}
         {{- if kindIs "string" $expandName -}}
           {{- $expandName = tpl $expandName $rootCtx -}}
 
