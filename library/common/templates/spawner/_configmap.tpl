@@ -7,12 +7,16 @@
 
   {{- range $name, $configmap := .Values.configmap -}}
 
-    {{- $enabled := false -}}
+    {{- $enabled := $configmap.enabled | default false -}}
+    {{- if kindIs "string" $enabled -}}
+      {{- $enabled = tpl $enabled $ -}}
 
-    {{- if kindIs "bool" $configmap.enabled -}}
-      {{- $enabled = $configmap.enabled -}}
-    {{- else if eq $configmap.enabled "true" -}}
-      {{- $enabled = true -}}
+      {{/* After tpl it becomes a string, not a bool */}}
+      {{-  if eq $enabled "true" -}}
+        {{- $enabled = true -}}
+      {{- else -}}
+        {{- $enabled = false -}}
+      {{- end -}}
     {{- end -}}
 
     {{- if $enabled -}}

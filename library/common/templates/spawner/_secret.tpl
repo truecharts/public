@@ -7,12 +7,16 @@
 
   {{- range $name, $secret := .Values.secret -}}
 
-    {{- $enabled := false -}}
+    {{- $enabled := $secret.enabled | default false -}}
+    {{- if kindIs "string" $enabled -}}
+      {{- $enabled = tpl $enabled $ -}}
 
-    {{- if kindIs "bool" $secret.enabled -}}
-      {{- $enabled = $secret.enabled -}}
-    {{- else if eq $secret.enabled "true" -}}
-      {{- $enabled = true -}}
+      {{/* After tpl it becomes a string, not a bool */}}
+      {{-  if eq $enabled "true" -}}
+        {{- $enabled = true -}}
+      {{- else -}}
+        {{- $enabled = false -}}
+      {{- end -}}
     {{- end -}}
 
     {{- if $enabled -}}

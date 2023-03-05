@@ -20,7 +20,6 @@ objectData: The object data to be used to render the container.
         {{- fail (printf "Container - Expected <env> with a ref to have one of [%s], but got [%s]" (join ", " $refs) (join ", " ($v | keys | sortAlpha))) -}}
       {{- end -}}
 
-      {{- $expandName := true -}}
       {{- $name := "" -}}
 
 
@@ -39,10 +38,16 @@ objectData: The object data to be used to render the container.
 
           {{- $name = tpl $obj.name $rootCtx -}}
 
-          {{- if kindIs "bool" $obj.expandObjectName -}}
-            {{- $expandName = $obj.expandObjectName -}}
-          {{- else if eq $obj.expandObjectName "false" -}}
-            {{- $expandName = false -}}
+          {{- $expandName := $obj.expandName | default true -}}
+          {{- if kindIs "string" $expandName -}}
+            {{- $expandName = tpl $expandName $rootCtx -}}
+
+            {{/* After tpl it becomes a string, not a bool */}}
+            {{-  if eq $expandName "true" -}}
+              {{- $expandName = true -}}
+            {{- else -}}
+              {{- $expandName = false -}}
+            {{- end -}}
           {{- end -}}
 
           {{- if $expandName -}}
