@@ -267,8 +267,16 @@ questions:
                   required: true
                   default: "selfSigned"
 
-
-
-# Include{metrics}
-# Include{prometheusRule}
-# Include{documentation}
+  - variable: customMetrics
+    group: Metrics
+    label: Prometheus Metrics
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: Enabled
+          description: Enable Prometheus Metrics
+          schema:
+            type: boolean
+            default: true
