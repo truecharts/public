@@ -1,5 +1,5 @@
 {{- define "certmanager.clusterissuer.acme" -}}
-{{- range .Values.clusterIssuer.acme }}
+{{- range .Values.clusterIssuer.ACME }}
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -25,6 +25,7 @@ spec:
             name: {{ .name }}-clusterissuer-secret
             key: cf-api-token
          {{- else if .cfapikey }}
+          apiKeySecretRef:
             name: {{ .name }}-clusterissuer-secret
             key: cf-api-key
          {{ else }}
