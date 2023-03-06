@@ -1,28 +1,24 @@
 {{- define "k8sgateway.container" -}}
-image: {{ .Values.k8sgatewayImage.repository }}:{{ .Values.k8sgatewayImage.tag }}
-imagePullPolicy: {{ .Values.k8sgatewayImage.pullPolicy }}
+enabled: true
+imageSelector: k8sgatewayImage
 securityContext:
   runAsUser: 0
   runAsGroup: 0
   readOnlyRootFilesystem: true
-  runAsNonRoot: false
 args: ["-conf", "/etc/coredns/Corefile"]
-volumeMounts:
-  - name: config-volume
-    mountPath: /etc/coredns
-probe:
+probes:
   readiness:
-    httpGet:
-      path: /ready
-      port: 8181
+    enabled: true
+    path: /ready
+    port: 8181
   liveness:
-    httpGet:
-      path: /health
-      port: 8080
+    enabled: true
+    path: /health
+    port: 8080
   startup:
-    httpGet:
-      path: /ready
-      port: 8181
+    enabled: true
+    path: /ready
+    port: 8181
 {{- end -}}
 
 {{/*
