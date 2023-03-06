@@ -1,10 +1,10 @@
 {{/* Returns Volume Claim Templates */}}
 {{/* Call this template:
-{{ include "tc.v1.common.lib.workload.volumeClaimTemplates" (dict "rootCtx" $ "objectData" $objectData) }}
+{{ include "tc.v1.common.lib.storage.volumeClaimTemplates" (dict "rootCtx" $ "objectData" $objectData) }}
 rootCtx: The root context of the chart.
 objectData: The object data to be used to render the Pod.
 */}}
-{{- define "tc.v1.common.lib.workload.volumeClaimTemplates" -}}
+{{- define "tc.v1.common.lib.storage.volumeClaimTemplates" -}}
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
 
@@ -41,12 +41,12 @@ objectData: The object data to be used to render the Pod.
         {{- end }}
 - metadata:
     name: {{ $vct.shortName }}
-    {{- $labels := (mustMerge ($vct.labels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $rootCtx | fromYaml)) -}}
+    {{- $labels := $vct.labels | default dict -}}
     {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "labels" $labels) | trim) }}
     labels:
       {{- . | nindent 6 }}
     {{- end -}}
-    {{- $annotations := (mustMerge ($vct.annotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
+    {{- $annotations := $vct.annotations | default dict -}}
     {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
     annotations:
       {{- . | nindent 6 }}
