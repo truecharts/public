@@ -35,14 +35,14 @@ data:
   url:                 {{ $url }}
   jdbc:                {{ $jdbc }}
 
-{{- $_ := set .Values.clickhouse     "clickhousePassword" ($dbPass | quote) }}
-{{- $_ := set .Values.clickhouse.url "plain"              ($host | quote) }}
-{{- $_ := set .Values.clickhouse.url "plainhost"          ($host | quote) }}
-{{- $_ := set .Values.clickhouse.url "plainport"          ($portHost | quote) }}
-{{- $_ := set .Values.clickhouse.url "plainporthost"      ($portHost | quote) }}
-{{- $_ := set .Values.clickhouse.url "ping"               ($ping | quote) }}
-{{- $_ := set .Values.clickhouse.url "complete"           ($url | quote) }}
-{{- $_ := set .Values.clickhouse.url "jdbc"               ($jdbc | quote) }}
+{{- $_ := set .Values.clickhouse.creds     "clickhousePassword" ($dbPass | quote) }}
+{{- $_ := set .Values.clickhouse.creds "plain"              ($host | quote) }}
+{{- $_ := set .Values.clickhouse.creds "plainhost"          ($host | quote) }}
+{{- $_ := set .Values.clickhouse.creds "plainport"          ($portHost | quote) }}
+{{- $_ := set .Values.clickhouse.creds "plainporthost"      ($portHost | quote) }}
+{{- $_ := set .Values.clickhouse.creds "ping"               ($ping | quote) }}
+{{- $_ := set .Values.clickhouse.creds "complete"           ($url | quote) }}
+{{- $_ := set .Values.clickhouse.creds "jdbc"               ($jdbc | quote) }}
 
 {{- end }}
 {{- end -}}
