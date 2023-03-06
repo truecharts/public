@@ -40,7 +40,7 @@ data:
 
   STORAGE_PASSWORD: {{ $.Values.cnpg.main.creds.password | trimAll "\"" }}
 
-  REDIS_PASSWORD: {{ .Values.redis.redisPassword | trimAll "\"" }}
+  REDIS_PASSWORD: {{ .Values.redis.creds.redisPassword | trimAll "\"" }}
   {{- if .Values.redisProvider.high_availability.enabled}}
   REDIS_SENTINEL_PASSWORD: {{ .Values.redis.sentinelPassword | trimAll "\"" }}
   {{- end }}

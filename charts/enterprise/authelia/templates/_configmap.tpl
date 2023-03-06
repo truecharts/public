@@ -120,7 +120,7 @@ data:
       remember_me_duration: {{ default "1M" $session.remember_me_duration }}
     {{- end }}
       redis:
-        host: {{ .Values.redis.url.plain }}
+        host: {{ .Values.redis.creds.plain }}
       {{- with $redis := .Values.redisProvider }}
         port: {{ default 6379 $redis.port }}
         {{- if not (eq $redis.username "") }}
