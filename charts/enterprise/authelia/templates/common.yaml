@@ -48,7 +48,7 @@ items:
   - key: "LDAP_PASSWORD"
     path: LDAP_PASSWORD
     {{- end }}
-    {{- if .Values.notifier.smtp.enabled }}
+    {{- if and .Values.notifier.smtp.enabled .Values.notifier.smtp.plain_password }}
   - key: "SMTP_PASSWORD"
     path: SMTP_PASSWORD
     {{- end }}

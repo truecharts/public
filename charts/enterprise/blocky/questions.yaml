@@ -661,7 +661,7 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 10315
+                              default: 4000
                               required: true
         - variable: dnstcp
           label: DNS TCP Service
@@ -728,28 +728,6 @@ questions:
                             schema:
                               type: int
                               default: 853
-                              required: true
-        - variable: http
-          label: HTTP and Metrics Service
-          description: "service for things like metrics, pprof, API, DoH etc"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorClusterIP}
-# Include{serviceSelectorExtras}
-                    - variable: http
-                      label: HTTP and Metrics Port Configuration
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
-                              default: 4000
                               required: true
 # Include{serviceExpertRoot}
             default: false
