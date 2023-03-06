@@ -27,12 +27,10 @@ subPath: config.yml
 {{- define "k8sgateway.configvolume" -}}
 enabled: true
 type: configmap
-mountPath: "/etc/coredns"
-objectName: Corefile
+mountPath: "/etc/coredns/Corefile"
+objectName: corefile
 readOnly: true
-items:
-   - key: Corefile
-     path: Corefile
+subPath: Corefile
 {{- end -}}
 
 {{- $_ := set .Values.persistence "tc-config" (include "blocky.configmap.mount" . | fromYaml) -}}
