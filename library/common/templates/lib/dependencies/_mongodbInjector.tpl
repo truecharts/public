@@ -37,14 +37,14 @@ data:
   plainhost: {{ ( printf "%v-%v" .Release.Name "mongodb" ) }}
   plainporthost: {{ ( printf "%v-%v:27017" .Release.Name "mongodb" ) }}
 type: Opaque
-{{- $_ := set .Values.mongodb.url "mongodbPassword" ( $dbPass | quote ) }}
-{{- $_ := set .Values.mongodb.url "mongodbRootPassword" ( $rootPass | quote ) }}
-{{- $_ := set .Values.mongodb.url "plain" ( ( printf "%v-%v" .Release.Name "mongodb" ) | quote ) }}
-{{- $_ := set .Values.mongodb.url "plainhost" ( ( printf "%v-%v" .Release.Name "mongodb" ) | quote ) }}
-{{- $_ := set .Values.mongodb.url "plainport" ( ( printf "%v-%v:27017" .Release.Name "mongodb" ) | quote ) }}
-{{- $_ := set .Values.mongodb.url "plainporthost" ( ( printf "%v-%v:27017" .Release.Name "mongodb" ) | quote ) }}
-{{- $_ := set .Values.mongodb.url "complete" ( ( printf "mongodb://%v:%v@%v-mongodb:27017/%v" .Values.mongodb.mongodbUsername $dbPass .Release.Name .Values.mongodb.mongodbDatabase  ) | quote ) }}
-{{- $_ := set .Values.mongodb.url "jdbc" ( ( printf "jdbc:mongodb://%v-mongodb:27017/%v" .Release.Name .Values.mongodb.mongodbDatabase  ) | quote ) }}
+{{- $_ := set .Values.mongodb.creds "mongodbPassword" ( $dbPass | quote ) }}
+{{- $_ := set .Values.mongodb.creds "mongodbRootPassword" ( $rootPass | quote ) }}
+{{- $_ := set .Values.mongodb.creds "plain" ( ( printf "%v-%v" .Release.Name "mongodb" ) | quote ) }}
+{{- $_ := set .Values.mongodb.creds "plainhost" ( ( printf "%v-%v" .Release.Name "mongodb" ) | quote ) }}
+{{- $_ := set .Values.mongodb.creds "plainport" ( ( printf "%v-%v:27017" .Release.Name "mongodb" ) | quote ) }}
+{{- $_ := set .Values.mongodb.creds "plainporthost" ( ( printf "%v-%v:27017" .Release.Name "mongodb" ) | quote ) }}
+{{- $_ := set .Values.mongodb.creds "complete" ( ( printf "mongodb://%v:%v@%v-mongodb:27017/%v" .Values.mongodb.mongodbUsername $dbPass .Release.Name .Values.mongodb.mongodbDatabase  ) | quote ) }}
+{{- $_ := set .Values.mongodb.creds "jdbc" ( ( printf "jdbc:mongodb://%v-mongodb:27017/%v" .Release.Name .Values.mongodb.mongodbDatabase  ) | quote ) }}
 
 {{- end }}
 {{- end -}}

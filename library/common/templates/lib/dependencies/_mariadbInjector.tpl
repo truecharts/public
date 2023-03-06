@@ -38,14 +38,14 @@ data:
   jdbc-mysql: {{ ( printf "jdbc:mysql://%v-mariadb:3306/%v" .Release.Name .Values.mariadb.mariadbDatabase  ) }}
   jdbc-mariadb: {{ ( printf "jdbc:mariadb://%v-mariadb:3306/%v" .Release.Name .Values.mariadb.mariadbDatabase  ) }}
 type: Opaque
-{{- $_ := set .Values.mariadb.url "mariadbPassword" ( $dbPass | quote ) }}
-{{- $_ := set .Values.mariadb.url "mariadbRootPassword" ( $rootPass | quote ) }}
-{{- $_ := set .Values.mariadb.url "plain" ( ( printf "%v-%v" .Release.Name "mariadb" ) | quote ) }}
-{{- $_ := set .Values.mariadb.url "plainhost" ( ( printf "%v-%v" .Release.Name "mariadb" ) | quote ) }}
-{{- $_ := set .Values.mariadb.url "plainport" ( ( printf "%v-%v:3306" .Release.Name "mariadb" ) | quote ) }}
-{{- $_ := set .Values.mariadb.url "plainporthost" ( ( printf "%v-%v:3306" .Release.Name "mariadb" ) | quote ) }}
-{{- $_ := set .Values.mariadb.url "complete" ( ( printf "sql://%v:%v@%v-mariadb:3306/%v" .Values.mariadb.mariadbUsername $dbPass .Release.Name .Values.mariadb.mariadbDatabase  ) | quote ) }}
-{{- $_ := set .Values.mariadb.url "jdbc" ( ( printf "jdbc:sqlserver://%v-mariadb:3306/%v" .Release.Name .Values.mariadb.mariadbDatabase  ) | quote ) }}
+{{- $_ := set .Values.mariadb.creds "mariadbPassword" ( $dbPass | quote ) }}
+{{- $_ := set .Values.mariadb.creds "mariadbRootPassword" ( $rootPass | quote ) }}
+{{- $_ := set .Values.mariadb.creds "plain" ( ( printf "%v-%v" .Release.Name "mariadb" ) | quote ) }}
+{{- $_ := set .Values.mariadb.creds "plainhost" ( ( printf "%v-%v" .Release.Name "mariadb" ) | quote ) }}
+{{- $_ := set .Values.mariadb.creds "plainport" ( ( printf "%v-%v:3306" .Release.Name "mariadb" ) | quote ) }}
+{{- $_ := set .Values.mariadb.creds "plainporthost" ( ( printf "%v-%v:3306" .Release.Name "mariadb" ) | quote ) }}
+{{- $_ := set .Values.mariadb.creds "complete" ( ( printf "sql://%v:%v@%v-mariadb:3306/%v" .Values.mariadb.mariadbUsername $dbPass .Release.Name .Values.mariadb.mariadbDatabase  ) | quote ) }}
+{{- $_ := set .Values.mariadb.creds "jdbc" ( ( printf "jdbc:sqlserver://%v-mariadb:3306/%v" .Release.Name .Values.mariadb.mariadbDatabase  ) | quote ) }}
 
 {{- end }}
 {{- end -}}
