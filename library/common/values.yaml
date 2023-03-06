@@ -707,7 +707,7 @@ cnpg:
     monitoring:
       enablePodMonitor: true
     # -- contains credentials and urls output by generator
-    .Values.solr.creds
+    creds: {}
     # -- contains postgresql settings
     # ref: https://cloudnative-pg.io/documentation/1.19/postgresql_conf/#the-postgresql-section
     postgresql: {}
@@ -717,7 +717,7 @@ cnpg:
 redis:
   enabled: false
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
-  creds: {}
+  url: {}
   manifestManager:
     enabled: false
   secret:
@@ -730,7 +730,7 @@ mariadb:
   enabled: false
   existingSecret: "mariadbcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
-  creds: {}
+  url: {}
   manifestManager:
     enabled: false
 
@@ -740,7 +740,7 @@ mongodb:
   enabled: false
   existingSecret: "mongodbcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
-  creds: {}
+  url: {}
   manifestManager:
     enabled: false
 
@@ -750,7 +750,7 @@ clickhouse:
   enabled: false
   existingSecret: "clickhousecreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
-  creds: {}
+  url: {}
   manifestManager:
     enabled: false
 
@@ -762,6 +762,6 @@ solr:
   solrEnableAuthentication: "no"
   existingSecret: "solrcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
-  creds: {}
+  url: {}
   manifestManager:
     enabled: false

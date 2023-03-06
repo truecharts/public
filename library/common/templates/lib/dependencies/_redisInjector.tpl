@@ -31,11 +31,11 @@ data:
   plainporthost: {{ ( printf "%v-%v:6379" .Release.Name "redis" ) }}
   plainhost: {{ ( printf "%v-%v" .Release.Name "redis" ) }}
 type: Opaque
-{{- $_ := set .Values.redis.creds "redisPassword" ( $dbPass | quote ) }}
-{{- $_ := set .Values.redis.creds "plain" ( ( printf "%v-%v" .Release.Name "redis" ) | quote ) }}
-{{- $_ := set .Values.redis.creds "plainhost" ( ( printf "%v-%v" .Release.Name "redis" ) | quote ) }}
-{{- $_ := set .Values.redis.creds "plainport" ( ( printf "%v-%v:6379" .Release.Name "redis" ) | quote ) }}
-{{- $_ := set .Values.redis.creds "plainporthost" ( ( printf "%v-%v:6379" .Release.Name "redis" ) | quote ) }}
+{{- $_ := set .Values.redis "redisPassword" ( $dbPass | quote ) }}
+{{- $_ := set .Values.redis.url "plain" ( ( printf "%v-%v" .Release.Name "redis" ) | quote ) }}
+{{- $_ := set .Values.redis.url "plainhost" ( ( printf "%v-%v" .Release.Name "redis" ) | quote ) }}
+{{- $_ := set .Values.redis.url "plainport" ( ( printf "%v-%v:6379" .Release.Name "redis" ) | quote ) }}
+{{- $_ := set .Values.redis.url "plainporthost" ( ( printf "%v-%v:6379" .Release.Name "redis" ) | quote ) }}
 
 {{- end }}
 {{- end -}}
