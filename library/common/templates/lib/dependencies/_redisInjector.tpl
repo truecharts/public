@@ -11,20 +11,15 @@ expandObjectName: false
 {{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
 {{- $fetchname := printf "%s-rediscreds" $basename -}}
 {{- $dbprevious := lookup "v1" "Secret" .Release.Namespace $fetchname }}
-{{- $dbpreviousold := lookup "v1" "Secret" .Release.Namespace $name }}
 {{- $dbPass := "" }}
 {{- $dbIndex := default "0" .Values.redis.redisDatabase }}
 data:
 {{- if $dbprevious }}
   {{- $dbPass = ( index $dbprevious.data "redis-password" ) | b64dec  }}
-  redis-password: {{ ( index $dbprevious.data "redis-password" ) }}
-{{- else if $dbpreviousold }}
-  {{- $dbPass = ( index $dbpreviousold.data "redis-password" ) | b64dec  }}
-  redis-password: {{ ( index $dbpreviousold.data "redis-password" ) }}
 {{- else }}
   {{- $dbPass = randAlphaNum 50 }}
-  redis-password: {{ $dbPass }}
 {{- end }}
+  redis-password: {{ $dbPass }}
   plain: {{ printf "%v-%v" .Release.Name "redis" }}
   url: {{ ( printf "redis://%v:%v@%v-redis:6379/%v" .Values.redis.redisUsername $dbPass .Release.Name $dbIndex ) }}
   plainhostpass: {{ ( printf "%v:%v@%v-redis" .Values.redis.redisUsername $dbPass .Release.Name ) }}
