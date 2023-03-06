@@ -5,9 +5,9 @@ global:
   # -- Set additional global annotations
   annotations: {}
   # -- Adds metalLB annotations to services
-  addMetalLBAnnotations: false
+  addMetalLBAnnotations: true
   # -- Adds traefik annotations to services
-  addTraefikAnnotations: false
+  addTraefikAnnotations: true
   # -- Minimum nodePort value
   minNodePort: 9000
 
