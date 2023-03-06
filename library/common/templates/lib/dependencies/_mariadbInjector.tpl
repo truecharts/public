@@ -38,8 +38,8 @@ data:
   jdbc-mysql: {{ ( printf "jdbc:mysql://%v-mariadb:3306/%v" .Release.Name .Values.mariadb.mariadbDatabase  ) }}
   jdbc-mariadb: {{ ( printf "jdbc:mariadb://%v-mariadb:3306/%v" .Release.Name .Values.mariadb.mariadbDatabase  ) }}
 type: Opaque
-{{- $_ := set .Values.mariadb "mariadbPassword" ( $dbPass | quote ) }}
-{{- $_ := set .Values.mariadb "mariadbRootPassword" ( $rootPass | quote ) }}
+{{- $_ := set .Values.mariadb.url "mariadbPassword" ( $dbPass | quote ) }}
+{{- $_ := set .Values.mariadb.url "mariadbRootPassword" ( $rootPass | quote ) }}
 {{- $_ := set .Values.mariadb.url "plain" ( ( printf "%v-%v" .Release.Name "mariadb" ) | quote ) }}
 {{- $_ := set .Values.mariadb.url "plainhost" ( ( printf "%v-%v" .Release.Name "mariadb" ) | quote ) }}
 {{- $_ := set .Values.mariadb.url "plainport" ( ( printf "%v-%v:3306" .Release.Name "mariadb" ) | quote ) }}

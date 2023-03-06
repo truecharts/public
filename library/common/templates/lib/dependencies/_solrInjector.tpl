@@ -26,7 +26,7 @@ data:
   url: {{ ( printf "http://%v:%v@%v-solr:8983/url/%v" .Values.solr.solrUsername $solrPass .Release.Name .Values.solr.solrCores ) }}
   plainhost: {{ ( ( printf "%v-%v" .Release.Name "solr" ) ) }}
 type: Opaque
-{{- $_ := set .Values.solr "solrPassword" ( $solrPass | quote ) }}
+{{- $_ := set .Values.solr.url "solrPassword" ( $solrPass | quote ) }}
 {{- $_ := set .Values.solr.url "plain" ( ( printf "%v-%v" .Release.Name "solr" ) | quote ) }}
 {{- $_ := set .Values.solr.url "plainhost" ( ( printf "%v-%v" .Release.Name "solr" ) | quote ) }}
 

@@ -35,7 +35,7 @@ data:
   url:                 {{ $url }}
   jdbc:                {{ $jdbc }}
 
-{{- $_ := set .Values.clickhouse     "clickhousePassword" ($dbPass | quote) }}
+{{- $_ := set .Values.clickhouse.url "clickhousePassword" ($dbPass | quote) }}
 {{- $_ := set .Values.clickhouse.url "plain"              ($host | quote) }}
 {{- $_ := set .Values.clickhouse.url "plainhost"          ($host | quote) }}
 {{- $_ := set .Values.clickhouse.url "plainport"          ($portHost | quote) }}

@@ -37,8 +37,8 @@ data:
   plainhost: {{ ( printf "%v-%v" .Release.Name "mongodb" ) }}
   plainporthost: {{ ( printf "%v-%v:27017" .Release.Name "mongodb" ) }}
 type: Opaque
-{{- $_ := set .Values.mongodb "mongodbPassword" ( $dbPass | quote ) }}
-{{- $_ := set .Values.mongodb "mongodbRootPassword" ( $rootPass | quote ) }}
+{{- $_ := set .Values.mongodb.url "mongodbPassword" ( $dbPass | quote ) }}
+{{- $_ := set .Values.mongodb.url "mongodbRootPassword" ( $rootPass | quote ) }}
 {{- $_ := set .Values.mongodb.url "plain" ( ( printf "%v-%v" .Release.Name "mongodb" ) | quote ) }}
 {{- $_ := set .Values.mongodb.url "plainhost" ( ( printf "%v-%v" .Release.Name "mongodb" ) | quote ) }}
 {{- $_ := set .Values.mongodb.url "plainport" ( ( printf "%v-%v:27017" .Release.Name "mongodb" ) | quote ) }}
