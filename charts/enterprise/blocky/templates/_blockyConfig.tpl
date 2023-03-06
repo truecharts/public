@@ -10,7 +10,7 @@ data:
 {{- define "blocky.config" -}}
 redis:
   address: {{ printf "%v-%v" .Release.Name "redis" }}:6379
-  password: {{ .Values.redis.redisPassword | trimAll "\"" }}
+  password: {{ .Values.redis.creds.redisPassword | trimAll "\"" }}
   database: 0
   required: true
   connectionAttempts: 10
