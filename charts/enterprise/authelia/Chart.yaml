@@ -3,11 +3,11 @@ appVersion: "4.37.5"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.2.19
+    version: 12.2.20
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
-    version: 6.0.10
+    version: 6.0.11
 deprecated: false
 description: Authelia is a Single Sign-On Multi-Factor portal for web apps
 home: https://truecharts.org/charts/enterprise/authelia
@@ -36,7 +36,7 @@ sources:
   - https://github.com/authelia/chartrepo
   - https://github.com/authelia/authelia
 type: application
-version: 15.0.4
+version: 15.0.5
 annotations:
   truecharts.org/catagories: |
     - security
