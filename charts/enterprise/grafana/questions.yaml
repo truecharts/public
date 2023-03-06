@@ -13,9 +13,9 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
+  - variable: env
     group: "App Configuration"
-    label: "Secret Image Environment"
+    label: "Image Environment"
     schema:
       additional_attrs: true
       type: dict
@@ -33,13 +33,6 @@ questions:
             required: true
             private: true
             default: "REPLACETHIS"
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: GF_INSTALL_PLUGINS
           label: "Extra Plugins to Install"
           description: "comma seperated"
