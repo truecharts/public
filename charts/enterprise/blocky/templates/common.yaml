@@ -28,7 +28,7 @@ subPath: config.yml
 enabled: true
 type: configmap
 mountPath: "/etc/coredns"
-objectName: corefile
+objectName: Corefile
 readOnly: true
 items:
    - key: Corefile
