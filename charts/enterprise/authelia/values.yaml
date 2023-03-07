@@ -15,15 +15,15 @@ workload:
                 name: paths
           probes:
             liveness:
-              type: HTTP
+              type: http
               path: /api/health"
 
             readiness:
-              type: HTTP
+              type: http
               path: "/api/health"
 
             startup:
-              type: HTTP
+              type: http
               path: "/api/health"
 
 service:
