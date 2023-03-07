@@ -547,6 +547,48 @@ questions:
                 schema:
                   type: string
                   default: 30m
+  - variable: queryLog
+    group: App Configuration
+    label: Query Logging configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: type
+          label: Type
+          schema:
+            type: string
+            default: ""
+            enum:
+              - value: ""
+                description: Console
+              - value: postgresql
+                description: postgresql
+              - value: csv
+                description: csv
+              - value: csv-client
+                description: csv-client
+        - variable: target
+          label: Target
+          schema:
+            type: string
+            show_if: [["type", "!=", "postgresql"]]
+            default: "/var/log/something"
+        - variable: logRetentionDays
+          label: Log Retention Days
+          schema:
+            type: int
+            default: 0
+        - variable: creationAttempts
+          label: Creation Attempts
+          schema:
+            type: int
+            default: 3
+        - variable: creationCooldown
+          label: Creation Cooldown
+          schema:
+            type: string
+            default: 2s
   - variable: k8sgateway
     group: App Configuration
     label: k8s-Gateway Configuration

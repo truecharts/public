@@ -350,7 +350,7 @@ redis:
 queryLog:
   # optional one of: mysql, postgresql, csv, csv-client. If empty, log to console
   type: ""
-  # directory (should be mounted as volume in docker) for csv, db connection string for mysql/postgresql
+  # directory (should be mounted as volume in docker) for csv, db connection string for mysql, ignored for included postgresql
   # target: /var/log/something
   # postgresql target: postgres://user:password@db_host_or_ip:5432/db_name
   # if > 0, deletes log files which are older than ... days
@@ -362,6 +362,6 @@ queryLog:
 
 cnpg:
   main:
-    enabled: true
+    enabled: false
     user: blocky
     database: blocky

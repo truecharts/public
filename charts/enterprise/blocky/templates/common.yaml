@@ -1,4 +1,7 @@
 {{/* Make sure all variables are set properly */}}
+{{- if eq .Values.queryLog.type "postgresql" -}}
+  {{- $_ := set .Values.cnpg.main "enabled" true -}}
+{{- end }}
 {{- include "tc.v1.common.loader.init" . }}
 
 
