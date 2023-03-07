@@ -24,7 +24,7 @@ queryLog:
   # directory (should be mounted as volume in docker) for csv, db connection string for mysql/postgresql
   #postgresql target: postgres://user:password@db_host_or_ip:5432/db_name
   {{- if eq .Values.queryLog.type "postgresql" }}
-  target: {{ .Values.cnpg.creds.std }}
+  target: {{ .Values.cnpg.main.creds.std }}
   {{- else }}
   target: {{ .Values.queryLog.target }}
   {{- end }}
