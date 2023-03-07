@@ -2,7 +2,28 @@
 {{- define "tc.v1.common.spawner.cnpg" -}}
   {{/* Generate named cnpges as required */}}
   {{- range $name, $cnpg := $.Values.cnpg }}
-    {{- if $cnpg.enabled }}
+
+    {{- $enabled := false -}}
+    {{- if hasKey $cnpg "enabled" -}}
+      {{- if not (kindIs "invalid" $cnpg.enabled) -}}
+        {{- $enabled = $cnpg.enabled -}}
+      {{- else -}}
+        {{- fail (printf "cnpg - Expected the defined key [enabled] in <cnpg.%s> to not be empty" $name) -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- if kindIs "string" $enabled -}}
+      {{- $enabled = tpl $enabled $ -}}
+
+      {{/* After tpl it becomes a string, not a bool */}}
+      {{-  if eq $enabled "true" -}}
+        {{- $enabled = true -}}
+      {{- else if eq $enabled "false" -}}
+        {{- $enabled = false -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- if $enabled -}}
       {{- $cnpgValues := $cnpg }}
       {{- $cnpgName := include "tc.v1.common.lib.chart.names.fullname" $ }}
       {{- $_ := set $cnpgValues "shortName" $name }}
