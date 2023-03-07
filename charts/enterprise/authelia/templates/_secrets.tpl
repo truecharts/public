@@ -1,6 +1,8 @@
 {{/* Define the secrets */}}
 {{- define "authelia.secrets" -}}
-{{- $autheliaprevious := lookup "v1" "Secret" .Release.Namespace "authelia-secrets" }}
+{{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+{{- $fetchname := printf "%s-authelia-secrets" $basename -}}
+{{- $autheliaprevious := lookup "v1" "Secret" .Release.Namespace $fetchname }}
 {{- $oidckey := "" }}
 {{- $oidcsecret := "" }}
 {{- $jwtsecret := "" }}

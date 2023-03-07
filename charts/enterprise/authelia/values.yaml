@@ -13,18 +13,18 @@ workload:
           envFrom:
             - configMapRef:
                 name: authelia-paths
-          # probes:
-          #   liveness:
-          #     type: HTTP
-          #     path: /api/health"
+          probes:
+            liveness:
+              type: http
+              path: /api/health"
 
-          #   readiness:
-          #     type: HTTP
-          #     path: "/api/health"
+            readiness:
+              type: http
+              path: "/api/health"
 
-          #   startup:
-          #     type: HTTP
-          #     path: "/api/health"
+            startup:
+              type: http
+              path: "/api/health"
 
 service:
   main:
