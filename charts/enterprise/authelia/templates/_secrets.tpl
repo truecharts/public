@@ -9,14 +9,9 @@
 enabled: true
 data:
   {{- if $autheliaprevious }}
-  SESSION_ENCRYPTION_KEY: {{ index $autheliaprevious.data "SESSION_ENCRYPTION_KEY"  }}
-  JWT_TOKEN: {{ index $autheliaprevious.data "JWT_TOKEN"  }}
-  {{- if ( hasKey $autheliaprevious.data "ENCRYPTION_KEY" ) }}
-  ENCRYPTION_KEY: {{ index $autheliaprevious.data "ENCRYPTION_KEY"  }}
-  {{- else }}
-  {{- $encryptionkey := randAlphaNum 100 }}
-  ENCRYPTION_KEY: {{ $encryptionkey }}
-  {{- end }}
+  SESSION_ENCRYPTION_KEY: {{ index $autheliaprevious.data "SESSION_ENCRYPTION_KEY" | b64dec  }}
+  JWT_TOKEN: {{ index $autheliaprevious.data "JWT_TOKEN" | b64dec }}
+  ENCRYPTION_KEY: {{ index $autheliaprevious.data "ENCRYPTION_KEY" | b64dec }}
   {{- else }}
   {{- $jwtsecret := randAlphaNum 50 }}
   {{- $sessionsecret := randAlphaNum 50 }}
@@ -47,8 +42,8 @@ data:
 
   {{- if $autheliaprevious }}
   {{- if and ( hasKey $autheliaprevious.data "OIDC_PRIVATE_KEY" ) ( hasKey $autheliaprevious.data "OIDC_HMAC_SECRET" ) }}
-  OIDC_PRIVATE_KEY: {{ index $autheliaprevious.data "OIDC_PRIVATE_KEY"  }}
-  OIDC_HMAC_SECRET: {{ index $autheliaprevious.data "OIDC_HMAC_SECRET" }}
+  OIDC_PRIVATE_KEY: {{ index $autheliaprevious.data "OIDC_PRIVATE_KEY" | b64dec  }}
+  OIDC_HMAC_SECRET: {{ index $autheliaprevious.data "OIDC_HMAC_SECRET" | b64dec  }}
   {{- else }}
   {{- $oidckey := genPrivateKey "rsa"   }}
   {{- $oidcsecret := randAlphaNum 32 }}
