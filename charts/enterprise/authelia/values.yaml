@@ -12,19 +12,19 @@ workload:
           args: ["--config=/configuration.yaml"]
           envFrom:
             - configMapRef:
-                name: authelia-paths
-          # probes:
-          #   liveness:
-          #     type: HTTP
-          #     path: /api/health"
+                name: paths
+          probes:
+            liveness:
+              type: HTTP
+              path: /api/health"
 
-          #   readiness:
-          #     type: HTTP
-          #     path: "/api/health"
+            readiness:
+              type: HTTP
+              path: "/api/health"
 
-          #   startup:
-          #     type: HTTP
-          #     path: "/api/health"
+            startup:
+              type: HTTP
+              path: "/api/health"
 
 service:
   main:
