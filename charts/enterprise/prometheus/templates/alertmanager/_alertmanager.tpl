@@ -51,7 +51,7 @@ spec:
         resources:
           requests:
             storage: {{ .Values.alertmanager.persistence.size | quote }}
-        {{- with (include "tc.v1.common.lib.storage.storageClassName" (dict "persistence" .Values.prometheus.persistence "root" . )) | trim }}
+        {{- with (include "tc.v1.common.lib.storage.storageClassName" ( dict "rootCtx" . "objectData" .Values.prometheus.persistence )) | trim }}
         storageClassName: {{ . }}
         {{- end }}
   {{- end }}
