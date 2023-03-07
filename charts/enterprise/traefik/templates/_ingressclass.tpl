@@ -16,7 +16,7 @@ metadata:
   annotations:
     ingressclass.kubernetes.io/is-default-class: {{ .Values.ingressClass.isDefaultClass | quote }}
   labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+    {{- include "tc.v1.common.allLabels" . | nindent 4 }}
   name: {{ .Release.Name }}
 spec:
   controller: traefik.io/ingress-controller
