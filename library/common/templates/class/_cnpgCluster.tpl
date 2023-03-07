@@ -39,7 +39,7 @@ spec:
 
   storage:
     pvcTemplate:
-      {{- with (include "tc.v1.common.lib.storage.storageClassName" (dict "persistence" $values.storage "root" . )) | trim }}
+      {{- with (include "tc.v1.common.lib.storage.storageClassName" ( dict "rootCtx" $ "objectData" $values.storage )) | trim }}
       storageClassName: {{ . }}
       {{- end }}
       accessModes:
@@ -50,7 +50,7 @@ spec:
 
   walStorage:
     pvcTemplate:
-      {{- with (include "tc.v1.common.lib.storage.storageClassName" (dict "persistence" $values.storage "root" $ )) | trim }}
+      {{- with (include "tc.v1.common.lib.storage.storageClassName" ( dict "rootCtx" $ "objectData" $values.storage )) | trim }}
       storageClassName: {{ . }}
       {{- end }}
       accessModes:
