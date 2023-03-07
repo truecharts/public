@@ -362,6 +362,6 @@ queryLog:
 
 cnpg:
   main:
-    enabled: '{{ if eq .Values.queryLog.type "postgresql" }}true{{ else }}false{{ end }}'
+    enabled: false
     user: blocky
     database: blocky
