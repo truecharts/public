@@ -237,9 +237,9 @@ workload:
               port: "{{ .Values.service.main.ports.main.targetPort }}"
           envFrom:
             - secretRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-authentik-secret'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-authentik-secret'
             - configMapRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-authentik-config'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-authentik-config'
             - configMapRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-authentik-server-config'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-authentik-server-config'
           args: ["server"]

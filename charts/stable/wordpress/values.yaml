@@ -54,6 +54,6 @@ workload:
         main:
           envFrom:
             - configMapRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-env-config'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-env-config'
             - secretRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-env-secret'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-env-secret'

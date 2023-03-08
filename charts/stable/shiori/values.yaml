@@ -31,4 +31,4 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-secret'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-secret'

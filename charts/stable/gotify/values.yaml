@@ -41,7 +41,7 @@ persistence:
     type: secret
     readOnly: true
     defaultMode: "0600"
-    objectName: '{{ include "tc.v1.common.names.fullname" . }}-secret'
+    objectName: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-secret'
     mountPath: /etc/gotify/config.yml
     subPath: config.yml
 postgresql:
@@ -68,4 +68,4 @@ workload:
               path: /health
           envFrom:
             - secretRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-secret-env'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-secret-env'

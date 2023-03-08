@@ -55,7 +55,7 @@ workload:
               type: HTTP
           envFrom:
             - secretRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-gsm-secret'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-gsm-secret'
           command:
             - /bin/sh
             - -c

@@ -103,4 +103,4 @@ workload:
               path: /
           envFrom:
             - configMapRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-frontend-config'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-frontend-config'

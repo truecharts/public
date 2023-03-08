@@ -50,7 +50,7 @@ persistence:
     type: secret
     readOnly: true
     defaultMode: "0600"
-    objectName: '{{ include "tc.v1.common.names.fullname" . }}-config-secret'
+    objectName: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-config-secret'
     mountPath: /plexanisync/settings.ini
     subPath: settings.ini
 portal:
@@ -76,4 +76,4 @@ workload:
               enabled: false
           envFrom:
             - secretRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-secret'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-secret'

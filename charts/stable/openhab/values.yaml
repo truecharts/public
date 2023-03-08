@@ -39,7 +39,7 @@ persistence:
     type: custom
     volumeSpec:
       configMap:
-        name: '{{ printf "%v-init" (include "tc.v1.common.names.fullname" .) }}'
+        name: '{{ printf "%v-init" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
 portal:
   open:
     enabled: true

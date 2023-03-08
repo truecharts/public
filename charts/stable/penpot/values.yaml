@@ -124,6 +124,6 @@ workload:
               path: /
           envFrom:
             - secretRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-common-secret'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-common-secret'
             - secretRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-frontend-secret'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-frontend-secret'
