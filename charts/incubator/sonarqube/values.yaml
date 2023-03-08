@@ -1,5 +1,3 @@
-env:
-  SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: "true"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/sonarqube
@@ -14,12 +12,6 @@ persistence:
   logs:
     enabled: true
     mountPath: /opt/sonarqube/logs
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -27,7 +19,18 @@ service:
         port: 9000
         protocol: tcp
         targetPort: 9000
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: "true"

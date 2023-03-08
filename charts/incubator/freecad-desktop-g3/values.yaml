@@ -1,6 +1,3 @@
-env:
-  VNC_PW: unraid
-  VNC_RESOLUTION: 1360x768
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/freecad-desktop-g3
@@ -9,12 +6,6 @@ persistence:
   internalshare:
     enabled: true
     mountPath: /UNRAID_SHARE
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -30,7 +21,19 @@ service:
         port: 5901
         protocol: tcp
         targetPort: 5901
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          VNC_PW: unraid
+          VNC_RESOLUTION: 1360x768

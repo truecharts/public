@@ -1,6 +1,3 @@
-env:
-  TCD_ENABLE_FILES_API: "0"
-  UMASK: "022"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/livestreamdvr
@@ -18,12 +15,6 @@ persistence:
   hostpath4:
     enabled: true
     mountPath: /usr/local/share/twitchautomator/data/logs
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -31,7 +22,19 @@ service:
         port: 8146
         protocol: tcp
         targetPort: 8080
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          TCD_ENABLE_FILES_API: "0"
+          UMASK: "022"

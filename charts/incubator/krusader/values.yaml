@@ -1,9 +1,3 @@
-env:
-  CUSTOM_RES_H: "768"
-  CUSTOM_RES_W: "1280"
-  NOVNC_RESIZE: remote
-  RUNASROOT: "false"
-  USER_LOCALES: en_US.UTF-8 UTF-8
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/krusader
@@ -15,12 +9,6 @@ persistence:
   datapath:
     enabled: true
     mountPath: /mnt/user
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -28,7 +16,22 @@ service:
         port: 8080
         protocol: tcp
         targetPort: 8080
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          CUSTOM_RES_H: "768"
+          CUSTOM_RES_W: "1280"
+          NOVNC_RESIZE: remote
+          RUNASROOT: "false"
+          USER_LOCALES: en_US.UTF-8 UTF-8

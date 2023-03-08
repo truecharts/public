@@ -1,6 +1,3 @@
-env:
-  VNC_PW: vncpassword
-  VNC_RESOLUTION: 1920x1080
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/gridcoinwalletgui
@@ -12,12 +9,6 @@ persistence:
   boincdatadir:
     enabled: true
     mountPath: /var/lib/boinc-client/
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -33,7 +24,19 @@ service:
         port: 5901
         protocol: tcp
         targetPort: 5901
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          VNC_PW: vncpassword
+          VNC_RESOLUTION: 1920x1080

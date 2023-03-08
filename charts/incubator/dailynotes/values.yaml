@@ -1,5 +1,3 @@
-env:
-  PREVENT_SIGNUPS: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/dailynotes
@@ -8,12 +6,6 @@ persistence:
   config:
     enabled: true
     mountPath: /app/config
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -21,7 +13,18 @@ service:
         port: 5000
         protocol: tcp
         targetPort: 5000
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          PREVENT_SIGNUPS: ""

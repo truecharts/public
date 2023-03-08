@@ -1,6 +1,3 @@
-env:
-  SIA_API_PASSWORD: ""
-  SIA_WALLET_PASSWORD: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/sia-daemon
@@ -9,12 +6,6 @@ persistence:
   datadirectory:
     enabled: true
     mountPath: /sia-data
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   hostrhp2port:
     enabled: true
@@ -38,7 +29,19 @@ service:
         port: 9981
         protocol: tcp
         targetPort: 9981
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          SIA_API_PASSWORD: ""
+          SIA_WALLET_PASSWORD: ""

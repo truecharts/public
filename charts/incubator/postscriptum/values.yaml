@@ -2,33 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/postscriptum
   tag: latest@sha256:62f2a0b95b1074b714a9948163ce951e9b3cdafe35f966c7e70eb7e0d425c1b7
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
-
-env:
-  DATA_PERM: "770"
-  GAME_ID: "746200"
-  GAME_PARAMS: Port=10027 QueryPort=10037 -log
-  VALIDATE: false
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-
 service:
   main:
     ports:
@@ -44,7 +17,6 @@ service:
         port: 10037
         protocol: udp
         targetPort: 10037
-
 persistence:
   serverfiles:
     enabled: true
@@ -52,7 +24,31 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+        env:
+          DATA_PERM: "770"
+          GAME_ID: "746200"
+          GAME_PARAMS: Port=10027 QueryPort=10037 -log
+          VALIDATE: false
+          USERNAME: ""
+          PASSWRD: ""

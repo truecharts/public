@@ -2,35 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/chivalry-medievalwarfare
   tag: latest@sha256:fab8500043940e1eabd181ebf72fe37ef26e5ce3b6447a191584a7f3bd51a9bf
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
-
-env:
-  ADMIN_PWD: adminDocker
-  GAME_ID: "220070"
-  GAME_PARAMS: ?port=7000?queryport=7010
-  GAME_PARAMS_EXTRA: -seekfreeloadingserver
-  MAP: aocffa-moor_p
-  VALIDATE: true
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-
 service:
   main:
     ports:
@@ -54,7 +25,6 @@ service:
         port: 27015
         protocol: udp
         targetPort: 27015
-
 persistence:
   serverfiles:
     enabled: true
@@ -62,7 +32,33 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+        env:
+          ADMIN_PWD: adminDocker
+          GAME_ID: "220070"
+          GAME_PARAMS: ?port=7000?queryport=7010
+          GAME_PARAMS_EXTRA: -seekfreeloadingserver
+          MAP: aocffa-moor_p
+          VALIDATE: true
+          USERNAME: ""
+          PASSWRD: ""

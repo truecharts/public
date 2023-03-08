@@ -2,7 +2,6 @@ image:
   repository: tccr.io/truecharts/microbin
   tag: 1.2.0@sha256:0753046903c030087aa16e55390d9e5d6ef9add99b5e61910c4dbd144cdb2bf1
   pullPolicy: IfNotPresent
-
 microbin:
   username: user
   password: pass
@@ -19,18 +18,17 @@ microbin:
   read_only: true
   wide: true
   threads: 1
-
 service:
   main:
     ports:
       main:
         port: 10302
-
 persistence:
   data:
     enabled: true
     mountPath: "/app/pasta_data"
-
 portal:
   open:
     enabled: true
+securityContext:
+  container: null

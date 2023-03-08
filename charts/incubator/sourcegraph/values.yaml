@@ -1,4 +1,3 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/sourcegraph
@@ -10,12 +9,6 @@ persistence:
   configstoragepath:
     enabled: true
     mountPath: /etc/sourcegraph
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   adminconsolepo:
     enabled: true
@@ -39,7 +32,17 @@ service:
         port: 7080
         protocol: http
         targetPort: 7080
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env: {}

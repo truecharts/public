@@ -2,21 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/hexchat
   tag: latest@sha256:079d92a2b38ed4c491b6031f0b3ad71d8fce1c13ea4c73b61896e0e19ca27564
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-secretEnv:
-  VNC_PASSWORD: ""
-
-env:
-  WEBPAGE_TITLE: HexChat
-
 service:
   main:
     ports:
@@ -24,12 +9,23 @@ service:
         port: 10307
         protocol: http
         targetPort: 6080
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          WEBPAGE_TITLE: HexChat
+          VNC_PASSWORD: ""

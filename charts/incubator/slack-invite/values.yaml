@@ -1,18 +1,8 @@
-env:
-  COMMUNITY_NAME: myslackteam
-  SLACK_TOKEN: Enter YOur slack token here
-  SLACK_URL: myslackteam.slack.com
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/slack-invite
   tag: latest@sha256:37a64bfa6ad358441e0f0ba4dd4566dfb9551d16c4d570570225a419e794c500
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -20,7 +10,20 @@ service:
         port: 7879
         protocol: tcp
         targetPort: 7879
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          COMMUNITY_NAME: myslackteam
+          SLACK_TOKEN: Enter YOur slack token here
+          SLACK_URL: myslackteam.slack.com

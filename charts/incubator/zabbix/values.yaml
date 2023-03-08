@@ -2,42 +2,27 @@ image:
   repository: tccr.io/truecharts/zabbix-server
   tag: 6.2.7@sha256:ba3f935dd946093e48e39ff6d797684a98a353b293145af59e50761aea5d9f30
   pullPolicy: IfNotPresent
-
 frontendImage:
   repository: tccr.io/truecharts/zabbix-web
   tag: 6.2.7@sha256:0e819e67912de672093ad41b5f140b8d29f094652f5aa395f8e34c6cb6f38922
   pullPolicy: IfNotPresent
-
 agent2Image:
   repository: tccr.io/truecharts/zabbix-agent2
   tag: 6.2.7@sha256:b31bee64d39d81cf8dc0ec34bd75daac27b693f7d3479291db3511cb8134b5cb
   pullPolicy: IfNotPresent
-
 snmptrapsImage:
   repository: tccr.io/truecharts/zabbix-snmptraps
   tag: 6.2.7@sha256:1f74067d505b3908cd585ee43f9d683abc970954bdfac582a8728ec2a334cdc3
   pullPolicy: IfNotPresent
-
 javaGatewayImage:
   repository: tccr.io/truecharts/zabbix-java-gateway
   tag: 6.2.7@sha256:50be517bfa07aec2c8fbd664323cd8cacec203ecab2cee8533cb8c0129cad85d
   pullPolicy: IfNotPresent
-
 webServiceImage:
   repository: tccr.io/truecharts/zabbix-web-service
   tag: 6.2.7@sha256:104c982c53f062d40b41b80fb280a5ea3e67ede25ab8547e239689f8951fcbc4
   pullPolicy: IfNotPresent
-
 tty: true
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 1997
-  runAsGroup: 0
-
 zabbix:
   # -- https://www.zabbix.com/documentation/current/en/manual/appendix/config/zabbix_server
   server:
@@ -142,15 +127,6 @@ zabbix:
     timeout: 10
   snmptraps:
     enabled: true
-
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.v1.common.names.fullname" . }}-common-secret'
-  - configMapRef:
-      name: '{{ include "tc.v1.common.names.fullname" . }}-common-config'
-  - configMapRef:
-      name: '{{ include "tc.v1.common.names.fullname" . }}-server-config'
-
 service:
   main:
     ports:
@@ -193,15 +169,6 @@ service:
         enabled: true
         protocol: http
         port: 10053
-
-probes:
-  liveness:
-    port: "{{ .Values.service.server.ports.server.port }}"
-  readiness:
-    port: "{{ .Values.service.server.ports.server.port }}"
-  startup:
-    port: "{{ .Values.service.server.ports.server.port }}"
-
 persistence:
   # Server
   serveralertscripts:
@@ -286,13 +253,36 @@ persistence:
     noMount: true
     mountPath: /usr/sbin/zabbix_java/ext_lib
     size: 256Gi
-
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: zabbix
   postgresqlDatabase: zabbix
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 1997
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              port: "{{ .Values.service.server.ports.server.port }}"
+            readiness:
+              port: "{{ .Values.service.server.ports.server.port }}"
+            startup:
+              port: "{{ .Values.service.server.ports.server.port }}"
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.v1.common.names.fullname" . }}-common-secret'
+            - configMapRef:
+                name: '{{ include "tc.v1.common.names.fullname" . }}-common-config'
+            - configMapRef:
+                name: '{{ include "tc.v1.common.names.fullname" . }}-server-config'

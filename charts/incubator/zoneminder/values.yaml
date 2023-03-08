@@ -2,15 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/zoneminder
   tag: latest@sha256:9289ed31395456baadca5111633987d70d44524ce9ceb0a94f4071b39a802411
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
 service:
   main:
     ports:
@@ -26,15 +17,6 @@ service:
         port: 10293
         protocol: tcp
         targetPort: 9000
-
-probes:
-  liveness:
-    path: "/zm"
-  readiness:
-    path: "/zm"
-  startup:
-    path: "/zm"
-
 persistence:
   config:
     enabled: true
@@ -42,7 +24,24 @@ persistence:
   datapath:
     enabled: true
     mountPath: /var/cache/zoneminder
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/zm"
+            readiness:
+              path: "/zm"
+            startup:
+              path: "/zm"

@@ -1,9 +1,3 @@
-env:
-  ACCESS_KEY: "Container Variable: ACCESS_KEY"
-  CRON_SCHEDULE: 0 * * * *
-  GCSOPTIONS: ""
-  GCSPATH: gs://mybucket/
-  SECRET_KEY: "Container Variable: SECRET_KEY"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/google-cloud-storage-backup
@@ -13,26 +7,36 @@ persistence:
     enabled: true
     mountPath: /data/backup
     readOnly: true
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 portal:
   open:
     enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+        env:
+          ACCESS_KEY: "Container Variable: ACCESS_KEY"
+          CRON_SCHEDULE: 0 * * * *
+          GCSOPTIONS: ""
+          GCSPATH: gs://mybucket/
+          SECRET_KEY: "Container Variable: SECRET_KEY"

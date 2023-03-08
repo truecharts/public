@@ -2,15 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/arksurvivalevolved
   tag: latest@sha256:6c3c2c8ce43c350b88e93943eb99265499680011f2eb5b912652e226a19bd47c
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
 ark:
   srv_admin_pass: ""
   srv_password: ""
@@ -29,19 +20,6 @@ ark:
   custom_map: ""
   server_name: ""
   validate: false
-
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.v1.common.names.fullname" . }}-secret'
-
-probes:
-  liveness:
-    port: "{{ .Values.service.rcontcp.ports.rcontcp.port }}"
-  readiness:
-    port: "{{ .Values.service.rcontcp.ports.rcontcp.port }}"
-  startup:
-    port: "{{ .Values.service.rcontcp.ports.rcontcp.port }}"
-
 service:
   main:
     ports:
@@ -70,7 +48,6 @@ service:
         enabled: true
         port: 27020
         protocol: tcp
-
 persistence:
   serverfiles:
     enabled: true
@@ -78,7 +55,27 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              port: "{{ .Values.service.rcontcp.ports.rcontcp.port }}"
+            readiness:
+              port: "{{ .Values.service.rcontcp.ports.rcontcp.port }}"
+            startup:
+              port: "{{ .Values.service.rcontcp.ports.rcontcp.port }}"
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.v1.common.names.fullname" . }}-secret'

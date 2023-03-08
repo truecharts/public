@@ -2,7 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/terraria-tshock
   tag: vtshock@sha256:93dc07c1fbae51e58d02c678aa005b9c2820993255f2f4e4bee3565ebd26f23d
-
 terraria:
   pass: secretpass
   autocreate: "1"
@@ -15,24 +14,10 @@ terraria:
     steam: false
     secure: false
   game_params: []
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
 persistence:
   serverfiles:
     enabled: true
     mountPath: /serverdata/serverfiles
-
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.v1.common.names.fullname" . }}-secret'
-
 service:
   main:
     ports:
@@ -46,7 +31,20 @@ service:
       tcp:
         enabled: true
         port: 7777
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.v1.common.names.fullname" . }}-secret'

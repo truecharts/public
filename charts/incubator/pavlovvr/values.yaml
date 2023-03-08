@@ -2,23 +2,9 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/pavlovvr
   tag: latest@sha256:410a1978ba23985c962fa11ac7dcffc0f7f4cc38da7fa81b5f4234b02c37bbeb
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
 secretEmv:
   USERNAME: ""
   PASSWRD: ""
-
-env:
-  GAME_ID: "622970"
-  GAME_PARAMS: ""
-  VALIDATE: false
-
 service:
   main:
     ports:
@@ -50,7 +36,6 @@ service:
         port: 7777
         protocol: udp
         targetPort: 7777
-
 persistence:
   serverfiles:
     enabled: true
@@ -58,7 +43,20 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          GAME_ID: "622970"
+          GAME_PARAMS: ""
+          VALIDATE: false

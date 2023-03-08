@@ -2,7 +2,6 @@ image:
   repository: tccr.io/truecharts/plik
   pullPolicy: IfNotPresent
   tag: 1.3.6@sha256:f9c31219bfb0793c3b9ce4ec304cd52c4dfef106ae452ab0f6a57a0a0b575fbd
-
 plik:
   general:
     debug: false
@@ -61,25 +60,12 @@ plik:
     ovh_api_key: ""
     ovh_api_secret: ""
     ovh_api_endpoint: https://eu.api.ovh.com/1.0
-
 service:
   main:
     ports:
       main:
         protocol: http
         port: 10599
-
-probes:
-  liveness:
-    type: HTTP
-    path: /
-  readiness:
-    type: HTTP
-    path: /
-  startup:
-    type: HTTP
-    path: /
-
 persistence:
   data:
     enabled: true
@@ -93,13 +79,28 @@ persistence:
     volumeSpec:
       secret:
         secretName: '{{ include "tc.v1.common.names.fullname" . }}-plik-secret'
-
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: plik
   postgresqlDatabase: plik
-
 portal:
   open:
     enabled: true
+securityContext:
+  container: null
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: HTTP
+              path: /
+            readiness:
+              type: HTTP
+              path: /
+            startup:
+              type: HTTP
+              path: /

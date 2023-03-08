@@ -1,26 +1,3 @@
-env:
-  CA_COUNTRY: ""
-  CA_LOCALITY: None
-  CA_ORGANIZATION: None
-  CA_STATE_PROV: None
-  CERT_FILE: cert.pem
-  CERT_LENGTH: "2048"
-  CERT_VALID_DAYS: "3650"
-  CIPHER_LIST: ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384
-  CLI_PASSWORD: ""
-  DATA_PERM: "770"
-  DH_FILE: dhparam.pem
-  DH_LENGTH: "2048"
-  DISPLAY_SECRETS: "true"
-  EXTRA_PARAMS: ""
-  LISTENING_IP: 0.0.0.0
-  MAX_BPS: "0"
-  PORT: "5349"
-  PRIVKEY_FILE: privkey.pem
-  REALM: ""
-  SECRET: ""
-  TOTAL_QUOTA: "100"
-  UMASK: "000"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/stun-turn-server
@@ -29,12 +6,6 @@ persistence:
   containerpath:
     enabled: true
     mountPath: /stun-turn
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -50,7 +21,39 @@ service:
         port: 5349
         protocol: udp
         targetPort: 5349
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          CA_COUNTRY: ""
+          CA_LOCALITY: None
+          CA_ORGANIZATION: None
+          CA_STATE_PROV: None
+          CERT_FILE: cert.pem
+          CERT_LENGTH: "2048"
+          CERT_VALID_DAYS: "3650"
+          CIPHER_LIST: ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384
+          CLI_PASSWORD: ""
+          DATA_PERM: "770"
+          DH_FILE: dhparam.pem
+          DH_LENGTH: "2048"
+          DISPLAY_SECRETS: "true"
+          EXTRA_PARAMS: ""
+          LISTENING_IP: 0.0.0.0
+          MAX_BPS: "0"
+          PORT: "5349"
+          PRIVKEY_FILE: privkey.pem
+          REALM: ""
+          SECRET: ""
+          TOTAL_QUOTA: "100"
+          UMASK: "000"

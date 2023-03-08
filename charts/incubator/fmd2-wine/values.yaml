@@ -1,5 +1,3 @@
-env:
-  UMASK: "002"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/fmd2-wine
@@ -20,12 +18,6 @@ persistence:
   downloaddirectory:
     enabled: true
     mountPath: /downloads
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -33,7 +25,18 @@ service:
         port: 6080
         protocol: tcp
         targetPort: 6080
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          UMASK: "002"

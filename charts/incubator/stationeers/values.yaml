@@ -2,32 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/stationeers
   tag: latest@sha256:00dcfb407c0dc9901e65481d437e3eb6b6dc78e9d57617ab2ab251b951db88f3
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
-
-env:
-  GAME_ID: "600760"
-  GAME_PARAMS: AutoSave true SaveInterval 300
-  VALIDATE: false
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-
 service:
   main:
     ports:
@@ -43,7 +17,6 @@ service:
         port: 27500
         protocol: udp
         targetPort: 27500
-
 persistence:
   serverfiles:
     enabled: true
@@ -51,7 +24,30 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+        env:
+          GAME_ID: "600760"
+          GAME_PARAMS: AutoSave true SaveInterval 300
+          VALIDATE: false
+          USERNAME: ""
+          PASSWRD: ""

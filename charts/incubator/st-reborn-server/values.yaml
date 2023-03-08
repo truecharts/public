@@ -2,7 +2,6 @@ image:
   repository: tccr.io/truecharts/st-reborn-server
   pullPolicy: IfNotPresent
   tag: v1.2.0@sha256:c1e93d3127abcfada03c47cc800a376f45853b992d8ac2a6cac4bfebe361bc90
-
 service:
   main:
     ports:
@@ -10,15 +9,6 @@ service:
         protocol: udp
         targetPort: 10578
         port: 10578
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-
 persistence:
   config:
     enabled: true
@@ -29,7 +19,20 @@ persistence:
   data:
     enabled: true
     mountPath: "/home/server/Data"
-
 portal:
   open:
     enabled: false
+securityContext:
+  container: null
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

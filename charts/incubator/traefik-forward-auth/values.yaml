@@ -2,28 +2,17 @@ image:
   repository: tccr.io/truecharts/traefik-forward-auth
   pullPolicy: IfNotPresent
   tag: latest@sha256:edd7eb812cb38e59d32b5a00398b57a78506db2390cbe295f5df590a38a5d44e
-
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.v1.common.names.fullname" . }}-google-secret'
-  - secretRef:
-      name: '{{ include "tc.v1.common.names.fullname" . }}-oidc-secret'
-  - secretRef:
-      name: '{{ include "tc.v1.common.names.fullname" . }}-oauth2-secret'
-
 service:
   main:
     ports:
       main:
         targetPort: 4181
         port: 4181
-
 tfaAppOptions:
   secret: something-random
   port: 4181
   logLevel: warn
   logFormat: text
-
 tfaAuthOptions:
   authHost:
   urlPath: /_oauth
@@ -32,25 +21,21 @@ tfaAuthOptions:
   domain: []
   whitelist: []
   rules: []
-
 tfaCookieOptions:
   cookieDomain: []
   cookieName: _forward_auth
   csrfCookieName: _forward_auth_csrf
   lifetime: 43200
   insecureCookie: false
-
 tfaGoogleOptions:
   clientId: "changeme"
   clientSecret: "changeme"
   prompt: "changeme"
-
 tfaOidcOptions:
   issuerUrl: "changeme"
   clientId: "changeme"
   clientSecret: "changeme"
   resource: "changeme"
-
 tfaOauthOptions:
   authUrl: "changeme"
   tokenUrl: "changeme"
@@ -60,3 +45,17 @@ tfaOauthOptions:
   scopes: "changeme"
   tokenStyle: header
   resource: "changeme"
+securityContext:
+  container: null
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.v1.common.names.fullname" . }}-google-secret'
+            - secretRef:
+                name: '{{ include "tc.v1.common.names.fullname" . }}-oidc-secret'
+            - secretRef:
+                name: '{{ include "tc.v1.common.names.fullname" . }}-oauth2-secret'

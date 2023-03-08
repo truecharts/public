@@ -2,25 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/eco
   tag: latest@sha256:7b380486ce590ba0bb9b3361f84464727126611771ba746210f7a73180d7b987
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
-
-env:
-  DATA_PERM: "770"
-  GAME_ID: "739590"
-  GAME_PARAMS: ""
-  VALIDATE: false
-
 service:
   main:
     ports:
@@ -36,7 +17,6 @@ service:
         port: 3000
         protocol: udp
         targetPort: 3000
-
 persistence:
   serverfiles:
     enabled: true
@@ -44,7 +24,23 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          DATA_PERM: "770"
+          GAME_ID: "739590"
+          GAME_PARAMS: ""
+          VALIDATE: false
+          USERNAME: ""
+          PASSWRD: ""

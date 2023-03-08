@@ -2,13 +2,7 @@ image:
   repository: tccr.io/truecharts/snowflake-proxy
   pullPolicy: IfNotPresent
   tag: 2.5.1@sha256:f6ae7a842d83767beef87961bd2086476731f9dde62c149a9a81fe1a96fed737
-
-podSecurityContext:
-  runAsUser: 1000
-  runAsGroup: 1000
-
 hostNetwork: true
-
 snowflake:
   allow_non_tls_relay: false
   allowed_relay_hostname_pattern: "snowflake.torproject.net$"
@@ -23,37 +17,43 @@ snowflake:
   unsafe_logging: false
   verbose: false
   log: ""
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
-probes:
-  liveness:
-    custom: true
-    spec:
-      exec:
-        command:
-          - /bin/proxy
-          - -version
-  readiness:
-    custom: true
-    spec:
-      exec:
-        command:
-          - /bin/proxy
-          - -version
-  startup:
-    custom: true
-    spec:
-      exec:
-        command:
-          - /bin/proxy
-          - -version
-
 portal:
   open:
     enabled: false
+securityContext:
+  container:
+    runAsUser: 1000
+    runAsGroup: 1000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - /bin/proxy
+                    - -version
+            readiness:
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - /bin/proxy
+                    - -version
+            startup:
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - /bin/proxy
+                    - -version

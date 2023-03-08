@@ -2,37 +2,17 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/redisinsight
   tag: latest@sha256:723214d13e55e0a65f7f698e4f431ffe2e2da8e5e859c89c86040ffc672cfafc
-
 redisinsight:
   log_level: WARNING
   trusted_origins: []
   auth_prompt: false
   auth_timer: 30
-
-env:
-  RIPORT: "{{ .Values.service.main.ports.main.port }}"
-  RIHOMEDIR: /config
-  RILOGDIR: /logs
-  RILOGLEVEL: "{{ .Values.redisinsight.log_level }}"
-  RITRUSTEDORIGINS: '{{ join "," .Values.redisinsight.trusted_origins }}'
-  RIAUTHPROMPT: "{{ .Values.redisinsight.auth_prompt }}"
-  RIAUTHTIMER: "{{ .Values.redisinsight.auth_timer }}"
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
 service:
   main:
     ports:
       main:
         protocol: http
         port: 10579
-
 persistence:
   config:
     enabled: true
@@ -40,7 +20,24 @@ persistence:
   logs:
     enabled: true
     mountPath: /logs
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          RIPORT: "{{ .Values.service.main.ports.main.port }}"
+          RIHOMEDIR: /config
+          RILOGDIR: /logs
+          RILOGLEVEL: "{{ .Values.redisinsight.log_level }}"
+          RITRUSTEDORIGINS: '{{ join "," .Values.redisinsight.trusted_origins }}'
+          RIAUTHPROMPT: "{{ .Values.redisinsight.auth_prompt }}"
+          RIAUTHTIMER: "{{ .Values.redisinsight.auth_timer }}"

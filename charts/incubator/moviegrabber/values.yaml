@@ -1,5 +1,3 @@
-env:
-  UMASK: "000"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/moviegrabber
@@ -8,12 +6,6 @@ persistence:
   moviegrabber:
     enabled: true
     mountPath: /media
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -21,7 +13,18 @@ service:
         port: 9191
         protocol: tcp
         targetPort: 9191
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          UMASK: "000"

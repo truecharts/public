@@ -2,15 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/obsidian
   tag: 0.1.1@sha256:d00f623e2de8a2bf78807d9aaeb25ee5d3f0f08e18c83afef49e71b5f389964f
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
 service:
   main:
     ports:
@@ -29,7 +20,6 @@ service:
         enabled: true
         port: 27124
         targetPort: 27124
-
 persistence:
   storageconfig:
     enabled: true
@@ -37,7 +27,12 @@ persistence:
   storagevaults:
     enabled: true
     mountPath: /vaults
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0

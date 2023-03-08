@@ -1,7 +1,3 @@
-env:
-  KEYBOARD: ""
-  SUBFOLDER: ""
-  UMASK: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/kdenlive
@@ -10,12 +6,6 @@ persistence:
   config:
     enabled: true
     mountPath: /config
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -23,7 +13,20 @@ service:
         port: 3000
         protocol: tcp
         targetPort: 3000
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          KEYBOARD: ""
+          SUBFOLDER: ""
+          UMASK: ""

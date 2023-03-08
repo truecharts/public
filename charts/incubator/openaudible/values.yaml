@@ -2,15 +2,6 @@ image:
   repository: tccr.io/truecharts/openaudible
   tag: latest@sha256:454c59abad4f127ed0ccd5c942c1af7597df80c43dfdf69cf4ef7685732bbfaa
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
@@ -18,12 +9,16 @@ service:
         port: 10325
         protocol: http
         targetPort: 3000
-
 persistence:
   config:
     enabled: true
     mountPath: "/config/OpenAudible"
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

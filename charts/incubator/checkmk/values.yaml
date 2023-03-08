@@ -2,25 +2,11 @@ image:
   repository: tccr.io/truecharts/check-mk-raw
   pullPolicy: IfNotPresent
   tag: v2.1.0@sha256:1465f7c4c273a5d1f0fd8386790cd20be63c0422d65af48281369ab4793d4e09
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 cmk:
   password: secret
   site_id: cmk
   livestatus_tcp: true
   mail_relay_host: ""
-
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.v1.common.names.fullname" . }}-secret'
-
 service:
   main:
     ports:
@@ -43,28 +29,6 @@ service:
         enabled: true
         targetPort: 6557
         port: 6557
-
-probes:
-  liveness:
-    spec:
-      exec:
-        command:
-          - /bin/sh
-          - -c
-          - omd status
-  readiness:
-    exec:
-      command:
-        - /bin/sh
-        - -c
-        - omd status
-  startup:
-    exec:
-      command:
-        - /bin/sh
-        - -c
-        - omd status
-
 persistence:
   config:
     enabled: true
@@ -77,7 +41,40 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: /var/spool/cron/crontabs
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              spec:
+                exec:
+                  command:
+                    - /bin/sh
+                    - -c
+                    - omd status
+            readiness:
+              exec:
+                command:
+                  - /bin/sh
+                  - -c
+                  - omd status
+            startup:
+              exec:
+                command:
+                  - /bin/sh
+                  - -c
+                  - omd status
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.v1.common.names.fullname" . }}-secret'

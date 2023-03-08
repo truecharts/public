@@ -2,14 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/ps3netsrv
   tag: latest@sha256:200e6662a6e5e581ac0018b6e3dda69889e904585574315016f875bbd4476d45
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -17,7 +9,6 @@ service:
         port: 38008
         protocol: http
         targetPort: 38008
-
 persistence:
   games:
     enabled: true
@@ -27,3 +18,9 @@ persistence:
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0

@@ -2,47 +2,23 @@ image:
   repository: tccr.io/truecharts/plex-meta-manager
   pullPolicy: IfNotPresent
   tag: 1.18.3@sha256:d8adb30906dbeffae964364bb7b98372b06283c8e9ab3e7624eab2265478e8fc
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 pmm:
   run: false
   no_countdown: true
   time:
     - "00:00"
-  # plex_url: ""
-  # plex_token: ""
-
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.v1.common.names.fullname" . }}-secret'
-
+    # plex_url: ""
+    # plex_token: ""
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 initContainers:
   1-create-init-config-file:
     image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
@@ -59,7 +35,27 @@ initContainers:
           echo "Config file is missing, getting a new one!"
           curl -fLvo /config/config.yml https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager/master/config/config.yml.template || ( echo "Downloading config file, FAILED..." && exit 1 )
         fi
-
 portal:
   open:
     enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.v1.common.names.fullname" . }}-secret'

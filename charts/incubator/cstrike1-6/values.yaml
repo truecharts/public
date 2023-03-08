@@ -2,35 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/cstrike1-6
   tag: latest@sha256:3f45e0e03d0993b8528661c80fb2fde85277132620a76fccd240e1ee8c3d8872
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
-
-env:
-  GAME_ID: "90"
-  GAME_MOD: ""
-  GAME_NAME: cstrike
-  GAME_PARAMS: +maxplayers 32 +map de_dust
-  GAME_PORT: "27015"
-  VALIDATE: false
-
-probes:
-  liveness:
-    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
-  readiness:
-    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
-  startup:
-    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
-
 service:
   main:
     ports:
@@ -46,7 +17,6 @@ service:
         port: 27015
         protocol: tcp
         targetPort: 27015
-
 persistence:
   serverfiles:
     enabled: true
@@ -54,7 +24,33 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+            readiness:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+            startup:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+        env:
+          GAME_ID: "90"
+          GAME_MOD: ""
+          GAME_NAME: cstrike
+          GAME_PARAMS: +maxplayers 32 +map de_dust
+          GAME_PORT: "27015"
+          VALIDATE: false
+          USERNAME: ""
+          PASSWRD: ""

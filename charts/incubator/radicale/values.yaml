@@ -2,13 +2,11 @@ image:
   repository: tccr.io/truecharts/radicale
   pullPolicy: IfNotPresent
   tag: 3.1.8.1@sha256:98bf783fa812b21dd207e5d7ae1c01f491101bb7255f65dfc3626e9c8990b9b0
-
 # Docker image configuration docs:
 # https://github.com/tomsquest/docker-radicale#custom-configuration
 
 # Radicale configuration docs:
 # https://radicale.org/v3.html#configuration
-
 radicale:
   server:
     max_connections: 8
@@ -32,28 +30,8 @@ radicale:
   logging:
     level: warning
     mask_passwords: true
-
 security:
   PUID: 2999
-
-securityContext:
-  capabilities:
-    drop:
-      - ALL
-    add:
-      - SETUID
-      - SETGID
-      - KILL
-
-podSecurityContext:
-  runAsUser: 2999
-  runAsGroup: 2999
-  fsGroup: 2999
-
-env:
-  # Skip chown on /data by entrypoint.sh
-  TAKE_FILE_OWNERSHIP: false
-
 service:
   main:
     ports:
@@ -61,7 +39,6 @@ service:
         protocol: http
         targetPort: 5232
         port: 10255
-
 persistence:
   config:
     enabled: true
@@ -82,7 +59,25 @@ persistence:
   data:
     enabled: true
     mountPath: /data
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    capabilities:
+      drop:
+        - ALL
+      add:
+        - SETUID
+        - SETGID
+        - KILL
+    runAsUser: 2999
+    runAsGroup: 2999
+    fsGroup: 2999
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          # Skip chown on /data by entrypoint.sh
+          TAKE_FILE_OWNERSHIP: false

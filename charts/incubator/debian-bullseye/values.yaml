@@ -2,23 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/debian-bullseye
   tag: latest@sha256:59d51cbfd2e0bf158488f337b611e0d0999c6ed0329e6cdc24680c38565fdd6d
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-env:
-  CUSTOM_RES_H: "1000"
-  CUSTOM_RES_W: "1800"
-  DATA_PERM: "770"
-  DEV: ""
-  ROOT_PWD: ""
-  USER_LOCALES: en_US.UTF-8 UTF-8
-
 service:
   main:
     ports:
@@ -26,12 +9,27 @@ service:
         port: 8080
         protocol: http
         targetPort: 8080
-
 persistence:
   homedirectory:
     enabled: true
     mountPath: /debian
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          CUSTOM_RES_H: "1000"
+          CUSTOM_RES_W: "1800"
+          DATA_PERM: "770"
+          DEV: ""
+          ROOT_PWD: ""
+          USER_LOCALES: en_US.UTF-8 UTF-8

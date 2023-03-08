@@ -18,17 +18,7 @@ onclickImage:
   repository: tccr.io/truecharts/rickroll-onclick
   pullPolicy: IfNotPresent
   tag: latest@sha256:c01c92f2acf2a939802ea76732f931f2f07705a282422ba43fb3db2f96293cd5
-
 imageSelector: "image"
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
 service:
   main:
     ports:
@@ -36,7 +26,12 @@ service:
         protocol: http
         targetPort: 8080
         port: 10289
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0

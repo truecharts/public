@@ -2,7 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/traktarr
   tag: latest@sha256:c3f2e4c967f7574d13b234c8cfa5d5bc25c007d891ecf8bf78e04f0654033785
-
 traktarr:
   app_branch: master
   blacklist: true
@@ -12,45 +11,43 @@ traktarr:
   skipupdate: true
   delay: "2.5"
   sort: rating
-
-env:
-  APP_BRANCH: "{{ .Values.traktarr.app_branch }}"
-  BLACKLIST: '{{ ternary "yes" "no" .Values.traktarr.blacklist }}'
-  NOSEARCH: '{{ ternary "yes" "no" .Values.traktarr.nosearch }}'
-  NOTIFICATIONS: '{{ ternary "yes" "no" .Values.traktarr.notifications }}'
-  RUNNOW: '{{ ternary "yes" "no" .Values.traktarr.runnow }}'
-  SKIPUPDATE: '{{ ternary "yes" "no" .Values.traktarr.skipupdate }}'
-  DELAY: "{{ .Values.traktarr.delay }}"
-  SORT: "{{ .Values.traktarr.sort }}"
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+        env:
+          APP_BRANCH: "{{ .Values.traktarr.app_branch }}"
+          BLACKLIST: '{{ ternary "yes" "no" .Values.traktarr.blacklist }}'
+          NOSEARCH: '{{ ternary "yes" "no" .Values.traktarr.nosearch }}'
+          NOTIFICATIONS: '{{ ternary "yes" "no" .Values.traktarr.notifications }}'
+          RUNNOW: '{{ ternary "yes" "no" .Values.traktarr.runnow }}'
+          SKIPUPDATE: '{{ ternary "yes" "no" .Values.traktarr.skipupdate }}'
+          DELAY: "{{ .Values.traktarr.delay }}"
+          SORT: "{{ .Values.traktarr.sort }}"

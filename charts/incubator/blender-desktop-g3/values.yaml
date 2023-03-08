@@ -1,6 +1,3 @@
-env:
-  VNC_PW: unraid
-  VNC_RESOLUTION: 1360x768
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/blender-desktop-g3
@@ -12,12 +9,6 @@ persistence:
   storageprojects:
     enabled: true
     mountPath: /srv/projects
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -33,7 +24,19 @@ service:
         port: 5901
         protocol: tcp
         targetPort: 5901
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          VNC_PW: unraid
+          VNC_RESOLUTION: 1360x768

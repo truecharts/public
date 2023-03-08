@@ -2,34 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/alienswarm-reactivedrop
   tag: latest@sha256:6ca07d264bd1150d23af7148b98862b42d31384622aaca36e5937e7d4e9cc253
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
-
-env:
-  GAME_ID: "563560"
-  GAME_NAME: reactivedrop
-  GAME_PARAMS: +map lobby -maxplayers 4 +exec server.cfg
-  GAME_PORT: "27015"
-  VALIDATE: false
-
-probes:
-  liveness:
-    port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
-  readiness:
-    port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
-  startup:
-    port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
-
 service:
   main:
     ports:
@@ -45,7 +17,6 @@ service:
         port: 27015
         protocol: tcp
         targetPort: 27015
-
 persistence:
   serverfiles:
     enabled: true
@@ -53,7 +24,32 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
+            readiness:
+              port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
+            startup:
+              port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
+        env:
+          GAME_ID: "563560"
+          GAME_NAME: reactivedrop
+          GAME_PARAMS: +map lobby -maxplayers 4 +exec server.cfg
+          GAME_PORT: "27015"
+          VALIDATE: false
+          USERNAME: ""
+          PASSWRD: ""

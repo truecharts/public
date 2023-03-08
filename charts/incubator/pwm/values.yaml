@@ -1,5 +1,3 @@
-env:
-  PWM_APPLICATIONFLAGS: NoFileLock
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/pwm
@@ -8,12 +6,6 @@ persistence:
   appdata:
     enabled: true
     mountPath: /usr/share/pwm
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -21,7 +13,18 @@ service:
         port: 8282
         protocol: tcp
         targetPort: 8080
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          PWM_APPLICATIONFLAGS: NoFileLock

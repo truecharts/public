@@ -2,21 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/gokapi
   tag: 1.6.2@sha256:c30f6c0b8453cb04a08054add70b3ac0e4e46fe0ca9fca0ac93035938fd57d18
-
-secretEnv:
-  GOKAPI_PASSWORD: "changme"
-  GOKAPI_USERNAME: "admin"
-
-env:
-  GOKAPI_LENGTH_ID: 15
-  GOKAPI_MAX_FILESIZE: 102400
-  GOKAPI_MAX_MEMORY_UPLOAD: 20
-  # GOKAPI_AWS_BUCKET: ""
-  # GOKAPI_AWS_REGION: ""
-  # GOKAPI_AWS_KEY: ""
-  # GOKAPI_AWS_KEY_SECRET: ""
-  # GOKAPI_AWS_ENDPOINT: ""
-
 service:
   main:
     ports:
@@ -24,7 +9,6 @@ service:
         port: 53842
         protocol: http
         targetPort: 53842
-
 persistence:
   config:
     enabled: true
@@ -32,7 +16,24 @@ persistence:
   data:
     enabled: true
     mountPath: /app/data
-
 portal:
   open:
     enabled: true
+securityContext:
+  container: null
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          GOKAPI_LENGTH_ID: 15
+          GOKAPI_MAX_FILESIZE: 102400
+          GOKAPI_MAX_MEMORY_UPLOAD: 20
+          # GOKAPI_AWS_BUCKET: ""
+          # GOKAPI_AWS_REGION: ""
+          # GOKAPI_AWS_KEY: ""
+          # GOKAPI_AWS_KEY_SECRET: ""
+          # GOKAPI_AWS_ENDPOINT: ""
+
+          GOKAPI_PASSWORD: "changme"
+          GOKAPI_USERNAME: "admin"

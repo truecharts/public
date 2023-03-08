@@ -2,32 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/barotrauma
   tag: latest@sha256:29c3e533bff810305d61fd7bce5b20782c5224241d4993878334fba5ee355e82
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
-
-env:
-  GAME_ID: "1026340"
-  GAME_PARAMS: ""
-  VALIDATE: false
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-
 service:
   main:
     ports:
@@ -43,7 +17,6 @@ service:
         port: 27016
         protocol: udp
         targetPort: 27016
-
 persistence:
   serverfiles:
     enabled: true
@@ -51,7 +24,30 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+        env:
+          GAME_ID: "1026340"
+          GAME_PARAMS: ""
+          VALIDATE: false
+          USERNAME: ""
+          PASSWRD: ""

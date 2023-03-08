@@ -2,35 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/mordhau
   tag: latest@sha256:a3a4a62f7191cb844b535101ebaf567933ebac42f9462a7dfb4af011da5e6b30
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
-
-env:
-  BEACON_PORT: "15000"
-  GAME_ID: "629800"
-  GAME_PARAMS: ""
-  GAME_PORT: "7777"
-  QUERY_PORT: "27015"
-  VALIDATE: false
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-
 service:
   main:
     ports:
@@ -54,7 +25,6 @@ service:
         port: 27015
         protocol: udp
         targetPort: 27015
-
 persistence:
   serverfiles:
     enabled: true
@@ -62,7 +32,33 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+        env:
+          BEACON_PORT: "15000"
+          GAME_ID: "629800"
+          GAME_PARAMS: ""
+          GAME_PORT: "7777"
+          QUERY_PORT: "27015"
+          VALIDATE: false
+          USERNAME: ""
+          PASSWRD: ""

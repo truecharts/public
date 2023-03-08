@@ -2,22 +2,11 @@ image:
   repository: tccr.io/truecharts/misskey
   pullPolicy: IfNotPresent
   tag: 13.8.1@sha256:8c0686172b31fd55c25168f333107ba1ae7a622505d36a95d387a41209927fbe
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-  fsGroup: 33
-
 service:
   main:
     ports:
       main:
         port: 3003
-
 misskey:
   # Final accessible URL seen by a user. ONCE YOU HAVE STARTED THE INSTANCE, DO NOT CHANGE THE URL SETTINGS AFTER THAT!
   url: "https://example.tld/"
@@ -36,11 +25,6 @@ misskey:
     inboxJobMaxAttempts: 8
     allowedPrivateNetworks:
       - 127.0.0.1/32
-
-env:
-  # NODE_ENV = production | development
-  NODE_ENV: production
-
 persistence:
   misskeyconfig:
     enabled: true
@@ -50,17 +34,28 @@ persistence:
   files:
     enabled: true
     mountPath: "/misskey/files"
-
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: misskey
   postgresqlDatabase: misskey
-
 redis:
   enabled: true
   existingSecret: "rediscreds"
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+    fsGroup: 33
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          # NODE_ENV = production | development
+          NODE_ENV: production

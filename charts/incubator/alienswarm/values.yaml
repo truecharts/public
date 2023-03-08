@@ -2,33 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/alienswarm
   tag: latest@sha256:297a2344be4f8f3a150e1d1b22f8b160af45a0f3f577f211d7849fb5cd76be48
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
-
-env:
-  GAME_ID: "635"
-  GAME_NAME: swarm
-  GAME_PARAMS: +map lobby -maxplayers 4 +exec server.cfg
-  GAME_PORT: "27015"
-  VALIDATE: false
-
-probes:
-  liveness:
-    port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
-  readiness:
-    port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
-  startup:
-    port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
-
 service:
   main:
     ports:
@@ -44,7 +17,6 @@ service:
         port: 27015
         protocol: tcp
         targetPort: 27015
-
 persistence:
   serverfiles:
     enabled: true
@@ -52,7 +24,32 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
+            readiness:
+              port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
+            startup:
+              port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
+        env:
+          GAME_ID: "635"
+          GAME_NAME: swarm
+          GAME_PARAMS: +map lobby -maxplayers 4 +exec server.cfg
+          GAME_PORT: "27015"
+          VALIDATE: false
+          USERNAME: ""
+          PASSWRD: ""

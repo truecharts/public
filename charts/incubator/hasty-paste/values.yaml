@@ -2,7 +2,6 @@ image:
   repository: tccr.io/truecharts/hasty-paste
   pullPolicy: IfNotPresent
   tag: 1.9.0@sha256:428aec44d95d061a8d357fa122175e067703b906483c9168a9b95cdb66c107da
-
 hastyPaste:
   new_at_index: false
   enable_public_list: false
@@ -22,54 +21,55 @@ hastyPaste:
     favicon: ""
     css_file: ""
     hide_version: false
-
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.v1.common.names.fullname" . }}-secret'
-
-probes:
-  liveness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - /bin/sh
-          - health-check.sh
-  readiness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - /bin/sh
-          - health-check.sh
-  startup:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - /bin/sh
-          - health-check.sh
-
 service:
   main:
     ports:
       main:
         protocol: http
         port: 10601
-
 persistence:
   config:
     enabled: true
     mountPath: /app/data
-
 redis:
   enabled: true
   existingSecret: rediscreds
   redisUsername: default
-
 portal:
   open:
     enabled: true
+securityContext:
+  container: null
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - /bin/sh
+                    - health-check.sh
+            readiness:
+              enabled: true
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - /bin/sh
+                    - health-check.sh
+            startup:
+              enabled: true
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - /bin/sh
+                    - health-check.sh
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.v1.common.names.fullname" . }}-secret'

@@ -2,15 +2,6 @@ image:
   repository: ghcr.io/jens-maus/raspberrymatic
   pullPolicy: IfNotPresent
   tag: latest@sha256:890403c9469607673807310fb318f73e7a15bb89b1c9c3052d2e51355763b9e3
-
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
@@ -37,7 +28,6 @@ service:
         enabled: true
         port: 8181
         targetPort: 8181
-
 persistence:
   config:
     enabled: true
@@ -58,7 +48,12 @@ persistence:
     type: hostPath
     mountPath: /run/udev/control
     hostPath: /run/udev/control
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0

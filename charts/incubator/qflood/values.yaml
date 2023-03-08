@@ -1,6 +1,3 @@
-env:
-  FLOOD_AUTH: ""
-  UMASK: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/qflood
@@ -9,12 +6,6 @@ persistence:
   config:
     enabled: true
     mountPath: /config
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   hostportfor808:
     enabled: true
@@ -30,7 +21,19 @@ service:
         port: 3000
         protocol: http
         targetPort: 3000
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          FLOOD_AUTH: ""
+          UMASK: ""

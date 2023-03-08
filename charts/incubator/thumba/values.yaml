@@ -2,32 +2,12 @@ image:
   repository: tccr.io/truecharts/thumba
   pullPolicy: IfNotPresent
   tag: 0.0.15@sha256:064641b965fb34cf77a2ea6cb89f455b04aec25b50f669871957b0927d1b7088
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-secretEnv:
-  GOOGLE_SEARCH_KEY: key
-  GOOGLE_SEARCH_CX: projectId
-  THUM_KEY_ID: keyID
-  THUM_KEY_SECRET: keySecret
-
-env:
-  NEXT_PUBLIC_PORT: "{{ .Values.service.main.ports.main.port}}"
-  NEXT_PUBLIC_HOST: "http://localhost"
-
 service:
   main:
     ports:
       main:
         protocol: http
         port: 10598
-
 persistence:
   config:
     enabled: true
@@ -35,7 +15,23 @@ persistence:
   video:
     enabled: true
     mountPath: /app/video
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          NEXT_PUBLIC_PORT: "{{ .Values.service.main.ports.main.port}}"
+          NEXT_PUBLIC_HOST: "http://localhost"
+          GOOGLE_SEARCH_KEY: key
+          GOOGLE_SEARCH_CX: projectId
+          THUM_KEY_ID: keyID
+          THUM_KEY_SECRET: keySecret

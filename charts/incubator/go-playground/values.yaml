@@ -1,17 +1,8 @@
-env:
-  APP_CLEAN_INTERVAL: 10m
-  APP_DEBUG: "false"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/go-playground
   tag: latest@sha256:2d62ed0b15849134aa2bc4bac0fce74be3ea3bcc57ff17b1f10b7557efb3db25
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -19,7 +10,19 @@ service:
         port: 8888
         protocol: tcp
         targetPort: 8000
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          APP_CLEAN_INTERVAL: 10m
+          APP_DEBUG: "false"

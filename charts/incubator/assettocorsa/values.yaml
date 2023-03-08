@@ -2,25 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/assettocorsa
   tag: latest@sha256:15b62adc57a03767ab080fe02e9f24154ff3dfa2112363add3173be1f6f8ef0e
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
-
-env:
-  GAME_ID: "302550"
-  INSTALL_ASSETTO_SERVER_MANAGER: ""
-  INSTALL_STRACKER: ""
-  VALIDATE: false
-
 service:
   main:
     ports:
@@ -60,7 +41,6 @@ service:
         port: 9600
         protocol: udp
         targetPort: 9600
-
 persistence:
   serverfiles:
     enabled: true
@@ -68,7 +48,23 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          GAME_ID: "302550"
+          INSTALL_ASSETTO_SERVER_MANAGER: ""
+          INSTALL_STRACKER: ""
+          VALIDATE: false
+          USERNAME: ""
+          PASSWRD: ""

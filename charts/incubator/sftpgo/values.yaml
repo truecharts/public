@@ -1,11 +1,3 @@
-env:
-  SFTPGO_COMMON__DEFENDER__ENABLED: "true"
-  SFTPGO_FTPD__BINDINGS__0__DEBUG: "0"
-  SFTPGO_FTPD__BINDINGS__0__FORCE_PASSIVE_IP: 10.0.0.10
-  SFTPGO_FTPD__BINDINGS__0__PORT: "2121"
-  SFTPGO_FTPD__PASSIVE_PORT_RANGE__END: "50100"
-  SFTPGO_FTPD__PASSIVE_PORT_RANGE__START: "50000"
-  SFTPGO_WEBDAVD__BINDINGS__0__PORT: "10080"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/sftpgo
@@ -23,12 +15,6 @@ persistence:
   shareaccess:
     enabled: true
     mountPath: /unraid
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   ftpport:
     enabled: true
@@ -68,7 +54,24 @@ service:
         port: 10080
         protocol: tcp
         targetPort: 10080
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          SFTPGO_COMMON__DEFENDER__ENABLED: "true"
+          SFTPGO_FTPD__BINDINGS__0__DEBUG: "0"
+          SFTPGO_FTPD__BINDINGS__0__FORCE_PASSIVE_IP: 10.0.0.10
+          SFTPGO_FTPD__BINDINGS__0__PORT: "2121"
+          SFTPGO_FTPD__PASSIVE_PORT_RANGE__END: "50100"
+          SFTPGO_FTPD__PASSIVE_PORT_RANGE__START: "50000"
+          SFTPGO_WEBDAVD__BINDINGS__0__PORT: "10080"

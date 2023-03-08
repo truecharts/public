@@ -2,21 +2,6 @@ image:
   repository: tccr.io/truecharts/flame
   pullPolicy: IfNotPresent
   tag: v2.3.0@sha256:1e4cfbb4a7cd8039b8a80106d84c6239852d497556c1c6883f16940234d7e55d
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-secretEnv:
-  PASSWORD: flame_password
-
-env:
-  enable_integration: true
-
 service:
   main:
     ports:
@@ -24,12 +9,23 @@ service:
         port: 10291
         protocol: http
         targetPort: 5005
-
 persistence:
   data:
     enabled: true
     mountPath: /app/data
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          enable_integration: true
+          PASSWORD: flame_password

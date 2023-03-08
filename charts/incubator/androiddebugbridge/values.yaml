@@ -1,18 +1,8 @@
-env:
-  bootwait: "10"
-  checkfreq: "30"
-  devicelist: 10.0.0.192:5555
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/androiddebugbridge
   tag: latest@sha256:b38fa873a88c9b04f37e918dbdc65f435140eaacef5650c1e2e011fd4814d00d
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -20,7 +10,20 @@ service:
         port: 5037
         protocol: tcp
         targetPort: 5037
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          bootwait: "10"
+          checkfreq: "30"
+          devicelist: 10.0.0.192:5555

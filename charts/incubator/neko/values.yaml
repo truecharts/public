@@ -2,83 +2,47 @@ image:
   repository: tccr.io/truecharts/neko-firefox
   pullPolicy: IfNotPresent
   tag: latest@sha256:ecb754835b37131e7ccb02ef1adef7c6ad38cb2d480d8f8a1fa6f123c623e478
-
 braveImage:
   repository: tccr.io/truecharts/neko-brave
   pullPolicy: IfNotPresent
   tag: latest@sha256:0688670924b4391fc26439bf09baa497351b78c7f45d3f0e59abe862bd2ad85e
-
 chromeImage:
   repository: tccr.io/truecharts/neko-chrome
   pullPolicy: IfNotPresent
   tag: latest@sha256:92e8f20a263e1f9110cd6cfd76985354715b83310cd6f731a6de82fc29446f63
-
 chromiumImage:
   repository: tccr.io/truecharts/neko-chromium
   pullPolicy: IfNotPresent
   tag: latest@sha256:d2cde72913bd6b8ac293cb3c6b4a1ca007c42315cd4f77a94581796b8feab25f
-
 edgeImage:
   repository: tccr.io/truecharts/neko-msedge
   pullPolicy: IfNotPresent
   tag: latest@sha256:c78056ac6d77e6436a6293f16c630e164043bad9c31d00959f93c7ab26cd45af
-
 remminaImage:
   repository: tccr.io/truecharts/neko-remmina
   pullPolicy: IfNotPresent
   tag: latest@sha256:4b4019c177a2fbe6a0ef00e7af2beffb4607051aefe5112328078df862a340ca
-
 torImage:
   repository: tccr.io/truecharts/neko-tor
   pullPolicy: IfNotPresent
   tag: latest@sha256:de6b604a1a63bbd98fbf951663d0e6e1acaf0246400fa308d7c3380d43cfe3db
-
 vivaldiImage:
   repository: tccr.io/truecharts/neko-vivaldi
   pullPolicy: IfNotPresent
   tag: latest@sha256:c4e69f284023c9cdbc842b0e4f4b281ddaed871db6c72e2f36fb24e4a1152ef8
-
 vlcImage:
   repository: tccr.io/truecharts/neko-vlc
   pullPolicy: IfNotPresent
   tag: latest@sha256:3b6bed6ed9a72425eb4824bed6319c100c43031545042c3d5e957b7ba67b4bb2
-
 vncviewerImage:
   repository: tccr.io/truecharts/neko-vncviewer
   pullPolicy: IfNotPresent
   tag: latest@sha256:9d6680979372ae561fd157cc973d8e73a826ccf68773314169d2d761564c184d
-
 xfceImage:
   repository: tccr.io/truecharts/neko-xfce
   pullPolicy: IfNotPresent
   tag: latest@sha256:2fd493b11f2d4e17dc8439b553144d17726ce311566883765fc4ea1a020dfa46
-
 imageSelector: "image"
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-secretEnv:
-  NEKO_PASSWORD: userpass
-  NEKO_PASSWORD_ADMIN: adminpass
-
-env:
-  NEKO_UDPMUX: 52100
-  NEKO_TCPMUX: 52100
-  # User Defined
-  NEKO_SCREEN: 1920x1080@30
-  NEKO_CONTROL_PROTECTION: false
-  NEKO_IMPLICIT_CONTROL: false
-  NEKO_LOCKS: ""
-  NEKO_NAT1TO1: ""
-  NEKO_IPFETCH: ""
-  NEKO_PROXY: true
-
 service:
   main:
     ports:
@@ -102,7 +66,29 @@ service:
         port: 52100
         protocol: tcp
         targetPort: 52100
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          NEKO_UDPMUX: 52100
+          NEKO_TCPMUX: 52100
+          # User Defined
+          NEKO_SCREEN: 1920x1080@30
+          NEKO_CONTROL_PROTECTION: false
+          NEKO_IMPLICIT_CONTROL: false
+          NEKO_LOCKS: ""
+          NEKO_NAT1TO1: ""
+          NEKO_IPFETCH: ""
+          NEKO_PROXY: true
+          NEKO_PASSWORD: userpass
+          NEKO_PASSWORD_ADMIN: adminpass

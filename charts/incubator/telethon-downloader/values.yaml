@@ -1,9 +1,3 @@
-env:
-  TG_API_HASH: " "
-  TG_API_ID: " "
-  TG_AUTHORIZED_USER_ID: " "
-  TG_BOT_TOKEN: ""
-  TG_PROGRESS_DOWNLOAD: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/telethon-downloader
@@ -18,26 +12,36 @@ persistence:
   pathwatch:
     enabled: true
     mountPath: /watch
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 portal:
   open:
     enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+        env:
+          TG_API_HASH: " "
+          TG_API_ID: " "
+          TG_AUTHORIZED_USER_ID: " "
+          TG_BOT_TOKEN: ""
+          TG_PROGRESS_DOWNLOAD: ""

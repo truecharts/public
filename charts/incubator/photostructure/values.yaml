@@ -1,6 +1,3 @@
-env:
-  PS_LOG_LEVEL: ""
-  UMASK: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/photostructure
@@ -18,12 +15,6 @@ persistence:
   tempscratchdisk:
     enabled: true
     mountPath: /ps/tmp
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -31,7 +22,19 @@ service:
         port: 1787
         protocol: tcp
         targetPort: 1787
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          PS_LOG_LEVEL: ""
+          UMASK: ""

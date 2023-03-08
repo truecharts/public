@@ -2,15 +2,6 @@ image:
   repository: tccr.io/truecharts/batnoter
   tag: latest@sha256:bd3da99f035e858ad26d03e12dbe3bd101f8408a080a80658111058e860eabd9
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
@@ -18,7 +9,12 @@ service:
         port: 10351
         protocol: http
         targetPort: 3000
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

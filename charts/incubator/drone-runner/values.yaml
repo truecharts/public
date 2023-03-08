@@ -2,14 +2,6 @@ image:
   repository: tccr.io/truecharts/drone-runner-kube
   pullPolicy: IfNotPresent
   tag: v1.0.0@sha256:d3e206ce5a124ab363b408d131594e9b5be88ae14a9f3ba8206e26cd7f3b30f2
-
-env:
-  DRONE_RPC_HOST: ""
-  DRONE_RPC_PROTO: "http"
-
-secretEnv:
-  DRONE_RPC_SECRET: ""
-
 service:
   main:
     ports:
@@ -17,11 +9,9 @@ service:
         port: 3000
         protocol: http
         targetPort: 3000
-
 serviceAccount:
   main:
     enabled: true
-
 rbac:
   main:
     enabled: true
@@ -45,7 +35,16 @@ rbac:
           - list
           - watch
           - update
-
 portal:
   open:
     enabled: true
+securityContext:
+  container: null
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          DRONE_RPC_HOST: ""
+          DRONE_RPC_PROTO: "http"
+          DRONE_RPC_SECRET: ""

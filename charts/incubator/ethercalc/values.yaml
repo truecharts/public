@@ -1,17 +1,8 @@
-env:
-  REDIS_PORT_6379_TCP_ADDR: ""
-  REDIS_PORT_6379_TCP_PORT: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/ethercalc
   tag: latest@sha256:0c477806d40756c51356f02eb7a1b28ed0122ca1a3eb1a12df176343c5087d0f
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -19,7 +10,19 @@ service:
         port: 8084
         protocol: tcp
         targetPort: 8000
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          REDIS_PORT_6379_TCP_ADDR: ""
+          REDIS_PORT_6379_TCP_PORT: ""

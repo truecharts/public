@@ -10,25 +10,7 @@ vaapiImage:
   repository: tccr.io/truecharts/ersatztv-vaapi
   tag: 0.7.4@sha256:b5b456d22a3f9758ed23a636d2771072cae969cc4b014d4212ac35dec6e14959
   pullPolicy: Always
-
 imageSelector: image
-
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-probes:
-  liveness:
-    type: HTTP
-  readiness:
-    type: HTTP
-  startup:
-    type: HTTP
-
 service:
   main:
     ports:
@@ -36,14 +18,30 @@ service:
         protocol: http
         targetPort: 8409
         port: 10607
-
 persistence:
   config:
     enabled: true
     mountPath: /root/.local/share/ersatztv
   varrun:
     enabled: true
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: HTTP
+            readiness:
+              type: HTTP
+            startup:
+              type: HTTP

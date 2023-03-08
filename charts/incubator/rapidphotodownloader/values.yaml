@@ -1,8 +1,3 @@
-env:
-  CUSTOM_RES_H: "881"
-  CUSTOM_RES_W: "1024"
-  DL_URL: https://launchpad.net/rapid/pyqt/0.9.17/+download/install.py
-  FORCE_UPDATE: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rapidphotodownloader
@@ -17,12 +12,6 @@ persistence:
   sourcefolder:
     enabled: true
     mountPath: /media/source
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -30,7 +19,21 @@ service:
         port: 8080
         protocol: tcp
         targetPort: 8080
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          CUSTOM_RES_H: "881"
+          CUSTOM_RES_W: "1024"
+          DL_URL: https://launchpad.net/rapid/pyqt/0.9.17/+download/install.py
+          FORCE_UPDATE: ""

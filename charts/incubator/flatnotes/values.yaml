@@ -2,23 +2,6 @@ image:
   repository: tccr.io/truecharts/flatnotes
   tag: 2.1.1@sha256:b187dfce544d1d01d968a7697124127d6a88f361a783d71773db63fd9ab1a666
   pullPolicy: IfNotPresent
-
-podSecurityContext:
-  runAsUser: 1000
-  runAsGroup: 1000
-
-secretEnv:
-  FLATNOTES_USERNAME: "user"
-  FLATNOTES_PASSWORD: "pass"
-
-env:
-  FLATNOTES_SECRET_KEY:
-    secretKeyRef:
-      name: '{{ (include "tc.v1.common.names.fullname" .) }}-secret'
-      key: FLATNOTES_SECRET_KEY
-  # User Defined
-  FLATNOTES_SESSION_EXPIRY_DAYS: 30
-
 service:
   main:
     ports:
@@ -26,12 +9,27 @@ service:
         port: 10350
         protocol: http
         targetPort: 80
-
 persistence:
   data:
     enabled: true
     mountPath: "/app/data"
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    runAsUser: 1000
+    runAsGroup: 1000
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          FLATNOTES_SECRET_KEY:
+            secretKeyRef:
+              name: '{{ (include "tc.v1.common.names.fullname" .) }}-secret'
+              key: FLATNOTES_SECRET_KEY
+          # User Defined
+          FLATNOTES_SESSION_EXPIRY_DAYS: 30
+          FLATNOTES_USERNAME: "user"
+          FLATNOTES_PASSWORD: "pass"

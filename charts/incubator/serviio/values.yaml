@@ -1,4 +1,3 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/serviio
@@ -16,12 +15,6 @@ persistence:
   hostpath5:
     enabled: true
     mountPath: /media/serviio
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   hostport2:
     enabled: true
@@ -61,7 +54,17 @@ service:
         port: 23423
         protocol: http
         targetPort: 23423
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env: {}

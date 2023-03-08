@@ -2,33 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/memories-of-mars
   tag: latest@sha256:9dce6a699d82fca9dc4a44de393b060c606d22601469672e528b703239fa2697
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
-
-env:
-  GAME_ID: "897590"
-  GAME_PARAMS: ""
-  MULTIHOME: ""
-  VALIDATE: false
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-
 service:
   main:
     ports:
@@ -44,7 +17,6 @@ service:
         port: 15000
         protocol: udp
         targetPort: 15000
-
 persistence:
   serverfiles:
     enabled: true
@@ -52,7 +24,31 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+        env:
+          GAME_ID: "897590"
+          GAME_PARAMS: ""
+          MULTIHOME: ""
+          VALIDATE: false
+          USERNAME: ""
+          PASSWRD: ""

@@ -1,20 +1,8 @@
-env:
-  CLIENT_ID: ""
-  CLIENT_SECRET: ""
-  NEXTAUTH_SECRET: ""
-  NEXTAUTH_URL: ""
-  REDDIT_REDIRECT: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/troddit
   tag: latest@sha256:70c5c0368237d387f9f4a9d47eef1caf61f8d8f307416d0d3344845cff0f38c4
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -22,7 +10,22 @@ service:
         port: 3000
         protocol: tcp
         targetPort: 3000
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          CLIENT_ID: ""
+          CLIENT_SECRET: ""
+          NEXTAUTH_SECRET: ""
+          NEXTAUTH_URL: ""
+          REDDIT_REDIRECT: ""

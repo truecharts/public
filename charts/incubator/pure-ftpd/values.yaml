@@ -1,7 +1,3 @@
-env:
-  AUTH_METHOD: puredb
-  PASSIVE_PORT_RANGE: 30000:30009
-  SECURE_MODE: "true"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/pure-ftpd
@@ -13,12 +9,6 @@ persistence:
   ftpfolder:
     enabled: true
     mountPath: /home
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -34,7 +24,20 @@ service:
         port: 30000
         protocol: tcp
         targetPort: 30000
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          AUTH_METHOD: puredb
+          PASSIVE_PORT_RANGE: 30000:30009
+          SECURE_MODE: "true"

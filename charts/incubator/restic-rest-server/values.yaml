@@ -1,5 +1,3 @@
-env:
-  OPTIONS: ""
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/restic-rest-server
@@ -8,12 +6,6 @@ persistence:
   data:
     enabled: true
     mountPath: /data
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -21,7 +13,18 @@ service:
         port: 8000
         protocol: tcp
         targetPort: 8000
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          OPTIONS: ""

@@ -1,7 +1,3 @@
-env:
-  GAME_PARAMS: ""
-  GAME_VERSION: latest@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
-  GFX_PK_V: latest@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/openttd
@@ -10,12 +6,6 @@ persistence:
   serverfiles:
     enabled: true
     mountPath: /serverdata/serverfiles
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -39,7 +29,20 @@ service:
         port: 3979
         protocol: udp
         targetPort: 3979
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          GAME_PARAMS: ""
+          GAME_VERSION: latest@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
+          GFX_PK_V: latest@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030

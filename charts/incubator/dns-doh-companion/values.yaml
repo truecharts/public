@@ -1,15 +1,8 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/dns-doh-companion
   tag: latest@sha256:7c0a46e60e0c0e4c05ef7aeaeb8b4f83e634d07cda6a2673a7e06ad5947ebc93
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   dnsudp:
     enabled: true
@@ -25,7 +18,17 @@ service:
         port: 53
         protocol: tcp
         targetPort: 53
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env: {}

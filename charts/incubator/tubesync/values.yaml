@@ -1,10 +1,3 @@
-env:
-  DATABASE_CONNECTION: ""
-  HTTP_PASS: ""
-  HTTP_USER: ""
-  TUBESYNC_DEBUG: "False"
-  TUBESYNC_HOSTS: ""
-  TUBESYNC_WORKERS: "2"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/tubesync
@@ -16,12 +9,6 @@ persistence:
   downloads:
     enabled: true
     mountPath: /downloads
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -29,7 +16,23 @@ service:
         port: 4848
         protocol: tcp
         targetPort: 4848
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          DATABASE_CONNECTION: ""
+          HTTP_PASS: ""
+          HTTP_USER: ""
+          TUBESYNC_DEBUG: "False"
+          TUBESYNC_HOSTS: ""
+          TUBESYNC_WORKERS: "2"

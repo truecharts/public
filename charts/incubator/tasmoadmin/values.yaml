@@ -2,19 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/tasmoadmin
   tag: 2.4.2@sha256:5144a471e58004c129a0d800977e1e31ba4b46c52e37b9258591086161d2d96f
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-env:
-  TASMO_DATADIR: /data
-  TASMO_DEBUG: 1
-
 service:
   main:
     ports:
@@ -22,12 +9,23 @@ service:
         port: 9541
         protocol: http
         targetPort: 80
-
 persistence:
   data:
     enabled: true
     mountPath: /data
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          TASMO_DATADIR: /data
+          TASMO_DEBUG: 1

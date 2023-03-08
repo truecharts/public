@@ -1,7 +1,3 @@
-env:
-  ALLOWED_TYPES: jpg,png,jpeg,bmp,gif
-  ENABLE_AVIF: "false"
-  QUALITY: "80"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/webp-server
@@ -14,12 +10,6 @@ persistence:
     enabled: true
     mountPath: /opt/pics
     readOnly: true
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
@@ -27,7 +17,20 @@ service:
         port: 3333
         protocol: tcp
         targetPort: 3333
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          ALLOWED_TYPES: jpg,png,jpeg,bmp,gif
+          ENABLE_AVIF: "false"
+          QUALITY: "80"

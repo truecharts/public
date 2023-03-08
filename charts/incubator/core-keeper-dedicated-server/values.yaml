@@ -1,9 +1,3 @@
-env:
-  DATA_PATH: ""
-  GAME_ID: examplegameidwillgohere
-  MAX_PLAYERS: "10"
-  WORLD_INDEX: "0"
-  WORLD_NAME: World name here
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/core-keeper-dedicated-server
@@ -15,26 +9,36 @@ persistence:
   serverfiles:
     enabled: true
     mountPath: /home/steam/core-keeper-dedicated
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 portal:
   open:
     enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+        env:
+          DATA_PATH: ""
+          GAME_ID: examplegameidwillgohere
+          MAX_PLAYERS: "10"
+          WORLD_INDEX: "0"
+          WORLD_NAME: World name here

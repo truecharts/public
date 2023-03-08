@@ -2,18 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/hexo-blog
   tag: latest@sha256:d75e5ba2edc04469f566864f1a30ec2c220d4f996ce1fd02e3678c237940000f
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-env:
-  HEXO_PLUGINS: ""
-
 service:
   main:
     ports:
@@ -21,12 +9,22 @@ service:
         port: 10306
         protocol: http
         targetPort: 8080
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          HEXO_PLUGINS: ""

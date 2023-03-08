@@ -1,4 +1,3 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/factorioservermanager
@@ -13,12 +12,6 @@ persistence:
   fsmsaves:
     enabled: true
     mountPath: /opt/factorio/saves
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   factorioport:
     enabled: true
@@ -34,7 +27,17 @@ service:
         port: 8888
         protocol: http
         targetPort: 80
-
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env: {}
