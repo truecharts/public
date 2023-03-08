@@ -88,7 +88,7 @@ persistence:
     enabled: true
     noMount: true
     type: secret
-    objectName: '{{ template "tc.v1.common.names.fullname" . }}-secret'
+    objectName: '{{ template "tc.v1.common.lib.chart.names.fullname" . }}-secret'
 initContainers:
   init:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"

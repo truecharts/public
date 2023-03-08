@@ -25,7 +25,7 @@ persistence:
     type: "custom"
     volumeSpec:
       configMap:
-        name: '{{ printf "%v-settings" (include "tc.v1.common.names.fullname" .) }}'
+        name: '{{ printf "%v-settings" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
 config:
   mapsettings:
     drawPath: true

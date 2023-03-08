@@ -75,11 +75,11 @@ workload:
               port: 3001
           envFrom:
             - configMapRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-server-config'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-server-config'
             - configMapRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-common-config'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-common-config'
             - secretRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-immich-secret'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-immich-secret'
           command:
             - /bin/sh
             - ./start-server.sh

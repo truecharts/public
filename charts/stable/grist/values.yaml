@@ -71,6 +71,6 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-grist-secret'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-grist-secret'
             - configMapRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-grist-config'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-grist-config'

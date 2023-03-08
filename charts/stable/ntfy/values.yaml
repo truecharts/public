@@ -68,4 +68,4 @@ workload:
         main:
           envFrom:
             - configMapRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-ntfy'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-ntfy'

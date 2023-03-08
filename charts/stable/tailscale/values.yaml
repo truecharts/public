@@ -20,7 +20,7 @@ rbac:
         resources:
           - secrets
         resourceNames:
-          - '{{ printf "%s-tailscale-secret" (include "tc.v1.common.names.fullname" .) }}'
+          - '{{ printf "%s-tailscale-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
         verbs:
           - get
           - update
@@ -81,6 +81,6 @@ workload:
               enabled: false
           envFrom:
             - configMapRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-tailscale-config'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-tailscale-config'
           command:
             - /usr/local/bin/containerboot

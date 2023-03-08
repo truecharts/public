@@ -42,7 +42,7 @@ persistence:
     mountPath: "/etc/nginx/conf.d"
     volumeSpec:
       configMap:
-        name: '{{ include "tc.v1.common.names.fullname" . }}-inventree-config-nginx'
+        name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-inventree-config-nginx'
         items:
           - key: nginx.conf
             path: default.conf
@@ -71,6 +71,6 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-inventree-secret'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-inventree-secret'
             - configMapRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-inventree-config'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-inventree-config'

@@ -103,7 +103,7 @@ persistence:
     type: "custom"
     volumeSpec:
       configMap:
-        name: '{{ printf "%v-configs" (include "tc.v1.common.names.fullname" .) }}'
+        name: '{{ printf "%v-configs" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
   go-d-configs:
     enabled: "true"
     mountPath: "/etc/netdata/truecharts-defaults/.go.d.conf"
@@ -111,7 +111,7 @@ persistence:
     type: "custom"
     volumeSpec:
       configMap:
-        name: '{{ printf "%v-configs" (include "tc.v1.common.names.fullname" .) }}'
+        name: '{{ printf "%v-configs" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
   go-d-k8s-state-configs:
     enabled: "true"
     mountPath: "/etc/netdata/truecharts-defaults/go.d/.k8s_state.conf"
@@ -119,7 +119,7 @@ persistence:
     type: "custom"
     volumeSpec:
       configMap:
-        name: '{{ printf "%v-configs" (include "tc.v1.common.names.fullname" .) }}'
+        name: '{{ printf "%v-configs" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
 initContainers:
   create-config:
     name: create-config

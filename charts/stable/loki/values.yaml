@@ -7,7 +7,7 @@ image:
 #   alerting:
 #     enabled: true
 #     data:
-#       '{{ include "tc.v1.common.names.fullname" . }}-alerting-rules.yaml': |-
+#       '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-alerting-rules.yaml': |-
 #       {{- if gt (len .Values.alerting_groups) 0 }}
 #           groups:
 #           {{- toYaml .Values.alerting_groups | nindent 6 }}
@@ -108,7 +108,7 @@ persistence:
     enabled: true
     type: secret
     # -- Specify the name of the configmap object to be mounted
-    objectName: '{{ include "tc.v1.common.names.fullname" . -}}-config'
+    objectName: '{{ include "tc.v1.common.lib.chart.names.fullname" . -}}-config'
     # -- Where to mount the volume in the main container.
     mountPath: "/etc/loki"
 volumeClaimTemplates:

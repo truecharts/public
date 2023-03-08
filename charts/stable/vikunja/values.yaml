@@ -160,13 +160,13 @@ persistence:
     mountPath: /etc/nginx/conf.d/default.conf
     subPath: nginx-config
     type: configMap
-    objectName: '{{ template "tc.v1.common.names.fullname" . }}-nginx-config'
+    objectName: '{{ template "tc.v1.common.lib.chart.names.fullname" . }}-nginx-config'
   vikunja-config:
     enabled: true
     mountPath: /etc/vikunja
     subPath: config.yml
     type: secret
-    objectName: '{{ template "tc.v1.common.names.fullname" . }}-secret'
+    objectName: '{{ template "tc.v1.common.lib.chart.names.fullname" . }}-secret'
 metrics:
   # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
   # @default -- See values.yaml

@@ -41,7 +41,7 @@ persistence:
     type: "custom"
     volumeSpec:
       configMap:
-        name: '{{ include "tc.v1.common.names.fullname" . }}-init'
+        name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-init'
         defaultMode: 0777
 configmap:
   init:

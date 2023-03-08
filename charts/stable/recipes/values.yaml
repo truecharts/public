@@ -72,7 +72,7 @@ persistence:
     type: "custom"
     volumeSpec:
       configMap:
-        name: '{{ printf "%v-config" (include "tc.v1.common.names.fullname" .) }}'
+        name: '{{ printf "%v-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
 postgresql:
   enabled: true
   existingSecret: "dbcreds"

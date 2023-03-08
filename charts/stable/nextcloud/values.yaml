@@ -82,7 +82,7 @@ persistence:
     type: "custom"
     volumeSpec:
       configMap:
-        name: '{{ include "tc.v1.common.names.fullname" . }}-nginx'
+        name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-nginx'
         items:
           - key: nginx.conf
             path: nginx.conf
