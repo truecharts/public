@@ -189,11 +189,12 @@ redis:
   enabled: true
   existingSecret: "rediscreds"
   redisUsername: default
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: weblate
-  postgresqlDatabase: weblate
+cnpg:
+  main:
+    enabled: true
+
+    user: weblate
+    database: weblate
 portal:
   open:
     enabled: true

@@ -73,11 +73,12 @@ persistence:
     volumeSpec:
       configMap:
         name: '{{ printf "%v-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: recipes
-  postgresqlDatabase: recipes
+cnpg:
+  main:
+    enabled: true
+
+    user: recipes
+    database: recipes
 portal:
   open:
     enabled: true

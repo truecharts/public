@@ -47,11 +47,12 @@ persistence:
   persist:
     enabled: true
     mountPath: "/persist"
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: grist
-  postgresqlDatabase: grist
+cnpg:
+  main:
+    enabled: true
+
+    user: grist
+    database: grist
 redis:
   enabled: true
   existingSecret: rediscreds
@@ -71,6 +72,6 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-grist-secret'
+                name: "grist-secret"
             - configMapRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-grist-config'
+                name: "grist-config"

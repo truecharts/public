@@ -46,11 +46,12 @@ persistence:
         items:
           - key: nginx.conf
             path: default.conf
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: inventree
-  postgresqlDatabase: inventree
+cnpg:
+  main:
+    enabled: true
+
+    user: inventree
+    database: inventree
 redis:
   enabled: true
   existingSecret: "rediscreds"
@@ -71,6 +72,6 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-inventree-secret'
+                name: "inventree-secret"
             - configMapRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-inventree-config'
+                name: "inventree-config"

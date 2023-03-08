@@ -27,11 +27,12 @@ persistence:
     enabled: true
     mountPath: "/mnt/extra-addons"
 # Enabled postgres
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: odoo
-  postgresqlDatabase: postgres
+cnpg:
+  main:
+    enabled: true
+
+    user: odoo
+    database: postgres
 portal:
   open:
     enabled: true

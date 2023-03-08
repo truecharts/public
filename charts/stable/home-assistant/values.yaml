@@ -130,11 +130,12 @@ configmap:
             - {{ . }}
               {{- end }}
             {{- end }}
-postgresql:
-  enabled: true
-  postgresqlUsername: home-assistant
-  postgresqlDatabase: home-assistant
-  existingSecret: "dbcreds"
+cnpg:
+  main:
+    enabled: true
+    user: home-assistant
+    database: home-assistant
+
 influxdb:
   enabled: false
   architecture: standalone

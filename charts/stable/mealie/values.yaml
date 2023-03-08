@@ -72,11 +72,12 @@ persistence:
   data:
     enabled: true
     mountPath: /app/data
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: mealie
-  postgresqlDatabase: mealie
+cnpg:
+  main:
+    enabled: true
+
+    user: mealie
+    database: mealie
 portal:
   open:
     enabled: true
@@ -103,4 +104,4 @@ workload:
               path: /
           envFrom:
             - configMapRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-frontend-config'
+                name: "frontend-config"

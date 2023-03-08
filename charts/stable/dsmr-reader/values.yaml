@@ -12,11 +12,12 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: dsmr-reader
-  postgresqlDatabase: dsmr-reader
+cnpg:
+  main:
+    enabled: true
+
+    user: dsmr-reader
+    database: dsmr-reader
 portal:
   open:
     enabled: true

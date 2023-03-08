@@ -12,11 +12,12 @@ persistence:
     enabled: true
     mountPath: /config
 # might be supported on sonarr v4 upon released
-postgresql:
-  enabled: false
-  existingSecret: "dbcreds"
-  postgresqlDatabase: sonarr
-  postgresqlUsername: sonarr
+cnpg:
+  main:
+    enabled: false
+
+    database: sonarr
+    user: sonarr
 portal:
   open:
     enabled: true

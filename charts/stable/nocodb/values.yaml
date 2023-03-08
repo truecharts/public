@@ -18,11 +18,12 @@ persistence:
   data:
     enabled: true
     mountPath: "/usr/app/data"
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: nocodb
-  postgresqlDatabase: nocodb
+cnpg:
+  main:
+    enabled: true
+
+    user: nocodb
+    database: nocodb
 redis:
   enabled: true
   existingSecret: "rediscreds"

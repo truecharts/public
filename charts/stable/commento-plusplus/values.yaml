@@ -7,11 +7,12 @@ service:
     ports:
       main:
         port: 10240
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: comment-plusplus
-  postgresqlDatabase: comment-plusplus
+cnpg:
+  main:
+    enabled: true
+
+    user: comment-plusplus
+    database: comment-plusplus
 portal:
   open:
     enabled: true

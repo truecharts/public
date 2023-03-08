@@ -98,11 +98,12 @@ redis:
   enabled: true
   existingSecret: "rediscreds"
 # Enabled postgres
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: n8n
-  postgresqlDatabase: n8n
+cnpg:
+  main:
+    enabled: true
+
+    user: n8n
+    database: n8n
 portal:
   open:
     enabled: true

@@ -12,11 +12,12 @@ persistence:
     enabled: true
     mountPath: /srv/app
 # Enabled postgres
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: strapi
-  postgresqlDatabase: strapi
+cnpg:
+  main:
+    enabled: true
+
+    user: strapi
+    database: strapi
 portal:
   open:
     enabled: true

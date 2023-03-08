@@ -12,11 +12,12 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlDatabase: miniflux
-  postgresqlUsername: miniflux
+cnpg:
+  main:
+    enabled: true
+
+    database: miniflux
+    user: miniflux
 portal:
   open:
     enabled: true

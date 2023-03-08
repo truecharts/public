@@ -254,13 +254,11 @@ mail:
 coturn:
   enabled: false
 # Enabled postgres
-postgresql:
-  env:
-    POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=C"
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: synapse
-  postgresqlDatabase: synapse
+cnpg:
+  main:
+    enabled: true
+    user: synapse
+    database: synapse
 portal:
   open:
     enabled: true

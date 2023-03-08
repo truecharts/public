@@ -44,11 +44,12 @@ persistence:
     objectName: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-secret'
     mountPath: /etc/gotify/config.yml
     subPath: config.yml
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: gotify
-  postgresqlDatabase: gotify
+cnpg:
+  main:
+    enabled: true
+
+    user: gotify
+    database: gotify
 portal:
   open:
     enabled: true
@@ -68,4 +69,4 @@ workload:
               path: /health
           envFrom:
             - secretRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-secret-env'
+                name: "secret-env"

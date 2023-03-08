@@ -192,11 +192,12 @@ metrics:
     #   for: 5m
     #   labels:
     #     severity: critical
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: vikunja
-  postgresqlDatabase: vikunja
+cnpg:
+  main:
+    enabled: true
+
+    user: vikunja
+    database: vikunja
 redis:
   enabled: true
   existingSecret: rediscreds

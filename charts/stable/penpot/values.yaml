@@ -89,11 +89,12 @@ persistence:
   assets:
     enabled: true
     mountPath: /opt/data/assets
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlDatabase: penpot
-  postgresqlUsername: penpot
+cnpg:
+  main:
+    enabled: true
+
+    database: penpot
+    user: penpot
 redis:
   enabled: true
   existingSecret: rediscreds
@@ -124,6 +125,6 @@ workload:
               path: /
           envFrom:
             - secretRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-common-secret'
+                name: "common-secret"
             - secretRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-frontend-secret'
+                name: "frontend-secret"

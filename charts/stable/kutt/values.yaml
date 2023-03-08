@@ -12,11 +12,12 @@ redis:
   enabled: true
   existingSecret: "rediscreds"
 # Enabled postgres
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: kutt
-  postgresqlDatabase: kutt
+cnpg:
+  main:
+    enabled: true
+
+    user: kutt
+    database: kutt
 portal:
   open:
     enabled: true

@@ -27,11 +27,12 @@ persistence:
   config:
     enabled: true
     mountPath: /app/data
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlDatabase: discord_gsm
-  postgresqlUsername: discord_gsm
+cnpg:
+  main:
+    enabled: true
+
+    database: discord_gsm
+    user: discord_gsm
 portal:
   open:
     enabled: true
@@ -55,7 +56,7 @@ workload:
               type: HTTP
           envFrom:
             - secretRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-gsm-secret'
+                name: "gsm-secret"
           command:
             - /bin/sh
             - -c

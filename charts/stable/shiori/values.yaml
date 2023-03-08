@@ -14,11 +14,12 @@ persistence:
     mountPath: /data
   varrun:
     enabled: true
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: shiori
-  postgresqlDatabase: shiori
+cnpg:
+  main:
+    enabled: true
+
+    user: shiori
+    database: shiori
 portal:
   open:
     enabled: true
@@ -31,4 +32,4 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-secret'
+                name: "secret"

@@ -11,11 +11,12 @@ persistence:
   data:
     enabled: true
     mountPath: "/baserow/data"
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: baserow
-  postgresqlDatabase: baserow
+cnpg:
+  main:
+    enabled: true
+
+    user: baserow
+    database: baserow
 redis:
   enabled: true
   existingSecret: "rediscreds"

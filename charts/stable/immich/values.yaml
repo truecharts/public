@@ -38,11 +38,12 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: /cache
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: immich
-  postgresqlDatabase: immich
+cnpg:
+  main:
+    enabled: true
+
+    user: immich
+    database: immich
 redis:
   enabled: true
   existingSecret: rediscreds
@@ -75,11 +76,11 @@ workload:
               port: 3001
           envFrom:
             - configMapRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-server-config'
+                name: "server-config"
             - configMapRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-common-config'
+                name: "common-config"
             - secretRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-immich-secret'
+                name: "immich-secret"
           command:
             - /bin/sh
             - ./start-server.sh

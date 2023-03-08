@@ -93,13 +93,14 @@ service:
       main:
         port: 10594
         protocol: http
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlDatabase: invidious
-  # DB User cannot be changed
-  # hardcoded from upstream
-  postgresqlUsername: kemal
+cnpg:
+  main:
+    enabled: true
+
+    database: invidious
+    # DB User cannot be changed
+    # hardcoded from upstream
+    user: kemal
 portal:
   open:
     enabled: true
@@ -123,4 +124,4 @@ workload:
               type: HTTP
           envFrom:
             - secretRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-invidious-config'
+                name: "invidious-config"
