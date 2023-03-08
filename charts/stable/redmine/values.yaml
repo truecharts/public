@@ -16,11 +16,12 @@ persistence:
     enabled: true
     mountPath: "/usr/src/redmine/files"
 # Enabled postgres
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: redmine
-  postgresqlDatabase: redmine
+cnpg:
+  main:
+    enabled: true
+
+    user: redmine
+    database: redmine
 portal:
   open:
     enabled: true

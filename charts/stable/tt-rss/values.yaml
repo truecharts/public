@@ -18,11 +18,12 @@ persistence:
   themes:
     enabled: true
     mountPath: /app/themes.local
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: tt-rss
-  postgresqlDatabase: tt-rss
+cnpg:
+  main:
+    enabled: true
+
+    user: tt-rss
+    database: tt-rss
 portal:
   open:
     enabled: true

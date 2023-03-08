@@ -14,11 +14,12 @@ persistence:
     enabled: true
     mountPath: "/config"
 # Enabled postgres
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: firefox-syncserver
-  postgresqlDatabase: firefox-syncserver
+cnpg:
+  main:
+    enabled: true
+
+    user: firefox-syncserver
+    database: firefox-syncserver
 portal:
   open:
     enabled: true

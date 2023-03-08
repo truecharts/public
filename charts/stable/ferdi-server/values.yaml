@@ -15,11 +15,12 @@ persistence:
   recipes:
     enabled: true
     mountPath: "/app/recipes"
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: ferdi-server
-  postgresqlDatabase: ferdi-server
+cnpg:
+  main:
+    enabled: true
+
+    user: ferdi-server
+    database: ferdi-server
 installContainers:
   1-create-key-file:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"

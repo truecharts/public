@@ -35,4 +35,4 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-homebox-secret'
+                name: "homebox-secret"

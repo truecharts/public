@@ -8,11 +8,12 @@ service:
       main:
         port: 10050
         targetPort: 80
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: spotweb
-  postgresqlDatabase: spotweb
+cnpg:
+  main:
+    enabled: true
+
+    user: spotweb
+    database: spotweb
 portal:
   open:
     enabled: true

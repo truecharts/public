@@ -14,11 +14,12 @@ persistence:
     mountPath: "/config"
   varrun:
     enabled: true
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: babybuddy
-  postgresqlDatabase: babybuddy
+cnpg:
+  main:
+    enabled: true
+
+    user: babybuddy
+    database: babybuddy
 portal:
   open:
     enabled: true

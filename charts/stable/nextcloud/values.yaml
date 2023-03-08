@@ -336,11 +336,12 @@ collabora:
     extra_params: "--o:welcome.enable=false --o:logging.level=information --o:user_interface.mode=notebookbar --o:ssl.termination=true --o:ssl.enable=false "
     server_name: ""
     DONT_GEN_SSL_CERT: true
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: nextcloud
-  postgresqlDatabase: nextcloud
+cnpg:
+  main:
+    enabled: true
+
+    user: nextcloud
+    database: nextcloud
 redis:
   enabled: true
   existingSecret: "rediscreds"

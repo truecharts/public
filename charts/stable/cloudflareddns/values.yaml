@@ -56,4 +56,4 @@ workload:
               enabled: false
           envFrom:
             - secretRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-secret'
+                name: "secret"

@@ -12,11 +12,12 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: teedyuser
-  postgresqlDatabase: teedydb
+cnpg:
+  main:
+    enabled: true
+
+    user: teedyuser
+    database: teedydb
 portal:
   open:
     enabled: true

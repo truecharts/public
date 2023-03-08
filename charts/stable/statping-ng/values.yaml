@@ -26,11 +26,12 @@ persistence:
   data:
     enabled: true
     mountPath: "/app"
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: postgres
-  postgresqlDatabase: postgres
+cnpg:
+  main:
+    enabled: true
+
+    user: postgres
+    database: postgres
 metrics:
   # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
   # @default -- See values.yaml
@@ -75,7 +76,7 @@ workload:
               path: /health
           envFrom:
             - configMapRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-config'
+                name: "config"
         env:
           DB_PASS:
             secretKeyRef:

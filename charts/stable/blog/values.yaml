@@ -12,11 +12,12 @@ persistence:
   data:
     enabled: true
     mountPath: "/var/www/html/data"
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: blog
-  postgresqlDatabase: blog
+cnpg:
+  main:
+    enabled: true
+
+    user: blog
+    database: blog
 portal:
   open:
     enabled: true

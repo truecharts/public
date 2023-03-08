@@ -27,11 +27,12 @@ persistence:
   bleveindexes:
     enabled: true
     mountPath: "/mattermost/bleve-indexes"
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: mattermost
-  postgresqlDatabase: mattermost
+cnpg:
+  main:
+    enabled: true
+
+    user: mattermost
+    database: mattermost
 portal:
   open:
     enabled: true

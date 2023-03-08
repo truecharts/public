@@ -11,11 +11,12 @@ persistence:
   uploads:
     enabled: true
     mountPath: "/hedgedoc/public/uploads"
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: hedgedoc
-  postgresqlDatabase: hedgedoc
+cnpg:
+  main:
+    enabled: true
+
+    user: hedgedoc
+    database: hedgedoc
 portal:
   open:
     enabled: true

@@ -81,4 +81,4 @@ workload:
         main:
           envFrom:
             - configMapRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-makemkv'
+                name: "makemkv"

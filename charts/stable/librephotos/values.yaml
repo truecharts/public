@@ -71,11 +71,12 @@ redis:
   enabled: true
   existingSecret: "rediscreds"
   redisUsername: default
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: librephotos
-  postgresqlDatabase: librephotos
+cnpg:
+  main:
+    enabled: true
+
+    user: librephotos
+    database: librephotos
 service:
   main:
     ports:

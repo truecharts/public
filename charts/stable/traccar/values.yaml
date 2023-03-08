@@ -12,11 +12,12 @@ persistence:
   data:
     enabled: true
     mountPath: "/opt/traccar/data"
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: traccar
-  postgresqlDatabase: traccar
+cnpg:
+  main:
+    enabled: true
+
+    user: traccar
+    database: traccar
 portal:
   open:
     enabled: true
