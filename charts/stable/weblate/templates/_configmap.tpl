@@ -1,10 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "weblate.configmap" -}}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: weblate-env
+
 data:
   {{/* General */}}
   {{- if .Values.weblate.general.WEBLATE_SITE_DOMAIN }}
