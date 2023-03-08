@@ -43,12 +43,11 @@ data:
   STORAGE_PASSWORD: {{ $.Values.cnpg.main.creds.password | trimAll "\"" }}
 
   REDIS_PASSWORD: {{ .Values.redis.creds.redisPassword | trimAll "\"" }}
-  {{- if .Values.redisProvider.high_availability.enabled}}
+  {{- if .Values.redisProvider.high_availability.enabled }}
   REDIS_SENTINEL_PASSWORD: {{ .Values.redis.sentinelPassword | trimAll "\"" }}
   {{- end }}
 
-  {{- if .Values.identity_providers.oidc.enabled }}
-  OIDC_PRIVATE_KEY: {{ $oidckey }}
+  OIDC_PRIVATE_KEY: |
+    {{- $oidckey | nindent 4 }}
   OIDC_HMAC_SECRET: {{ $oidcsecret }}
-  {{- end }}
 {{- end -}}
