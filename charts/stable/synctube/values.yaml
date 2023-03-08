@@ -6,19 +6,19 @@ persistence:
   storageconfig:
     enabled: true
     mountPath: /usr/src/app/user
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
       main:
         port: 4200
-        protocol: HTTP
+        protocol: http
         targetPort: 4200
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0

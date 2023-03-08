@@ -2,19 +2,9 @@ image:
   repository: tccr.io/truecharts/recipes
   tag: 1.4.7@sha256:4183ea7125b07e0009796688219ebedeede5ff79ad42f16f96a4862d743bd0af
   pullPolicy: IfNotPresent
-
 nginxImage:
   repository: tccr.io/truecharts/nginx
   tag: 1.23.3@sha256:0d92357c536291f04dad45f9af95dbdad46fb7a6e940f981a3a332f9d5279665
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 configmap:
   config:
     enabled: true
@@ -45,33 +35,6 @@ configmap:
             }
           }
         }
-
-env:
-  DEBUG: 0
-  ALLOWED_HOSTS: "*"
-  CSRF_TRUSTED_ORIGINS: ""
-  GUNICORN_MEDIA: 0
-  FRACTION_PREF_DEFAULT: 0
-  COMMENT_PREF_DEFAULT: 1
-  SHOPPING_MIN_AUTOSYNC_INTERVAL: 5
-  TIMEZONE: "{{ .Values.TZ }}"
-  DB_ENGINE: "django.db.backends.postgresql"
-  POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
-  POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  POSTGRES_PORT: "5432"
-  POSTGRES_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  POSTGRES_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  SECRET_KEY:
-    secretKeyRef:
-      name: recipes-secrets
-      key: SECRET_KEY
-
 additionalContainers:
   nginx:
     name: nginx
@@ -88,14 +51,12 @@ additionalContainers:
         mountPath: "/media"
       - name: static
         mountPath: "/static"
-
 service:
   main:
     ports:
       main:
         port: 10029
         targetPort: 80
-
 persistence:
   media:
     enabled: true
@@ -111,13 +72,47 @@ persistence:
     type: "custom"
     volumeSpec:
       configMap:
-        name: '{{ printf "%v-config" (include "tc.common.names.fullname" .) }}'
-
+        name: '{{ printf "%v-config" (include "tc.v1.common.names.fullname" .) }}'
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: recipes
   postgresqlDatabase: recipes
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          DEBUG: 0
+          ALLOWED_HOSTS: "*"
+          CSRF_TRUSTED_ORIGINS: ""
+          GUNICORN_MEDIA: 0
+          FRACTION_PREF_DEFAULT: 0
+          COMMENT_PREF_DEFAULT: 1
+          SHOPPING_MIN_AUTOSYNC_INTERVAL: 5
+          TIMEZONE: "{{ .Values.TZ }}"
+          DB_ENGINE: "django.db.backends.postgresql"
+          POSTGRES_DB: "{{ .Values.cnpg.database }}"
+          POSTGRES_USER: "{{ .Values.cnpg.user }}"
+          POSTGRES_PORT: "5432"
+          POSTGRES_PASSWORD:
+            secretKeyRef:
+              name: cnpg-main-urls
+              key: postgresql-password
+          POSTGRES_HOST:
+            secretKeyRef:
+              name: cnpg-main-urls
+              key: plainhost
+          SECRET_KEY:
+            secretKeyRef:
+              name: recipes-secrets
+              key: SECRET_KEY

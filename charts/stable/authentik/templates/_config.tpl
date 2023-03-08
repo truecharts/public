@@ -1,11 +1,11 @@
 {{/* Define the configmap */}}
 {{- define "authentik.config" -}}
 
-{{- $authServerWorkerConfigName := printf "%s-authentik-config" (include "tc.common.names.fullname" .) }}
-{{- $authServerConfigName := printf "%s-authentik-server-config" (include "tc.common.names.fullname" .) }}
-{{- $geoipConfigName := printf "%s-geoip-config" (include "tc.common.names.fullname" .) }}
-{{- $ldapConfigName := printf "%s-ldap-config" (include "tc.common.names.fullname" .) }}
-{{- $proxyConfigName := printf "%s-proxy-config" (include "tc.common.names.fullname" .) }}
+{{- $authServerWorkerConfigName := printf "%s-authentik-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+{{- $authServerConfigName := printf "%s-authentik-server-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+{{- $geoipConfigName := printf "%s-geoip-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+{{- $ldapConfigName := printf "%s-ldap-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+{{- $proxyConfigName := printf "%s-proxy-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 {{ $host := printf "https://localhost:%v" .Values.service.main.ports.main.targetPort }}
 {{- if .Values.ingress.main.enabled }}
   {{ $first := (first .Values.ingress.main.hosts) }}

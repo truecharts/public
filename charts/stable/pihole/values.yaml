@@ -2,20 +2,6 @@ image:
   repository: tccr.io/truecharts/pihole
   pullPolicy: IfNotPresent
   tag: 2023.02.2@sha256:e49fd7cf10284ce200bf86fd5a61f81295014d01c079766a77661dba1b36489e
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-  allowPrivilegeEscalation: true
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-envFrom:
-  - configMapRef:
-      name: pihole-env
-
 service:
   main:
     ports:
@@ -34,15 +20,13 @@ service:
     ports:
       dns:
         enabled: true
-        protocol: UDP
+        protocol: udp
         port: 53
         targetPort: 53
-
 pihole:
   WEBPASSWORD: "somepassword"
   DNS1: "9.9.9.9"
   DNS2: "149.112.112.112"
-
 persistence:
   config:
     enabled: true
@@ -50,6 +34,21 @@ persistence:
   dnsmasq:
     enabled: true
     mountPath: "/etc/dnsmasq.d"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    allowPrivilegeEscalation: true
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - configMapRef:
+                name: pihole-env

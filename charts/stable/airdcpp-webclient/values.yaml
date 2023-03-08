@@ -2,7 +2,6 @@ image:
   repository: tccr.io/truecharts/airdcpp-webclient
   pullPolicy: IfNotPresent
   tag: 2.11.3@sha256:517455edfda62b11eb6f6246e87244ef104bbdf6b51c83c2e470c917b54400c8
-
 service:
   main:
     ports:
@@ -28,14 +27,15 @@ service:
     ports:
       search-udp:
         enabled: true
-        protocol: UDP
+        protocol: udp
         port: 21248
         targetPort: 21248
-
 persistence:
   config:
     enabled: true
     mountPath: "/.airdcpp"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container: null

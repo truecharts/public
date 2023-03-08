@@ -1,7 +1,7 @@
 {{/* Define the secrets */}}
 {{- define "wg.env.configmap" -}}
 
-{{- $configName := printf "%s-wg-env-config" (include "tc.common.names.fullname" .) }}
+{{- $configName := printf "%s-wg-env-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 ---
 apiVersion: v1
 kind: ConfigMap

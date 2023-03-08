@@ -2,15 +2,6 @@ image:
   repository: tccr.io/truecharts/pydio-cells
   pullPolicy: IfNotPresent
   tag: 4.0.6@sha256:1cdc282e7fb1a8c99dd104e5142713fbd796090a12628ead8fea23ea8c107404
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 configmap:
   install:
     enabled: true
@@ -26,51 +17,15 @@ configmap:
         dbtcpname: {{ .Values.mariadb.mariadbDatabase }}
         dbtcpuser: {{ .Values.mariadb.mariadbUsername }}
         dbtcppassword: {{ .Values.mariadb.mariadbPassword | trimAll "\"" }}
-
-env:
-  CELLS_EXTERNAL: ""
-  CELLS_GRPC_EXTERNAL: "{{ .Values.service.gprc.ports.gprc.port }}"
-  CELLS_HEALTHCHECK: "{{ .Values.service.healthcheck.ports.healthcheck.port }}"
-  CELLS_BIND: "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
-  CELLS_WORKING_DIR: "/cells"
-  CELLS_DATA_DIR: "/cells/data"
-  CELLS_LOG_DIR: "/cells/logs"
-  CELLS_SERVICES_DIR: "/cells/services"
-  CELLS_INSTALL_YAML: "/cells/install.yml"
-
 pydioinstall:
   username: "admin"
   password: "supersecret"
   title: "Pydio Cells"
-
-probes:
-  liveness:
-    custom: true
-    spec:
-      httpGet:
-        scheme: HTTP
-        path: "/healthcheck"
-        port: 10162
-  readiness:
-    custom: true
-    spec:
-      httpGet:
-        scheme: HTTP
-        path: "/healthcheck"
-        port: 10162
-  startup:
-    custom: true
-    spec:
-      httpGet:
-        scheme: HTTP
-        path: "/healthcheck"
-        port: 10162
-
 service:
   main:
     ports:
       main:
-        protocol: HTTPS
+        protocol: https
         port: 10150
   gprc:
     enabled: true
@@ -84,7 +39,6 @@ service:
       healthcheck:
         enabled: true
         port: 10162
-
 persistence:
   cells:
     enabled: true
@@ -105,13 +59,55 @@ persistence:
     type: "custom"
     volumeSpec:
       configMap:
-        name: '{{ printf "%v-install" (include "tc.common.names.fullname" .) }}'
-
+        name: '{{ printf "%v-install" (include "tc.v1.common.names.fullname" .) }}'
 mariadb:
   enabled: true
   mariadbUsername: pydiocells
   mariadbDatabase: pydiocells
   existingSecret: "mariadbcreds"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              custom: true
+              spec:
+                httpGet:
+                  scheme: HTTP
+                  path: "/healthcheck"
+                  port: 10162
+            readiness:
+              custom: true
+              spec:
+                httpGet:
+                  scheme: HTTP
+                  path: "/healthcheck"
+                  port: 10162
+            startup:
+              custom: true
+              spec:
+                httpGet:
+                  scheme: HTTP
+                  path: "/healthcheck"
+                  port: 10162
+        env:
+          CELLS_EXTERNAL: ""
+          CELLS_GRPC_EXTERNAL: "{{ .Values.service.gprc.ports.gprc.port }}"
+          CELLS_HEALTHCHECK: "{{ .Values.service.healthcheck.ports.healthcheck.port }}"
+          CELLS_BIND: "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
+          CELLS_WORKING_DIR: "/cells"
+          CELLS_DATA_DIR: "/cells/data"
+          CELLS_LOG_DIR: "/cells/logs"
+          CELLS_SERVICES_DIR: "/cells/services"
+          CELLS_INSTALL_YAML: "/cells/install.yml"

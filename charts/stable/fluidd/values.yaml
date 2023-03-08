@@ -2,21 +2,18 @@ image:
   repository: tccr.io/truecharts/fluidd
   tag: 1.23.2@sha256:eddd8fac9275f89406113323d8984e293c5f9fb67ab960684329cd0e902a6b3d
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 10224
         targetPort: 80
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

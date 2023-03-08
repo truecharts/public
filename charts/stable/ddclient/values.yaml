@@ -2,28 +2,24 @@ image:
   repository: tccr.io/truecharts/ddclient
   pullPolicy: IfNotPresent
   tag: 3.10.0@sha256:38e8d9771be8e8b5705c1426daf2acb265c4686eb639a17b8383f1c3a1d84f19
-
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
   varrun:
     enabled: true
-
 portal:
-  enabled: false
+  open:
+    enabled: false
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0

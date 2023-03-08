@@ -1,5 +1,5 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{- if and .Values.clamav.cron_enabled .Values.clamav.cron_schedule}}
 {{/* Render cronjob for clamav */}}
@@ -7,4 +7,4 @@
 {{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

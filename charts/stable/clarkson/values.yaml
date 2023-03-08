@@ -2,45 +2,42 @@ image:
   repository: tccr.io/truecharts/clarkson
   pullPolicy: IfNotPresent
   tag: v1.1.2@sha256:a35fdb77c19fa17ddaf80329755a6115bde6c2fa99daab136a795c1a2cdd07cd
-
 strategy:
   type: Recreate
-
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 10244
         targetPort: 3000
-
-env:
-  MYSQL_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
-  MYSQL_HOST:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
-  MYSQL_PASSWORD:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
-
 persistence:
   varrun:
     enabled: true
-
 mariadb:
   enabled: true
   mariadbUsername: clarkson
   mariadbDatabase: clarkson
   existingSecret: "mariadbcreds"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          MYSQL_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
+          MYSQL_HOST:
+            secretKeyRef:
+              name: mariadbcreds
+              key: plainhost
+          MYSQL_PASSWORD:
+            secretKeyRef:
+              name: mariadbcreds
+              key: mariadb-password

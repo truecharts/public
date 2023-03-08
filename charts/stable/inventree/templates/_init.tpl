@@ -19,7 +19,7 @@ volumeMounts:
     mountPath: "/home/inventree/data"
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-inventree-secret'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-inventree-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-inventree-config'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-inventree-config'
 {{- end -}}

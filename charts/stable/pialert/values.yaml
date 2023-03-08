@@ -2,17 +2,7 @@ image:
   repository: tccr.io/truecharts/pialert
   pullPolicy: IfNotPresent
   tag: latest@sha256:c319211da48c6fbfc7cfa369cc0763a5bdfb7516b7132e3cb2c953dddeed3505
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 hostNetwork: true
-
 pialert:
   general:
     dark_mode: true
@@ -23,10 +13,9 @@ pialert:
     days_to_keep_events: 90
     scan_cycle_minutes: 5
     included_sections: []
-    scan_subnets:
-      []
-      # - cidr: "192.168.1.0/24"
-      #   interface: eth0
+    scan_subnets: []
+    # - cidr: "192.168.1.0/24"
+    #   interface: eth0
   pushsafer:
     enabled: false
     token: ""
@@ -82,19 +71,12 @@ pialert:
     pihole_active: false
     # If enabled you need to map '/etc/pihole/dhcp.leases' with additional storage
     dhcp_active: false
-
-env:
-  HOST_USER_ID: "{{ .Values.podSecurityContext.runAsUser }}"
-  HOST_USER_GID: "{{ .Values.podSecurityContext.fsGroup }}"
-  PORT: "{{ .Values.service.main.ports.main.port }}"
-
 service:
   main:
     ports:
       main:
-        protocol: HTTP
+        protocol: http
         port: 10600
-
 persistence:
   config:
     enabled: true
@@ -106,8 +88,7 @@ persistence:
     enabled: true
     noMount: true
     type: secret
-    objectName: '{{ template "tc.common.names.fullname" . }}-secret'
-
+    objectName: '{{ template "tc.v1.common.names.fullname" . }}-secret'
 initContainers:
   init:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -137,6 +118,20 @@ initContainers:
           echo "Dark mode file does not exist, no action is needed."
         fi
         {{- end }}
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          HOST_USER_ID: "{{ .Values.podSecurityContext.runAsUser }}"
+          HOST_USER_GID: "{{ .Values.podSecurityContext.fsGroup }}"
+          PORT: "{{ .Values.service.main.ports.main.port }}"

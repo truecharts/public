@@ -1,5 +1,5 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render configmap for nextcloud */}}
 {{- include "nextcloud.configmap" . }}
@@ -16,7 +16,7 @@
 {{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}
 
 {{/* Render cronjob for nextcloud */}}
 {{- include "nextcloud.cronjob" . }}

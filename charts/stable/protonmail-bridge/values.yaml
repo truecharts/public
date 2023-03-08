@@ -2,15 +2,6 @@ image:
   repository: tccr.io/truecharts/protonmail-bridge
   tag: 3.0.17@sha256:23e2d0200f0f060b8732a4220c7d348b9633b051b2c9b27913ef44ccc37b4a34
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     enabled: false
@@ -31,11 +22,16 @@ service:
         enabled: true
         port: 143
         targetPort: 143
-
 persistence:
   config:
     enabled: true
     mountPath: "/root"
-
 portal:
-  enabled: false
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

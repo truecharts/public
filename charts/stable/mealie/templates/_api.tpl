@@ -8,9 +8,9 @@ securityContext:
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-api-secret'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-api-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-api-config'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-api-config'
 volumeMounts:
   - name: data
     mountPath: "/app/data"

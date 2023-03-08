@@ -10,9 +10,9 @@ securityContext:
 args: ["worker"]
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-authentik-secret'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-authentik-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-authentik-config'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-authentik-config'
 volumeMounts:
   - name: media
     mountPath: "/media"

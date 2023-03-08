@@ -8,23 +8,33 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.0.1
     hooks:
-      - id: trailing-whitespace # trims trailing whitespace.
-      - id: end-of-file-fixer # ensures that a file is either empty, or ends with one newline.
+      # trims trailing whitespace.
+      - id: trailing-whitespace
+      # ensures that a file is either empty, or ends with one newline.
+      - id: end-of-file-fixer
       - id: fix-byte-order-marker
-      - id: mixed-line-ending # replaces or checks mixed line ending.
-      - id: check-merge-conflict # checks for files that contain merge conflict strings.
-      - id: check-case-conflict # checks for files that would conflict in case-insensitive filesystems.
-      - id: check-executables-have-shebangs # ensures that (non-binary) executables have a shebang.
-      - id: check-shebang-scripts-are-executable # ensures that (non-binary) files with a shebang are executable.
+      # replaces or checks mixed line ending.
+      - id: mixed-line-ending
+      # checks for files that contain merge conflict strings.
+      - id: check-merge-conflict
+      # checks for files that would conflict in case-insensitive filesystems.
+      - id: check-case-conflict
+      # ensures that (non-binary) executables have a shebang.
+      - id: check-executables-have-shebangs
+      # ensures that (non-binary) files with a shebang are executable.
+      - id: check-shebang-scripts-are-executable
       - id: check-docstring-first
       - id: check-symlinks
       - id: destroyed-symlinks
-      - id: fix-byte-order-marker # removes utf-8 byte order marker.
-      - id: requirements-txt-fixer # sorts entries in requirements.txt.
-      - id: check-added-large-files # prevents giant files from being committed.
-      - id: check-yaml # checks yaml files for parseable syntax.
+      # removes utf-8 byte order marker.
+      - id: fix-byte-order-marker
+      # sorts entries in requirements.txt.
+      - id: requirements-txt-fixer
+      # checks yaml files for parseable syntax.
+      - id: check-yaml
         exclude: (templates\/.*|crds\/.*|questions.yaml|chart_schema.yaml)
-      - id: detect-private-key # detects the presence of private keys.
+        # detects the presence of private keys.
+      - id: detect-private-key
 
   - repo: https://github.com/pre-commit/pygrep-hooks
     rev: v1.9.0
@@ -38,3 +48,13 @@ repos:
       - id: prettier
         exclude: (templates\/.*|crds\/.*|README.md|CHANGELOG.md|questions.yaml|devcontainer.json)
         files: \.(js|ts|jsx|tsx|css|less|html|json|markdown|md|yaml|yml)$
+
+  # Update the rev variable with the release version that you want, from the yamllint repo
+  # You can pass your custom .yamllint with args attribute.
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.17.0
+    hooks:
+      - id: yamllint
+        exclude: (templates\/.*|crds\/.*|README.md|CHANGELOG.md|questions.yaml|devcontainer.json|chart_schema.yaml)
+        files: \.(yaml|yml)$
+        args: [-c=.github/lintconf.yaml]

@@ -1,7 +1,7 @@
 {{/* Define the secrets */}}
 {{- define "wger.secrets" -}}
 
-{{- $secretName := printf "%s-wger-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-wger-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 
 ---
 

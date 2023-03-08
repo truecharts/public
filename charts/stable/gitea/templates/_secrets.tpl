@@ -13,7 +13,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ include "tc.common.names.fullname" . }}
+  name: {{ include "tc.v1.common.lib.chart.names.fullname" . }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 type: Opaque
@@ -115,7 +115,7 @@ stringData:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ include "tc.common.names.fullname" . }}-init
+  name: {{ include "tc.v1.common.lib.chart.names.fullname" . }}-init
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 type: Opaque

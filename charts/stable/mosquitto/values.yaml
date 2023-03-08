@@ -2,7 +2,6 @@ image:
   repository: tccr.io/truecharts/eclipse-mosquitto
   tag: 2.0.15@sha256:9e1fbb32ae27aaaf18432ff4e7e046c54fda8a630851dadf0c332a94e81fbf67
   pullPolicy: IfNotPresent
-
 service:
   main:
     ports:
@@ -16,19 +15,15 @@ service:
         enabled: true
         port: 9001
         targetPort: 9001
-
 ingress:
   websockets:
     autoLink: true
-
 auth:
   # -- By enabling this, `allow_anonymous` gets set to `false` in the mosquitto config.
   enabled: false
-
 websockets:
   # -- By enabling this, an additional listener with protocol websockets is added in the mosquitto config.
   enabled: false
-
 configmap:
   config:
     enabled: true
@@ -52,7 +47,6 @@ configmap:
         {{- if .Values.persistence.configinc.enabled }}
         include_dir {{ .Values.persistence.configinc.mountPath }}
         {{- end }}
-
 persistence:
   data:
     enabled: true
@@ -67,7 +61,9 @@ persistence:
     type: "custom"
     volumeSpec:
       configMap:
-        name: '{{ template "tc.common.names.fullname" . }}-config'
-
+        name: '{{ template "tc.v1.common.names.fullname" . }}-config'
 portal:
-  enabled: false
+  open:
+    enabled: false
+securityContext:
+  container: null

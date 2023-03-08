@@ -1,6 +1,6 @@
 {{/* Define the cronjob */}}
 {{- define "clamav.cronjob" -}}
-{{- $jobName := include "tc.common.names.fullname" . }}
+{{- $jobName := include "tc.v1.common.lib.chart.names.fullname" . }}
 
 ---
 apiVersion: batch/v1

@@ -1,7 +1,7 @@
 {{/* Define the secret */}}
 {{- define "tailscale.secret" -}}
 
-{{- $secretName := printf "%s-tailscale-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-tailscale-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 
 ---
 {{/* This secrets are loaded on tailscale */}}

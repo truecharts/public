@@ -2,24 +2,10 @@ image:
   repository: tccr.io/truecharts/netdata
   tag: 1.38.1@sha256:884fc2c9d237ad3b8df8fca30c6c8a55999da37b3619d3cb61a24253bb2901f1
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-  capabilities:
-    add:
-      - SYS_PTRACE
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-  fsGroup: 201
-
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:
   main:
     enabled: true
-
 configmap:
   configs:
     enabled: true
@@ -36,7 +22,6 @@ configmap:
         jobs:
           - name: k8s_state
             update_every: 1
-
 rbac:
   main:
     enabled: true
@@ -59,38 +44,12 @@ rbac:
           - "namespaces"
         verbs:
           - "get"
-
-env:
-  MY_NODE_NAME:
-    fieldRef:
-      fieldPath: spec.nodeName
-  MY_POD_NAMESPACE:
-    fieldRef:
-      fieldPath: metadata.namespace
-  MY_POD_NAME:
-    fieldRef:
-      fieldPath: metadata.name
-
-secretEnv:
-  NETDATA_CLAIM_URL: ""
-  NETDATA_CLAIM_TOKEN: ""
-  NETDATA_CLAIM_ROOMS: ""
-
 service:
   main:
     ports:
       main:
         port: 19999
         targetPort: 19999
-
-probes:
-  liveness:
-    path: "/api/v1/info"
-  readiness:
-    path: "/api/v1/info"
-  startup:
-    path: "/api/v1/info"
-
 persistence:
   config:
     enabled: true
@@ -144,7 +103,7 @@ persistence:
     type: "custom"
     volumeSpec:
       configMap:
-        name: '{{ printf "%v-configs" (include "tc.common.names.fullname" .) }}'
+        name: '{{ printf "%v-configs" (include "tc.v1.common.names.fullname" .) }}'
   go-d-configs:
     enabled: "true"
     mountPath: "/etc/netdata/truecharts-defaults/.go.d.conf"
@@ -152,7 +111,7 @@ persistence:
     type: "custom"
     volumeSpec:
       configMap:
-        name: '{{ printf "%v-configs" (include "tc.common.names.fullname" .) }}'
+        name: '{{ printf "%v-configs" (include "tc.v1.common.names.fullname" .) }}'
   go-d-k8s-state-configs:
     enabled: "true"
     mountPath: "/etc/netdata/truecharts-defaults/go.d/.k8s_state.conf"
@@ -160,8 +119,7 @@ persistence:
     type: "custom"
     volumeSpec:
       configMap:
-        name: '{{ printf "%v-configs" (include "tc.common.names.fullname" .) }}'
-
+        name: '{{ printf "%v-configs" (include "tc.v1.common.names.fullname" .) }}'
 initContainers:
   create-config:
     name: create-config
@@ -206,6 +164,41 @@ initContainers:
         copy_config "/etc/netdata/truecharts-defaults/.netdata.conf" "/etc/netdata/netdata.conf"
         copy_config "/etc/netdata/truecharts-defaults/.go.d.conf" "/etc/netdata/go.d.conf"
         copy_config "/etc/netdata/truecharts-defaults/go.d/.k8s_state.conf" "/etc/netdata/go.d/k8s_state.conf"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    capabilities:
+      add:
+        - SYS_PTRACE
+    runAsUser: 0
+    runAsGroup: 0
+    fsGroup: 201
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/api/v1/info"
+            readiness:
+              path: "/api/v1/info"
+            startup:
+              path: "/api/v1/info"
+        env:
+          MY_NODE_NAME:
+            fieldRef:
+              fieldPath: spec.nodeName
+          MY_POD_NAMESPACE:
+            fieldRef:
+              fieldPath: metadata.namespace
+          MY_POD_NAME:
+            fieldRef:
+              fieldPath: metadata.name
+          NETDATA_CLAIM_URL: ""
+          NETDATA_CLAIM_TOKEN: ""
+          NETDATA_CLAIM_ROOMS: ""

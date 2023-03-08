@@ -1,9 +1,9 @@
 {{/* Define the configmap */}}
 {{- define "immich.config" -}}
 
-{{- $serverConfigName := printf "%s-server-config" (include "tc.common.names.fullname" .) -}}
-{{- $commonConfigName := printf "%s-common-config" (include "tc.common.names.fullname" .) -}}
-{{- $proxyConfigName := printf "%s-proxy-config" (include "tc.common.names.fullname" .) }}
+{{- $serverConfigName := printf "%s-server-config" (include "tc.v1.common.lib.chart.names.fullname" .) -}}
+{{- $commonConfigName := printf "%s-common-config" (include "tc.v1.common.lib.chart.names.fullname" .) -}}
+{{- $proxyConfigName := printf "%s-proxy-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 ---
 apiVersion: v1
 kind: ConfigMap

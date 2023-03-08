@@ -1,8 +1,8 @@
 {{/* Define the secrets */}}
 {{- define "vikunja.secrets" -}}
 
-{{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) -}}
-{{- $secretStorage := printf "%s-storage-secret" (include "tc.common.names.fullname" .) -}}
+{{- $secretName := printf "%s-secret" (include "tc.v1.common.lib.chart.names.fullname" .) -}}
+{{- $secretStorage := printf "%s-storage-secret" (include "tc.v1.common.lib.chart.names.fullname" .) -}}
 
 {{- $jwtSecret := randAlphaNum 32 -}}
 {{- with lookup "v1" "Secret" .Release.Namespace $secretStorage -}}
