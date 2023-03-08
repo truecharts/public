@@ -2,7 +2,10 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render configmap for n8n */}}
-{{- include "n8n.configmap" . }}
+{{- $configmap := include "n8n.configmap" . | fromYaml -}}
+{{- if $configmap -}}
+{{- $_ := set .Values.configmap "config" $configmap -}}
+{{- end -}}
 
 
 {{/* Render the templates */}}

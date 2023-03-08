@@ -5,4 +5,10 @@
 {{ include "tc.v1.common.loader.apply" . }}
 
 {{/* Render configmap for openldap */}}
-{{- include "openldap.configmap" . }}
+{{- $configmap := include "openldap.configmap" . | fromYaml -}}
+{{- if $configmap -}}
+{{- $_ := set .Values.configmap "config" $configmap -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.common.loader.apply" . }}

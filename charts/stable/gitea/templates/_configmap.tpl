@@ -1,10 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "gitea.configmap" -}}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: gitea-env
+
 data:
   GITEA_APP_INI: "/data/gitea/conf/app.ini"
   GITEA_CUSTOM: "/data/gitea"
