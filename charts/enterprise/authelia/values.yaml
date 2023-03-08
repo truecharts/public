@@ -16,7 +16,7 @@ workload:
           probes:
             liveness:
               type: http
-              path: /api/health"
+              path: "/api/health"
 
             readiness:
               type: http
