@@ -1,10 +1,10 @@
 {{/* Define the secret */}}
 {{- define "authentik.secret" -}}
 
-{{- $authentikSecretName := printf "%s-authentik-secret" (include "tc.common.names.fullname" .) }}
-{{- $geoipSecretName := printf "%s-geoip-secret" (include "tc.common.names.fullname" .) }}
-{{- $ldapSecretName := printf "%s-ldap-secret" (include "tc.common.names.fullname" .) }}
-{{- $proxySecretName := printf "%s-proxy-secret" (include "tc.common.names.fullname" .) }}
+{{- $authentikSecretName := printf "%s-authentik-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+{{- $geoipSecretName := printf "%s-geoip-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+{{- $ldapSecretName := printf "%s-ldap-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+{{- $proxySecretName := printf "%s-proxy-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 {{- $token := randAlphaNum 128 | b64enc }}
 
 ---

@@ -1,7 +1,7 @@
 {{/* Define the secrets */}}
 {{- define "inventree.secrets" -}}
 
-{{- $secretName := printf "%s-inventree-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-inventree-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 
 ---
 apiVersion: v1

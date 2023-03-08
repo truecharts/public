@@ -1,8 +1,8 @@
 {{/* Define the configmap */}}
 {{- define "mealie.config" -}}
 
-{{- $frontendConfigName := printf "%s-frontend-config" (include "tc.common.names.fullname" .) }}
-{{- $apiConfigName := printf "%s-api-config" (include "tc.common.names.fullname" .) }}
+{{- $frontendConfigName := printf "%s-frontend-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+{{- $apiConfigName := printf "%s-api-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 
 ---
 

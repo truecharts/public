@@ -1,7 +1,7 @@
 {{/* Define the cronjob */}}
 {{- define "nextcloud.cronjob" -}}
 {{- if .Values.cronjob.enabled -}}
-{{- $jobName := include "tc.common.names.fullname" . }}
+{{- $jobName := include "tc.v1.common.lib.chart.names.fullname" . }}
 
 ---
 apiVersion: batch/v1

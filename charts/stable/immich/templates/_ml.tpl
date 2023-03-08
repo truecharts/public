@@ -28,11 +28,11 @@ volumeMounts:
   {{- end }}
 envFrom:
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-common-config'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-common-config'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-server-config'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-server-config'
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-immich-secret'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-immich-secret'
 #readinessProbe:
 #  exec:
 #    command:

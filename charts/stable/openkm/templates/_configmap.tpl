@@ -4,7 +4,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "tc.common.names.fullname" . }}-init
+  name: {{ include "tc.v1.common.lib.chart.names.fullname" . }}-init
 data:
   init.sh: |-
     #!/bin/sh

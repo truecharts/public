@@ -1,6 +1,6 @@
 {{/* Define the hbp container */}}
 {{- define "nextcloud.hpb" -}}
-{{- $jobName := include "tc.common.names.fullname" . }}
+{{- $jobName := include "tc.v1.common.lib.chart.names.fullname" . }}
 image: '{{ include "tc.common.images.selector" . }}'
 imagePullPolicy: '{{ .Values.image.pullPolicy }}'
 securityContext:

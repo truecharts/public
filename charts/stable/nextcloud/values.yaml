@@ -2,26 +2,14 @@ image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
   tag: 25.0.2@sha256:59e6d2be5139cdeb030a095fb92b97e01d7d53071dc34b487956065a385d3a32
-
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
   tag: 1.23.3@sha256:ed53beb90e3550017807bf762b3c2c10d72e3399d28847b7505fd43d0bd3f039
-
 imaginaryImage:
   repository: h2non/imaginary
   pullPolicy: IfNotPresent
   tag: 1.2.4@sha256:7facb4221047a5e79b9e902f380247f4e5bf4376400d0badbeb738d3e1c2f654
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-  fsGroup: 33
-
 service:
   main:
     ports:
@@ -47,50 +35,10 @@ service:
         enabled: true
         port: 9090
         targetPort: 9090
-
 hostAliases:
   - ip: '{{ .Values.env.AccessIP | default "127.0.0.1" }}'
     hostnames:
       - "{{ if .Values.ingress.main.enabled }}{{ with (first .Values.ingress.main.hosts) }}{{ .host }}{{ end }}{{ else }}placeholder.fakedomain.dns{{ end }}"
-
-secretEnv:
-  NEXTCLOUD_ADMIN_USER: "admin"
-  NEXTCLOUD_ADMIN_PASSWORD: "adminpass"
-
-probes:
-  liveness:
-    custom: true
-    spec:
-      initialDelaySeconds: 25
-      httpGet:
-        path: /status.php
-        port: 8080
-        httpHeaders:
-          - name: Host
-            value: "test.fakedomain.dns"
-
-  readiness:
-    custom: true
-    spec:
-      initialDelaySeconds: 25
-      httpGet:
-        path: /status.php
-        port: 8080
-        httpHeaders:
-          - name: Host
-            value: "test.fakedomain.dns"
-
-  startup:
-    custom: true
-    spec:
-      initialDelaySeconds: 25
-      httpGet:
-        path: /status.php
-        port: 8080
-        httpHeaders:
-          - name: Host
-            value: "test.fakedomain.dns"
-
 initContainers:
   prestart:
     image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
@@ -107,47 +55,11 @@ initContainers:
         /usr/sbin/nfs4xdr_winacl -a chown -G 33 -c '/var/www/html/data' -p '/var/www/html/data' || echo "Failed setting ownership..."
         chmod 770 /var/www/html/data || echo "Failed to chmod..."
         EOF
-
     volumeMounts:
       - name: data
         mountPath: "/var/www/html/data"
       - name: html
         mountPath: "/var/www/html"
-
-env:
-  # IP used for exposing nextcloud
-  # Often the service or nodePort IP
-  # Defaults to the main serviceName for CI purposes.
-  AccessIP:
-  NEXTCLOUD_INIT_HTACCESS: true
-  PHP_MEMORY_LIMIT: 1G
-  PHP_UPLOAD_LIMIT: 10G
-  NEXTCLOUD_CHUNKSIZE: "31457280"
-  TRUSTED_PROXIES: "172.16.0.0/16 127.0.0.1"
-  POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
-  POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  NC_check_data_directory_permissions: "true"
-  POSTGRES_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  POSTGRES_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainporthost
-  REDIS_HOST:
-    secretKeyRef:
-      name: rediscreds
-      key: plainhost
-  REDIS_HOST_PASSWORD:
-    secretKeyRef:
-      name: rediscreds
-      key: redis-password
-
-envFrom:
-  - configMapRef:
-      name: nextcloudconfig
-
 persistence:
   html:
     enabled: true
@@ -170,11 +82,10 @@ persistence:
     type: "custom"
     volumeSpec:
       configMap:
-        name: '{{ include "tc.common.names.fullname" . }}-nginx'
+        name: '{{ include "tc.v1.common.names.fullname" . }}-nginx'
         items:
           - key: nginx.conf
             path: nginx.conf
-
 configmap:
   nginx:
     enabled: true
@@ -373,7 +284,6 @@ configmap:
                 }
             }
         }
-
 cronjob:
   enabled: true
   generatePreviews: true
@@ -381,14 +291,11 @@ cronjob:
   annotations: {}
   failedJobsHistoryLimit: 5
   successfulJobsHistoryLimit: 2
-
 hpb:
   enabled: true
-
 nextcloud:
   # https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements
   default_phone_region: ""
-
 imaginary:
   enabled: true
   preview_max_x: 2048
@@ -418,7 +325,6 @@ imaginary:
   preview_svg: false
   preview_tiff: false
   preview_font: false
-
 collabora:
   enabled: false
   env:
@@ -430,16 +336,91 @@ collabora:
     extra_params: "--o:welcome.enable=false --o:logging.level=information --o:user_interface.mode=notebookbar --o:ssl.termination=true --o:ssl.enable=false "
     server_name: ""
     DONT_GEN_SSL_CERT: true
-
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: nextcloud
   postgresqlDatabase: nextcloud
-
 redis:
   enabled: true
   existingSecret: "rediscreds"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+    fsGroup: 33
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              custom: true
+              spec:
+                initialDelaySeconds: 25
+                httpGet:
+                  path: /status.php
+                  port: 8080
+                  httpHeaders:
+                    - name: Host
+                      value: "test.fakedomain.dns"
+            readiness:
+              custom: true
+              spec:
+                initialDelaySeconds: 25
+                httpGet:
+                  path: /status.php
+                  port: 8080
+                  httpHeaders:
+                    - name: Host
+                      value: "test.fakedomain.dns"
+            startup:
+              custom: true
+              spec:
+                initialDelaySeconds: 25
+                httpGet:
+                  path: /status.php
+                  port: 8080
+                  httpHeaders:
+                    - name: Host
+                      value: "test.fakedomain.dns"
+          envFrom:
+            - configMapRef:
+                name: nextcloudconfig
+        env:
+          # IP used for exposing nextcloud
+          # Often the service or nodePort IP
+          # Defaults to the main serviceName for CI purposes.
+          AccessIP:
+          NEXTCLOUD_INIT_HTACCESS: true
+          PHP_MEMORY_LIMIT: 1G
+          PHP_UPLOAD_LIMIT: 10G
+          NEXTCLOUD_CHUNKSIZE: "31457280"
+          TRUSTED_PROXIES: "172.16.0.0/16 127.0.0.1"
+          POSTGRES_DB: "{{ .Values.cnpg.database }}"
+          POSTGRES_USER: "{{ .Values.cnpg.user }}"
+          NC_check_data_directory_permissions: "true"
+          POSTGRES_PASSWORD:
+            secretKeyRef:
+              name: cnpg-main-urls
+              key: postgresql-password
+          POSTGRES_HOST:
+            secretKeyRef:
+              name: cnpg-main-urls
+              key: plainporthost
+          REDIS_HOST:
+            secretKeyRef:
+              name: rediscreds
+              key: plainhost
+          REDIS_HOST_PASSWORD:
+            secretKeyRef:
+              name: rediscreds
+              key: redis-password
+          NEXTCLOUD_ADMIN_USER: "admin"
+          NEXTCLOUD_ADMIN_PASSWORD: "adminpass"

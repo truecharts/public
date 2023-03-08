@@ -1,7 +1,7 @@
 {{/* Define the secret */}}
 {{- define "gsm.secret" -}}
 
-{{- $secretName := printf "%s-gsm-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-gsm-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 
 ---
 

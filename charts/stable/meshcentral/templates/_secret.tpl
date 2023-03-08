@@ -1,8 +1,8 @@
 {{/* Define the secret */}}
 {{- define "meshcentral.secret" -}}
 
-{{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) -}}
-{{- $secretStorageName := printf "%s-storage-secret" (include "tc.common.names.fullname" .) -}}
+{{- $secretName := printf "%s-secret" (include "tc.v1.common.lib.chart.names.fullname" .) -}}
+{{- $secretStorageName := printf "%s-storage-secret" (include "tc.v1.common.lib.chart.names.fullname" .) -}}
 
 {{- $config := .Values.meshcentral -}}
 {{- $mc_custom := .Values.additional_meshcentral -}}

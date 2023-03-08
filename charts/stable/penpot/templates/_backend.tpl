@@ -12,9 +12,9 @@ volumeMounts:
     mountPath: {{ .Values.persistence.data.mountPath }}
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-common-secret'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-common-secret'
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-backend-exporter-secret'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-backend-exporter-secret'
 readinessProbe:
   tcpSocket:
     port: 6060

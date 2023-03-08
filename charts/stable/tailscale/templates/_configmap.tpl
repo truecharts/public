@@ -1,8 +1,8 @@
 {{/* Define the secret */}}
 {{- define "tailscale.config" -}}
 
-{{- $configName := printf "%s-tailscale-config" (include "tc.common.names.fullname" .) }}
-{{- $secretName := printf "%s-tailscale-secret" (include "tc.common.names.fullname" .) }}
+{{- $configName := printf "%s-tailscale-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+{{- $secretName := printf "%s-tailscale-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 
 {{- $customArgs := "" -}}
 

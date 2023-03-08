@@ -3,7 +3,7 @@ appVersion: "6.0.14"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.2.25
   - condition: mariadb.enabled
     name: mariadb
     repository: https://deps.truecharts.org/
@@ -36,4 +36,3 @@ annotations:
   truecharts.org/catagories: |
     - management
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

@@ -1,7 +1,7 @@
 {{/* Define the secret */}}
 {{- define "cloudflareddns.secret" -}}
 
-{{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 {{- $cfddns := .Values.cloudflareddns -}}
 {{- $domains := list }}
 {{- $records := list }}

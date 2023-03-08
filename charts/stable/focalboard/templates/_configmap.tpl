@@ -7,7 +7,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "tc.common.names.fullname" . }}-install
+  name: {{ include "tc.v1.common.lib.chart.names.fullname" . }}-install
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:

@@ -17,7 +17,7 @@ Create the matchable regex from domain
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "tc.common.names.fullname" . }}-corefile
+  name: {{ include "tc.v1.common.lib.chart.names.fullname" . }}-corefile
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:

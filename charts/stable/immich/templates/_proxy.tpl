@@ -16,7 +16,7 @@ securityContext:
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 envFrom:
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-common-config'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-common-config'
 ports:
   - containerPort: {{ .Values.service.main.ports.main.targetPort }}
     name: main
