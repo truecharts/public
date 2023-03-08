@@ -1,13 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "qbittorrent.configmap" -}}
 
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ template "tc.v1.common.lib.chart.names.fullname" . }}-scripts
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{- $bittorrentPort := "" -}}
   {{- $bittorrentPort = .Values.service.torrent.ports.torrent.port -}}

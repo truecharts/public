@@ -1,10 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "littlelink.configmap" -}}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: littlelinkconfig
+
 data:
   {{- if .Values.littlelink.meta_title }}
   META_TITLE: {{ .Values.littlelink.meta_title | quote }}
