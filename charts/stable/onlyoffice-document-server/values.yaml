@@ -9,11 +9,12 @@ service:
         port: 10043
         targetPort: 80
 # Enabled postgres
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: onlyoffice
-  postgresqlDatabase: onlyoffice
+cnpg:
+  main:
+    enabled: true
+
+    user: onlyoffice
+    database: onlyoffice
 # Enabled redis
 redis:
   enabled: true

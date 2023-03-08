@@ -22,11 +22,12 @@ redis:
   enabled: true
   existingSecret: "rediscreds"
   redisUsername: default
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: paperless-ng
-  postgresqlDatabase: paperless-ng
+cnpg:
+  main:
+    enabled: true
+
+    user: paperless-ng
+    database: paperless-ng
 portal:
   open:
     enabled: true

@@ -30,11 +30,12 @@ persistence:
       configMap:
         name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-init'
         defaultMode: 0777
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: openkm
-  postgresqlDatabase: openkm
+cnpg:
+  main:
+    enabled: true
+
+    user: openkm
+    database: openkm
 portal:
   open:
     enabled: true

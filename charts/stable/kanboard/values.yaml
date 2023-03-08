@@ -15,11 +15,12 @@ persistence:
   ssl:
     enabled: true
     mountPath: "/etc/nginx/ssl"
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: kanboard
-  postgresqlDatabase: kanboard
+cnpg:
+  main:
+    enabled: true
+
+    user: kanboard
+    database: kanboard
 portal:
   open:
     enabled: true

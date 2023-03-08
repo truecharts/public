@@ -108,11 +108,12 @@ proxy: {}
 # PROXY_IP_HEADER: ""
 # PROXY_ALLOWED_IPS_REGEX: ""
 
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: guacamole
-  postgresqlDatabase: guacamole
+cnpg:
+  main:
+    enabled: true
+
+    user: guacamole
+    database: guacamole
 persistence:
   initdbdata:
     enabled: true

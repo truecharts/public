@@ -16,11 +16,12 @@ persistence:
   uploads:
     enabled: true
     mountPath: "/uploads"
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: focalboard
-  postgresqlDatabase: focalboard
+cnpg:
+  main:
+    enabled: true
+
+    user: focalboard
+    database: focalboard
 portal:
   open:
     enabled: true

@@ -15,11 +15,12 @@ persistence:
   app:
     enabled: true
     mountPath: "/opt/etherpad-lite/app"
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: etherpad
-  postgresqlDatabase: etherpad
+cnpg:
+  main:
+    enabled: true
+
+    user: etherpad
+    database: etherpad
 portal:
   open:
     enabled: true

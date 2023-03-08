@@ -8,11 +8,12 @@ service:
       main:
         port: 10045
         targetPort: 3000
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: wikijs
-  postgresqlDatabase: wikijs
+cnpg:
+  main:
+    enabled: true
+
+    user: wikijs
+    database: wikijs
 # /wiki/data is a temporary dir. Without mounting as emptyDir it's only writable by root.
 # https://docs.requarks.io/en/install/config#data-paths
 persistence:

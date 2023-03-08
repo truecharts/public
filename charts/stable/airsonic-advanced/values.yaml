@@ -9,11 +9,12 @@ service:
         port: 10122
         targetPort: 4040
 # Enabled postgres
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: airsonic-advanced
-  postgresqlDatabase: airsonic-advanced
+cnpg:
+  main:
+    enabled: true
+
+    user: airsonic-advanced
+    database: airsonic-advanced
 persistence:
   config:
     enabled: true

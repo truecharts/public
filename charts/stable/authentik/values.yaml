@@ -201,11 +201,12 @@ persistence:
   geoip:
     enabled: true
     mountPath: "/geoip"
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: authentik
-  postgresqlDatabase: authentik
+cnpg:
+  main:
+    enabled: true
+
+    user: authentik
+    database: authentik
 redis:
   enabled: true
   existingSecret: "rediscreds"
@@ -237,9 +238,9 @@ workload:
               port: "{{ .Values.service.main.ports.main.targetPort }}"
           envFrom:
             - secretRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-authentik-secret'
+                name: "authentik-secret"
             - configMapRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-authentik-config'
+                name: "authentik-config"
             - configMapRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-authentik-server-config'
+                name: "authentik-server-config"
           args: ["server"]

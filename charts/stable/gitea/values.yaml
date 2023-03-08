@@ -111,11 +111,12 @@ customConfig: []
 #       value: testvalue
 
 # Enabled postgres
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: gitea
-  postgresqlDatabase: gitea
+cnpg:
+  main:
+    enabled: true
+
+    user: gitea
+    database: gitea
 # --  memcached dependency settings
 memcached:
   enabled: true

@@ -11,11 +11,12 @@ persistence:
   config:
     enabled: true
     mountPath: /config
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlDatabase: lidarr
-  postgresqlUsername: lidarr
+cnpg:
+  main:
+    enabled: true
+
+    database: lidarr
+    user: lidarr
 portal:
   open:
     enabled: true

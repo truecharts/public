@@ -13,11 +13,12 @@ redis:
   existingSecret: "rediscreds"
   redisUsername: outline
 # Enabled postgres
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: outline
-  postgresqlDatabase: outline
+cnpg:
+  main:
+    enabled: true
+
+    user: outline
+    database: outline
 initContainers:
   1-migratedb:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"

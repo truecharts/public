@@ -18,11 +18,12 @@ persistence:
   uploads:
     enabled: true
     mountPath: "/uploads"
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: lychee
-  postgresqlDatabase: lychee
+cnpg:
+  main:
+    enabled: true
+
+    user: lychee
+    database: lychee
 redis:
   enabled: true
   existingSecret: "rediscreds"

@@ -81,6 +81,6 @@ workload:
               enabled: false
           envFrom:
             - configMapRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-tailscale-config'
+                name: "tailscale-config"
           command:
             - /usr/local/bin/containerboot

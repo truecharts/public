@@ -18,11 +18,12 @@ service:
 persistence:
   varrun:
     enabled: true
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: quassel-core
-  postgresqlDatabase: quassel-core
+cnpg:
+  main:
+    enabled: true
+
+    user: quassel-core
+    database: quassel-core
 portal:
   open:
     enabled: false

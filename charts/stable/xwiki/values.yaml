@@ -12,11 +12,12 @@ persistence:
   config:
     enabled: true
     mountPath: "/usr/local/xwiki"
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: xwiki
-  postgresqlDatabase: xwiki
+cnpg:
+  main:
+    enabled: true
+
+    user: xwiki
+    database: xwiki
 portal:
   open:
     enabled: true

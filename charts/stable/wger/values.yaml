@@ -55,11 +55,12 @@ persistence:
         items:
           - key: nginx.conf
             path: default.conf
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: wger
-  postgresqlDatabase: wger
+cnpg:
+  main:
+    enabled: true
+
+    user: wger
+    database: wger
 redis:
   enabled: true
   existingSecret: "rediscreds"
@@ -82,6 +83,6 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-wger-secret'
+                name: "wger-secret"
             - configMapRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-wger-configmap'
+                name: "wger-configmap"

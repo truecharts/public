@@ -7,11 +7,12 @@ service:
     ports:
       main:
         port: 10153
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: shlink
-  postgresqlDatabase: shlink
+cnpg:
+  main:
+    enabled: true
+
+    user: shlink
+    database: shlink
 redis:
   enabled: true
   existingSecret: "rediscreds"

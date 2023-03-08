@@ -16,11 +16,12 @@ persistence:
   photos:
     enabled: true
     mountPath: "/photos"
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: photoview
-  postgresqlDatabase: photoview
+cnpg:
+  main:
+    enabled: true
+
+    user: photoview
+    database: photoview
 portal:
   open:
     enabled: true
