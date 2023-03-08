@@ -22,8 +22,8 @@ questions:
       required: true
   - variable: default_redirection_url
     group: "App Configuration"
-    label: "Default Redirection Url"
-    description: "If user tries to authenticate without any referer, this is used"
+    label: "Default Redirection URL"
+    description: "If user tries to authenticate without any referrer, this is used"
     schema:
       type: string
       default: ""
@@ -44,7 +44,7 @@ questions:
           description: "dark"
   - variable: log
     group: "App Configuration"
-    label: "Log Configuration "
+    label: "Log Configuration"
     schema:
       additional_attrs: true
       type: dict
@@ -179,7 +179,7 @@ questions:
   - variable: regulation
     group: "App Configuration"
     label: "Regulation Configuration"
-    description: "his mechanism prevents attackers from brute forcing the first factor."
+    description: "This mechanism prevents attackers from brute forcing the first factor."
     schema:
       additional_attrs: true
       type: dict
@@ -241,15 +241,15 @@ questions:
                   subquestions:
                     - variable: implementation
                       label: "Implementation"
-                      description: "The LDAP implementation, this affects elements like the attribute utilised for resetting a password"
+                      description: "The LDAP implementation, this affects elements like the attribute utilized for resetting a password"
                       schema:
                         type: string
                         default: "custom"
                         enum:
                           - value: "activedirectory"
-                            description: "activedirectory"
+                            description: "Active Directory"
                           - value: "custom"
-                            description: "custom"
+                            description: "Custom"
                     - variable: url
                       label: "URL"
                       description: "The url to the ldap server. Format: <scheme>://<address>[:<port>]"
@@ -446,7 +446,7 @@ questions:
   - variable: notifier
     group: "App Configuration"
     label: "Notifier Configuration"
-    description: "otifications are sent to users when they require a password reset, a u2f registration or a TOTP registration."
+    description: "Notifications are sent to users when they require a password reset, a u2f registration or a TOTP registration."
     schema:
       additional_attrs: true
       type: dict
@@ -804,7 +804,7 @@ questions:
             type: dict
             attrs:
               - variable: enabled
-                label: "enabled"
+                label: "Enabled"
                 schema:
                   type: boolean
                   default: false
