@@ -10,6 +10,7 @@ objectData: The service object data
   {{- $objectData := .objectData }}
 
 type: LoadBalancer
+allocateLoadBalancerNodePorts: {{ $objectData.allocateLoadBalancerNodePorts | default false }}
 publishNotReadyAddresses: {{ include "tc.v1.common.lib.service.publishNotReadyAddresses" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim }}
   {{- with (include "tc.v1.common.lib.service.externalIPs" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim) }}
 externalIPs:
