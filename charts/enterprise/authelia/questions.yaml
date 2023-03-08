@@ -22,7 +22,7 @@ questions:
       required: true
   - variable: default_redirection_url
     group: "App Configuration"
-    label: "Default Redirection Url"
+    label: "Default Redirection URL"
     description: "If user tries to authenticate without any referrer, this is used"
     schema:
       type: string
@@ -179,7 +179,7 @@ questions:
   - variable: regulation
     group: "App Configuration"
     label: "Regulation Configuration"
-    description: "his mechanism prevents attackers from brute forcing the first factor."
+    description: "This mechanism prevents attackers from brute forcing the first factor."
     schema:
       additional_attrs: true
       type: dict
