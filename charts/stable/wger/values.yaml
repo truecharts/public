@@ -51,7 +51,7 @@ persistence:
     mountPath: "/etc/nginx/conf.d"
     volumeSpec:
       configMap:
-        name: '{{ include "tc.v1.common.names.fullname" . }}-wger-nginx-config'
+        name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-wger-nginx-config'
         items:
           - key: nginx.conf
             path: default.conf
@@ -82,6 +82,6 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-wger-secret'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-wger-secret'
             - configMapRef:
-                name: '{{ include "tc.v1.common.names.fullname" . }}-wger-configmap'
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-wger-configmap'

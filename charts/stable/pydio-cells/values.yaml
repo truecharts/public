@@ -59,7 +59,7 @@ persistence:
     type: "custom"
     volumeSpec:
       configMap:
-        name: '{{ printf "%v-install" (include "tc.v1.common.names.fullname" .) }}'
+        name: '{{ printf "%v-install" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
 mariadb:
   enabled: true
   mariadbUsername: pydiocells
