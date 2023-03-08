@@ -1,5 +1,5 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secret */}}
 {{- include "meshcentral.secret" . }}
@@ -20,4 +20,4 @@ probes:
 {{- $_ := mergeOverwrite .Values (include "meshcentral.probes" . | fromYaml) -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

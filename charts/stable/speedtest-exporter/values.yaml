@@ -2,10 +2,6 @@ image:
   repository: tccr.io/truecharts/speedtest-exporter
   tag: 3.5.3@sha256:1a6388afff0bc8d1733b586d72be004ffe1004a9527bda28812f19bd5611933f
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-
 service:
   main:
     ports:
@@ -13,9 +9,8 @@ service:
         enabled: false
       metrics:
         enabled: true
-        protocol: TCP
+        protocol: tcp
         port: 9798
-
 metrics:
   # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
   # @default -- See values.yaml
@@ -40,18 +35,20 @@ metrics:
     labels: {}
     # -- Configure additionial rules for the chart under this key.
     # @default -- See prometheusrules.yaml
-    rules:
-      []
-      # - alert: SpeedtestSlowInternetDownload
-      #   annotations:
-      #     description: Internet download speed is averaging {{ "{{ humanize $value }}" }} Mbps.
-      #     summary: SpeedTest slow internet download.
-      #   expr: |
-      #     avg_over_time(speedtest_download_bits_per_second{job=~".*{{ include "tc.common.names.fullname" . }}.*"}[4h])
-      #       < {{ .Values.metrics.prometheusRule.downloadLimit }}
-      #   for: 0m
-      #   labels:
-      #     severity: warning
-
+    rules: []
+    # - alert: SpeedtestSlowInternetDownload
+    #   annotations:
+    #     description: Internet download speed is averaging {{ "{{ humanize $value }}" }} Mbps.
+    #     summary: SpeedTest slow internet download.
+    #   expr: |
+    #     avg_over_time(speedtest_download_bits_per_second{job=~".*{{ include "tc.v1.common.names.fullname" . }}.*"}[4h])
+    #       < {{ .Values.metrics.prometheusRule.downloadLimit }}
+    #   for: 0m
+    #   labels:
+    #     severity: warning
 portal:
-  enabled: false
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false

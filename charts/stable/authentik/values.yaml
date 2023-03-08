@@ -2,34 +2,20 @@ image:
   repository: tccr.io/truecharts/authentik
   tag: 2023.2.2@sha256:c58f1206dbf3ab2f0f7479707967c8a41b126712be748d0f29ade9743bd35797
   pullPolicy: IfNotPresent
-
 geoipImage:
   repository: tccr.io/truecharts/geoipupdate
   tag: v4.9@sha256:ce42b4252c8cd4a9e39275fd7c3312e5df7bda0d7034df565af4362d7e0d26ce
   pullPolicy: IfNotPresent
-
 ldapImage:
   repository: tccr.io/truecharts/authentik-ldap
   tag: 2023.2.2@sha256:1d22f1280e38534e3088c1665db719e287d868bb6d5e010351ddfa7c46b6ff14
   pullPolicy: IfNotPresent
-
 proxyImage:
   repository: tccr.io/truecharts/authentik-proxy
   tag: 2023.2.2@sha256:364fb27d6f011735aac844c797a0c5a122288de9dd69b1be96b9ab2db234affa
   pullPolicy: IfNotPresent
-
-args: ["server"]
-
-podSecurityContext:
-  runAsUser: 1000
-  runAsGroup: 1000
-
-securityContext:
-  readOnlyRootFilesystem: false
-
 workerContainer:
   enabled: true
-
 authentik:
   credentials:
     password: "supersecret"
@@ -73,7 +59,6 @@ geoip:
   host_server: "updates.maxmind.com"
   preserve_file_times: false
   verbose: false
-
 outposts:
   ldap:
     # -- First you have to create an Outpost in the GUI. Applications > Outposts
@@ -97,7 +82,6 @@ outposts:
     # host: ""
     # -- Token is only needed if you accidentally deleted the token within the UI
     # token: ""
-
 metrics:
   # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
   # @default -- See values.yaml
@@ -114,45 +98,21 @@ metrics:
     labels: {}
     # -- Configure additional rules for the chart under this key.
     # @default -- See prometheusrules.yaml
-    rules:
-      []
-      # - alert: UnifiPollerAbsent
-      #   annotations:
-      #     description: Unifi Poller has disappeared from Prometheus service discovery.
-      #     summary: Unifi Poller is down.
-      #   expr: |
-      #     absent(up{job=~".*unifi-poller.*"} == 1)
-      #   for: 5m
-      #   labels:
-      #     severity: critical
-
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-authentik-secret'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-authentik-config'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-authentik-server-config'
-
-probes:
-  liveness:
-    type: HTTPS
-    path: /-/health/live/
-    port: "{{ .Values.service.main.ports.main.targetPort }}"
-  readiness:
-    type: HTTPS
-    path: /-/health/ready/
-    port: "{{ .Values.service.main.ports.main.targetPort }}"
-  startup:
-    type: HTTPS
-    path: /-/health/ready/
-    port: "{{ .Values.service.main.ports.main.targetPort }}"
-
+    rules: []
+    # - alert: UnifiPollerAbsent
+    #   annotations:
+    #     description: Unifi Poller has disappeared from Prometheus service discovery.
+    #     summary: Unifi Poller is down.
+    #   expr: |
+    #     absent(up{job=~".*unifi-poller.*"} == 1)
+    #   for: 5m
+    #   labels:
+    #     severity: critical
 service:
   main:
     ports:
       main:
-        protocol: HTTPS
+        protocol: https
         port: 10229
         targetPort: 9443
   http:
@@ -161,7 +121,7 @@ service:
     ports:
       http:
         enabled: true
-        protocol: HTTP
+        protocol: http
         port: 10230
         targetPort: 9000
   # LDAP Outpost Services
@@ -186,7 +146,7 @@ service:
       proxyhttps:
         enabled: true
         port: 10233
-        protocol: HTTPS
+        protocol: https
         targetPort: 9444
   proxyhttp:
     enabled: true
@@ -195,7 +155,7 @@ service:
       proxyhttp:
         enabled: true
         port: 10234
-        protocol: HTTP
+        protocol: http
         targetPort: 9001
   # Metrics Services
   metrics:
@@ -204,7 +164,7 @@ service:
     ports:
       metrics:
         enabled: true
-        protocol: HTTP
+        protocol: http
         port: 10231
         targetPort: 9301
   ldapmetrics:
@@ -214,7 +174,7 @@ service:
       ldapmetrics:
         enabled: true
         port: 10232
-        protocol: HTTP
+        protocol: http
         targetPort: 9302
   proxymetrics:
     enabled: true
@@ -223,13 +183,11 @@ service:
       proxymetrics:
         enabled: true
         port: 10235
-        protocol: HTTP
+        protocol: http
         targetPort: 9303
-
 ingress:
   proxyhttps:
     autoLink: true
-
 persistence:
   media:
     enabled: true
@@ -243,16 +201,45 @@ persistence:
   geoip:
     enabled: true
     mountPath: "/geoip"
-
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: authentik
   postgresqlDatabase: authentik
-
 redis:
   enabled: true
   existingSecret: "rediscreds"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 1000
+    runAsGroup: 1000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: HTTPS
+              path: /-/health/live/
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            readiness:
+              type: HTTPS
+              path: /-/health/ready/
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            startup:
+              type: HTTPS
+              path: /-/health/ready/
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.v1.common.names.fullname" . }}-authentik-secret'
+            - configMapRef:
+                name: '{{ include "tc.v1.common.names.fullname" . }}-authentik-config'
+            - configMapRef:
+                name: '{{ include "tc.v1.common.names.fullname" . }}-authentik-server-config'
+          args: ["server"]

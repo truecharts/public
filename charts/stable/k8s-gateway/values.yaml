@@ -2,38 +2,14 @@ image:
   repository: tccr.io/truecharts/k8s_gateway
   pullPolicy: IfNotPresent
   tag: 0.3.3@sha256:246e7006afaf57a398b02e417a31d6f14fb43562901388772778f60be586b807
-
-controller:
-  # -- Set additional annotations on the deployment/statefulset/daemonset
-  # -- Number of desired pods
-  replicas: 2
-  # -- Set the controller upgrade strategy
-  # For Deployments, valid values are Recreate (default) and RollingUpdate.
-  # For StatefulSets, valid values are OnDelete and RollingUpdate (default).
-  # DaemonSets ignore this.
-  strategy: RollingUpdate
-
-securityContext:
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-args: ["-conf", "/etc/coredns/Corefile"]
-
 # -- TTL for non-apex responses (in seconds)
 ttl: 300
-
 # -- Limit what kind of resources to watch, e.g. watchedResources: ["Ingress"]
 watchedResources: []
-
 # -- Service name of a secondary DNS server (should be `serviceName.namespace`)
 secondary: ""
-
 # -- Override the default `serviceName.namespace` domain apex
 apex: ""
-
 # -- list of processed domains
 domains:
   # -- Delegated domain
@@ -44,7 +20,6 @@ domains:
     dnsChallenge:
       enabled: false
       domain: dns01.clouddns.com
-
 forward:
   enabled: true
   primary: tls://1.1.1.1
@@ -52,19 +27,16 @@ forward:
   options:
     - name: tls_servername
       value: cloudflare-dns.com
-
 serviceAccount:
   main:
     # -- Specifies whether a service account should be created
     enabled: true
-
 # -- Create a ClusterRole and ClusterRoleBinding
 # @default -- See below
 rbac:
   main:
     # -- Enables or disables the ClusterRole and ClusterRoleBinding
     enabled: true
-
     # -- Set Rules on the ClusterRole
     rules:
       - apiGroups:
@@ -83,51 +55,66 @@ rbac:
         verbs:
           - list
           - watch
-
 service:
   main:
     ports:
       main:
-        protocol: UDP
+        protocol: udp
         port: 53
         targetPort: 53
-
-probes:
-  liveness:
-    custom: true
-    spec:
-      httpGet:
-        path: /health
-        port: 8080
-        scheme: HTTP
-      initialDelaySeconds: 60
-      timeoutSeconds: 5
-      successThreshold: 1
-      failureThreshold: 5
-
-  readiness:
-    custom: true
-    spec:
-      httpGet:
-        path: /ready
-        port: 8181
-        scheme: HTTP
-      initialDelaySeconds: 10
-      timeoutSeconds: 5
-      successThreshold: 1
-      failureThreshold: 5
-
-  startup:
-    custom: true
-    spec:
-      httpGet:
-        path: /ready
-        port: 8181
-        scheme: HTTP
-      initialDelaySeconds: 3
-      timeoutSeconds: 2
-      periodSeconds: 5
-      failureThreshold: 60
-
 portal:
-  enabled: false
+  open:
+    enabled: false
+securityContext:
+  container:
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              custom: true
+              spec:
+                httpGet:
+                  path: /health
+                  port: 8080
+                  scheme: HTTP
+                initialDelaySeconds: 60
+                timeoutSeconds: 5
+                successThreshold: 1
+                failureThreshold: 5
+            readiness:
+              custom: true
+              spec:
+                httpGet:
+                  path: /ready
+                  port: 8181
+                  scheme: HTTP
+                initialDelaySeconds: 10
+                timeoutSeconds: 5
+                successThreshold: 1
+                failureThreshold: 5
+            startup:
+              custom: true
+              spec:
+                httpGet:
+                  path: /ready
+                  port: 8181
+                  scheme: HTTP
+                initialDelaySeconds: 3
+                timeoutSeconds: 2
+                periodSeconds: 5
+                failureThreshold: 60
+          args: ["-conf", "/etc/coredns/Corefile"]
+    # -- Set additional annotations on the deployment/statefulset/daemonset
+    # -- Number of desired pods
+    replicas: 2
+    # -- Set the controller upgrade strategy
+    # For Deployments, valid values are Recreate (default) and RollingUpdate.
+    # For StatefulSets, valid values are OnDelete and RollingUpdate (default).
+    # DaemonSets ignore this.
+    strategy: RollingUpdate

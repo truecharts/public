@@ -14,7 +14,6 @@ archXFCEImage:
   repository: tccr.io/truecharts/rdesktop-arch-xfce
   tag: latest@sha256:b2195dd2411d0a96422d36ac4cff070efdb257d3dca42d3fe80064553afd4731
   pullPolicy: Always
-
 alpineKDEImage:
   repository: tccr.io/truecharts/rdesktop-alpine-kde
   tag: latest@sha256:dbb1dc0621103bf695fd877befd0e56d414b99757e3a9d6b1e505ab3bc9e50b9
@@ -31,7 +30,6 @@ archKDEImage:
   repository: tccr.io/truecharts/rdesktop-arch-kde
   tag: latest@sha256:6119ad975f98a7429b2b58dc9c21327b237420fd5d05f4dd411ddc18c34a4e2e
   pullPolicy: Always
-
 alpineMATEImage:
   repository: tccr.io/truecharts/rdesktop-alpine-mate
   tag: latest@sha256:22817b0f9472b933e0437978ef939f76e4e577577103bad9aa009773f578122a
@@ -48,7 +46,6 @@ archMATEImage:
   repository: tccr.io/truecharts/rdesktop-arch-mate
   tag: latest@sha256:54ee98d02eadbf84f472d6cadaf04744fd14e26a50144747ef505cc2337702a3
   pullPolicy: Always
-
 alpineI3Image:
   repository: tccr.io/truecharts/rdesktop-alpine-i3
   tag: latest@sha256:82f3293f7c1428d8fe4c7d3506f0caf765d3c75dc59518b9b7723eb2b7fee399
@@ -65,7 +62,6 @@ archI3Image:
   repository: tccr.io/truecharts/rdesktop-arch-i3
   tag: latest@sha256:fa797dcb633ec86f83518182763865150e1c7bb4275aae59c984c33eedba5d95
   pullPolicy: Always
-
 alpineOpenBoxImage:
   repository: tccr.io/truecharts/rdesktop-alpine-openbox
   tag: latest@sha256:424befd21ded014d18448ca8490457a395fc21c44545ffe81f5bc40da7a51804
@@ -82,7 +78,6 @@ archOpenBoxImage:
   repository: tccr.io/truecharts/rdesktop-arch-openbox
   tag: latest@sha256:80b057016ed3b6afacda3d96295a8b29c86c8fc40b69445cc018b17969645469
   pullPolicy: Always
-
 alpineICEWMImage:
   repository: tccr.io/truecharts/rdesktop-alpine-icewm
   tag: latest@sha256:3cc2fd8ee3bc18e7ebc5720fe6b5d47d8fdd3d6bc239add1cc0a17260d5f7556
@@ -99,29 +94,24 @@ archICEWMImage:
   repository: tccr.io/truecharts/rdesktop-arch-icewm
   tag: latest@sha256:e7c1e505662d3485d09bdde575df0ea150ae3893c8c3816390d157f5853612d1
   pullPolicy: Always
-
 imageSelector: image
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
 service:
   main:
     ports:
       main:
         port: 3389
-        protocol: HTTP
+        protocol: http
         targetPort: 3389
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0

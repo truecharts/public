@@ -9,9 +9,9 @@ securityContext:
   runAsNonRoot: true
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-proxy-secret'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-proxy-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-proxy-config'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-proxy-config'
 ports:
   - containerPort: {{ .Values.service.proxyhttps.ports.proxyhttps.targetPort }}
     name: proxyhttps

@@ -1,7 +1,7 @@
 {{/* Define the secret */}}
 {{- define "mealie.secret" -}}
 
-{{- $apiSecretName := printf "%s-api-secret" (include "tc.common.names.fullname" .) }}
+{{- $apiSecretName := printf "%s-api-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 
 ---
 

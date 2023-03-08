@@ -5,7 +5,7 @@
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
-  name: {{ include "tc.common.names.fullname" . }}
+  name: {{ include "tc.v1.common.lib.chart.names.fullname" . }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
     {{- with .Values.metrics.prometheusRule.labels }}
@@ -13,7 +13,7 @@ metadata:
     {{- end }}
 spec:
   groups:
-    - name: {{ include "tc.common.names.fullname" . }}
+    - name: {{ include "tc.v1.common.lib.chart.names.fullname" . }}
       rules:
         {{- with .Values.metrics.prometheusRule.rules }}
         {{- toYaml . | nindent 8 }}

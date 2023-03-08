@@ -15,11 +15,11 @@ volumeMounts:
     mountPath: {{ .Values.persistence.uploads.mountPath }}
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-immich-secret'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-immich-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-common-config'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-common-config'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-server-config'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-server-config'
 readinessProbe:
   exec:
     command:

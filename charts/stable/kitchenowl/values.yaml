@@ -2,33 +2,17 @@ image:
   repository: tccr.io/truecharts/kitchenowl-web
   pullPolicy: IfNotPresent
   tag: latest@sha256:a991e534dd274e66c82b5e249bfe2112b12ace5510db8b6c395d35b4cc65a08f
-
 backendImage:
   repository: tccr.io/truecharts/kitchenowl-backend
   pullPolicy: IfNotPresent
   tag: latest@sha256:b1efa6d8d216e572fe728352dc8c8cf7d8decb41e64b04a7967eee0d3de2e393
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-env:
-  FRONT_URL: "http://localhost:10246"
-  # Backend listens on 5000 websockets.
-  BACK_URL: "localhost:5000"
-
 service:
   main:
     ports:
       main:
-        protocol: HTTP
+        protocol: http
         targetPort: 80
         port: 10246
-
 additionalContainers:
   backend:
     name: backend
@@ -48,11 +32,24 @@ additionalContainers:
     volumeMounts:
       - name: data
         mountPath: "/data"
-
 persistence:
   data:
     enabled: true
     mountPath: "/data"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        env:
+          FRONT_URL: "http://localhost:10246"
+          # Backend listens on 5000 websockets.
+          BACK_URL: "localhost:5000"

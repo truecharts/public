@@ -1,5 +1,5 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{/* Set it to the same port as "torrent" service/port */}}
 {{- $_ := set $.Values.service.torrent.ports.torrentudp "port" (int .Values.service.torrent.ports.torrent.port) -}}
@@ -8,4 +8,4 @@
 {{ include "qbittorrent.configmap" . }}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

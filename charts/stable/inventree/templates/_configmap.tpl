@@ -1,8 +1,8 @@
 {{/* Define the secrets */}}
 {{- define "inventree.config" -}}
 
-{{- $configName := printf "%s-inventree-config" (include "tc.common.names.fullname" .) }}
-{{- $nginxConfigName := printf "%s-inventree-config-nginx" (include "tc.common.names.fullname" .) }}
+{{- $configName := printf "%s-inventree-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+{{- $nginxConfigName := printf "%s-inventree-config-nginx" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 
 ---
 

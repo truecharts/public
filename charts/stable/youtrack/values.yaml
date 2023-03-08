@@ -2,14 +2,6 @@ image:
   repository: tccr.io/truecharts/youtrack
   tag: 2022.3.65372@sha256:6a5054e5587dc8c5b757888988b500c3ca18382ee248f81637b0d53caf9e3509
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsGroup: 13001
-  runAsUser: 13001
-
 youtrack:
   baseURL: http://localhost:18080
   webHooksBaseUrl: ""
@@ -31,17 +23,14 @@ youtrack:
     maxHeapSize: 1g
     maxMetaspaceMemory: 350m
     metaspaceMemory: 350m
-    extraJVMOptions:
-      []
-      # - -XX:+HeapDumpOnOutOfMemoryError
-
+    extraJVMOptions: []
+    # - -XX:+HeapDumpOnOutOfMemoryError
 service:
   main:
     ports:
       main:
         port: 18080
-        protocol: HTTP
-
+        protocol: http
 persistence:
   data:
     enabled: true
@@ -59,6 +48,11 @@ persistence:
     enabled: true
     mountPath: /opt/youtrack/temp
     type: emptyDir
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 13001
+    runAsUser: 13001

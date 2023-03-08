@@ -2,28 +2,24 @@ image:
   repository: tccr.io/truecharts/cloud9
   pullPolicy: IfNotPresent
   tag: version-1.29.2@sha256:4891fa151fe52c43719f0346124f29c81ed47be16cdc34554b8896b0cb80cb73
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 10070
         targetPort: 8000
-
 persistence:
   code:
     enabled: true
     mountPath: "/code"
   varrun:
     enabled: true
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

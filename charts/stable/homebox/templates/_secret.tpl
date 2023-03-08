@@ -1,7 +1,7 @@
 {{/* Define the secret */}}
 {{- define "homebox.secret" -}}
 
-{{- $secretName := printf "%s-homebox-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-homebox-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 
 ---
 apiVersion: v1

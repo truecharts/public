@@ -2,12 +2,6 @@ image:
   repository: tccr.io/truecharts/gitea
   tag: 1.18.5@sha256:722c1aa3d962d7cdbec55a8016b33197468ea59a08e89650b33d6410973df944
   pullPolicy: IfNotPresent
-
-podSecurityContext:
-  runAsUser: 1000
-  runAsGroup: 1000
-  fsGroup: 1000
-
 service:
   main:
     ports:
@@ -21,11 +15,6 @@ service:
         enabled: true
         port: 2222
         targetPort: 2222
-
-envFrom:
-  - configMapRef:
-      name: gitea-env
-
 initContainers:
   1-init-directories:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -58,7 +47,6 @@ initContainers:
         mountPath: "/tmp"
       - name: data
         mountPath: "/data"
-
 persistence:
   data:
     enabled: true
@@ -71,24 +59,20 @@ persistence:
     enabled: true
     mountPath: "/var/lib/gitea"
     type: emptyDir
-
 # Configure commit/action signing prerequisites
 signing:
   enabled: true
   gpgHome: /data/git/.gnupg
-
 admin:
   username: giteaadmin
   password: r8sA8CPHD9!bt6d
   email: "gitea@local.domain"
-
 metrics:
   enabled: false
   serviceMonitor:
     enabled: false
     #  additionalLabels:
     #    prometheus-release: prom1
-
 ldap:
   enabled: false
   # name:
@@ -103,7 +87,6 @@ ldap:
   # bindPassword:
   # usernameAttribute:
   # sshPublicKeyAttribute:
-
 oauth:
   enabled: false
   # name:
@@ -116,19 +99,16 @@ oauth:
   # customTokenUrl:
   # customProfileUrl:
   # customEmailUrl:
-
 config:
   APP_NAME: "Gitea: Git with a cup of tea"
   RUN_MODE: dev
   ALLOWED_HOST_LIST: "127.0.0.1"
   nodeIP: 127.0.0.1
-
-customConfig:
-  []
-  # - name: test
-  #   keys:
-  #     - name: testkey
-  #       value: testvalue
+customConfig: []
+# - name: test
+#   keys:
+#     - name: testkey
+#       value: testvalue
 
 # Enabled postgres
 postgresql:
@@ -136,10 +116,22 @@ postgresql:
   existingSecret: "dbcreds"
   postgresqlUsername: gitea
   postgresqlDatabase: gitea
-
 # --  memcached dependency settings
 memcached:
   enabled: true
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - configMapRef:
+                name: gitea-env

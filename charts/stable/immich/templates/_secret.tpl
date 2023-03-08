@@ -1,7 +1,7 @@
 {{/* Define the secret */}}
 {{- define "immich.secret" -}}
 
-{{- $secretName := printf "%s-immich-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-immich-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 ---
 apiVersion: v1
 kind: Secret

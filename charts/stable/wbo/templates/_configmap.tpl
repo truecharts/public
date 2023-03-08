@@ -1,7 +1,7 @@
 {{/* Define the configmap */}}
 {{- define "wbo.config" -}}
 
-{{- $configName := printf "%s-config" (include "tc.common.names.fullname" .) }}
+{{- $configName := printf "%s-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 
 ---
 

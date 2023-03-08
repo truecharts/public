@@ -1,7 +1,7 @@
 {{/* Define the secret */}}
 {{- define "softserve.secret" -}}
 
-{{- $secretName := printf "%s-env-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-env-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 
 ---
 apiVersion: v1
