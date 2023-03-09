@@ -5,6 +5,8 @@ image:
 
 workload:
   main:
+    replicas: 2
+    strategy: RollingUpdate
     podSpec:
       containers:
         main:
