@@ -1,6 +1,6 @@
 # Include{groups}
 questions:
-# Include{global}
+  # Include{global}
   - variable: clusterIssuer
     group: App Configuration
     label: Cluster Certificate Issuer
@@ -9,13 +9,13 @@ questions:
       type: dict
       attrs:
         - variable: ACME
-          label: 'ACME Issuer'
+          label: "ACME Issuer"
           schema:
             type: list
             default: []
             items:
               - variable: ACMEEntry
-                label: 'ACME Issuer Entry'
+                label: "ACME Issuer Entry"
                 schema:
                   additional_attrs: true
                   type: dict
@@ -52,15 +52,15 @@ questions:
                       schema:
                         type: string
                         show_if: [["type", "!=", "HTTP01"]]
-                        default: 'Letsencrypt-Production'
+                        default: "Letsencrypt-Production"
                         enum:
-                          - value: 'https://acme-v02.api.letsencrypt.org/directory'
+                          - value: "https://acme-v02.api.letsencrypt.org/directory"
                             description: Letsencrypt-Production
-                          - value: 'https://acme-staging-v02.api.letsencrypt.org/directory'
+                          - value: "https://acme-staging-v02.api.letsencrypt.org/directory"
                             description: Letsencrypt-Staging
-                          - value: 'https://api.buypass.no/acme-v02/directory'
+                          - value: "https://api.buypass.no/acme-v02/directory"
                             description: BuyPass-Production
-                          - value: 'https://api.test4.buypass.no/acme-v02/directory'
+                          - value: "https://api.test4.buypass.no/acme-v02/directory"
                             description: BuyPass-Staging
                           - value: custom
                             description: Custom
@@ -70,7 +70,7 @@ questions:
                       schema:
                         type: string
                         show_if: [["server", "=", "custom"]]
-                        default: 'https://acme-staging-v02.api.letsencrypt.org/directory'
+                        default: "https://acme-staging-v02.api.letsencrypt.org/directory"
                     - variable: email
                       label: Email
                       description: "Email adress to use for certificate issuing must match your DNS provider email when required"
@@ -168,7 +168,7 @@ questions:
                       label: rfc2136 Namesever
                       description: "rfc2136 Namesever"
                       schema:
-                        show_if: [["type", "=", "digitalocean"]]
+                        show_if: [["type", "=", "rfc2136"]]
                         type: string
                         required: true
                         default: ""
@@ -176,7 +176,7 @@ questions:
                       label: rfc2136 tsig Key Name
                       description: "rfc2136 tsig Key Name"
                       schema:
-                        show_if: [["type", "=", "digitalocean"]]
+                        show_if: [["type", "=", "rfc2136"]]
                         type: string
                         required: true
                         default: ""
@@ -184,7 +184,7 @@ questions:
                       label: rfc2136 tsig Algorithm
                       description: "rfc2136 tsig Algorithm"
                       schema:
-                        show_if: [["type", "=", "digitalocean"]]
+                        show_if: [["type", "=", "rfc2136"]]
                         type: string
                         required: true
                         default: ""
@@ -192,7 +192,7 @@ questions:
                       label: rfc2136 sig Secret
                       description: "rfc2136 sig Secret"
                       schema:
-                        show_if: [["type", "=", "digitalocean"]]
+                        show_if: [["type", "=", "rfc2136"]]
                         type: string
                         required: true
                         default: ""
@@ -204,7 +204,7 @@ questions:
             default: []
             items:
               - variable: CAEntry
-                label: 'CA Issuer Entry'
+                label: "CA Issuer Entry"
                 schema:
                   additional_attrs: true
                   type: dict
@@ -248,7 +248,7 @@ questions:
                         default: ""
 
         - variable: selfSigned
-          label: 'SelfSigned Issuer'
+          label: "SelfSigned Issuer"
           schema:
             additional_attrs: true
             type: dict
