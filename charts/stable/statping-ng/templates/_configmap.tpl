@@ -1,14 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "statping.config" -}}
 
-{{- $configName := printf "%s-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $configName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
 data:
   PORT: {{ .Values.service.main.ports.main.port | quote }}
   DB_CONN: "postgres"

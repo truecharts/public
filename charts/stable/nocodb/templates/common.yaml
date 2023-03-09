@@ -2,7 +2,10 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render configmap for nocodb */}}
-{{- include "nocodb.configmap" . }}
+{{- $configmap := include "nocodb.configmap" . | fromYaml -}}
+{{- if $configmap -}}
+{{- $_ := set .Values.configmap "config" $configmap -}}
+{{- end -}}
 
 {{/* Render secrets for nocodb */}}
 {{- include "nocodb.secrets" . }}

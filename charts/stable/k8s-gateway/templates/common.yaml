@@ -2,8 +2,11 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 
-{{/* Render configmap for nextcloud */}}
-{{- include "k8s-gateway.configmap" . }}
+{{/* Render configmap for k8s-gateway */}}
+{{- $configmap := include "k8s-gateway.configmap" . | fromYaml -}}
+{{- if $configmap -}}
+{{- $_ := set .Values.configmap "config" $configmap -}}
+{{- end -}}
 
 {{/* Append the general configMap volume to the volumes */}}
 {{- define "k8s-gateway.configvolume" -}}

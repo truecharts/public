@@ -11,15 +11,7 @@ Create the matchable regex from domain
 
 {{/* Define the configmap */}}
 {{- define "k8s-gateway.configmap" -}}
-{{- $values := .Values }}
-{{- $fqdn := ( include "tc.common.names.fqdn" . ) }}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ include "tc.v1.common.lib.chart.names.fullname" . }}-corefile
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+
 data:
   Corefile: |-
     .:53 {

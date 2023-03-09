@@ -1,15 +1,6 @@
+{{/* Define the configmap */}}
 {{- define "focalboard.configmap" -}}
 
-{{- $pgPass := .Values.postgresql.postgresqlPassword | trimAll "\"" }}
-{{- $pgUser := .Values.postgresql.postgresqlUsername }}
-{{- $pgDB := .Values.postgresql.postgresqlDatabase }}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ include "tc.v1.common.lib.chart.names.fullname" . }}-install
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
 data:
   focalboard-config: |-
     {
