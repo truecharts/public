@@ -13,13 +13,6 @@
 {{- end }}
 {{- end }}
 {{- end }}
-
-
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: nextcloudconfig
 data:
   {{- $aliasgroup1 := (  printf "http://%s" ( .Values.env.AccessIP | default ( printf "%v-%v" .Release.Name "nextcloud" ) ) ) }}
   {{- if .Values.ingress.main.enabled }}

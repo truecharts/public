@@ -4,7 +4,10 @@
 {{- include "wger.secrets" . }}
 
 {{/* Render configmap for wger */}}
-{{- include "wger.configmap" . }}
+{{- $configmap := include "wger.configmap" . | fromYaml -}}
+{{- if $configmap -}}
+{{- $_ := set .Values.configmap "config" $configmap -}}
+{{- end -}}
 
 {{- $_ := set .Values.additionalContainers "nginx" (include "wger.nginx" . | fromYaml) -}}
 

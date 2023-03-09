@@ -2,7 +2,10 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render configmap for synapse */}}
-{{- include "synapse.config" . }}
+{{- $configmap := include "synapse.config" . | fromYaml -}}
+{{- if $configmap -}}
+{{- $_ := set .Values.configmap "config" $configmap -}}
+{{- end -}}
 
 {{/* Render secret for synapse */}}
 {{- include "synapse.secret" . }}

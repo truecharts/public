@@ -1,8 +1,12 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
-{{/* Render config */}}
-{{- include "wg.env.configmap" . }}
+{{/* Render configmap for wireguard */}}
+{{- $configmap := include "wg.env.configmap" . | fromYaml -}}
+{{- if $configmap -}}
+{{- $_ := set .Values.configmap "config" $configmap -}}
+{{- end -}}
+
 {{/* Render secret */}}
 {{- include "wg.config-secret" . }}
 

@@ -3,15 +3,6 @@
 
 {{- $configName := printf "%s-wger-configmap" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 {{- $nginxConfigName := printf "%s-wger-nginx-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
-
----
-{{/* This configmap are loaded on both main authentik container and worker */}}
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $configName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{/* Dependencies */}}
   DJANGO_DB_ENGINE: "django.db.backends.postgresql"
