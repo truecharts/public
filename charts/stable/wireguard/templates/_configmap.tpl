@@ -1,6 +1,7 @@
 {{/* Define the secrets */}}
 {{- define "wg.env.configmap" -}}
 
+{{- $configName := printf "%s-wg-env-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 data:
   SEPARATOR: ";"
   IPTABLES_BACKEND: nft

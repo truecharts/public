@@ -1,6 +1,9 @@
 {{/* Define the configmap */}}
 {{- define "focalboard.configmap" -}}
 
+{{- $pgPass := .Values.postgresql.postgresqlPassword | trimAll "\"" }}
+{{- $pgUser := .Values.postgresql.postgresqlUsername }}
+{{- $pgDB := .Values.postgresql.postgresqlDatabase }}
 data:
   focalboard-config: |-
     {

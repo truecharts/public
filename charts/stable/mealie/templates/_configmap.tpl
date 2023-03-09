@@ -1,6 +1,8 @@
 {{/* Define the configmap */}}
 {{- define "mealie.config" -}}
 
+{{- $frontendConfigName := printf "%s-frontend-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+{{- $apiConfigName := printf "%s-api-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 data:
   API_URL: http://localhost:{{ .Values.service.api.ports.api.port }}
   THEME_LIGHT_PRIMARY: {{ .Values.mealie_frontend.theme.light_primary | default "#E58325" | quote }}

@@ -1,6 +1,9 @@
 {{/* Define the configmap */}}
 {{- define "immich.config" -}}
 
+{{- $serverConfigName := printf "%s-server-config" (include "tc.v1.common.lib.chart.names.fullname" .) -}}
+{{- $commonConfigName := printf "%s-common-config" (include "tc.v1.common.lib.chart.names.fullname" .) -}}
+{{- $proxyConfigName := printf "%s-proxy-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 data:
   DB_HOSTNAME: {{ printf "%v-%v" .Release.Name "postgresql" }}
   DB_USERNAME: {{ .Values.postgresql.postgresqlUsername }}

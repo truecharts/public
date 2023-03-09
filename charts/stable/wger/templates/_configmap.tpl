@@ -1,6 +1,8 @@
 {{/* Define the configmap */}}
 {{- define "wger.configmap" -}}
 
+{{- $configName := printf "%s-wger-configmap" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+{{- $nginxConfigName := printf "%s-wger-nginx-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 data:
   {{/* Dependencies */}}
   DJANGO_DB_ENGINE: "django.db.backends.postgresql"

@@ -11,6 +11,8 @@ Create the matchable regex from domain
 
 {{/* Define the configmap */}}
 {{- define "k8s-gateway.configmap" -}}
+{{- $values := .Values }}
+{{- $fqdn := ( include "tc.common.names.fqdn" . ) }}
 
 data:
   Corefile: |-
