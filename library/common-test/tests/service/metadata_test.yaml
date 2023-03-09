@@ -70,7 +70,7 @@ tests:
             app.kubernetes.io/version: *appVer
             app.kubernetes.io/instance: RELEASE-NAME
             app.kubernetes.io/name: common-test
-            service.name: release-name-common-test
+            service.name: my-service1
             g_label1: global_label1
             g_label2: global_label2
             label1: label1
@@ -82,7 +82,7 @@ tests:
         equal:
           path: metadata.labels
           value:
-            service.name: release-name-common-test-my-service2
+            service.name: my-service2
             app: common-test-1.0.0
             app.kubernetes.io/instance: RELEASE-NAME
             app.kubernetes.io/managed-by: Helm

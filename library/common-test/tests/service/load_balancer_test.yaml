@@ -36,6 +36,7 @@ tests:
           path: spec
           value:
             type: LoadBalancer
+            allocateLoadBalancerNodePorts: false
             publishNotReadyAddresses: false
             ports:
             - name: port-name
@@ -71,6 +72,7 @@ tests:
             - "{{ .Values.some_range }}"
             - 10.100.200.0/24
           externalTrafficPolicy: "{{ .Values.some_policy }}"
+          allocateLoadBalancerNodePorts: true
           publishNotReadyAddresses: true
           ipFamilyPolicy: PreferDualStack
           ipFamilies:
@@ -112,6 +114,7 @@ tests:
               - 10.100.200.0/24
             externalTrafficPolicy: Local
             ipFamilyPolicy: PreferDualStack
+            allocateLoadBalancerNodePorts: true
             publishNotReadyAddresses: true
             ipFamilies:
               - IPv4
