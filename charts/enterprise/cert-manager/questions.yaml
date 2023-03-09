@@ -168,7 +168,7 @@ questions:
                       label: rfc2136 Namesever
                       description: "rfc2136 Namesever"
                       schema:
-                        show_if: [["type", "=", "digitalocean"]]
+                        show_if: [["type", "=", "rfc2136"]]
                         type: string
                         required: true
                         default: ""
@@ -176,7 +176,7 @@ questions:
                       label: rfc2136 tsig Key Name
                       description: "rfc2136 tsig Key Name"
                       schema:
-                        show_if: [["type", "=", "digitalocean"]]
+                        show_if: [["type", "=", "rfc2136"]]
                         type: string
                         required: true
                         default: ""
@@ -184,7 +184,7 @@ questions:
                       label: rfc2136 tsig Algorithm
                       description: "rfc2136 tsig Algorithm"
                       schema:
-                        show_if: [["type", "=", "digitalocean"]]
+                        show_if: [["type", "=", "rfc2136"]]
                         type: string
                         required: true
                         default: ""
@@ -192,7 +192,7 @@ questions:
                       label: rfc2136 sig Secret
                       description: "rfc2136 sig Secret"
                       schema:
-                        show_if: [["type", "=", "digitalocean"]]
+                        show_if: [["type", "=", "rfc2136"]]
                         type: string
                         required: true
                         default: ""
