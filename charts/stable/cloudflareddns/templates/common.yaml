@@ -2,7 +2,11 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secret */}}
-{{- include "cloudflareddns.secret" . }}
+{{/* Render configmap for cloudflareddns.secret */}}
+{{- $configmap := include "c" . | fromYaml -}}
+{{- if $configmap -}}
+{{- $_ := set .Values.configmap "config" $configmap -}}
+{{- end -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
