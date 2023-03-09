@@ -4,8 +4,11 @@
 {{/* Render secret */}}
 {{- include "tailscale.secret" . }}
 
-{{/* Render config */}}
-{{- include "tailscale.config" . }}
+{{/* Render configmap for tailscale */}}
+{{- $configmap := include "tailscale.config" . | fromYaml -}}
+{{- if $configmap -}}
+{{- $_ := set .Values.configmap "config" $configmap -}}
+{{- end -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}

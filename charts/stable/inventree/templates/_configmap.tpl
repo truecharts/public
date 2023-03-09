@@ -3,15 +3,6 @@
 
 {{- $configName := printf "%s-inventree-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 {{- $nginxConfigName := printf "%s-inventree-config-nginx" (include "tc.v1.common.lib.chart.names.fullname" .) }}
-
----
-
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $configName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
 data:
   INVENTREE_TIMEZONE: {{ .Values.TZ }}
   INVENTREE_DB_ENGINE: "postgresql"

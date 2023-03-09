@@ -17,13 +17,6 @@
 {{- if .Values.tailscale.extra_args }}
 {{- $customArgs = (printf "%v %v" .Values.tailscale.extra_args $customArgs | trim) -}}
 {{- end }}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $configName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
 data:
   TS_KUBE_SECRET: {{ $secretName | squote }}
   TS_SOCKET: /var/run/tailscale/tailscaled.sock
