@@ -4,8 +4,11 @@
 {{/* Render secret */}}
 {{- include "immich.secret" . }}
 
-{{/* Render config */}}
-{{- include "immich.config" . }}
+{{/* Render configmap for immich */}}
+{{- $configmap := include "immich.config" . | fromYaml -}}
+{{- if $configmap -}}
+{{- $_ := set .Values.configmap "config" $configmap -}}
+{{- end -}}
 
 {{- $_ := set .Values.additionalContainers "proxy" (include "immich.proxy" . | fromYaml) -}}
 {{- $_ := set .Values.additionalContainers "web" (include "immich.web" . | fromYaml) -}}

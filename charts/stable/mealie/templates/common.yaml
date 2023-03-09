@@ -4,8 +4,11 @@
 {{/* Render secret */}}
 {{- include "mealie.secret" . }}
 
-{{/* Render config */}}
-{{- include "mealie.config" . }}
+{{/* Render configmap for mealie */}}
+{{- $configmap := include "mealie.config" . | fromYaml -}}
+{{- if $configmap -}}
+{{- $_ := set .Values.configmap "config" $configmap -}}
+{{- end -}}
 
 {{- $_ := set .Values.additionalContainers "api" (include "mealie.api" . | fromYaml) -}}
 

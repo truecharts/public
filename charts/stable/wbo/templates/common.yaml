@@ -4,8 +4,11 @@
 {{/* Render secret */}}
 {{- include "wbo.secret" . }}
 
-{{/* Render config */}}
-{{- include "wbo.config" . }}
+{{/* Render configmap for wbo */}}
+{{- $configmap := include "wbo.config" . | fromYaml -}}
+{{- if $configmap -}}
+{{- $_ := set .Values.configmap "config" $configmap -}}
+{{- end -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}

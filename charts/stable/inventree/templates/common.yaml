@@ -4,8 +4,11 @@
 {{/* Render secrets for inventree */}}
 {{- include "inventree.secrets" . }}
 
-{{/* Render config for inventree */}}
-{{- include "inventree.config" . }}
+{{/* Render configmap for inventree */}}
+{{- $configmap := include "inventree.config" . | fromYaml -}}
+{{- if $configmap -}}
+{{- $_ := set .Values.configmap "config" $configmap -}}
+{{- end -}}
 
 {{- $_ := set .Values.initContainers "init" (include "inventree.init" . | fromYaml) -}}
 {{- $_ := set .Values.additionalContainers "nginx" (include "inventree.nginx" . | fromYaml) -}}
