@@ -4,7 +4,7 @@
 {{/* Render secrets for gitea */}}
 {{- $secrets := include "gitea.secrets" . | fromYaml -}}
 {{- if $secrets -}}
-{{- $_ := set .Values.secret "" $secrets -}}
+{{- $_ := set .Values.secret "secret" $secrets -}}
 {{- end -}}
 
 {{/* Render configmap for gitea */}}
