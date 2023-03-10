@@ -25,7 +25,7 @@ workload:
             LLDAP_LDAP_USER_PASS: "change me"
           envFrom:
             - secretRef:
-                name: lldapsecret
+                name: jwtSecret
 # Set lldap variables
 lldap:
   configuration:
