@@ -1,5 +1,5 @@
-{{/* Render the templates */}}
-{{ include "common.all" . }}
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secrets for LLDAP */}}
 {{- $jwt := include "lldap.secrets" . | fromYaml -}}
