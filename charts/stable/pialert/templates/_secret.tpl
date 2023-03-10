@@ -11,7 +11,7 @@ metadata:
   name: {{ $secretName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+data:
   pialert.conf: |
     # General
     TIMEZONE={{ .Values.TZ | squote }}

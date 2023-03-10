@@ -10,7 +10,7 @@ metadata:
   name: {{ $secretName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+data:
   TRAGGO_DATABASE_DIALECT: sqlite3
   TRAGGO_DATABASE_CONNECTION: /opt/traggo/data/traggo.db
   TRAGGO_PORT: {{ .Values.service.main.ports.main.port | quote }}

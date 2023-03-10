@@ -2,17 +2,7 @@
 {{- define "gsm.secret" -}}
 
 {{- $secretName := printf "%s-gsm-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
-
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+data:
   DATABASE_URL: {{ .Values.postgresql.url.complete | trimAll "\"" }}
   DB_CONNECTION: {{ print "postgres" }}
   APP_TOKEN: {{ .Values.gsm.app_token | quote }}

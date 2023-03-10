@@ -12,7 +12,7 @@ metadata:
   name: {{ $secretName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+data:
   SETTINGS_FILE: {{ .Values.persistence.settings.mountPath }}
   INTERVAL: {{ $pas.interval | quote }}
 ---
@@ -22,7 +22,7 @@ metadata:
   name: {{ $secretConfigName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+data:
   settings.ini: |
     [PLEX]
     anime_section = {{ join "|" $pas.plex.plex_section }}

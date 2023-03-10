@@ -3,7 +3,10 @@
 
 {{- if and .Values.clamav.cron_enabled .Values.clamav.cron_schedule}}
 {{/* Render cronjob for clamav */}}
-{{- include "clamav.cronjob" . }}
+{{- $cronjob := include "clamav.cronjob" . | fromYaml -}}
+{{- if $cronjob -}}
+{{- $_ := set .Values.workloads "cron" $cronjob -}}
+{{- end -}}
 {{- end -}}
 
 {{/* Render the templates */}}

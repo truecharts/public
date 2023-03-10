@@ -1,7 +1,5 @@
 {{/* Define the secret */}}
 {{- define "cloudflareddns.secret" -}}
-
-{{- $secretName := printf "%s-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 {{- $cfddns := .Values.cloudflareddns -}}
 {{- $domains := list }}
 {{- $records := list }}
@@ -11,7 +9,7 @@
   {{- $records = mustAppend $records $item.record }}
   {{- $zones = mustAppend $zones $item.zone }}
 {{- end }}
-stringData:
+data:
   {{- with $cfddns.user }}
   CF_USER: {{ . | quote }}
   {{- end }}

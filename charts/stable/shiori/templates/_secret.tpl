@@ -1,16 +1,6 @@
 {{/* Define the secret */}}
 {{- define "shiori.secret" -}}
-
-{{- $secretName := printf "%s-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
-
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+data:
   SHIORI_DIR: {{ .Values.persistence.data.mountPath }}
 
   {{/* Database */}}
