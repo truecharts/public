@@ -1,0 +1,46 @@
+image:
+  repository: tnitnelave/lldap
+  pullPolicy: IfNotPresent
+  tag: latest
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 17170
+        port: 17170
+  ldap:
+    ports:
+      main:
+        targetPort: 3890
+        port: 3890
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - configMapRef:
+                name: lldapconfig
+            - secretRef:
+                name: lldapsecret
+
+# Set lldap variables
+lldap:
+  configuration:
+    ## JWT secret set to auto generate if not defined.
+    # jwt:
+    ## Password for admin user
+    password: "replaceme"
+    ## User defined Base DN e.g. dc=example,dc=com
+    basedn: "dc=example,dc=com"
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+portal:
+  open:
+    enabled: true
