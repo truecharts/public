@@ -30,14 +30,6 @@
 {{- $commonFlags = mustAppend $commonFlags (printf "%s-login-with-oidc" (ternary "enable" "disable" .Values.penpot.identity_providers.oidc.enabled)) }}
 {{- $commonFlags = mustAppend $commonFlags (printf "%s-login-with-ldap" (ternary "enable" "disable" .Values.penpot.identity_providers.ldap.enabled)) }}
 
----
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $commonSecretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
 stringData:
   PENPOT_TELEMETRY_ENABLED: {{ .Values.penpot.telemetry_enabled | quote }}
   {{- with .Values.penpot.registration_domain_whitelist }}
