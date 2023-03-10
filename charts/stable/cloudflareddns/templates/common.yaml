@@ -1,13 +1,6 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
-{{/* Render secret */}}
-{{/* Render secrets for cloudflareddns.secret */}}
-{{- $s := include "cloudflareddns.secret" . | fromYaml -}}
-{{- if $configmap -}}
-{{- $_ := set .Values.configmap "config" $configmap -}}
-{{- end -}}
-
 {{/* Render secrets for cloudflareddns */}}
 {{- $secrets := include "cloudflareddns.secret" . | fromYaml -}}
 {{- if $secrets -}}
