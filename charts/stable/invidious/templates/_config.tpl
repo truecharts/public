@@ -16,13 +16,7 @@
 {{- $vVidPlay := .Values.invidious.default_user_preferences.video_playback_settings }}
 {{- $vSubFeed := .Values.invidious.default_user_preferences.subscription_feed }}
 {{- $vUserMisc := .Values.invidious.default_user_preferences.miscellaneous }}
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: {{ $configName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+
 stringData:
   INVIDIOUS_CONFIG: |
     # Database

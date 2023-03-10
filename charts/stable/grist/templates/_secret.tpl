@@ -3,15 +3,6 @@
 
 {{- $secretName := printf "%s-grist-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{/* Secret Key */}}
   {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
