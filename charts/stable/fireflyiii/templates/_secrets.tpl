@@ -1,15 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "fireflyiii.secrets" -}}
----
 
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: fireflyiii-secrets
-{{- $fireflyiiiprevious := lookup "v1" "Secret" .Release.Namespace "fireflyiii-secrets" }}
-{{- $static_cron_token := "" }}
-{{- $app_key := "" }}
 data:
   {{- if $fireflyiiiprevious}}
   STATIC_CRON_TOKEN: {{ index $fireflyiiiprevious.data "STATIC_CRON_TOKEN" }}

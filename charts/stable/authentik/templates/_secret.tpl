@@ -7,15 +7,6 @@
 {{- $proxySecretName := printf "%s-proxy-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 {{- $token := randAlphaNum 128 | b64enc }}
 
----
-{{/* This secrets are loaded on both main authentik container and worker */}}
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $authentikSecretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{/* Secret Key */}}
   {{- with (lookup "v1" "Secret" .Release.Namespace $authentikSecretName) }}

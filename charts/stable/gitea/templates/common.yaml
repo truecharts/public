@@ -2,7 +2,10 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secrets for gitea */}}
-{{- include "gitea.secrets" . }}
+{{- $secrets := include "gitea.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+{{- $_ := set .Values.secret "" $secrets -}}
+{{- end -}}
 
 {{/* Render configmap for gitea */}}
 {{- $configmap := include "gitea.configmap" . | fromYaml -}}

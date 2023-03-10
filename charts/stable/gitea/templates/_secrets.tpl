@@ -1,7 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "gitea.secrets" -}}
 
----
 {{ $DOMAIN := .Values.config.nodeIP | quote -}}
 {{ $URL := (printf "http://%s/" .Values.config.nodeIP) }}
 
@@ -10,12 +9,6 @@
   {{- $URL = (printf "https://%s/" (index .Values.ingress.main.hosts 0).host) -}}
 {{- end -}}
 
-apiVersion: v1
-kind: Secret
-metadata:
-  name: {{ include "tc.v1.common.lib.chart.names.fullname" . }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
 type: Opaque
 data:
   app.ini: |-

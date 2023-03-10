@@ -1,14 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "baserow.secrets" -}}
----
 
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: baserow-secrets
-{{- $baserowprevious := lookup "v1" "Secret" .Release.Namespace "baserow-secrets" }}
-{{- $secret_key := "" }}
 data:
   {{- if $baserowprevious}}
   SECRET_KEY: {{ index $baserowprevious.data "SECRET_KEY" }}
