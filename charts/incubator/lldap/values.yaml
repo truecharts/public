@@ -20,16 +20,11 @@ workload:
     podSpec:
       containers:
         main:
+          env:
+            LLDAP_BASE_DN: {{ .Values.lldap.basedn | quote }}
           envFrom:
-            - configMapRef:
-                name: lldapconfig
             - secretRef:
                 name: lldapsecret
-configmap:
-  lldapconfig:
-    enabled: true
-    data:
-      LLDAP_BASE_DN: {{ .Values.lldap.basedn | quote }}
 # Set lldap variables
 lldap:
   configuration:
