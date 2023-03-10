@@ -9,8 +9,6 @@
 {{- $dbuser := .Values.postgresql.postgresqlUsername }}
 {{- $dbname := .Values.postgresql.postgresqlDatabase }}
 {{- $port := .Values.service.main.ports.main.port }}
-stringData: {{/* Env takes precedence, and it;s defined in Dockerfile as 80 */}}
-  GOTIFY_SERVER_PORT: {{ $port | quote }}
 data: {{/* Env takes precedence, and it;s defined in Dockerfile as 80 */}}
   GOTIFY_SERVER_PORT: {{ $port | quote }}
   config.yml: |
