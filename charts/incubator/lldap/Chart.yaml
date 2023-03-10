@@ -14,14 +14,14 @@ keywords:
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/lldap
 dependencies:
-- name: common
-  repository: https://library-charts.truecharts.org
-  version: 11.1.2
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 11.1.2
     # condition:
 maintainers:
-- email: info@truecharts.org
-  name: TrueCharts
-  url: https://truecharts.org
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
 annotations:
   truecharts.org/catagories: |
     - ldap
