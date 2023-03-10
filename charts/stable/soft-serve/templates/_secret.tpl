@@ -11,7 +11,7 @@ metadata:
   name: {{ $secretName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+data:
   SOFT_SERVE_BIND_ADDRESS: "0.0.0.0"
   SOFT_SERVE_REPO_PATH: {{ .Values.persistence.repos.mountPath | quote }}
   SOFT_SERVE_PORT: {{ .Values.service.main.ports.main.port | quote }}

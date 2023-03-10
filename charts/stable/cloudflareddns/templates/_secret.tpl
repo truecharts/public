@@ -11,7 +11,7 @@
   {{- $records = mustAppend $records $item.record }}
   {{- $zones = mustAppend $zones $item.zone }}
 {{- end }}
-stringData:
+data:
   {{- with $cfddns.user }}
   CF_USER: {{ . | quote }}
   {{- end }}
