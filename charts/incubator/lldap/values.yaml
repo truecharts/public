@@ -21,7 +21,8 @@ workload:
       containers:
         main:
           env:
-            LLDAP_BASE_DN: {{ .Values.lldap.basedn | quote }}
+            LLDAP_LDAP_BASE_DN: "dc=example,dc=com"
+            LLDAP_LDAP_USER_PASS: "change me"
           envFrom:
             - secretRef:
                 name: lldapsecret
@@ -30,8 +31,6 @@ lldap:
   configuration:
     ## JWT secret set to auto generate if not defined.
     # jwt:
-    ## Password for admin user
-    password: "replaceme"
 
 persistence:
   data:

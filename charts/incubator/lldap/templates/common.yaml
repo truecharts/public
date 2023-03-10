@@ -1,2 +1,11 @@
 {{/* Render the templates */}}
 {{ include "common.all" . }}
+
+{{/* Render secrets for LLDAP */}}
+{{- $jwt := include "lldap.secrets" . | fromYaml -}}
+{{- if $jwt -}}
+  {{- $_ := set .Values.secret "lldap-secrets" $jwt -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

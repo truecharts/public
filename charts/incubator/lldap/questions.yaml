@@ -7,13 +7,27 @@ questions:
 # Include{controllerExpert}
 # Include{fixedEnv}
 # Include{containerConfig}
-  - variable: lldap
-    label: ""
+  - variable: env
     group: "App Configuration"
+    label: "Image Environment"
     schema:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: LLDAP_LDAP_USER_PASS
+          group: "App Configuration"
+          label: "Admin Password"
+          schema:
+            type: string
+            required: true
+            default: "change me"
+        - variable: LLDAP_LDAP_BASE_DN
+          group: "App Configuration"
+          label: "Base DN for LDAP"
+          schema:
+            type: string
+            required: true
+            default: "dc=example,dc=com"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -32,8 +46,21 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: CHARTPORT
+                              default: 17170
                               required: true
+        - variable: ldap
+          label: "LDAP Service Port Configuration"
+          description: "The Service in which external sources will connect to the LDAP service"
+          schema:
+            type: dict
+            attrs:
+              - variable: port
+                label: "Port"
+                description: "This port exposes the container port on the service"
+                schema:
+                  type: int
+                  default: 3890
+                  required: true
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
