@@ -30,7 +30,7 @@
 {{- $commonFlags = mustAppend $commonFlags (printf "%s-login-with-oidc" (ternary "enable" "disable" .Values.penpot.identity_providers.oidc.enabled)) }}
 {{- $commonFlags = mustAppend $commonFlags (printf "%s-login-with-ldap" (ternary "enable" "disable" .Values.penpot.identity_providers.ldap.enabled)) }}
 
-stringData:
+data:
   PENPOT_TELEMETRY_ENABLED: {{ .Values.penpot.telemetry_enabled | quote }}
   {{- with .Values.penpot.registration_domain_whitelist }}
   PENPOT_REGISTRATION_DOMAIN_WHITELIST: {{ join "," . }}
@@ -73,7 +73,7 @@ metadata:
   name: {{ $exporterSecretName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+data:
   PENPOT_PUBLIC_URI: http://penpot-frontend:{{ .Values.service.main.ports.main.targetPort }}
 ---
 apiVersion: v1
@@ -83,7 +83,7 @@ metadata:
   name: {{ $backendAndExporterSecretName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+data:
   PENPOT_FLAGS: {{ join " " (concat $commonFlags $backendFlags) | quote }}
   PENPOT_PUBLIC_URI: {{ .Values.penpot.public_uri | quote }}
   {{- with (lookup "v1" "Secret" .Release.Namespace $backendAndExporterSecretName) }}
@@ -118,7 +118,7 @@ metadata:
   name: {{ $frontendSecretName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+data:
   PENPOT_PUBLIC_URI: {{ .Values.penpot.public_uri | quote }}
   PENPOT_FLAGS: {{ join " " (concat $commonFlags $frontendFlags) | quote }}
 {{- end }}
