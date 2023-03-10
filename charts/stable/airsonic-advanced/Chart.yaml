@@ -4,10 +4,7 @@ dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 12.2.26
-  - condition: postgresql.enabled
-    name: postgresql
-    repository: https://deps.truecharts.org/
-    version: 11.0.31
+
 description: Airsonic is a Free and Open Source community driven media server
 home: https://truecharts.org/charts/stable/airsonic-advanced
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic-advanced.png
