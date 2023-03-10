@@ -17,7 +17,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 type: Opaque
-stringData:
+data:
   app.ini: |-
     APP_NAME = {{ .Values.config.APP_NAME }}
     RUN_MODE = {{ .Values.config.RUN_MODE }}
@@ -119,7 +119,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 type: Opaque
-stringData:
+data:
   init_directory_structure.sh: |-
     #!/usr/bin/env bash
 

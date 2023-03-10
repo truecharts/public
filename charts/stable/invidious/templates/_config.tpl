@@ -23,7 +23,7 @@ metadata:
   name: {{ $configName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+data:
   INVIDIOUS_CONFIG: |
     # Database
     check_tables: true

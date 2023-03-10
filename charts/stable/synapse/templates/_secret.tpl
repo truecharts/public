@@ -25,7 +25,7 @@ metadata:
   {{ include "tc.common.labels" . | nindent 4 }}
   annotations:
     rollme: {{ randAlphaNum 5 | quote }}
-stringData:
+data:
   secret.yaml: |
     {{- if .Values.mail.enabled }}
     email:

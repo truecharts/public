@@ -26,7 +26,7 @@ metadata:
   name: {{ $secretName }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+data:
   config.yml: |
     database:
       type: postgres
