@@ -1,16 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "ocis.secrets" -}}
----
 
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: ocis-secrets
-{{- $ocisprevious := lookup "v1" "Secret" .Release.Namespace "ocis-secrets" }}
-{{- $ocis_jwt_secret := "" }}
-{{- $storage_transfer_secret := "" }}
-{{- $ocis_machine_auth_api_Key := "" }}
 data:
   {{- if $ocisprevious}}
   OCIS_JWT_SECRET: {{ index $ocisprevious.data "OCIS_JWT_SECRET" }}

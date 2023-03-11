@@ -1,14 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "pinry.secrets" -}}
----
 
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: pinry-secrets
-{{- $pinryprevious := lookup "v1" "Secret" .Release.Namespace "pinry-secrets" }}
-{{- $secret_key := "" }}
 data:
   {{- if $pinryprevious}}
   SECRET_KEY: {{ index $pinryprevious.data "SECRET_KEY" }}

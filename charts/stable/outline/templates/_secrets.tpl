@@ -1,15 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "outline.secrets" -}}
----
 
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: outline-secrets
-{{- $outlineprevious := lookup "v1" "Secret" .Release.Namespace "outline-secrets" }}
-{{- $secret_key := "" }}
-{{- $utils_secret := "" }}
 data:
   {{- if $outlineprevious}}
   SECRET_KEY: {{ index $outlineprevious.data "SECRET_KEY" }}

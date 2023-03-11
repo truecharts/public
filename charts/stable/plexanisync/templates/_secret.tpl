@@ -5,24 +5,10 @@
 {{- $secretConfigName := printf "%s-config-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 {{- $pas := .Values.plexanisync }}
 {{- $cm := .Values.custom_mappings }}
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+
 data:
   SETTINGS_FILE: {{ .Values.persistence.settings.mountPath }}
   INTERVAL: {{ $pas.interval | quote }}
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: {{ $secretConfigName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-data:
   settings.ini: |
     [PLEX]
     anime_section = {{ join "|" $pas.plex.plex_section }}
