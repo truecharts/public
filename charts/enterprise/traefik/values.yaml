@@ -128,15 +128,13 @@ logs:
     format: common
 
 metrics:
-  metrics:
+  main:
     enabled: true
     type: servicemonitor
     endpoints:
       - port: metrics
         path: /metrics
     targetSelector: metrics
-  prometheus:
-    entryPoint: metrics
 
 globalArguments:
   - "--global.checknewversion"
