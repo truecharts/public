@@ -1,6 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "weblate.configmap" -}}
-
+enabled: true
 data:
   {{/* General */}}
   {{- if .Values.weblate.general.WEBLATE_SITE_DOMAIN }}
