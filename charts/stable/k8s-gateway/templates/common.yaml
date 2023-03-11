@@ -10,7 +10,7 @@
 
 {{/* Append the general configMap volume to the volumes */}}
 {{- define "k8s-gateway.configvolume" -}}
-enabled: "true"
+enabled: true
 mountPath: "/etc/coredns"
 readOnly: true
 type: configmap
