@@ -128,15 +128,15 @@ logs:
     format: common
 
 metrics:
-  # datadog:
-  #   address: 127.0.0.1:8125
-  # influxdb:
-  #   address: localhost:8089
-  #   protocol: udp
+  metrics:
+    enabled: true
+    type: servicemonitor
+    endpoints:
+      - port: metrics
+        path: /metrics
+    targetSelector: metrics
   prometheus:
     entryPoint: metrics
-  # statsd:
-  #   address: localhost:8125
 
 globalArguments:
   - "--global.checknewversion"
