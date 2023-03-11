@@ -3,6 +3,16 @@ image:
   pullPolicy: IfNotPresent
   tag: latest
 
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 0
+
 service:
   main:
     ports:
@@ -21,12 +31,14 @@ workload:
       containers:
         main:
           env:
+            GID: "0"
             LLDAP_LDAP_BASE_DN: "dc=example,dc=com"
             LLDAP_LDAP_USER_PASS: "change me"
-          envFrom:
-            - secretRef:
-                name: lldap-secrets
-                key: jwtSecret
+            LLDAP_JWT_SECRET:
+              - secretRef:
+                  name: secrets
+                  key: LLDAP_JWT_SECRET
+            UID: "0"
 # Set lldap variables
 lldap:
   configuration:
