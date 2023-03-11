@@ -505,9 +505,9 @@ metrics:
     # defaults to selectorLabels
     selector: {}
     endpoints:
-     - port: 3000
-       interval: 5
-       scrapeTimeout: 5
+     - port: main
+       interval: 5s
+       scrapeTimeout: 5s
        path: /
        honorLabels: false
     prometheusRule:
