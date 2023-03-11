@@ -4,7 +4,7 @@
 {{/* Render secrets for audiobookshelf */}}
 {{- $secrets := include "audiobookshelf.secrets" . | fromYaml -}}
 {{- if $secrets -}}
-{{- $_ := set .Values.secret secret" $secrets -}}
+{{- $_ := set .Values.secret "secret" $secrets -}}
 {{- end -}}
 
 {{- $newMiddlewares :=  list "tc-opencors-chain" }}
