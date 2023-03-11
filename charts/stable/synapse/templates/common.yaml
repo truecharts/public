@@ -9,6 +9,10 @@
 
 {{/* Render secret for synapse */}}
 {{- include "synapse.secret" . }}
+{{- $secrets := include "synapse.secret" . | fromYaml -}}
+{{- if $secrets -}}
+{{- $_ := set .Values.secret "secret" $secrets -}}
+{{- end -}}
 
 {{- $newMiddlewares :=  list "tc-opencors-headers" }}
 {{- $_ := set .Values.ingress.main "fixedMiddlewares" $newMiddlewares -}}
