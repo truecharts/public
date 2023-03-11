@@ -13,7 +13,7 @@ synapse-secret-macaroon:
   annotations:
     rollme: {{ randAlphaNum 5 | quote }}
   data:
-    key: {{ $msk | b64enc }}
+    key: {{ $msk }}
 
 synapse-secret:
   enabled: true
