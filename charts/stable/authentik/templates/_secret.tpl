@@ -2,6 +2,7 @@
 {{- define "authentik.secret" -}}
 
 {{- $token := randAlphaNum 128 }}
+{{- $authentikSecretName := (printf "%s-authentik-secret" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
 authentik-secret:
   enabled: true
