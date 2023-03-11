@@ -7,7 +7,7 @@
 {{/* Render configmap for inventree */}}
 {{- $configmap := include "inventree.config" . | fromYaml -}}
 {{- if $configmap -}}
-{{- $_ := set .Values.configmap "config" $configmap -}}
+  {{- $_ := mustMergeOverwrite .Values.configmap $configmap -}}
 {{- end -}}
 
 {{- $_ := set .Values.initContainers "init" (include "inventree.init" . | fromYaml) -}}
