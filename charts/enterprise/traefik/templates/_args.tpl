@@ -36,7 +36,7 @@ args:
   {{- end }}
   {{- if .Values.metrics.prometheus }}
   - "--metrics.prometheus=true"
-  - "--metrics.prometheus.entrypoint={{ .Values.metrics.prometheus.entryPoint }}"
+  - "--metrics.prometheus.entrypoint=metrics"
   {{- end }}
   {{- if .Values.metrics.statsd }}
   - "--metrics.statsd=true"
