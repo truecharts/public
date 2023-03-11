@@ -2,7 +2,10 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secret */}}
-{{- include "plexanisync.secret" . }}
+{{- $secrets := include "plexanisync.secret" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := mustMergeOverwrite .Values.secret $secrets -}}
+{{- end -}}
 
 {{- define "plexanisync.custom.mappings" -}}
 enabled: true

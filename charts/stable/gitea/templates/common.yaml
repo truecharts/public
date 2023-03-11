@@ -2,35 +2,34 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secrets for gitea */}}
-{{- include "gitea.secrets" . }}
+{{- $secrets := include "gitea.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := mustMergeOverwrite .Values.secret $secrets -}}
+{{- end -}}
 
 {{/* Render configmap for gitea */}}
 {{- $configmap := include "gitea.configmap" . | fromYaml -}}
 {{- if $configmap -}}
-{{- $_ := set .Values.configmap "env" $configmap -}}
+  {{- $_ := set .Values.configmap "env" $configmap -}}
 {{- end -}}
 
 {{/* Append the general secret volumes to the volumes */}}
 {{- define "gitea.initvolume" -}}
-enabled: "true"
+enabled: true
 mountPath: "/secrets/ini"
 readOnly: true
-type: "custom"
-volumeSpec:
-  secret:
-    secretName: {{ include "tc.v1.common.lib.chart.names.fullname" . }}-init
-    defaultMode: 0777
+type: secret
+objectName: init
+defaultMode: "0777"
 {{- end -}}
 
 {{/* Append the general secret volumes to the volumes */}}
 {{- define "gitea.configvolume" -}}
-enabled: "true"
+enabled: true
 mountPath: "/secrets/config"
 readOnly: true
-type: "custom"
-volumeSpec:
-  secret:
-    secretName: {{ include "tc.v1.common.lib.chart.names.fullname" . }}
+type: secret
+objectName: secret
 {{- end -}}
 
 {{- $_ := set .Values.persistence "init" (include "gitea.initvolume" . | fromYaml) -}}

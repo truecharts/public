@@ -2,7 +2,10 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secrets for audiobookshelf */}}
-{{- include "audiobookshelf.secrets" . }}
+{{- $secrets := include "audiobookshelf.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := set .Values.secret "audiobookshelf-secrets" $secrets -}}
+{{- end -}}
 
 {{- $newMiddlewares :=  list "tc-opencors-chain" }}
 {{- $_ := set .Values.ingress.main "fixedMiddlewares" $newMiddlewares -}}
