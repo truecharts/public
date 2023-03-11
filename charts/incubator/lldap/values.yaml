@@ -6,12 +6,11 @@ image:
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    runAsNonRoot: false
 
 podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-  fsGroup: 0
+  runAsUser: 1000
+  runAsGroup: 1000
+  fsGroup: 1000
 
 service:
   main:
@@ -31,14 +30,14 @@ workload:
       containers:
         main:
           env:
-            GID: "0"
+            GID: "1000"
             LLDAP_LDAP_BASE_DN: "dc=example,dc=com"
             LLDAP_LDAP_USER_PASS: "change me"
             LLDAP_JWT_SECRET:
               - secretRef:
                   name: secrets
                   key: LLDAP_JWT_SECRET
-            UID: "0"
+            UID: "1000"
 # Set lldap variables
 lldap:
   configuration:
