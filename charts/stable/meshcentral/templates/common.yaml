@@ -2,10 +2,7 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secret */}}
-{{- $secrets := include "meshcentral.secret" . | fromYaml -}}
-{{- if $secrets -}}
-{{- $_ := set .Values.secret "secret" $secrets -}}
-{{- end -}}
+{{- include "meshcentral.secret" . }}
 
 {{- define "meshcentral.probes" -}}
 probes:

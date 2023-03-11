@@ -66,10 +66,27 @@
   {{- $config = (include "prune.keys" $config) -}}
 {{- end }}
 
+---
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: {{ $secretStorageName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{/* Store session_key to reuse */}}
   session_key: {{ $sessionKey | b64enc }}
 
+---
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: {{ $secretName }}
+  labels:
+    {{- include "tc.common.labels" . | nindent 4 }}
+data:
   {{/* The actual config */}}
   config.json: |
     {{- toPrettyJson (fromYaml $config) | b64enc | nindent 4 }}

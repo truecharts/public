@@ -8,10 +8,7 @@
 {{- end -}}
 
 {{/* Render secrets for nocodb */}}
-{{- $secrets := include "nocodb.secrets" . | fromYaml -}}
-{{- if $secrets -}}
-{{- $_ := set .Values.secret "secret" $secrets -}}
-{{- end -}}
+{{- include "nocodb.secrets" . }}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
