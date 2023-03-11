@@ -4,7 +4,7 @@
 {{/* Render secret */}}
 {{- $secrets := include "plexanisync.secret" . | fromYaml -}}
 {{- if $secrets -}}
-{{- $_ := set .Values.secret "secret" $secrets -}}
+  {{- $_ := mustMergeOverwrite .Values.secret $secrets -}}
 {{- end -}}
 
 {{- define "plexanisync.custom.mappings" -}}

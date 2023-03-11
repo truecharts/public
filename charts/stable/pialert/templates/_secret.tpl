@@ -1,8 +1,7 @@
 {{/* Define the configmap */}}
 {{- define "pialert.secret" -}}
 
-{{- $secretName := printf "%s-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
-
+enabled: true
 data:
   pialert.conf: |
     # General
