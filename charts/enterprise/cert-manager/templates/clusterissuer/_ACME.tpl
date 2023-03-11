@@ -1,5 +1,11 @@
 {{- define "certmanager.clusterissuer.acme" -}}
 {{- range .Values.clusterIssuer.ACME }}
+
+  {{- $validTypes := list "HTTP01" "cloudflare" "route53" -}}
+  {{- if not (mustHas .type $validTypes) -}}
+    {{- fail (printf "Expected ACME type to be one of [%s], but got [%s]" (join ", " $validTypes) .type) -}}
+  {{- end -}}
+  {{- $issuerSecretName := printf "%s-clusterissuer-secret" .name }}
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -22,15 +28,15 @@ spec:
           email: {{ .email }}
          {{- if .cfapitoken }}
           apiTokenSecretRef:
-            name: {{ .name }}-clusterissuer-secret
+            name: {{ $issuerSecretName }}
             key: cf-api-token
          {{- else if .cfapikey }}
           apiKeySecretRef:
-            name: {{ .name }}-clusterissuer-secret
+            name: {{ $issuerSecretName }}
             key: cf-api-key
-         {{ else }}
-         {{- fail "A cloudflare API key or token is required" }}
-         {{- end }}
+         {{- else -}}
+          {{- fail "A cloudflare API key or token is required" -}}
+         {{- end -}}
       {{- else if eq .type "route53" }}
         route53:
           region: {{ .region }}
@@ -45,18 +51,18 @@ spec:
         akamai:
           serviceConsumerDomain: {{ .serviceConsumerDomain }}
           clientTokenSecretRef:
-            name: {{ .name }}-clusterissuer-secret
+            name: {{ $issuerSecretName }}
             key: akclientToken
           clientSecretSecretRef:
-            name: {{ .name }}-clusterissuer-secret
+            name: {{ $issuerSecretName }}
             key: akclientSecret
           accessTokenSecretRef:
-            name: {{ .name }}-clusterissuer-secret
+            name: {{ $issuerSecretName }}
             key: akaccessToken
       {{- else if eq .type "digitalocean" }}
         digitalocean:
           tokenSecretRef:
-            name: {{ .name }}-clusterissuer-secret
+            name: {{ $issuerSecretName }}
             key: doaccessToken
       {{- else if eq .type "rfc2136" }}
         rfc2136:
@@ -64,18 +70,16 @@ spec:
           tsigKeyName: {{ .tsigKeyName }}
           tsigAlgorithm: {{ .tsigAlgorithm }}
           tsigSecretSecretRef:
-            name: {{ .name }}-clusterissuer-secret
+            name: {{ $issuerSecretName }}
             key: rfctsigSecret
-      {{- else }}
-      {{- fail "No correct ACME type entered..." }}
-      {{- end }}
+      {{- end -}}
     {{- end }}
 ---
 apiVersion: v1
 kind: Secret
 metadata:
   namespace: cert-manager
-  name: {{ .name }}-clusterissuer-secret
+  name: {{ $issuerSecretName }}
 type: Opaque
 stringData:
   cf-api-token: {{ .cfapitoken | default "" }}
