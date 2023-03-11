@@ -3,7 +3,7 @@
 
 {{- $secretName := printf "%s-homebox-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 
-stringData:
+data:
   HBOX_MODE: production
   HBOX_SWAGGER_SCHEMA: {{ .Values.service.main.ports.main.protocol | lower }}
   HBOX_STORAGE_DATA: {{ .Values.persistence.data.mountPath }}

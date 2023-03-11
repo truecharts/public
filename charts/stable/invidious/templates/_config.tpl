@@ -17,7 +17,7 @@
 {{- $vSubFeed := .Values.invidious.default_user_preferences.subscription_feed }}
 {{- $vUserMisc := .Values.invidious.default_user_preferences.miscellaneous }}
 
-stringData:
+data:
   INVIDIOUS_CONFIG: |
     # Database
     check_tables: true
