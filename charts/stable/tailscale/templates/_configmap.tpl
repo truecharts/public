@@ -2,7 +2,7 @@
 {{- define "tailscale.config" -}}
 
 {{- $customArgs := "" -}}
-
+{{- $secretName := (printf "%s-tailscale-secret" (include "tc.v1.common.lib.chart.names.fullname" .)) -}}
 {{- if .Values.tailscale.hostname }}
   {{- $customArgs = (printf "--hostname %v %v" .Values.tailscale.hostname $customArgs | trim) -}}
 {{- end }}
