@@ -1,6 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "gitea.configmap" -}}
-
+enabled: true
 data:
   GITEA_APP_INI: "/data/gitea/conf/app.ini"
   GITEA_CUSTOM: "/data/gitea"

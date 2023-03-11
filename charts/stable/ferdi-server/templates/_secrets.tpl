@@ -1,11 +1,14 @@
 {{/* Define the secrets */}}
 {{- define "ferdi-server.secrets" -}}
+{{- $secretName := (printf "%s-ferdi-server-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+{{- $ferdiprevious := lookup "v1" "Secret" .Release.Namespace $secretName }}
+enabled: true
 data:
-  {{- if $ferdiprevious}}
-  APP_KEY: {{ index $ferdiprevious.data "APP_KEY" }}
+  {{- if $ferdiprevious }}
+  APP_KEY: {{ index $ferdiprevious.data "APP_KEY" | b64dec }}
   {{- else }}
   {{- $app_key := randAlphaNum 32 }}
-  APP_KEY: {{ $app_key | b64enc }}
+  APP_KEY: {{ $app_key }}
   {{- end }}
 
 {{- end -}}
