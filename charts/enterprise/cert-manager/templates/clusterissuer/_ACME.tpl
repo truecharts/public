@@ -1,6 +1,8 @@
 {{- define "certmanager.clusterissuer.acme" -}}
 {{- range .Values.clusterIssuer.ACME }}
-
+  {{- if not (mustRegexMatch "^[a-z]+(-?[a-z]){0,63}-?[a-z]+$" .name) -}}
+    {{- fail "ACME - Expected name to be all lowercase with hyphens, but not start or end with a hyphen" -}}
+  {{- end -}}
   {{- $validTypes := list "HTTP01" "cloudflare" "route53" -}}
   {{- if not (mustHas .type $validTypes) -}}
     {{- fail (printf "Expected ACME type to be one of [%s], but got [%s]" (join ", " $validTypes) .type) -}}
