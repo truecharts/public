@@ -2,9 +2,9 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secrets for LLDAP */}}
-{{- $jwt := include "lldap.secrets" . | fromYaml -}}
-{{- if $jwt -}}
-  {{- $_ := set .Values.secret "lldap-secrets" $jwt -}}
+{{- $jwtSecret := include "lldap.secrets" . | fromYaml -}}
+{{- if $jwtSecret -}}
+  {{- $_ := set .Values.secret "lldap-secrets" $jwtSecret -}}
 {{- end -}}
 
 {{/* Render the templates */}}

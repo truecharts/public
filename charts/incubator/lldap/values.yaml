@@ -25,7 +25,8 @@ workload:
             LLDAP_LDAP_USER_PASS: "change me"
           envFrom:
             - secretRef:
-                name: lldap-secrets
+                name: {{ template "lldap.secrets" . }}
+                key: LLDAP_JWT_SECRET
 # Set lldap variables
 lldap:
   configuration:
