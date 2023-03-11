@@ -1,8 +1,8 @@
 {{/* Define the secret */}}
 {{- define "shiori.secret" -}}
+enabled: true
 data:
   SHIORI_DIR: {{ .Values.persistence.data.mountPath }}
-
   {{/* Database */}}
   SHIORI_DBMS: "postgresql"
   SHIORI_PG_PORT: "5432"

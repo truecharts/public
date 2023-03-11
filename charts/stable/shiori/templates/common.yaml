@@ -4,7 +4,7 @@
 {{/* Render secrets for shiori */}}
 {{- $secrets := include "shiori.secret" . | fromYaml -}}
 {{- if $secrets -}}
-{{- $_ := set .Values.secret "secret" $secrets -}}
+  {{- $_ := set .Values.secret "secret" $secrets -}}
 {{- end -}}
 
 {{/* Render the templates */}}
