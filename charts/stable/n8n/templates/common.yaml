@@ -4,9 +4,8 @@
 {{/* Render configmap for n8n */}}
 {{- $configmap := include "n8n.configmap" . | fromYaml -}}
 {{- if $configmap -}}
-{{- $_ := set .Values.configmap "config" $configmap -}}
+  {{- $_ := set .Values.configmap "n8n-config" $configmap -}}
 {{- end -}}
-
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}

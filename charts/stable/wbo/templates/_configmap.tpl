@@ -1,7 +1,7 @@
 {{/* Define the configmap */}}
 {{- define "wbo.config" -}}
 
-{{- $configName := printf "%s-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+enabled: true
 data:
   PORT: {{ .Values.service.main.ports.main.port | quote }}
   {{- if or .Values.wbo.save_interval (eq (int .Values.wbo.save_interval) 0) }}

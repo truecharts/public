@@ -4,7 +4,13 @@
 {{/* Render configmap for synapse */}}
 {{- $configmap := include "synapse.config" . | fromYaml -}}
 {{- if $configmap -}}
-{{- $_ := set .Values.configmap "config" $configmap -}}
+  {{- $_ := set .Values.configmap "synapse-config" $configmap -}}
+{{- end -}}
+
+{{/* Render secret for synapse */}}
+{{- $secret := include "synapse.secret" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := mustMergeOverwrite .Values.secret $secret -}}
 {{- end -}}
 
 {{/* Render secret for synapse */}}

@@ -1,6 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "guacamole-client.configmap" -}}
-
+enabled: true
 data:
   {{/* GENERAL */}}
   {{- with .Values.general.EXTENSION_PRIORITY }}

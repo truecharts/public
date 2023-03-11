@@ -1,6 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "n8n.configmap" -}}
-
+enabled: true
 data:
   {{/* External Hooks */}}
   {{- if .Values.externalhooks.EXTERNAL_HOOK_FILES }}

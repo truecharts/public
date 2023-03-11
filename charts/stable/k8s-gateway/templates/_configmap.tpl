@@ -13,7 +13,7 @@ Create the matchable regex from domain
 {{- define "k8s-gateway.configmap" -}}
 {{- $values := .Values }}
 {{- $fqdn := ( include "tc.common.names.fqdn" . ) }}
-
+enabled: true
 data:
   Corefile: |-
     .:53 {

@@ -5,7 +5,7 @@
 {{/* Render cronjob for clamav */}}
 {{- $cronjob := include "clamav.cronjob" . | fromYaml -}}
 {{- if $cronjob -}}
-{{- $_ := set .Values.workloads "cron" $cronjob -}}
+{{- $_ := set .Values.workload "cron" $cronjob -}}
 {{- end -}}
 {{- end -}}
 

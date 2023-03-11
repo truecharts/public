@@ -1,11 +1,17 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
-{{/* Render secret */}}
-{{- include "authentik.secret" . }}
+{{/* Render configmap for authentik */}}
+{{- $configmap := include "authentik.config" . | fromYaml -}}
+{{- if $configmap -}}
+  {{- $_ := mustMergeOverwrite .Values.configmap $configmap -}}
+{{- end -}}
 
-{{/* Render config */}}
-{{- include "authentik.config" . }}
+{{/* Render secret for authentik */}}
+{{- $secret := include "authentik.secret" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := mustMergeOverwrite .Values.secret $secret -}}
+{{- end -}}
 
 {{- if hasKey .Values "metrics" -}}
 {{- if .Values.metrics.enabled -}}

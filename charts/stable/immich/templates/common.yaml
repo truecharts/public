@@ -7,7 +7,7 @@
 {{/* Render configmap for immich */}}
 {{- $configmap := include "immich.config" . | fromYaml -}}
 {{- if $configmap -}}
-{{- $_ := set .Values.configmap "config" $configmap -}}
+  {{- $_ := mustMergeOverwrite .Values.configmap $configmap -}}
 {{- end -}}
 
 {{- $_ := set .Values.additionalContainers "proxy" (include "immich.proxy" . | fromYaml) -}}
