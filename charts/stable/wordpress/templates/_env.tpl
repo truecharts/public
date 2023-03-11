@@ -2,13 +2,7 @@
 {{- define "wordpress.env" -}}
   {{- $configName := printf "%s-env-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
   {{- $secretName := printf "%s-env-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $configName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+
 data:
   APACHE_HTTP_PORT_NUMBER: {{ .Values.service.main.ports.main.port | quote }}
 

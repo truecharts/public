@@ -3,13 +3,6 @@
 
 {{- $secretName := printf "%s-wger-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretName }}
 data:
   {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
   SECRET_KEY: {{ index .data "SECRET_KEY" }}

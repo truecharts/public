@@ -2,7 +2,10 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secret */}}
-{{- include "tailscale.secret" . }}
+{{- $secrets := include "tailscale.secret" . | fromYaml -}}
+{{- if $secrets -}}
+{{- $_ := set .Values.secret "secret" $secrets -}}
+{{- end -}}
 
 {{/* Render configmap for tailscale */}}
 {{- $configmap := include "tailscale.config" . | fromYaml -}}

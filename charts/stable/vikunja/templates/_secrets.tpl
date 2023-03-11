@@ -8,25 +8,10 @@
 {{- with lookup "v1" "Secret" .Release.Namespace $secretStorage -}}
   {{- $jwtSecret = index .data "JWT_SECRET" | b64dec -}}
 {{- end }}
----
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretStorage }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+
 data:
   JWT_SECRET: {{ $jwtSecret | b64enc }}
----
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-data:
+
   config.yml: |
     database:
       type: postgres

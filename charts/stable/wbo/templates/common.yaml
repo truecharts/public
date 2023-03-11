@@ -2,7 +2,10 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secret */}}
-{{- include "wbo.secret" . }}
+{{- $secrets := include "wbo.secret" . | fromYaml -}}
+{{- if $secrets -}}
+{{- $_ := set .Values.secret "secret" $secrets -}}
+{{- end -}}
 
 {{/* Render configmap for wbo */}}
 {{- $configmap := include "wbo.config" . | fromYaml -}}
