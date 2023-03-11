@@ -68,15 +68,16 @@ exporter-secret:
   data:
     PENPOT_PUBLIC_URI: http://penpot-frontend:{{ .Values.service.main.ports.main.targetPort }}
 
+{{- $backendAndExporterSecretName := (printf "%s-backend-exporter-secret" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 backend-exporter-secret:
   enabled: true
   data:
     PENPOT_FLAGS: {{ join " " (concat $commonFlags $backendFlags) | quote }}
     PENPOT_PUBLIC_URI: {{ .Values.penpot.public_uri | quote }}
     {{- with (lookup "v1" "Secret" .Release.Namespace $backendAndExporterSecretName) }}
-    PENPOT_SECRET_KEY: {{ index .data "PENPOT_SECRET_KEY" }}
+    PENPOT_SECRET_KEY: {{ index .data "PENPOT_SECRET_KEY" | b64dec }}
     {{- else }}
-    PENPOT_SECRET_KEY: {{ randAlphaNum 32 | b64enc }}
+    PENPOT_SECRET_KEY: {{ randAlphaNum 32 }}
     {{- end }}
     {{/* Dependencies */}}
     PENPOT_DATABASE_URI: {{ printf "postgresql://%v/%v" (.Values.postgresql.url.plainport | trimAll "\"") .Values.postgresql.postgresqlDatabase }}
