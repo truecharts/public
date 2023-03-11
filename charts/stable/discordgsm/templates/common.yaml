@@ -4,7 +4,7 @@
 {{/* Render secrets for discordgsm */}}
 {{- $secrets := include "gsm.secret" . | fromYaml -}}
 {{- if $secrets -}}
-{{- $_ := set .Values.secret "" $secrets -}}
+{{- $_ := set .Values.secret "gsm-secret" $secrets -}}
 {{- end -}}
 
 {{/* Render the templates */}}
