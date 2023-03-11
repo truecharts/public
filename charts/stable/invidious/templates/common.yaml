@@ -1,7 +1,11 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
-{{- include "invidious.config" . }}
+{{/* Render configmap for invidiuous */}}
+{{- $configmap := include "invidious.config" . | fromYaml -}}
+{{- if $configmap -}}
+{{- $_ := set .Values.configmap "invidious-config" $configmap -}}
+{{- end -}}
 
 {{- $_ := set .Values.installContainers "dbseed" (include "invidious.dbseed" . | fromYaml) -}}
 
