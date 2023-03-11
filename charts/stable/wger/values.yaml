@@ -47,14 +47,12 @@ persistence:
   wger-config:
     enabled: true
     noMount: true
-    type: custom
+    type: configmap
     mountPath: "/etc/nginx/conf.d"
-    volumeSpec:
-      configMap:
-        name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-wger-nginx-config'
-        items:
-          - key: nginx.conf
-            path: default.conf
+    objectName: "wger-nginx-config"
+    items:
+      - key: nginx.conf
+        path: default.conf
 cnpg:
   main:
     enabled: true
