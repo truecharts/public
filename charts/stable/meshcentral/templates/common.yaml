@@ -1,23 +1,11 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
-{{/* Render secret */}}
-{{- include "meshcentral.secret" . }}
-
-{{- define "meshcentral.probes" -}}
-probes:
-  liveness:
-    type: {{ .Values.service.main.ports.main.protocol }}
-    path: /health.ashx
-  readiness:
-    type: {{ .Values.service.main.ports.main.protocol }}
-    path: /health.ashx
-  startup:
-    type: {{ .Values.service.main.ports.main.protocol }}
-    path: /health.ashx
+{{/* Render secrets for meshcentral */}}
+{{- $secrets := include "meshcentral.secret" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := mustMergeOverwrite .Values.secret $secrets -}}
 {{- end -}}
-
-{{- $_ := mergeOverwrite .Values (include "meshcentral.probes" . | fromYaml) -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}

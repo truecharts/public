@@ -60,7 +60,7 @@ installContainers:
 persistence:
   config:
     enabled: true
-    type: configMap
+    type: configmap
     objectName: synapse-config
     mountPath: /data
     readOnly: false

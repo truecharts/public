@@ -13,7 +13,7 @@ enabled: true
 type: secret
 readOnly: true
 defaultMode: "0600"
-objectName: '{{ printf "%s-wg-config-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
+objectName: wg-config-secret
 mountPath: /etc/wireguard
 items:
   - key: wg0.conf

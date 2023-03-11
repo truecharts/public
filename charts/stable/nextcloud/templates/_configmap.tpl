@@ -3,16 +3,17 @@
 
 {{- $hosts := "" }}
 {{- if .Values.ingress.main.enabled }}
-{{- range .Values.ingress }}
-{{- range $index, $host := .hosts }}
-    {{- if $index }}
-    {{ $hosts = ( printf "%v %v" $hosts $host.host ) }}
-    {{- else }}
-    {{ $hosts = ( printf "%s" $host.host ) }}
+  {{- range .Values.ingress }}
+    {{- range $index, $host := .hosts }}
+      {{- if $index }}
+        {{ $hosts = ( printf "%v %v" $hosts $host.host ) }}
+      {{- else }}
+        {{ $hosts = ( printf "%s" $host.host ) }}
+      {{- end }}
     {{- end }}
+  {{- end }}
 {{- end }}
-{{- end }}
-{{- end }}
+enabled: true
 data:
   {{- $aliasgroup1 := (  printf "http://%s" ( .Values.env.AccessIP | default ( printf "%v-%v" .Release.Name "nextcloud" ) ) ) }}
   {{- if .Values.ingress.main.enabled }}

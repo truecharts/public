@@ -7,7 +7,13 @@
 {{/* Render configmap for tailscale */}}
 {{- $configmap := include "tailscale.config" . | fromYaml -}}
 {{- if $configmap -}}
-{{- $_ := set .Values.configmap "config" $configmap -}}
+  {{- $_ := set .Values.configmap "tailscale-config" $configmap -}}
+{{- end -}}
+
+{{/* Render secret for tailscale */}}
+{{- $secret := include "tailscale.config" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "tailscale-secret" $secret -}}
 {{- end -}}
 
 {{/* Render the templates */}}

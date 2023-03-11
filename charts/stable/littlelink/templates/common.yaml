@@ -7,7 +7,7 @@
 {{/* Render configmap for littlelink */}}
 {{- $configmap := include "littlelink.configmap" . | fromYaml -}}
 {{- if $configmap -}}
-{{- $_ := set .Values.configmap "config" $configmap -}}
+{{- $_ := set .Values.configmap "littlelinkconfig" $configmap -}}
 {{- end -}}
 
 {{/* Render the templates */}}

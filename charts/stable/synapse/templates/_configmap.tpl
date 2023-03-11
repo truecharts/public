@@ -1,6 +1,7 @@
 {{/* Define the configs */}}
 {{- define "synapse.config" -}}
 
+enabled: true
 data:
   homeserver.yaml: |
     server_name: {{ .Values.matrix.serverName }}

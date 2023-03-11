@@ -9,6 +9,7 @@
   {{- $records = mustAppend $records $item.record }}
   {{- $zones = mustAppend $zones $item.zone }}
 {{- end }}
+enabled: true
 data:
   {{- with $cfddns.user }}
   CF_USER: {{ . | quote }}

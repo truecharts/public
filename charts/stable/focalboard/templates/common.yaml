@@ -4,20 +4,18 @@
 {{- define "focalboard.harcodedValues" -}}
 persistence:
   focalboard-config:
-    enabled: "true"
+    enabled: true
+    type: configmap
     mountPath: "/opt/focalboard/config.json"
     subPath: "focalboard-config"
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: {{ printf "%v-install" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+    objectName: install
 {{- end -}}
 {{- $_ := mergeOverwrite .Values (include "focalboard.harcodedValues" . | fromYaml) -}}
 
 {{/* Render configmap for focalboard */}}
 {{- $configmap := include "focalboard.configmap" . | fromYaml -}}
 {{- if $configmap -}}
-{{- $_ := set .Values.configmap "config" $configmap -}}
+  {{- $_ := set .Values.configmap "install" $configmap -}}
 {{- end -}}
 
 {{/* Render the templates */}}

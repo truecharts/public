@@ -1,13 +1,16 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
-{{/* Render secret */}}
-{{- include "mealie.secret" . }}
-
 {{/* Render configmap for mealie */}}
 {{- $configmap := include "mealie.config" . | fromYaml -}}
 {{- if $configmap -}}
-{{- $_ := set .Values.configmap "config" $configmap -}}
+  {{- $_ := mustMergeOverwrite .Values.configmap $configmap -}}
+{{- end -}}
+
+{{/* Render configmap for mealie */}}
+{{- $secret := include "mealie.secret" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "api-secret" $secret -}}
 {{- end -}}
 
 {{- $_ := set .Values.additionalContainers "api" (include "mealie.api" . | fromYaml) -}}

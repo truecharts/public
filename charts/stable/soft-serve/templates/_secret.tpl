@@ -1,5 +1,6 @@
 {{/* Define the secret */}}
 {{- define "softserve.secret" -}}
+enabled: true
 data:
   SOFT_SERVE_BIND_ADDRESS: "0.0.0.0"
   SOFT_SERVE_REPO_PATH: {{ .Values.persistence.repos.mountPath | quote }}

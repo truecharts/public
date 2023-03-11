@@ -4,6 +4,7 @@
 {{- $pgPass := .Values.postgresql.postgresqlPassword | trimAll "\"" }}
 {{- $pgUser := .Values.postgresql.postgresqlUsername }}
 {{- $pgDB := .Values.postgresql.postgresqlDatabase }}
+enabled: true
 data:
   focalboard-config: |-
     {

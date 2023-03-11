@@ -980,7 +980,7 @@ persistence:
     type: secret
     readOnly: true
     defaultMode: "0600"
-    objectName: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-secret'
+    objectName: secret
     mountPath: /opt/meshcentral/meshcentral-data/config.json
     subPath: config.json
 portal:
@@ -1000,3 +1000,16 @@ workload:
           command:
             - node
             - meshcentral/meshcentral
+        probes:
+          liveness:
+            enabled: true
+            type: "{{ .Values.service.main.ports.main.protocol }}"
+            path: /health.ashx
+          readiness:
+            enabled: true
+            type: "{{ .Values.service.main.ports.main.protocol }}"
+            path: /health.ashx
+          startup:
+            enabled: true
+            type: "{{ .Values.service.main.ports.main.protocol }}"
+            path: /health.ashx

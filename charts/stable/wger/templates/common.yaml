@@ -6,7 +6,13 @@
 {{/* Render configmap for wger */}}
 {{- $configmap := include "wger.configmap" . | fromYaml -}}
 {{- if $configmap -}}
-{{- $_ := set .Values.configmap "config" $configmap -}}
+  {{- $_ := mustMergeOverwrite .Values.configmap $configmap -}}
+{{- end -}}
+
+{{/* Render secret for wger */}}
+{{- $secret := include "wger.secrets" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "wger-secret" $secret -}}
 {{- end -}}
 
 {{- $_ := set .Values.additionalContainers "nginx" (include "wger.nginx" . | fromYaml) -}}

@@ -1,6 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "littlelink.configmap" -}}
-
+enabled: true
 data:
   {{- if .Values.littlelink.meta_title }}
   META_TITLE: {{ .Values.littlelink.meta_title | quote }}

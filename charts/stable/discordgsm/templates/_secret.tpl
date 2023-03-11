@@ -1,7 +1,7 @@
 {{/* Define the secret */}}
 {{- define "gsm.secret" -}}
 
-{{- $secretName := printf "%s-gsm-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+enabled: true
 data:
   DATABASE_URL: {{ .Values.postgresql.url.complete | trimAll "\"" }}
   DB_CONNECTION: {{ print "postgres" }}

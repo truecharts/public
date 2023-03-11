@@ -4,7 +4,7 @@
 {{/* Render configmap for guacamole-client */}}
 {{- $configmap := include "guacamole-client.configmap" . | fromYaml -}}
 {{- if $configmap -}}
-{{- $_ := set .Values.configmap "env" $configmap -}}
+{{- $_ := set .Values.configmap "guacamole-client-env" $configmap -}}
 {{- end -}}
 
 {{/* Render the templates */}}

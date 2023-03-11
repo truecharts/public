@@ -4,7 +4,7 @@
 {{/* Render configmap for weblate */}}
 {{- $configmap := include "weblate.configmap" . | fromYaml -}}
 {{- if $configmap -}}
-{{- $_ := set .Values.configmap "env" $configmap -}}
+{{- $_ := set .Values.configmap "weblate-env" $configmap -}}
 {{- end -}}
 
 {{/* Render the templates */}}
