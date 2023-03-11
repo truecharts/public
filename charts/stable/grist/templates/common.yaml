@@ -4,13 +4,13 @@
 {{/* Render secrets for grist */}}
 {{- $secrets := include "grist.secret" . | fromYaml -}}
 {{- if $secrets -}}
-{{- $_ := set .Values.secret "secret" $secrets -}}
+{{- $_ := set .Values.secret "grist-secret" $secrets -}}
 {{- end -}}
 
 {{/* Render configmap for grist */}}
 {{- $configmap := include "grist.config" . | fromYaml -}}
 {{- if $configmap -}}
-{{- $_ := set .Values.configmap "config" $configmap -}}
+{{- $_ := set .Values.configmap "grist-config" $configmap -}}
 {{- end -}}
 
 {{/* Render the templates */}}

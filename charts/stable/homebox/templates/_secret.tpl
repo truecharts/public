@@ -1,8 +1,7 @@
 {{/* Define the secret */}}
 {{- define "homebox.secret" -}}
 
-{{- $secretName := printf "%s-homebox-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
-
+enabled: true
 data:
   HBOX_MODE: production
   HBOX_SWAGGER_SCHEMA: {{ .Values.service.main.ports.main.protocol | lower }}

@@ -1,8 +1,7 @@
 {{/* Define the configmap */}}
 {{- define "grist.config" -}}
 
-{{- $configName := printf "%s-grist-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
-
+enabled: true
 data:
   {{/* Dependencies */}}
   TYPEORM_TYPE: postgres

@@ -1,7 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "invidious.config" -}}
 
-{{- $configName := printf "%s-invidious-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 {{- $vNet := .Values.invidious.network }}
 {{- $vLog := .Values.invidious.logging }}
 {{- $vFeat := .Values.invidious.features }}
@@ -17,6 +16,7 @@
 {{- $vSubFeed := .Values.invidious.default_user_preferences.subscription_feed }}
 {{- $vUserMisc := .Values.invidious.default_user_preferences.miscellaneous }}
 
+enabled: true
 data:
   INVIDIOUS_CONFIG: |
     # Database

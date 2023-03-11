@@ -4,7 +4,7 @@
 {{/* Render configmap for invidiuous */}}
 {{- $configmap := include "invidious.config" . | fromYaml -}}
 {{- if $configmap -}}
-{{- $_ := set .Values.configmap "config" $configmap -}}
+{{- $_ := set .Values.configmap "invidious-config" $configmap -}}
 {{- end -}}
 
 {{- $_ := set .Values.installContainers "dbseed" (include "invidious.dbseed" . | fromYaml) -}}
