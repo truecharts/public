@@ -2,11 +2,11 @@
 {{- define "mealie.secret" -}}
 enabled: true
 data:
-  POSTGRES_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
-  {{- with .Values.mealie_backend.smtp.user | b64enc }}
+  POSTGRES_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
+  {{- with .Values.mealie_backend.smtp.user }}
   SMTP_USER: {{ . }}
   {{- end }}
-  {{- with .Values.mealie_backend.smtp.password | b64enc }}
+  {{- with .Values.mealie_backend.smtp.password }}
   SMTP_PASSWORD: {{ . }}
   {{- end }}
 {{- end }}
