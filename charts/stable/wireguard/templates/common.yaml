@@ -8,10 +8,7 @@
 {{- end -}}
 
 {{/* Render secret */}}
-{{- $secrets := include "wg.config-secret" . | fromYaml -}}
-{{- if $secrets -}}
-{{- $_ := set .Values.secret "secret" $secrets -}}
-{{- end -}}
+{{- include "wg.config-secret" . }}
 
 {{- $_ := set .Values.persistence "configfile" (include "wireguard.configfile" . | fromYaml) -}}
 

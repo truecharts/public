@@ -5,10 +5,27 @@
 {{- if $previous }}
 {{- $msk = ( index $previous.data "key" ) | b64dec }}
 {{- end }}
-
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: synapse-secret-macaroon
+  labels:
+  {{ include "tc.common.labels" . | nindent 4 }}
+  annotations:
+    rollme: {{ randAlphaNum 5 | quote }}
 data:
   key: {{ $msk | b64enc }}
-
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: synapse-secret
+  labels:
+  {{ include "tc.common.labels" . | nindent 4 }}
+  annotations:
+    rollme: {{ randAlphaNum 5 | quote }}
+data:
   secret.yaml: |
     {{- if .Values.mail.enabled }}
     email:
