@@ -63,7 +63,7 @@ secret:
       mariadb-password: '{{ ( .Values.mariadbPassword | default "empty" ) }}'
       mariadb-root-password: '{{ ( .Values.mariadbRootPassword | default "empty" ) }}'
 
-volumeClaimTemplates:
+persistence:
   data:
     enabled: true
     mountPath: "/bitnami/mariadb"
