@@ -2,14 +2,7 @@
 This template generates a random password and ensures it persists across updates/edits to the chart
 */}}
 {{- define "anonaddy.appkey" -}}
----
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-  name: appkey
+enabled: true
 {{- $keyprevious := lookup "v1" "Secret" .Release.Namespace "appkey" }}
 {{- $appkey := "" }}
 {{- $secret := "" }}

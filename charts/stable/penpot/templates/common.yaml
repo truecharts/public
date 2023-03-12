@@ -7,8 +7,8 @@
   {{- $_ := mustMergeOverwrite .Values.secret $secrets -}}
 {{- end -}}
 
-{{- $_ := set .Values.additionalContainers "backend" (include "penpot.backend" . | fromYaml) -}}
-{{- $_ := set .Values.additionalContainers "exporter" (include "penpot.exporter" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "backend" (include "penpot.backend" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "exporter" (include "penpot.exporter" . | fromYaml) -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}

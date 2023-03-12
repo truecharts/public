@@ -13,7 +13,7 @@
   {{- $_ := set .Values.secret "api-secret" $secret -}}
 {{- end -}}
 
-{{- $_ := set .Values.additionalContainers "api" (include "mealie.api" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "api" (include "mealie.api" . | fromYaml) -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}

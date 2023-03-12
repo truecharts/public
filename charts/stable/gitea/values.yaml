@@ -68,11 +68,9 @@ admin:
   password: r8sA8CPHD9!bt6d
   email: "gitea@local.domain"
 metrics:
-  enabled: false
-  serviceMonitor:
-    enabled: false
-    #  additionalLabels:
-    #    prometheus-release: prom1
+  main:
+    enabled: true
+    type: "servicemonitor"
 ldap:
   enabled: false
   # name:

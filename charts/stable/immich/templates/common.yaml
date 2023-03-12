@@ -10,12 +10,12 @@
   {{- $_ := mustMergeOverwrite .Values.configmap $configmap -}}
 {{- end -}}
 
-{{- $_ := set .Values.additionalContainers "proxy" (include "immich.proxy" . | fromYaml) -}}
-{{- $_ := set .Values.additionalContainers "web" (include "immich.web" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "proxy" (include "immich.proxy" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "web" (include "immich.web" . | fromYaml) -}}
 {{- if .Values.immich.enable_ml -}}
-{{- $_ := set .Values.additionalContainers "ml" (include "immich.ml" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "ml" (include "immich.ml" . | fromYaml) -}}
 {{- end -}}
-{{- $_ := set .Values.additionalContainers "microservices" (include "immich.microservices" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "microservices" (include "immich.microservices" . | fromYaml) -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}

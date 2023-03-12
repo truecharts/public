@@ -11,30 +11,15 @@ service:
         enabled: true
         port: 9705
 metrics:
-  # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
-  # @default -- See values.yaml
-  enabled: false
-  serviceMonitor:
-    interval: 1m
-    scrapeTimeout: 30s
-    labels: {}
-  # -- Enable and configure Prometheus Rules for the chart under this key.
-  # @default -- See values.yaml
-  prometheusRule:
-    enabled: false
-    labels: {}
-    # -- Configure additionial rules for the chart under this key.
-    # @default -- See prometheusrules.yaml
-    rules: []
-    # - alert: UptimeRobotExporterAbsent
-    #   annotations:
-    #     description: Uptime Robot Exporter has disappeared from Prometheus service discovery.
-    #     summary: Uptime Robot Exporter is down.
-    #   expr: |
-    #     absent(up{job=~".*uptimerobot.*"} == 1)
-    #   for: 5m
-    #   labels:
-    #     severity: critical
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: metrics
+        path: /metrics
+    prometheusRule:
+      enabled: false
+
 portal:
   open:
     enabled: false
