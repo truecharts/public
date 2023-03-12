@@ -79,8 +79,8 @@ workload:
           DB_CONNECTION: "pg"
           DB_PORT: "5432"
           DB_SSL: false
-          DB_USER: "{{ .Values.cnpg.user }}"
-          DB_DATABASE: "{{ .Values.cnpg.database }}"
+          DB_USER: "{{ .Values.cnpg.main.user }}"
+          DB_DATABASE: "{{ .Values.cnpg.main.database }}"
           # User Defined
           APP_URL: "http://localhost:3333"
           IS_CREATION_ENABLED: true

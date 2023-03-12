@@ -18,8 +18,8 @@ secret:
     config.yml: |
       database:
         type: postgres
-        user: {{ .Values.postgresql.postgresqlUsername }}
-        password: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
+        user: {{ .Values.cnpg.main.user }}
+        password: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
         host: {{ printf "%v-%v" .Release.Name "postgres" }}
 
       cache:

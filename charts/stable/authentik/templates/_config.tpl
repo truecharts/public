@@ -15,8 +15,8 @@ authentik-config:
     {{/* Dependencies */}}
     AUTHENTIK_REDIS__HOST: {{ printf "%v-%v" .Release.Name "redis" }}
     AUTHENTIK_REDIS__PORT: "6379"
-    AUTHENTIK_POSTGRESQL__NAME: {{ .Values.postgresql.postgresqlDatabase }}
-    AUTHENTIK_POSTGRESQL__USER: {{ .Values.postgresql.postgresqlUsername }}
+    AUTHENTIK_POSTGRESQL__NAME: {{ .Values.cnpg.main.database }}
+    AUTHENTIK_POSTGRESQL__USER: {{ .Values.cnpg.main.user }}
     AUTHENTIK_POSTGRESQL__HOST: {{ printf "%v-%v" .Release.Name "postgresql" }}
     AUTHENTIK_POSTGRESQL__PORT: "5432"
     {{/* Mail */}}

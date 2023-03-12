@@ -35,12 +35,12 @@ workload:
           PORT: "{{ .Values.service.main.ports.main.port }}"
           DATABASE_CLIENT: postgres
           DATABASE_PORT: 5432
-          DATABASE_NAME: "{{ .Values.cnpg.database }}"
+          DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
           DATABASE_HOST:
             secretKeyRef:
               name: cnpg-main-urls
               key: plainhost
-          DATABASE_USERNAME: "{{ .Values.cnpg.user }}"
+          DATABASE_USERNAME: "{{ .Values.cnpg.main.user }}"
           DATABASE_PASSWORD:
             secretKeyRef:
               name: cnpg-main-urls

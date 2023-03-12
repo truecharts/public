@@ -17,7 +17,7 @@ data:
   {{- else }}
   INVENTREE_SECRET_KEY: {{ randAlphaNum 32 | b64enc }}
   {{- end }}
-  INVENTREE_DB_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
+  INVENTREE_DB_PASSWORD: {{ .Values.cnpg.main.creds.password | trimAll "\"" | b64enc }}
   {{- $redisPass := .Values.redis.redisPassword | trimAll "\"" }}
   INVENTREE_CACHE_HOST: {{ printf "%v:%v@%v-redis" .Values.redis.redisUsername $redisPass .Release.Name | b64enc }}
   {{- with .Values.inventree.credentials.admin_mail }}

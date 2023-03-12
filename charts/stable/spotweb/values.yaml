@@ -35,8 +35,8 @@ workload:
           SPOTWEB_RETRIEVE: "15min"
           DB_ENGINE: "pdo_pgsql"
           DB_PORT: "5432"
-          DB_DATABASE: "{{ .Values.cnpg.database }}"
-          DB_USER: "{{ .Values.cnpg.user }}"
+          DB_DATABASE: "{{ .Values.cnpg.main.database }}"
+          DB_USER: "{{ .Values.cnpg.main.user }}"
           DB_SCHEMA: "public"
           DB_PASSWORD:
             secretKeyRef:

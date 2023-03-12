@@ -50,8 +50,8 @@ workload:
             startup:
               path: "/login"
         env:
-          DB_USERNAME: "{{ .Values.cnpg.user }}"
-          DB_DATABASE: "{{ .Values.cnpg.database }}"
+          DB_USERNAME: "{{ .Values.cnpg.main.user }}"
+          DB_DATABASE: "{{ .Values.cnpg.main.database }}"
           DB_CONNECTION: pgsql
           DB_PORT: 5432
           REDIS_DB: "0"

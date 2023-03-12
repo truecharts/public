@@ -7,8 +7,8 @@ data:
   TYPEORM_TYPE: postgres
   TYPEORM_PORT: "5432"
   TYPEORM_HOST: {{ printf "%v-%v" .Release.Name "postgresql" }}
-  TYPEORM_DATABASE: {{ .Values.postgresql.postgresqlDatabase }}
-  TYPEORM_USERNAME: {{ .Values.postgresql.postgresqlUsername }}
+  TYPEORM_DATABASE: {{ .Values.cnpg.main.database }}
+  TYPEORM_USERNAME: {{ .Values.cnpg.main.user }}
   {{/* Ports */}}
   PORT: {{ .Values.service.main.ports.main.port | quote }}
   HOME_PORT: {{ .Values.service.api.ports.api.port | quote }}

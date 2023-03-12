@@ -1,9 +1,9 @@
 {{/* Define the configmap */}}
 {{- define "nocodb.configmap" -}}
 
-{{- $pgPass := .Values.postgresql.postgresqlPassword | trimAll "\"" }}
-{{- $pgUser := .Values.postgresql.postgresqlUsername }}
-{{- $pgDB := .Values.postgresql.postgresqlDatabase }}
+{{- $pgPass := .Values.cnpg.main.creds.password | trimAll "\"" }}
+{{- $pgUser := .Values.cnpg.main.user }}
+{{- $pgDB := .Values.cnpg.main.database }}
 enabled: true
 data:
   NC_DB: "{{ printf "pg://%v-postgresql:5432?u=%v&p=%v&d=%v" .Release.Name $pgUser $pgPass $pgDB }}"

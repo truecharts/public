@@ -118,7 +118,7 @@ configmap:
         recorder:
           purge_keep_days: 30
           commit_interval: 3
-          db_url: {{ ( printf "%s?client_encoding=utf8" ( .Values.postgresql.url.complete | trimAll "\"" ) ) | quote }}
+          db_url: {{ ( printf "%s?client_encoding=utf8" ( .Values.cnpg.main.url.complete | trimAll "\"" ) ) | quote }}
       http.default: |-
         http:
           use_x_forwarded_for: true

@@ -33,8 +33,8 @@ workload:
     podSpec:
       containers:
         env:
-          REDMINE_DB_DATABASE: "{{ .Values.cnpg.database }}"
-          REDMINE_DB_USERNAME: "{{ .Values.cnpg.user }}"
+          REDMINE_DB_DATABASE: "{{ .Values.cnpg.main.database }}"
+          REDMINE_DB_USERNAME: "{{ .Values.cnpg.main.user }}"
           REDMINE_DB_PORT: "5432"
           # Anything but empty means true, empty means false
           REDMINE_NO_DB_MIGRATE: '{{ ternary "true" "" .Values.redmine.no_db_migrate }}'

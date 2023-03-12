@@ -141,9 +141,9 @@ installContainers:
     image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
     env:
       - name: POSTGRESQL_DATABASE
-        value: "{{ .Values.cnpg.database }}"
+        value: "{{ .Values.cnpg.main.database }}"
       - name: POSTGRESQL_USER
-        value: "{{ .Values.cnpg.user }}"
+        value: "{{ .Values.cnpg.main.user }}"
       - name: POSTGRESQL_PORT
         value: "5432"
       - name: POSTGRESQL_HOSTNAME
@@ -201,8 +201,8 @@ workload:
                 name: guacamole-client-env
         env:
           # Will probably be removed on 1.5.0 (https://github.com/apache/guacamole-client/pull/717)
-          POSTGRES_DATABASE: "{{ .Values.cnpg.database }}"
-          POSTGRES_USER: "{{ .Values.cnpg.user }}"
+          POSTGRES_DATABASE: "{{ .Values.cnpg.main.database }}"
+          POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
           POSTGRES_PORT: 5432
           POSTGRES_HOSTNAME:
             secretKeyRef:
@@ -221,8 +221,8 @@ workload:
             secretKeyRef:
               name: cnpg-main-urls
               key: plainhost
-          POSTGRESQL_DATABASE: "{{ .Values.cnpg.database }}"
-          POSTGRESQL_USER: "{{ .Values.cnpg.user }}"
+          POSTGRESQL_DATABASE: "{{ .Values.cnpg.main.database }}"
+          POSTGRESQL_USER: "{{ .Values.cnpg.main.user }}"
           POSTGRESQL_PORT: 5432
           GUACD_HOSTNAME: "localhost"
           GUACD_PORT: 4822

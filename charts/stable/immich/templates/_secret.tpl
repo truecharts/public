@@ -17,7 +17,7 @@ data:
   {{- else }}
   JWT_SECRET: {{ randAlphaNum 32 | b64enc }}
   {{- end }}
-  DB_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
+  DB_PASSWORD: {{ .Values.cnpg.main.creds.password | trimAll "\"" | b64enc }}
   REDIS_PASSWORD: {{ .Values.redis.redisPassword | trimAll "\"" | b64enc }}
   {{- with .Values.immich.mapbox_key }}
   MAPBOX_KEY: {{ . | b64enc}}

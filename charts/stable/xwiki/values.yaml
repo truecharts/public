@@ -32,8 +32,8 @@ workload:
     podSpec:
       containers:
         env:
-          DB_USER: "{{ .Values.cnpg.user }}"
-          DB_DATABASE: "{{ .Values.cnpg.database }}"
+          DB_USER: "{{ .Values.cnpg.main.user }}"
+          DB_DATABASE: "{{ .Values.cnpg.main.database }}"
           # User Defined
           JAVA_OPTS: ""
           DB_HOST:

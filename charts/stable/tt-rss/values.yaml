@@ -39,8 +39,8 @@ workload:
       containers:
         env:
           TTRSS_SELF_URL_PATH: ""
-          TTRSS_DB_NAME: "{{ .Values.cnpg.database }}"
-          TTRSS_DB_USER: "{{ .Values.cnpg.user }}"
+          TTRSS_DB_NAME: "{{ .Values.cnpg.main.database }}"
+          TTRSS_DB_USER: "{{ .Values.cnpg.main.user }}"
           TTRSS_DB_PORT: "5432"
           TTRSS_DB_PASS:
             secretKeyRef:

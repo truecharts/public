@@ -46,8 +46,8 @@ workload:
           IS_HTTPS_ENABLED: true
           PORT: "{{ .Values.service.main.ports.main.port }}"
           DB_DRIVER: "postgres"
-          DB_USER: "{{ .Values.cnpg.user }}"
-          DB_NAME: "{{ .Values.cnpg.database }}"
+          DB_USER: "{{ .Values.cnpg.main.user }}"
+          DB_NAME: "{{ .Values.cnpg.main.database }}"
           DB_PASSWORD:
             secretKeyRef:
               name: cnpg-main-urls

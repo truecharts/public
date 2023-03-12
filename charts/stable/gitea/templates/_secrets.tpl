@@ -31,9 +31,9 @@ secret:
       [database]
       DB_TYPE = postgres
       HOST = {{ printf "%v-%v:%v" .Release.Name "postgresql" "5432" }}
-      NAME = {{ .Values.postgresql.postgresqlDatabase }}
-      PASSWD = {{ .Values.postgresql.postgresqlPassword }}
-      USER = {{ .Values.postgresql.postgresqlUsername }}
+      NAME = {{ .Values.cnpg.main.database }}
+      PASSWD = {{ .Values.cnpg.main.creds.password }}
+      USER = {{ .Values.cnpg.main.user }}
       {{- range $catindex, $catvalue := .Values.customConfig }}
       {{- if eq $catvalue.name "database" }}
       {{- range $index, $value := $catvalue.keys }}

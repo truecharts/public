@@ -35,9 +35,9 @@ synapse-secret:
       database:
           name: "psycopg2"
           args:
-            user: "{{ .Values.postgresql.postgresqlUsername }}"
-            password: {{ .Values.postgresql.postgresqlPassword }}
-            database: "{{ .Values.postgresql.postgresqlDatabase }}"
+            user: "{{ .Values.cnpg.main.user }}"
+            password: {{ .Values.cnpg.main.creds.password }}
+            database: "{{ .Values.cnpg.main.database }}"
             host: "{{ printf "%v-%v" .Release.Name "postgresql" }}"
             port: "5432"
             cp_min: 5

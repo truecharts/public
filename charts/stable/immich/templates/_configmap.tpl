@@ -5,8 +5,8 @@ server-config:
   enabled: true
   data:
     DB_HOSTNAME: {{ printf "%v-%v" .Release.Name "postgresql" }}
-    DB_USERNAME: {{ .Values.postgresql.postgresqlUsername }}
-    DB_DATABASE_NAME: {{ .Values.postgresql.postgresqlDatabase }}
+    DB_USERNAME: {{ .Values.cnpg.main.user }}
+    DB_DATABASE_NAME: {{ .Values.cnpg.main.database }}
     DB_PORT: "5432"
     REDIS_HOSTNAME: {{ printf "%v-%v" .Release.Name "redis" }}
     REDIS_PORT: "6379"

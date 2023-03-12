@@ -45,8 +45,8 @@ workload:
           JWT_ENABLED: true
           DB_TYPE: "postgres"
           DB_PORT: 5432
-          DB_NAME: "{{ .Values.cnpg.database }}"
-          DB_USER: "{{ .Values.cnpg.user }}"
+          DB_NAME: "{{ .Values.cnpg.main.database }}"
+          DB_USER: "{{ .Values.cnpg.main.user }}"
           REDIS_SERVER_PORT: 6379
           DB_HOST:
             secretKeyRef:

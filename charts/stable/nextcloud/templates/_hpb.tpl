@@ -138,9 +138,9 @@ env:
   - name: TRUSTED_PROXIES
     value: "{{ .Values.env.TRUSTED_PROXIES }}"
   - name: POSTGRES_DB
-    value: "{{ .Values.postgresql.postgresqlDatabase }}"
+    value: "{{ .Values.cnpg.main.database }}"
   - name: POSTGRES_USER
-    value: "{{ .Values.postgresql.postgresqlUsername }}"
+    value: "{{ .Values.cnpg.main.user }}"
   - name: POSTGRES_PASSWORD
     valueFrom:
       secretKeyRef:
