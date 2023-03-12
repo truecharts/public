@@ -1,6 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "openldap.configmap" -}}
-
+enabled: true
 data:
   LDAP_TLS_CRT_FILENAME: "tls.crt"
   LDAP_TLS_KEY_FILENAME: "tls.key"

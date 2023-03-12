@@ -1,6 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "pihole.configmap" -}}
-
+enabled: true
 data:
   WEBPASSWORD: {{ .Values.pihole.WEBPASSWORD | squote }}
   {{- if .Values.pihole.DNS1 }}

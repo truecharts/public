@@ -1,5 +1,5 @@
 {{/* Define the secret */}}
-{{- define "penpot.secret" -}}
+{{- define "penpot.secrets" -}}
 
 {{- $backendFlags := list }}
 {{- $backendFlags = mustAppend $backendFlags (printf "%s-smtp" (ternary "enable" "disable" .Values.penpot.smtp.enabled)) }}

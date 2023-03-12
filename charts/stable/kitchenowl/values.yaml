@@ -19,7 +19,7 @@ additionalContainers:
     image: "{{ .Values.backendImage.repository }}:{{ .Values.backendImage.tag }}"
     env:
       - name: FRONT_URL
-        value: "{{ .Values.env.FRONT_URL }}"
+        value: "{{ .Values.workload.main.podSpec.containers.main.env.FRONT_URL }}"
         # Backend also listens on 80, but afaik there is no use as of now
         # Changed port to 81 to avoid conflict with frontend
       - name: HTTP_PORT

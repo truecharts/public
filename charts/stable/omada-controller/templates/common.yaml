@@ -13,7 +13,7 @@ When ingress is enabled, set this to 443, otherwise set it to whatever `port` is
   {{- $port = 443 -}}
 {{- end -}}
 
-{{- $_ := set .Values.env "MANAGE_HTTPS_PORT" $port -}}
+{{- $_ := set .Values.workload.main.podSpec.containers.main.env "MANAGE_HTTPS_PORT" $port -}}
 
 {{- $_ := set .Values.service.main.ports.main "targetPort" $port -}}
 
