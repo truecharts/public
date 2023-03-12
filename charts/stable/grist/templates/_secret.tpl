@@ -10,7 +10,7 @@ data:
   GRIST_SESSION_SECRET: {{ randAlphaNum 32 }}
   {{- end }}
   {{/* Dependencies */}}
-  TYPEORM_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
+  TYPEORM_PASSWORD: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
   REDIS_URL: {{ printf "redis://:%v@%v-redis:6379/%v" ( .Values.redis.redisPassword | trimAll "\"" ) .Release.Name "0" }}
   {{/* Google */}}
   {{- with .Values.grist.google.client_id }}

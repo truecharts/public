@@ -32,7 +32,7 @@ workload:
           DOCS_BASE_URL: ""
           DOCS_SMTP_HOSTNAME: ""
           DOCS_SMTP_PORT: 0
-          DATABASE_USER: "{{ .Values.cnpg.user }}"
+          DATABASE_USER: "{{ .Values.cnpg.main.user }}"
           DATABASE_PASSWORD:
             secretKeyRef:
               name: cnpg-main-urls

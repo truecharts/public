@@ -131,8 +131,8 @@ workload:
         env:
           GENERIC_TIMEZONE: "{{ .Values.TZ }}"
           DB_TYPE: "postgresdb"
-          DB_POSTGRESDB_USER: "{{ .Values.cnpg.user }}"
-          DB_POSTGRESDB_DATABASE: "{{ .Values.cnpg.database }}"
+          DB_POSTGRESDB_USER: "{{ .Values.cnpg.main.user }}"
+          DB_POSTGRESDB_DATABASE: "{{ .Values.cnpg.main.database }}"
           DB_POSTGRESDB_PORT: 5432
           QUEUE_BULL_REDIS_PORT: 6379
           N8N_USER_FOLDER: "/data"

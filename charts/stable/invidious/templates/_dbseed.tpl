@@ -2,9 +2,9 @@
 image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
 env:
   - name: POSTGRES_DB
-    value: {{ .Values.postgresql.postgresqlDatabase }}
+    value: {{ .Values.cnpg.main.database }}
   - name: POSTGRES_USER
-    value: {{ .Values.postgresql.postgresqlUsername }}
+    value: {{ .Values.cnpg.main.user }}
 {{/* PG* variables are for the psql client */}}
   - name: PGPORT
     value: "5432"

@@ -25,8 +25,8 @@ api-config:
   data:
     DB_ENGINE: "postgres"
     POSTGRES_PORT: "5432"
-    POSTGRES_USER: {{ .Values.postgresql.postgresqlUsername }}
-    POSTGRES_DB: {{ .Values.postgresql.postgresqlDatabase }}
+    POSTGRES_USER: {{ .Values.cnpg.main.user }}
+    POSTGRES_DB: {{ .Values.cnpg.main.database }}
     POSTGRES_SERVER: {{ printf "%v-%v" .Release.Name "postgresql" }}
     API_PORT: {{ .Values.service.api.ports.api.port | quote }}
     {{/* User Defined */}}

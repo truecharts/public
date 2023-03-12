@@ -16,7 +16,7 @@ authentik-secret:
     {{- end }}
     AUTHENTIK_BOOTSTRAP_TOKEN: {{ $token }}
     {{/* Dependencies */}}
-    AUTHENTIK_POSTGRESQL__PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
+    AUTHENTIK_POSTGRESQL__PASSWORD: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
     AUTHENTIK_REDIS__PASSWORD: {{ .Values.redis.redisPassword | trimAll "\"" }}
     {{/* Credentials */}}
     {{- with .Values.authentik.credentials.password }}

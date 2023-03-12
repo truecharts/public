@@ -6,8 +6,8 @@ inventree-config:
   data:
     INVENTREE_TIMEZONE: {{ .Values.TZ }}
     INVENTREE_DB_ENGINE: "postgresql"
-    INVENTREE_DB_NAME: {{ .Values.postgresql.postgresqlDatabase }}
-    INVENTREE_DB_USER: {{ .Values.postgresql.postgresqlUsername }}
+    INVENTREE_DB_NAME: {{ .Values.cnpg.main.database }}
+    INVENTREE_DB_USER: {{ .Values.cnpg.main.user }}
     INVENTREE_DB_HOST: {{ printf "%v-%v" .Release.Name "postgresql" }}
     INVENTREE_DB_PORT: "5432"
     INVENTREE_CACHE_PORT: "6379"

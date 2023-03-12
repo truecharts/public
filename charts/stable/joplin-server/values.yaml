@@ -43,8 +43,8 @@ workload:
           APP_BASE_URL: http://localhost:22300
           APP_PORT: 22300
           DB_CLIENT: "pg"
-          POSTGRES_DATABASE: "{{ .Values.cnpg.database }}"
-          POSTGRES_USER: "{{ .Values.cnpg.user }}"
+          POSTGRES_DATABASE: "{{ .Values.cnpg.main.database }}"
+          POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
           POSTGRES_PORT: "5432"
           POSTGRES_PASSWORD:
             secretKeyRef:

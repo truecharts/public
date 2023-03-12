@@ -39,8 +39,8 @@ workload:
       containers:
         env:
           DB_BACKEND: "PostgreSQL"
-          DB_PGSQL_USERNAME: "{{ .Values.cnpg.user }}"
-          DB_PGSQL_DATABASE: "{{ .Values.cnpg.database }}"
+          DB_PGSQL_USERNAME: "{{ .Values.cnpg.main.user }}"
+          DB_PGSQL_DATABASE: "{{ .Values.cnpg.main.database }}"
           DB_PGSQL_PORT: 5432
           AUTH_AUTHENTICATOR: "Database"
           RUN_OPTS: "--config-from-environment"

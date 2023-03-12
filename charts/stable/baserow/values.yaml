@@ -43,8 +43,8 @@ workload:
             startup:
               path: "/_health"
         env:
-          DATABASE_NAME: "{{ .Values.cnpg.database }}"
-          DATABASE_USER: "{{ .Values.cnpg.user }}"
+          DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
+          DATABASE_USER: "{{ .Values.cnpg.main.user }}"
           DATABASE_PORT: "5432"
           REDIS_USER: "{{ .Values.redis.redisUsername }}"
           REDIS_PORT: "6379"

@@ -1,10 +1,10 @@
 {{/* Define the secret */}}
 {{- define "gotify.secret" -}}
 
-{{- $url := (.Values.postgresql.url.plain | trimAll "\"") }}
-{{- $password := (.Values.postgresql.postgresqlPassword | trimAll "\"") }}
-{{- $dbuser := .Values.postgresql.postgresqlUsername }}
-{{- $dbname := .Values.postgresql.postgresqlDatabase }}
+{{- $url := (.Values.cnpg.main.creds.plain | trimAll "\"") }}
+{{- $password := (.Values.cnpg.main.creds.password | trimAll "\"") }}
+{{- $dbuser := .Values.cnpg.main.user }}
+{{- $dbname := .Values.cnpg.main.database }}
 {{- $port := .Values.service.main.ports.main.port }}
 secret-env:
   enabled: true

@@ -47,7 +47,7 @@ workload:
           JAVA_OPTS:
           CONTEXT_PATH: "/"
           spring_liquibase_parameters_userTableQuote: '"'
-          spring_datasource_username: "{{ .Values.cnpg.user }}"
+          spring_datasource_username: "{{ .Values.cnpg.main.user }}"
           spring_datasource_url:
             secretKeyRef:
               name: cnpg-main-urls

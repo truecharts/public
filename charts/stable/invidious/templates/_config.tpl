@@ -22,10 +22,10 @@ data:
     # Database
     check_tables: true
     db:
-      user: {{ .Values.postgresql.postgresqlUsername }}
-      dbname: {{ .Values.postgresql.postgresqlDatabase }}
-      password: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
-      host: {{ .Values.postgresql.url.plain | trimAll "\"" }}
+      user: {{ .Values.cnpg.main.user }}
+      dbname: {{ .Values.cnpg.main.database }}
+      password: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
+      host: {{ .Values.cnpg.main.creds.plain | trimAll "\"" }}
       port: 5432
 
     # Network

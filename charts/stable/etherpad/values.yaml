@@ -36,8 +36,8 @@ workload:
       containers:
         env:
           DB_TYPE: "postgres"
-          DB_NAME: "{{ .Values.cnpg.database }}"
-          DB_USER: "{{ .Values.cnpg.user }}"
+          DB_NAME: "{{ .Values.cnpg.main.database }}"
+          DB_USER: "{{ .Values.cnpg.main.user }}"
           DB_PORT: "5432"
           DB_PASS:
             secretKeyRef:

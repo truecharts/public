@@ -221,8 +221,8 @@ workload:
                 name: weblate-env
         env:
           WEBLATE_TIME_ZONE: "{{ .Values.TZ }}"
-          POSTGRES_USER: "{{ .Values.cnpg.user }}"
-          POSTGRES_DATABASE: "{{ .Values.cnpg.database }}"
+          POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+          POSTGRES_DATABASE: "{{ .Values.cnpg.main.database }}"
           POSTGRES_PORT: 5432
           REDIS_PORT: 6379
           REDIS_DB: "0"

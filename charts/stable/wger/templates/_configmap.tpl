@@ -6,8 +6,8 @@ wger-configmap:
   data:
     {{/* Dependencies */}}
     DJANGO_DB_ENGINE: "django.db.backends.postgresql"
-    DJANGO_DB_DATABASE: {{ .Values.postgresql.postgresqlDatabase }}
-    DJANGO_DB_USER: {{ .Values.postgresql.postgresqlUsername }}
+    DJANGO_DB_DATABASE: {{ .Values.cnpg.main.database }}
+    DJANGO_DB_USER: {{ .Values.cnpg.main.user }}
     DJANGO_DB_PORT: "5432"
     DJANGO_DB_HOST: {{ printf "%v-%v" .Release.Name "postgresql" }}
     DJANGO_CACHE_BACKEND: "django_redis.cache.RedisCache"

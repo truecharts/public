@@ -43,7 +43,7 @@ workload:
     podSpec:
       containers:
         env:
-          USER: "{{ .Values.cnpg.user }}"
+          USER: "{{ .Values.cnpg.main.user }}"
           PORT: 5432
           PASSWORD:
             secretKeyRef:

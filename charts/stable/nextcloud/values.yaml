@@ -404,8 +404,8 @@ workload:
           PHP_UPLOAD_LIMIT: 10G
           NEXTCLOUD_CHUNKSIZE: "31457280"
           TRUSTED_PROXIES: "172.16.0.0/16 127.0.0.1"
-          POSTGRES_DB: "{{ .Values.cnpg.database }}"
-          POSTGRES_USER: "{{ .Values.cnpg.user }}"
+          POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
+          POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
           NC_check_data_directory_permissions: "true"
           POSTGRES_PASSWORD:
             secretKeyRef:

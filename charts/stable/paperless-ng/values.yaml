@@ -50,8 +50,8 @@ workload:
           USERMAP_UID: "{{ .Values.security.PUID }}"
           USERMAP_GID: "{{ .Values.podSecurityContext.fsGroup }}"
           PAPERLESS_TIME_ZONE: "{{ .Values.TZ }}"
-          PAPERLESS_DBNAME: "{{ .Values.cnpg.database }}"
-          PAPERLESS_DBUSER: "{{ .Values.cnpg.user }}"
+          PAPERLESS_DBNAME: "{{ .Values.cnpg.main.database }}"
+          PAPERLESS_DBUSER: "{{ .Values.cnpg.main.user }}"
           PAPERLESS_DBPORT: "5432"
           PAPERLESS_WEBSERVER_WORKERS: 2
           PAPERLESS_DBPASS:

@@ -34,8 +34,8 @@ workload:
         env:
           DJANGO_TIME_ZONE: "{{ .Values.TZ }}"
           DJANGO_DATABASE_ENGINE: "django.db.backends.postgresql"
-          DJANGO_DATABASE_NAME: "{{ .Values.cnpg.database }}"
-          DJANGO_DATABASE_USER: "{{ .Values.cnpg.user }}"
+          DJANGO_DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
+          DJANGO_DATABASE_USER: "{{ .Values.cnpg.main.user }}"
           DJANGO_DATABASE_PORT: "5432"
           DJANGO_DATABASE_PASSWORD:
             secretKeyRef:

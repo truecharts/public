@@ -35,8 +35,8 @@ workload:
       containers:
         env:
           DB_ENGINE: "django.db.backends.postgresql"
-          DB_NAME: "{{ .Values.cnpg.database }}"
-          DB_USER: "{{ .Values.cnpg.user }}"
+          DB_NAME: "{{ .Values.cnpg.main.database }}"
+          DB_USER: "{{ .Values.cnpg.main.user }}"
           DB_PORT: "5432"
           CSRF_TRUSTED_ORIGINS: ""
           DB_PASSWORD:

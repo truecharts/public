@@ -102,8 +102,8 @@ workload:
           SHOPPING_MIN_AUTOSYNC_INTERVAL: 5
           TIMEZONE: "{{ .Values.TZ }}"
           DB_ENGINE: "django.db.backends.postgresql"
-          POSTGRES_DB: "{{ .Values.cnpg.database }}"
-          POSTGRES_USER: "{{ .Values.cnpg.user }}"
+          POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
+          POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
           POSTGRES_PORT: "5432"
           POSTGRES_PASSWORD:
             secretKeyRef:

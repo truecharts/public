@@ -11,7 +11,7 @@ data:
   {{- end }}
   {{- $redisPass := .Values.redis.redisPassword | trimAll "\"" }}
   DJANGO_CACHE_LOCATION: {{ printf "redis://%v:%v@%v-redis/%v" .Values.redis.redisUsername $redisPass .Release.Name .Values.redis.redisDatabase }}
-  DJANGO_DB_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
+  DJANGO_DB_PASSWORD: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
   EMAIL_HOST_USER: {{ .Values.wger.mail.email_host_user }}
   EMAIL_HOST_PASSWORD: {{ .Values.wger.mail.email_host_password }}
   {{- with .Values.wger.captcha.recaptha_public_key }}

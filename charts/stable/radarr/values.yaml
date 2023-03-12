@@ -51,8 +51,8 @@ workload:
           RADARR__PORT: "{{ .Values.service.main.ports.main.port }}"
           RADARR__AUTHENTICATION_METHOD: ""
           RADARR__POSTGRES_PORT: 5432
-          RADARR__POSTGRES_USER: "{{ .Values.cnpg.user }}"
-          RADARR__POSTGRES_MAIN_DB: "{{ .Values.cnpg.database }}"
+          RADARR__POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+          RADARR__POSTGRES_MAIN_DB: "{{ .Values.cnpg.main.database }}"
           RADARR__POSTGRES_HOST:
             secretKeyRef:
               name: cnpg-main-urls

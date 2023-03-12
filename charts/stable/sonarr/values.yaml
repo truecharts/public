@@ -52,8 +52,8 @@ workload:
           SONARR__AUTHENTICATION_METHOD: ""
           # Enable postgres if v4 of sonarr supports it.
           # SONARR__POSTGRES_PORT: 5432
-          # SONARR__POSTGRES_USER: "{{ .Values.cnpg.user }}"
-          # SONARR__POSTGRES_MAIN_DB: "{{ .Values.cnpg.database }}"
+          # SONARR__POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+          # SONARR__POSTGRES_MAIN_DB: "{{ .Values.cnpg.main.database }}"
           # SONARR__POSTGRES_HOST:
           #   secretKeyRef:
           #     name: cnpg-main-urls

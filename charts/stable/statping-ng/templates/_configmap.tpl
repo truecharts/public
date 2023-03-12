@@ -5,8 +5,8 @@ enabled: true
 data:
   PORT: {{ .Values.service.main.ports.main.port | quote }}
   DB_CONN: "postgres"
-  DB_DATABASE: {{ .Values.postgresql.postgresqlDatabase | quote }}
-  DB_USER: {{ .Values.postgresql.postgresqlUsername | quote }}
+  DB_DATABASE: {{ .Values.cnpg.main.database | quote }}
+  DB_USER: {{ .Values.cnpg.main.user | quote }}
   DB_PORT: "5432"
   POSTGRES_SSLMODE: "disable"
 
