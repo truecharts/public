@@ -11,8 +11,8 @@
 {{- end -}}
 
 {{- $_ := set .Values.initContainers "init" (include "inventree.init" . | fromYaml) -}}
-{{- $_ := set .Values.additionalContainers "nginx" (include "inventree.nginx" . | fromYaml) -}}
-{{- $_ := set .Values.additionalContainers "worker" (include "inventree.worker" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "nginx" (include "inventree.nginx" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "worker" (include "inventree.worker" . | fromYaml) -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}

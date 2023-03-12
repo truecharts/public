@@ -8,8 +8,6 @@
 {{- end -}}
 
 {{- include "statping.config" . }}
-{{- include "statping.servicemonitor" . -}}
-{{- include "statping.prometheusrule" . -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}

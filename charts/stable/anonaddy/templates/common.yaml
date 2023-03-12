@@ -2,8 +2,10 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render appkey for anonaddy */}}
-{{- include "anonaddy.appkey" . }}
-
+{{- $secret := include "anonaddy.appkey" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "appkey" $secret -}}
+{{- end -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}

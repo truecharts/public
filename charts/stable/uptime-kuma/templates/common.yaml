@@ -1,7 +1,4 @@
 {{- include "tc.v1.common.loader.init" . }}
 
-{{- include "uptime.servicemonitor" . -}}
-{{- include "uptime.prometheusrule" . -}}
-
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}

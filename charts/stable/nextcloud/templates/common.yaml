@@ -10,12 +10,12 @@
 {{- $newMiddlewares :=  append .Values.ingress.main.fixedMiddlewares "tc-nextcloud-chain" }}
 {{- $_ := set .Values.ingress.main "fixedMiddlewares" $newMiddlewares -}}
 
-{{- $_ := set .Values.additionalContainers "nginx" (include "nextcloud.nginx" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "nginx" (include "nextcloud.nginx" . | fromYaml) -}}
 {{- if .Values.imaginary.enabled -}}
-{{- $_ := set .Values.additionalContainers "imaginary" (include "nextcloud.imaginary" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "imaginary" (include "nextcloud.imaginary" . | fromYaml) -}}
 {{- end -}}
 {{- if .Values.hpb.enabled -}}
-{{- $_ := set .Values.additionalContainers "hpb" (include "nextcloud.hpb" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "hpb" (include "nextcloud.hpb" . | fromYaml) -}}
 {{- end -}}
 
 {{/* Render the templates */}}

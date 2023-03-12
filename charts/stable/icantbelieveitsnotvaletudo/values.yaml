@@ -45,8 +45,7 @@ config:
 portal:
   open:
     enabled: true
-securityContext:
-  container: null
+
 workload:
   main:
     strategy: RollingUpdate

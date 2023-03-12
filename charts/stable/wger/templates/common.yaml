@@ -15,7 +15,7 @@
   {{- $_ := set .Values.secret "wger-secret" $secret -}}
 {{- end -}}
 
-{{- $_ := set .Values.additionalContainers "nginx" (include "wger.nginx" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "nginx" (include "wger.nginx" . | fromYaml) -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
