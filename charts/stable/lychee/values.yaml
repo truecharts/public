@@ -53,8 +53,8 @@ workload:
           SESSION_DRIVER: "redis"
           APP_ENV: "production"
           APP_NAME: "Lychee"
-          MIX_PUSHER_APP_KEY: "{{ .Values.env.PUSHER_APP_KEY }}"
-          MIX_PUSHER_APP_CLUSTER: "{{ .Values.env.PUSHER_APP_CLUSTER }}"
+          MIX_PUSHER_APP_KEY: "{{ .Values.workload.main.podSpec.containers.main.env.PUSHER_APP_KEY }}"
+          MIX_PUSHER_APP_CLUSTER: "{{ .Values.workload.main.podSpec.containers.main.env.PUSHER_APP_CLUSTER }}"
           # User Envs
           SECURITY_HEADER_HSTS_ENABLE: false
           APP_DEBUG: false

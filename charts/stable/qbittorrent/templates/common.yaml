@@ -6,7 +6,7 @@
 
 {{/* Render configmap for vaultwarden */}}
 {{- $configmap := include "qbittorrent.configmap" . | fromYaml -}}
-{{- if $configmapFile -}}
+{{- if $configmap -}}
 {{- $_ := set .Values.configmap "qbittorrent-scripts" $configmap -}}
 {{- end -}}
 

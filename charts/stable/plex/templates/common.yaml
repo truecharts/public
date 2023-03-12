@@ -37,7 +37,7 @@
   {{- $adv = append $adv . -}}
 {{- end }}
 
-{{- $_ := set .Values.env "ADVERTISE_IP" (join "," $adv) }}
+{{- $_ := set .Values.workload.main.podSpec.containers.main.env "ADVERTISE_IP" (join "," $adv) }}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}

@@ -21,25 +21,25 @@ initContainers:
       - name: ZIGBEE2MQTT_CONFIG_FRONTEND_PORT
         value: "{{ .Values.service.main.ports.main.port }}"
       - name: ZIGBEE2MQTT_CONFIG_EXPIRIMENTAL_NEW_API
-        value: "{{ .Values.env.ZIGBEE2MQTT_CONFIG_EXPIRIMENTAL_NEW_API }}"
+        value: "{{ .Values.workload.main.podSpec.containers.main.env.ZIGBEE2MQTT_CONFIG_EXPIRIMENTAL_NEW_API }}"
       - name: ZIGBEE2MQTT_CONFIG_PERMIT_JOIN
-        value: "{{ .Values.env.ZIGBEE2MQTT_CONFIG_PERMIT_JOIN }}"
+        value: "{{ .Values.workload.main.podSpec.containers.main.env.ZIGBEE2MQTT_CONFIG_PERMIT_JOIN }}"
       - name: ZIGBEE2MQTT_CONFIG_EXPIRIMENTAL_NEW_API
-        value: "{{ .Values.env.ZIGBEE2MQTT_CONFIG_EXPIRIMENTAL_NEW_API }}"
+        value: "{{ .Values.workload.main.podSpec.containers.main.env.ZIGBEE2MQTT_CONFIG_EXPIRIMENTAL_NEW_API }}"
       - name: ZIGBEE2MQTT_CONFIG_MQTT_SERVER
-        value: "{{ .Values.env.ZIGBEE2MQTT_CONFIG_MQTT_SERVER }}"
+        value: "{{ .Values.workload.main.podSpec.containers.main.env.ZIGBEE2MQTT_CONFIG_MQTT_SERVER }}"
       - name: ZIGBEE2MQTT_CONFIG_MQTT_USER
         value: "{{ .Values.secret.ZIGBEE2MQTT_CONFIG_MQTT_USER }}"
       - name: ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD
         value: "{{ .Values.secret.ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD }}"
       - name: ZIGBEE2MQTT_CONFIG_MQTT_BASE_TOPIC
-        value: "{{ .Values.env.ZIGBEE2MQTT_CONFIG_MQTT_BASE_TOPIC }}"
+        value: "{{ .Values.workload.main.podSpec.containers.main.env.ZIGBEE2MQTT_CONFIG_MQTT_BASE_TOPIC }}"
       - name: ZIGBEE2MQTT_CONFIG_SERIAL_PORT
-        value: "{{ .Values.env.ZIGBEE2MQTT_CONFIG_SERIAL_PORT }}"
+        value: "{{ .Values.workload.main.podSpec.containers.main.env.ZIGBEE2MQTT_CONFIG_SERIAL_PORT }}"
       - name: ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER
-        value: "{{ .Values.env.ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER }}"
+        value: "{{ .Values.workload.main.podSpec.containers.main.env.ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER }}"
       - name: USE_CUSTOM_CONFIG_FILE
-        value: "{{ .Values.env.USE_CUSTOM_CONFIG_FILE }}"
+        value: "{{ .Values.workload.main.podSpec.containers.main.env.USE_CUSTOM_CONFIG_FILE }}"
     command: ["/bin/sh", "-c"]
     args:
       - >

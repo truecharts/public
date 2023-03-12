@@ -71,7 +71,7 @@ command:
     echo "Nextcloud instance with Notify_push found... Launching High Performance Backend..."
     /var/www/html/custom_apps/notify_push/bin/x86_64/notify_push /var/www/html/config/config.php &
 
-    {{- $accessurl := (  printf "http://%v:%v" ( .Values.env.AccessIP | default ( printf "%v-%v" .Release.Name "nextcloud" ) ) .Values.service.main.ports.main.port ) }}
+    {{- $accessurl := (  printf "http://%v:%v" ( .Values.workload.main.podSpec.containers.main.env.AccessIP | default ( printf "%v-%v" .Release.Name "nextcloud" ) ) .Values.service.main.ports.main.port ) }}
     {{- if .Values.ingress.main.enabled }}
       {{- with (first .Values.ingress.main.hosts) }}
       {{- $accessurl = (  printf "https://%s" .host ) }}
@@ -136,7 +136,7 @@ env:
   - name: METRICS_PORT
     value: '7868'
   - name: TRUSTED_PROXIES
-    value: "{{ .Values.env.TRUSTED_PROXIES }}"
+    value: "{{ .Values.workload.main.podSpec.containers.main.env.TRUSTED_PROXIES }}"
   - name: POSTGRES_DB
     value: "{{ .Values.cnpg.main.database }}"
   - name: POSTGRES_USER
