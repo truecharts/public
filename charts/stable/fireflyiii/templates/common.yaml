@@ -8,7 +8,10 @@
 {{- end -}}
 
 {{/* Render cronjob for fireflyiii */}}
-{{- include "fireflyiii.cronjob" . }}
+{{- $cronjob := include "fireflyiii.cronjob" . | fromYaml -}}
+{{- if $cronjob -}}
+{{- $_ := set .Values.workload "cron" $cronjob -}}
+{{- end -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}

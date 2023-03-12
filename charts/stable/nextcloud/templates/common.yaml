@@ -18,8 +18,11 @@
 {{- $_ := set .Values.workload.main.podSpec.containers "hpb" (include "nextcloud.hpb" . | fromYaml) -}}
 {{- end -}}
 
+{{/* Render cronjob for nextcloud */}}
+{{- $cronjob := include "nextcloud.cronjob" . | fromYaml -}}
+{{- if $cronjob -}}
+{{- $_ := set .Values.workload "cron" $cronjob -}}
+{{- end -}}
+
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
-
-{{/* Render cronjob for nextcloud */}}
-{{- include "nextcloud.cronjob" . }}

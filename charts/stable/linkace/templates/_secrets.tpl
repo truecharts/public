@@ -1,13 +1,7 @@
 {{/* Define the secrets */}}
 {{- define "linkace.secrets" -}}
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: linkace-secrets
-{{- $linkaceprevious := lookup "v1" "Secret" .Release.Namespace "linkace-secrets" }}
+enabled: true
+{{- $linkaceprevious := lookup "v1" "Secret" .Release.Namespace "secrets" }}
 {{- $app_key := "" }}
 data:
   {{- if $linkaceprevious}}

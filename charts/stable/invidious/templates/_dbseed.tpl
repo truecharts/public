@@ -1,21 +1,17 @@
 {{- define "invidious.dbseed" -}}
-image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
+enabled: true
+imageSelector: ubuntuImage
 env:
-  - name: POSTGRES_DB
-    value: {{ .Values.cnpg.main.database }}
-  - name: POSTGRES_USER
-    value: {{ .Values.cnpg.main.user }}
+  POSTGRES_DB: {{ .Values.cnpg.main.database }}
+  POSTGRES_USER: {{ .Values.cnpg.main.user }}
 {{/* PG* variables are for the psql client */}}
-  - name: PGPORT
-    value: "5432"
-  - name: PGHOST
-    valueFrom:
-      secretKeyRef:
+  PGPORT: "5432"
+  PGHOST
+    secretKeyRef:
         name: dbcreds
         key: plainhost
-  - name: PGPASSWORD
-    valueFrom:
-      secretKeyRef:
+  PGPASSWORD
+    secretKeyRef:
         name: dbcreds
         key: postgresql-password
 command:

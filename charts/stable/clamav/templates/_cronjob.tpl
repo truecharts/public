@@ -2,14 +2,7 @@
 {{- define "clamav.cronjob" -}}
 enabled: true
 type: "CronJob"
-schedule: "{{ .Values.clamav.cron_schedule }}"
-concurrencyPolicy: Forbid
-{{- with .Values.cronjob.failedJobsHistoryLimit }}
-failedJobsHistoryLimit: {{ . }}
-{{- end }}
-{{- with .Values.cronjob.successfulJobsHistoryLimit }}
-successfulJobsHistoryLimit: {{ . }}
-{{- end }}
+
 podSpec:
   restartPolicy: Never
   containers:

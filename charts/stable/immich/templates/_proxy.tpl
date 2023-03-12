@@ -7,41 +7,35 @@
   {{- if not .Values.service.main.ports.main.targetPort -}} {{/* For smooth upgrade, Remove later */}}
     {{- $_ := set .Values.service.main.ports.main "targetPort" 8080 -}}
   {{- end }}
-image: {{ .Values.proxyImage.repository }}:{{ .Values.proxyImage.tag }}
+enabled: true
+imageSelector: proxyImage
 imagePullPolicy: {{ .Values.proxyImage.pullPolicy }}
-securityContext:
-  runAsUser: {{ .Values.podSecurityContext.runAsUser }}
-  runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
-  readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
-  runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 envFrom:
   - configMapRef:
-      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-common-config'
-ports:
-  - containerPort: {{ .Values.service.main.ports.main.targetPort }}
-    name: main
-readinessProbe:
-  httpGet:
+      name: 'common-config'
+probes:
+  readiness:
+
     path: /api/server-info/ping
-    port: {{ .Values.service.main.ports.main.targetPort }}
-  initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
-  timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
-  periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
-  failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
-livenessProbe:
-  httpGet:
+      port: {{ .Values.service.main.ports.main.targetPort }}
+
+
+
+
+  liveness:
+
     path: /api/server-info/ping
-    port: {{ .Values.service.main.ports.main.targetPort }}
-  initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
-  timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
-  periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
-  failureThreshold: {{ .Values.probes.liveness.spec.failureThreshold }}
-startupProbe:
-  httpGet:
+      port: {{ .Values.service.main.ports.main.targetPort }}
+
+
+
+
+  startup:
+
     path: /api/server-info/ping
-    port: {{ .Values.service.main.ports.main.targetPort }}
-  initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
-  timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
-  periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
-  failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
+      port: {{ .Values.service.main.ports.main.targetPort }}
+
+
+
+
 {{- end -}}

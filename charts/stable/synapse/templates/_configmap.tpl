@@ -39,7 +39,7 @@ data:
         type: http
         x_forwarded: true
         bind_addresses: ['0.0.0.0']
-        resources:
+
           - names: [client, federation]
             compress: false
 
@@ -47,7 +47,7 @@ data:
       - type: metrics
         port: {{ .Values.synapse.metrics.port }}
         bind_addresses: ['0.0.0.0']
-        resources:
+
           - names: [metrics]
     {{- end }}
 

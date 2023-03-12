@@ -1,14 +1,7 @@
 {{- define "youtrack.init" -}}
-image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+enabled: true
+imageSelector: image.repository }}:{{ .Values.image.tag }}
 imagePullPolicy: {{ .Values.image.pullPolicy }}
-securityContext:
-  runAsUser: {{ .Values.podSecurityContext.runAsUser }}
-  runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
-  readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilysystem }}
-  runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
-volumeMounts:
-  - name: conf
-    mountPath: {{ .Values.persistence.conf.mountPath }}
 args:
   - configure
   {{- range (include "youtrack.args" . | fromYaml).args }}
