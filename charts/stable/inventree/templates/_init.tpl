@@ -1,6 +1,7 @@
 {{/* Define the init container */}}
 {{- define "inventree.init" -}}
-image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+enabled: true
+imageSelector: image.repository }}:{{ .Values.image.tag }}
 imagePullPolicy: '{{ .Values.image.pullPolicy }}'
 command: ["sh", "-c"]
 args:
@@ -9,17 +10,9 @@ args:
     cd /home/inventree || exit
     invoke update
     echo "Initialization finished!"
-securityContext:
-  runAsUser: {{ .Values.podSecurityContext.runAsUser }}
-  runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
-  readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
-  runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
-volumeMounts:
-  - name: data
-    mountPath: "/home/inventree/data"
 envFrom:
   - secretRef:
-      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-inventree-secret'
+      name: 'inventree-secret'
   - configMapRef:
-      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-inventree-config'
+      name: 'inventree-config'
 {{- end -}}

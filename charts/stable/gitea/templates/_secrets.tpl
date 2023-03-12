@@ -128,16 +128,16 @@ init:
 
       # prepare temp directory structure
       mkdir -p "${GITEA_TEMP}"
-      chown -Rf {{ .Values.podSecurityContext.runAsUser }}:{{ .Values.podSecurityContext.fsGroup }} "${GITEA_TEMP}"
+      chown -Rf {{ .Values.securityContext.container.runAsUser }}:{{ .Values.securityContext.pod.fsGroup }} "${GITEA_TEMP}"
       chmod ug+rwx "${GITEA_TEMP}"
 
       # Copy config file to writable volume
       cp /etc/gitea/conf/app.ini /data/gitea/conf/app.ini
-      chown -Rf {{ .Values.podSecurityContext.runAsUser }}:{{ .Values.podSecurityContext.fsGroup }}  "/data"
+      chown -Rf {{ .Values.securityContext.container.runAsUser }}:{{ .Values.securityContext.pod.fsGroup }}  "/data"
       chmod a+rwx /data/gitea/conf/app.ini
 
       # Patch dockercontainer for dynamic users
-      chown -Rf {{ .Values.podSecurityContext.runAsUser }}:{{ .Values.podSecurityContext.fsGroup }}  "/var/lib/gitea"
+      chown -Rf {{ .Values.securityContext.container.runAsUser }}:{{ .Values.securityContext.pod.fsGroup }}  "/var/lib/gitea"
 
     configure_gitea.sh: |-
       #!/usr/bin/env bash
