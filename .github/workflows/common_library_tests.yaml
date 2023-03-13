@@ -77,7 +77,7 @@ jobs:
           version: ${{ matrix.helm-version }}
 
       - name: Cache helm plugins
-        uses: actions/cache@940f3d7cf195ba83374c77632d1e2cbb2f24ae68 # v3
+        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3
         with:
           path: |
             /home/runner/.local/share/helm/plugins/helm-unittest
