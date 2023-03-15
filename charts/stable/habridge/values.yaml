@@ -34,5 +34,6 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          SEC_KEY: ""
+        main:
+          env:
+            SEC_KEY: ""

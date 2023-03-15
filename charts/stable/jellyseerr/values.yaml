@@ -19,8 +19,9 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          PORT: "{{ .Values.service.main.ports.main.port }}"
-          # User Defined
-          JELLYFIN_TYPE: ""
-          LOG_LEVEL: "info"
+        main:
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            # User Defined
+            JELLYFIN_TYPE: ""
+            LOG_LEVEL: "info"

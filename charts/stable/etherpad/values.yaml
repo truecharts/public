@@ -34,22 +34,23 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          DB_TYPE: "postgres"
-          DB_NAME: "{{ .Values.cnpg.main.database }}"
-          DB_USER: "{{ .Values.cnpg.main.user }}"
-          DB_PORT: "5432"
-          DB_PASS:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          DB_HOST:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
-          # User Defined
-          TITLE: "Etherpad"
-          FAVICON: "favicon.ico"
-          DEFAULT_PAD_TEXT: "Welcome to Etherpad! This pad text is synchronized as you type, so that everyone viewing this page sees the same text. This allows you to collaborate seamlessly on documents! Get involved with Etherpad at https://etherpad.org"
-          ADMIN_PASSWORD: "adminpass"
-          USER_PASSWORD: "firstuserpass"
+        main:
+          env:
+            DB_TYPE: "postgres"
+            DB_NAME: "{{ .Values.cnpg.main.database }}"
+            DB_USER: "{{ .Values.cnpg.main.user }}"
+            DB_PORT: "5432"
+            DB_PASS:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost
+            # User Defined
+            TITLE: "Etherpad"
+            FAVICON: "favicon.ico"
+            DEFAULT_PAD_TEXT: "Welcome to Etherpad! This pad text is synchronized as you type, so that everyone viewing this page sees the same text. This allows you to collaborate seamlessly on documents! Get involved with Etherpad at https://etherpad.org"
+            ADMIN_PASSWORD: "adminpass"
+            USER_PASSWORD: "firstuserpass"

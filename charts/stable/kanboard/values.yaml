@@ -34,18 +34,19 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          MAIL_CONFIGURATION: false
-          LOG_DRIVER: stdout
-          DB_DRIVER: "postgres"
-          DB_NAME: "{{ .Values.cnpg.main.database }}"
-          DB_USERNAME: "{{ .Values.cnpg.main.user }}"
-          DB_PORT: "5432"
-          DB_PASSWORD:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          DB_HOSTNAME:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
+        main:
+          env:
+            MAIL_CONFIGURATION: false
+            LOG_DRIVER: stdout
+            DB_DRIVER: "postgres"
+            DB_NAME: "{{ .Values.cnpg.main.database }}"
+            DB_USERNAME: "{{ .Values.cnpg.main.user }}"
+            DB_PORT: "5432"
+            DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            DB_HOSTNAME:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost

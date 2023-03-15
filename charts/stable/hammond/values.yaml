@@ -23,8 +23,9 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          JWT_SECRET:
-            secretKeyRef:
-              name: hammond-secrets
-              key: JWT_SECRET
+        main:
+          env:
+            JWT_SECRET:
+              secretKeyRef:
+                name: hammond-secrets
+                key: JWT_SECRET

@@ -20,6 +20,7 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          STORAGE_FILEPATH: "/config"
-          STORAGE_TYPE: "file"
+        main:
+          env:
+            STORAGE_FILEPATH: "/config"
+            STORAGE_TYPE: "file"

@@ -30,5 +30,6 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          JELLYFIN_PublishedServerUrl: "https://jelly.mydomain.com"
+        main:
+          env:
+            JELLYFIN_PublishedServerUrl: "https://jelly.mydomain.com"
