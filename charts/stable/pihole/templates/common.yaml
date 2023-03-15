@@ -4,7 +4,7 @@
 {{/* Render configmap for pihole */}}
 {{- $configmap := include "pihole.configmap" . | fromYaml -}}
 {{- if $configmap -}}
-{{- $_ := set .Values.configmap "env" $configmap -}}
+{{- $_ := set .Values.configmap "pihole-env" $configmap -}}
 {{- end -}}
 
 {{/* Render the templates */}}
