@@ -45,12 +45,13 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          LD_SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
-          # User Defined
-          LD_REQUEST_TIMEOUT: 60
-          LD_DISABLE_BACKGROUND_TASKS: false
-          LD_DISABLE_URL_VALIDATION: false
-          DJANGO_SUPERUSER_USERNAME: "superuser"
-          DJANGO_SUPERUSER_EMAIL: "super@example.com"
-          DJANGO_SUPERUSER_PASSWORD: "somesecret"
+        main:
+          env:
+            LD_SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
+            # User Defined
+            LD_REQUEST_TIMEOUT: 60
+            LD_DISABLE_BACKGROUND_TASKS: false
+            LD_DISABLE_URL_VALIDATION: false
+            DJANGO_SUPERUSER_USERNAME: "superuser"
+            DJANGO_SUPERUSER_EMAIL: "super@example.com"
+            DJANGO_SUPERUSER_PASSWORD: "somesecret"

@@ -31,21 +31,22 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          BLOG_TITLE: "Blog"
-          BLOG_NAME: "Max Musermann"
-          BLOG_LANG: "en"
-          BLOG_DB_CONNECTION: "postgres"
-          BLOG_POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
-          BLOG_POSTGRES_PORT: "5432"
-          BLOG_DB_NAME: "{{ .Values.cnpg.main.database }}"
-          BLOG_POSTGRES_PASS:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          BLOG_POSTGRES_HOST:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
-          BLOG_NICK: username
-          BLOG_PASS: password
+        main:
+          env:
+            BLOG_TITLE: "Blog"
+            BLOG_NAME: "Max Musermann"
+            BLOG_LANG: "en"
+            BLOG_DB_CONNECTION: "postgres"
+            BLOG_POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            BLOG_POSTGRES_PORT: "5432"
+            BLOG_DB_NAME: "{{ .Values.cnpg.main.database }}"
+            BLOG_POSTGRES_PASS:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            BLOG_POSTGRES_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost
+            BLOG_NICK: username
+            BLOG_PASS: password

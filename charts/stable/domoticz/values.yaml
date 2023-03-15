@@ -41,5 +41,6 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          WEBROOT: "domoticz"
+        main:
+          env:
+            WEBROOT: "domoticz"

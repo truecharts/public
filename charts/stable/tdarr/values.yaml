@@ -44,10 +44,11 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          webUIPort: "{{ .Values.service.main.ports.main.port }}"
-          serverPort: "{{ .Values.service.comm.ports.comm.port }}"
-          # User Defined
-          internalNode: true
-          serverIP: "localhost"
-          nodeID: "Internal Node"
+        main:
+          env:
+            webUIPort: "{{ .Values.service.main.ports.main.port }}"
+            serverPort: "{{ .Values.service.comm.ports.comm.port }}"
+            # User Defined
+            internalNode: true
+            serverIP: "localhost"
+            nodeID: "Internal Node"

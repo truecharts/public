@@ -32,19 +32,20 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
-          DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
-          APP_URL: ""
-          DB_HOST:
-            secretKeyRef:
-              name: mariadbcreds
-              key: plainhost
-          DB_PASS:
-            secretKeyRef:
-              name: mariadbcreds
-              key: mariadb-password
-          APP_KEY:
-            secretKeyRef:
-              name: bookstack-secrets
-              key: APP_KEY
+        main:
+          env:
+            DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
+            DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+            APP_URL: ""
+            DB_HOST:
+              secretKeyRef:
+                name: mariadbcreds
+                key: plainhost
+            DB_PASS:
+              secretKeyRef:
+                name: mariadbcreds
+                key: mariadb-password
+            APP_KEY:
+              secretKeyRef:
+                name: bookstack-secrets
+                key: APP_KEY

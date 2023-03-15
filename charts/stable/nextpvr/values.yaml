@@ -39,5 +39,6 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          HOST_IP: "localhost"
+        main:
+          env:
+            HOST_IP: "localhost"

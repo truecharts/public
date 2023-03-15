@@ -20,5 +20,6 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          FLOOD_OPTION_RUNDIR: /data
+        main:
+          env:
+            FLOOD_OPTION_RUNDIR: /data

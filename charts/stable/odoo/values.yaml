@@ -41,14 +41,15 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          USER: "{{ .Values.cnpg.main.user }}"
-          PORT: 5432
-          PASSWORD:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          HOST:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
+        main:
+          env:
+            USER: "{{ .Values.cnpg.main.user }}"
+            PORT: 5432
+            PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost

@@ -34,6 +34,7 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          CLI_ARGS:
-          PASSWORD: ""
+        main:
+          env:
+            CLI_ARGS:
+            PASSWORD: ""

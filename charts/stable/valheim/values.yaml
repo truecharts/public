@@ -48,20 +48,21 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          STATUS_HTTP: true
-          STATUS_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
-          SUPERVISOR_HTTP: true
-          SUPERVISOR_HTTP_PORT: "{{ .Values.service.supervisor.ports.supervisor.port }}"
-          SERVER_NAME: My Server
-          SERVER_PORT: "{{ .Values.service.valheim.ports.valheim1.port }}"
-          WORLD_NAME: Dedicated
-          SERVER_PUBLIC: true
-          UPDATE_INTERVAL: 10800
-          BACKUPS: true
-          BACKUPS_INTERVAL: 43200
-          BACKUPS_DIRECTORY: /backups
-          BACKUPS_MAX_AGE: 3
-          SUPERVISOR_HTTP_USER: admin
-          SUPERVISOR_HTTP_PASS: secret
-          SERVER_PASS: secret
+        main:
+          env:
+            STATUS_HTTP: true
+            STATUS_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+            SUPERVISOR_HTTP: true
+            SUPERVISOR_HTTP_PORT: "{{ .Values.service.supervisor.ports.supervisor.port }}"
+            SERVER_NAME: My Server
+            SERVER_PORT: "{{ .Values.service.valheim.ports.valheim1.port }}"
+            WORLD_NAME: Dedicated
+            SERVER_PUBLIC: true
+            UPDATE_INTERVAL: 10800
+            BACKUPS: true
+            BACKUPS_INTERVAL: 43200
+            BACKUPS_DIRECTORY: /backups
+            BACKUPS_MAX_AGE: 3
+            SUPERVISOR_HTTP_USER: admin
+            SUPERVISOR_HTTP_PASS: secret
+            SERVER_PASS: secret

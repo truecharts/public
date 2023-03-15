@@ -28,6 +28,7 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          LRR_UID: "{{ .Values.security.PUID }}"
-          LRR_GID: "{{ .Values.podSecurityContext.fsGroup }}"
+        main:
+          env:
+            LRR_UID: "{{ .Values.security.PUID }}"
+            LRR_GID: "{{ .Values.podSecurityContext.fsGroup }}"

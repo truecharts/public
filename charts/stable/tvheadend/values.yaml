@@ -33,5 +33,6 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          RUN_OPTS: ""
+        main:
+          env:
+            RUN_OPTS: ""

@@ -50,9 +50,9 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          VNC_PASSWORD: ""
         main:
           envFrom:
             - configMapRef:
                 name: "avidemux"
+          env:
+            VNC_PASSWORD: ""

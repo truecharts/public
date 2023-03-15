@@ -30,15 +30,16 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          DB_TYPE: mysql
-          MYSQL_DATABASE: xbackbone
-          MYSQL_USER: xbackbone
-          MYSQL_HOST:
-            secretKeyRef:
-              name: mariadbcreds
-              key: plainhost
-          MYSQL_PASSWORD:
-            secretKeyRef:
-              name: mariadbcreds
-              key: mariadb-password
+        main:
+          env:
+            DB_TYPE: mysql
+            MYSQL_DATABASE: xbackbone
+            MYSQL_USER: xbackbone
+            MYSQL_HOST:
+              secretKeyRef:
+                name: mariadbcreds
+                key: plainhost
+            MYSQL_PASSWORD:
+              secretKeyRef:
+                name: mariadbcreds
+                key: mariadb-password

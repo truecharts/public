@@ -22,6 +22,7 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          ADMINER_DESIGN: ""
-          ADMINER_PLUGINS: ""
+        main:
+          env:
+            ADMINER_DESIGN: ""
+            ADMINER_PLUGINS: ""

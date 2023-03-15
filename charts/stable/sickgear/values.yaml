@@ -27,5 +27,6 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          APP_DATA: /config
+        main:
+          env:
+            APP_DATA: /config

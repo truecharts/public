@@ -3,7 +3,7 @@
 
 {{- $newArgs := (include "portainer.args" . | fromYaml) }}
 {{- $_ := set .Values "newArgs" $newArgs -}}
-{{- $args := concat .Values.workload.main.podSpec.containers.main.args .Values.newArgs.args }}
+{{- $args := concat ((get .Values.workload.main.podSpec.containers.main "args") | default list)  .Values.newArgs.args }}
 {{- $_ := set .Values.workload.main.podSpec.containers.main "args" $args -}}
 
 {{/* Render the templates */}}

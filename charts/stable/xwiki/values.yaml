@@ -31,16 +31,17 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          DB_USER: "{{ .Values.cnpg.main.user }}"
-          DB_DATABASE: "{{ .Values.cnpg.main.database }}"
-          # User Defined
-          JAVA_OPTS: ""
-          DB_HOST:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
-          DB_PASSWORD:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
+        main:
+          env:
+            DB_USER: "{{ .Values.cnpg.main.user }}"
+            DB_DATABASE: "{{ .Values.cnpg.main.database }}"
+            # User Defined
+            JAVA_OPTS: ""
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost
+            DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password

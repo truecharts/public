@@ -50,20 +50,21 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          WORKSPACE_BASE_URL: "/"
-          WORKSPACE_SSL_ENABLED: false
-          WORKSPACE_PORT: "{{ .Values.service.main.ports.main.port }}"
-          # User Defined
-          CONFIG_BACKUP_ENABLED: true
-          SHARED_LINKS_ENABLED: false
-          INCLUDE_TUTORIALS: true
-          MAX_NUM_THREADS: "auto"
-          # Jupyter Config
-          # true, false or timeout in seconds
-          SHUTDOWN_INACTIVE_KERNELS: "false"
-          NOTEBOOK_ARGS: ""
-          WORKSPACE_AUTH_USER: "admin"
-          WORKSPACE_AUTH_PASSWORD: "password"
-          # true, false, or a token
-          AUTHENTICATE_VIA_JUPYTER: "mytoken"
+        main:
+          env:
+            WORKSPACE_BASE_URL: "/"
+            WORKSPACE_SSL_ENABLED: false
+            WORKSPACE_PORT: "{{ .Values.service.main.ports.main.port }}"
+            # User Defined
+            CONFIG_BACKUP_ENABLED: true
+            SHARED_LINKS_ENABLED: false
+            INCLUDE_TUTORIALS: true
+            MAX_NUM_THREADS: "auto"
+            # Jupyter Config
+            # true, false or timeout in seconds
+            SHUTDOWN_INACTIVE_KERNELS: "false"
+            NOTEBOOK_ARGS: ""
+            WORKSPACE_AUTH_USER: "admin"
+            WORKSPACE_AUTH_PASSWORD: "password"
+            # true, false, or a token
+            AUTHENTICATE_VIA_JUPYTER: "mytoken"

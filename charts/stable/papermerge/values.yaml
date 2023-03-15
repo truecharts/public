@@ -31,8 +31,9 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          REDIS_URL:
-            secretKeyRef:
-              name: rediscreds
-              key: url
+        main:
+          env:
+            REDIS_URL:
+              secretKeyRef:
+                name: rediscreds
+                key: url

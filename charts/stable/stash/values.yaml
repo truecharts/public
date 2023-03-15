@@ -23,9 +23,10 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          STASH_PORT: "{{ .Values.service.main.ports.main.port }}"
-          # STASH_STASH:
-          # STASH_GENERATED:
-          # STASH_METADATA:
-          # STASH_CACHE:
+        main:
+          env:
+            STASH_PORT: "{{ .Values.service.main.ports.main.port }}"
+            # STASH_STASH:
+            # STASH_GENERATED:
+            # STASH_METADATA:
+            # STASH_CACHE:

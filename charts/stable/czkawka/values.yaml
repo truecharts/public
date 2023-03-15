@@ -53,9 +53,9 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          VNC_PASSWORD: ""
         main:
+          env:
+            VNC_PASSWORD: ""
           envFrom:
             - configMapRef:
                 name: "czkawka"

@@ -10,7 +10,7 @@
 {{/* Render configmap for gitea */}}
 {{- $configmap := include "gitea.configmap" . | fromYaml -}}
 {{- if $configmap -}}
-  {{- $_ := set .Values.configmap "env" $configmap -}}
+  {{- $_ := set .Values.configmap "gitea-env" $configmap -}}
 {{- end -}}
 
 {{/* Append the general secret volumes to the volumes */}}

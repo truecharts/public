@@ -32,7 +32,8 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          LISTENER_PORT: "{{ .Values.service.main.ports.main.port }}"
-          SERIAL_DEVICE: "{{ .Values.persistence.usb.mountPath }}"
-          BAUD_RATE: 115200
+        main:
+          env:
+            LISTENER_PORT: "{{ .Values.service.main.ports.main.port }}"
+            SERIAL_DEVICE: "{{ .Values.persistence.usb.mountPath }}"
+            BAUD_RATE: 115200

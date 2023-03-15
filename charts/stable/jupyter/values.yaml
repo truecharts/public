@@ -57,10 +57,11 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          NB_UID: "{{ .Values.security.PUID }}"
-          NB_GID: "{{ .Values.podSecurityContext.fsGroup }}"
-          NB_UMASK: "{{ .Values.security.UMASK }}"
-          # User Defined
-          DOCKER_STACKS_JUPYTER_CMD: "{{ .Values.jupyter.jupyter_cmd }}"
-          RESTARTABLE: '{{ ternary "yes" "no" .Values.jupyter.restartable }}'
+        main:
+          env:
+            NB_UID: "{{ .Values.security.PUID }}"
+            NB_GID: "{{ .Values.podSecurityContext.fsGroup }}"
+            NB_UMASK: "{{ .Values.security.UMASK }}"
+            # User Defined
+            DOCKER_STACKS_JUPYTER_CMD: "{{ .Values.jupyter.jupyter_cmd }}"
+            RESTARTABLE: '{{ ternary "yes" "no" .Values.jupyter.restartable }}'

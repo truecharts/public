@@ -23,9 +23,10 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          ND_SCANINTERVAL: "15m"
-          ND_LOGLEVEL: "info"
-          ND_SESSIONTIMEOUT: "24h"
-          ND_ENABLETRANSCODINGCONFIG: "true"
-          ND_MUSICFOLDER: "/music"
+        main:
+          env:
+            ND_SCANINTERVAL: "15m"
+            ND_LOGLEVEL: "info"
+            ND_SESSIONTIMEOUT: "24h"
+            ND_ENABLETRANSCODINGCONFIG: "true"
+            ND_MUSICFOLDER: "/music"

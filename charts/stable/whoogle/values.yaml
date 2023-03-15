@@ -25,13 +25,14 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          WHOOGLE_CONFIG_COUNTRY: ""
-          WHOOGLE_CONFIG_THEME: "dark"
-          WHOOGLE_CONFIG_SAFE: true
-          WHOOGLE_CONFIG_ALTS: false
-          WHOOGLE_CONFIG_TOR: false
-          WHOOGLE_CONFIG_NEW_TAB: false
-          WHOOGLE_CONFIG_GET_ONLY: false
-          WHOOGLE_CONFIG_URL: https://<your url>/
-          WHOOGLE_CONFIG_STYLE: ""
+        main:
+          env:
+            WHOOGLE_CONFIG_COUNTRY: ""
+            WHOOGLE_CONFIG_THEME: "dark"
+            WHOOGLE_CONFIG_SAFE: true
+            WHOOGLE_CONFIG_ALTS: false
+            WHOOGLE_CONFIG_TOR: false
+            WHOOGLE_CONFIG_NEW_TAB: false
+            WHOOGLE_CONFIG_GET_ONLY: false
+            WHOOGLE_CONFIG_URL: https://<your url>/
+            WHOOGLE_CONFIG_STYLE: ""

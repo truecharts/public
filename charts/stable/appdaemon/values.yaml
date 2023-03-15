@@ -27,11 +27,12 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          DASH_URL: "http://$HOSTNAME:5050"
-          HA_URL: ""
-          LATITUDE: 46
-          LONGITUDE: -94
-          ELEVATION: 1217
-          TIMEZONE: "{{ .Values.TZ }}"
-          TOKEN: "REPLACETHIS"
+        main:
+          env:
+            DASH_URL: "http://$HOSTNAME:5050"
+            HA_URL: ""
+            LATITUDE: 46
+            LONGITUDE: -94
+            ELEVATION: 1217
+            TIMEZONE: "{{ .Values.TZ }}"
+            TOKEN: "REPLACETHIS"

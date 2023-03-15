@@ -27,29 +27,30 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          TIMEZONE: "{{ .Values.TZ }}"
-          TYPECHO_INSTALL: 1
-          TYPECHO_DB_ADAPTER: "Pdo_Mysql"
-          TYPECHO_DB_PORT: "3306"
-          TYPECHO_DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
-          TYPECHO_DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
-          TYPECHO_DB_PREFIX: "typecho_"
-          TYPECHO_DB_ENGINE: "InnoDB"
-          TYPECHO_DB_CHARSET: "utf8mb4"
-          TYPECHO_DB_NEXT: "none"
-          # User Defined
-          MEMORY_LIMIT: "100M"
-          MAX_POST_BODY: "50M"
-          TYPECHO_SITE_URL: "https://your-domain.com"
-          TYPECHO_USER_MAIL: "test@truecharts.org"
-          TYPECHO_DB_HOST:
-            secretKeyRef:
-              name: mariadbcreds
-              key: plainhost
-          TYPECHO_DB_PASSWORD:
-            secretKeyRef:
-              name: mariadbcreds
-              key: mariadb-password
-          TYPECHO_USER_NAME: "typecho"
-          TYPECHO_USER_PASSWORD: "testtypecho"
+        main:
+          env:
+            TIMEZONE: "{{ .Values.TZ }}"
+            TYPECHO_INSTALL: 1
+            TYPECHO_DB_ADAPTER: "Pdo_Mysql"
+            TYPECHO_DB_PORT: "3306"
+            TYPECHO_DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
+            TYPECHO_DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+            TYPECHO_DB_PREFIX: "typecho_"
+            TYPECHO_DB_ENGINE: "InnoDB"
+            TYPECHO_DB_CHARSET: "utf8mb4"
+            TYPECHO_DB_NEXT: "none"
+            # User Defined
+            MEMORY_LIMIT: "100M"
+            MAX_POST_BODY: "50M"
+            TYPECHO_SITE_URL: "https://your-domain.com"
+            TYPECHO_USER_MAIL: "test@truecharts.org"
+            TYPECHO_DB_HOST:
+              secretKeyRef:
+                name: mariadbcreds
+                key: plainhost
+            TYPECHO_DB_PASSWORD:
+              secretKeyRef:
+                name: mariadbcreds
+                key: mariadb-password
+            TYPECHO_USER_NAME: "typecho"
+            TYPECHO_USER_PASSWORD: "testtypecho"

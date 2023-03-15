@@ -3,7 +3,7 @@
 
 enabled: true
 data:
-  DATABASE_URL: {{ .Values.cnpg.main.creds.complete | trimAll "\"" }}
+  DATABASE_URL: {{ .Values.cnpg.main.creds.std | trimAll "\""  }}
   DB_CONNECTION: {{ print "postgres" }}
   APP_TOKEN: {{ .Values.gsm.app_token | quote }}
   {{- with .Values.gsm.whitelist_guilds }}

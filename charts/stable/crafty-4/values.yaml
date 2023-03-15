@@ -63,11 +63,11 @@ workload:
         main:
           probes:
             liveness:
-              type: HTTPS
+              type: https
               path: /
             readiness:
-              type: HTTPS
+              type: https
               path: /
             startup:
-              type: HTTPS
+              type: https
               path: /

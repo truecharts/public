@@ -24,6 +24,7 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          REMOTE_HOST: "localhost"
-          REMOTE_PORT: "5900"
+        main:
+          env:
+            REMOTE_HOST: "localhost"
+            REMOTE_PORT: "5900"

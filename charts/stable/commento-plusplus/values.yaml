@@ -21,21 +21,22 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          COMMENTO_PORT: "{{ .Values.service.main.ports.main.port }}"
-          # User Defined
-          COMMENTO_FORBID_NEW_OWNERS: false
-          COMMENTO_GZIP_STATIC: true
-          COMMENTO_ORIGIN: "http://localhost:8080"
-          COMMENTO_ENABLE_WILDCARDS: true
-          COMMENTO_ENABLE_LOGGING: false
-          SMTP_SKIP_HOST_VERIFY: false
-          COMMENTO_SMTP_USERNAME: ""
-          COMMENTO_SMTP_PASSWORD: ""
-          COMMENTO_SMTP_HOST: ""
-          COMMENTO_SMTP_FROM_ADDRESS: ""
-          COMMENTO_SMTP_PORT: 587
-          COMMENTO_POSTGRES:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: urlnossl
+        main:
+          env:
+            COMMENTO_PORT: "{{ .Values.service.main.ports.main.port }}"
+            # User Defined
+            COMMENTO_FORBID_NEW_OWNERS: false
+            COMMENTO_GZIP_STATIC: true
+            COMMENTO_ORIGIN: "http://localhost:8080"
+            COMMENTO_ENABLE_WILDCARDS: true
+            COMMENTO_ENABLE_LOGGING: false
+            SMTP_SKIP_HOST_VERIFY: false
+            COMMENTO_SMTP_USERNAME: ""
+            COMMENTO_SMTP_PASSWORD: ""
+            COMMENTO_SMTP_HOST: ""
+            COMMENTO_SMTP_FROM_ADDRESS: ""
+            COMMENTO_SMTP_PORT: 587
+            COMMENTO_POSTGRES:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: urlnossl

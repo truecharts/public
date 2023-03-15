@@ -118,6 +118,7 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          KEYBOARD: "en-us-qwerty"
-          CUSTOM_PORT: "{{ .Values.service.main.ports.main.port }}"
+        main:
+          env:
+            KEYBOARD: "en-us-qwerty"
+            CUSTOM_PORT: "{{ .Values.service.main.ports.main.port }}"

@@ -45,5 +45,6 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          PORT: "{{ .Values.service.main.ports.main.port }}"
+        main:
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"

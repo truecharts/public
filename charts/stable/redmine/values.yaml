@@ -32,22 +32,23 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          REDMINE_DB_DATABASE: "{{ .Values.cnpg.main.database }}"
-          REDMINE_DB_USERNAME: "{{ .Values.cnpg.main.user }}"
-          REDMINE_DB_PORT: "5432"
-          # Anything but empty means true, empty means false
-          REDMINE_NO_DB_MIGRATE: '{{ ternary "true" "" .Values.redmine.no_db_migrate }}'
-          REDMINE_PLUGINS_MIGRATE: '{{ ternary "true" "" .Values.redmine.plugins_migrate }}'
-          REDMINE_DB_PASSWORD:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          REDMINE_DB_POSTGRES:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
-          REDMINE_SECRET_KEY_BASE:
-            secretKeyRef:
-              name: redmine-secrets
-              key: REDMINE_SECRET_KEY_BASE
+        main:
+          env:
+            REDMINE_DB_DATABASE: "{{ .Values.cnpg.main.database }}"
+            REDMINE_DB_USERNAME: "{{ .Values.cnpg.main.user }}"
+            REDMINE_DB_PORT: "5432"
+            # Anything but empty means true, empty means false
+            REDMINE_NO_DB_MIGRATE: '{{ ternary "true" "" .Values.redmine.no_db_migrate }}'
+            REDMINE_PLUGINS_MIGRATE: '{{ ternary "true" "" .Values.redmine.plugins_migrate }}'
+            REDMINE_DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            REDMINE_DB_POSTGRES:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost
+            REDMINE_SECRET_KEY_BASE:
+              secretKeyRef:
+                name: redmine-secrets
+                key: REDMINE_SECRET_KEY_BASE
