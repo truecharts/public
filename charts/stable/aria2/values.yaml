@@ -36,7 +36,6 @@ workload:
           env:
             RPC_PORT: "{{ .Values.service.main.ports.main.port }}"
             LISTEN_PORT: "{{ .Values.service.listen.ports.listen.port }}"
-            UMASK_SET: "{{ .Values.security.UMASK }}"
             DISK_CACHE: 64M
             IPV6_MODE: false
             UPDATE_TRACKERS: false

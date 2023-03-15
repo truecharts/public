@@ -41,11 +41,11 @@ workload:
             DB_SCHEMA: "public"
             DB_PASSWORD:
               secretKeyRef:
-                name: cnpg-main-urls
-                key: postgresql-password
+                name: cnpg-main-user
+                key: password
             DB_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host
             SPOTWEB_USERNAME: "myawesomeuser"
             SPOTWEB_PASSWORD: "changeme"

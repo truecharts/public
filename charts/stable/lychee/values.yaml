@@ -62,12 +62,12 @@ workload:
             APP_URL: http://localhost
             DB_PASSWORD:
               secretKeyRef:
-                name: cnpg-main-urls
-                key: postgresql-password
+                name: cnpg-main-user
+                key: password
             DB_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host
             REDIS_HOST:
               secretKeyRef:
                 name: rediscreds

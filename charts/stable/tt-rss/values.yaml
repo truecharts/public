@@ -45,9 +45,9 @@ workload:
             TTRSS_DB_PORT: "5432"
             TTRSS_DB_PASS:
               secretKeyRef:
-                name: cnpg-main-urls
-                key: postgresql-password
+                name: cnpg-main-user
+                key: password
             TTRSS_DB_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host

@@ -42,12 +42,12 @@ workload:
             REDMINE_PLUGINS_MIGRATE: '{{ ternary "true" "" .Values.redmine.plugins_migrate }}'
             REDMINE_DB_PASSWORD:
               secretKeyRef:
-                name: cnpg-main-urls
-                key: postgresql-password
+                name: cnpg-main-user
+                key: password
             REDMINE_DB_POSTGRES:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host
             REDMINE_SECRET_KEY_BASE:
               secretKeyRef:
                 name: redmine-secrets

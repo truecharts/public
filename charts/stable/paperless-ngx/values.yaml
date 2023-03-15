@@ -49,7 +49,7 @@ workload:
             PAPERLESS_MEDIA_ROOT: "/media/"
             PAPERLESS_URL: ""
             USERMAP_UID: "{{ .Values.security.PUID }}"
-            USERMAP_GID: "{{ .Values.podSecurityContext.fsGroup }}"
+            USERMAP_GID: "{{ .Values.securityContext.pod.fsGroup }}"
             PAPERLESS_TIME_ZONE: "{{ .Values.TZ }}"
             PAPERLESS_DBNAME: "{{ .Values.cnpg.main.database }}"
             PAPERLESS_DBUSER: "{{ .Values.cnpg.main.user }}"
@@ -57,12 +57,12 @@ workload:
             PAPERLESS_WEBSERVER_WORKERS: 2
             PAPERLESS_DBPASS:
               secretKeyRef:
-                name: cnpg-main-urls
-                key: postgresql-password
+                name: cnpg-main-user
+                key: password
             PAPERLESS_DBHOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host
             PAPERLESS_SECRET_KEY:
               secretKeyRef:
                 name: paperlessng-secrets

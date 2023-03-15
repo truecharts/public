@@ -44,9 +44,9 @@ workload:
             DB_PORT: "5432"
             DB_PASSWORD:
               secretKeyRef:
-                name: cnpg-main-urls
-                key: postgresql-password
+                name: cnpg-main-user
+                key: password
             DB_HOSTNAME:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host

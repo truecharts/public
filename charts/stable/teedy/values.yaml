@@ -35,8 +35,8 @@ workload:
             DATABASE_USER: "{{ .Values.cnpg.main.user }}"
             DATABASE_PASSWORD:
               secretKeyRef:
-                name: cnpg-main-urls
-                key: postgresql-password
+                name: cnpg-main-user
+                key: password
             DATABASE_URL:
               secretKeyRef:
                 name: cnpg-main-urls
