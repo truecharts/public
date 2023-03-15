@@ -24,5 +24,6 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          THELOUNGE_HOME: "/config"
+        main:
+          env:
+            THELOUNGE_HOME: "/config"

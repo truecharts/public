@@ -43,5 +43,6 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          MAXMEM: 512
+        main:
+          env:
+            MAXMEM: 512

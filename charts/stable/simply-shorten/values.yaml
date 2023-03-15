@@ -26,7 +26,8 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          db_url: "/config/db/urls.sqlite"
-          password: user
-          username: pass
+        main:
+          env:
+            db_url: "/config/db/urls.sqlite"
+            password: user
+            username: pass

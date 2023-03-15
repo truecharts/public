@@ -24,5 +24,6 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+        main:
+          env:
+            HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
