@@ -39,23 +39,24 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          OCIS_INSECURE: true
-          ACCOUNTS_DEMO_USERS_AND_GROUPS: false
-          OCIS_LOG_PRETTY: true
-          OCIS_LOG_COLOR: true
-          PROXY_TLS: false
-          PROXY_HTTP_ADDR: "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
-          OCIS_URL: "https://localhost:{{ .Values.service.main.ports.main.port }}"
-          OCIS_JWT_SECRET:
-            secretKeyRef:
-              name: ocis-secrets
-              key: OCIS_JWT_SECRET
-          STORAGE_TRANSFER_SECRET:
-            secretKeyRef:
-              name: ocis-secrets
-              key: STORAGE_TRANSFER_SECRET
-          OCIS_MACHINE_AUTH_API_KEY:
-            secretKeyRef:
-              name: ocis-secrets
-              key: OCIS_MACHINE_AUTH_API_KEY
+        main:
+          env:
+            OCIS_INSECURE: true
+            ACCOUNTS_DEMO_USERS_AND_GROUPS: false
+            OCIS_LOG_PRETTY: true
+            OCIS_LOG_COLOR: true
+            PROXY_TLS: false
+            PROXY_HTTP_ADDR: "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
+            OCIS_URL: "https://localhost:{{ .Values.service.main.ports.main.port }}"
+            OCIS_JWT_SECRET:
+              secretKeyRef:
+                name: ocis-secrets
+                key: OCIS_JWT_SECRET
+            STORAGE_TRANSFER_SECRET:
+              secretKeyRef:
+                name: ocis-secrets
+                key: STORAGE_TRANSFER_SECRET
+            OCIS_MACHINE_AUTH_API_KEY:
+              secretKeyRef:
+                name: ocis-secrets
+                key: OCIS_MACHINE_AUTH_API_KEY

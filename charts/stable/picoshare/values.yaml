@@ -19,10 +19,11 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          PORT: "{{ .Values.service.main.ports.main.port }}"
-          PS_SHARED_SECRET: "somesecretcode"
-          LITESTREAM_BUCKET: ""
-          LITESTREAM_ENDPOINT: ""
-          LITESTREAM_ACCESS_KEY_ID: ""
-          LITESTREAM_SECRET_ACCESS_KEY: ""
+        main:
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            PS_SHARED_SECRET: "somesecretcode"
+            LITESTREAM_BUCKET: ""
+            LITESTREAM_ENDPOINT: ""
+            LITESTREAM_ACCESS_KEY_ID: ""
+            LITESTREAM_SECRET_ACCESS_KEY: ""

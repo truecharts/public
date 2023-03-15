@@ -22,5 +22,6 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          LOG_LEVEL: info
+        main:
+          env:
+            LOG_LEVEL: info
