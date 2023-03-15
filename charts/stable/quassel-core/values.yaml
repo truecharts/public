@@ -37,18 +37,19 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          DB_BACKEND: "PostgreSQL"
-          DB_PGSQL_USERNAME: "{{ .Values.cnpg.main.user }}"
-          DB_PGSQL_DATABASE: "{{ .Values.cnpg.main.database }}"
-          DB_PGSQL_PORT: 5432
-          AUTH_AUTHENTICATOR: "Database"
-          RUN_OPTS: "--config-from-environment"
-          DB_PGSQL_PASSWORD:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          DB_PGSQL_HOSTNAME:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
+        main:
+          env:
+            DB_BACKEND: "PostgreSQL"
+            DB_PGSQL_USERNAME: "{{ .Values.cnpg.main.user }}"
+            DB_PGSQL_DATABASE: "{{ .Values.cnpg.main.database }}"
+            DB_PGSQL_PORT: 5432
+            AUTH_AUTHENTICATOR: "Database"
+            RUN_OPTS: "--config-from-environment"
+            DB_PGSQL_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            DB_PGSQL_HOSTNAME:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost

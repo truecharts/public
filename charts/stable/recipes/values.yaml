@@ -92,28 +92,29 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          DEBUG: 0
-          ALLOWED_HOSTS: "*"
-          CSRF_TRUSTED_ORIGINS: ""
-          GUNICORN_MEDIA: 0
-          FRACTION_PREF_DEFAULT: 0
-          COMMENT_PREF_DEFAULT: 1
-          SHOPPING_MIN_AUTOSYNC_INTERVAL: 5
-          TIMEZONE: "{{ .Values.TZ }}"
-          DB_ENGINE: "django.db.backends.postgresql"
-          POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
-          POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
-          POSTGRES_PORT: "5432"
-          POSTGRES_PASSWORD:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          POSTGRES_HOST:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
-          SECRET_KEY:
-            secretKeyRef:
-              name: recipes-secrets
-              key: SECRET_KEY
+        main:
+          env:
+            DEBUG: 0
+            ALLOWED_HOSTS: "*"
+            CSRF_TRUSTED_ORIGINS: ""
+            GUNICORN_MEDIA: 0
+            FRACTION_PREF_DEFAULT: 0
+            COMMENT_PREF_DEFAULT: 1
+            SHOPPING_MIN_AUTOSYNC_INTERVAL: 5
+            TIMEZONE: "{{ .Values.TZ }}"
+            DB_ENGINE: "django.db.backends.postgresql"
+            POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            POSTGRES_PORT: "5432"
+            POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            POSTGRES_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost
+            SECRET_KEY:
+              secretKeyRef:
+                name: recipes-secrets
+                key: SECRET_KEY

@@ -56,8 +56,9 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          SECRET_KEY:
-            secretKeyRef:
-              name: pinry-secrets
-              key: SECRET_KEY
+        main:
+          env:
+            SECRET_KEY:
+              secretKeyRef:
+                name: pinry-secrets
+                key: SECRET_KEY

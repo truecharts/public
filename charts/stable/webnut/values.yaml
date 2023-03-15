@@ -22,8 +22,9 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          UPS_HOST: "127.0.0.1"
-          UPS_PORT: 3493
-          UPS_USER: monuser
-          UPS_PASSWORD: secret
+        main:
+          env:
+            UPS_HOST: "127.0.0.1"
+            UPS_PORT: 3493
+            UPS_USER: monuser
+            UPS_PASSWORD: secret

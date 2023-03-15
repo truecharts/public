@@ -27,7 +27,8 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          GITURL: ""
-          PYUSER: ""
-          PYPASS: ""
+        main:
+          env:
+            GITURL: ""
+            PYUSER: ""
+            PYPASS: ""

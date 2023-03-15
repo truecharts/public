@@ -42,9 +42,10 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
-          HTTP_ALL_INTERFACES: "yes"
-          NODE_ENV: "production"
-          MYDOMAIN: "test.truecharts.org"
-          ZTNCUI_PASSWD: "CHANGEME"
+        main:
+          env:
+            HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+            HTTP_ALL_INTERFACES: "yes"
+            NODE_ENV: "production"
+            MYDOMAIN: "test.truecharts.org"
+            ZTNCUI_PASSWD: "CHANGEME"

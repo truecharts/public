@@ -36,7 +36,8 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          ZEROTIER_API_SECRET: ""
-          ZEROTIER_IDENTITY_PUBLIC: ""
-          ZEROTIER_IDENTITY_SECRET: ""
+        main:
+          env:
+            ZEROTIER_API_SECRET: ""
+            ZEROTIER_IDENTITY_PUBLIC: ""
+            ZEROTIER_IDENTITY_SECRET: ""

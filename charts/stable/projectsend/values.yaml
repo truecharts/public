@@ -84,7 +84,8 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          MAX_UPLOAD: 5000
-          PHP_MEMORY_LIMIT: "512M"
-          PHP_MAX_FILE_UPLOAD: 200
+        main:
+          env:
+            MAX_UPLOAD: 5000
+            PHP_MEMORY_LIMIT: "512M"
+            PHP_MAX_FILE_UPLOAD: 200
