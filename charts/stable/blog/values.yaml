@@ -42,11 +42,11 @@ workload:
             BLOG_DB_NAME: "{{ .Values.cnpg.main.database }}"
             BLOG_POSTGRES_PASS:
               secretKeyRef:
-                name: cnpg-main-urls
-                key: postgresql-password
+                name: cnpg-main-user
+                key: password
             BLOG_POSTGRES_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host
             BLOG_NICK: username
             BLOG_PASS: password

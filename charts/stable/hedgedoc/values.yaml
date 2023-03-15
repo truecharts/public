@@ -14,7 +14,6 @@ persistence:
 cnpg:
   main:
     enabled: true
-
     user: hedgedoc
     database: hedgedoc
 portal:
@@ -40,11 +39,11 @@ workload:
             CMD_DB_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host
             CMD_DB_PASSWORD:
               secretKeyRef:
-                name: cnpg-main-urls
-                key: postgresql-password
+                name: cnpg-main-user
+                key: password
             # User Defined
             CMD_FORBIDDEN_NOTE_IDS: "robots.txt, favicon.ico, api, build, css, docs, fonts, js, uploads, vendor, views"
             CMD_IMAGE_UPLOAD_TYPE: "filesystem"

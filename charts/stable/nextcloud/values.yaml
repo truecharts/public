@@ -405,8 +405,8 @@ workload:
             NC_check_data_directory_permissions: "true"
             POSTGRES_PASSWORD:
               secretKeyRef:
-                name: cnpg-main-urls
-                key: postgresql-password
+                name: cnpg-main-user
+                key: password
             POSTGRES_HOST:
               secretKeyRef:
                 name: cnpg-main-urls

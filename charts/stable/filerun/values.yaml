@@ -39,7 +39,7 @@ workload:
             APACHE_RUN_USER: apps
             APACHE_RUN_USER_ID: "{{ .Values.security.PUID }}"
             APACHE_RUN_GROUP: apps
-            APACHE_RUN_GROUP_ID: "{{ .Values.podSecurityContext.fsGroup }}"
+            APACHE_RUN_GROUP_ID: "{{ .Values.securityContext.pod.fsGroup }}"
             FR_DB_NAME: "filerun"
             FR_DB_USER: "filerun"
             FR_DB_PORT: "3306"
