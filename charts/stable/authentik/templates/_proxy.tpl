@@ -2,7 +2,6 @@
 {{- define "authentik.proxy" -}}
 enabled: true
 imageSelector: proxyImage
-imagePullPolicy: {{ .Values.proxyImage.pullPolicy }}
 envFrom:
   - secretRef:
       name: 'proxy-secret'
@@ -10,27 +9,18 @@ envFrom:
       name: 'proxy-config'
 probes:
   readiness:
-
+    enabled: true
+    type: http
     path: /outpost.goauthentik.io/ping
-      port: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
-
-
-
-
+    port: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
   liveness:
-
+    enabled: true
+    type: http
     path: /outpost.goauthentik.io/ping
-      port: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
-
-
-
-
+    port: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
   startup:
-
+    enabled: true
+    type: http
     path: /outpost.goauthentik.io/ping
-      port: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
-
-
-
-
+    port: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
 {{- end -}}
