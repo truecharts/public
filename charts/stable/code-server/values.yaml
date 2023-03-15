@@ -26,9 +26,9 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          PROXY_DOMAIN: ""
         main:
+          env:
+            PROXY_DOMAIN: ""
           args:
             - --user-data-dir
             - "/config/.vscode"

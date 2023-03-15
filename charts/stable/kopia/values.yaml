@@ -29,7 +29,8 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          KOPIA_PASSWORD: ""
-          KOPIA_SERVER_USERNAME: "user"
-          KOPIA_SERVER_PASSWORD: "password"
+        main:
+          env:
+            KOPIA_PASSWORD: ""
+            KOPIA_SERVER_USERNAME: "user"
+            KOPIA_SERVER_PASSWORD: "password"

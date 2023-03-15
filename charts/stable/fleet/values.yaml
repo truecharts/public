@@ -33,14 +33,15 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          fleet_admin_authentication_type: DATABASE
-          fleet_database_username: fleet
-          fleet_database_url:
-            secretKeyRef:
-              name: mariadbcreds
-              key: jdbc-mariadb
-          fleet_database_password:
-            secretKeyRef:
-              name: mariadbcreds
-              key: mariadb-password
+        main:
+          env:
+            fleet_admin_authentication_type: DATABASE
+            fleet_database_username: fleet
+            fleet_database_url:
+              secretKeyRef:
+                name: mariadbcreds
+                key: jdbc-mariadb
+            fleet_database_password:
+              secretKeyRef:
+                name: mariadbcreds
+                key: mariadb-password

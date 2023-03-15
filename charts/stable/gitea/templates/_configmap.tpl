@@ -12,5 +12,4 @@ data:
   SSH_LISTEN_PORT: {{ .Values.service.ssh.ports.ssh.targetPort | quote }}
   TMPDIR: "/tmp/gitea"
   GNUPGHOME: "/data/git/.gnupg"
-
 {{- end -}}

@@ -1,7 +1,7 @@
 {{/* Define the secret */}}
 {{- define "gotify.secret" -}}
 
-{{- $url := (.Values.cnpg.main.creds.plain | trimAll "\"") }}
+{{- $url := (.Values.cnpg.main.creds.porthost | trimAll "\"") }}
 {{- $password := (.Values.cnpg.main.creds.password | trimAll "\"") }}
 {{- $dbuser := .Values.cnpg.main.user }}
 {{- $dbname := .Values.cnpg.main.database }}

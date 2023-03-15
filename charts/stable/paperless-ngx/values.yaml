@@ -41,35 +41,36 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          PAPERLESS_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
-          PAPERLESS_DATA_DIR: "/data/"
-          PAPERLESS_CONSUMPTION_DIR: "/consume/"
-          PAPERLESS_MEDIA_ROOT: "/media/"
-          PAPERLESS_URL: ""
-          USERMAP_UID: "{{ .Values.security.PUID }}"
-          USERMAP_GID: "{{ .Values.podSecurityContext.fsGroup }}"
-          PAPERLESS_TIME_ZONE: "{{ .Values.TZ }}"
-          PAPERLESS_DBNAME: "{{ .Values.cnpg.main.database }}"
-          PAPERLESS_DBUSER: "{{ .Values.cnpg.main.user }}"
-          PAPERLESS_DBPORT: "5432"
-          PAPERLESS_WEBSERVER_WORKERS: 2
-          PAPERLESS_DBPASS:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          PAPERLESS_DBHOST:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
-          PAPERLESS_SECRET_KEY:
-            secretKeyRef:
-              name: paperlessng-secrets
-              key: PAPERLESS_SECRET_KEY
-          PAPERLESS_REDIS:
-            secretKeyRef:
-              name: rediscreds
-              key: url
-          PAPERLESS_ADMIN_USER: "admin"
-          PAPERLESS_ADMIN_PASSWORD: "admin"
-          PAPERLESS_ADMIN_MAIL: "admin@admin.com"
+        main:
+          env:
+            PAPERLESS_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
+            PAPERLESS_DATA_DIR: "/data/"
+            PAPERLESS_CONSUMPTION_DIR: "/consume/"
+            PAPERLESS_MEDIA_ROOT: "/media/"
+            PAPERLESS_URL: ""
+            USERMAP_UID: "{{ .Values.security.PUID }}"
+            USERMAP_GID: "{{ .Values.podSecurityContext.fsGroup }}"
+            PAPERLESS_TIME_ZONE: "{{ .Values.TZ }}"
+            PAPERLESS_DBNAME: "{{ .Values.cnpg.main.database }}"
+            PAPERLESS_DBUSER: "{{ .Values.cnpg.main.user }}"
+            PAPERLESS_DBPORT: "5432"
+            PAPERLESS_WEBSERVER_WORKERS: 2
+            PAPERLESS_DBPASS:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            PAPERLESS_DBHOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost
+            PAPERLESS_SECRET_KEY:
+              secretKeyRef:
+                name: paperlessng-secrets
+                key: PAPERLESS_SECRET_KEY
+            PAPERLESS_REDIS:
+              secretKeyRef:
+                name: rediscreds
+                key: url
+            PAPERLESS_ADMIN_USER: "admin"
+            PAPERLESS_ADMIN_PASSWORD: "admin"
+            PAPERLESS_ADMIN_MAIL: "admin@admin.com"

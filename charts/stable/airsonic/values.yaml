@@ -25,8 +25,9 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          # -- sets the context path parameter
-          # Example: "url-base"
-          CONTEXT_PATH:
-          JAVA_OPTS:
+        main:
+          env:
+            # -- sets the context path parameter
+            # Example: "url-base"
+            CONTEXT_PATH:
+            JAVA_OPTS:

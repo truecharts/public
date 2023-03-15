@@ -33,17 +33,18 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          DB_ENGINE: "django.db.backends.postgresql"
-          DB_NAME: "{{ .Values.cnpg.main.database }}"
-          DB_USER: "{{ .Values.cnpg.main.user }}"
-          DB_PORT: "5432"
-          CSRF_TRUSTED_ORIGINS: ""
-          DB_PASSWORD:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          DB_HOST:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
+        main:
+          env:
+            DB_ENGINE: "django.db.backends.postgresql"
+            DB_NAME: "{{ .Values.cnpg.main.database }}"
+            DB_USER: "{{ .Values.cnpg.main.user }}"
+            DB_PORT: "5432"
+            CSRF_TRUSTED_ORIGINS: ""
+            DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost

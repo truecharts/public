@@ -213,15 +213,15 @@ workload:
         main:
           probes:
             liveness:
-              type: HTTPS
+              type: https
               path: /-/health/live/
               port: "{{ .Values.service.main.ports.main.targetPort }}"
             readiness:
-              type: HTTPS
+              type: https
               path: /-/health/ready/
               port: "{{ .Values.service.main.ports.main.targetPort }}"
             startup:
-              type: HTTPS
+              type: https
               path: /-/health/ready/
               port: "{{ .Values.service.main.ports.main.targetPort }}"
           envFrom:

@@ -31,29 +31,30 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          HOME: "/photoprism"
-          PHOTOPRISM_ORIGINALS_PATH: "/photoprism/originals"
-          PHOTOPRISM_IMPORT_PATH: "/photoprism/import"
-          PHOTOPRISM_TEMP_PATH: "/photoprism_temp"
-          PHOTOPRISM_STORAGE_PATH: "/assets/storage"
-          PHOTOPRISM_SIDECAR_PATH: "/assets/sidecar"
-          PHOTOPRISM_CACHE_PATH: "/assets/cache"
-          PHOTOPRISM_CONFIG_PATH: "/assets/config"
-          PROTOPRISM_BACKUP_PATH: "/assets/backup"
-          PHOTOPRISM_PUBLIC: false
-          PHOTOPRISM_UID: "{{ .Values.podSecurityContext.runAsUser }}"
-          PHOTOPRISM_GID: "{{ .Values.podSecurityContext.runAsGroup }}"
-          PHOTOPRISM_UMASK: "{{ .Values.workload.main.podSpec.containers.main.env.UMASK }}"
-          PHOTOPRISM_DATABASE_DRIVER: "mysql"
-          PHOTOPRISM_DATABASE_NAME: "photoprism"
-          PHOTOPRISM_DATABASE_USER: "photoprism"
-          PHOTOPRISM_DATABASE_SERVER:
-            secretKeyRef:
-              name: mariadbcreds
-              key: plainporthost
-          PHOTOPRISM_DATABASE_PASSWORD:
-            secretKeyRef:
-              name: mariadbcreds
-              key: mariadb-password
-          PHOTOPRISM_ADMIN_PASSWORD: "please-change"
+        main:
+          env:
+            HOME: "/photoprism"
+            PHOTOPRISM_ORIGINALS_PATH: "/photoprism/originals"
+            PHOTOPRISM_IMPORT_PATH: "/photoprism/import"
+            PHOTOPRISM_TEMP_PATH: "/photoprism_temp"
+            PHOTOPRISM_STORAGE_PATH: "/assets/storage"
+            PHOTOPRISM_SIDECAR_PATH: "/assets/sidecar"
+            PHOTOPRISM_CACHE_PATH: "/assets/cache"
+            PHOTOPRISM_CONFIG_PATH: "/assets/config"
+            PROTOPRISM_BACKUP_PATH: "/assets/backup"
+            PHOTOPRISM_PUBLIC: false
+            PHOTOPRISM_UID: "{{ .Values.podSecurityContext.runAsUser }}"
+            PHOTOPRISM_GID: "{{ .Values.podSecurityContext.runAsGroup }}"
+            PHOTOPRISM_UMASK: "{{ .Values.workload.main.podSpec.containers.main.env.UMASK }}"
+            PHOTOPRISM_DATABASE_DRIVER: "mysql"
+            PHOTOPRISM_DATABASE_NAME: "photoprism"
+            PHOTOPRISM_DATABASE_USER: "photoprism"
+            PHOTOPRISM_DATABASE_SERVER:
+              secretKeyRef:
+                name: mariadbcreds
+                key: plainporthost
+            PHOTOPRISM_DATABASE_PASSWORD:
+              secretKeyRef:
+                name: mariadbcreds
+                key: mariadb-password
+            PHOTOPRISM_ADMIN_PASSWORD: "please-change"

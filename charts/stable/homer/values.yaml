@@ -23,5 +23,6 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          INIT_ASSETS: true
+        main:
+          env:
+            INIT_ASSETS: true

@@ -34,11 +34,11 @@ workload:
         main:
           probes:
             liveness:
-              type: HTTP
+              type: http
               path: /
             readiness:
-              type: HTTP
+              type: http
               path: /
             startup:
-              type: HTTP
+              type: http
               path: /

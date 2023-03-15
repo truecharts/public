@@ -24,6 +24,7 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          PHPLDAPADMIN_HTTPS: "false"
-          PHPLDAPADMIN_TRUST_PROXY_SSL: "true"
+        main:
+          env:
+            PHPLDAPADMIN_HTTPS: "false"
+            PHPLDAPADMIN_TRUST_PROXY_SSL: "true"

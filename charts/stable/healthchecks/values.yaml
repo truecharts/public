@@ -25,9 +25,10 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          REGENERATE_SETTINGS: "True"
-          SITE_ROOT: "https://healthchecks.domain"
-          SITE_NAME: ""
-          SUPERUSER_EMAIL: "email@healthchecks.io"
-          SUPERUSER_PASSWORD: "myVeryStrongPassword"
+        main:
+          env:
+            REGENERATE_SETTINGS: "True"
+            SITE_ROOT: "https://healthchecks.domain"
+            SITE_NAME: ""
+            SUPERUSER_EMAIL: "email@healthchecks.io"
+            SUPERUSER_PASSWORD: "myVeryStrongPassword"

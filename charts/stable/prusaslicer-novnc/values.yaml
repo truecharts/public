@@ -29,5 +29,6 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          SSL_CERT_FILE: /etc/ssl/certs/ca-certificates.crt
+        main:
+          env:
+            SSL_CERT_FILE: /etc/ssl/certs/ca-certificates.crt

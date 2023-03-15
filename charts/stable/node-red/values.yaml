@@ -20,5 +20,5 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          TZ: "{{ .Values.TZ }}"
+        main:
+          env: {}

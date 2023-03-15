@@ -27,7 +27,8 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          URL_BASE: ""
-          QUASSEL_CORE: "0.0.0.0"
-          QUASSEL_PORT: 4242
+        main:
+          env:
+            URL_BASE: ""
+            QUASSEL_CORE: "0.0.0.0"
+            QUASSEL_PORT: 4242

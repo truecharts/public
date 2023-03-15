@@ -28,7 +28,8 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          FG_LOG_LEVEL: info
-          FG_LOG_FILE: flexget.log
-          FG_WEBUI_PASSWD: "jLeT78KBDPW"
+        main:
+          env:
+            FG_LOG_LEVEL: info
+            FG_LOG_FILE: flexget.log
+            FG_WEBUI_PASSWD: "jLeT78KBDPW"

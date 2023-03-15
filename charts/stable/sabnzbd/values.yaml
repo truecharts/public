@@ -20,5 +20,6 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          SABNZBD__HOST_WHITELIST_ENTRIES: ""
+        main:
+          env:
+            SABNZBD__HOST_WHITELIST_ENTRIES: ""

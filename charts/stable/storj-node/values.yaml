@@ -44,9 +44,10 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          SETUP: true
-          EMAIL: ""
-          ADDRESS: ""
-          STORAGE: "500GB"
-          WALLET: "walletaddress"
+        main:
+          env:
+            SETUP: true
+            EMAIL: ""
+            ADDRESS: ""
+            STORAGE: "500GB"
+            WALLET: "walletaddress"

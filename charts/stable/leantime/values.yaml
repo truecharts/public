@@ -26,19 +26,20 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          LEAN_DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
-          LEAN_DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
-          LEAN_APP_URL: "{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}https://{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ end }}{{ end }}"
-          LEAN_DB_HOST:
-            secretKeyRef:
-              name: mariadbcreds
-              key: plainhost
-          LEAN_DB_PASSWORD:
-            secretKeyRef:
-              name: mariadbcreds
-              key: mariadb-password
-          LEAN_SESSION_PASSWORD:
-            secretKeyRef:
-              name: leantime-secrets
-              key: LEAN_SESSION_PASSWORD
+        main:
+          env:
+            LEAN_DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+            LEAN_DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
+            LEAN_APP_URL: "{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}https://{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ end }}{{ end }}"
+            LEAN_DB_HOST:
+              secretKeyRef:
+                name: mariadbcreds
+                key: plainhost
+            LEAN_DB_PASSWORD:
+              secretKeyRef:
+                name: mariadbcreds
+                key: mariadb-password
+            LEAN_SESSION_PASSWORD:
+              secretKeyRef:
+                name: leantime-secrets
+                key: LEAN_SESSION_PASSWORD

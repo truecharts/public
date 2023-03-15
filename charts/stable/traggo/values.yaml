@@ -28,11 +28,11 @@ workload:
         main:
           probes:
             liveness:
-              type: HTTP
+              type: http
             readiness:
-              type: HTTP
+              type: http
             startup:
-              type: HTTP
+              type: http
           envFrom:
             - secretRef:
                 name: "secret"

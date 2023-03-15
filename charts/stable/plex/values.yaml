@@ -26,8 +26,9 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          PLEX_PREFERENCE_GDM: 'GdmEnabled={{ ternary "0" "1" .Values.plex.disableGDM }}'
-          # User Defined
-          ALLOWED_NETWORKS: "172.16.0.0/12,10.0.0.0/8,192.168.0.0/16"
-          PLEX_CLAIM: ""
+        main:
+          env:
+            PLEX_PREFERENCE_GDM: 'GdmEnabled={{ ternary "0" "1" .Values.plex.disableGDM }}'
+            # User Defined
+            ALLOWED_NETWORKS: "172.16.0.0/12,10.0.0.0/8,192.168.0.0/16"
+            PLEX_CLAIM: ""

@@ -26,6 +26,7 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          PGADMIN_DEFAULT_EMAIL: "replace@this.now"
-          PGADMIN_DEFAULT_PASSWORD: "changeme"
+        main:
+          env:
+            PGADMIN_DEFAULT_EMAIL: "replace@this.now"
+            PGADMIN_DEFAULT_PASSWORD: "changeme"

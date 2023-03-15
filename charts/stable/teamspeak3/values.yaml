@@ -43,5 +43,6 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          TS3SERVER_LICENSE: "accept"
+        main:
+          env:
+            TS3SERVER_LICENSE: "accept"

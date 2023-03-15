@@ -2,7 +2,6 @@
 {{- define "authentik.ldap" -}}
 enabled: true
 imageSelector: ldapImage
-imagePullPolicy: {{ .Values.ldapImage.pullPolicy }}
 envFrom:
   - secretRef:
       name: 'ldap-secret'
@@ -10,27 +9,18 @@ envFrom:
       name: 'ldap-config'
 probes:
   readiness:
-
+    enabled: true
+    type: http
     path: /outpost.goauthentik.io/ping
-      port: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
-
-
-
-
+    port: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
   liveness:
-
+    enabled: true
+    type: http
     path: /outpost.goauthentik.io/ping
-      port: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
-
-
-
-
+    port: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
   startup:
-
+    enabled: true
+    type: http
     path: /outpost.goauthentik.io/ping
-      port: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
-
-
-
-
+    port: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
 {{- end -}}

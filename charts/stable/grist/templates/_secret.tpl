@@ -1,6 +1,7 @@
 {{/* Define the secret */}}
 {{- define "grist.secret" -}}
 
+{{- $secretName := (printf "%s-grist-secret" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 enabled: true
 data:
   {{/* Secret Key */}}

@@ -48,6 +48,7 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          WEBUI_PWD: ""
-          WEBUI_TEMPLATE: default
+        main:
+          env:
+            WEBUI_PWD: ""
+            WEBUI_TEMPLATE: default

@@ -27,24 +27,25 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          SPOTWEB_SYSTEMTYPE: "single"
-          SPOTWEB_FIRSTNAME: "demo"
-          SPOTWEB_LASTNAME: "spotweb"
-          SPOTWEB_MAIL: "demo@spotweb.com"
-          SPOTWEB_RETRIEVE: "15min"
-          DB_ENGINE: "pdo_pgsql"
-          DB_PORT: "5432"
-          DB_DATABASE: "{{ .Values.cnpg.main.database }}"
-          DB_USER: "{{ .Values.cnpg.main.user }}"
-          DB_SCHEMA: "public"
-          DB_PASSWORD:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          DB_HOST:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
-          SPOTWEB_USERNAME: "myawesomeuser"
-          SPOTWEB_PASSWORD: "changeme"
+        main:
+          env:
+            SPOTWEB_SYSTEMTYPE: "single"
+            SPOTWEB_FIRSTNAME: "demo"
+            SPOTWEB_LASTNAME: "spotweb"
+            SPOTWEB_MAIL: "demo@spotweb.com"
+            SPOTWEB_RETRIEVE: "15min"
+            DB_ENGINE: "pdo_pgsql"
+            DB_PORT: "5432"
+            DB_DATABASE: "{{ .Values.cnpg.main.database }}"
+            DB_USER: "{{ .Values.cnpg.main.user }}"
+            DB_SCHEMA: "public"
+            DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost
+            SPOTWEB_USERNAME: "myawesomeuser"
+            SPOTWEB_PASSWORD: "changeme"

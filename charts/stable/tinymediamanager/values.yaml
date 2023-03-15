@@ -31,5 +31,6 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          PASSWORD: ""
+        main:
+          env:
+            PASSWORD: ""

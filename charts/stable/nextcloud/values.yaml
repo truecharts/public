@@ -362,66 +362,62 @@ workload:
         main:
           probes:
             liveness:
-              custom: true
-              spec:
-                initialDelaySeconds: 25
-                httpGet:
-                  path: /status.php
-                  port: 8080
-                  httpHeaders:
-                    - name: Host
-                      value: "test.fakedomain.dns"
+              enabled: true
+              type: http
+              path: /status.php
+              port: 8080
+              httpHeaders:
+                - name: Host
+                  value: "test.fakedomain.dns"
             readiness:
-              custom: true
-              spec:
-                initialDelaySeconds: 25
-                httpGet:
-                  path: /status.php
-                  port: 8080
-                  httpHeaders:
-                    - name: Host
-                      value: "test.fakedomain.dns"
+              enabled: true
+              type: http
+              path: /status.php
+              port: 8080
+              httpHeaders:
+                - name: Host
+                  value: "test.fakedomain.dns"
             startup:
-              custom: true
+              enabled: true
+              type: http
+              path: /status.php
+              port: 8080
+              httpHeaders:
+                - name: Host
+                  value: "test.fakedomain.dns"
               spec:
                 initialDelaySeconds: 25
-                httpGet:
-                  path: /status.php
-                  port: 8080
-                  httpHeaders:
-                    - name: Host
-                      value: "test.fakedomain.dns"
           envFrom:
             - configMapRef:
                 name: nextcloudconfig
-        env:
-          # IP used for exposing nextcloud
-          # Often the service or nodePort IP
-          # Defaults to the main serviceName for CI purposes.
-          AccessIP:
-          NEXTCLOUD_INIT_HTACCESS: true
-          PHP_MEMORY_LIMIT: 1G
-          PHP_UPLOAD_LIMIT: 10G
-          NEXTCLOUD_CHUNKSIZE: "31457280"
-          TRUSTED_PROXIES: "172.16.0.0/16 127.0.0.1"
-          POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
-          POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
-          NC_check_data_directory_permissions: "true"
-          POSTGRES_PASSWORD:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          POSTGRES_HOST:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainporthost
-          REDIS_HOST:
-            secretKeyRef:
-              name: rediscreds
-              key: plainhost
-          REDIS_HOST_PASSWORD:
-            secretKeyRef:
-              name: rediscreds
-              key: redis-password
-          NEXTCLOUD_ADMIN_USER: "admin"
-          NEXTCLOUD_ADMIN_PASSWORD: "adminpass"
+          env:
+            # IP used for exposing nextcloud
+            # Often the service or nodePort IP
+            # Defaults to the main serviceName for CI purposes.
+            AccessIP:
+            NEXTCLOUD_INIT_HTACCESS: true
+            PHP_MEMORY_LIMIT: 1G
+            PHP_UPLOAD_LIMIT: 10G
+            NEXTCLOUD_CHUNKSIZE: "31457280"
+            TRUSTED_PROXIES: "172.16.0.0/16 127.0.0.1"
+            POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            NC_check_data_directory_permissions: "true"
+            POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            POSTGRES_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainporthost
+            REDIS_HOST:
+              secretKeyRef:
+                name: rediscreds
+                key: plainhost
+            REDIS_HOST_PASSWORD:
+              secretKeyRef:
+                name: rediscreds
+                key: redis-password
+            NEXTCLOUD_ADMIN_USER: "admin"
+            NEXTCLOUD_ADMIN_PASSWORD: "adminpass"

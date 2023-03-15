@@ -1,8 +1,7 @@
 {{/* Define the worker container */}}
 {{- define "authentik.worker" -}}
 enabled: true
-imageSelector: image.repository }}:{{ .Values.image.tag }}
-imagePullPolicy: {{ .Values.image.pullPolicy }}
+imageSelector: image
 args: ["worker"]
 envFrom:
   - secretRef:
@@ -11,27 +10,21 @@ envFrom:
       name: 'authentik-config'
 probes:
   readiness:
-    exec:
-      command:
-        - /lifecycle/ak
-        - healthcheck
-
-
-
-
+    enabled: true
+    type: exec
+    command:
+      - /lifecycle/ak
+      - healthcheck
   liveness:
-    exec:
-      command:
-        - /lifecycle/ak
-        - healthcheck
-
-
-
-
+    enabled: true
+    type: exec
+    command:
+      - /lifecycle/ak
+      - healthcheck
   startup:
-    exec:
-      command:
-        - /lifecycle/ak
-        - healthcheck
-
+    enabled: true
+    type: exec
+    command:
+      - /lifecycle/ak
+      - healthcheck
 {{- end -}}

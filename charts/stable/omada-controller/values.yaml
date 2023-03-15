@@ -65,5 +65,6 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          PORTAL_HTTPS_PORT: "{{ .Values.service.comm.ports.comm.port }}"
+        main:
+          env:
+            PORTAL_HTTPS_PORT: "{{ .Values.service.comm.ports.comm.port }}"

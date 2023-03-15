@@ -30,7 +30,8 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          OPEN_PROFILES: "true"
-          OPEN_REGISTRATIONS: "true"
-          COOKIE_SECRET: supersecretchangeme
+        main:
+          env:
+            OPEN_PROFILES: "true"
+            OPEN_REGISTRATIONS: "true"
+            COOKIE_SECRET: supersecretchangeme

@@ -49,17 +49,18 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
-          TYPE: "BUNGEECORD"
-          ONLINE_MODE: false
-          MEMORY: 512M
-          INIT_MEMORY: 512M
-          MAX_MEMORY: 512M
-          NETWORKADDRESS_CACHE_TTL: 60
-          REPLACE_ENV_VARIABLES: true
-          # JVM_OPTS: ""
-          # JVM_XX_OPTS: ""
-          # PLUGINS: ""
+        main:
+          env:
+            RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
+            TYPE: "BUNGEECORD"
+            ONLINE_MODE: false
+            MEMORY: 512M
+            INIT_MEMORY: 512M
+            MAX_MEMORY: 512M
+            NETWORKADDRESS_CACHE_TTL: 60
+            REPLACE_ENV_VARIABLES: true
+            # JVM_OPTS: ""
+            # JVM_XX_OPTS: ""
+            # PLUGINS: ""
 
-          RCON_PASSWORD: "secretrconpass"
+            RCON_PASSWORD: "secretrconpass"

@@ -30,5 +30,6 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          UPTIMEROBOT_API_KEY: ""
+        main:
+          env:
+            UPTIMEROBOT_API_KEY: ""

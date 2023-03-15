@@ -30,20 +30,21 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          APP_ENV: production
-          APP_URL: https://crm.k8s-at-home.com
-          DB_DATABASE: monica
-          DB_USERNAME: monica
-          DB_HOST:
-            secretKeyRef:
-              name: mariadbcreds
-              key: plainhost
-          DB_PASSWORD:
-            secretKeyRef:
-              name: mariadbcreds
-              key: mariadb-password
-          APP_KEY:
-            secretKeyRef:
-              name: appkey
-              key: appkey
+        main:
+          env:
+            APP_ENV: production
+            APP_URL: https://crm.k8s-at-home.com
+            DB_DATABASE: monica
+            DB_USERNAME: monica
+            DB_HOST:
+              secretKeyRef:
+                name: mariadbcreds
+                key: plainhost
+            DB_PASSWORD:
+              secretKeyRef:
+                name: mariadbcreds
+                key: mariadb-password
+            APP_KEY:
+              secretKeyRef:
+                name: appkey
+                key: appkey

@@ -23,8 +23,9 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          STATE_DIR: /config
-          DOWNLOAD_DIR: /downloads
-          OUTPUT_TEMPLATE: "%(title)s.%(ext)s"
-          YTDL_OPTIONS: "{}"
+        main:
+          env:
+            STATE_DIR: /config
+            DOWNLOAD_DIR: /downloads
+            OUTPUT_TEMPLATE: "%(title)s.%(ext)s"
+            YTDL_OPTIONS: "{}"

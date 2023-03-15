@@ -29,7 +29,8 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          INTPORT: "{{ .Values.service.main.ports.main.targetPort }}"
-          # User Defined
-          DEEMIX_SINGLE_USER: false
+        main:
+          env:
+            INTPORT: "{{ .Values.service.main.ports.main.targetPort }}"
+            # User Defined
+            DEEMIX_SINGLE_USER: false

@@ -44,42 +44,43 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          # Internal Envs
-          DB_CONNECTION: "mysql"
-          DB_PORT: "3306"
-          DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
-          DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
-          REDIS_PORT: "6379"
-          CACHE_DRIVER: "redis"
-          SESSION_DRIVER: "redis"
-          APP_NAME: "LinkAce"
-          APP_ENV: "production"
-          APP_TIMEZONE: "{{ .Values.TZ }}"
-          # User Envs
-          APP_URL: "http://localhost"
-          APP_DEBUG: false
-          BACKUP_ENABLED: false
-          BACKUP_DISK: local_backups
-          BACKUP_NOTIFICATION_EMAIL: your@email.com
-          BACKUP_MAX_SIZE: 512
-          DB_HOST:
-            secretKeyRef:
-              name: mariadbcreds
-              key: plainhost
-          DB_PASSWORD:
-            secretKeyRef:
-              name: mariadbcreds
-              key: mariadb-password
-          REDIS_HOST:
-            secretKeyRef:
-              name: rediscreds
-              key: plainhost
-          REDIS_PASSWORD:
-            secretKeyRef:
-              name: rediscreds
-              key: redis-password
-          APP_KEY:
-            secretKeyRef:
-              name: linkace-secrets
-              key: APP_KEY
+        main:
+          env:
+            # Internal Envs
+            DB_CONNECTION: "mysql"
+            DB_PORT: "3306"
+            DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+            DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
+            REDIS_PORT: "6379"
+            CACHE_DRIVER: "redis"
+            SESSION_DRIVER: "redis"
+            APP_NAME: "LinkAce"
+            APP_ENV: "production"
+            APP_TIMEZONE: "{{ .Values.TZ }}"
+            # User Envs
+            APP_URL: "http://localhost"
+            APP_DEBUG: false
+            BACKUP_ENABLED: false
+            BACKUP_DISK: local_backups
+            BACKUP_NOTIFICATION_EMAIL: your@email.com
+            BACKUP_MAX_SIZE: 512
+            DB_HOST:
+              secretKeyRef:
+                name: mariadbcreds
+                key: plainhost
+            DB_PASSWORD:
+              secretKeyRef:
+                name: mariadbcreds
+                key: mariadb-password
+            REDIS_HOST:
+              secretKeyRef:
+                name: rediscreds
+                key: plainhost
+            REDIS_PASSWORD:
+              secretKeyRef:
+                name: rediscreds
+                key: redis-password
+            APP_KEY:
+              secretKeyRef:
+                name: linkace-secrets
+                key: APP_KEY
