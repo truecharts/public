@@ -31,17 +31,18 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          DJANGO_TIME_ZONE: "{{ .Values.TZ }}"
-          DJANGO_DATABASE_ENGINE: "django.db.backends.postgresql"
-          DJANGO_DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
-          DJANGO_DATABASE_USER: "{{ .Values.cnpg.main.user }}"
-          DJANGO_DATABASE_PORT: "5432"
-          DJANGO_DATABASE_PASSWORD:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          DJANGO_DATABASE_HOST:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
+        main:
+          env:
+            DJANGO_TIME_ZONE: "{{ .Values.TZ }}"
+            DJANGO_DATABASE_ENGINE: "django.db.backends.postgresql"
+            DJANGO_DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
+            DJANGO_DATABASE_USER: "{{ .Values.cnpg.main.user }}"
+            DJANGO_DATABASE_PORT: "5432"
+            DJANGO_DATABASE_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            DJANGO_DATABASE_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost

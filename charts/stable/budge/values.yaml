@@ -27,5 +27,6 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          NODE_ENV: "production"
+        main:
+          env:
+            NODE_ENV: "production"

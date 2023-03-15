@@ -27,7 +27,8 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          SUBDOMAINS: ""
-          LOG_FILE: false
-          TOKEN: ""
+        main:
+          env:
+            SUBDOMAINS: ""
+            LOG_FILE: false
+            TOKEN: ""

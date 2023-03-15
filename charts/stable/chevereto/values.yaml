@@ -45,21 +45,21 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          CHEVERETO_DB_DRIVER: mysql
-          CHEVERETO_DB_NAME: "{{ .Values.mariadb.mariadbUsername }}"
-          CHEVERETO_DB_USER: "{{ .Values.mariadb.mariadbDatabase }}"
-          CHEVERETO_DB_PORT: "3306"
-          CHEVERETO_TAG: "free"
-          CHEVERETO_DB_HOST:
-            secretKeyRef:
-              name: mariadbcreds
-              key: plainporthost
-          CHEVERETO_DB_PASS:
-            secretKeyRef:
-              name: mariadbcreds
-              key: mariadb-password
         main:
+          env:
+            CHEVERETO_DB_DRIVER: mysql
+            CHEVERETO_DB_NAME: "{{ .Values.mariadb.mariadbUsername }}"
+            CHEVERETO_DB_USER: "{{ .Values.mariadb.mariadbDatabase }}"
+            CHEVERETO_DB_PORT: "3306"
+            CHEVERETO_TAG: "free"
+            CHEVERETO_DB_HOST:
+              secretKeyRef:
+                name: mariadbcreds
+                key: plainporthost
+            CHEVERETO_DB_PASS:
+              secretKeyRef:
+                name: mariadbcreds
+                key: mariadb-password
           envFrom:
             - configMapRef:
                 name: "chevereto"

@@ -44,31 +44,32 @@ workload:
   main:
     podSpec:
       containers:
-        env:
-          ANONADDY_DOMAIN: "chart-example.local"
-          DB_DATABASE: anonaddy
-          DB_USERNAME: anonaddy
-          DB_HOST:
-            secretKeyRef:
-              name: mariadbcreds
-              key: plainhost
-          DB_PASSWORD:
-            secretKeyRef:
-              name: mariadbcreds
-              key: mariadb-password
-          REDIS_HOST:
-            secretKeyRef:
-              name: rediscreds
-              key: plainhost
-          REDIS_PASSWORD:
-            secretKeyRef:
-              name: rediscreds
-              key: redis-password
-          APP_KEY:
-            secretKeyRef:
-              name: appkey
-              key: appkey
-          ANONADDY_SECRET:
-            secretKeyRef:
-              name: appkey
-              key: secret
+        main:
+          env:
+            ANONADDY_DOMAIN: "chart-example.local"
+            DB_DATABASE: anonaddy
+            DB_USERNAME: anonaddy
+            DB_HOST:
+              secretKeyRef:
+                name: mariadbcreds
+                key: plainhost
+            DB_PASSWORD:
+              secretKeyRef:
+                name: mariadbcreds
+                key: mariadb-password
+            REDIS_HOST:
+              secretKeyRef:
+                name: rediscreds
+                key: plainhost
+            REDIS_PASSWORD:
+              secretKeyRef:
+                name: rediscreds
+                key: redis-password
+            APP_KEY:
+              secretKeyRef:
+                name: appkey
+                key: appkey
+            ANONADDY_SECRET:
+              secretKeyRef:
+                name: appkey
+                key: secret
