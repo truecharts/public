@@ -44,15 +44,15 @@ workload:
         main:
           probes:
             liveness:
-              type: HTTPS
+              type: https
               path: /
               port: "{{ .Values.service.admin.ports.admin.targetPort }}"
             readiness:
-              type: HTTPS
+              type: https
               path: /
               port: "{{ .Values.service.admin.ports.admin.targetPort }}"
             startup:
-              type: HTTPS
+              type: https
               path: /
               port: "{{ .Values.service.admin.ports.admin.targetPort }}"
         env:
