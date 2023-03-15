@@ -42,12 +42,12 @@ workload:
             DB_PORT: "5432"
             DB_PASS:
               secretKeyRef:
-                name: cnpg-main-urls
-                key: postgresql-password
+                name: cnpg-main-user
+                key: password
             DB_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host
             # User Defined
             TITLE: "Etherpad"
             FAVICON: "favicon.ico"

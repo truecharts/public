@@ -40,9 +40,9 @@ workload:
             DJANGO_DATABASE_PORT: "5432"
             DJANGO_DATABASE_PASSWORD:
               secretKeyRef:
-                name: cnpg-main-urls
-                key: postgresql-password
+                name: cnpg-main-user
+                key: password
             DJANGO_DATABASE_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host

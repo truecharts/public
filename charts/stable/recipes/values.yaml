@@ -108,12 +108,12 @@ workload:
             POSTGRES_PORT: "5432"
             POSTGRES_PASSWORD:
               secretKeyRef:
-                name: cnpg-main-urls
-                key: postgresql-password
+                name: cnpg-main-user
+                key: password
             POSTGRES_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host
             SECRET_KEY:
               secretKeyRef:
                 name: recipes-secrets

@@ -55,5 +55,5 @@ workload:
                 key: jdbc
             spring_datasource_password:
               secretKeyRef:
-                name: cnpg-main-urls
-                key: postgresql-password
+                name: cnpg-main-user
+                key: password
