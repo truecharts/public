@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-163-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-164-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -346,6 +346,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/raynay-r"><img src="https://avatars.githubusercontent.com/u/16634069?v=4?s=100" width="100px;" alt="raynay-r"/><br /><sub><b>raynay-r</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=raynay-r" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://jip.debeer.it/"><img src="https://avatars.githubusercontent.com/u/2871973?v=4?s=100" width="100px;" alt="Jip-Hop"/><br /><sub><b>Jip-Hop</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Jip-Hop" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/jonaswre"><img src="https://avatars.githubusercontent.com/u/3731681?v=4?s=100" width="100px;" alt="Jonas Wrede"/><br /><sub><b>Jonas Wrede</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=jonaswre" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
