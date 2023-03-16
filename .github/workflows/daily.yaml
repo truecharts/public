@@ -383,5 +383,7 @@ jobs:
           cmd: install --frozen-lockfile
 
       - name: List missing and unknown contributors
+        env:
+          PRIVATE_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: |
           awk -F', ' '{ for( i=1; i<=NF; i++ ) print $i }' <<<$(yarn all-contributors check)
