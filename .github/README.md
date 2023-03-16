@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-154-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-155-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -333,6 +333,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://devklog.net/"><img src="https://avatars.githubusercontent.com/u/49554?v=4?s=100" width="100px;" alt="Jean-François Roy"/><br /><sub><b>Jean-François Roy</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=jfroy" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Whiskey24"><img src="https://avatars.githubusercontent.com/u/12865553?v=4?s=100" width="100px;" alt="Whiskey24"/><br /><sub><b>Whiskey24</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Whiskey24" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/inmanturbo"><img src="https://avatars.githubusercontent.com/u/47095624?v=4?s=100" width="100px;" alt="inmanturbo"/><br /><sub><b>inmanturbo</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=inmanturbo" title="Documentation">📖</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Dhs92"><img src="https://avatars.githubusercontent.com/u/3068714?v=4?s=100" width="100px;" alt="Alex"/><br /><sub><b>Alex</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Dhs92" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
