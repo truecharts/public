@@ -1,0 +1,52 @@
+image:
+  repository: nitnelave/lldap-debian
+  pullPolicy: IfNotPresent
+  tag: latest
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 1000
+  runAsGroup: 1000
+  fsGroup: 1000
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 17170
+        port: 17170
+  ldap:
+    ports:
+      main:
+        targetPort: 3890
+        port: 3890
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            LLDAP_LDAP_BASE_DN: "dc=example,dc=com"
+            LLDAP_LDAP_USER_PASS: "change me"
+            LLDAP_JWT_SECRET:
+              - secretRef:
+                  name: secrets
+                  key: LLDAP_JWT_SECRET
+# Set lldap variables
+lldap:
+  configuration:
+    ## JWT secret set to auto generate if not defined.
+    # jwt:
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+portal:
+  open:
+    enabled: true
