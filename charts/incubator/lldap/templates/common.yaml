@@ -16,7 +16,7 @@ enabled: true
 type: custom
 mountPath: /data/lldap_config.toml
 subPath: lldap_config.toml
-readOnly: true
+readOnly: false
 volumeSpec:
   configMap:
     name: '{{ printf "%s-lldap-config" (include "tc.common.names.fullname" .) }}'
