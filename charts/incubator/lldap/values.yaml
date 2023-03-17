@@ -36,16 +36,14 @@ workload:
               - secretRef:
                   name: secrets
                   key: LLDAP_JWT_SECRET
+
+lldapConfig:
+
 # Set lldap variables
 lldap:
   configuration:
     ## JWT secret set to auto generate if not defined.
     # jwt:
-
-persistence:
-  data:
-    enabled: true
-    mountPath: "/data"
 
 portal:
   open:
