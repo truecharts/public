@@ -28,18 +28,9 @@ workload:
   main:
     podSpec:
       containers:
-        installContainers:
-          lldap-install:
-            image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-            envFrom:
-            - secretRef:
-              name: '{{ include "tc.common.names.fullname" . }}-lldap.secrets'
-            command: [sh]
-            args:
-              - -c
-              - >-
-                /entrypoint.sh
         main:
+          command: ["/app/lldap"]
+          args: ["run"]
           env:
             LLDAP_LDAP_BASE_DN: "dc=example,dc=com"
             LLDAP_LDAP_USER_PASS: "change me"
@@ -47,6 +38,8 @@ workload:
               - secretRef:
                   name: secrets
                   key: LLDAP_JWT_SECRET
+            LLDAP_key_file: "/data/private_key"
+            LLDAP_database_url: "sqlite:///data/users.db?mode=rwc"
 
 persistence:
   data:
