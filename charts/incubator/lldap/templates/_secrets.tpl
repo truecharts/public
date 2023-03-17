@@ -6,6 +6,7 @@
 {{/* Initialize all keys */}}
 {{- $secrets := randAlphaNum 50 }}
 
+enabled: true
 data:
   {{ with (lookup "v1" "Secret" .Release.Namespace $fetchname) }}
     {{/* Get previous values and decode */}}

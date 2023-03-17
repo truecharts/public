@@ -7,11 +7,6 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
 
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-
 service:
   main:
     ports:
@@ -39,18 +34,35 @@ workload:
                   name: secrets
                   key: LLDAP_JWT_SECRET
             LLDAP_key_file: "/data/private_key"
-            LLDAP_database_url: "sqlite:///data/users.db?mode=rwc"
+            LLDAP_database_url:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: std
+
+database:
+  # -- Database type,
+  # must be one of: 'sqlite', 'mysql' or 'postgresql'.
+  type: postgresql
+  # -- Enable DB Write-Ahead-Log for SQLite,
+  # disabled for other databases. https://github.com/dani-garcia/bitwarden_rs/wiki/Running-without-WAL-enabled
+  wal: false
+  ## URL for external databases (mysql://user:pass@host:port or postgresql://user:pass@host:port).
+  # url: ""
+  ## Set the size of the database connection pool.
+  # maxConnections: 10
+  ## Connection retries during startup, 0 for infinite. 1 second between retries.
+  # retries: 15
 
 persistence:
   data:
     enabled: true
     mountPath: "/data"
 
-# Set lldap variables
-lldap:
-  configuration:
-    ## JWT secret set to auto generate if not defined.
-    # jwt:
+cnpg:
+  main:
+    enabled: true
+    user: lldap
+    database: lldap
 
 portal:
   open:
