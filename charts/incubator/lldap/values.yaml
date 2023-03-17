@@ -28,6 +28,17 @@ workload:
   main:
     podSpec:
       containers:
+        installContainers:
+          lldap-install:
+            image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+            envFrom:
+            - secretRef:
+              name: '{{ include "tc.common.names.fullname" . }}-lldap.secrets'
+            command: [sh]
+            args:
+              - -c
+              - >-
+                /entrypoint.sh
         main:
           env:
             LLDAP_LDAP_BASE_DN: "dc=example,dc=com"
