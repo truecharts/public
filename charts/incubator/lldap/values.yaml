@@ -37,7 +37,10 @@ workload:
                   name: secrets
                   key: LLDAP_JWT_SECRET
 
-lldapConfig:
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
 
 # Set lldap variables
 lldap:

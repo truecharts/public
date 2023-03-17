@@ -7,30 +7,5 @@
   {{- $_ := set .Values.secret "secret" $secrets -}}
 {{- end -}}
 
-{{/* Render config for lldap */}}
-{{- include "lldap.config" . }}
-
-{{- define "lldap.configmap.mount" -}}
-{{- if .Values.lldapConfig }}
-enabled: true
-type: custom
-mountPath: /data/lldap_config.toml
-subPath: lldap_config.toml
-readOnly: false
-volumeSpec:
-  configMap:
-    name: '{{ printf "%s-lldap-config" (include "tc.common.names.fullname" .) }}'
-{{- else -}}
-enabled: true
-type: hostPath
-hostPathType: File
-hostPath: {{ .Values.lldap.configFilePath }}
-mountPath: /data/lldap_config.toml
-readOnly: true
-{{- end -}}
-{{- end -}}
-
-{{- $_ := set .Values.persistence "configfile" (include "lldap.configmap.mount" . | fromYaml) -}}
-
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
