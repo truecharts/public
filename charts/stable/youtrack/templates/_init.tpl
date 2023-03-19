@@ -1,6 +1,6 @@
 {{- define "youtrack.init" -}}
 enabled: true
-imageSelector: image.repository }}:{{ .Values.image.tag }}
+imageSelector: "image"
 imagePullPolicy: {{ .Values.image.pullPolicy }}
 args:
   - configure

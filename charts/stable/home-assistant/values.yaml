@@ -8,15 +8,21 @@ service:
       main:
         port: 8123
         targetPort: 8123
-initContainers:
-  init:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    command: ["/config/init/init.sh"]
-    volumeMounts:
-      - name: init
-        mountPath: "/config/init"
-      - name: config
-        mountPath: "/config"
+workload:
+  main:
+    podSpec:
+      initContainers:
+        init:
+          type: init
+          enabled: true
+          imageSelector: "image"
+          command: ["/config/init/init.sh"]
+# TODO: fix this
+#          volumeMounts:
+#            - name: init
+#              mountPath: "/config/init"
+#            - name: config
+#              mountPath: "/config"
 # # Enable devices to be discoverable
 # hostNetwork: true
 
@@ -118,7 +124,7 @@ configmap:
         recorder:
           purge_keep_days: 30
           commit_interval: 3
-          db_url: {{ ( printf "%s?client_encoding=utf8" ( .Values.cnpg.main.url.std | trimAll "\"" ) ) | quote }}
+          db_url: {{ ( printf "%s?client_encoding=utf8" ( .Values.cnpg.main.creds.std | trimAll "\"" ) ) | quote }}
       http.default: |-
         http:
           use_x_forwarded_for: true
@@ -136,18 +142,10 @@ cnpg:
     user: home-assistant
     database: home-assistant
 
-influxdb:
-  enabled: false
-  architecture: standalone
-  database: home_assistant
-  authEnabled: false
-  persistence:
-    enabled: false
-    # storageClass: ""
-    #
 portal:
   open:
     enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

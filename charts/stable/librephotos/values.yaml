@@ -157,8 +157,8 @@ workload:
             DEBUG: false
             DB_PASS:
               secretKeyRef:
-                name: cnpg-main-urls
-                key: postgresql-password
+                name: cnpg-main-user
+                key: password
             DB_HOST:
               secretKeyRef:
                 name: cnpg-main-urls

@@ -69,6 +69,6 @@ workload:
             DECONZ_WEB_PORT: "{{ .Values.service.main.ports.main.port }}"
             DECONZ_WS_PORT: "{{ .Values.service.websocket.ports.websocket.port }}"
             DECONZ_VNC_PORT: "{{ .Values.service.vnc.ports.vnc.port }}"
-            DECONZ_UID: "{{ .Values.security.PUID }}"
+            DECONZ_UID: "{{ .Values.securityContext.container.PUID }}"
             DECONZ_GID: "{{ .Values.securityContext.pod.fsGroup }}"
             DECONZ_VNC_PASSWORD: ""
