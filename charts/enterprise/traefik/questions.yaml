@@ -1,12 +1,7 @@
 # Include{groups}
 portals:
   open:
-    protocols:
-      - "http"
-    host:
-        - "$kubernetes-resource_configmap_tcportal-open_host"
-    ports:
-      - "$kubernetes-resource_configmap_tcportal-open_port"
+# Include{portalLink}
     path: "$kubernetes-resource_configmap_tcportal-open_path"
 questions:
 # Include{global}
