@@ -19,12 +19,12 @@ persistence:
     mountPath: "/data"
 redis:
   enabled: true
-  existingSecret: "rediscreds"
+
 mariadb:
   enabled: true
   mariadbUsername: friendica
   mariadbDatabase: friendica
-  existingSecret: "mariadbcreds"
+
 portal:
   open:
     enabled: true

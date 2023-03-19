@@ -16,7 +16,7 @@ mariadb:
   enabled: true
   mariadbUsername: bookstack
   mariadbDatabase: bookstack
-  existingSecret: "mariadbcreds"
+
 portal:
   open:
     enabled: true
@@ -37,11 +37,13 @@ workload:
             APP_URL: ""
             DB_HOST:
               secretKeyRef:
-                name: mariadbcreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
             DB_PASS:
               secretKeyRef:
-                name: mariadbcreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-password
             APP_KEY:
               secretKeyRef:

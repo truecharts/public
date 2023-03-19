@@ -69,7 +69,7 @@ configmap:
         }
 redis:
   enabled: true
-  existingSecret: "rediscreds"
+
   redisUsername: default
 cnpg:
   main:

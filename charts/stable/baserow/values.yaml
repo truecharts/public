@@ -18,7 +18,7 @@ cnpg:
     database: baserow
 redis:
   enabled: true
-  existingSecret: "rediscreds"
+
   redisUsername: "default"
 portal:
   open:
@@ -69,11 +69,13 @@ workload:
                 key: postgresql-password
             REDIS_HOST:
               secretKeyRef:
-                name: rediscreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: plainhost
             REDIS_PASSWORD:
               secretKeyRef:
-                name: rediscreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: redis-password
             SECRET_KEY:
               secretKeyRef:

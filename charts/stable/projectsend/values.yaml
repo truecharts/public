@@ -21,7 +21,7 @@ mariadb:
   enabled: true
   mariadbUsername: projectsend
   mariadbDatabase: projectsend
-  existingSecret: "mariadbcreds"
+
 installContainers:
   initconfig:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"

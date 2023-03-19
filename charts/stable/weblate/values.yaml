@@ -187,7 +187,7 @@ persistence:
     mountPath: "/app/cache"
 redis:
   enabled: true
-  existingSecret: "rediscreds"
+
   redisUsername: default
 cnpg:
   main:

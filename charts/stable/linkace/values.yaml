@@ -26,10 +26,10 @@ mariadb:
   enabled: true
   mariadbUsername: linkace
   mariadbDatabase: linkace
-  existingSecret: "mariadbcreds"
+
 redis:
   enabled: true
-  existingSecret: "rediscreds"
+
 portal:
   open:
     enabled: true
