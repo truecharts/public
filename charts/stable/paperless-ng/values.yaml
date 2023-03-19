@@ -48,7 +48,7 @@ workload:
             PAPERLESS_CONSUMPTION_DIR: "/consume/"
             PAPERLESS_MEDIA_ROOT: "/media/"
             PAPERLESS_URL: ""
-            USERMAP_UID: "{{ .Values.security.PUID }}"
+            USERMAP_UID: "{{ .Values.securityContext.container.PUID }}"
             USERMAP_GID: "{{ .Values.securityContext.pod.fsGroup }}"
             PAPERLESS_TIME_ZONE: "{{ .Values.TZ }}"
             PAPERLESS_DBNAME: "{{ .Values.cnpg.main.database }}"

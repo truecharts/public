@@ -43,9 +43,9 @@ workload:
             PHOTOPRISM_CONFIG_PATH: "/assets/config"
             PROTOPRISM_BACKUP_PATH: "/assets/backup"
             PHOTOPRISM_PUBLIC: false
-            PHOTOPRISM_UID: "{{ .Values.podSecurityContext.runAsUser }}"
-            PHOTOPRISM_GID: "{{ .Values.podSecurityContext.runAsGroup }}"
-            PHOTOPRISM_UMASK: "{{ .Values.workload.main.podSpec.containers.main.env.UMASK }}"
+            PHOTOPRISM_UID: "{{ .Values.securityContext.container.runAsUser }}"
+            PHOTOPRISM_GID: "{{ .Values.securityContext.container.runAsGroup }}"
+            PHOTOPRISM_UMASK: "{{ .Values.securityContext.container.UMASK }}"
             PHOTOPRISM_DATABASE_DRIVER: "mysql"
             PHOTOPRISM_DATABASE_NAME: "photoprism"
             PHOTOPRISM_DATABASE_USER: "photoprism"

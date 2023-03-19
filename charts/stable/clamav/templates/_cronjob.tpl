@@ -2,7 +2,7 @@
 {{- define "clamav.cronjob" -}}
 enabled: true
 type: "CronJob"
-
+schedule: "0 8 * * *"
 podSpec:
   restartPolicy: Never
   containers:

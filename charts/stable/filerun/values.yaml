@@ -37,7 +37,7 @@ workload:
         main:
           env:
             APACHE_RUN_USER: apps
-            APACHE_RUN_USER_ID: "{{ .Values.security.PUID }}"
+            APACHE_RUN_USER_ID: "{{ .Values.securityContext.container.PUID }}"
             APACHE_RUN_GROUP: apps
             APACHE_RUN_GROUP_ID: "{{ .Values.securityContext.pod.fsGroup }}"
             FR_DB_NAME: "filerun"

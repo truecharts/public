@@ -7,4 +7,11 @@ securityContext:
   runAsUser: 0
   runAsGroup: 1000
   readOnlyRootFilesystem: false
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
 {{- end -}}

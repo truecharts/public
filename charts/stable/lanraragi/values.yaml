@@ -30,5 +30,5 @@ workload:
       containers:
         main:
           env:
-            LRR_UID: "{{ .Values.security.PUID }}"
+            LRR_UID: "{{ .Values.securityContext.container.PUID }}"
             LRR_GID: "{{ .Values.securityContext.pod.fsGroup }}"

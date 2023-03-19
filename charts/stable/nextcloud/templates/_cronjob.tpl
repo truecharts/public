@@ -3,7 +3,7 @@
 {{- if .Values.cronjob.enabled -}}
 enabled: true
 type: "CronJob"
-
+schedule: "*/5 * * * *"
 podSpec:
   restartPolicy: Never
   containers:

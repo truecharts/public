@@ -133,6 +133,6 @@ workload:
       containers:
         main:
           env:
-            HOST_USER_ID: "{{ .Values.podSecurityContext.runAsUser }}"
+            HOST_USER_ID: "{{ .Values.securityContext.container.runAsUser }}"
             HOST_USER_GID: "{{ .Values.securityContext.pod.fsGroup }}"
             PORT: "{{ .Values.service.main.ports.main.port }}"

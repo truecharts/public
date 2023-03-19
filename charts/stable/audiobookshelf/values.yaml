@@ -39,7 +39,7 @@ workload:
             startup:
               path: "/ping"
           env:
-            AUDIOBOOKSHELF_UID: "{{ .Values.security.PUID }}"
+            AUDIOBOOKSHELF_UID: "{{ .Values.securityContext.container.PUID }}"
             AUDIOBOOKSHELF_GID: "{{ .Values.securityContext.pod.fsGroup }}"
             PORT: "{{ .Values.service.main.ports.main.port }}"
             TOKEN_SECRET:
