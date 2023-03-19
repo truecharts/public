@@ -39,20 +39,6 @@ workload:
                 name: cnpg-main-urls
                 key: std
 
-database:
-  # -- Database type,
-  # must be one of: 'sqlite', 'mysql' or 'postgresql'.
-  type: postgresql
-  # -- Enable DB Write-Ahead-Log for SQLite,
-  # disabled for other databases. https://github.com/dani-garcia/bitwarden_rs/wiki/Running-without-WAL-enabled
-  wal: false
-  ## URL for external databases (mysql://user:pass@host:port or postgresql://user:pass@host:port).
-  # url: ""
-  ## Set the size of the database connection pool.
-  # maxConnections: 10
-  ## Connection retries during startup, 0 for infinite. 1 second between retries.
-  # retries: 15
-
 persistence:
   data:
     enabled: true
