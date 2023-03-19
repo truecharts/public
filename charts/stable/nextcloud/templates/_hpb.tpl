@@ -1,8 +1,7 @@
 {{/* Define the hbp container */}}
 {{- define "nextcloud.hpb" -}}
-
-image: '{{ include "tc.common.images.selector" . }}'
-imagePullPolicy: '{{ .Values.image.pullPolicy }}'
+enabled: true
+imageSelector: image
 securityContext:
   runAsUser: 33
   runAsGroup: 33
@@ -10,38 +9,23 @@ securityContext:
 
 probes:
   readiness:
-
     path: /push/test/cookie
-      port: 7867
-      httpHeaders:
-      - name: Host
-        value: "test.fakedomain.dns"
-
-
-
-
+    port: 7867
+    httpHeaders:
+    - name: Host
+      value: "test.fakedomain.dns"
   liveness:
-
     path: /push/test/cookie
-      port: 7867
-      httpHeaders:
-      - name: Host
-        value: "test.fakedomain.dns"
-
-
-
-
+    port: 7867
+    httpHeaders:
+    - name: Host
+      value: "test.fakedomain.dns"
   startup:
-
     path: /push/test/cookie
-      port: 7867
-      httpHeaders:
-      - name: Host
-        value: "test.fakedomain.dns"
-
-
-
-
+    port: 7867
+    httpHeaders:
+    - name: Host
+      value: "test.fakedomain.dns"
 command:
   - "/bin/sh"
   - "-c"
@@ -141,11 +125,13 @@ env:
         key: plainporthost
   REDIS_HOST
     secretKeyRef:
-        name: rediscreds
+        expandObjectName: false
+        name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
         key: plainhost
   REDIS_HOST_PASSWORD
     secretKeyRef:
-        name: rediscreds
+        expandObjectName: false
+        name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
         key: redis-password
 envFrom:
   - configMapRef:
