@@ -28,8 +28,8 @@ workload:
               enabled: false
             startup:
               enabled: false
-        env:
-          MAX_WORKERS: -1
-          MAX_WORKERS_PER_GAME: 3
-          RECORDING_FRAMERATE: 30
-          DISCORD_TOKEN: ""
+          env:
+            MAX_WORKERS: -1
+            MAX_WORKERS_PER_GAME: 3
+            RECORDING_FRAMERATE: 30
+            DISCORD_TOKEN: ""

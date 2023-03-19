@@ -81,11 +81,13 @@ workload:
             MEMORY_LIMIT: 2048
             DB_HOST:
               secretKeyRef:
-                name: mariadbcreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
             DB_PASSWORD:
               secretKeyRef:
-                name: mariadbcreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-password
             APP_KEY:
               secretKeyRef:

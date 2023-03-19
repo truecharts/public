@@ -35,5 +35,6 @@ workload:
           env:
             REDIS_URL:
               secretKeyRef:
-                name: rediscreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: url

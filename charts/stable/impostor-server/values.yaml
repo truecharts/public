@@ -29,10 +29,10 @@ workload:
               enabled: false
             startup:
               enabled: false
-        env:
-          IMPOSTOR_Server__PublicIp: "127.0.0.1"
-          IMPOSTOR_Server__ListenIp: "0.0.0.0"
-          IMPOSTOR_AntiCheat__Enabled: true
-          IMPOSTOR_AntiCheat__BanIpFromGame: true
-          IMPOSTOR_Debug__GameRecorderEnabled: false
-          IMPOSTOR_Debug__GameRecorderPath: ""
+          env:
+            IMPOSTOR_Server__PublicIp: "127.0.0.1"
+            IMPOSTOR_Server__ListenIp: "0.0.0.0"
+            IMPOSTOR_AntiCheat__Enabled: true
+            IMPOSTOR_AntiCheat__BanIpFromGame: true
+            IMPOSTOR_Debug__GameRecorderEnabled: false
+            IMPOSTOR_Debug__GameRecorderPath: ""

@@ -16,7 +16,6 @@ persistence:
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:
@@ -53,3 +52,4 @@ workload:
                 timeoutSeconds: 10
             startup:
               enabled: false
+          env: {}

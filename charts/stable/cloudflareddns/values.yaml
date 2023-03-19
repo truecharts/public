@@ -13,14 +13,21 @@ cloudflareddns:
   log_level: 3
   host_zone_record: []
   # - domain: example.com
-  #   zone: example.com
-  #   record: A
-  # - domain: foobar.com
-  #   zone: foobar.com
-  #   record: A
-  # - domain: foobar.com
-  #   zone: foobar.com
-  #   record: AAAA
+#   zone: example.com
+
+#   record: A
+
+# - domain: foobar.com
+
+#   zone: foobar.com
+
+#   record: A
+
+# - domain: foobar.com
+
+#   zone: foobar.com
+
+#   record: AAAA
 service:
   main:
     enabled: false
@@ -31,8 +38,6 @@ persistence:
   config:
     enabled: true
     mountPath: /config
-  varrun:
-    enabled: true
 portal:
   open:
     enabled: false
@@ -57,3 +62,4 @@ workload:
           envFrom:
             - secretRef:
                 name: "secret"
+          env: {}

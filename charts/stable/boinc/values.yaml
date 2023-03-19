@@ -3,6 +3,7 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:63086383e7ed963660b10e26a2a10eaf2a2a9ac216bcd843588c13ed2a69b54f
 # secretEnv:
+
 #   PASSWORD: ""
 service:
   main:
@@ -14,8 +15,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-  varrun:
-    enabled: true
 portal:
   open:
     enabled: true
@@ -25,3 +24,9 @@ securityContext:
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env: {}

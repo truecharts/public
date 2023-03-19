@@ -60,12 +60,12 @@ workload:
           envFrom:
             - configMapRef:
                 name: "config"
-        env:
-          DB_PASS:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          DB_HOST:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
+          env:
+            DB_PASS:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost

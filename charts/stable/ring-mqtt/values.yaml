@@ -42,16 +42,16 @@ workload:
               enabled: false
             startup:
               enabled: false
-        env:
-          BEAMDURATION: "0"
-          DISARMCODE: ""
-          ENABLECAMERAS: "false"
-          ENABLEMODES: "false"
-          ENABLEPANIC: "false"
-          MQTTHOST: ""
-          MQTTPORT: "1883"
-          RINGLOCATIONIDS: ""
-          SNAPSHOTMODE: disabled
-          RINGTOKEN: ""
-          MQTTUSER: ""
-          MQTTPASSWORD: ""
+          env:
+            BEAMDURATION: "0"
+            DISARMCODE: ""
+            ENABLECAMERAS: "false"
+            ENABLEMODES: "false"
+            ENABLEPANIC: "false"
+            MQTTHOST: ""
+            MQTTPORT: "1883"
+            RINGLOCATIONIDS: ""
+            SNAPSHOTMODE: disabled
+            RINGTOKEN: ""
+            MQTTUSER: ""
+            MQTTPASSWORD: ""

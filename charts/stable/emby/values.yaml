@@ -18,3 +18,9 @@ portal:
 securityContext:
   container:
     readOnlyRootFilesystem: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env: {}

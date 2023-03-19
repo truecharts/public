@@ -189,16 +189,16 @@ workload:
               path: "/api/v1/info"
             startup:
               path: "/api/v1/info"
-        env:
-          MY_NODE_NAME:
-            fieldRef:
-              fieldPath: spec.nodeName
-          MY_POD_NAMESPACE:
-            fieldRef:
-              fieldPath: metadata.namespace
-          MY_POD_NAME:
-            fieldRef:
-              fieldPath: metadata.name
-          NETDATA_CLAIM_URL: ""
-          NETDATA_CLAIM_TOKEN: ""
-          NETDATA_CLAIM_ROOMS: ""
+          env:
+            MY_NODE_NAME:
+              fieldRef:
+                fieldPath: spec.nodeName
+            MY_POD_NAMESPACE:
+              fieldRef:
+                fieldPath: metadata.namespace
+            MY_POD_NAME:
+              fieldRef:
+                fieldPath: metadata.name
+            NETDATA_CLAIM_URL: ""
+            NETDATA_CLAIM_TOKEN: ""
+            NETDATA_CLAIM_ROOMS: ""

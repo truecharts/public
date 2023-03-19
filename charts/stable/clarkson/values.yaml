@@ -10,9 +10,7 @@ service:
       main:
         port: 10244
         targetPort: 3000
-persistence:
-  varrun:
-    enabled: true
+persistence: {}
 mariadb:
   enabled: true
   mariadbUsername: clarkson

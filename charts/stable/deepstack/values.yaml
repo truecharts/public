@@ -51,6 +51,7 @@ workload:
             # Path to custom models (needs to be on documentation)
             MODELSTORE-DETECTION: "{{ .Values.persistence.modelstore.mountPath }}"
             # High|Medium|Low
+
             MODE: "High"
             THREADCOUNT: 5
             API-KEY: ""

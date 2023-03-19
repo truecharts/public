@@ -40,26 +40,28 @@ workload:
               path: "/en/login"
             startup:
               path: "/en/login"
-        env:
-          DB_TYPE: "mysql"
-          DB_PORT: "3306"
-          DB_USER: "{{ .Values.mariadb.mariadbDatabase }}"
-          DB_BASE: "{{ .Values.mariadb.mariadbUsername }}"
-          APP_ENV: "prod"
-          TRUSTED_HOSTS: "{{ .Values.workload.main.podSpec.containers.main.env.trust_hosts }},localhost"
-          # User Defined
-          trust_hosts: "127.0.0.1"
-          DB_PASS:
-            secretKeyRef:
-              name: mariadbcreds
-              key: mariadb-password
-          DB_HOST:
-            secretKeyRef:
-              name: mariadbcreds
-              key: plainhost
-          APP_SECRET:
-            secretKeyRef:
-              name: kimai-secrets
-              key: APP_SECRET
-          ADMINMAIL: "admin@mysecretdomain.com"
-          ADMINPASS: "MvvTfjagiaqDprGNVA"
+          env:
+            DB_TYPE: "mysql"
+            DB_PORT: "3306"
+            DB_USER: "{{ .Values.mariadb.mariadbDatabase }}"
+            DB_BASE: "{{ .Values.mariadb.mariadbUsername }}"
+            APP_ENV: "prod"
+            TRUSTED_HOSTS: "{{ .Values.workload.main.podSpec.containers.main.env.trust_hosts }},localhost"
+            # User Defined
+            trust_hosts: "127.0.0.1"
+            DB_PASS:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
+            DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            APP_SECRET:
+              secretKeyRef:
+                name: kimai-secrets
+                key: APP_SECRET
+            ADMINMAIL: "admin@mysecretdomain.com"
+            ADMINPASS: "MvvTfjagiaqDprGNVA"

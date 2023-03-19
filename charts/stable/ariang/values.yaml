@@ -12,3 +12,9 @@ service:
 portal:
   open:
     enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env: {}

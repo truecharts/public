@@ -11,7 +11,6 @@ service:
 portal:
   open:
     enabled: false
-
 workload:
   main:
     podSpec:
@@ -24,20 +23,20 @@ workload:
               enabled: false
             startup:
               enabled: false
-        env:
-          OVERSEERR__URL: ""
-          DISCORD__MAX_RESULTS: 25
-          DISCORD__REQUESTED_MSG_STYLE: ":plain"
-          SONARR__URL: ""
-          SONARR__QUALITY_PROFILE: ""
-          SONARR__LANGUAGE_PROFILE: ""
-          RADARR__URL: ""
-          RADARR__QUALITY_PROFILE: ""
-          PARTIAL_SEASONS: true
-          LOG_LEVEL: ":info"
-          OVERSEERR__API: ""
-          OVERSEERR__DEFAULT_ID: ""
-          SONARR__API: ""
-          RADARR__API: ""
-          DISCORD__ROLE_ID: ""
-          DISCORD__TOKEN: ""
+          env:
+            OVERSEERR__URL: ""
+            DISCORD__MAX_RESULTS: 25
+            DISCORD__REQUESTED_MSG_STYLE: ":plain"
+            SONARR__URL: ""
+            SONARR__QUALITY_PROFILE: ""
+            SONARR__LANGUAGE_PROFILE: ""
+            RADARR__URL: ""
+            RADARR__QUALITY_PROFILE: ""
+            PARTIAL_SEASONS: true
+            LOG_LEVEL: ":info"
+            OVERSEERR__API: ""
+            OVERSEERR__DEFAULT_ID: ""
+            SONARR__API: ""
+            RADARR__API: ""
+            DISCORD__ROLE_ID: ""
+            DISCORD__TOKEN: ""

@@ -128,27 +128,29 @@ workload:
           envFrom:
             - configMapRef:
                 name: n8n-config
-        env:
-          GENERIC_TIMEZONE: "{{ .Values.TZ }}"
-          DB_TYPE: "postgresdb"
-          DB_POSTGRESDB_USER: "{{ .Values.cnpg.main.user }}"
-          DB_POSTGRESDB_DATABASE: "{{ .Values.cnpg.main.database }}"
-          DB_POSTGRESDB_PORT: 5432
-          QUEUE_BULL_REDIS_PORT: 6379
-          N8N_USER_FOLDER: "/data"
-          DB_POSTGRESDB_HOST:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
-          DB_POSTGRESDB_PASSWORD:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          QUEUE_BULL_REDIS_HOST:
-            secretKeyRef:
-              name: rediscreds
-              key: plainhost
-          QUEUE_BULL_REDIS_PASSWORD:
-            secretKeyRef:
-              name: rediscreds
-              key: redis-password
+          env:
+            GENERIC_TIMEZONE: "{{ .Values.TZ }}"
+            DB_TYPE: "postgresdb"
+            DB_POSTGRESDB_USER: "{{ .Values.cnpg.main.user }}"
+            DB_POSTGRESDB_DATABASE: "{{ .Values.cnpg.main.database }}"
+            DB_POSTGRESDB_PORT: 5432
+            QUEUE_BULL_REDIS_PORT: 6379
+            N8N_USER_FOLDER: "/data"
+            DB_POSTGRESDB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost
+            DB_POSTGRESDB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            QUEUE_BULL_REDIS_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            QUEUE_BULL_REDIS_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: redis-password

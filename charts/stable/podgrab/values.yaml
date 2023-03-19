@@ -35,6 +35,6 @@ workload:
               enabled: false
             startup:
               enabled: false
-        env:
-          CHECK_FREQUENCY: 240
-          PASSWORD: "secretpasswordgoeshere"
+          env:
+            CHECK_FREQUENCY: 240
+            PASSWORD: "secretpasswordgoeshere"

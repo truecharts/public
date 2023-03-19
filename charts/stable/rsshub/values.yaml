@@ -48,7 +48,8 @@ workload:
             TITLE_LENGTH_LIMIT: 150
             REDIS_URL:
               secretKeyRef:
-                name: rediscreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: url
             HTTP_BASIC_AUTH_NAME: ""
             HTTP_BASIC_AUTH_PASS: ""
