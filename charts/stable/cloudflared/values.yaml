@@ -36,3 +36,4 @@ workload:
             - run
             - --token
             - "{{ .Values.cloudflared.token }}"
+          env: {}

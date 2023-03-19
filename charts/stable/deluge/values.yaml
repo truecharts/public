@@ -27,8 +27,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-  varrun:
-    enabled: true
 portal:
   open:
     enabled: true
@@ -38,3 +36,9 @@ securityContext:
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env: {}

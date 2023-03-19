@@ -39,26 +39,26 @@ workload:
               path: "/api/ping"
             startup:
               path: "/api/ping"
-        env:
-          APP_BASE_URL: http://localhost:22300
-          APP_PORT: 22300
-          DB_CLIENT: "pg"
-          POSTGRES_DATABASE: "{{ .Values.cnpg.main.database }}"
-          POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
-          POSTGRES_PORT: "5432"
-          POSTGRES_PASSWORD:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          POSTGRES_HOST:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
-          MAILER_ENABLED: 0
-          MAILER_HOST: ""
-          MAILER_PORT: 465
-          MAILER_SECURE: true
-          MAILER_AUTH_USER: ""
-          MAILER_AUTH_PASSWORD: ""
-          MAILER_NOREPLY_NAME: ""
-          MAILER_NOREPLY_EMAIL: ""
+          env:
+            APP_BASE_URL: http://localhost:22300
+            APP_PORT: 22300
+            DB_CLIENT: "pg"
+            POSTGRES_DATABASE: "{{ .Values.cnpg.main.database }}"
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            POSTGRES_PORT: "5432"
+            POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            POSTGRES_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost
+            MAILER_ENABLED: 0
+            MAILER_HOST: ""
+            MAILER_PORT: 465
+            MAILER_SECURE: true
+            MAILER_AUTH_USER: ""
+            MAILER_AUTH_PASSWORD: ""
+            MAILER_NOREPLY_NAME: ""
+            MAILER_NOREPLY_EMAIL: ""

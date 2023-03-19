@@ -39,14 +39,14 @@ workload:
                 httpGet:
                   path: /healthcheck
                   port: 8080
-        env:
-          RUN_MIGRATIONS: 1
-          CREATE_ADMIN: 1
-          DATABASE_URL:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: urlnossl
-          # -- Admin user login, it's used only if `CREATE_ADMIN` is enabled.
-          ADMIN_USERNAME: "admin"
-          # -- Admin user password, it's used only if `CREATE_ADMIN` is enabled.
-          ADMIN_PASSWORD: "changeme"
+          env:
+            RUN_MIGRATIONS: 1
+            CREATE_ADMIN: 1
+            DATABASE_URL:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: urlnossl
+            # -- Admin user login, it's used only if `CREATE_ADMIN` is enabled.
+            ADMIN_USERNAME: "admin"
+            # -- Admin user password, it's used only if `CREATE_ADMIN` is enabled.
+            ADMIN_PASSWORD: "changeme"

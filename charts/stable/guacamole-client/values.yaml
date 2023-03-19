@@ -199,30 +199,30 @@ workload:
           envFrom:
             - configMapRef:
                 name: guacamole-client-env
-        env:
-          # Will probably be removed on 1.5.0 (https://github.com/apache/guacamole-client/pull/717)
-          POSTGRES_DATABASE: "{{ .Values.cnpg.main.database }}"
-          POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
-          POSTGRES_PORT: 5432
-          POSTGRES_HOSTNAME:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
-          POSTGRES_PASSWORD:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          # New format
-          POSTGRESQL_PASSWORD:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          POSTGRESQL_HOSTNAME:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
-          POSTGRESQL_DATABASE: "{{ .Values.cnpg.main.database }}"
-          POSTGRESQL_USER: "{{ .Values.cnpg.main.user }}"
-          POSTGRESQL_PORT: 5432
-          GUACD_HOSTNAME: "localhost"
-          GUACD_PORT: 4822
+          env:
+            # Will probably be removed on 1.5.0 (https://github.com/apache/guacamole-client/pull/717)
+            POSTGRES_DATABASE: "{{ .Values.cnpg.main.database }}"
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            POSTGRES_PORT: 5432
+            POSTGRES_HOSTNAME:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost
+            POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            # New format
+            POSTGRESQL_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            POSTGRESQL_HOSTNAME:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost
+            POSTGRESQL_DATABASE: "{{ .Values.cnpg.main.database }}"
+            POSTGRESQL_USER: "{{ .Values.cnpg.main.user }}"
+            POSTGRESQL_PORT: 5432
+            GUACD_HOSTNAME: "localhost"
+            GUACD_PORT: 4822

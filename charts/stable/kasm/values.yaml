@@ -55,7 +55,7 @@ workload:
               type: https
               path: /
               port: "{{ .Values.service.admin.ports.admin.targetPort }}"
-        env:
-          KASM_PORT: "{{ .Values.service.main.ports.main.port }}"
-          DOCKER_HUB_PASSWORD: ""
-          DOCKER_HUB_USERNAME: ""
+          env:
+            KASM_PORT: "{{ .Values.service.main.ports.main.port }}"
+            DOCKER_HUB_PASSWORD: ""
+            DOCKER_HUB_USERNAME: ""

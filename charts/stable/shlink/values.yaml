@@ -38,25 +38,26 @@ workload:
               path: "/rest/health"
             startup:
               path: "/rest/health"
-        env:
-          DEFAULT_DOMAIN: ""
-          GEOLITE_LICENSE_KEY: ""
-          ANONYMIZE_REMOTE_ADDR: true
-          ENABLE_PERIODIC_VISIT_LOCATE: true
-          IS_HTTPS_ENABLED: true
-          PORT: "{{ .Values.service.main.ports.main.port }}"
-          DB_DRIVER: "postgres"
-          DB_USER: "{{ .Values.cnpg.main.user }}"
-          DB_NAME: "{{ .Values.cnpg.main.database }}"
-          DB_PASSWORD:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          DB_HOST:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
-          REDIS_SERVERS:
-            secretKeyRef:
-              name: rediscreds
-              key: url
+          env:
+            DEFAULT_DOMAIN: ""
+            GEOLITE_LICENSE_KEY: ""
+            ANONYMIZE_REMOTE_ADDR: true
+            ENABLE_PERIODIC_VISIT_LOCATE: true
+            IS_HTTPS_ENABLED: true
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            DB_DRIVER: "postgres"
+            DB_USER: "{{ .Values.cnpg.main.user }}"
+            DB_NAME: "{{ .Values.cnpg.main.database }}"
+            DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost
+            REDIS_SERVERS:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: url

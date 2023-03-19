@@ -46,35 +46,39 @@ workload:
               path: "/ping"
             startup:
               path: "/ping"
-        env:
-          MYSQL_USER: "{{ .Values.mariadb.mariadbUsername }}"
-          MYSQL_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
-          MYSQL_PORT: 3306
-          REDIS_PORT: 6379
-          REDIS_DB: 1
-          FRIENDICA_TZ: "{{ .Values.TZ }}"
-          FRIENDICA_DATA_DIR: "/data"
-          FRIENDICA_CONFIG_DIR: "/config"
-          # User Defined
-          FRIENDICA_ADMIN_MAIL: "my@domain.com"
-          FRIENDICA_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
-          FRIENDICA_UPGRADE: false
-          FRIENDICA_SITENAME: ""
-          PHP_MEMORY_LIMIT: "512M"
-          PHP_UPLOAD_LIMIT: "512M"
-          MYSQL_HOST:
-            secretKeyRef:
-              name: mariadbcreds
-              key: plainhost
-          MYSQL_PASSWORD:
-            secretKeyRef:
-              name: mariadbcreds
-              key: mariadb-password
-          REDIS_HOST:
-            secretKeyRef:
-              name: rediscreds
-              key: plainhost
-          REDIS_PW:
-            secretKeyRef:
-              name: rediscreds
-              key: redis-password
+          env:
+            MYSQL_USER: "{{ .Values.mariadb.mariadbUsername }}"
+            MYSQL_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+            MYSQL_PORT: 3306
+            REDIS_PORT: 6379
+            REDIS_DB: 1
+            FRIENDICA_TZ: "{{ .Values.TZ }}"
+            FRIENDICA_DATA_DIR: "/data"
+            FRIENDICA_CONFIG_DIR: "/config"
+            # User Defined
+            FRIENDICA_ADMIN_MAIL: "my@domain.com"
+            FRIENDICA_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+            FRIENDICA_UPGRADE: false
+            FRIENDICA_SITENAME: ""
+            PHP_MEMORY_LIMIT: "512M"
+            PHP_UPLOAD_LIMIT: "512M"
+            MYSQL_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            MYSQL_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
+            REDIS_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            REDIS_PW:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: redis-password

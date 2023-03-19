@@ -65,11 +65,13 @@ workload:
                 key: password
             REDIS_HOST:
               secretKeyRef:
-                name: rediscreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: plainhost
             REDIS_PASSWORD:
               secretKeyRef:
-                name: rediscreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: redis-password
             JWT_SECRET:
               secretKeyRef:

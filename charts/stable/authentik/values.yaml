@@ -30,6 +30,7 @@ authentik:
     avatars: "gravatar,initials"
     token_length: 128
     # Use single quotes for footer_links
+
     footer_links: '[{"name": "Link Name", "href": "https://mylink.com"}]'
   mail:
     host: ""
@@ -64,24 +65,36 @@ outposts:
     # -- First you have to create an Outpost in the GUI. Applications > Outposts
     enabled: false
     # -- Host Browser by default is set to the first ingress host you set
-    # host_browser: ""
-    # -- Host should not need to be overridden. Defaults to https://localhost:9443
-    # host: ""
-    # -- As we use https://localhost:9443 it's an unsecure connection
-    # insecure: false
-    # -- Token is only needed if you accidentally deleted the token within the UI
-    # token: ""
+  # host_browser: ""
+
+  # -- Host should not need to be overridden. Defaults to https://localhost:9443
+
+  # host: ""
+
+  # -- As we use https://localhost:9443 it's an unsecure connection
+
+  # insecure: false
+
+  # -- Token is only needed if you accidentally deleted the token within the UI
+
+  # token: ""
   proxy:
     # -- First you have to create an Outpost in the GUI. Applications > Outposts
     enabled: false
     # -- Host Browser by default is set to the first ingress host you set
-    # host_browser: ""
-    # -- As we use https://localhost:9443 it's an unsecure connection
-    # insecure: false
-    # -- Host should not need to be overridden. Defaults to https://localhost:9443
-    # host: ""
-    # -- Token is only needed if you accidentally deleted the token within the UI
-    # token: ""
+# host_browser: ""
+
+# -- As we use https://localhost:9443 it's an unsecure connection
+
+# insecure: false
+
+# -- Host should not need to be overridden. Defaults to https://localhost:9443
+
+# host: ""
+
+# -- Token is only needed if you accidentally deleted the token within the UI
+
+# token: ""
 metrics:
   main:
     enabled: true
@@ -95,7 +108,6 @@ metrics:
         path: /metrics
     prometheusRule:
       enabled: false
-
 service:
   main:
     ports:
@@ -113,6 +125,7 @@ service:
         port: 10230
         targetPort: 9000
   # LDAP Outpost Services
+
   ldapldaps:
     enabled: true
     ports:
@@ -128,6 +141,7 @@ service:
         port: 389
         targetPort: 3389
   # Proxy Outpost Services
+
   proxyhttps:
     enabled: true
     ports:
@@ -146,6 +160,7 @@ service:
         protocol: http
         targetPort: 9001
   # Metrics Services
+
   metrics:
     enabled: true
     type: ClusterIP
@@ -192,7 +207,6 @@ persistence:
 cnpg:
   main:
     enabled: true
-
     user: authentik
     database: authentik
 redis:
@@ -232,3 +246,4 @@ workload:
             - configMapRef:
                 name: "authentik-server-config"
           args: ["server"]
+          env: {}

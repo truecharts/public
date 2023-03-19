@@ -156,5 +156,6 @@ workload:
             # SAML_ATTRIBUTES: ""
             MONGO_URL:
               secretKeyRef:
-                name: mongodbcreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
                 key: url

@@ -33,11 +33,13 @@ workload:
             LEAN_APP_URL: "{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}https://{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ end }}{{ end }}"
             LEAN_DB_HOST:
               secretKeyRef:
-                name: mariadbcreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
             LEAN_DB_PASSWORD:
               secretKeyRef:
-                name: mariadbcreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-password
             LEAN_SESSION_PASSWORD:
               secretKeyRef:

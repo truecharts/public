@@ -67,7 +67,8 @@ workload:
             NC_SENTRY_DSN: ""
             NC_REDIS_URL:
               secretKeyRef:
-                name: rediscreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: url
             NC_AUTH_JWT_SECRET:
               secretKeyRef:

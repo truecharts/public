@@ -18,7 +18,6 @@ persistence:
 cnpg:
   main:
     enabled: true
-
     user: ferdi-server
     database: ferdi-server
 installContainers:
@@ -37,7 +36,6 @@ installContainers:
     args:
       - >
         keyfile="/app/data/FERDI_APP_KEY.txt"; if [ ! -f ${keyfile} ]; then
-
           echo "No APP_KEY File...";
           echo "Creating APP_KEY file...";
           echo "${APP_KEY}" > ${keyfile};
@@ -48,7 +46,6 @@ installContainers:
             echo "Failed.";
           fi;
         else
-
           echo "APP_KEY File exists. Skipping...";
         fi;
 
@@ -73,36 +70,47 @@ workload:
               path: "/health"
             startup:
               path: "/health"
-        env:
-          NODE_ENV: "production"
-          DATA_DIR: "/app/data"
-          DB_CONNECTION: "pg"
-          DB_PORT: "5432"
-          DB_SSL: false
-          DB_USER: "{{ .Values.cnpg.main.user }}"
-          DB_DATABASE: "{{ .Values.cnpg.main.database }}"
-          # User Defined
-          APP_URL: "http://localhost:3333"
-          IS_CREATION_ENABLED: true
-          IS_DASHBOARD_ENABLED: true
-          IS_REGISTRATION_ENABLED: true
-          CONNECT_WITH_FRANZ: true
-          # MAIL_CONNECTION: "smtp"
-          # SMTP_HOST: "localhost"
-          # SMTP_PORT: 587
-          # MAIL_SSL: true
-          # MAIL_USERNAME: "username@example.com"
-          # MAIL_PASSWORD: "password"
-          # MAIL_SENDER: "noreply@example.com"
-          # SPARKPOST_API_KEY: ""
-          # MAILGUN_DOMAIN: ""
-          # MAILGUN_API_REGION: ""
-          # MAILGUN_API_KEY: ""
-          DB_HOST:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
-          DB_PASSWORD:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
+          env:
+            NODE_ENV: "production"
+            DATA_DIR: "/app/data"
+            DB_CONNECTION: "pg"
+            DB_PORT: "5432"
+            DB_SSL: false
+            DB_USER: "{{ .Values.cnpg.main.user }}"
+            DB_DATABASE: "{{ .Values.cnpg.main.database }}"
+            # User Defined
+
+            APP_URL: "http://localhost:3333"
+            IS_CREATION_ENABLED: true
+            IS_DASHBOARD_ENABLED: true
+            IS_REGISTRATION_ENABLED: true
+            CONNECT_WITH_FRANZ: true
+            # MAIL_CONNECTION: "smtp"
+
+            # SMTP_HOST: "localhost"
+
+            # SMTP_PORT: 587
+
+            # MAIL_SSL: true
+
+            # MAIL_USERNAME: "username@example.com"
+
+            # MAIL_PASSWORD: "password"
+
+            # MAIL_SENDER: "noreply@example.com"
+
+            # SPARKPOST_API_KEY: ""
+
+            # MAILGUN_DOMAIN: ""
+
+            # MAILGUN_API_REGION: ""
+
+            # MAILGUN_API_KEY: ""
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost
+            DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password

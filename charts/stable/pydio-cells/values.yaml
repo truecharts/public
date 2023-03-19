@@ -101,13 +101,13 @@ workload:
                   scheme: HTTP
                   path: "/healthcheck"
                   port: 10162
-        env:
-          CELLS_EXTERNAL: ""
-          CELLS_GRPC_EXTERNAL: "{{ .Values.service.gprc.ports.gprc.port }}"
-          CELLS_HEALTHCHECK: "{{ .Values.service.healthcheck.ports.healthcheck.port }}"
-          CELLS_BIND: "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
-          CELLS_WORKING_DIR: "/cells"
-          CELLS_DATA_DIR: "/cells/data"
-          CELLS_LOG_DIR: "/cells/logs"
-          CELLS_SERVICES_DIR: "/cells/services"
-          CELLS_INSTALL_YAML: "/cells/install.yml"
+          env:
+            CELLS_EXTERNAL: ""
+            CELLS_GRPC_EXTERNAL: "{{ .Values.service.gprc.ports.gprc.port }}"
+            CELLS_HEALTHCHECK: "{{ .Values.service.healthcheck.ports.healthcheck.port }}"
+            CELLS_BIND: "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
+            CELLS_WORKING_DIR: "/cells"
+            CELLS_DATA_DIR: "/cells/data"
+            CELLS_LOG_DIR: "/cells/logs"
+            CELLS_SERVICES_DIR: "/cells/services"
+            CELLS_INSTALL_YAML: "/cells/install.yml"

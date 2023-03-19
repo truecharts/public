@@ -39,9 +39,11 @@ workload:
             fleet_database_username: fleet
             fleet_database_url:
               secretKeyRef:
-                name: mariadbcreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: jdbc-mariadb
             fleet_database_password:
               secretKeyRef:
-                name: mariadbcreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-password

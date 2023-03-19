@@ -219,26 +219,28 @@ workload:
           envFrom:
             - configMapRef:
                 name: weblate-env
-        env:
-          WEBLATE_TIME_ZONE: "{{ .Values.TZ }}"
-          POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
-          POSTGRES_DATABASE: "{{ .Values.cnpg.main.database }}"
-          POSTGRES_PORT: 5432
-          REDIS_PORT: 6379
-          REDIS_DB: "0"
-          POSTGRES_PASSWORD:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          POSTGRES_HOST:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
-          REDIS_HOST:
-            secretKeyRef:
-              name: rediscreds
-              key: plainhost
-          REDIS_PASSWORD:
-            secretKeyRef:
-              name: rediscreds
-              key: redis-password
+          env:
+            WEBLATE_TIME_ZONE: "{{ .Values.TZ }}"
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            POSTGRES_DATABASE: "{{ .Values.cnpg.main.database }}"
+            POSTGRES_PORT: 5432
+            REDIS_PORT: 6379
+            REDIS_DB: "0"
+            POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            POSTGRES_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost
+            REDIS_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            REDIS_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: redis-password

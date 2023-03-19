@@ -37,16 +37,16 @@ workload:
               path: "/healthz"
             startup:
               path: "/healthz"
-        env:
-          DB_TYPE: "postgres"
-          DB_NAME: "{{ .Values.cnpg.main.database }}"
-          DB_USER: "{{ .Values.cnpg.main.user }}"
-          DB_PORT: "5432"
-          DB_PASS:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          DB_HOST:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
+          env:
+            DB_TYPE: "postgres"
+            DB_NAME: "{{ .Values.cnpg.main.database }}"
+            DB_USER: "{{ .Values.cnpg.main.user }}"
+            DB_PORT: "5432"
+            DB_PASS:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost

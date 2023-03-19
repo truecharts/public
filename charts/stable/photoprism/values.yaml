@@ -51,10 +51,12 @@ workload:
             PHOTOPRISM_DATABASE_USER: "photoprism"
             PHOTOPRISM_DATABASE_SERVER:
               secretKeyRef:
-                name: mariadbcreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainporthost
             PHOTOPRISM_DATABASE_PASSWORD:
               secretKeyRef:
-                name: mariadbcreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-password
             PHOTOPRISM_ADMIN_PASSWORD: "please-change"

@@ -10,13 +10,11 @@ service:
 cnpg:
   main:
     enabled: true
-
     user: comment-plusplus
     database: comment-plusplus
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:
@@ -25,6 +23,7 @@ workload:
           env:
             COMMENTO_PORT: "{{ .Values.service.main.ports.main.port }}"
             # User Defined
+
             COMMENTO_FORBID_NEW_OWNERS: false
             COMMENTO_GZIP_STATIC: true
             COMMENTO_ORIGIN: "http://localhost:8080"

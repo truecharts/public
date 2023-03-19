@@ -7,6 +7,7 @@ gsm:
   workers: 2
   timeout: 90
   # Bot Config
+
   app_token: ""
   whitelist_guilds: []
   app_activity_type: 3
@@ -30,7 +31,6 @@ persistence:
 cnpg:
   main:
     enabled: true
-
     database: discord_gsm
     user: discord_gsm
 portal:
@@ -67,3 +67,4 @@ workload:
               --worker-class=gthread app:app \
               --timeout {{ .Values.gsm.timeout }} & \
               python -u main.py
+          env: {}

@@ -89,14 +89,14 @@ workload:
           probes:
             startup:
               failureThreshold: 360
-        env:
-          ENABLE_BEPINEX: false
-          BACKUP_FILES: false
-          BACKUP_INTERVAL: 60
-          BACKUP_TO_KEEP: 12
-          GAME_ID: "294420"
-          GAME_PARAMS: "-logfile 7DaysToDie_Data/output_log.txt $@"
-          SERVERCONFIG: serverconfig.xml
-          VALIDATE: false
-          USERNAME: ""
-          PASSWRD: ""
+          env:
+            ENABLE_BEPINEX: false
+            BACKUP_FILES: false
+            BACKUP_INTERVAL: 60
+            BACKUP_TO_KEEP: 12
+            GAME_ID: "294420"
+            GAME_PARAMS: "-logfile 7DaysToDie_Data/output_log.txt $@"
+            SERVERCONFIG: serverconfig.xml
+            VALIDATE: false
+            USERNAME: ""
+            PASSWRD: ""

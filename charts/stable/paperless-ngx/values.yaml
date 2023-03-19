@@ -69,7 +69,8 @@ workload:
                 key: PAPERLESS_SECRET_KEY
             PAPERLESS_REDIS:
               secretKeyRef:
-                name: rediscreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: url
             PAPERLESS_ADMIN_USER: "admin"
             PAPERLESS_ADMIN_PASSWORD: "admin"

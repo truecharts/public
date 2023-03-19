@@ -114,3 +114,4 @@ workload:
             - /opt/adguardhome/work
             - --port
             - "{{ .Values.service.main.ports.main.port }}"
+          env: {}

@@ -14,7 +14,6 @@ persistence:
 cnpg:
   main:
     enabled: true
-
     user: baserow
     database: baserow
 redis:
@@ -42,40 +41,41 @@ workload:
               path: "/_health"
             startup:
               path: "/_health"
-        env:
-          DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
-          DATABASE_USER: "{{ .Values.cnpg.main.user }}"
-          DATABASE_PORT: "5432"
-          REDIS_USER: "{{ .Values.redis.redisUsername }}"
-          REDIS_PORT: "6379"
-          REDIS_PROTOCOL: "redis"
-          BASEROW_CADDY_ADDRESSES: ":{{ .Values.service.main.ports.main.port }}"
-          # User Defined
-          BASEROW_PUBLIC_URL: "http://localhost:10228"
-          FROM_EMAIL: ""
-          EMAIL_SMTP: ""
-          EMAIL_SMTP_USE_TLS: ""
-          EMAIL_SMTP_HOST: ""
-          EMAIL_SMTP_PORT: 587
-          EMAIL_SMTP_USER: ""
-          EMAIL_SMTP_PASSWORD: ""
-          DATABASE_HOST:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
-          DATABASE_PASSWORD:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          REDIS_HOST:
-            secretKeyRef:
-              name: rediscreds
-              key: plainhost
-          REDIS_PASSWORD:
-            secretKeyRef:
-              name: rediscreds
-              key: redis-password
-          SECRET_KEY:
-            secretKeyRef:
-              name: baserow-secrets
-              key: SECRET_KEY
+          env:
+            DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
+            DATABASE_USER: "{{ .Values.cnpg.main.user }}"
+            DATABASE_PORT: "5432"
+            REDIS_USER: "{{ .Values.redis.redisUsername }}"
+            REDIS_PORT: "6379"
+            REDIS_PROTOCOL: "redis"
+            BASEROW_CADDY_ADDRESSES: ":{{ .Values.service.main.ports.main.port }}"
+            # User Defined
+
+            BASEROW_PUBLIC_URL: "http://localhost:10228"
+            FROM_EMAIL: ""
+            EMAIL_SMTP: ""
+            EMAIL_SMTP_USE_TLS: ""
+            EMAIL_SMTP_HOST: ""
+            EMAIL_SMTP_PORT: 587
+            EMAIL_SMTP_USER: ""
+            EMAIL_SMTP_PASSWORD: ""
+            DATABASE_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost
+            DATABASE_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            REDIS_HOST:
+              secretKeyRef:
+                name: rediscreds
+                key: plainhost
+            REDIS_PASSWORD:
+              secretKeyRef:
+                name: rediscreds
+                key: redis-password
+            SECRET_KEY:
+              secretKeyRef:
+                name: baserow-secrets
+                key: SECRET_KEY

@@ -49,40 +49,42 @@ workload:
               path: "/login"
             startup:
               path: "/login"
-        env:
-          DB_USERNAME: "{{ .Values.cnpg.main.user }}"
-          DB_DATABASE: "{{ .Values.cnpg.main.database }}"
-          DB_CONNECTION: pgsql
-          DB_PORT: 5432
-          REDIS_DB: "0"
-          REDIS_CACHE_DB: "1"
-          CACHE_DRIVER: redis
-          SESSION_DRIVER: redis
-          REDIS_SCHEME: tcp
-          REDIS_PORT: 6379
-          APP_URL: ""
-          TRUSTED_PROXIES: "172.16.0.0/16"
-          DB_HOST:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: plainhost
-          DB_PASSWORD:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: postgresql-password
-          REDIS_HOST:
-            secretKeyRef:
-              name: rediscreds
-              key: plainhost
-          REDIS_PASSWORD:
-            secretKeyRef:
-              name: rediscreds
-              key: redis-password
-          STATIC_CRON_TOKEN:
-            secretKeyRef:
-              name: fireflyiii-secrets
-              key: STATIC_CRON_TOKEN
-          APP_KEY:
-            secretKeyRef:
-              name: fireflyiii-secrets
-              key: APP_KEY
+          env:
+            DB_USERNAME: "{{ .Values.cnpg.main.user }}"
+            DB_DATABASE: "{{ .Values.cnpg.main.database }}"
+            DB_CONNECTION: pgsql
+            DB_PORT: 5432
+            REDIS_DB: "0"
+            REDIS_CACHE_DB: "1"
+            CACHE_DRIVER: redis
+            SESSION_DRIVER: redis
+            REDIS_SCHEME: tcp
+            REDIS_PORT: 6379
+            APP_URL: ""
+            TRUSTED_PROXIES: "172.16.0.0/16"
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost
+            DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+            REDIS_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            REDIS_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: redis-password
+            STATIC_CRON_TOKEN:
+              secretKeyRef:
+                name: fireflyiii-secrets
+                key: STATIC_CRON_TOKEN
+            APP_KEY:
+              secretKeyRef:
+                name: fireflyiii-secrets
+                key: APP_KEY

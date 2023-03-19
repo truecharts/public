@@ -44,12 +44,12 @@ workload:
             startup:
               type: http
               path: /
-        env:
-          GUIPORT: "{{ .Values.service.main.ports.main.port }}"
-          DBPATH: /data/db.sqlite
-          # User Defined
-          GUIIP: "{{ .Values.watchyourlan.gui_ip }}"
-          IFACE: '{{ join " " .Values.watchyourlan.interfaces }}'
-          THEME: "{{ .Values.watchyourlan.theme }}"
-          TIMEOUT: "{{ .Values.watchyourlan.timeout }}"
-          SHOUTRRR_URL: "{{ .Values.watchyourlan.shoutrrr_url }}"
+          env:
+            GUIPORT: "{{ .Values.service.main.ports.main.port }}"
+            DBPATH: /data/db.sqlite
+            # User Defined
+            GUIIP: "{{ .Values.watchyourlan.gui_ip }}"
+            IFACE: '{{ join " " .Values.watchyourlan.interfaces }}'
+            THEME: "{{ .Values.watchyourlan.theme }}"
+            TIMEOUT: "{{ .Values.watchyourlan.timeout }}"
+            SHOUTRRR_URL: "{{ .Values.watchyourlan.shoutrrr_url }}"
