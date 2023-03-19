@@ -3,7 +3,7 @@
 
 {{/* Render secrets for koel */}}
 {{- include "koel.secrets" . }}
-{{- $secrets := include "koel.secrets" . | fromYaml -}}
+{{- $secrets := include "koel.secrets" -}}
 {{- if $secrets -}}
   {{- $_ := set .Values.secret "koel-secrets" $secrets -}}
 {{- end -}}
