@@ -12,27 +12,12 @@ env:
   'PORT': '9090'
 probes:
   readiness:
-
     path: /
     port: 9090
-
-
-
-
   liveness:
-
     path: /
     port: 9090
-
-
-
-
   startup:
-
     path: /
     port: 9090
-
-
-
-
 {{- end -}}

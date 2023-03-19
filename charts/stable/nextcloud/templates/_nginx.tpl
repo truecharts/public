@@ -7,43 +7,23 @@ securityContext:
   runAsUser: 33
   runAsGroup: 33
   readOnlyRootFilesystem: true
-
-  - mountPath: /etc/nginx/nginx.conf
-    name: nginx
-    readOnly: true
-    subPath: nginx.conf
 probes:
   readiness:
-
     path: /robots.txt
-      port: 8080
-      httpHeaders:
-      - name: Host
-        value: "test.fakedomain.dns"
-
-
-
-
+    port: 8080
+    httpHeaders:
+    - name: Host
+      value: "test.fakedomain.dns"
   liveness:
-
     path: /robots.txt
-      port: 8080
-      httpHeaders:
-      - name: Host
-        value: "test.fakedomain.dns"
-
-
-
-
+    port: 8080
+    httpHeaders:
+    - name: Host
+      value: "test.fakedomain.dns"
   startup:
-
     path: /robots.txt
-      port: 8080
-      httpHeaders:
-      - name: Host
-        value: "test.fakedomain.dns"
-
-
-
-
+    port: 8080
+    httpHeaders:
+    - name: Host
+      value: "test.fakedomain.dns"
 {{- end -}}
