@@ -5,9 +5,7 @@ image:
 
 workload:
   main:
-    type: StatefulSet
     replicas: 1
-    strategy: RollingUpdate
     podSpec:
       containers:
         main:
@@ -20,7 +18,6 @@ workload:
                 expandObjectName: "{{ if .Values.clickhousePassword }}true{{ else }}false{{ end }}"
                 name: '{{ if .Values.clickhousePassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "clickhousecreds" }}{{ end }}'
                 key: "clickhouse-password"
-
           probes:
             liveness:
               type: http
@@ -53,7 +50,7 @@ service:
         protocol: http
         targetPort: 8123
 
-volumeClaimTemplates:
+persistence:
   data:
     enabled: true
     mountPath: /var/lib/clickhouse
