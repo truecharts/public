@@ -4,10 +4,10 @@ portals:
     protocols:
       - "http"
     host:
-        - "$kubernetes-resource_configmap_portal_host"
+        - "$kubernetes-resource_configmap_tcportal-open_host"
     ports:
-      - "$kubernetes-resource_configmap_portal_port"
-    path: "/dashboard/"
+      - "$kubernetes-resource_configmap_tcportal-open_port"
+    path: "$kubernetes-resource_configmap_tcportal-open_path"
 questions:
 # Include{global}
 # Include{workload}
