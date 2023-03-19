@@ -22,10 +22,10 @@ mariadb:
   enabled: true
   mariadbUsername: snipe-it
   mariadbDatabase: snipe-it
-  existingSecret: "mariadbcreds"
+
 redis:
   enabled: true
-  existingSecret: "rediscreds"
+
 portal:
   open:
     enabled: true

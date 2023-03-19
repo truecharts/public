@@ -20,7 +20,7 @@ mariadb:
   enabled: true
   mariadbUsername: filerun
   mariadbDatabase: filerun
-  existingSecret: "mariadbcreds"
+
 portal:
   open:
     enabled: true
@@ -45,9 +45,11 @@ workload:
             FR_DB_PORT: "3306"
             FR_DB_HOST:
               secretKeyRef:
-                name: mariadbcreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainporthost
             FR_DB_PASS:
               secretKeyRef:
-                name: mariadbcreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-password

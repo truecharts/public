@@ -16,7 +16,7 @@ mariadb:
   enabled: true
   mariadbUsername: typecho
   mariadbDatabase: typecho
-  existingSecret: "mariadbcreds"
+
 securityContext:
   container:
     readOnlyRootFilesystem: false

@@ -10,7 +10,7 @@ service:
 # Enabled redis
 redis:
   enabled: true
-  existingSecret: "rediscreds"
+
   redisUsername: outline
 # Enabled postgres
 cnpg:
