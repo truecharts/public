@@ -136,9 +136,20 @@ upstreams:
 # Ensures bootstrap encryption and ensure it doesn't use k8s dns
 bootstrapDns:
   # -- Upstream
-  upstream: ""
+  upstream: "dd"
   # -- IP's linked to upstream DoT/DoH DNS name
   ips: []
+
+# -- set additional bootstrap dns (not needed, only used if bootstrapDns is set)
+additionalBootstrapDns:
+  - upstream: "s"
+    ips:
+      - ads
+      - adsdf
+  - upstream: "s3s"
+    ips:
+      - ads
+      - adsdf
 
 # -- Return empty answer for these queries
 filtering:
