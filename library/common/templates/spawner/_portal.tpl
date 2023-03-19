@@ -24,7 +24,7 @@
         {{- $serviceData := dict "targetSelector" $targetSelector.service -}}
         {{- $selectedService := fromYaml ( include "tc.v1.common.lib.helpers.getSelectedServiceValues" (dict "rootCtx" $ "objectData" $serviceData)) }}
 
-        {{/* read loadbalancer IP's for metallb */}}
+        {{/* read loadbalancer IPs for metallb */}}
         {{- if eq $selectedService.type "LoadBalancer" -}}
           {{- with $selectedService.loadBalancerIP -}}
             {{- $host = toString . -}}
