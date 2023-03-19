@@ -3,6 +3,10 @@
 
 {{/* Render secrets for koel */}}
 {{- include "koel.secrets" . }}
+{{- $secrets := include "koel.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := set .Values.secret "koel-secrets" $secrets -}}
+{{- end -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
