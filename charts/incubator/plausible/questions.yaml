@@ -27,40 +27,12 @@ questions:
             type: string
             default: http://localhost
             required: true
-        - variable: DISABLE_AUTH
-          label: DISABLE_AUTH
-          description: Disables authentication completely, no registration, login will be shown.
-          schema:
-            type: boolean
-            default: false
         - variable: DISABLE_REGISTRATION
           label: DISABLE_REGISTRATION
           description: Disables registration of new users, keep your admin credentials handy ;)
           schema:
             type: boolean
             default: false
-        - variable: ADMIN_USER_NAME
-          label: ADMIN_USER_NAME
-          description: Admin user's name (First Install Only)
-          schema:
-            type: string
-            default: admin
-            required: true
-        - variable: ADMIN_USER_EMAIL
-          label: ADMIN_USER_EMAIL
-          description: The default ("admin") user email (First Install Only)
-          schema:
-            type: string
-            default: admin@example.com
-            required: true
-        - variable: ADMIN_USER_PWD
-          label: ADMIN_USER_PWD
-          description: The default ("admin") user password (First Install Only)
-          schema:
-            type: string
-            default: ""
-            required: true
-            private: true
         - variable: CLICKHOUSE_FLUSH_INTERVAL_MS
           label: CLICKHOUSE_FLUSH_INTERVAL_MS
           description: nterval (in milliseconds) between flushing events and sessions data to Clickhouse. Consult Clickhouse docs before changing it.

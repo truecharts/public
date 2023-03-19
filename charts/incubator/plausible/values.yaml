@@ -9,13 +9,7 @@ image:
 plausible:
   # Server
   BASE_URL: http://localhost
-  DISABLE_AUTH: false
   DISABLE_REGISTRATION: false
-
-  # Default User
-  ADMIN_USER_NAME: admin
-  ADMIN_USER_EMAIL: admin@example.com
-  ADMIN_USER_PWD: P@ssw0rd
 
   # Database
   CLICKHOUSE_FLUSH_INTERVAL_MS: 5000
@@ -63,10 +57,7 @@ installContainers:
     command: [sh]
     args:
       - -c
-      - >-
-        /entrypoint.sh db createdb &&
-        /entrypoint.sh db migrate &&
-        /entrypoint.sh db init-admin
+      - /entrypoint.sh db createdb && /entrypoint.sh db migrate
 
 upgradeContainers:
   plausible-upgrade:
