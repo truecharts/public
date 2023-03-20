@@ -3,10 +3,6 @@
 
 {{/* Render secrets for kimai */}}
 {{- include "kimai.secrets" . }}
-{{- $secrets := include "kimai.secrets" -}}
-{{- if $secrets -}}
-  {{- $_ := set .Values.secret "kimai-secrets" $secrets -}}
-{{- end -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
