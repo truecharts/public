@@ -2,14 +2,7 @@
 {{- define "immich.secret" -}}
 
 {{- $secretName := printf "%s-immich-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
----
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+{{- $immichprevious := lookup "v1" "Secret" .Release.Namespace "immich-secrets" }}
 data:
   {{/* Secret Key */}}
   {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}

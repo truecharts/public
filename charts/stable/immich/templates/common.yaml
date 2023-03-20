@@ -2,7 +2,10 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secret */}}
-{{- include "immich.secret" . }}
+{{- $secrets := include "immich.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := set .Values.secret "immich-secrets" $secrets -}}
+{{- end -}}
 
 {{/* Render configmap for immich */}}
 {{- $configmap := include "immich.config" . | fromYaml -}}
