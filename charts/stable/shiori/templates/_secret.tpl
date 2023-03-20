@@ -1,5 +1,7 @@
 {{/* Define the secret */}}
 {{- define "shiori.secret" -}}
+{{- $secretName := printf "%s-shiori-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+{{- $shioriprevious := lookup "v1" "Secret" .Release.Namespace "shiori-secret" }}
 enabled: true
 data:
   SHIORI_DIR: {{ .Values.persistence.data.mountPath }}
