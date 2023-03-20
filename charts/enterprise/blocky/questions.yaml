@@ -118,7 +118,7 @@ questions:
     label: Additional Bootstrap DNS
     schema:
       type: list
-      show_if: [[ "bootstrapDns", "!=", {} ]]
+      show_if: [[ "bootstrapDns", "!=", {"upstream": "", "ips": []} ]]
       default: []
       items:
         - variable: additionalBootstrapDnsEntry
