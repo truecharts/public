@@ -75,7 +75,7 @@ workload:
                 key: redis-password
             JWT_SECRET:
               secretKeyRef:
-                name: kutt-secrets
+                name: secrets
                 key: JWT_SECRET
             MAIL_USER: ""
             MAIL_PASSWORD: ""

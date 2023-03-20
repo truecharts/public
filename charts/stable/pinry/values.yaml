@@ -60,5 +60,5 @@ workload:
           env:
             SECRET_KEY:
               secretKeyRef:
-                name: pinry-secrets
+                name: secrets
                 key: SECRET_KEY

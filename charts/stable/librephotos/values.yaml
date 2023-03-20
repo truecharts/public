@@ -175,7 +175,7 @@ workload:
                 key: redis-password
             SECRET_KEY:
               secretKeyRef:
-                name: librephotos-secrets
+                name: secrets
                 key: SECRET_KEY
             ADMIN_EMAIL: "admin@mydomain.com"
             ADMIN_USERNAME: "admin"

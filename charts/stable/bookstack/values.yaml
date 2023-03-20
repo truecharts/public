@@ -47,5 +47,5 @@ workload:
                 key: mariadb-password
             APP_KEY:
               secretKeyRef:
-                name: bookstack-secrets
+                name: secrets
                 key: APP_KEY

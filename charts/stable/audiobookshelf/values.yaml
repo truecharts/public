@@ -44,5 +44,5 @@ workload:
             PORT: "{{ .Values.service.main.ports.main.port }}"
             TOKEN_SECRET:
               secretKeyRef:
-                name: audiobookshelf-secrets
+                name: secrets
                 key: TOKEN_SECRET

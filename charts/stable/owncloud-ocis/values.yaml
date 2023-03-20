@@ -50,13 +50,13 @@ workload:
             OCIS_URL: "https://localhost:{{ .Values.service.main.ports.main.port }}"
             OCIS_JWT_SECRET:
               secretKeyRef:
-                name: ocis-secrets
+                name: secrets
                 key: OCIS_JWT_SECRET
             STORAGE_TRANSFER_SECRET:
               secretKeyRef:
-                name: ocis-secrets
+                name: secrets
                 key: STORAGE_TRANSFER_SECRET
             OCIS_MACHINE_AUTH_API_KEY:
               secretKeyRef:
-                name: ocis-secrets
+                name: secrets
                 key: OCIS_MACHINE_AUTH_API_KEY

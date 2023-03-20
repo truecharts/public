@@ -72,5 +72,5 @@ workload:
                 key: url
             NC_AUTH_JWT_SECRET:
               secretKeyRef:
-                name: nocodb-secrets
+                name: secrets
                 key: NC_AUTH_JWT_SECRET

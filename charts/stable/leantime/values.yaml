@@ -43,5 +43,5 @@ workload:
                 key: mariadb-password
             LEAN_SESSION_PASSWORD:
               secretKeyRef:
-                name: leantime-secrets
+                name: secrets
                 key: LEAN_SESSION_PASSWORD

@@ -80,5 +80,5 @@ workload:
                 key: redis-password
             APP_KEY:
               secretKeyRef:
-                name: lychee-secrets
+                name: secrets
                 key: APP_KEY

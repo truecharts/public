@@ -79,5 +79,5 @@ workload:
                 key: redis-password
             SECRET_KEY:
               secretKeyRef:
-                name: baserow-secrets
+                name: secrets
                 key: SECRET_KEY

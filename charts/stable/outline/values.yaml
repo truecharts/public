@@ -126,9 +126,9 @@ workload:
                 key: url
             SECRET_KEY:
               secretKeyRef:
-                name: outline-secrets
+                name: secrets
                 key: SECRET_KEY
             UTILS_SECRET:
               secretKeyRef:
-                name: outline-secrets
+                name: secrets
                 key: UTILS_SECRET

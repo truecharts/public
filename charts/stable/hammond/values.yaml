@@ -27,5 +27,5 @@ workload:
           env:
             JWT_SECRET:
               secretKeyRef:
-                name: hammond-secrets
+                name: secrets
                 key: JWT_SECRET

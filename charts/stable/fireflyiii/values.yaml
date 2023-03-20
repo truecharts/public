@@ -82,9 +82,9 @@ workload:
                 key: redis-password
             STATIC_CRON_TOKEN:
               secretKeyRef:
-                name: fireflyiii-secrets
+                name: secrets
                 key: STATIC_CRON_TOKEN
             APP_KEY:
               secretKeyRef:
-                name: fireflyiii-secrets
+                name: secrets
                 key: APP_KEY

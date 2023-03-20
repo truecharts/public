@@ -61,7 +61,7 @@ workload:
                 key: plainhost
             APP_SECRET:
               secretKeyRef:
-                name: kimai-secrets
+                name: secrets
                 key: APP_SECRET
             ADMINMAIL: "admin@mysecretdomain.com"
             ADMINPASS: "MvvTfjagiaqDprGNVA"

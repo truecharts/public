@@ -91,7 +91,7 @@ workload:
                 key: mariadb-password
             APP_KEY:
               secretKeyRef:
-                name: koel-secrets
+                name: secrets
                 key: APP_KEY
             LASTFM_API_KEY: ""
             LASTFM_API_SECRET: ""

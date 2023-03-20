@@ -65,7 +65,7 @@ workload:
                 key: host
             PAPERLESS_SECRET_KEY:
               secretKeyRef:
-                name: paperlessng-secrets
+                name: secrets
                 key: PAPERLESS_SECRET_KEY
             PAPERLESS_REDIS:
               secretKeyRef:

@@ -116,5 +116,5 @@ workload:
                 key: host
             SECRET_KEY:
               secretKeyRef:
-                name: recipes-secrets
+                name: secrets
                 key: SECRET_KEY

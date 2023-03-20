@@ -50,5 +50,5 @@ workload:
                 key: host
             REDMINE_SECRET_KEY_BASE:
               secretKeyRef:
-                name: redmine-secrets
+                name: secrets
                 key: REDMINE_SECRET_KEY_BASE

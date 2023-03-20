@@ -86,5 +86,5 @@ workload:
                 key: redis-password
             APP_KEY:
               secretKeyRef:
-                name: linkace-secrets
+                name: secrets
                 key: APP_KEY

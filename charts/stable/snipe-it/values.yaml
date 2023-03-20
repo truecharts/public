@@ -141,5 +141,5 @@ workload:
                 key: redis-password
             APP_KEY:
               secretKeyRef:
-                name: snipeit-secrets
+                name: secrets
                 key: APP_KEY
