@@ -5,9 +5,7 @@ image:
 
 workload:
   main:
-    type: StatefulSet
     replicas: 1
-    strategy: RollingUpdate
     podSpec:
       containers:
         main:
@@ -104,7 +102,7 @@ service:
         port: 8983
         targetPort: 8983
 
-volumeClaimTemplates:
+persistence:
   db:
     enabled: true
     mountPath: "/bitnami/solr"

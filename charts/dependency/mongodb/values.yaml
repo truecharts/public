@@ -6,8 +6,6 @@ image:
 workload:
   main:
     replicas: 1
-    type: StatefulSet
-    strategy: RollingUpdate
     podSpec:
       containers:
         main:
@@ -90,7 +88,7 @@ securityContext:
     runAsGroup: 0
     readOnlyRootFilesystem: false
 
-volumeClaimTemplates:
+persistence:
   data:
     enabled: true
     mountPath: "/bitnami/mongodb"
