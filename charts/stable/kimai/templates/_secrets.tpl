@@ -1,12 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "kimai.secrets" -}}
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: kimai-secrets
+{{- $secretName := (printf "%s-kimai-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 {{- $kimaiprevious := lookup "v1" "Secret" .Release.Namespace "kimai-secrets" }}
 {{- $app_secret := "" }}
 data:

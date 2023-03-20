@@ -1,12 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "koel.secrets" -}}
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: koel-secrets
+{{- $secretName := (printf "%s-koel-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 {{- $koelprevious := lookup "v1" "Secret" .Release.Namespace "koel-secrets" }}
 {{- $app_key := "" }}
 data:
