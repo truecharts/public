@@ -120,50 +120,7 @@ persistence:
     volumeSpec:
       configMap:
         name: '{{ printf "%v-configs" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
-initContainers:
-  create-config:
-    name: create-config
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    volumeMounts:
-      - name: config
-        mountPath: "/etc/netdata"
-      - name: netdata-configs
-        mountPath: "/etc/netdata/truecharts-defaults/.netdata.conf"
-        subPath: netdata-conf
-        readOnly: true
-      - name: go-d-configs
-        mountPath: "/etc/netdata/truecharts-defaults/.go.d.conf"
-        subPath: go-d-conf
-        readOnly: true
-      - name: go-d-k8s-state-configs
-        mountPath: "/etc/netdata/truecharts-defaults/go.d/.k8s_state.conf"
-        subPath: go-d-k8s-state-conf
-        readOnly: true
-    command: ["/bin/bash", "-c"]
-    args:
-      - |-
-        copy_config () {
-          local confSource="$1"
-          local confTarget="$2"
-          local dirTarget
-          dirTarget="$(dirname "${confTarget}")"
 
-          if [ ! -f "$confTarget" ]; then
-            if [ ! -d "${dirTarget}" ]; then
-              mkdir -p "$dirTarget"
-            fi;
-            cp "$confSource" "$confTarget"
-            echo "Content of $(basename "${confTarget}")"
-            cat "$confTarget"
-          else
-            echo "Config $confTarget exists, skipping..."
-          fi;
-        }
-        export -f copy_config
-
-        copy_config "/etc/netdata/truecharts-defaults/.netdata.conf" "/etc/netdata/netdata.conf"
-        copy_config "/etc/netdata/truecharts-defaults/.go.d.conf" "/etc/netdata/go.d.conf"
-        copy_config "/etc/netdata/truecharts-defaults/go.d/.k8s_state.conf" "/etc/netdata/go.d/k8s_state.conf"
 portal:
   open:
     enabled: true
@@ -180,6 +137,35 @@ securityContext:
 workload:
   main:
     podSpec:
+      initContainers:
+        create-config:
+          imageSelector: "image"
+          type: init
+          command: ["/bin/bash", "-c"]
+          args:
+            - |-
+              copy_config () {
+                local confSource="$1"
+                local confTarget="$2"
+                local dirTarget
+                dirTarget="$(dirname "${confTarget}")"
+
+                if [ ! -f "$confTarget" ]; then
+                  if [ ! -d "${dirTarget}" ]; then
+                    mkdir -p "$dirTarget"
+                  fi;
+                  cp "$confSource" "$confTarget"
+                  echo "Content of $(basename "${confTarget}")"
+                  cat "$confTarget"
+                else
+                  echo "Config $confTarget exists, skipping..."
+                fi;
+              }
+              export -f copy_config
+
+              copy_config "/etc/netdata/truecharts-defaults/.netdata.conf" "/etc/netdata/netdata.conf"
+              copy_config "/etc/netdata/truecharts-defaults/.go.d.conf" "/etc/netdata/go.d.conf"
+              copy_config "/etc/netdata/truecharts-defaults/go.d/.k8s_state.conf" "/etc/netdata/go.d/k8s_state.conf"
       containers:
         main:
           probes:

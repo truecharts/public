@@ -19,32 +19,7 @@ cnpg:
 
     user: outline
     database: outline
-initContainers:
-  1-migratedb:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    env:
-      - name: DATABASE_URL
-        valueFrom:
-          secretKeyRef:
-            name: cnpg-main-urls
-            key: url-noql
-      - name: REDIS_URL
-        valueFrom:
-          secretKeyRef:
-            name: rediscreds
-            key: url
-      - name: SECRET_KEY
-        valueFrom:
-          secretKeyRef:
-            name: outline-secrets
-            key: SECRET_KEY
-      - name: UTILS_SECRET
-        valueFrom:
-          secretKeyRef:
-            name: outline-secrets
-            key: UTILS_SECRET
-    command:
-      ["sh", "-c", "yarn sequelize db:migrate --env=production-ssl-disabled"]
+
 portal:
   open:
     enabled: true
@@ -57,6 +32,33 @@ securityContext:
 workload:
   main:
     podSpec:
+      initContainers:
+        1-migratedb:
+          imageSelector: "image"
+          type: init
+          env:
+            DATABASE_URL:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: url-noql
+            REDIS_URL:
+              secretKeyRef:
+                name: rediscreds
+                key: url
+            SECRET_KEY:
+              secretKeyRef:
+                name: secrets
+                key: SECRET_KEY
+            UTILS_SECRET:
+              secretKeyRef:
+                name: secrets
+                key: UTILS_SECRET
+          command:
+            [
+              "sh",
+              "-c",
+              "yarn sequelize db:migrate --env=production-ssl-disabled",
+            ]
       containers:
         main:
           probes:

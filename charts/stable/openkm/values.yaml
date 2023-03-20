@@ -2,15 +2,16 @@ image:
   repository: tccr.io/truecharts/openkm-ce
   tag: 6.3.12@sha256:816740d012aaf31cf49f28649629e82c7b5e2daee04e29b6ff2559b089726758
   pullPolicy: IfNotPresent
-initContainers:
-  init:
-    image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
-    command: ["/config/init/init.sh"]
-    volumeMounts:
-      - name: init
-        mountPath: "/config/init"
-      - name: config
-        mountPath: "/opt/tomcat"
+
+workload:
+  main:
+    podSpec:
+      initContainers:
+        init:
+          imageSelector: "image"
+          type: init
+          command: ["/config/init/init.sh"]
+
 service:
   main:
     ports:

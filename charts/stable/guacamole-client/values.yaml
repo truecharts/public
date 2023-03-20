@@ -119,63 +119,6 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: "/initdbdata"
-installContainers:
-  1-creat-initdb-file:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    volumeMounts:
-      - name: initdbdata
-        mountPath: "/initdbdata"
-    command: ["/bin/sh", "-c"]
-    args:
-      - |-
-        echo "Creating initdb.sql file..."
-        /opt/guacamole/bin/initdb.sh --postgres >/initdbdata/initdb.sql
-        if [ -e /initdbdata/initdb.sql ]; then
-          echo "Init file created successfully!"
-          exit 0
-        else
-          echo "Init file failed to create."
-          exit 1
-        fi
-  2-initdb:
-    image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
-    env:
-      - name: POSTGRESQL_DATABASE
-        value: "{{ .Values.cnpg.main.database }}"
-      - name: POSTGRESQL_USER
-        value: "{{ .Values.cnpg.main.user }}"
-      - name: POSTGRESQL_PORT
-        value: "5432"
-      - name: POSTGRESQL_HOSTNAME
-        valueFrom:
-          secretKeyRef:
-            name: cnpg-main-urls
-            key: plainhost
-      - name: PGPASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: cnpg-main-urls
-            key: postgresql-password
-    volumeMounts:
-      - name: initdbdata
-        mountPath: "/initdbdata"
-    command: ["/bin/sh", "-c"]
-    args:
-      - |-
-        psql -h "$POSTGRESQL_HOSTNAME" -d "$POSTGRESQL_DATABASE" -U "$POSTGRESQL_USER" -p "$POSTGRESQL_PORT" -o '/dev/null' -c 'SELECT * FROM public.guacamole_user'
-        if [ $? -eq 0 ]; then
-          echo "DB already initialized. Skipping..."
-        else
-          echo "Initializing DB's schema..."
-          psql -h "$POSTGRESQL_HOSTNAME" -d "$POSTGRESQL_DATABASE" -U "$POSTGRESQL_USER" -p "$POSTGRESQL_PORT" -a -w -f /initdbdata/initdb.sql
-          if [ $? -eq 0 ]; then
-            echo "DB's schema initialized successfully!"
-            exit 0
-          else
-            echo "DB's schema failed to initialize."
-            exit 1
-          fi
-        fi
 portal:
   open:
     enabled: true
@@ -187,6 +130,54 @@ securityContext:
 workload:
   main:
     podSpec:
+      initContainers:
+        1-creat-initdb-file:
+          type: install
+          imageSelector: "image"
+          command: ["/bin/sh", "-c"]
+          args:
+            - |-
+              echo "Creating initdb.sql file..."
+              /opt/guacamole/bin/initdb.sh --postgres >/initdbdata/initdb.sql
+              if [ -e /initdbdata/initdb.sql ]; then
+                echo "Init file created successfully!"
+                exit 0
+              else
+                echo "Init file failed to create."
+                exit 1
+              fi
+        2-initdb:
+          type: install
+          imageSelector: "image"
+          env:
+            POSTGRESQL_DATABASE: "{{ .Values.cnpg.main.database }}"
+            POSTGRESQL_USER: "{{ .Values.cnpg.main.user }}"
+            POSTGRESQL_PORT: "5432"
+            POSTGRESQL_HOSTNAME:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainhost
+            PGPASSWORD:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: postgresql-password
+          command: ["/bin/sh", "-c"]
+          args:
+            - |-
+              psql -h "$POSTGRESQL_HOSTNAME" -d "$POSTGRESQL_DATABASE" -U "$POSTGRESQL_USER" -p "$POSTGRESQL_PORT" -o '/dev/null' -c 'SELECT * FROM public.guacamole_user'
+              if [ $? -eq 0 ]; then
+                echo "DB already initialized. Skipping..."
+              else
+                echo "Initializing DB's schema..."
+                psql -h "$POSTGRESQL_HOSTNAME" -d "$POSTGRESQL_DATABASE" -U "$POSTGRESQL_USER" -p "$POSTGRESQL_PORT" -a -w -f /initdbdata/initdb.sql
+                if [ $? -eq 0 ]; then
+                  echo "DB's schema initialized successfully!"
+                  exit 0
+                else
+                  echo "DB's schema failed to initialize."
+                  exit 1
+                fi
+              fi
       containers:
         main:
           probes:

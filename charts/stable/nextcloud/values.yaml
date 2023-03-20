@@ -39,27 +39,7 @@ hostAliases:
   - ip: '{{ .Values.workload.main.podSpec.containers.main.env.AccessIP | default "127.0.0.1" }}'
     hostnames:
       - "{{ if .Values.ingress.main.enabled }}{{ with (first .Values.ingress.main.hosts) }}{{ .host }}{{ end }}{{ else }}placeholder.fakedomain.dns{{ end }}"
-initContainers:
-  prestart:
-    image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
-    securityContext:
-      runAsUser: 0
-      runAsGroup: 0
-    command:
-      - "/bin/sh"
-      - "-c"
-      - |
-        /bin/sh <<'EOF'
-        echo "Forcing permissions on userdata folder..."
-        echo "Trying to override ownship using nfs4xdr_winacl..."
-        /usr/sbin/nfs4xdr_winacl -a chown -G 33 -c '/var/www/html/data' -p '/var/www/html/data' || echo "Failed setting ownership..."
-        chmod 770 /var/www/html/data || echo "Failed to chmod..."
-        EOF
-    volumeMounts:
-      - name: data
-        mountPath: "/var/www/html/data"
-      - name: html
-        mountPath: "/var/www/html"
+
 persistence:
   html:
     enabled: true
@@ -358,6 +338,24 @@ securityContext:
 workload:
   main:
     podSpec:
+      initContainers:
+        prestart:
+          imageSelector: "image"
+          type: init
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+          command:
+            - "/bin/sh"
+            - "-c"
+            - |
+              /bin/sh <<'EOF'
+              echo "Forcing permissions on userdata folder..."
+              echo "Trying to override ownship using nfs4xdr_winacl..."
+              /usr/sbin/nfs4xdr_winacl -a chown -G 33 -c '/var/www/html/data' -p '/var/www/html/data' || echo "Failed setting ownership..."
+              chmod 770 /var/www/html/data || echo "Failed to chmod..."
+              EOF
+
       containers:
         main:
           probes:

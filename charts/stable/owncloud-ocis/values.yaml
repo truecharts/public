@@ -9,19 +9,6 @@ service:
         protocol: https
         port: 9200
         targetPort: 9200
-installContainers:
-  init:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    volumeMounts:
-      - name: config
-        mountPath: "/etc/ocis"
-    command:
-      - "/bin/sh"
-      - "-c"
-      - |
-        /usr/bin/ocis init > /etc/ocis/password <<'EOF'
-        yes
-        EOF
 persistence:
   data:
     enabled: true
@@ -38,6 +25,17 @@ securityContext:
 workload:
   main:
     podSpec:
+      initContainers:
+        init:
+          type: install
+          imageSelector: "image"
+          command:
+            - "/bin/sh"
+            - "-c"
+            - |
+              /usr/bin/ocis init > /etc/ocis/password <<'EOF'
+              yes
+              EOF
       containers:
         main:
           env:
