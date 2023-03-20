@@ -1,7 +1,7 @@
 {{/* Define the secrets */}}
 {{- define "librephotos.secrets" -}}
-{{- $secretName := (printf "%s-librephotos-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
-{{- $librephotosprevious := lookup "v1" "Secret" .Release.Namespace "librephotos-secrets" }}
+{{- $secretName := (printf "%s-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+{{- $librephotosprevious := lookup "v1" "Secret" .Release.Namespace $secretName }}
 {{- $secret_key := "" }}
 data:
   {{- if $librephotosprevious}}

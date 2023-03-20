@@ -1,7 +1,7 @@
 {{/* Define the secrets */}}
 {{- define "kimai.secrets" -}}
-{{- $secretName := (printf "%s-kimai-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
-{{- $kimaiprevious := lookup "v1" "Secret" .Release.Namespace "kimai-secrets" }}
+{{- $secretName := (printf "%s-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+{{- $kimaiprevious := lookup "v1" "Secret" .Release.Namespace $secretName }}
 {{- $app_secret := "" }}
 data:
   {{- if $kimaiprevious}}

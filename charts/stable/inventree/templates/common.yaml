@@ -4,7 +4,7 @@
 {{/* Render secrets for inventree */}}
 {{- $secrets := include "inventree.secrets" . | fromYaml -}}
 {{- if $secrets -}}
-  {{- $_ := set .Values.secret "inventree-secrets" $secrets -}}
+  {{- $_ := set .Values.secret "secrets" $secrets -}}
 {{- end -}}
 
 {{/* Render configmap for inventree */}}

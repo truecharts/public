@@ -4,7 +4,7 @@
 {{/* Render secrets for kutt */}}
 {{- $secrets := include "kutt.secrets" . | fromYaml -}}
 {{- if $secrets -}}
-  {{- $_ := set .Values.secret "kutt-secrets" $secrets -}}
+  {{- $_ := set .Values.secret "secrets" $secrets -}}
 {{- end -}}
 
 {{/* Render the templates */}}

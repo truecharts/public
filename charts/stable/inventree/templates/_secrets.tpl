@@ -1,8 +1,7 @@
 {{/* Define the secrets */}}
 {{- define "inventree.secrets" -}}
 
-{{- $secretName := printf "%s-inventree-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
-{{- $inventreeprevious := lookup "v1" "Secret" .Release.Namespace "inventree-secrets" }}
+{{- $secretName := printf "%s-secrets" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 data:
   {{- with lookup "v1" "Secret" .Release.Namespace $secretName }}
   INVENTREE_SECRET_KEY: {{ index .data "INVENTREE_SECRET_KEY" }}

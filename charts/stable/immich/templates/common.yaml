@@ -4,7 +4,7 @@
 {{/* Render secret */}}
 {{- $secrets := include "immich.secret" . | fromYaml -}}
 {{- if $secrets -}}
-  {{- $_ := set .Values.secret "immich-secret" $secrets -}}
+  {{- $_ := set .Values.secret "secret" $secrets -}}
 {{- end -}}
 
 {{/* Render configmap for immich */}}

@@ -1,8 +1,7 @@
 {{/* Define the secret */}}
 {{- define "immich.secret" -}}
 
-{{- $secretName := printf "%s-immich-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
-{{- $immichprevious := lookup "v1" "Secret" .Release.Namespace "immich-secret" }}
+{{- $secretName := printf "%s-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 data:
   {{/* Secret Key */}}
   {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}

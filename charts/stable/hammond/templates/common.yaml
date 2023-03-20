@@ -4,7 +4,7 @@
 {{/* Render secrets for hammond */}}
 {{- $secrets := include "hammond.secrets" . | fromYaml -}}
 {{- if $secrets -}}
-  {{- $_ := set .Values.secret "hammond-secrets" $secrets -}}
+  {{- $_ := set .Values.secret "secrets" $secrets -}}
 {{- end -}}
 
 {{/* Render the templates */}}

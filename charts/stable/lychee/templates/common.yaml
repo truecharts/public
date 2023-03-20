@@ -3,7 +3,7 @@
 
 {{- $secrets := include "lychee.secrets" . | fromYaml -}}
 {{- if $secrets -}}
-  {{- $_ := set .Values.secret "lychee-secrets" $secrets -}}
+  {{- $_ := set .Values.secret "secrets" $secrets -}}
 {{- end -}}
 
 {{/* Render the templates */}}

@@ -1,7 +1,7 @@
 {{/* Define the secrets */}}
 {{- define "hammond.secrets" -}}
-{{- $secretName := printf "%s-hammond-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
-{{- $hammondprevious := lookup "v1" "Secret" .Release.Namespace "hammond-secrets" }}
+{{- $secretName := printf "%s-secrets" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+{{- $hammondprevious := lookup "v1" "Secret" .Release.Namespace $secretName }}
 {{- $jwt_secret := "" }}
 data:
   {{- if $hammondprevious}}

@@ -3,7 +3,7 @@
 {{/* Render secrets for leantime */}}
 {{- $secrets := include "leantime.secrets" . | fromYaml -}}
 {{- if $secrets -}}
-  {{- $_ := set .Values.secret "leantime-secrets" $secrets -}}
+  {{- $_ := set .Values.secret "secrets" $secrets -}}
 {{- end -}}
 
 {{/* Render the templates */}}
