@@ -1,12 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "librephotos.secrets" -}}
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: librephotos-secrets
+{{- $secretName := (printf "%s-librephotos-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 {{- $librephotosprevious := lookup "v1" "Secret" .Release.Namespace "librephotos-secrets" }}
 {{- $secret_key := "" }}
 data:

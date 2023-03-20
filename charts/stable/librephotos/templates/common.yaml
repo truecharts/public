@@ -1,5 +1,8 @@
 {{- include "tc.v1.common.loader.init" . }}
 
-{{ include "librephotos.secrets" . }}
+{{- $secrets := include "librephotos.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := set .Values.secret "librephotos-secrets" $secrets -}}
+{{- end -}}
 
 {{ include "tc.v1.common.loader.apply" . }}
