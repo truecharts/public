@@ -1,12 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "hammond.secrets" -}}
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: hammond-secrets
+{{- $secretName := printf "%s-hammond-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 {{- $hammondprevious := lookup "v1" "Secret" .Release.Namespace "hammond-secrets" }}
 {{- $jwt_secret := "" }}
 data:
