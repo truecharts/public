@@ -2,9 +2,9 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secrets for penpot */}}
-{{- $secrets := include "penpot.secrets" . | fromYaml -}}
+{{- $secrets := include "penpot.secret" . | fromYaml -}}
 {{- if $secrets -}}
-  {{- $_ := mustMergeOverwrite .Values.secret $secrets -}}
+  {{- $_ := set .Values.secret "secret" $secrets -}}
 {{- end -}}
 
 {{- $_ := set .Values.workload.main.podSpec.containers "backend" (include "penpot.backend" . | fromYaml) -}}

@@ -1,16 +1,7 @@
 {{/* Define the secrets */}}
 {{- define "inventree.secrets" -}}
 
-{{- $secretName := printf "%s-inventree-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
-
----
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+{{- $secretName := printf "%s-secrets" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 data:
   {{- with lookup "v1" "Secret" .Release.Namespace $secretName }}
   INVENTREE_SECRET_KEY: {{ index .data "INVENTREE_SECRET_KEY" }}
