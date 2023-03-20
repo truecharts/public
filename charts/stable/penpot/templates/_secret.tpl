@@ -1,5 +1,7 @@
 {{/* Define the secret */}}
 {{- define "penpot.secrets" -}}
+{{- $secretName := printf "%s-penpot-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+{{- $penpotprevious := lookup "v1" "Secret" .Release.Namespace "penpot-secret" }}
 
 {{- $backendFlags := list }}
 {{- $backendFlags = mustAppend $backendFlags (printf "%s-smtp" (ternary "enable" "disable" .Values.penpot.smtp.enabled)) }}
