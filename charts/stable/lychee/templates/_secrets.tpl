@@ -1,12 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "lychee.secrets" -}}
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: lychee-secrets
+{{- $secretName := (printf "%s-lychee-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 {{- $lycheeprevious := lookup "v1" "Secret" .Release.Namespace "lychee-secrets" }}
 {{- $app_key := "" }}
 data:
