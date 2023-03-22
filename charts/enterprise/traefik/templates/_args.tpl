@@ -34,7 +34,7 @@ args:
   - "--metrics.influxdb.address={{ .Values.metrics.influxdb.address }}"
   - "--metrics.influxdb.protocol={{ .Values.metrics.influxdb.protocol }}"
   {{- end }}
-  {{- if .Values.metrics.prometheus }}
+  {{- if .Values.metrics.main.enabled }}
   - "--metrics.prometheus=true"
   - "--metrics.prometheus.entrypoint=metrics"
   {{- end }}
