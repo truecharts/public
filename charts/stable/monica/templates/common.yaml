@@ -2,7 +2,10 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render appkey for monica */}}
-{{- include "monica.appkey" . }}
+{{- $secret := include "monica.appkey" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "appkey" $secret -}}
+{{- end -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}

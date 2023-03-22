@@ -50,7 +50,7 @@ workload:
               path: "/dashboard"
           envFrom:
             - configMapRef:
-                name: nocodb-configmap
+                name: configmap
           env:
             NC_MIN: ""
             PORT: "{{ .Values.service.main.ports.main.port }}"

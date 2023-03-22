@@ -80,7 +80,7 @@ workload:
             - configMapRef:
                 name: "common-config"
             - secretRef:
-                name: "immich-secret"
+                name: "secret"
           command:
             - /bin/sh
             - ./start-server.sh

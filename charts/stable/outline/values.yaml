@@ -120,7 +120,7 @@ workload:
             DATABASE_URL:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: url-noql
+                key: std
             REDIS_URL:
               secretKeyRef:
                 expandObjectName: false

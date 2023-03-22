@@ -1,6 +1,7 @@
 {{/* Define the cronjob */}}
 {{- define "linkace.cronjob" -}}
 {{- if .Values.secret.CRON_TOKEN }}
+{{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
 enabled: true
 type: "CronJob"
 
@@ -14,7 +15,7 @@ podSpec:
       imageSelector: ubuntuImage
       args:
       - curl
-      - "http://{{ $jobName }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}/cron/$(CRON_TOKEN)"
+      - "http://{{ $basename }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}/cron/$(CRON_TOKEN)"
 
 
 

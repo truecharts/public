@@ -62,11 +62,11 @@ workload:
             DATABASE_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: std
             DATABASE_PASSWORD:
               secretKeyRef:
-                name: cnpg-main-urls
-                key: postgresql-password
+                name: cnpg-main-user
+                key: password
             REDIS_HOST:
               secretKeyRef:
                 expandObjectName: false

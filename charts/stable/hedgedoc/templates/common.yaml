@@ -4,7 +4,7 @@
 {{/* Render secret for hedgedoc */}}
 {{- $secret := include "hedgedoc.secrets" . | fromYaml -}}
 {{- if $secret -}}
-  {{- $_ := set .Values.secret "hedgedoc-secrets" $secret -}}
+  {{- $_ := set .Values.secret "secrets" $secret -}}
 {{- end -}}
 
 {{/* Render the templates */}}

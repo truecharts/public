@@ -4,13 +4,13 @@
 {{/* Render configmap for nocodb */}}
 {{- $configmap := include "nocodb.configmap" . | fromYaml -}}
 {{- if $configmap -}}
-  {{- $_ := set .Values.configmap "nocodb-configmap" $configmap -}}
+  {{- $_ := set .Values.configmap "configmap" $configmap -}}
 {{- end -}}
 
 {{/* Render secret for nocodb */}}
 {{- $secret := include "nocodb.secrets" . | fromYaml -}}
 {{- if $secret -}}
-  {{- $_ := set .Values.secret "nocodb-secrets" $secret -}}
+  {{- $_ := set .Values.secret "secrets" $secret -}}
 {{- end -}}
 
 {{/* Render the templates */}}

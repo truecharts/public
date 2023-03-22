@@ -1,6 +1,6 @@
 {{/* Define the cronjob */}}
 {{- define "fireflyiii.cronjob" -}}
-
+{{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
 enabled: true
 type: "CronJob"
 schedule: "0 8 * * *"
@@ -18,7 +18,7 @@ podSpec:
       imageSelector: ubuntuImage
       args:
       - curl
-      - "http://{{ $jobName }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}/api/v1/cron/$(STATIC_CRON_TOKEN)"
+      - "http://{{ $basename }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}/api/v1/cron/$(STATIC_CRON_TOKEN)"
 
 
 

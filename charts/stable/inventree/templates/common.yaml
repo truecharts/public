@@ -13,7 +13,6 @@
   {{- $_ := mustMergeOverwrite .Values.configmap $configmap -}}
 {{- end -}}
 
-{{- $_ := set .Values.initContainers "init" (include "inventree.init" . | fromYaml) -}}
 {{- $_ := set .Values.workload.main.podSpec.containers "nginx" (include "inventree.nginx" . | fromYaml) -}}
 {{- $_ := set .Values.workload.main.podSpec.containers "worker" (include "inventree.worker" . | fromYaml) -}}
 
