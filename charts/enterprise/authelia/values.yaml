@@ -125,6 +125,15 @@ duo_api:
   integration_key: ABCDEF
   plain_api_key: ""
 
+## NTP settings
+
+ntp:
+  address: "time.cloudflare.com:123"
+  version: 4
+  max_desync: 3s
+  disable_startup_check: false
+  disable_failure: true
+
 ##
 ## Authentication Backend Provider Configuration
 ##
