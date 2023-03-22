@@ -140,6 +140,12 @@ bootstrapDns:
   # -- IP's linked to upstream DoT/DoH DNS name
   ips: []
 
+# -- set additional bootstrap dns (not needed, only used if bootstrapDns is set)
+additionalBootstrapDns:
+  []
+  # - upstream: ""
+  #   ips: []
+
 # -- Return empty answer for these queries
 filtering:
   # -- Ensures filtering by query type

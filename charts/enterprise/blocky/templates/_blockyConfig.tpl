@@ -99,15 +99,25 @@ hostsFile:
 
 {{- if or .Values.bootstrapDns.upstream .Values.bootstrapDns.ips }}
 bootstrapDns:
-{{- if .Values.bootstrapDns.upstream }}
-  upstream: {{ .Values.bootstrapDns.upstream }}
-{{- end }}
-{{- if .Values.bootstrapDns.ips }}
-  ips:
-{{- range $id, $value := .Values.bootstrapDns.ips }}
-    - {{ $value }}
-{{- end }}
-{{- end }}
+  {{- if .Values.bootstrapDns.upstream }}
+  - upstream: {{ .Values.bootstrapDns.upstream }}
+  {{- end }}
+  {{- if .Values.bootstrapDns.ips }}
+    ips:
+    {{- range $id, $value := .Values.bootstrapDns.ips }}
+      - {{ $value }}
+    {{- end }}
+  {{- end }}
+  {{/* Add additional Bootstrap DNS */}}
+  {{- range .Values.additionalBootstrapDns }}
+  {{- with .upstream }}
+  - upstream: {{ . }}
+  {{- end }}
+  {{- range $id, $value := .ips }}
+    ips:
+      - {{ $value }}
+  {{- end }}
+  {{- end }}
 {{- end }}
 
 {{- if or .Values.filtering.filtering }}
