@@ -43,11 +43,13 @@ workload:
             DBUSER: "{{ .Values.mariadb.mariadbUsername }}"
             DBPASS:
               secretKeyRef:
-                name: mariadbcreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-password
             DBHOST:
               secretKeyRef:
-                name: mariadbcreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
           command: ["/bin/sh", "-c"]
           args:
