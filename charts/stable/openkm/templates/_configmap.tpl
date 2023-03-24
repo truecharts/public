@@ -44,7 +44,7 @@ data:
         <Resource name="jdbc/OpenKMDS" auth="Container" type="javax.sql.DataSource"
                    maxActive="100" maxIdle="30" maxWait="10000" validationQuery="select 1"
                    username="{{ .Values.cnpg.main.database }}" password={{ .Values.cnpg.main.creds.password }} driverClassName="org.postgresql.Driver"
-                   url="{{ $.Values.cnpg.main.creds.jdbc | trimAll '\"' }}"/>
+                   url="{{ $.Values.cnpg.main.creds.jdbc }}"/>
 
         <Resource name="mail/OpenKM" auth="Container" type="javax.mail.Session"
                   mail.smtp.host="localhost" mail.from="noreply@openkm.com"/>

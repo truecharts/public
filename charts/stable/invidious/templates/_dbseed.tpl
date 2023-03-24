@@ -1,6 +1,7 @@
 {{- define "invidious.dbseed" -}}
 enabled: true
 imageSelector: ubuntuImage
+type: install
 env:
   POSTGRES_DB: {{ .Values.cnpg.main.database }}
   POSTGRES_USER: {{ .Values.cnpg.main.user }}

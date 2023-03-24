@@ -7,10 +7,14 @@
   {{- $_ := set .Values.secret "secret" $secrets -}}
 {{- end -}}
 
-{{/* Render configmap for immich */}}
-{{- $configmap := include "immich.config" . | fromYaml -}}
-{{- if $configmap -}}
-  {{- $_ := mustMergeOverwrite .Values.configmap $configmap -}}
+{{/* Render configmaps for immich*/}}
+{{- $configmap1 := include "immich.config" . | fromYaml -}}
+{{- if $configmap1 -}}
+  {{- $_ := set .Values.configmap "common-config" $configmap1 -}}
+{{- end -}}
+{{- $configmap2 := include "immich.config" . | fromYaml -}}
+{{- if $configmap2 -}}
+  {{- $_ := set .Values.configmap "server-config" $configmap2 -}}
 {{- end -}}
 
 {{- $_ := set .Values.workload.main.podSpec.containers "proxy" (include "immich.proxy" . | fromYaml) -}}

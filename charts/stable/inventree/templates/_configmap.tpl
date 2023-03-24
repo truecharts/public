@@ -8,7 +8,6 @@ inventree-config:
     INVENTREE_DB_ENGINE: "postgresql"
     INVENTREE_DB_NAME: {{ .Values.cnpg.main.database }}
     INVENTREE_DB_USER: {{ .Values.cnpg.main.user }}
-    INVENTREE_DB_HOST: {{ printf "%v-%v" .Release.Name "postgresql" }}
     INVENTREE_DB_PORT: "5432"
     INVENTREE_CACHE_PORT: "6379"
     INVENTREE_WEB_PORT: "8000"

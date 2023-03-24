@@ -5,6 +5,13 @@ enabled: true
 type: "CronJob"
 schedule: "0 8 * * *"
 podSpec:
+  probes:
+    startup:
+      enabled: false
+    readyness:
+      enabled: false
+    liveness:
+      enabled: false
   restartPolicy: Never
   containers:
     cron:
@@ -15,7 +22,7 @@ podSpec:
               name: fireflyiii-secrets
               key: STATIC_CRON_TOKEN
       enabled: true
-      imageSelector: ubuntuImage
+      imageSelector: alpineImage
       args:
       - curl
       - "http://{{ $basename }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}/api/v1/cron/$(STATIC_CRON_TOKEN)"

@@ -1,6 +1,6 @@
 {{/* Define the secret */}}
 {{- define "immich.secret" -}}
-
+enabled: true
 {{- $secretName := printf "%s-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 data:
   {{/* Secret Key */}}
@@ -9,9 +9,8 @@ data:
   {{- else }}
   JWT_SECRET: {{ randAlphaNum 32 | b64enc }}
   {{- end }}
-  DB_PASSWORD: {{ .Values.cnpg.main.creds.password | trimAll "\"" | b64enc }}
-  REDIS_PASSWORD: {{ .Values.redis.redisPassword | trimAll "\"" | b64enc }}
   {{- with .Values.immich.mapbox_key }}
   MAPBOX_KEY: {{ . | b64enc}}
   {{- end }}
+
 {{- end }}

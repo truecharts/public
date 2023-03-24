@@ -82,10 +82,10 @@ backend-exporter-secret:
     PENPOT_SECRET_KEY: {{ randAlphaNum 32 }}
     {{- end }}
     {{/* Dependencies */}}
-    PENPOT_DATABASE_URI: {{ printf "postgresql://%v/%v" (.Values.cnpg.main.creds.plainport | trimAll "\"") .Values.cnpg.main.database }}
+    PENPOT_DATABASE_URI: {{ printf "postgresql://%v/%v" (.Values.cnpg.main.creds.plainport ) .Values.cnpg.main.database }}
     PENPOT_DATABASE_USERNAME: {{ .Values.cnpg.main.user }}
-    PENPOT_DATABASE_PASSWORD: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
-    PENPOT_REDIS_URI: {{ printf "redis://%v:%v@%v/%v" "default" (.Values.redis.redisPassword | trimAll "\"") (.Values.redis.url.plainport | trimAll "\"") "0" }}
+    PENPOT_DATABASE_PASSWORD: {{ .Values.cnpg.main.creds.password  }}
+    PENPOT_REDIS_URI: {{ printf "redis://%v:%v@%v/%v" "default" (.Values.redis.redisPassword ) (.Values.redis.url.plainport ) "0" }}
     {{/* Penpot */}}
     {{- if .Values.penpot.smtp.enabled }}
     PENPOT_SMTP_DEFAULT_FROM: {{ .Values.penpot.smtp.default_from | quote }}

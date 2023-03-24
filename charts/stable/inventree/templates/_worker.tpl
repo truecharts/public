@@ -9,4 +9,20 @@ envFrom:
       name: 'inventree-secret'
   - configMapRef:
       name: 'inventree-config'
+probes:
+  startup:
+    enabled: false
+  readyness:
+    enabled: false
+  liveness:
+    enabled: false
+env:
+  INVENTREE_DB_PASSWORD:
+    secretKeyRef:
+      name: cnpg-main-user
+      key: password
+  INVENTREE_DB_HOST:
+    secretKeyRef:
+      name: cnpg-main-urls
+      key: plainporthost
 {{- end -}}

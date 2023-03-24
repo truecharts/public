@@ -6,4 +6,11 @@ imagePullPolicy: {{ .Values.nginxImage.pullPolicy }}
 securityContext:
   runAsUser: 0
   readOnlyRootFilesystem: false
+probes:
+  startup:
+    enabled: false
+  readyness:
+    enabled: false
+  liveness:
+    enabled: false
 {{- end -}}

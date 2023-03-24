@@ -13,6 +13,25 @@ envFrom:
       name: 'common-config'
   - configMapRef:
       name: 'server-config'
+env:
+  DB_PASSWORD:
+    secretKeyRef:
+      name: cnpg-main-user
+      key: password
+  DB_HOSTNAME:
+    secretKeyRef:
+      name: cnpg-main-urls
+      key: plainporthost
+  REDIS_HOSTNAME:
+    secretKeyRef:
+      expandObjectName: false
+      name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+      key: plainhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      expandObjectName: false
+      name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+      key: redis-password
 probes:
   readiness:
     exec:
@@ -21,10 +40,6 @@ probes:
         - -c
         - |
           ps -a | grep -v grep | grep -q microservices || exit 1
-
-
-
-
   liveness:
     exec:
       command:
@@ -32,10 +47,6 @@ probes:
         - -c
         - |
           ps -a | grep -v grep | grep -q microservices || exit 1
-
-
-
-
   startup:
     exec:
       command:
@@ -43,8 +54,4 @@ probes:
         - -c
         - |
           ps -a | grep -v grep | grep -q microservices || exit 1
-
-
-
-
 {{- end -}}

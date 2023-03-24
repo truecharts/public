@@ -80,11 +80,6 @@ workload:
               cd /home/inventree || exit
               invoke update
               echo "Initialization finished!"
-envFrom:
-  - secretRef:
-      name: "inventree-secret"
-  - configMapRef:
-      name: "inventree-config"
       containers:
         main:
           envFrom:
@@ -92,3 +87,19 @@ envFrom:
                 name: "inventree-secret"
             - configMapRef:
                 name: "inventree-config"
+                containers:
+                  main:
+                    envFrom:
+                      - secretRef:
+                          name: "inventree-secret"
+                      - configMapRef:
+                          name: "inventree-config"
+          env:
+            INVENTREE_DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            INVENTREE_DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: plainporthost

@@ -1,9 +1,5 @@
 {{/* Define the ml container */}}
 {{- define "immich.ml" -}}
-  {{- if hasKey .Values "imageML" -}} {{/* For smooth upgrade, Remove later*/}}
-    {{- $img := .Values.imageML -}}
-    {{- $_ := set .Values "mlImage" (dict "repository" $img.repository "tag" $img.tag "pullPolicy" $img.pullPolicy) -}}
-  {{- end }}
 enabled: true
 imageSelector: mlImage
 imagePullPolicy: {{ .Values.mlImage.pullPolicy }}
@@ -22,38 +18,49 @@ envFrom:
       name: 'server-config'
   - secretRef:
       name: 'immich-secret'
+env:
+  DB_PASSWORD:
+    secretKeyRef:
+      name: cnpg-main-user
+      key: password
+  DB_HOSTNAME:
+    secretKeyRef:
+      name: cnpg-main-urls
+      key: plainporthost
+  REDIS_HOSTNAME:
+    secretKeyRef:
+      expandObjectName: false
+      name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+      key: plainhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      expandObjectName: false
+      name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+      key: redis-password
 probes:
-  #readiness:
+  readiness:
+    enabled: false
   #  exec:
   #    command:
   #      - /bin/sh
   #      - -c
   #      - |
   #        grep -q main.js /proc/1/cmdline || exit 1
-  #
-  #
-  #
-  #
-  #liveness:
+  liveness:
+    enabled: false
   #  exec:
   #    command:
   #      - /bin/sh
   #      - -c
   #      - |
   #        grep -q main.js /proc/1/cmdline || exit 1
-  #
-  #
-  #
-  #
-  #startup:
+  startup:
+    enabled: false
   #  exec:
   #    command:
   #      - /bin/sh
   #      - -c
   #      - |
   #        grep -q main.js /proc/1/cmdline || exit 1
-  #
-  #
-  #
-  #
+
 {{- end -}}
