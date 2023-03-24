@@ -1,7 +1,7 @@
 {{- define "youtrack.init" -}}
 enabled: true
-imageSelector: "image"
-imagePullPolicy: {{ .Values.image.pullPolicy }}
+type: init
+imageSelector: image
 args:
   - configure
   {{- range (include "youtrack.args" . | fromYaml).args }}

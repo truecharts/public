@@ -56,3 +56,8 @@ securityContext:
     readOnlyRootFilesystem: false
     runAsGroup: 13001
     runAsUser: 13001
+workload:
+  main:
+    enabled: true
+    podSpec:
+      initContainers: {}
