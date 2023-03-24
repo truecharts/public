@@ -5,15 +5,16 @@ enabled: true
 type: "CronJob"
 schedule: "0 8 * * *"
 podSpec:
-  probes:
-    startup:
-      enabled: false
-    readyness:
-      enabled: false
-    liveness:
-      enabled: false
   restartPolicy: Never
   containers:
+    primary: true
+    probes:
+      startup:
+        enabled: false
+      readyness:
+        enabled: false
+      liveness:
+        enabled: false
     cron:
       env:
         STATIC_CRON_TOKEN:

@@ -1,7 +1,7 @@
 {{/* Define the secrets */}}
 {{- define "inventree.config" -}}
 
-inventree-config:
+config:
   enabled: true
   data:
     INVENTREE_TIMEZONE: {{ .Values.TZ }}
@@ -44,7 +44,7 @@ inventree-config:
     INVENTREE_LOGIN_ATTEMPTS: {{ . | quote }}
     {{- end }}
 
-inventree-config-nginx:
+config-nginx:
   enabled: true
   data:
     nginx.conf: |-

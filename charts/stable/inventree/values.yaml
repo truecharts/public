@@ -91,9 +91,9 @@ workload:
                   main:
                     envFrom:
                       - secretRef:
-                          name: "inventree-secret"
+                          name: "secret"
                       - configMapRef:
-                          name: "inventree-config"
+                          name: "config"
           env:
             INVENTREE_DB_PASSWORD:
               secretKeyRef:
