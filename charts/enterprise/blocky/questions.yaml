@@ -113,6 +113,37 @@ questions:
                   type: string
                   required: true
                   default: ""
+  - variable: additionalBootstrapDns
+    group: App Configuration
+    label: Additional Bootstrap DNS
+    schema:
+      type: list
+      show_if: [[ "bootstrapDns", "!=", {"upstream": "", "ips": []} ]]
+      default: []
+      items:
+        - variable: additionalBootstrapDnsEntry
+          label: Additional Bootstrap DNS Entry
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: upstream
+                label: Upstream
+                schema:
+                  type: string
+                  default: ""
+              - variable: ips
+                label: IPs
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: ipEntry
+                      label: IP Entry
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
   - variable: filtering
     group: App Configuration
     label: Filtering
