@@ -121,7 +121,7 @@ workload:
           enabled: true
           imageSelector: nginxImage
           probes:
-            livness:
+            liveness:
               enabled: true
               port: "{{ .Values.service.main.ports.main.port }}"
             readiness:
