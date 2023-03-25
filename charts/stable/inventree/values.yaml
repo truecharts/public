@@ -34,19 +34,25 @@ service:
 persistence:
   data:
     enabled: true
-    mountPath: "/home/inventree/data"
-    targetSelectAll: true
+    mountPath: /home/inventree/data
+    targetSelector:
+      main:
+        main: {}
+        worker: {}
+        nginx:
+          mountPath: /var/www
   inventree-nginx:
     enabled: true
-    noMount: true
-    type: custom
-    mountPath: "/etc/nginx/conf.d"
-    volumeSpec:
-      configMap:
-        name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-inventree-config-nginx'
-        items:
-          - key: nginx.conf
-            path: default.conf
+    type: configmap
+    mountPath: /etc/nginx/conf.d
+    subPath: default.conf
+    objectName: config-nginx
+    targetSelector:
+      main:
+        nginx: {}
+    items:
+      - key: nginx.conf
+        path: default.conf
 cnpg:
   main:
     enabled: true
