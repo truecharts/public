@@ -40,16 +40,29 @@ persistence:
   media:
     enabled: true
     mountPath: "/home/wger/media"
+    targetSelector:
+      main:
+        main: {}
+        nginx:
+          mountPath: /media
   static:
     enabled: true
     type: emptyDir
     mountPath: "/home/wger/static"
+    targetSelector:
+      main:
+        main: {}
+        nginx:
+          mountPath: /static
   wger-config:
     enabled: true
-    noMount: true
     type: configmap
-    mountPath: "/etc/nginx/conf.d"
     objectName: "wger-nginx-config"
+    targetSelector:
+      main:
+        nginx:
+          mountPath: /etc/nginx/conf.d/default.conf
+          subPath: default.conf
     items:
       - key: nginx.conf
         path: default.conf

@@ -85,7 +85,9 @@ persistence:
   data:
     enabled: true
     mountPath: /opt/data
-    noMount: true
+    targetSelector:
+      main:
+        backend: {}
   assets:
     enabled: true
     mountPath: /opt/data/assets

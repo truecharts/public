@@ -53,13 +53,11 @@ persistence:
     enabled: true
     mountPath: "/cells/services"
   pydiocells-install:
-    enabled: "true"
+    enabled: true
     mountPath: "/cells/install.yml"
-    subPath: "pydiocells-install"
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: '{{ printf "%v-install" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
+    subPath: pydiocells-install
+    type: configmap
+    objectName: install
 mariadb:
   enabled: true
   mariadbUsername: pydiocells
