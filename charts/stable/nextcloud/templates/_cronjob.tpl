@@ -9,7 +9,6 @@ podSpec:
   containers:
     cron:
       imageSelector: image
-      imagePullPolicy: {{ default .Values.image.pullPolicy }}
       command:
         - "/bin/sh"
         - "-c"

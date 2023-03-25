@@ -12,6 +12,7 @@ persistence:
   config:
     enabled: true
     mountPath: /config
+    targetSelectAll: true
 portal:
   open:
     enabled: false
@@ -25,6 +26,7 @@ workload:
       initContainers:
         initconfig:
           type: install
+          enabled: true
           imageSelector: "image"
           command: ["recyclarr", "create-config"]
       containers:

@@ -84,11 +84,16 @@ persistence:
   db:
     enabled: true
     mountPath: /home/pi/pialert/db
+    targetSelectAll: true
+
   pialert-config:
     enabled: true
-    noMount: true
     type: secret
-    objectName: '{{ template "tc.v1.common.lib.chart.names.fullname" . }}-secret'
+    objectName: secret
+    mountPath: /tc-pialert.conf
+    targetSelector:
+      main:
+        init: {}
 
 portal:
   open:
@@ -104,7 +109,8 @@ workload:
     podSpec:
       initContainers:
         init:
-          imageSelector: "image"
+          imageSelector: image
+          enabled: true
           type: init
           command: ["/bin/sh", "-c"]
           args:

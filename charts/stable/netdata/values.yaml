@@ -6,6 +6,7 @@ image:
 serviceAccount:
   main:
     enabled: true
+    primary: true
 configmap:
   configs:
     enabled: true
@@ -25,6 +26,7 @@ configmap:
 rbac:
   main:
     enabled: true
+    primary: true
     rules:
       - apiGroups:
           - ""
@@ -54,6 +56,7 @@ persistence:
   config:
     enabled: true
     mountPath: "/etc/netdata"
+    targetSelectAll: true
   lib:
     enabled: true
     mountPath: "/var/lib/netdata"
@@ -97,29 +100,26 @@ persistence:
     mountPath: "/host/etc/os-release"
     readOnly: true
   netdata-configs:
-    enabled: "true"
+    enabled: true
     mountPath: "/etc/netdata/truecharts-defaults/.netdata.conf"
     subPath: "netdata-conf"
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: '{{ printf "%v-configs" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
+    type: configmap
+    objectName: configs
+    targetSelectAll: true
   go-d-configs:
-    enabled: "true"
+    enabled: true
     mountPath: "/etc/netdata/truecharts-defaults/.go.d.conf"
     subPath: "go-d-conf"
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: '{{ printf "%v-configs" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
+    type: configmap
+    objectName: configs
+    targetSelectAll: true
   go-d-k8s-state-configs:
-    enabled: "true"
+    enabled: true
     mountPath: "/etc/netdata/truecharts-defaults/go.d/.k8s_state.conf"
     subPath: "go-d-k8s-state-conf"
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: '{{ printf "%v-configs" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
+    type: configmap
+    objectName: configs
+    targetSelectAll: true
 
 portal:
   open:
@@ -139,7 +139,8 @@ workload:
     podSpec:
       initContainers:
         create-config:
-          imageSelector: "image"
+          enabled: true
+          imageSelector: image
           type: init
           command: ["/bin/bash", "-c"]
           args:

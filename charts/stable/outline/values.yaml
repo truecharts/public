@@ -34,7 +34,8 @@ workload:
     podSpec:
       initContainers:
         1-migratedb:
-          imageSelector: "image"
+          enabled: true
+          imageSelector: image
           type: init
           env:
             DATABASE_URL:

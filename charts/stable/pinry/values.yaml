@@ -12,6 +12,7 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
+    targetSelectAll: true
 
 portal:
   open:
@@ -28,6 +29,7 @@ workload:
       initContainers:
         1-create-key-file:
           type: install
+          enabled: true
           imageSelector: "image"
           env:
             SECRET_KEY:
@@ -36,7 +38,7 @@ workload:
                 key: SECRET_KEY
           command: ["sh", "-c"]
           args:
-            - >
+            - |
               keyfile="/data/production_secret_key.txt"; if [ ! -f ${keyfile} ]; then
 
                 echo "No ${keyfile} File...";

@@ -8,7 +8,8 @@ workload:
     podSpec:
       initContainers:
         init:
-          imageSelector: "image"
+          imageSelector: image
+          enabled: true
           type: init
           command: ["/config/init/init.sh"]
 
@@ -21,16 +22,14 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/opt/tomcat/repository"
+    mountPath: /opt/tomcat/repository
   init:
-    enabled: "true"
-    mountPath: "/config/init"
+    enabled: true
+    mountPath: /config/init
     readOnly: true
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-init'
-        defaultMode: 0777
+    type: configmap
+    defaultMode: 0777
+    objectName: init
 cnpg:
   main:
     enabled: true

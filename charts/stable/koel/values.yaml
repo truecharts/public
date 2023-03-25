@@ -38,8 +38,9 @@ workload:
     podSpec:
       initContainers:
         initdb:
+          enabled: true
           type: install
-          imageSelector: "image"
+          imageSelector: image
           env:
             DB_CONNECTION: "mysql"
             DB_PORT: "3306"

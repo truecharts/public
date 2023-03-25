@@ -2,14 +2,13 @@
 {{- define "nextcloud.imaginary" -}}
 enabled: true
 imageSelector: imaginaryImage
-imagePullPolicy: '{{ .Values.image.pullPolicy }}'
 securityContext:
   runAsUser: 33
   runAsGroup: 33
   readOnlyRootFilesystem: true
 args: ["-enable-url-source"]
 env:
-  'PORT': '9090'
+  PORT: '9090'
 probes:
   readiness:
     path: /

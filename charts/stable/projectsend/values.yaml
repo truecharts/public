@@ -12,6 +12,7 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+    targetSelectAll: true
   data:
     enabled: true
     mountPath: "/data"
@@ -37,7 +38,8 @@ workload:
       initContainers:
         initconfig:
           type: install
-          imageSelector: "image"
+          enabled: true
+          imageSelector: image
           env:
             DBNAME: "{{ .Values.mariadb.mariadbDatabase }}"
             DBUSER: "{{ .Values.mariadb.mariadbUsername }}"

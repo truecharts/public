@@ -11,6 +11,7 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
+    targetSelectAll: true
 
 portal:
   open:
@@ -26,7 +27,8 @@ workload:
     podSpec:
       initContainers:
         init-config:
-          imageSelector: "image"
+          enabled: true
+          imageSelector: image
           type: init
           env:
             ZIGBEE2MQTT_CONFIG_FRONTEND_PORT: "{{ .Values.service.main.ports.main.port }}"

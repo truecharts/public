@@ -16,6 +16,7 @@ persistence:
   config:
     enabled: true
     mountPath: "/etc/ocis"
+    targetSelectAll: true
 portal:
   open:
     enabled: true
@@ -28,7 +29,8 @@ workload:
       initContainers:
         init:
           type: install
-          imageSelector: "image"
+          enabled: true
+          imageSelector: image
           command:
             - "/bin/sh"
             - "-c"
