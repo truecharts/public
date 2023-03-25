@@ -13,12 +13,15 @@ persistence:
   music:
     enabled: true
     mountPath: "/music"
+    targetSelectAll: true
   covers:
     enabled: true
     mountPath: "/var/www/html/public/img/covers"
+    targetSelectAll: true
   searchindex:
     enabled: true
     mountPath: "/var/www/html/storage/search-indexes"
+    targetSelectAll: true
 mariadb:
   enabled: true
   mariadbUsername: koel
