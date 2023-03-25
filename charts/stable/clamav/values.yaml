@@ -32,13 +32,16 @@ persistence:
   sigdatabase:
     enabled: true
     mountPath: "/var/lib/clamav"
+    targetSelectAll: true
   scandir:
     enabled: true
     mountPath: "/scandir"
     readOnly: true
+    targetSelectAll: true
   logs:
     enabled: true
     mountPath: "/logs"
+    targetSelectAll: true
 portal:
   open:
     enabled: false
