@@ -12,6 +12,10 @@ persistence:
   data:
     enabled: true
     mountPath: "/app/data"
+    targetSelector:
+      main:
+        main: {}
+        1-create-key-file: {}
   recipes:
     enabled: true
     mountPath: "/app/recipes"
@@ -35,8 +39,9 @@ workload:
     podSpec:
       initContainers:
         1-create-key-file:
+          enabled: true
           type: install
-          imageSelector: "image"
+          imageSelector: image
           env:
             APP_KEY:
               secretKeyRef:
@@ -44,13 +49,13 @@ workload:
                 key: APP_KEY
           command: ["sh", "-c"]
           args:
-            - >
-              keyfile="/app/data/FERDI_APP_KEY.txt"; if [ ! -f ${keyfile} ]; then
+            - |
+              keyfile="/app/data/FERDI_APP_KEY.txt";
+              if [ ! -f ${keyfile} ]; then
                 echo "No APP_KEY File...";
                 echo "Creating APP_KEY file...";
                 echo "${APP_KEY}" > ${keyfile};
-                if [ -f ${keyfile} ];
-                then
+                if [ -f ${keyfile} ]; then
                   echo "Success!";
                 else
                   echo "Failed.";
@@ -76,38 +81,27 @@ workload:
             DB_USER: "{{ .Values.cnpg.main.user }}"
             DB_DATABASE: "{{ .Values.cnpg.main.database }}"
             # User Defined
-
             APP_URL: "http://localhost:3333"
             IS_CREATION_ENABLED: true
             IS_DASHBOARD_ENABLED: true
             IS_REGISTRATION_ENABLED: true
             CONNECT_WITH_FRANZ: true
             # MAIL_CONNECTION: "smtp"
-
             # SMTP_HOST: "localhost"
-
             # SMTP_PORT: 587
-
             # MAIL_SSL: true
-
             # MAIL_USERNAME: "username@example.com"
-
             # MAIL_PASSWORD: "password"
-
             # MAIL_SENDER: "noreply@example.com"
-
             # SPARKPOST_API_KEY: ""
-
             # MAILGUN_DOMAIN: ""
-
             # MAILGUN_API_REGION: ""
-
             # MAILGUN_API_KEY: ""
             DB_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host
             DB_PASSWORD:
               secretKeyRef:
-                name: cnpg-main-urls
-                key: postgresql-password
+                name: cnpg-main-user
+                key: password

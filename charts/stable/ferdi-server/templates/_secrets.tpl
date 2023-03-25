@@ -1,6 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "ferdi-server.secrets" -}}
-{{- $secretName := (printf "%s-ferdi-server-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+{{- $secretName := (printf "%s-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 {{- $ferdiprevious := lookup "v1" "Secret" .Release.Namespace $secretName }}
 enabled: true
 data:
