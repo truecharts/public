@@ -194,16 +194,34 @@ ingress:
 persistence:
   media:
     enabled: true
-    mountPath: "/media"
+    mountPath: /media
+    targetSelector:
+      main:
+        main: {}
+        worker: {}
   templates:
     enabled: true
-    mountPath: "/templates"
+    mountPath: /templates
+    targetSelector:
+      main:
+        main: {}
+        worker: {}
   certs:
     enabled: true
-    mountPath: "/certs"
+    mountPath: /certs
+    targetSelector:
+      main:
+        main: {}
+        worker: {}
   geoip:
     enabled: true
-    mountPath: "/geoip"
+    mountPath: /geoip
+    targetSelector:
+      main:
+        main: {}
+        geoip:
+          mountPath: /usr/share/GeoIP"
+        worker: {}
 cnpg:
   main:
     enabled: true
