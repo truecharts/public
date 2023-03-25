@@ -123,5 +123,5 @@ workload:
             startup:
               type: http
           envFrom:
-            - secretRef:
+            - configMapRef:
                 name: "invidious-config"
