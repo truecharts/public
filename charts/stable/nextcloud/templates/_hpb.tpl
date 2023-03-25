@@ -115,20 +115,20 @@ env:
   TRUSTED_PROXIES: "{{ .Values.workload.main.podSpec.containers.main.env.TRUSTED_PROXIES }}"
   POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
   POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
-  POSTGRES_PASSWORD
+  POSTGRES_PASSWORD:
     secretKeyRef:
         name: dbcreds
-        key: postgresql-password
-  POSTGRES_HOST
+        key: password
+  POSTGRES_HOST:
     secretKeyRef:
         name: dbcreds
-        key: plainporthost
-  REDIS_HOST
+        key: porthost
+  REDIS_HOST:
     secretKeyRef:
         expandObjectName: false
         name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
         key: plainhost
-  REDIS_HOST_PASSWORD
+  REDIS_HOST_PASSWORD:
     secretKeyRef:
         expandObjectName: false
         name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'

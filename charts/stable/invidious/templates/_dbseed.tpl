@@ -7,14 +7,14 @@ env:
   POSTGRES_USER: {{ .Values.cnpg.main.user }}
 {{/* PG* variables are for the psql client */}}
   PGPORT: "5432"
-  PGHOST
+  PGHOST:
     secretKeyRef:
         name: dbcreds
-        key: plainhost
-  PGPASSWORD
+        key: host
+  PGPASSWORD:
     secretKeyRef:
         name: dbcreds
-        key: postgresql-password
+        key: password
 command:
   - /bin/sh
   - -c
