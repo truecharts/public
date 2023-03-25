@@ -6,9 +6,9 @@ imagePullPolicy: '{{ .Values.image.pullPolicy }}'
 command: ["invoke", "worker"]
 envFrom:
   - secretRef:
-      name: 'inventree-secret'
+      name: 'secrets'
   - configMapRef:
-      name: 'inventree-config'
+      name: 'config'
 probes:
   startup:
     enabled: false

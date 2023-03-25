@@ -9,7 +9,7 @@ securityContext:
 probes:
   startup:
     enabled: false
-  readyness:
+  readiness:
     enabled: false
   liveness:
     enabled: false
