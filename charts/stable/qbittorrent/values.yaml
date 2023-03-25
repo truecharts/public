@@ -29,7 +29,7 @@ additionalVolumes:
     ## When you want to enable automatic port configuration at startup, adjust this to:
     # configMap:
     #   name: <RELEASENAME>-scripts
-    #   defaultMode: 511
+    #   defaultMode: "511"
 additionalVolumeMounts:
   - mountPath: "/config/custom-cont-init.d"
     name: qbittorrent-scripts
