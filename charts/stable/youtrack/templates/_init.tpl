@@ -1,12 +1,14 @@
 {{- define "youtrack.init" -}}
-enabled: true
-type: init
-imageSelector: image
-args:
-  - configure
-  {{- range (include "youtrack.args" . | fromYaml).args }}
-  - {{ . }}
-  {{- end -}}
+initContainers:
+  configure:
+    enabled: true
+    type: init
+    imageSelector: image
+    args:
+      - configure
+      {{- range (include "youtrack.args" . | fromYaml).args }}
+      - {{ . }}
+      {{- end -}}
 {{- end -}}
 
 {{- define "youtrack.args" -}}
