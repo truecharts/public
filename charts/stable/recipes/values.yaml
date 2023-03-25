@@ -35,44 +35,43 @@ configmap:
             }
           }
         }
-additionalContainers:
-  nginx:
-    name: nginx
-    image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
-    ports:
-      - containerPort: 80
-        name: main
-    volumeMounts:
-      - name: recipes-config
-        mountPath: "/etc/nginx/nginx.conf"
-        subPath: nginx-config
-        readOnly: true
-      - name: media
-        mountPath: "/media"
-      - name: static
-        mountPath: "/static"
+
 service:
   main:
+    targetSelector: main
     ports:
       main:
         port: 10029
         targetPort: 80
+        targetSelector: nginx
 persistence:
   media:
     enabled: true
     mountPath: "/opt/recipes/mediafiles"
+    targetSelector:
+      main:
+        main: {}
+        nginx:
+          mountPath: "/media"
   static:
     enabled: true
     type: emptyDir
     mountPath: "/opt/recipes/staticfiles"
+    targetSelector:
+      main:
+        main: {}
+        nginx:
+          mountPath: "/static"
   recipes-config:
-    enabled: "true"
+    enabled: true
     mountPath: "/etc/nginx/nginx.conf"
-    subPath: "nginx.conf"
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: '{{ printf "%v-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
+    subPath: "nginx-config"
+    readOnly: true
+    type: configmap
+    objectName: config
+    targetSelector:
+      main:
+        nginx: {}
 cnpg:
   main:
     enabled: true
@@ -118,3 +117,6 @@ workload:
               secretKeyRef:
                 name: secrets
                 key: SECRET_KEY
+        nginx:
+          enabled: true
+          imageSelector: nginxImage

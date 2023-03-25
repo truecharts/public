@@ -36,15 +36,18 @@ persistence:
     objectName: synapse-config
     mountPath: /data
     readOnly: false
+    targetSelectAll: true
   secret:
     enabled: true
     type: secret
     objectName: synapse-secret
     mountPath: /data/secret
     readOnly: false
+    targetSelectAll: true
   key:
     enabled: true
     mountPath: "/data/keys"
+    targetSelectAll: true
   media:
     enabled: true
     mountPath: "/data/media_store"
