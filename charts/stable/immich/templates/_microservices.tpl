@@ -1,7 +1,7 @@
 {{/* Define the ml container */}}
 {{- define "immich.microservices" -}}
 enabled: true
-imageSelector: image.repository }}:{{ .Values.image.tag }}
+imageSelector: image
 imagePullPolicy: {{ .Values.image.pullPolicy }}
 command:
   - /bin/sh

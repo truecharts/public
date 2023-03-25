@@ -35,6 +35,7 @@ persistence:
   data:
     enabled: true
     mountPath: "/home/inventree/data"
+    targetSelectAll: true
   inventree-nginx:
     enabled: true
     noMount: true
@@ -71,8 +72,8 @@ workload:
       initContainers:
         init:
           enabled: true
-          imageSelector: image.repository }}:{{ .Values.image.tag }}
-          imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+          type: init
+          imageSelector: image
           command: ["sh", "-c"]
           args:
             - |-
@@ -102,4 +103,4 @@ workload:
             INVENTREE_DB_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainporthost
+                key: porthost

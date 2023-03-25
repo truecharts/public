@@ -1,7 +1,7 @@
 {{/* Define the worker container */}}
 {{- define "inventree.worker" -}}
 enabled: true
-imageSelector: image.repository }}:{{ .Values.image.tag }}
+imageSelector: image
 imagePullPolicy: '{{ .Values.image.pullPolicy }}'
 command: ["invoke", "worker"]
 envFrom:

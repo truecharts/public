@@ -118,7 +118,11 @@ persistence:
   initdbdata:
     enabled: true
     type: emptyDir
-    mountPath: "/initdbdata"
+    mountPath: /initdbdata
+    targetSelector:
+      main:
+        1-create-initdb-file: {}
+        2-initdb: {}
 portal:
   open:
     enabled: true
@@ -131,9 +135,10 @@ workload:
   main:
     podSpec:
       initContainers:
-        1-creat-initdb-file:
+        1-create-initdb-file:
           type: install
-          imageSelector: "image"
+          enabled: true
+          imageSelector: image
           command: ["/bin/sh", "-c"]
           args:
             - |-
@@ -148,7 +153,8 @@ workload:
               fi
         2-initdb:
           type: install
-          imageSelector: "image"
+          enabled: true
+          imageSelector: image
           env:
             POSTGRESQL_DATABASE: "{{ .Values.cnpg.main.database }}"
             POSTGRESQL_USER: "{{ .Values.cnpg.main.user }}"

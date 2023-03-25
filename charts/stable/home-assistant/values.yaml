@@ -15,14 +15,9 @@ workload:
         init:
           type: init
           enabled: true
-          imageSelector: "image"
+          imageSelector: image
           command: ["/config/init/init.sh"]
-# TODO: fix this
-#          volumeMounts:
-#            - name: init
-#              mountPath: "/config/init"
-#            - name: config
-#              mountPath: "/config"
+
 # # Enable devices to be discoverable
 # hostNetwork: true
 
@@ -39,16 +34,19 @@ prometheus:
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
+    targetSelectAll: true
   init:
-    enabled: "true"
+    enabled: true
+    type: configmap
+    objectName: init
     mountPath: "/config/init"
+    defaultMode: 0777
     readOnly: true
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-init'
-        defaultMode: 0777
+    targetSelector:
+      main:
+        init: {}
+
 configmap:
   init:
     enabled: true
