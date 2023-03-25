@@ -56,8 +56,8 @@ workload:
             READARR__POSTGRES_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host
             READARR__POSTGRES_PASSWORD:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: postgresql-password
+                key: password

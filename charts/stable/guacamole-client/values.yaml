@@ -156,11 +156,11 @@ workload:
             POSTGRESQL_HOSTNAME:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host
             PGPASSWORD:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: postgresql-password
+                key: password
           command: ["/bin/sh", "-c"]
           args:
             - |-
@@ -198,20 +198,20 @@ workload:
             POSTGRES_HOSTNAME:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host
             POSTGRES_PASSWORD:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: postgresql-password
+                key: password
             # New format
             POSTGRESQL_PASSWORD:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: postgresql-password
+                key: password
             POSTGRESQL_HOSTNAME:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host
             POSTGRESQL_DATABASE: "{{ .Values.cnpg.main.database }}"
             POSTGRESQL_USER: "{{ .Values.cnpg.main.user }}"
             POSTGRESQL_PORT: 5432

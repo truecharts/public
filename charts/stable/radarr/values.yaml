@@ -56,8 +56,8 @@ workload:
             RADARR__POSTGRES_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host
             RADARR__POSTGRES_PASSWORD:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: postgresql-password
+                key: password

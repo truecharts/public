@@ -49,11 +49,11 @@ workload:
             POSTGRES_PASSWORD:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: postgresql-password
+                key: password
             POSTGRES_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host
             MAILER_ENABLED: 0
             MAILER_HOST: ""
             MAILER_PORT: 465

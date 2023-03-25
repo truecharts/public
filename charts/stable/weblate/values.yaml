@@ -229,11 +229,11 @@ workload:
             POSTGRES_PASSWORD:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: postgresql-password
+                key: password
             POSTGRES_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host
             REDIS_HOST:
               secretKeyRef:
                 expandObjectName: false

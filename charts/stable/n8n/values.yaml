@@ -139,11 +139,11 @@ workload:
             DB_POSTGRESDB_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host
             DB_POSTGRESDB_PASSWORD:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: postgresql-password
+                key: password
             QUEUE_BULL_REDIS_HOST:
               secretKeyRef:
                 expandObjectName: false

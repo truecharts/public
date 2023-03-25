@@ -64,8 +64,8 @@ workload:
             DB_PASS:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: postgresql-password
+                key: password
             DB_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: plainhost
+                key: host
