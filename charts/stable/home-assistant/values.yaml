@@ -41,7 +41,7 @@ persistence:
     type: configmap
     objectName: init
     mountPath: "/config/init"
-    defaultMode: 0777
+    defaultMode: "0777"
     readOnly: true
     targetSelector:
       main:

@@ -7,26 +7,26 @@ schedule: "0 8 * * *"
 podSpec:
   restartPolicy: Never
   containers:
-    primary: true
-    probes:
-      startup:
-        enabled: false
-      readyness:
-        enabled: false
-      liveness:
-        enabled: false
     cron:
+      enabled: true
+      primary: true
+      probes:
+        startup:
+          enabled: false
+        readyness:
+          enabled: false
+        liveness:
+          enabled: false
+      imageSelector: alpineImage
+      args:
+      - curl
+      - "http://{{ $basename }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}/api/v1/cron/$(STATIC_CRON_TOKEN)"
       env:
         STATIC_CRON_TOKEN:
           valueFrom:
             secretKeyRef:
               name: fireflyiii-secrets
               key: STATIC_CRON_TOKEN
-      enabled: true
-      imageSelector: alpineImage
-      args:
-      - curl
-      - "http://{{ $basename }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}/api/v1/cron/$(STATIC_CRON_TOKEN)"
 
 
 

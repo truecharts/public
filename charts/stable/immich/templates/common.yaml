@@ -12,7 +12,7 @@
 {{- if $configmap1 -}}
   {{- $_ := set .Values.configmap "common-config" $configmap1 -}}
 {{- end -}}
-{{- $configmap2 := include "immich.config" . | fromYaml -}}
+{{- $configmap2 := include "server.config" . | fromYaml -}}
 {{- if $configmap2 -}}
   {{- $_ := set .Values.configmap "server-config" $configmap2 -}}
 {{- end -}}
