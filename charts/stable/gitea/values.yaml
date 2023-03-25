@@ -20,14 +20,33 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
+    targetSelectAll: true
   temp:
     enabled: true
     mountPath: "/tmp"
     type: emptyDir
+    targetSelectAll: true
   varlib:
     enabled: true
     mountPath: "/var/lib/gitea"
     type: emptyDir
+    targetSelectAll: true
+  init-secret:
+    enabled: true
+    mountPath: /usr/sbin/init_directory_structure.sh
+    objectName: init
+    type: secret
+    targetSelector:
+      main:
+        1-init-directories: {}
+  configure-secret:
+    enabled: true
+    mountPath: /usr/sbin/configure_gitea.sh
+    objectName: init
+    type: secret
+    targetSelector:
+      main:
+        2-configure-gitea: {}
 # Configure commit/action signing prerequisites
 signing:
   enabled: true
@@ -100,7 +119,8 @@ workload:
     podSpec:
       initContainers:
         1-init-directories:
-          imageSelector: "image"
+          enabled: true
+          imageSelector: image
           type: init
           command: ["/usr/sbin/init_directory_structure.sh"]
           securityContext:
@@ -110,7 +130,8 @@ workload:
             - configMapRef:
                 name: gitea-env
         2-configure-gitea:
-          imageSelector: "image"
+          enabled: true
+          imageSelector: image
           type: init
           command: ["/usr/sbin/configure_gitea.sh"]
           envFrom:
