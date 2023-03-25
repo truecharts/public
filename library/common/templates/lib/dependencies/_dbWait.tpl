@@ -3,7 +3,7 @@
 {{- $container := include "tc.v1.common.lib.deps.wait.redis" $ | fromYaml -}}
 {{- if $container -}}
   {{- range .Values.workload -}}
-    {{- if not (hasKey . "initContainers") -}}
+    {{- if not (hasKey .podSpec "initContainers") -}}
       {{- $_ := set .podSpec "initContainers" dict -}}
     {{- end -}}
   {{- $_ := set .podSpec.initContainers "redis-wait" $container -}}
@@ -16,7 +16,7 @@
 {{- $container := include "tc.v1.common.lib.deps.wait.mariadb" $ | fromYaml -}}
 {{- if $container -}}
   {{- range .Values.workload -}}
-    {{- if not (hasKey . "initContainers") -}}
+    {{- if not (hasKey .podSpec "initContainers") -}}
       {{- $_ := set .podSpec "initContainers" dict -}}
     {{- end -}}
   {{- $_ := set .podSpec.initContainers "mariadb-wait" $container -}}
@@ -28,7 +28,7 @@
 {{- $container := include "tc.v1.common.lib.deps.wait.mongodb" $ | fromYaml -}}
 {{- if $container -}}
   {{- range .Values.workload -}}
-    {{- if not (hasKey . "initContainers") -}}
+    {{- if not (hasKey .podSpec "initContainers") -}}
       {{- $_ := set .podSpec "initContainers" dict -}}
     {{- end -}}
   {{- $_ := set .podSpec.initContainers "mongodb-wait" $container -}}
@@ -40,7 +40,7 @@
 {{- $container := include "tc.v1.common.lib.deps.wait.clickhouse" $ | fromYaml -}}
 {{- if $container -}}
   {{- range .Values.workload -}}
-    {{- if not (hasKey . "initContainers") -}}
+    {{- if not (hasKey .podSpec "initContainers") -}}
       {{- $_ := set .podSpec "initContainers" dict -}}
     {{- end -}}
     {{- $_ := set .podSpec.initContainers "clickhouse-wait" $container -}}
@@ -52,7 +52,7 @@
 {{- $container := include "tc.v1.common.lib.deps.wait.solr" $ | fromYaml -}}
 {{- if $container -}}
   {{- range .Values.workload -}}
-    {{- if not (hasKey . "initContainers") -}}
+    {{- if not (hasKey .podSpec "initContainers") -}}
       {{- $_ := set .podSpec "initContainers" dict -}}
     {{- end -}}
   {{- $_ := set .podSpec.initContainers "solr-wait" $container -}}
@@ -65,7 +65,7 @@
 {{- $container := include "tc.v1.common.lib.deps.wait.cnpg" $ | fromYaml -}}
 {{- if $container -}}
   {{- range $.Values.workload -}}
-    {{- if not (hasKey . "initContainers") -}}
+    {{- if not (hasKey .podSpec "initContainers") -}}
       {{- $_ := set .podSpec "initContainers" dict -}}
     {{- end -}}
     {{- $_ := set .podSpec.initContainers "cnpg-wait" $container -}}
