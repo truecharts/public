@@ -34,10 +34,19 @@ persistence:
   uploads:
     enabled: true
     mountPath: /usr/src/app/upload
+    targetSelector:
+      main:
+        main: {}
+        ml: {}
+        microservices: {}
   modelcache:
     enabled: true
     type: emptyDir
     mountPath: /cache
+    targetSelector:
+      main:
+        main: {}
+        ml: {}
 cnpg:
   main:
     enabled: true

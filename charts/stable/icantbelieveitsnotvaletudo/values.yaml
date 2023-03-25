@@ -20,12 +20,10 @@ persistence:
     mountPath: "/config"
   settings:
     enabled: true
-    mountPath: "/app/config.json"
-    subPath: "config.json"
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: '{{ printf "%v-settings" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
+    mountPath: /app/config.json
+    subPath: config.json
+    type: configmap
+    objectName: settings
 config:
   mapsettings:
     drawPath: true
