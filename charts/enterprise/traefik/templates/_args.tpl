@@ -24,24 +24,28 @@ args:
   {{- end }}
   - "--api.dashboard=true"
   - "--ping=true"
-  {{- if .Values.metrics }}
-  {{- if .Values.metrics.datadog }}
+  {{- if .Values.traefikMetrics }}
+  {{- if .Values.traefikMetrics.datadog }}
   - "--metrics.datadog=true"
-  - "--metrics.datadog.address={{ .Values.metrics.datadog.address }}"
+  - "--metrics.datadog.address={{ .Values.traefikMetrics.datadog.address }}"
   {{- end }}
-  {{- if .Values.metrics.influxdb }}
+  {{- if .Values.traefikMetrics.influxdb }}
   - "--metrics.influxdb=true"
-  - "--metrics.influxdb.address={{ .Values.metrics.influxdb.address }}"
-  - "--metrics.influxdb.protocol={{ .Values.metrics.influxdb.protocol }}"
+  - "--metrics.influxdb.address={{ .Values.traefikMetrics.influxdb.address }}"
+  - "--metrics.influxdb.protocol={{ .Values.traefikMetrics.influxdb.protocol }}"
   {{- end }}
-  {{- if .Values.metrics.prometheus }}
+  {{- if .Values.traefikMetrics.statsd }}
+  - "--metrics.statsd=true"
+  - "--metrics.statsd.address={{ .Values.traefikMetrics.statsd.address }}"
+  {{- if or .Values.traefikMetrics.prometheus }}
   - "--metrics.prometheus=true"
   - "--metrics.prometheus.entrypoint=metrics"
   {{- end }}
-  {{- if .Values.metrics.statsd }}
-  - "--metrics.statsd=true"
-  - "--metrics.statsd.address={{ .Values.metrics.statsd.address }}"
   {{- end }}
+  {{- end }}
+  {{- if or .Values.metrics.main.enabled }}
+  - "--metrics.prometheus=true"
+  - "--metrics.prometheus.entrypoint=metrics"
   {{- end }}
   {{- if .Values.providers.kubernetesCRD.enabled }}
   - "--providers.kubernetescrd"
