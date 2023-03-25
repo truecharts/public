@@ -117,11 +117,11 @@ env:
   POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
   POSTGRES_PASSWORD:
     secretKeyRef:
-        name: dbcreds
+        name: cnpg-main-user
         key: password
   POSTGRES_HOST:
     secretKeyRef:
-        name: dbcreds
+        name: cnpg-main-urls
         key: porthost
   REDIS_HOST:
     secretKeyRef:

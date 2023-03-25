@@ -63,6 +63,7 @@ persistence:
         prestart: {}
   varrun:
     enabled: true
+    mountPath: "/var/run"
     targetSelector:
       cron:
         cron: {}
