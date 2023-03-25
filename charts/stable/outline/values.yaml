@@ -41,10 +41,11 @@ workload:
             DATABASE_URL:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: url-noql
+                key: std
             REDIS_URL:
               secretKeyRef:
-                name: rediscreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: url
             SECRET_KEY:
               secretKeyRef:
