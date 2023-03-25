@@ -7,7 +7,7 @@
 {{- $_ := set .Values.configmap "invidious-config" $configmap -}}
 {{- end -}}
 
-{{- $_ := set .Values.workload.main.podSpec.initContainers "dbseed" (include "invidious.dbseed" . | fromYaml) -}}
+{{- $_ := mustMergeOverwrite .Values.workload.main.podSpec (include "invidious.dbseed" . | fromYaml) -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
