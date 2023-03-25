@@ -30,23 +30,6 @@ persistence:
     enabled: true
     mountPath: "/var/lib/gitea"
     type: emptyDir
-    targetSelectAll: true
-  init-secret:
-    enabled: true
-    mountPath: /usr/sbin/init_directory_structure.sh
-    objectName: init
-    type: secret
-    targetSelector:
-      main:
-        1-init-directories: {}
-  configure-secret:
-    enabled: true
-    mountPath: /usr/sbin/configure_gitea.sh
-    objectName: init
-    type: secret
-    targetSelector:
-      main:
-        2-configure-gitea: {}
 # Configure commit/action signing prerequisites
 signing:
   enabled: true

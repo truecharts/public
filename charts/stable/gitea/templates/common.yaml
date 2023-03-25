@@ -16,20 +16,32 @@
 {{/* Append the general secret volumes to the volumes */}}
 {{- define "gitea.initvolume" -}}
 enabled: true
-mountPath: "/secrets/ini"
 readOnly: true
 type: secret
 objectName: init
 defaultMode: "0777"
+targetSelector:
+  main:
+    main:
+      mountPath: /secrets/ini
+    1-init-directories:
+      mountPath: "/usr/sbin"
+    2-configure-gitea:
+      mountPath: "/usr/sbin"
 {{- end -}}
 
 {{/* Append the general secret volumes to the volumes */}}
 {{- define "gitea.configvolume" -}}
 enabled: true
-mountPath: "/secrets/config"
 readOnly: true
 type: secret
 objectName: secret
+targetSelector:
+  main:
+    main:
+      mountPath: /secrets/config
+    1-init-directories:
+      mountPath: /etc/gitea/conf
 {{- end -}}
 
 {{- $_ := set .Values.persistence "init" (include "gitea.initvolume" . | fromYaml) -}}
