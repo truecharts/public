@@ -17,7 +17,7 @@ envFrom:
   - configMapRef:
       name: 'server-config'
   - secretRef:
-      name: 'immich-secret'
+      name: 'secret'
 env:
   DB_PASSWORD:
     secretKeyRef:

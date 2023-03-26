@@ -8,7 +8,7 @@ command:
   - ./start-microservices.sh
 envFrom:
   - secretRef:
-      name: 'immich-secret'
+      name: 'secret'
   - configMapRef:
       name: 'common-config'
   - configMapRef:
