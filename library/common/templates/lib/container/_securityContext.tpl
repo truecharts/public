@@ -69,7 +69,7 @@ objectData: The object data to be used to render the container.
   {{/* Initialize from the "global" options */}}
   {{- $secContext := mustDeepCopy $rootCtx.Values.securityContext.container -}}
 
-  {{/* Override with container's options */}}
+  {{/* Override with containers options */}}
   {{- with $objectData.securityContext -}}
     {{- $secContext = mustMergeOverwrite $secContext . -}}
   {{- end -}}
@@ -129,6 +129,17 @@ objectData: The object data to be used to render the container.
     {{- if not (mustHas "NET_BIND_SERIVCE" $addCap) -}}
       {{- $addCap = mustAppend $addCap "NET_BIND_SERVICE" -}}
     {{- end -}}
+    {{- $_ := set $secContext.capabilities "add" $addCap -}}
+  {{- end -}}
+
+  {{/*
+    Most containers that run as root, is because it has to chown
+    files before switching to another user.
+    Lets add automatically the CHOWN cap.
+  */}}
+  {{- if eq (int $secContext.runAsUser) 0 -}}
+    {{- $addCap := $secContext.capabilities.add -}}
+    {{- $addCap = mustAppend $addCap "CHOWN" -}}
     {{- $_ := set $secContext.capabilities "add" $addCap -}}
   {{- end -}}
 

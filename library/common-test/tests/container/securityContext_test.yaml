@@ -90,7 +90,8 @@ tests:
               seccompProfile:
                 type: RuntimeDefault
               capabilities:
-                add: []
+                add:
+                  - CHOWN
                 drop:
                   - ALL
 
@@ -493,7 +494,8 @@ tests:
               seccompProfile:
                 type: RuntimeDefault
               capabilities:
-                add: []
+                add:
+                  - CHOWN
                 drop:
                   - ALL
 
@@ -564,7 +566,8 @@ tests:
               seccompProfile:
                 type: RuntimeDefault
               capabilities:
-                add: []
+                add:
+                  - CHOWN
                 drop:
                   - ALL
 
