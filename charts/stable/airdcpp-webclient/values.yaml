@@ -6,6 +6,7 @@ service:
   main:
     ports:
       main:
+        protocol: tcp
         port: 10155
         targetPort: 5600
   unencrypted-tcp:
@@ -13,6 +14,7 @@ service:
     ports:
       unencrypted-tcp:
         enabled: true
+        protocol: tcp
         port: 21248
         targetPort: 21248
   encrypted-tcp:
@@ -20,6 +22,7 @@ service:
     ports:
       encrypted-tcp:
         enabled: true
+        protocol: tcp
         port: 21249
         targetPort: 21249
   search-udp:
