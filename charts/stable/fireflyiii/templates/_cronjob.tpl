@@ -13,7 +13,7 @@ podSpec:
       probes:
         startup:
           enabled: false
-        readyness:
+        readiness:
           enabled: false
         liveness:
           enabled: false
@@ -23,10 +23,9 @@ podSpec:
       - "http://{{ $basename }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}/api/v1/cron/$(STATIC_CRON_TOKEN)"
       env:
         STATIC_CRON_TOKEN:
-          valueFrom:
-            secretKeyRef:
-              name: fireflyiii-secrets
-              key: STATIC_CRON_TOKEN
+          secretKeyRef:
+            name: fireflyiii-secrets
+            key: STATIC_CRON_TOKEN
 
 
 
