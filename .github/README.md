@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-173-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-174-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -358,6 +358,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/xal3xhx"><img src="https://avatars.githubusercontent.com/u/8585664?v=4?s=100" width="100px;" alt="xal3xhx"/><br /><sub><b>xal3xhx</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=xal3xhx" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/jeremybox"><img src="https://avatars.githubusercontent.com/u/33465600?v=4?s=100" width="100px;" alt="jeremybox"/><br /><sub><b>jeremybox</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=jeremybox" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/CameronSabuda"><img src="https://avatars.githubusercontent.com/u/25101288?v=4?s=100" width="100px;" alt="Cameron Sabuda"/><br /><sub><b>Cameron Sabuda</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=CameronSabuda" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/edmeister"><img src="https://avatars.githubusercontent.com/u/702527?v=4?s=100" width="100px;" alt="Jeroen Schepens"/><br /><sub><b>Jeroen Schepens</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Aedmeister" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
