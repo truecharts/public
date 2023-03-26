@@ -24,7 +24,7 @@ podSpec:
       env:
         STATIC_CRON_TOKEN:
           secretKeyRef:
-            name: fireflyiii-secrets
+            name: secrets
             key: STATIC_CRON_TOKEN
 
 
