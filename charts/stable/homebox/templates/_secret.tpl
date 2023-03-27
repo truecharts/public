@@ -1,17 +1,8 @@
 {{/* Define the secret */}}
 {{- define "homebox.secret" -}}
 
-{{- $secretName := printf "%s-homebox-secret" (include "tc.common.names.fullname" .) }}
-
----
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+enabled: true
+data:
   HBOX_MODE: production
   HBOX_SWAGGER_SCHEMA: {{ .Values.service.main.ports.main.protocol | lower }}
   HBOX_STORAGE_DATA: {{ .Values.persistence.data.mountPath }}

@@ -1,20 +1,22 @@
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{/* Append the hardcoded settings */}}
 {{- define "focalboard.harcodedValues" -}}
 persistence:
   focalboard-config:
-    enabled: "true"
+    enabled: true
+    type: configmap
     mountPath: "/opt/focalboard/config.json"
     subPath: "focalboard-config"
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: {{ printf "%v-install" (include "tc.common.names.fullname" .) }}
+    objectName: install
 {{- end -}}
 {{- $_ := mergeOverwrite .Values (include "focalboard.harcodedValues" . | fromYaml) -}}
 
-{{- include "focalboard.configmap" . }}
+{{/* Render configmap for focalboard */}}
+{{- $configmap := include "focalboard.configmap" . | fromYaml -}}
+{{- if $configmap -}}
+  {{- $_ := set .Values.configmap "install" $configmap -}}
+{{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

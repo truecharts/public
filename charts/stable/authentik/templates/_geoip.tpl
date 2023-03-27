@@ -1,20 +1,19 @@
 {{/* Define the geoip container */}}
 {{- define "authentik.geoip" -}}
-image: {{ .Values.geoipImage.repository }}:{{ .Values.geoipImage.tag }}
-imagePullPolicy: {{ .Values.geoipImage.pullPolicy }}
-securityContext:
-  runAsUser: 0
-  runAsGroup: 0
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-volumeMounts:
-  - name: geoip
-    mountPath: "/usr/share/GeoIP"
+enabled: true
+imageSelector: geoipImage
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-geoip-secret'
+      name: 'geoip-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-geoip-config'
+      name: 'geoip-config'
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
 {{/* TODO: Add healthchecks */}}
 {{/* TODO: https://github.com/maxmind/geoipupdate/issues/105 */}}
 {{- end -}}

@@ -2,23 +2,6 @@ image:
   repository: tccr.io/truecharts/tdarr
   pullPolicy: IfNotPresent
   tag: 2.00.19.1@sha256:f772a66f8bfce1f43df9d208176ae46396d9169566412b3c930efcb4a6a88c75
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-env:
-  webUIPort: "{{ .Values.service.main.ports.main.port }}"
-  serverPort: "{{ .Values.service.comm.ports.comm.port }}"
-  # User Defined
-  internalNode: true
-  serverIP: "localhost"
-  nodeID: "Internal Node"
-
 service:
   main:
     ports:
@@ -30,7 +13,6 @@ service:
       comm:
         enabled: true
         port: 8266
-
 persistence:
   configs:
     enabled: true
@@ -49,6 +31,24 @@ persistence:
     mountPath: "/media"
   varrun:
     enabled: true
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            webUIPort: "{{ .Values.service.main.ports.main.port }}"
+            serverPort: "{{ .Values.service.comm.ports.comm.port }}"
+            # User Defined
+            internalNode: true
+            serverIP: "localhost"
+            nodeID: "Internal Node"

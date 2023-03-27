@@ -1,7 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "invidious.config" -}}
 
-{{- $configName := printf "%s-invidious-config" (include "tc.common.names.fullname" .) }}
 {{- $vNet := .Values.invidious.network }}
 {{- $vLog := .Values.invidious.logging }}
 {{- $vFeat := .Values.invidious.features }}
@@ -16,22 +15,17 @@
 {{- $vVidPlay := .Values.invidious.default_user_preferences.video_playback_settings }}
 {{- $vSubFeed := .Values.invidious.default_user_preferences.subscription_feed }}
 {{- $vUserMisc := .Values.invidious.default_user_preferences.miscellaneous }}
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: {{ $configName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+
+enabled: true
+data:
   INVIDIOUS_CONFIG: |
     # Database
     check_tables: true
     db:
-      user: {{ .Values.postgresql.postgresqlUsername }}
-      dbname: {{ .Values.postgresql.postgresqlDatabase }}
-      password: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
-      host: {{ .Values.postgresql.url.plain | trimAll "\"" }}
+      user: {{ .Values.cnpg.main.user }}
+      dbname: {{ .Values.cnpg.main.database }}
+      password: {{ .Values.cnpg.main.creds.password }}
+      host: {{ .Values.cnpg.main.creds.plain }}
       port: 5432
 
     # Network

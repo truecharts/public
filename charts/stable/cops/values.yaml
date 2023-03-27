@@ -2,23 +2,13 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/cops
   tag: latest@sha256:45bfd8322049dd140386c55256b8da0a43bc9181e616017820ddbef1199cd6ea
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
 service:
   main:
     ports:
       main:
         port: 10609
-        protocol: HTTP
+        protocol: http
         targetPort: 80
-
 persistence:
   config:
     enabled: true
@@ -26,6 +16,18 @@ persistence:
   books:
     enabled: true
     mountPath: /books
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env: {}

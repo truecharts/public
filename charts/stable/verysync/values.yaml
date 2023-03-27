@@ -2,7 +2,6 @@ image:
   repository: tccr.io/truecharts/verysync
   tag: 2.16.0@sha256:815042c0fe90f623d0fff9de007a22e3a9014bc5c3a065c3cfad1a6f03056e0f
   pullPolicy: IfNotPresent
-
 service:
   main:
     ports:
@@ -15,7 +14,7 @@ service:
         enabled: true
         port: 22037
         targetPort: 22037
-        protocol: UDP
+        protocol: udp
   bt-udp2:
     enabled: true
     ports:
@@ -23,7 +22,7 @@ service:
         enabled: true
         port: 22027
         targetPort: 22027
-        protocol: UDP
+        protocol: udp
   data:
     enabled: true
     ports:
@@ -31,10 +30,6 @@ service:
         enabled: true
         port: 22330
         targetPort: 22330
-
-env:
-  PORT: "{{ .Values.service.main.ports.main.port }}"
-
 persistence:
   data:
     enabled: true
@@ -42,6 +37,14 @@ persistence:
   sync:
     enabled: true
     mountPath: "/Sync"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"

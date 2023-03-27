@@ -1,8 +1,8 @@
 {{/* Define the secret */}}
 {{- define "meshcentral.secret" -}}
 
-{{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) -}}
-{{- $secretStorageName := printf "%s-storage-secret" (include "tc.common.names.fullname" .) -}}
+{{- $secretName := printf "%s-secret" (include "tc.v1.common.lib.chart.names.fullname" .) -}}
+{{- $secretStorageName := printf "%s-storage-secret" (include "tc.v1.common.lib.chart.names.fullname" .) -}}
 
 {{- $config := .Values.meshcentral -}}
 {{- $mc_custom := .Values.additional_meshcentral -}}
@@ -42,7 +42,7 @@
   {{- $_ := set $config "settings" dict -}}
 {{- end -}}
 
-{{- $_ := set $config.settings "mongoDB" (.Values.mongodb.url.complete | trimAll "\"") -}}
+{{- $_ := set $config.settings "mongoDB" (.Values.mongodb.creds.complete | trimAll "\"") -}}
 {{- $_ := set $config.settings "mongoDbName" .Values.mongodb.mongodbDatabase -}}
 {{- $_ := set $config.settings "sessionKey" $sessionKey -}}
 {{- $_ := set $config.settings "port" .Values.service.main.ports.main.port -}}
@@ -66,30 +66,18 @@
   {{- $config = (include "prune.keys" $config) -}}
 {{- end }}
 
----
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretStorageName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-data:
-  {{/* Store session_key to reuse */}}
-  session_key: {{ $sessionKey | b64enc }}
+storage-secret:
+  enabled: true
+  data:
+    {{/* Store session_key to reuse */}}
+    session_key: {{ $sessionKey }}
 
----
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-data:
-  {{/* The actual config */}}
-  config.json: |
-    {{- toPrettyJson (fromYaml $config) | b64enc | nindent 4 }}
+secret:
+  enabled: true
+  data:
+    {{/* The actual config */}}
+    config.json: |
+      {{- toPrettyJson (fromYaml $config) | nindent 6 }}
 {{- end -}}
 
 {{/* Prunes keys that start with _ */}}

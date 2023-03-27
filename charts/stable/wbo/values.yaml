@@ -2,11 +2,6 @@ image:
   repository: tccr.io/truecharts/wbo
   tag: 1.19.1@sha256:d0c575eb6971f8ff78dc34c197d53ba18403a8527ce5545989ac4c5256ef1f9f
   pullPolicy: IfNotPresent
-
-podSecurityContext:
-  runAsUser: 1000
-  runAsGroup: 1000
-
 wbo:
   auth_secret_key: ""
   save_interval: 2000
@@ -19,24 +14,30 @@ wbo:
   auto_finger_whiteout: true
   blocked_tools: []
   blocked_selection_buttons: []
-
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-config'
-
 service:
   main:
     ports:
       main:
         port: 10354
-        protocol: HTTP
-
+        protocol: http
 persistence:
   data:
     enabled: true
     mountPath: /opt/app/server-data
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsUser: 1000
+    runAsGroup: 1000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: "secret"
+            - configMapRef:
+                name: "config"

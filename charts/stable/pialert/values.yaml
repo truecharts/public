@@ -2,17 +2,7 @@ image:
   repository: tccr.io/truecharts/pialert
   pullPolicy: IfNotPresent
   tag: latest@sha256:c319211da48c6fbfc7cfa369cc0763a5bdfb7516b7132e3cb2c953dddeed3505
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 hostNetwork: true
-
 pialert:
   general:
     dark_mode: true
@@ -23,10 +13,9 @@ pialert:
     days_to_keep_events: 90
     scan_cycle_minutes: 5
     included_sections: []
-    scan_subnets:
-      []
-      # - cidr: "192.168.1.0/24"
-      #   interface: eth0
+    scan_subnets: []
+    # - cidr: "192.168.1.0/24"
+    #   interface: eth0
   pushsafer:
     enabled: false
     token: ""
@@ -82,19 +71,12 @@ pialert:
     pihole_active: false
     # If enabled you need to map '/etc/pihole/dhcp.leases' with additional storage
     dhcp_active: false
-
-env:
-  HOST_USER_ID: "{{ .Values.podSecurityContext.runAsUser }}"
-  HOST_USER_GID: "{{ .Values.podSecurityContext.fsGroup }}"
-  PORT: "{{ .Values.service.main.ports.main.port }}"
-
 service:
   main:
     ports:
       main:
-        protocol: HTTP
+        protocol: http
         port: 10600
-
 persistence:
   config:
     enabled: true
@@ -102,41 +84,55 @@ persistence:
   db:
     enabled: true
     mountPath: /home/pi/pialert/db
+    targetSelectAll: true
+
   pialert-config:
     enabled: true
-    noMount: true
     type: secret
-    objectName: '{{ template "tc.common.names.fullname" . }}-secret'
-
-initContainers:
-  init:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    volumeMounts:
-      - name: db
-        mountPath: /home/pi/pialert/db
-      - name: config
-        mountPath: /home/pi/pialert/config
-      - name: pialert-config
-        mountPath: /tc-pialert.conf
-        subPath: pialert.conf
-    command: ["/bin/sh", "-c"]
-    args:
-      - |
-        dark_file="/home/pi/pialert/db/setting_darkmode"
-        temp_config_file="/tc-pialert.conf"
-        config_file="/home/pi/pialert/config/pialert.conf"
-        echo "Copying config file into it's directory.."
-        cp -f "$temp_config_file" "$config_file" && echo "Copied config file successfully!" || echo "Failed to copy config file..."
-        {{- if .Values.pialert.general.dark_mode }}
-        echo "Enabling dark mode file..."
-        touch "$dark_file" && echo "Created dark mode file!" || echo "Failed to create dark mode file..."
-        {{- else }}
-        if [ -f "$dark_file" ]; then
-          rm -f $dark_file && echo "Dark mode file removed!" || echo "Failed to remove dark mode file..."
-        else
-          echo "Dark mode file does not exist, no action is needed."
-        fi
-        {{- end }}
+    objectName: secret
+    mountPath: /tc-pialert.conf
+    targetSelector:
+      main:
+        init: {}
 
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      initContainers:
+        init:
+          imageSelector: image
+          enabled: true
+          type: init
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              dark_file="/home/pi/pialert/db/setting_darkmode"
+              temp_config_file="/tc-pialert.conf"
+              config_file="/home/pi/pialert/config/pialert.conf"
+              echo "Copying config file into it's directory.."
+              cp -f "$temp_config_file" "$config_file" && echo "Copied config file successfully!" || echo "Failed to copy config file..."
+              {{- if .Values.pialert.general.dark_mode }}
+              echo "Enabling dark mode file..."
+              touch "$dark_file" && echo "Created dark mode file!" || echo "Failed to create dark mode file..."
+              {{- else }}
+              if [ -f "$dark_file" ]; then
+                rm -f $dark_file && echo "Dark mode file removed!" || echo "Failed to remove dark mode file..."
+              else
+                echo "Dark mode file does not exist, no action is needed."
+              fi
+              {{- end }}
+      containers:
+        main:
+          env:
+            HOST_USER_ID: "{{ .Values.securityContext.container.runAsUser }}"
+            HOST_USER_GID: "{{ .Values.securityContext.pod.fsGroup }}"
+            PORT: "{{ .Values.service.main.ports.main.port }}"

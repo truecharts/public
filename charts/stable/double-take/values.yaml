@@ -2,18 +2,22 @@ image:
   repository: tccr.io/truecharts/double-take
   pullPolicy: IfNotPresent
   tag: 1.13.1@sha256:4bf165d90b8a57774a4ef363952dfd21e79978d306af1a0bc103096c8f7a87d6
-
 service:
   main:
     ports:
       main:
         targetPort: 3000
         port: 10200
-
 persistence:
   data:
     enabled: true
     mountPath: "/.storage"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env: {}

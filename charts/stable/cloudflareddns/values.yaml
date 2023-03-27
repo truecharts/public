@@ -2,15 +2,6 @@ image:
   repository: tccr.io/truecharts/cloudflareddns
   pullPolicy: IfNotPresent
   tag: latest@sha256:38cfa51e720b20db8650b077d8ee7d49b9beb10942703ba2796c915f8b4766f5
-
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 cloudflareddns:
   user: your.cf.email@example.com
   api_token: ""
@@ -20,43 +11,48 @@ cloudflareddns:
   detect_mode: dig-whoami.cloudflare
   detect_override: ""
   log_level: 3
-  host_zone_record:
-    []
-    # - domain: example.com
-    #   zone: example.com
-    #   record: A
-    # - domain: foobar.com
-    #   zone: foobar.com
-    #   record: A
-    # - domain: foobar.com
-    #   zone: foobar.com
-    #   record: AAAA
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
-
+  host_zone_record: []
+  # - domain: example.com
+#   zone: example.com
+#   record: A
+# - domain: foobar.com
+#   zone: foobar.com
+#   record: A
+# - domain: foobar.com
+#   zone: foobar.com
+#   record: AAAA
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-  varrun:
-    enabled: true
-
 portal:
-  enabled: false
+  open:
+    enabled: false
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          envFrom:
+            - secretRef:
+                name: "secret"
+          env: {}

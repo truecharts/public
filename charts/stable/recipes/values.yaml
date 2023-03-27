@@ -2,19 +2,9 @@ image:
   repository: tccr.io/truecharts/recipes
   tag: 1.4.7@sha256:4183ea7125b07e0009796688219ebedeede5ff79ad42f16f96a4862d743bd0af
   pullPolicy: IfNotPresent
-
 nginxImage:
   repository: tccr.io/truecharts/nginx
   tag: 1.23.3@sha256:0d92357c536291f04dad45f9af95dbdad46fb7a6e940f981a3a332f9d5279665
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 configmap:
   config:
     enabled: true
@@ -46,78 +36,97 @@ configmap:
           }
         }
 
-env:
-  DEBUG: 0
-  ALLOWED_HOSTS: "*"
-  CSRF_TRUSTED_ORIGINS: ""
-  GUNICORN_MEDIA: 0
-  FRACTION_PREF_DEFAULT: 0
-  COMMENT_PREF_DEFAULT: 1
-  SHOPPING_MIN_AUTOSYNC_INTERVAL: 5
-  TIMEZONE: "{{ .Values.TZ }}"
-  DB_ENGINE: "django.db.backends.postgresql"
-  POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
-  POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  POSTGRES_PORT: "5432"
-  POSTGRES_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  POSTGRES_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  SECRET_KEY:
-    secretKeyRef:
-      name: recipes-secrets
-      key: SECRET_KEY
-
-additionalContainers:
-  nginx:
-    name: nginx
-    image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
-    ports:
-      - containerPort: 80
-        name: main
-    volumeMounts:
-      - name: recipes-config
-        mountPath: "/etc/nginx/nginx.conf"
-        subPath: nginx-config
-        readOnly: true
-      - name: media
-        mountPath: "/media"
-      - name: static
-        mountPath: "/static"
-
 service:
   main:
+    targetSelector: main
     ports:
       main:
         port: 10029
         targetPort: 80
-
+        targetSelector: nginx
 persistence:
   media:
     enabled: true
     mountPath: "/opt/recipes/mediafiles"
+    targetSelector:
+      main:
+        main: {}
+        nginx:
+          mountPath: "/media"
   static:
     enabled: true
     type: emptyDir
     mountPath: "/opt/recipes/staticfiles"
+    targetSelector:
+      main:
+        main: {}
+        nginx:
+          mountPath: "/static"
   recipes-config:
-    enabled: "true"
+    enabled: true
     mountPath: "/etc/nginx/nginx.conf"
-    subPath: "nginx.conf"
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: '{{ printf "%v-config" (include "tc.common.names.fullname" .) }}'
+    subPath: "nginx-config"
+    readOnly: true
+    type: configmap
+    objectName: config
+    targetSelector:
+      main:
+        nginx: {}
+cnpg:
+  main:
+    enabled: true
 
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: recipes
-  postgresqlDatabase: recipes
-
+    user: recipes
+    database: recipes
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DEBUG: 0
+            ALLOWED_HOSTS: "*"
+            CSRF_TRUSTED_ORIGINS: ""
+            GUNICORN_MEDIA: 0
+            FRACTION_PREF_DEFAULT: 0
+            COMMENT_PREF_DEFAULT: 1
+            SHOPPING_MIN_AUTOSYNC_INTERVAL: 5
+            TIMEZONE: "{{ .Values.TZ }}"
+            DB_ENGINE: "django.db.backends.postgresql"
+            POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            POSTGRES_PORT: "5432"
+            POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            POSTGRES_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            SECRET_KEY:
+              secretKeyRef:
+                name: secrets
+                key: SECRET_KEY
+        nginx:
+          enabled: true
+          imageSelector: nginxImage
+          probes:
+            liveness:
+              enabled: true
+              port: "{{ .Values.service.main.ports.main.port }}"
+            readiness:
+              enabled: true
+              port: "{{ .Values.service.main.ports.main.port }}"
+            startup:
+              enabled: true
+              port: "{{ .Values.service.main.ports.main.port }}"

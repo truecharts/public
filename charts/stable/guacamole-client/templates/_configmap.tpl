@@ -1,10 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "guacamole-client.configmap" -}}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: guacamole-client-env
+enabled: true
 data:
   {{/* GENERAL */}}
   {{- with .Values.general.EXTENSION_PRIORITY }}

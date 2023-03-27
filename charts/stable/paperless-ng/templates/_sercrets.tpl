@@ -1,20 +1,15 @@
 {{/* Define the secrets */}}
 {{- define "paperlessng.secrets" -}}
----
+{{- $secretName := (printf "%s-paperlessng-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+{{- $paperlessprevious := lookup "v1" "Secret" .Release.Namespace $secretName }}
+enabled: true
 
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: paperlessng-secrets
-{{- $paperlessprevious := lookup "v1" "Secret" .Release.Namespace "paperlessng-secrets" }}
-{{- $secret_key := "" }}
 data:
-  {{- if $paperlessprevious}}
-  PAPERLESS_SECRET_KEY: {{ index $paperlessprevious.data "PAPERLESS_SECRET_KEY" }}
+  {{- if $paperlessprevious }}
+  PAPERLESS_SECRET_KEY: {{ index $paperlessprevious.data "PAPERLESS_SECRET_KEY" | b64dec }}
   {{- else }}
   {{- $secret_key := randAlphaNum 32 }}
-  PAPERLESS_SECRET_KEY: {{ $secret_key | b64enc  }}
+  PAPERLESS_SECRET_KEY: {{ $secret_key }}
   {{- end }}
 
 {{- end -}}

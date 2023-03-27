@@ -3,11 +3,11 @@ appVersion: "1.2.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.2.30
   - condition: mariadb.enabled
     name: mariadb
     repository: https://deps.truecharts.org/
-    version: 5.0.35
+    version: 7.0.0
 description: Typecho is a PHP Blogging Platform.
 home: https://truecharts.org/charts/stable/typecho
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/typecho.png
@@ -28,4 +28,3 @@ annotations:
   truecharts.org/catagories: |
     - hosting
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

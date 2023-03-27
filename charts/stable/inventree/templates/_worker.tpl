@@ -1,19 +1,28 @@
 {{/* Define the worker container */}}
 {{- define "inventree.worker" -}}
-image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+enabled: true
+imageSelector: image
 imagePullPolicy: '{{ .Values.image.pullPolicy }}'
 command: ["invoke", "worker"]
-securityContext:
-  runAsUser: {{ .Values.podSecurityContext.runAsUser }}
-  runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
-  readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
-  runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
-volumeMounts:
-  - name: data
-    mountPath: "/home/inventree/data"
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-inventree-secret'
+      name: 'secrets'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-inventree-config'
+      name: 'config'
+probes:
+  startup:
+    enabled: false
+  readyness:
+    enabled: false
+  liveness:
+    enabled: false
+env:
+  INVENTREE_DB_PASSWORD:
+    secretKeyRef:
+      name: cnpg-main-user
+      key: password
+  INVENTREE_DB_HOST:
+    secretKeyRef:
+      name: cnpg-main-urls
+      key: plainporthost
 {{- end -}}

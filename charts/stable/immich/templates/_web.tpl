@@ -1,44 +1,41 @@
 {{/* Define the web container */}}
 {{- define "immich.web" -}}
-  {{- if hasKey .Values "imageWeb" -}} {{/* For smooth upgrade, Remove later */}}
-    {{- $img := .Values.imageWeb -}}
-    {{- $_ := set .Values "webImage" (dict "repository" $img.repository "tag" $img.tag "pullPolicy" $img.pullPolicy) -}}
-  {{- end }}
-image: {{ .Values.webImage.repository }}:{{ .Values.webImage.tag }}
+enabled: true
+imageSelector: webImage
 imagePullPolicy: {{ .Values.webImage.pullPolicy }}
-securityContext:
-  runAsUser: {{ .Values.podSecurityContext.runAsUser }}
-  runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
-  readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
-  runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 command:
   - /bin/sh
   - ./entrypoint.sh
 envFrom:
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-common-config'
-readinessProbe:
-  httpGet:
+      name: 'common-config'
+probes:
+  readiness:
     path: /
     port: 3000
-  initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
-  timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
-  periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
-  failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
-livenessProbe:
-  httpGet:
+  liveness:
     path: /
     port: 3000
-  initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
-  timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
-  periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
-  failureThreshold: {{ .Values.probes.liveness.spec.failureThreshold }}
-startupProbe:
-  httpGet:
+  startup:
     path: /
     port: 3000
-  initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
-  timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
-  periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
-  failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
+env:
+  DB_PASSWORD:
+    secretKeyRef:
+      name: cnpg-main-user
+      key: password
+  DB_HOSTNAME:
+    secretKeyRef:
+      name: cnpg-main-urls
+      key: plainporthost
+  REDIS_HOSTNAME:
+    secretKeyRef:
+      expandObjectName: false
+      name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+      key: plainhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      expandObjectName: false
+      name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+      key: redis-password
 {{- end -}}

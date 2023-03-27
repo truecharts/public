@@ -1,56 +1,57 @@
 {{/* Define the ml container */}}
 {{- define "immich.microservices" -}}
-image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+enabled: true
+imageSelector: image
 imagePullPolicy: {{ .Values.image.pullPolicy }}
-securityContext:
-  runAsUser: {{ .Values.podSecurityContext.runAsUser }}
-  runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
-  readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
-  runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 command:
   - /bin/sh
   - ./start-microservices.sh
-volumeMounts:
-  - name: uploads
-    mountPath: {{ .Values.persistence.uploads.mountPath }}
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-immich-secret'
+      name: 'secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-common-config'
+      name: 'common-config'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-server-config'
-readinessProbe:
-  exec:
-    command:
-      - /bin/sh
-      - -c
-      - |
-        ps -a | grep -v grep | grep -q microservices || exit 1
-  initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
-  timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
-  periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
-  failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
-livenessProbe:
-  exec:
-    command:
-      - /bin/sh
-      - -c
-      - |
-        ps -a | grep -v grep | grep -q microservices || exit 1
-  initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
-  timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
-  periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
-  failureThreshold: {{ .Values.probes.liveness.spec.failureThreshold }}
-startupProbe:
-  exec:
-    command:
-      - /bin/sh
-      - -c
-      - |
-        ps -a | grep -v grep | grep -q microservices || exit 1
-  initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
-  timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
-  periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
-  failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
+      name: 'server-config'
+env:
+  DB_PASSWORD:
+    secretKeyRef:
+      name: cnpg-main-user
+      key: password
+  DB_HOSTNAME:
+    secretKeyRef:
+      name: cnpg-main-urls
+      key: plainporthost
+  REDIS_HOSTNAME:
+    secretKeyRef:
+      expandObjectName: false
+      name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+      key: plainhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      expandObjectName: false
+      name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+      key: redis-password
+probes:
+  readiness:
+    exec:
+      command:
+        - /bin/sh
+        - -c
+        - |
+          ps -a | grep -v grep | grep -q microservices || exit 1
+  liveness:
+    exec:
+      command:
+        - /bin/sh
+        - -c
+        - |
+          ps -a | grep -v grep | grep -q microservices || exit 1
+  startup:
+    exec:
+      command:
+        - /bin/sh
+        - -c
+        - |
+          ps -a | grep -v grep | grep -q microservices || exit 1
 {{- end -}}

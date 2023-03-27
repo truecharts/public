@@ -2,18 +2,6 @@ image:
   repository: tccr.io/truecharts/domoticz
   pullPolicy: IfNotPresent
   tag: 2023.1.20230220@sha256:17a4a304da063f445f0b46ca79e4b8827d885b4754b664f8026e11608ea25062
-
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-env:
-  WEBROOT: "domoticz"
-
 service:
   main:
     ports:
@@ -34,13 +22,23 @@ service:
         enabled: true
         targetPort: 1443
         port: 1443
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-  varrun:
-    enabled: true
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            WEBROOT: "domoticz"

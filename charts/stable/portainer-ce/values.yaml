@@ -8,8 +8,6 @@ imageBe:
   tag: 2.17.1@sha256:d83c8fa439ce749d4bdc68710b9c8ca2ae6e2a54b963ec47ddba6d97d4a34f36
   pullPolicy: IfNotPresent
 
-imageSelector: image
-
 portainer:
   # Logo URL
   logo: ""
@@ -18,13 +16,11 @@ portainer:
   # Sets Snapshot interval
   snapshot_interval: 5m
   hide_labels:
-    # - label1=value1
-    # - label2=value2
-
+  # - label1=value1
+  # - label2=value2
 serviceAccount:
   main:
     enabled: true
-
 rbac:
   main:
     enabled: true
@@ -35,36 +31,12 @@ rbac:
           - "*"
         verbs:
           - "*"
-
-probes:
-  liveness:
-    custom: true
-    spec:
-      httpGet:
-        path: /
-        port: 9443
-        scheme: HTTPS
-  readiness:
-    custom: true
-    spec:
-      httpGet:
-        path: /
-        port: 9443
-        scheme: HTTPS
-  startup:
-    custom: true
-    spec:
-      httpGet:
-        path: /
-        port: 9443
-        scheme: HTTPS
-
 service:
   main:
     ports:
       main:
         port: 10400
-        protocol: HTTPS
+        protocol: https
         targetPort: 9443
   edge:
     enabled: true
@@ -73,7 +45,6 @@ service:
         enabled: true
         port: 10401
         targetPort: 10401
-
 persistence:
   data:
     enabled: true
@@ -82,6 +53,35 @@ persistence:
     enabled: true
     mountPath: "/.cache"
     type: emptyDir
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+          probes:
+            liveness:
+              custom: true
+              spec:
+                httpGet:
+                  path: /
+                  port: 9443
+                  scheme: HTTPS
+            readiness:
+              custom: true
+              spec:
+                httpGet:
+                  path: /
+                  port: 9443
+                  scheme: HTTPS
+            startup:
+              custom: true
+              spec:
+                httpGet:
+                  path: /
+                  port: 9443
+                  scheme: HTTPS

@@ -2,7 +2,6 @@ image:
   repository: tccr.io/truecharts/libreddit
   tag: latest@sha256:0fef4295e8ad43f1e0de50cbf1f6d7624d7670bd8aedf59aacfe840d7fb5a53f
   pullPolicy: IfNotPresent
-
 libreddit:
   theme: system
   front_page: default
@@ -14,22 +13,12 @@ libreddit:
   use_hls: false
   hide_hls_notification: false
   autoplay_videos: false
-
-probes:
-  liveness:
-    path: "/settings"
-  readiness:
-    path: "/settings"
-  startup:
-    path: "/settings"
-
 service:
   main:
     ports:
       main:
         port: 10257
         targetPort: 8080
-
 configmap:
   libreddit:
     enabled: true
@@ -44,10 +33,22 @@ configmap:
       LIBREDDIT_DEFAULT_USE_HLS: '{{ ternary "on" "off" .Values.libreddit.use_hls }}'
       LIBREDDIT_DEFAULT_HIDE_HLS_NOTIFICATION: '{{ ternary "on" "off" .Values.libreddit.hide_hls_notification }}'
       LIBREDDIT_DEFAULT_AUTOPLAY_VIDEOS: '{{ ternary "on" "off" .Values.libreddit.autoplay_videos }}'
-
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-libreddit'
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/settings"
+            readiness:
+              path: "/settings"
+            startup:
+              path: "/settings"
+          envFrom:
+            - configMapRef:
+                name: "libreddit"

@@ -1,19 +1,12 @@
 {{/* Define the configmap */}}
 {{- define "statping.config" -}}
 
-{{- $configName := printf "%s-config" (include "tc.common.names.fullname" .) }}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $configName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+enabled: true
 data:
   PORT: {{ .Values.service.main.ports.main.port | quote }}
   DB_CONN: "postgres"
-  DB_DATABASE: {{ .Values.postgresql.postgresqlDatabase | quote }}
-  DB_USER: {{ .Values.postgresql.postgresqlUsername | quote }}
+  DB_DATABASE: {{ .Values.cnpg.main.database | quote }}
+  DB_USER: {{ .Values.cnpg.main.user | quote }}
   DB_PORT: "5432"
   POSTGRES_SSLMODE: "disable"
 

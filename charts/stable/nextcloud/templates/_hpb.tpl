@@ -1,52 +1,31 @@
 {{/* Define the hbp container */}}
 {{- define "nextcloud.hpb" -}}
-{{- $jobName := include "tc.common.names.fullname" . }}
-image: '{{ include "tc.common.images.selector" . }}'
-imagePullPolicy: '{{ .Values.image.pullPolicy }}'
+enabled: true
+imageSelector: image
 securityContext:
   runAsUser: 33
   runAsGroup: 33
   readOnlyRootFilesystem: true
-  runAsNonRoot: true
-{{- with (include "tc.common.controller.volumeMounts" . | trim) }}
-volumeMounts:
-  {{ nindent 2 . }}
-{{- end }}
-ports:
-  - containerPort: 7867
-readinessProbe:
-  httpGet:
+
+probes:
+  readiness:
     path: /push/test/cookie
     port: 7867
     httpHeaders:
     - name: Host
       value: "test.fakedomain.dns"
-  initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
-  periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
-  timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
-  failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
-livenessProbe:
-  httpGet:
+  liveness:
     path: /push/test/cookie
     port: 7867
     httpHeaders:
     - name: Host
       value: "test.fakedomain.dns"
-  initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
-  periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
-  timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
-  failureThreshold: {{ .Values.probes.liveness.spec.failureThreshold }}
-startupProbe:
-  httpGet:
+  startup:
     path: /push/test/cookie
     port: 7867
     httpHeaders:
     - name: Host
       value: "test.fakedomain.dns"
-  initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
-  periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
-  timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
-  failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
 command:
   - "/bin/sh"
   - "-c"
@@ -71,7 +50,7 @@ command:
     echo "Nextcloud instance with Notify_push found... Launching High Performance Backend..."
     /var/www/html/custom_apps/notify_push/bin/x86_64/notify_push /var/www/html/config/config.php &
 
-    {{- $accessurl := (  printf "http://%v:%v" ( .Values.env.AccessIP | default ( printf "%v-%v" .Release.Name "nextcloud" ) ) .Values.service.main.ports.main.port ) }}
+    {{- $accessurl := (  printf "http://%v:%v" ( .Values.workload.main.podSpec.containers.main.env.AccessIP | default ( printf "%v-%v" .Release.Name "nextcloud" ) ) .Values.service.main.ports.main.port ) }}
     {{- if .Values.ingress.main.enabled }}
       {{- with (first .Values.ingress.main.hosts) }}
       {{- $accessurl = (  printf "https://%s" .host ) }}
@@ -131,35 +110,28 @@ command:
     fg
     EOF
 env:
-  - name: NEXTCLOUD_URL
-    value: 'http://127.0.0.1:8080'
-  - name: METRICS_PORT
-    value: '7868'
-  - name: TRUSTED_PROXIES
-    value: "{{ .Values.env.TRUSTED_PROXIES }}"
-  - name: POSTGRES_DB
-    value: "{{ .Values.postgresql.postgresqlDatabase }}"
-  - name: POSTGRES_USER
-    value: "{{ .Values.postgresql.postgresqlUsername }}"
-  - name: POSTGRES_PASSWORD
-    valueFrom:
-      secretKeyRef:
-        name: dbcreds
-        key: postgresql-password
-  - name: POSTGRES_HOST
-    valueFrom:
-      secretKeyRef:
-        name: dbcreds
-        key: plainporthost
-  - name: REDIS_HOST
-    valueFrom:
-      secretKeyRef:
-        name: rediscreds
+  NEXTCLOUD_URL: 'http://127.0.0.1:8080'
+  METRICS_PORT: '7868'
+  TRUSTED_PROXIES: "{{ .Values.workload.main.podSpec.containers.main.env.TRUSTED_PROXIES }}"
+  POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
+  POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+  POSTGRES_PASSWORD:
+    secretKeyRef:
+        name: cnpg-main-user
+        key: password
+  POSTGRES_HOST:
+    secretKeyRef:
+        name: cnpg-main-urls
+        key: porthost
+  REDIS_HOST:
+    secretKeyRef:
+        expandObjectName: false
+        name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
         key: plainhost
-  - name: REDIS_HOST_PASSWORD
-    valueFrom:
-      secretKeyRef:
-        name: rediscreds
+  REDIS_HOST_PASSWORD:
+    secretKeyRef:
+        expandObjectName: false
+        name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
         key: redis-password
 envFrom:
   - configMapRef:

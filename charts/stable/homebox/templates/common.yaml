@@ -1,8 +1,11 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
-{{/* Render secret */}}
-{{- include "homebox.secret" . }}
+{{/* Render secrets for homebox */}}
+{{- $secrets := include "homebox.secret" . | fromYaml -}}
+{{- if $secrets -}}
+{{- $_ := set .Values.secret "homebox-secret" $secrets -}}
+{{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

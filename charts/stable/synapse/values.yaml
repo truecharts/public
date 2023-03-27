@@ -2,16 +2,6 @@ image:
   repository: tccr.io/truecharts/synapse
   pullPolicy: IfNotPresent
   tag: 1.77.0@sha256:f830b7dacc3bb0d70f023b6f8bf251bef55d5a1e0c9bd36b705e38cfbcda5a60
-
-command:
-  - sh
-  - -c
-  - |
-    exec python -B -m synapse.app.homeserver \
-                -c /data/homeserver.yaml \
-                -c /data/secret/secret.yaml \
-                -c /data/custom.yaml
-
 service:
   main:
     ports:
@@ -39,76 +29,31 @@ service:
         enabled: true
         port: 9093
         targetPort: 9090
-
-securityContext:
-  allowPrivilegeEscalation: true
-
-secretEnv: {}
-
-installContainers:
-  generate-signing-key:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    env:
-      - name: SYNAPSE_SERVER_NAME
-        value: "{{ .Values.matrix.serverName }}"
-      - name: SYNAPSE_REPORT_STATS
-        value: "no"
-    command: ["python"]
-    args:
-      - "-m"
-      - "synapse.app.homeserver"
-      - "--config-path"
-      - "/data/homeserver.yaml"
-      - "--config-path"
-      - "/data/secret/secret.yaml"
-      - "--config-path"
-      - "/data/custom.yaml"
-      - "--keys-directory"
-      - "/data/keys"
-      - "--generate-keys"
-    volumeMounts:
-      - name: config
-        mountPath: /data
-      - name: secret
-        mountPath: /data/secret
-      - name: key
-        mountPath: /data/keys
-
-env: {}
-
 persistence:
   config:
     enabled: true
-    type: configMap
+    type: configmap
     objectName: synapse-config
     mountPath: /data
     readOnly: false
+    targetSelectAll: true
   secret:
     enabled: true
     type: secret
     objectName: synapse-secret
     mountPath: /data/secret
     readOnly: false
+    targetSelectAll: true
   key:
     enabled: true
     mountPath: "/data/keys"
+    targetSelectAll: true
   media:
     enabled: true
     mountPath: "/data/media_store"
   uploads:
     enabled: true
     mountPath: "/uploads"
-
-probes:
-  liveness:
-    path: /health
-
-  readiness:
-    path: /health
-
-  startup:
-    path: /health
-
 # Synapse Kubernetes resource settings
 synapse:
   loadCustomConfig: false
@@ -122,7 +67,6 @@ synapse:
     # Port to listen on for metrics scraping
     port: 9092
     annotations: true
-
 # Runtime configuration for Synapse and settings related to the Matrix protocol
 matrix:
   # Manual overrides for homeserver.yaml, the main configuration file for Synapse
@@ -138,10 +82,8 @@ matrix:
   # from this value as the server name set here will be the name of your homeserver in the fediverse, and will be the
   # domain name at the end of every user's username
   serverName: "example.com"
-
   urlPreviews:
     enabled: false
-
   # Hostname where Synapse can be reached.
   # This is *optional* if an Ingress is configured below. If hostname is unspecified, the Synapse hostname of the
   # Ingress will be used
@@ -149,38 +91,29 @@ matrix:
 
   # Set to false to disable presence (online/offline indicators)
   presence: true
-
   # Set to true to block non-admins from inviting users to any rooms
   blockNonAdminInvites: false
-
   # Set to false to disable message searching
   search: true
-
   # Which types of rooms to enable end-to-end encryption on by default
   # off: none
   # invite: private messages, or rooms created with the private_chat or trusted_private_chat room preset
   # all: all rooms
   encryptByDefault: invite
-
   # Email address of the administrator
   adminEmail: "admin@example.com"
-
   # Settings related to image and multimedia uploads
   uploads:
     # Max upload size in bytes
     maxSize: 10M
-
     # Max image size in pixels
     maxPixels: 32M
-
   # Settings related to federation
   federation:
     # Set to false to disable federation and run an isolated homeserver
     enabled: true
-
     # Set to false to disallow members of other homeservers from fetching *public* rooms
     allowPublicRooms: true
-
     # Whitelist of domains to federate with (comment for all domains except blacklisted)
     # whitelist: []
 
@@ -195,12 +128,10 @@ matrix:
       - "::1/128"
       - "fe80::/64"
       - "fc00::/7"
-
   # User registration settings
   registration:
     # Allow new users to register an account
     enabled: false
-
     # If set, allows registration of standard or admin accounts by anyone who
     # has the shared secret, even if registration is otherwise disabled.
     #
@@ -208,7 +139,6 @@ matrix:
 
     # Allow users to join rooms as a guest
     allowGuests: false
-
     # Required "3PIDs" - third-party identifiers such as email or msisdn (SMS)
     # required3Pids:
     #   - email
@@ -217,17 +147,14 @@ matrix:
     # Rooms to automatically join all new users to
     autoJoinRooms: []
     # - "#welcome:example.com"
-
   # How long to keep redacted events in unredacted form in the database
   retentionPeriod: 7d
-
   security:
     # This disables the warning that is emitted when the
     # trustedKeyServers include 'matrix.org'. See below.
     # Set to false to re-enable the warning.
     #
     surpressKeyServerWarning: true
-
     # The trusted servers to download signing keys from.
     #
     # When we need to fetch a signing key, each server is tried in parallel.
@@ -268,12 +195,10 @@ matrix:
     #         key: "abcdefghijklmnopqrstuvwxyzabcdefghijklmopqr"
     #     acceptKeysInsecurely: false
     #   - serverName: my_other_trusted_server.example.com
-
   # Set to true to globally block access to the homeserver
   disabled: false
   # Human readable reason for why the homeserver is blocked
   disabledMessage: ""
-
   logging:
     # Root log level is the default log level for log outputs that do not have more
     # specific settings.
@@ -283,7 +208,6 @@ matrix:
     sqlLogLevel: WARNING
     # The log level for the synapse server
     synapseLogLevel: WARNING
-
 # Settings for email notifications
 mail:
   # Set to false to disable all email notifications
@@ -295,7 +219,6 @@ mail:
   # If the ingress is enabled, this is unnecessary.
   # If the ingress is disabled and this is left unspecified, emails will contain a link to https://app.element.io
   riotUrl: ""
-
   host: ""
   # -- Sets the smtp port
   # SSL: 465, STARTTLS: 587
@@ -303,18 +226,59 @@ mail:
   username: ""
   password: ""
   requireTransportSecurity: true
-
 coturn:
   enabled: false
-
 # Enabled postgres
-postgresql:
-  env:
-    POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=C"
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: synapse
-  postgresqlDatabase: synapse
-
+cnpg:
+  main:
+    enabled: true
+    user: synapse
+    database: synapse
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    allowPrivilegeEscalation: true
+workload:
+  main:
+    podSpec:
+      initContainers:
+        generate-signing-key:
+          type: install
+          enabled: true
+          imageSelector: "image"
+          env:
+            SYNAPSE_SERVER_NAME: "{{ .Values.matrix.serverName }}"
+            SYNAPSE_REPORT_STATS: "no"
+          command: ["python"]
+          args:
+            - "-m"
+            - "synapse.app.homeserver"
+            - "--config-path"
+            - "/data/homeserver.yaml"
+            - "--config-path"
+            - "/data/secret/secret.yaml"
+            - "--config-path"
+            - "/data/custom.yaml"
+            - "--keys-directory"
+            - "/data/keys"
+            - "--generate-keys"
+      containers:
+        main:
+          probes:
+            liveness:
+              path: /health
+            readiness:
+              path: /health
+            startup:
+              path: /health
+          command:
+            - sh
+            - -c
+            - |
+              exec python -B -m synapse.app.homeserver \
+                          -c /data/homeserver.yaml \
+                          -c /data/secret/secret.yaml \
+                          -c /data/custom.yaml
+          env: {}

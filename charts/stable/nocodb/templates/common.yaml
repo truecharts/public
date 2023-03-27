@@ -1,11 +1,17 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render configmap for nocodb */}}
-{{- include "nocodb.configmap" . }}
+{{- $configmap := include "nocodb.configmap" . | fromYaml -}}
+{{- if $configmap -}}
+  {{- $_ := set .Values.configmap "configmap" $configmap -}}
+{{- end -}}
 
-{{/* Render secrets for nocodb */}}
-{{- include "nocodb.secrets" . }}
+{{/* Render secret for nocodb */}}
+{{- $secret := include "nocodb.secrets" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "secrets" $secret -}}
+{{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

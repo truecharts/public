@@ -2,15 +2,6 @@ image:
   repository: tccr.io/truecharts/mymediaforalexa
   pullPolicy: IfNotPresent
   tag: v1.3.147.994@sha256:acfe5424b0b2bf9e66c2dcdf52be67a45fbc01bc4206189e7c8f416b01efa023
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
@@ -24,7 +15,6 @@ service:
         enabled: true
         targetPort: 52050
         port: 52050
-
 persistence:
   data:
     enabled: true
@@ -32,6 +22,12 @@ persistence:
   media:
     enabled: true
     mountPath: "/medialibrary"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

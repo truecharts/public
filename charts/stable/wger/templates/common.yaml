@@ -1,12 +1,21 @@
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secrets for wger */}}
 {{- include "wger.secrets" . }}
 
 {{/* Render configmap for wger */}}
-{{- include "wger.configmap" . }}
+{{- $configmap := include "wger.configmap" . | fromYaml -}}
+{{- if $configmap -}}
+  {{- $_ := mustMergeOverwrite .Values.configmap $configmap -}}
+{{- end -}}
 
-{{- $_ := set .Values.additionalContainers "nginx" (include "wger.nginx" . | fromYaml) -}}
+{{/* Render secret for wger */}}
+{{- $secret := include "wger.secrets" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "wger-secret" $secret -}}
+{{- end -}}
+
+{{- $_ := set .Values.workload.main.podSpec.containers "nginx" (include "wger.nginx" . | fromYaml) -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

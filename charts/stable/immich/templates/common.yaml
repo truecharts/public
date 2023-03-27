@@ -1,18 +1,28 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secret */}}
-{{- include "immich.secret" . }}
-
-{{/* Render config */}}
-{{- include "immich.config" . }}
-
-{{- $_ := set .Values.additionalContainers "proxy" (include "immich.proxy" . | fromYaml) -}}
-{{- $_ := set .Values.additionalContainers "web" (include "immich.web" . | fromYaml) -}}
-{{- if .Values.immich.enable_ml -}}
-{{- $_ := set .Values.additionalContainers "ml" (include "immich.ml" . | fromYaml) -}}
+{{- $secrets := include "immich.secret" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := set .Values.secret "secret" $secrets -}}
 {{- end -}}
-{{- $_ := set .Values.additionalContainers "microservices" (include "immich.microservices" . | fromYaml) -}}
+
+{{/* Render configmaps for immich*/}}
+{{- $configmap1 := include "immich.config" . | fromYaml -}}
+{{- if $configmap1 -}}
+  {{- $_ := set .Values.configmap "common-config" $configmap1 -}}
+{{- end -}}
+{{- $configmap2 := include "server.config" . | fromYaml -}}
+{{- if $configmap2 -}}
+  {{- $_ := set .Values.configmap "server-config" $configmap2 -}}
+{{- end -}}
+
+{{- $_ := set .Values.workload.main.podSpec.containers "proxy" (include "immich.proxy" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "web" (include "immich.web" . | fromYaml) -}}
+{{- if .Values.immich.enable_ml -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "ml" (include "immich.ml" . | fromYaml) -}}
+{{- end -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "microservices" (include "immich.microservices" . | fromYaml) -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

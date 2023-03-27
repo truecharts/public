@@ -3,23 +3,15 @@ image:
   tag: 6.3.12@sha256:816740d012aaf31cf49f28649629e82c7b5e2daee04e29b6ff2559b089726758
   pullPolicy: IfNotPresent
 
-initContainers:
-  init:
-    image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
-    command: ["/config/init/init.sh"]
-    volumeMounts:
-      - name: init
-        mountPath: "/config/init"
-      - name: config
-        mountPath: "/opt/tomcat"
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      initContainers:
+        init:
+          imageSelector: image
+          enabled: true
+          type: init
+          command: ["/config/init/init.sh"]
 
 service:
   main:
@@ -27,26 +19,29 @@ service:
       main:
         port: 10090
         targetPort: 8080
-
 persistence:
   config:
     enabled: true
-    mountPath: "/opt/tomcat/repository"
+    mountPath: /opt/tomcat/repository
   init:
-    enabled: "true"
-    mountPath: "/config/init"
+    enabled: true
+    mountPath: /config/init
     readOnly: true
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: '{{ include "tc.common.names.fullname" . }}-init'
-        defaultMode: 0777
+    type: configmap
+    defaultMode: "0777"
+    objectName: init
+cnpg:
+  main:
+    enabled: true
 
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: openkm
-  postgresqlDatabase: openkm
-
+    user: openkm
+    database: openkm
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

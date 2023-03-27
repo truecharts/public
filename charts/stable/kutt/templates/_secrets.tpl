@@ -1,13 +1,9 @@
 {{/* Define the secrets */}}
 {{- define "kutt.secrets" -}}
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
+{{- $secretName := (printf "%s-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+{{- $kuttprevious := lookup "v1" "Secret" .Release.Namespace $secretName }}
+enabled: true
   name: kutt-secrets
-{{- $kuttprevious := lookup "v1" "Secret" .Release.Namespace "kutt-secrets" }}
 {{- $jwt_secret := "" }}
 data:
   {{- if $kuttprevious}}

@@ -2,28 +2,28 @@ image:
   repository: tccr.io/truecharts/doublecommander
   pullPolicy: IfNotPresent
   tag: version-0.8.2-1@sha256:9c71e7178c24bdd646fa65e49fd9cef59ad9584eac2d60d59ea3e62ea53d47f9
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 10034
         targetPort: 3000
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-  varrun:
-    enabled: true
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env: {}

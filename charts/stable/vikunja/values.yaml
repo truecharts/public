@@ -2,24 +2,13 @@ image:
   repository: tccr.io/truecharts/vikunja-api
   tag: 0.20.2@sha256:408c9e649901a27bf7f9b6f009de0e90e6c898413b1bc95f49c5ee9051f82dc0
   pullPolicy: IfNotPresent
-
 frontendImage:
   repository: tccr.io/truecharts/vikunja-frontend
   tag: 0.20.3@sha256:f8b46f3e31991656d2a774f48118a2affa9a9df8454ab41bac8f318d17cde6c9
   pullPolicy: IfNotPresent
-
 nginxImage:
   repository: tccr.io/truecharts/nginx
   tag: 1.23.3@sha256:0d92357c536291f04dad45f9af95dbdad46fb7a6e940f981a3a332f9d5279665
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 configmap:
   nginx-config:
     enabled: true
@@ -35,7 +24,6 @@ configmap:
               client_max_body_size {{ .Values.vikunja.files.maxsize | upper | trimSuffix "B" }};
           }
         }
-
 vikunja:
   service:
     jwtttl: 259200
@@ -118,13 +106,12 @@ vikunja:
     openid:
       enabled: false
       redirecturl: ""
-      providers:
-        []
-        # - name: ""
-        #   authurl: ""
-        #   logouturl: ""
-        #   clientid: ""
-        #   clientsecret: ""
+      providers: []
+      # - name: ""
+      #   authurl: ""
+      #   logouturl: ""
+      #   clientid: ""
+      #   clientsecret: ""
   migration:
     todoist:
       enable: false
@@ -140,13 +127,11 @@ vikunja:
       clientid: ""
       clientsecret: ""
       redirecturl: ""
-
 service:
   main:
     ports:
       main:
         port: 10220
-
 additionalContainers:
   frontend:
     name: frontend
@@ -165,7 +150,6 @@ additionalContainers:
         mountPath: /etc/nginx/conf.d/default.conf
         subPath: nginx-config
         readOnly: true
-
 persistence:
   files:
     enabled: true
@@ -176,50 +160,34 @@ persistence:
     mountPath: /etc/nginx/conf.d/default.conf
     subPath: nginx-config
     type: configMap
-    objectName: '{{ template "tc.common.names.fullname" . }}-nginx-config'
+    objectName: '{{ template "tc.v1.common.lib.chart.names.fullname" . }}-nginx-config'
   vikunja-config:
     enabled: true
     mountPath: /etc/vikunja
     subPath: config.yml
     type: secret
-    objectName: '{{ template "tc.common.names.fullname" . }}-secret'
-
+    objectName: '{{ template "tc.v1.common.lib.chart.names.fullname" . }}-secret'
 metrics:
-  # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
-  # @default -- See values.yaml
-  enabled: true
-  serviceMonitor:
-    interval: 1m
-    scrapeTimeout: 30s
-    labels: {}
-  # -- Enable and configure Prometheus Rules for the chart under this key.
-  # @default -- See values.yaml
-  prometheusRule:
-    enabled: false
-    labels: {}
-    # -- Configure additionial rules for the chart under this key.
-    # @default -- See prometheusrules.yaml
-    rules:
-      []
-      # - alert: UnifiPollerAbsent
-      #   annotations:
-      #     description: Unifi Poller has disappeared from Prometheus service discovery.
-      #     summary: Unifi Poller is down.
-      #   expr: |
-      #     absent(up{job=~".*unifi-poller.*"} == 1)
-      #   for: 5m
-      #   labels:
-      #     severity: critical
+  main:
+    enabled: true
+    type: "servicemonitor"
+    prometheusRule:
+      enabled: false
+cnpg:
+  main:
+    enabled: true
 
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlUsername: vikunja
-  postgresqlDatabase: vikunja
-
+    user: vikunja
+    database: vikunja
 redis:
   enabled: true
-  existingSecret: rediscreds
 
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

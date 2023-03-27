@@ -1,16 +1,8 @@
 {{/* Define the ml container */}}
 {{- define "immich.ml" -}}
-  {{- if hasKey .Values "imageML" -}} {{/* For smooth upgrade, Remove later*/}}
-    {{- $img := .Values.imageML -}}
-    {{- $_ := set .Values "mlImage" (dict "repository" $img.repository "tag" $img.tag "pullPolicy" $img.pullPolicy) -}}
-  {{- end }}
-image: {{ .Values.mlImage.repository }}:{{ .Values.mlImage.tag }}
+enabled: true
+imageSelector: mlImage
 imagePullPolicy: {{ .Values.mlImage.pullPolicy }}
-securityContext:
-  runAsUser: {{ .Values.podSecurityContext.runAsUser }}
-  runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
-  readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
-  runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 command:
   {{- if .Values.persistence.modelcache }}{{/* Only change command after upgrade */}}
   - python
@@ -19,51 +11,56 @@ command:
   - /bin/sh
   - ./entrypoint.sh
   {{- end }}
-volumeMounts:
-  - name: uploads
-    mountPath: {{ .Values.persistence.uploads.mountPath }}
-  {{- if .Values.persistence.modelcache }}
-  - name: modelcache
-    mountPath: {{ .Values.persistence.modelcache.mountPath }}
-  {{- end }}
 envFrom:
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-common-config'
+      name: 'common-config'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-server-config'
+      name: 'server-config'
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-immich-secret'
-#readinessProbe:
-#  exec:
-#    command:
-#      - /bin/sh
-#      - -c
-#      - |
-#        grep -q main.js /proc/1/cmdline || exit 1
-#  initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
-#  timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
-#  periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
-#  failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
-#livenessProbe:
-#  exec:
-#    command:
-#      - /bin/sh
-#      - -c
-#      - |
-#        grep -q main.js /proc/1/cmdline || exit 1
-#  initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
-#  timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
-#  periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
-#  failureThreshold: {{ .Values.probes.liveness.spec.failureThreshold }}
-#startupProbe:
-#  exec:
-#    command:
-#      - /bin/sh
-#      - -c
-#      - |
-#        grep -q main.js /proc/1/cmdline || exit 1
-#  initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
-#  timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
-#  periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
-#  failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
+      name: 'secret'
+env:
+  DB_PASSWORD:
+    secretKeyRef:
+      name: cnpg-main-user
+      key: password
+  DB_HOSTNAME:
+    secretKeyRef:
+      name: cnpg-main-urls
+      key: plainporthost
+  REDIS_HOSTNAME:
+    secretKeyRef:
+      expandObjectName: false
+      name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+      key: plainhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      expandObjectName: false
+      name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+      key: redis-password
+probes:
+  readiness:
+    enabled: false
+  #  exec:
+  #    command:
+  #      - /bin/sh
+  #      - -c
+  #      - |
+  #        grep -q main.js /proc/1/cmdline || exit 1
+  liveness:
+    enabled: false
+  #  exec:
+  #    command:
+  #      - /bin/sh
+  #      - -c
+  #      - |
+  #        grep -q main.js /proc/1/cmdline || exit 1
+  startup:
+    enabled: false
+  #  exec:
+  #    command:
+  #      - /bin/sh
+  #      - -c
+  #      - |
+  #        grep -q main.js /proc/1/cmdline || exit 1
+
 {{- end -}}

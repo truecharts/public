@@ -2,37 +2,28 @@ image:
   repository: tccr.io/truecharts/icantbelieveitsnotvaletudo
   tag: v2021.2.1@sha256:b15340fe81b7a55690323111ffbda41264f8c77b04431fdeafdbc26bfe896d33
   pullPolicy: IfNotPresent
-
-controller:
-  strategy: RollingUpdate
-
 configmap:
   settings:
     enabled: true
     data:
       config.json: |
         {{- .Values.config | mustToPrettyJson | nindent 4 }}
-
 service:
   main:
     ports:
       main:
         port: 10039
         targetPort: 3000
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
   settings:
     enabled: true
-    mountPath: "/app/config.json"
-    subPath: "config.json"
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: '{{ printf "%v-settings" (include "tc.common.names.fullname" .) }}'
-
+    mountPath: /app/config.json
+    subPath: config.json
+    type: configmap
+    objectName: settings
 config:
   mapsettings:
     drawPath: true
@@ -49,6 +40,10 @@ config:
     publishMapImage: true
   webserver:
     enabled: true
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+
+workload:
+  main:
+    strategy: RollingUpdate

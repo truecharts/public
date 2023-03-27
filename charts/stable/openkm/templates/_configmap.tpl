@@ -1,10 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "openkm.configmap" -}}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ include "tc.common.names.fullname" . }}-init
+
 data:
   init.sh: |-
     #!/bin/sh
@@ -47,8 +43,8 @@ data:
 
         <Resource name="jdbc/OpenKMDS" auth="Container" type="javax.sql.DataSource"
                    maxActive="100" maxIdle="30" maxWait="10000" validationQuery="select 1"
-                   username="{{ .Values.postgresql.postgresqlDatabase }}" password={{ .Values.postgresql.postgresqlPassword }} driverClassName="org.postgresql.Driver"
-                   url="jdbc:postgresql://{{ .Values.postgresql.url.plain | trimAll "\"" }}:5432/{{ .Values.postgresql.postgresqlDatabase }}"/>
+                   username="{{ .Values.cnpg.main.database }}" password={{ .Values.cnpg.main.creds.password }} driverClassName="org.postgresql.Driver"
+                   url="{{ $.Values.cnpg.main.creds.jdbc }}"/>
 
         <Resource name="mail/OpenKM" auth="Container" type="javax.mail.Session"
                   mail.smtp.host="localhost" mail.from="noreply@openkm.com"/>

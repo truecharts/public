@@ -1,41 +1,35 @@
 {{- define "mealie.api" -}}
-image: {{ .Values.apiImage.repository }}:{{ .Values.apiImage.tag }}
+enabled: true
+imageSelector: apiImage
 imagePullPolicy: {{ .Values.apiImage.pullPolicy }}
-securityContext:
-  runAsUser: {{ .Values.podSecurityContext.runAsUser }}
-  runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
-  readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
-  runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-api-secret'
+      name: 'api-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-api-config'
-volumeMounts:
-  - name: data
-    mountPath: "/app/data"
-readinessProbe:
-  httpGet:
+      name: 'api-config'
+probes:
+  readiness:
+
     path: /docs
-    port: {{ .Values.service.api.ports.api.port }}
-  initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
-  timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
-  periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
-  failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
-livenessProbe:
-  httpGet:
+      port: {{ .Values.service.api.ports.api.port }}
+
+
+
+
+  liveness:
+
     path: /docs
-    port: {{ .Values.service.api.ports.api.port }}
-  initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
-  timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
-  periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
-  failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
-startupProbe:
-  httpGet:
+      port: {{ .Values.service.api.ports.api.port }}
+
+
+
+
+  startup:
+
     path: /docs
-    port: {{ .Values.service.api.ports.api.port }}
-  initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
-  timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
-  periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
-  failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
+      port: {{ .Values.service.api.ports.api.port }}
+
+
+
+
 {{- end -}}
