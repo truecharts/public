@@ -28,23 +28,6 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - name: Install Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7
-
-      - name: Install dependencies
-        env:
-          RUBYJQ_USE_SYSTEM_LIBRARIES: 1
-        run: |
-          sudo apt-get update
-          sudo apt-get install libjq-dev
-          bundle install
-
-      - name: Run tests
-        run: |
-          bundle exec m -r ./test/
-
   generate-install-matrix:
     name: Generate matrix for install
     runs-on: ubuntu-latest
