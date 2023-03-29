@@ -7,7 +7,7 @@ service:
     ports:
       main:
         port: 4711
-        protocol: http
+        protocol: tcp
         targetPort: 4711
   porttcp:
     enabled: true

@@ -6,6 +6,7 @@ service:
   main:
     ports:
       main:
+        primary: true
         enabled: false
       metrics:
         enabled: true
