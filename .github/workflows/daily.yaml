@@ -2,7 +2,7 @@ name: "Chore: Daily Tasks"
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 permissions:
@@ -355,11 +355,35 @@ jobs:
       - uses: dessant/lock-threads@c1b35aecc5cdb1a34539d14196df55838bb2f836 # v4
         with:
           github-token: ${{ secrets.BOT_TOKEN }}
-          issue-inactive-days: '7'
-          exclude-any-issue-labels: ''
-          issue-comment: 'This issue is locked to prevent necro-posting on closed issues. Please create a new issue or contact staff on discord of the problem persists'
-          issue-lock-reason: ''
-          pr-inactive-days: '7'
-          pr-comment: 'This PR is locked to prevent necro-posting on closed PRs. Please create a issue or contact staff on discord if you want to further discuss this'
-          pr-lock-reason: 'resolved'
+          issue-inactive-days: "7"
+          exclude-any-issue-labels: ""
+          issue-comment: "This issue is locked to prevent necro-posting on closed issues. Please create a new issue or contact staff on discord of the problem persists"
+          issue-lock-reason: ""
+          pr-inactive-days: "7"
+          pr-comment: "This PR is locked to prevent necro-posting on closed PRs. Please create a issue or contact staff on discord if you want to further discuss this"
+          pr-lock-reason: "resolved"
           log-output: true
+
+  check-contributors:
+    name: Check Contributors
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - uses: borales/actions-yarn@v4.2.0
+        with:
+          cmd: install --frozen-lockfile
+
+      - name: List missing and unknown contributors
+        env:
+          PRIVATE_TOKEN: ${{ secrets.BOT_TOKEN }}
+        run: |
+          awk -F', ' '{ for( i=1; i<=NF; i++ ) print $i }' <<<$(yarn all-contributors check)

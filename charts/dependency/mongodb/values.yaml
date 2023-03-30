@@ -6,8 +6,6 @@ image:
 workload:
   main:
     replicas: 1
-    type: StatefulSet
-    strategy: RollingUpdate
     podSpec:
       containers:
         main:
@@ -16,11 +14,13 @@ workload:
             MONGODB_DATABASE: "{{ .Values.mongodbDatabase }}"
             MONGODB_PASSWORD:
               secretKeyRef:
-                name: "credentials"
+                expandObjectName: "{{ if .Values.mongodbPassword }}true{{ else }}false{{ end }}"
+                name: '{{ if .Values.mongodbPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mongodbcreds" }}{{ end }}'
                 key: "mongodb-password"
             MONGODB_ROOT_PASSWORD:
               secretKeyRef:
-                name: "credentials"
+                expandObjectName: "{{ if .Values.mongodbPassword }}true{{ else }}false{{ end }}"
+                name: '{{ if .Values.mongodbPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mongodbcreds" }}{{ end }}'
                 key: "mongodb-root-password"
           # -- Probe configuration
           # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
@@ -88,15 +88,18 @@ securityContext:
     runAsGroup: 0
     readOnlyRootFilesystem: false
 
-volumeClaimTemplates:
+persistence:
   data:
     enabled: true
     mountPath: "/bitnami/mongodb"
 
-mongodbPassword: "testpass"
 mongodbUsername: "test"
 mongodbDatabase: "test"
 mongodbRootPassword: "testroot"
+
+# -- Secret or password
+# One of these options is required, unless used as a dependency for another TrueCharts chart.
+mongodbPassword: ""
 existingSecret: ""
 
 secret:

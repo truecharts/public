@@ -3,5 +3,5 @@
                 description: Set the number of Replicas
                 schema:
                   type: int
-                  show_if: [["type", "!=", "Daemonset"]]
+                  show_if: [["type", "!=", "DaemonSet"]]
                   default: 2

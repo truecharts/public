@@ -113,6 +113,37 @@ questions:
                   type: string
                   required: true
                   default: ""
+  - variable: additionalBootstrapDns
+    group: App Configuration
+    label: Additional Bootstrap DNS
+    schema:
+      type: list
+      show_if: [[ "bootstrapDns", "!=", {"upstream": "", "ips": []} ]]
+      default: []
+      items:
+        - variable: additionalBootstrapDnsEntry
+          label: Additional Bootstrap DNS Entry
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: upstream
+                label: Upstream
+                schema:
+                  type: string
+                  default: ""
+              - variable: ips
+                label: IPs
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: ipEntry
+                      label: IP Entry
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
   - variable: filtering
     group: App Configuration
     label: Filtering
@@ -547,6 +578,48 @@ questions:
                 schema:
                   type: string
                   default: 30m
+  - variable: queryLog
+    group: App Configuration
+    label: Query Logging configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: type
+          label: Type
+          schema:
+            type: string
+            default: ""
+            enum:
+              - value: ""
+                description: Console
+              - value: postgresql
+                description: postgresql
+              - value: csv
+                description: csv
+              - value: csv-client
+                description: csv-client
+        - variable: target
+          label: Target
+          schema:
+            type: string
+            show_if: [["type", "!=", "postgresql"]]
+            default: "/var/log/something"
+        - variable: logRetentionDays
+          label: Log Retention Days
+          schema:
+            type: int
+            default: 0
+        - variable: creationAttempts
+          label: Creation Attempts
+          schema:
+            type: int
+            default: 3
+        - variable: creationCooldown
+          label: Creation Cooldown
+          schema:
+            type: string
+            default: 2s
   - variable: k8sgateway
     group: App Configuration
     label: k8s-Gateway Configuration
@@ -661,7 +734,7 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 10315
+                              default: 4000
                               required: true
         - variable: dnstcp
           label: DNS TCP Service
@@ -729,28 +802,6 @@ questions:
                               type: int
                               default: 853
                               required: true
-        - variable: http
-          label: HTTP and Metrics Service
-          description: "service for things like metrics, pprof, API, DoH etc"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorClusterIP}
-# Include{serviceSelectorExtras}
-                    - variable: http
-                      label: HTTP and Metrics Port Configuration
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
-                              default: 4000
-                              required: true
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
@@ -768,31 +819,30 @@ questions:
 # Include{ingressTraefik}
 # Include{ingressList}
 # Include{securityContextRoot}
-
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 568
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 568
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 568
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-        - variable: fsGroup
-          label: fsGroup
-          description: The group that should own ALL storage.
-          schema:
-            type: int
-            default: 568
-
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
 # Include{resources}
 # Include{metrics}
+# Include{prometheusRule}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}

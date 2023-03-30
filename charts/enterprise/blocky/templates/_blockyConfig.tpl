@@ -1,14 +1,7 @@
 {{/* Define the config */}}
 {{- define "blocky.configmap" -}}
-{{- $configName := printf "%s-config" (include "tc.common.names.fullname" .) }}
-{{- $config := merge ( include "blocky.config" . | fromYaml ) ( .Values.blockyConfig ) }}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $configName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+{{- $config := mustMerge ( include "blocky.config" . | fromYaml ) ( .Values.blockyConfig ) }}
+enabled: true
 data:
   config.yml: |
 {{ $config | toYaml | indent 4 }}
@@ -17,7 +10,7 @@ data:
 {{- define "blocky.config" -}}
 redis:
   address: {{ printf "%v-%v" .Release.Name "redis" }}:6379
-  password: {{ .Values.redis.redisPassword | trimAll "\"" }}
+  password: {{ .Values.redis.creds.redisPassword | trimAll "\"" }}
   database: 0
   required: true
   connectionAttempts: 10
@@ -25,6 +18,23 @@ redis:
 prometheus:
   enable: true
   path: /metrics
+queryLog:
+  # optional one of: postgresql, csv, csv-client. If empty, log to console
+  type: {{ .Values.queryLog.type }}
+  # directory (should be mounted as volume in docker) for csv, db connection string for mysql/postgresql
+  #postgresql target: postgres://user:password@db_host_or_ip:5432/db_name
+  {{- if eq .Values.queryLog.type "postgresql" }}
+  target: {{ .Values.cnpg.main.creds.std }}
+  {{- else }}
+  target: {{ .Values.queryLog.target }}
+  {{- end }}
+  # if > 0, deletes log files which are older than ... days
+  logRetentionDays: {{ .Values.queryLog.logRetentionDays | default 0 }}
+  # optional: Max attempts to create specific query log writer
+  creationAttempts: {{ .Values.queryLog.creationAttempts | default 3 }}
+  # optional: Time between the creation attempts
+  creationCooldown: {{ .Values.queryLog.creationAttempts | default "2s" }}
+
 upstream:
   default:
 {{- .Values.defaultUpstreams | toYaml | nindent 8 }}
@@ -41,13 +51,14 @@ port: {{ .Values.service.dnsudp.ports.dnsudp.targetPort }}
 tlsPort: {{ .Values.service.dot.ports.dot.targetPort }}
 {{- end }}
 
-{{- if .Values.service.http.enabled }}
-httpPort: {{ .Values.service.http.ports.http.targetPort }}
+{{- if .Values.service.main.enabled }}
+httpPort: {{ .Values.service.main.ports.main.targetPort }}
 {{- end }}
 
 {{- if .Values.service.https.enabled }}
 httpsPort: {{ .Values.service.https.ports.https.targetPort }}
 {{- end }}
+
 
 {{- if .Values.certFile }}
 certFile: {{ .Values.certFile }}
@@ -88,15 +99,25 @@ hostsFile:
 
 {{- if or .Values.bootstrapDns.upstream .Values.bootstrapDns.ips }}
 bootstrapDns:
-{{- if .Values.bootstrapDns.upstream }}
-  upstream: {{ .Values.bootstrapDns.upstream }}
-{{- end }}
-{{- if .Values.bootstrapDns.ips }}
-  ips:
-{{- range $id, $value := .Values.bootstrapDns.ips }}
-    - {{ $value }}
-{{- end }}
-{{- end }}
+  {{- if .Values.bootstrapDns.upstream }}
+  - upstream: {{ .Values.bootstrapDns.upstream }}
+  {{- end }}
+  {{- if .Values.bootstrapDns.ips }}
+    ips:
+    {{- range $id, $value := .Values.bootstrapDns.ips }}
+      - {{ $value }}
+    {{- end }}
+  {{- end }}
+  {{/* Add additional Bootstrap DNS */}}
+  {{- range .Values.additionalBootstrapDns }}
+  {{- with .upstream }}
+  - upstream: {{ . }}
+  {{- end }}
+  {{- range $id, $value := .ips }}
+    ips:
+      - {{ $value }}
+  {{- end }}
+  {{- end }}
 {{- end }}
 
 {{- if or .Values.filtering.filtering }}

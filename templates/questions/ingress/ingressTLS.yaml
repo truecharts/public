@@ -1,5 +1,5 @@
-                    - variable: clusterIssuer
-                      label: clusterIssuer
+                    - variable: certificateIssuer
+                      label: Cert-Manager clusterIssuer
                       description: 'add the name of your cert-manager clusterIssuer here for automatic tls certificates. Cannot be used combined with tls option below'
                       schema:
                         type: string
@@ -8,7 +8,7 @@
                       label: TLS-Settings
                       schema:
                         type: list
-                        show_if: [["clusterIssuer", "=", ""]]
+                        show_if: [["certificateIssuer", "=", ""]]
                         default: []
                         items:
                           - variable: tlsEntry
@@ -30,7 +30,7 @@
                                           default: ""
                                           required: true
                                           
-                                - variable: clusterIssuer
+                                - variable: certificateIssuer
                                   label: Use Cert-Manager clusterIssuer
                                   description: 'add the name of your cert-manager clusterIssuer here for automatic tls certificates.'
                                   schema:
@@ -39,13 +39,13 @@
                                 - variable: scaleCert
                                   label: Use TrueNAS SCALE Certificate (Deprecated)
                                   schema:
-                                    show_if: [["clusterIssuer", "=", ""]]
+                                    show_if: [["certificateIssuer", "=", ""]]
                                     type: int
                                     $ref:
                                       - "definitions/certificate"
                                 - variable: secretName
                                   label: Use Custom Secret (Advanced)
                                   schema:
-                                    show_if: [["clusterIssuer", "=", ""]]
+                                    show_if: [["certificateIssuer", "=", ""]]
                                     type: string
                                     default: ""

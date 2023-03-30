@@ -3,6 +3,13 @@ image:
   tag: 2.17.1@sha256:f788c772e9b9a273f44ea2cf3d365d7120e36a1f8150d77dd79ae4f013b3c6da
   pullPolicy: IfNotPresent
 
+imageBe:
+  repository: tccr.io/truecharts/portainer-be
+  tag: 2.17.1@sha256:d83c8fa439ce749d4bdc68710b9c8ca2ae6e2a54b963ec47ddba6d97d4a34f36
+  pullPolicy: IfNotPresent
+
+imageSelector: image
+
 portainer:
   # Logo URL
   logo: ""

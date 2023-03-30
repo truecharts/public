@@ -3,8 +3,20 @@ image:
   tag: latest@sha256:93878048bbc350e69bf246556ef3520f343487c7ffc40f0b0655ed8a360cb932
   pullPolicy: IfNotPresent
 
-controller:
-  enabled: false
+workload:
+  main:
+    enabled: false
+    podSpec:
+      containers:
+        main:
+          enabled: false
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
 
 service:
   main:
@@ -14,24 +26,9 @@ service:
         enabled: false
         port: 9999
 
-updateCRD: false
-
 portal:
-  enabled: false
-
-probes:
-  liveness:
+  open:
     enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-
-configmap:
-  config:
-    enabled: true
-    data:
-      placeholderdata: "something"
 
 ipAddressPools: []
 #   - name: example

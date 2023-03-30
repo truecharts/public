@@ -1,5 +1,8 @@
 {{- define "certmanager.clusterissuer.ca" -}}
 {{- range .Values.clusterIssuer.CA }}
+  {{- if not (mustRegexMatch "^[a-z]+(-?[a-z]){0,63}-?[a-z]+$" .name) -}}
+    {{- fail "CA - Expected name to be all lowercase with hyphens, but not start or end with a hyphen" -}}
+  {{- end -}}
 {{- if .selfSigned }}
 ---
 apiVersion: cert-manager.io/v1

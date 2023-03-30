@@ -27,10 +27,10 @@ spec:
   logLevel: {{ .Values.alertmanager.logLevel }}
   retention: {{ .Values.alertmanager.retention }}
   {{- if .Values.alertmanager.secrets }}
-  secrets: {{- include "tc.common.tplvalues.render" (dict "value" .Values.alertmanager.secrets "context" $) | nindent 4 }}
+  secrets: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.alertmanager.secrets "context" $) | nindent 4 }}
   {{- end }}
   {{- if .Values.alertmanager.configMaps }}
-  configMaps: {{- include "tc.common.tplvalues.render" (dict "value" .Values.alertmanager.configMaps "context" $) | nindent 4 }}
+  configMaps: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.alertmanager.configMaps "context" $) | nindent 4 }}
   {{- end }}
   resources: {{- toYaml .Values.alertmanager.resources | nindent 4 }}
   routePrefix: "{{ .Values.alertmanager.routePrefix }}"
@@ -38,7 +38,7 @@ spec:
   securityContext: {{- omit .Values.alertmanager.podSecurityContext "enabled" | toYaml | nindent 4 }}
   {{- end }}
   {{- if .Values.alertmanager.storageSpec }}
-  storage: {{- include "tc.common.tplvalues.render" (dict "value" .Values.alertmanager.storageSpec "context" $) | nindent 4 }}
+  storage: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.alertmanager.storageSpec "context" $) | nindent 4 }}
   {{- else }}
   {{- if .Values.alertmanager.persistence.enabled }}
   storage:
@@ -51,48 +51,39 @@ spec:
         resources:
           requests:
             storage: {{ .Values.alertmanager.persistence.size | quote }}
-        {{- include "tc.common.storage.storageClassName" (dict "persistence" .Values.alertmanager.persistence "global" $ ) | nindent 8 }}
+        {{- with (include "tc.v1.common.lib.storage.storageClassName" ( dict "rootCtx" . "objectData" .Values.prometheus.persistence )) | trim }}
+        storageClassName: {{ . }}
+        {{- end }}
   {{- end }}
   {{- end }}
   {{- if or .Values.alertmanager.podMetadata.labels .Values.alertmanager.podMetadata.annotations (eq .Values.alertmanager.podAntiAffinityPreset "soft") (eq .Values.alertmanager.podAntiAffinityPreset "hard") }}
   podMetadata:
     labels:
     {{- if .Values.alertmanager.podMetadata.labels }}
-    {{- include "tc.common.tplvalues.render" (dict "value" .Values.alertmanager.podMetadata.labels "context" $) | nindent 6 }}
+    {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.alertmanager.podMetadata.labels "context" $) | nindent 6 }}
     {{- end }}
     {{- if or (eq .Values.alertmanager.podAntiAffinityPreset "soft") (eq .Values.alertmanager.podAntiAffinityPreset "hard") }}
     {{- include "kube-prometheus.alertmanager.matchLabels" . | nindent 6 }}
     {{- end }}
     {{- if .Values.alertmanager.podMetadata.annotations }}
     annotations:
-    {{- include "tc.common.tplvalues.render" (dict "value" .Values.alertmanager.podMetadata.annotations "context" $) | nindent 6 }}
+    {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.alertmanager.podMetadata.annotations "context" $) | nindent 6 }}
     {{- end }}
   {{- end }}
   {{- if .Values.alertmanager.affinity }}
-  affinity: {{- include "tc.common.tplvalues.render" (dict "value" .Values.alertmanager.affinity "context" $) | nindent 4 }}
-  {{- else }}
-  affinity:
-    {{- if not (empty .Values.alertmanager.podAffinityPreset) }}
-    podAffinity: {{- include "tc.common.affinities.pods" (dict "type" .Values.alertmanager.podAffinityPreset "component" "alertmanager" "context" $) | nindent 6 }}
-    {{- end }}
-    {{- if not (empty .Values.alertmanager.podAntiAffinityPreset) }}
-    podAntiAffinity: {{- include "tc.common.affinities.pods" (dict "type" .Values.alertmanager.podAntiAffinityPreset "component" "alertmanager" "context" $) | nindent 6 }}
-    {{- end }}
-    {{- if not (empty .Values.alertmanager.nodeAffinityPreset.values) }}
-    nodeAffinity: {{- include "tc.common.affinities.nodes" (dict "type" .Values.alertmanager.nodeAffinityPreset.type "key" .Values.alertmanager.nodeAffinityPreset.key "values" .Values.alertmanager.nodeAffinityPreset.values) | nindent 6 }}
-    {{- end }}
+  affinity: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.alertmanager.affinity "context" $) | nindent 4 }}
   {{- end }}
   {{- if .Values.alertmanager.nodeSelector }}
-  nodeSelector: {{- include "tc.common.tplvalues.render" (dict "value" .Values.alertmanager.nodeSelector "context" $) | nindent 4 }}
+  nodeSelector: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.alertmanager.nodeSelector "context" $) | nindent 4 }}
   {{- end }}
   {{- if .Values.alertmanager.tolerations }}
-  tolerations: {{- include "tc.common.tplvalues.render" (dict "value" .Values.alertmanager.tolerations "context" $) | nindent 4 }}
+  tolerations: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.alertmanager.tolerations "context" $) | nindent 4 }}
   {{- end }}
   {{- if .Values.alertmanager.volumes }}
-  volumes: {{- include "tc.common.tplvalues.render" (dict "value" .Values.alertmanager.volumes "context" $) | nindent 4 }}
+  volumes: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.alertmanager.volumes "context" $) | nindent 4 }}
   {{- end }}
   {{- if .Values.alertmanager.volumeMounts }}
-  volumeMounts: {{- include "tc.common.tplvalues.render" (dict "value" .Values.alertmanager.volumeMounts "context" $) | nindent 4 }}
+  volumeMounts: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.alertmanager.volumeMounts "context" $) | nindent 4 }}
   {{- end }}
 {{- include "kube-prometheus.imagePullSecrets" . | indent 2 }}
   {{- if or .Values.alertmanager.containers .Values.alertmanager.containerSecurityContext.enabled .Values.operator.prometheusConfigReloader.containerSecurityContext.enabled }}
@@ -164,7 +155,7 @@ spec:
       {{- end }}
     {{- end }}
     {{- if .Values.alertmanager.containers }}
-    {{- include "tc.common.tplvalues.render" (dict "value" .Values.alertmanager.containers "context" $) | nindent 4 }}
+    {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.alertmanager.containers "context" $) | nindent 4 }}
     {{- end }}
   {{- end }}
   {{- if .Values.alertmanager.priorityClassName }}
@@ -174,10 +165,10 @@ spec:
   additionalPeers: {{ .Values.alertmanager.additionalPeers }}
   {{- end }}
   {{- if .Values.alertmanager.configNamespaceSelector }}
-  alertmanagerConfigNamespaceSelector: {{- include "tc.common.tplvalues.render" (dict "value" .Values.alertmanager.configNamespaceSelector "context" $) | nindent 4 }}
+  alertmanagerConfigNamespaceSelector: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.alertmanager.configNamespaceSelector "context" $) | nindent 4 }}
   {{- end }}
   {{- if .Values.alertmanager.configSelector }}
-  alertmanagerConfigSelector: {{- include "tc.common.tplvalues.render" (dict "value" .Values.alertmanager.configSelector "context" $) | nindent 4 }}
+  alertmanagerConfigSelector: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.alertmanager.configSelector "context" $) | nindent 4 }}
   {{- end }}
 {{- end }}
 {{- end }}

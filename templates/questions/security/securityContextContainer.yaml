@@ -4,11 +4,11 @@
                 description: When supported by the container, this sets the User ID running the Application Process. Not supported by all Apps
                 schema:
                   type: int
-                  show_if: [["runAsUser", "==", "0"]]
+                  show_if: [["runAsUser", "=", "0"]]
                   default: 568
               - variable: UMASK
                 label: UMASK
                 description: When supported by the container, this sets the UMASK for the App. Not supported by all Apps
                 schema:
                   type: string
-                  default: "002"
+                  default: "0022"

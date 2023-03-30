@@ -89,12 +89,24 @@
                 schema:
                   type: string
                   default: "/dev/ttyACM0"
-  # Specify GPU configuration
   - variable: scaleGPU
     label: GPU Configuration
     group: Resources and Devices
     schema:
-      type: dict
-      $ref:
-        - "definitions/gpuConfiguration"
-      attrs: []
+      type: list
+      default: []
+      items:
+        - variable: scaleGPUEntry
+          label: GPU
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              # Specify GPU configuration
+              - variable: gpu
+                label: Select GPU
+                schema:
+                  type: dict
+                  $ref:
+                    - "definitions/gpuConfiguration"
+                  attrs: []

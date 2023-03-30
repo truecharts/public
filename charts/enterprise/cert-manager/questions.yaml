@@ -26,6 +26,7 @@ questions:
                       schema:
                         type: string
                         required: true
+                        valid_chars: '^[a-z]+(-?[a-z]){0,63}-?[a-z]+$'
                         default: ""
                     - variable: type
                       label: Type or DNS-Provider
@@ -168,7 +169,7 @@ questions:
                       label: rfc2136 Namesever
                       description: "rfc2136 Namesever"
                       schema:
-                        show_if: [["type", "=", "digitalocean"]]
+                        show_if: [["type", "=", "rfc2136"]]
                         type: string
                         required: true
                         default: ""
@@ -176,7 +177,7 @@ questions:
                       label: rfc2136 tsig Key Name
                       description: "rfc2136 tsig Key Name"
                       schema:
-                        show_if: [["type", "=", "digitalocean"]]
+                        show_if: [["type", "=", "rfc2136"]]
                         type: string
                         required: true
                         default: ""
@@ -184,7 +185,7 @@ questions:
                       label: rfc2136 tsig Algorithm
                       description: "rfc2136 tsig Algorithm"
                       schema:
-                        show_if: [["type", "=", "digitalocean"]]
+                        show_if: [["type", "=", "rfc2136"]]
                         type: string
                         required: true
                         default: ""
@@ -192,13 +193,13 @@ questions:
                       label: rfc2136 sig Secret
                       description: "rfc2136 sig Secret"
                       schema:
-                        show_if: [["type", "=", "digitalocean"]]
+                        show_if: [["type", "=", "rfc2136"]]
                         type: string
                         required: true
                         default: ""
 
         - variable: CA
-          label: Certiticate Authority Issuer
+          label: Certificate Authority Issuer
           schema:
             type: list
             default: []
@@ -215,6 +216,7 @@ questions:
                       schema:
                         type: string
                         required: true
+                        valid_chars: '^[a-z]+(-?[a-z]){0,63}-?[a-z]+$'
                         default: ""
                     - variable: selfSigned
                       label: selfSigned
@@ -246,7 +248,7 @@ questions:
                         required: true
                         show_if: [["selfSigned", "=", "false"]]
                         default: ""
-                        
+
         - variable: selfSigned
           label: 'SelfSigned Issuer'
           schema:
@@ -265,9 +267,19 @@ questions:
                 schema:
                   type: string
                   required: true
-                  default: "selfSigned"
+                  valid_chars: '^[a-z]+(-?[a-z]){0,63}-?[a-z]+$'
+                  default: "selfsigned"
 
-
-
-# Include{metrics}
-# Include{documentation}
+  - variable: customMetrics
+    group: Metrics
+    label: Prometheus Metrics
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: Enabled
+          description: Enable Prometheus Metrics
+          schema:
+            type: boolean
+            default: true

@@ -18,7 +18,7 @@ spec:
       {{- end }}
       path: {{ trimSuffix "/" .Values.alertmanager.routePrefix }}/metrics
       {{- if .Values.alertmanager.serviceMonitor.metricRelabelings }}
-      metricRelabelings: {{- include "tc.common.tplvalues.render" ( dict "value" .Values.alertmanager.serviceMonitor.metricRelabelings "context" $) | nindent 8 }}
+      metricRelabelings: {{- include "tc.v1.common.tplvalues.render" ( dict "value" .Values.alertmanager.serviceMonitor.metricRelabelings "context" $) | nindent 8 }}
       {{- end }}
       {{- if .Values.alertmanager.serviceMonitor.relabelings }}
       relabelings: {{- toYaml .Values.alertmanager.serviceMonitor.relabelings | nindent 8 }}

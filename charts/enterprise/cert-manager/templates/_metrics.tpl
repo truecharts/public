@@ -1,5 +1,6 @@
 {{- define "certmanager.metrics" -}}
-{{- if .Values.metrics.enabled }}
+{{- if .Values.customMetrics.enabled }}
+---
 apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
