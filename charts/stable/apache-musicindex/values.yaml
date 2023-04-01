@@ -20,7 +20,6 @@ workload:
         enabled: true
         primary: true
           env: {}
-          
           securityContext:
             readOnlyRootFilesystem: false
             runAsNonRoot: false
