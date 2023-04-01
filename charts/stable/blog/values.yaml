@@ -2,35 +2,37 @@ image:
   repository: tccr.io/truecharts/blog
   pullPolicy: IfNotPresent
   tag: latest@sha256:b11ca1374d7ca68ef012b1d61b3fa432eded86aed5add3538808eb7e0093828c
-service:
-  main:
-    ports:
-      main:
-        port: 10111
-        targetPort: 80
-persistence:
-  data:
-    enabled: true
-    mountPath: "/var/www/html/data"
-cnpg:
-  main:
-    enabled: true
-    user: blog
-    database: blog
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10111
+        protocol: http
+        targetPort: 80
+
 workload:
   main:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
           env:
             BLOG_TITLE: "Blog"
             BLOG_NAME: "Max Musermann"
@@ -49,3 +51,18 @@ workload:
                 key: host
             BLOG_NICK: username
             BLOG_PASS: password
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /var/www/html/data
+
+cnpg:
+  main:
+    enabled: true
+    user: blog
+    database: blog
+
+portal:
+  open:
+    enabled: true

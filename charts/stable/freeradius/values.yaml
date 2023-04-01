@@ -2,6 +2,27 @@ image:
   repository: tccr.io/truecharts/freeradius
   pullPolicy: IfNotPresent
   tag: v3.2.0@sha256:e6a9295ae6caf282e957d0e329810e13bbdedc3bec3865e8ab322a0055107623
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+
 service:
   main:
     ports:
@@ -17,28 +38,12 @@ service:
         protocol: udp
         port: 1813
         targetPort: 1813
+
 persistence:
   config:
     enabled: true
-    mountPath: "/etc/raddb"
+    mountPath: /etc/raddb
+
 portal:
   open:
     enabled: false
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsUser: 0
-    runAsGroup: 0
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          probes:
-            liveness:
-              enabled: false
-            readiness:
-              enabled: false
-            startup:
-              enabled: false

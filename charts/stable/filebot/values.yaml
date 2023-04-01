@@ -2,6 +2,14 @@ image:
   repository: tccr.io/truecharts/filebot
   tag: 23.02.2@sha256:1c33118067d9a3b6b4c257f6facd041642dd27f28b97cff61b6e2b818d7036f6
   pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
 service:
   main:
     ports:
@@ -15,6 +23,7 @@ service:
         enabled: true
         port: 10269
         targetPort: 5900
+
 filebot:
   KEEP_APP_RUNNING: false
   DISPLAY_WIDTH: 1280
@@ -40,6 +49,7 @@ filebot:
   AMC_CUSTOM_OPTIONS: ""
   AMC_INSTALL_PKGS: ""
   USE_FILEBOT_BETA: false
+
 configmap:
   filebot:
     enabled: true
@@ -68,35 +78,42 @@ configmap:
       AMC_CUSTOM_OPTIONS: "{{ .Values.filebot.AMC_CUSTOM_OPTIONS }}"
       AMC_INSTALL_PKGS: "{{ .Values.filebot.AMC_INSTALL_PKGS }}"
       USE_FILEBOT_BETA: '{{ ternary "1" "0" .Values.filebot.USE_FILEBOT_BETA }}'
-persistence:
-  config:
-    enabled: true
-    mountPath: "/config"
-  storage:
-    enabled: true
-    mountPath: "/storage"
-  watch:
-    enabled: true
-    mountPath: "/watch"
-  output:
-    enabled: true
-    mountPath: "/output"
-portal:
-  open:
-    enabled: true
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsUser: 0
-    runAsGroup: 0
+
 workload:
   main:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
           env:
             VNC_PASSWORD: ""
           envFrom:
             - configMapRef:
                 name: "filebot"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  storage:
+    enabled: true
+    mountPath: /storage
+  watch:
+    enabled: true
+    mountPath: /watch
+  output:
+    enabled: true
+    mountPath: /output
+
+portal:
+  open:
+    enabled: true

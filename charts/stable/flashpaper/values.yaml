@@ -2,31 +2,29 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/flashpaper
   tag: latest@sha256:a784f26d36046473f36f3cf2c214f6ac63517c1b1434eb769fd15a7ee2f10c29
-service:
-  main:
-    ports:
-      main:
-        port: 8544
-        protocol: tcp
-        targetPort: 80
-persistence:
-  data:
-    enabled: true
-    mountPath: /var/www/html/data
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsGroup: 0
     runAsUser: 0
+
 workload:
   main:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
           env:
             ANNOUNCEMENT: ""
             MAX_SECRET_LENGTH: "3000"
@@ -44,3 +42,20 @@ workload:
             PRUNE_MIN_DAYS: "365"
             RETURN_FULL_URL: "true"
             SITE_TITLE: FlashPaper - Self-Destructing Message
+
+service:
+  main:
+    ports:
+      main:
+        port: 8544
+        protocol: tcp
+        targetPort: 80
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /var/www/html/data
+
+portal:
+  open:
+    enabled: true
