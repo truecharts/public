@@ -52,3 +52,8 @@ workload:
           env:
             WEBUI_PWD: ""
             WEBUI_TEMPLATE: default
+          securityContext:
+            readOnlyRootFilesystem: false
+            runAsNonRoot: false
+            runAsGroup: 0
+            runAsUser: 0

@@ -18,16 +18,16 @@ cnpg:
 persistence:
   config:
     enabled: true
-    mountPath: "/airsonic"
+    mountPath: /airsonic
   music:
     enabled: true
-    mountPath: "/music"
+    mountPath: /music
   podcasts:
     enabled: true
-    mountPath: "/podcasts"
+    mountPath: /podcasts
   playlists:
     enabled: true
-    mountPath: "/playlists"
+    mountPath: /playlists
 portal:
   open:
     enabled: true
