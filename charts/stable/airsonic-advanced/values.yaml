@@ -31,12 +31,7 @@ persistence:
 portal:
   open:
     enabled: true
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsNonRoot: true
-    runAsUser: 568
-    runAsGroup: 568
+
 workload:
   main:
     podSpec:
@@ -58,3 +53,8 @@ workload:
               secretKeyRef:
                 name: cnpg-main-user
                 key: password
+          securityContext:
+            readOnlyRootFilesystem: false
+            runAsNonRoot: true
+            runAsUser: 568
+            runAsGroup: 568                
