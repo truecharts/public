@@ -17,8 +17,8 @@ workload:
     podSpec:
       containers:
         main:
-        enabled: true
-        primary: true
+          enabled: true
+          primary: true
           env: {}
           securityContext:
             readOnlyRootFilesystem: false
