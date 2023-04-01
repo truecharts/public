@@ -17,10 +17,12 @@ workload:
     podSpec:
       containers:
         main:
+        enabled: true
+        primary: true
           env: {}
           
           securityContext:
-              readOnlyRootFilesystem: false
-              runAsNonRoot: false
-              runAsUser: 0
-              runAsGroup: 0
+            readOnlyRootFilesystem: false
+            runAsNonRoot: false
+            runAsUser: 0
+            runAsGroup: 0
