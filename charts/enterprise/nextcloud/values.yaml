@@ -19,6 +19,14 @@ clamavImage:
   pullPolicy: IfNotPresent
   tag: latest@sha256:0f86e1462259f7423d768e42b4d4da257673e19eb89c0ec0cb016cab9cc75bb1
 
+# securityContext:
+#  container:
+#    readOnlyRootFilesystem: false
+#    runAsNonRoot: false
+#    runAsUser: 0
+#    runAsGroup: 0
+#    fsGroup: 33
+
 workload:
   main:
     podSpec:
@@ -91,21 +99,44 @@ workload:
                 key: porthost
             REDIS_HOST:
               secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                name: rediscreds
                 key: plainhost
             REDIS_HOST_PASSWORD:
               secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                name: rediscreds
                 key: redis-password
             # Custom Entrypoint Variables
-            NX_MAX_CHUNK_SIZE: "31457280"
-            NX_TRUSTED_PROXIES: "172.16.0.0/16 127.0.0.1"
+            NX_RUN_MAINTENANCE: true
+            NX_TUNE_FPM: true
+            NX_TRUSTED_PROXIES: 172.16.0.0/16 127.0.0.1
+            NX_TRUSTED_DOMAINS: localhost # FIXME: Add $INGRESS
+            NX_NOTIFY_PUSH_URL: # FIXME: This should point to $INGRESS/push
+            NX_OVERWRITE_HOST: # FIXME:
+            NX_OVERWRITE_PROTOCOL: # FIXME:
+            NX_ OVERWRITE_CLI_URL: # FIXME:
+            NX_ACTIVITY_EXPIRE_DAYS: "{{ .Values.nextcloud.activity_expire_days }}"
+            NX_VERSION_RETENTION: "{{ .Values.nextcloud.versions_retention_obligation }}"
+            NX_TRASH_RETENTION: "{{ .Values.nextcloud.trash_retention_obligation }}"
+            NX_DEFAULT_PHONE_REGION: "{{ .Values.nextcloud.default_phone_region }}"
+            NX_SHARED_FOLDER_NAME: "{{ .Values.nextcloud.shared_folder_name }}"
+            NX_MAX_CHUNK_SIZE: "{{ .Values.nextcloud.max_chunk_size }}"
+            NX_PREVIEWS: "{{ .Values.previews.enabled }}"
+            NX_IMAGINARY: "{{ .Values.previews.imaginary }}"
+            NX_PREVIEW_MAX_X: "{{ .Values.previews.max_x }}"
+            NX_PREVIEW_MAX_Y: "{{ .Values.previews.max_y }}"
+            NX_PREVIEW_MAX_MEMORY: "{{ .Values.previews.max_memory }}"
+            NX_PREVIEW_MAX_FILESIZE_IMAGE: "{{ .Values.previews.max_filesize_image }}"
+            NX_PREVIEW_PROVIDERS: '{{ join " " .Values.previews.providers }}'
+            NX_PREVIEW_HEIGHT_SIZES: "{{ .Values.previews.height_sizes }}"
+            NX_PREVIEW_WIDTH_SIZES: "{{ .Values.previews.width_sizes }}"
+            NX_PREVIEW_SQUARE_SIZES: "{{ .Values.previews.square_sizes }}"
+            NX_PHP_MAX_CHILDREN: 20 # TODO: This should be dynamic based on the amount of RAM
+            NX_PHP_START_SERVERS: 5 # TODO: This should be dynamic based on the amount of RAM
+            NX_PHP_MIN_SPARE_SERVERS: 5 # TODO: This should be dynamic based on the amount of RAM
+            NX_PHP_MAX_SPARE_SERVERS: 20 # TODO: This should be dynamic based on the amount of RAM
         nginx:
           enabled: true
           imageSelector: nginxImage
-          imagePullPolicy: "{{ .Values.image.pullPolicy }}"
           probes:
             readiness:
               path: /robots.txt
@@ -130,6 +161,10 @@ workload:
           primary: true
           enabled: true
           imageSelector: image
+          # While it can be configured with envs instead of a config file
+          # There is a bug in the current version of notify_push that prevents it from working
+          # in certain situations. Also it picks the database prefix from the config file,
+          # which is something that can change in the future from upstream.
           command: /var/www/html/config/config.php
           env:
             # https://github.com/nextcloud/notify_push#configuration
@@ -153,7 +188,7 @@ workload:
                 Host: "test.fakedomain.dns"
 
   imaginary:
-    enabled: true
+    enabled: "{{ .Values.previews.imaginary }}"
     podSpec:
       containers:
         imaginary:
@@ -179,7 +214,7 @@ workload:
 
   nc-cron:
     enabled: true
-    type: "CronJob"
+    type: CronJob
     schedule: "*/5 * * * *"
     podSpec:
       restartPolicy: Never
@@ -195,10 +230,11 @@ workload:
               echo "Running Nextcloud CronJob..."
               php -f /var/www/html/cron.php
               echo "cronjob finished"
+
   preview-cron:
-    enabled: "{{ .Values.cronjob.generatePreviews }}"
-    type: "CronJob"
-    schedule: "*/30 * * * *"
+    enabled: "{{ .Values.previews.enabled }}"
+    type: CronJob
+    schedule: "{{ .Values.previews.schedule }}"
     podSpec:
       restartPolicy: Never
       containers:
@@ -213,6 +249,53 @@ workload:
               echo "Pre-generating Previews..."
               occ preview:pre-generate
               echo "Previews generated."
+
+nextcloud:
+  activity_expire_days: 90
+  trash_retention_obligation: 30
+  versions_retention_obligation: 30
+  # https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements
+  default_phone_region: GR
+  shared_folder_name: Shared
+  max_chunk_size: 31457280
+
+previews:
+  enabled: true
+  imaginary: true
+  schedule: "*/30 * * * *"
+  max_x: 2048
+  max_y: 2048
+  max_memory: 512
+  max_filesize_image: 150
+  jpeg_quality: 60
+  height_sizes: 256
+  width_sizes: 256 384
+  square_sizes: 32 256
+  # Casing matters here
+  providers:
+    - PNG
+    - JPEG
+    - GIF
+    - BMP
+    - XBitmap
+    - MP3
+    - MarkDown
+    - OpenDocument
+    - TXT
+    - Krita
+    # - Illustrator
+    # - HEIC
+    # - Movie
+    # - MSOffice2003
+    # - MSOffice2007
+    # - MSOfficeDoce
+    # - PDF
+    # - Photoshop
+    # - Postscript
+    # - StarOffice
+    # - SVG
+    # - TIFF
+    # - Font
 
 service:
   main:
@@ -297,7 +380,6 @@ persistence:
   #    targetSelector:
   #      main:
   #        nginx: {}
-
   nginx:
     enabled: true
     mountPath: /etc/nginx
@@ -308,6 +390,7 @@ persistence:
     items:
       - key: nginx.conf
         path: nginx.conf
+
 configmap:
   nginx:
     enabled: true
@@ -505,49 +588,6 @@ configmap:
                 }
             }
         }
-# cronjob:
-#   enabled: true
-#   generatePreviews: true
-#   schedule: "*/5 * * * *"
-#   annotations: {}
-#   failedJobsHistoryLimit: 5
-#   successfulJobsHistoryLimit: 2
-
-hpb:
-  enabled: true
-nextcloud:
-  # https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements
-  default_phone_region: ""
-
-imaginary:
-  enabled: true
-  preview_max_x: 2048
-  preview_max_y: 2048
-  preview_max_memory: 512
-  preview_max_filesize_image: 150
-  preview_png: true
-  preview_jpeg: true
-  preview_gif: true
-  preview_bmp: true
-  preview_xbitmap: true
-  preview_mp3: true
-  preview_markdown: true
-  preview_opendoc: true
-  preview_txt: true
-  preview_krita: true
-  preview_illustrator: false
-  preview_heic: false
-  preview_movie: false
-  preview_msoffice2003: false
-  preview_msoffice2007: false
-  preview_msofficedoc: false
-  preview_pdf: false
-  preview_photoshop: false
-  preview_postscript: false
-  preview_staroffice: false
-  preview_svg: false
-  preview_tiff: false
-  preview_font: false
 
 collabora:
   enabled: false
@@ -561,22 +601,18 @@ collabora:
     server_name: ""
     DONT_GEN_SSL_CERT: true
 
-portal:
-  open:
-    enabled: true
-
-# securityContext:
-#  container:
-#    readOnlyRootFilesystem: false
-#    runAsNonRoot: false
-#    runAsUser: 0
-#    runAsGroup: 0
-#    fsGroup: 33
-
 cnpg:
   main:
     enabled: true
     user: nextcloud
     database: nextcloud
+
+hpb:
+  enabled: true
+
 redis:
   enabled: true
+
+portal:
+  open:
+    enabled: true
