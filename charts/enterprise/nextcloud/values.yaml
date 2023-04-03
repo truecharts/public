@@ -193,56 +193,21 @@ workload:
               path: /
               port: 9090
 
-  nc-cron:
+cronjobs:
+  - name: nextcloud-cron
     enabled: true
-    type: CronJob
     schedule: "*/5 * * * *"
-    podSpec:
-      restartPolicy: Never
-      containers:
-        nc-cron:
-          enabled: true
-          primary: true
-          imageSelector: image
-          command:
-            - /bin/bash
-            - -c
-            - |
-              echo "Running Nextcloud CronJob..."
-              php -f /var/www/html/cron.php
-              echo "cronjob finished"
-          probes:
-            liveness:
-              enabled: false
-            readiness:
-              enabled: false
-            startup:
-              enabled: false
-  preview-cron:
+    cmd: |
+      echo "Running Nextcloud CronJob..."
+      php -f /var/www/html/cron.php
+      echo "cronjob finished"
+  - name: preview-cron
     enabled: "{{ .Values.previews.enabled }}"
-    type: CronJob
     schedule: "{{ .Values.previews.schedule }}"
-    podSpec:
-      restartPolicy: Never
-      containers:
-        preview-cron:
-          enabled: true
-          primary: true
-          imageSelector: image
-          command:
-            - /bin/bash
-            - -c
-            - |
-              echo "Pre-generating Previews..."
-              occ preview:pre-generate
-              echo "Previews generated."
-          probes:
-            liveness:
-              enabled: false
-            readiness:
-              enabled: false
-            startup:
-              enabled: false
+    cmd: |
+      echo "Running Pre-Generate Previews..."
+      occ preview:pre-generate
+      echo "Previews generated."
 
 nextcloud:
   activity_expire_days: 90

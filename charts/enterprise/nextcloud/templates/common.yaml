@@ -1,5 +1,5 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.v1.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . -}}
 
 {{/* Render configmap for nextcloud */}}
 {{- $configmap := include "nextcloud.configmap" . | fromYaml -}}
@@ -7,7 +7,12 @@
   {{- $_ := mustMergeOverwrite .Values.configmap $configmap -}}
 {{- end -}}
 
-{{- $newMiddlewares :=  append .Values.ingress.main.fixedMiddlewares "tc-nextcloud-chain" }}
+{{- $cronjobs := include "nextcloud.cronjobs" . | fromYaml -}}
+{{- if $cronjobs -}}
+  {{- $_ := mustMergeOverwrite .Values.workload $cronjobs -}}
+{{- end -}}
+
+{{- $newMiddlewares := mustAppend .Values.ingress.main.fixedMiddlewares "tc-nextcloud-chain" -}}
 {{- $_ := set .Values.ingress.main "fixedMiddlewares" $newMiddlewares -}}
 
 {{/* Define path for websocket */}}
@@ -23,19 +28,19 @@ service:
 {{- end -}}
 
 {{/* inject websocket path to all main ingress hosts*/}}
-{{- define "nextcloud.hpb.ingressInjector" -}}
-{{- $path := list (include "nextcloud.hpb.ingress" . | fromYaml) -}}
-{{- if .Values.ingress.main.enabled }}
-{{- range .Values.ingress.main.hosts }}
-{{- $newpaths := list }}
-{{- $newpaths := concat .paths $path }}
-{{- $_ := set . "paths" ( deepCopy $newpaths ) -}}
-{{- end }}
-{{- end }}
+  {{- define "nextcloud.hpb.ingressInjector" -}}
+  {{- $path := list (include "nextcloud.hpb.ingress" . | fromYaml) -}}
+  {{- if .Values.ingress.main.enabled -}}
+    {{- range .Values.ingress.main.hosts -}}
+      {{- $newpaths := list -}}
+      {{- $newpaths := concat .paths $path -}}
+      {{- $_ := set . "paths" ( deepCopy $newpaths ) -}}
+    {{- end -}}
+  {{- end -}}
 {{- end -}}
 
 {{/* inject websocket paths in ingress */}}
-{{- include "nextcloud.hpb.ingressInjector" . }}
+{{- include "nextcloud.hpb.ingressInjector" . -}}
 
 {{/* Render the templates */}}
-{{ include "tc.v1.common.loader.apply" . }}
+{{- include "tc.v1.common.loader.apply" . -}}
