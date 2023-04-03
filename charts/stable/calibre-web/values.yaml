@@ -28,10 +28,10 @@ workload:
               path: /
           env: {}
           securityContext:
-          readOnlyRootFilesystem: false
-          runAsNonRoot: false
-          runAsUser: 0
-          runAsGroup: 0
+            readOnlyRootFilesystem: false
+            runAsNonRoot: false
+            runAsUser: 0
+            runAsGroup: 0
 
 persistence:
   config:
