@@ -24,7 +24,7 @@ service:
 
 {{/* inject websocket path to all main ingress hosts*/}}
 {{- define "nextcloud.hpb.ingressInjector" -}}
-{{- $path := list (include "vnextcloud.hpb.ingress" . | fromYaml) -}}
+{{- $path := list (include "nextcloud.hpb.ingress" . | fromYaml) -}}
 {{- if .Values.ingress.main.enabled }}
 {{- range .Values.ingress.main.hosts }}
 {{- $newpaths := list }}
