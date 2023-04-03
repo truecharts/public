@@ -4,11 +4,6 @@ dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 12.2.30
-
-  - condition: collabora.enabled
-    name: collabora-online
-    repository: https://deps.truecharts.org/
-    version: 14.0.18
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
@@ -34,7 +29,7 @@ sources:
   - https://github.com/nextcloud/docker
   - https://github.com/nextcloud/helm
 type: application
-version: 19.0.52
+version: 20.0.0
 annotations:
   truecharts.org/catagories: |
     - cloud
