@@ -231,13 +231,16 @@ service:
       main:
         port: 10020
         targetPort: 8080
-  backend:
+  hpb:
     enabled: true
     ports:
       hpb:
         enabled: true
         port: 7867
         targetPort: 7867
+  backend:
+    enabled: true
+    ports:
       hpb-metrics:
         enabled: true
         port: 7868
@@ -320,6 +323,8 @@ configmap:
 
         error_log  /var/log/nginx/error.log warn;
 
+
+
         # Set to /tmp so it can run as non-root
         pid        /tmp/nginx.pid;
 
@@ -330,11 +335,12 @@ configmap:
 
         http {
             # Set to /tmp so it can run as non-root
-            client_body_temp_path /tmp/client_temp;
-            proxy_temp_path       /tmp/proxy_temp_path;
-            fastcgi_temp_path     /tmp/fastcgi_temp;
-            uwsgi_temp_path       /tmp/uwsgi_temp;
-            scgi_temp_path        /tmp/scgi_temp;
+            client_body_temp_path /tmp/nginx/client_temp;
+            proxy_temp_path       /tmp/nginx/proxy_temp_path;
+            fastcgi_temp_path     /tmp/nginx/fastcgi_temp;
+            uwsgi_temp_path       /tmp/nginx/uwsgi_temp;
+            scgi_temp_path        /tmp/nginx/scgi_temp;
+            proxy_cache_path      /tmp/nginx/cache
 
             include       /etc/nginx/mime.types;
             default_type  application/octet-stream;
