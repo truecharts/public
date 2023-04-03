@@ -122,6 +122,7 @@ workload:
               httpHeaders:
                 Host: "test.fakedomain.dns"
   hpb:
+    enabled: true
     podSpec:
       containers:
         hpb:
@@ -175,6 +176,7 @@ workload:
                 name: nextcloudconfig
 
   imaginary:
+    enabled: true
     podSpec:
       containers:
         imaginary:
@@ -197,6 +199,32 @@ workload:
             startup:
               path: /
               port: 9090
+
+  cron:
+    enabled: true
+    type: "CronJob"
+    schedule: "*/5 * * * *"
+    podSpec:
+      restartPolicy: Never
+      containers:
+        cron:
+          enabled: true
+          primary: true
+          imageSelector: image
+          command:
+            - "/bin/sh"
+            - "-c"
+            - |
+              /bin/bash <<'EOF'
+              echo "running nextcloud cronjob..."
+              php -f /var/www/html/cron.php
+              echo "cronjob finished"
+              {{- if .Values.cronjob.generatePreviews }}
+              echo "Pre-generating Previews..."
+              php /var/www/html/occ preview:pre-generate
+              echo "Previews generated."
+              {{- end }}
+              EOF
 
 service:
   main:
