@@ -43,7 +43,6 @@ configmap:
       DISPLAY_WIDTH: "{{ .Values.czkawka.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.czkawka.DISPLAY_HEIGHT }}"
 
-
 workload:
   main:
     podSpec:
