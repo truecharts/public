@@ -323,15 +323,12 @@ configmap:
 
         error_log  /var/log/nginx/error.log warn;
 
-
-
         # Set to /tmp so it can run as non-root
         pid        /tmp/nginx.pid;
 
         events {
             worker_connections  1024;
         }
-
 
         http {
             # Set to /tmp so it can run as non-root
@@ -572,6 +569,7 @@ collabora:
 portal:
   open:
     enabled: true
+
 # securityContext:
 #  container:
 #    readOnlyRootFilesystem: false
