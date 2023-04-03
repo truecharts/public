@@ -73,14 +73,14 @@ workload:
             # Often the service or nodePort IP
             # Defaults to the main serviceName for CI purposes.
             AccessIP:
-            NEXTCLOUD_INIT_HTACCESS: true
+            # PHP Variables
             PHP_MEMORY_LIMIT: 1G
             PHP_UPLOAD_LIMIT: 10G
-            NEXTCLOUD_CHUNKSIZE: "31457280"
-            TRUSTED_PROXIES: "172.16.0.0/16 127.0.0.1"
+            # Nextcloud Variables
+            NEXTCLOUD_ADMIN_USER: "admin"
+            NEXTCLOUD_ADMIN_PASSWORD: "adminpass"
             POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
             POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
-            NC_check_data_directory_permissions: "true"
             POSTGRES_PASSWORD:
               secretKeyRef:
                 name: cnpg-main-user
@@ -99,8 +99,9 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: redis-password
-            NEXTCLOUD_ADMIN_USER: "admin"
-            NEXTCLOUD_ADMIN_PASSWORD: "adminpass"
+            # Custom Entrypoint Variables
+            NX_MAX_CHUNK_SIZE: "31457280"
+            NX_TRUSTED_PROXIES: "172.16.0.0/16 127.0.0.1"
         nginx:
           enabled: true
           imageSelector: nginxImage
@@ -129,6 +130,11 @@ workload:
           primary: true
           enabled: true
           imageSelector: image
+          command: /var/www/html/config/config.php
+          env:
+            # https://github.com/nextcloud/notify_push#configuration
+            NEXTCLOUD_URL: "http://127.0.0.1:8080"  # FIXME: This should point to the nginx service
+            METRICS_PORT: "7868"
           probes:
             readiness:
               path: /push/test/cookie
@@ -145,35 +151,6 @@ workload:
               port: 7867
               httpHeaders:
                 Host: "test.fakedomain.dns"
-          command:
-            - /var/www/html/config/config.php
-          env:
-            NEXTCLOUD_URL: "http://127.0.0.1:8080"
-            METRICS_PORT: "7868"
-            TRUSTED_PROXIES: "{{ .Values.workload.main.podSpec.containers.main.env.TRUSTED_PROXIES }}"
-            POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
-            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
-            POSTGRES_PASSWORD:
-              secretKeyRef:
-                name: cnpg-main-user
-                key: password
-            POSTGRES_HOST:
-              secretKeyRef:
-                name: cnpg-main-urls
-                key: porthost
-            REDIS_HOST:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
-                key: plainhost
-            REDIS_HOST_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
-                key: redis-password
-          envFrom:
-            - configMapRef:
-                name: nextcloudconfig
 
   imaginary:
     enabled: true
@@ -200,7 +177,7 @@ workload:
               path: /
               port: 9090
 
-  cron:
+  nc-cron:
     enabled: true
     type: "CronJob"
     schedule: "*/5 * * * *"
@@ -212,19 +189,30 @@ workload:
           primary: true
           imageSelector: image
           command:
-            - "/bin/sh"
-            - "-c"
+            - /bin/bash
+            - -c
             - |
-              /bin/bash <<'EOF'
-              echo "running nextcloud cronjob..."
+              echo "Running Nextcloud CronJob..."
               php -f /var/www/html/cron.php
               echo "cronjob finished"
-              {{- if .Values.cronjob.generatePreviews }}
+  preview-cron:
+    enabled: "{{ .Values.cronjob.generatePreviews }}"
+    type: "CronJob"
+    schedule: "*/30 * * * *"
+    podSpec:
+      restartPolicy: Never
+      containers:
+        cron:
+          enabled: true
+          primary: true
+          imageSelector: image
+          command:
+            - /bin/bash
+            - -c
+            - |
               echo "Pre-generating Previews..."
-              php /var/www/html/occ preview:pre-generate
+              occ preview:pre-generate
               echo "Previews generated."
-              {{- end }}
-              EOF
 
 service:
   main:
@@ -259,14 +247,16 @@ hostAliases:
 persistence:
   html:
     enabled: true
-    mountPath: "/var/www/html"
+    mountPath: /var/www/html
     targetSelector:
-      cron:
-        cron: {}
       main:
         main: {}
         nginx: {}
         prestart: {}
+      nc-cron:
+        nc-cron: {}
+      preview-cron:
+        preview-cron: {}
       hpb:
         hpb: {}
       imaginary:
@@ -275,8 +265,10 @@ persistence:
     enabled: true
     mountPath: "/var/www/html/data"
     targetSelector:
-      cron:
-        cron: {}
+      nc-cron:
+        nc-cron: {}
+      preview-cron:
+        preview-cron: {}
       main:
         main: {}
         nginx: {}
@@ -308,7 +300,7 @@ persistence:
 
   nginx:
     enabled: true
-    mountPath: "/etc/nginx"
+    mountPath: /etc/nginx
     noMount: true
     readOnly: true
     type: configmap
@@ -443,7 +435,8 @@ configmap:
                     location = /.well-known/carddav { return 301 /remote.php/dav/; }
                     location = /.well-known/caldav  { return 301 /remote.php/dav/; }
 
-                    # according to the documentation these two lines are not necessary, but some users are still recieving errors
+                    # According to the documentation these two lines are not necessary,
+                    # but some users are still receiving errors
                     location = /.well-known/webfinger   { return 301 /index.php$uri; }
                     location = /.well-known/nodeinfo   { return 301 /index.php$uri; }
 
@@ -512,13 +505,13 @@ configmap:
                 }
             }
         }
-cronjob:
-  enabled: true
-  generatePreviews: true
-  schedule: "*/5 * * * *"
-  annotations: {}
-  failedJobsHistoryLimit: 5
-  successfulJobsHistoryLimit: 2
+# cronjob:
+#   enabled: true
+#   generatePreviews: true
+#   schedule: "*/5 * * * *"
+#   annotations: {}
+#   failedJobsHistoryLimit: 5
+#   successfulJobsHistoryLimit: 2
 
 hpb:
   enabled: true
