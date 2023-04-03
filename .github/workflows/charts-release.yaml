@@ -11,7 +11,6 @@ on:
       - "charts/**"
 
 jobs:
-
   release-helm:
     runs-on: ubuntu-latest
     container:
@@ -22,7 +21,7 @@ jobs:
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 1
-          
+
       - name: Checkout Helm-Staging
         uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
         with:
@@ -30,7 +29,7 @@ jobs:
           repository: truecharts/helm-staging
           token: ${{ secrets.BOT_TOKEN }}
           path: helm
-          
+
       - name: Fix Pre-Commit issues
         shell: bash
         run: |
@@ -38,7 +37,7 @@ jobs:
           pre-commit run --all ||:
           # Fix sh files to always be executable
           find . -name '*.sh' | xargs chmod +x
-          
+
       - name: Commit Helm Changes
         run: |
           rm -rf helm/charts
@@ -223,7 +222,6 @@ jobs:
           git add --all
           git commit -sm "Commit released docs for TrueCharts" || exit 0
           git push
-        
 
       - name: Checkout Catalog
         uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
