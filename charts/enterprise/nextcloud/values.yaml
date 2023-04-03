@@ -1,15 +1,23 @@
 image:
-  repository: tccr.io/truecharts/nextcloud-fpm
+  repository: ghcr.io/stavros-k/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: 25.0.2@sha256:59e6d2be5139cdeb030a095fb92b97e01d7d53071dc34b487956065a385d3a32
+  tag: 26.0.0-fpm
 nginxImage:
-  repository: tccr.io/truecharts/nginx-unprivileged
+  repository: nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: 1.23.3@sha256:ed53beb90e3550017807bf762b3c2c10d72e3399d28847b7505fd43d0bd3f039
+  tag: "1.23.3"
 imaginaryImage:
-  repository: h2non/imaginary
+  repository: nextcloud/imaginary
   pullPolicy: IfNotPresent
-  tag: 1.2.4@sha256:7facb4221047a5e79b9e902f380247f4e5bf4376400d0badbeb738d3e1c2f654
+  tag: 20230401@sha256:91d3ef54422870569e5e047027915cc61c6ff154fb7203c11ce4ed2f0f58dc06
+hpbImage:
+  repository: ghcr.io/stavros-k/nextcloud-notify_push
+  pullPolicy: IfNotPresent
+  tag: "0.6.2"
+clamavImage:
+  repository: tccr.io/truecharts/clamav
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:0f86e1462259f7423d768e42b4d4da257673e19eb89c0ec0cb016cab9cc75bb1
 
 workload:
   main:
