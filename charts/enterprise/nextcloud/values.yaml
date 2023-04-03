@@ -50,26 +50,21 @@ workload:
               path: /status.php
               port: 8080
               httpHeaders:
-                - name: Host
-                  value: "test.fakedomain.dns"
+                Host: "test.fakedomain.dns"
             readiness:
               enabled: true
               type: http
               path: /status.php
               port: 8080
               httpHeaders:
-                - name: Host
-                  value: "test.fakedomain.dns"
+                Host: "test.fakedomain.dns"
             startup:
               enabled: true
               type: http
               path: /status.php
               port: 8080
               httpHeaders:
-                - name: Host
-                  value: "test.fakedomain.dns"
-              spec:
-                initialDelaySeconds: 25
+                Host: "test.fakedomain.dns"
           envFrom:
             - configMapRef:
                 name: nextcloudconfig
@@ -115,91 +110,69 @@ workload:
               path: /robots.txt
               port: 8080
               httpHeaders:
-                - name: Host
-                  value: "test.fakedomain.dns"
+                Host: "test.fakedomain.dns"
             liveness:
               path: /robots.txt
               port: 8080
               httpHeaders:
-                - name: Host
-                  value: "test.fakedomain.dns"
+                Host: "test.fakedomain.dns"
             startup:
               path: /robots.txt
               port: 8080
               httpHeaders:
-                - name: Host
-                  value: "test.fakedomain.dns"
-  #  hpb:
-  #    podSpec:
-  #      containers:
-  #        hpb:
-  #          primary: true
-  #          enabled: true
-  #          imageSelector: image
-  #          probes:
-  #            readiness:
-  #              path: /push/test/cookie
-  #              port: 7867
-  #              httpHeaders:
-  #              - name: Host
-  #                value: "test.fakedomain.dns"
-  #            liveness:
-  #              path: /push/test/cookie
-  #              port: 7867
-  #              httpHeaders:
-  #              - name: Host
-  #                value: "test.fakedomain.dns"
-  #            startup:
-  #              path: /push/test/cookie
-  #              port: 7867
-  #              httpHeaders:
-  #              - name: Host
-  #                value: "test.fakedomain.dns"
-  #          command:
-  #            - "/bin/sh"
-  #            - "-c"
-  #            - |
-  #              /bin/bash <<'EOF'
-  #              set -m
-  #              echo "Waiting for Nextcloud to start..."
-  #              until $(curl --output /dev/null --silent --head --fail -H "Host: test.fakedomain.dns" http://127.0.0.1:8080/status.php); do
-  #                  echo "Nextcloud not responding... waiting..."
-  #                  sleep 10
-  #              done
-  #              until $(curl --silent --fail -H "Host: test.fakedomain.dns" http://127.0.0.1:8080/status.php | jq --raw-output '.installed' | grep "true"); do
-  #                  echo "Nextcloud not installed... waiting..."
-  #                  sleep 10
-  #              done
-  #              echo "Nextcloud instance with Notify_push found... Launching High Performance Backend..."
-  #              /var/www/html/custom_apps/notify_push/bin/x86_64/notify_push /var/www/html/config/config.php &
-  #              EOF
-  #          env:
-  #            NEXTCLOUD_URL: 'http://127.0.0.1:8080'
-  #            METRICS_PORT: '7868'
-  #            TRUSTED_PROXIES: "{{ .Values.workload.main.podSpec.containers.main.env.TRUSTED_PROXIES }}"
-  #            POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
-  #            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
-  #            POSTGRES_PASSWORD:
-  #              secretKeyRef:
-  #                  name: cnpg-main-user
-  #                  key: password
-  #            POSTGRES_HOST:
-  #              secretKeyRef:
-  #                  name: cnpg-main-urls
-  #                  key: porthost
-  #            REDIS_HOST:
-  #              secretKeyRef:
-  #                  expandObjectName: false
-  #                  name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
-  #                  key: plainhost
-  #            REDIS_HOST_PASSWORD:
-  #              secretKeyRef:
-  #                  expandObjectName: false
-  #                  name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
-  #                  key: redis-password
-  #          envFrom:
-  #            - configMapRef:
-  #                name: nextcloudconfig
+                Host: "test.fakedomain.dns"
+  hpb:
+    podSpec:
+      containers:
+        hpb:
+          primary: true
+          enabled: true
+          imageSelector: image
+          probes:
+            readiness:
+              path: /push/test/cookie
+              port: 7867
+              httpHeaders:
+                Host: "test.fakedomain.dns"
+            liveness:
+              path: /push/test/cookie
+              port: 7867
+              httpHeaders:
+                Host: "test.fakedomain.dns"
+            startup:
+              path: /push/test/cookie
+              port: 7867
+              httpHeaders:
+                Host: "test.fakedomain.dns"
+          command:
+            - /var/www/html/config/config.php
+          env:
+            NEXTCLOUD_URL: "http://127.0.0.1:8080"
+            METRICS_PORT: "7868"
+            TRUSTED_PROXIES: "{{ .Values.workload.main.podSpec.containers.main.env.TRUSTED_PROXIES }}"
+            POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            POSTGRES_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: porthost
+            REDIS_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
+                key: plainhost
+            REDIS_HOST_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
+                key: redis-password
+          envFrom:
+            - configMapRef:
+                name: nextcloudconfig
 
   imaginary:
     podSpec:
@@ -249,6 +222,7 @@ service:
         enabled: true
         port: 9090
         targetPort: 9090
+
 hostAliases:
   - ip: '{{ .Values.workload.main.podSpec.containers.main.env.AccessIP | default "127.0.0.1" }}'
     hostnames:
@@ -288,7 +262,6 @@ persistence:
   #    enabled: true
   #    mountPath: "/var/run"
   #    targetSelector:
-  #
   #       cron:
   #         cron: {}
   #      main:
@@ -304,6 +277,7 @@ persistence:
   #    targetSelector:
   #      main:
   #        nginx: {}
+
   nginx:
     enabled: true
     mountPath: "/etc/nginx"
