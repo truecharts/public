@@ -50,6 +50,13 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
+        - variable: app
+          label: "App General Storage"
+          description: "Stores the Application Data."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

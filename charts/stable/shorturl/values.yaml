@@ -11,7 +11,10 @@ service:
 persistence:
   data:
     enabled: true
-    mountPath: "/data"
+    mountPath: /data
+  app:
+    enabled: true
+    mountPath: /app
   varrun:
     enabled: true
 portal:
