@@ -200,7 +200,7 @@ workload:
   #          envFrom:
   #            - configMapRef:
   #                name: nextcloudconfig
-  #
+
   imaginary:
     podSpec:
       containers:
@@ -260,8 +260,12 @@ persistence:
         cron: {}
       main:
         main: {}
-        hpb: {}
+        nginx: {}
         prestart: {}
+      hpb:
+        hpb: {}
+      imaginary:
+        imaginary: {}
   data:
     enabled: true
     mountPath: "/var/www/html/data"
@@ -270,28 +274,33 @@ persistence:
         cron: {}
       main:
         main: {}
-        hpb: {}
+        nginx: {}
         prestart: {}
-  varrun:
-    enabled: true
-    mountPath: "/var/run"
-    targetSelector:
-      cron:
-        cron: {}
-      main:
+      hpb:
         hpb: {}
-        main: {}
-  cache:
-    enabled: true
-    type: emptyDir
-    mountPath: /var/cache/nginx
-    medium: Memory
-    targetSelector:
-      cron:
-        cron: {}
-      main:
-        hpb: {}
-        main: {}
+      imaginary:
+        imaginary: {}
+  ## TODO: CHECK IF NEEDED
+  #  varrun:
+  #    enabled: true
+  #    mountPath: "/var/run"
+  #    targetSelector:
+  #
+  #       cron:
+  #         cron: {}
+  #      main:
+  #        hpb: {}
+  #        main: {}
+
+  ## TODO: CHECK IF NEEDED
+  #  cache:
+  #    enabled: true
+  #    type: emptyDir
+  #    mountPath: /var/cache/nginx
+  #    medium: Memory
+  #    targetSelector:
+  #      main:
+  #        nginx: {}
   nginx:
     enabled: true
     mountPath: "/etc/nginx"
@@ -310,8 +319,9 @@ configmap:
         worker_processes auto;
 
         error_log  /var/log/nginx/error.log warn;
-        pid        /var/run/nginx.pid;
 
+        # Set to /tmp so it can run as non-root
+        pid        /tmp/nginx.pid;
 
         events {
             worker_connections  1024;
@@ -319,6 +329,13 @@ configmap:
 
 
         http {
+            # Set to /tmp so it can run as non-root
+            client_body_temp_path /tmp/client_temp;
+            proxy_temp_path       /tmp/proxy_temp_path;
+            fastcgi_temp_path     /tmp/fastcgi_temp;
+            uwsgi_temp_path       /tmp/uwsgi_temp;
+            scgi_temp_path        /tmp/scgi_temp;
+
             include       /etc/nginx/mime.types;
             default_type  application/octet-stream;
 
@@ -497,11 +514,13 @@ cronjob:
   annotations: {}
   failedJobsHistoryLimit: 5
   successfulJobsHistoryLimit: 2
+
 hpb:
   enabled: true
 nextcloud:
   # https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements
   default_phone_region: ""
+
 imaginary:
   enabled: true
   preview_max_x: 2048
