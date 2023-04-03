@@ -14,100 +14,16 @@ proxyImage:
   repository: tccr.io/truecharts/authentik-proxy
   tag: 2023.2.2@sha256:364fb27d6f011735aac844c797a0c5a122288de9dd69b1be96b9ab2db234affa
   pullPolicy: IfNotPresent
+
 workerContainer:
   enabled: true
-authentik:
-  credentials:
-    password: "supersecret"
-  general:
-    disable_update_check: false
-    disable_startup_analytics: true
-    allow_user_name_change: true
-    allow_user_mail_change: true
-    allow_user_username_change: true
-    gdpr_compliance: true
-    impersonation: true
-    avatars: "gravatar,initials"
-    token_length: 128
-    # Use single quotes for footer_links
 
-    footer_links: '[{"name": "Link Name", "href": "https://mylink.com"}]'
-  mail:
-    host: ""
-    port: 25
-    tls: false
-    ssl: false
-    timeout: 10
-    user: ""
-    pass: ""
-    from: ""
-  error_reporting:
-    enabled: false
-    send_pii: false
-    environment: "customer"
-  logging:
-    log_level: "info"
-  ldap:
-    tls_ciphers: "null"
-geoip:
-  enabled: false
-  account_id: ""
-  license_key: ""
-  proxy: ""
-  proxy_user_pass: ""
-  edition_ids: "GeoLite2-City"
-  frequency: 8
-  host_server: "updates.maxmind.com"
-  preserve_file_times: false
-  verbose: false
-outposts:
-  ldap:
-    # -- First you have to create an Outpost in the GUI. Applications > Outposts
-    enabled: false
-    # -- Host Browser by default is set to the first ingress host you set
-  # host_browser: ""
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 1000
+    runAsGroup: 1000
 
-  # -- Host should not need to be overridden. Defaults to https://localhost:9443
-
-  # host: ""
-
-  # -- As we use https://localhost:9443 it's an unsecure connection
-
-  # insecure: false
-
-  # -- Token is only needed if you accidentally deleted the token within the UI
-
-  # token: ""
-  proxy:
-    # -- First you have to create an Outpost in the GUI. Applications > Outposts
-    enabled: false
-    # -- Host Browser by default is set to the first ingress host you set
-# host_browser: ""
-
-# -- As we use https://localhost:9443 it's an unsecure connection
-
-# insecure: false
-
-# -- Host should not need to be overridden. Defaults to https://localhost:9443
-
-# host: ""
-
-# -- Token is only needed if you accidentally deleted the token within the UI
-
-# token: ""
-metrics:
-  main:
-    enabled: true
-    type: "servicemonitor"
-    endpoints:
-      - port: metrics
-        path: /metrics
-      - port: ldapmetrics
-        path: /metrics
-      - port: proxymetrics
-        path: /metrics
-    prometheusRule:
-      enabled: false
 service:
   main:
     ports:
@@ -188,9 +104,136 @@ service:
         port: 10235
         protocol: http
         targetPort: 9303
+
+
+authentik:
+  credentials:
+    password: "supersecret"
+  general:
+    disable_update_check: false
+    disable_startup_analytics: true
+    allow_user_name_change: true
+    allow_user_mail_change: true
+    allow_user_username_change: true
+    gdpr_compliance: true
+    impersonation: true
+    avatars: "gravatar,initials"
+    token_length: 128
+    # Use single quotes for footer_links
+
+    footer_links: '[{"name": "Link Name", "href": "https://mylink.com"}]'
+  mail:
+    host: ""
+    port: 25
+    tls: false
+    ssl: false
+    timeout: 10
+    user: ""
+    pass: ""
+    from: ""
+  error_reporting:
+    enabled: false
+    send_pii: false
+    environment: "customer"
+  logging:
+    log_level: "info"
+  ldap:
+    tls_ciphers: "null"
+
+geoip:
+  enabled: false
+  account_id: ""
+  license_key: ""
+  proxy: ""
+  proxy_user_pass: ""
+  edition_ids: "GeoLite2-City"
+  frequency: 8
+  host_server: "updates.maxmind.com"
+  preserve_file_times: false
+  verbose: false
+
+outposts:
+  ldap:
+    # -- First you have to create an Outpost in the GUI. Applications > Outposts
+    enabled: false
+    # -- Host Browser by default is set to the first ingress host you set
+  # host_browser: ""
+
+  # -- Host should not need to be overridden. Defaults to https://localhost:9443
+
+  # host: ""
+
+  # -- As we use https://localhost:9443 it's an unsecure connection
+
+  # insecure: false
+
+  # -- Token is only needed if you accidentally deleted the token within the UI
+
+  # token: ""
+  proxy:
+    # -- First you have to create an Outpost in the GUI. Applications > Outposts
+    enabled: false
+    # -- Host Browser by default is set to the first ingress host you set
+# host_browser: ""
+
+# -- As we use https://localhost:9443 it's an unsecure connection
+
+# insecure: false
+
+# -- Host should not need to be overridden. Defaults to https://localhost:9443
+
+# host: ""
+
+# -- Token is only needed if you accidentally deleted the token within the UI
+
+# token: ""
+
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: metrics
+        path: /metrics
+      - port: ldapmetrics
+        path: /metrics
+      - port: proxymetrics
+        path: /metrics
+    prometheusRule:
+      enabled: false
+
 ingress:
   proxyhttps:
     autoLink: true
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: https
+              path: /-/health/live/
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            readiness:
+              type: https
+              path: /-/health/ready/
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            startup:
+              type: https
+              path: /-/health/ready/
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+          envFrom:
+            - secretRef:
+                name: "authentik-secret"
+            - configMapRef:
+                name: "authentik-config"
+            - configMapRef:
+                name: "authentik-server-config"
+          args: ["server"]
+          env: {}
+
 persistence:
   media:
     enabled: true
@@ -222,46 +265,16 @@ persistence:
         geoip:
           mountPath: /usr/share/GeoIP"
         worker: {}
+
+portal:
+  open:
+    enabled: true
+
 cnpg:
   main:
     enabled: true
     user: authentik
     database: authentik
+
 redis:
   enabled: true
-
-portal:
-  open:
-    enabled: true
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsUser: 1000
-    runAsGroup: 1000
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          probes:
-            liveness:
-              type: https
-              path: /-/health/live/
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
-            readiness:
-              type: https
-              path: /-/health/ready/
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
-            startup:
-              type: https
-              path: /-/health/ready/
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
-          envFrom:
-            - secretRef:
-                name: "authentik-secret"
-            - configMapRef:
-                name: "authentik-config"
-            - configMapRef:
-                name: "authentik-server-config"
-          args: ["server"]
-          env: {}

@@ -3,6 +3,17 @@ image:
   pullPolicy: IfNotPresent
   tag: 23.0.1@sha256:118421527d72dd07061e074781b8fee99bb6dc50c5f76e0453e69a1095c25bc2
 hostNetwork: true
+
+securityContext:
+  container:
+    privileged: true
+    readOnlyRootFilesystem: false
+    allowPrivilegeEscalation: true
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+    fsGroup: 0
+
 service:
   main:
     enabled: true
@@ -10,6 +21,7 @@ service:
       main:
         port: 2376
         type: HTTPS
+
 lifecycle:
   postStart:
     exec:
@@ -28,29 +40,7 @@ lifecycle:
           else
             echo "COMPOSE_FILE not set, not auto-loading compose-file" >> /proc/1/fd/1;
           fi
-persistence:
-  docker-certs-ca:
-    enabled: true
-    mountPath: /config
-volumeClaimTemplates:
-  docker-certs-client:
-    enabled: true
-    mountPath: /certs/client
-  docker:
-    enabled: true
-    mountPath: /var/lib/docker
-portal:
-  open:
-    enabled: false
-securityContext:
-  container:
-    privileged: true
-    readOnlyRootFilesystem: false
-    allowPrivilegeEscalation: true
-    runAsNonRoot: false
-    runAsUser: 0
-    runAsGroup: 0
-    fsGroup: 0
+
 workload:
   main:
     podSpec:
@@ -95,3 +85,20 @@ workload:
     # -- ReplicaSet revision history limit
 
     revisionHistoryLimit: 3
+
+persistence:
+  docker-certs-ca:
+    enabled: true
+    mountPath: /config
+
+volumeClaimTemplates:
+  docker-certs-client:
+    enabled: true
+    mountPath: /certs/client
+  docker:
+    enabled: true
+    mountPath: /var/lib/docker
+
+portal:
+  open:
+    enabled: false

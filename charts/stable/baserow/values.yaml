@@ -2,33 +2,21 @@ image:
   repository: tccr.io/truecharts/baserow
   tag: 1.14.0@sha256:343c212865ad11bb41eb88652f8c39cdfe4697027322dfe6ed2f761dd6719b5e
   pullPolicy: IfNotPresent
-service:
-  main:
-    ports:
-      main:
-        port: 10228
-persistence:
-  data:
-    enabled: true
-    mountPath: "/baserow/data"
-cnpg:
-  main:
-    enabled: true
-    user: baserow
-    database: baserow
-redis:
-  enabled: true
 
-  redisUsername: "default"
-portal:
-  open:
-    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10228
+        protocol: http
+
 workload:
   main:
     podSpec:
@@ -81,3 +69,22 @@ workload:
               secretKeyRef:
                 name: secrets
                 key: SECRET_KEY
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /baserow/data
+
+cnpg:
+  main:
+    enabled: true
+    user: baserow
+    database: baserow
+
+redis:
+  enabled: true
+  redisUsername: "default"
+
+portal:
+  open:
+    enabled: true

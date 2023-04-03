@@ -2,35 +2,36 @@ image:
   repository: tccr.io/truecharts/dsmr-reader
   tag: v2021.09.02@sha256:1d3b33ea11703b14aa276dab2f2056323cc74a90e5f6c474aa82efc57c90ac9e
   pullPolicy: IfNotPresent
-service:
-  main:
-    ports:
-      main:
-        port: 10009
-        targetPort: 80
-persistence:
-  config:
-    enabled: true
-    mountPath: "/config"
-cnpg:
-  main:
-    enabled: true
-    user: dsmr-reader
-    database: dsmr-reader
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
+    
+service:
+  main:
+    ports:
+      main:
+        port: 10009
+        targetPort: 80
+
 workload:
   main:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
           env:
             DJANGO_TIME_ZONE: "{{ .Values.TZ }}"
             DJANGO_DATABASE_ENGINE: "django.db.backends.postgresql"
@@ -45,3 +46,17 @@ workload:
               secretKeyRef:
                 name: cnpg-main-urls
                 key: host
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+
+cnpg:
+  main:
+    enabled: true
+    user: dsmr-reader
+    database: dsmr-reader
+
+portal:
+  open:
+    enabled: true

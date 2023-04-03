@@ -115,7 +115,7 @@ questions:
                         default: "example.com"
                         valid_chars: '^((?!(\.cf|\.ga|\.gq|\.ml|\.tk)$).)*$'
                     - variable: zone
-                      label: Zone
+                      label: Zone ID
                       schema:
                         type: string
                         required: true

@@ -2,15 +2,21 @@ image:
   repository: tccr.io/truecharts/apache-musicindex
   tag: v1.4.1-2@sha256:442d1edfbf89b8a2a42c0d649f53f091c39256c65f922078ad38ff60bdbdadf9
   pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
 service:
   main:
     ports:
       main:
         port: 10006
         targetPort: 80
-portal:
-  open:
-    enabled: true
+        protocol: http
 
 workload:
   main:
@@ -19,9 +25,17 @@ workload:
         main:
           enabled: true
           primary: true
-          env: {}
-          securityContext:
-            readOnlyRootFilesystem: false
-            runAsNonRoot: false
-            runAsUser: 0
-            runAsGroup: 0
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+
+portal:
+  open:
+    enabled: true

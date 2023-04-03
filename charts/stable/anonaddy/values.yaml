@@ -2,8 +2,17 @@ image:
   repository: tccr.io/truecharts/anonaddy
   tag: 0.13.13@sha256:495809d341b08ea6d02c7b0b318d48b00b7243392affd0d278ec1aa188a76ccd
   pullPolicy: IfNotPresent
+
 strategy:
   type: Recreate
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
 service:
   main:
     ports:
@@ -17,32 +26,22 @@ service:
         enabled: true
         port: 25
         targetPort: 25
-persistence:
-  config:
-    enabled: true
-    mountPath: "/config"
-redis:
-  enabled: true
 
-mariadb:
-  enabled: true
-  mariadbUsername: anonaddy
-  mariadbDatabase: anonaddy
-
-portal:
-  open:
-    enabled: true
-securityContext:
-  container:
-    runAsNonRoot: false
-    readOnlyRootFilesystem: false
-    runAsUser: 0
-    runAsGroup: 0
 workload:
   main:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
           env:
             ANONADDY_DOMAIN: "chart-example.local"
             DB_DATABASE: anonaddy
@@ -75,3 +74,20 @@ workload:
               secretKeyRef:
                 name: appkey
                 key: secret
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+
+portal:
+  open:
+    enabled: true
+
+redis:
+  enabled: true
+
+mariadb:
+  enabled: true
+  mariadbUsername: anonaddy
+  mariadbDatabase: anonaddy

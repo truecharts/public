@@ -3,26 +3,7 @@ image:
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: v1.8.0@sha256:13d5d1beae0e7ea4298224abbc415de837200b8402d676e856601a63dc8432ed
-service:
-  main:
-    ports:
-      main:
-        port: 10051
-        targetPort: 5000
-persistence:
-  config:
-    enabled: true
-    mountPath: "/config"
-# Enabled postgres
-cnpg:
-  main:
-    enabled: true
 
-    user: firefox-syncserver
-    database: firefox-syncserver
-portal:
-  open:
-    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -30,11 +11,22 @@ securityContext:
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
+
 workload:
   main:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
           env:
             FF_SYNCSERVER_PUBLIC_URL: "firefox-syncserver.192.168.1.189.nip.io"
             FF_SYNCSERVER_FORCE_WSGI_ENVIRON: true
@@ -47,3 +39,26 @@ workload:
                 name: cnpg-main-urls
                 key: url
             FF_SYNCSERVER_SECRET: "changeme"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10051
+        targetPort: 5000
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+
+# Enabled postgres
+cnpg:
+  main:
+    enabled: true
+    user: firefox-syncserver
+    database: firefox-syncserver
+
+portal:
+  open:
+    enabled: true

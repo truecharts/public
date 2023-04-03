@@ -2,27 +2,7 @@ image:
   repository: tccr.io/truecharts/dashdot
   tag: 4.9.1@sha256:9d35440bde58ac5c72c87184cba219ce71c1cb35ee7c2ccefbcc74a00d1f0bb3
   pullPolicy: IfNotPresent
-service:
-  main:
-    ports:
-      main:
-        port: 10044
-persistence:
-  host-mnt:
-    enabled: true
-    type: hostPath
-    hostPath: "/"
-    mountPath: "/mnt/host"
-    readOnly: true
-  mem:
-    enabled: true
-    type: hostPath
-    hostPath: "/dev/mem"
-    mountPath: "/dev/mem"
-    readOnly: true
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     runAsNonRoot: false
@@ -35,11 +15,29 @@ securityContext:
         - SYS_RAWIO
     runAsUser: 0
     runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10044
+        protocol: http
+
 workload:
   main:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
           env:
             DASHDOT_PORT: "{{ .Values.service.main.ports.main.port}}"
             # User Defined
@@ -95,3 +93,21 @@ workload:
             # DASHDOT_OVERRIDE_STORAGE_BRANDS: ""
             # DASHDOT_OVERRIDE_STORAGE_SIZES: ""
             # DASHDOT_OVERRIDE_STORAGE_TYPES: ""
+
+persistence:
+  host-mnt:
+    enabled: true
+    type: hostPath
+    hostPath: "/"
+    mountPath: /mnt/host
+    readOnly: true
+  mem:
+    enabled: true
+    type: hostPath
+    hostPath: /dev/mem
+    mountPath: /dev/mem
+    readOnly: true
+
+portal:
+  open:
+    enabled: true

@@ -2,6 +2,13 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/crafty-4
   tag: 4.0.20@sha256:08664178b0c8f70d6ba4a2cc726b3dc84ce5de07de3925b176015efa7cb026ad
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 1000
+    runAsUser: 1000
+
 service:
   main:
     ports:
@@ -32,30 +39,7 @@ service:
         port: 19132
         protocol: udp
         targetPort: 19132
-persistence:
-  config:
-    enabled: true
-    mountPath: /crafty/app/config
-  servers:
-    enabled: true
-    mountPath: /crafty/servers
-  logs:
-    enabled: true
-    mountPath: /crafty/logs
-  import:
-    enabled: true
-    mountPath: /crafty/import
-  backups:
-    enabled: true
-    mountPath: /crafty/backups
-portal:
-  open:
-    enabled: true
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsGroup: 1000
-    runAsUser: 1000
+
 workload:
   main:
     podSpec:
@@ -72,3 +56,24 @@ workload:
               type: https
               path: /
           env: {}
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /crafty/app/config
+  servers:
+    enabled: true
+    mountPath: /crafty/servers
+  logs:
+    enabled: true
+    mountPath: /crafty/logs
+  import:
+    enabled: true
+    mountPath: /crafty/import
+  backups:
+    enabled: true
+    mountPath: /crafty/backups
+
+portal:
+  open:
+    enabled: true

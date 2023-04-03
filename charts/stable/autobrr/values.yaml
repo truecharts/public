@@ -2,20 +2,15 @@ image:
   repository: tccr.io/truecharts/autobrr
   pullPolicy: IfNotPresent
   tag: 1.18.0@sha256:dc1ae14e3584cd6ddc7d4e5962c12974ca31cfe943508677670b9aef09770e5c
+
 service:
   main:
     ports:
       main:
-        protocol: http
         port: 7474
+        protocol: http
         targetPort: 7474
-persistence:
-  config:
-    enabled: true
-    mountPath: "/config"
-portal:
-  open:
-    enabled: true
+
 workload:
   main:
     podSpec:
@@ -53,3 +48,12 @@ workload:
             startup:
               enabled: false
           env: {}
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+
+portal:
+  open:
+    enabled: true

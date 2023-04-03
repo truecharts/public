@@ -2,38 +2,21 @@ image:
   repository: tccr.io/truecharts/ferdi-server
   tag: v1.3.2@sha256:f8e0023f5bb616e08174af1030ea69364d2d85e5d3c393daf6f1f453a8a5a37e
   pullPolicy: IfNotPresent
-service:
-  main:
-    ports:
-      main:
-        port: 10206
-        targetPort: 3333
-persistence:
-  data:
-    enabled: true
-    mountPath: "/app/data"
-    targetSelector:
-      main:
-        main: {}
-        1-create-key-file: {}
-  recipes:
-    enabled: true
-    mountPath: "/app/recipes"
-cnpg:
-  main:
-    enabled: true
-    user: ferdi-server
-    database: ferdi-server
 
-portal:
-  open:
-    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10206
+        targetPort: 3333
+
 workload:
   main:
     podSpec:
@@ -105,3 +88,25 @@ workload:
               secretKeyRef:
                 name: cnpg-main-user
                 key: password
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data
+    targetSelector:
+      main:
+        main: {}
+        1-create-key-file: {}
+  recipes:
+    enabled: true
+    mountPath: /app/recipes
+
+cnpg:
+  main:
+    enabled: true
+    user: ferdi-server
+    database: ferdi-server
+
+portal:
+  open:
+    enabled: true
