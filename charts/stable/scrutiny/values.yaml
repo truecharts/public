@@ -8,6 +8,7 @@ service:
       main:
         targetPort: 8080
         port: 10151
+
 persistence:
   varrun:
     enabled: true
@@ -23,9 +24,11 @@ persistence:
     hostPath: "/run/udev"
     mountPath: "/run/udev"
     readOnly: true
+
 portal:
   open:
     enabled: true
+
 securityContext:
   container:
     runAsNonRoot: false
@@ -40,6 +43,7 @@ securityContext:
         - SYS_ADMIN
     runAsUser: 0
     runAsGroup: 0
+
 workload:
   main:
     podSpec:

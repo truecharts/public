@@ -17,9 +17,11 @@ service:
         protocol: tcp
         targetPort: 1935
         port: 1935
+
 ingress:
   rtmp:
     autoLink: true
+
 persistence:
   dash:
     enabled: true
@@ -27,15 +29,22 @@ persistence:
   hls:
     enabled: true
     mountPath: /mnt/hls
+
 portal:
   open:
     enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsGroup: 0
     runAsUser: 0
+    capabilities:
+      add:
+        - SETUID
+        - SETGID
+
 workload:
   main:
     podSpec:
