@@ -30,11 +30,16 @@ nextcloud-config:
     NX_RUN_MAINTENANCE: "true"
     NX_TUNE_FPM: "true"
     NX_TRUSTED_DOMAINS: {{ ( printf "%v %v %v %v %v %v %v %v" "kube.internal.healthcheck" "localhost" "127.0.0.1" ( printf "%v:%v" "127.0.0.1" .Values.service.main.ports.main.port ) ( .Values.workload.main.podSpec.containers.main.env.AccessIP | default "localhost" ) ( printf "%v-%v" .Release.Name "nextcloud" ) ( printf "%v-%v" .Release.Name "nextcloud-backend" ) $hosts ) | quote }}
-    NX_TRUSTED_PROXIES: 172.16.0.0/16 127.0.0.1 # TODO: When in scale context use the cluster cidr
-    NX_NOTIFY_PUSH_URL: # FIXME: This should point to $INGRESS/push
-    NX_OVERWRITE_HOST: # FIXME:
-    NX_OVERWRITE_PROTOCOL: # FIXME:
-    NX_OVERWRITE_CLI_URL: # FIXME:
+    # TODO: When in scale context use the cluster cidr
+    NX_TRUSTED_PROXIES: 172.16.0.0/16 127.0.0.1
+    # FIXME: This should point to $INGRESS/push
+    NX_NOTIFY_PUSH_URL:
+    # FIXME:
+    NX_OVERWRITE_HOST:
+    # FIXME:
+    NX_OVERWRITE_PROTOCOL:
+    # FIXME:
+    NX_OVERWRITE_CLI_URL:
     NX_ACTIVITY_EXPIRE_DAYS: {{ .Values.nextcloud.activity_expire_days | quote }}
     NX_VERSION_RETENTION: {{ .Values.nextcloud.versions_retention_obligation | quote }}
     NX_TRASH_RETENTION: {{ .Values.nextcloud.trash_retention_obligation | quote }}
@@ -51,10 +56,14 @@ nextcloud-config:
     NX_PREVIEW_HEIGHT_SIZES: {{ .Values.previews.height_sizes | quote }}
     NX_PREVIEW_WIDTH_SIZES: {{ .Values.previews.width_sizes | quote }}
     NX_PREVIEW_SQUARE_SIZES: {{ .Values.previews.square_sizes | quote }}
-    NX_PHP_MAX_CHILDREN: "20" # TODO: This should be dynamic based on the amount of RAM
-    NX_PHP_START_SERVERS: "5" # TODO: This should be dynamic based on the amount of RAM
-    NX_PHP_MIN_SPARE_SERVERS: "5" # TODO: This should be dynamic based on the amount of RAM
-    NX_PHP_MAX_SPARE_SERVERS: "20" # TODO: This should be dynamic based on the amount of RAM
+    # TODO: This should be dynamic based on the amount of RAM
+    NX_PHP_MAX_CHILDREN: "20"
+    # TODO: This should be dynamic based on the amount of RAM
+    NX_PHP_START_SERVERS: "5"
+    # TODO: This should be dynamic based on the amount of RAM
+    NX_PHP_MIN_SPARE_SERVERS: "5"
+    # TODO: This should be dynamic based on the amount of RAM
+    NX_PHP_MAX_SPARE_SERVERS: "20"
 
 collabora-config:
   enabled: true
