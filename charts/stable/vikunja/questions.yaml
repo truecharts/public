@@ -30,16 +30,16 @@ questions:
                 label: JWT TTL
                 description: The duration of the issued JWT tokens in seconds.
                 schema:
-                  type: int
+                  type: string
                   required: true
-                  default: 259200
+                  default: "259200"
               - variable: jwtttllong
                 label: JWT TTL Long
                 description: The duration of the “remember me” time in seconds. When the login request is made with the long param set, the token returned will be valid for this period.
                 schema:
-                  type: int
+                  type: string
                   required: true
-                  default: 2592000
+                  default: "2592000"
               - variable: motd
                 label: Message of the Day
                 description: Set the motd message, available from the /info endpoint
