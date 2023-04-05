@@ -138,8 +138,26 @@ objectData: The object data to be used to render the container.
     Lets add automatically the CHOWN cap.
   */}}
   {{- if eq (int $secContext.runAsUser) 0 -}}
+
+    {{- range $key := (list "CHOWN" "SETUID" "SETGID") -}}
+      {{- $value := (get $secContext.capabilities (printf "disableAutoCap%s" $key)) -}}
+      {{- if not (kindIs "bool" $value) -}}
+        {{- fail (printf "Container - Expected <securityContext.capabilities.disableAutoCap%s> to be [bool], but got [%s] of type [%s]" $key $value (kindOf $value)) -}}
+      {{- end -}}
+    {{- end -}}
+
     {{- $addCap := $secContext.capabilities.add -}}
-    {{- $addCap = mustAppend $addCap "CHOWN" -}}
+
+    {{- if not $secContext.capabilities.disableAutoCapCHOWN -}}
+      {{- $addCap = mustAppend $addCap "CHOWN" -}}
+    {{- end -}}
+    {{- if not $secContext.capabilities.disableAutoCapSETUID }}
+      {{- $addCap = mustAppend $addCap "SETUID" -}}
+    {{- end -}}
+    {{- if not $secContext.capabilities.disableAutoCapSETGID }}
+      {{- $addCap = mustAppend $addCap "SETGID" -}}
+    {{- end -}}
+
     {{- $_ := set $secContext.capabilities "add" $addCap -}}
   {{- end -}}
 

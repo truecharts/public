@@ -92,6 +92,8 @@ tests:
               capabilities:
                 add:
                   - CHOWN
+                  - SETUID
+                  - SETGID
                 drop:
                   - ALL
 
@@ -496,6 +498,202 @@ tests:
               capabilities:
                 add:
                   - CHOWN
+                  - SETUID
+                  - SETGID
+                drop:
+                  - ALL
+
+  - it: should not include SETUID/SETGID when disabled from global
+    set:
+      image: *image
+      securityContext:
+        container:
+          runAsNonRoot: false
+          runAsUser: 0
+          runAsGroup: 0
+          capabilities:
+            disableAutoCapSETUID: true
+            disableAutoCapSETGID: true
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              runAsUser: 0
+              runAsGroup: 0
+              readOnlyRootFilesystem: true
+              allowPrivilegeEscalation: false
+              privileged: false
+              runAsNonRoot: false
+              seccompProfile:
+                type: RuntimeDefault
+              capabilities:
+                add:
+                  - CHOWN
+                drop:
+                  - ALL
+
+  - it: should not include CHOWN when disabled from global
+    set:
+      image: *image
+      securityContext:
+        container:
+          runAsNonRoot: false
+          runAsUser: 0
+          runAsGroup: 0
+          capabilities:
+            disableAutoCapCHOWN: true
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              runAsUser: 0
+              runAsGroup: 0
+              readOnlyRootFilesystem: true
+              allowPrivilegeEscalation: false
+              privileged: false
+              runAsNonRoot: false
+              seccompProfile:
+                type: RuntimeDefault
+              capabilities:
+                add:
+                  - SETUID
+                  - SETGID
+                drop:
+                  - ALL
+
+  - it: should not include SETUID/SETGID when disabled from container level
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                securityContext:
+                  runAsNonRoot: false
+                  runAsUser: 0
+                  runAsGroup: 0
+                  capabilities:
+                    disableAutoCapSETUID: true
+                    disableAutoCapSETGID: true
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              runAsUser: 0
+              runAsGroup: 0
+              readOnlyRootFilesystem: true
+              allowPrivilegeEscalation: false
+              privileged: false
+              runAsNonRoot: false
+              seccompProfile:
+                type: RuntimeDefault
+              capabilities:
+                add:
+                  - CHOWN
+                drop:
+                  - ALL
+
+  - it: should not include CHOWN when disabled from container level
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                securityContext:
+                  runAsNonRoot: false
+                  runAsUser: 0
+                  runAsGroup: 0
+                  capabilities:
+                    disableAutoCapCHOWN: true
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              runAsUser: 0
+              runAsGroup: 0
+              readOnlyRootFilesystem: true
+              allowPrivilegeEscalation: false
+              privileged: false
+              runAsNonRoot: false
+              seccompProfile:
+                type: RuntimeDefault
+              capabilities:
+                add:
+                  - SETUID
+                  - SETGID
                 drop:
                   - ALL
 
@@ -568,6 +766,8 @@ tests:
               capabilities:
                 add:
                   - CHOWN
+                  - SETUID
+                  - SETGID
                 drop:
                   - ALL
 
@@ -830,3 +1030,78 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Container - Expected <securityContext.capabilities.drop> to be [list], but got [string]
+
+  - it: should fail capabilities.disableAutoCapCHOWN not a bool
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                securityContext:
+                  runAsUser: 0
+                  runAsGroup: 0
+                  runAsNonRoot: false
+                  capabilities:
+                    disableAutoCapCHOWN: not-bool
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <securityContext.capabilities.disableAutoCapCHOWN> to be [bool], but got [not-bool] of type [string]
+
+  - it: should fail capabilities.disableAutoCapSETUID not a bool
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                securityContext:
+                  runAsUser: 0
+                  runAsGroup: 0
+                  runAsNonRoot: false
+                  capabilities:
+                    disableAutoCapSETUID: not-bool
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <securityContext.capabilities.disableAutoCapSETUID> to be [bool], but got [not-bool] of type [string]
+
+  - it: should fail capabilities.disableAutoCapSETGID not a bool
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                securityContext:
+                  runAsUser: 0
+                  runAsGroup: 0
+                  runAsNonRoot: false
+                  capabilities:
+                    disableAutoCapSETGID: not-bool
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected <securityContext.capabilities.disableAutoCapSETGID> to be [bool], but got [not-bool] of type [string]

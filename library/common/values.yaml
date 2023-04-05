@@ -79,6 +79,11 @@ securityContext:
       add: []
       drop:
         - ALL
+      # When set to false, it will automatically
+      # add the capability when container runs as ROOT
+      disableAutoCapCHOWN: false
+      disableAutoCapSETUID: false
+      disableAutoCapSETGID: false
     # -- PUID for all containers
     # Can be overruled per container
     PUID: 568
