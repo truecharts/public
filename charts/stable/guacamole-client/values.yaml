@@ -165,7 +165,7 @@ workload:
                 key: host
             PGPASSWORD:
               secretKeyRef:
-                name: cnpg-main-urls
+                name: cnpg-main-user
                 key: password
           command: ["/bin/sh", "-c"]
           args:
@@ -207,12 +207,12 @@ workload:
                 key: host
             POSTGRES_PASSWORD:
               secretKeyRef:
-                name: cnpg-main-urls
+                name: cnpg-main-user
                 key: password
             # New format
             POSTGRESQL_PASSWORD:
               secretKeyRef:
-                name: cnpg-main-urls
+                name: cnpg-main-user
                 key: password
             POSTGRESQL_HOSTNAME:
               secretKeyRef:

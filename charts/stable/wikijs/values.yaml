@@ -44,7 +44,7 @@ workload:
             DB_PORT: "5432"
             DB_PASS:
               secretKeyRef:
-                name: cnpg-main-urls
+                name: cnpg-main-user
                 key: password
             DB_HOST:
               secretKeyRef:
