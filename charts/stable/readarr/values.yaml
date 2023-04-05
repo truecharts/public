@@ -59,5 +59,5 @@ workload:
                 key: host
             READARR__POSTGRES_PASSWORD:
               secretKeyRef:
-                name: cnpg-main-urls
+                name: cnpg-main-user
                 key: password

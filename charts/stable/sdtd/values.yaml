@@ -65,6 +65,7 @@ service:
         port: 27015
         protocol: udp
         targetPort: 27015
+
 persistence:
   serverfiles:
     enabled: true
@@ -72,15 +73,18 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
+
 portal:
   open:
     enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsGroup: 0
     runAsUser: 0
+
 workload:
   main:
     podSpec:

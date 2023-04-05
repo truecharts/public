@@ -2,6 +2,7 @@ image:
   repository: tccr.io/truecharts/shlink
   pullPolicy: IfNotPresent
   tag: 3.5.2@sha256:492d314b0d6fa22411102516ffc10662dee871a1f9d01bdb4f5d6daf9bba802e
+
 service:
   main:
     ports:
@@ -10,22 +11,24 @@ service:
 cnpg:
   main:
     enabled: true
-
     user: shlink
     database: shlink
+
 redis:
   enabled: true
-
   redisUsername: "default"
+
 portal:
   open:
     enabled: false
+
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
+
 workload:
   main:
     podSpec:
@@ -50,7 +53,7 @@ workload:
             DB_NAME: "{{ .Values.cnpg.main.database }}"
             DB_PASSWORD:
               secretKeyRef:
-                name: cnpg-main-urls
+                name: cnpg-main-user
                 key: password
             DB_HOST:
               secretKeyRef:

@@ -228,7 +228,7 @@ workload:
             REDIS_DB: "0"
             POSTGRES_PASSWORD:
               secretKeyRef:
-                name: cnpg-main-urls
+                name: cnpg-main-user
                 key: password
             POSTGRES_HOST:
               secretKeyRef:

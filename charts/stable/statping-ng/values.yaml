@@ -63,7 +63,7 @@ workload:
           env:
             DB_PASS:
               secretKeyRef:
-                name: cnpg-main-urls
+                name: cnpg-main-user
                 key: password
             DB_HOST:
               secretKeyRef:

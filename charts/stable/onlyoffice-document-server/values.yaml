@@ -54,7 +54,7 @@ workload:
                 key: host
             DB_PWD:
               secretKeyRef:
-                name: cnpg-main-urls
+                name: cnpg-main-user
                 key: password
             REDIS_SERVER_HOST:
               secretKeyRef:
