@@ -177,7 +177,8 @@ workload:
           imageSelector: imaginaryImage
           command: imaginary
           args:
-            - -concurrency 20
+            - -concurrency
+            - "10"
             - -enable-url-source
             - -return-size
           env:
