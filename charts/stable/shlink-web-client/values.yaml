@@ -21,10 +21,6 @@ securityContext:
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-    capabilities:
-      add:
-        - SETUID
-        - SETGID
 workload:
   main:
     podSpec:
