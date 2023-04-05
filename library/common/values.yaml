@@ -59,7 +59,7 @@ image:
   # -- Image repository
   repository: tccr.io/truecharts/whoami
   # -- Image tag
-  tag: v1.8.7@sha256:8c61f0ca92fd806fcb4ed1465cb793c05443f37951554b105b0f2dc686a95772
+  tag: 1.9.0@sha256:ff8dfff3c266af64aa7a6653c0b7f2c51fd6c0608335997af1d334aac3e19798
   # -- Image pull policy
   pullPolicy: IfNotPresent
 
@@ -301,7 +301,7 @@ manifestManager:
 
 gluetunImage:
   repository: tccr.io/truecharts/gluetun
-  tag: latest@sha256:a3429789f72bedf877e30c3534cb30b78766ada9cb2967fd779b2c9e2d39042c
+  tag: latest@sha256:46d71b810c2eb822f42370c3830d290d848e9b893b58c153f95c13b691f7c643
   pullPolicy: IfNotPresent
 
 netshootImage:
@@ -311,52 +311,52 @@ netshootImage:
 
 tailscaleImage:
   repository: tccr.io/truecharts/tailscale
-  tag: v1.36.2@sha256:d692efd698082835ce098db5f2af69fcadf524ef16a00f23896f40cf424b0fa2
+  tag: 1.38.2@sha256:69f39271f34db3acee5f037dc2b4435d44c617693da92e3f3412dd42240d603a
   pullPolicy: IfNotPresent
 
 codeserverImage:
   repository: tccr.io/truecharts/code-server
-  tag: 4.10.0@sha256:9bc3830cf56d56e06fbaba9734a409b1d9456249dc8c635bbc11fe79bc08e63f
+  tag: 4.11.0@sha256:3c711432999c42e06cc45d49a8f7908f53bb33246e988360c13aef9ab6680662
   pullPolicy: IfNotPresent
 
 alpineImage:
   repository: tccr.io/truecharts/alpine
-  tag: 3.17.2@sha256:711ef8a1f34f18df5f6dc1e85f0324f737e331ac734307baf455675cdc868ce4
+  tag: 3.17.2@sha256:2bd8913d46815053416e28f572a5ffb2c5e6cd8bafcc521497497583a21033b4
   pullPolicy: IfNotPresent
 
 scratchImage:
   repository: tccr.io/truecharts/scratch
-  tag: latest@sha256:93878048bbc350e69bf246556ef3520f343487c7ffc40f0b0655ed8a360cb932
+  tag: latest@sha256:180d25cc7a4f380758cd1e72864793c280f3e1728d800984c3287a709803e172
   pullPolicy: IfNotPresent
 
 kubectlImage:
   repository: tccr.io/truecharts/kubectl
-  tag: v1.26.0@sha256:06902a576090e5bfae3fd4e9eccc60bfe614adf00fa50ab233772a66062558a7
+  tag: v1.26.0@sha256:6bef58bf5b7850021884cf6ea2f32333cbfcd99be79d1fff0d6e5ced1ac044b4
   pullPolicy: IfNotPresent
 
 wgetImage:
   repository: tccr.io/truecharts/wget
-  tag: 1.0.0@sha256:46cca8469c987385bc27bc63cb2abf95a564cd18380b30648fea0ce02a97c6aa
+  tag: 1.0.0@sha256:05fc885a527c349338c4f882db985a82af576221ab1493145f055c71d05784d7
   pullPolicy: IfNotPresent
 
 postgresClientImage:
   repository: tccr.io/truecharts/db-wait-postgres
-  tag: 1.1.0@sha256:f9c64c07029fabeb730c7d2107588bdbd3d70083bc8c6f48ff83d78d35a932ac
+  tag: 1.1.0@sha256:a163c7836d7bb436a428f5d55bbba0eb73bcdb9bc202047e2523bbb539c113e6
   pullPolicy: IfNotPresent
 
 mariadbClientImage:
   repository: tccr.io/truecharts/db-wait-mariadb
-  tag: 1.1.0@sha256:5941896596d824965b50be1668dca8c181285fb854b62788f1287b2cc5514cf3
+  tag: 1.1.0@sha256:492a9659511d3288ba9b6536fb17d1cb037fb3876f402dffa5dbcb040acbb85a
   pullPolicy: IfNotPresent
 
 redisClientImage:
   repository: tccr.io/truecharts/db-wait-redis
-  tag: 1.1.0@sha256:df03b0bc1d1cfc0d036ad60c36409ef6e7d94e8981c3da9e68b37c5d84bf88da
+  tag: 1.1.0@sha256:8affa086d097b948f62b0433d70f4219a22ec29843ebd5479391869341bdb638
   pullPolicy: IfNotPresent
 
 mongodbClientImage:
   repository: tccr.io/truecharts/db-wait-mongodb
-  tag: 1.1.0@sha256:a7165a1c789a5980d0abced6745062a9c1a800fd07f986e77990288c36f8a3d0
+  tag: 1.1.0@sha256:502f70a653a905ad23576e208d0e5241e9cc8aeed63bb923e6da8563bdc3c1e7
   pullPolicy: IfNotPresent
 
 # -- OpenVPN specific configuration
