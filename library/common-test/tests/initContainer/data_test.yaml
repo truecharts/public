@@ -107,6 +107,9 @@ tests:
               - mountPath: /var/logs
                 name: varlogs
                 readOnly: false
+              - mountPath: /var/run
+                name: varrun
+                readOnly: false
       - documentIndex: *deploymentDoc
         isNull:
           path: spec.template.spec.initContainers[0].livenessProbe
@@ -173,6 +176,13 @@ tests:
           content:
             mountPath: /var/logs
             name: varlogs
+            readOnly: false
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.initContainers[1].volumeMounts
+          content:
+            mountPath: /var/run
+            name: varrun
             readOnly: false
       - documentIndex: *deploymentDoc
         isNull:
