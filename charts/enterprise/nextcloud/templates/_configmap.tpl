@@ -54,7 +54,7 @@ nextcloud-config:
     NX_PREVIEW_SQUARE_SIZES: {{ .Values.previews.square_sizes | quote }}
 
 php-tune:
-  enabled:
+  enabled: true
   data:
     # TODO: This should be dynamic based on the amount of RAM
     zz-tune.conf: |
@@ -63,6 +63,16 @@ php-tune:
       pm.start_servers = 5
       pm.min_spare_servers = 5
       pm.max_spare_servers = 20
+
+redis-session:
+  enabled: true
+  data:
+    redis-session.ini: |
+       session.save_path = "tcp://{{ .Values.redis.creds.plainport }}?auth={{ .Values.redis.creds.redisPassword }}"
+       redis.session.locking_enabled = 1
+       redis.session.lock_retries = -1
+       redis.session.lock_wait_time = 10000
+
 
 collabora-config:
   enabled: true

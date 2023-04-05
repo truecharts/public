@@ -94,16 +94,6 @@ workload:
               secretKeyRef:
                 name: cnpg-main-urls
                 key: porthost
-            REDIS_HOST:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: plainhost
-            REDIS_HOST_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: redis-password
         nginx:
           enabled: true
           imageSelector: nginxImage
@@ -363,6 +353,15 @@ persistence:
     items:
       - key: zz-tune.conf
         path: zz-tune.conf
+  redis-session:
+    enabled: true
+    mountPath: /usr/local/etc/php/conf.d/redis-session.ini
+    readOnly: true
+    type: configmap
+    objectName: redis-session
+    items:
+      - key: redis-session.ini
+        path: redis-session.ini
 
 collabora:
   enabled: false
