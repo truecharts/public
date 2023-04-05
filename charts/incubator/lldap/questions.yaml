@@ -9,8 +9,6 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
   - variable: env
     label: ""
     group: "App Configuration"
@@ -24,6 +22,8 @@ questions:
             type: string
             required: true
             default: "dc=example,dc=com"
+# Include{containerBasic}
+# Include{containerAdvanced}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -48,7 +48,7 @@ questions:
                               default: 17170
                               required: true
         - variable: ldap
-          label: "LDAP Service Port Configuration"
+          label: "Additional service to accept LDAP connections"
           description: "The Service in which external sources will connect to the LDAP service"
           schema:
             additional_attrs: true
@@ -57,7 +57,7 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: ldap
-                      label: "Main Service Port Configuration"
+                      label: "LDAP Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -91,7 +91,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressExpert}
 # Include{ingressList}
 # Include{securityContextRoot}
               - variable: runAsUser
