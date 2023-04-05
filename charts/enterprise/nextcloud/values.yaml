@@ -139,7 +139,8 @@ workload:
           # There is a bug in the current version of notify_push that prevents it from working
           # in certain situations. Also it picks the database prefix from the config file,
           # which is something that can change in the future from upstream.
-          command: /var/www/html/config/config.php
+          args:
+            - /var/www/html/config/config.php
           env:
             # https://github.com/nextcloud/notify_push#configuration
             # FIXME: This should point to the nginx service
