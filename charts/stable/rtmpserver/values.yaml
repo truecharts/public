@@ -40,10 +40,6 @@ securityContext:
     runAsNonRoot: false
     runAsGroup: 0
     runAsUser: 0
-    capabilities:
-      add:
-        - SETUID
-        - SETGID
 
 workload:
   main:
