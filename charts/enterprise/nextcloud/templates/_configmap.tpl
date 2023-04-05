@@ -28,7 +28,7 @@ nextcloud-config:
     PHP_UPLOAD_LIMIT: {{ .Values.nextcloud.php_upload_limit | quote }}
     {{/* Custom Entrypoint Variables */}}
     NX_RUN_MAINTENANCE: "true"
-    NX_TUNE_FPM: "true"
+    NX_TUNE_FPM: "false"
     NX_TRUSTED_DOMAINS: {{ ( printf "%v %v %v %v %v %v %v %v" "kube.internal.healthcheck" "localhost" "127.0.0.1" ( printf "%v:%v" "127.0.0.1" .Values.service.main.ports.main.port ) ( .Values.workload.main.podSpec.containers.main.env.AccessIP | default "localhost" ) ( printf "%v-%v" .Release.Name "nextcloud" ) ( printf "%v-%v" .Release.Name "nextcloud-backend" ) $hosts ) | quote }}
     # TODO: When in scale context use the cluster cidr
     NX_TRUSTED_PROXIES: 172.16.0.0/16 127.0.0.1
@@ -52,19 +52,23 @@ nextcloud-config:
     NX_PREVIEW_HEIGHT_SIZES: {{ .Values.previews.height_sizes | quote }}
     NX_PREVIEW_WIDTH_SIZES: {{ .Values.previews.width_sizes | quote }}
     NX_PREVIEW_SQUARE_SIZES: {{ .Values.previews.square_sizes | quote }}
+
+php-tune:
+  enabled:
+  data:
     # TODO: This should be dynamic based on the amount of RAM
-    NX_PHP_MAX_CHILDREN: "20"
-    # TODO: This should be dynamic based on the amount of RAM
-    NX_PHP_START_SERVERS: "5"
-    # TODO: This should be dynamic based on the amount of RAM
-    NX_PHP_MIN_SPARE_SERVERS: "5"
-    # TODO: This should be dynamic based on the amount of RAM
-    NX_PHP_MAX_SPARE_SERVERS: "20"
+    zz-tune.conf: |
+      [www]
+      pm.max_children = 20
+      pm.start_servers = 5
+      pm.min_spare_servers = 5
+      pm.max_spare_servers = 20
 
 collabora-config:
   enabled: true
   data:
     aliasgroup1: {{ $aliasgroup1 }}
+
 nginx-config:
   enabled: true
   data:

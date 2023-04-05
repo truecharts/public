@@ -354,6 +354,15 @@ persistence:
     items:
       - key: nginx.conf
         path: nginx.conf
+  php-tune:
+    enabled: true
+    mountPath: /etc/nginx/usr/local/etc/php-fpm.d
+    readOnly: true
+    type: configmap
+    objectName: php-tune
+    items:
+      - key: zz-tune.conf
+        path: zz-tune.conf
 
 collabora:
   enabled: false
