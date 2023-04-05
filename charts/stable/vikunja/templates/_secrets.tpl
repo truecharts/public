@@ -39,8 +39,12 @@ secret:
         interface: ":3456"
         JWTSecret: {{ $jwtSecret }}
         timezone: {{ .Values.TZ | quote }}
-        jwtttl: {{ .Values.vikunja.service.jwtttl | int }}
-        jwtttllong: {{ .Values.vikunja.service.jwtttllong | int }}
+        {{- /*
+          Multiply by 1, so large integers are not rendered in scientific notation
+          See: https://github.com/helm/helm/issues/1707#issuecomment-1167860346
+        */}}
+        jwtttl: {{ mul .Values.vikunja.service.jwtttl 1 }}
+        jwtttllong: {{ mul .Values.vikunja.service.jwtttllong 1 }}
         frontendurl: {{ .Values.vikunja.service.frontendurl | quote }}
         maxitemsperpage: {{ .Values.vikunja.service.maxitemsperpage }}
         enablecaldav: {{ .Values.vikunja.service.enablecaldav }}
