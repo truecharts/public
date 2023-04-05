@@ -15,7 +15,8 @@ service:
         port: 17170
   ldap:
     ports:
-      main:
+      enabled: true
+      ldap:
         targetPort: 3890
         port: 3890
 
@@ -28,7 +29,6 @@ workload:
           args: ["run"]
           env:
             LLDAP_LDAP_BASE_DN: "dc=example,dc=com"
-            LLDAP_LDAP_USER_PASS: "change me"
             LLDAP_JWT_SECRET:
               - secretRef:
                   name: secrets

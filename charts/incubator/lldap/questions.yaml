@@ -4,25 +4,19 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
-# Include{controllerExpert}
-# Include{fixedEnv}
-# Include{containerConfig}
+# Include{workload}
+# Include{workloadDeployment}
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
   - variable: env
+    label: ""
     group: "App Configuration"
-    label: "Image Environment"
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: LLDAP_LDAP_USER_PASS
-          group: "App Configuration"
-          label: "Admin Password"
-          schema:
-            type: string
-            required: true
-            default: "change me"
         - variable: LLDAP_LDAP_BASE_DN
-          group: "App Configuration"
           label: "Base DN for LDAP"
           schema:
             type: string
