@@ -174,6 +174,7 @@ workload:
           primary: true
           enabled: true
           imageSelector: imaginaryImage
+          command: imaginary
           args:
             - -concurrency 20
             - -enable-url-source
