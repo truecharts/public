@@ -6,7 +6,7 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-# Include{replicas2}
+# Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
                                 - variable: env
@@ -80,6 +80,8 @@ questions:
           schema:
             type: dict
             attrs:
+# Include{persistenceBasic}
+# Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
           label: "Main Ingress"
@@ -103,13 +105,15 @@ questions:
                 schema:
                   type: int
                   default: 568
-# Include{securityContextPod}
               - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:
                   type: int
                   default: 568
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
 # Include{resources}
 # Include{advanced}
 # Include{addons}
