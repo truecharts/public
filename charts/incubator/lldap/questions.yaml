@@ -103,8 +103,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-# Include{securityContextContainer}
-# Include{securityContextAdvanced}
 # Include{securityContextPod}
               - variable: fsGroup
                 label: "fsGroup"
