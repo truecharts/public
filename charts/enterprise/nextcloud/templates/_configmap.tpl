@@ -2,7 +2,6 @@
 {{- define "nextcloud.configmap" -}}
 
 {{- $hosts := "" -}}
-{{- $accessURL := .Values.workload.main.podSpec.containers.main.env.AccessIP | default "127.0.0.1" -}}
 {{- if .Values.ingress.main.enabled -}}
   {{- range .Values.ingress -}}
     {{- range $index, $host := .hosts -}}
@@ -18,7 +17,6 @@
 {{- if .Values.ingress.main.enabled -}}
   {{- with (first .Values.ingress.main.hosts) -}}
   {{- $aliasgroup1 = (  printf "https://%s" .host ) -}}
-  {{- $accessURL = (  printf "https://%s" .host ) -}}
   {{- end -}}
 {{- end }}
 
@@ -33,10 +31,10 @@ nextcloud-config:
     NX_TUNE_FPM: "false"
     NX_TRUSTED_DOMAINS: {{ ( printf "%v %v %v %v %v %v %v %v" "kube.internal.healthcheck" "localhost" "127.0.0.1" ( printf "%v:%v" "127.0.0.1" .Values.service.main.ports.main.port ) ( .Values.workload.main.podSpec.containers.main.env.AccessIP | default "localhost" ) ( printf "%v-%v" .Release.Name "nextcloud" ) ( printf "%v-%v" .Release.Name "nextcloud-backend" ) $hosts ) | quote }}
     NX_TRUSTED_PROXIES: 172.16.0.0/16 127.0.0.1{{ if hasKey .Values "ixChartContext" }} {{ .Values.ixChartContext.kubernetes_config.cluster_cidr }}{{ end }}
-    NX_NOTIFY_PUSH_ENDPOINT: {{ $accessURL }}/push
-    NX_OVERWRITE_HOST: {{ $accessURL }}
+    NX_NOTIFY_PUSH_ENDPOINT: {{ .Values.APPURL }}/push
+    NX_OVERWRITE_HOST: {{ .Values.APPURL }}
     NX_OVERWRITE_PROTOCOL: https
-    NX_OVERWRITE_CLI_URL: {{ $accessURL }}
+    NX_OVERWRITE_CLI_URL: {{ .Values.APPURL }}
     NX_ACTIVITY_EXPIRE_DAYS: {{ .Values.nextcloud.activity_expire_days | quote }}
     NX_VERSION_RETENTION: {{ .Values.nextcloud.versions_retention_obligation | quote }}
     NX_TRASH_RETENTION: {{ .Values.nextcloud.trash_retention_obligation | quote }}
