@@ -29,6 +29,8 @@ clamavImage:
 
 workload:
   main:
+    strategy: RollingUpdate
+    replicas: 2
     podSpec:
       initContainers:
         prestart:
@@ -119,6 +121,8 @@ workload:
   hpb:
     enabled: true
     type: Deployment
+    strategy: RollingUpdate
+    replicas: 2
     podSpec:
       containers:
         hpb:
@@ -159,6 +163,8 @@ workload:
   imaginary:
     enabled: "{{ .Values.previews.imaginary }}"
     type: Deployment
+    strategy: RollingUpdate
+    replicas: 2
     podSpec:
       containers:
         imaginary:
