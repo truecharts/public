@@ -54,25 +54,16 @@ workload:
           probes:
             liveness:
               enabled: true
-              type: http
-              path: /status.php
-              port: 8080
-              httpHeaders:
-                Host: kube.internal.healthcheck
+              type: exec
+              command: /healthcheck.sh
             readiness:
               enabled: true
-              type: http
-              path: /status.php
-              port: 8080
-              httpHeaders:
-                Host: kube.internal.healthcheck
+              type: exec
+              command: /healthcheck.sh
             startup:
               enabled: true
-              type: http
-              path: /status.php
-              port: 8080
-              httpHeaders:
-                Host: kube.internal.healthcheck
+              type: exec
+              command: /healthcheck.sh
           envFrom:
             - configMapRef:
                 name: nextcloud-config
