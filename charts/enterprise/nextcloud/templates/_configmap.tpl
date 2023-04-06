@@ -31,11 +31,11 @@ nextcloud-config:
     NX_TUNE_FPM: "false"
     NX_TRUSTED_DOMAINS: {{ ( printf "%v %v %v %v %v %v %v %v" "kube.internal.healthcheck" "localhost" "127.0.0.1" ( printf "%v:%v" "127.0.0.1" .Values.service.main.ports.main.port ) ( .Values.workload.main.podSpec.containers.main.env.AccessIP | default "localhost" ) ( printf "%v-%v" .Release.Name "nextcloud" ) ( printf "%v-%v" .Release.Name "nextcloud-backend" ) $hosts ) | quote }}
     # TODO: When in scale context use the cluster cidr
-    NX_TRUSTED_PROXIES: 172.16.0.0/16 127.0.0.1
-    NX_NOTIFY_PUSH_ENDPOINT: "FIXME: This should point to $INGRESS/push"
-    NX_OVERWRITE_HOST: "FIXME:"
-    NX_OVERWRITE_PROTOCOL: "FIXME:"
-    NX_OVERWRITE_CLI_URL: "FIXME:"
+    NX_TRUSTED_PROXIES: 172.16.0.0/16 127.0.0.1{{ if hasKey .Values "ixChartContext" }} {{ .Values.ixChartContext.kubernetes_config.cluster_cidr }}{{ end }}
+    NX_NOTIFY_PUSH_URL: {{ first .Values.ingress.main.hosts }}/push
+    NX_OVERWRITE_HOST: {{ first .Values.ingress.main.hosts }}
+    NX_OVERWRITE_PROTOCOL: https
+    NX_OVERWRITE_CLI_URL: {{ first .Values.ingress.main.hosts }}
     NX_ACTIVITY_EXPIRE_DAYS: {{ .Values.nextcloud.activity_expire_days | quote }}
     NX_VERSION_RETENTION: {{ .Values.nextcloud.versions_retention_obligation | quote }}
     NX_TRASH_RETENTION: {{ .Values.nextcloud.trash_retention_obligation | quote }}
@@ -52,6 +52,7 @@ nextcloud-config:
     NX_PREVIEW_HEIGHT_SIZES: {{ .Values.previews.height_sizes | quote }}
     NX_PREVIEW_WIDTH_SIZES: {{ .Values.previews.width_sizes | quote }}
     NX_PREVIEW_SQUARE_SIZES: {{ .Values.previews.square_sizes | quote }}
+    NX_REDIS_HOST: {{ .Values.redis.creds.plainport }}?auth={{ .Values.redis.creds.redisPassword }}
 
 php-tune:
   enabled: true
