@@ -30,7 +30,6 @@ nextcloud-config:
     NX_RUN_MAINTENANCE: "true"
     NX_TUNE_FPM: "false"
     NX_TRUSTED_DOMAINS: {{ ( printf "%v %v %v %v %v %v %v %v" "kube.internal.healthcheck" "localhost" "127.0.0.1" ( printf "%v:%v" "127.0.0.1" .Values.service.main.ports.main.port ) ( .Values.workload.main.podSpec.containers.main.env.AccessIP | default "localhost" ) ( printf "%v-%v" .Release.Name "nextcloud" ) ( printf "%v-%v" .Release.Name "nextcloud-backend" ) $hosts ) | quote }}
-    # TODO: When in scale context use the cluster cidr
     NX_TRUSTED_PROXIES: 172.16.0.0/16 127.0.0.1{{ if hasKey .Values "ixChartContext" }} {{ .Values.ixChartContext.kubernetes_config.cluster_cidr }}{{ end }}
     NX_NOTIFY_PUSH_URL: {{ first .Values.ingress.main.hosts }}/push
     NX_OVERWRITE_HOST: {{ first .Values.ingress.main.hosts }}
@@ -57,13 +56,12 @@ nextcloud-config:
 php-tune:
   enabled: true
   data:
-    # TODO: This should be dynamic based on the amount of RAM
     zz-tune.conf: |
       [www]
-      pm.max_children = 20
-      pm.start_servers = 5
-      pm.min_spare_servers = 5
-      pm.max_spare_servers = 20
+      pm.max_children = 180
+      pm.start_servers = 18
+      pm.min_spare_servers = 12
+      pm.max_spare_servers = 30
 
 redis-session:
   enabled: true
