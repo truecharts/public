@@ -1,10 +1,13 @@
 {{/* Initialiaze values of the chart */}}
-
 {{- define "tc.v1.common.loader.init" -}}
 
   {{/* Merge chart values and the common chart defaults */}}
   {{- include "tc.v1.common.values.init" . -}}
 
+  {{/* Ensure TrueCharts chart context information is available */}}
+  {{- include "tc.v1.common.lib.util.chartcontext" . -}}
+
+  {{/* Add manifest manager pre-install and pre-update job */}}
   {{- include "tc.v1.common.lib.util.manifest.manage" . | nindent 0 -}}
 
   {{/* Autogenerate postgresql passwords if needed */}}

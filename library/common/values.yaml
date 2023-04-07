@@ -63,6 +63,11 @@ image:
   # -- Image pull policy
   pullPolicy: IfNotPresent
 
+chartContext:
+  APPURL: ""
+  podCIDR: ""
+  svcCIDR: ""
+
 # -- Security Context
 securityContext:
   # -- Container security context for all containers
