@@ -10,26 +10,8 @@ service:
         port: 8080
         targetPort: 8080
 
-# -- Configure the ingresses for the chart here.
-# Additional ingresses can be added by adding a dictionary key similar to the 'main' ingress.
-# @default -- See below
 ingress:
   main:
-    # -- Enables or disables the ingress
     enabled: true
-
-    ## Configure the hosts for the ingress
     hosts:
-      - # -- Host address. Helm template can be passed.
-        host: chart-example.local
-        ## Configure the paths for the host
-        paths:
-          - # -- Path.  Helm template can be passed.
-            path: /
-            # -- Ignored if not kubeVersion >= 1.14-0
-            pathType: Prefix
-            service:
-              # -- Overrides the service name reference for this path
-              name:
-              # -- Overrides the service port reference for this path
-              port:
+      host: chart-example.local
