@@ -9,6 +9,7 @@ service:
         enabled: false
       metrics:
         enabled: true
+        primary: true
         protocol: tcp
         port: 9798
 metrics:
