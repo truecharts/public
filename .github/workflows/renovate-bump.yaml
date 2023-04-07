@@ -14,12 +14,12 @@ jobs:
     container:
       image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:44047909bbf54cb1ce3551ae0b342244a5bdcd62562a7f2f07caad4bf8856ee4
     steps:
-      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+      - uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3 # v3
         name: Checkout
         with:
           fetch-depth: 0
           token: ${{ secrets.BOT_TOKEN }}
-      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+      - uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3 # v3
         name: Checkout
         with:
           fetch-depth: 0
