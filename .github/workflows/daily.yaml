@@ -374,11 +374,11 @@ jobs:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 1
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3
         with:
           node-version: 18
 
-      - uses: borales/actions-yarn@v4.2.0
+      - uses: borales/actions-yarn@97ba8bebfe5b549bb7999261698a52a81fd62f1b # v4.2.0
         with:
           cmd: install --frozen-lockfile
 
