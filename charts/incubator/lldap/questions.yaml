@@ -9,22 +9,22 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: env
+                                  label: ""
+                                  group: "App Configuration"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: LLDAP_LDAP_BASE_DN
+                                        label: "Base DN for LDAP"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "dc=example,dc=com"
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
-  - variable: env
-    label: ""
-    group: "App Configuration"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: LLDAP_LDAP_BASE_DN
-          label: "Base DN for LDAP"
-          schema:
-            type: string
-            required: true
-            default: "dc=example,dc=com"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
