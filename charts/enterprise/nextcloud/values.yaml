@@ -126,8 +126,8 @@ workload:
             - /var/www/html/config/config.php
           env:
             # https://github.com/nextcloud/notify_push#configuration
-            # FIXME: This should point to the nginx service
-            NEXTCLOUD_URL: http://127.0.0.1:8080
+            # This points to the nginx service internally
+            NEXTCLOUD_URL: http://{{ printf "%s-nextcloud" .Release.Name }}:{{ $.Values.service.main.ports.main.port }}
             METRICS_PORT: 7868
           probes:
             readiness:
@@ -251,7 +251,7 @@ service:
   main:
     ports:
       main:
-        port: 10020
+        port: 8080
         targetPort: 8080
   hpb:
     enabled: true
