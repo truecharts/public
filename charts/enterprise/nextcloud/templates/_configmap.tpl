@@ -29,8 +29,8 @@ nextcloud-config:
     {{/* Custom Entrypoint Variables */}}
     NX_RUN_MAINTENANCE: "true"
     NX_TUNE_FPM: "false"
-    NX_TRUSTED_DOMAINS: {{ ( printf "%v %v %v %v %v %v %v %v" "kube.internal.healthcheck" "localhost" "127.0.0.1" ( printf "%v:%v" "127.0.0.1" .Values.service.main.ports.main.port ) ( .Values.workload.main.podSpec.containers.main.env.AccessIP | default "localhost" ) ( printf "%v-%v" .Release.Name "nextcloud" ) ( printf "%v-%v" .Release.Name "nextcloud-backend" ) $hosts ) | quote }}
-    ## TODO: Adapt common to provide a standardised endpoint for cluster cidr
+    ## TODO: Clean this up into a multi-line script
+    NX_TRUSTED_DOMAINS: {{ ( printf "%v %v %v %v %v %v %v %v %v %v" "kube.internal.healthcheck" "localhost" "127.0.0.1" ( printf "%s-nextcloud" .Release.Name ) ( printf "%v-nextcloud:%v" .Release.Name .Values.service.main.ports.main.port ) ( printf "%v:%v" "127.0.0.1" .Values.service.main.ports.main.port ) ( .Values.workload.main.podSpec.containers.main.env.AccessIP | default "localhost" ) ( printf "%v-%v" .Release.Name "nextcloud" ) ( printf "%v-%v" .Release.Name "nextcloud-backend" ) $hosts ) | quote }}
     NX_TRUSTED_PROXIES: 127.0.0.1 {{ .Values.chartContext.podCIDR }} {{ .Values.chartContext.svcCIDR }}
     NX_NOTIFY_PUSH_ENDPOINT: {{ .Values.chartContext.APPURL }}/push
     NX_OVERWRITE_HOST: {{ .Values.chartContext.APPURL | quote }}
@@ -52,8 +52,8 @@ nextcloud-config:
     NX_PREVIEW_HEIGHT_SIZES: {{ .Values.previews.height_sizes | quote }}
     NX_PREVIEW_WIDTH_SIZES: {{ .Values.previews.width_sizes | quote }}
     NX_PREVIEW_SQUARE_SIZES: {{ .Values.previews.square_sizes | quote }}
-    NX_REDIS_HOST: {{ .Values.redis.creds.plainport | quote }}
-    NX_REDIS_PASS: {{ .Values.redis.creds.redisPassword | quote }}
+    NX_REDIS_HOST: {{ .Values.redis.creds.plainport }}
+    NX_REDIS_PASS: {{ .Values.redis.creds.redisPassword  }}
 
 php-tune:
   enabled: true
