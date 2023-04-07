@@ -36,7 +36,7 @@ workload:
         prestart:
           enabled: true
           imageSelector: image
-          # TODO: Maybe make it "install"?
+          # TODO: Maybe make it "install" and/or "upgrade"
           type: init
           securityContext:
             runAsUser: 0
@@ -47,8 +47,6 @@ workload:
             - |
               /bin/sh <<'EOF'
               echo "Forcing permissions on userdata folder..."
-              echo "Trying to override ownship using nfs4xdr_winacl..."
-              /usr/sbin/nfs4xdr_winacl -a chown -G 33 -c '/var/www/html/data' -p '/var/www/html/data' || echo "Failed setting ownership..."
               chmod 770 /var/www/html/data || echo "Failed to chmod..."
               EOF
       containers:
@@ -119,7 +117,7 @@ workload:
         hpb:
           primary: true
           enabled: true
-          imageSelector: image
+          imageSelector: hpbImage
           # While it can be configured with envs instead of a config file
           # There is a bug in the current version of notify_push that prevents it from working
           # in certain situations. Also it picks the database prefix from the config file,
