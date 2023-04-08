@@ -22,79 +22,78 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: API-KEY
-          label: "API Key"
-          description: "The API Key protects all recognition and detection endpoints including face, scene, object detection and custom models"
-          schema:
-            type: string
-            private: true
-            default: ""
-        - variable: ADMIN-KEY
-          label: "Admin key"
-          description: "The admin key protects admin apis such as adding models, deleting models, list models, backup and restore."
-          schema:
-            type: string
-            default: ""
-            private: true
-        - variable: MODE
-          label: "Mode"
-          description: "Sets the performance mode"
-          schema:
-            type: string
-            default: "Medium"
-            enum:
-              - value: "High"
-                description: "High"
-              - value: "Medium"
-                description: "Medium"
-              - value: "Low"
-                description: "Low"
-        - variable: THREADCOUNT
-          label: "Threadcount"
-          description: "Sets the threadcount each endpoint will run with"
-          schema:
-            type: int
-            default: 5
-  - variable: deepstack
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: vision_face
-          label: "VISION-FACE"
-          description: "Enables Face Detection"
-          schema:
-            type: boolean
-            default: false
-        - variable: vision_detection
-          label: "VISION-DETECTION"
-          description: "Enables Object Detection"
-          schema:
-            type: boolean
-            default: true
-            enum:
-        - variable: vision_scene
-          label: "VISION-SCENE"
-          description: "Enables Scene Detection"
-          schema:
-            type: boolean
-            default: false
-        - variable: vision_face
-          label: "VISION-ENHANCE"
-          description: "Enables Enhance Endpoint"
-          schema:
-            type: boolean
-            default: false
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: API-KEY
+                                        label: "API Key"
+                                        description: "The API Key protects all recognition and detection endpoints including face, scene, object detection and custom models"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: ADMIN-KEY
+                                        label: "Admin key"
+                                        description: "The admin key protects admin apis such as adding models, deleting models, list models, backup and restore."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          private: true
+                                      - variable: MODE
+                                        label: "Mode"
+                                        description: "Sets the performance mode"
+                                        schema:
+                                          type: string
+                                          default: "Medium"
+                                          enum:
+                                            - value: "High"
+                                              description: "High"
+                                            - value: "Medium"
+                                              description: "Medium"
+                                            - value: "Low"
+                                              description: "Low"
+                                      - variable: THREADCOUNT
+                                        label: "Threadcount"
+                                        description: "Sets the threadcount each endpoint will run with"
+                                        schema:
+                                          type: int
+                                          default: 5
+                                - variable: deepstack
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: vision_face
+                                        label: "VISION-FACE"
+                                        description: "Enables Face Detection"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: vision_detection
+                                        label: "VISION-DETECTION"
+                                        description: "Enables Object Detection"
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                          enum:
+                                      - variable: vision_scene
+                                        label: "VISION-SCENE"
+                                        description: "Enables Scene Detection"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: vision_face
+                                        label: "VISION-ENHANCE"
+                                        description: "Enables Enhance Endpoint"
+                                        schema:
+                                          type: boolean
+                                          default: false
 # Include{containerBasic}
 # Include{containerAdvanced}
 

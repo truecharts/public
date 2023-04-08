@@ -8,35 +8,31 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: TOKEN
-          label: "TOKEN"
-          schema:
-            type: string
-            private: true
-            default: ""
-        - variable: SUBDOMAINS
-          label: "SUBDOMAINS"
-          description: "SUBDOMAINS"
-          schema:
-            type: string
-            default: ""
-        - variable: LOG_FILE
-          label: "LOG_FILE"
-          description: "LOG_FILE"
-          schema:
-            type: boolean
-            default: false
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: TOKEN
+                                        label: "TOKEN"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: SUBDOMAINS
+                                        label: "SUBDOMAINS"
+                                        description: "SUBDOMAINS"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: LOG_FILE
+                                        label: "LOG_FILE"
+                                        description: "LOG_FILE"
+                                        schema:
+                                          type: boolean
+                                          default: false
 # Include{containerBasic}
 # Include{containerAdvanced}
 
