@@ -10,33 +10,31 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SUGGEST
-          label: "SUGGEST (Optional)"
-          description: "Sets the SUGGEST env var"
-          schema:
-            type: string
-            default: ""
-        - variable: TITLE
-          label: "TITLE (Optional)"
-          description: "Sets the TITLE env var"
-          schema:
-            type: string
-            default: ""
-        - variable: URL
-          label: "URL (Optional)"
-          description: "Sets the URL env var"
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: SUGGEST
+                                        label: "SUGGEST (Optional)"
+                                        description: "Sets the SUGGEST env var"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: TITLE
+                                        label: "TITLE (Optional)"
+                                        description: "Sets the TITLE env var"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: URL
+                                        label: "URL (Optional)"
+                                        description: "Sets the URL env var"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 

@@ -10,21 +10,19 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: FLOOD_OPTION_RUNDIR
-          label: "FLOOD_OPTION_RUNDIR"
-          description: "Where to store Flood's runtime files (eg. database)"
-          schema:
-            type: string
-            default: "/data"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: FLOOD_OPTION_RUNDIR
+                                        label: "FLOOD_OPTION_RUNDIR"
+                                        description: "Where to store Flood's runtime files (eg. database)"
+                                        schema:
+                                          type: string
+                                          default: "/data"
 # Include{containerBasic}
 # Include{containerAdvanced}
 

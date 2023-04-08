@@ -10,20 +10,19 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: fleet_admin_secret
-          label: "fleet_admin_secret"
-          schema:
-            type: string
-            private: true
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: fleet_admin_secret
+                                        label: "fleet_admin_secret"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 

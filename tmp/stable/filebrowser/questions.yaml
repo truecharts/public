@@ -10,27 +10,25 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: FB_ADDRESS
-          label: "ADDRESS"
-          description: "Address to listen on (Leave empty for default)"
-          schema:
-            type: string
-            default: ""
-        - variable: FB_BASEURL
-          label: "BASEURL"
-          description: "Base URL"
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: FB_ADDRESS
+                                        label: "ADDRESS"
+                                        description: "Address to listen on (Leave empty for default)"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: FB_BASEURL
+                                        label: "BASEURL"
+                                        description: "Base URL"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 

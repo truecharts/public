@@ -10,21 +10,20 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: FG_WEBUI_PASSWD
-          label: "FG_WEBUI_PASSWD"
-          schema:
-            type: string
-            required: true
-            private: true
-            default: "REPLACETHIS"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: FG_WEBUI_PASSWD
+                                        label: "FG_WEBUI_PASSWD"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          private: true
+                                          default: "REPLACETHIS"
 # Include{containerBasic}
 # Include{containerAdvanced}
 

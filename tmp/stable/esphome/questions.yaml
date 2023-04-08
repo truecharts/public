@@ -16,19 +16,19 @@ questions:
 # Include{containerAdvanced}
 
 # Include{containerConfig}
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ESPHOME_DASHBOARD_USE_PING
-          label: Esphome Dasboard Use Ping
-          description: Check the status of the device
-          schema:
-            type: boolean
-            default: true
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ESPHOME_DASHBOARD_USE_PING
+                                        label: Esphome Dasboard Use Ping
+                                        description: Check the status of the device
+                                        schema:
+                                          type: boolean
+                                          default: true
 # Include{serviceRoot}
         - variable: main
           label: Main Service
