@@ -335,7 +335,7 @@ persistence:
     mountPath: /etc/nginx
     readOnly: true
     type: configmap
-    objectName: nginx
+    objectName: nginx-config
     items:
       - key: nginx.conf
         path: nginx.conf
