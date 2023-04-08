@@ -3,32 +3,36 @@ image:
   repository: tccr.io/truecharts/autoscan
   tag: latest@sha256:ceb9d233765da84b959484fd6dcf05743c4e85f4f78cd4871fc89ece122fc571
 
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-secretEnv:
-  PLEX_LOGIN: ""
-  PLEX_PASSWORD: ""
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
 
 service:
   main:
     ports:
       main:
         port: 3030
+        protocol: http
         targetPort: 3030
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            PLEX_LOGIN: ""
+            PLEX_PASSWORD: ""
 
 persistence:
   config:
@@ -36,4 +40,5 @@ persistence:
     mountPath: /config
 
 portal:
-  enabled: false
+  open:
+    enabled: false

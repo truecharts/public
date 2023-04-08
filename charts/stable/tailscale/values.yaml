@@ -2,25 +2,9 @@ image:
   repository: tailscale/tailscale
   pullPolicy: IfNotPresent
   tag: v1.36.2@sha256:37f0cfade6dae8adb2244e86342c9664b905f575fa30f94b22620dc81b8ca5b2
-
-command:
-  - /usr/local/bin/containerboot
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-  capabilities:
-    add:
-      - NET_ADMIN
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 serviceAccount:
   main:
     enabled: true
-
 rbac:
   main:
     enabled: true
@@ -36,16 +20,11 @@ rbac:
         resources:
           - secrets
         resourceNames:
-          - '{{ printf "%s-tailscale-secret" (include "tc.common.names.fullname" .) }}'
+          - '{{ printf "%s-tailscale-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
         verbs:
           - get
           - update
           - patch
-
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-tailscale-config'
-
 tailscale:
   authkey: supersecret
   auth_once: true
@@ -59,24 +38,13 @@ tailscale:
   daemon_extra_args: ""
   hostname: ""
   advertise_as_exit_node: false
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-
 hostNetwork: true
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 persistence:
   varrun:
     enabled: true
@@ -87,6 +55,32 @@ persistence:
     mountPath: /dev/net/tun
     hostPathType: ""
     readOnly: false
-
 portal:
-  enabled: false
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    capabilities:
+      add:
+        - NET_ADMIN
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          envFrom:
+            - configMapRef:
+                name: "tailscale-config"
+          command:
+            - /usr/local/bin/containerboot

@@ -20,15 +20,12 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
-  - condition: postgresql.enabled
-    name: postgresql
-    repository: https://deps.truecharts.org/
-    version: 11.0.31
+    version: 12.2.32
+
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
-    version: 5.0.33
+    version: 6.0.18
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
@@ -37,4 +34,3 @@ annotations:
   truecharts.org/catagories: |
     - productivity
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

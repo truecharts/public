@@ -7,9 +7,27 @@ service:
   main:
     ports:
       main:
-        protocol: HTTP
         targetPort: 8080
+        protocol: http
         port: 10276
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+
 portal:
-  enabled: true
+  open:
+    enabled: true

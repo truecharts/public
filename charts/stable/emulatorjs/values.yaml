@@ -4,12 +4,11 @@ image:
   tag: v1.7.2@sha256:ad89c7f41666445d9e94659157438db3b1d027d98106189229433327c4b50c9d
 
 securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
@@ -36,15 +35,31 @@ ingress:
   front:
     autoLink: true
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
   data:
     enabled: true
-    mountPath: "/data"
-  varrun:
-    enabled: true
+    mountPath: /data
 
 portal:
-  enabled: true
+  open:
+    enabled: true

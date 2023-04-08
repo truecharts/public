@@ -1,7 +1,5 @@
 {{/* Define the secret */}}
 {{- define "cloudflareddns.secret" -}}
-
-{{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
 {{- $cfddns := .Values.cloudflareddns -}}
 {{- $domains := list }}
 {{- $records := list }}
@@ -11,14 +9,8 @@
   {{- $records = mustAppend $records $item.record }}
   {{- $zones = mustAppend $zones $item.zone }}
 {{- end }}
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+enabled: true
+data:
   {{- with $cfddns.user }}
   CF_USER: {{ . | quote }}
   {{- end }}

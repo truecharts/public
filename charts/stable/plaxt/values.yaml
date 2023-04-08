@@ -2,31 +2,31 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/plaxt
   tag: latest@sha256:da5223efed05cf981a0a5a4670cfbd609db5c3ad0b4653ba88a6b08a77805cc1
-
-env:
-  TRAKT_ID: ""
-  TRAKT_SECRET: ""
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
 service:
   main:
     ports:
       main:
         port: 8000
-        protocol: HTTP
+        protocol: http
         targetPort: 8000
-
 persistence:
   config:
     enabled: true
     mountPath: "/app/keystore"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            TRAKT_ID: ""
+            TRAKT_SECRET: ""

@@ -2,29 +2,17 @@ image:
   repository: tccr.io/truecharts/omada-controller
   tag: 5.9.0@sha256:3108975601bc3c2fe8db2dc1d943ee503ff934f6602f856378baeab409a68fd6
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-env:
-  PORTAL_HTTPS_PORT: "{{ .Values.service.comm.ports.comm.port }}"
-
 service:
   main:
     ports:
       main:
-        protocol: HTTPS
+        protocol: https
         port: 8043
   comm:
     enabled: true
     ports:
       comm:
-        protocol: HTTPS
+        protocol: https
         enabled: true
         port: 8843
   omada-tcp:
@@ -51,14 +39,12 @@ service:
     ports:
       omada-udp1:
         enabled: true
-        protocol: UDP
+        protocol: udp
         port: 29810
         targetPort: 29810
-
 ingress:
   comm:
     autoLink: true
-
 persistence:
   data:
     enabled: true
@@ -66,6 +52,19 @@ persistence:
   work:
     enabled: true
     mountPath: /opt/tplink/EAPController/work
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PORTAL_HTTPS_PORT: "{{ .Values.service.comm.ports.comm.port }}"

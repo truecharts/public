@@ -2,22 +2,12 @@ image:
   repository: tccr.io/truecharts/kavita
   pullPolicy: IfNotPresent
   tag: 0.7.1@sha256:078672266ce1d2d38ea5483ef9d6d07d8f5506d14545aa5fcd74c41d0bc48fb4
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         targetPort: 5000
         port: 10189
-
 persistence:
   config:
     enabled: true
@@ -25,6 +15,12 @@ persistence:
   manga:
     enabled: true
     mountPath: "/manga"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
