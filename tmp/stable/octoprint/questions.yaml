@@ -12,31 +12,31 @@ questions:
 # Include{containerMain}
 
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ENABLE_MJPG_STREAMER
-          label: "ENABLE_MJPG_STREAMER"
-          description: "Enable this to ensure camera streaming is enabled you add a video device"
-          schema:
-            type: string
-            default: "false"
-        - variable: MJPG_STREAMER_INPUT
-          label: "MJPG_STREAMER_INPUT"
-          description: "MJPG Streamer input parameters"
-          schema:
-            type: string
-            default: ""
-        - variable: CAMERA_DEV
-          label: "CAMERA_DEV"
-          description: "MJPG Streamer camera device"
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ENABLE_MJPG_STREAMER
+                                        label: "ENABLE_MJPG_STREAMER"
+                                        description: "Enable this to ensure camera streaming is enabled you add a video device"
+                                        schema:
+                                          type: string
+                                          default: "false"
+                                      - variable: MJPG_STREAMER_INPUT
+                                        label: "MJPG_STREAMER_INPUT"
+                                        description: "MJPG Streamer input parameters"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: CAMERA_DEV
+                                        label: "CAMERA_DEV"
+                                        description: "MJPG Streamer camera device"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 

@@ -12,19 +12,19 @@ questions:
 # Include{containerMain}
 
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SSL_CERT_FILE
-          label: "SSL_CERT_FILE"
-          description: "Needed to allow Prusaslicer to open without any prompts upon startup."
-          schema:
-            type: string
-            default: "/etc/ssl/certs/ca-certificates.crt"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: SSL_CERT_FILE
+                                        label: "SSL_CERT_FILE"
+                                        description: "Needed to allow Prusaslicer to open without any prompts upon startup."
+                                        schema:
+                                          type: string
+                                          default: "/etc/ssl/certs/ca-certificates.crt"
 # Include{containerBasic}
 # Include{containerAdvanced}
 

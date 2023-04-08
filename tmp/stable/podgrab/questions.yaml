@@ -11,27 +11,27 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PASSWORD
-          label: "Password"
-          description: "Desired Password"
-          schema:
-            type: string
-            private: true
-            default: "REPLACETHIS"
-        - variable: CHECK_FREQUENCY
-          label: "Update Frequency"
-          description: "Interval to check for new podcasts"
-          schema:
-            type: int
-            default: 240
-            required: true
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PASSWORD
+                                        label: "Password"
+                                        description: "Desired Password"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: "REPLACETHIS"
+                                      - variable: CHECK_FREQUENCY
+                                        label: "Update Frequency"
+                                        description: "Interval to check for new podcasts"
+                                        schema:
+                                          type: int
+                                          default: 240
+                                          required: true
 # Include{containerBasic}
 # Include{containerAdvanced}
 

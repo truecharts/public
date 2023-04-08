@@ -10,23 +10,23 @@ questions:
 # Include{containerMain}
 
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PLEX_URL
-          label: "PLEX_URL"
-          schema:
-            type: string
-            default: "http://plex:32400"
-        - variable: PLEX_TOKEN
-          label: "PLEX_TOKEN"
-          schema:
-            type: string
-            default: "YOUR_TOKEN_PLEX"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PLEX_URL
+                                        label: "PLEX_URL"
+                                        schema:
+                                          type: string
+                                          default: "http://plex:32400"
+                                      - variable: PLEX_TOKEN
+                                        label: "PLEX_TOKEN"
+                                        schema:
+                                          type: string
+                                          default: "YOUR_TOKEN_PLEX"
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

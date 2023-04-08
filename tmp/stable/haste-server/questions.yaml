@@ -13,23 +13,23 @@ questions:
 
 
   # Docker specific env
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: STORAGE_FILEPATH
-          label: "STORAGE_FILEPATH"
-          schema:
-            type: string
-            default: "/config"
-        - variable: STORAGE_TYPE
-          label: "STORAGE_TYPE"
-          schema:
-            type: string
-            default: "file"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: STORAGE_FILEPATH
+                                        label: "STORAGE_FILEPATH"
+                                        schema:
+                                          type: string
+                                          default: "/config"
+                                      - variable: STORAGE_TYPE
+                                        label: "STORAGE_TYPE"
+                                        schema:
+                                          type: string
+                                          default: "file"
 # Include{containerBasic}
 # Include{containerAdvanced}
 

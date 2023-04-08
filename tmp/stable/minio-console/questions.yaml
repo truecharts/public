@@ -11,28 +11,28 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: CONSOLE_PBKDF_PASSPHRASE
-          label: "CONSOLE_PBKDF_PASSPHRASE"
-          schema:
-            type: string
-            default: "changeme"
-        - variable: CONSOLE_PBKDF_SALT
-          label: "CONSOLE_PBKDF_SALT"
-          schema:
-            type: string
-            default: "changeme"
-        - variable: CONSOLE_MINIO_SERVER
-          label: "CONSOLE_MINIO_SERVER"
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: CONSOLE_PBKDF_PASSPHRASE
+                                        label: "CONSOLE_PBKDF_PASSPHRASE"
+                                        schema:
+                                          type: string
+                                          default: "changeme"
+                                      - variable: CONSOLE_PBKDF_SALT
+                                        label: "CONSOLE_PBKDF_SALT"
+                                        schema:
+                                          type: string
+                                          default: "changeme"
+                                      - variable: CONSOLE_MINIO_SERVER
+                                        label: "CONSOLE_MINIO_SERVER"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 

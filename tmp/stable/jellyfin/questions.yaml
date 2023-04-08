@@ -12,19 +12,19 @@ questions:
 # Include{containerMain}
 
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: JELLYFIN_PublishedServerUrl
-          description: "Published Server URL"
-          label: "The Server URL to publish in UDP Auto Discovery response."
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: JELLYFIN_PublishedServerUrl
+                                        description: "Published Server URL"
+                                        label: "The Server URL to publish in UDP Auto Discovery response."
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 

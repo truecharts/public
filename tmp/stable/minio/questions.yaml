@@ -11,36 +11,36 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: MINIO_ROOT_PASSWORD
-          label: "MINIO_ROOT_PASSWORD"
-          schema:
-            type: string
-            default: "changeme"
-        - variable: MINIO_ROOT_USER
-          label: "MINIO_ROOT_USER"
-          schema:
-            type: string
-            default: "minio"
-            required: true
-        - variable: MINIO_BROWSER_REDIRECT_URL
-          label: "MINIO_BROWSER_REDIRECT_URL"
-          description: "Specify the URL the MinIO Console provides as the redirect URL eg. https://minioconsole.mydomain.com"
-          schema:
-            type: string
-            default: ""
-        - variable: MINIO_SERVER_URL
-          label: "MINIO_SERVER_URL"
-          description: "Specify the URL hostname the MinIO Console should use for connecting to the MinIO Server. eg. https://minioserver.mydomain.com"
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: MINIO_ROOT_PASSWORD
+                                        label: "MINIO_ROOT_PASSWORD"
+                                        schema:
+                                          type: string
+                                          default: "changeme"
+                                      - variable: MINIO_ROOT_USER
+                                        label: "MINIO_ROOT_USER"
+                                        schema:
+                                          type: string
+                                          default: "minio"
+                                          required: true
+                                      - variable: MINIO_BROWSER_REDIRECT_URL
+                                        label: "MINIO_BROWSER_REDIRECT_URL"
+                                        description: "Specify the URL the MinIO Console provides as the redirect URL eg. https://minioconsole.mydomain.com"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: MINIO_SERVER_URL
+                                        label: "MINIO_SERVER_URL"
+                                        description: "Specify the URL hostname the MinIO Console should use for connecting to the MinIO Server. eg. https://minioserver.mydomain.com"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 

@@ -9,21 +9,21 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DISCORD_TOKEN
-          label: "Discord Token"
-          description: "Token with Access to your Discord"
-          schema:
-            type: string
-            required: true
-            private: true
-            default: "REPLACETHIS"
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: DISCORD_TOKEN
+                                        label: "Discord Token"
+                                        description: "Token with Access to your Discord"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          private: true
+                                          default: "REPLACETHIS"
 
 # Include{containerBasic}
 # Include{containerAdvanced}

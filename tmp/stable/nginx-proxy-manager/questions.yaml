@@ -12,18 +12,18 @@ questions:
 # Include{containerMain}
 
 
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DISABLE_IPV6
-          label: Disable IPv6
-          schema:
-            type: boolean
-            default: true
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: DISABLE_IPV6
+                                        label: Disable IPv6
+                                        schema:
+                                          type: boolean
+                                          default: true
 # Include{containerBasic}
 # Include{containerAdvanced}
 

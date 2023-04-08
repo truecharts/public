@@ -12,24 +12,24 @@ questions:
 # Include{containerMain}
 
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: username
-          label: "username"
-          schema:
-            type: string
-            default: ""
-        - variable: password
-          label: "password"
-          schema:
-            type: string
-            private: true
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: username
+                                        label: "username"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: password
+                                        label: "password"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 

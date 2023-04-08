@@ -12,31 +12,31 @@ questions:
 # Include{containerMain}
 
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SHLINK_SERVER_URL
-          label: "Server URL"
-          description: "The fully qualified URL for the Shlink server."
-          schema:
-            type: string
-            default: ""
-        - variable: SHLINK_SERVER_API_KEY
-          label: "API Key"
-          description: "The API key. You can create API Key by opening a shell to shlink server and executing 'shlink api-key:generate' "
-          schema:
-            type: string
-            default: ""
-        - variable: SHLINK_SERVER_NAME
-          label: "Server Name"
-          description: "The name to be displayed. Defaults to Shlink if not provided."
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: SHLINK_SERVER_URL
+                                        label: "Server URL"
+                                        description: "The fully qualified URL for the Shlink server."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: SHLINK_SERVER_API_KEY
+                                        label: "API Key"
+                                        description: "The API key. You can create API Key by opening a shell to shlink server and executing 'shlink api-key:generate' "
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: SHLINK_SERVER_NAME
+                                        label: "Server Name"
+                                        description: "The name to be displayed. Defaults to Shlink if not provided."
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 

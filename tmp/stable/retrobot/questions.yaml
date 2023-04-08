@@ -9,44 +9,44 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DISCORD_TOKEN
-          label: Discord Token
-          description: Sets discord token
-          schema:
-            type: string
-            default: ""
-            private: true
-            required: true
-        - variable: MAX_WORKERS
-          label: Max Workers
-          description: -1 means Retrobot will create a worker thread for each CPU core on the host system.
-          schema:
-            type: int
-            default: -1
-            required: true
-        - variable: MAX_WORKERS_PER_GAME
-          label: Max Workers Per Game
-          description: Input assist worker threads to emulate the result of a button press for a game.
-          schema:
-            type: int
-            default: 3
-            required: true
-        - variable: RECORDING_FRAMERATE
-          label: Recording Framerate
-          description: Framerate to encode GIFs
-          schema:
-            type: int
-            default: 30
-            min: 1
-            max: 60
-            required: true
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: DISCORD_TOKEN
+                                        label: Discord Token
+                                        description: Sets discord token
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          private: true
+                                          required: true
+                                      - variable: MAX_WORKERS
+                                        label: Max Workers
+                                        description: -1 means Retrobot will create a worker thread for each CPU core on the host system.
+                                        schema:
+                                          type: int
+                                          default: -1
+                                          required: true
+                                      - variable: MAX_WORKERS_PER_GAME
+                                        label: Max Workers Per Game
+                                        description: Input assist worker threads to emulate the result of a button press for a game.
+                                        schema:
+                                          type: int
+                                          default: 3
+                                          required: true
+                                      - variable: RECORDING_FRAMERATE
+                                        label: Recording Framerate
+                                        description: Framerate to encode GIFs
+                                        schema:
+                                          type: int
+                                          default: 30
+                                          min: 1
+                                          max: 60
+                                          required: true
 # Include{containerBasic}
 # Include{containerAdvanced}
 

@@ -12,25 +12,25 @@ questions:
 # Include{containerMain}
 
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: COLLECTOR_CRON_SCHEDULE
-          label: "COLLECTOR_CRON_SCHEDULE"
-          description: "COLLECTOR_CRON_SCHEDULE"
-          schema:
-            type: string
-            default: "0 0 * * *"
-        - variable: COLLECTOR_HOST_ID
-          label: "COLLECTOR_HOST_ID"
-          description: "COLLECTOR_HOST_ID"
-          schema:
-            type: string
-            default: "TrueNAS Scale"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: COLLECTOR_CRON_SCHEDULE
+                                        label: "COLLECTOR_CRON_SCHEDULE"
+                                        description: "COLLECTOR_CRON_SCHEDULE"
+                                        schema:
+                                          type: string
+                                          default: "0 0 * * *"
+                                      - variable: COLLECTOR_HOST_ID
+                                        label: "COLLECTOR_HOST_ID"
+                                        description: "COLLECTOR_HOST_ID"
+                                        schema:
+                                          type: string
+                                          default: "TrueNAS Scale"
 # Include{containerBasic}
 # Include{containerAdvanced}
 

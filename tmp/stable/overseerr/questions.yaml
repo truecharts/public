@@ -12,19 +12,19 @@ questions:
 # Include{containerMain}
 
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: LOG_LEVEL
-          label: "LOG_LEVEL"
-          description: "Set the application log level"
-          schema:
-            type: string
-            default: "info"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: LOG_LEVEL
+                                        label: "LOG_LEVEL"
+                                        description: "Set the application log level"
+                                        schema:
+                                          type: string
+                                          default: "info"
 # Include{containerBasic}
 # Include{containerAdvanced}
 

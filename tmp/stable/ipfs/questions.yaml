@@ -12,25 +12,25 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: IPFS_SWARM_KEY
-          label: "IPFS_SWARM_KEY"
-          description: "The IPFS_SWARM_KEY creates swarm.key with the contents of the variable itself."
-          schema:
-            type: string
-            default: ""
-        - variable: IPFS_PROFILE
-          label: "IPFS_PROFILE (Initial install only)"
-          description: "When starting a container running ipfs for the first time with an empty data directory, it will call ipfs init to initialize configuration files and generate a new keypair. At this time, you can choose which profile to apply using the IPFS_PROFILE."
-          schema:
-            type: string
-            default: "server"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: IPFS_SWARM_KEY
+                                        label: "IPFS_SWARM_KEY"
+                                        description: "The IPFS_SWARM_KEY creates swarm.key with the contents of the variable itself."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: IPFS_PROFILE
+                                        label: "IPFS_PROFILE (Initial install only)"
+                                        description: "When starting a container running ipfs for the first time with an empty data directory, it will call ipfs init to initialize configuration files and generate a new keypair. At this time, you can choose which profile to apply using the IPFS_PROFILE."
+                                        schema:
+                                          type: string
+                                          default: "server"
 # Include{containerBasic}
 # Include{containerAdvanced}
 

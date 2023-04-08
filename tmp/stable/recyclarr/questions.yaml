@@ -10,19 +10,19 @@ questions:
 # Include{containerMain}
 
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: CRON_SCHEDULE
-          label: "CRON_SCHEDULE"
-          description: Standard cron syntax for how often you want Recyclarr to run.
-          schema:
-            type: string
-            default: "@daily"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: CRON_SCHEDULE
+                                        label: "CRON_SCHEDULE"
+                                        description: Standard cron syntax for how often you want Recyclarr to run.
+                                        schema:
+                                          type: string
+                                          default: "@daily"
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

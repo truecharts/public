@@ -12,18 +12,18 @@ questions:
 # Include{containerMain}
 
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: STASH_PORT
-          label: "STASH_PORT"
-          schema:
-            type: int
-            default: 9999
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: STASH_PORT
+                                        label: "STASH_PORT"
+                                        schema:
+                                          type: int
+                                          default: 9999
 # Include{containerBasic}
 # Include{containerAdvanced}
 

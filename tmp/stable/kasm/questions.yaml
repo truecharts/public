@@ -19,45 +19,45 @@ questions:
 # Include{containerMain}
 
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DOCKER_HUB_USERNAME
-          label: Docker Hub Username
-          description: Optionally specify a DockerHub Username to pull private images.
-          schema:
-            type: string
-            default: ""
-        - variable: DOCKER_HUB_PASSWORD
-          label: Docker Hub Password
-          description: Optionally specify a DockerHub password to pull private images.
-          schema:
-            type: string
-            private: true
-            default: ""
-  - variable: kasm
-    group: App Configuration
-    label: KASM Configuration
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: mountUdev
-          label: Mount /run/udev/data
-          description: Mounts host's /run/udev/data to container. Know the risks first. Used for GamePad support.
-          schema:
-            type: boolean
-            default: false
-        - variable: mountInput
-          label: Mount /dev/input
-          description: Mounts host's /dev/input to container. Know the risks first. Used for GamePad support.
-          schema:
-            type: boolean
-            default: false
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: DOCKER_HUB_USERNAME
+                                        label: Docker Hub Username
+                                        description: Optionally specify a DockerHub Username to pull private images.
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: DOCKER_HUB_PASSWORD
+                                        label: Docker Hub Password
+                                        description: Optionally specify a DockerHub password to pull private images.
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                - variable: kasm
+                                  group: App Configuration
+                                  label: KASM Configuration
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: mountUdev
+                                        label: Mount /run/udev/data
+                                        description: Mounts host's /run/udev/data to container. Know the risks first. Used for GamePad support.
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: mountInput
+                                        label: Mount /dev/input
+                                        description: Mounts host's /dev/input to container. Know the risks first. Used for GamePad support.
+                                        schema:
+                                          type: boolean
+                                          default: false
 # Include{containerBasic}
 # Include{containerAdvanced}
 

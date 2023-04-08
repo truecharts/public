@@ -12,34 +12,34 @@ questions:
 # Include{containerMain}
 
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: JELLYFIN_TYPE
-          label: "JELLYFIN_TYPE"
-          description: "For Emby users set this to emby, otherwise leave it blank"
-          schema:
-            type: string
-            default: ""
-            enum:
-              - value: ""
-                description: ""
-              - value: "emby"
-                description: "emby"
-        - variable: LOG_LEVEL
-          label: "LOG_LEVEL"
-          schema:
-            type: string
-            default: "info"
-            enum:
-              - value: "info"
-                description: "info"
-              - value: "debug"
-                description: "debug"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: JELLYFIN_TYPE
+                                        label: "JELLYFIN_TYPE"
+                                        description: "For Emby users set this to emby, otherwise leave it blank"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          enum:
+                                            - value: ""
+                                              description: ""
+                                            - value: "emby"
+                                              description: "emby"
+                                      - variable: LOG_LEVEL
+                                        label: "LOG_LEVEL"
+                                        schema:
+                                          type: string
+                                          default: "info"
+                                          enum:
+                                            - value: "info"
+                                              description: "info"
+                                            - value: "debug"
+                                              description: "debug"
 # Include{containerBasic}
 # Include{containerAdvanced}
 

@@ -10,26 +10,26 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PGADMIN_DEFAULT_EMAIL
-          label: "PGADMIN_DEFAULT_EMAIL"
-          schema:
-            type: string
-            required: true
-            default: "REPLACETHIS"
-        - variable: PGADMIN_DEFAULT_PASSWORD
-          label: "PGADMIN_DEFAULT_PASSWORD"
-          schema:
-            type: string
-            required: true
-            private: true
-            default: "REPLACETHIS"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PGADMIN_DEFAULT_EMAIL
+                                        label: "PGADMIN_DEFAULT_EMAIL"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "REPLACETHIS"
+                                      - variable: PGADMIN_DEFAULT_PASSWORD
+                                        label: "PGADMIN_DEFAULT_PASSWORD"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          private: true
+                                          default: "REPLACETHIS"
 # Include{containerBasic}
 # Include{containerAdvanced}
 

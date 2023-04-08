@@ -12,30 +12,30 @@ questions:
 # Include{containerMain}
 
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: NETDATA_CLAIM_URL
-          label: "NETDATA_CLAIM_URL"
-          schema:
-            type: string
-            default: "https://app.netdata.cloud"
-        - variable: NETDATA_CLAIM_TOKEN
-          label: "NETDATA_CLAIM_TOKEN"
-          schema:
-            type: string
-            private: true
-            default: ""
-        - variable: NETDATA_CLAIM_ROOMS
-          label: "NETDATA_CLAIM_ROOMS"
-          schema:
-            type: string
-            private: true
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: NETDATA_CLAIM_URL
+                                        label: "NETDATA_CLAIM_URL"
+                                        schema:
+                                          type: string
+                                          default: "https://app.netdata.cloud"
+                                      - variable: NETDATA_CLAIM_TOKEN
+                                        label: "NETDATA_CLAIM_TOKEN"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: NETDATA_CLAIM_ROOMS
+                                        label: "NETDATA_CLAIM_ROOMS"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 

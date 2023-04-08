@@ -12,19 +12,19 @@ questions:
 # Include{containerMain}
 
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: INIT_ASSETS
-          label: "INIT_ASSETS"
-          description: "Set 1 to generate example file or 0 to not generate"
-          schema:
-            type: string
-            default: "1"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: INIT_ASSETS
+                                        label: "INIT_ASSETS"
+                                        description: "Set 1 to generate example file or 0 to not generate"
+                                        schema:
+                                          type: string
+                                          default: "1"
 # Include{containerBasic}
 # Include{containerAdvanced}
 

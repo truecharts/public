@@ -12,25 +12,25 @@ questions:
 # Include{containerMain}
 
 
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: OUTPUT_TEMPLATE
-          label: Output Template
-          description: The template for the filenames of the downloaded videos
-          schema:
-            type: string
-            default: "%(title)s.%(ext)s"
-        - variable: YTDL_OPTIONS
-          label: YTDL Options
-          description: Additional options to pass to youtube-dl, in JSON format
-          schema:
-            type: string
-            default: "{}"
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: OUTPUT_TEMPLATE
+                                        label: Output Template
+                                        description: The template for the filenames of the downloaded videos
+                                        schema:
+                                          type: string
+                                          default: "%(title)s.%(ext)s"
+                                      - variable: YTDL_OPTIONS
+                                        label: YTDL Options
+                                        description: Additional options to pass to youtube-dl, in JSON format
+                                        schema:
+                                          type: string
+                                          default: "{}"
 # Include{containerBasic}
 # Include{containerAdvanced}
 

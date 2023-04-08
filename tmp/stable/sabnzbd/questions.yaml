@@ -12,19 +12,19 @@ questions:
 # Include{containerMain}
 
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SABNZBD__HOST_WHITELIST_ENTRIES
-          label: "HostName Whitelist"
-          description: "If you use a reverse proxy, you might need to enter your hostname's here (comma seperated)"
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: SABNZBD__HOST_WHITELIST_ENTRIES
+                                        label: "HostName Whitelist"
+                                        description: "If you use a reverse proxy, you might need to enter your hostname's here (comma seperated)"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 

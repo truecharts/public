@@ -12,26 +12,26 @@ questions:
 # Include{containerMain}
 
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: BAUD_RATE
-          label: "BAUD_RATE"
-          description: "Serial device baud rate"
-          schema:
-            type: string
-            default: "115200"
-        - variable: SERIAL_DEVICE
-          label: "SERIAL_DEVICE"
-          description: "Path to the serial device"
-          schema:
-            type: string
-            required: true
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: BAUD_RATE
+                                        label: "BAUD_RATE"
+                                        description: "Serial device baud rate"
+                                        schema:
+                                          type: string
+                                          default: "115200"
+                                      - variable: SERIAL_DEVICE
+                                        label: "SERIAL_DEVICE"
+                                        description: "Path to the serial device"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 
