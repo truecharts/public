@@ -10,12 +10,9 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
-
-  - variable: secretEnv
+  - variable: env
     group: "App Configuration"
-    label: "Image Secrets"
+    label: "Image Environment"
     schema:
       additional_attrs: true
       type: dict
@@ -33,13 +30,6 @@ questions:
             type: string
             private: true
             default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: USE_CUSTOM_CONFIG_FILE
           label: "ADVANCED: Use custom config file (Placed in /data)"
           description: ""
@@ -97,6 +87,9 @@ questions:
                       description: "ezsp"
                     - value: "zstack"
                       description: "zstack"
+# Include{containerBasic}
+# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

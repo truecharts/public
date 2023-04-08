@@ -13,12 +13,10 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: secretEnv
+  - variable: env
     group: "App Configuration"
-    label: "Image Secrets"
+    label: "Image Environment"
     schema:
       additional_attrs: true
       type: dict
@@ -42,13 +40,6 @@ questions:
             default: ""
             private: true
             required: true
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: LD_DISABLE_BACKGROUND_TASKS
           label: "Disable Background Tasks"
           description: "Disables background tasks, such as creating snapshots for bookmarks on the web archive. Enabling this flag will prevent the background task processor from starting up, and prevents scheduling tasks. This might be useful if you are experiencing performance issues or other problematic behaviour due to background task processing."
@@ -67,6 +58,9 @@ questions:
           schema:
             type: int
             default: 60
+# Include{containerBasic}
+# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

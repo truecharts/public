@@ -17,12 +17,11 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: App Configuration
-    label: Image Secrets
+
+  - variable: env
+    group: "App Configuration"
+    label: "Image Environment"
     schema:
       additional_attrs: true
       type: dict
@@ -59,6 +58,9 @@ questions:
           schema:
             type: boolean
             default: false
+# Include{containerBasic}
+# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

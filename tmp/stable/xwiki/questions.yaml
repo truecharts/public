@@ -10,8 +10,6 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
   - variable: env
     group: "App Configuration"
@@ -25,6 +23,10 @@ questions:
           schema:
             type: string
             default: ""
+
+# Include{containerBasic}
+# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

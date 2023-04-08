@@ -8,8 +8,7 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
+
 
   - variable: env
     group: "App Configuration"
@@ -232,6 +231,9 @@ questions:
           schema:
             type: int
             default: 1
+# Include{containerBasic}
+# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{serviceExpertRoot}
             default: false
