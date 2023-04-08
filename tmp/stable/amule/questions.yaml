@@ -10,27 +10,25 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: WEBUI_PWD
-          label: WEBUI_PWD
-          description: Password for WebUI.
-          schema:
-            type: string
-            default: ""
-        - variable: WEBUI_TEMPLATE
-          label: WEBUI_TEMPLATE
-          description: Alternative material WebUI design.
-          schema:
-            type: string
-            default: default
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: WEBUI_PWD
+                                        label: WEBUI_PWD
+                                        description: Password for WebUI.
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: WEBUI_TEMPLATE
+                                        label: WEBUI_TEMPLATE
+                                        description: Alternative material WebUI design.
+                                        schema:
+                                          type: string
+                                          default: default
 # Include{containerBasic}
 # Include{containerAdvanced}
 
