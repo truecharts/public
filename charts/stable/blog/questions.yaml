@@ -10,33 +10,31 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: BLOG_TITLE
-          label: "Blog Title"
-          schema:
-            type: string
-            default: ""
-            required: true
-        - variable: BLOG_NAME
-          label: "Blog Name"
-          schema:
-            type: string
-            default: ""
-            required: true
-        - variable: BLOG_LANG
-          label: "Blog Language"
-          schema:
-            type: string
-            default: ""
-            required: true
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: BLOG_TITLE
+                                        label: "Blog Title"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                      - variable: BLOG_NAME
+                                        label: "Blog Name"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                      - variable: BLOG_LANG
+                                        label: "Blog Language"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
 # Include{containerBasic}
 # Include{containerAdvanced}
 

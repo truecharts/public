@@ -10,59 +10,58 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: TOKEN
-          label: HA Token
-          description: Your Long Live Home-Assistant Token
-          schema:
-            type: string
-            private: true
-            required: true
-            default: ""
-        - variable: HA_URL
-          label: HA URL
-          description: Your Home-Assistant URL
-          schema:
-            type: string
-            default: ""
-            required: true
-        - variable: DASH_URL
-          label: Dashboard URL
-          description: URL of your AppDaemon dashboard
-          schema:
-            type: string
-            default: http://$HOSTNAME:5050
-            required: true
-        - variable: LATITUDE
-          label: Latitude
-          description: Latitude of your home assistant instance
-          schema:
-            type: string
-            default: ""
-            valid_chars: '^(\+|-)?(?:90(?:(?:\.0{1,15})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,15})?))$'
-            required: true
-        - variable: LONGITUDE
-          label: Longitude
-          description: Longitude of your home assistant instance
-          schema:
-            type: string
-            default: ""
-            valid_chars: '^(\+|-)?(?:180(?:(?:\.0{1,15})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,15})?))$'
-            required: true
-        - variable: ELEVATION
-          label: Elevation
-          description: Longitude of your home assistant instance
-          schema:
-            type: int
-            default: 0
-            required: true
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: TOKEN
+                                        label: HA Token
+                                        description: Your Long Live Home-Assistant Token
+                                        schema:
+                                          type: string
+                                          private: true
+                                          required: true
+                                          default: ""
+                                      - variable: HA_URL
+                                        label: HA URL
+                                        description: Your Home-Assistant URL
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                      - variable: DASH_URL
+                                        label: Dashboard URL
+                                        description: URL of your AppDaemon dashboard
+                                        schema:
+                                          type: string
+                                          default: http://$HOSTNAME:5050
+                                          required: true
+                                      - variable: LATITUDE
+                                        label: Latitude
+                                        description: Latitude of your home assistant instance
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          valid_chars: '^(\+|-)?(?:90(?:(?:\.0{1,15})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,15})?))$'
+                                          required: true
+                                      - variable: LONGITUDE
+                                        label: Longitude
+                                        description: Longitude of your home assistant instance
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          valid_chars: '^(\+|-)?(?:180(?:(?:\.0{1,15})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,15})?))$'
+                                          required: true
+                                      - variable: ELEVATION
+                                        label: Elevation
+                                        description: Longitude of your home assistant instance
+                                        schema:
+                                          type: int
+                                          default: 0
+                                          required: true
 # Include{containerBasic}
 # Include{containerAdvanced}
 

@@ -8,27 +8,26 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PLEX_LOGIN
-          label: PLEX_LOGIN
-          description: Set plex username.
-          schema:
-            type: string
-            default: ""
-        - variable: PLEX_PASSWORD
-          label: PLEX_PASSWORD
-          description: Set plex password.
-          schema:
-            type: string
-            private: true
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PLEX_LOGIN
+                                        label: PLEX_LOGIN
+                                        description: Set plex username.
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PLEX_PASSWORD
+                                        label: PLEX_PASSWORD
+                                        description: Set plex password.
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 
