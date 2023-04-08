@@ -1,0 +1,40 @@
+image:
+  repository: tccr.io/truecharts/resilio-sync
+  tag: version-2.7.2.1375@sha256:54f42485d39a7773ff2e13c27ebfc32fc448eaf13f8972f38e14eedadb0b3a2e
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 8888
+        targetPort: 8888
+  bt-tcp:
+    enabled: true
+    ports:
+      bt-tcp:
+        enabled: true
+        port: 55555
+        targetPort: 55555
+  bt-udp:
+    enabled: true
+    ports:
+      bt-udp:
+        enabled: true
+        port: 55555
+        targetPort: 55555
+        protocol: udp
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0

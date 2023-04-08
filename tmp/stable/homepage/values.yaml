@@ -1,0 +1,18 @@
+image:
+  repository: tccr.io/truecharts/homepage
+  tag: 0.6.9@sha256:906adeec83ce48459c89224e6b5a6c362f417fb1b88597ae64d06ad3958f6302
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10352
+        protocol: http
+        targetPort: 3000
+persistence:
+  config:
+    enabled: true
+    mountPath: /app/config
+portal:
+  open:
+    enabled: true

@@ -1,0 +1,19 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{/* Render configmap for wireguard */}}
+{{- $configmap := include "wg.env.configmap" . | fromYaml -}}
+{{- if $configmap -}}
+  {{- $_ := set .Values.configmap "wg-env-config" $configmap -}}
+{{- end -}}
+
+{{/* Render secret for wireguard */}}
+{{- $secret := include "wg.config-secret" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "wg-config-secret" $secret -}}
+{{- end -}}
+
+{{- $_ := set .Values.persistence "configfile" (include "wireguard.configfile" . | fromYaml) -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

@@ -1,0 +1,58 @@
+image:
+  repository: tccr.io/truecharts/deluge
+  pullPolicy: IfNotPresent
+  tag: v2.1.1@sha256:580631efe42039df06ce28e90e59a6a2e4a23a1970eaa24a4b2f783166e74b36
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 8112
+        targetPort: 8112
+  torrent:
+    enabled: true
+    ports:
+      tcp:
+        enabled: true
+        port: 51413
+        targetPort: 51413
+  torrent-udp:
+    enabled: true
+    ports:
+      udp:
+        enabled: true
+        port: 51413
+        targetPort: 51413
+        protocol: udp
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: true

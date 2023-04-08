@@ -1,0 +1,58 @@
+image:
+  repository: tccr.io/truecharts/postgresql
+  pullPolicy: IfNotPresent
+  tag: 14.7.0@sha256:f71c97329aa3bdcd7d9fac73596b74348bee81499a6e132e00045b3cf358cc06
+workload:
+  main:
+    enabled: false
+    podSpec:
+      containers:
+        main:
+          enabled: false
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+portal:
+  open:
+    enabled: false
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+        port: 9999
+cnpg:
+  main:
+    enabled: false
+    primary: true
+    # -- number of instances for both postgres and pgbouncer
+    instances: 2
+    database: "app"
+    user: "app"
+    # password:
+    # superUserPassword:
+    # -- change to supervised to disable unsupervised updates
+    # Example of rolling update strategy:
+    # - unsupervised: automated update of the primary once all
+    #                 replicas have been upgraded (default)
+    # - supervised: requires manual supervision to perform
+    #               the switchover of the primary
+    primaryUpdateStrategy: unsupervised
+    # -- enable to create extra pgbouncer for readonly access
+    acceptRO: false
+    # -- storage size for the two pvc's per instance
+    storage:
+      size: "256Gi"
+      walsize: "256Gi"
+    pooler:
+      instances: 2
+    # -- set to enable prometheus metrics
+    monitoring:
+      enablePodMonitor: true
+    # -- contains credentials and urls output by generator
+    creds: {}

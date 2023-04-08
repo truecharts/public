@@ -1,0 +1,46 @@
+image:
+  repository: tccr.io/truecharts/lama-cleaner-cpu
+  pullPolicy: IfNotPresent
+  tag: v0.26.1@sha256:5b9a166806fa1b7a2ab44196704e2772bf93dd2415fe869b0fabf072a61e356a
+gpuImage:
+  repository: tccr.io/truecharts/lama-cleaner-gpu
+  tag: v0.26.1@sha256:14ee85f997664a5e638287609b7bff9829c65ead48ce445612ac258631f4fc7d
+  pullPolicy: Always
+imageSelector: image
+lamacleaner:
+  model: lama
+  input: ""
+  sd_run_local: false
+  hf_access_token: ""
+  sd_disable_nsfw: false
+  sd_cpu_text_encoder: false
+  sd_enable_xformers: false
+  debug: false
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 10604
+persistence:
+  torch:
+    enabled: true
+    mountPath: /root/.cache/torch
+  huggingface:
+    enabled: true
+    mountPath: /root/.cache/huggingface
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          command: lama-cleaner

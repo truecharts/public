@@ -1,0 +1,51 @@
+image:
+  repository: tccr.io/truecharts/ztcuui-aio
+  tag: 1.2.12@sha256:5fc96868920124f3b28e6e3c59956b72b15fff5a3ccf56e0d9bce8283d1cc29e
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10258
+  other:
+    enabled: true
+    ports:
+      other:
+        enabled: true
+        port: 3180
+        targetPort: 3180
+  other2:
+    enabled: true
+    ports:
+      other2:
+        enabled: true
+        protocol: udp
+        port: 9993
+        targetPort: 9993
+persistence:
+  config:
+    enabled: true
+    mountPath: /opt/key-networks/ztncui/etc
+  zerotier:
+    enabled: true
+    mountPath: /var/lib/zerotier-one
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+            HTTP_ALL_INTERFACES: "yes"
+            NODE_ENV: "production"
+            MYDOMAIN: "test.truecharts.org"
+            ZTNCUI_PASSWD: "CHANGEME"

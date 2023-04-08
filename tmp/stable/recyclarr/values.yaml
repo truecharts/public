@@ -1,0 +1,42 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/recyclarr
+  tag: 4.2.0@sha256:769cc3df9b064be0bc2ed75d6aa1ee50f516e3970f76a303eb4fecf0cb4735ae
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+    targetSelectAll: true
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    runAsGroup: 568
+    runAsUser: 568
+workload:
+  main:
+    podSpec:
+      initContainers:
+        initconfig:
+          type: install
+          enabled: true
+          imageSelector: "image"
+          command: ["recyclarr", "create-config"]
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            CRON_SCHEDULE: "@daily"

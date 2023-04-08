@@ -1,0 +1,80 @@
+image:
+  repository: tccr.io/truecharts/deepstack-cpu
+  pullPolicy: IfNotPresent
+  tag: v2022.01.1@sha256:494b5bec44924da7789d6093464e2c41d4d8866aa4db54d6e3dcbecb7ae84d48
+gpuImage:
+  repository: tccr.io/truecharts/deepstack-gpu
+  pullPolicy: IfNotPresent
+  tag: 2022.01.1@sha256:8df0f00903427234b7786e3bbe9ecfbc852a34d22509823e360336f1f04b41ba
+
+imageSelector: "image"
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10049
+        protocol: http
+        targetPort: 5000
+
+deepstack:
+  vision_face: true
+  vision_detection: true
+  vision_scene: true
+  vision_enhance: true
+
+configmap:
+  deepstack:
+    enabled: true
+    data:
+      VISION-FACE: '{{ ternary "True" "False" .Values.deepstack.vision_face }}'
+      VISION-DETECTION: '{{ ternary "True" "False" .Values.deepstack.vision_detection }}'
+      VISION-SCENE: '{{ ternary "True" "False" .Values.deepstack.vision_scene }}'
+      VISION-ENHANCE: '{{ ternary "True" "False" .Values.deepstack.vision_enhance }}'
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            # Path to custom models (needs to be on documentation)
+            MODELSTORE-DETECTION: "{{ .Values.persistence.modelstore.mountPath }}"
+            # High|Medium|Low
+
+            MODE: "High"
+            THREADCOUNT: 5
+            API-KEY: ""
+            ADMIN-KEY: ""
+          envFrom:
+            - configMapRef:
+                name: "deepstack"
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /datastore
+  modelstore:
+    enabled: true
+    mountPath: /modelstore/detection
+
+portal:
+  open:
+    enabled: true

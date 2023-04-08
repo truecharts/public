@@ -1,0 +1,65 @@
+image:
+  repository: tccr.io/truecharts/emulatorjs
+  pullPolicy: IfNotPresent
+  tag: v1.7.2@sha256:ad89c7f41666445d9e94659157438db3b1d027d98106189229433327c4b50c9d
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 3000
+        port: 10130
+  front:
+    enabled: true
+    ports:
+      front:
+        enabled: true
+        targetPort: 80
+        port: 10124
+  ipfs:
+    enabled: true
+    ports:
+      ipfs:
+        enabled: true
+        targetPort: 4001
+        port: 10138
+
+ingress:
+  front:
+    autoLink: true
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  data:
+    enabled: true
+    mountPath: /data
+
+portal:
+  open:
+    enabled: true

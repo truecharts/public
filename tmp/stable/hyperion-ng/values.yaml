@@ -1,0 +1,43 @@
+image:
+  repository: tccr.io/truecharts/hyperion.ng
+  tag: 2.0.14@sha256:d2a68d14655b0aca7c9babda8e2fba5abde5e1439607b7e92d38eafe8f0d85dc
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10065
+        targetPort: 8090
+  jsonservice:
+    enabled: true
+    ports:
+      jsonservice:
+        enabled: true
+        port: 19444
+        targetPort: 19444
+  protobufservice:
+    enabled: true
+    ports:
+      protobufservice:
+        enabled: true
+        port: 19445
+        targetPort: 19445
+  boblightservice:
+    enabled: true
+    ports:
+      boblightservice:
+        enabled: true
+        port: 19333
+        targetPort: 19333
+persistence:
+  config:
+    enabled: true
+    mountPath: "/root/.hyperion"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

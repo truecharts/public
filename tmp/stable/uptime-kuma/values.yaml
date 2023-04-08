@@ -1,0 +1,40 @@
+image:
+  repository: tccr.io/truecharts/uptime-kuma
+  pullPolicy: IfNotPresent
+  tag: 1.20.2@sha256:b1bb3e6fe1a35a23bd4671acdc8e014615e4495ab96537ac465a11d5938665bf
+security:
+  PUID: 0
+service:
+  main:
+    ports:
+      main:
+        port: 3001
+persistence:
+  config:
+    enabled: true
+    mountPath: "/app/data"
+portal:
+  open:
+    enabled: true
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: metrics
+        path: /metrics
+    prometheusRule:
+      enabled: false
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            UPTIME_KUMA_PORT: "{{ .Values.service.main.ports.main.port }}"

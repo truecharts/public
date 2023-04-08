@@ -1,0 +1,37 @@
+image:
+  repository: tccr.io/truecharts/homebox
+  pullPolicy: IfNotPresent
+  tag: 0.8.2@sha256:4068fcc7ee472444a13a4e1dc3f018dddf020f826dc170d870525bd2bcb19fb4
+homebox:
+  allow_registration: true
+  auto_increment_asset_id: true
+  max_upload_size: 10
+  log_level: info
+  log_format: text
+  mailer_host: ""
+  mailer_port: 587
+  mailer_from: ""
+  mailer_username: ""
+  mailer_password: ""
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 10603
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+portal:
+  open:
+    enabled: true
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: "homebox-secret"

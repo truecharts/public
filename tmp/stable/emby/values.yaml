@@ -1,0 +1,41 @@
+image:
+  repository: tccr.io/truecharts/emby
+  pullPolicy: IfNotPresent
+  tag: 4.7.11.0@sha256:29c5f1e0603d35e9df6e0e6b03e76e95fbe9f090ba25e0add4172100394e6941
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 10079
+        targetPort: 8096
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+
+portal:
+  open:
+    enabled: true

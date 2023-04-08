@@ -1,0 +1,53 @@
+image:
+  repository: tccr.io/truecharts/fileflows
+  tag: 1.0.9@sha256:ccd7421d500098a88525b5657250a410579d15fb35ae0638f9b51cb8ab2d06ec
+  pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+
+service:
+  main:
+    ports:
+      main:
+        port: 10242
+        targetPort: 5000
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/Data
+  logs:
+    enabled: true
+    mountPath: /app/Logs
+  temp:
+    enabled: true
+    mountPath: /temp
+  media:
+    enabled: true
+    mountPath: /media
+
+portal:
+  open:
+    enabled: true

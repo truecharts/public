@@ -1,0 +1,32 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/kiwix-serve
+  tag: 3.4.0@sha256:cb780fc1ef163d6f3ed0b3c34e5a8032f4441ed63a5df29e232f6b6ccf3e44a9
+service:
+  main:
+    ports:
+      main:
+        port: 10323
+        protocol: http
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DOWNLOAD: http://download.kiwix.org/zim/wikipedia_en_chemistry_nopic.zim
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+          args: ["*.zim"]
