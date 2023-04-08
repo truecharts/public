@@ -10,16 +10,15 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: secretEnv
+  - variable: env
     group: "App Configuration"
-    label: "Image Secrets"
+    label: "Image Environment"
     schema:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: DOCS_ADMIN_EMAIL_INIT
           label: "DOCS_ADMIN_EMAIL_INIT"
           description: "Sets the DOCS_ADMIN_EMAIL_INIT env var"
@@ -44,13 +43,6 @@ questions:
           schema:
             type: string
             default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: DOCS_DEFAULT_LANGUAGE
           label: "DOCS_DEFAULT_LANGUAGE"
           description: "Sets the DOCS_DEFAULT_LANGUAGE env var"
@@ -75,6 +67,9 @@ questions:
           schema:
             type: int
             default: 0
+# Include{containerBasic}
+# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

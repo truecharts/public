@@ -10,8 +10,7 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
+
 
   - variable: traggo
     group: App Configuration
@@ -58,6 +57,9 @@ questions:
                 description: Fatal
               - value: panic
                 description: Panic
+# Include{containerBasic}
+# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

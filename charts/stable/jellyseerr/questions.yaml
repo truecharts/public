@@ -10,8 +10,7 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
+
 
   - variable: env
     group: "App Configuration"
@@ -41,6 +40,9 @@ questions:
                 description: "info"
               - value: "debug"
                 description: "debug"
+# Include{containerBasic}
+# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

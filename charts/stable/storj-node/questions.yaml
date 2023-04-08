@@ -10,12 +10,10 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: secretEnv
+  - variable: env
     group: "App Configuration"
-    label: "Image Secrets"
+    label: "Image Environment"
     schema:
       additional_attrs: true
       type: dict
@@ -27,13 +25,6 @@ questions:
             type: string
             default: ""
             required: true
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: SETUP
           label: "SETUP (Change to false after first deploy)"
           description: "After first deploy, come back to change it to false."
@@ -60,6 +51,9 @@ questions:
             type: string
             default: "500GB"
             required: true
+# Include{containerBasic}
+# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

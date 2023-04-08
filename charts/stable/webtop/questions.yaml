@@ -71,8 +71,7 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
+
 
   - variable: env
     group: App Configuration
@@ -124,6 +123,9 @@ questions:
                 description: Swedish Qwerty
               - value: tr-tr-qwerty
                 description: Turkish-Q Qwerty
+# Include{containerBasic}
+# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

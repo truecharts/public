@@ -13,12 +13,10 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: secretEnv
+  - variable: env
     group: "App Configuration"
-    label: "Image Secrets"
+    label: "Image Environment"
     schema:
       additional_attrs: true
       type: dict
@@ -47,13 +45,6 @@ questions:
             private: true
             required: true
             default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: NODE_ENV
           label: Node Environment
           description: Sets Node's Environment
@@ -94,6 +85,9 @@ questions:
           schema:
             type: string
             default: ""
+# Include{containerBasic}
+# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

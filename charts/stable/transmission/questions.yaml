@@ -11,12 +11,10 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: secretEnv
+  - variable: env
     group: "App Configuration"
-    label: "Image Secrets"
+    label: "Image Environment"
     schema:
       additional_attrs: true
       type: dict
@@ -32,13 +30,6 @@ questions:
             type: string
             private: true
             default: "REPLACETHIS"
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: TRANSMISSION_ALT_SPEED_DOWN
           label: TRANSMISSION_ALT_SPEED_DOWN
           schema:
@@ -339,6 +330,9 @@ questions:
           schema:
             type: boolean
             default: false
+# Include{containerBasic}
+# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

@@ -8,8 +8,7 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
+
 
   - variable: wg
     group: App Configuration
@@ -54,6 +53,9 @@ questions:
                 schema:
                   type: string
                   required: true
+# Include{containerBasic}
+# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

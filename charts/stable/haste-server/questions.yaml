@@ -10,8 +10,7 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
+
 
   # Docker specific env
   - variable: env
@@ -31,6 +30,9 @@ questions:
           schema:
             type: string
             default: "file"
+# Include{containerBasic}
+# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

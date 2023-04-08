@@ -10,16 +10,11 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: secretEnv
+  - variable: env
     group: "App Configuration"
-    label: "Image Secrets"
+    label: "Image Environment"
     schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: VNC_PASSWORD
           label: "VNC_PASSWORD"
           description: "Password needed to connect to the application's GUI. See the VNC Password section for more details."
@@ -74,6 +69,9 @@ questions:
                 schema:
                   type: boolean
                   default: false
+# Include{containerBasic}
+# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

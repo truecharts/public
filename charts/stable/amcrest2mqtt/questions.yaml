@@ -8,12 +8,10 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: secretEnv
+  - variable: env
     group: "App Configuration"
-    label: "Image Secrets"
+    label: "Image Environment"
     schema:
       additional_attrs: true
       type: dict
@@ -44,13 +42,6 @@ questions:
           schema:
             type: string
             default: "changeme"
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: AMCREST_HOST
           label: "AMCREST_HOST"
           description: "Host name used to connect to the Amcrest device"
@@ -91,6 +82,9 @@ questions:
           schema:
             type: string
             default: "homeassistant"
+# Include{containerBasic}
+# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{serviceExpertRoot}
             default: false
