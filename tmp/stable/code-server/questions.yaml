@@ -10,21 +10,19 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PROXY_DOMAIN
-          label: "PROXY_DOMAIN (Optional)"
-          description: "Sets the PROXY_DOMAIN env var"
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PROXY_DOMAIN
+                                        label: "PROXY_DOMAIN (Optional)"
+                                        description: "Sets the PROXY_DOMAIN env var"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 

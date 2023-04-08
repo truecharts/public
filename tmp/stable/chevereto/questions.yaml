@@ -10,30 +10,28 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-
-  - variable: chevereto
-    group: "App Configuration"
-    label: "Chevereto Configuration"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: https
-          label: "CHEVERETO_HTTPS"
-          schema:
-            type: boolean
-            default: false
-        - variable: disable_update_http
-          label: "CHEVERETO_DISABLE_UPDATE_HTTP"
-          schema:
-            type: boolean
-            default: true
-        - variable: disable_update_cli
-          label: "CHEVERETO_DISABLE_UPDATE_CLI"
-          schema:
-            type: boolean
-            default: true
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: https
+                                        label: "CHEVERETO_HTTPS"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: disable_update_http
+                                        label: "CHEVERETO_DISABLE_UPDATE_HTTP"
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: disable_update_cli
+                                        label: "CHEVERETO_DISABLE_UPDATE_CLI"
+                                        schema:
+                                          type: boolean
+                                          default: true
 # Include{containerBasic}
 # Include{containerAdvanced}
 
