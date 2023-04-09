@@ -329,17 +329,20 @@ questions:
                       label: Global Args
                       schema:
                         type: string
+                        valid_chars: "[a-z,A-Z: 0-9-_]"
                         default: ""
                     - variable: hwaccel_args
                       label: HW Acceleration Args
                       description: See hardware acceleration docs for your specific device
                       schema:
                         type: string
+                        valid_chars: "[a-z,A-Z: 0-9-_]"
                         default: ""
                     - variable: input_args
                       label: Input Args
                       schema:
                         type: string
+                        valid_chars: "[a-z,A-Z: 0-9-_]"
                         default: ""
                     - variable: output_args
                       label: Output Args
@@ -351,16 +354,19 @@ questions:
                             label: Detect
                             schema:
                               type: string
+                              valid_chars: "[a-z,A-Z: 0-9-_]"
                               default: ""
                           - variable: record
                             label: Record
                             schema:
                               type: string
+                              valid_chars: "[a-z,A-Z: 0-9-_]"
                               default: ""
                           - variable: rtmp
                             label: RTMP
                             schema:
                               type: string
+                              valid_chars: "[a-z,A-Z: 0-9-_]"
                               default: ""
         - variable: detect
           label: Detect
@@ -1183,18 +1189,21 @@ questions:
                                         description: Stream specific global args
                                         schema:
                                           type: string
+                                          valid_chars: "[a-z,A-Z: 0-9-_]"
                                           default: ""
                                       - variable: hwaccel_args
                                         label: HW Acceleration Args
                                         description: Stream specific hwaccel args
                                         schema:
                                           type: string
+                                          valid_chars: "[a-z,A-Z: 0-9-_]"
                                           default: ""
                                       - variable: input_args
                                         label: Input Args
                                         description: Stream specific input args
                                         schema:
                                           type: string
+                                          valid_chars: "[a-z,A-Z: 0-9-_]"
                                           default: ""
                                       - variable: output_args
                                         label: Output Args
@@ -1206,34 +1215,40 @@ questions:
                                               label: Detect
                                               schema:
                                                 type: string
+                                                valid_chars: "[a-z,A-Z: 0-9-_]"
                                                 default: ""
                                             - variable: record
                                               label: Record
                                               schema:
                                                 type: string
+                                                valid_chars: "[a-z,A-Z: 0-9-_]"
                                                 default: ""
                                             - variable: rtmp
                                               label: RTMP
                                               schema:
                                                 type: string
+                                                valid_chars: "[a-z,A-Z: 0-9-_]"
                                                 default: ""
                           - variable: global_args
                             label: Global Args
                             description: Camera specific global args
                             schema:
                               type: string
+                              valid_chars: "[a-z,A-Z: 0-9-_]"
                               default: ""
                           - variable: hwaccel_args
                             label: HW Acceleration Args
                             description: Camera specific hwaccel args
                             schema:
                               type: string
+                              valid_chars: "[a-z,A-Z: 0-9-_]"
                               default: ""
                           - variable: input_args
                             label: Input Args
                             description: Camera specific input args
                             schema:
                               type: string
+                              valid_chars: "[a-z,A-Z: 0-9-_]"
                               default: ""
                           - variable: output_args
                             label: Output Args
@@ -1245,16 +1260,19 @@ questions:
                                   label: Detect
                                   schema:
                                     type: string
+                                    valid_chars: "[a-z,A-Z: 0-9-_]"
                                     default: ""
                                 - variable: record
                                   label: Record
                                   schema:
                                     type: string
+                                    valid_chars: "[a-z,A-Z: 0-9-_]"
                                     default: ""
                                 - variable: rtmp
                                   label: RTMP
                                   schema:
                                     type: string
+                                    valid_chars: "[a-z,A-Z: 0-9-_]"
                                     default: ""
                     - variable: best_image_timeout
                       label: Best Image Timeout
