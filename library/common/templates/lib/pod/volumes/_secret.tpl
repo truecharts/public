@@ -19,6 +19,12 @@ objectData: The object data to be used to render the volume.
   {{- end -}}
 
   {{- if $expandName -}}
+    {{- $object := (get $rootCtx.Values.secret $objectName) -}}
+    {{- $certObject := (get $rootCtx.Values.scaleCertificate $objectName) -}}
+    {{- if and (not $object) (not $certObject) -}}
+      {{- fail (printf "Persistence - Expected secret [%s] defined in <objectName> to exist" $objectName) -}}
+    {{- end -}}
+
     {{- $objectName = (printf "%s-%s" (include "tc.v1.common.lib.chart.names.fullname" $rootCtx) $objectName) -}}
   {{- end -}}
 

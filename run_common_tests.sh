@@ -1,8 +1,8 @@
 #!/bin/bash
-# https://github.com/quintush/helm-unittest
+# https://github.com/helm-unittest/helm-unittest
 
 # -- You need to install this helm plugin
-# helm plugin install https://github.com/quintush/helm-unittest
+# helm plugin install https://github.com/helm-unittest/helm-unittest
 
 common_test_path="library/common-test"
 
@@ -22,6 +22,6 @@ echo "🔨 Building common..."
 helm dependency update "$common_test_path"
 
 echo "🧪 Running tests..."
-helm unittest --update-snapshot --helm3 -f "tests/*/*.yaml" "./$common_test_path"
+helm unittest --update-snapshot -f "tests/*/*.yaml" "./$common_test_path"
 
 cleanup

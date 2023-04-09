@@ -57,7 +57,7 @@ jobs:
     name: Unit Tests
     runs-on: ubuntu-22.04
     env:
-      helmUnitVersion: 0.2.11
+      helmUnitVersion: 0.3.0
     strategy:
       fail-fast: false
       matrix:
@@ -89,12 +89,12 @@ jobs:
       - name: Run Unittests
         shell: bash
         run: |
-          (helm unittest -h > /dev/null) || helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion} || (sleep 10 && helm plugin install https://github.com/quintush/helm-unittest --version v${helmUnitVersion}) || echo "finished unittest reinstall tries"
+          (helm unittest -h > /dev/null) || helm plugin install https://github.com/helm-unittest/helm-unittest --version v${helmUnitVersion} || (sleep 10 && helm plugin install https://github.com/helm-unittest/helm-unittest --version v${helmUnitVersion}) || echo "finished unittest reinstall tries"
 
           # Run tests
           cd library/common-test/
           helm dependency update
-          helm unittest --helm3 -f "tests/**/*.yaml" .
+          helm unittest -f "tests/**/*.yaml" .
 
   install:
     needs:

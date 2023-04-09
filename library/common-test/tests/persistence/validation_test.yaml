@@ -79,3 +79,51 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: PVC - Expected non-empty <global.ixChartContext.storageClassName> on [SCALE-ZFS] storageClass
+
+  - it: should fail with non-existent configmap
+    set:
+      configmap:
+        my-configmap:
+          enabled: true
+          data:
+            foo: bar
+      persistence:
+        volume1:
+          enabled: true
+          type: configmap
+          mountPath: /mnt/volume1
+          objectName: my-non-existent-configmap
+      workload:
+        main:
+          enabled: true
+          podSpec:
+            containers:
+              main:
+                enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected configmap [my-non-existent-configmap] defined in <objectName> to exist
+
+  - it: should fail with non-existent secret
+    set:
+      secret:
+        my-secret:
+          enabled: true
+          data:
+            foo: bar
+      persistence:
+        volume1:
+          enabled: true
+          type: secret
+          mountPath: /mnt/volume1
+          objectName: my-non-existent-secret
+      workload:
+        main:
+          enabled: true
+          podSpec:
+            containers:
+              main:
+                enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected secret [my-non-existent-secret] defined in <objectName> to exist
