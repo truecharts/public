@@ -397,6 +397,9 @@ ingress:
     # If there is more than 1 ingress, make sure that only 1 ingress is marked as primary.
     primary: true
 
+    # -- Ensure this ingress is always enabled.
+    required: false
+
     # -- Override the name suffix that is used for this ingress.
     nameOverride:
 
