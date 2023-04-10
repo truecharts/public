@@ -12,20 +12,19 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: WEBROOT
-          label: "WEBROOT"
-          description: "WEBROOT"
-          schema:
-            type: string
-            default: "domoticz"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: WEBROOT
+                                        label: "WEBROOT"
+                                        description: "WEBROOT"
+                                        schema:
+                                          type: string
+                                          default: "domoticz"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

@@ -12,42 +12,41 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: AUTO_UPDATE
-          label: "Auto Update"
-          schema:
-            type: boolean
-            default: true
-        - variable: WEBSITE_NAME
-          label: "Website Name"
-          description: "The name for your Docusaurus website"
-          schema:
-            type: string
-            default: "Docusaurus HomeLab Website"
-        - variable: TEMPLATE
-          label: "Docusaurus Default Template"
-          description: "Default template for your Docusaurus website"
-          schema:
-            type: string
-            default: "classic"
-        - variable: RUN_MODE
-          label: "Run Mode"
-          description: "Specify the mode to start Docusaurus"
-          schema:
-            type: string
-            default: "Production"
-            enum:
-              - value: production
-                description: Production
-              - value: development
-                description: Development
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: AUTO_UPDATE
+                                        label: "Auto Update"
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: WEBSITE_NAME
+                                        label: "Website Name"
+                                        description: "The name for your Docusaurus website"
+                                        schema:
+                                          type: string
+                                          default: "Docusaurus HomeLab Website"
+                                      - variable: TEMPLATE
+                                        label: "Docusaurus Default Template"
+                                        description: "Default template for your Docusaurus website"
+                                        schema:
+                                          type: string
+                                          default: "classic"
+                                      - variable: RUN_MODE
+                                        label: "Run Mode"
+                                        description: "Specify the mode to start Docusaurus"
+                                        schema:
+                                          type: string
+                                          default: "Production"
+                                          enum:
+                                            - value: production
+                                              description: Production
+                                            - value: development
+                                              description: Development
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

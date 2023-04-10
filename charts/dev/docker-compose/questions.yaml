@@ -10,20 +10,19 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: COMPOSE_FILE
-          label: Docker Compose File
-          description: Path on the host of the compose file you want to load. You MUST mount the storage yourself
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: COMPOSE_FILE
+                                        label: Docker Compose File
+                                        description: Path on the host of the compose file you want to load. You MUST mount the storage yourself
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerConfig}
 # Include{serviceExpertRoot}
             default: true
