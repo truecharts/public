@@ -11,13 +11,7 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 # Include{containerBasic}
-# Include{containerAdvanced}                                - variable: env
-                                  group: "App Configuration"
-                                  label: "Image Environment"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
+# Include{containerAdvanced}                                
                                 - variable: secretEnv
                                   group: "App Configuration"
                                   label: "Image Secrets"
