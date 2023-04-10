@@ -1,0 +1,10 @@
+{{/* Make sure all variables are set properly */}}
+{{ include "tc.v1.common.loader.init" . }}
+
+{{- $secrets := include "lychee.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := set .Values.secret "secrets" $secrets -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

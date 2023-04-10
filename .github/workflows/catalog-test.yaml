@@ -36,9 +36,9 @@ jobs:
         run: |
           tools/build-release.sh
 
-      - uses: vishnudxb/cancel-workflow@c3c77eb4383ba7d023e6614a07d94fe990501ac6 # tag=v1.2
-        if: failure()
-        with:
-          repo: truecharts/charts
-          workflow_id: ${{ github.run_id }}
-          access_token: ${{ github.token }}
+#      - uses: vishnudxb/cancel-workflow@c3c77eb4383ba7d023e6614a07d94fe990501ac6 # tag=v1.2
+#        if: failure()
+#        with:
+#          repo: truecharts/charts
+#          workflow_id: ${{ github.run_id }}
+#          access_token: ${{ github.token }}

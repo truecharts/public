@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: "1.77.0"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.6.1
+
+deprecated: false
+description: A Helm chart to deploy a Matrix homeserver stack into Kubernetes
+home: https://truecharts.org/charts/stable/synapse
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/synapse.png
+keywords:
+  - chat
+  - matrix
+  - synapse
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: synapse
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/synapse
+type: application
+version: 8.0.0
+annotations:
+  truecharts.org/catagories: |
+    - cloud
+  truecharts.org/SCALE-support: "true"

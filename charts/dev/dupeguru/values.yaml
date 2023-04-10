@@ -1,0 +1,80 @@
+image:
+  repository: tccr.io/truecharts/dupeguru
+  tag: 23.01.1@sha256:18646a36f34c795bfafe1b1b162c2dc6ead19e71014aabf70b61095d098638dd
+  pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 5800
+        targetPort: 5800
+  vnc:
+    enabled: true
+    ports:
+      vnc:
+        enabled: true
+        port: 5900
+        targetPort: 5900
+
+dupeguru:
+  KEEP_APP_RUNNING: false
+  DISPLAY_WIDTH: 1280
+  DISPLAY_HEIGHT: 768
+  SECURE_CONNECTION: false
+  ENABLE_CJK_FONT: false
+
+configmap:
+  dupeguru:
+    enabled: true
+    data:
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.dupeguru.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.dupeguru.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.dupeguru.SECURE_CONNECTION }}'
+      DISPLAY_WIDTH: "{{ .Values.dupeguru.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.dupeguru.DISPLAY_HEIGHT }}"
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+                - KILL
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            VNC_PASSWORD: ""
+          envFrom:
+            - configMapRef:
+                name: "dupeguru"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  storage:
+    enabled: true
+    mountPath: /storage
+  trash:
+    enabled: true
+    mountPath: /trash
+
+portal:
+  open:
+    enabled: true

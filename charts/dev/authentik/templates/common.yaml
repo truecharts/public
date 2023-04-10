@@ -1,0 +1,43 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{/* Render configmap for authentik */}}
+{{- $configmap := include "authentik.config" . | fromYaml -}}
+{{- if $configmap -}}
+  {{- $_ := mustMergeOverwrite .Values.configmap $configmap -}}
+{{- end -}}
+
+{{/* Render secret for authentik */}}
+{{- $secret := include "authentik.secret" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := mustMergeOverwrite .Values.secret $secret -}}
+{{- end -}}
+
+{{- if .Values.workerContainer.enabled -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "worker" (include "authentik.worker" . | fromYaml) -}}
+{{- end -}}
+
+{{- if .Values.geoip.enabled -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "geoip" (include "authentik.geoip" . | fromYaml) -}}
+{{- end -}}
+
+{{- if .Values.outposts.ldap.enabled -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "ldap-outpost" (include "authentik.ldap" . | fromYaml) -}}
+{{/* - if .Values.metrics.enabled - */}}
+{{/* https://github.com/prometheus/prometheus/issues/3756 */}}
+{{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}
+{{/* We can't define multiple ports/endpoints with annotations */}}
+{{/* - end - */}}
+{{- end -}}
+
+{{- if .Values.outposts.proxy.enabled -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "proxy-outpost" (include "authentik.proxy" . | fromYaml) -}}
+{{/* - if .Values.metrics.enabled - */}}
+{{/* https://github.com/prometheus/prometheus/issues/3756 */}}
+{{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}
+{{/* We can't define multiple ports/endpoints with annotations */}}
+{{/* - end - */}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

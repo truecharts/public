@@ -1,0 +1,54 @@
+image:
+  repository: tccr.io/truecharts/xbackbone
+  tag: v3.3.3@sha256:14175767c6a35206fd2447ee6c1b8a1e4c1bcacc57b8a79335b144c2f1996229
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10121
+        targetPort: 80
+persistence:
+  config:
+    enabled: true
+    mountPath: "/app/config"
+mariadb:
+  enabled: true
+  mariadbUsername: xbackbone
+  mariadbDatabase: xbackbone
+
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            DB_TYPE: mysql
+            MYSQL_DATABASE: xbackbone
+            MYSQL_USER: xbackbone
+            MYSQL_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            MYSQL_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password

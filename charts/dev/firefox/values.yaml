@@ -1,0 +1,42 @@
+image:
+  repository: tccr.io/truecharts/firefox
+  pullPolicy: IfNotPresent
+  tag: 101.0.1@sha256:1a626e0206b7b6ca51265d45ad39c233d725a940cfa0b507fc3c76831761169f
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 3000
+        port: 10131
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  varrun:
+    enabled: true
+
+portal:
+  open:
+    enabled: true

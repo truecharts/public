@@ -1,0 +1,11 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{/* Render configmap for pihole */}}
+{{- $configmap := include "pihole.configmap" . | fromYaml -}}
+{{- if $configmap -}}
+{{- $_ := set .Values.configmap "pihole-env" $configmap -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}
