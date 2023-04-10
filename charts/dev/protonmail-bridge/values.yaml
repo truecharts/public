@@ -1,0 +1,49 @@
+image:
+  repository: tccr.io/truecharts/protonmail-bridge
+  tag: 3.0.17@sha256:23e2d0200f0f060b8732a4220c7d348b9633b051b2c9b27913ef44ccc37b4a34
+  pullPolicy: IfNotPresent
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+  smtp:
+    enabled: true
+    ports:
+      smtp:
+        enabled: true
+        port: 25
+        targetPort: 25
+  imap:
+    enabled: true
+    ports:
+      imap:
+        enabled: true
+        port: 143
+        targetPort: 143
+persistence:
+  config:
+    enabled: true
+    mountPath: "/root"
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp

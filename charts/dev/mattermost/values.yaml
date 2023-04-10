@@ -1,0 +1,60 @@
+image:
+  repository: tccr.io/truecharts/mattermost
+  tag: 7.3@sha256:be700165a0f8ed996982d758ceb20523f401333f333119ef461857f89ecee792
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10239
+        targetPort: 8065
+persistence:
+  config:
+    enabled: true
+    mountPath: "/mattermost/config"
+  data:
+    enabled: true
+    mountPath: "/mattermost/data"
+  logs:
+    enabled: true
+    mountPath: "/mattermost/logs"
+  plugins:
+    enabled: true
+    mountPath: "/mattermost/plugins"
+  clientplugins:
+    enabled: true
+    mountPath: "/mattermost/client/plugins"
+  bleveindexes:
+    enabled: true
+    mountPath: "/mattermost/bleve-indexes"
+cnpg:
+  main:
+    enabled: true
+
+    user: mattermost
+    database: mattermost
+portal:
+  open:
+    enabled: true
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            TIMEZONE: "{{ .Values.TZ }}"
+            MM_SQLSETTINGS_DRIVERNAME: "postgres"
+            MM_BLEVESETTINGS_INDEXDIR: "/mattermost/bleve-indexes"
+            MM_SERVICESETTINGS_SITEURL: "https://test.example.com"
+            MM_SQLSETTINGS_DATASOURCE:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: urlnossl

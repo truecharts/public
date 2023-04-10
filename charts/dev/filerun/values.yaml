@@ -1,0 +1,67 @@
+image:
+  repository: tccr.io/truecharts/filerun
+  tag: latest@sha256:8d0fb96cc91db060d912a3986dbecc0275f2e5d600b7731e7320e20e11e90f8b
+  pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            APACHE_RUN_USER: apps
+            APACHE_RUN_USER_ID: "{{ .Values.securityContext.container.PUID }}"
+            APACHE_RUN_GROUP: apps
+            APACHE_RUN_GROUP_ID: "{{ .Values.securityContext.pod.fsGroup }}"
+            FR_DB_NAME: "filerun"
+            FR_DB_USER: "filerun"
+            FR_DB_PORT: "3306"
+            FR_DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainporthost
+            FR_DB_PASS:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
+
+service:
+  main:
+    ports:
+      main:
+        port: 10199
+        protocol: http
+        targetPort: 80
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /var/www/html
+  userfile:
+    enabled: true
+    mountPath: /user-files
+
+mariadb:
+  enabled: true
+  mariadbUsername: filerun
+  mariadbDatabase: filerun
+
+portal:
+  open:
+    enabled: true

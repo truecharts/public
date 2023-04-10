@@ -1,0 +1,67 @@
+image:
+  repository: tccr.io/truecharts/kimai
+  tag: v1.20@sha256:f13b70aa746b3d8a754bcf1f78dbdfde95b94f443ee17b9e3474ab0ebf6068e3
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10198
+        targetPort: 8001
+persistence:
+  data:
+    enabled: true
+    mountPath: "/opt/kimai/var/data"
+  plugins:
+    enabled: true
+    mountPath: "/opt/kimai/var/plugins"
+mariadb:
+  enabled: true
+  mariadbUsername: kimai
+  mariadbDatabase: kimai
+
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 33
+    runAsGroup: 33
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/en/login"
+            readiness:
+              path: "/en/login"
+            startup:
+              path: "/en/login"
+          env:
+            DB_TYPE: "mysql"
+            DB_PORT: "3306"
+            DB_USER: "{{ .Values.mariadb.mariadbDatabase }}"
+            DB_BASE: "{{ .Values.mariadb.mariadbUsername }}"
+            APP_ENV: "prod"
+            TRUSTED_HOSTS: "{{ .Values.workload.main.podSpec.containers.main.env.trust_hosts }},localhost"
+            # User Defined
+            trust_hosts: "127.0.0.1"
+            DB_PASS:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
+            DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            APP_SECRET:
+              secretKeyRef:
+                name: secrets
+                key: APP_SECRET
+            ADMINMAIL: "admin@mysecretdomain.com"
+            ADMINPASS: "MvvTfjagiaqDprGNVA"

@@ -1,0 +1,65 @@
+image:
+  repository: tccr.io/truecharts/qdirstat
+  tag: 23.02.2@sha256:acb8020059c185a9f5888ee59090d8663cfb483c76be9f93cb0771f637834019
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10262
+        targetPort: 5800
+  vnc:
+    enabled: true
+    ports:
+      vnc:
+        enabled: true
+        port: 10263
+        targetPort: 5900
+qdirstat:
+  KEEP_APP_RUNNING: false
+  DISPLAY_WIDTH: 1280
+  DISPLAY_HEIGHT: 768
+  SECURE_CONNECTION: false
+  ENABLE_CJK_FONT: false
+configmap:
+  qdirstat:
+    enabled: true
+    data:
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.qdirstat.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.qdirstat.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.qdirstat.SECURE_CONNECTION }}'
+      DISPLAY_WIDTH: "{{ .Values.qdirstat.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.qdirstat.DISPLAY_HEIGHT }}"
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  storage:
+    enabled: true
+    mountPath: "/storage"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            VNC_PASSWORD: ""
+          envFrom:
+            - configMapRef:
+                name: "qdirstat"

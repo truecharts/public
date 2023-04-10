@@ -1,0 +1,13 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{- if and .Values.clamav.cron_enabled .Values.clamav.cron_schedule}}
+{{/* Render cronjob for clamav */}}
+{{- $cronjob := include "clamav.cronjob" . | fromYaml -}}
+{{- if $cronjob -}}
+{{- $_ := set .Values.workload "cron" $cronjob -}}
+{{- end -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

@@ -1,0 +1,139 @@
+image:
+  repository: tccr.io/truecharts/recipes
+  tag: 1.4.7@sha256:4183ea7125b07e0009796688219ebedeede5ff79ad42f16f96a4862d743bd0af
+  pullPolicy: IfNotPresent
+nginxImage:
+  repository: tccr.io/truecharts/nginx
+  tag: 1.23.3@sha256:0d92357c536291f04dad45f9af95dbdad46fb7a6e940f981a3a332f9d5279665
+configmap:
+  config:
+    enabled: true
+    data:
+      nginx-config: |-
+        events {
+          worker_connections 1024;
+        }
+        http {
+          include /etc/nginx/mime.types;
+          server {
+            listen 80;
+            server_name _;
+            client_max_body_size 16M;
+            # serve media files
+            location /media/ {
+              alias /media/;
+            }
+            # serve static files
+            location /static/ {
+              alias /static/;
+            }
+            # pass requests for dynamic content to gunicorn
+            location / {
+              proxy_set_header Host $http_host;
+              proxy_pass http://localhost:8080;
+              proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;
+            }
+          }
+        }
+
+service:
+  main:
+    targetSelector: main
+    ports:
+      main:
+        port: 10029
+        targetPort: 80
+        targetSelector: nginx
+persistence:
+  media:
+    enabled: true
+    mountPath: "/opt/recipes/mediafiles"
+    targetSelector:
+      main:
+        main: {}
+        nginx:
+          mountPath: "/media"
+  static:
+    enabled: true
+    type: emptyDir
+    mountPath: "/opt/recipes/staticfiles"
+    targetSelector:
+      main:
+        main: {}
+        nginx:
+          mountPath: "/static"
+  recipes-config:
+    enabled: true
+    mountPath: "/etc/nginx/nginx.conf"
+    subPath: "nginx-config"
+    readOnly: true
+    type: configmap
+    objectName: config
+    targetSelector:
+      main:
+        nginx: {}
+cnpg:
+  main:
+    enabled: true
+
+    user: recipes
+    database: recipes
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            DEBUG: 0
+            ALLOWED_HOSTS: "*"
+            CSRF_TRUSTED_ORIGINS: ""
+            GUNICORN_MEDIA: 0
+            FRACTION_PREF_DEFAULT: 0
+            COMMENT_PREF_DEFAULT: 1
+            SHOPPING_MIN_AUTOSYNC_INTERVAL: 5
+            TIMEZONE: "{{ .Values.TZ }}"
+            DB_ENGINE: "django.db.backends.postgresql"
+            POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            POSTGRES_PORT: "5432"
+            POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            POSTGRES_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            SECRET_KEY:
+              secretKeyRef:
+                name: secrets
+                key: SECRET_KEY
+        nginx:
+          enabled: true
+          imageSelector: nginxImage
+          probes:
+            liveness:
+              enabled: true
+              port: "{{ .Values.service.main.ports.main.port }}"
+            readiness:
+              enabled: true
+              port: "{{ .Values.service.main.ports.main.port }}"
+            startup:
+              enabled: true
+              port: "{{ .Values.service.main.ports.main.port }}"

@@ -1,0 +1,47 @@
+image:
+  repository: tccr.io/truecharts/focalboard
+  pullPolicy: IfNotPresent
+  tag: 7.8.0@sha256:b3bb282522a7b5142e5f68b82fecaeffa92198d00ee99779ecba9e5a07eecb4d
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+
+focalboard:
+  serverRoot: "http://localhost:10072"
+  telemetry: false
+  localOnly: false
+  enableLocalMode: true
+
+service:
+  main:
+    ports:
+      main:
+        port: 10072
+
+persistence:
+  uploads:
+    enabled: true
+    mountPath: /uploads
+
+cnpg:
+  main:
+    enabled: true
+    user: focalboard
+    database: focalboard
+
+portal:
+  open:
+    enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
