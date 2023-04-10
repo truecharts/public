@@ -1,0 +1,30 @@
+apiVersion: v2
+appVersion: "0.1.0.53"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+deprecated: false
+description: An adult media thingy.
+home: https://truecharts.org/charts/stable/whisparr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/whisparr.png
+keywords:
+  - whisparr
+  - Downloaders
+  - MediaApp-Other
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: whisparr
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/whisparr
+  - https://github.com/onedr0p/containers/tree/main/apps/whisparr
+type: application
+version: 4.0.0
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Downloaders
+    - MediaApp-Other

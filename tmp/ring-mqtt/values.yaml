@@ -1,0 +1,57 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/ring-mqtt
+  tag: 5.1.3@sha256:2188ec3b1d0ffc38e91bc212e72c52c9c5cebd9a64a1b71d3ee1e3a8089ac083
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 55123
+        port: 55123
+  rtsp:
+    enabled: true
+    ports:
+      rtsp:
+        enabled: true
+        protocol: tcp
+        targetPort: 8554
+        port: 8554
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            BEAMDURATION: "0"
+            DISARMCODE: ""
+            ENABLECAMERAS: "false"
+            ENABLEMODES: "false"
+            ENABLEPANIC: "false"
+            MQTTHOST: ""
+            MQTTPORT: "1883"
+            RINGLOCATIONIDS: ""
+            SNAPSHOTMODE: disabled
+            RINGTOKEN: ""
+            MQTTUSER: ""
+            MQTTPASSWORD: ""

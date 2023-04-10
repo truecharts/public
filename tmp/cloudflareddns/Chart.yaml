@@ -1,0 +1,30 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+deprecated: false
+description: Automate Cloudflare DNS records for those with a dynamic IP.
+home: https://truecharts.org/charts/stable/cloudflareddns
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloudflareddns.png
+keywords:
+  - cloudflareddns
+  - ddns
+  - cloudflare
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: cloudflareddns
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/cloudflareddns
+  - https://github.com/hotio/cloudflareddns
+  - https://hotio.dev/containers/cloudflareddns/
+type: application
+version: 5.0.0
+annotations:
+  truecharts.org/catagories: |
+    - networking
+  truecharts.org/SCALE-support: "true"

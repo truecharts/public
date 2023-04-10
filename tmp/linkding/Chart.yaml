@@ -1,0 +1,26 @@
+apiVersion: v2
+appVersion: "1.17.2"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+description: Linkding is a simple bookmark service that you can host yourself. It's designed be to be minimal, fast and easy.
+home: https://truecharts.org/charts/stable/linkding
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/linkding.png
+keywords:
+  - bookmarks
+  - links
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: linkding
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/linkding
+  - https://github.com/sissbruecker/linkding
+version: 5.0.0
+annotations:
+  truecharts.org/catagories: |
+    - bookmarks
+  truecharts.org/SCALE-support: "true"

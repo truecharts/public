@@ -1,0 +1,30 @@
+apiVersion: v2
+appVersion: "ee8a20c"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+description: A self-hosted static file serving app which does nothing more than just serve up static files from a mounted volume.
+home: https://truecharts.org/charts/stable/static
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/static.png
+keywords:
+  - app
+  - web
+  - filesystem
+  - static
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: static
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/static
+  - https://github.com/prologic/static
+  - https://github.com/nicholaswilde/docker-static
+type: application
+version: 6.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"

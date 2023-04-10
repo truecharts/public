@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+deprecated: false
+description: Discord bot that provides metrics from a Discord server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/promcord.png
+home: https://truecharts.org/charts/stable/promcord
+keywords:
+  - promcord
+  - discord
+  - metrics
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: promcord
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/promcord
+  - https://github.com/nimarion/promcord
+type: application
+version: 7.0.0
+annotations:
+  truecharts.org/catagories: |
+    - metrics
+  truecharts.org/SCALE-support: "true"

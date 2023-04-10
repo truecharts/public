@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "4.2.3"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+deprecated: false
+description: AppDaemon is a loosely coupled, multi-threaded, sandboxed python execution environment for writing automation apps.
+home: https://truecharts.org/charts/stable/appdaemon
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/appdaemon.png
+keywords:
+  - appdaemon
+  - homeautomation
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+  - email: 20650065+warllo54@users.noreply.github.com
+    name: warllo54
+    url: truecharts.org
+name: appdaemon
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/appdaemon
+  - https://github.com/AppDaemon/appdaemon
+type: application
+version: 12.0.0
+annotations:
+  truecharts.org/catagories: |
+    - utilities
+  truecharts.org/SCALE-support: "true"

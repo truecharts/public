@@ -1,0 +1,30 @@
+apiVersion: v2
+appVersion: "1.14.0"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+
+  - condition: redis.enabled
+    name: redis
+    repository: https://deps.truecharts.org
+    version: 6.0.18
+description: Baserow is an open source no-code database tool and Airtable alternative.
+home: https://truecharts.org/charts/stable/baserow
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/baserow.png
+keywords:
+  - baserow
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: baserow
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/baserow
+  - https://gitlab.com/bramw/baserow/
+version: 7.0.0
+annotations:
+  truecharts.org/catagories: |
+    - productivity
+  truecharts.org/SCALE-support: "true"

@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: "0.6.19"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+deprecated: false
+description: Calibre-Web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database.
+home: https://truecharts.org/charts/stable/calibre-web
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/calibre-web.png
+keywords:
+  - calibre-web
+  - calibre
+  - ebook
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: calibre-web
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/calibre-web
+  - https://github.com/janeczku/calibre-web
+type: application
+version: 14.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"

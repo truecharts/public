@@ -1,0 +1,27 @@
+image:
+  repository: tccr.io/truecharts/jellyseerr
+  tag: 1.4.1@sha256:61edd5bab2e8892ffdb1a31c2b3157650b85d8b7c64471d45e2fe2ab6ebb3a09
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10241
+persistence:
+  config:
+    enabled: true
+    mountPath: "/app/config"
+portal:
+  open:
+    enabled: true
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            # User Defined
+            JELLYFIN_TYPE: ""
+            LOG_LEVEL: "info"

@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+
+description: "Lightweight self-hosted facebook-styled PHP blog."
+home: https://truecharts.org/charts/stable/blog
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/blog.png
+keywords:
+  - blog
+  - php
+  - self
+  - hosted
+  - facebook
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: blog
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/blog
+  - https://github.com/m1k1o/blog
+  - https://github.com/nicholaswilde/docker-blog
+version: 7.0.0
+annotations:
+  truecharts.org/catagories: |
+    - hosting
+  truecharts.org/SCALE-support: "true"

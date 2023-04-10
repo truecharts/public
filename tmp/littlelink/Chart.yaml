@@ -1,0 +1,28 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+deprecated: false
+description: Easy platform to combine all your social links
+home: https://truecharts.org/charts/stable/littlelink
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/littlelink.png
+keywords:
+  - littlelink
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: littlelink
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/littlelink
+  - https://github.com/techno-tim/littlelink-server
+  - https://github.com/sethcottle/littlelink
+type: application
+version: 9.0.0
+annotations:
+  truecharts.org/catagories: |
+    - social
+  truecharts.org/SCALE-support: "true"

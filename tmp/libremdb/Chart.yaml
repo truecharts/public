@@ -1,0 +1,34 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+  - condition: redis.enabled
+    name: redis
+    repository: https://deps.truecharts.org
+    version: 6.0.18
+deprecated: false
+description: A free & open source IMDb front-end.
+home: https://truecharts.org/charts/stable/libremdb
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/libremdb.png
+keywords:
+  - libremdb
+  - media
+  - imdb
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: libremdb
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/libremdb
+  - https://github.com/zyachel/libremdb
+  - https://github.com/PussTheCat-org/docker-libremdb-quay
+type: application
+version: 2.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"

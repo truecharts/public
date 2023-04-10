@@ -1,0 +1,44 @@
+image:
+  repository: tccr.io/truecharts/prowlarr
+  tag: 1.3.1.2796@sha256:64a815f6eb0ec4d553c3797413a520fa40d0ac1e137a1b11c685e21e32d66764
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 9696
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+cnpg:
+  main:
+    enabled: true
+
+    database: prowlarr
+    user: prowlarr
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PROWLARR__PORT: "{{ .Values.service.main.ports.main.port }}"
+            PROWLARR__AUTHENTICATION_METHOD: ""
+            PROWLARR__POSTGRES_PORT: 5432
+            PROWLARR__POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            PROWLARR__POSTGRES_MAIN_DB: "{{ .Values.cnpg.main.database }}"
+            PROWLARR__POSTGRES_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            PROWLARR__POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password

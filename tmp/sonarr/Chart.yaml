@@ -1,0 +1,33 @@
+apiVersion: v2
+appVersion: "3.0.9.1549"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 11.0.18
+deprecated: false
+description: Smart PVR for newsgroup and bittorrent users
+home: https://truecharts.org/charts/stable/sonarr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/sonarr.png
+keywords:
+  - sonarr
+  - torrent
+  - usenet
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: sonarr
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/sonarr
+  - https://github.com/Sonarr/Sonarr
+type: application
+version: 15.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"

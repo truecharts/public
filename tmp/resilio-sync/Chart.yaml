@@ -1,0 +1,28 @@
+apiVersion: v2
+appVersion: "2.7.2.1375"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+description: Resilio Sync is a fast, reliable, and simple file sync and share solution, powered by P2P technology
+home: https://truecharts.org/charts/stable/resilio-sync
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/resilio-sync.png
+keywords:
+  - resilio
+  - sync
+  - btsync
+  - bittorrent
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: resilio-sync
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/resilio-sync
+  - https://github.com/orgs/linuxserver/packages/container/package/resilio-sync
+version: 9.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"

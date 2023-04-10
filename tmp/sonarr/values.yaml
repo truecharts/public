@@ -1,0 +1,63 @@
+image:
+  repository: tccr.io/truecharts/sonarr
+  pullPolicy: IfNotPresent
+  tag: 3.0.9.1549@sha256:294b6288d91346f6e65f8cb344b42d17c97b3ee7ada501d77307088f79a8dc15
+service:
+  main:
+    ports:
+      main:
+        port: 8989
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+# might be supported on sonarr v4 upon released
+cnpg:
+  main:
+    enabled: false
+
+    database: sonarr
+    user: sonarr
+portal:
+  open:
+    enabled: true
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              ## Set this to true if you wish to specify your own livenessProbe
+              custom: true
+              ## The spec field contains the values for the default livenessProbe.
+              ## If you selected custom: true, this field holds the definition of the livenessProbe.
+              spec:
+                exec:
+                  command:
+                    - /usr/bin/env
+                    - bash
+                    - -c
+                    - curl --fail localhost:8989/api/v3/system/status?apiKey=`IFS=\> && while read -d \< E C; do if [[ $E = "ApiKey" ]]; then echo $C; fi; done < /config/config.xml`
+                failureThreshold: 5
+                initialDelaySeconds: 60
+                periodSeconds: 10
+                successThreshold: 1
+                timeoutSeconds: 10
+          env:
+            SONARR__PORT: "{{ .Values.service.main.ports.main.port }}"
+            SONARR__AUTHENTICATION_METHOD: ""
+            # Enable postgres if v4 of sonarr supports it.
+            # SONARR__POSTGRES_PORT: 5432
+            # SONARR__POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            # SONARR__POSTGRES_MAIN_DB: "{{ .Values.cnpg.main.database }}"
+            # SONARR__POSTGRES_HOST:
+            #   secretKeyRef:
+            #     name: cnpg-main-urls
+            #     key: host
+            # SONARR__POSTGRES_PASSWORD:
+            #   secretKeyRef:
+            #     name: cnpg-main-urls
+            #     key: password

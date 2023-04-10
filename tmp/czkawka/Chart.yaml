@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "23.02.3"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+deprecated: false
+description: Czkawka is a simple, fast and free app to remove unnecessary files from your computer.
+home: https://truecharts.org/charts/stable/czkawka
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/czkawka.png
+keywords:
+  - duplicates
+  - file management
+  - czkawka
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: czkawka
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/czkawka
+  - https://github.com/jlesage/docker-czkawka
+  - https://github.com/qarmin/czkawka
+type: application
+version: 4.0.0
+annotations:
+  truecharts.org/catagories: |
+    - duplicates
+    - files
+  truecharts.org/SCALE-support: "true"

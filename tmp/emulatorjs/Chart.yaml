@@ -1,0 +1,27 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: emulatorjs
+version: 5.0.0
+appVersion: "1.7.2"
+description: Emulatorjs - In browser web based emulation portable to nearly any device for many retro consoles.
+type: application
+deprecated: false
+home: https://truecharts.org/charts/stable/emulatorjs
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/emulatorjs.png
+keywords:
+  - emulatorjs
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/emulatorjs
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+    # condition:
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - incubator
+  truecharts.org/SCALE-support: "true"

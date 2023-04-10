@@ -1,0 +1,26 @@
+apiVersion: v2
+appVersion: "0.15.2"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+description: Music streaming server / subsonic server API implementation
+home: https://truecharts.org/charts/stable/gonic
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/gonic.png
+keywords:
+  - music
+  - subsonic
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: gonic
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/gonic
+  - https://github.com/sentriz/gonic
+version: 9.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"

@@ -1,0 +1,30 @@
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - HomeAutomation
+    - Productivity
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+deprecated: false
+description: Enjoy Prusaslicer directly in your browser with this easy to use Chart Chart.
+home: https://truecharts.org/charts/stable/prusaslicer-novnc
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/prusaslicer-novnc.png
+keywords:
+  - prusaslicer-novnc
+  - HomeAutomation
+  - Productivity
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: prusaslicer-novnc
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/prusaslicer-novnc
+  - https://www.prusa3d.com/prusaslicer/
+type: application
+version: 4.0.0

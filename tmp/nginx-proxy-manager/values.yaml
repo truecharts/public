@@ -1,0 +1,92 @@
+image:
+  repository: tccr.io/truecharts/nginx-proxy-manager
+  pullPolicy: IfNotPresent
+  tag: 2.9.19@sha256:73be08c2f155c70a8e74f2f2683636333288f86d18f2fd94d2865b604387f84e
+service:
+  main:
+    ports:
+      main:
+        targetPort: 81
+        protocol: http
+        port: 10582
+  web:
+    enabled: true
+    ports:
+      web:
+        enabled: true
+        targetPort: 80
+        protocol: http
+        port: 10583
+  websecure:
+    enabled: true
+    ports:
+      websecure:
+        enabled: true
+        targetPort: 443
+        protocol: https
+        port: 10584
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+    size: 256Gi
+  letsencrypt:
+    enabled: true
+    mountPath: /etc/letsencrypt
+    size: 256Gi
+mariadb:
+  enabled: true
+  mariadbUsername: npm
+  mariadbDatabase: npm
+
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - /bin/check-health
+            readiness:
+              enabled: true
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - /bin/check-health
+            startup:
+              enabled: true
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - /bin/check-health
+          env:
+            DISABLE_IPV6: true
+            DB_MYSQL_PORT: 3306
+            DB_MYSQL_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
+            DB_MYSQL_USER: "{{ .Values.mariadb.mariadbUsername }}"
+            DB_MYSQL_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            DB_MYSQL_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password

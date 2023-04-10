@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: "2.1.1"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+deprecated: false
+description: Deluge App for TrueNAS SCALE
+home: https://truecharts.org/charts/stable/deluge
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/deluge.png
+keywords:
+  - transmission
+  - torrent
+  - usenet
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: deluge
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/deluge
+  - https://github.com/deluge-torrent/deluge
+type: application
+version: 14.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"

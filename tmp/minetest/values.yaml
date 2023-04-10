@@ -1,0 +1,38 @@
+image:
+  repository: tccr.io/truecharts/minetest
+  pullPolicy: IfNotPresent
+  tag: 5.6.1@sha256:dbb89723b4cc1612fe5aab34121897b8180fc4784058bbc926c41644b55d1ed8
+service:
+  main:
+    ports:
+      main:
+        protocol: udp
+        targetPort: 30000
+        port: 30000
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config/.minetest"
+  varrun:
+    enabled: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

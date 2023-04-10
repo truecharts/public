@@ -1,0 +1,27 @@
+# Fake external service image
+image:
+  repository: tccr.io/truecharts/alpine
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:711ef8a1f34f18df5f6dc1e85f0324f737e331ac734307baf455675cdc868ce4
+
+service:
+  main:
+    type: ExternalIP
+    externalIP: "1.1.1.1"
+    ports:
+      main:
+        Type: HTTPS
+        port: 10003
+        targetPort: 443
+
+workload:
+  main:
+    enabled: false
+    podSpec:
+      containers:
+        main:
+          env: {}
+
+portal:
+  open:
+    enabled: true

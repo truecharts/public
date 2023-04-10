@@ -1,0 +1,28 @@
+apiVersion: v2
+appVersion: "1.31.1.673"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+deprecated: false
+description: Plex Media Server
+home: https://truecharts.org/charts/stable/plex
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/plex.png
+keywords:
+  - plex
+  - plex-media-server
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: plex
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/plex
+  - https://github.com/k8s-at-home/container-images/pkgs/container/plex
+type: application
+version: 13.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"

@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "8.4.0"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+deprecated: false
+description: Logitech Media Server is a platform for home/office audio streaming.
+home: https://truecharts.org/charts/stable/logitech-media-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/logitech-media-server.png
+keywords:
+  - logitech-media-server
+  - squeezebox
+  - audio
+  - streaming
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: logitech-media-server
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/logitech-media-server
+  - https://github.com/Logitech/slimserver
+type: application
+version: 7.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+    - audio
+  truecharts.org/SCALE-support: "true"

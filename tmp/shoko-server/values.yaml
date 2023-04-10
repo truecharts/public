@@ -1,0 +1,28 @@
+image:
+  repository: tccr.io/truecharts/shoko-server
+  pullPolicy: IfNotPresent
+  tag: 4.1.2@sha256:5bde0f9457716b9142c6dd5827a1583f387dcdc6a971247f99b769a44f65fa5f
+
+service:
+  main:
+    ports:
+      main:
+        port: 8111
+        protocol: http
+        targetPort: 8111
+
+persistence:
+  appdata:
+    enabled: true
+    mountPath: /home/shoko/.shoko/
+
+portal:
+  open:
+    enabled: true
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0

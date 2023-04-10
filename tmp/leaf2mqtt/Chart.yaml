@@ -1,0 +1,30 @@
+apiVersion: v2
+appVersion: "0.6"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+description: Nissan Leaf connected services to MQTT adapter
+home: https://truecharts.org/charts/stable/leaf2mqtt
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/leaf2mqtt.png
+keywords:
+  - leaf2mqtt
+  - leaf
+  - nissan
+  - kamereon
+  - carwings
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: leaf2mqtt
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/leaf2mqtt
+  - https://github.com/mitsumaui/leaf2mqtt
+  - https://github.com/k8s-at-home/container-images
+version: 7.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"

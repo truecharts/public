@@ -1,0 +1,31 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: kavita
+version: 5.0.0
+appVersion: "0.7.1"
+description: Kavita is a rocket fueled self-hosted digital library which supports a vast array of file formats
+type: application
+deprecated: false
+home: https://truecharts.org/charts/stable/kavita
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kavita.png
+keywords:
+  - kavita
+  - manga
+  - library
+  - book
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/kavita
+  - https://www.kavitareader.com
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+    # condition:
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"

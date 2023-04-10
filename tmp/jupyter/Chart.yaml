@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: "2023"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+deprecated: false
+description: Jupyter a web based IDE
+home: https://truecharts.org/charts/stable/jupyter
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/jupyter.png
+keywords:
+  - Jupyter
+  - Notebook
+  - Lab
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: jupyter
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/jupyter
+  - https://github.com/jupyter/docker-stacks
+type: application
+version: 4.0.0
+annotations:
+  truecharts.org/catagories: |
+    - Cloud
+  truecharts.org/SCALE-support: "true"

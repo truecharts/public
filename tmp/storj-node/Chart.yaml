@@ -1,0 +1,27 @@
+apiVersion: v2
+appVersion: "1.71.2"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+description: Storj is an S3-compatible platform and suite of decentralized applications that allows you to store data in a secure and decentralized manner
+home: https://truecharts.org/charts/stable/storj-node
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/storj-node.png
+keywords:
+  - storj
+  - storage
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: storj-node
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/storj-node
+  - https://github.com/storj/storj
+  - https://docs.storj.io/node/
+version: 5.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"

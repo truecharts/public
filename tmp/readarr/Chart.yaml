@@ -1,0 +1,36 @@
+apiVersion: v2
+appVersion: "0.1.4.1596"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.truecharts.org/
+    version: 11.0.18
+deprecated: false
+description: A fork of Radarr to work with Books & AudioBooks
+home: https://truecharts.org/charts/stable/readarr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/readarr.png
+keywords:
+  - readarr
+  - torrent
+  - usenet
+  - AudioBooks
+  - ebooks
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: readarr
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/readarr
+  - https://github.com/Readarr/Readarr
+  - https://readarr.com
+type: application
+version: 15.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"

@@ -1,0 +1,25 @@
+apiVersion: v2
+appVersion: "1.2.12"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+description: ZeroTier network controller user interface in a Docker container
+home: https://truecharts.org/charts/stable/ztcuui-aio
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/ztcuui-aio.png
+keywords:
+  - ztcuui-aio
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: ztcuui-aio
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/ztcuui-aio
+  - https://github.com/key-networks/ztncui-aio
+version: 4.0.0
+annotations:
+  truecharts.org/catagories: |
+    - network
+  truecharts.org/SCALE-support: "true"

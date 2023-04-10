@@ -1,0 +1,27 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: htpcmanager
+version: 5.0.0
+appVersion: "2021.11.17"
+description: Htpcmanager is a front end for many htpc related applications.
+type: application
+deprecated: false
+home: https://truecharts.org/charts/stable/htpcmanager
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/htpcmanager.png
+keywords:
+  - htpcmanager
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/htpcmanager
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+    # condition:
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - incubator
+  truecharts.org/SCALE-support: "true"

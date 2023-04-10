@@ -1,0 +1,29 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: double-take
+version: 5.0.0
+appVersion: "1.13.1"
+description: Unified UI and API for processing and training images for facial recognition
+type: application
+deprecated: false
+home: https://truecharts.org/charts/stable/double-take
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/double-take.png
+keywords:
+  - ai
+  - double-take
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/double-take
+  - https://github.com/jakowenko/double-take
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+    # condition:
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"

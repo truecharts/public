@@ -1,0 +1,35 @@
+image:
+  repository: tccr.io/truecharts/jellyfin
+  pullPolicy: IfNotPresent
+  tag: 10.8.9@sha256:32efce54017dcefcd437dc179baabb0ed79ad44298b9d0850388bd69f8e9eac5
+service:
+  main:
+    ports:
+      main:
+        port: 8096
+        targetPort: 8096
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  cache:
+    enabled: true
+    mountPath: "/cache"
+    type: "emptyDir"
+  transcode:
+    enabled: true
+    mountPath: "/config/transcodes"
+    type: "emptyDir"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            JELLYFIN_PublishedServerUrl: "https://jelly.mydomain.com"

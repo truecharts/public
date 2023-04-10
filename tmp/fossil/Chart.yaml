@@ -1,0 +1,27 @@
+apiVersion: v2
+appVersion: "2.15.1"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+description: A simple, high-reliability, distributed software configuration management system
+home: https://truecharts.org/charts/stable/fossil
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/fossil.png
+keywords:
+  - fossil
+  - scm
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: fossil
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/fossil
+  - https://fossil-scm.org/
+type: application
+version: 7.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"

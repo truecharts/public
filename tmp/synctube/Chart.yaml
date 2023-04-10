@@ -1,0 +1,38 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+deprecated: false
+description: "Synchronized video viewing with chat and other features. Lightweight modern implementation and very easy way to run locally."
+home: https://truecharts.org/charts/stable/synctube
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/synctube.png
+keywords:
+  - synctube
+  - Cloud
+  - Productivity
+  - Tools-Utilities
+  - MediaApp-Video
+  - MediaServer-Video
+  - Network-Web
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: synctube
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/synctube
+  - https://github.com/RblSb/SyncTube
+type: application
+version: 3.0.0
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Cloud
+    - Productivity
+    - Tools-Utilities
+    - MediaApp-Video
+    - MediaServer-Video
+    - Network-Web

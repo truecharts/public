@@ -1,0 +1,26 @@
+apiVersion: v2
+appVersion: "1.3.2"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+
+description: Server for Ferdi that you can re-use to run your own
+home: https://truecharts.org/charts/stable/ferdi-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/ferdi-server.png
+keywords:
+  - ferdi
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: ferdi-server
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/ferdi-server
+  - https://github.com/getferdi/server
+version: 7.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"

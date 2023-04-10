@@ -1,0 +1,45 @@
+image:
+  repository: tccr.io/truecharts/calibre-web
+  pullPolicy: IfNotPresent
+  tag: 0.6.19@sha256:53aeebe31e38896827616c2575ef5a2d41a215587e82f8a8e8bbfea33924993c
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 8083
+        protocol: http
+        targetPort: 8083
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+
+portal:
+  open:
+    enabled: true

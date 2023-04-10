@@ -1,0 +1,34 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+deprecated: false
+description: Automated language selection for Plex TV Shows.
+home: https://truecharts.org/charts/stable/plex-auto-languages
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/plex-auto-languages.png
+keywords:
+  - plex-auto-languages
+  - Tools-Utilities
+  - MediaApp-Other
+  - MediaApp-Video
+  - MediaServer-Video
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: plex-auto-languages
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/plex-auto-languages
+  - https://github.com/remirigal/plex-auto-languages
+type: application
+version: 4.0.0
+annotations:
+  truecharts.org/catagories: |
+    - Tools-Utilities
+    - MediaApp-Other
+    - MediaApp-Video
+    - MediaServer-Video
+  truecharts.org/SCALE-support: "true"

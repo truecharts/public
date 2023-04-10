@@ -1,0 +1,41 @@
+image:
+  repository: tccr.io/truecharts/qbittorrent
+  pullPolicy: IfNotPresent
+  tag: 4.5.1@sha256:edff15401ed7dc81cca2cfde56eeb8151044fd9dfa11b1a8d8f3b35d4554fa91
+service:
+  main:
+    ports:
+      main:
+        port: 10095
+        targetPort: 8080
+  torrent:
+    enabled: true
+    ports:
+      torrent:
+        enabled: true
+        port: 6881
+        protocol: tcp
+      torrentudp:
+        enabled: true
+        port: 6881
+        protocol: udp
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+additionalVolumes:
+  - name: qbittorrent-scripts
+    emptyDir: {}
+    ## When you want to enable automatic port configuration at startup, adjust this to:
+    # configMap:
+    #   name: <RELEASENAME>-scripts
+    #   defaultMode: "511"
+additionalVolumeMounts:
+  - mountPath: "/config/custom-cont-init.d"
+    name: qbittorrent-scripts
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false

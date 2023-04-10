@@ -1,0 +1,11 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{/* Render secret */}}
+{{- $secrets := include "softserve.secret" . | fromYaml -}}
+{{- if $secrets -}}
+{{- $_ := set .Values.secret "env-secret" $secrets -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

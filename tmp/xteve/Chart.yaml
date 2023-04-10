@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: "2.2.0.200"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+description: M3U Proxy for Plex DVR and Emby Live TV.
+home: https://truecharts.org/charts/stable/xteve
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/xteve.png
+keywords:
+  - xteve
+  - iptv
+  - plex
+  - emby
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: xteve
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/xteve
+  - https://github.com/xteve-project/xTeVe
+  - https://github.com/k8s-at-home/container-images
+version: 9.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"

@@ -1,0 +1,61 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/kasm
+  tag: 1.12.0@sha256:18c929908d80199b2240b0a1787f93393272220750b4003978c8a7513b08cb0d
+kasm:
+  mountUdev: false
+  mountInput: false
+service:
+  main:
+    ports:
+      main:
+        port: 10350
+        protocol: https
+  admin:
+    enabled: true
+    ports:
+      admin:
+        enabled: true
+        port: 10351
+        protocol: https
+        targetPort: 3000
+persistence:
+  data:
+    enabled: true
+    mountPath: /opt
+  varrun:
+    enabled: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    allowPrivilegeEscalation: true
+    privileged: true
+    runAsGroup: 0
+    runAsUser: 0
+    fsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: https
+              path: /
+              port: "{{ .Values.service.admin.ports.admin.targetPort }}"
+            readiness:
+              type: https
+              path: /
+              port: "{{ .Values.service.admin.ports.admin.targetPort }}"
+            startup:
+              type: https
+              path: /
+              port: "{{ .Values.service.admin.ports.admin.targetPort }}"
+          env:
+            KASM_PORT: "{{ .Values.service.main.ports.main.port }}"
+            DOCKER_HUB_PASSWORD: ""
+            DOCKER_HUB_USERNAME: ""

@@ -1,0 +1,27 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: openvscode-server
+version: 5.0.0
+appVersion: "1.75.1"
+description: Openvscode-server provides a version of VS Code that runs a server on a remote machine.
+type: application
+deprecated: false
+home: https://truecharts.org/charts/stable/openvscode-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/openvscode-server.png
+keywords:
+  - openvscode-server
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/openvscode-server
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+    # condition:
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - incubator
+  truecharts.org/SCALE-support: "true"

@@ -1,0 +1,32 @@
+apiVersion: v2
+appVersion: "1.6.2"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+deprecated: false
+description: "PASTA - Audio and Subtitle Track Changer for Plex"
+home: https://truecharts.org/charts/stable/pasta
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pasta.png
+keywords:
+  - pasta
+  - MediaApp-Other
+  - Tools-Utilities
+  - Other
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: pasta
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/pasta
+  - https://github.com/cglatot/pasta
+type: application
+version: 4.0.0
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - MediaApp-Other
+    - Tools-Utilities
+    - Other

@@ -1,0 +1,26 @@
+apiVersion: v2
+appVersion: "4.9.1"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+description: dash. (or dashdot) is a modern server dashboard, running on the latest tech, designed with glassmorphism in mind.
+home: https://truecharts.org/charts/stable/dashdot
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/dashdot.png
+keywords:
+  - dashboard
+  - dashdot
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: dashdot
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/dashdot
+  - https://github.com/MauriceNino/dashdot
+version: 4.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"

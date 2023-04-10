@@ -1,0 +1,33 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: alist
+version: 5.0.0
+appVersion: "3.12.2"
+description: Alist program that supports multiple storage, powered by Gin and React
+type: application
+deprecated: false
+home: https://truecharts.org/charts/stable/alist
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/alist.png
+keywords:
+  - alist
+  - storage
+  - webdav
+  - google driver
+  - aliyun driver
+  - baiduyun
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/alist
+  - https://github.com/Xhofe/alist
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+    # condition:
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - cloud
+  truecharts.org/SCALE-support: "true"

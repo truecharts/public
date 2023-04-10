@@ -1,0 +1,57 @@
+image:
+  repository: tccr.io/truecharts/strapi
+  tag: 4.6.2@sha256:ee9f976408d8a196874843e525a05b23598c142aa31bccc107dcdfe92c790cfa
+  pullPolicy: Always
+service:
+  main:
+    ports:
+      main:
+        port: 1337
+persistence:
+  data:
+    enabled: true
+    mountPath: /srv/app
+# Enabled postgres
+cnpg:
+  main:
+    enabled: true
+
+    user: strapi
+    database: strapi
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            DATABASE_CLIENT: postgres
+            DATABASE_PORT: 5432
+            DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
+            DATABASE_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            DATABASE_USERNAME: "{{ .Values.cnpg.main.user }}"
+            DATABASE_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            # STRAPI_LICENSE
+            # PUBLIC_URL
+            NODE_ENV: development
+            STRAPI_DISABLE_UPDATE_NOTIFICATION: true
+            FAST_REFRESH: false
+            EXTRA_ARGS: ""
+            JWT_SECRET: my_jwt_secret
+            ADMIN_JWT_SECRET: my_admin_jwt_secret
+            APP_KEYS: '["keya", "keyb"]'

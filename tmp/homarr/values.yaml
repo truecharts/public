@@ -1,0 +1,20 @@
+image:
+  repository: tccr.io/truecharts/homarr
+  tag: 0.11.5@sha256:ed4c906d1f017f5a49b6674b444f47bb444b1f7c22593f7a19036904faa146d2
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10245
+        targetPort: 7575
+persistence:
+  config:
+    enabled: true
+    mountPath: "/app/data/configs"
+  icons:
+    enabled: true
+    mountPath: "/app/public/icons"
+portal:
+  open:
+    enabled: true

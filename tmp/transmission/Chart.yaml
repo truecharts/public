@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: "3.00"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+deprecated: false
+description: fast, easy, and free BitTorrent client.
+home: https://truecharts.org/charts/stable/transmission
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/transmission.png
+keywords:
+  - transmission
+  - torrent
+  - usenet
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: transmission
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/transmission
+  - https://github.com/transmission/transmission
+type: application
+version: 16.0.0
+annotations:
+  truecharts.org/catagories: |
+    - download-tools
+  truecharts.org/SCALE-support: "true"
