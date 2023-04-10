@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "7.8.0"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+description: Professional Photo Management with the Power of Open Source
+home: https://truecharts.org/charts/stable/digikam
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/digikam.png
+keywords:
+  - digikam
+  - photo
+  - management
+  - image
+  - gallery
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: digikam
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/digikam
+  - https://github.com/linuxserver/docker-digikam
+  - https://www.digikam.org/
+type: application
+version: 7.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"

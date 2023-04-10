@@ -1,0 +1,28 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: projectsend
+version: 7.0.0
+appVersion: "2021.12.10"
+description: Projectsend is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself.
+type: application
+deprecated: false
+home: https://truecharts.org/charts/stable/projectsend
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/projectsend.png
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/projectsend
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+  - condition: mariadb.enabled
+    name: mariadb
+    repository: https://deps.truecharts.org/
+    version: 7.0.0
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - incubator
+  truecharts.org/SCALE-support: "true"

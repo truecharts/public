@@ -1,0 +1,25 @@
+apiVersion: v2
+appVersion: "0.2.3"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.2.32
+description: Unmanic is a simple tool for optimising your file library.
+home: https://truecharts.org/charts/stable/unmanic
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/unmanic.png
+keywords:
+  - media
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: unmanic
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/unmanic
+  - https://github.com/Unmanic/unmanic
+version: 6.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
