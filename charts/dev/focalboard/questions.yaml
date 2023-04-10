@@ -12,44 +12,38 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-                                - variable: env
-                                  group: "App Configuration"
-                                  label: "Image Environment"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                - variable: focalboard
-                                  group: "App Configuration"
-                                  label: "Focalboard Configuration"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: serverRoot
-                                        label: "serverRoot"
-                                        description: "Root URL of the server.    eg. https://focal.mydomain.com"
-                                        schema:
-                                          type: string
-                                          default: "http://localhost:10072"
-                                      - variable: telemetry
-                                        label: "telemetry"
-                                        description: "Enable health diagnostics telemetry    "
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: localOnly
-                                        label: "localOnly"
-                                        description: "Only allow connections from localhost"
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: enableLocalMode
-                                        label: "enableLocalMode"
-                                        description: "Enable admin APIs on local Unix port"
-                                        schema:
-                                          type: boolean
-                                          default: true
+
+  - variable: focalboard
+    group: "App Configuration"
+    label: "Focalboard Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: serverRoot
+          label: "serverRoot"
+          description: "Root URL of the server.    eg. https://focal.mydomain.com"
+          schema:
+            type: string
+            default: "http://localhost:10072"
+        - variable: telemetry
+          label: "telemetry"
+          description: "Enable health diagnostics telemetry    "
+          schema:
+            type: boolean
+            default: false
+        - variable: localOnly
+          label: "localOnly"
+          description: "Only allow connections from localhost"
+          schema:
+            type: boolean
+            default: false
+        - variable: enableLocalMode
+          label: "enableLocalMode"
+          description: "Enable admin APIs on local Unix port"
+          schema:
+            type: boolean
+            default: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
