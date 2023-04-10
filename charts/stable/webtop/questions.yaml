@@ -71,68 +71,64 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: TITLE
+                                        label: Title
+                                        description: String which will be used as page/tab title in the web browser.
+                                        schema:
+                                          type: string
+                                          default: Webtop
+                                      - variable: AUTO_LOGIN
+                                        label: Auto Login
+                                        description: force login on the '/' path.
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: KEYBOARD
+                                        label: Keyboard Layout
+                                        description: See the keyboard layouts in https://docs.linuxserver.io/images/docker-webtop#application-setup
+                                        schema:
+                                          type: string
+                                          default: en-us-qwerty
+                                          enum:
+                                            - value: en-us-qwerty
+                                              description: English US Qwerty
+                                            - value: es-es-qwerty
+                                              description: Spanish Qwerty
+                                            - value: en-gb-qwerty
+                                              description: English UK Qwerty
+                                            - value: da-dk-qwerty
+                                              description: Danish Qwerty
+                                            - value: de-ch-qwertz
+                                              description: German Qwertz
+                                            - value: fr-ch-qwertz
+                                              description: Swiss French Qwertz
+                                            - value: fr-fr-azerty
+                                              description: French Azerty
+                                            - value: it-it-qwerty
+                                              description: Italian Qwerty
+                                            - value: ja-jp-qwerty
+                                              description: Japanese Qwerty
+                                            - value: pt-br-qwerty
+                                              description: Portuguese Brazilian Qwerty
+                                            - value: sv-se-qwerty
+                                              description: Swedish Qwerty
+                                            - value: tr-tr-qwerty
+                                              description: Turkish-Q Qwerty
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: TITLE
-          label: Title
-          description: String which will be used as page/tab title in the web browser.
-          schema:
-            type: string
-            default: Webtop
-        - variable: AUTO_LOGIN
-          label: Auto Login
-          description: force login on the '/' path.
-          schema:
-            type: boolean
-            default: false
-        - variable: KEYBOARD
-          label: Keyboard Layout
-          description: See the keyboard layouts in https://docs.linuxserver.io/images/docker-webtop#application-setup
-          schema:
-            type: string
-            default: en-us-qwerty
-            enum:
-              - value: en-us-qwerty
-                description: English US Qwerty
-              - value: es-es-qwerty
-                description: Spanish Qwerty
-              - value: en-gb-qwerty
-                description: English UK Qwerty
-              - value: da-dk-qwerty
-                description: Danish Qwerty
-              - value: de-ch-qwertz
-                description: German Qwertz
-              - value: fr-ch-qwertz
-                description: Swiss French Qwertz
-              - value: fr-fr-azerty
-                description: French Azerty
-              - value: it-it-qwerty
-                description: Italian Qwerty
-              - value: ja-jp-qwerty
-                description: Japanese Qwerty
-              - value: pt-br-qwerty
-                description: Portuguese Brazilian Qwerty
-              - value: sv-se-qwerty
-                description: Swedish Qwerty
-              - value: tr-tr-qwerty
-                description: Turkish-Q Qwerty
 # Include{containerConfig}
 # Include{serviceRoot}
-        - variable: main
-          label: Main Service
-          description: The Primary service on which the healthcheck runs, often the webUI
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -174,28 +170,28 @@ questions:
 # Include{ingressTraefik}
 # Include{ingressList}
 
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 0
+# Include{securityContextRoot}
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-        - variable: fsGroup
-          label: fsGroup
-          description: The group that should own ALL storage.
-          schema:
-            type: int
-            default: 568
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
 
 # Include{resources}
 # Include{advanced}

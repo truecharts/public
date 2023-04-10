@@ -10,55 +10,43 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: MINIO_ROOT_PASSWORD
+                                        label: "MINIO_ROOT_PASSWORD"
+                                        schema:
+                                          type: string
+                                          default: "changeme"
+                                      - variable: MINIO_ROOT_USER
+                                        label: "MINIO_ROOT_USER"
+                                        schema:
+                                          type: string
+                                          default: "minio"
+                                          required: true
+                                      - variable: MINIO_BROWSER_REDIRECT_URL
+                                        label: "MINIO_BROWSER_REDIRECT_URL"
+                                        description: "Specify the URL the MinIO Console provides as the redirect URL eg. https://minioconsole.mydomain.com"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: MINIO_SERVER_URL
+                                        label: "MINIO_SERVER_URL"
+                                        description: "Specify the URL hostname the MinIO Console should use for connecting to the MinIO Server. eg. https://minioserver.mydomain.com"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: MINIO_ROOT_PASSWORD
-          label: "MINIO_ROOT_PASSWORD"
-          schema:
-            type: string
-            default: "changeme"
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: MINIO_ROOT_USER
-          label: "MINIO_ROOT_USER"
-          schema:
-            type: string
-            default: "minio"
-            required: true
-        - variable: MINIO_BROWSER_REDIRECT_URL
-          label: "MINIO_BROWSER_REDIRECT_URL"
-          description: "Specify the URL the MinIO Console provides as the redirect URL eg. https://minioconsole.mydomain.com"
-          schema:
-            type: string
-            default: ""
-        - variable: MINIO_SERVER_URL
-          label: "MINIO_SERVER_URL"
-          description: "Specify the URL hostname the MinIO Console should use for connecting to the MinIO Server. eg. https://minioserver.mydomain.com"
-          schema:
-            type: string
-            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -138,16 +126,16 @@ questions:
                 schema:
                   type: int
                   default: 568
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 568
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-             - variable: fsGroup
+              - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:

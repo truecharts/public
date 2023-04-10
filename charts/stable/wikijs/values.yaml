@@ -2,42 +2,18 @@ image:
   repository: tccr.io/truecharts/wikijs
   tag: 2.5.297@sha256:7508150cefc0c667173400c57b24de9f69191196e998e0e72825d8edb793dbf9
   pullPolicy: IfNotPresent
-
-env:
-  DB_TYPE: "postgres"
-  DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
-  DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  DB_PORT: "5432"
-  DB_PASS:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  DB_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-
-probes:
-  liveness:
-    path: "/healthz"
-  readiness:
-    path: "/healthz"
-  startup:
-    path: "/healthz"
-
 service:
   main:
     ports:
       main:
         port: 10045
         targetPort: 3000
+cnpg:
+  main:
+    enabled: true
 
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: wikijs
-  postgresqlDatabase: wikijs
-
+    user: wikijs
+    database: wikijs
 # /wiki/data is a temporary dir. Without mounting as emptyDir it's only writable by root.
 # https://docs.requarks.io/en/install/config#data-paths
 persistence:
@@ -45,6 +21,32 @@ persistence:
     enabled: true
     mountPath: "/wiki/data/"
     type: emptyDir
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/healthz"
+            readiness:
+              path: "/healthz"
+            startup:
+              path: "/healthz"
+          env:
+            DB_TYPE: "postgres"
+            DB_NAME: "{{ .Values.cnpg.main.database }}"
+            DB_USER: "{{ .Values.cnpg.main.user }}"
+            DB_PORT: "5432"
+            DB_PASS:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host

@@ -4,30 +4,47 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-env:
-  # -- sets the context path parameter
-  # Example: "url-base"
-  CONTEXT_PATH:
-  JAVA_OPTS:
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            {}
+            # -- sets the context path parameter
+            # Example: "url-base"
+            # CONTEXT_PATH:
+            # JAVA_OPTS:
 
 service:
   main:
     ports:
       main:
         port: 10047
+        protocol: http
         targetPort: 4040
 
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
 
 portal:
-  enabled: true
+  open:
+    enabled: true

@@ -30,39 +30,38 @@ allsparkImage:
   repository: tccr.io/truecharts/jupyter-all-spark
   pullPolicy: IfNotPresent
   tag: v2023-02@sha256:fe321309b5a660918a6a77928e59b67a33d6b881aeebfc215e0a22fe80e63eb0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 jupyter:
   jupyter_cmd: lab
   restartable: true
-
-env:
-  NB_UID: "{{ .Values.security.PUID }}"
-  NB_GID: "{{ .Values.podSecurityContext.fsGroup }}"
-  NB_UMASK: "{{ .Values.security.UMASK }}"
-  # User Defined
-  DOCKER_STACKS_JUPYTER_CMD: "{{ .Values.jupyter.jupyter_cmd }}"
-  RESTARTABLE: '{{ ternary "yes" "no" .Values.jupyter.restartable }}'
-
 service:
   main:
     ports:
       main:
         port: 10300
-        protocol: HTTP
+        protocol: http
         targetPort: 8888
-
 persistence:
   data:
     enabled: true
     mountPath: /home/jovyan/work
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            NB_UID: "{{ .Values.securityContext.container.PUID }}"
+            NB_GID: "{{ .Values.securityContext.pod.fsGroup }}"
+            NB_UMASK: "{{ .Values.securityContext.container.UMASK }}"
+            # User Defined
+            DOCKER_STACKS_JUPYTER_CMD: "{{ .Values.jupyter.jupyter_cmd }}"
+            RESTARTABLE: '{{ ternary "yes" "no" .Values.jupyter.restartable }}'

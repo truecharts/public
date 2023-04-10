@@ -10,10 +10,28 @@ service:
         port: 10071
         targetPort: 8000
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+
 persistence:
   config:
     enabled: true
-    mountPath: "/home/node/app/.dizquetv"
+    mountPath: /home/node/app/.dizquetv
 
 portal:
-  enabled: true
+  open:
+    enabled: true

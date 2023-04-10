@@ -3,11 +3,11 @@ appVersion: "2.9.19"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.2.32
   - condition: mariadb.enabled
     name: mariadb
     repository: https://deps.truecharts.org/
-    version: 5.0.35
+    version: 7.0.0
 deprecated: false
 description: Managing Nginx proxy hosts with a simple, powerful interface.
 home: https://truecharts.org/charts/stable/nginx-proxy-manager
@@ -27,9 +27,8 @@ sources:
   - https://github.com/NginxProxyManager/nginx-proxy-manager
   - https://nginxproxymanager.com/
 type: application
-version: 3.1.12
+version: 4.0.0
 annotations:
   truecharts.org/catagories: |
     - networking
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

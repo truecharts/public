@@ -10,37 +10,33 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: REMOTE_HOST
+                                        label: "REMOTE_HOST"
+                                        description: "Sets the REMOTE_HOST env var"
+                                        schema:
+                                          type: string
+                                          default: "localhost"
+                                      - variable: REMOTE_PORT
+                                        label: "REMOTE_PORT"
+                                        description: "Sets the REMOTE_PORT env var"
+                                        schema:
+                                          type: int
+                                          default: 5900
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: REMOTE_HOST
-          label: "REMOTE_HOST"
-          description: "Sets the REMOTE_HOST env var"
-          schema:
-            type: string
-            default: "localhost"
-        - variable: REMOTE_PORT
-          label: "REMOTE_PORT"
-          description: "Sets the REMOTE_PORT env var"
-          schema:
-            type: int
-            default: 5900
 # Include{containerConfig}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -80,16 +76,16 @@ questions:
                 schema:
                   type: int
                   default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-             - variable: fsGroup
+              - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:

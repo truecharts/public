@@ -62,38 +62,38 @@ questions:
                                         schema:
                                           type: int
                                           default: 5
-                                - variable: deepstack
-                                  group: "App Configuration"
-                                  label: "Image Environment"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: vision_face
-                                        label: "VISION-FACE"
-                                        description: "Enables Face Detection"
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: vision_detection
-                                        label: "VISION-DETECTION"
-                                        description: "Enables Object Detection"
-                                        schema:
-                                          type: boolean
-                                          default: true
-                                          enum:
-                                      - variable: vision_scene
-                                        label: "VISION-SCENE"
-                                        description: "Enables Scene Detection"
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: vision_face
-                                        label: "VISION-ENHANCE"
-                                        description: "Enables Enhance Endpoint"
-                                        schema:
-                                          type: boolean
-                                          default: false
+  - variable: deepstack
+    group: "App Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: vision_face
+          label: "VISION-FACE"
+          description: "Enables Face Detection"
+          schema:
+            type: boolean
+            default: false
+        - variable: vision_detection
+          label: "VISION-DETECTION"
+          description: "Enables Object Detection"
+          schema:
+            type: boolean
+            default: true
+            enum:
+        - variable: vision_scene
+          label: "VISION-SCENE"
+          description: "Enables Scene Detection"
+          schema:
+            type: boolean
+            default: false
+        - variable: vision_face
+          label: "VISION-ENHANCE"
+          description: "Enables Enhance Endpoint"
+          schema:
+            type: boolean
+            default: false
 # Include{containerBasic}
 # Include{containerAdvanced}
 

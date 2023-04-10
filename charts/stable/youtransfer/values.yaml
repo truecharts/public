@@ -1,4 +1,3 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/youtransfer
@@ -10,19 +9,25 @@ persistence:
   hostpath3:
     enabled: true
     mountPath: /opt/youtransfer/uploads
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
 service:
   main:
     ports:
       main:
         port: 5000
-        protocol: TCP
+        protocol: tcp
         targetPort: 5000
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env: {}

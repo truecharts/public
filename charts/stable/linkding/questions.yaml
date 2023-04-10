@@ -13,69 +13,57 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: DJANGO_SUPERUSER_USERNAME
+                                        label: "Superuser Username (Initial install only)"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                      - variable: DJANGO_SUPERUSER_EMAIL
+                                        label: "Superuser Email (Initial install only)"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                      - variable: DJANGO_SUPERUSER_PASSWORD
+                                        label: "Superuser Password (Initial install only)"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          private: true
+                                          required: true
+                                      - variable: LD_DISABLE_BACKGROUND_TASKS
+                                        label: "Disable Background Tasks"
+                                        description: "Disables background tasks, such as creating snapshots for bookmarks on the web archive. Enabling this flag will prevent the background task processor from starting up, and prevents scheduling tasks. This might be useful if you are experiencing performance issues or other problematic behaviour due to background task processing."
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: LD_DISABLE_URL_VALIDATION
+                                        label: "Disable URL Validation"
+                                        description: "Completely disables URL validation for bookmarks. This can be useful if you intend to store non fully qualified domain name URLs, such as network paths, or you want to store URLs that use another protocol than http or https."
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: LD_REQUEST_TIMEOUT
+                                        label: "Request Timeout"
+                                        description: "Configures the request timeout in the uwsgi application server. This can be useful if you want to import a bookmark file with a high number of bookmarks and run into request timeouts."
+                                        schema:
+                                          type: int
+                                          default: 60
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DJANGO_SUPERUSER_USERNAME
-          label: "Superuser Username (Initial install only)"
-          schema:
-            type: string
-            default: ""
-            required: true
-        - variable: DJANGO_SUPERUSER_EMAIL
-          label: "Superuser Email (Initial install only)"
-          schema:
-            type: string
-            default: ""
-            required: true
-        - variable: DJANGO_SUPERUSER_PASSWORD
-          label: "Superuser Password (Initial install only)"
-          schema:
-            type: string
-            default: ""
-            private: true
-            required: true
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: LD_DISABLE_BACKGROUND_TASKS
-          label: "Disable Background Tasks"
-          description: "Disables background tasks, such as creating snapshots for bookmarks on the web archive. Enabling this flag will prevent the background task processor from starting up, and prevents scheduling tasks. This might be useful if you are experiencing performance issues or other problematic behaviour due to background task processing."
-          schema:
-            type: boolean
-            default: false
-        - variable: LD_DISABLE_URL_VALIDATION
-          label: "Disable URL Validation"
-          description: "Completely disables URL validation for bookmarks. This can be useful if you intend to store non fully qualified domain name URLs, such as network paths, or you want to store URLs that use another protocol than http or https."
-          schema:
-            type: boolean
-            default: false
-        - variable: LD_REQUEST_TIMEOUT
-          label: "Request Timeout"
-          description: "Configures the request timeout in the uwsgi application server. This can be useful if you want to import a bookmark file with a high number of bookmarks and run into request timeouts."
-          schema:
-            type: int
-            default: 60
 # Include{containerConfig}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -124,16 +112,16 @@ questions:
                 schema:
                   type: int
                   default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-             - variable: fsGroup
+              - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:

@@ -2,31 +2,16 @@ image:
   repository: tccr.io/truecharts/soft-serve
   pullPolicy: IfNotPresent
   tag: 0.4.6@sha256:03e15637bdaccc6a63e60b79bbd043d4f9dd938f583e1f4db7f909af2837d488
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
 softserve:
   host: localhost
   key_path: /.ssh/soft_serve_server_ed25519
   init_admin_key: ""
-
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-env-secret'
-
 service:
   main:
     ports:
       main:
-        protocol: TCP
+        protocol: tcp
         port: 23231
-
 persistence:
   config:
     enabled: true
@@ -37,6 +22,20 @@ persistence:
   repos:
     enabled: true
     mountPath: /repos
-
 portal:
-  enabled: false
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: "env-secret"
