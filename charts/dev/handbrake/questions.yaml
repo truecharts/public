@@ -27,88 +27,88 @@ questions:
                                           type: string
                                           private: true
                                           default: ""
-                                - variable: handbrake
-                                  group: "App Configuration"
-                                  label: "HandBrake Configuration"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: ENABLE_CJK_FONT
-                                        label: "ENABLE_CJK_FONT"
-                                        description: "When set to true, open-source computer font WenQuanYi Zen Hei is installed. "
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: KEEP_APP_RUNNING
-                                        label: "KEEP_APP_RUNNING"
-                                        description: "When set to true, the application will be automatically restarted if it crashes or if a user quits it."
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: gui
-                                        label: "GUI Settings"
-                                        description: "Always read description before changing a value here. Also refer to README"
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                          show_subquestions_if: true
-                                          subquestions:
-                                            - variable: DISPLAY_WIDTH
-                                              label: "DISPLAY_WIDTH"
-                                              description: "Width (in pixels) of the application's window."
-                                              schema:
-                                                type: int
-                                                default: 1280
-                                                required: true
-                                            - variable: DISPLAY_HEIGHT
-                                              label: "DISPLAY_HEIGHT"
-                                              description: "Height (in pixels) of the application's window."
-                                              schema:
-                                                type: int
-                                                default: 768
-                                                required: true
-                                            - variable: SECURE_CONNECTION
-                                              label: "SECURE_CONNECTION"
-                                              description: "When set to true, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client). See the Security section for more details."
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                      - variable: autoconv
-                                        label: "Automated Conversion Settings"
-                                        description: "Always read description before changing a value here. Also refer to README"
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                          show_subquestions_if: true
-                                          subquestions:
-                                            - variable: AUTOMATED_CONVERSION_PRESET
-                                              label: "AUTOMATED_CONVERSION_PRESET"
-                                              description: "HandBrake preset used by the automatic video converter. Identification of a preset must follow the format <CATEGORY>/<PRESET NAME>"
-                                              schema:
-                                                type: string
-                                                default: "General/Very Fast 1080p30"
-                                                required: true
-                                            - variable: AUTOMATED_CONVERSION_FORMAT
-                                              label: "AUTOMATED_CONVERSION_FORMAT"
-                                              description: "Video container format used by the automatic video converter for output files. This is typically the video filename extension."
-                                              schema:
-                                                type: string
-                                                default: "mp4"
-                                                required: true
-                                            - variable: AUTOMATED_CONVERSION_KEEP_SOURCE
-                                              label: "AUTOMATED_CONVERSION_KEEP_SOURCE"
-                                              description: "When set to 0, a video that has been successfully converted is removed from the watch folder."
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                            - variable: AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION
-                                              label: "AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION"
-                                              description: "When set to ignore, a non-video file found in the watch folder is ignored. If set to copy, a non-video file is copied as-is to the output folder."
-                                              schema:
-                                                type: string
-                                                default: "ignore"
-                                                required: true
+  - variable: handbrake
+    group: "App Configuration"
+    label: "HandBrake Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: ENABLE_CJK_FONT
+          label: "ENABLE_CJK_FONT"
+          description: "When set to true, open-source computer font WenQuanYi Zen Hei is installed. "
+          schema:
+            type: boolean
+            default: false
+        - variable: KEEP_APP_RUNNING
+          label: "KEEP_APP_RUNNING"
+          description: "When set to true, the application will be automatically restarted if it crashes or if a user quits it."
+          schema:
+            type: boolean
+            default: false
+        - variable: gui
+          label: "GUI Settings"
+          description: "Always read description before changing a value here. Also refer to README"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: DISPLAY_WIDTH
+                label: "DISPLAY_WIDTH"
+                description: "Width (in pixels) of the application's window."
+                schema:
+                  type: int
+                  default: 1280
+                  required: true
+              - variable: DISPLAY_HEIGHT
+                label: "DISPLAY_HEIGHT"
+                description: "Height (in pixels) of the application's window."
+                schema:
+                  type: int
+                  default: 768
+                  required: true
+              - variable: SECURE_CONNECTION
+                label: "SECURE_CONNECTION"
+                description: "When set to true, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client). See the Security section for more details."
+                schema:
+                  type: boolean
+                  default: false
+        - variable: autoconv
+          label: "Automated Conversion Settings"
+          description: "Always read description before changing a value here. Also refer to README"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: AUTOMATED_CONVERSION_PRESET
+                label: "AUTOMATED_CONVERSION_PRESET"
+                description: "HandBrake preset used by the automatic video converter. Identification of a preset must follow the format <CATEGORY>/<PRESET NAME>"
+                schema:
+                  type: string
+                  default: "General/Very Fast 1080p30"
+                  required: true
+              - variable: AUTOMATED_CONVERSION_FORMAT
+                label: "AUTOMATED_CONVERSION_FORMAT"
+                description: "Video container format used by the automatic video converter for output files. This is typically the video filename extension."
+                schema:
+                  type: string
+                  default: "mp4"
+                  required: true
+              - variable: AUTOMATED_CONVERSION_KEEP_SOURCE
+                label: "AUTOMATED_CONVERSION_KEEP_SOURCE"
+                description: "When set to 0, a video that has been successfully converted is removed from the watch folder."
+                schema:
+                  type: boolean
+                  default: false
+              - variable: AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION
+                label: "AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION"
+                description: "When set to ignore, a non-video file found in the watch folder is ignored. If set to copy, a non-video file is copied as-is to the output folder."
+                schema:
+                  type: string
+                  default: "ignore"
+                  required: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
