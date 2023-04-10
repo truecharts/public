@@ -27,53 +27,53 @@ questions:
                                           type: string
                                           private: true
                                           default: ""
-                                - variable: dupeguru
-                                  group: "App Configuration"
-                                  label: "DupeGuru Configuration"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: ENABLE_CJK_FONT
-                                        label: "ENABLE_CJK_FONT"
-                                        description: "When set to true, open-source computer font WenQuanYi Zen Hei is installed. "
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: KEEP_APP_RUNNING
-                                        label: "KEEP_APP_RUNNING"
-                                        description: "When set to true, the application will be automatically restarted if it crashes or if a user quits it."
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: gui
-                                        label: "GUI Settings"
-                                        description: "Always read description before changing a value here. Also refer to README"
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                          show_subquestions_if: true
-                                          subquestions:
-                                            - variable: DISPLAY_WIDTH
-                                              label: "DISPLAY_WIDTH"
-                                              description: "Width (in pixels) of the application's window."
-                                              schema:
-                                                type: int
-                                                default: 1280
-                                                required: true
-                                            - variable: DISPLAY_HEIGHT
-                                              label: "DISPLAY_HEIGHT"
-                                              description: "Height (in pixels) of the application's window."
-                                              schema:
-                                                type: int
-                                                default: 768
-                                                required: true
-                                            - variable: SECURE_CONNECTION
-                                              label: "SECURE_CONNECTION"
-                                              description: "When set to true, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client). See the Security section for more details."
-                                              schema:
-                                                type: boolean
-                                                default: false
+  - variable: dupeguru
+    group: "App Configuration"
+    label: "DupeGuru Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: ENABLE_CJK_FONT
+          label: "ENABLE_CJK_FONT"
+          description: "When set to true, open-source computer font WenQuanYi Zen Hei is installed. "
+          schema:
+            type: boolean
+            default: false
+        - variable: KEEP_APP_RUNNING
+          label: "KEEP_APP_RUNNING"
+          description: "When set to true, the application will be automatically restarted if it crashes or if a user quits it."
+          schema:
+            type: boolean
+            default: false
+        - variable: gui
+          label: "GUI Settings"
+          description: "Always read description before changing a value here. Also refer to README"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: DISPLAY_WIDTH
+                label: "DISPLAY_WIDTH"
+                description: "Width (in pixels) of the application's window."
+                schema:
+                  type: int
+                  default: 1280
+                  required: true
+              - variable: DISPLAY_HEIGHT
+                label: "DISPLAY_HEIGHT"
+                description: "Height (in pixels) of the application's window."
+                schema:
+                  type: int
+                  default: 768
+                  required: true
+              - variable: SECURE_CONNECTION
+                label: "SECURE_CONNECTION"
+                description: "When set to true, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client). See the Security section for more details."
+                schema:
+                  type: boolean
+                  default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
