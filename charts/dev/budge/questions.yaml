@@ -10,10 +10,15 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  # Docker specific env
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

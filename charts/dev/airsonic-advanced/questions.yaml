@@ -12,27 +12,26 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: JAVA_OPTS
-          label: "JAVA_OPTS"
-          description: "JAVA_OPTS"
-          schema:
-            type: string
-            default: ""
-        - variable: CONTEXT_PATH
-          label: "CONTEXT_PATH"
-          description: "CONTEXT_PATH"
-          schema:
-            type: string
-            required: true
-            default: "/"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: JAVA_OPTS
+                                        label: "JAVA_OPTS"
+                                        description: "JAVA_OPTS"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: CONTEXT_PATH
+                                        label: "CONTEXT_PATH"
+                                        description: "CONTEXT_PATH"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "/"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

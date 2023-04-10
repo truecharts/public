@@ -12,20 +12,19 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ANONADDY_DOMAIN
-          label: "ANONADDY_DOMAIN"
-          schema:
-            type: string
-            default: ""
-            required: true
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ANONADDY_DOMAIN
+                                        label: "ANONADDY_DOMAIN"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

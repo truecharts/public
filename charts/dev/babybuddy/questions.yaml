@@ -12,20 +12,19 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: CSRF_TRUSTED_ORIGINS
-          label: "CSRF_TRUSTED_ORIGINS"
-          description: "Add any address you'd like to access babybuddy at (comma separated, no spaces)"
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: CSRF_TRUSTED_ORIGINS
+                                        label: "CSRF_TRUSTED_ORIGINS"
+                                        description: "Add any address you'd like to access babybuddy at (comma separated, no spaces)"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

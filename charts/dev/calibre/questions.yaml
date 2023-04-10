@@ -12,34 +12,33 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PASSWORD
-          label: "PASSWORD"
-          description: "Optionally set a password for the gui."
-          schema:
-            type: string
-            private: true
-            default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: CLI_ARGS
-          label: "CLI_ARGS"
-          description: "Optionally pass cli start arguments to calibre"
-          schema:
-            type: string
-            default: ""
+                                - variable: secretEnv
+                                  group: "App Configuration"
+                                  label: "Image Secrets"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PASSWORD
+                                        label: "PASSWORD"
+                                        description: "Optionally set a password for the gui."
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: CLI_ARGS
+                                        label: "CLI_ARGS"
+                                        description: "Optionally pass cli start arguments to calibre"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

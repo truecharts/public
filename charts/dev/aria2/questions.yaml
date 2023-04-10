@@ -10,39 +10,38 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: secretEnv
-    group: App Configuration
-    label: Image Secrets
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: RPC_SECRET
-          label: RPC Secret
-          description: Set RPC secret authorization token.
-          schema:
-            type: string
-            private: true
-            default: ""
-        - variable: DISK_CACHE
-          label: Disk Cache
-          description: Set up disk cache. SIZE can include K or M.
-          schema:
-            type: string
-            default: "64M"
-        - variable: UPDATE_TRACKERS
-          label: Update Trackers
-          description: Whether to update BT Trackers List automatically.
-          schema:
-            type: boolean
-            default: true
-        - variable: CUSTOM_TRACKER_URL
-          label: Custom Trackers URL
-          description: Custom BT Trackers List URL.
-          schema:
-            type: string
-            default: "https://trackerslist.com/all_aria2.txt"
+                                - variable: secretEnv
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: RPC_SECRET
+                                        label: RPC Secret
+                                        description: Set RPC secret authorization token.
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: DISK_CACHE
+                                        label: Disk Cache
+                                        description: Set up disk cache. SIZE can include K or M.
+                                        schema:
+                                          type: string
+                                          default: "64M"
+                                      - variable: UPDATE_TRACKERS
+                                        label: Update Trackers
+                                        description: Whether to update BT Trackers List automatically.
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: CUSTOM_TRACKER_URL
+                                        label: Custom Trackers URL
+                                        description: Custom BT Trackers List URL.
+                                        schema:
+                                          type: string
+                                          default: "https://trackerslist.com/all_aria2.txt"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
