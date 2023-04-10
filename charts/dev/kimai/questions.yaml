@@ -12,40 +12,39 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ADMINMAIL
-          label: "Admin E-mail"
-          schema:
-            type: string
-            default: ""
-            required: true
-        - variable: ADMINPASS
-          label: "Admin Password"
-          schema:
-            type: string
-            default: ""
-            required: true
-            private: true
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: trust_hosts
-          label: "TRUSTED_HOSTS"
-          description: "Comma separated list of trusted hosts."
-          schema:
-            type: string
-            default: "YOUR.FQDN or YOUR.NAS.IP"
+                                - variable: secretEnv
+                                  group: "App Configuration"
+                                  label: "Image Secrets"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ADMINMAIL
+                                        label: "Admin E-mail"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                      - variable: ADMINPASS
+                                        label: "Admin Password"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                          private: true
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: trust_hosts
+                                        label: "TRUSTED_HOSTS"
+                                        description: "Comma separated list of trusted hosts."
+                                        schema:
+                                          type: string
+                                          default: "YOUR.FQDN or YOUR.NAS.IP"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

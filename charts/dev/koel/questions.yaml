@@ -12,51 +12,50 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: LASTFM_API_KEY
-          label: "LASTFM_API_KEY"
-          description: "Enable scrobbling to Last.fm. See https://docs.koel.dev/3rd-party.html#last-fm"
-          schema:
-            type: string
-            default: ""
-        - variable: LASTFM_API_SECRET
-          label: "LASTFM_API_SECRET"
-          description: "Enable scrobbling to Last.fm. See https://docs.koel.dev/3rd-party.html#last-fm"
-          schema:
-            type: string
-            default: ""
-        - variable: YOUTUBE_API_KEY
-          label: "YOUTUBE_API_KEY"
-          description: "Enable YouTube integration. See https://docs.koel.dev/3rd-party.html#youtube"
-          schema:
-            type: string
-            default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: FORCE_HTTPS
-          label: "FORCE_HTTPS"
-          description: "If set to true, all URLs redirects done by koel will use https."
-          schema:
-            type: boolean
-            default: false
-        - variable: MEMORY_LIMIT
-          label: "MEMORY_LIMIT"
-          description: "Amount of memory in MB for the scanning process."
-          schema:
-            type: int
-            default: 2048
+                                - variable: secretEnv
+                                  group: "App Configuration"
+                                  label: "Image Secrets"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: LASTFM_API_KEY
+                                        label: "LASTFM_API_KEY"
+                                        description: "Enable scrobbling to Last.fm. See https://docs.koel.dev/3rd-party.html#last-fm"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: LASTFM_API_SECRET
+                                        label: "LASTFM_API_SECRET"
+                                        description: "Enable scrobbling to Last.fm. See https://docs.koel.dev/3rd-party.html#last-fm"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: YOUTUBE_API_KEY
+                                        label: "YOUTUBE_API_KEY"
+                                        description: "Enable YouTube integration. See https://docs.koel.dev/3rd-party.html#youtube"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: FORCE_HTTPS
+                                        label: "FORCE_HTTPS"
+                                        description: "If set to true, all URLs redirects done by koel will use https."
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: MEMORY_LIMIT
+                                        label: "MEMORY_LIMIT"
+                                        description: "Amount of memory in MB for the scanning process."
+                                        schema:
+                                          type: int
+                                          default: 2048
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

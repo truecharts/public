@@ -12,26 +12,25 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: MAIL_CONFIGURATION
-          label: "MAIL_CONFIGURATION"
-          description: "Sets the MAIL_CONFIGURATION env var"
-          schema:
-            type: boolean
-            default: false
-        - variable: LOG_DRIVER
-          label: "LOG_DRIVER"
-          description: "Sets the LOG_DRIVER env var"
-          schema:
-            type: string
-            default: "stdout"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: MAIL_CONFIGURATION
+                                        label: "MAIL_CONFIGURATION"
+                                        description: "Sets the MAIL_CONFIGURATION env var"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: LOG_DRIVER
+                                        label: "LOG_DRIVER"
+                                        description: "Sets the LOG_DRIVER env var"
+                                        schema:
+                                          type: string
+                                          default: "stdout"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

@@ -12,37 +12,43 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: KOPIA_PASSWORD
-          label: "KOPIA_PASSWORD"
-          description: "Repository password"
-          schema:
-            type: string
-            default: ""
-            required: true
-            private: true
-        - variable: KOPIA_SERVER_USERNAME
-          label: "KOPIA_SERVER_USERNAME"
-          description: "Username for WebUI"
-          schema:
-            type: string
-            default: ""
-            required: true
-        - variable: KOPIA_SERVER_PASSWORD
-          label: "KOPIA_SERVER_PASSWORD"
-          description: "Password for WebUI"
-          schema:
-            type: string
-            default: ""
-            required: true
-            private: true
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                - variable: secretEnv
+                                  group: "App Configuration"
+                                  label: "Image Secrets"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: KOPIA_PASSWORD
+                                        label: "KOPIA_PASSWORD"
+                                        description: "Repository password"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                          private: true
+                                      - variable: KOPIA_SERVER_USERNAME
+                                        label: "KOPIA_SERVER_USERNAME"
+                                        description: "Username for WebUI"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                      - variable: KOPIA_SERVER_PASSWORD
+                                        label: "KOPIA_SERVER_PASSWORD"
+                                        description: "Password for WebUI"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                          private: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
