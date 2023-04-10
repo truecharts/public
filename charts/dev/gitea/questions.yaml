@@ -14,109 +14,109 @@ questions:
 # Include{containerAdvanced}
 
 # Include{containerConfig}
-                                - variable: admin
-                                  group: "App Configuration"
-                                  label: "Admin Credentials"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: username
-                                        label: "username"
-                                        schema:
-                                          type: string
-                                          valid_chars: '^(?!^admin$).*$'
-                                          required: true
-                                      - variable: password
-                                        label: "password"
-                                        schema:
-                                          type: string
-                                          required: true
-                                          private: true
-                                      - variable: email
-                                        label: "email"
-                                        schema:
-                                          type: string
-                                          required: true
-                                - variable: config
-                                  group: "App Configuration"
-                                  label: "Admin Configuration"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: APP_NAME
-                                        label: "APP_NAME"
-                                        schema:
-                                          type: string
-                                          default: "Gitea"
-                                          required: true
-                                      - variable: RUN_MODE
-                                        label: "RUN_MODE"
-                                        schema:
-                                          type: string
-                                          default: "prod"
-                                          enum:
-                                            - value: "prod"
-                                              description: "Production"
-                                            - value: "dev"
-                                              description: "Development"
-                                            - value: "test"
-                                              description: "Testing"
-                                      - variable: ALLOWED_HOST_LIST
-                                        label: "ALLOWED_HOST_LIST"
-                                        schema:
-                                          type: string
-                                          default: "127.0.0.1"
-                                          required: true
-                                      - variable: nodeIP
-                                        label: Node IP
-                                        description: Used to generate configuration, when installed without ingress
-                                        schema:
-                                          type: string
-                                          required: true
-                                          $ref:
-                                            - "definitions/nodeIP"
-                                - variable: customConfig
-                                  group: "App Configuration"
-                                  label: "Custom Configuration parameters"
-                                  schema:
-                                    type: list
-                                    default: []
-                                    items:
-                                      - variable: catagoryItem
-                                        label: "Catagory"
-                                        schema:
-                                          additional_attrs: true
-                                          type: dict
-                                          attrs:
-                                            - variable: name
-                                              label: "Config Catagory Name"
-                                              schema:
-                                                type: string
-                                                required: true
-                                            - variable: keys
-                                              label: "Configuration Parameters"
-                                              schema:
-                                                type: list
-                                                default: []
-                                                items:
-                                                  - variable: configItem
-                                                    label: "parameter"
-                                                    schema:
-                                                      additional_attrs: true
-                                                      type: dict
-                                                      attrs:
-                                                        - variable: name
-                                                          label: "Parameter Name"
-                                                          schema:
-                                                            type: string
-                                                            required: true
-                                                        - variable: value
-                                                          label: "Parameter Value"
-                                                          schema:
-                                                            type: string
-                                                            required: true
+  - variable: admin
+    group: "App Configuration"
+    label: "Admin Credentials"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: username
+          label: "username"
+          schema:
+            type: string
+            valid_chars: '^(?!^admin$).*$'
+            required: true
+        - variable: password
+          label: "password"
+          schema:
+            type: string
+            required: true
+            private: true
+        - variable: email
+          label: "email"
+          schema:
+            type: string
+            required: true
+  - variable: config
+    group: "App Configuration"
+    label: "Admin Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: APP_NAME
+          label: "APP_NAME"
+          schema:
+            type: string
+            default: "Gitea"
+            required: true
+        - variable: RUN_MODE
+          label: "RUN_MODE"
+          schema:
+            type: string
+            default: "prod"
+            enum:
+              - value: "prod"
+                description: "Production"
+              - value: "dev"
+                description: "Development"
+              - value: "test"
+                description: "Testing"
+        - variable: ALLOWED_HOST_LIST
+          label: "ALLOWED_HOST_LIST"
+          schema:
+            type: string
+            default: "127.0.0.1"
+            required: true
+        - variable: nodeIP
+          label: Node IP
+          description: Used to generate configuration, when installed without ingress
+          schema:
+            type: string
+            required: true
+            $ref:
+              - "definitions/nodeIP"
+  - variable: customConfig
+    group: "App Configuration"
+    label: "Custom Configuration parameters"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: catagoryItem
+          label: "Catagory"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: name
+                label: "Config Catagory Name"
+                schema:
+                  type: string
+                  required: true
+              - variable: keys
+                label: "Configuration Parameters"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: configItem
+                      label: "parameter"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: "Parameter Name"
+                            schema:
+                              type: string
+                              required: true
+                          - variable: value
+                            label: "Parameter Value"
+                            schema:
+                              type: string
+                              required: true
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
