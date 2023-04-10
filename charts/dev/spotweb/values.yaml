@@ -1,0 +1,51 @@
+image:
+  repository: tccr.io/truecharts/spotweb
+  pullPolicy: IfNotPresent
+  tag: v1.5.1@sha256:465b6b094b31caa1f295dc9cdbe359d67bfda010b6b020097c54b25bb4f9710e
+service:
+  main:
+    ports:
+      main:
+        port: 10050
+        targetPort: 80
+cnpg:
+  main:
+    enabled: true
+
+    user: spotweb
+    database: spotweb
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SPOTWEB_SYSTEMTYPE: "single"
+            SPOTWEB_FIRSTNAME: "demo"
+            SPOTWEB_LASTNAME: "spotweb"
+            SPOTWEB_MAIL: "demo@spotweb.com"
+            SPOTWEB_RETRIEVE: "15min"
+            DB_ENGINE: "pdo_pgsql"
+            DB_PORT: "5432"
+            DB_DATABASE: "{{ .Values.cnpg.main.database }}"
+            DB_USER: "{{ .Values.cnpg.main.user }}"
+            DB_SCHEMA: "public"
+            DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            SPOTWEB_USERNAME: "myawesomeuser"
+            SPOTWEB_PASSWORD: "changeme"

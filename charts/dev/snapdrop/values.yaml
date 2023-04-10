@@ -1,0 +1,23 @@
+image:
+  repository: tccr.io/truecharts/snapdrop
+  tag: latest@sha256:827b585e69567367ea776198ff191a0ebb6a7f283f77d4a42c7afbcb69c98e41
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10215
+        targetPort: 80
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

@@ -1,0 +1,25 @@
+image:
+  repository: tccr.io/truecharts/muximux
+  pullPolicy: IfNotPresent
+  tag: version-057352e8@sha256:5942aa00a99c51a0d0fc9afda2f875450515a27a312572c0fcc62471131184e9
+service:
+  main:
+    ports:
+      main:
+        port: 10019
+        targetPort: 80
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

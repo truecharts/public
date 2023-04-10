@@ -1,0 +1,25 @@
+image:
+  repository: tccr.io/truecharts/photoshow
+  pullPolicy: IfNotPresent
+  tag: version-48aabb98@sha256:03c034b9ffc3db42e8255c502665ddb352f0219404494bceba8e7c1263f53dfc
+service:
+  main:
+    ports:
+      main:
+        port: 10025
+        targetPort: 80
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

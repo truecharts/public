@@ -1,0 +1,29 @@
+image:
+  repository: tccr.io/truecharts/rss-bridge
+  tag: v2022-06@sha256:e5487d9739999b1220a7263f402a3a7276df8910ee1daea1afd19b2b030c58a5
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10225
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"

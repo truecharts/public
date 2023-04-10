@@ -1,0 +1,172 @@
+# Include{groups}
+portals: {}
+questions:
+# Include{global}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+# Include{containerBasic}
+# Include{containerAdvanced}
+
+  - variable: env
+    group: "App Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: CACHE_DOMAINS_REPO
+          label: "CACHE DOMAINS REPO"
+          description: "The github repo url for the cache_domains files to use to populate the cdn maps."
+          schema:
+            type: string
+            default: "https://github.com/uklans/cache-domains.git"
+        - variable: CACHE_DOMAINS_BRANCH
+          label: "CACHE DOMAINS BRANCH"
+          description: "The branch of the CACHE_DOMAINS_REPO to use"
+          schema:
+            type: string
+            default: "master"
+        - variable: NOFETCH
+          label: "NO FETCH"
+          description: "Turn off all git pull operations and use stored data"
+          schema:
+            type: boolean
+            default: false
+        - variable: UPSTREAM_DNS
+          label: "UPSTREAM DNS"
+          description: "Upstream DNS server(s) the cache should use(separated by spaces). Do NOT point this at lancache-dns)"
+          schema:
+            type: string
+            default: "1.1.1.1 1.0.0.1"
+        - variable: CACHE_DISK_SIZE
+          label: "CACHE DISK SIZE"
+          description: "The amount of disk space the container should use for caching data"
+          schema:
+            type: string
+            default: "1000000m"
+        - variable: CACHE_MAX_AGE
+          label: "CACHE MAX AGE"
+          description: "The maximum amount of time a file should be held in cache"
+          schema:
+            type: string
+            default: "3560d"
+        - variable: CACHE_INDEX_SIZE
+          label: "CACHE INDEX SIZE"
+          description: "Amount of index memory for the nginx cache manager. We recommend 250m of index memory per 1TB"
+          schema:
+            type: string
+            default: "500m"
+# Include{containerConfig}
+# Include{serviceRoot}
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 10279
+                              required: true
+        - variable: https
+          label: "HTTPS"
+          description: "HTTPS Service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: https
+                      label: "HTTPS"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 10280
+                              required: true
+# Include{serviceExpertRoot}
+            default: false
+# Include{serviceExpert}
+# Include{serviceList}
+# Include{persistenceRoot}
+        - variable: config
+          label: "App Config Storage"
+          description: "Stores the Application Configuration."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: logs
+          label: "App logs Storage"
+          description: "Stores the Application logs."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceList}
+# Include{ingressRoot}
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressList}
+# Include{securityContextRoot}
+
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: "The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 0
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
+             - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
+
+# Include{resources}
+# Include{advanced}
+# Include{addons}
+# Include{codeserver}
+# Include{netshoot}
+# Include{vpn}
+# Include{documentation}

@@ -1,0 +1,25 @@
+image:
+  repository: tccr.io/truecharts/grav
+  pullPolicy: IfNotPresent
+  tag: version-1.7.18@sha256:709e672ef2cbe1235d896ed9bac213d773abfe70b37925f5870a8a925a047e16
+service:
+  main:
+    ports:
+      main:
+        port: 10012
+        targetPort: 80
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

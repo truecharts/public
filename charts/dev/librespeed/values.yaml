@@ -1,0 +1,23 @@
+image:
+  repository: tccr.io/truecharts/librespeed
+  tag: version-5.2.4@sha256:c441bc4d4d086a95966e93b4dea82674d1a258774f97084b02e87c0bc38deb2a
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10016
+        targetPort: 80
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

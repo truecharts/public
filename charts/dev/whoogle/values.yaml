@@ -1,0 +1,38 @@
+image:
+  repository: tccr.io/truecharts/whoogle-search
+  tag: 0.8.1@sha256:a1fdcf9216186ced9af8101e3f085318607cddbb55fe826ec09c62b6a5a050a2
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10052
+        targetPort: 5000
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            WHOOGLE_CONFIG_COUNTRY: ""
+            WHOOGLE_CONFIG_THEME: "dark"
+            WHOOGLE_CONFIG_SAFE: true
+            WHOOGLE_CONFIG_ALTS: false
+            WHOOGLE_CONFIG_TOR: false
+            WHOOGLE_CONFIG_NEW_TAB: false
+            WHOOGLE_CONFIG_GET_ONLY: false
+            WHOOGLE_CONFIG_URL: https://<your url>/
+            WHOOGLE_CONFIG_STYLE: ""

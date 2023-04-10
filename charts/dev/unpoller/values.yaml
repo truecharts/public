@@ -1,0 +1,36 @@
+image:
+  repository: tccr.io/truecharts/unifi-poller
+  pullPolicy: IfNotPresent
+  tag: v2.7.11@sha256:1189e10773ae7c8843e230ba34840ff119c74bd63e51ad60c53fa8053e3689d8
+service:
+  main:
+    ports:
+      main:
+        enabled: false
+      metrics:
+        enabled: true
+        port: 9130
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: metrics
+        path: /metrics
+    prometheusRule:
+      enabled: false
+
+portal:
+  open:
+    enabled: false
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            # UP_UNIFI_DEFAULT_URL: "https://127.0.0.1:8443"
+            # UP_UNIFI_DEFAULT_USER: "unifipoller"
+            # UP_UNIFI_DEFAULT_PASS: "unifipoller"
+            UP_PROMETHEUS_DISABLE: false

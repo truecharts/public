@@ -1,0 +1,69 @@
+image:
+  repository: tccr.io/truecharts/handbrake
+  tag: 23.02.1@sha256:6c3b2acce5d7750fe4831d181ff9fc3dbf1c5663944778193477d51f9725f060
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10053
+        targetPort: 5800
+  vnc:
+    enabled: true
+    ports:
+      vnc:
+        enabled: true
+        port: 10055
+        targetPort: 5900
+handbrake:
+  KEEP_APP_RUNNING: false
+  DISPLAY_WIDTH: 1280
+  DISPLAY_HEIGHT: 768
+  SECURE_CONNECTION: false
+  ENABLE_CJK_FONT: false
+  AUTOMATED_CONVERSION_PRESET: "General/Very Fast 1080p30"
+  AUTOMATED_CONVERSION_FORMAT: "mp4"
+  AUTOMATED_CONVERSION_KEEP_SOURCE: true
+  AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION: "ignore"
+configmap:
+  handbrake:
+    enabled: true
+    data:
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.handbrake.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.handbrake.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.handbrake.SECURE_CONNECTION }}'
+      DISPLAY_WIDTH: "{{ .Values.handbrake.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.handbrake.DISPLAY_HEIGHT }}"
+      AUTOMATED_CONVERSION_KEEP_SOURCE: '{{ ternary "1" "0" .Values.handbrake.AUTOMATED_CONVERSION_KEEP_SOURCE }}'
+      AUTOMATED_CONVERSION_PRESET: "{{ .Values.handbrake.AUTOMATED_CONVERSION_PRESET }}"
+      AUTOMATED_CONVERSION_FORMAT: "{{ .Values.handbrake.AUTOMATED_CONVERSION_FORMAT }}"
+      AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION: "{{ .Values.handbrake.AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION }}"
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  storage:
+    enabled: true
+    mountPath: "/storage"
+  output:
+    enabled: true
+    mountPath: "/output"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            VNC_PASSWORD: ""
+          envFrom:
+            - configMapRef:
+                name: "handbrake"

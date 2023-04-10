@@ -1,0 +1,29 @@
+image:
+  repository: tccr.io/truecharts/speedtest-exporter
+  tag: 3.5.3@sha256:1a6388afff0bc8d1733b586d72be004ffe1004a9527bda28812f19bd5611933f
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        enabled: false
+      metrics:
+        enabled: true
+        protocol: tcp
+        port: 9798
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: metrics
+        path: /metrics
+    prometheusRule:
+      enabled: false
+
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
