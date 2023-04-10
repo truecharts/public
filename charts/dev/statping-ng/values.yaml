@@ -1,0 +1,71 @@
+image:
+  repository: tccr.io/truecharts/statping-ng
+  tag: v0.90.80@sha256:0d09f2177a0d7242ee72521d2eb31d93b5551cd9790030569befcc29c6f2aa2c
+  pullPolicy: IfNotPresent
+statping:
+  name: Statping
+  description: This is a Statping instance deployed as Helm chart
+  domain: ""
+  language: ""
+  admin_user: admin
+  admin_pass: admin
+  admin_email: admin@example.com
+  sample_data: false
+  allow_reports: false
+  use_cdn: true
+  disable_logs: false
+  disable_colors: false
+  remove_after: 2160h
+  cleanup_interval: 1h
+service:
+  main:
+    ports:
+      main:
+        port: 10099
+persistence:
+  data:
+    enabled: true
+    mountPath: "/app"
+cnpg:
+  main:
+    enabled: true
+
+    user: postgres
+    database: postgres
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: main
+        path: /metrics
+    prometheusRule:
+      enabled: false
+portal:
+  open:
+    enabled: true
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: /health
+            readiness:
+              path: /health
+            startup:
+              path: /health
+          envFrom:
+            - configMapRef:
+                name: "config"
+          env:
+            DB_PASS:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host

@@ -1,6 +1,6 @@
 remote: origin
 target-branch: master
-helm-extra-args: --timeout 300s
+helm-extra-args: --timeout 200s
 chart-yaml-schema: .github/chart_schema.yaml
 chart-dirs:
   - charts/incubator
@@ -18,12 +18,10 @@ excluded-charts:
   - charts/incubator/plex-meta-manager
   - charts/library/common
   - charts/stable/alertmanager-bot
-  - charts/stable/alertmanager-bot
   - charts/stable/alertmanager-discord
   - charts/stable/amcrest2mqtt
   - charts/stable/discordgsm
   - charts/stable/facebox
-  - charts/stable/foundryvtt
   - charts/stable/foundryvtt
   - charts/stable/frigate
   - charts/stable/heimdall
@@ -32,15 +30,33 @@ excluded-charts:
   - charts/stable/plex-meta-manager
   - charts/stable/pod-gateway
   - charts/stable/promcord
-  - charts/stable/promcord
   - charts/stable/rdesktop
   - charts/stable/reg
   - charts/stable/ser2sock
   - charts/stable/storj-node
-  - charts/stable/tailscale
   - charts/stable/webtop
-  - charts/stable/zalando-postgres-cluster
   - charts/stable/zigbee2mqtt
+  - charts/dev/alertmanager-bot
+  - charts/dev/alertmanager-discord
+  - charts/dev/amcrest2mqtt
+  - charts/dev/discordgsm
+  - charts/dev/facebox
+  - charts/dev/foundryvtt
+  - charts/dev/frigate
+  - charts/dev/heimdall
+  - charts/dev/multus
+  - charts/dev/orbital-sync
+  - charts/dev/plex-meta-manager
+  - charts/dev/pod-gateway
+  - charts/dev/promcord
+  - charts/dev/rdesktop
+  - charts/dev/reg
+  - charts/dev/ser2sock
+  - charts/dev/storj-node
+  - charts/dev/webtop
+  - charts/dev/zigbee2mqtt
+  - charts/dev/cloudflared
+  - charts/stable/cloudflared
 chart-repos:
   - truecharts=https://charts.truecharts.org
   - truecharts-library=https://library-charts.truecharts.org

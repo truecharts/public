@@ -1,0 +1,11 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{/* Wordpress configmap and secret */}}
+{{- $objects := include "wordpress.env" . | fromYaml -}}
+{{- if $objects -}}
+  {{- $_ := mustMergeOverwrite .Values $objects -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

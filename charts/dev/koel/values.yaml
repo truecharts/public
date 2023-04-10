@@ -1,0 +1,101 @@
+image:
+  repository: tccr.io/truecharts/koel
+  tag: latest@sha256:ffd776609c01b28c9dc4e4f37eaf8988c78a35ed724389b7971520e65409c925
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10185
+        targetPort: 80
+
+persistence:
+  music:
+    enabled: true
+    mountPath: "/music"
+    targetSelectAll: true
+  covers:
+    enabled: true
+    mountPath: "/var/www/html/public/img/covers"
+    targetSelectAll: true
+  searchindex:
+    enabled: true
+    mountPath: "/var/www/html/storage/search-indexes"
+    targetSelectAll: true
+mariadb:
+  enabled: true
+  mariadbUsername: koel
+  mariadbDatabase: koel
+
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      initContainers:
+        initdb:
+          enabled: true
+          type: install
+          imageSelector: image
+          env:
+            DB_CONNECTION: "mysql"
+            DB_PORT: "3306"
+            DB_USERNAME:
+              value: "{{ .Values.mariadb.mariadbUsername }}"
+            DB_DATABASE:
+              value: "{{ .Values.mariadb.mariadbDatabase }}"
+            DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            DB_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
+            APP_KEY:
+              secretKeyRef:
+                name: secrets
+                key: APP_KEY
+          command: ["php", "artisan", "koel:init", "--no-assets"]
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            DB_CONNECTION: "mysql"
+            DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
+            DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+            DB_PORT: "3306"
+            FORCE_HTTPS: false
+            MEMORY_LIMIT: 2048
+            DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            DB_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
+            APP_KEY:
+              secretKeyRef:
+                name: secrets
+                key: APP_KEY
+            LASTFM_API_KEY: ""
+            LASTFM_API_SECRET: ""
+            YOUTUBE_API_KEY: ""

@@ -1,0 +1,75 @@
+image:
+  repository: tccr.io/truecharts/portainer-ce
+  tag: 2.17.1@sha256:f788c772e9b9a273f44ea2cf3d365d7120e36a1f8150d77dd79ae4f013b3c6da
+  pullPolicy: IfNotPresent
+
+imageBe:
+  repository: tccr.io/truecharts/portainer-be
+  tag: 2.17.1@sha256:d83c8fa439ce749d4bdc68710b9c8ca2ae6e2a54b963ec47ddba6d97d4a34f36
+  pullPolicy: IfNotPresent
+
+portainer:
+  # Logo URL
+  logo: ""
+  # Enables Edge Compute Features
+  edge_compute: false
+  # Sets Snapshot interval
+  snapshot_interval: 5m
+  hide_labels:
+  # - label1=value1
+  # - label2=value2
+serviceAccount:
+  main:
+    enabled: true
+rbac:
+  main:
+    enabled: true
+    rules:
+      - apiGroups:
+          - "*"
+        resources:
+          - "*"
+        verbs:
+          - "*"
+service:
+  main:
+    ports:
+      main:
+        port: 10400
+        protocol: https
+        targetPort: 9443
+  edge:
+    enabled: true
+    ports:
+      edge:
+        enabled: true
+        port: 10401
+        targetPort: 10401
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+  cache:
+    enabled: true
+    mountPath: "/.cache"
+    type: emptyDir
+portal:
+  open:
+    enabled: true
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+          probes:
+            liveness:
+              port: 9443
+              scheme: https
+            readiness:
+              port: 9443
+              scheme: https
+            startup:
+              port: 9443
+              scheme: https
