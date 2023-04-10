@@ -23,53 +23,52 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: IMPOSTOR_Server__PublicIp
-          label: "Server Public IP"
-          schema:
-            type: string
-            required: true
-            default: "127.0.0.1"
-        - variable: IMPOSTOR_Server__ListenIp
-          label: "Server Listen IP"
-          schema:
-            type: string
-            required: true
-            default: "0.0.0.0"
-        - variable: IMPOSTOR_AntiCheat__Enabled
-          label: "Enable/Disable Anti Cheat"
-          schema:
-            type: boolean
-            default: true
-        - variable: IMPOSTOR_AntiCheat__BanIpFromGame
-          label: "Enable/Disable Anti Cheat Ban IP"
-          schema:
-            type: boolean
-            default: true
-        - variable: debug
-          label: "Show Debug settings"
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: IMPOSTOR_Debug__GameRecorderEnabled
-                label: "Enable/Disable Game Recorder"
-                schema:
-                  type: boolean
-                  default: false
-              - variable: IMPOSTOR_Debug__GameRecorderPath
-                label: "Game Recorder Path"
-                schema:
-                  type: string
-                  default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: IMPOSTOR_Server__PublicIp
+                                        label: "Server Public IP"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "127.0.0.1"
+                                      - variable: IMPOSTOR_Server__ListenIp
+                                        label: "Server Listen IP"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "0.0.0.0"
+                                      - variable: IMPOSTOR_AntiCheat__Enabled
+                                        label: "Enable/Disable Anti Cheat"
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: IMPOSTOR_AntiCheat__BanIpFromGame
+                                        label: "Enable/Disable Anti Cheat Ban IP"
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: debug
+                                        label: "Show Debug settings"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                          show_subquestions_if: true
+                                          subquestions:
+                                            - variable: IMPOSTOR_Debug__GameRecorderEnabled
+                                              label: "Enable/Disable Game Recorder"
+                                              schema:
+                                                type: boolean
+                                                default: false
+                                            - variable: IMPOSTOR_Debug__GameRecorderPath
+                                              label: "Game Recorder Path"
+                                              schema:
+                                                type: string
+                                                default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
