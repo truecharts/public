@@ -2,22 +2,12 @@ image:
   repository: tccr.io/truecharts/unpackerr
   pullPolicy: IfNotPresent
   tag: 0.11.1@sha256:2e657dcea297a98bb40d264b0c9cebce54c899ce7665e686e0eca19fb24fe5f4
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-
 persistence:
   downloads:
     enabled: true
@@ -34,6 +24,19 @@ persistence:
     ## Do not delete the pvc upon helm uninstall
     # skipuninstall: false
     # existingClaim: ""
-
 portal:
-  enabled: false
+  open:
+    enabled: false
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
