@@ -3,7 +3,7 @@ appVersion: "2.9.19"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.2.32
+    version: 12.4.2
   - condition: mariadb.enabled
     name: mariadb
     repository: https://deps.truecharts.org/
@@ -27,7 +27,7 @@ sources:
   - https://github.com/NginxProxyManager/nginx-proxy-manager
   - https://nginxproxymanager.com/
 type: application
-version: 4.0.0
+version: 4.0.1
 annotations:
   truecharts.org/catagories: |
     - networking

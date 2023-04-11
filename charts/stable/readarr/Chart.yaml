@@ -3,7 +3,7 @@ appVersion: "0.1.4.1596"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.2.32
+    version: 12.4.2
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.truecharts.org/
@@ -29,7 +29,7 @@ sources:
   - https://github.com/Readarr/Readarr
   - https://readarr.com
 type: application
-version: 15.0.0
+version: 15.0.1
 annotations:
   truecharts.org/catagories: |
     - media

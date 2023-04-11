@@ -11,62 +11,62 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-                                - variable: env
-                                  group: "App Configuration"
-                                  label: "Image Environment"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
+  - variable: env
+    group: "App Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
 
-                                      - variable: DOCS_ADMIN_EMAIL_INIT
-                                        label: "DOCS_ADMIN_EMAIL_INIT"
-                                        description: "Sets the DOCS_ADMIN_EMAIL_INIT env var"
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: DOCS_ADMIN_PASSWORD_INIT
-                                        label: "DOCS_ADMIN_PASSWORD_INIT"
-                                        description: "Sets the DOCS_ADMIN_PASSWORD_INIT env var"
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: DOCS_SMTP_USERNAME
-                                        label: "DOCS_SMTP_USERNAME"
-                                        description: "Sets the DOCS_SMTP_USERNAME env var"
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: DOCS_SMTP_PASSWORD
-                                        label: "DOCS_SMTP_PASSWORD"
-                                        description: "Sets the DOCS_SMTP_PASSWORD env var"
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: DOCS_DEFAULT_LANGUAGE
-                                        label: "DOCS_DEFAULT_LANGUAGE"
-                                        description: "Sets the DOCS_DEFAULT_LANGUAGE env var"
-                                        schema:
-                                          type: string
-                                          default: "eng"
-                                      - variable: DOCS_BASE_URL
-                                        label: "DOCS_BASE_URL"
-                                        description: "Sets the DOCS_BASE_URL env var"
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: DOCS_SMTP_HOSTNAME
-                                        label: "DOCS_SMTP_HOSTNAME"
-                                        description: "Sets the DOCS_SMTP_HOSTNAME env var"
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: DOCS_SMTP_PORT
-                                        label: "DOCS_SMTP_PORT"
-                                        description: "Sets the DOCS_SMTP_PORT env var"
-                                        schema:
-                                          type: int
-                                          default: 0
+        - variable: DOCS_ADMIN_EMAIL_INIT
+          label: "DOCS_ADMIN_EMAIL_INIT"
+          description: "Sets the DOCS_ADMIN_EMAIL_INIT env var"
+          schema:
+            type: string
+            default: ""
+        - variable: DOCS_ADMIN_PASSWORD_INIT
+          label: "DOCS_ADMIN_PASSWORD_INIT"
+          description: "Sets the DOCS_ADMIN_PASSWORD_INIT env var"
+          schema:
+            type: string
+            default: ""
+        - variable: DOCS_SMTP_USERNAME
+          label: "DOCS_SMTP_USERNAME"
+          description: "Sets the DOCS_SMTP_USERNAME env var"
+          schema:
+            type: string
+            default: ""
+        - variable: DOCS_SMTP_PASSWORD
+          label: "DOCS_SMTP_PASSWORD"
+          description: "Sets the DOCS_SMTP_PASSWORD env var"
+          schema:
+            type: string
+            default: ""
+        - variable: DOCS_DEFAULT_LANGUAGE
+          label: "DOCS_DEFAULT_LANGUAGE"
+          description: "Sets the DOCS_DEFAULT_LANGUAGE env var"
+          schema:
+            type: string
+            default: "eng"
+        - variable: DOCS_BASE_URL
+          label: "DOCS_BASE_URL"
+          description: "Sets the DOCS_BASE_URL env var"
+          schema:
+            type: string
+            default: ""
+        - variable: DOCS_SMTP_HOSTNAME
+          label: "DOCS_SMTP_HOSTNAME"
+          description: "Sets the DOCS_SMTP_HOSTNAME env var"
+          schema:
+            type: string
+            default: ""
+        - variable: DOCS_SMTP_PORT
+          label: "DOCS_SMTP_PORT"
+          description: "Sets the DOCS_SMTP_PORT env var"
+          schema:
+            type: int
+            default: 0
 # Include{containerBasic}
 # Include{containerAdvanced}
 

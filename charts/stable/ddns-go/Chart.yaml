@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: ddns-go
-version: 5.0.0
+version: 5.0.1
 appVersion: "4.5.6"
 description: Automatically obtain your public network IPv4 or IPv6 address and resolve it to the corresponding domain name service
 type: application
@@ -17,7 +17,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.2.32
+    version: 12.4.2
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts

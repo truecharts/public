@@ -3,7 +3,7 @@ appVersion: "1.14.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.2.32
+    version: 12.4.2
 
   - condition: redis.enabled
     name: redis
@@ -23,7 +23,7 @@ name: baserow
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/baserow
   - https://gitlab.com/bramw/baserow/
-version: 7.0.0
+version: 7.0.1
 annotations:
   truecharts.org/catagories: |
     - productivity

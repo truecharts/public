@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: "5.3"
 description: Traccar is an open source GPS tracking system.
 name: traccar
-version: 11.0.0
+version: 11.0.1
 kubeVersion: ">=1.16.0-0"
 keywords:
   - traccar
@@ -15,7 +15,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.2.32
+    version: 12.4.2
 
 maintainers:
   - email: info@truecharts.org

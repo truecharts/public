@@ -10,7 +10,7 @@ service:
     externalIP: "1.1.1.1"
     ports:
       main:
-        protocol: https
+        Type: HTTPS
         port: 10003
         targetPort: 443
 

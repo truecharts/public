@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: autoscan
-version: 4.0.0
+version: 4.0.1
 appVersion: "latest"
 description: Autoscan replaces the default Plex and Emby behaviour for picking up file changes on the file system.
 type: application
@@ -17,7 +17,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.2.32
+    version: 12.4.2
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
