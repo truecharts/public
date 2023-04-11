@@ -34,5 +34,12 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
           env:
             RUN_OPTS: ""
