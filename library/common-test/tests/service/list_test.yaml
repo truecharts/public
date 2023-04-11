@@ -1,0 +1,172 @@
+suite: service list test
+templates:
+  - common.yaml
+tests:
+  - it: should pass with type LoadBalancer from serviceList with name
+    set:
+      serviceList:
+        - name: my-service
+          enabled: true
+          primary: true
+          type: LoadBalancer
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+        - name: my-service2
+          enabled: true
+          type: LoadBalancer
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &serviceDoc 1
+        isKind:
+          of: Service
+      - documentIndex: *serviceDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *serviceDoc
+        equal:
+          path: metadata.name
+          value: release-name-common-test
+      - documentIndex: *serviceDoc
+        equal:
+          path: spec
+          value:
+            type: LoadBalancer
+            allocateLoadBalancerNodePorts: false
+            publishNotReadyAddresses: false
+            ports:
+            - name: port-name
+              port: 12345
+              protocol: TCP
+              targetPort: 12345
+            selector:
+              app.kubernetes.io/instance: RELEASE-NAME
+              app.kubernetes.io/name: common-test
+              pod.name: my-workload
+      - documentIndex: &otherServiceDoc 2
+        isKind:
+          of: Service
+      - documentIndex: *otherServiceDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *otherServiceDoc
+        equal:
+          path: metadata.name
+          value: release-name-common-test-my-service2
+      - documentIndex: *otherServiceDoc
+        equal:
+          path: spec
+          value:
+            type: LoadBalancer
+            allocateLoadBalancerNodePorts: false
+            publishNotReadyAddresses: false
+            ports:
+            - name: port-name
+              port: 12345
+              protocol: TCP
+              targetPort: 12345
+            selector:
+              app.kubernetes.io/instance: RELEASE-NAME
+              app.kubernetes.io/name: common-test
+              pod.name: my-workload
+
+  - it: should pass with type LoadBalancer from serviceList
+    set:
+      serviceList:
+        - enabled: true
+          primary: true
+          type: LoadBalancer
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &serviceDoc 1
+        isKind:
+          of: Service
+      - documentIndex: *serviceDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *serviceDoc
+        equal:
+          path: metadata.name
+          value: release-name-common-test
+      - documentIndex: *serviceDoc
+        equal:
+          path: spec
+          value:
+            type: LoadBalancer
+            allocateLoadBalancerNodePorts: false
+            publishNotReadyAddresses: false
+            ports:
+            - name: port-name
+              port: 12345
+              protocol: TCP
+              targetPort: 12345
+            selector:
+              app.kubernetes.io/instance: RELEASE-NAME
+              app.kubernetes.io/name: common-test
+              pod.name: my-workload
+
+  - it: should pass with type ClusterIP from serviceList
+    set:
+      serviceList:
+        - enabled: true
+          primary: true
+          type: ClusterIP
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &serviceDoc 1
+        isKind:
+          of: Service
+      - documentIndex: *serviceDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *serviceDoc
+        equal:
+          path: metadata.name
+          value: release-name-common-test
+      - documentIndex: *serviceDoc
+        equal:
+          path: spec
+          value:
+            type: ClusterIP
+            publishNotReadyAddresses: false
+            ports:
+            - name: port-name
+              port: 12345
+              protocol: TCP
+              targetPort: 12345
+            selector:
+              app.kubernetes.io/instance: RELEASE-NAME
+              app.kubernetes.io/name: common-test
+              pod.name: my-workload
