@@ -3,12 +3,12 @@ appVersion: "0.217.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.2.32
+    version: 12.4.3
 
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
-    version: 6.0.18
+    version: 6.0.20
 description: n8n is an extendable workflow automation tool.
 home: https://truecharts.org/charts/stable/n8n
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/n8n.png
@@ -25,7 +25,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/n8n
   - https://docs.n8n.io/
   - https://github.com/n8n-io/n8n
-version: 8.0.0
+version: 8.0.1
 annotations:
   truecharts.org/catagories: |
     - media
