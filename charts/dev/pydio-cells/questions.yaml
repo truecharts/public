@@ -13,19 +13,19 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: CELLS_EXTERNAL
-          label: "Cells External URL"
-          description: "https://cells.mydomain.com"
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: CELLS_EXTERNAL
+                                        label: "Cells External URL"
+                                        description: "https://cells.mydomain.com"
+                                        schema:
+                                          type: string
+                                          default: ""
   - variable: pydioinstall
     group: "App Configuration"
     label: "Pydio Cells Initial Configuration"

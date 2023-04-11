@@ -13,19 +13,19 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: HOST_IP
-          label: "HOST_IP"
-          schema:
-            type: string
-            $ref:
-              - "definitions/nodeIP"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: HOST_IP
+                                        label: "HOST_IP"
+                                        schema:
+                                          type: string
+                                          $ref:
+                                            - "definitions/nodeIP"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

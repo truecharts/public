@@ -11,66 +11,66 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: AUTOPAUSE
-          label: "Enable/Disable Auto pause"
-          schema:
-            type: boolean
-            default: true
-        - variable: AUTOSAVEINTERVAL
-          label: "Auto save interval"
-          schema:
-            type: int
-            required: true
-            default: 300
-        - variable: AUTOSAVENUM
-          label: "Number of auto saves"
-          schema:
-            type: int
-            required: true
-            default: 3
-        - variable: AUTOSAVEONDISCONNECT
-          label: "Auto save on Disconnect"
-          schema:
-            type: boolean
-            default: true
-        - variable: CRASHREPORT
-          label: "Crash report"
-          schema:
-            type: boolean
-            default: true
-        - variable: DEBUG
-          label: "Debug"
-          schema:
-            type: boolean
-            default: false
-        - variable: DISABLESEASONALEVENTS
-          label: "Disable seasonal events"
-          schema:
-            type: boolean
-            default: false
-        - variable: MAXPLAYERS
-          label: "Max players"
-          schema:
-            type: int
-            required: true
-            default: 4
-        - variable: SKIPUPDATE
-          label: "Skip update"
-          schema:
-            type: boolean
-            default: false
-        - variable: STEAMBETA
-          label: "Steam beta"
-          schema:
-            type: boolean
-            default: false
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: AUTOPAUSE
+                                        label: "Enable/Disable Auto pause"
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: AUTOSAVEINTERVAL
+                                        label: "Auto save interval"
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 300
+                                      - variable: AUTOSAVENUM
+                                        label: "Number of auto saves"
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 3
+                                      - variable: AUTOSAVEONDISCONNECT
+                                        label: "Auto save on Disconnect"
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: CRASHREPORT
+                                        label: "Crash report"
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: DEBUG
+                                        label: "Debug"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: DISABLESEASONALEVENTS
+                                        label: "Disable seasonal events"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: MAXPLAYERS
+                                        label: "Max players"
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 4
+                                      - variable: SKIPUPDATE
+                                        label: "Skip update"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: STEAMBETA
+                                        label: "Steam beta"
+                                        schema:
+                                          type: boolean
+                                          default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

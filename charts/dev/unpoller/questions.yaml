@@ -12,41 +12,41 @@ questions:
 # Include{containerAdvanced}
 
 # Include{containerConfig}
-  - variable: secretEnv
-    group: App Configuration
-    label: Secret Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: UP_UNIFI_DEFAULT_PASS
-          label: Unifi Password
-          description: Password for the Unifi user specified below
-          schema:
-            type: string
-            default: ""
-            required: true
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: UP_UNIFI_DEFAULT_URL
-          label: Unifi URL
-          description: Unifi URL including Port and http(s) prefix
-          schema:
-            type: string
-            default: https://127.0.0.1:8443
-            required: true
-        - variable: UP_UNIFI_DEFAULT_USER
-          label: Unifi User
-          description: User on Unifi with access to the data
-          schema:
-            type: string
-            default: ""
-            required: true
+                                - variable: secretEnv
+                                  group: App Configuration
+                                  label: Secret Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: UP_UNIFI_DEFAULT_PASS
+                                        label: Unifi Password
+                                        description: Password for the Unifi user specified below
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: UP_UNIFI_DEFAULT_URL
+                                        label: Unifi URL
+                                        description: Unifi URL including Port and http(s) prefix
+                                        schema:
+                                          type: string
+                                          default: https://127.0.0.1:8443
+                                          required: true
+                                      - variable: UP_UNIFI_DEFAULT_USER
+                                        label: Unifi User
+                                        description: User on Unifi with access to the data
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

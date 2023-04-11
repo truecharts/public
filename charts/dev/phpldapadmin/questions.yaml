@@ -13,25 +13,25 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PHPLDAPADMIN_HTTPS
-          label: "PHPLDAPADMIN_HTTPS"
-          schema:
-            type: string
-            required: true
-            default: "false"
-        - variable: PHPLDAPADMIN_TRUST_PROXY_SSL
-          label: "PHPLDAPADMIN_TRUST_PROXY_SSL"
-          schema:
-            type: string
-            required: true
-            default: "true"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PHPLDAPADMIN_HTTPS
+                                        label: "PHPLDAPADMIN_HTTPS"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "false"
+                                      - variable: PHPLDAPADMIN_TRUST_PROXY_SSL
+                                        label: "PHPLDAPADMIN_TRUST_PROXY_SSL"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "true"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

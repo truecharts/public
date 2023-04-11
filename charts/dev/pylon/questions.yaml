@@ -13,37 +13,37 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PYUSER
-          label: "PYUSER"
-          schema:
-            type: string
-            default: ""
-        - variable: PYPASS
-          label: "PYPASS"
-          schema:
-            type: string
-            private: true
-            default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: GITURL
-          label: "GITURL"
-          description: "GITURL"
-          schema:
-            type: string
-            default: ""
+                                - variable: secretEnv
+                                  group: "App Configuration"
+                                  label: "Image Secrets"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PYUSER
+                                        label: "PYUSER"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PYPASS
+                                        label: "PYPASS"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: GITURL
+                                        label: "GITURL"
+                                        description: "GITURL"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

@@ -11,46 +11,46 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: CACHE_DOMAINS_REPO
-          label: "CACHE DOMAINS REPO"
-          description: "The github repo url for the cache_domains files to use to populate the cdn maps."
-          schema:
-            type: string
-            default: "https://github.com/uklans/cache-domains.git"
-        - variable: CACHE_DOMAINS_BRANCH
-          label: "CACHE DOMAINS BRANCH"
-          description: "The branch of the CACHE_DOMAINS_REPO to use"
-          schema:
-            type: string
-            default: "master"
-        - variable: UPSTREAM_DNS
-          label: "UPSTREAM DNS"
-          description: "Upstream DNS server(s) the cache should use(separated by spaces). Do NOT point this at lancache-dns)"
-          schema:
-            type: string
-            default: "1.1.1.1;1.0.0.1"
-        - variable: USE_GENERIC_CACHE
-          label: "USE GENERIC CACHE"
-          description: "If you are using a single monolithic instance set this to true"
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: LANCACHE_IP
-                label: "LANCACHE IP"
-                description: "Set the IP for the lancache-monolithic app only if USE_GENERIC_CACHE is true"
-                schema:
-                  type: string
-                  required: true
-                  default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: CACHE_DOMAINS_REPO
+                                        label: "CACHE DOMAINS REPO"
+                                        description: "The github repo url for the cache_domains files to use to populate the cdn maps."
+                                        schema:
+                                          type: string
+                                          default: "https://github.com/uklans/cache-domains.git"
+                                      - variable: CACHE_DOMAINS_BRANCH
+                                        label: "CACHE DOMAINS BRANCH"
+                                        description: "The branch of the CACHE_DOMAINS_REPO to use"
+                                        schema:
+                                          type: string
+                                          default: "master"
+                                      - variable: UPSTREAM_DNS
+                                        label: "UPSTREAM DNS"
+                                        description: "Upstream DNS server(s) the cache should use(separated by spaces). Do NOT point this at lancache-dns)"
+                                        schema:
+                                          type: string
+                                          default: "1.1.1.1;1.0.0.1"
+                                      - variable: USE_GENERIC_CACHE
+                                        label: "USE GENERIC CACHE"
+                                        description: "If you are using a single monolithic instance set this to true"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                          show_subquestions_if: true
+                                          subquestions:
+                                            - variable: LANCACHE_IP
+                                              label: "LANCACHE IP"
+                                              description: "Set the IP for the lancache-monolithic app only if USE_GENERIC_CACHE is true"
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: ""
         - variable: customdisable
           label: "Disable Cache DNS Resolvers"
           schema:

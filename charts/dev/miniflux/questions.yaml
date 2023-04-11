@@ -13,45 +13,45 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ADMIN_USERNAME
-          label: "ADMIN_USERNAME"
-          description: "Sets the ADMIN_USERNAME env var"
-          schema:
-            type: string
-            default: "admin"
-        - variable: ADMIN_PASSWORD
-          label: "ADMIN_PASSWORD"
-          description: "Sets the ADMIN_PASSWORD env var"
-          schema:
-            type: string
-            default: "changeme"
-            private: true
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: RUN_MIGRATIONS
-          label: "RUN_MIGRATIONS"
-          description: "Sets the RUN_MIGRATIONS env var"
-          schema:
-            type: int
-            default: 1
-        - variable: CREATE_ADMIN
-          label: "CREATE_ADMIN"
-          description: "Sets the CREATE_ADMIN env var"
-          schema:
-            type: int
-            default: 1
+                                - variable: secretEnv
+                                  group: "App Configuration"
+                                  label: "Image Secrets"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ADMIN_USERNAME
+                                        label: "ADMIN_USERNAME"
+                                        description: "Sets the ADMIN_USERNAME env var"
+                                        schema:
+                                          type: string
+                                          default: "admin"
+                                      - variable: ADMIN_PASSWORD
+                                        label: "ADMIN_PASSWORD"
+                                        description: "Sets the ADMIN_PASSWORD env var"
+                                        schema:
+                                          type: string
+                                          default: "changeme"
+                                          private: true
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: RUN_MIGRATIONS
+                                        label: "RUN_MIGRATIONS"
+                                        description: "Sets the RUN_MIGRATIONS env var"
+                                        schema:
+                                          type: int
+                                          default: 1
+                                      - variable: CREATE_ADMIN
+                                        label: "CREATE_ADMIN"
+                                        description: "Sets the CREATE_ADMIN env var"
+                                        schema:
+                                          type: int
+                                          default: 1
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

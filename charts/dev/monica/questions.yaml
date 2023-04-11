@@ -13,27 +13,27 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: APP_ENV
-          label: "APP_ENV"
-          description: "Use `local` if you want to install Monica as a development version. Use `production` otherwise."
-          schema:
-            type: string
-            default: "production"
-            required: true
-        - variable: APP_URL
-          label: "APP_URL"
-          description: "The URL of your application."
-          schema:
-            type: string
-            default: ""
-            required: true
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: APP_ENV
+                                        label: "APP_ENV"
+                                        description: "Use `local` if you want to install Monica as a development version. Use `production` otherwise."
+                                        schema:
+                                          type: string
+                                          default: "production"
+                                          required: true
+                                      - variable: APP_URL
+                                        label: "APP_URL"
+                                        description: "The URL of your application."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

@@ -13,63 +13,63 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: TYPECHO_USER_NAME
-          label: "TYPECHO_USER_NAME"
-          description: "USER NAME"
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: TYPECHO_USER_PASSWORD
-          label: "TYPECHO_USER_PASSWORD"
-          description: "USER PASSWORD"
-          schema:
-            type: string
-            required: true
-            private: true
-            default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: TYPECHO_SITE_URL
-          label: "TYPECHO_SITE_URL"
-          description: "Your Typecho Site URL"
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: TYPECHO_USER_MAIL
-          label: "TYPECHO_USER_MAIL"
-          description: "USER EMAIL"
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: MEMORY_LIMIT
-          label: "MEMORY_LIMIT"
-          description: "MEMORY_LIMIT"
-          schema:
-            type: string
-            required: true
-            default: "100M"
-        - variable: MAX_POST_BODY
-          label: "MAX_POST_BODY"
-          description: "MAX_POST_BODY"
-          schema:
-            type: string
-            required: true
-            default: "50M"
+                                - variable: secretEnv
+                                  group: "App Configuration"
+                                  label: "Image Secrets"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: TYPECHO_USER_NAME
+                                        label: "TYPECHO_USER_NAME"
+                                        description: "USER NAME"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: TYPECHO_USER_PASSWORD
+                                        label: "TYPECHO_USER_PASSWORD"
+                                        description: "USER PASSWORD"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          private: true
+                                          default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: TYPECHO_SITE_URL
+                                        label: "TYPECHO_SITE_URL"
+                                        description: "Your Typecho Site URL"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: TYPECHO_USER_MAIL
+                                        label: "TYPECHO_USER_MAIL"
+                                        description: "USER EMAIL"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: MEMORY_LIMIT
+                                        label: "MEMORY_LIMIT"
+                                        description: "MEMORY_LIMIT"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "100M"
+                                      - variable: MAX_POST_BODY
+                                        label: "MAX_POST_BODY"
+                                        description: "MAX_POST_BODY"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "50M"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

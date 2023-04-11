@@ -22,19 +22,19 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: MAXMEM
-          label: "MAXMEM"
-          description: "Set the maximum memory in MB"
-          schema:
-            type: int
-            default: 512
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: MAXMEM
+                                        label: "MAXMEM"
+                                        description: "Set the maximum memory in MB"
+                                        schema:
+                                          type: int
+                                          default: 512
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

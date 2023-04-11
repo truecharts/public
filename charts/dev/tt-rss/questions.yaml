@@ -13,19 +13,19 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: TTRSS_SELF_URL_PATH
-          label: TTRSS Self URL Path
-          description: Sets the URL for the app.
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: TTRSS_SELF_URL_PATH
+                                        label: TTRSS Self URL Path
+                                        description: Sets the URL for the app.
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

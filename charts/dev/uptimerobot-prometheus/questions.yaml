@@ -12,21 +12,21 @@ questions:
 # Include{containerAdvanced}
 
 # Include{containerConfig}
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: UPTIMEROBOT_API_KEY
-          label: "UptimeRobot API Key"
-          description: "UptimeRobot.com API Key"
-          schema:
-            type: string
-            required: true
-            private: true
-            default: "REPLACETHIS"
+                                - variable: secretEnv
+                                  group: "App Configuration"
+                                  label: "Image Secrets"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: UPTIMEROBOT_API_KEY
+                                        label: "UptimeRobot API Key"
+                                        description: "UptimeRobot.com API Key"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          private: true
+                                          default: "REPLACETHIS"
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
