@@ -6,7 +6,7 @@ service:
   main:
     ports:
       main:
-        protocol: http
+        protocol: '{{ ternary "https" "http" .Values.plex.enableInternalHTTPS }}'
         port: 32400
         targetPort: 32400
 persistence:
@@ -18,6 +18,8 @@ plex:
   serverIP: "127.0.0.1"
   additionalAdvertiseURL: ""
   disableGDM: true
+  enableInternalHTTPS: true
+
 portal:
   open:
     enabled: true
@@ -29,13 +31,17 @@ workload:
         main:
           probes:
             liveness:
-              type: tcp
+              type: '{{ ternary "https" "http" .Values.plex.enableInternalHTTPS }}'
+              path: /identity
             readiness:
-              type: tcp
+              type: '{{ ternary "https" "http" .Values.plex.enableInternalHTTPS }}'
+              path: /identity
             startup:
-              type: tcp
+              type: '{{ ternary "https" "http" .Values.plex.enableInternalHTTPS }}'
+              path: /identity
           env:
             PLEX_PREFERENCE_GDM: 'GdmEnabled={{ ternary "0" "1" .Values.plex.disableGDM }}'
+            PLEX_PREFERENCE_INTERNAL_HTTPS: 'secureConnections={{ ternary "1" "0" .Values.plex.enableInternalHTTPS }}'
             # User Defined
             ALLOWED_NETWORKS: "172.16.0.0/12,10.0.0.0/8,192.168.0.0/16"
             PLEX_CLAIM: ""

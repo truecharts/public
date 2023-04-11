@@ -64,6 +64,15 @@ questions:
           schema:
             type: boolean
             default: true
+        - variable: enableInternalHTTPS
+          label: Enable Internal HTTPS
+          description: |
+            Enables the Force HTTPS option in Plex. This will force all connections to use HTTPS.
+            Please use this option instead of the internal HTTPS option in the Plex WebUI.
+            As this will auto configure port and probe protocols.
+          schema:
+            type: boolean
+            default: false
 
 # Include{containerConfig}
 # Include{serviceRoot}

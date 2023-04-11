@@ -4,7 +4,7 @@
 {{- $adv := list -}}
 {{- $serverURL := "" }}
 {{- if not (eq .Values.service.main.type "ClusterIP") }}
-  {{- $serverURL = (printf "%v://%v:%v" (.Values.service.main.ports.main.protocol | lower) .Values.plex.serverIP .Values.service.main.ports.main.port) }}
+  {{- $serverURL = (printf "%v://%v:%v" (tpl (toString .Values.service.main.ports.main.protocol) $ | lower) .Values.plex.serverIP .Values.service.main.ports.main.port) }}
 {{- end }}
 
 {{- $serverIngressURL := "" }}
