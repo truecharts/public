@@ -59,15 +59,15 @@ questions:
                                                     label: "Port Type"
                                                     schema:
                                                       type: string
-                                                      default: "HTTP"
+                                                      default: "http"
                                                       enum:
-                                                        - value: HTTP
+                                                        - value: "http"
                                                           description: "HTTP"
-                                                        - value: "HTTPS"
+                                                        - value: "https"
                                                           description: "HTTPS"
-                                                        - value: TCP
+                                                        - value: tcp
                                                           description: "TCP"
-                                                        - value: "UDP"
+                                                        - value: "udp"
                                                           description: "UDP"
                                                   - variable: port
                                                     label: "Service Port"
