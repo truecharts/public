@@ -2,14 +2,12 @@ image:
   repository: tccr.io/truecharts/komga
   tag: 0.161.0@sha256:5e68351290afd7fd31ec5bdf50fe521e73944b749f0d2595203132b53c12bacd
   pullPolicy: IfNotPresent
-
 service:
   main:
     ports:
       main:
         port: 10085
         targetPort: 8080
-
 persistence:
   config:
     enabled: true
@@ -17,6 +15,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
-
 portal:
-  enabled: true
+  open:
+    enabled: true

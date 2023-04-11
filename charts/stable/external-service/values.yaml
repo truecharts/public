@@ -4,10 +4,6 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:711ef8a1f34f18df5f6dc1e85f0324f737e331ac734307baf455675cdc868ce4
 
-# Disable Deployment
-controller:
-  enabled: false
-
 service:
   main:
     type: ExternalIP
@@ -18,5 +14,14 @@ service:
         port: 10003
         targetPort: 443
 
+workload:
+  main:
+    enabled: false
+    podSpec:
+      containers:
+        main:
+          env: {}
+
 portal:
-  enabled: true
+  open:
+    enabled: true

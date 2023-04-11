@@ -4,27 +4,41 @@ image:
   tag: 2.3.3@sha256:24e44f2ad7f26d3ce4c80c5fc743f6f0e7b7ed888a86a87b566eb8168c977387
 
 securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-secretEnv:
-  # fleet_admin_secret: ""  (Optional)
-
-env:
-  fleet_admin_authentication_type: DATABASE
-  fleet_database_username: fleet
-  fleet_database_url:
-    secretKeyRef:
-      name: mariadbcreds
-      key: jdbc-mariadb
-  fleet_database_password:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            fleet_admin_authentication_type: DATABASE
+            fleet_database_username: fleet
+            fleet_database_url:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: jdbc-mariadb
+            fleet_database_password:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
+# secretEnv:
 
 service:
   main:
@@ -36,7 +50,7 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
   varrun:
     enabled: true
 
@@ -44,7 +58,7 @@ mariadb:
   enabled: true
   mariadbUsername: fleet
   mariadbDatabase: fleet
-  existingSecret: "mariadbcreds"
 
 portal:
-  enabled: true
+  open:
+    enabled: true

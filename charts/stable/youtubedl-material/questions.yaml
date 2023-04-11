@@ -10,70 +10,71 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: mainsettings
+                                        label: Main Settings
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                          show_subquestions_if: true
+                                          subquestions:
+                                            - variable: ytdl_url
+                                              label: URL
+                                              description: URL for the frontend
+                                              schema:
+                                                type: string
+                                                default: ""
+                                            - variable: ytdl_multi_user_mode
+                                              label: Multi User Mode
+                                              description: Allows creation of users (with their own files), roles, and permissions
+                                              schema:
+                                                type: boolean
+                                                default: false
+                                            - variable: ytdl_allow_subscriptions
+                                              label: Allow Subscriptions
+                                              description: Allows subscribing to channels
+                                              schema:
+                                                type: boolean
+                                                default: true
+                                            - variable: ytdl_subscriptions_check_interval
+                                              label: Subscriptions Check Interval
+                                              description: Amount of time between cycling through all subscriptions.
+                                              schema:
+                                                type: int
+                                                default: 86400
+                                            - variable: ytdl_subscriptions_redownload_fresh_uploads
+                                              label: Subscriptions Redownload Fresh Uploads
+                                              description: Checks day-old or newer videos in a subscription to see if a higher quality one exists. If it does, it's downloaded.
+                                              schema:
+                                                type: boolean
+                                                default: false
+                                            - variable: ytdl_allow_theme_change
+                                              label: Allow Theme Change
+                                              description: Allows the theme to be changed by hitting the 3 dots in the top right corner
+                                              schema:
+                                                type: boolean
+                                                default: true
+                                            - variable: ytdl_default_theme
+                                              label: Default Theme
+                                              description: Sets the default theme.
+                                              schema:
+                                                type: string
+                                                default: default
+                                                enum:
+                                                  - value: default
+                                                    description: default
+                                                  - value: dark
+                                                    description: dark
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: mainsettings
-          label: Main Settings
-          schema:
-            type: boolean
-            default: true
-            show_subquestions_if: true
-            subquestions:
-              - variable: ytdl_url
-                label: URL
-                description: URL for the frontend
-                schema:
-                  type: string
-                  default: ""
-              - variable: ytdl_multi_user_mode
-                label: Multi User Mode
-                description: Allows creation of users (with their own files), roles, and permissions
-                schema:
-                  type: boolean
-                  default: false
-              - variable: ytdl_allow_subscriptions
-                label: Allow Subscriptions
-                description: Allows subscribing to channels
-                schema:
-                  type: boolean
-                  default: true
-              - variable: ytdl_subscriptions_check_interval
-                label: Subscriptions Check Interval
-                description: Amount of time between cycling through all subscriptions.
-                schema:
-                  type: int
-                  default: 86400
-              - variable: ytdl_subscriptions_redownload_fresh_uploads
-                label: Subscriptions Redownload Fresh Uploads
-                description: Checks day-old or newer videos in a subscription to see if a higher quality one exists. If it does, it's downloaded.
-                schema:
-                  type: boolean
-                  default: false
-              - variable: ytdl_allow_theme_change
-                label: Allow Theme Change
-                description: Allows the theme to be changed by hitting the 3 dots in the top right corner
-                schema:
-                  type: boolean
-                  default: true
-              - variable: ytdl_default_theme
-                label: Default Theme
-                description: Sets the default theme.
-                schema:
-                  type: string
-                  default: default
-                  enum:
-                    - value: default
-                      description: default
-                    - value: dark
-                      description: dark
         - variable: extrasettigns
           label: Extra Settings
           schema:
@@ -286,15 +287,10 @@ questions:
                 schema:
                   type: boolean
                   default: false
+
 # Include{containerConfig}
 # Include{serviceRoot}
-        - variable: main
-          label: Main Service
-          description: The Primary service on which the healthcheck runs, often the webUI
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -368,28 +364,28 @@ questions:
 # Include{ingressTraefik}
 # Include{ingressList}
 
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 0
+# Include{securityContextRoot}
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-        - variable: fsGroup
-          label: fsGroup
-          description: The group that should own ALL storage.
-          schema:
-            type: int
-            default: 1000
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 1000
 
 # Include{resources}
 # Include{advanced}

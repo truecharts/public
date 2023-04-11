@@ -2,61 +2,50 @@ image:
   repository: tccr.io/truecharts/home-assistant
   pullPolicy: IfNotPresent
   tag: 2023.2.5@sha256:551ee82347af025e02a7fc27e526d0c4f05e8b29e7bbe948edc6bc12d306fb5f
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 8123
         targetPort: 8123
-
-initContainers:
-  init:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    command: ["/config/init/init.sh"]
-    volumeMounts:
-      - name: init
-        mountPath: "/config/init"
-      - name: config
-        mountPath: "/config"
+workload:
+  main:
+    podSpec:
+      initContainers:
+        init:
+          type: init
+          enabled: true
+          imageSelector: image
+          command: ["/config/init/init.sh"]
 
 # # Enable devices to be discoverable
 # hostNetwork: true
 
 # # When hostNetwork is true set dnsPolicy to ClusterFirstWithHostNet
 # dnsPolicy: ClusterFirstWithHostNet
-
 homeassistant:
   trusted_proxies: []
-
 # Enable a prometheus-operator servicemonitor
 prometheus:
   serviceMonitor:
     enabled: false
     # interval: 1m
     # additionalLabels: {}
-
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
+    targetSelectAll: true
   init:
-    enabled: "true"
+    enabled: true
+    type: configmap
+    objectName: init
     mountPath: "/config/init"
+    defaultMode: "0777"
     readOnly: true
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: '{{ include "tc.common.names.fullname" . }}-init'
-        defaultMode: 0777
+    targetSelector:
+      main:
+        init: {}
 
 configmap:
   init:
@@ -117,7 +106,6 @@ configmap:
         echo "Removing HACS zip file..."
         rm "/config/custom_components/hacs.zip"
         echo "Installation complete."
-
       configuration.yaml.default: |-
         # Configure a default setup of Home Assistant (frontend, api, etc)
         default_config:
@@ -131,13 +119,11 @@ configmap:
         script: !include scripts.yaml
         scene: !include scenes.yaml
       recorder.default: |-
-
         recorder:
           purge_keep_days: 30
           commit_interval: 3
-          db_url: {{ ( printf "%s?client_encoding=utf8" ( .Values.postgresql.url.complete | trimAll "\"" ) ) | quote }}
+          db_url: {{ ( printf "%s?client_encoding=utf8" ( .Values.cnpg.main.creds.std | trimAll "\"" ) ) | quote }}
       http.default: |-
-
         http:
           use_x_forwarded_for: true
           trusted_proxies:
@@ -148,21 +134,19 @@ configmap:
             - {{ . }}
               {{- end }}
             {{- end }}
-postgresql:
-  enabled: true
-  postgresqlUsername: home-assistant
-  postgresqlDatabase: home-assistant
-  existingSecret: "dbcreds"
-
-influxdb:
-  enabled: false
-  architecture: standalone
-  database: home_assistant
-  authEnabled: false
-  persistence:
-    enabled: false
-    # storageClass: ""
-    #
+cnpg:
+  main:
+    enabled: true
+    user: home-assistant
+    database: home-assistant
 
 portal:
-  enabled: true
+  open:
+    enabled: true
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

@@ -2,36 +2,12 @@ image:
   repository: tccr.io/truecharts/tdarr_node
   pullPolicy: IfNotPresent
   tag: 2.00.19.1@sha256:fa73ba47a7f033bcf5dcfd7faff111e94b53ccae6146754e96a0e295ad90bb7c
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-env:
-  # User Defined
-  nodeID: "myFirstTdarrNode"
-  serverIP: "0.0.0.0"
-  serverPort: 8266
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-
 persistence:
   configs:
     enabled: true
@@ -47,6 +23,29 @@ persistence:
     mountPath: "/media"
   varrun:
     enabled: true
-
 portal:
-  enabled: false
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            # User Defined
+            nodeID: "myFirstTdarrNode"
+            serverIP: "0.0.0.0"
+            serverPort: 8266

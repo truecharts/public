@@ -3,10 +3,10 @@ appVersion: "14.7.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.2.1
+    version: 12.2.32
 deprecated: false
 description: PostgresSQL
-home: https://truecharts.org/charts/stable/postgresql
+home: https://truecharts.org/charts/dependency/postgresql
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/postgresql.png
 keywords:
   - postgres
@@ -23,9 +23,8 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/postgresql
   - https://www.postgresql.org/
 type: application
-version: 12.0.0
+version: 13.0.0
 annotations:
   truecharts.org/catagories: |
     - database
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

@@ -10,45 +10,40 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: CONNECTION_TOKEN
+                                        label: "CONNECTION_TOKEN"
+                                        description: "Optional security token for accessing the Web UI (ie. supersecrettoken)."
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: CONNECTION_SECRET
+                                        label: "CONNECTION_SECRET"
+                                        description: "Optional path to a file inside the container that contains the security token for accessing the Web UI (ie. /path/to/file). Overrides CONNECTION_TOKEN."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: SUDO_PASSWORD
+                                        label: "SUDO_PASSWORD"
+                                        description: "If this optional variable is set, user will have sudo access in the openvscode-server terminal with the specified password."
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: CONNECTION_TOKEN
-          label: "CONNECTION_TOKEN"
-          description: "Optional security token for accessing the Web UI (ie. supersecrettoken)."
-          schema:
-            type: string
-            private: true
-            default: ""
-        - variable: CONNECTION_SECRET
-          label: "CONNECTION_SECRET"
-          description: "Optional path to a file inside the container that contains the security token for accessing the Web UI (ie. /path/to/file). Overrides CONNECTION_TOKEN."
-          schema:
-            type: string
-            default: ""
-        - variable: SUDO_PASSWORD
-          label: "SUDO_PASSWORD"
-          description: "If this optional variable is set, user will have sudo access in the openvscode-server terminal with the specified password."
-          schema:
-            type: string
-            private: true
-            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -97,16 +92,16 @@ questions:
                 schema:
                   type: int
                   default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-             - variable: fsGroup
+              - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:

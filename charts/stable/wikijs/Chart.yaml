@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: "2.5.297"
 description: Make documentation a joy to write using Wiki.js's beautiful and intuitive interface!
 name: wikijs
-version: 10.0.30
+version: 11.0.0
 kubeVersion: ">=1.16.0-0"
 keywords:
   - wiki
@@ -16,11 +16,8 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
-  - condition: postgresql.enabled
-    name: postgresql
-    repository: https://deps.truecharts.org/
-    version: 11.0.31
+    version: 12.2.32
+
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
@@ -29,4 +26,3 @@ annotations:
   truecharts.org/catagories: |
     - media
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

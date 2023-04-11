@@ -13,96 +13,84 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: JWT_SECRET
+                                        label: Jwt Secret
+                                        description: The secret used to sign the JWT for the Users-Permissions plugin.
+                                        schema:
+                                          type: string
+                                          private: true
+                                          required: true
+                                          default: ""
+                                      - variable: ADMIN_JWT_SECRET
+                                        label: Admin Jwt Secret
+                                        description: The secret used to sign the JWT for the Admin panel.
+                                        schema:
+                                          type: string
+                                          private: true
+                                          required: true
+                                          default: ""
+                                      - variable: APP_KEYS
+                                        label: App Keys
+                                        description: The secret keys used to sign the session cookies.
+                                        schema:
+                                          type: string
+                                          private: true
+                                          required: true
+                                          default: ""
+                                      - variable: NODE_ENV
+                                        label: Node Environment
+                                        description: Sets Node's Environment
+                                        schema:
+                                          type: string
+                                          default: production
+                                          enum:
+                                            - value: production
+                                              description: Production
+                                            - value: development
+                                              description: Development
+                                      - variable: PUBLIC_URL
+                                        label: Public URL
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: STRAPI_LICENSE
+                                        label: Strapi License
+                                        description: The license key to activate the Enterprise Edition.
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: STRAPI_DISABLE_UPDATE_NOTIFICATION
+                                        label: Strapi Disable Update Notifications
+                                        description: Don't show the notification message about updating Strapi.
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: FAST_REFRESH
+                                        label: Fast Refresh
+                                        description: enable "Fast Refresh" for near-instant feedback.
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: EXTRA_ARGS
+                                        label: "Extra Args (Leave empty for default)"
+                                        description: "Pass extra args to the strapi new"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: JWT_SECRET
-          label: Jwt Secret
-          description: The secret used to sign the JWT for the Users-Permissions plugin.
-          schema:
-            type: string
-            private: true
-            required: true
-            default: ""
-        - variable: ADMIN_JWT_SECRET
-          label: Admin Jwt Secret
-          description: The secret used to sign the JWT for the Admin panel.
-          schema:
-            type: string
-            private: true
-            required: true
-            default: ""
-        - variable: APP_KEYS
-          label: App Keys
-          description: The secret keys used to sign the session cookies.
-          schema:
-            type: string
-            private: true
-            required: true
-            default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: NODE_ENV
-          label: Node Environment
-          description: Sets Node's Environment
-          schema:
-            type: string
-            default: production
-            enum:
-              - value: production
-                description: Production
-              - value: development
-                description: Development
-        - variable: PUBLIC_URL
-          label: Public URL
-          schema:
-            type: string
-            default: ""
-        - variable: STRAPI_LICENSE
-          label: Strapi License
-          description: The license key to activate the Enterprise Edition.
-          schema:
-            type: string
-            default: ""
-        - variable: STRAPI_DISABLE_UPDATE_NOTIFICATION
-          label: Strapi Disable Update Notifications
-          description: Don't show the notification message about updating Strapi.
-          schema:
-            type: boolean
-            default: true
-        - variable: FAST_REFRESH
-          label: Fast Refresh
-          description: enable "Fast Refresh" for near-instant feedback.
-          schema:
-            type: boolean
-            default: false
-        - variable: EXTRA_ARGS
-          label: "Extra Args (Leave empty for default)"
-          description: "Pass extra args to the strapi new"
-          schema:
-            type: string
-            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -151,16 +139,16 @@ questions:
                 schema:
                   type: int
                   default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-             - variable: fsGroup
+              - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:

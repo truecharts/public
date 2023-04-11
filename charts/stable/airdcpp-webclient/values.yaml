@@ -3,10 +3,28 @@ image:
   pullPolicy: IfNotPresent
   tag: 2.11.3@sha256:517455edfda62b11eb6f6246e87244ef104bbdf6b51c83c2e470c917b54400c8
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+              path: /
+            readiness:
+              type: tcp
+              path: /
+            startup:
+              type: tcp
+              path: /
+          env: {}
+
 service:
   main:
     ports:
       main:
+        protocol: tcp
         port: 10155
         targetPort: 5600
   unencrypted-tcp:
@@ -14,6 +32,7 @@ service:
     ports:
       unencrypted-tcp:
         enabled: true
+        protocol: tcp
         port: 21248
         targetPort: 21248
   encrypted-tcp:
@@ -21,6 +40,7 @@ service:
     ports:
       encrypted-tcp:
         enabled: true
+        protocol: tcp
         port: 21249
         targetPort: 21249
   search-udp:
@@ -28,14 +48,15 @@ service:
     ports:
       search-udp:
         enabled: true
-        protocol: UDP
+        protocol: udp
         port: 21248
         targetPort: 21248
 
 persistence:
   config:
     enabled: true
-    mountPath: "/.airdcpp"
+    mountPath: /.airdcpp
 
 portal:
-  enabled: true
+  open:
+    enabled: true

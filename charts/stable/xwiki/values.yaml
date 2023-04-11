@@ -2,46 +2,46 @@ image:
   repository: tccr.io/truecharts/xwiki
   tag: 15.0.0-postgres@sha256:9e283ec143a421cf1818e18b5d46a9a68a70f0b4ea2bebb1f91008b47b8763ae
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-env:
-  DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
-  # User Defined
-  JAVA_OPTS: ""
-  DB_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  DB_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-
 service:
   main:
     ports:
       main:
         port: 10208
         targetPort: 8080
-
 persistence:
   config:
     enabled: true
     mountPath: "/usr/local/xwiki"
+cnpg:
+  main:
+    enabled: true
 
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: xwiki
-  postgresqlDatabase: xwiki
-
+    user: xwiki
+    database: xwiki
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DB_USER: "{{ .Values.cnpg.main.user }}"
+            DB_DATABASE: "{{ .Values.cnpg.main.database }}"
+            # User Defined
+            JAVA_OPTS: ""
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password

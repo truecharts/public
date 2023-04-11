@@ -3,20 +3,12 @@ image:
   pullPolicy: IfNotPresent
   tag: 4.1.2@sha256:5bde0f9457716b9142c6dd5827a1583f387dcdc6a971247f99b769a44f65fa5f
 
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
 service:
   main:
     ports:
       main:
         port: 8111
-        protocol: HTTP
+        protocol: http
         targetPort: 8111
 
 persistence:
@@ -25,4 +17,12 @@ persistence:
     mountPath: /home/shoko/.shoko/
 
 portal:
-  enabled: true
+  open:
+    enabled: true
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
