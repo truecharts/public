@@ -11,8 +11,12 @@ objectData: The object data to be used to render the container.
   {{- range $k, $v := $objectData.env -}}
     {{- include "tc.v1.common.helper.container.envDupeCheck" (dict "rootCtx" $rootCtx "objectData" $objectData "source" "env" "key" $k) }}
 - name: {{ $k | quote }}
-    {{- if not (kindIs "map" $v) }}
-  value: {{ tpl (toString $v) $rootCtx | quote }}
+    {{- if not (kindIs "map" $v) -}}
+      {{- $value := "" -}}
+      {{- if $v -}} {{/* Only tpl non-empty values */}}
+        {{- $value = tpl (toString $v) $rootCtx -}}
+      {{- end }}
+  value: {{ $value | quote }}
     {{- else if kindIs "map" $v }}
   valueFrom:
       {{- $refs := (list "configMapKeyRef" "secretKeyRef" "fieldRef") -}}
