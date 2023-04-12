@@ -2,37 +2,30 @@ image:
   repository: tccr.io/truecharts/transmission
   pullPolicy: IfNotPresent
   tag: v3.00@sha256:cf61bde05f265653ce12b0ef42e25ac25abcc51ff84c9e5528ef75fea8330eda
-service:
-  main:
-    ports:
-      main:
-        port: 10109
-        targetPort: 9091
-  torrent:
-    enabled: true
-    ports:
-      torrent:
-        enabled: true
-        port: 51414
-        protocol: tcp
-      torrentudp:
-        enabled: true
-        port: 51414
-        protocol: udp
-persistence:
-  config:
-    enabled: true
-    mountPath: "/config"
-portal:
-  open:
-    enabled: true
+
 workload:
   main:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              type: http
+              path: "{{ .Values.workload.main.podSpec.containers.main.env.TRANSMISSION__RPC_URL }}"
+            startup:
+              type: http
+              path: "{{ .Values.workload.main.podSpec.containers.main.env.TRANSMISSION__RPC_URL }}"
+            readiness:
+              type: http
+              path: "{{ .Values.workload.main.podSpec.containers.main.env.TRANSMISSION__RPC_URL }}"
           env:
             # PUID: 1001
+            # URL is set here so it wont be able to get overwritten by the user
+            # as this will break the probes, if the need arises we can expose it.
+            TRANSMISSION__RPC_URL: "/transmission"
+            # TRANSMISSION_RPC_USERNAME: ""
+            # TRANSMISSION_RPC_PASSWORD: ""
+            # TRANSMISSION_RPC_AUTHENTICATION_REQUIRED: false
             # TRANSMISSION_ALT_SPEED_DOWN: 50
             # TRANSMISSION_ALT_SPEED_ENABLED: false
             # TRANSMISSION_ALT_SPEED_TIME_BEGIN: 540
@@ -74,7 +67,6 @@ workload:
             # TRANSMISSION_RATIO_LIMIT: 2
             # TRANSMISSION_RATIO_LIMIT_ENABLED: false
             # TRANSMISSION_RENAME_PARTIAL_FILES: true
-            # TRANSMISSION_RPC_AUTHENTICATION_REQUIRED: false
             # TRANSMISSION_RPC_BIND_ADDRESS: "0.0.0.0"
             # TRANSMISSION_RPC_ENABLED: true
             # TRANSMISSION_RPC_HOST_WHITELIST: ""
@@ -99,3 +91,32 @@ workload:
             # TRANSMISSION_UTP_ENABLED: true
             # TRANSMISSION_WATCH_DIR: "/watch"
             # TRANSMISSION_WATCH_DIR_ENABLED: false
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10109
+        targetPort: 9091
+  torrent:
+    enabled: true
+    ports:
+      torrent:
+        enabled: true
+        port: 51414
+        protocol: tcp
+      torrentudp:
+        enabled: true
+        port: 51414
+        protocol: udp
+
+portal:
+  open:
+    enabled: true
+
+manifestManager:
+  enabled: false
