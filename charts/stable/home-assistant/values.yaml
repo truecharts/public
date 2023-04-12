@@ -16,7 +16,7 @@ workload:
           type: init
           enabled: true
           imageSelector: image
-          command: ["/config/init/init.sh"]
+          command: /config/init/init.sh
 
 # # Enable devices to be discoverable
 # hostNetwork: true
@@ -53,32 +53,35 @@ configmap:
     data:
       init.sh: |-
         #!/bin/sh
-        if test -f "/config/configuration.yaml"; then
+        config_file="/config/configuration.yaml"
+        if test -f "$config_file"; then
           echo "configuration.yaml exists."
-          if grep -q recorder: "/config/configuration.yaml"; then
-          echo "configuration.yaml already contains recorder"
+          if grep -q recorder: "$config_file"; then
+            echo "configuration.yaml already contains recorder"
           else
-          cat /config/init/recorder.default >> /config/configuration.yaml
+            cat /config/init/recorder.default >> "$config_file"
           fi
-          if grep -q http: "/config/configuration.yaml"; then
-          echo "configuration.yaml already contains http section"
+          if grep -q http: "$config_file"; then
+            echo "configuration.yaml already contains http section"
           else
-          cat /config/init/http.default >> /config/configuration.yaml
+            cat /config/init/http.default >> "$config_file"
           fi
         else
-        echo "configuration.yaml does NOT exist."
-        cp /config/init/configuration.yaml.default /config/configuration.yaml
-        cat /config/init/recorder.default >> /config/configuration.yaml
-        cat /config/init/http.default >> /config/configuration.yaml
+          echo "configuration.yaml does NOT exist."
+          cp /config/init/configuration.yaml.default "$config_file"
+          cat /config/init/recorder.default >> "$config_file"
+          echo "" >> "$config_file"
+          cat /config/init/http.default >> "$config_file"
+          echo "" >> "$config_file"
         fi
 
         echo "Creating include files..."
         for include_file in groups.yaml automations.yaml scripts.yaml scenes.yaml; do
           if test -f "/config/$include_file"; then
-          echo "$include_file exists."
+            echo "$include_file exists."
           else
-          echo "$include_file does NOT exist."
-          touch "/config/$include_file"
+            echo "$include_file does NOT exist."
+            touch "/config/$include_file"
           fi
         done
 
@@ -93,8 +96,8 @@ configmap:
         wget "https://github.com/hacs/integration/releases/latest/download/hacs.zip" || exit 0
 
         if [ -d "/config/custom_components/hacs" ]; then
-            echo "HACS directory already exist, cleaning up..."
-            rm -R "/config/custom_components/hacs"
+          echo "HACS directory already exist, cleaning up..."
+          rm -R "/config/custom_components/hacs"
         fi
 
         echo "Creating HACS directory..."
@@ -122,7 +125,7 @@ configmap:
         recorder:
           purge_keep_days: 30
           commit_interval: 3
-          db_url: {{ ( printf "%s?client_encoding=utf8" ( .Values.cnpg.main.creds.std | trimAll "\"" ) ) | quote }}
+          db_url: {{ (printf "%s?client_encoding=utf8" (.Values.cnpg.main.creds.std | trimAll "\"")) | quote }}
       http.default: |-
         http:
           use_x_forwarded_for: true
