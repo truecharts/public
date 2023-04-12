@@ -23,9 +23,9 @@ workload:
             # URL is set here so it wont be able to get overwritten by the user
             # as this will break the probes, if the need arises we can expose it.
             TRANSMISSION__RPC_URL: "/transmission"
-            TRANSMISSION_RPC_USERNAME: "transmission"
-            TRANSMISSION_RPC_PASSWORD: "transmission"
-            TRANSMISSION_RPC_AUTHENTICATION_REQUIRED: true
+            # TRANSMISSION_RPC_USERNAME: ""
+            # TRANSMISSION_RPC_PASSWORD: ""
+            # TRANSMISSION_RPC_AUTHENTICATION_REQUIRED: false
             # TRANSMISSION_ALT_SPEED_DOWN: 50
             # TRANSMISSION_ALT_SPEED_ENABLED: false
             # TRANSMISSION_ALT_SPEED_TIME_BEGIN: 540
