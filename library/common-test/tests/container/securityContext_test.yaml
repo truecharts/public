@@ -216,7 +216,7 @@ tests:
               runAsUser: 568
               runAsGroup: 568
               readOnlyRootFilesystem: true
-              allowPrivilegeEscalation: false
+              allowPrivilegeEscalation: true
               privileged: true
               runAsNonRoot: true
               seccompProfile:
@@ -455,6 +455,49 @@ tests:
                   - NET_ADMIN
                 drop:
                   - NET_BIND_SERVICE
+
+  - it: should set allowPrivilegeEscalation to true automatically when privileged is true
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                securityContext:
+                  allowPrivilegeEscalation: false
+                  privileged: true
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            securityContext:
+              runAsUser: 568
+              runAsGroup: 568
+              readOnlyRootFilesystem: true
+              allowPrivilegeEscalation: true
+              privileged: true
+              runAsNonRoot: true
+              seccompProfile:
+                type: RuntimeDefault
+              capabilities:
+                add: []
+                drop:
+                  - ALL
 
   - it: should set to privileged with assigned device on primary
     set:

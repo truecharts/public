@@ -759,6 +759,77 @@ tests:
             mountPath: /some/path
             readOnly: true
 
+  - it: should pass with device from deviceList with name
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+      deviceList:
+        - name: some-vol
+          enabled: true
+          type: device
+          hostPath: /dev/sda
+          readOnly: true
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /dev/sda
+            readOnly: true
+
+  - it: should pass with device from deviceList without name
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+      deviceList:
+        - enabled: true
+          type: device
+          hostPath: /dev/sda
+          readOnly: true
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: device-0
+            mountPath: /dev/sda
+            readOnly: true
+
   - it: should pass with volume from persistenceList and from persistence
     set:
       image: *image
@@ -804,6 +875,77 @@ tests:
           content:
             name: some-other-vol
             mountPath: /some/other/path
+            readOnly: false
+
+  - it: should default mountPath to hostPath on device type
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+      persistence:
+        dev01:
+          enabled: true
+          type: device
+          hostPath: /dev/sda
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: dev01
+            mountPath: /dev/sda
+            readOnly: false
+
+  - it: should use mountPath if given instead of hostPath on device type
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+      persistence:
+        dev01:
+          enabled: true
+          type: device
+          hostPath: /dev/sda
+          mountPath: /dev/sdb
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: dev01
+            mountPath: /dev/sdb
             readOnly: false
 
   # Failures
@@ -934,3 +1076,27 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Persistence - Expected non-empty <targetSelector.workload-name>
+
+  - it: should fail with device in persistenceList
+    set:
+      image: *image
+      workload:
+        workload-name: *workload
+      persistenceList:
+        - enabled: true
+          type: device
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence List - type [device] should be defined in deviceList only
+
+  - it: should fail with non-device in deviceList
+    set:
+      image: *image
+      workload:
+        workload-name: *workload
+      deviceList:
+        - enabled: true
+          type: emptyDir
+    asserts:
+      - failedTemplate:
+          errorMessage: Device List - Only [device] type can be defined in deviceList, but got [emptyDir]

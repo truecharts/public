@@ -88,6 +88,10 @@ objectData: The object data to be used to render the container.
     {{- $_ := set $secContext "runAsNonRoot" true -}}
   {{- end -}}
 
+  {{- if $secContext.privileged -}} {{/* When privileged is true, allowPrivilegeEscalation is required */}}
+    {{- $_ := set $secContext "allowPrivilegeEscalation" true -}}
+  {{- end -}}
+
   {{- if $mustPrivileged -}}
     {{- $_ := set $secContext "privileged" true -}}
     {{- $_ := set $secContext "allowPrivilegeEscalation" true -}}

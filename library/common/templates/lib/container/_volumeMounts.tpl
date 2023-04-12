@@ -71,7 +71,11 @@ objectData: The object data to be used to render the container.
   {{- $volMount := dict -}}
   {{- $_ := set $volMount "name" $persistenceName -}}
   {{- $_ := set $volMount "key" $key -}}
-  {{- $_ := set $volMount "mountPath" ($persistenceValues.mountPath | default "") -}}
+  {{- if eq $persistenceValues.type "device" -}} {{/* On devices use the hostPath as default if mountpath is not defined */}}
+    {{- $_ := set $volMount "mountPath" ($persistenceValues.mountPath | default $persistenceValues.hostPath | default "") -}}
+  {{- else -}}
+    {{- $_ := set $volMount "mountPath" ($persistenceValues.mountPath | default "") -}}
+  {{- end -}}
   {{- $_ := set $volMount "subPath" ($persistenceValues.subPath | default "") -}}
   {{- $_ := set $volMount "readOnly" ($persistenceValues.readOnly | default false) -}}
   {{- $_ := set $volMount "mountPropagation" ($persistenceValues.mountPropagation | default "") -}}
@@ -95,7 +99,7 @@ objectData: The object data to be used to render the container.
       {{- end -}}
 
       {{/* If container is selected */}}
-      {{- if or ( mustHas $objectData.shortName ($selectorValues | keys) ) ( eq $objectData.shortName "codeserver" ) -}}
+      {{- if or (mustHas $objectData.shortName ($selectorValues | keys)) (eq $objectData.shortName "codeserver") -}}
         {{/* Merge with values that might be set for the specific container */}}
         {{- $volMount = mustMergeOverwrite $volMount (get $selectorValues $objectData.shortName) -}}
         {{- $return = true -}}
@@ -103,7 +107,7 @@ objectData: The object data to be used to render the container.
     {{- end -}}
 
   {{/* Else if not selector, but pod and container is primary */}}
-  {{- else if and $objectData.podPrimary ( or $objectData.primary ( eq $objectData.shortName "codeserver" ) ) -}}
+  {{- else if and $objectData.podPrimary (or $objectData.primary (eq $objectData.shortName "codeserver")) -}}
     {{- $return = true -}}
   {{- end -}}
 
