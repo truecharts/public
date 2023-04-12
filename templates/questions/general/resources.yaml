@@ -102,11 +102,16 @@
             additional_attrs: true
             type: dict
             attrs:
-              # Specify GPU configuration
               - variable: gpu
-                label: Select GPU
+                label: ""
                 schema:
                   type: dict
-                  $ref:
-                    - "definitions/gpuConfiguration"
-                  attrs: []
+                  attrs:
+                    # Specify GPU configuration
+                    - variable: gpuConfig
+                      label: Select GPU
+                      schema:
+                        type: dict
+                        $ref:
+                          - "definitions/gpuConfiguration"
+                        attrs: []
