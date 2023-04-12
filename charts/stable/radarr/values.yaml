@@ -29,7 +29,7 @@ workload:
       containers:
         main:
           probes:
-            liveness:
+            readiness:
               enabled: true
               type: tcp
               # FIXME: https://github.com/Radarr/Radarr/pull/8055
@@ -41,7 +41,7 @@ workload:
               type: tcp
               # type: http
               # path: /ping
-            liveness:
+            startup:
               enabled: true
               type: tcp
               # type: http
