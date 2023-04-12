@@ -50,6 +50,7 @@ tests:
       some_protocol: http
       some_external_ip: 1.1.1.1
       some_address_type: IPv6
+      some_app_protocol: http
       service:
         my-service:
           enabled: true
@@ -76,6 +77,7 @@ tests:
               port: "{{ .Values.some_port }}"
               targetPort: "{{ .Values.some_target_port }}"
               protocol: "{{ .Values.some_protocol }}"
+              appProtocol: "{{ .Values.some_app_protocol }}"
     asserts:
       - documentIndex: *serviceDoc
         equal:
@@ -131,9 +133,8 @@ tests:
             - name: port-name
               port: 12345
               protocol: TCP
-              appProtocol: tcp
             - name: port-name2
-              port: 12346
+              port: 12344
               protocol: TCP
               appProtocol: http
       - documentIndex: *endpointSliceDoc

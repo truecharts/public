@@ -13,31 +13,27 @@ objectData: The object data of the service
   {{- range $name, $portValues := $objectData.ports -}}
     {{- if $portValues.enabled -}}
       {{- $protocol := $rootCtx.Values.fallbackDefaults.serviceProtocol -}} {{/* Default to fallback protocol, if no protocol is defined */}}
-      {{- $appProtocol := $rootCtx.Values.fallbackDefaults.serviceProtocol -}}
-      {{- $targetPort := $portValues.targetPort -}}
-
-      {{- if not $targetPort -}}
-        {{- $targetPort = $portValues.port -}}
-      {{- end -}}
+      {{- $port := $portValues.port -}}
 
       {{/* Expand targetPort */}}
-      {{- if (kindIs "string" $targetPort) -}}
-        {{- $targetPort = (tpl $targetPort $rootCtx) -}}
+      {{- if (kindIs "string" $port) -}}
+        {{- $port = (tpl $port $rootCtx) -}}
       {{- end -}}
-      {{- $targetPort = int $targetPort -}}
+      {{- $port = int $port -}}
 
       {{- with $portValues.protocol -}}
         {{- $protocol = tpl . $rootCtx -}}
-        {{- $appProtocol = tpl . $rootCtx -}}
 
         {{- if mustHas $protocol $tcpProtocols -}}
           {{- $protocol = "tcp" -}}
         {{- end -}}
       {{- end }}
 - name: {{ $name }}
-  port: {{ $targetPort }}
+  port: {{ $port }}
   protocol: {{ $protocol | upper }}
-  appProtocol: {{ $appProtocol | lower }}
+      {{- with $portValues.appProtocol }}
+  appProtocol: {{ tpl . $rootCtx | lower }}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
 
