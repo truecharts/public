@@ -139,23 +139,18 @@ objectData: The object data to be used to render the container.
   */}}
   {{- if eq (int $secContext.runAsUser) 0 -}}
 
-    {{- range $key := (list "CHOWN" "SETUID" "SETGID") -}}
-      {{- $value := (get $secContext.capabilities (printf "disableAutoCap%s" $key)) -}}
-      {{- if not (kindIs "bool" $value) -}}
-        {{- fail (printf "Container - Expected <securityContext.capabilities.disableAutoCap%s> to be [bool], but got [%s] of type [%s]" $key $value (kindOf $value)) -}}
-      {{- end -}}
+    {{- if not (kindIs "bool" $secContext.capabilities.disableS6Caps) -}}
+      {{- fail (printf "Container - Expected <securityContext.capabilities.disableS6Caps> to be [bool], but got [%s] of type [%s]" $secContext.capabilities.disableS6Caps (kindOf $secContext.capabilities.disableS6Caps)) -}}
     {{- end -}}
 
     {{- $addCap := $secContext.capabilities.add -}}
 
-    {{- if not $secContext.capabilities.disableAutoCapCHOWN -}}
+    {{- if not $secContext.capabilities.disableS6Caps -}}
       {{- $addCap = mustAppend $addCap "CHOWN" -}}
-    {{- end -}}
-    {{- if not $secContext.capabilities.disableAutoCapSETUID }}
       {{- $addCap = mustAppend $addCap "SETUID" -}}
-    {{- end -}}
-    {{- if not $secContext.capabilities.disableAutoCapSETGID }}
       {{- $addCap = mustAppend $addCap "SETGID" -}}
+      {{- $addCap = mustAppend $addCap "FOWNER" -}}
+      {{- $addCap = mustAppend $addCap "DAC_OVERRIDE" -}}
     {{- end -}}
 
     {{- $_ := set $secContext.capabilities "add" $addCap -}}

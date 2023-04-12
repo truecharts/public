@@ -85,10 +85,9 @@ securityContext:
       drop:
         - ALL
       # When set to false, it will automatically
-      # add the capability when container runs as ROOT
-      disableAutoCapCHOWN: false
-      disableAutoCapSETUID: false
-      disableAutoCapSETGID: false
+      # add CHOWN, SETUID, SETGID, FOWNER, DAC_OVERRIDE
+      # capabilities ONLY when container runs as ROOT
+      disableS6Caps: false
     # -- PUID for all containers
     # Can be overruled per container
     PUID: 568
