@@ -14,9 +14,10 @@ service:
         targetPort: 17170
         port: 17170
   ldap:
+    enabled: true
     ports:
-      enabled: true
       ldap:
+        enabled: true
         targetPort: 3890
         port: 3890
 
