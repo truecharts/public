@@ -4,7 +4,6 @@ dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 12.4.6
-
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
