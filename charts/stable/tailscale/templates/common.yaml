@@ -1,9 +1,6 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
-{{/* Render secret */}}
-{{- include "tailscale.secret" . }}
-
 {{/* Render configmap for tailscale */}}
 {{- $configmap := include "tailscale.config" . | fromYaml -}}
 {{- if $configmap -}}
@@ -11,7 +8,7 @@
 {{- end -}}
 
 {{/* Render secret for tailscale */}}
-{{- $secret := include "tailscale.config" . | fromYaml -}}
+{{- $secret := include "tailscale.secret" . | fromYaml -}}
 {{- if $secret -}}
   {{- $_ := set .Values.secret "tailscale-secret" $secret -}}
 {{- end -}}
