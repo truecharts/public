@@ -17,7 +17,9 @@ probes:
   startup:
     enabled: false
 securityContext:
-  runAsUser: 568
+  runAsUser: 0
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
   runAsGroup: 568
   capabilities:
     add:

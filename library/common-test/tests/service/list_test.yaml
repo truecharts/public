@@ -7,18 +7,17 @@ tests:
       serviceList:
         - name: my-service
           enabled: true
-          primary: true
           type: LoadBalancer
-          ports:
-            port-name:
+          portsList:
+            - name: port-name
               enabled: true
               primary: true
               port: 12345
         - name: my-service2
           enabled: true
           type: LoadBalancer
-          ports:
-            port-name:
+          portsList:
+            - name: port-name
               enabled: true
               primary: true
               port: 12345
@@ -86,11 +85,9 @@ tests:
     set:
       serviceList:
         - enabled: true
-          primary: true
           type: LoadBalancer
-          ports:
-            port-name:
-              enabled: true
+          portsList:
+            - enabled: true
               primary: true
               port: 12345
       workload:
@@ -118,7 +115,7 @@ tests:
             allocateLoadBalancerNodePorts: false
             publishNotReadyAddresses: false
             ports:
-            - name: port-name
+            - name: port-list-0
               port: 12345
               protocol: TCP
               targetPort: 12345
@@ -131,11 +128,9 @@ tests:
     set:
       serviceList:
         - enabled: true
-          primary: true
           type: ClusterIP
-          ports:
-            port-name:
-              enabled: true
+          portsList:
+            - enabled: true
               primary: true
               port: 12345
       workload:
@@ -162,7 +157,7 @@ tests:
             type: ClusterIP
             publishNotReadyAddresses: false
             ports:
-            - name: port-name
+            - name: port-list-0
               port: 12345
               protocol: TCP
               targetPort: 12345

@@ -367,14 +367,14 @@ tests:
           path: spec.template.spec.containers[1].volumeMounts
           content:
             name: vpnconfig
-            mountPath: /vpn
+            mountPath: /vpn/vpn.conf
             readOnly: false
       - documentIndex: *DeploymentDocument
         notContains:
           path: spec.template.spec.containers[0].volumeMounts
           content:
             name: vpnconfig
-            mountPath: /vpn
+            mountPath: /vpn/vpn.conf
             readOnly: false
       - documentIndex: *DeploymentDocument
         equal:
@@ -611,14 +611,14 @@ tests:
           path: spec.template.spec.containers[1].volumeMounts
           content:
             name: vpnconfig
-            mountPath: /vpn
+            mountPath: /vpn/vpn.conf
             readOnly: false
       - documentIndex: *DeploymentDocument
         notContains:
           path: spec.template.spec.containers[0].volumeMounts
           content:
             name: vpnconfig
-            mountPath: /vpn
+            mountPath: /vpn/vpn.conf
             readOnly: false
       - documentIndex: *DeploymentDocument
         equal:
@@ -676,14 +676,14 @@ tests:
           path: spec.template.spec.containers[1].volumeMounts
           content:
             name: vpnconfig
-            mountPath: /vpn
+            mountPath: /vpn/vpn.conf
             readOnly: false
       - documentIndex: *DeploymentDocument
         notContains:
           path: spec.template.spec.containers[0].volumeMounts
           content:
             name: vpnconfig
-            mountPath: /vpn
+            mountPath: /vpn/vpn.conf
             readOnly: false
       - documentIndex: *DeploymentDocument
         equal:
