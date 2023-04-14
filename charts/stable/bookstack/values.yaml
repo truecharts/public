@@ -3,50 +3,55 @@ image:
   pullPolicy: IfNotPresent
   tag: 23.02.20230226@sha256:8c90a4e5983fca7e8675708e7bf6beae880ef88f8d1047c8784cf9b3d4a78a55
 
-env:
-  DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
-  DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
-  APP_URL: ""
-  DB_HOST:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
-  DB_PASS:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
-  APP_KEY:
-    secretKeyRef:
-      name: bookstack-secrets
-      key: APP_KEY
-
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
     ports:
       main:
         port: 10112
+        protocol: http
         targetPort: 80
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
+            DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+            APP_URL: ""
+            DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            DB_PASS:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
+            APP_KEY:
+              secretKeyRef:
+                name: secrets
+                key: APP_KEY
+
 persistence:
-  varrun:
-    enabled: true
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
 
 mariadb:
   enabled: true
   mariadbUsername: bookstack
   mariadbDatabase: bookstack
-  existingSecret: "mariadbcreds"
 
 portal:
-  enabled: true
+  open:
+    enabled: true
