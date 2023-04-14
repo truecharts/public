@@ -23,6 +23,7 @@ securityContext:
   capabilities:
     add:
       - NET_ADMIN
+      - NET_RAW
 env:
 {{- range $envList := $.Values.addons.netshoot.envList -}}
   {{- if and $envList.name $envList.value }}

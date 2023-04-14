@@ -34,6 +34,7 @@ securityContext:
   capabilities:
     add:
       - NET_ADMIN
+      - NET_RAW
 
 {{/*
 Set KUBE_SECRET to empty string to force tailscale

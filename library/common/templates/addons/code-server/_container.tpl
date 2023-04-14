@@ -33,10 +33,6 @@ env:
   {{ $k }}: {{ $v | quote }}
 {{- end -}}
 {{- end }}
-ports:
-- name: codeserver
-  containerPort: {{ .Values.addons.codeserver.service.ports.codeserver.port }}
-  protocol: TCP
 args:
 {{- range .Values.addons.codeserver.args }}
 - {{ . | quote }}

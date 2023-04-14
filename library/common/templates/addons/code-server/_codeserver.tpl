@@ -15,14 +15,24 @@ It will include / inject the required templates based on the given values.
     {{- $_ := set $workload.podSpec.containers "codeserver" $container -}}
   {{- end -}}
 
+  {{- $hasPrimaryService := false -}}
+  {{- range $svcName, $svcValues := .Values.service -}}
+    {{- if $svcValues.enabled -}}
+      {{- if $svcValues.primary -}}
+        {{- $hasPrimaryService = true -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
   {{/* Add the code-server service */}}
   {{- if .Values.addons.codeserver.service.enabled -}}
     {{- $serviceValues := .Values.addons.codeserver.service -}}
-    {{- $_ := set $serviceValues "targetPort" 12321 -}}
     {{- $_ := set $serviceValues "targetSelector" $targetSelector -}}
+    {{- if not $hasPrimaryService -}}
+      {{- $_ := set $serviceValues "primary" true -}}
+    {{- end -}}
     {{- $_ := set .Values.service "codeserver" $serviceValues -}}
   {{- end -}}
-
 
   {{/* Add the code-server ingress */}}
   {{- if .Values.addons.codeserver.ingress.enabled -}}

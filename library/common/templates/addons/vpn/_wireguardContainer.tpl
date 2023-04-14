@@ -22,6 +22,7 @@ securityContext:
   capabilities:
     add:
       - NET_ADMIN
+      - NET_RAW
       - SYS_MODULE
 
 {{- with $.Values.addons.vpn.env }}

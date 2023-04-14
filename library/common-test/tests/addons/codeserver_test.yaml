@@ -58,3 +58,49 @@ tests:
         equal:
           path: metadata.name
           value: release-name-common-test-codeserver
+
+  - it: addon enabled should pass without other service
+    set:
+      workload: &workload
+        main:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              main:
+                enabled: true
+                primary: true
+      service:
+        main:
+          enabled: false
+      addons:
+        codeserver:
+          enabled: true
+          service:
+            enabled: true
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: &AddonServiceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: metadata.name
+          value: release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: release-name-common-test-codeserver
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: release-name-common-test
+      - documentIndex: *AddonServiceDocument
+        equal:
+          path: metadata.name
+          value: release-name-common-test
