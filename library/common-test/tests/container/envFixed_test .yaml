@@ -45,6 +45,8 @@ tests:
                 value: "0022"
               - name: UMASK_SET
                 value: "0022"
+              - name: NVIDIA_DRIVER_CAPABILITIES
+                value: "void"
               - name: S6_READ_ONLY_ROOT
                 value: "1"
 
@@ -87,6 +89,8 @@ tests:
                 value: "0022"
               - name: UMASK_SET
                 value: "0022"
+              - name: NVIDIA_DRIVER_CAPABILITIES
+                value: "void"
               - name: PUID
                 value: "568"
               - name: USER_ID
@@ -143,6 +147,8 @@ tests:
                 value: "0022"
               - name: UMASK_SET
                 value: "0022"
+              - name: NVIDIA_DRIVER_CAPABILITIES
+                value: "void"
               - name: PUID
                 value: "568"
               - name: USER_ID
@@ -198,6 +204,8 @@ tests:
                 value: "0022"
               - name: UMASK_SET
                 value: "0022"
+              - name: NVIDIA_DRIVER_CAPABILITIES
+                value: "void"
               - name: PUID
                 value: "568"
               - name: USER_ID
@@ -260,7 +268,7 @@ tests:
               - name: S6_READ_ONLY_ROOT
                 value: "1"
 
-  - it: should create the correct fixed envs with GPU and overrided on container level
+  - it: should create the correct fixed envs with GPU and overridden on container level
     set:
       scaleGPU:
         - gpu:
@@ -351,6 +359,8 @@ tests:
                 value: "0022"
               - name: UMASK_SET
                 value: "0022"
+              - name: NVIDIA_DRIVER_CAPABILITIES
+                value: "void"
               - name: PUID
                 value: "0"
               - name: USER_ID

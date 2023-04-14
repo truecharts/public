@@ -47,6 +47,8 @@ objectData: The object data to be used to render the container.
   {{- $fixed = mustAppend $fixed (dict "k" "UMASK_SET" "v" $UMASK) -}}
   {{- if eq (include "tc.v1.common.lib.container.resources.gpu" (dict "rootCtx" $rootCtx "objectData" $objectData "returnBool" true)) "true" -}}
     {{- $fixed = mustAppend $fixed (dict "k" "NVIDIA_DRIVER_CAPABILITIES" "v" (join "," $nvidiaCaps)) -}}
+  {{- else -}}
+    {{- $fixed = mustAppend $fixed (dict "k" "NVIDIA_DRIVER_CAPABILITIES" "v" "void") -}}
   {{- end -}}
   {{/* If running as root and PUID is set (0 or greater), set related envs */}}
   {{- if and (or (eq (int $secContext.runAsUser) 0) (eq (int $secContext.runAsGroup) 0)) (ge (int $PUID) 0) -}}

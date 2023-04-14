@@ -284,6 +284,7 @@ tests:
             supplementalGroups:
               - 1000
               - 44
+              - 107
             sysctls: []
       - documentIndex: &otherDeploymentDoc 1
         isKind:
@@ -332,6 +333,7 @@ tests:
             supplementalGroups:
               - 1000
               - 44
+              - 107
             sysctls: []
       - documentIndex: &otherDeploymentDoc 1
         isKind:
@@ -382,6 +384,7 @@ tests:
             supplementalGroups:
               - 1000
               - 44
+              - 107
             sysctls: []
       - documentIndex: &otherDeploymentDoc 1
         isKind:
@@ -394,6 +397,7 @@ tests:
             fsGroupChangePolicy: OnRootMismatch
             supplementalGroups:
               - 44
+              - 107
             sysctls: []
 
   - it: should pass with with device assigned to selected pod

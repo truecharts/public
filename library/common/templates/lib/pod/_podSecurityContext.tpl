@@ -52,7 +52,7 @@ objectData: The object data to be used to render the Pod.
   {{- end -}}
 
   {{- if $gpuAdded -}}
-    {{- $_ := set $secContext "supplementalGroups" (concat $secContext.supplementalGroups (list 44)) -}}
+    {{- $_ := set $secContext "supplementalGroups" (concat $secContext.supplementalGroups (list 44 107)) -}}
   {{- end -}}
 
   {{- if $deviceAdded -}}
