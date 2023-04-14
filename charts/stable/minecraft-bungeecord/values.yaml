@@ -14,31 +14,6 @@ j8Image:
   repository: tccr.io/truecharts/bungeecord-java8
   tag: v2022.4.1@sha256:240694a8f4028188f11d1ba198f656eedf0ac00cf881535cd97b4f1a86ae3231
   pullPolicy: Always
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-secretEnv:
-  RCON_PASSWORD: "secretrconpass"
-
-env:
-  RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
-  TYPE: "BUNGEECORD"
-  ONLINE_MODE: false
-  MEMORY: 512M
-  INIT_MEMORY: 512M
-  MAX_MEMORY: 512M
-  NETWORKADDRESS_CACHE_TTL: 60
-  REPLACE_ENV_VARIABLES: true
-  # JVM_OPTS: ""
-  # JVM_XX_OPTS: ""
-  # PLUGINS: ""
-
 service:
   main:
     ports:
@@ -51,7 +26,6 @@ service:
       rcon:
         enabled: true
         port: 25578
-
 persistence:
   config:
     enabled: true
@@ -62,6 +36,38 @@ persistence:
   plugins:
     enabled: true
     mountPath: "/plugins"
-
 portal:
-  enabled: false
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
+            TYPE: "BUNGEECORD"
+            ONLINE_MODE: false
+            MEMORY: 512M
+            INIT_MEMORY: 512M
+            MAX_MEMORY: 512M
+            NETWORKADDRESS_CACHE_TTL: 60
+            REPLACE_ENV_VARIABLES: true
+            # JVM_OPTS: ""
+            # JVM_XX_OPTS: ""
+            # PLUGINS: ""
+
+            RCON_PASSWORD: "secretrconpass"

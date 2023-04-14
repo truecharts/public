@@ -50,17 +50,7 @@ j8j9Image:
   repository: tccr.io/truecharts/minecraft-java8-openj9
   tag: 2023.1.0@sha256:c0d6473a7d23fb5cd6fd4776c4d3346c8266a217ada91362b87029f63e677cb4
   pullPolicy: Always
-
 imageSelector: image
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
@@ -73,111 +63,112 @@ service:
         enabled: true
         port: 25575
         targetPort: 25575
-
-probes:
-  liveness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - mc-health
-  readiness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - mc-health
-  startup:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - mc-health
-
-secretEnv:
-  RCON_PASSWORD: "secretrconpass"
-
-env:
-  SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
-  EULA: "TRUE"
-  GUI: "FALSE"
-  OVERRIDE_SERVER_PROPERTIES: true
-  VERSION: "LATEST"
-  TYPE: "VANILLA"
-  DIFFICULTY: easy
-  MAX_PLAYERS: 20
-  MAX_WORLD_SIZE: 10000
-  ALLOW_NETHER: true
-  ANNOUNCE_PLAYER_ACHIEVEMENTS: true
-  ENABLE_COMMAND_BLOCK: false
-  FORCE_GAMEMODE: false
-  GENERATE_STRUCTURES: true
-  HARDCORE: false
-  MAX_BUILD_HEIGHT: 256
-  MAX_TICK_TIME: 60000
-  SPAWN_ANIMALS: true
-  SPAWN_MONSTERS: true
-  SPAWN_NPCS: true
-  VIEW_DISTANCE: 16
-  MODE: survival
-  MOTD: "Welcome to Minecraft on TrueNAS Scale!"
-  PVP: false
-  LEVEL_TYPE: DEFAULT
-  LEVEL: world
-  ONLINE_MODE: true
-  MEMORY: 2048M
-  # CUSTOM_SERVER: ""
-  # QUILT_LOADER_VERSION: ""
-  # QUILT_LAUNCHER: ""
-  # QUILT_LAUNCHER_URL: ""
-  # PUFFERFISH_BUILD: "lastSuccessfulBuild"
-  # FORGEVERSION: ""
-  # FORGE_INSTALLER: ""
-  # FORGE_INSTALLER_URL: ""
-  # FABRIC_LOADER_VERSION: ""
-  # FABRIC_INSTALLER: ""
-  # FABRIC_INSTALLER_URL: ""
-  # SPIGOT_DOWNLOAD_URL: ""
-  # BUILD_FROM_SOURCE: false
-  # BUKKIT_DOWNLOAD_URL: ""
-  # PAPERBUILD: ""
-  # PAPER_DOWNLOAD_URL: ""
-  # PACKWIZ_URL: ""
-  # AIRPLANE_BUILD: "lastSuccessfulBuild"
-  # MAGMA_CHANNEL: "stable"
-  # MOHIST_BUILD: ""
-  # CANYON_BUILD: ""
-  # SPONGEBRANCH: "STABLE"
-  # SPONGEVERSION: ""
-  # LIMBO_BUILD: "LATEST"
-  # LIMBO_SCHEMA_FILENAME: "default.schem"
-  # CRUCIBLE_RELEASE: "latest"
-  # FTB_MODPACK_ID: ""
-  # FTB_MODPACK_VERSION_ID: ""
-  # CF_SERVER_MOD: ""
-  # CF_BASE_DIR: ""
-  # USE_MODPACK_START_SCRIPT: true
-  # FTB_LEGACYJAVAFIXER: false
-  # WHITELIST: ""
-  # OPS: ""
-  # ICON: ""
-  # SEED: ""
-  # GENERATOR_SETTINGS: ""
-  # WORLD: ""
-  # FORCE_REDOWNLOAD: false
-  # USE_FLARE_FLAGS: false
-  # USE_AIKAR_FLAGS: true
-  # USE_SIMD_FLAGS: false
-  # JVM_OPTS: ""
-  # JVM_XX_OPTS: ""
-
 persistence:
   data:
     enabled: true
     mountPath: "/data"
-
 portal:
-  enabled: false
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              type: exec
+              command:
+                - mc-health
+            readiness:
+              enabled: true
+              type: exec
+              command:
+                - mc-health
+            startup:
+              enabled: true
+              type: exec
+              command:
+                - mc-health
+          env:
+            SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
+            EULA: "TRUE"
+            GUI: "FALSE"
+            OVERRIDE_SERVER_PROPERTIES: true
+            VERSION: "LATEST"
+            TYPE: "VANILLA"
+            DIFFICULTY: easy
+            MAX_PLAYERS: 20
+            MAX_WORLD_SIZE: 10000
+            ALLOW_NETHER: true
+            ANNOUNCE_PLAYER_ACHIEVEMENTS: true
+            ENABLE_COMMAND_BLOCK: false
+            FORCE_GAMEMODE: false
+            GENERATE_STRUCTURES: true
+            HARDCORE: false
+            MAX_BUILD_HEIGHT: 256
+            MAX_TICK_TIME: 60000
+            SPAWN_ANIMALS: true
+            SPAWN_MONSTERS: true
+            SPAWN_NPCS: true
+            VIEW_DISTANCE: 16
+            MODE: survival
+            MOTD: "Welcome to Minecraft on TrueNAS Scale!"
+            PVP: false
+            LEVEL_TYPE: DEFAULT
+            LEVEL: world
+            ONLINE_MODE: true
+            MEMORY: 2048M
+            # CUSTOM_SERVER: ""
+            # QUILT_LOADER_VERSION: ""
+            # QUILT_LAUNCHER: ""
+            # QUILT_LAUNCHER_URL: ""
+            # PUFFERFISH_BUILD: "lastSuccessfulBuild"
+            # FORGEVERSION: ""
+            # FORGE_INSTALLER: ""
+            # FORGE_INSTALLER_URL: ""
+            # FABRIC_LOADER_VERSION: ""
+            # FABRIC_INSTALLER: ""
+            # FABRIC_INSTALLER_URL: ""
+            # SPIGOT_DOWNLOAD_URL: ""
+            # BUILD_FROM_SOURCE: false
+            # BUKKIT_DOWNLOAD_URL: ""
+            # PAPERBUILD: ""
+            # PAPER_DOWNLOAD_URL: ""
+            # PACKWIZ_URL: ""
+            # AIRPLANE_BUILD: "lastSuccessfulBuild"
+            # MAGMA_CHANNEL: "stable"
+            # MOHIST_BUILD: ""
+            # CANYON_BUILD: ""
+            # SPONGEBRANCH: "STABLE"
+            # SPONGEVERSION: ""
+            # LIMBO_BUILD: "LATEST"
+            # LIMBO_SCHEMA_FILENAME: "default.schem"
+            # CRUCIBLE_RELEASE: "latest"
+            # FTB_MODPACK_ID: ""
+            # FTB_MODPACK_VERSION_ID: ""
+            # CF_SERVER_MOD: ""
+            # CF_BASE_DIR: ""
+            # USE_MODPACK_START_SCRIPT: true
+            # FTB_LEGACYJAVAFIXER: false
+            # WHITELIST: ""
+            # OPS: ""
+            # ICON: ""
+            # SEED: ""
+            # GENERATOR_SETTINGS: ""
+            # WORLD: ""
+            # FORCE_REDOWNLOAD: false
+            # USE_FLARE_FLAGS: false
+            # USE_AIKAR_FLAGS: true
+            # USE_SIMD_FLAGS: false
+            # JVM_OPTS: ""
+            # JVM_XX_OPTS: ""
+
+            RCON_PASSWORD: "secretrconpass"

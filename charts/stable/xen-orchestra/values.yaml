@@ -2,54 +2,12 @@ image:
   repository: tccr.io/truecharts/xenorchestra
   tag: 5.109.0@sha256:c20120d537153808f055a4b396e5095f026f2ae408fdcca3c4f7072fac4d0b7b
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-  capabilities:
-    add:
-      - SYS_ADMIN
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-env:
-  HTTPS_PORT: "{{ .Values.service.main.ports.main.port }}"
-  # Just so it doesn't try to bind port 80
-  HTTP_PORT: "{{ add1 .Values.service.main.ports.main.port }}"
-  REDIRECT_TO_HTTPS: true
-
-probes:
-  liveness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - /healthcheck.sh
-  readiness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - /healthcheck.sh
-  startup:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - /healthcheck.sh
-
 service:
   main:
     ports:
       main:
         procotol: HTTPS
         port: 10324
-
 persistence:
   xo-data:
     enabled: true
@@ -57,6 +15,41 @@ persistence:
   redis-data:
     enabled: true
     mountPath: "/var/lib/redis"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    capabilities:
+      add:
+        - SYS_ADMIN
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              type: exec
+              command:
+                - /healthcheck.sh
+            readiness:
+              enabled: true
+              type: exec
+              command:
+                - /healthcheck.sh
+            startup:
+              enabled: true
+              type: exec
+              command:
+                - /healthcheck.sh
+          env:
+            HTTPS_PORT: "{{ .Values.service.main.ports.main.port }}"
+            # Just so it doesn't try to bind port 80
+            HTTP_PORT: "{{ add1 .Values.service.main.ports.main.port }}"
+            REDIRECT_TO_HTTPS: true

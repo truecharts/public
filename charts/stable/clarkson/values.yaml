@@ -7,40 +7,45 @@ strategy:
   type: Recreate
 
 securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
     ports:
       main:
         port: 10244
+        protocol: http
         targetPort: 3000
 
-env:
-  MYSQL_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
-  MYSQL_HOST:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
-  MYSQL_PASSWORD:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            MYSQL_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
+            MYSQL_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            MYSQL_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
 
-persistence:
-  varrun:
-    enabled: true
+persistence: {}
 
 mariadb:
   enabled: true
   mariadbUsername: clarkson
   mariadbDatabase: clarkson
-  existingSecret: "mariadbcreds"
 
 portal:
-  enabled: true
+  open:
+    enabled: true
