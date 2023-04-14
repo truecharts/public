@@ -72,15 +72,28 @@ securityContext:
 workload:
   main:
     podSpec:
+      automountServiceAccountToken: true
       containers:
         main:
           probes:
             liveness:
               enabled: false
+              type: exec
+              command:
+                - tailscale
+                - status
             readiness:
               enabled: false
+              type: exec
+              command:
+                - tailscale
+                - status
             startup:
               enabled: false
+              type: exec
+              command:
+                - tailscale
+                - status
           envFrom:
             - configMapRef:
                 name: "tailscale-config"
