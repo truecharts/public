@@ -6,7 +6,8 @@
     {{- if $svcValues.enabled -}}
       {{- if $svcValues.primary -}}
         {{- $hasPrimary = true -}}
-      {{- end -}}
+      {{- end -}} {{/* Check if "service" has a portList. */}}
+      {{- include "tc.v1.common.values.portList" (dict "rootCtx" $rootCtx "svcValues" $svcValues) -}}
     {{- end -}}
   {{- end -}}
 
@@ -27,23 +28,7 @@
       {{- $_ := set $rootCtx.Values "service" dict -}}
     {{- end -}}
 
-    {{- range $portIdx, $portValues := $svcValues.portsList -}}
-      {{- $portName := (printf "port-list-%s" (toString $portIdx)) -}}
-
-      {{- if eq $portIdx 0 -}}
-        {{- $_ := set $portValues "primary" true -}}
-      {{- end -}}
-
-      {{- with $portValues.name -}}
-        {{- $portName = . -}}
-      {{- end -}}
-
-      {{- if not (hasKey $svcValues "ports") -}}
-        {{- $_ := set $svcValues "ports" dict -}}
-      {{- end -}}
-
-      {{- $_ := set $svcValues.ports $portName $portValues -}}
-    {{- end -}}
+    {{- include "tc.v1.common.values.portList" (dict "rootCtx" $rootCtx "svcValues" $svcValues) -}}
 
     {{- $_ := set $rootCtx.Values.service $svcName $svcValues -}}
 
