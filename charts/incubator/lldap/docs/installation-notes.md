@@ -10,12 +10,15 @@ By default, LLDAP will use the following options:
 - Admin password: password
 - Base DN for LDAP: dc=example,dc=org
 - LDAP port: 3890
+- JWT secret: random (generated on first run)
 
 > ⚠️ **WARNING**: The default configuration is not secure and should not be used in production. Please change the admin password for LDAP before using LLDAP in production. ⚠️
 
 ## Usage
 
-LLDAP can be used as the user backend for Authelia and Authentik as well as any other application that supports LDAP e.g. Jellyfin and Nextcloud.
+LLDAP can be used as the user backend for Authelia and Authentik as well as any other application that supports LDAP e.g. Jellyfin and Nextcloud. A specific guide for Authelia is available in this documentation but other authentication applications can be configured in a similar way.
+
+When setting your bind user you should avoid using the admin user as this is a security risk. Instead, create a new user with the minimum permissions required for your application. LLDAP has a user group `lldap_strict_readonly` which can be used for this purpose. This group has read-only access to the LDAP database and can be used to create a new user with the minimum permissions required for your application. However, if you want to provide password reset then create a user in the `lldap_password_manager` group.
 
 ## Support
 
