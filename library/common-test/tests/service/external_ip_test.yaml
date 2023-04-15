@@ -143,3 +143,56 @@ tests:
           value:
             - addresses:
                 - 1.1.1.1
+
+  - it: should pass with type ExternalIP and https
+    set:
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          externalIP: 1.1.1.1
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+              protocol: https
+    asserts:
+      - documentIndex: *serviceDoc
+        equal:
+          path: spec
+          value:
+            publishNotReadyAddresses: false
+            ports:
+            - name: port-name
+              port: 443
+              protocol: TCP
+              targetPort: 443
+      - documentIndex: &endpointSliceDoc 1
+        isKind:
+          of: EndpointSlice
+      - documentIndex: *endpointSliceDoc
+        isAPIVersion:
+          of: discovery.k8s.io/v1
+      - documentIndex: *endpointSliceDoc
+        equal:
+          path: ports
+          value:
+            - name: port-name
+              port: 443
+              protocol: TCP
+      - documentIndex: *endpointSliceDoc
+        equal:
+          path: endpoints
+          value:
+            - addresses:
+                - 1.1.1.1
+      - documentIndex: &serviceDoc 0
+        isKind:
+          of: Service
+      - documentIndex: *serviceDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            traefik.ingress.kubernetes.io/service.serversscheme: https

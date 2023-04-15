@@ -38,15 +38,14 @@ objectData: The object data to be used to render the Pod.
 
           {{- $portToCheck := ($portValues.targetPort | default $portValues.port) -}}
           {{- if kindIs "string" $portToCheck -}}
-            {{/* Helm stores ints as floats, so convert string to float before comparing */}}
-            {{- $portToCheck = (tpl $portToCheck $rootCtx) | float64 -}}
+            {{- $portToCheck = (tpl $portToCheck $rootCtx) | int -}}
           {{- end -}}
 
-          {{- if or (not $portRange.low) (lt $portToCheck ($portRange.low | float64)) -}}
+          {{- if or (not $portRange.low) (lt ($portToCheck | int) ($portRange.low | int)) -}}
             {{- $_ := set $portRange "low" $portToCheck -}}
           {{- end -}}
 
-          {{- if or (not $portRange.high) (gt $portToCheck ($portRange.high | float64)) -}}
+          {{- if or (not $portRange.high) (gt ($portToCheck | int) ($portRange.high | int)) -}}
             {{- $_ := set $portRange "high" $portToCheck -}}
           {{- end -}}
 

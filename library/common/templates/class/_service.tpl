@@ -19,6 +19,18 @@ objectData: The service data, that will be used to render the Service object.
   {{- $hostNetwork := false -}}
   {{- $podValues := dict -}}
 
+  {{- range $portName, $port := $objectData.ports -}}
+    {{- if $port.enabled -}}
+      {{- if eq (tpl ($port.protocol | default "") $rootCtx) "https" -}}
+        {{- $hasHTTPSPort = true -}}
+      {{- end -}}
+
+      {{- if and (hasKey $port "hostPort") $port.hostPort -}}
+        {{- $hasHostPort = true -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
   {{- $specialTypes := (list "ExternalName" "ExternalIP") -}}
   {{/* External Name / External IP does not rely on any pod values */}}
   {{- if not (mustHas $svcType $specialTypes) -}}
@@ -31,18 +43,6 @@ objectData: The service data, that will be used to render the Service object.
       {{/* When hostNetwork is set on the pod, force ClusterIP, so services wont try to bind the same ports on the host */}}
       {{- if or (and (kindIs "bool" $hostNetwork) $hostNetwork) (and (kindIs "string" $hostNetwork) (eq $hostNetwork "true")) -}}
         {{- $svcType = "ClusterIP" -}}
-      {{- end -}}
-    {{- end -}}
-
-    {{- range $portName, $port := $objectData.ports -}}
-      {{- if $port.enabled -}}
-        {{- if eq (tpl ($port.protocol | default "") $rootCtx) "https" -}}
-          {{- $hasHTTPSPort = true -}}
-        {{- end -}}
-
-        {{- if and (hasKey $port "hostPort") $port.hostPort -}}
-          {{- $hasHostPort = true -}}
-        {{- end -}}
       {{- end -}}
     {{- end -}}
 
