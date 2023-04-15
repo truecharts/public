@@ -14,11 +14,11 @@ tests:
           targetSelector:
             workload-name:
               container-name2: {}
-      image:
+      image: &image
         repository: nginx
         tag: 1.19.0
         pullPolicy: IfNotPresent
-      initImage:
+      initImage: &initImage
         repository: bash
         tag: latest
         pullPolicy: IfNotPresent
@@ -33,7 +33,7 @@ tests:
                 enabled: true
                 primary: true
                 imageSelector: image
-                probes:
+                probes: &probes
                   liveness:
                     enabled: false
                   readiness:
@@ -135,8 +135,6 @@ tests:
                 value: "0022"
               - name: "UMASK_SET"
                 value: "0022"
-              - name: NVIDIA_DRIVER_CAPABILITIES
-                value: "void"
               - name: "S6_READ_ONLY_ROOT"
                 value: "1"
               - name: "key"
@@ -230,3 +228,50 @@ tests:
       - documentIndex: *deploymentDoc
         isNull:
           path: spec.template.spec.initContainers
+
+  - it: should add NVIDIA_VISIBLE_DEVICES=void to init container without GPU
+    set:
+      image: *image
+      initImage: *initImage
+      global:
+        ixChartContext:
+          some: value
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+            initContainers:
+              container-name1:
+                enabled: true
+                type: init
+                imageSelector: initImage
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            env:
+              - name: "TZ"
+                value: "UTC"
+              - name: "UMASK"
+                value: "0022"
+              - name: "UMASK_SET"
+                value: "0022"
+              - name: "NVIDIA_VISIBLE_DEVICES"
+                value: "void"
+              - name: "S6_READ_ONLY_ROOT"
+                value: "1"

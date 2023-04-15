@@ -25,19 +25,28 @@ objectData: The object data to be used to render the Pod.
 
       {{- range $rootCtx.Values.scaleGPU -}}
         {{- if .gpu -}} {{/* Make sure it has a value... */}}
+          {{- $gpuAssigned := false -}}
 
-          {{- if (kindIs "map" .targetSelector) -}}
-            {{- range $podName, $containers := .targetSelector -}}
-              {{- if eq $objectData.shortName $podName -}} {{/* If the pod is selected */}}
-                {{- $runtime = $rootCtx.Values.global.ixChartContext.nvidiaRuntimeClassName -}}
-              {{- end -}}
+          {{- range $k, $v := .gpu -}}
+            {{- if $v -}} {{/* Make sure value is not "0" or "" */}}
+              {{- $gpuAssigned = true -}}
             {{- end -}}
+          {{- end -}}
 
-          {{- else if $objectData.primary -}}
+          {{- if $gpuAssigned -}}
+            {{- if (kindIs "map" .targetSelector) -}}
+              {{- range $podName, $containers := .targetSelector -}}
+                {{- if eq $objectData.shortName $podName -}} {{/* If the pod is selected */}}
+                  {{- $runtime = $rootCtx.Values.global.ixChartContext.nvidiaRuntimeClassName -}}
+                {{- end -}}
+              {{- end -}}
 
-            {{/* If the pod is primary and no targetSelector is given, assign to primary */}}
-            {{- $runtime = $rootCtx.Values.global.ixChartContext.nvidiaRuntimeClassName -}}
+            {{- else if $objectData.primary -}}
 
+              {{/* If the pod is primary and no targetSelector is given, assign to primary */}}
+              {{- $runtime = $rootCtx.Values.global.ixChartContext.nvidiaRuntimeClassName -}}
+
+            {{- end -}}
           {{- end -}}
         {{- end -}}
       {{- end -}}

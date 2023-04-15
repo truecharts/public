@@ -220,6 +220,30 @@ tests:
               - name: net.ipv4.ip_unprivileged_port_start
                 value: "443"
 
+  - it: should pass with fsGroup 0
+    set:
+      securityContext:
+        pod:
+          fsGroup: 0
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: &statefulSetDoc 0
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 0
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups: []
+            sysctls: []
+
   - it: should pass with no sysctls port_start automatically appended based on services when port is higher than 1024
     set:
       workload:

@@ -19,12 +19,11 @@ probes:
 securityContext:
   runAsUser: 568
   runAsGroup: 568
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
   capabilities:
     add:
       - NET_ADMIN
-      - NET_RAW
-      - SETUID
-      - SETGID
       - SYS_MODULE
 
 env:

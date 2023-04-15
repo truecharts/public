@@ -81,7 +81,7 @@ tests:
           path: spec.template.spec.containers[0].volumeMounts
           content:
             name: vpnconfig
-            mountPath: /vpn
+            mountPath: /gluetun
             readOnly: false
       - documentIndex: *DeploymentDocument
         notContains:
@@ -124,7 +124,7 @@ tests:
           path: spec.template.spec.containers[1].volumeMounts
           content:
             name: vpnconfig
-            mountPath: /vpn
+            mountPath: /gluetun
             readOnly: false
       - documentIndex: *DeploymentDocument
         contains:
@@ -221,28 +221,28 @@ tests:
           path: spec.template.spec.containers[1].volumeMounts
           content:
             name: vpnconfig
-            mountPath: /vpn
+            mountPath: /gluetun
             readOnly: false
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.containers[1].volumeMounts
           content:
             name: vpnscripts
-            mountPath: /vpn
+            mountPath: /gluetun
             readOnly: false
       - documentIndex: *DeploymentDocument
         notContains:
           path: spec.template.spec.containers[0].volumeMounts
           content:
             name: vpnconfig
-            mountPath: /vpn
+            mountPath: /gluetun
             readOnly: false
       - documentIndex: *DeploymentDocument
         notContains:
           path: spec.template.spec.containers[0].volumeMounts
           content:
             name: vpnscripts
-            mountPath: /vpn
+            mountPath: /gluetun
             readOnly: false
       - documentIndex: *DeploymentDocument
         equal:
@@ -316,14 +316,14 @@ tests:
           path: spec.template.spec.containers[1].volumeMounts
           content:
             name: vpnconfig
-            mountPath: /vpn
+            mountPath: /gluetun
             readOnly: false
       - documentIndex: *DeploymentDocument
         notContains:
           path: spec.template.spec.containers[0].volumeMounts
           content:
             name: vpnconfig
-            mountPath: /vpn
+            mountPath: /gluetun
             readOnly: false
       - documentIndex: *DeploymentDocument
         equal:
@@ -384,14 +384,14 @@ tests:
           path: spec.template.spec.containers[1].volumeMounts
           content:
             name: vpnconfig
-            mountPath: /vpn/vpn.conf
+            mountPath: /gluetun/vpn.conf
             readOnly: false
       - documentIndex: *DeploymentDocument
         notContains:
           path: spec.template.spec.containers[0].volumeMounts
           content:
             name: vpnconfig
-            mountPath: /vpn/vpn.conf
+            mountPath: /gluetun/vpn.conf
             readOnly: false
       - documentIndex: *DeploymentDocument
         equal:
@@ -449,14 +449,14 @@ tests:
           path: spec.template.spec.containers[1].volumeMounts
           content:
             name: vpnfolder
-            mountPath: /vpn
+            mountPath: /gluetun
             readOnly: false
       - documentIndex: *DeploymentDocument
         notContains:
           path: spec.template.spec.containers[0].volumeMounts
           content:
             name: vpnfolder
-            mountPath: /vpn
+            mountPath: /gluetun
             readOnly: false
       - documentIndex: *DeploymentDocument
         equal:
@@ -693,14 +693,14 @@ tests:
           path: spec.template.spec.containers[1].volumeMounts
           content:
             name: vpnconfig
-            mountPath: /vpn/vpn.conf
+            mountPath: /etc/wireguard/vpn.conf
             readOnly: false
       - documentIndex: *DeploymentDocument
         notContains:
           path: spec.template.spec.containers[0].volumeMounts
           content:
             name: vpnconfig
-            mountPath: /vpn/vpn.conf
+            mountPath: /etc/wireguard/vpn.conf
             readOnly: false
       - documentIndex: *DeploymentDocument
         equal:

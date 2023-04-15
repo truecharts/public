@@ -31,7 +31,7 @@ env:
   {{- . | toYaml | nindent 2 }}
 {{- end }}
   {{- if and .Values.addons.vpn.openvpn.username .Values.addons.vpn.openvpn.password }}
-  VPN_AUTH: {{ ( printf "%v;%v" .Values.addons.vpn.openvpn.username .Values.addons.vpn.openvpn.password ) }}
+  VPN_AUTH: {{ (printf "%v;%v" .Values.addons.vpn.openvpn.username .Values.addons.vpn.openvpn.password) }}
   {{- end -}}
 {{- if .Values.addons.vpn.killSwitch }}
   FIREWALL: "ON"

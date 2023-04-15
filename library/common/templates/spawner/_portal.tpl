@@ -13,7 +13,7 @@
         {{- $targetSelector := $objectData.targetSelector -}}
 
         {{/* Create defaults */}}
-        {{- $protocol := "https" -}}
+        {{- $protocol := "http" -}}
         {{- $host := "$node_ip" -}}
         {{- $port := "443" -}}
         {{- $path := $objectData.path | default "/" -}}
@@ -77,6 +77,7 @@
         {{- $traefikportalhook := lookup "v1" "ConfigMap" $namespace "portalhook" }}
 
         {{- $entrypoint := "websecure" }}
+        {{- $protocol = "https" -}}
         {{- if $selectedIngress.entrypoint }}
           {{- $entrypoint = $selectedIngress.entrypoint }}
         {{- end }}

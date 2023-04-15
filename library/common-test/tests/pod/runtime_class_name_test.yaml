@@ -126,6 +126,26 @@ tests:
           path: spec.template.spec.runtimeClassName
           value: ix-runtime
 
+  - it: should not add runtimeClassName with gpu value 0
+    set:
+      scaleGPU:
+        - gpu:
+            key: 0
+      global:
+        ixChartContext:
+          addNvidiaRuntimeClass: true
+          nvidiaRuntimeClassName: ix-runtime
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        isNull:
+          path: spec.template.spec.runtimeClassName
+
   - it: should pass with runtimeClassName from ixChartContext without targetSelector (on primary workload)
     set:
       scaleGPU:
