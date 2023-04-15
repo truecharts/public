@@ -206,7 +206,7 @@ blocking:
   downloadTimeout: {{ .Values.blocking.downloadTimeout }}
   downloadAttempts: {{ .Values.blocking.downloadAttempts }}
   downloadCooldown: {{ .Values.blocking.downloadCooldown }}
-  failStartOnListError: {{ .Values.blocking.failStartOnListError }}
+  startStrategy: {{ .Values.blocking.startStrategy }}
   processingConcurrency: {{ .Values.blocking.processingConcurrency }}
 {{- if .Values.blocking.whitelist }}
   whiteLists:
