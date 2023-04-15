@@ -10,37 +10,38 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: MAX_UPLOAD
+                                        label: "MAX_UPLOAD"
+                                        description: "Maximum size (in mb.) that is allowed on each file to be uploaded."
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 5000
+                                      - variable: PHP_MAX_FILE_UPLOAD
+                                        label: "PHP_MAX_FILE_UPLOAD"
+                                        description: "The maximum number of files allowed to be uploaded simultaneously. "
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 200
+                                      - variable: PHP_MEMORY_LIMIT
+                                        label: "PHP_MEMORY_LIMIT"
+                                        description: "PHP_MEMORY_LIMIT"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "512M"
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: MAX_UPLOAD
-          label: "MAX_UPLOAD"
-          description: "Maximum size (in mb.) that is allowed on each file to be uploaded."
-          schema:
-            type: int
-            required: true
-            default: 5000
-        - variable: PHP_MAX_FILE_UPLOAD
-          label: "PHP_MAX_FILE_UPLOAD"
-          description: "The maximum number of files allowed to be uploaded simultaneously. "
-          schema:
-            type: int
-            required: true
-            default: 200
-        - variable: PHP_MEMORY_LIMIT
-          label: "PHP_MEMORY_LIMIT"
-          description: "PHP_MEMORY_LIMIT"
-          schema:
-            type: string
-            required: true
-            default: "512M"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -106,16 +107,16 @@ questions:
                 schema:
                   type: int
                   default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-             - variable: fsGroup
+              - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:
