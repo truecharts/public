@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-188-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-189-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -377,6 +377,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/schopenhauer"><img src="https://avatars.githubusercontent.com/u/2085103?v=4?s=100" width="100px;" alt="schopenhauer"/><br /><sub><b>schopenhauer</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Aschopenhauer" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Zackptg5"><img src="https://avatars.githubusercontent.com/u/5107713?v=4?s=100" width="100px;" alt="Zackptg5"/><br /><sub><b>Zackptg5</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3AZackptg5" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://bradackerman.com/"><img src="https://avatars.githubusercontent.com/u/115895?v=4?s=100" width="100px;" alt="Brad Ackerman"/><br /><sub><b>Brad Ackerman</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Abackerman" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/snazy2000"><img src="https://avatars.githubusercontent.com/u/1378836?v=4?s=100" width="100px;" alt="Stephen"/><br /><sub><b>Stephen</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Asnazy2000" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
