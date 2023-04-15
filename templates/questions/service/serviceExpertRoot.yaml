@@ -6,8 +6,14 @@
       default: false
       show_subquestions_if: true
       subquestions:
-        - variable: hostNetwork
+        - variable: podOptions
           group: Networking and Services
-          label: Host-Networking (Complicated)
+          label: ""
           schema:
-            type: boolean
+            type: dict
+            attrs:
+              - variable: hostNetwork
+                group: Networking and Services
+                label: Host-Networking (Complicated)
+                schema:
+                  type: boolean
