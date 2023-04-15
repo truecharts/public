@@ -18,6 +18,9 @@ persistence:
   media:
     enabled: true
     mountPath: "/media"
+  varrun:
+    enabled: false
+
 redis:
   enabled: true
 
