@@ -25,6 +25,7 @@ securityContext:
     add:
       - NET_ADMIN
       - NET_RAW
+      - MKNOD
       - SYS_MODULE
 
 env:

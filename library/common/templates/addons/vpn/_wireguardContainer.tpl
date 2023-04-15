@@ -23,7 +23,10 @@ securityContext:
   allowPrivilegeEscalation: true
   capabilities:
     add:
+      - AUDIT_WRITE
       - NET_ADMIN
+      - SETUID
+      - SETGID
       - SYS_MODULE
 
 env:
