@@ -53,6 +53,8 @@ workload:
             READARR__POSTGRES_PORT: 5432
             READARR__POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
             READARR__POSTGRES_MAIN_DB: "{{ .Values.cnpg.main.database }}"
+            READARR__POSTGRES_CACHE_DB: "{{ .Values.cnpg.main.database }}"
+            READARR__POSTGRES_LOG_DB: "{{ .Values.cnpg.main.database }}"
             READARR__POSTGRES_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
