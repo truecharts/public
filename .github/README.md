@@ -373,6 +373,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/imjustleaving"><img src="https://avatars.githubusercontent.com/u/109609649?v=4?s=100" width="100px;" alt="imjustleaving"/><br /><sub><b>imjustleaving</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Aimjustleaving" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Pzenarch"><img src="https://avatars.githubusercontent.com/u/3662922?v=4?s=100" width="100px;" alt="Jeff Parker"/><br /><sub><b>Jeff Parker</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3APzenarch" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/schopenhauer"><img src="https://avatars.githubusercontent.com/u/2085103?v=4?s=100" width="100px;" alt="schopenhauer"/><br /><sub><b>schopenhauer</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Aschopenhauer" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
