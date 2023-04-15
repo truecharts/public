@@ -113,9 +113,11 @@ bootstrapDns:
   {{- with .upstream }}
   - upstream: {{ . }}
   {{- end }}
-  {{- range $id, $value := .ips }}
+  {{- if .ips }}
     ips:
+    {{- range $id, $value := .ips }}
       - {{ $value }}
+    {{- end }}
   {{- end }}
   {{- end }}
 {{- end }}
