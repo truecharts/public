@@ -7,12 +7,15 @@ probes:
   liveness:
     enabled: true
     port: {{ .Values.addons.codeserver.service.ports.codeserver.port }}
+    path: "/"
   readiness:
     enabled: true
     port: {{ .Values.addons.codeserver.service.ports.codeserver.port }}
+    path: "/"
   startup:
     enabled: true
     port: {{ .Values.addons.codeserver.service.ports.codeserver.port }}
+    path: "/"
 imageSelector: "codeserverImage"
 imagePullPolicy: {{ .Values.codeserverImage.pullPolicy }}
 securityContext:

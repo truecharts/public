@@ -13,6 +13,11 @@ tests:
           env:
             key: value
             key1: value1
+          envList:
+            - name: key2
+              value: value2
+            - name: key3
+              value: value3
       workload: &workload
         main:
           enabled: true
@@ -102,6 +107,18 @@ tests:
           content:
             name: key1
             value: value1
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: key2
+            value: value2
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: key3
+            value: value3
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.containers[1].volumeMounts

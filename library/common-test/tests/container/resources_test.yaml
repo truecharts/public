@@ -628,6 +628,147 @@ tests:
                 cpu: 10m
                 memory: 50Mi
 
+  - it: should assign GPU on the selected pod/container with multiple GPUs
+    set:
+      image: *image
+      global:
+        ixChartContext:
+          addNvidiaRuntimeClass: true
+          nvidiaRuntimeClassName: nvidia
+      scaleGPU:
+        - gpu:
+            nvidia.com/gpu: 1
+            amd.com/gpu: 0
+          targetSelector:
+            workload-name1:
+              - container-name1
+              - container-name2
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+              container-name2:
+                enabled: true
+                primary: false
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.runtimeClassName
+          value: nvidia
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: "1"
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: "1"
+              requests:
+                cpu: 10m
+                memory: 50Mi
+
+  - it: should assign multiple GPU on the selected pod/container with multiple selected GPUs
+    set:
+      image: *image
+      global:
+        ixChartContext:
+          addNvidiaRuntimeClass: true
+          nvidiaRuntimeClassName: nvidia
+      scaleGPU:
+        - gpu:
+            nvidia.com/gpu: 1
+            amd.com/gpu: 0
+          targetSelector:
+            workload-name1:
+              - container-name1
+        - gpu:
+            nvidia.com/gpu: 0
+            amd.com/gpu: 1
+          targetSelector:
+            workload-name1:
+              - container-name2
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+              container-name2:
+                enabled: true
+                primary: false
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.runtimeClassName
+          value: nvidia
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: "1"
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                amd.com/gpu: "1"
+              requests:
+                cpu: 10m
+                memory: 50Mi
+
   # Failures
   - it: should fail with empty requests
     set:
@@ -850,6 +991,31 @@ tests:
       scaleGPU:
         - gpu:
             key: ""
+          targetSelector:
+            workload-name1:
+              - container-name1
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected non-empty <scaleGPU> <value>
+
+  - it: should fail with no value in gpu
+    set:
+      image: *image
+      scaleGPU:
+        - gpu:
+            key:
           targetSelector:
             workload-name1:
               - container-name1

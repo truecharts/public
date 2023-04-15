@@ -75,10 +75,12 @@ objectData: The object data to be used to render the container.
   {{- if not $returnBool -}}
     {{- range $gpu := $gpuResource -}}
       {{- range $k, $v := $gpu -}}
-        {{- if not $v -}}
+        {{- if or (kindIs "invalid" $v) (eq (toString $v) "") -}}
           {{- fail "Container - Expected non-empty <scaleGPU> <value>" -}}
-        {{- end }}
+        {{- end -}} {{/* Don't try to schedule 0 GPUs */}}
+        {{- if gt (int $v) 0 }}
 {{ $k }}: {{ $v | quote }}
+        {{- end -}}
       {{- end -}}
     {{- end -}}
   {{- else -}}

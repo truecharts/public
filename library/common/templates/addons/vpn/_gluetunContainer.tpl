@@ -27,8 +27,8 @@ securityContext:
       - NET_RAW
       - SYS_MODULE
 
-{{- with $.Values.addons.vpn.env }}
 env:
+{{- with $.Values.addons.vpn.env }}
   {{- . | toYaml | nindent 2 }}
 {{- end -}}
 
