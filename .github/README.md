@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-178-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-179-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -365,6 +365,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Malpractis"><img src="https://avatars.githubusercontent.com/u/31232305?v=4?s=100" width="100px;" alt="Malpractis"/><br /><sub><b>Malpractis</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3AMalpractis" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/vianchiel"><img src="https://avatars.githubusercontent.com/u/123665622?v=4?s=100" width="100px;" alt="Vianchiel"/><br /><sub><b>Vianchiel</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Avianchiel" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/b-m-f"><img src="https://avatars.githubusercontent.com/u/2843450?v=4?s=100" width="100px;" alt="Maximilian Ehlers"/><br /><sub><b>Maximilian Ehlers</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Ab-m-f" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/kqmaverick"><img src="https://avatars.githubusercontent.com/u/121722567?v=4?s=100" width="100px;" alt="kqmaverick"/><br /><sub><b>kqmaverick</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Akqmaverick" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
