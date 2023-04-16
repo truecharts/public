@@ -29,8 +29,8 @@ securityContext:
       - SYS_MODULE
 
 env:
-  DNS_KEEP_NAMESERVER: on
-  DOT: off
+  DNS_KEEP_NAMESERVER: "on"
+  DOT: "off"
 {{- if $.Values.addons.vpn.killSwitch }}
 {{- $excludednetworks := ( printf "%v,%v" $.Values.chartContext.podCIDR $.Values.chartContext.svcCIDR ) -}}
 {{- range $.Values.addons.vpn.excludedNetworks_IPv4 -}}
