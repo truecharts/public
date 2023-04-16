@@ -43,7 +43,7 @@
                             label: Static IP Addresses
                             schema:
                               type: list
-                              show_if: [["ipam", "=", {"type": "static"}]]
+                              show_if: [["type", "=", "static"]]
                               items:
                                 - variable: staticIP
                                   label: Static IP
@@ -54,7 +54,7 @@
                             label: Static Routes
                             schema:
                               type: list
-                              show_if: [["ipam", "=", {"type": "static"}]]
+                              show_if: [["type", "=", "static"]]
                               items:
                                 - variable: staticRouteConfiguration
                                   label: Static Route Configuration
