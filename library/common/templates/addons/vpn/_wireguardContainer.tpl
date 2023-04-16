@@ -35,19 +35,19 @@ env:
 {{- end }}
   SEPARATOR: ";"
   IPTABLES_BACKEND: "nft"
-{{- if .Values.addons.vpn.killSwitch }}
+{{- if $.Values.addons.vpn.killSwitch }}
   KILLSWITCH: "true"
-  {{- $excludednetworksv4 := "172.16.0.0/12" -}}
-  {{- range .Values.addons.vpn.excludedNetworks_IPv4 -}}
+  {{- $excludednetworksv4 := ( printf "%v;%v" $.Values.chartContext.podCIDR $.Values.chartContext.svcCIDR ) -}}
+  {{- range $.Values.addons.vpn.excludedNetworks_IPv4 -}}
     {{- $excludednetworksv4 = ( printf "%v;%v" $excludednetworksv4 . ) -}}
   {{- end }}
   KILLSWITCH_EXCLUDEDNETWORKS_IPV4: {{ $excludednetworksv4 | quote }}
-{{- if .Values.addons.vpn.excludedNetworks_IPv6 -}}
+{{- if $.Values.addons.vpn.excludedNetworks_IPv6 -}}
   {{- $excludednetworksv6 := "" -}}
-  {{- range .Values.addons.vpn.excludedNetworks_IPv4 -}}
+  {{- range $.Values.addons.vpn.excludedNetworks_IPv4 -}}
     {{- $excludednetworksv6 = ( printf "%v;%v" $excludednetworksv6 . ) -}}
   {{- end }}
-  KILLSWITCH_EXCLUDEDNETWORKS_IPV6: {{ .Values.addons.vpn.excludedNetworks_IPv6 | quote }}
+  KILLSWITCH_EXCLUDEDNETWORKS_IPV6: {{ $.Values.addons.vpn.excludedNetworks_IPv6 | quote }}
 {{- end -}}
 {{- end -}}
 

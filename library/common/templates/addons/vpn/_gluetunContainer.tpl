@@ -29,6 +29,22 @@ securityContext:
       - SYS_MODULE
 
 env:
+  DNS_KEEP_NAMESERVER: on
+  DOT: off
+{{- if $.Values.addons.vpn.killSwitch }}
+{{- $excludednetworks := ( printf "%v,%v" $.Values.chartContext.podCIDR $.Values.chartContext.svcCIDR ) -}}
+{{- range $.Values.addons.vpn.excludedNetworks_IPv4 -}}
+  {{- $excludednetworks = ( printf "%v,%v" $excludednetworks . ) -}}
+{{- end }}
+{{- range $.Values.addons.vpn.excludedNetworks_IPv6 -}}
+  {{- $excludednetworksv6 = ( printf "%v,%v" $excludednetworks . ) -}}
+{{- end }}
+  FIREWALL: "on"
+  FIREWALL_OUTBOUND_SUBNETS: {{ $excludednetworks | quote }}
+{{- else }}
+  FIREWALL: "off"
+{{- end }}
+
 {{- with $.Values.addons.vpn.env }}
   {{- . | toYaml | nindent 2 }}
 {{- end -}}
