@@ -1,19 +1,23 @@
 image:
   repository: tccr.io/truecharts/meshcentral
   pullPolicy: IfNotPresent
-  tag: 1.1.4@sha256:897de1ed255c6f8587f1bc9af4b0e86bfd004c4659eedc2e5cd73de3f40deb0b
+  tag: 1.1.5@sha256:91564f7e1d65c007e732bb3e468bafb381ffd257fa85b6e5ef6691c89de0b3d0
 
-command:
-  - node
-  - meshcentral/meshcentral
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          command:
+            - node
+            - meshcentral/meshcentral
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
 # - Values with the character _ in-front of them are pruned. Add or remove _ to disable or enable options
 # - More in-depth info for each options can be found here: https://github.com/Ylianst/MeshCentral/blob/master/meshcentral-config-schema.json
@@ -952,7 +956,7 @@ service:
     ports:
       main:
         # Only use HTTPS if meshcental handles the certs
-        protocol: HTTP
+        protocol: http
         port: 10205
   # mps:
   #   enabled: true
@@ -973,7 +977,6 @@ mongodb:
   enabled: true
   mongodbUsername: meshcentral
   mongodbDatabase: meshcentral
-  existingSecret: mongodbcreds
 
 persistence:
   data:
@@ -997,9 +1000,10 @@ persistence:
     type: secret
     readOnly: true
     defaultMode: "0600"
-    objectName: '{{ include "tc.common.names.fullname" . }}-secret'
+    objectName: mesh-secret
     mountPath: /opt/meshcentral/meshcentral-data/config.json
     subPath: config.json
 
 portal:
-  enabled: true
+  open:
+    enabled: true
