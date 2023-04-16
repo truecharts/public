@@ -31,7 +31,6 @@ securityContext:
 env:
   DNS_KEEP_NAMESERVER: on
   DOT: off
-  DNS_ADDRESS: 0.0.0.0
 {{- if $.Values.addons.vpn.killSwitch }}
 {{- $excludednetworks := ( printf "%v,%v" $.Values.chartContext.podCIDR $.Values.chartContext.svcCIDR ) -}}
 {{- range $.Values.addons.vpn.excludedNetworks_IPv4 -}}
