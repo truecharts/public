@@ -28,23 +28,23 @@ objectData: The object data to validate that contains the external interface con
     {{- fail (printf "External Interface - Expected <ipam.type> to be one of [%s], but got [%s]" (join ", " $types) $objectData.ipam.type) -}}
   {{- end -}}
 
-  {{- if and (or $objectData.staticIPConfigurations $objectData.staticRoutes) (ne $objectData.ipam.type "static") -}}
-    {{- fail "External Interface - Expected empty <staticIPConfigurations> and <staticRoutes> when <ipam.type> is not [static]" -}}
+  {{- if and (or $objectData.ipam.staticIPConfigurations $objectData.ipam.staticRoutes) (ne $objectData.ipam.type "static") -}}
+    {{- fail "External Interface - Expected empty <ipam.staticIPConfigurations> and <ipam.staticRoutes> when <ipam.type> is not [static]" -}}
   {{- end -}}
 
   {{- if eq $objectData.ipam.type "static" -}}
-    {{- if not $objectData.staticIPConfigurations -}}
-      {{- fail "External Interface - Expected non-empty <staticIPConfigurations> when <ipam.type> is [static]" -}}
+    {{- if not $objectData.ipam.staticIPConfigurations -}}
+      {{- fail "External Interface - Expected non-empty <ipam.staticIPConfigurations> when <ipam.type> is [static]" -}}
     {{- end -}}
 
-    {{- with $objectData.staticRoutes -}}
+    {{- with $objectData.ipam.staticRoutes -}}
       {{- range . -}}
         {{- if not .destination -}}
-          {{- fail "External Interface - Expected non-empty <destination> in <staticRoutes>" -}}
+          {{- fail "External Interface - Expected non-empty <destination> in <ipam.staticRoutes>" -}}
         {{- end -}}
 
         {{- if not .gateway -}}
-          {{- fail "External Interface - Expected non-empty <gateway> in <staticRoutes>" -}}
+          {{- fail "External Interface - Expected non-empty <gateway> in <ipam.staticRoutes>" -}}
         {{- end -}}
       {{- end -}}
     {{- end -}}

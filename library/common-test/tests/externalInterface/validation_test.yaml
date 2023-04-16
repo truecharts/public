@@ -55,11 +55,11 @@ tests:
         - hostInterface: enp0s3
           ipam:
             type: dhcp
-          staticIPConfigurations:
-            - ipAddress: 1.2.3.4
+            staticIPConfigurations:
+              - ipAddress: 1.2.3.4
     asserts:
       - failedTemplate:
-          errorMessage: External Interface - Expected empty <staticIPConfigurations> and <staticRoutes> when <ipam.type> is not [static]
+          errorMessage: External Interface - Expected empty <ipam.staticIPConfigurations> and <ipam.staticRoutes> when <ipam.type> is not [static]
 
   - it: should fail with non-empty staticRoutes on dhcp
     set:
@@ -67,12 +67,12 @@ tests:
         - hostInterface: enp0s3
           ipam:
             type: dhcp
-          staticRoutes:
-            - gateway: 1.2.3.4
-              destination: 1.2.3.4
+            staticRoutes:
+              - gateway: 1.2.3.4
+                destination: 1.2.3.4
     asserts:
       - failedTemplate:
-          errorMessage: External Interface - Expected empty <staticIPConfigurations> and <staticRoutes> when <ipam.type> is not [static]
+          errorMessage: External Interface - Expected empty <ipam.staticIPConfigurations> and <ipam.staticRoutes> when <ipam.type> is not [static]
 
   - it: should fail with empty staticIPConfigurations on static
     set:
@@ -80,10 +80,10 @@ tests:
         - hostInterface: enp0s3
           ipam:
             type: static
-          staticIPConfigurations: []
+            staticIPConfigurations: []
     asserts:
       - failedTemplate:
-          errorMessage: External Interface - Expected non-empty <staticIPConfigurations> when <ipam.type> is [static]
+          errorMessage: External Interface - Expected non-empty <ipam.staticIPConfigurations> when <ipam.type> is [static]
 
   - it: should fail with empty gateway on staticRoutes on static
     set:
@@ -91,14 +91,14 @@ tests:
         - hostInterface: enp0s3
           ipam:
             type: static
-          staticIPConfigurations:
-            - ipAddress: 1.2.3.4
-          staticRoutes:
-            - gateway: ""
-              destination: 1.2.3.4
+            staticIPConfigurations:
+              - ipAddress: 1.2.3.4
+            staticRoutes:
+              - gateway: ""
+                destination: 1.2.3.4
     asserts:
       - failedTemplate:
-          errorMessage: External Interface - Expected non-empty <gateway> in <staticRoutes>
+          errorMessage: External Interface - Expected non-empty <gateway> in <ipam.staticRoutes>
 
   - it: should fail with empty destination on staticRoutes on static
     set:
@@ -106,14 +106,14 @@ tests:
         - hostInterface: enp0s3
           ipam:
             type: static
-          staticIPConfigurations:
-            - ipAddress: 1.2.3.4
-          staticRoutes:
-            - gateway: 1.2.3.4
-              destination: ""
+            staticIPConfigurations:
+              - ipAddress: 1.2.3.4
+            staticRoutes:
+              - gateway: 1.2.3.4
+                destination: ""
     asserts:
       - failedTemplate:
-          errorMessage: External Interface - Expected non-empty <destination> in <staticRoutes>
+          errorMessage: External Interface - Expected non-empty <destination> in <ipam.staticRoutes>
 
   - it: should fail with empty ixExternalInterfaceConfigurationNames when interface is defined
     set:
