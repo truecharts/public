@@ -629,13 +629,7 @@ questions:
                   default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
-        - variable: main
-          label: Main Service
-          description: The Primary service on which the healthcheck runs, often the webUI
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -701,7 +695,7 @@ questions:
 # Include{ingressTraefik}
 # Include{ingressList}
 
-# Include{podSecurityContextRoot}
+# Include{securityContextRoot}
         - variable: runAsUser
           label: runAsUser
           description: The UserID of the user running the application
