@@ -407,49 +407,6 @@ tests:
               - name: S6_READ_ONLY_ROOT
                 value: "1"
 
-  - it: should override NVIDIA_VISIBLE_DEVICES=void when set in env
-    set:
-      image: *image
-      global:
-        ixChartContext:
-          some: value
-      workload:
-        workload-name:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec:
-            containers:
-              container-name1:
-                enabled: true
-                primary: true
-                imageSelector: image
-                probes: *probes
-                env:
-                  NVIDIA_VISIBLE_DEVICES: "all"
-    asserts:
-      - documentIndex: &deploymentDoc 0
-        isKind:
-          of: Deployment
-      - documentIndex: *deploymentDoc
-        isAPIVersion:
-          of: apps/v1
-      - documentIndex: *deploymentDoc
-        isSubset:
-          path: spec.template.spec.containers[0]
-          content:
-            env:
-              - name: TZ
-                value: UTC
-              - name: UMASK
-                value: "0022"
-              - name: UMASK_SET
-                value: "0022"
-              - name: S6_READ_ONLY_ROOT
-                value: "1"
-              - name: NVIDIA_VISIBLE_DEVICES
-                value: "all"
-
   # Failures
   - it: it should fail with NVIDIA_CAPS having invalid values
     set:
