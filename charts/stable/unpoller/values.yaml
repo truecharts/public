@@ -28,11 +28,11 @@ workload:
         main:
           probes:
             liveness:
-              path: /metrics
+              path: /
             readiness:
-              path: /metrics
+              path: /
             startup:
-              path: /metrics
+              path: /
           env:
             # UP_UNIFI_DEFAULT_URL: "https://127.0.0.1:8443"
             # UP_UNIFI_DEFAULT_USER: "unifipoller"
