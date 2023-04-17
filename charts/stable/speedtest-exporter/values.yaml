@@ -17,6 +17,7 @@ metrics:
     endpoints:
       - port: main
         path: /metrics
+        interval: 1h
     prometheusRule:
       enabled: false
 
@@ -26,14 +27,3 @@ portal:
 securityContext:
   container:
     readOnlyRootFilesystem: false
-workload:
-  main:
-    podSpec:
-      main:
-        probes:
-          liveness:
-            path: /metrics
-          readiness:
-            path: /metrics
-          startup:
-            path: /metrics
