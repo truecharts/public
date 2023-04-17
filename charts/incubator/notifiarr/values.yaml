@@ -1,0 +1,53 @@
+image:
+  repository: golift/notifiarr
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:29cf5a51a52529126b7f4bf2399b0977dd37527491ff5e2568cb902b374655fc
+
+service:
+  main:
+    ports:
+      main:
+        port: 5454
+        protocol: http
+        targetPort: 5454
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            TMPDIR: /tmpdir
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  utmp:
+    enabled: true
+    mountPath: /var/run/utmp
+  machine-id:
+    enabled: true
+    type: hostPath
+    mountPath: /etc/machine-id
+    hostPath: /etc/machine-id
+    readOnly: true
+  tmpdir:
+    enabled: true
+    type: emptyDir
+    mountPath: /tmpdir
+    medium: Memory
+
+portal:
+  open:
+    enabled: true
