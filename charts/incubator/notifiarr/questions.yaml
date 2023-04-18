@@ -1,6 +1,5 @@
 # Include{groups}
-portals:
-  open:
+portals: {}
 # Include{portalLink}
 questions:
 # Include{global}
@@ -84,7 +83,6 @@ questions:
 # Include{ingressTraefik}
 # Include{ingressList}
 # Include{securityContextRoot}
-
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"

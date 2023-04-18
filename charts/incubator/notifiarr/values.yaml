@@ -18,16 +18,16 @@ workload:
         main:
           probes:
             liveness:
-              type: http
-              path: /
+              enabled: false
             readiness:
-              type: http
-              path: /
+              enabled: false
             startup:
-              type: http
-              path: /
+              enabled: false
           env:
             TMPDIR: /tmpdir
+            DN_API_KEY: "CHANGEME"
+            DN_UPSTREAMS_0: "172.16.0.0/16"
+            DN_UI_PASSWORD: "username:9CharacterPassword"
 
 persistence:
   config:
