@@ -21,17 +21,13 @@ You can setup multiple domains with a single cert-manager app, all you have to d
 
 ![cert-manager1](img/cert-manager1.png)
 
-
 ## cert-manager App
 
 > **Note**
-> 
+>
 > It is normal that the app does not run, there are no events, no logs and no shell. This is by design.
 
 ![cert-manager3](img/cert-manager3.png)
-
-
-
 
 ## How to Add Ingress to Apps with cert-manager
 
