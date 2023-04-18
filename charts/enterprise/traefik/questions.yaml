@@ -319,13 +319,13 @@ questions:
                             label: "Entrypoints Type"
                             schema:
                               type: string
-                              default: "TCP"
+                              default: "tcp"
                               enum:
-                                - value: HTTP
+                                - value: http
                                   description: "HTTP"
-                                - value: "HTTPS"
+                                - value: "https"
                                   description: "HTTPS"
-                                - value: TCP
+                                - value: tcp
                                   description: "TCP"
                           - variable: port
                             label: "Port"

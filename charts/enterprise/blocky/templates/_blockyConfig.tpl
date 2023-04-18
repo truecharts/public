@@ -43,22 +43,19 @@ upstream:
 {{- $value.dnsservers | toYaml | nindent 8 }}
 {{- end }}
 
-{{- if .Values.service.dnsudp.enabled }}
-port: {{ .Values.service.dnsudp.ports.dnsudp.targetPort }}
-{{- end }}
-
-{{- if .Values.service.dot.enabled }}
-tlsPort: {{ .Values.service.dot.ports.dot.targetPort }}
-{{- end }}
-
-{{- if .Values.service.main.enabled }}
-httpPort: {{ .Values.service.main.ports.main.targetPort }}
-{{- end }}
-
-{{- if .Values.service.https.enabled }}
-httpsPort: {{ .Values.service.https.ports.https.targetPort }}
-{{- end }}
-
+ports:
+  {{- if .Values.service.dnsudp.enabled }}
+  dns: {{ .Values.service.dnsudp.ports.dnsudp.targetPort }}
+  {{- end }}
+  {{- if .Values.service.dot.enabled }}
+  tls: {{ .Values.service.dot.ports.dot.targetPort }}
+  {{- end }}
+  {{- if .Values.service.main.enabled }}
+  http: {{ .Values.service.main.ports.main.targetPort }}
+  {{- end }}
+  {{- if .Values.service.https.enabled }}
+  https: {{ .Values.service.https.ports.https.targetPort }}
+  {{- end }}
 
 {{- if .Values.certFile }}
 certFile: {{ .Values.certFile }}
@@ -68,17 +65,16 @@ certFile: {{ .Values.certFile }}
 keyFile: {{ .Values.keyFile }}
 {{- end }}
 
-{{- if .Values.logLevel }}
-logLevel: {{ .Values.logLevel }}
-{{- end }}
-
-{{- if .Values.logTimestamp }}
-logTimestamp: {{ .Values.logTimestamp }}
-{{- end }}
-
-{{- if .Values.logPrivacy }}
-logPrivacy: {{ .Values.logPrivacy }}
-{{- end }}
+log:
+  {{- if .Values.logLevel }}
+  level: {{ .Values.logLevel }}
+  {{- end }}
+  {{- if .Values.logTimestamp }}
+  timestamp: {{ .Values.logTimestamp }}
+  {{- end }}
+  {{- if .Values.logPrivacy }}
+  privacy: {{ .Values.logPrivacy }}
+  {{- end }}
 
 {{- if .Values.dohUserAgent }}
 dohUserAgent: {{ .Values.dohUserAgent }}
