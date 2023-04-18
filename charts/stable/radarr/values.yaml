@@ -11,12 +11,6 @@ persistence:
   config:
     enabled: true
     mountPath: /config
-cnpg:
-  main:
-    enabled: true
-
-    database: radarr
-    user: radarr
 portal:
   open:
     enabled: true
@@ -49,15 +43,3 @@ workload:
 
           env:
             RADARR__PORT: "{{ .Values.service.main.ports.main.port }}"
-            RADARR__AUTHENTICATION_METHOD: ""
-            RADARR__POSTGRES_PORT: 5432
-            RADARR__POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
-            RADARR__POSTGRES_MAIN_DB: "{{ .Values.cnpg.main.database }}"
-            RADARR__POSTGRES_HOST:
-              secretKeyRef:
-                name: cnpg-main-urls
-                key: host
-            RADARR__POSTGRES_PASSWORD:
-              secretKeyRef:
-                name: cnpg-main-user
-                key: password

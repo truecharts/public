@@ -11,12 +11,6 @@ persistence:
   config:
     enabled: true
     mountPath: /config
-cnpg:
-  main:
-    enabled: true
-
-    database: lidarr
-    user: lidarr
 portal:
   open:
     enabled: true
@@ -50,14 +44,3 @@ workload:
           env:
             LIDARR__PORT: "{{ .Values.service.main.ports.main.port }}"
             LIDARR__AUTHENTICATION_METHOD: ""
-            LIDARR__POSTGRES_PORT: 5432
-            LIDARR__POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
-            LIDARR__POSTGRES_MAIN_DB: "{{ .Values.cnpg.main.database }}"
-            LIDARR__POSTGRES_HOST:
-              secretKeyRef:
-                name: cnpg-main-urls
-                key: host
-            LIDARR__POSTGRES_PASSWORD:
-              secretKeyRef:
-                name: cnpg-main-user
-                key: password

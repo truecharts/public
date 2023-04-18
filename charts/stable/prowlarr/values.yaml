@@ -11,12 +11,6 @@ persistence:
   config:
     enabled: true
     mountPath: /config
-cnpg:
-  main:
-    enabled: true
-
-    database: prowlarr
-    user: prowlarr
 portal:
   open:
     enabled: true
@@ -31,14 +25,3 @@ workload:
           env:
             PROWLARR__PORT: "{{ .Values.service.main.ports.main.port }}"
             PROWLARR__AUTHENTICATION_METHOD: ""
-            PROWLARR__POSTGRES_PORT: 5432
-            PROWLARR__POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
-            PROWLARR__POSTGRES_MAIN_DB: "{{ .Values.cnpg.main.database }}"
-            PROWLARR__POSTGRES_HOST:
-              secretKeyRef:
-                name: cnpg-main-urls
-                key: host
-            PROWLARR__POSTGRES_PASSWORD:
-              secretKeyRef:
-                name: cnpg-main-user
-                key: password

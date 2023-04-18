@@ -4,10 +4,6 @@ dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 12.4.20
-  - condition: postgresql.enabled
-    name: postgresql
-    repository: https://charts.truecharts.org/
-    version: 11.0.31
 deprecated: false
 description: "A fork of Sonarr to work with movies à la Couchpotato"
 home: https://truecharts.org/charts/stable/radarr
@@ -26,7 +22,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/radarr
   - https://github.com/Radarr/Radarr
 type: application
-version: 15.0.6
+version: 16.0.0
 annotations:
   truecharts.org/catagories: |
     - media
