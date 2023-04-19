@@ -50,6 +50,7 @@ workload:
     podSpec:
       containers:
         main:
+          imageSelector: image
           probes:
             liveness:
               type: tcp

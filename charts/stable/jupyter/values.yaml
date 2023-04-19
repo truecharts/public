@@ -58,6 +58,7 @@ workload:
     podSpec:
       containers:
         main:
+          imageSelector: image
           env:
             NB_UID: "{{ .Values.securityContext.container.PUID }}"
             NB_GID: "{{ .Values.securityContext.pod.fsGroup }}"

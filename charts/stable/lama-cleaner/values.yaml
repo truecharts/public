@@ -6,7 +6,6 @@ gpuImage:
   repository: tccr.io/truecharts/lama-cleaner-gpu
   tag: v0.26.1@sha256:14ee85f997664a5e638287609b7bff9829c65ead48ce445612ac258631f4fc7d
   pullPolicy: Always
-imageSelector: image
 lamacleaner:
   model: lama
   input: ""
@@ -44,3 +43,4 @@ workload:
       containers:
         main:
           command: lama-cleaner
+          imageSelector: image
