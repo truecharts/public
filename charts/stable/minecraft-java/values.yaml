@@ -50,7 +50,6 @@ j8j9Image:
   repository: tccr.io/truecharts/minecraft-java8-openj9
   tag: 2023.1.0@sha256:c0d6473a7d23fb5cd6fd4776c4d3346c8266a217ada91362b87029f63e677cb4
   pullPolicy: Always
-imageSelector: image
 service:
   main:
     ports:
@@ -81,6 +80,7 @@ workload:
     podSpec:
       containers:
         main:
+          imageSelector: image
           probes:
             liveness:
               enabled: true

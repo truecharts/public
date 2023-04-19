@@ -4,17 +4,6 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
-  - variable: imageSelector
-    group: "Container Image"
-    label: "Select Image"
-    schema:
-      type: string
-      default: "image"
-      enum:
-        - value: "image"
-          description: "Stable"
-        - value: "nightlyImage"
-          description: "Nightly"
 # Include{workload}
 # Include{workloadDeployment}
 
@@ -22,8 +11,17 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
+                                - variable: imageSelector
+                                  label: "Select Image"
+                                  schema:
+                                    type: string
+                                    default: "image"
+                                    enum:
+                                      - value: "image"
+                                        description: "Stable"
+                                      - value: "nightlyImage"
+                                        description: "Nightly"
                                 - variable: env
-                                  group: "App Configuration"
                                   label: "Image Environment"
                                   schema:
                                     additional_attrs: true

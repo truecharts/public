@@ -8,8 +8,6 @@ puppeteerImage:
   pullPolicy: IfNotPresent
   tag: 1.57.0-puppeteer@sha256:e02a6ca0408a5951cfdc71a835aa145b9f016db49bc411ff5aec74ffdedfec6f
 
-imageSelector: "image"
-
 service:
   main:
     ports:
@@ -23,6 +21,7 @@ workload:
     podSpec:
       containers:
         main:
+          imageSelector: "image"
           probes:
             liveness:
               path: "/metrics"

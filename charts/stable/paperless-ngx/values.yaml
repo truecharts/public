@@ -2,12 +2,14 @@ image:
   repository: tccr.io/truecharts/paperless-ng
   pullPolicy: IfNotPresent
   tag: 1.13.0@sha256:f8836b6d50f6dad48fc4692ede49c56275677f3d387be76e560e285123e0b8e1
+
 service:
   main:
     ports:
       main:
         targetPort: 8000
         port: 10140
+
 persistence:
   data:
     enabled: true
@@ -23,28 +25,43 @@ persistence:
 
 redis:
   enabled: true
-
   redisUsername: default
+
 cnpg:
   main:
     enabled: true
-
     user: paperless-ng
     database: paperless-ng
+
 portal:
   open:
     enabled: true
+
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
+
 workload:
   main:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              type: http
+              httpHeaders:
+                Host: localhost
+            startup:
+              type: http
+              httpHeaders:
+                Host: localhost
+            readiness:
+              type: http
+              httpHeaders:
+                Host: localhost
           env:
             PAPERLESS_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
             PAPERLESS_DATA_DIR: "/data/"

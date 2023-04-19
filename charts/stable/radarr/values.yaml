@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/radarr
   pullPolicy: IfNotPresent
-  tag: 4.3.2.6857@sha256:b51ca8472ed45f8979ef4bf86608449d620a7b698c718bbfc57dfbe20af8033a
+  tag: 4.4.4.7068@sha256:93c49f0b56ef596a21217e3a5b4d8bb00ff68efc08325f1101d65c24e3c2684e
 service:
   main:
     ports:
@@ -25,21 +25,16 @@ workload:
           probes:
             readiness:
               enabled: true
-              type: tcp
-              # FIXME: https://github.com/Radarr/Radarr/pull/8055
-              # Next release this will work
-              # type: http
-              # path: /ping
+              type: http
+              path: /ping
             liveness:
               enabled: true
-              type: tcp
-              # type: http
-              # path: /ping
+              type: http
+              path: /ping
             startup:
               enabled: true
-              type: tcp
-              # type: http
-              # path: /ping
+              type: http
+              path: /ping
 
           env:
             RADARR__PORT: "{{ .Values.service.main.ports.main.port }}"

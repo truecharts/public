@@ -94,7 +94,12 @@ archICEWMImage:
   repository: tccr.io/truecharts/rdesktop-arch-icewm
   tag: latest@sha256:e7c1e505662d3485d09bdde575df0ea150ae3893c8c3816390d157f5853612d1
   pullPolicy: Always
-imageSelector: image
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
 service:
   main:
     ports:

@@ -94,7 +94,6 @@ archICEWMImage:
   repository: tccr.io/truecharts/webtop-arch-icewm
   tag: latest@sha256:094c9bc41070551ab5a9e76ac33c294285865d0c5d844d11826a7647ad14a3fa
   pullPolicy: Always
-imageSelector: image
 service:
   main:
     ports:
@@ -119,6 +118,7 @@ workload:
     podSpec:
       containers:
         main:
+          imageSelector: image
           env:
             KEYBOARD: "en-us-qwerty"
             CUSTOM_PORT: "{{ .Values.service.main.ports.main.port }}"
