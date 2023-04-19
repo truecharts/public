@@ -62,9 +62,6 @@ workload:
               type: http
               httpHeaders:
                 Host: localhost
-          securityContext:
-            capabilities:
-              drop: []
           env:
             PAPERLESS_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
             PAPERLESS_DATA_DIR: "/data/"
