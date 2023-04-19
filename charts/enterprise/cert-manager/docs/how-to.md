@@ -6,6 +6,8 @@ This guide will walk you through setting up `cert-manager`, certificate manageme
 
 Ensure you have the `enterprise` train enabled for `TrueCharts` as discussed [here](https://truecharts.org/manual/SCALE/guides/getting-started/#adding-truecharts).
 
+Ensure you have traefik installed, required for Ingress.
+
 Search for cert-manager in the `Apps` menu | `Available Applications` tab and click **Install**.
 
 ## Cloudflare DNS-Provider
