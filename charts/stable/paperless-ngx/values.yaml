@@ -62,6 +62,10 @@ workload:
               type: http
               httpHeaders:
                 Host: localhost
+          securityContext:
+            capabilities:
+              add:
+                - SYS_PTRACE
           env:
             PAPERLESS_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
             PAPERLESS_DATA_DIR: "/data/"
