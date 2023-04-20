@@ -8,6 +8,7 @@ service:
       main:
         port: 8888
         targetPort: 8888
+        protocol: http
   bt-tcp:
     enabled: true
     ports:
@@ -38,3 +39,18 @@ securityContext:
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
