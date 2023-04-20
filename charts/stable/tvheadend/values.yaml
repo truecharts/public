@@ -38,12 +38,12 @@ workload:
           probes:
             liveness:
               type: tcp
-              path: /
+              path: {{ .Values.service.main.ports.main.port }}
             readiness:
               type: tcp
-              path: /
+              path: {{ .Values.service.main.ports.main.port }}
             startup:
               type: tcp
-              path: /
+              path: {{ .Values.service.main.ports.main.port }}
           env:
             RUN_OPTS: ""
