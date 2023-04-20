@@ -36,7 +36,7 @@ jobs:
         with:
           version: ${{ matrix.helm-version }}
 
-      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
+      - uses: actions/setup-python@57ded4d7d5e986d7296eab16560982c6dd7c923b # v4
         with:
           python-version: "3.10"
 
@@ -143,7 +143,7 @@ jobs:
         with:
           version: ${{ matrix.helm-version }}
 
-      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
+      - uses: actions/setup-python@57ded4d7d5e986d7296eab16560982c6dd7c923b # v4
         with:
           python-version: "3.10"
 
