@@ -20,6 +20,11 @@ persistence:
   media:
     enabled: true
     mountPath: "/media"
+  shm:
+    enabled: true
+    mountPath: "/dev/shm"
+    type: "emptyDir"
+    medium: "Memory"
   varrun:
     enabled: false
 
