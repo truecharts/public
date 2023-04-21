@@ -8,7 +8,6 @@ service:
       main:
         port: 8888
         targetPort: 8888
-        protocol: http
   bt-tcp:
     enabled: true
     ports:
@@ -46,11 +45,11 @@ workload:
         main:
           probes:
             liveness:
-              type: http
-              path: /
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.port }}"
             readiness:
-              type: http
-              path: /
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.port }}"
             startup:
-              type: http
-              path: /
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.port }}"
