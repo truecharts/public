@@ -12,7 +12,7 @@ objectData:
 */}}
 {{- define "tc.v1.common.lib.workload.jobSpec" -}}
   {{- $objectData := .objectData -}}
-  {{- $rootCtx := .rootCtx -}}
+  {{- $rootCtx := .rootCtx }}
 backoffLimit: {{ $objectData.backoffLimit | default 5 }}
 completionMode: {{ $objectData.completionMode | default "NonIndexed" }}
 completions: {{ $objectData.completions | default nil }}

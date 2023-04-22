@@ -134,7 +134,7 @@ podOptions:
   priorityClassName: ""
   runtimeClassName: ""
   automountServiceAccountToken: false
-  terminationGracePeriodSeconds: 120
+  terminationGracePeriodSeconds: 60
 
 # -- (docs/workload/README.md)
 workload:
@@ -195,7 +195,7 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: /var/run
-    mediume: Memory
+    medium: Memory
     targetSelectAll: true
   tmp:
     enabled: true
@@ -206,6 +206,7 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: /dev/shm
+    medium: Memory
     targetSelectAll: true
 
 persistenceList: []

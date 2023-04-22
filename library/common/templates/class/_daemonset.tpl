@@ -27,7 +27,7 @@ metadata:
     {{- . | nindent 4 }}
   {{- end }}
 spec:
-  {{- include "tc.v1.common.lib.workload.daemonsetSpec" (dict "rootCtx" $rootCtx "objectData" $objectData) | nindent 2 }}
+  {{- include "tc.v1.common.lib.workload.daemonsetSpec" (dict "rootCtx" $rootCtx "objectData" $objectData) | indent 2 }}
   selector:
     matchLabels:
       {{- include "tc.v1.common.lib.metadata.selectorLabels" (dict "rootCtx" $rootCtx "objectType" "pod" "objectName" $objectData.shortName) | trim | nindent 6 }}

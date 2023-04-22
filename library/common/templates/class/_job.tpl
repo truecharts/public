@@ -27,7 +27,7 @@ metadata:
     {{- . | nindent 4 }}
   {{- end }}
 spec:
-  {{- include "tc.v1.common.lib.workload.jobSpec" (dict "rootCtx" $rootCtx "objectData" $objectData) | nindent 2 }}
+  {{- include "tc.v1.common.lib.workload.jobSpec" (dict "rootCtx" $rootCtx "objectData" $objectData) | indent 2 }}
   template:
     metadata:
         {{- $labels := (mustMerge ($objectData.podSpec.labels | default dict)
