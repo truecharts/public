@@ -3,44 +3,46 @@ image:
   tag: 0.107.25@sha256:90e78953b5e15126b151ac655e37ad161bf5a6f10e2cdbb50da7f68166f57719
   pullPolicy: IfNotPresent
 
-# Those args are copied from the upstream Dockerfile.
-# Only port was added. So Adguard won't change port after initial setup
-args:
-  - --no-check-update
-  - --host
-  - "0.0.0.0"
-  - --config
-  - /opt/adguardhome/conf/AdGuardHome.yaml
-  - --work-dir
-  - /opt/adguardhome/work
-  - --port
-  - "{{ .Values.service.main.ports.main.port }}"
-
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-probes:
-  liveness:
-    type: HTTP
-    path: /
-  readiness:
-    type: HTTP
-    path: /
-  startup:
-    type: HTTP
-    path: /
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          args:
+            - --no-check-update
+            - --host
+            - "0.0.0.0"
+            - --config
+            - /opt/adguardhome/conf/AdGuardHome.yaml
+            - --work-dir
+            - /opt/adguardhome/work
+            - --port
+            - "{{ .Values.service.main.ports.main.port }}"
+          env: {}
 
 service:
   main:
     ports:
       main:
         port: 10232
-        protocol: HTTP
+        protocol: http
   dns-tcp:
     enabled: true
     ports:
@@ -53,7 +55,7 @@ service:
     ports:
       dns-udp:
         enabled: true
-        protocol: UDP
+        protocol: udp
         port: 53
         targetPort: 53
   dns-https:
@@ -61,7 +63,7 @@ service:
     ports:
       dns-https:
         enabled: true
-        protocol: HTTPS
+        protocol: https
         port: 10234
         targetPort: 443
   dns-https-udp:
@@ -69,7 +71,7 @@ service:
     ports:
       dns-https-udp:
         enabled: true
-        protocol: UDP
+        protocol: udp
         port: 10234
         targetPort: 443
   dns-crypt:
@@ -77,7 +79,7 @@ service:
     ports:
       dns-crypt:
         enabled: true
-        protocol: HTTP
+        protocol: http
         port: 5443
         targetPort: 5443
   dns-crypt-udp:
@@ -85,7 +87,7 @@ service:
     ports:
       dns-crypt-udp:
         enabled: true
-        protocol: UDP
+        protocol: udp
         port: 5443
         targetPort: 5443
   dns-quic-udp-1:
@@ -93,27 +95,28 @@ service:
     ports:
       dns-quic-udp-1:
         enabled: true
-        protocol: UDP
+        protocol: udp
         port: 784
         targetPort: 784
       dns-quic-udp-2:
         enabled: true
-        protocol: UDP
+        protocol: udp
         port: 853
         targetPort: 853
       dns-quic-udp-3:
         enabled: true
-        protocol: UDP
+        protocol: udp
         port: 8853
         targetPort: 8853
 
 persistence:
   config:
     enabled: true
-    mountPath: "/opt/adguardhome/conf"
+    mountPath: /opt/adguardhome/conf
   data:
     enabled: true
-    mountPath: "/opt/adguardhome/work"
+    mountPath: /opt/adguardhome/work
 
 portal:
-  enabled: true
+  open:
+    enabled: true

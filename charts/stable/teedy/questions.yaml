@@ -10,80 +10,69 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+
+                                      - variable: DOCS_ADMIN_EMAIL_INIT
+                                        label: "DOCS_ADMIN_EMAIL_INIT"
+                                        description: "Sets the DOCS_ADMIN_EMAIL_INIT env var"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: DOCS_ADMIN_PASSWORD_INIT
+                                        label: "DOCS_ADMIN_PASSWORD_INIT"
+                                        description: "Sets the DOCS_ADMIN_PASSWORD_INIT env var"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: DOCS_SMTP_USERNAME
+                                        label: "DOCS_SMTP_USERNAME"
+                                        description: "Sets the DOCS_SMTP_USERNAME env var"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: DOCS_SMTP_PASSWORD
+                                        label: "DOCS_SMTP_PASSWORD"
+                                        description: "Sets the DOCS_SMTP_PASSWORD env var"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: DOCS_DEFAULT_LANGUAGE
+                                        label: "DOCS_DEFAULT_LANGUAGE"
+                                        description: "Sets the DOCS_DEFAULT_LANGUAGE env var"
+                                        schema:
+                                          type: string
+                                          default: "eng"
+                                      - variable: DOCS_BASE_URL
+                                        label: "DOCS_BASE_URL"
+                                        description: "Sets the DOCS_BASE_URL env var"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: DOCS_SMTP_HOSTNAME
+                                        label: "DOCS_SMTP_HOSTNAME"
+                                        description: "Sets the DOCS_SMTP_HOSTNAME env var"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: DOCS_SMTP_PORT
+                                        label: "DOCS_SMTP_PORT"
+                                        description: "Sets the DOCS_SMTP_PORT env var"
+                                        schema:
+                                          type: int
+                                          default: 0
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DOCS_ADMIN_EMAIL_INIT
-          label: "DOCS_ADMIN_EMAIL_INIT"
-          description: "Sets the DOCS_ADMIN_EMAIL_INIT env var"
-          schema:
-            type: string
-            default: ""
-        - variable: DOCS_ADMIN_PASSWORD_INIT
-          label: "DOCS_ADMIN_PASSWORD_INIT"
-          description: "Sets the DOCS_ADMIN_PASSWORD_INIT env var"
-          schema:
-            type: string
-            default: ""
-        - variable: DOCS_SMTP_USERNAME
-          label: "DOCS_SMTP_USERNAME"
-          description: "Sets the DOCS_SMTP_USERNAME env var"
-          schema:
-            type: string
-            default: ""
-        - variable: DOCS_SMTP_PASSWORD
-          label: "DOCS_SMTP_PASSWORD"
-          description: "Sets the DOCS_SMTP_PASSWORD env var"
-          schema:
-            type: string
-            default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DOCS_DEFAULT_LANGUAGE
-          label: "DOCS_DEFAULT_LANGUAGE"
-          description: "Sets the DOCS_DEFAULT_LANGUAGE env var"
-          schema:
-            type: string
-            default: "eng"
-        - variable: DOCS_BASE_URL
-          label: "DOCS_BASE_URL"
-          description: "Sets the DOCS_BASE_URL env var"
-          schema:
-            type: string
-            default: ""
-        - variable: DOCS_SMTP_HOSTNAME
-          label: "DOCS_SMTP_HOSTNAME"
-          description: "Sets the DOCS_SMTP_HOSTNAME env var"
-          schema:
-            type: string
-            default: ""
-        - variable: DOCS_SMTP_PORT
-          label: "DOCS_SMTP_PORT"
-          description: "Sets the DOCS_SMTP_PORT env var"
-          schema:
-            type: int
-            default: 0
 # Include{containerConfig}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -132,16 +121,16 @@ questions:
                 schema:
                   type: int
                   default: 568
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 568
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-             - variable: fsGroup
+              - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:

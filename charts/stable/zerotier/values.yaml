@@ -2,31 +2,13 @@ image:
   repository: tccr.io/truecharts/zerotier
   pullPolicy: IfNotPresent
   tag: 1.10.3@sha256:82a61fbd25c151296832362f602a948b0ea18423196596c9e8c64c589caaf409
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-  capabilities:
-    add:
-      - NET_ADMIN
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-secretEnv:
-  ZEROTIER_API_SECRET: ""
-  ZEROTIER_IDENTITY_PUBLIC: ""
-  ZEROTIER_IDENTITY_SECRET: ""
-
 service:
   main:
     ports:
       main:
-        protocol: UDP
+        protocol: udp
         targetPort: 9993
         port: 10190
-
 persistence:
   config:
     enabled: true
@@ -38,6 +20,31 @@ persistence:
     mountPath: /dev/net/tun
     hostPathType: ""
     readOnly: false
-
 portal:
-  enabled: false
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    capabilities:
+      add:
+        - NET_ADMIN
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            ZEROTIER_API_SECRET: ""
+            ZEROTIER_IDENTITY_PUBLIC: ""
+            ZEROTIER_IDENTITY_SECRET: ""

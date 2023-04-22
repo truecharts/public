@@ -1,20 +1,14 @@
 {{/* Define the secrets */}}
 {{- define "redmine.secrets" -}}
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: redmine-secrets
-{{- $redmineprevious := lookup "v1" "Secret" .Release.Namespace "redmine-secrets" }}
-{{- $secret_key_base := "" }}
+{{- $secretName := (printf "%s-redmine-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+{{- $redmineprevious := lookup "v1" "Secret" .Release.Namespace $secretName }}
+enabled: true
 data:
-  {{- if $redmineprevious}}
-  REDMINE_SECRET_KEY_BASE: {{ index $redmineprevious.data "REDMINE_SECRET_KEY_BASE" }}
+  {{- if $redmineprevious }}
+  REDMINE_SECRET_KEY_BASE: {{ index $redmineprevious.data "REDMINE_SECRET_KEY_BASE" | b64dec }}
   {{- else }}
   {{- $secret_key_base := randAlphaNum 80 }}
-  REDMINE_SECRET_KEY_BASE: {{ $secret_key_base | b64enc }}
+  REDMINE_SECRET_KEY_BASE: {{ $secret_key_base }}
   {{- end }}
 
 {{- end -}}

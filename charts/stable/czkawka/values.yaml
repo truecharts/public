@@ -4,18 +4,18 @@ image:
   tag: 23.02.3@sha256:ac64a6cd11fce855ac3b5d6af2c8768d4e53fa7631a887edbfc41de11bb63dcb
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
     ports:
       main:
         port: 10258
+        protocol: http
         targetPort: 5800
   vnc:
     enabled: true
@@ -23,14 +23,8 @@ service:
       vnc:
         enabled: true
         port: 10259
+        protocol: tcp
         targetPort: 5900
-
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-czkawka'
-
-secretEnv:
-  VNC_PASSWORD: ""
 
 czkawka:
   KEEP_APP_RUNNING: false
@@ -49,16 +43,38 @@ configmap:
       DISPLAY_WIDTH: "{{ .Values.czkawka.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.czkawka.DISPLAY_HEIGHT }}"
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            VNC_PASSWORD: ""
+          envFrom:
+            - configMapRef:
+                name: "czkawka"
+
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
   storage:
     enabled: true
-    mountPath: "/storage"
+    mountPath: /storage
   trash:
     enabled: true
-    mountPath: "/trash"
+    mountPath: /trash
 
 portal:
-  enabled: true
+  open:
+    enabled: true

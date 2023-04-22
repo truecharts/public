@@ -2,34 +2,39 @@ image:
   repository: tccr.io/truecharts/mosdns
   pullPolicy: IfNotPresent
   tag: 5.1.1@sha256:ef972ef1e903ad1356921af940b7d54ba820c1a99c1ead1daff443c806126b59
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         targetPort: 53
         port: 53
-  dns-udp:
-    enabled: true
-    ports:
       dns-upd:
         enabled: true
-        protocol: UDP
+        protocol: udp
         targetPort: 53
         port: 53
-
 persistence:
   data:
     enabled: true
     mountPath: "/etc/mosdns"
-
 portal:
-  enabled: false
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp

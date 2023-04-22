@@ -10,50 +10,38 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: COOKIE_SECRET
+                                        label: "COOKIE_SECRET"
+                                        description: "Sets the COOKIE_SECRET env var"
+                                        schema:
+                                          type: string
+                                          default: "supersecretchangeme"
+                                      - variable: OPEN_PROFILES
+                                        label: "OPEN_PROFILES"
+                                        description: "Sets the OPEN_PROFILES env var"
+                                        schema:
+                                          type: string
+                                          default: "true"
+                                      - variable: OPEN_REGISTRATIONS
+                                        label: "OPEN_REGISTRATIONS"
+                                        description: "Sets the OPEN_REGISTRATIONS env var"
+                                        schema:
+                                          type: string
+                                          default: "true"
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: COOKIE_SECRET
-          label: "COOKIE_SECRET"
-          description: "Sets the COOKIE_SECRET env var"
-          schema:
-            type: string
-            default: "supersecretchangeme"
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: OPEN_PROFILES
-          label: "OPEN_PROFILES"
-          description: "Sets the OPEN_PROFILES env var"
-          schema:
-            type: string
-            default: "true"
-        - variable: OPEN_REGISTRATIONS
-          label: "OPEN_REGISTRATIONS"
-          description: "Sets the OPEN_REGISTRATIONS env var"
-          schema:
-            type: string
-            default: "true"
 # Include{containerConfig}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -110,16 +98,16 @@ questions:
                 schema:
                   type: int
                   default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-             - variable: fsGroup
+              - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:

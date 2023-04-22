@@ -113,6 +113,37 @@ questions:
                   type: string
                   required: true
                   default: ""
+  - variable: additionalBootstrapDns
+    group: App Configuration
+    label: Additional Bootstrap DNS
+    schema:
+      type: list
+      show_if: [[ "bootstrapDns", "!=", {"upstream": "", "ips": []} ]]
+      default: []
+      items:
+        - variable: additionalBootstrapDnsEntry
+          label: Additional Bootstrap DNS Entry
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: upstream
+                label: Upstream
+                schema:
+                  type: string
+                  default: ""
+              - variable: ips
+                label: IPs
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: ipEntry
+                      label: IP Entry
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
   - variable: filtering
     group: App Configuration
     label: Filtering
@@ -408,12 +439,22 @@ questions:
           schema:
             type: string
             default: 2s
-        - variable: failStartOnListError
-          label: Fail Start on List Error
-          description: Fail to start if at least one list can't be downloaded or opened
+        - variable: startStrategy
+          label: Start Strategy
+          description: |
+            blocking: all blocking lists will be loaded before DNS resolution starts.</br>
+            failOnError: like blocking but blocky will shut down if any download fails.</br>
+            fast: DNS resolution starts immediately without blocking which will be enabled after list load is completed
           schema:
-            type: boolean
-            default: false
+            type: string
+            default: blocking
+            enum:
+              - value: blocking
+                description: Blocking
+              - value: failOnError
+                description: Fail On Error
+              - value: fast
+                description: Fast
         - variable: processingConcurrency
           label: Processing Concurrency
           description: Sets how many list-groups can be processed at the same time
@@ -682,6 +723,7 @@ questions:
                   type: string
                   default: ""
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: Main Service

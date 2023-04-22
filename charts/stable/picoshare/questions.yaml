@@ -10,59 +10,55 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PS_SHARED_SECRET
+                                        label: "PS_SHARED_SECRET"
+                                        description: "Secret Key for Web Console."
+                                        schema:
+                                          type: string
+                                          required: true
+                                          private: true
+                                          default: ""
+                                      - variable: LITESTREAM_BUCKET
+                                        label: "LITESTREAM_BUCKET"
+                                        description: "If you specify settings for a Litestream-compatible cloud storage location, PicoShare will automatically replicate your data."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: LITESTREAM_ENDPOINT
+                                        label: "LITESTREAM_ENDPOINT"
+                                        description: "If you specify settings for a Litestream-compatible cloud storage location, PicoShare will automatically replicate your data."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: LITESTREAM_ACCESS_KEY_ID
+                                        label: "LITESTREAM_ACCESS_KEY_ID"
+                                        description: "If you specify settings for a Litestream-compatible cloud storage location, PicoShare will automatically replicate your data."
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: LITESTREAM_SECRET_ACCESS_KEY
+                                        label: "LITESTREAM_SECRET_ACCESS_KEY"
+                                        description: "If you specify settings for a Litestream-compatible cloud storage location, PicoShare will automatically replicate your data."
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PS_SHARED_SECRET
-          label: "PS_SHARED_SECRET"
-          description: "Secret Key for Web Console."
-          schema:
-            type: string
-            required: true
-            private: true
-            default: ""
-        - variable: LITESTREAM_BUCKET
-          label: "LITESTREAM_BUCKET"
-          description: "If you specify settings for a Litestream-compatible cloud storage location, PicoShare will automatically replicate your data."
-          schema:
-            type: string
-            default: ""
-        - variable: LITESTREAM_ENDPOINT
-          label: "LITESTREAM_ENDPOINT"
-          description: "If you specify settings for a Litestream-compatible cloud storage location, PicoShare will automatically replicate your data."
-          schema:
-            type: string
-            default: ""
-        - variable: LITESTREAM_ACCESS_KEY_ID
-          label: "LITESTREAM_ACCESS_KEY_ID"
-          description: "If you specify settings for a Litestream-compatible cloud storage location, PicoShare will automatically replicate your data."
-          schema:
-            type: string
-            private: true
-            default: ""
-        - variable: LITESTREAM_SECRET_ACCESS_KEY
-          label: "LITESTREAM_SECRET_ACCESS_KEY"
-          description: "If you specify settings for a Litestream-compatible cloud storage location, PicoShare will automatically replicate your data."
-          schema:
-            type: string
-            private: true
-            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -111,16 +107,16 @@ questions:
                 schema:
                   type: int
                   default: 568
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 568
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-             - variable: fsGroup
+              - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:

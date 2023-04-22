@@ -2,23 +2,13 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/plex-utills
   tag: latest@sha256:af9228b2674dc2444b709bba029e8397006362afd4f8ee4b0f0fd430c13d54fb
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
 service:
   main:
     ports:
       main:
         port: 10380
-        protocol: HTTP
+        protocol: http
         targetPort: 80
-
 persistence:
   config:
     enabled: true
@@ -29,6 +19,12 @@ persistence:
   plexlibrary:
     enabled: true
     mountPath: /films
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0

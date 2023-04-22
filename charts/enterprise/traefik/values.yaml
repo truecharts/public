@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/traefik
   # defaults to appVersion
-  tag: 2.9.8@sha256:4a2d3dda380990d825532e661b42457fc9871061dbc22b310468616378214a2e
+  tag: 2.9.9@sha256:4b9750e70b54df2a0c39c3262fe2963815a0304b7982fb8f80d0782a8e8021fa
   pullPolicy: IfNotPresent
 
 workload:
@@ -144,8 +144,6 @@ globalArguments:
 # All available options available on https://docs.traefik.io/reference/static-configuration/cli/
 ## Use curly braces to pass values: `helm install --set="additionalArguments={--providers.kubernetesingress.ingressclass=traefik-internal,--log.level=DEBUG}"`
 additionalArguments:
-  - "--metrics.prometheus"
-  - "--ping"
   - "--serverstransport.insecureskipverify=true"
   - "--providers.kubernetesingress.allowexternalnameservices=true"
 

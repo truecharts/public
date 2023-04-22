@@ -2,17 +2,7 @@ image:
   repository: tccr.io/truecharts/watchyourlan
   tag: 0.9.1@sha256:74936b9ab2075ba39e65356aa8419bfd0484d6e91d062f14456c4ba3a2c47253
   pullPolicy: IfNotPresent
-
 hostNetwork: true
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
 watchyourlan:
   gui_ip: "0.0.0.0"
   interfaces:
@@ -20,39 +10,46 @@ watchyourlan:
   theme: darkly
   timeout: 300
   shoutrrr_url: ""
-
-env:
-  GUIPORT: "{{ .Values.service.main.ports.main.port }}"
-  DBPATH: /data/db.sqlite
-  # User Defined
-  GUIIP: "{{ .Values.watchyourlan.gui_ip }}"
-  IFACE: '{{ join " " .Values.watchyourlan.interfaces }}'
-  THEME: "{{ .Values.watchyourlan.theme }}"
-  TIMEOUT: "{{ .Values.watchyourlan.timeout }}"
-  SHOUTRRR_URL: "{{ .Values.watchyourlan.shoutrrr_url }}"
-
-probes:
-  liveness:
-    type: HTTP
-    path: /
-  readiness:
-    type: HTTP
-    path: /
-  startup:
-    type: HTTP
-    path: /
-
 service:
   main:
     ports:
       main:
         port: 10355
-        protocol: HTTP
-
+        protocol: http
 persistence:
   data:
     enabled: true
     mountPath: "/data"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            GUIPORT: "{{ .Values.service.main.ports.main.port }}"
+            DBPATH: /data/db.sqlite
+            # User Defined
+            GUIIP: "{{ .Values.watchyourlan.gui_ip }}"
+            IFACE: '{{ join " " .Values.watchyourlan.interfaces }}'
+            THEME: "{{ .Values.watchyourlan.theme }}"
+            TIMEOUT: "{{ .Values.watchyourlan.timeout }}"
+            SHOUTRRR_URL: "{{ .Values.watchyourlan.shoutrrr_url }}"

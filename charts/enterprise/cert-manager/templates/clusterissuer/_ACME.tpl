@@ -47,7 +47,7 @@ spec:
           role: {{ .role }}
           {{- end }}
           secretAccessKeySecretRef:
-            name: prod-route53-credentials-secret
+            name: {{ $issuerSecretName }}
             key: route53-secret-access-key
       {{- else if eq .type "akamai" }}
         akamai:

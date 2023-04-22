@@ -34,6 +34,12 @@ data:
     ---
     theme: {{ default "light" .Values.theme }}
     default_redirection_url: {{ default (printf "https://www.%s" .Values.domain) .Values.default_redirection_url }}
+    ntp:
+      address:  {{ default "time.cloudflare.com:123" .Values.ntp.address }}
+      version: {{ default 4 .Values.ntp.version }}
+      max_desync: {{ default "3s" .Values.ntp.max_desync }}
+      disable_startup_check: {{ default false .Values.ntp.disable_startup_check }}
+      disable_failure: {{ default true .Values.ntp.disable_failure }}
     server:
       host: 0.0.0.0
       port: {{ default 9091 .Values.server.port }}

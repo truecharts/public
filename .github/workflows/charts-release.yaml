@@ -15,16 +15,16 @@ jobs:
   release-helm:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:44047909bbf54cb1ce3551ae0b342244a5bdcd62562a7f2f07caad4bf8856ee4
+      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:1d1f3ec0f27e03028602ae9388340704e0b19db31322a3ce7275a0df94b0580c
     steps:
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 1
           
       - name: Checkout Helm-Staging
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
           fetch-depth: 1
           repository: truecharts/helm-staging
@@ -60,7 +60,7 @@ jobs:
     outputs:
       ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
     container:
-      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:44047909bbf54cb1ce3551ae0b342244a5bdcd62562a7f2f07caad4bf8856ee4
+      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:1d1f3ec0f27e03028602ae9388340704e0b19db31322a3ce7275a0df94b0580c
     steps:
       - name: Install Kubernetes tools
         uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
@@ -79,7 +79,7 @@ jobs:
           helm repo update
 
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
@@ -111,7 +111,7 @@ jobs:
           find . -name '*.sh' | xargs chmod +x
 
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
@@ -226,7 +226,7 @@ jobs:
         
 
       - name: Checkout Catalog
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:

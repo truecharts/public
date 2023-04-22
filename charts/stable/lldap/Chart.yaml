@@ -1,0 +1,32 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.4.21
+deprecated: false
+description: Lightweight ldap server for authentication and user management
+home: https://truecharts.org/charts/stable/lldap
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/lldap.png
+keywords:
+  - lldap
+  - ldap
+  - authentication
+  - auth
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: lldap
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/lldap
+  - https://github.com/nitnelave/lldap
+type: application
+version: 1.0.4
+annotations:
+  truecharts.org/catagories: |
+    - ldap
+    - auth
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

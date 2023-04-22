@@ -26,6 +26,12 @@ Create a new entry under `Configure L2 Advertisements`.
 
 _For users with VLANs or multiple subnets, you may reference multiple address pool objects under a single L2 Advertisement entry as needed._
 
+:::info
+
+Once installed, MetalLB will always show as Stopped.
+
+:::
+
 ## 2. Disable SCALE's Default Loadbalancer
 
 With MetalLB installed and configured, you must now disable SCALE's default loadbalancer.

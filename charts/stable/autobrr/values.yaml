@@ -7,46 +7,43 @@ service:
   main:
     ports:
       main:
-        protocol: HTTP
         port: 7474
+        protocol: http
         targetPort: 7474
 
-probes:
-  liveness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - /bin/sh
-          - -c
-          - curl --fail localhost:7474/
-      failureThreshold: 5
-      initialDelaySeconds: 60
-      periodSeconds: 10
-      successThreshold: 1
-      timeoutSeconds: 10
-  readiness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - /bin/sh
-          - -c
-          - curl --fail localhost:7474/
-      failureThreshold: 5
-      initialDelaySeconds: 60
-      periodSeconds: 10
-      successThreshold: 1
-      timeoutSeconds: 10
-  startup:
-    enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - curl --fail localhost:7474/
+            readiness:
+              enabled: true
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - curl --fail localhost:7474/
+            startup:
+              enabled: true
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - curl --fail localhost:7474/
 
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
 
 portal:
-  enabled: true
+  open:
+    enabled: true

@@ -2,7 +2,6 @@ image:
   repository: tccr.io/truecharts/postgresql
   pullPolicy: IfNotPresent
   tag: 14.7.0@sha256:f71c97329aa3bdcd7d9fac73596b74348bee81499a6e132e00045b3cf358cc06
-
 workload:
   main:
     enabled: false
@@ -17,11 +16,9 @@ workload:
               enabled: false
             startup:
               enabled: false
-
 portal:
   open:
     enabled: false
-
 service:
   main:
     enabled: false
@@ -29,7 +26,6 @@ service:
       main:
         enabled: false
         port: 9999
-
 cnpg:
   main:
     enabled: false

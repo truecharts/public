@@ -9,9 +9,9 @@ jobs:
     name: "prune old releases"
     steps:
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
           fetch-depth: 0
-      - uses: actions/delete-package-versions@ba4d22f25141387e5ab82cfec079de6d2df96815 # v4
+      - uses: actions/delete-package-versions@0d39a63126868f5eefaa47169615edd3c0f61e20 # v4
         with:
           min-versions-to-keep: 200

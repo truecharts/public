@@ -3,29 +3,46 @@ image:
   pullPolicy: IfNotPresent
   tag: 23.2.9@sha256:e31029c78b69a0cea6b2f10c29db49199141acd6721779ca8d6e2b6939cd295c
 
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
 
 service:
   main:
     ports:
       main:
         port: 10293
-        protocol: HTTP
+        protocol: http
         targetPort: 5006
 
 persistence:
   server-files:
     enabled: true
-    mountPath: "/app/server-files"
+    mountPath: /app/server-files
   user-files:
     enabled: true
-    mountPath: "/app/user-files"
+    mountPath: /app/user-files
 
 portal:
-  enabled: true
+  open:
+    enabled: true

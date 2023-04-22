@@ -29,7 +29,7 @@ jobs:
     steps:
       - name: Get branch name
         id: branch-name
-        uses: tj-actions/branch-names@eee8675bd61ec38bcfbfedd504d8473292ba649e # v6.4
+        uses: tj-actions/branch-names@2e5354c6733793113f416314375826df030ada23 # v6.5
 
       - name: Save PR data to file
         env:
@@ -53,7 +53,7 @@ jobs:
       addedOrModifiedCharts: ${{ steps.collect-changes.outputs.addedOrModifiedCharts }}
     steps:
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
 
       - name: Collect changes
         id: collect-changes

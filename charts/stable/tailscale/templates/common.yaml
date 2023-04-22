@@ -1,11 +1,17 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
-{{/* Render secret */}}
-{{- include "tailscale.secret" . }}
+{{/* Render configmap for tailscale */}}
+{{- $configmap := include "tailscale.config" . | fromYaml -}}
+{{- if $configmap -}}
+  {{- $_ := set .Values.configmap "tailscale-config" $configmap -}}
+{{- end -}}
 
-{{/* Render config */}}
-{{- include "tailscale.config" . }}
+{{/* Render secret for tailscale */}}
+{{- $secret := include "tailscale.secret" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "tailscale-secret" $secret -}}
+{{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

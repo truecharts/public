@@ -1,9 +1,9 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{- $newArgs := (include "lama.args" . | fromYaml) }}
-{{- $args := concat .Values.args $newArgs.args }}
-{{- $_ := set .Values "args" $args -}}
+{{- $args := concat ((get .Values.workload.main.podSpec.containers.main "args") | default list) $newArgs.args }}
+{{- $_ := set .Values.workload.main.podSpec.containers.main "args" $args -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

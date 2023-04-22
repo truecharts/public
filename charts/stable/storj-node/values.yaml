@@ -2,24 +2,6 @@ image:
   repository: tccr.io/truecharts/storj-node
   tag: 1.71.2@sha256:0fe959e73dd6fecbb4ffece262bf61a63914cd354e05b61cbe6caa7eec43342b
   pullPolicy: IfNotPresent
-
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-secretEnv:
-  WALLET: "walletaddress"
-
-env:
-  SETUP: true
-  EMAIL: ""
-  ADDRESS: ""
-  STORAGE: "500GB"
-
 service:
   main:
     ports:
@@ -31,7 +13,7 @@ service:
     ports:
       coretcp:
         enabled: true
-        protocol: TCP
+        protocol: tcp
         port: 28967
         targetPort: 28967
   coreudp:
@@ -39,10 +21,9 @@ service:
     ports:
       coreudp:
         enabled: true
-        protocol: UDP
+        protocol: udp
         port: 28967
         targetPort: 28967
-
 persistence:
   identity:
     enabled: true
@@ -50,6 +31,23 @@ persistence:
   storage:
     enabled: true
     mountPath: "/app/config"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SETUP: true
+            EMAIL: ""
+            ADDRESS: ""
+            STORAGE: "500GB"
+            WALLET: "walletaddress"

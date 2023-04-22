@@ -3,7 +3,7 @@ appVersion: "7.0.8"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.2.28
+    version: 12.4.21
 deprecated: false
 description: Open source, advanced key-value store.
 home: https://truecharts.org/charts/dependency/redis
@@ -20,11 +20,10 @@ maintainers:
 name: redis
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/dependency/redis
-  - https://hub.docker.com/r/bitnami/redis
   - https://github.com/bitnami/bitnami-docker-redis
   - http://redis.io/
 type: application
-version: 6.0.17
+version: 6.0.30
 annotations:
   truecharts.org/catagories: |
     - database
