@@ -37,6 +37,7 @@
                       description: Authentication Credentials
                       schema:
                         type: string
+                        show_if: [["username", "!=", ""]]
                         default: ""
                         required: true
               - variable: tailscale

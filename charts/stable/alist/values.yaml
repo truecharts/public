@@ -4,24 +4,42 @@ image:
   tag: 3.12.2@sha256:5e31a45b1291a1efb2c87f635c8efac0bf7698be3fc8db4b5e85b520377328eb
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
     ports:
       main:
         targetPort: 5244
+        protocol: http
         port: 10167
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
 
 persistence:
   data:
     enabled: true
-    mountPath: "/opt/alist/data"
+    mountPath: /opt/alist/data
 
 portal:
-  enabled: true
+  open:
+    enabled: true

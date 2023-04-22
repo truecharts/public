@@ -1,7 +1,11 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
-{{- include "gsm.secret" . -}}
+{{/* Render secrets for discordgsm */}}
+{{- $secrets := include "gsm.secret" . | fromYaml -}}
+{{- if $secrets -}}
+{{- $_ := set .Values.secret "gsm-secret" $secrets -}}
+{{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

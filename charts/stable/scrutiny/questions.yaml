@@ -10,37 +10,33 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: COLLECTOR_CRON_SCHEDULE
+                                        label: "COLLECTOR_CRON_SCHEDULE"
+                                        description: "COLLECTOR_CRON_SCHEDULE"
+                                        schema:
+                                          type: string
+                                          default: "0 0 * * *"
+                                      - variable: COLLECTOR_HOST_ID
+                                        label: "COLLECTOR_HOST_ID"
+                                        description: "COLLECTOR_HOST_ID"
+                                        schema:
+                                          type: string
+                                          default: "TrueNAS Scale"
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: COLLECTOR_CRON_SCHEDULE
-          label: "COLLECTOR_CRON_SCHEDULE"
-          description: "COLLECTOR_CRON_SCHEDULE"
-          schema:
-            type: string
-            default: "0 0 * * *"
-        - variable: COLLECTOR_HOST_ID
-          label: "COLLECTOR_HOST_ID"
-          description: "COLLECTOR_HOST_ID"
-          schema:
-            type: string
-            default: "TrueNAS Scale"
 # Include{containerConfig}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -97,16 +93,16 @@ questions:
                 schema:
                   type: int
                   default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-             - variable: fsGroup
+              - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:

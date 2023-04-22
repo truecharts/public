@@ -8,12 +8,14 @@ service:
     ports:
       main:
         port: 6767
+        protocol: http
         targetPort: 6767
 
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
 
 portal:
-  enabled: true
+  open:
+    enabled: true

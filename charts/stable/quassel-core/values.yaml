@@ -2,31 +2,6 @@ image:
   repository: tccr.io/truecharts/quassel-core
   pullPolicy: IfNotPresent
   tag: v0.14.0@sha256:a6b2caabbb6afde2840f7b6ff1c667b065692dc922fa873ffc4fdbfe4c99866c
-
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-env:
-  DB_BACKEND: "PostgreSQL"
-  DB_PGSQL_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
-  DB_PGSQL_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
-  DB_PGSQL_PORT: 5432
-  AUTH_AUTHENTICATOR: "Database"
-  RUN_OPTS: "--config-from-environment"
-  DB_PGSQL_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  DB_PGSQL_HOSTNAME:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-
 service:
   main:
     ports:
@@ -40,16 +15,48 @@ service:
         enabled: true
         targetPort: 10113
         port: 10113
-
 persistence:
   varrun:
     enabled: true
+cnpg:
+  main:
+    enabled: true
 
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: quassel-core
-  postgresqlDatabase: quassel-core
-
+    user: quassel-core
+    database: quassel-core
 portal:
-  enabled: false
+  open:
+    enabled: false
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            DB_BACKEND: "PostgreSQL"
+            DB_PGSQL_USERNAME: "{{ .Values.cnpg.main.user }}"
+            DB_PGSQL_DATABASE: "{{ .Values.cnpg.main.database }}"
+            DB_PGSQL_PORT: 5432
+            AUTH_AUTHENTICATOR: "Database"
+            RUN_OPTS: "--config-from-environment"
+            DB_PGSQL_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            DB_PGSQL_HOSTNAME:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host

@@ -11,8 +11,30 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ALLOWED_NETWORKS
+                                        label: Allowed Networks
+                                        description: Networks allowed to connect to plex. Add your local network IP to this list
+                                        schema:
+                                          type: string
+                                          default: 172.16.0.0/12,10.0.0.0/8,192.168.0.0/16
+                                      - variable: PLEX_CLAIM
+                                        label: Plex Claim Token
+                                        description: Claim token to use to register the plex server (Max. 4 minutes old!). You can obtain a claim token to login your server to your plex account by visiting https://www.plex.tv/claim.
+                                        schema:
+                                          type: string
+                                          default: ""
+
 # Include{containerBasic}
 # Include{containerAdvanced}
+
 
   - variable: plex
     group: App Configuration
@@ -42,34 +64,10 @@ questions:
           schema:
             type: boolean
             default: true
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ALLOWED_NETWORKS
-          label: Allowed Networks
-          description: Networks allowed to connect to plex. Add your local network IP to this list
-          schema:
-            type: string
-            default: 172.16.0.0/12,10.0.0.0/8,192.168.0.0/16
-        - variable: PLEX_CLAIM
-          label: Plex Claim Token
-          description: Claim token to use to register the plex server (Max. 4 minutes old!). You can obtain a claim token to login your server to your plex account by visiting https://www.plex.tv/claim.
-          schema:
-            type: string
-            default: ""
+
 # Include{containerConfig}
 # Include{serviceRoot}
-        - variable: main
-          label: Main Service
-          description: The Primary service on which the healthcheck runs, often the webUI
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -112,27 +110,27 @@ questions:
 # Include{ingressList}
 # Include{securityContextRoot}
 
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 568
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 568
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 568
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-        - variable: fsGroup
-          label: fsGroup
-          description: The group that should own ALL storage.
-          schema:
-            type: int
-            default: 568
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
 
 # Include{resources}
 # Include{advanced}

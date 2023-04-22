@@ -4,12 +4,28 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
 
 service:
   main:
@@ -21,16 +37,17 @@ service:
 persistence:
   data:
     enabled: true
-    mountPath: "/app/Data"
+    mountPath: /app/Data
   logs:
     enabled: true
-    mountPath: "/app/Logs"
+    mountPath: /app/Logs
   temp:
     enabled: true
-    mountPath: "/temp"
+    mountPath: /temp
   media:
     enabled: true
-    mountPath: "/media"
+    mountPath: /media
 
 portal:
-  enabled: true
+  open:
+    enabled: true

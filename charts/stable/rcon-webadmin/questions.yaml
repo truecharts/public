@@ -10,37 +10,39 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: RWA_USERNAME
+                                        label: RWA USERNAME
+                                        description: Sets the initial user's username for the web interface.
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: RWA_PASSWORD
+                                        label: RWA PASSWORD
+                                        description: Sets the initial user's password for the web interface.
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          private: true
+                                          required: true
+                                      - variable: RWA_RCON_PASSWORD
+                                        label: RWA RCON PASSWORD
+                                        description: The password for the initial RCON server to control
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          private: true
+
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: secretEnv
-    group: App Configuration
-    label: Image Secrets
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: RWA_USERNAME
-          label: RWA USERNAME
-          description: Sets the initial user's username for the web interface.
-          schema:
-            type: string
-            default: ""
-        - variable: RWA_PASSWORD
-          label: RWA PASSWORD
-          description: Sets the initial user's password for the web interface.
-          schema:
-            type: string
-            default: ""
-            private: true
-            required: true
-        - variable: RWA_RCON_PASSWORD
-          label: RWA RCON PASSWORD
-          description: The password for the initial RCON server to control
-          schema:
-            type: string
-            default: ""
-            private: true
   - variable: rcon
     group: App Configuration
     label: RCON Configuration
@@ -136,13 +138,7 @@ questions:
                   default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
-        - variable: main
-          label: Main Service
-          description: The Primary service on which the healthcheck runs, often the webUI
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -215,28 +211,28 @@ questions:
 # Include{ingressTraefik}
 # Include{ingressList}
 
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 0
+# Include{securityContextRoot}
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-        - variable: fsGroup
-          label: fsGroup
-          description: The group that should own ALL storage.
-          schema:
-            type: int
-            default: 568
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
 
 # Include{resources}
 # Include{advanced}

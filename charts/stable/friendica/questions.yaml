@@ -10,57 +10,57 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: FRIENDICA_UPGRADE
+                                        label: "Friendica Force Upgrade"
+                                        description: "Force starting the Friendica update even it's the same version"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: FRIENDICA_ADMIN_MAIL
+                                        label: "Admin E-Mail"
+                                        description: "E-Mail address of the administrator."
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: FRIENDICA_URL
+                                        label: "Friendica URL"
+                                        description: "The Friendica complete URL including protocol, domain and subpath (example: https://friendica.local/sub/ )."
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: FRIENDICA_SITENAME
+                                        label: "Friendica Site Name"
+                                        description: "The Sitename of the Friendica server."
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: PHP_MEMORY_LIMIT
+                                        label: "PHP Memory Limit"
+                                        description: "This sets the maximum amount of memory in bytes that a script is allowed to allocate."
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "512M"
+                                      - variable: PHP_UPLOAD_LIMIT
+                                        label: "PHP Upload Limit"
+                                        description: "This sets the upload limit (post_max_size and upload_max_filesize) for big files."
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "512M"
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: FRIENDICA_UPGRADE
-          label: "Friendica Force Upgrade"
-          description: "Force starting the Friendica update even it's the same version"
-          schema:
-            type: boolean
-            default: false
-        - variable: FRIENDICA_ADMIN_MAIL
-          label: "Admin E-Mail"
-          description: "E-Mail address of the administrator."
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: FRIENDICA_URL
-          label: "Friendica URL"
-          description: "The Friendica complete URL including protocol, domain and subpath (example: https://friendica.local/sub/ )."
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: FRIENDICA_SITENAME
-          label: "Friendica Site Name"
-          description: "The Sitename of the Friendica server."
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: PHP_MEMORY_LIMIT
-          label: "PHP Memory Limit"
-          description: "This sets the maximum amount of memory in bytes that a script is allowed to allocate."
-          schema:
-            type: string
-            required: true
-            default: "512M"
-        - variable: PHP_UPLOAD_LIMIT
-          label: "PHP Upload Limit"
-          description: "This sets the upload limit (post_max_size and upload_max_filesize) for big files."
-          schema:
-            type: string
-            required: true
-            default: "512M"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -126,16 +126,16 @@ questions:
                 schema:
                   type: int
                   default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-             - variable: fsGroup
+              - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:

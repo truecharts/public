@@ -20,7 +20,7 @@ jobs:
       image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:1d1f3ec0f27e03028602ae9388340704e0b19db31322a3ce7275a0df94b0580c
     steps:
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 1
@@ -55,7 +55,7 @@ jobs:
           done
 
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
           repository: truecharts/website
           path: website
@@ -240,7 +240,7 @@ jobs:
           helm repo update
 
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 1
@@ -249,7 +249,7 @@ jobs:
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Checkout website
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
           fetch-depth: 1
           repository: truecharts/website
@@ -369,16 +369,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 1
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3
         with:
           node-version: 18
 
-      - uses: borales/actions-yarn@v4.2.0
+      - uses: borales/actions-yarn@97ba8bebfe5b549bb7999261698a52a81fd62f1b # v4.2.0
         with:
           cmd: install --frozen-lockfile
 

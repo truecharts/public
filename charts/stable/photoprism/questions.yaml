@@ -10,58 +10,46 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PHOTOPRISM_ADMIN_PASSWORD
+                                        label: "PHOTOPRISM_ADMIN_PASSWORD (First Install Only)"
+                                        description: "Initial admin password. **BE SURE TO CHANGE THIS!**"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          private: true
+                                          default: ""
+                                      - variable: PHOTOPRISM_ORIGINALS_PATH
+                                        label: "PHOTOPRISM_ORIGINALS_PATH"
+                                        description: "Photoprism originals path"
+                                        schema:
+                                          type: string
+                                          default: "/photoprism/originals"
+                                      - variable: PHOTOPRISM_IMPORT_PATH
+                                        label: "PHOTOPRISM_IMPORT_PATH"
+                                        description: "Photoprism import path"
+                                        schema:
+                                          type: string
+                                          default: "/photoprism/import"
+                                      - variable: PHOTOPRISM_PUBLIC
+                                        label: "PHOTOPRISM_PUBLIC"
+                                        description: "Disable authentication / password protection"
+                                        schema:
+                                          type: boolean
+                                          default: false
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PHOTOPRISM_ADMIN_PASSWORD
-          label: "PHOTOPRISM_ADMIN_PASSWORD (First Install Only)"
-          description: "Initial admin password. **BE SURE TO CHANGE THIS!**"
-          schema:
-            type: string
-            required: true
-            private: true
-            default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PHOTOPRISM_ORIGINALS_PATH
-          label: "PHOTOPRISM_ORIGINALS_PATH"
-          description: "Photoprism originals path"
-          schema:
-            type: string
-            default: "/photoprism/originals"
-        - variable: PHOTOPRISM_IMPORT_PATH
-          label: "PHOTOPRISM_IMPORT_PATH"
-          description: "Photoprism import path"
-          schema:
-            type: string
-            default: "/photoprism/import"
-        - variable: PHOTOPRISM_PUBLIC
-          label: "PHOTOPRISM_PUBLIC"
-          description: "Disable authentication / password protection"
-          schema:
-            type: boolean
-            default: false
 # Include{containerConfig}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -118,16 +106,16 @@ questions:
                 schema:
                   type: int
                   default: 568
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 568
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-             - variable: fsGroup
+              - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:

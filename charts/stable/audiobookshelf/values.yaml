@@ -3,22 +3,12 @@ image:
   tag: 2.2.15@sha256:76c2038e41ff1472530fe280f55d952bb5b67beefa8f93e95a7b2f73d7dc1ccc
   pullPolicy: IfNotPresent
 
-env:
-  AUDIOBOOKSHELF_UID: "{{ .Values.security.PUID }}"
-  AUDIOBOOKSHELF_GID: "{{ .Values.podSecurityContext.fsGroup }}"
-  PORT: "{{ .Values.service.main.ports.main.port }}"
-  TOKEN_SECRET:
-    secretKeyRef:
-      name: audiobookshelf-secrets
-      key: TOKEN_SECRET
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
@@ -26,24 +16,38 @@ service:
       main:
         port: 10223
 
-probes:
-  liveness:
-    path: "/ping"
-  readiness:
-    path: "/ping"
-  startup:
-    path: "/ping"
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/ping"
+            readiness:
+              path: "/ping"
+            startup:
+              path: "/ping"
+          env:
+            AUDIOBOOKSHELF_UID: "{{ .Values.securityContext.container.PUID }}"
+            AUDIOBOOKSHELF_GID: "{{ .Values.securityContext.pod.fsGroup }}"
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            TOKEN_SECRET:
+              secretKeyRef:
+                name: secrets
+                key: TOKEN_SECRET
 
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
   audiobooks:
     enabled: true
-    mountPath: "/audiobooks"
+    mountPath: /audiobooks
   metadata:
     enabled: true
-    mountPath: "/metadata"
+    mountPath: /metadata
 
 portal:
-  enabled: true
+  open:
+    enabled: true

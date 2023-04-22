@@ -10,23 +10,23 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: VNC_PASSWORD
+                                        label: "VNC_PASSWORD"
+                                        description: "Password needed to connect to the application's GUI. See the VNC Password section for more details."
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: VNC_PASSWORD
-          label: "VNC_PASSWORD"
-          description: "Password needed to connect to the application's GUI. See the VNC Password section for more details."
-          schema:
-            type: string
-            private: true
-            default: ""
   - variable: czkawka
     group: "App Configuration"
     label: "CzkawkaConfiguration"
@@ -74,15 +74,10 @@ questions:
                 schema:
                   type: boolean
                   default: false
+
 # Include{containerConfig}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -169,16 +164,16 @@ questions:
                 schema:
                   type: int
                   default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-             - variable: fsGroup
+              - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:

@@ -3,30 +3,18 @@ image:
   repository: tccr.io/truecharts/crafty-4
   tag: 4.0.20@sha256:08664178b0c8f70d6ba4a2cc726b3dc84ce5de07de3925b176015efa7cb026ad
 
-podSecurityContext:
-  runAsGroup: 1000
-  runAsUser: 1000
-
 securityContext:
-  readOnlyRootFilesystem: false
-
-probes:
-  liveness:
-    type: HTTPS
-    path: /
-  readiness:
-    type: HTTPS
-    path: /
-  startup:
-    type: HTTPS
-    path: /
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 1000
+    runAsUser: 1000
 
 service:
   main:
     ports:
       main:
         port: 10586
-        protocol: HTTPS
+        protocol: https
         targetPort: 8443
   redirects:
     enabled: true
@@ -34,7 +22,7 @@ service:
       redirects:
         enabled: true
         port: 10587
-        protocol: HTTPS
+        protocol: https
         targetPort: 8000
   minecraft:
     enabled: true
@@ -49,8 +37,25 @@ service:
       bedrock:
         enabled: true
         port: 19132
-        protocol: UDP
+        protocol: udp
         targetPort: 19132
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: https
+              path: /
+            readiness:
+              type: https
+              path: /
+            startup:
+              type: https
+              path: /
+          env: {}
 
 persistence:
   config:
@@ -70,4 +75,5 @@ persistence:
     mountPath: /crafty/backups
 
 portal:
-  enabled: true
+  open:
+    enabled: true

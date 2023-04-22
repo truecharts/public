@@ -4,12 +4,11 @@ image:
   tag: v2.1.1@sha256:580631efe42039df06ce28e90e59a6a2e4a23a1970eaa24a4b2f783166e74b36
 
 securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
@@ -31,14 +30,29 @@ service:
         enabled: true
         port: 51413
         targetPort: 51413
-        protocol: UDP
+        protocol: udp
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
 
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
-  varrun:
-    enabled: true
-
+    mountPath: /config
 portal:
-  enabled: true
+  open:
+    enabled: true

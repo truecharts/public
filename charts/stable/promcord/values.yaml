@@ -2,7 +2,6 @@ image:
   repository: tccr.io/truecharts/promcord
   tag: latest@sha256:7a8bc4a5106cafcf6d7b7a8deba3c7d842654c0a135edb960828ead7927d40a7
   pullPolicy: IfNotPresent
-
 service:
   main:
     ports:
@@ -10,47 +9,20 @@ service:
         type: ClusterIP
         enabled: true
         port: 8080
-
-# -- Configure the Security Context for the Pod
-#podSecurityContext:
-#  runAsUser: 568
-#  runAsGroup: 568
-#  fsGroup: 568
-
-# -- Configure the Security Context for the main container
-securityContext:
-  readOnlyRootFilesystem: false
-#  runAsNonRoot: true
-
 # env:
 #   DISCORD_TOKEN:
-
 metrics:
-  # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
-  # @default -- See values.yaml
-  enabled: false
-  serviceMonitor:
-    interval: 1m
-    scrapeTimeout: 30s
-    labels: {}
-  # -- Enable and configure Prometheus Rules for the chart under this key.
-  # @default -- See values.yaml
-  prometheusRule:
-    enabled: false
-    labels: {}
-    # -- Configure additionial rules for the chart under this key.
-    # @default -- See prometheusrules.yaml
-    rules:
-      []
-      # - alert: PromcordAbsent
-      #   annotations:
-      #     description: Promcord has disappeared from Prometheus service discovery.
-      #     summary: Promcord is disabled.
-      #   expr: |
-      #     absent(up{job=~".promcord.*"} == 1)
-      #   for: 15m
-      #   labels:
-      #     severity: critical
-
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: main
+        path: /metrics
+    prometheusRule:
+      enabled: false
 portal:
-  enabled: false
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false

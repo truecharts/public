@@ -10,18 +10,35 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: internalNode
+                                        label: "internalNode"
+                                        description: "Spawns an internal node (aka worker), disabling this, you will need to have a node separately."
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                          show_subquestions_if: true
+                                          subquestions:
+                                            - variable: nodeID
+                                              label: "nodeID"
+                                              description: "Name of the internal node."
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: "Internal Node"
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 
 # Include{containerConfig}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -62,28 +79,6 @@ questions:
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: internalNode
-          label: "internalNode"
-          description: "Spawns an internal node (aka worker), disabling this, you will need to have a node separately."
-          schema:
-            type: boolean
-            default: true
-            show_subquestions_if: true
-            subquestions:
-              - variable: nodeID
-                label: "nodeID"
-                description: "Name of the internal node."
-                schema:
-                  type: string
-                  required: true
-                  default: "Internal Node"
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: configs
@@ -146,16 +141,16 @@ questions:
                 schema:
                   type: int
                   default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-             - variable: fsGroup
+              - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:

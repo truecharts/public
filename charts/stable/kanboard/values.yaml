@@ -2,38 +2,12 @@ image:
   repository: tccr.io/truecharts/kanboard
   tag: 1.2.26@sha256:d266d93b0e1047db83e3a324d9757eaa0b00efeee920fa12b82fbe0482344275
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-env:
-  MAIL_CONFIGURATION: false
-  LOG_DRIVER: stdout
-  DB_DRIVER: "postgres"
-  DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
-  DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
-  DB_PORT: "5432"
-  DB_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  DB_HOSTNAME:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-
 service:
   main:
     ports:
       main:
         port: 10015
         targetPort: 80
-
 persistence:
   data:
     enabled: true
@@ -41,12 +15,38 @@ persistence:
   ssl:
     enabled: true
     mountPath: "/etc/nginx/ssl"
+cnpg:
+  main:
+    enabled: true
 
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: kanboard
-  postgresqlDatabase: kanboard
-
+    user: kanboard
+    database: kanboard
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            MAIL_CONFIGURATION: false
+            LOG_DRIVER: stdout
+            DB_DRIVER: "postgres"
+            DB_NAME: "{{ .Values.cnpg.main.database }}"
+            DB_USERNAME: "{{ .Values.cnpg.main.user }}"
+            DB_PORT: "5432"
+            DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            DB_HOSTNAME:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host

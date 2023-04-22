@@ -3,52 +3,66 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:b11ca1374d7ca68ef012b1d61b3fa432eded86aed5add3538808eb7e0093828c
 
-secretEnv:
-  BLOG_NICK: username
-  BLOG_PASS: password
-
 securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-env:
-  BLOG_TITLE: "Blog"
-  BLOG_NAME: "Max Musermann"
-  BLOG_LANG: "en"
-  BLOG_DB_CONNECTION: "postgres"
-  BLOG_POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  BLOG_POSTGRES_PORT: "5432"
-  BLOG_DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
-  BLOG_POSTGRES_PASS:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  BLOG_POSTGRES_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
     ports:
       main:
         port: 10111
+        protocol: http
         targetPort: 80
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            BLOG_TITLE: "Blog"
+            BLOG_NAME: "Max Musermann"
+            BLOG_LANG: "en"
+            BLOG_DB_CONNECTION: "postgres"
+            BLOG_POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            BLOG_POSTGRES_PORT: "5432"
+            BLOG_DB_NAME: "{{ .Values.cnpg.main.database }}"
+            BLOG_POSTGRES_PASS:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            BLOG_POSTGRES_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            BLOG_NICK: username
+            BLOG_PASS: password
 
 persistence:
   data:
     enabled: true
-    mountPath: "/var/www/html/data"
+    mountPath: /var/www/html/data
 
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: blog
-  postgresqlDatabase: blog
+cnpg:
+  main:
+    enabled: true
+    user: blog
+    database: blog
 
 portal:
-  enabled: true
+  open:
+    enabled: true

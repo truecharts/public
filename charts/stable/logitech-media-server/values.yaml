@@ -2,18 +2,6 @@ image:
   repository: tccr.io/truecharts/logitechmediaserver
   pullPolicy: IfNotPresent
   tag: 8.4.0@sha256:0fad4765fff207e02a3ba04c21c358629e2e9c8e1ad1eec2ed69d3112dd2c47d
-
-env:
-  HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
@@ -39,13 +27,25 @@ service:
       slimprotoudp:
         enabled: true
         port: 3483
-        protocol: UDP
+        protocol: udp
         targetPort: 3483
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
