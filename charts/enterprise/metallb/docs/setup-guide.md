@@ -2,6 +2,12 @@
 
 The guide walks through a basic configuration of MetalLB for a single address pool on a layer 2 network. This will allow assigning different IP addresses by app.
 
+:::warning
+
+With MetalLB installed, apps will not be reachable using the integrated loadbalancer. You cannot combine two different loadbalancers in TrueNAS SCALE.
+
+:::
+
 ## 1. Configure Address Pool & L2 Advertisement
 
 ![metallb-addpoolbasic](img/metallb_guide_addresspool_basic.png)
@@ -9,7 +15,7 @@ The guide walks through a basic configuration of MetalLB for a single address po
 Create a new entry under `Configure IP Address Pools Object`
 
 - **Name**: Enter a general name for this IP range. Something like _apps_ or _charts_ for this field is fine.
-- **Auto Assign**: if you want MetalLB Services to auto-assign IPs from the configured address pool without needing to specify per app. Recommendation is to keep this checked. You can still specify an IP for apps as needed (see step 4).
+- **Auto Assign**: if you want MetalLB Services to auto-assign IPs from the configured address pool without needing to specify per app. Recommendation is to keep this checked. You can still specify an IP for apps as needed (see step 3).
 
 Create a single entry under `Configure Address Pools`
 
