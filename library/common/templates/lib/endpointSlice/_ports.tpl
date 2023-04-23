@@ -13,7 +13,7 @@ objectData: The object data of the service
   {{- range $name, $portValues := $objectData.ports -}}
     {{- if $portValues.enabled -}}
       {{- $protocol := $rootCtx.Values.fallbackDefaults.serviceProtocol -}} {{/* Default to fallback protocol, if no protocol is defined */}}
-      {{- $port := $portValues.port -}}
+      {{- $port := $portValues.targetPort | default $portValues.port -}}
 
       {{/* Expand targetPort */}}
       {{- if (kindIs "string" $port) -}}
