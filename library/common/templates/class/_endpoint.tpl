@@ -11,7 +11,7 @@ objectData: The service data, that will be used to render the Service object.
   {{- $objectData := .objectData }}
 ---
 apiVersion: v1
-kind: Endpoint
+kind: Endpoints
 metadata:
   name: {{ $objectData.name }}
   {{- $labels := (mustMerge ($objectData.labels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $rootCtx | fromYaml)) -}}

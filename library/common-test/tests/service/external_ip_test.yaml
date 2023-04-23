@@ -226,7 +226,7 @@ tests:
               targetPort: 443
       - documentIndex: &endpointDoc 1
         isKind:
-          of: Endpoint
+          of: Endpoints
       - documentIndex: *endpointDoc
         isAPIVersion:
           of: v1
@@ -286,7 +286,7 @@ tests:
               targetPort: 12346
       - documentIndex: &endpointDoc 1
         isKind:
-          of: Endpoint
+          of: Endpoints
       - documentIndex: *endpointDoc
         isAPIVersion:
           of: v1
