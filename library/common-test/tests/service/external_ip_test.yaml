@@ -4,7 +4,7 @@ templates:
 chart:
   appVersion: &appVer v9.9.9
 tests:
-  - it: should pass with type externalIP
+  - it: should pass with type externalIP and useSlice unset (default)
     set:
       service:
         my-service:
@@ -144,13 +144,14 @@ tests:
             - addresses:
                 - 1.1.1.1
 
-  - it: should pass with type ExternalIP and https
+  - it: should pass with type ExternalIP and https and useSlice explicitly set to true
     set:
       service:
         my-service:
           enabled: true
           primary: true
           type: ExternalIP
+          useSlice: true
           externalIP: 1.1.1.1
           ports:
             port-name:
@@ -196,3 +197,124 @@ tests:
           path: metadata.annotations
           content:
             traefik.ingress.kubernetes.io/service.serversscheme: https
+
+  - it: should pass with type ExternalIP and useSlice set to false
+    set:
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          useSlice: false
+          externalIP: 1.1.1.1
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+              protocol: https
+    asserts:
+      - documentIndex: *serviceDoc
+        equal:
+          path: spec
+          value:
+            publishNotReadyAddresses: false
+            ports:
+            - name: port-name
+              port: 443
+              protocol: TCP
+              targetPort: 443
+      - documentIndex: &endpointDoc 1
+        isKind:
+          of: Endpoint
+      - documentIndex: *endpointDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *endpointDoc
+        equal:
+          path: subsets
+          value:
+            - addresses:
+                - ip: 1.1.1.1
+              ports:
+                - name: port-name
+                  port: 443
+                  protocol: TCP
+      - documentIndex: &serviceDoc 0
+        isKind:
+          of: Service
+      - documentIndex: *serviceDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            traefik.ingress.kubernetes.io/service.serversscheme: https
+
+  - it: should pass with type ExternalIP and useSlice set to false, multiple ports
+    set:
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          useSlice: false
+          externalIP: 1.1.1.1
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+            port-name2:
+              enabled: true
+              port: 12344
+              targetPort: 12346
+              protocol: http
+              appProtocol: http
+    asserts:
+      - documentIndex: *serviceDoc
+        equal:
+          path: spec
+          value:
+            publishNotReadyAddresses: false
+            ports:
+            - name: port-name
+              port: 12345
+              protocol: TCP
+              targetPort: 12345
+            - name: port-name2
+              port: 12344
+              protocol: TCP
+              targetPort: 12346
+      - documentIndex: &endpointDoc 1
+        isKind:
+          of: Endpoint
+      - documentIndex: *endpointDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *endpointDoc
+        equal:
+          path: metadata.name
+          value: release-name-common-test
+      - documentIndex: *endpointDoc
+        equal:
+          path: metadata.labels
+          value:
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/version: *appVer
+            helm.sh/chart: common-test-1.0.0
+            helm-revision: "0"
+            app: common-test-1.0.0
+            release: RELEASE-NAME
+      - documentIndex: *endpointDoc
+        equal:
+          path: subsets
+          value:
+            - addresses:
+                - ip: 1.1.1.1
+              ports:
+                - name: port-name
+                  port: 12345
+                  protocol: TCP
+                - name: port-name2
+                  port: 12346
+                  protocol: TCP
+                  appProtocol: http

@@ -100,6 +100,15 @@ spec:
     {{- end }}
   {{- end -}}
   {{- if eq $objectData.type "ExternalIP" -}}
-    {{- include "tc.v1.common.class.endpointSlice" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim | nindent 0 }}
+    {{- $useSlice := true -}}
+    {{- if kindIs "bool" $objectData.useSlice -}}
+      {{- $useSlice = $objectData.useSlice -}}
+    {{- end -}}
+
+    {{- if $useSlice -}}
+      {{- include "tc.v1.common.class.endpointSlice" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim | nindent 0 }}
+    {{- else -}}
+      {{- include "tc.v1.common.class.endpoint" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim | nindent 0 }}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
