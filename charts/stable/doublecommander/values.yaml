@@ -26,6 +26,7 @@ workload:
             capabilities:
               add:
                 - SYS_CHROOT
+                - KILL
           probes:
             liveness:
               type: http

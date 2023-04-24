@@ -48,6 +48,10 @@ workload:
     podSpec:
       containers:
         main:
+          securityContext:
+            capabilities:
+              add:
+                - KILL
           probes:
             liveness:
               type: http
