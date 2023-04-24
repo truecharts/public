@@ -114,6 +114,8 @@ questions:
                                               description: FTBA
                                             - value: CURSEFORGE
                                               description: Curseforge
+                                            - value: AUTO_CURSEFORGE
+                                              description: Auto CurseForge
                                             - value: QUILT
                                               description: Quilt
                                             - value: PUFFERFISH
@@ -322,6 +324,36 @@ questions:
                                           type: boolean
                                           default: false
                                           show_if: [[TYPE, "=", "CURSEFORGE"]]
+                                      - variable: CF_API_KEY
+                                        label: CF API Key
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [[TYPE, "=", "AUTO_CURSEFORGE"]]
+                                      - variable: CF_PAGE_URL
+                                        label: CF modpack page URL
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [[TYPE, "=", "AUTO_CURSEFORGE"]]
+                                      - variable: CF_SLUG
+                                        label: CF modpack slug
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [[TYPE, "=", "AUTO_CURSEFORGE"]]
+                                      - variable: CF_FILE_ID
+                                        label: CF modpack numerical file ID
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [[TYPE, "=", "AUTO_CURSEFORGE"]]
+                                      - variable: CF_FILENAME_MATCHER
+                                        label: Substring to match the CF modpack's desired filename
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [[TYPE, "=", "AUTO_CURSEFORGE"]]
                                       - variable: DIFFICULTY
                                         label: Difficulty
                                         schema:
