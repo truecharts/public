@@ -23,8 +23,10 @@ workload:
             startup:
               path: "/"
           env:
-            SSHWIFTY_HOSTNAME: "" # empty to accept request from all hosts
-            SSHWIFTY_SHAREDKEY: "" # web access password
+            # empty to accept request from all hosts
+            SSHWIFTY_HOSTNAME: ""
+            # web access password
+            SSHWIFTY_SHAREDKEY: ""
             DialTimeout: 10
             # SSHWIFTY_SOCKS5: "" When set, Sshwifty backend will try to connect remote through the given proxy
             # SSHWIFTY_SOCKS5_USER
