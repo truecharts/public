@@ -17,3 +17,37 @@
 {{- if $secret -}}
   {{- $_ := set .Values.secret "ghostfolio-secrets" $secret -}}
 {{- end -}}
+
+{{/* Append the general configMap volume to the volumes */}}
+{{- define "ghostfolio.configmapVolume" -}}
+enabled: true
+mountPath: /.env
+subPath: .env
+readOnly: true
+type: "configmap"
+objectName: ghostfolio-configfile
+{{- end -}}
+
+{{/* Append the general secret volumes to the volumes */}}
+{{- define "ghostfolio.secretVolumes" -}}
+enabled: true
+mountPath: "/secrets"
+readOnly: true
+type: "secret"
+objectName: ghostfolio-secrets
+items:
+  - key: "ACCESS_TOKEN_SALT"
+    path: ACCESS_TOKEN_SALT
+  - key: "JWT_SECRET_KEY"
+    path: JWT_SECRET_KEY
+  - key: "DATABASE_URL"
+    path: DATABASE_URL
+  - key: "REDIS_PASSWORD"
+    path: REDIS_PASSWORD
+{{- end -}}
+
+{{- $_ := set .Values.persistence "ghostfolio-configfile" (include "ghostfolio.configmapVolume" . | fromYaml) -}}
+{{- $_ := set .Values.persistence "ghostfolio-secrets" (include "ghostfolio.secretVolumes" . | fromYaml) -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

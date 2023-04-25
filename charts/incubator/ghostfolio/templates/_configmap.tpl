@@ -13,12 +13,15 @@ enabled: true
 data:
   .env: |
     COMPOSE_PROJECT_NAME=ghostfolio
+
     # CACHE
-    REDIS_HOST=localhost
-    REDIS_PORT=6379
+    REDIS_HOST={{ .Values.redis.creds.plain }}
+    {{- with $redis := .Values.redisProvider }}
+    REDIS_PORT={{ default 6379 $redis.port }}
+    {{- end }}
 
     # POSTGRES
     POSTGRES_DB={{ default "ghostfolio" $.Values.cnpg.main.creds.database }}
 
-    ALPHA_VANTAGE_API_KEY=
+    ALPHA_VANTAGE_API_KEY={{ $.Values.ALPHA_VANTAGE_API_KEY }}
 {{- end -}}
