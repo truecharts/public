@@ -10,7 +10,33 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ME_CONFIG_MONGODB_AUTH_DATABASE
+                                        label: "MongoDB Database name"
+                                        description: "Database name"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "db"
+                                      - variable: ME_CONFIG_MONGODB_AUTH_USERNAME
+                                        label: "MongoDB Database username"
+                                        description: "Database username"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "admin"
+                                      - variable: ME_CONFIG_MONGODB_AUTH_PASSWORD
+                                        label: "MongoDB Database Password"
+                                        description: "Database password"
+                                        schema:
+                                          type: string
+                                          default: "password"
 
 # Include{containerBasic}
 # Include{containerAdvanced}

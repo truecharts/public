@@ -15,3 +15,13 @@ portal:
 securityContext:
   container:
     readOnlyRootFilesystem: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ME_CONFIG_MONGODB_AUTH_DATABASE: "db"
+            ME_CONFIG_MONGODB_AUTH_USERNAME: "admin"
+            ME_CONFIG_MONGODB_AUTH_PASSWORD: "pass"
+
