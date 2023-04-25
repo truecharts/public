@@ -35,5 +35,15 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.port }}"
+            readiness:
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.port }}"
+            startup:
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.port }}"
           env:
             RUN_OPTS: ""

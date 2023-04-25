@@ -8,11 +8,13 @@ service:
   main:
     type: ExternalIP
     externalIP: "1.1.1.1"
+    useSlice: false
     ports:
       main:
         protocol: https
         port: 10003
-        targetPort: 443
+        # Target port is the port of the "external service"
+        # Defaults to "port" if not set
 
 workload:
   main:

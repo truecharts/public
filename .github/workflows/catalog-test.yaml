@@ -15,7 +15,7 @@ jobs:
     name: Test SCALE Catalog
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:44047909bbf54cb1ce3551ae0b342244a5bdcd62562a7f2f07caad4bf8856ee4
+      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:1d1f3ec0f27e03028602ae9388340704e0b19db31322a3ce7275a0df94b0580c
     steps:
       - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         name: Checkout
