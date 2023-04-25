@@ -1,0 +1,17 @@
+image:
+  repository: docker.io/mongo-express
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:d5cee110909938c99cf8800b9379494c190d8fecaec70a4ce3886facdee6ef8e
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 8081
+        port: 18081
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
