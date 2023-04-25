@@ -1,78 +1,82 @@
 {{- define "tc.v1.common.lib.deps.wait" -}}
-{{ if .Values.redis.enabled }}
-{{- $container := include "tc.v1.common.lib.deps.wait.redis" $ | fromYaml -}}
-{{- if $container -}}
-  {{- range .Values.workload -}}
-    {{- if not (hasKey .podSpec "initContainers") -}}
-      {{- $_ := set .podSpec "initContainers" dict -}}
+  {{- if .Values.redis.enabled -}}
+    {{- $container := include "tc.v1.common.lib.deps.wait.redis" $ | fromYaml -}}
+    {{- if $container -}}
+      {{- range .Values.workload -}}
+        {{- if not (hasKey .podSpec "initContainers") -}}
+          {{- $_ := set .podSpec "initContainers" dict -}}
+        {{- end -}}
+      {{- $_ := set .podSpec.initContainers "redis-wait" $container -}}
+      {{- end -}}
     {{- end -}}
-  {{- $_ := set .podSpec.initContainers "redis-wait" $container -}}
-  {{- end }}
-{{- end -}}
-{{- end }}
+  {{- end -}}
 
-
-{{ if .Values.mariadb.enabled  }}
-{{- $container := include "tc.v1.common.lib.deps.wait.mariadb" $ | fromYaml -}}
-{{- if $container -}}
-  {{- range .Values.workload -}}
-    {{- if not (hasKey .podSpec "initContainers") -}}
-      {{- $_ := set .podSpec "initContainers" dict -}}
+  {{- if .Values.mariadb.enabled -}}
+    {{- $container := include "tc.v1.common.lib.deps.wait.mariadb" $ | fromYaml -}}
+    {{- if $container -}}
+      {{- range .Values.workload -}}
+        {{- if not (hasKey .podSpec "initContainers") -}}
+          {{- $_ := set .podSpec "initContainers" dict -}}
+        {{- end -}}
+      {{- $_ := set .podSpec.initContainers "mariadb-wait" $container -}}
+      {{- end -}}
     {{- end -}}
-  {{- $_ := set .podSpec.initContainers "mariadb-wait" $container -}}
-  {{- end }}
-{{- end -}}
-{{- end }}
+  {{- end -}}
 
-{{ if .Values.mongodb.enabled }}
-{{- $container := include "tc.v1.common.lib.deps.wait.mongodb" $ | fromYaml -}}
-{{- if $container -}}
-  {{- range .Values.workload -}}
-    {{- if not (hasKey .podSpec "initContainers") -}}
-      {{- $_ := set .podSpec "initContainers" dict -}}
+  {{- if .Values.mongodb.enabled -}}
+    {{- $container := include "tc.v1.common.lib.deps.wait.mongodb" $ | fromYaml -}}
+    {{- if $container -}}
+      {{- range .Values.workload -}}
+        {{- if not (hasKey .podSpec "initContainers") -}}
+          {{- $_ := set .podSpec "initContainers" dict -}}
+        {{- end -}}
+      {{- $_ := set .podSpec.initContainers "mongodb-wait" $container -}}
+      {{- end -}}
     {{- end -}}
-  {{- $_ := set .podSpec.initContainers "mongodb-wait" $container -}}
-  {{- end }}
-{{- end -}}
-{{- end }}
+  {{- end -}}
 
-{{ if .Values.clickhouse.enabled }}
-{{- $container := include "tc.v1.common.lib.deps.wait.clickhouse" $ | fromYaml -}}
-{{- if $container -}}
-  {{- range .Values.workload -}}
-    {{- if not (hasKey .podSpec "initContainers") -}}
-      {{- $_ := set .podSpec "initContainers" dict -}}
+  {{- if .Values.clickhouse.enabled -}}
+    {{- $container := include "tc.v1.common.lib.deps.wait.clickhouse" $ | fromYaml -}}
+    {{- if $container -}}
+      {{- range .Values.workload -}}
+        {{- if not (hasKey .podSpec "initContainers") -}}
+          {{- $_ := set .podSpec "initContainers" dict -}}
+        {{- end -}}
+        {{- $_ := set .podSpec.initContainers "clickhouse-wait" $container -}}
+      {{- end -}}
     {{- end -}}
-    {{- $_ := set .podSpec.initContainers "clickhouse-wait" $container -}}
-  {{- end }}
-{{- end -}}
-{{- end }}
+  {{- end -}}
 
-{{ if .Values.solr.enabled }}
-{{- $container := include "tc.v1.common.lib.deps.wait.solr" $ | fromYaml -}}
-{{- if $container -}}
-  {{- range .Values.workload -}}
-    {{- if not (hasKey .podSpec "initContainers") -}}
-      {{- $_ := set .podSpec "initContainers" dict -}}
+  {{- if .Values.solr.enabled -}}
+    {{- $container := include "tc.v1.common.lib.deps.wait.solr" $ | fromYaml -}}
+    {{- if $container -}}
+      {{- range .Values.workload -}}
+        {{- if not (hasKey .podSpec "initContainers") -}}
+          {{- $_ := set .podSpec "initContainers" dict -}}
+        {{- end -}}
+      {{- $_ := set .podSpec.initContainers "solr-wait" $container -}}
+      {{- end -}}
     {{- end -}}
-  {{- $_ := set .podSpec.initContainers "solr-wait" $container -}}
-  {{- end }}
-{{- end -}}
-{{- end }}
+  {{- end -}}
 
-{{ $result := false }}{{ range .Values.cnpg }}{{ if .enabled }}{{ $result = true }}{{ end }}{{ end }}
-{{ if $result }}
-{{- $container := include "tc.v1.common.lib.deps.wait.cnpg" $ | fromYaml -}}
-{{- if $container -}}
-  {{- range $.Values.workload -}}
-    {{- if not (hasKey .podSpec "initContainers") -}}
-      {{- $_ := set .podSpec "initContainers" dict -}}
+  {{- $result := false -}}
+  {{- range .Values.cnpg -}}
+    {{- if .enabled -}}
+      {{- $result = true -}}
     {{- end -}}
-    {{- $_ := set .podSpec.initContainers "cnpg-wait" $container -}}
-  {{- end }}
-{{- end -}}
-{{- end }}
+  {{- end -}}
 
+  {{- if $result -}}
+    {{- $container := include "tc.v1.common.lib.deps.wait.cnpg" $ | fromYaml -}}
+    {{- if $container -}}
+      {{- range $.Values.workload -}}
+        {{- if not (hasKey .podSpec "initContainers") -}}
+          {{- $_ := set .podSpec "initContainers" dict -}}
+        {{- end -}}
+        {{- $_ := set .podSpec.initContainers "cnpg-wait" $container -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
 {{- end -}}
 
 {{- define "tc.v1.common.lib.deps.wait.redis" -}}
@@ -132,8 +136,7 @@ command:
       fi;
     done
     EOF
-{{ end }}
-
+{{- end -}}
 
 {{- define "tc.v1.common.lib.deps.wait.mariadb" -}}
 enabled: true
@@ -182,8 +185,7 @@ command:
       do sleep 2;
     done
     EOF
-{{ end }}
-
+{{- end -}}
 
 {{- define "tc.v1.common.lib.deps.wait.mongodb" -}}
 enabled: true
@@ -227,8 +229,7 @@ command:
       do sleep 2;
     done
     EOF
-{{ end }}
-
+{{- end -}}
 
 {{- define "tc.v1.common.lib.deps.wait.clickhouse" -}}
 enabled: true
@@ -272,7 +273,7 @@ command:
     done
     echo "ClickHouse - accepting connections"
     EOF
-{{ end }}
+{{- end -}}
 
 {{- define "tc.v1.common.lib.deps.wait.solr" -}}
 enabled: true
@@ -331,7 +332,7 @@ command:
       done
     fi;
     EOF
-{{ end }}
+{{- end -}}
 
 {{- define "tc.v1.common.lib.deps.wait.cnpg" -}}
 enabled: true
