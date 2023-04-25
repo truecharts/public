@@ -59,6 +59,12 @@ objectData: The object data to be used to render the Pod.
     {{- $_ := set $secContext "supplementalGroups" (concat $secContext.supplementalGroups $deviceGroups) -}}
   {{- end -}}
 
+  {{- $_ := set $secContext "supplementalGroups" (concat $secContext.supplementalGroups (list 568)) -}}
+
+  {{- if not (deepEqual $secContext.supplementalGroups (mustUniq $secContext.supplementalGroups)) -}}
+    {{- fail (printf "Pod - Expected <supplementalGroups> to have only unique values, but got [%s]" (join ", " $secContext.supplementalGroups)) -}}
+  {{- end -}}
+
   {{- $portRange := fromJson (include "tc.v1.common.lib.helpers.securityContext.getPortRange" (dict "rootCtx" $rootCtx "objectData" $objectData)) -}}
   {{- if and $portRange.low (le (int $portRange.low) 1024) -}} {{/* If a container wants to bind a port <= 1024 change the unprivileged_port_start */}}
     {{- $_ := set $secContext "sysctls" (mustAppend $secContext.sysctls (dict "name" "net.ipv4.ip_unprivileged_port_start" "value" (printf "%v" $portRange.low))) -}}

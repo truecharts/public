@@ -60,7 +60,8 @@ tests:
             securityContext:
               fsGroup: 568
               fsGroupChangePolicy: OnRootMismatch
-              supplementalGroups: []
+              supplementalGroups:
+                - 568
               sysctls: []
       - documentIndex: *deploymentDoc
         isSubset:

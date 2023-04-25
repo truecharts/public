@@ -35,6 +35,7 @@ tests:
             supplementalGroups:
               - 1000
               - 1001
+              - 568
             sysctls:
               - name: some_name
                 value: "some_value"
@@ -76,6 +77,7 @@ tests:
             supplementalGroups:
               - 1000
               - 1001
+              - 568
             sysctls:
               - name: some_name
                 value: "some_value"
@@ -128,6 +130,7 @@ tests:
             supplementalGroups:
               - 1002
               - 1003
+              - 568
             sysctls:
               - name: some_name
                 value: "2"
@@ -199,6 +202,7 @@ tests:
             supplementalGroups:
               - 1002
               - 1003
+              - 568
             sysctls:
               - name: some_name
                 value: "2"
@@ -215,7 +219,8 @@ tests:
           value:
             fsGroup: 568
             fsGroupChangePolicy: OnRootMismatch
-            supplementalGroups: []
+            supplementalGroups:
+              - 568
             sysctls:
               - name: net.ipv4.ip_unprivileged_port_start
                 value: "443"
@@ -241,7 +246,8 @@ tests:
           value:
             fsGroup: 0
             fsGroupChangePolicy: OnRootMismatch
-            supplementalGroups: []
+            supplementalGroups:
+              - 568
             sysctls: []
 
   - it: should pass with no sysctls port_start automatically appended based on services when port is higher than 1024
@@ -273,7 +279,8 @@ tests:
           value:
             fsGroup: 568
             fsGroupChangePolicy: OnRootMismatch
-            supplementalGroups: []
+            supplementalGroups:
+              - 568
             sysctls: []
 
   - it: should pass with with gpu assigned to primary pod
@@ -309,6 +316,7 @@ tests:
               - 1000
               - 44
               - 107
+              - 568
             sysctls: []
       - documentIndex: &otherDeploymentDoc 1
         isKind:
@@ -319,7 +327,8 @@ tests:
           value:
             fsGroup: 568
             fsGroupChangePolicy: OnRootMismatch
-            supplementalGroups: []
+            supplementalGroups:
+              - 568
             sysctls: []
 
   - it: should pass with with gpu assigned to specific pod
@@ -358,6 +367,7 @@ tests:
               - 1000
               - 44
               - 107
+              - 568
             sysctls: []
       - documentIndex: &otherDeploymentDoc 1
         isKind:
@@ -368,7 +378,8 @@ tests:
           value:
             fsGroup: 568
             fsGroupChangePolicy: OnRootMismatch
-            supplementalGroups: []
+            supplementalGroups:
+              - 568
             sysctls: []
 
   - it: should pass with with gpu assigned to multiple pod
@@ -409,6 +420,7 @@ tests:
               - 1000
               - 44
               - 107
+              - 568
             sysctls: []
       - documentIndex: &otherDeploymentDoc 1
         isKind:
@@ -422,6 +434,7 @@ tests:
             supplementalGroups:
               - 44
               - 107
+              - 568
             sysctls: []
 
   - it: should pass with with device assigned to selected pod
@@ -455,7 +468,8 @@ tests:
           value:
             fsGroup: 568
             fsGroupChangePolicy: OnRootMismatch
-            supplementalGroups: []
+            supplementalGroups:
+              - 568
             sysctls: []
       - documentIndex: &otherDeploymentDoc 1
         isKind:
@@ -471,6 +485,7 @@ tests:
               - 10
               - 20
               - 24
+              - 568
             sysctls: []
 
   # Failures
@@ -572,3 +587,22 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Pod - Expected non-empty <value> in <sysctls>
+
+  - it: should fail with non unique supplementalGroups
+    set:
+      securityContext:
+        pod:
+          supplementalGroups:
+            - 1000
+            - 44
+            - 107
+            - 44
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Pod - Expected <supplementalGroups> to have only unique values, but got [1000, 44, 107, 44, 568]
