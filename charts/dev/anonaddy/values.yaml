@@ -1,0 +1,90 @@
+image:
+  repository: tccr.io/truecharts/anonaddy
+  tag: 0.13.13@sha256:495809d341b08ea6d02c7b0b318d48b00b7243392affd0d278ec1aa188a76ccd
+  pullPolicy: IfNotPresent
+
+strategy:
+  type: Recreate
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10110
+        targetPort: 8000
+  smtp:
+    enabled: true
+    ports:
+      smtp:
+        enabled: true
+        port: 25
+        targetPort: 25
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            ANONADDY_DOMAIN: "chart-example.local"
+            DB_DATABASE: anonaddy
+            DB_USERNAME: anonaddy
+            DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            DB_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
+            REDIS_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            REDIS_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: redis-password
+            APP_KEY:
+              secretKeyRef:
+                name: appkey
+                key: appkey
+            ANONADDY_SECRET:
+              secretKeyRef:
+                name: appkey
+                key: secret
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+
+portal:
+  open:
+    enabled: true
+
+redis:
+  enabled: true
+
+mariadb:
+  enabled: true
+  mariadbUsername: anonaddy
+  mariadbDatabase: anonaddy
