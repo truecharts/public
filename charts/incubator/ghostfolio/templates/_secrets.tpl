@@ -17,6 +17,6 @@ data:
   {{ end }}
   ACCESS_TOKEN_SALT: {{ $accesstokensalt }}
   JWT_SECRET_KEY: {{ $jwtsecret }}
-  DATABASE_URL: "postgresql://{{ default "ghostfolio" $.Values.cnpg.main.creds.user }}:{{ $.Values.cnpg.main.creds.password }}@{{ $.Values.cnpg.main.creds.host }}:{{ default 5432 $.Values.cnpg.main.creds.port }}"
+  DATABASE_URL: "postgresql://{{ default "ghostfolio" .Values.cnpg.main.creds.user }}:{{ .Values.cnpg.main.creds.password }}@{{ .Values.cnpg.main.creds.host }}:{{ default 5432 .Values.cnpg.main.creds.port }}"
   REDIS_PASSWORD: {{ .Values.redis.creds.redisPassword }}
 {{- end -}}

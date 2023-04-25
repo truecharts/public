@@ -21,7 +21,7 @@ data:
     {{- end }}
 
     # POSTGRES
-    POSTGRES_DB={{ default "ghostfolio" $.Values.cnpg.main.creds.database }}
+    POSTGRES_DB={{ default "ghostfolio" .Values.cnpg.main.creds.database }}
 
-    ALPHA_VANTAGE_API_KEY={{ $.Values.ALPHA_VANTAGE_API_KEY }}
+    ALPHA_VANTAGE_API_KEY={{ .Values.alpha_vantage_api_key }}
 {{- end -}}
