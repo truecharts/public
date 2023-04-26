@@ -21,6 +21,21 @@ workload:
       containers:
         main:
           env:
-            ME_CONFIG_MONGODB_AUTH_DATABASE: "db"
-            ME_CONFIG_MONGODB_AUTH_USERNAME: "admin"
-            ME_CONFIG_MONGODB_AUTH_PASSWORD: "pass"
+            ME_CONFIG_MONGODB_AUTH_DATABASE: "{{ .Values.mongodb.mongodbDatabase }}"
+            ME_CONFIG_MONGODB_AUTH_USERNAME: "{{ .Values.mongodb.mongodbUsername }}"
+            ME_CONFIG_MONGODB_AUTH_PASSWORD:
+              secretKeyRef:
+                expandObjectName: "{{ if .Values.mongodb.mongodbRootPassword }}true{{ else }}false{{ end }}"
+                name: '{{ if .Values.mongodb.mongodbRootPassword }}credentials{{ else if .Values.mongodb.existingSecret }}{{ .Values.mongodb.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mongodbcreds" }}{{ end }}'
+mongodb:
+  enabled: true
+  mongodbUsername: mongo-express
+  mongodbDatabase: mongo-express
+  mongodbRootPassword: ""
+  existingSecret: ""
+secret:
+  credentials:
+    enabled: true
+    data:
+      mongodb-root-password: '{{ ( .Values.mongodb.mongoRootPassword | default "empty" ) }}'
+

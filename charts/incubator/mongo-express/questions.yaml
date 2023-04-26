@@ -23,14 +23,14 @@ questions:
                                         schema:
                                           type: string
                                           required: true
-                                          default: "db"
+                                          default: "mongo-express"
                                       - variable: ME_CONFIG_MONGODB_AUTH_USERNAME
                                         label: "MongoDB Database username"
                                         description: "Database username"
                                         schema:
                                           type: string
                                           required: true
-                                          default: "admin"
+                                          default: "mongo-express"
                                       - variable: ME_CONFIG_MONGODB_AUTH_PASSWORD
                                         label: "MongoDB Database Password"
                                         description: "Database password"
