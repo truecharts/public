@@ -38,4 +38,3 @@ secret:
     enabled: true
     data:
       mongodb-root-password: '{{ ( .Values.mongodb.mongoRootPassword | default "empty" ) }}'
-
