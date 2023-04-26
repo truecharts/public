@@ -8,6 +8,7 @@ podSpec:
   containers:
     cron:
       enabled: true
+      primary: true
       imageSelector: "image"
       env:
         date_format: {{ .Values.clamav.date_format }}
