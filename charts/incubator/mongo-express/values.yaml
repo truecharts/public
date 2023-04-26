@@ -27,6 +27,7 @@ workload:
               secretKeyRef:
                 expandObjectName: "{{ if .Values.mongodb.mongodbRootPassword }}true{{ else }}false{{ end }}"
                 name: '{{ if .Values.mongodb.mongodbRootPassword }}credentials{{ else if .Values.mongodb.existingSecret }}{{ .Values.mongodb.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mongodbcreds" }}{{ end }}'
+                key: "mongodb-root-password"
 mongodb:
   enabled: true
   mongodbUsername: mongo-express
