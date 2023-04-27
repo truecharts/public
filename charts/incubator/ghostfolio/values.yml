@@ -2,12 +2,28 @@ image:
   repository: tccr.io/truecharts/ghostfolio
   pullPolicy: IfNotPresent
   tag: 1.260.0@sha256:5c77d05c9b8f9971d80ee724e41fcec2c3528b14a40c83d55af7f9f9b19a4a61
+
+workload:
+  main:
+    replicas: 1
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - configMapRef:
+                name: ghostfolio-paths
+
 service:
   main:
     ports:
       main:
         port: 3333
         targetPort: 3333
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/.env"
 
 cnpg:
   main:
@@ -26,3 +42,7 @@ securityContext:
     runAsGroup: 0
 
 alpha_vantage_api_key: ""
+
+portal:
+  open:
+    enabled: true
