@@ -39,6 +39,8 @@ immich:
   log_level: simple
   mapbox_enable: false
   mapbox_key: ""
+  typesense_enabled: false
+  typesense_api_key: ""
 
 envFrom:
   - configMapRef:

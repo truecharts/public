@@ -26,6 +26,18 @@ questions:
           schema:
             type: string
             default: ""
+        - variable: typesense_enabled
+          label: Enable TypeSense
+          schema:
+            type: boolean
+            default: false
+        - variable: typesense_api_key
+          label: TypeSense Key
+          schema:
+            type: string
+            private: true
+            show_if: [["typesense_enabled", "=", "true"]]
+            default: ""
         - variable: disable_reverse_geocoding
           label: Disable Reverse Geocoding
           schema:

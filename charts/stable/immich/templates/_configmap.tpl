@@ -23,6 +23,7 @@ data:
   DISABLE_REVERSE_GEOCODING: {{ .Values.immich.disable_reverse_geocoding | quote }}
   REVERSE_GEOCODING_PRECISION: {{ .Values.immich.reverse_geocoding_precision | quote }}
   ENABLE_MAPBOX: {{ .Values.immich.mapbox_enable | quote }}
+  TYPESENSE_ENABLED: {{ .Values.immich.typesense_enabled | quote }}
 
 ---
 apiVersion: v1
