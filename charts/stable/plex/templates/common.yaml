@@ -1,13 +1,18 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . -}}
 
 {{- $adv := list -}}
 {{- $serverURL := "" -}}
+{{- $protocol := "http" -}}
+{{- if .Values.plex.requireHTTPS -}}
+  {{- $protocol = "https" -}}
+{{- end -}}
+
+{{- $_ := set .Values.workload.main.podSpec.containers.main.probes.liveness "protocol" $protocol -}}
+{{- $_ := set .Values.workload.main.podSpec.containers.main.probes.readiness "protocol" $protocol -}}
+{{- $_ := set .Values.workload.main.podSpec.containers.main.probes.startup "protocol" $protocol -}}
+
 {{- if not (eq .Values.service.main.type "ClusterIP") -}}
-  {{- $protocol := "http" -}}
-  {{- if .Values.plex.requireHTTPS -}}
-    {{- $protocol = "https" -}}
-  {{- end -}}
   {{- $serverURL = (printf "%v://%v:%v" $protocol .Values.plex.serverIP .Values.service.main.ports.main.port) -}}
 {{- end -}}
 
@@ -41,7 +46,7 @@
   {{- $adv = append $adv . -}}
 {{- end -}}
 
-{{- $_ := set .Values.env "ADVERTISE_IP" (join "," $adv) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers.main.env "ADVERTISE_IP" (join "," $adv) -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{- include "tc.v1.common.loader.apply" . -}}
