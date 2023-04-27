@@ -68,3 +68,16 @@ workload:
         main:
           env:
             PORTAL_HTTPS_PORT: "{{ .Values.service.comm.ports.comm.port }}"
+          probes:
+            startup:
+              path: /api/info
+              httpHeaders:
+                Host: kube.internal.health
+            liveness:
+              path: /api/info
+              httpHeaders:
+                Host: kube.internal.health
+            readiness:
+              path: /api/info
+              httpHeaders:
+                Host: kube.internal.health
