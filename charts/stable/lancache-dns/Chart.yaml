@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: lancache-dns
-version: 4.0.5
+version: 4.0.7
 appVersion: "latest"
 description: DNS Chart service for a steam cache.
 type: application
@@ -17,7 +17,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.4.21
+    version: 12.6.1
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
