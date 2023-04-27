@@ -36,7 +36,7 @@ questions:
           schema:
             type: string
             private: true
-            show_if: [["typesense_enabled", "=", "true"]]
+            show_if: [["typesense_enabled", "=", true]]
             default: ""
         - variable: disable_reverse_geocoding
           label: Disable Reverse Geocoding
