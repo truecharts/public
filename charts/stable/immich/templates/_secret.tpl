@@ -21,10 +21,10 @@ data:
   REDIS_PASSWORD: {{ .Values.redis.redisPassword | trimAll "\"" | b64enc }}
   {{- with .Values.immich.mapbox_key }}
   MAPBOX_KEY: {{ . | b64enc}}
+  {{- end }}
   {{- with .Values.immich.typesense_api_key }}
   TYPESENSE_API_KEY: {{ . }}
   {{- else }}
   TYPESENSE_API_KEY: {{ randAlphaNum 32 | b64enc }}
-  {{- end }}
   {{- end }}
 {{- end }}
