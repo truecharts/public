@@ -28,7 +28,6 @@ workload:
     podSpec:
       containers:
         main:
-          env:
           probes:
             liveness:
               enabled: true
@@ -42,6 +41,7 @@ workload:
               enabled: true
               path: /identity
               protocol: http
+          env:
             PLEX_PREFERENCE_GDM: 'GdmEnabled={{ ternary "0" "1" .Values.plex.disableGDM }}'
             # 0=Required, 1=Preferred
             PLEX_PREFERENCE_SEC_CON: 'secureConnections={{ ternary "0" "1" .Values.plex.requireHTTPS }}'
