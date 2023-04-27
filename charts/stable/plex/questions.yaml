@@ -64,6 +64,12 @@ questions:
           schema:
             type: boolean
             default: true
+        - variable: requireHTTPS
+          label: Require HTTPS
+          description: Please use this toggle to "Require HTTPS", do not use the Plex UI.
+          schema:
+            type: boolean
+            default: true
 
 # Include{containerConfig}
 # Include{serviceRoot}
