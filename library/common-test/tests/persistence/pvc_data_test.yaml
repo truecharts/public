@@ -8,6 +8,7 @@ tests:
         my-volume1:
           enabled: true
           type: pvc
+          size: 1Gi
     asserts:
       - documentIndex: &pvcDoc 0
         isKind:
