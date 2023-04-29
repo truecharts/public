@@ -2,13 +2,6 @@ image:
   repository: tccr.io/truecharts/nocodb
   tag: 0.105.3@sha256:cb70326f19d1d89688f61e70c383553cfaac62e24904f881268a5036609a694d
   pullPolicy: IfNotPresent
-secretEnv:
-AWS_ACCESS_KEY_ID: ""
-AWS_SECRET_ACCESS_KEY: ""
-AWS_BUCKET: ""
-AWS_BUCKET_PATH: ""
-NC_GOOGLE_CLIENT_ID: ""
-NC_GOOGLE_CLIENT_SECRET: ""
 service:
   main:
     ports:
@@ -52,7 +45,6 @@ workload:
             - configMapRef:
                 name: configmap
           env:
-            NC_MIN: ""
             PORT: "{{ .Values.service.main.ports.main.port }}"
             # User Defined
             NC_PUBLIC_URL: "http://localhost:10226"
@@ -74,3 +66,9 @@ workload:
               secretKeyRef:
                 name: secrets
                 key: NC_AUTH_JWT_SECRET
+            AWS_ACCESS_KEY_ID: ""
+            AWS_SECRET_ACCESS_KEY: ""
+            AWS_BUCKET: ""
+            AWS_BUCKET_PATH: ""
+            NC_GOOGLE_CLIENT_ID: ""
+            NC_GOOGLE_CLIENT_SECRET: ""
