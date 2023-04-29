@@ -3,7 +3,7 @@
 
 {{ $DOMAIN := .Values.config.nodeIP | quote -}}
 {{ $URL := (printf "http://%s/" .Values.config.nodeIP) }}
-{{- $pgHost := printf "%v-cnpg-main-rw:5432" (include "tc.v1.common.lib.chart.names.fullname" $) -}}
+{{- $pgHost := printf "%v-cnpg-main-rw" (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 
 {{- if and (.Values.ingress.main.enabled) (gt (len .Values.ingress.main.hosts) 0) -}}
   {{- $DOMAIN = (index .Values.ingress.main.hosts 0).host -}}
@@ -31,7 +31,7 @@ secret:
 
       [database]
       DB_TYPE = postgres
-      HOST = {{ $pgHost }}
+      HOST = {{ printf "%v:5432" $pgHost }}
       NAME = {{ .Values.cnpg.main.database }}
       PASSWD = {{ .Values.cnpg.main.creds.password }}
       USER = {{ .Values.cnpg.main.user }}
@@ -153,7 +153,7 @@ init:
 
         echo 'Wait for database to become avialable...'
         until [ "${RETRY}" -ge "${MAX}" ]; do
-          nc -vz -w2 {{ printf "%v-%v" .Release.Name "postgresql" }} 5432 && break
+          nc -vz -w2 {{ $pgHost }} 5432 && break
           RETRY=$[${RETRY}+1]
           echo "...not ready yet (${RETRY}/${MAX})"
         done
