@@ -3,7 +3,7 @@
 
 {{ $DOMAIN := .Values.config.nodeIP | quote -}}
 {{ $URL := (printf "http://%s/" .Values.config.nodeIP) }}
-{{ $pgHost := include "tc.v1.common.lib.chart.names.fullname" $ }}
+{{- $pgHost := printf "%v-cnpg-main-rw:5432" (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 
 {{- if and (.Values.ingress.main.enabled) (gt (len .Values.ingress.main.hosts) 0) -}}
   {{- $DOMAIN = (index .Values.ingress.main.hosts 0).host -}}
@@ -31,7 +31,7 @@ secret:
 
       [database]
       DB_TYPE = postgres
-      HOST = {{ printf "cnpg-%v:%v" $pgHost "5432" }}
+      HOST = {{ $pgHost }}
       NAME = {{ .Values.cnpg.main.database }}
       PASSWD = {{ .Values.cnpg.main.creds.password }}
       USER = {{ .Values.cnpg.main.user }}

@@ -2,7 +2,7 @@
 {{- define "vikunja.secrets" -}}
 
 {{- $secretStorage := printf "%s-storage-secret" (include "tc.v1.common.lib.chart.names.fullname" .) -}}
-{{- $pgHost := printf "cnpg-%v" (include "tc.v1.common.lib.chart.names.fullname" $) -}}
+{{- $pgHost := printf "%v-cnpg-main-rw" (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 {{- $jwtSecret := randAlphaNum 32 -}}
 {{- with lookup "v1" "Secret" .Release.Namespace $secretStorage -}}
   {{- $jwtSecret = index .data "JWT_SECRET" | b64dec -}}
