@@ -21,11 +21,6 @@ persistence:
     enabled: true
     mountPath: "/data"
     targetSelectAll: true
-  temp:
-    enabled: true
-    mountPath: "/tmp"
-    type: emptyDir
-    targetSelectAll: true
   varlib:
     enabled: true
     mountPath: "/var/lib/gitea"
