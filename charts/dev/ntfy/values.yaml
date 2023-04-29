@@ -2,7 +2,6 @@ image:
   repository: tccr.io/truecharts/ntfy
   tag: 2.1.0@sha256:ccbaacb4ca95fd61ea5b4ac18615a80ccc5ebae7f0a46115d020879e1fdb929e
   pullPolicy: IfNotPresent
-extraArgs: ["serve"]
 service:
   main:
     ports:
@@ -19,7 +18,7 @@ configmap:
   ntfy:
     enabled: true
     data:
-      # If a path is set, it enables this options. To disable set to emtpy path
+      # If a path is set, it enables this options. To disable set to empty path
       NTFY_ATTACHMENT_CACHE_DIR: '{{ ternary "/var/cache/ntfy/attachments" "" .Values.workload.main.podSpec.containers.main.env.ENABLE_ATTACHMENT_CACHE_DIR }}'
       NTFY_CACHE_FILE: '{{ ternary "/var/cache/ntfy/cache.db" "" .Values.workload.main.podSpec.containers.main.env.ENABLE_CACHE_FILE }}'
       NTFY_AUTH_FILE: '{{ ternary "/etc/ntfy/user.db" "" .Values.workload.main.podSpec.containers.main.env.ENABLE_AUTH_FILE }}'
@@ -40,6 +39,7 @@ workload:
               type: tcp
             startup:
               type: tcp
+          args: ["serve"]
           env:
             NTFY_LISTEN_HTTP: ":{{ .Values.service.main.ports.main.port }}"
             # User Defined
