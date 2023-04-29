@@ -40,7 +40,7 @@ workload:
             COMMENTO_POSTGRES:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: url
+                key: std
 
 cnpg:
   main:
