@@ -382,6 +382,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://hachyderm.io/@mcspiff"><img src="https://avatars.githubusercontent.com/u/7252551?v=4?s=100" width="100px;" alt="mcspiff313"/><br /><sub><b>mcspiff313</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Amcspiff313" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://fnichol.com"><img src="https://avatars.githubusercontent.com/u/261548?v=4?s=100" width="100px;" alt="Fletcher Nichol"/><br /><sub><b>Fletcher Nichol</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=fnichol" title="Code">💻</a> <a href="https://github.com/truecharts/charts/issues?q=author%3Afnichol" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://marcofaggian.com"><img src="https://avatars.githubusercontent.com/u/19221001?v=4?s=100" width="100px;" alt="Marco Faggian"/><br /><sub><b>Marco Faggian</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=marcofaggian" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
