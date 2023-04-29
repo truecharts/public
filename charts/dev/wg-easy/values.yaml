@@ -2,8 +2,6 @@ image:
   repository: tccr.io/truecharts/wg-easy
   pullPolicy: IfNotPresent
   tag: latest@sha256:5cc96ad86c87fb2ebc7dab65fc5b190ff0dcce370d0b9afa4aa4b5b2580a5000
-security:
-  PUID: 0
 service:
   main:
     ports:
@@ -27,14 +25,15 @@ portal:
     enabled: true
 securityContext:
   container:
+    PUID: 0
+    runAsUser: 0
+    runAsGroup: 0
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     capabilities:
       add:
         - NET_ADMIN
         - SYS_MODULE
-    runAsUser: 0
-    runAsGroup: 0
 workload:
   main:
     podSpec:
