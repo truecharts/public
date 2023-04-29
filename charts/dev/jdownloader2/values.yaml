@@ -60,6 +60,11 @@ workload:
     podSpec:
       containers:
         main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+                - KILL
           probes:
             liveness:
               type: tcp
