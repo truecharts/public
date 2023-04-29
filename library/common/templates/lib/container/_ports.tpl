@@ -45,7 +45,7 @@ objectData: The object data to be used to render the container.
             {{- end -}}
 
           {{- else -}}
-            {{/* If no selector is defined but contaienr is primary */}}
+            {{/* If no selector is defined but container is primary */}}
             {{- if $objectData.primary -}}
               {{- $containerSelected = true -}}
             {{- end -}}
@@ -68,8 +68,10 @@ objectData: The object data to be used to render the container.
 - name: {{ $portName }}
   containerPort: {{ $containerPort }}
   protocol: {{ $protocol | upper }}
-        {{- with $portValues.hostPort }}
+          {{- with $portValues.hostPort }}
   hostPort: {{ . }}
+          {{- else }}
+  hostPort: null
           {{- end -}}
         {{- end -}}
 
@@ -78,3 +80,8 @@ objectData: The object data to be used to render the container.
   {{- end -}}
 
 {{- end -}}
+{{/* Turning hostNetwork on, it creates hostPort automatically and turning it back off does not remove them. Setting hostPort explicitly to null will remove them.
+    There are still cases that hostPort is not removed, for example, if you have a TCP and UDP port with the same number. Only the TCPs hostPort will be removed.
+    Also note that setting hostPort to null always, it will NOT affect hostNetwork, as it will still create the hostPorts.
+    It only helps to remove them when hostNetwork is turned off.
+*/}}

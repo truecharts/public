@@ -61,6 +61,7 @@ tests:
             ports:
               - name: port-name
                 containerPort: 80
+                hostPort: null
                 protocol: TCP
       - documentIndex: &otherDeploymentDoc 1
         isKind:
@@ -135,6 +136,7 @@ tests:
             ports:
               - name: port-name
                 containerPort: 1234
+                hostPort: null
                 protocol: TCP
       - documentIndex: *deploymentDoc
         isNotSubset:
@@ -153,6 +155,7 @@ tests:
             ports:
               - name: port-name
                 containerPort: 53
+                hostPort: null
                 protocol: TCP
       - documentIndex: *otherDeploymentDoc
         isSubset:
@@ -250,6 +253,7 @@ tests:
             ports:
               - name: port-name
                 containerPort: 1234
+                hostPort: null
                 protocol: TCP
 
   - it: should create the correct protocol
@@ -294,4 +298,5 @@ tests:
             ports:
               - name: port-name
                 containerPort: 1234
+                hostPort: null
                 protocol: UDP
