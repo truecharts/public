@@ -1,7 +1,6 @@
 image:
   repository: tccr.io/truecharts/traefik
-  # defaults to appVersion
-  tag: 2.9.9@sha256:4b9750e70b54df2a0c39c3262fe2963815a0304b7982fb8f80d0782a8e8021fa
+  tag: 2.9.9@sha256:f4211d7c735677653b19d4b1be78434913161ed33bace2733d9b98609c61dfa9
   pullPolicy: IfNotPresent
 
 workload:
@@ -291,16 +290,17 @@ rbac:
         verbs:
           - update
       - apiGroups:
+          - traefik.io
           - traefik.containo.us
         resources:
-          - ingressroutes
-          - ingressroutetcps
-          - ingressrouteudps
           - middlewares
           - middlewaretcps
+          - ingressroutes
+          - traefikservices
+          - ingressroutetcps
+          - ingressrouteudps
           - tlsoptions
           - tlsstores
-          - traefikservices
           - serverstransports
         verbs:
           - get

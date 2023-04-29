@@ -1,36 +1,7 @@
 image:
   repository: tccr.io/truecharts/valheim-server
-  tag: latest@sha256:bc9b41516c963c953bed2d76c3ef74c3d7e8ac4d6b69f3ef860ec0f3e1767e8d
+  tag: latest@sha256:080b02f3bffa0f2250fe104eec77f6f05239f50b528ae8dc276780fbd077abe7
   pullPolicy: IfNotPresent
-
-secretEnv:
-  SUPERVISOR_HTTP_USER: admin
-  SUPERVISOR_HTTP_PASS: secret
-  SERVER_PASS: secret
-
-env:
-  STATUS_HTTP: true
-  STATUS_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
-  SUPERVISOR_HTTP: true
-  SUPERVISOR_HTTP_PORT: "{{ .Values.service.supervisor.ports.supervisor.port }}"
-  SERVER_NAME: My Server
-  SERVER_PORT: "{{ .Values.service.valheim.ports.valheim1.port }}"
-  WORLD_NAME: Dedicated
-  SERVER_PUBLIC: true
-  UPDATE_INTERVAL: 10800
-  BACKUPS: true
-  BACKUPS_INTERVAL: 43200
-  BACKUPS_DIRECTORY: /backups
-  BACKUPS_MAX_AGE: 3
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
@@ -49,16 +20,14 @@ service:
       valheim1:
         enabled: true
         port: 2456
-        protocol: UDP
+        protocol: udp
       valheim2:
         enabled: true
         port: 2457
-        protocol: UDP
-
+        protocol: udp
 ingress:
   supervisor:
     autoLink: true
-
 persistence:
   config:
     enabled: true
@@ -66,6 +35,41 @@ persistence:
   backups:
     enabled: true
     mountPath: /backups
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            STATUS_HTTP: true
+            STATUS_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+            SUPERVISOR_HTTP: true
+            SUPERVISOR_HTTP_PORT: "{{ .Values.service.supervisor.ports.supervisor.port }}"
+            SERVER_NAME: My Server
+            SERVER_PORT: "{{ .Values.service.valheim.ports.valheim1.port }}"
+            WORLD_NAME: Dedicated
+            SERVER_PUBLIC: true
+            UPDATE_INTERVAL: 10800
+            BACKUPS: true
+            BACKUPS_INTERVAL: 43200
+            BACKUPS_DIRECTORY: /backups
+            BACKUPS_MAX_AGE: 3
+            SUPERVISOR_HTTP_USER: admin
+            SUPERVISOR_HTTP_PASS: secret
+            SERVER_PASS: secret
