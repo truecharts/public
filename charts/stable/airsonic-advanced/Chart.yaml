@@ -3,11 +3,8 @@ appVersion: "11.0.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
-  - condition: postgresql.enabled
-    name: postgresql
-    repository: https://deps.truecharts.org/
-    version: 11.0.31
+    version: 12.6.1
+
 description: Airsonic is a Free and Open Source community driven media server
 home: https://truecharts.org/charts/stable/airsonic-advanced
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic-advanced.png
@@ -22,9 +19,8 @@ name: airsonic-advanced
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/airsonic-advanced
   - https://github.com/airsonic/airsonic-advanced
-version: 7.0.23
+version: 9.0.0
 annotations:
   truecharts.org/catagories: |
     - media
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

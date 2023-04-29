@@ -10,30 +10,31 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: JAVA_OPTS
+                                        label: "JAVA_OPTS"
+                                        description: "JAVA_OPTS"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: CONTEXT_PATH
+                                        label: "CONTEXT_PATH"
+                                        description: "CONTEXT_PATH"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "/"
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: JAVA_OPTS
-          label: "JAVA_OPTS"
-          description: "JAVA_OPTS"
-          schema:
-            type: string
-            default: ""
-        - variable: CONTEXT_PATH
-          label: "CONTEXT_PATH"
-          description: "CONTEXT_PATH"
-          schema:
-            type: string
-            required: true
-            default: "/"
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -114,16 +115,16 @@ questions:
                 schema:
                   type: int
                   default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-             - variable: fsGroup
+              - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:

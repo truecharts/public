@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/plex
   pullPolicy: IfNotPresent
-  tag: 1.31.1.6733@sha256:42dd9f5ec75e8ef482dbdde02f2f8703454cf26ae0c888231165d4b7439ead22
+  tag: 1.31.1.6733@sha256:69fb6bd4cc0a414ba553f8dc13f748906ae67cfc17d921bb4d7aaa7aea588bcd
 service:
   main:
     ports:
@@ -9,27 +9,45 @@ service:
         protocol: http
         port: 32400
         targetPort: 32400
+
 persistence:
   config:
     enabled: true
     mountPath: "/config"
+
 plex:
   # User Defined
   serverIP: "127.0.0.1"
   additionalAdvertiseURL: ""
   disableGDM: true
-
-portal:
-  open:
-    enabled: true
+  requireHTTPS: true
 
 workload:
   main:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              enabled: true
+              path: /identity
+              protocol: http
+            readiness:
+              enabled: true
+              path: /identity
+              protocol: http
+            startup:
+              enabled: true
+              path: /identity
+              protocol: http
           env:
             PLEX_PREFERENCE_GDM: 'GdmEnabled={{ ternary "0" "1" .Values.plex.disableGDM }}'
+            # 0=Required, 1=Preferred
+            PLEX_PREFERENCE_SEC_CON: 'secureConnections={{ ternary "0" "1" .Values.plex.requireHTTPS }}'
             # User Defined
             ALLOWED_NETWORKS: "172.16.0.0/12,10.0.0.0/8,192.168.0.0/16"
             PLEX_CLAIM: ""
+
+portal:
+  open:
+    enabled: true

@@ -58,21 +58,15 @@ With MetalLB installed, you may optionally specify IP addresses for your apps.
 
 For each app, under **Networking and Services**, select `LoadBalancer` Service Type for the Main Service.
 
-In the **LoadBalancer IP** field, specify an IP address that is within the MetalLB address pool that you configured.
-
-With the Main Service assigned, you do not need to specify an IP address for other services under the same app, unless you specifically want a different IP address for that service.
-
-:::info
-
-By default all services under a single app will be assigned the same IP address.
-
-:::
+In the **LoadBalancer IP** field, specify an IP address that is within the MetalLB address pool that you configured. Apply the same IP address to the **LoadBalancer IP** field on other services within the app.
 
 You may need to stop & restart the app for the IP address to take affect.
 
 From your SCALE shell, run the command `k3s kubectl get svc -A` to verify the IP addresses assigned for each of your apps. The IPs will be listed under the `EXTERNAL-IP` column.
 
-If you have an IP conflict with a previously assigned address it will show as `<pending>`. You may need to do a system reboot as well to properly resolve the conflict.
+If you have an IP conflict with a previously assigned address it will show as `<pending>`.
+
+**You may need to do a system reboot as well to properly resolve the conflict.**
 
 :::caution
 

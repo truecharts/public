@@ -1,51 +1,59 @@
 image:
   repository: tccr.io/truecharts/monica
-  tag: 4.0.0@sha256:e0dbcc09a91affbbdddb6fb6fc8cb90b3502c7d781a23ae491602b97841ddb5b
+  tag: 4.0.0@sha256:7ebaa9fe69a122f46f6268195bb2cd2f277e46426d5a348125e86103d8520f0f
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-env:
-  APP_ENV: production
-  APP_URL: https://crm.k8s-at-home.com
-  DB_DATABASE: monica
-  DB_USERNAME: monica
-  DB_HOST:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
-  DB_PASSWORD:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
-  APP_KEY:
-    secretKeyRef:
-      name: appkey
-      key: appkey
-
 service:
   main:
     ports:
       main:
         port: 10119
         targetPort: 80
-
 persistence:
   config:
     enabled: true
     mountPath: "/var/www/html/storage"
-
 mariadb:
   enabled: true
   mariadbUsername: monica
   mariadbDatabase: monica
-  existingSecret: "mariadbcreds"
 
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            APP_ENV: production
+            APP_URL: https://crm.k8s-at-home.com
+            DB_DATABASE: monica
+            DB_USERNAME: monica
+            DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            DB_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
+            APP_KEY:
+              secretKeyRef:
+                name: appkey
+                key: appkey
