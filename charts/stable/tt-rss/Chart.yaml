@@ -3,11 +3,8 @@ appVersion: "2.0.9113"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
-  - condition: postgresql.enabled
-    name: postgresql
-    repository: https://deps.truecharts.org/
-    version: 11.0.31
+    version: 12.6.1
+
 deprecated: false
 description: Tiny Tiny RSS is a free and open source web-based news feed (RSS/Atom) reader and aggregator.
 home: https://truecharts.org/charts/stable/tt-rss
@@ -25,9 +22,8 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/tt-rss
   - https://git.tt-rss.org/fox/tt-rss
 type: application
-version: 10.0.23
+version: 11.0.0
 annotations:
   truecharts.org/catagories: |
     - rss
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

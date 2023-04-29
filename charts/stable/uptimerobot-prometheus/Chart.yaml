@@ -3,7 +3,7 @@ appVersion: "0.0.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.6.1
 deprecated: false
 description: Prometheus Exporter for the official uptimerobot CLI
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/uptimerobot-prometheus.png
@@ -24,9 +24,8 @@ sources:
   - https://github.com/lekpamartin/uptimerobot_exporter
   - https://github.com/k8s-at-home/charts/tree/master/charts/uptimerobot-prometheus
 type: application
-version: 6.0.8
+version: 7.0.0
 annotations:
   truecharts.org/catagories: |
     - metrics
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
