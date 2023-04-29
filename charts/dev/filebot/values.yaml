@@ -54,6 +54,7 @@ configmap:
   filebot:
     enabled: true
     data:
+      CONTAINER_DEBUG: "1"
       ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.filebot.ENABLE_CJK_FONT }}'
       KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.filebot.KEEP_APP_RUNNING }}'
       SECURE_CONNECTION: '{{ ternary "1" "0" .Values.filebot.SECURE_CONNECTION }}'
@@ -114,3 +115,6 @@ persistence:
 portal:
   open:
     enabled: true
+
+manifestManager:
+  enabled: false
