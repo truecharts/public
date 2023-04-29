@@ -36,10 +36,8 @@ persistence:
     enabled: true
     mountPath: /etc/cont-init.d/enable-console-logging.sh
     subPath: enable-console-logging.sh
-    type: custom
-    volumeSpec:
-      configMap:
-        name: '{{ printf "%v-init" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
+    type: configmap
+    objectName: init
 portal:
   open:
     enabled: true
