@@ -64,7 +64,7 @@ questions:
           description: Please use this toggle to "Require HTTPS", do not use the Plex UI.
           schema:
             type: boolean
-            default: false
+            default: true
 
 # Include{containerConfig}
 # Include{podOptions}
@@ -85,6 +85,8 @@ questions:
                               type: int
                               default: 32400
                               required: true
+# Include{serviceExpertRoot}
+            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
