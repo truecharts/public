@@ -7,11 +7,9 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
                                 - variable: env
                                   group: App Configuration
                                   label: Image Environment
@@ -31,11 +29,8 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
-
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-
   - variable: plex
     group: App Configuration
     label: Plex Configuration
@@ -64,8 +59,15 @@ questions:
           schema:
             type: boolean
             default: true
+        - variable: requireHTTPS
+          label: Require HTTPS
+          description: Please use this toggle to "Require HTTPS", do not use the Plex UI.
+          schema:
+            type: boolean
+            default: true
 
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
 # Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
@@ -109,7 +111,6 @@ questions:
 # Include{ingressTraefik}
 # Include{ingressList}
 # Include{securityContextRoot}
-
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
@@ -131,7 +132,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}
