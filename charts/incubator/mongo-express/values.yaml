@@ -21,13 +21,13 @@ workload:
       containers:
         main:
           env:
-            ME_CONFIG_MONGODB_AUTH_DATABASE: "{{ .Values.mongodb.mongodbDatabase }}"
-            ME_CONFIG_MONGODB_AUTH_USERNAME: "{{ .Values.mongodb.mongodbUsername }}"
-            ME_CONFIG_MONGODB_AUTH_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
-                key: mongodb-password
+            ME_CONFIG_MONGODB_PORT: ""
+            ME_CONFIG_MONGODB_SERVER: ""
+            # https://codemirror.net/5/demo/theme.html
+            ME_CONFIG_OPTIONS_EDITORTHEME: default
+            ME_CONFIG_MONGODB_AUTH_DATABASE: ""
+            ME_CONFIG_MONGODB_AUTH_USERNAME: ""
+            ME_CONFIG_MONGODB_AUTH_PASSWORD: ""
 
 mongodb:
   enabled: false
