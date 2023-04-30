@@ -16,7 +16,7 @@ secret:
   config:
     enabled: true
     data:
-      config.yml: |
+      config.yaml: |
         database:
           type: postgres
           user: {{ .Values.cnpg.main.user }}
@@ -90,15 +90,15 @@ secret:
           path: {{ .Values.vikunja.log.path | quote }}
           standard: {{ .Values.vikunja.log.standard | quote }}
           level: {{ .Values.vikunja.log.level | quote }}
-          database: {{ .Values.vikunja.log.database | quote }}}
+          database: {{ .Values.vikunja.log.database | quote }}
           databaselevel: {{ .Values.vikunja.log.databaselevel | quote }}
           http: {{ .Values.vikunja.log.http | quote }}
-          echo: {{ .Values.vikunja.log.echo | quote }}}
+          echo: {{ .Values.vikunja.log.echo | quote }}
           events: {{ .Values.vikunja.log.events | quote }}
           eventslevel: {{ .Values.vikunja.log.eventslevel | quote }}
 
         ratelimit:
-          enabled: {{ .Values.vikunja.ratelimit.enabled }}}
+          enabled: {{ .Values.vikunja.ratelimit.enabled }}
           kind: {{ .Values.vikunja.ratelimit.kind | quote }}
           period: {{ .Values.vikunja.ratelimit.period }}
           limit: {{ .Values.vikunja.ratelimit.limit }}

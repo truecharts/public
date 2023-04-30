@@ -48,12 +48,15 @@ workload:
             liveness:
               type: http
               port: "{{ .Values.service.main.ports.main.port }}"
+              path: /health
             readiness:
               type: http
               port: "{{ .Values.service.main.ports.main.port }}"
+              path: /health
             startup:
               type: http
               port: "{{ .Values.service.main.ports.main.port }}"
+              path: /health
 
 vikunja:
   service:
@@ -186,8 +189,8 @@ persistence:
     targetSelector:
       main:
         main:
-          mountPath: /etc/vikunja
-          subPath: config.yml
+          subPath: config.yaml
+          mountPath: /etc/vikunja/config.yaml
 metrics:
   main:
     enabled: true
@@ -199,6 +202,7 @@ cnpg:
     enabled: true
     user: vikunja
     database: vikunja
+
 redis:
   enabled: true
 
