@@ -27,7 +27,7 @@ questions:
                                         label: MongoDB Database Port
                                         description: Database Port
                                         schema:
-                                          type: string
+                                          type: int
                                           default: 27017
                                       - variable: ME_CONFIG_MONGODB_AUTH_DATABASE
                                         label: MongoDB Database name
