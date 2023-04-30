@@ -61,10 +61,14 @@ questions:
             default: true
         - variable: requireHTTPS
           label: Require HTTPS
-          description: Please use this toggle to "Require HTTPS", do not use the Plex UI.
+          description: |
+            NOTE: Only enable this setting AFTER you are done with the initial configuration
+            of your Plex Server and verify that remote access is working.</br>
+            Please use this toggle to "Require HTTPS", instead of using the Plex UI,
+            so probes are configured correctly.
           schema:
             type: boolean
-            default: true
+            default: false
 
 # Include{containerConfig}
 # Include{podOptions}

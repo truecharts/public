@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/plex
   pullPolicy: IfNotPresent
-  tag: 1.31.3.6868@sha256:15a438c7e741a3158a04be54916dbb56be7bbe78129519b2fd91b285567029e3
+  tag: v1.32.0.6973@sha256:25f3e489457a7351bb25badba6b288b8c6b68c67ff973f6ff792010d7ecae110
 service:
   main:
     ports:
@@ -20,7 +20,7 @@ plex:
   serverIP: "127.0.0.1"
   additionalAdvertiseURL: ""
   disableGDM: true
-  requireHTTPS: true
+  requireHTTPS: false
 
 workload:
   main:
@@ -31,15 +31,12 @@ workload:
             liveness:
               enabled: true
               path: /identity
-              protocol: http
             readiness:
               enabled: true
               path: /identity
-              protocol: http
             startup:
               enabled: true
               path: /identity
-              protocol: http
           env:
             PLEX_PREFERENCE_GDM: 'GdmEnabled={{ ternary "0" "1" .Values.plex.disableGDM }}'
             # 0=Required, 1=Preferred
