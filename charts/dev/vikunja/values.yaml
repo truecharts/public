@@ -48,15 +48,12 @@ workload:
             liveness:
               type: http
               port: "{{ .Values.service.main.ports.main.port }}"
-              path: /health
             readiness:
               type: http
               port: "{{ .Values.service.main.ports.main.port }}"
-              path: /health
             startup:
               type: http
               port: "{{ .Values.service.main.ports.main.port }}"
-              path: /health
 
 vikunja:
   service:
