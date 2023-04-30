@@ -15,7 +15,7 @@ jobs:
   release-helm:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:1d1f3ec0f27e03028602ae9388340704e0b19db31322a3ce7275a0df94b0580c
+      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:819c4d1d0ad0e917a76827b4cb088b2e0a1b0544f9a1433a0dbcc18844e311c5
     steps:
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
@@ -60,7 +60,7 @@ jobs:
     outputs:
       ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
     container:
-      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:1d1f3ec0f27e03028602ae9388340704e0b19db31322a3ce7275a0df94b0580c
+      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:819c4d1d0ad0e917a76827b4cb088b2e0a1b0544f9a1433a0dbcc18844e311c5
     steps:
       - name: Install Kubernetes tools
         uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
