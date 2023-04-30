@@ -75,14 +75,14 @@ questions:
                       description: "Probe Type"
                       schema:
                         type: string
-                        default: "TCP"
+                        default: "tcp"
                         enum:
-                          - value: "TCP"
-                            description: "TCP"
-                          - value: "HTTP"
-                            description: "HTTP"
-                          - value: "HTTPS"
-                            description: "HTTPS"
+                          - value: "tcp"
+                            description: "tcp"
+                          - value: "http"
+                            description: "http"
+                          - value: "https"
+                            description: "https"
                     - variable: path
                       label: "Probe Path"
                       description: "Probe Path"
@@ -109,14 +109,14 @@ questions:
                       description: "Probe Type"
                       schema:
                         type: string
-                        default: "TCP"
+                        default: "tcp"
                         enum:
-                          - value: "TCP"
-                            description: "TCP"
-                          - value: "HTTP"
-                            description: "HTTP"
-                          - value: "HTTPS"
-                            description: "HTTPS"
+                          - value: "tcp"
+                            description: "tcp"
+                          - value: "http"
+                            description: "http"
+                          - value: "https"
+                            description: "https"
                     - variable: path
                       label: "Probe Path"
                       description: "Probe Path"
@@ -143,14 +143,14 @@ questions:
                       description: "Probe Type"
                       schema:
                         type: string
-                        default: "TCP"
+                        default: "tcp"
                         enum:
-                          - value: "TCP"
-                            description: "TCP"
-                          - value: "HTTP"
-                            description: "HTTP"
-                          - value: "HTTPS"
-                            description: "HTTPS"
+                          - value: "tcp"
+                            description: "tcp"
+                          - value: "http"
+                            description: "http"
+                          - value: "https"
+                            description: "https"
                     - variable: path
                       label: "Probe Path"
                       description: "Probe Path"
@@ -183,16 +183,16 @@ questions:
                             label: "Port Type"
                             schema:
                               type: string
-                              default: "HTTP"
+                              default: "http"
                               enum:
-                                - value: HTTP
-                                  description: "HTTP"
-                                - value: "HTTPS"
-                                  description: "HTTPS"
-                                - value: TCP
-                                  description: "TCP"
-                                - value: "UDP"
-                                  description: "UDP"
+                                - value: http
+                                  description: "http"
+                                - value: "https"
+                                  description: "https"
+                                - value: tcp
+                                  description: "tcp"
+                                - value: "udp"
+                                  description: "udp"
                           - variable: targetPort
                             label: "Target Port"
                             description: "This port exposes the container port on the service"
@@ -232,16 +232,16 @@ questions:
                             label: "Port Type"
                             schema:
                               type: string
-                              default: "TCP"
+                              default: "tcp"
                               enum:
-                                - value: HTTP
-                                  description: "HTTP"
-                                - value: "HTTPS"
-                                  description: "HTTPS"
-                                - value: TCP
-                                  description: "TCP"
-                                - value: "UDP"
-                                  description: "UDP"
+                                - value: http
+                                  description: "http"
+                                - value: "https"
+                                  description: "https"
+                                - value: tcp
+                                  description: "tcp"
+                                - value: "udp"
+                                  description: "udp"
                           - variable: targetPort
                             label: "Target Port"
                             description: "This port exposes the container port on the service"
