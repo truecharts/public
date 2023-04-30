@@ -11,7 +11,7 @@
   "prConcurrentLimit": 150,
   "timezone":"Europe/Amsterdam",
   "pinDigests": true,
-  "automerge": true,
+  "automerge": false,
   "gitAuthor": "TrueCharts-Admin <bot@truecharts.org>",
   "helm-values": {
     "fileMatch": ["charts/.+/.*values\\.yaml$", "charts/.+/SCALE/.*_values\\.yaml$"]
@@ -32,7 +32,7 @@
       "matchManagers": ["helm-values"],
       "enabled": true,
       "pinDigests": true,
-      "automerge": true,
+      "automerge": false,
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
       "matchUpdateTypes": ["major", "minor", "patch", "digest"],
@@ -41,7 +41,7 @@
       "datasources": ["docker"],
       "enabled": true,
       "pinDigests": true,
-      "automerge": true,
+      "automerge": false,
       "separateMinorPatch": true,
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
@@ -50,7 +50,7 @@
     {
       "matchManagers": ["github-actions"],
       "excludePackageNames": ["stefanzweifel/git-auto-commit-action"],
-      "automerge": false,
+      "automerge": true,
     },
     //
     // helm deps
@@ -66,13 +66,13 @@
     },
     {
       "matchDatasources": ["helm"],
-      "automerge": true,
+      "automerge": false,
       "matchUpdateTypes": [
         "minor",
         "patch"
       ],
       "bumpVersion": "patch",
-      "labels": ["update/helm/dependency/non-major"],
+      "labels": ["update/helm/dependency/non-major", "automerge"],
       "matchPaths": ["charts/dependency/**"],
       "groupName": "helm dependency non-major",
     },
@@ -93,14 +93,14 @@
     },
     {
       "matchDatasources": ["helm"],
-      "automerge": true,
+      "automerge": false,
       "matchUpdateTypes": [
         "minor",
         "patch"
       ],
       "enabled": true,
       "bumpVersion": "patch",
-      "labels": ["update/helm/general/non-major"],
+      "labels": ["update/helm/general/non-major", "automerge"],
       "groupName": "helm general non-major",
       "matchPaths": ["charts/enterprise/**"],
       "schedule": [
@@ -124,14 +124,14 @@
     },
     {
       "matchDatasources": ["helm"],
-      "automerge": true,
+      "automerge": false,
       "enabled": true,
       "matchUpdateTypes": [
         "minor",
         "patch"
       ],
       "bumpVersion": "patch",
-      "labels": ["update/helm/general/non-major"],
+      "labels": ["update/helm/general/non-major", "automerge"],
       "groupName": "helm general non-major",
       "matchPaths": ["charts/incubator/**", "charts/SCALE/**", "charts/dev/**", "charts/stable/**", "templates/app/**"],
       "schedule": [
@@ -162,7 +162,7 @@
     },
     {
       "matchDatasources": ["docker"],
-      "automerge": true,
+      "automerge": false,
       "matchUpdateTypes": [
         "patch",
         "digest",
@@ -170,7 +170,7 @@
       ],
       "bumpVersion": "patch",
       "enabled": true,
-      "labels": ["update/docker/enterprise/patch"],
+      "labels": ["update/docker/enterprise/patch", "automerge"],
       "matchPaths": ["charts/enterprise/**"],
     },
     //
@@ -186,7 +186,7 @@
     },
     {
       "matchDatasources": ["docker"],
-      "automerge": true,
+      "automerge": false,
       "matchUpdateTypes": [
         "minor",
         "patch",
