@@ -2,53 +2,13 @@ image:
   repository: tccr.io/truecharts/ocis
   tag: 2.0.0@sha256:37f5482b80d2776d26c7cec2c0de06c143652f723299b789846216fa2dc4c738
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-
-env:
-  OCIS_INSECURE: true
-  ACCOUNTS_DEMO_USERS_AND_GROUPS: false
-  OCIS_LOG_PRETTY: true
-  OCIS_LOG_COLOR: true
-  PROXY_TLS: false
-  PROXY_HTTP_ADDR: "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
-  OCIS_URL: "https://localhost:{{ .Values.service.main.ports.main.port }}"
-  OCIS_JWT_SECRET:
-    secretKeyRef:
-      name: ocis-secrets
-      key: OCIS_JWT_SECRET
-  STORAGE_TRANSFER_SECRET:
-    secretKeyRef:
-      name: ocis-secrets
-      key: STORAGE_TRANSFER_SECRET
-  OCIS_MACHINE_AUTH_API_KEY:
-    secretKeyRef:
-      name: ocis-secrets
-      key: OCIS_MACHINE_AUTH_API_KEY
-
 service:
   main:
     ports:
       main:
-        protocol: HTTPS
+        protocol: https
         port: 9200
         targetPort: 9200
-
-installContainers:
-  init:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    volumeMounts:
-      - name: config
-        mountPath: "/etc/ocis"
-    command:
-      - "/bin/sh"
-      - "-c"
-      - |
-        /usr/bin/ocis init > /etc/ocis/password <<'EOF'
-        yes
-        EOF
-
 persistence:
   data:
     enabled: true
@@ -56,6 +16,52 @@ persistence:
   config:
     enabled: true
     mountPath: "/etc/ocis"
-
+    targetSelectAll: true
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+workload:
+  main:
+    podSpec:
+      initContainers:
+        init:
+          type: install
+          enabled: true
+          imageSelector: image
+          command:
+            - "/bin/sh"
+            - "-c"
+            - |
+              /usr/bin/ocis init > /etc/ocis/password <<'EOF'
+              yes
+              EOF
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+            OCIS_INSECURE: true
+            ACCOUNTS_DEMO_USERS_AND_GROUPS: false
+            OCIS_LOG_PRETTY: true
+            OCIS_LOG_COLOR: true
+            PROXY_TLS: false
+            PROXY_HTTP_ADDR: "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
+            OCIS_URL: "https://localhost:{{ .Values.service.main.ports.main.port }}"
+            OCIS_JWT_SECRET:
+              secretKeyRef:
+                name: secrets
+                key: OCIS_JWT_SECRET
+            STORAGE_TRANSFER_SECRET:
+              secretKeyRef:
+                name: secrets
+                key: STORAGE_TRANSFER_SECRET
+            OCIS_MACHINE_AUTH_API_KEY:
+              secretKeyRef:
+                name: secrets
+                key: OCIS_MACHINE_AUTH_API_KEY

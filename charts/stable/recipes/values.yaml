@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/recipes
-  tag: 1.4.7@sha256:4183ea7125b07e0009796688219ebedeede5ff79ad42f16f96a4862d743bd0af
+  tag: 1.4.9@sha256:303aaf27090d748aabf8f42c95b2d9e3dcded92b5e348d2b86ee9a02a77e2dca
   pullPolicy: IfNotPresent
 
 nginxImage:
   repository: tccr.io/truecharts/nginx
-  tag: 1.23.3@sha256:0d92357c536291f04dad45f9af95dbdad46fb7a6e940f981a3a332f9d5279665
+  tag: 1.23.4@sha256:7e6b4bc511d01b48171cb3c345a67802297c77143c1411e22c5cf7e8acbf1915
 
 securityContext:
   readOnlyRootFilesystem: false

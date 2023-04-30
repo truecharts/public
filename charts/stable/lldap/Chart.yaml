@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "latest"
+appVersion: "0.4.3"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.4.21
+    version: 12.6.1
 deprecated: false
 description: Lightweight ldap server for authentication and user management
 home: https://truecharts.org/charts/stable/lldap
@@ -23,7 +23,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/lldap
   - https://github.com/nitnelave/lldap
 type: application
-version: 1.0.4
+version: 1.1.0
 annotations:
   truecharts.org/catagories: |
     - ldap
