@@ -2,6 +2,7 @@ image:
   repository: docker.io/mongo-express
   pullPolicy: IfNotPresent
   tag: latest@sha256:d5cee110909938c99cf8800b9379494c190d8fecaec70a4ce3886facdee6ef8e
+
 service:
   main:
     ports:
@@ -9,12 +10,11 @@ service:
         protocol: http
         targetPort: 8081
         port: 18081
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false
+
 workload:
   main:
     podSpec:
@@ -25,17 +25,13 @@ workload:
             ME_CONFIG_MONGODB_AUTH_USERNAME: "{{ .Values.mongodb.mongodbUsername }}"
             ME_CONFIG_MONGODB_AUTH_PASSWORD:
               secretKeyRef:
-                expandObjectName: "{{ if .Values.mongodb.mongodbRootPassword }}true{{ else }}false{{ end }}"
-                name: '{{ if .Values.mongodb.mongodbRootPassword }}credentials{{ else if .Values.mongodb.existingSecret }}{{ .Values.mongodb.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mongodbcreds" }}{{ end }}'
-                key: "mongodb-root-password"
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
+                key: mongodb-password
+
 mongodb:
-  enabled: true
-  mongodbUsername: mongo-express
-  mongodbDatabase: ""
-  mongodbRootPassword: ""
-  existingSecret: ""
-secret:
-  credentials:
+  enabled: false
+
+portal:
+  open:
     enabled: true
-    data:
-      mongodb-root-password: '{{ ( .Values.mongodb.mongoRootPassword | default "empty" ) }}'

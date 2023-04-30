@@ -4,6 +4,10 @@ dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 12.6.1
+  - condition: mongodb.enabled
+    name: mongodb
+    repository: https://deps.truecharts.org/
+    version: 6.0.15
 deprecated: false
 description: mongo-express is a web-based MongoDB admin interface written in Node.js, Express.js, and Bootstrap3.
 home: https://truecharts.org/charts/incubator
