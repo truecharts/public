@@ -35,7 +35,7 @@ workload:
               key: std
           DB_PASSWORD:
             secretKeyRef:
-              name: cnpg-main-urls
+              name: cnpg-main-user
               key: password
 
 persistence:
