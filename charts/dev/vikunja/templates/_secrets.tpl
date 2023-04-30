@@ -30,7 +30,7 @@ secret:
         redis:
           enabled: true
           host: {{ printf "%v-%v:%v" .Release.Name "redis" "6379" }}
-          password: {{ .Values.redis.redisPassword | trimAll "\""}}
+          password: {{ .Values.redis.creds.redisPassword | trimAll "\""}}
           db: 0
 
         keyvalue:
