@@ -11,7 +11,8 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-
+# Include{containerBasic}
+# Include{containerAdvanced}
   - variable: gotify
     group: App Configuration
     label: Gotify Configuration
@@ -170,8 +171,7 @@ questions:
                               type: string
                               default: ""
                               required: true
-# Include{containerBasic}
-# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
