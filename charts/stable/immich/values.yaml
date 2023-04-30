@@ -18,6 +18,11 @@ proxyImage:
   tag: 1.49.0@sha256:08e467d09e6f4abf10e4ea93e0310e6bc323e4ea6b0a6c05fb128bb46ed38578
   pullPolicy: IfNotPresent
 
+typesenseImage:
+  repository: tccr.io/truecharts/immich-typesense
+  tag: 0.24.0@sha256:4532e0ef429fd0bec440a1c227f2241bf60668a4f502d996694d077728678d21
+  pullPolicy: IfNotPresent
+
 command:
   - /bin/sh
   - ./start-server.sh
@@ -41,6 +46,7 @@ immich:
   mapbox_key: ""
   typesense_enabled: false
   typesense_api_key: ""
+  typesense_data_dir: "/typesense_data"
 
 envFrom:
   - configMapRef:
@@ -80,6 +86,10 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: /cache
+  typesense_data:
+    enabled: true
+    type: emptyDir
+    mountPath: /typesense_data
 
 postgresql:
   enabled: true

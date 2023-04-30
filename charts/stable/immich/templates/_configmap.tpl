@@ -24,6 +24,7 @@ data:
   REVERSE_GEOCODING_PRECISION: {{ .Values.immich.reverse_geocoding_precision | quote }}
   ENABLE_MAPBOX: {{ .Values.immich.mapbox_enable | quote }}
   TYPESENSE_ENABLED: {{ .Values.immich.typesense_enabled | quote }}
+  TYPESENSE_DATA_DIR: {{ .Values.immich.typesense_data_dir }}
 
 ---
 apiVersion: v1
