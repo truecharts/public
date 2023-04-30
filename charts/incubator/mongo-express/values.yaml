@@ -20,6 +20,20 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              type: http
+              httpHeaders:
+                Authorization: '{{ printf "Basic %s" ((printf "%s:%s" .Values.workload.main.podSpec.containers.main.env.ME_CONFIG_BASICAUTH_USERNAME .Values.workload.main.podSpec.containers.main.env.ME_CONFIG_BASICAUTH_PASSWORD) | b64enc) }}'
+            readiness:
+              type: http
+              httpHeaders:
+                Authorization: '{{ printf "Basic %s" ((printf "%s:%s" .Values.workload.main.podSpec.containers.main.env.ME_CONFIG_BASICAUTH_USERNAME .Values.workload.main.podSpec.containers.main.env.ME_CONFIG_BASICAUTH_PASSWORD) | b64enc) }}'
+            startup:
+              type: http
+              httpHeaders:
+                Authorization: '{{ printf "Basic %s" ((printf "%s:%s" .Values.workload.main.podSpec.containers.main.env.ME_CONFIG_BASICAUTH_USERNAME .Values.workload.main.podSpec.containers.main.env.ME_CONFIG_BASICAUTH_PASSWORD) | b64enc) }}'
+
           env:
             ME_CONFIG_MONGODB_PORT: ""
             ME_CONFIG_MONGODB_SERVER: ""
