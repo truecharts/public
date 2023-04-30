@@ -1,22 +1,20 @@
 image:
   repository: tccr.io/truecharts/openhab
   pullPolicy: IfNotPresent
-  tag: 3.4.3@sha256:d0aa6f705e7491678210ce7819b1ca0a9a77555c94bcf7ad931e0b70f5ac6e90
-
+  tag: 3.4.2@sha256:bb3fdf98084426d18ff82b3e576a93c88570e9b037066db5b25fd9d661aaf3d1
 service:
   main:
     ports:
       main:
-        protocol: HTTP
+        protocol: http
         port: 10169
   https:
     enabled: true
     ports:
       https:
-        protocol: HTTPS
+        protocol: https
         enabled: true
         port: 10170
-
 configmap:
   init:
     enabled: true
@@ -24,19 +22,6 @@ configmap:
       enable-console-logging.sh: |
         echo 'Enabling console logging.'
         sed -i -E 's|(<AppenderRef ref="OSGI"/>).*|\1<AppenderRef ref="STDOUT"/>|' /openhab/userdata/etc/log4j2.xml
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-env:
-  OPENHAB_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
-  OPENHAB_HTTPS_PORT: "{{ .Values.service.https.ports.https.port }}"
-
 persistence:
   config:
     enabled: true
@@ -51,10 +36,29 @@ persistence:
     enabled: true
     mountPath: /etc/cont-init.d/enable-console-logging.sh
     subPath: enable-console-logging.sh
-    type: custom
-    volumeSpec:
-      configMap:
-        name: '{{ printf "%v-init" (include "tc.common.names.fullname" .) }}'
-
+    type: configmap
+    objectName: init
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            OPENHAB_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+            OPENHAB_HTTPS_PORT: "{{ .Values.service.https.ports.https.port }}"
