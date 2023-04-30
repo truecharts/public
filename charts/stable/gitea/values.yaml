@@ -2,12 +2,6 @@ image:
   repository: tccr.io/truecharts/gitea
   tag: 1.18.5@sha256:722c1aa3d962d7cdbec55a8016b33197468ea59a08e89650b33d6410973df944
   pullPolicy: IfNotPresent
-
-podSecurityContext:
-  runAsUser: 1000
-  runAsGroup: 1000
-  fsGroup: 1000
-
 service:
   main:
     ports:
@@ -22,73 +16,27 @@ service:
         port: 2222
         targetPort: 2222
 
-envFrom:
-  - configMapRef:
-      name: gitea-env
-
-initContainers:
-  1-init-directories:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    command: ["/usr/sbin/init_directory_structure.sh"]
-    securityContext:
-      runAsUser: 0
-      runAsNonRoot: false
-    envFrom:
-      - configMapRef:
-          name: gitea-env
-    volumeMounts:
-      - name: init
-        mountPath: "/usr/sbin"
-      - name: temp
-        mountPath: "/tmp"
-      - name: config
-        mountPath: "/etc/gitea/conf"
-      - name: data
-        mountPath: "/data"
-  2-configure-gitea:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    command: ["/usr/sbin/configure_gitea.sh"]
-    envFrom:
-      - configMapRef:
-          name: gitea-env
-    volumeMounts:
-      - name: init
-        mountPath: "/usr/sbin"
-      - name: temp
-        mountPath: "/tmp"
-      - name: data
-        mountPath: "/data"
-
 persistence:
   data:
     enabled: true
     mountPath: "/data"
-  temp:
-    enabled: true
-    mountPath: "/tmp"
-    type: emptyDir
+    targetSelectAll: true
   varlib:
     enabled: true
     mountPath: "/var/lib/gitea"
     type: emptyDir
-
 # Configure commit/action signing prerequisites
 signing:
   enabled: true
   gpgHome: /data/git/.gnupg
-
 admin:
   username: giteaadmin
   password: r8sA8CPHD9!bt6d
   email: "gitea@local.domain"
-
 metrics:
-  enabled: false
-  serviceMonitor:
-    enabled: false
-    #  additionalLabels:
-    #    prometheus-release: prom1
-
+  main:
+    enabled: true
+    type: "servicemonitor"
 ldap:
   enabled: false
   # name:
@@ -103,7 +51,6 @@ ldap:
   # bindPassword:
   # usernameAttribute:
   # sshPublicKeyAttribute:
-
 oauth:
   enabled: false
   # name:
@@ -116,30 +63,67 @@ oauth:
   # customTokenUrl:
   # customProfileUrl:
   # customEmailUrl:
-
 config:
   APP_NAME: "Gitea: Git with a cup of tea"
   RUN_MODE: dev
   ALLOWED_HOST_LIST: "127.0.0.1"
   nodeIP: 127.0.0.1
-
-customConfig:
-  []
-  # - name: test
-  #   keys:
-  #     - name: testkey
-  #       value: testvalue
+customConfig: []
+# - name: test
+#   keys:
+#     - name: testkey
+#       value: testvalue
 
 # Enabled postgres
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: gitea
-  postgresqlDatabase: gitea
+cnpg:
+  main:
+    enabled: true
 
+    user: gitea
+    database: gitea
 # --  memcached dependency settings
 memcached:
   enabled: true
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000
+workload:
+  main:
+    podSpec:
+      initContainers:
+        1-init-directories:
+          enabled: true
+          imageSelector: image
+          type: init
+          command: ["/usr/sbin/init_directory_structure.sh"]
+          securityContext:
+            runAsUser: 0
+            runAsNonRoot: false
+          envFrom:
+            - configMapRef:
+                name: gitea-env
+        2-configure-gitea:
+          enabled: true
+          imageSelector: image
+          type: init
+          command: ["/usr/sbin/configure_gitea.sh"]
+          envFrom:
+            - configMapRef:
+                name: gitea-env
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          envFrom:
+            - configMapRef:
+                name: gitea-env
