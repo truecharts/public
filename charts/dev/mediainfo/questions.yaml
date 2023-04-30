@@ -27,6 +27,8 @@ questions:
                                           type: string
                                           private: true
                                           default: ""
+# Include{containerBasic}
+# Include{containerAdvanced}
   - variable: mediainfo
     group: "App Configuration"
     label: "Media Info Configuration"
@@ -74,8 +76,7 @@ questions:
                 schema:
                   type: boolean
                   default: false
-# Include{containerBasic}
-# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}

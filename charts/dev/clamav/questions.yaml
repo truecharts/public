@@ -46,6 +46,8 @@ questions:
                                         schema:
                                           type: int
                                           default: 1
+# Include{containerBasic}
+# Include{containerAdvanced}
   - variable: clamav
     group: "App Configuration"
     label: "ClamAV Cron Configuration"
@@ -97,8 +99,7 @@ questions:
                 schema:
                   type: string
                   default: ""
-# Include{containerBasic}
-# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}

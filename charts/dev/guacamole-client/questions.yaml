@@ -33,6 +33,8 @@ questions:
                                           type: int
                                           required: true
                                           default: 4822
+# Include{containerBasic}
+# Include{containerAdvanced}
   - variable: general
     group: "App Configuration"
     label: "General Configuration"
@@ -688,8 +690,7 @@ questions:
                 schema:
                   type: string
                   default: ""
-# Include{containerBasic}
-# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}

@@ -11,7 +11,8 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-
+# Include{containerBasic}
+# Include{containerAdvanced}
   - variable: focalboard
     group: "App Configuration"
     label: "Focalboard Configuration"
@@ -21,7 +22,7 @@ questions:
       attrs:
         - variable: serverRoot
           label: "serverRoot"
-          description: "Root URL of the server.    eg. https://focal.mydomain.com"
+          description: "Root URL of the server. eg. https://focal.mydomain.com"
           schema:
             type: string
             default: "http://localhost:10072"
@@ -43,8 +44,7 @@ questions:
           schema:
             type: boolean
             default: true
-# Include{containerBasic}
-# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}

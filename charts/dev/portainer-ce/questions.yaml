@@ -11,18 +11,19 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-
-  - variable: imageSelector
-    group: Container Image
-    label: Select Edition
-    schema:
-      type: string
-      default: image
-      enum:
-        - value: image
-          description: Community
-        - value: imageBe
-          description: Business
+                                - variable: imageSelector
+                                  group: Container Image
+                                  label: Select Edition
+                                  schema:
+                                    type: string
+                                    default: image
+                                    enum:
+                                      - value: image
+                                        description: Community
+                                      - value: imageBe
+                                        description: Business
+# Include{containerBasic}
+# Include{containerAdvanced}
   - variable: portainer
     group: App Configuration
     label: Portainer Configuration
@@ -60,8 +61,7 @@ questions:
                 schema:
                   type: string
                   default: ""
-# Include{containerBasic}
-# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}

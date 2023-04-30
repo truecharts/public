@@ -25,6 +25,8 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
+# Include{containerBasic}
+# Include{containerAdvanced}
   - variable: pydioinstall
     group: "App Configuration"
     label: "Pydio Cells Initial Configuration"
@@ -53,8 +55,6 @@ questions:
             type: string
             required: true
             default: ""
-# Include{containerBasic}
-# Include{containerAdvanced}
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}

@@ -10,7 +10,8 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
+# Include{containerBasic}
+# Include{containerAdvanced}
 
   - variable: wger
     group: "App Configuration"
@@ -151,8 +152,7 @@ questions:
                       schema:
                         type: boolean
                         default: true
-# Include{containerBasic}
-# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}

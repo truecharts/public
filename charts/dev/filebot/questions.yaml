@@ -26,6 +26,8 @@ questions:
                                           type: string
                                           private: true
                                           default: ""
+# Include{containerBasic}
+# Include{containerAdvanced}
   - variable: filebot
     group: "App Configuration"
     label: "FileBot Configuration"
@@ -230,8 +232,7 @@ questions:
                 schema:
                   type: string
                   default: ""
-# Include{containerBasic}
-# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}

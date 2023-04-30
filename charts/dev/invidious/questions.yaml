@@ -11,7 +11,8 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-
+# Include{containerBasic}
+# Include{containerAdvanced}
   - variable: invidious
     group: App Configuration
     label: Invidious Configuration
@@ -1208,8 +1209,6 @@ questions:
                       schema:
                         type: boolean
                         default: false
-# Include{containerBasic}
-# Include{containerAdvanced}
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}

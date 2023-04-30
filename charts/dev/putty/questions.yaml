@@ -27,6 +27,8 @@ questions:
                                           type: string
                                           private: true
                                           default: ""
+# Include{containerBasic}
+# Include{containerAdvanced}
   - variable: putty
     group: "App Configuration"
     label: "PuTTY Configuration"
@@ -80,8 +82,7 @@ questions:
                 schema:
                   type: boolean
                   default: false
-# Include{containerBasic}
-# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}

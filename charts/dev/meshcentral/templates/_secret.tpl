@@ -1,15 +1,16 @@
 {{/* Define the secret */}}
 {{- define "meshcentral.secret" -}}
 
-{{- $secretName := printf "%s-secret" (include "tc.v1.common.lib.chart.names.fullname" .) -}}
-{{- $secretStorageName := printf "%s-storage-secret" (include "tc.v1.common.lib.chart.names.fullname" .) -}}
+{{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+{{- $secretName := printf "%s-mesh-secret" $fullname -}}
+{{- $secretStoreName := printf "%s-sec-store" $fullname -}}
 
 {{- $config := .Values.meshcentral -}}
 {{- $mc_custom := .Values.additional_meshcentral -}}
 
 {{- $isScale := false -}}
-{{- if hasKey .Values.global "isSCALE" -}}
-  {{- $isScale = .Values.global.isSCALE -}}
+{{- if hasKey .Values.global "ixChartContext" -}}
+  {{- $isScale = true -}}
 {{- else -}}
   {{- $isScale = false -}}
 {{- end -}}
@@ -29,7 +30,7 @@
 {{- end -}}
 
 {{- $sessionKey := "" -}}
-{{- with (lookup "v1" "Secret" .Release.Namespace $secretStorageName) -}}
+{{- with (lookup "v1" "Secret" .Release.Namespace $secretStoreName) -}}
   {{- $sessionKey = (index .data "session_key") | b64dec -}}
 {{- else -}}
   {{- $sessionKey = randAlphaNum 32 -}}
@@ -66,18 +67,18 @@
   {{- $config = (include "prune.keys" $config) -}}
 {{- end }}
 
-storage-secret:
-  enabled: true
-  data:
-    {{/* Store session_key to reuse */}}
-    session_key: {{ $sessionKey }}
-
 secret:
-  enabled: true
-  data:
-    {{/* The actual config */}}
-    config.json: |
-      {{- toPrettyJson (fromYaml $config) | nindent 6 }}
+  sec-store:
+    enabled: true
+    data:
+      {{/* Store session_key to reuse */}}
+      session_key: {{ $sessionKey }}
+  mesh-secret:
+    enabled: true
+    data:
+      {{/* The actual config */}}
+      config.json: |
+        {{- toPrettyJson (fromYaml $config) | nindent 8 }}
 {{- end -}}
 
 {{/* Prunes keys that start with _ */}}

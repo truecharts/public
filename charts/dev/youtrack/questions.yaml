@@ -10,7 +10,8 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
+# Include{containerBasic}
+# Include{containerAdvanced}
 
   - variable: youtrack
     group: App Configuration
@@ -178,8 +179,7 @@ questions:
                         type: string
                         required: true
                         default: ""
-# Include{containerBasic}
-# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}

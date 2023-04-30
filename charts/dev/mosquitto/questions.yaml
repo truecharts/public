@@ -9,7 +9,6 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-<<<<<<<< HEAD:charts/stable/paperless-ngx/questions.yaml
                                 - variable: env
                                   group: "App Configuration"
                                   label: "Image Environment"
@@ -51,8 +50,6 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-========
-
   - variable: auth
     group: "App Configuration"
     label: "Authentication"
@@ -79,9 +76,6 @@ questions:
           schema:
             type: boolean
             default: false
-# Include{containerBasic}
-# Include{containerAdvanced}
->>>>>>>> 04d045fc3f (feat(stable): BREAKING CHANGE migrate to new common part 3):charts/dev/mosquitto/questions.yaml
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -172,23 +166,13 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-<<<<<<<< HEAD:charts/stable/paperless-ngx/questions.yaml
-                  default: 0
+                  default: 568
               - variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID this App of the user running the application"
                 schema:
                   type: int
-                  default: 0
-========
                   default: 568
-              - variable: runAsGroup
-                label: "runAsGroup"
-                description: "The groupID of the user running the application"
-                schema:
-                  type: int
-                  default: 568
->>>>>>>> 04d045fc3f (feat(stable): BREAKING CHANGE migrate to new common part 3):charts/dev/mosquitto/questions.yaml
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}

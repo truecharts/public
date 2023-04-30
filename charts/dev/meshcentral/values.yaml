@@ -1,7 +1,24 @@
 image:
   repository: tccr.io/truecharts/meshcentral
   pullPolicy: IfNotPresent
-  tag: 1.1.4@sha256:897de1ed255c6f8587f1bc9af4b0e86bfd004c4659eedc2e5cd73de3f40deb0b
+  tag: 1.1.5@sha256:91564f7e1d65c007e732bb3e468bafb381ffd257fa85b6e5ef6691c89de0b3d0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          command:
+            - node
+            - meshcentral/meshcentral
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
 # - Values with the character _ in-front of them are pruned. Add or remove _ to disable or enable options
 # - More in-depth info for each options can be found here: https://github.com/Ylianst/MeshCentral/blob/master/meshcentral-config-schema.json
 # - Check for this chart's specific info in our webpage https://truecharts.org
@@ -263,7 +280,7 @@ meshcentral:
     # from: null
     # # - url
     # provider: url
-    # url: "tc.v1.common.lib.chart.names.fullname"
+    # url: "tc.common.names.fullname"
   # - This section allow MeshCentral to send messages over user messaging networks like Telegram
   _messaging:
     # - Configure Telegram messaging system
@@ -283,6 +300,7 @@ meshcentral:
       credentials:
         username: ""
         password: ""
+
   # - Any settings in this section is used as default setting for all domains
   _domaindefaults:
     title: Default Title
@@ -932,6 +950,7 @@ meshcentral:
               enabled: false
               # - When set, limits what OIDC groups are mirrored into MeshCentral user groups.
               filter: []
+
 service:
   main:
     ports:
@@ -939,20 +958,21 @@ service:
         # Only use HTTPS if meshcental handles the certs
         protocol: http
         port: 10205
-        # mps:
-        #   enabled: true
-        #   ports:
-        #     mps:
-        #       enabled: true
-        #       port: 4433
-        #       targetPort: 4433
-        # amtprovisioner:
-        #   enabled: true
-        #   ports:
-        #     amtprovisioner:
-        #       enabled: true
-        #       port: 9971
-        #       targetPort: 9971
+  # mps:
+  #   enabled: true
+  #   ports:
+  #     mps:
+  #       enabled: true
+  #       port: 4433
+  #       targetPort: 4433
+  # amtprovisioner:
+  #   enabled: true
+  #   ports:
+  #     amtprovisioner:
+  #       enabled: true
+  #       port: 9971
+  #       targetPort: 9971
+
 mongodb:
   enabled: true
   mongodbUsername: meshcentral
@@ -980,36 +1000,10 @@ persistence:
     type: secret
     readOnly: true
     defaultMode: "0600"
-    objectName: secret
+    objectName: mesh-secret
     mountPath: /opt/meshcentral/meshcentral-data/config.json
     subPath: config.json
+
 portal:
   open:
     enabled: true
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsUser: 0
-    runAsGroup: 0
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          command:
-            - node
-            - meshcentral/meshcentral
-        probes:
-          liveness:
-            enabled: true
-            type: "{{ .Values.service.main.ports.main.protocol }}"
-            path: /health.ashx
-          readiness:
-            enabled: true
-            type: "{{ .Values.service.main.ports.main.protocol }}"
-            path: /health.ashx
-          startup:
-            enabled: true
-            type: "{{ .Values.service.main.ports.main.protocol }}"
-            path: /health.ashx

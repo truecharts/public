@@ -26,6 +26,8 @@ questions:
                                           type: string
                                           private: true
                                           default: ""
+# Include{containerBasic}
+# Include{containerAdvanced}
   - variable: handbrake
     group: "App Configuration"
     label: "HandBrake Configuration"
@@ -108,8 +110,7 @@ questions:
                   type: string
                   default: "ignore"
                   required: true
-# Include{containerBasic}
-# Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}

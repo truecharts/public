@@ -9,7 +9,8 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-
+# Include{containerBasic}
+# Include{containerAdvanced}
   - variable: plexanisync
     group: App Configuration
     label: PlexAniSync Configuration
@@ -226,8 +227,6 @@ questions:
                               type: string
                               required: true
                               default: ""
-# Include{containerBasic}
-# Include{containerAdvanced}
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceExpertRoot}
