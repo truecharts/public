@@ -17,6 +17,21 @@ questions:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
+                                      - variable: ME_CONFIG_BASICAUTH_USERNAME
+                                        label: WebUI Basic Auth Username
+                                        description: Basic Auth Username
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                      - variable: ME_CONFIG_BASICAUTH_PASSWORD
+                                        label: WebUI Basic Auth Password
+                                        description: Basic Auth Password
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                          private: true
                                       - variable: ME_CONFIG_MONGODB_SERVER
                                         label: MongoDB Database Server
                                         description: Database Server
@@ -49,6 +64,7 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
+                                          private: true
                                       - variable: ME_CONFIG_OPTIONS_EDITORTHEME
                                         label: Editor Theme
                                         description: Pick a theme from https://codemirror.net/5/demo/theme.html
