@@ -1,19 +1,7 @@
 image:
   repository: tccr.io/truecharts/ubooquity
   pullPolicy: IfNotPresent
-  tag: v2.1.2@sha256:5a3f28e4cae38688be6db3aed6ba49301a21cccdb06cfeeb2c041e93f84da2ba
-
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-env:
-  MAXMEM: 512
-
+  tag: v2.1.2@sha256:1f2370ed2b602886db35881d3f10b5fefc59854b2552d14d3a6fdb9b6e7609f4
 service:
   main:
     ports:
@@ -27,7 +15,6 @@ service:
         enabled: true
         targetPort: 2203
         port: 2203
-
 persistence:
   varrun:
     enabled: true
@@ -43,6 +30,26 @@ persistence:
   files:
     enabled: true
     mountPath: "/files"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            MAXMEM: 512
