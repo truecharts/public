@@ -31,15 +31,12 @@ workload:
             liveness:
               enabled: true
               path: /identity
-              protocol: http
             readiness:
               enabled: true
               path: /identity
-              protocol: http
             startup:
               enabled: true
               path: /identity
-              protocol: http
           env:
             PLEX_PREFERENCE_GDM: 'GdmEnabled={{ ternary "0" "1" .Values.plex.disableGDM }}'
             # 0=Required, 1=Preferred
