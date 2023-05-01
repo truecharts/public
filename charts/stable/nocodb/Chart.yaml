@@ -1,10 +1,9 @@
 apiVersion: v2
-appVersion: "0.105.3"
+appVersion: "0.106.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 12.6.1
-
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
@@ -23,7 +22,7 @@ name: nocodb
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/nocodb
   - https://github.com/nocodb/nocodb
-version: 7.0.0
+version: 7.0.1
 annotations:
   truecharts.org/catagories: |
     - productivity
