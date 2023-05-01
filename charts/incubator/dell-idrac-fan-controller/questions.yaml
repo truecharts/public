@@ -18,26 +18,26 @@ questions:
                                     type: dict
                                     attrs:
                                     - variable: IDRAC_HOST
-                                      label: IDRAC_HOST
+                                      label: iDrac Host
                                       description: iDRAC's IP address. Default value is "local".
                                       schema:
                                         type: string
                                         default: ""
                                     - variable: IDRAC_USERNAME
-                                      label: IDRAC_USERNAME
+                                      label: iDrac Host Name
                                       description: iDrac Username. Default value is "root".
                                       schema:
                                         type: string
                                         default: ""
                                     - variable: IDRAC_PASSWORD
-                                      label: IDRAC_PASSWORD
+                                      label: iDrac Password
                                       description: iDrac Password. Default password is "calvin".
                                       schema:
                                         type: string
                                         private: true
                                         default: ""
                                     - variable: FAN_SPEED
-                                      label: FAN_SPEED
+                                      label: Fan Speed
                                       description:  Fan speed parameter can be set as a decimal (from 0 to 100%). Default value is 5(%).
                                       schema:
                                         type: int
@@ -45,19 +45,19 @@ questions:
                                         max: 100
                                         default: 5
                                     - variable: CPU_TEMPERATURE_THRESHOLD
-                                      label: CPU_TEMPERATURE_THRESHOLD
+                                      label: CPU Temperature Thershold
                                       description: parameter is the T°junction (junction temperature) threshold beyond which the Dell fan mode defined in your BIOS will become active again (to protect the server hardware against overheat). Default value is 50(°C).
                                       schema:
                                         type: int
                                         default: 50
                                     - variable: CHECK_INTERVAL
-                                      label: Detection Mode
+                                      label: Check Interval
                                       description: parameter is the time (in seconds) between each temperature check and potential profile change. Default value is 60(s).
                                       schema:
                                         type: int
                                         default: 60
                                     - variable: DISABLE_THIRD_PARTY_PCIE_CARD_DELL_DEFAULT_COOLING_RESPONSE
-                                      label: DISABLE_THIRD_PARTY_PCIE_CARD_DELL_DEFAULT_COOLING_RESPONSE
+                                      label: Disable 3rd Party PCIE Card Dell Default Cooling Response
                                       description: Boolean that allows to disable third-party PCIe card Dell default cooling response. Default value is false.
                                       schema:
                                         type: boolean
