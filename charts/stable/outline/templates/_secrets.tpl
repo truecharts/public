@@ -13,5 +13,5 @@ enabled: true
 data:
   SECRET_KEY: {{ $secret_key }}
   UTILS_SECRET: {{ $utils_secret  }}
-  REDIS_CUSTOM_URL: {{ .Values.reidis.creds.url | trimAll "\""  }}
+  REDIS_CUSTOM_URL: {{ .Values.redis.creds.url | trimAll "\""  }}
 {{- end -}}
