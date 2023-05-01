@@ -41,7 +41,7 @@ questions:
                                       description:  Fan speed parameter can be set as a decimal (from 0 to 100%). Default value is 5(%).
                                       schema:
                                         type: int
-                                        default: ""
+                                        default: 0.05
                                     - variable: CPU_TEMPERATURE_THRESHOLD
                                       label: CPU_TEMPERATURE_THRESHOLD
                                       description: parameter is the T°junction (junction temperature) threshold beyond which the Dell fan mode defined in your BIOS will become active again (to protect the server hardware against overheat). Default value is 50(°C).
