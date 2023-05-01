@@ -60,11 +60,11 @@ secret:
     data:
       DB_USERNAME: {{ .Values.cnpg.main.user }}
       DB_DATABASE_NAME: {{ .Values.cnpg.main.database }}
-      DB_PORT: "5432"
-      REDIS_PORT: "6379"
-      REDIS_DBINDEX: "0"
+      DB_HOSTNAME: {{ .Values.cnpg.main.creds.host }}
       DB_PASSWORD: {{ .Values.cnpg.main.creds.password }}
-      DB_HOSTNAME: {{ .Values.cnpg.main.creds.porthost }}
+      DB_PORT: "5432"
       REDIS_HOSTNAME: {{ .Values.redis.creds.plainport }}
       REDIS_PASSWORD: {{ .Values.redis.creds.redisPassword }}
+      REDIS_PORT: "6379"
+      REDIS_DBINDEX: "0"
 {{- end -}}
