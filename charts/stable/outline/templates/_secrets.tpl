@@ -9,11 +9,9 @@
   {{- $secret_key = index .data "SECRET_KEY" | b64dec }}
   {{- $utils_secret = index .data "UTILS_SECRET" | b64dec }}
 {{- end }}
-{{- $redisHost := .Values.redis.creds.plainhost | trimAll "\"" }}
-{{- $redisPass := .Values.redis.creds.redisPassword | trimAll "\"" }}
 enabled: true
 data:
   SECRET_KEY: {{ $secret_key }}
   UTILS_SECRET: {{ $utils_secret  }}
-  REDIS_CUSTOM_URL: {{ printf "redis://:%v@%v:6379/0" $redisPass $redisHost  }}
+  REDIS_CUSTOM_URL: {{ .Values.reidis.creds.url | trimAll "\""  }}
 {{- end -}}
