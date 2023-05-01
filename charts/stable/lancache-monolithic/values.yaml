@@ -2,31 +2,13 @@ image:
   repository: tccr.io/truecharts/lancache-monolithic
   pullPolicy: IfNotPresent
   tag: latest@sha256:2a4bc774b45400ef97bf6e4c13262f6c96f78821b3857f86a0c8ccef47c1290d
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-env:
-  CACHE_DOMAINS_REPO: "https://github.com/uklans/cache-domains.git"
-  CACHE_DOMAINS_BRANCH: "master"
-  UPSTREAM_DNS: "1.1.1.1 1.0.0.1"
-  CACHE_DISK_SIZE: "1000000m"
-  CACHE_MAX_AGE: "3560d"
-  CACHE_INDEX_SIZE: "500m"
-  NOFETCH: false
-
 service:
   main:
     ports:
       main:
         port: 10279
         targetPort: 80
-        protocol: HTTP
+        protocol: http
   https:
     enabled: true
     ports:
@@ -34,8 +16,7 @@ service:
         enabled: true
         port: 10280
         targetPort: 443
-        protocol: HTTPS
-
+        protocol: https
 persistence:
   config:
     enabled: true
@@ -43,6 +24,32 @@ persistence:
   logs:
     enabled: true
     mountPath: "/data/logs"
-
 portal:
-  enabled: false
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            CACHE_DOMAINS_REPO: "https://github.com/uklans/cache-domains.git"
+            CACHE_DOMAINS_BRANCH: "master"
+            UPSTREAM_DNS: "1.1.1.1 1.0.0.1"
+            CACHE_DISK_SIZE: "1000000m"
+            CACHE_MAX_AGE: "3560d"
+            CACHE_INDEX_SIZE: "500m"
+            NOFETCH: false
