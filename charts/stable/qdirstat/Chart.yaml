@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "23.02.2"
+appVersion: "23.03.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.6.1
 deprecated: false
 description: QDirStat is a graphical application to show where your disk space has gone and to help you to clean it up.
 home: https://truecharts.org/charts/stable/qdirstat
@@ -21,9 +21,8 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/qdirstat
   - https://github.com/jlesage/docker-qdirstat
 type: application
-version: 3.0.13
+version: 4.0.1
 annotations:
   truecharts.org/catagories: |
     - media
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

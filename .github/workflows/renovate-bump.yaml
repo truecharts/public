@@ -12,7 +12,7 @@ jobs:
     name: Get changed Apps
     runs-on: ubuntu-20.04
     container:
-      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:44047909bbf54cb1ce3551ae0b342244a5bdcd62562a7f2f07caad4bf8856ee4
+      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:819c4d1d0ad0e917a76827b4cb088b2e0a1b0544f9a1433a0dbcc18844e311c5
     steps:
       - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         name: Checkout

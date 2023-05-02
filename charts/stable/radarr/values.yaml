@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/radarr
   pullPolicy: IfNotPresent
-  tag: 4.3.2.6857@sha256:b51ca8472ed45f8979ef4bf86608449d620a7b698c718bbfc57dfbe20af8033a
+  tag: 4.4.4.7068@sha256:299a9fc534456ac607bb99e480582d413a8accc21b641f2041d7bcb30905ff26
 service:
   main:
     ports:
@@ -11,12 +11,6 @@ persistence:
   config:
     enabled: true
     mountPath: /config
-cnpg:
-  main:
-    enabled: true
-
-    database: radarr
-    user: radarr
 portal:
   open:
     enabled: true
@@ -31,33 +25,16 @@ workload:
           probes:
             readiness:
               enabled: true
-              type: tcp
-              # FIXME: https://github.com/Radarr/Radarr/pull/8055
-              # Next release this will work
-              # type: http
-              # path: /ping
+              type: http
+              path: /ping
             liveness:
               enabled: true
-              type: tcp
-              # type: http
-              # path: /ping
+              type: http
+              path: /ping
             startup:
               enabled: true
-              type: tcp
-              # type: http
-              # path: /ping
+              type: http
+              path: /ping
 
           env:
             RADARR__PORT: "{{ .Values.service.main.ports.main.port }}"
-            RADARR__AUTHENTICATION_METHOD: ""
-            RADARR__POSTGRES_PORT: 5432
-            RADARR__POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
-            RADARR__POSTGRES_MAIN_DB: "{{ .Values.cnpg.main.database }}"
-            RADARR__POSTGRES_HOST:
-              secretKeyRef:
-                name: cnpg-main-urls
-                key: host
-            RADARR__POSTGRES_PASSWORD:
-              secretKeyRef:
-                name: cnpg-main-user
-                key: password

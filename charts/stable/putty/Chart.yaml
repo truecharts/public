@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "23.02.2"
+appVersion: "23.03.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.6.1
 deprecated: false
 description: PuTTY is a free and open-source terminal emulator, serial console and network file transfer application.
 home: https://truecharts.org/charts/stable/putty
@@ -21,9 +21,8 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/putty
   - https://github.com/jlesage/docker-putty
 type: application
-version: 3.0.12
+version: 4.0.1
 annotations:
   truecharts.org/catagories: |
     - utilities
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

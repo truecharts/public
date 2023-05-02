@@ -15,100 +15,94 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: SUPERVISOR_HTTP_USER
+                                        label: Supervisor HTTP User
+                                        schema:
+                                          type: string
+                                          default: admin
+                                          required: true
+                                      - variable: SUPERVISOR_HTTP_PASS
+                                        label: Supervisor HTTP Pass
+                                        schema:
+                                          type: string
+                                          required: true
+                                          private: true
+                                          default: ""
+                                      - variable: SERVER_PASS
+                                        label: Server Pass
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                          min_length: 5
+                                      - variable: STATUS_HTTP
+                                        label: Status HTTP
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: SUPERVISOR_HTTP
+                                        label: Supervisor HTTP
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: SERVER_NAME
+                                        label: Server Name
+                                        schema:
+                                          type: string
+                                          default: My Server
+                                          required: true
+                                      - variable: WORLD_NAME
+                                        label: World Name
+                                        schema:
+                                          type: string
+                                          default: Dedicated
+                                          required: true
+                                      - variable: SERVER_PUBLIC
+                                        label: Server Public
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: UPDATE_INTERVAL
+                                        label: Update Interval
+                                        schema:
+                                          type: int
+                                          default: 10800
+                                          required: true
+                                      - variable: BACKUPS
+                                        label: Backups
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: BACKUPS_INTERVAL
+                                        label: Backups Interval
+                                        schema:
+                                          type: int
+                                          default: 43200
+                                          required: true
+                                      - variable: BACKUPS_DIRECTORY
+                                        label: Backups Directory
+                                        schema:
+                                          type: string
+                                          default: /backups
+                                          required: true
+                                      - variable: BACKUPS_MAX_AGE
+                                        label: Backups Max Age
+                                        schema:
+                                          type: int
+                                          default: 3
+                                          required: true
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: secretEnv
-    group: App Configuration
-    label: Image Secrets
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SUPERVISOR_HTTP_USER
-          label: Supervisor HTTP User
-          schema:
-            type: string
-            default: admin
-            required: true
-        - variable: SUPERVISOR_HTTP_PASS
-          label: Supervisor HTTP Pass
-          schema:
-            type: string
-            required: true
-            private: true
-            default: ""
-        - variable: SERVER_PASS
-          label: Server Pass
-          schema:
-            type: string
-            private: true
-            default: ""
-            min_length: 5
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: STATUS_HTTP
-          label: Status HTTP
-          schema:
-            type: boolean
-            default: true
-        - variable: SUPERVISOR_HTTP
-          label: Supervisor HTTP
-          schema:
-            type: boolean
-            default: true
-        - variable: SERVER_NAME
-          label: Server Name
-          schema:
-            type: string
-            default: My Server
-            required: true
-        - variable: WORLD_NAME
-          label: World Name
-          schema:
-            type: string
-            default: Dedicated
-            required: true
-        - variable: SERVER_PUBLIC
-          label: Server Public
-          schema:
-            type: boolean
-            default: true
-        - variable: UPDATE_INTERVAL
-          label: Update Interval
-          schema:
-            type: int
-            default: 10800
-            required: true
-        - variable: BACKUPS
-          label: Backups
-          schema:
-            type: boolean
-            default: true
-        - variable: BACKUPS_INTERVAL
-          label: Backups Interval
-          schema:
-            type: int
-            default: 43200
-            required: true
-        - variable: BACKUPS_DIRECTORY
-          label: Backups Directory
-          schema:
-            type: string
-            default: /backups
-            required: true
-        - variable: BACKUPS_MAX_AGE
-          label: Backups Max Age
-          schema:
-            type: int
-            default: 3
-            required: true
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: Main Service
@@ -232,28 +226,28 @@ questions:
 # Include{ingressTraefik}
 # Include{ingressList}
 
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 0
+# Include{securityContextRoot}
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-        - variable: fsGroup
-          label: fsGroup
-          description: The group that should own ALL storage.
-          schema:
-            type: int
-            default: 568
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
 
 # Include{resources}
 # Include{advanced}

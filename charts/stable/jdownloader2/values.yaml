@@ -1,16 +1,7 @@
 image:
   repository: tccr.io/truecharts/jdownloader-2
   pullPolicy: IfNotPresent
-  tag: 23.02.2@sha256:67a8592a99de8921bdaca4d4c6660ad2c44d599ee5156d7da93d93668928d05d
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
+  tag: 23.03.1@sha256:7dd1eaf32f1530b351c8fc0eee3439010dc2af4e791b660408e7d0d56ec66e4b
 service:
   main:
     ports:
@@ -31,14 +22,6 @@ service:
         enabled: true
         port: 10056
         targetPort: 5900
-
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-jdownloader'
-
-secretEnv:
-  VNC_PASSWORD: ""
-
 jdownloader:
   # General Settings
   KEEP_APP_RUNNING: false
@@ -47,7 +30,6 @@ jdownloader:
   DISPLAY_HEIGHT: 768
   SECURE_CONNECTION: false
   ENABLE_CJK_FONT: false
-
 configmap:
   jdownloader:
     enabled: true
@@ -57,7 +39,6 @@ configmap:
       SECURE_CONNECTION: '{{ ternary "1" "0" .Values.jdownloader.SECURE_CONNECTION }}'
       DISPLAY_WIDTH: "{{ .Values.jdownloader.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.jdownloader.DISPLAY_HEIGHT }}"
-
 persistence:
   config:
     enabled: true
@@ -65,6 +46,34 @@ persistence:
   output:
     enabled: true
     mountPath: "/output"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+                - KILL
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            VNC_PASSWORD: ""
+          envFrom:
+            - configMapRef:
+                name: "jdownloader"

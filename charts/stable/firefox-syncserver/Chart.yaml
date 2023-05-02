@@ -1,6 +1,6 @@
 apiVersion: v2
 appVersion: "1.8.0"
-version: 12.0.22
+version: 13.0.0
 kubeVersion: ">=1.16.0-0"
 name: firefox-syncserver
 description: This is an all-in-one package for running a self-hosted Firefox Sync server.
@@ -18,11 +18,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
-  - condition: postgresql.enabled
-    name: postgresql
-    repository: https://deps.truecharts.org/
-    version: 11.0.31
+    version: 12.6.1
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
@@ -31,4 +27,3 @@ annotations:
   truecharts.org/catagories: |
     - media
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

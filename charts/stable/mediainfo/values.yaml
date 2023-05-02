@@ -1,16 +1,7 @@
 image:
   repository: tccr.io/truecharts/mediainfo
-  tag: 23.02.2@sha256:f2b4e4d9d3c908dbc7a2e6235e77ac0bba22ba00c3be06c340442eaada8b3a30
+  tag: 23.04.1@sha256:710be537d5abf0e48fb0d0270f9e9d36d4c3041483c6eb5477c0b1b51c4c0f0e
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
@@ -24,21 +15,12 @@ service:
         enabled: true
         port: 10265
         targetPort: 5900
-
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-mediainfo'
-
-secretEnv:
-  VNC_PASSWORD: ""
-
 mediainfo:
   KEEP_APP_RUNNING: false
   DISPLAY_WIDTH: 1280
   DISPLAY_HEIGHT: 768
   SECURE_CONNECTION: false
   ENABLE_CJK_FONT: false
-
 configmap:
   mediainfo:
     enabled: true
@@ -48,7 +30,6 @@ configmap:
       SECURE_CONNECTION: '{{ ternary "1" "0" .Values.mediainfo.SECURE_CONNECTION }}'
       DISPLAY_WIDTH: "{{ .Values.mediainfo.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.mediainfo.DISPLAY_HEIGHT }}"
-
 persistence:
   config:
     enabled: true
@@ -56,6 +37,34 @@ persistence:
   storage:
     enabled: true
     mountPath: "/storage"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+                - KILL
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            VNC_PASSWORD: ""
+          envFrom:
+            - configMapRef:
+                name: "mediainfo"

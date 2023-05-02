@@ -2,6 +2,12 @@
 
 The guide walks through a basic configuration of MetalLB for a single address pool on a layer 2 network. This will allow assigning different IP addresses by app.
 
+:::warning
+
+With MetalLB installed, apps will not be reachable using the integrated loadbalancer. You cannot combine two different loadbalancers in TrueNAS SCALE.
+
+:::
+
 ## 1. Configure Address Pool & L2 Advertisement
 
 ![metallb-addpoolbasic](img/metallb_guide_addresspool_basic.png)
@@ -9,7 +15,7 @@ The guide walks through a basic configuration of MetalLB for a single address po
 Create a new entry under `Configure IP Address Pools Object`
 
 - **Name**: Enter a general name for this IP range. Something like _apps_ or _charts_ for this field is fine.
-- **Auto Assign**: if you want MetalLB Services to auto-assign IPs from the configured address pool without needing to specify per app. Recommendation is to keep this checked. You can still specify an IP for apps as needed (see step 4).
+- **Auto Assign**: if you want MetalLB Services to auto-assign IPs from the configured address pool without needing to specify per app. Recommendation is to keep this checked. You can still specify an IP for apps as needed (see step 3).
 
 Create a single entry under `Configure Address Pools`
 
@@ -52,21 +58,15 @@ With MetalLB installed, you may optionally specify IP addresses for your apps.
 
 For each app, under **Networking and Services**, select `LoadBalancer` Service Type for the Main Service.
 
-In the **LoadBalancer IP** field, specify an IP address that is within the MetalLB address pool that you configured.
-
-With the Main Service assigned, you do not need to specify an IP address for other services under the same app, unless you specifically want a different IP address for that service.
-
-:::info
-
-By default all services under a single app will be assigned the same IP address.
-
-:::
+In the **LoadBalancer IP** field, specify an IP address that is within the MetalLB address pool that you configured. Apply the same IP address to the **LoadBalancer IP** field on other services within the app.
 
 You may need to stop & restart the app for the IP address to take affect.
 
 From your SCALE shell, run the command `k3s kubectl get svc -A` to verify the IP addresses assigned for each of your apps. The IPs will be listed under the `EXTERNAL-IP` column.
 
-If you have an IP conflict with a previously assigned address it will show as `<pending>`. You may need to do a system reboot as well to properly resolve the conflict.
+If you have an IP conflict with a previously assigned address it will show as `<pending>`.
+
+**You may need to do a system reboot as well to properly resolve the conflict.**
 
 :::caution
 

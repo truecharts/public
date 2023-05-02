@@ -4,56 +4,70 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: true
+    runAsUser: 568
+    runAsGroup: 568
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            AIRSONIC_DIR: "/"
+            # -- For passing additional java options. For some reverse proxies, you may need to pass `JAVA_OPTS=-Dserver.use-forward-headers=true` for airsonic to generate the proper URL schemes.
 
-env:
-  AIRSONIC_DIR: "/"
-  # -- For passing additional java options. For some reverse proxies, you may need to pass `JAVA_OPTS=-Dserver.use-forward-headers=true` for airsonic to generate the proper URL schemes.
-  JAVA_OPTS:
-  CONTEXT_PATH: "/"
-  spring_liquibase_parameters_userTableQuote: '"'
-  spring_datasource_username: "{{ .Values.postgresql.postgresqlUsername }}"
-  spring_datasource_url:
-    secretKeyRef:
-      name: dbcreds
-      key: jdbc
-  spring_datasource_password:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
+            JAVA_OPTS:
+            CONTEXT_PATH: "/"
+            spring_liquibase_parameters_userTableQuote: '"'
+            spring_datasource_username: "{{ .Values.cnpg.main.user }}"
+            spring_datasource_url:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: jdbc
+            spring_datasource_password:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
 
 service:
   main:
     ports:
       main:
         port: 10122
+        protocol: http
         targetPort: 4040
 
 # Enabled postgres
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: airsonic-advanced
-  postgresqlDatabase: airsonic-advanced
+cnpg:
+  main:
+    enabled: true
+    user: airsonic-advanced
+    database: airsonic-advanced
 
 persistence:
   config:
     enabled: true
-    mountPath: "/airsonic"
+    mountPath: /airsonic
   music:
     enabled: true
-    mountPath: "/music"
+    mountPath: /music
   podcasts:
     enabled: true
-    mountPath: "/podcasts"
+    mountPath: /podcasts
   playlists:
     enabled: true
-    mountPath: "/playlists"
+    mountPath: /playlists
 
 portal:
-  enabled: true
+  open:
+    enabled: true

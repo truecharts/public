@@ -1,21 +1,31 @@
 image:
   repository: tccr.io/truecharts/guacamole-server
   pullPolicy: IfNotPresent
-  tag: 1.5.0@sha256:8af58fecf895b6d8e05c5c945ac61fec732f5f5055458a382b7685e035c536ff
-
-securityContext:
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 1000
-  runAsGroup: 1000
-
+  tag: 1.5.1@sha256:d21e5defe00997811dd6822983fbe601e712520dc4a0425c65d13b224ca60b0d
 service:
   main:
     ports:
       main:
         targetPort: 4822
         port: 4822
-
 portal:
-  enabled: false
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 1000
+    runAsGroup: 1000
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp

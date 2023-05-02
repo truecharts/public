@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/outline
   pullPolicy: IfNotPresent
-  tag: 0.66.3@sha256:14ffd3c6ab1600700a2c5645d78e94a18b0b2b8313ac9e863c2feba800384a34
+  tag: 0.69.0@sha256:94a476351c27c309faca804e4e804b68271b871fab6d245bf94282697633accb
 service:
   main:
     ports:
@@ -10,13 +10,11 @@ service:
 # Enabled redis
 redis:
   enabled: true
-
-  redisUsername: outline
+  redisUsername: default
 # Enabled postgres
 cnpg:
   main:
     enabled: true
-
     user: outline
     database: outline
 
@@ -44,9 +42,8 @@ workload:
                 key: std
             REDIS_URL:
               secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: url
+                name: secrets
+                key: REDIS_CUSTOM_URL
             SECRET_KEY:
               secretKeyRef:
                 name: secrets
@@ -56,11 +53,9 @@ workload:
                 name: secrets
                 key: UTILS_SECRET
           command:
-            [
-              "sh",
-              "-c",
-              "yarn sequelize db:migrate --env=production-ssl-disabled",
-            ]
+            - sh
+            - -c
+            - yarn sequelize db:migrate --env=production-ssl-disabled
       containers:
         main:
           probes:

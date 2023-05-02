@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "23.02.2"
+appVersion: "23.04.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.6.1
 deprecated: false
 description: MediaInfo is a convenient unified display of the most relevant technical and tag data for video and audio files.
 home: https://truecharts.org/charts/stable/mediainfo
@@ -21,9 +21,8 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/mediainfo
   - https://github.com/jlesage/docker-mediainfo
 type: application
-version: 3.0.14
+version: 4.0.1
 annotations:
   truecharts.org/catagories: |
     - media
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

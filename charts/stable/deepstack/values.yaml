@@ -7,8 +7,6 @@ gpuImage:
   pullPolicy: IfNotPresent
   tag: 2022.01.1@sha256:8df0f00903427234b7786e3bbe9ecfbc852a34d22509823e360336f1f04b41ba
 
-imageSelector: "image"
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -44,6 +42,7 @@ workload:
     podSpec:
       containers:
         main:
+          imageSelector: "image"
           probes:
             liveness:
               type: http

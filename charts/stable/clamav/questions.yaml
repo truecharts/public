@@ -8,46 +8,46 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: CLAMAV_NO_CLAMD
+                                        label: "NO CLAMD"
+                                        description: "Do not start clamd."
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: CLAMAV_NO_FRESHCLAMD
+                                        label: "NO FRESHCLAMD"
+                                        description: "Do not start the freshclam daemon."
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: CLAMAV_NO_MILTERD
+                                        label: "NO MILTERD"
+                                        description: "Do not start the clamav-milter daemon."
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: CLAMD_STARTUP_TIMEOUT
+                                        label: "STARTUP TIMEOUT"
+                                        description: "Seconds to wait for clamd to start."
+                                        schema:
+                                          type: int
+                                          default: 1800
+                                      - variable: FRESHCLAM_CHECKS
+                                        label: "FRESHCLAM CHECKS "
+                                        description: "Freshclam daily update frequency."
+                                        schema:
+                                          type: int
+                                          default: 1
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: CLAMAV_NO_CLAMD
-          label: "NO CLAMD"
-          description: "Do not start clamd."
-          schema:
-            type: boolean
-            default: false
-        - variable: CLAMAV_NO_FRESHCLAMD
-          label: "NO FRESHCLAMD"
-          description: "Do not start the freshclam daemon."
-          schema:
-            type: boolean
-            default: false
-        - variable: CLAMAV_NO_MILTERD
-          label: "NO MILTERD"
-          description: "Do not start the clamav-milter daemon."
-          schema:
-            type: boolean
-            default: true
-        - variable: CLAMD_STARTUP_TIMEOUT
-          label: "STARTUP TIMEOUT"
-          description: "Seconds to wait for clamd to start."
-          schema:
-            type: int
-            default: 1800
-        - variable: FRESHCLAM_CHECKS
-          label: "FRESHCLAM CHECKS "
-          description: "Freshclam daily update frequency."
-          schema:
-            type: int
-            default: 1
   - variable: clamav
     group: "App Configuration"
     label: "ClamAV Cron Configuration"
@@ -99,7 +99,9 @@ questions:
                 schema:
                   type: string
                   default: ""
+
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -194,16 +196,16 @@ questions:
                 schema:
                   type: int
                   default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-             - variable: fsGroup
+              - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:

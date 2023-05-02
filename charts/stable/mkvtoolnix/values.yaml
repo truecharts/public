@@ -1,16 +1,7 @@
 image:
   repository: tccr.io/truecharts/mkvtoolnix
-  tag: 23.02.5@sha256:2b0919d180998713a6c1f1cc2cea53d60b58e3d21d824c5bf2bb3325432ebe4e
+  tag: 23.03.2@sha256:783c7d5df7227a94bed65a152201845af8b19f79070bfaa27048c690a6d0bc36
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
@@ -24,14 +15,6 @@ service:
         enabled: true
         port: 10237
         targetPort: 5900
-
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-mkvtoolnix'
-
-secretEnv:
-  VNC_PASSWORD: ""
-
 mkvtoolnix:
   # General Settings
   KEEP_APP_RUNNING: false
@@ -42,7 +25,6 @@ mkvtoolnix:
   # App Settings
   SECURE_CONNECTION: false
   ENABLE_CJK_FONT: false
-
 configmap:
   mkvtoolnix:
     enabled: true
@@ -53,7 +35,6 @@ configmap:
       DISPLAY_WIDTH: "{{ .Values.mkvtoolnix.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.mkvtoolnix.DISPLAY_HEIGHT }}"
       DARK_MODE: '{{ ternary "1" "0" .Values.mkvtoolnix.DARK_MODE }}'
-
 persistence:
   config:
     enabled: true
@@ -61,6 +42,34 @@ persistence:
   storage:
     enabled: true
     mountPath: "/storage"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+                - KILL
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            VNC_PASSWORD: ""
+          envFrom:
+            - configMapRef:
+                name: "mkvtoolnix"

@@ -4,35 +4,34 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
-  - variable: imageSelector
-    group: Container Image
-    label: Select Image
-    schema:
-      type: string
-      default: image
-      enum:
-        - value: image
-          description: Base Notebook
-        - value: minimalImage
-          description: Minimal Notebook
-        - value: rImage
-          description: R Notebook
-        - value: scipyImage
-          description: Scipy Notebook
-        - value: tensorflowImage
-          description: Tensorflow Notebook
-        - value: datascienceImage
-          description: Data Science Notebook
-        - value: pysparkImage
-          description: Pyspark Notebook
-        - value: allsparkImage
-          description: All Spark Notebook
 # Include{workload}
 # Include{workloadDeployment}
 
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: imageSelector
+                                  label: Select Image
+                                  schema:
+                                    type: string
+                                    default: image
+                                    enum:
+                                      - value: image
+                                        description: Base Notebook
+                                      - value: minimalImage
+                                        description: Minimal Notebook
+                                      - value: rImage
+                                        description: R Notebook
+                                      - value: scipyImage
+                                        description: Scipy Notebook
+                                      - value: tensorflowImage
+                                        description: Tensorflow Notebook
+                                      - value: datascienceImage
+                                        description: Data Science Notebook
+                                      - value: pysparkImage
+                                        description: Pyspark Notebook
+                                      - value: allsparkImage
+                                        description: All Spark Notebook
 
 # Include{containerBasic}
 # Include{containerAdvanced}

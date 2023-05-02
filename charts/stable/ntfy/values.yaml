@@ -1,53 +1,12 @@
 image:
   repository: tccr.io/truecharts/ntfy
-  tag: 2.1.0@sha256:ccbaacb4ca95fd61ea5b4ac18615a80ccc5ebae7f0a46115d020879e1fdb929e
+  tag: 2.4.0@sha256:fc0f70be7796b7ac6303b06d5a4e410e6eac0522b2417ac4c1df1fb0747ad159
   pullPolicy: IfNotPresent
-
-extraArgs: ["serve"]
-
-env:
-  NTFY_LISTEN_HTTP: ":{{ .Values.service.main.ports.main.port }}"
-  # User Defined
-  NTFY_BASE_URL: "http://localhost:10222"
-  NTFY_BEHIND_PROXY: false
-  ENABLE_FIREBASE_FILE: false
-  ENABLE_CACHE_FILE: false
-  ENABLE_ATTACHMENT_CACHE_DIR: false
-  ENABLE_AUTH_FILE: false
-  # NTFY_CACHE_DURATION: "12h"
-  # NTFY_KEEPALIVE_INTERVAL: "45s"
-  # NTFY_MANAGER_INTERVAL: "1m"
-  # NTFY_GLOBAL_TOPIC_LIMIT: 15000
-  # NTFY_VISITOR_SUBSCRIPTION_LIMIT: 30
-  # NTFY_VISITOR_ATTACHMENT_TOTAL_SIZE_LIMIT: "100M"
-  # NTFY_VISITOR_ATTACHMENT_DAILY_BANDWIDTH_LIMIT: "500M"
-  # NTFY_VISITOR_REQUEST_LIMIT_BURST: 60
-  # NTFY_VISITOR_REQUEST_LIMIT_REPLENISH: "5s"
-  # NTFY_VISITOR_REQUEST_LIMIT_EXEMPT_HOSTS: ""
-  # NTFY_VISITOR_EMAIL_LIMIT_BURST: 16
-  # NTFY_VISITOR_EMAIL_LIMIT_REPLENISH: "1h"
-  # NTFY_ATTACHMENT_TOTAL_SIZE_LIMIT: "5G"
-  # NTFY_ATTACHMENT_FILE_SIZE_LIMIT: "15M"
-  # NTFY_ATTACHMENT_EXPIRY_DURATION: "3h"
-  # NTFY_AUTH_DEFAULT_ACCESS: "read-write"
-  # NTFY_SMTP_SENDER_ADDR: ""
-  # NTFY_SMTP_SENDER_USER: ""
-  # NTFY_SMTP_SENDER_PASS: ""
-  # NTFY_SMTP_SENDER_FROM: ""
-  # NTFY_SMTP_SERVER_LISTEN: ""
-  # NTFY_SMTP_SERVER_DOMAIN: ""
-  # NTFY_SMTP_SERVER_ADDR_PREFIX: ""
-
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-ntfy'
-
 service:
   main:
     ports:
       main:
         port: 10222
-
 persistence:
   config:
     enabled: true
@@ -55,16 +14,64 @@ persistence:
   cache:
     enabled: true
     mountPath: "/var/cache/ntfy"
-
 configmap:
   ntfy:
     enabled: true
     data:
-      # If a path is set, it enables this options. To disable set to emtpy path
-      NTFY_ATTACHMENT_CACHE_DIR: '{{ ternary "/var/cache/ntfy/attachments" "" .Values.env.ENABLE_ATTACHMENT_CACHE_DIR }}'
-      NTFY_CACHE_FILE: '{{ ternary "/var/cache/ntfy/cache.db" "" .Values.env.ENABLE_CACHE_FILE }}'
-      NTFY_AUTH_FILE: '{{ ternary "/etc/ntfy/user.db" "" .Values.env.ENABLE_AUTH_FILE }}'
-      NTFY_FIREBASE_KEY_FILE: '{{ ternary "/etc/ntfy/firebase-key.json" "" .Values.env.ENABLE_FIREBASE_FILE }}'
-
+      # If a path is set, it enables this options. To disable set to empty path
+      NTFY_ATTACHMENT_CACHE_DIR: '{{ ternary "/var/cache/ntfy/attachments" "" .Values.workload.main.podSpec.containers.main.env.ENABLE_ATTACHMENT_CACHE_DIR }}'
+      NTFY_CACHE_FILE: '{{ ternary "/var/cache/ntfy/cache.db" "" .Values.workload.main.podSpec.containers.main.env.ENABLE_CACHE_FILE }}'
+      NTFY_AUTH_FILE: '{{ ternary "/etc/ntfy/user.db" "" .Values.workload.main.podSpec.containers.main.env.ENABLE_AUTH_FILE }}'
+      NTFY_FIREBASE_KEY_FILE: '{{ ternary "/etc/ntfy/firebase-key.json" "" .Values.workload.main.podSpec.containers.main.env.ENABLE_FIREBASE_FILE }}'
 portal:
-  enabled: true
+  open:
+    enabled: true
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          args: ["serve"]
+          env:
+            NTFY_LISTEN_HTTP: ":{{ .Values.service.main.ports.main.port }}"
+            # User Defined
+            NTFY_BASE_URL: "http://localhost:10222"
+            NTFY_BEHIND_PROXY: false
+            ENABLE_FIREBASE_FILE: false
+            ENABLE_CACHE_FILE: false
+            ENABLE_ATTACHMENT_CACHE_DIR: false
+            ENABLE_AUTH_FILE: false
+            # NTFY_CACHE_DURATION: "12h"
+            # NTFY_KEEPALIVE_INTERVAL: "45s"
+            # NTFY_MANAGER_INTERVAL: "1m"
+            # NTFY_GLOBAL_TOPIC_LIMIT: 15000
+            # NTFY_VISITOR_SUBSCRIPTION_LIMIT: 30
+            # NTFY_VISITOR_ATTACHMENT_TOTAL_SIZE_LIMIT: "100M"
+            # NTFY_VISITOR_ATTACHMENT_DAILY_BANDWIDTH_LIMIT: "500M"
+            # NTFY_VISITOR_REQUEST_LIMIT_BURST: 60
+            # NTFY_VISITOR_REQUEST_LIMIT_REPLENISH: "5s"
+            # NTFY_VISITOR_REQUEST_LIMIT_EXEMPT_HOSTS: ""
+            # NTFY_VISITOR_EMAIL_LIMIT_BURST: 16
+            # NTFY_VISITOR_EMAIL_LIMIT_REPLENISH: "1h"
+            # NTFY_ATTACHMENT_TOTAL_SIZE_LIMIT: "5G"
+            # NTFY_ATTACHMENT_FILE_SIZE_LIMIT: "15M"
+            # NTFY_ATTACHMENT_EXPIRY_DURATION: "3h"
+            # NTFY_AUTH_DEFAULT_ACCESS: "read-write"
+            # NTFY_SMTP_SENDER_ADDR: ""
+            # NTFY_SMTP_SENDER_USER: ""
+            # NTFY_SMTP_SENDER_PASS: ""
+            # NTFY_SMTP_SENDER_FROM: ""
+            # NTFY_SMTP_SERVER_LISTEN: ""
+            # NTFY_SMTP_SERVER_DOMAIN: ""
+            # NTFY_SMTP_SERVER_ADDR_PREFIX: ""
+          envFrom:
+            - configMapRef:
+                name: "ntfy"

@@ -91,3 +91,4 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.BOT_TOKEN }}"
           UPDATE_RETRIES: 12
           UPDATE_RETRY_SLEEP: 60000
+          MERGE_METHOD: squash

@@ -1,53 +1,27 @@
 image:
   repository: tccr.io/truecharts/docker-in-docker
   pullPolicy: IfNotPresent
-  tag: 23.0.1@sha256:118421527d72dd07061e074781b8fee99bb6dc50c5f76e0453e69a1095c25bc2
-
-controller:
-  # -- Set the controller type.
-  # Valid options are deployment, daemonset or statefulset
-  type: statefulset
-  # -- Number of desired pods
-  replicas: 1
-  # -- Set the controller upgrade strategy
-  # For Deployments, valid values are Recreate (default) and RollingUpdate.
-  # For StatefulSets, valid values are OnDelete and RollingUpdate (default).
-  # DaemonSets ignore this.
-  strategy: RollingUpdate
-  rollingUpdate:
-    # -- Set deployment RollingUpdate max unavailable
-    unavailable: 1
-    # -- Set deployment RollingUpdate max surge
-    surge:
-    # -- Set statefulset RollingUpdate partition
-    partition:
-  # -- ReplicaSet revision history limit
-  revisionHistoryLimit: 3
+  tag: 23.0.5@sha256:a88a551cc2e3bd4616eeeec752ec8347ff238d6fb384782a542174b2caf4b289
+hostNetwork: true
 
 securityContext:
-  privileged: true
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-  fsGroup: 0
-
-hostNetwork: true
+  container:
+    privileged: true
+    readOnlyRootFilesystem: false
+    allowPrivilegeEscalation: true
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+    fsGroup: 0
 
 service:
   main:
     enabled: true
+    type: ClusterIP
     ports:
       main:
         port: 2376
         type: HTTPS
-
-env:
-  DOCKER_TLS_CERTDIR: /certs
-  COMPOSE_FILE: ""
 
 lifecycle:
   postStart:
@@ -67,20 +41,31 @@ lifecycle:
           else
             echo "COMPOSE_FILE not set, not auto-loading compose-file" >> /proc/1/fd/1;
           fi
-probes:
-  liveness:
-    spec:
-      initialDelaySeconds: 30
-  readiness:
-    spec:
-      initialDelaySeconds: 30
-  startup:
-    spec:
-      initialDelaySeconds: 30
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              initialDelaySeconds: 30
+              type: tcp
+            readiness:
+              initialDelaySeconds: 30
+              type: tcp
+            startup:
+              initialDelaySeconds: 30
+              type: tcp
+          env:
+            DOCKER_TLS_CERTDIR: /certs
+            COMPOSE_FILE: ""
+
+    type: StatefulSet
+    replicas: 1
+    strategy: RollingUpdate
 
 persistence:
-  varrun:
-    enabled: false
   docker-certs-ca:
     enabled: true
     mountPath: /config
@@ -94,4 +79,5 @@ volumeClaimTemplates:
     mountPath: /var/lib/docker
 
 portal:
-  enabled: false
+  open:
+    enabled: false

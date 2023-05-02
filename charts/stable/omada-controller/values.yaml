@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/omada-controller
-  tag: 5.9.0@sha256:3108975601bc3c2fe8db2dc1d943ee503ff934f6602f856378baeab409a68fd6
+  tag: 5.9.0@sha256:cb34205fdefe2e28325428532769696a8b62670ebd67f75eba5fdf3a96e82d38
   pullPolicy: IfNotPresent
 service:
   main:
@@ -68,3 +68,16 @@ workload:
         main:
           env:
             PORTAL_HTTPS_PORT: "{{ .Values.service.comm.ports.comm.port }}"
+          probes:
+            startup:
+              path: /api/info
+              httpHeaders:
+                Host: kube.internal.health
+            liveness:
+              path: /api/info
+              httpHeaders:
+                Host: kube.internal.health
+            readiness:
+              path: /api/info
+              httpHeaders:
+                Host: kube.internal.health

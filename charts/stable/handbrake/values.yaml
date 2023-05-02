@@ -1,16 +1,7 @@
 image:
   repository: tccr.io/truecharts/handbrake
-  tag: 23.02.1@sha256:6c3b2acce5d7750fe4831d181ff9fc3dbf1c5663944778193477d51f9725f060
+  tag: 23.03.2@sha256:91d2516c29b4fed395356c5060178a12c80584b57ef865620ba240526b6ea47c
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
@@ -24,14 +15,6 @@ service:
         enabled: true
         port: 10055
         targetPort: 5900
-
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-handbrake'
-
-secretEnv:
-  VNC_PASSWORD: ""
-
 handbrake:
   KEEP_APP_RUNNING: false
   DISPLAY_WIDTH: 1280
@@ -42,7 +25,6 @@ handbrake:
   AUTOMATED_CONVERSION_FORMAT: "mp4"
   AUTOMATED_CONVERSION_KEEP_SOURCE: true
   AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION: "ignore"
-
 configmap:
   handbrake:
     enabled: true
@@ -56,7 +38,6 @@ configmap:
       AUTOMATED_CONVERSION_PRESET: "{{ .Values.handbrake.AUTOMATED_CONVERSION_PRESET }}"
       AUTOMATED_CONVERSION_FORMAT: "{{ .Values.handbrake.AUTOMATED_CONVERSION_FORMAT }}"
       AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION: "{{ .Values.handbrake.AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION }}"
-
 persistence:
   config:
     enabled: true
@@ -67,6 +48,34 @@ persistence:
   output:
     enabled: true
     mountPath: "/output"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+                - KILL
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            VNC_PASSWORD: ""
+          envFrom:
+            - configMapRef:
+                name: "handbrake"

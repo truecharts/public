@@ -87,7 +87,7 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
+        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
 
       - name: Run chart-testing (list-changed)
         id: list-changed
@@ -152,12 +152,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
+      - uses: actions/setup-python@57ded4d7d5e986d7296eab16560982c6dd7c923b # v4
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
+        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -197,12 +197,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
+      - uses: actions/setup-python@57ded4d7d5e986d7296eab16560982c6dd7c923b # v4
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
+        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -243,12 +243,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
+      - uses: actions/setup-python@57ded4d7d5e986d7296eab16560982c6dd7c923b # v4
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
+        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -288,12 +288,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
+      - uses: actions/setup-python@57ded4d7d5e986d7296eab16560982c6dd7c923b # v4
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
+        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -333,12 +333,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
+      - uses: actions/setup-python@57ded4d7d5e986d7296eab16560982c6dd7c923b # v4
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
+        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -378,12 +378,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
+      - uses: actions/setup-python@57ded4d7d5e986d7296eab16560982c6dd7c923b # v4
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
+        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1

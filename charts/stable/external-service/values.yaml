@@ -2,17 +2,19 @@
 image:
   repository: tccr.io/truecharts/alpine
   pullPolicy: IfNotPresent
-  tag: latest@sha256:711ef8a1f34f18df5f6dc1e85f0324f737e331ac734307baf455675cdc868ce4
+  tag: latest@sha256:87cedff1fd48b702111570f675252de4056305b352bb9559922fc0e3e55022eb
 
 service:
   main:
     type: ExternalIP
     externalIP: "1.1.1.1"
+    useSlice: false
     ports:
       main:
         protocol: https
         port: 10003
-        targetPort: 443
+        # Target port is the port of the "external service"
+        # Defaults to "port" if not set
 
 workload:
   main:

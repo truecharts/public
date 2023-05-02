@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/tvheadend
   pullPolicy: IfNotPresent
-  tag: latest@sha256:71cf300613f48dfb4694532c36076c7acfcf464e3c38b640be2fd3cb3510aa2f
+  tag: latest@sha256:65c4d2794d9a24923a5784e60ccafd31e929f812e0859293212a0b3e2abe6da3
 service:
   main:
     ports:
@@ -27,6 +27,7 @@ portal:
 securityContext:
   container:
     runAsNonRoot: false
+    readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
 workload:
@@ -34,5 +35,15 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.port }}"
+            readiness:
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.port }}"
+            startup:
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.port }}"
           env:
             RUN_OPTS: ""

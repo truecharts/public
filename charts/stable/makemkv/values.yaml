@@ -1,23 +1,7 @@
 image:
   repository: tccr.io/truecharts/makemkv
-  tag: 23.02.5@sha256:b6d3eab777a35cd117919ede4a74e33cd3586e57760c98aaec349875eb4ae863
+  tag: 23.04.1@sha256:34b773e79c94200e6784a7ae82f67e89ab61c3d96f947b80df758166f848f6f6
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-secretEnv:
-  VNC_PASSWORD: ""
-
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-makemkv'
-
 makemkv:
   # General Settings
   KEEP_APP_RUNNING: false
@@ -37,7 +21,6 @@ makemkv:
   AUTO_DISC_RIPPER_PARALLEL_RIP: false
   AUTO_DISC_RIPPER_NO_GUI_PROGRESS: false
   AUTO_DISC_RIPPER_FORCE_UNIQUE_OUTPUT_DIR: false
-
 service:
   main:
     ports:
@@ -51,7 +34,6 @@ service:
         enabled: true
         port: 10181
         targetPort: 5900
-
 configmap:
   makemkv:
     enabled: true
@@ -71,7 +53,6 @@ configmap:
       AUTO_DISC_RIPPER_PARALLEL_RIP: '{{ ternary "1" "0" .Values.makemkv.AUTO_DISC_RIPPER_PARALLEL_RIP }}'
       AUTO_DISC_RIPPER_NO_GUI_PROGRESS: '{{ ternary "1" "0" .Values.makemkv.AUTO_DISC_RIPPER_NO_GUI_PROGRESS }}'
       AUTO_DISC_RIPPER_FORCE_UNIQUE_OUTPUT_DIR: '{{ ternary "1" "0" .Values.makemkv.AUTO_DISC_RIPPER_FORCE_UNIQUE_OUTPUT_DIR }}'
-
 persistence:
   config:
     enabled: true
@@ -82,6 +63,34 @@ persistence:
   output:
     enabled: true
     mountPath: "/output"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+                - KILL
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            VNC_PASSWORD: ""
+          envFrom:
+            - configMapRef:
+                name: "makemkv"

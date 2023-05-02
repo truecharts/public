@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/bazarr
   pullPolicy: IfNotPresent
-  tag: 1.1.4@sha256:ce1fd724cd2c50d385a83558affaf89454c3537f5a07e20e305d6a82e16dc2f4
+  tag: 1.2.0@sha256:54e156282a2cfd0cd0469e3cc4c081e23c04077f0e2217329cb1b0bf4fadfe23
 
 service:
   main:
@@ -10,23 +10,6 @@ service:
         port: 6767
         protocol: http
         targetPort: 6767
-
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          probes:
-            liveness:
-              type: http
-              path: /
-            readiness:
-              type: http
-              path: /
-            startup:
-              type: http
-              path: /
-          env: {}
 
 persistence:
   config:
