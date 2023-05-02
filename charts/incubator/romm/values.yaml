@@ -1,0 +1,70 @@
+image:
+  repository: tccr.io/truecharts/romm
+  pullPolicy: IfNotPresent
+  tag: v1.7.1@sha256:bec155721ddc176c7ba0eb0e37a11cd60af7ef393e57eaf4337c3b6ecaa21ac5
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+            readiness:
+              type: http
+            startup:
+              type: http
+    env:
+      ROMM_DB_DRIVER: mariadb
+      DB_HOST:
+        secretKeyRef:
+          expandObjectName: false
+          name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+          key: plainhost
+      DB_PORT: 3306
+      DB_USER: romm
+      DB_NAME: romm
+      DB_PASSWD:
+        secretKeyRef:
+          expandObjectName: false
+          name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+          key: mariadb-password
+      # IGDB client id
+      CLIENT_ID: ""
+      # IGDB client secret
+      CLIENT_SECRET: ""
+      # WIP
+      STEAMGRIDDB_API_KEY: ""
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 80
+        port: 10680
+
+persistence:
+  romm:
+    enabled: true
+    mountPath: /romm
+  library:
+    enabled: true
+    mountPath: /romm/library
+
+mariadb:
+  enabled: true
+  mariadbUsername: romm
+  mariadbDatabase: romm
+
+portal:
+  open:
+    enabled: true
