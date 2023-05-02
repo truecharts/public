@@ -16,19 +16,6 @@ workload:
     podSpec:
       containers:
         main:
-          probes:
-            liveness:
-              enabled: true
-              type: http
-              path: /
-            readiness:
-              enabled: true
-              type: http
-              path: /
-            startup:
-              enabled: true
-              type: http
-              path: /
           env:
             TMPDIR: /tmpdir
             DN_API_KEY: "CHANGEME"
