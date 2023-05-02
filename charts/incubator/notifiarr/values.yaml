@@ -18,11 +18,17 @@ workload:
         main:
           probes:
             liveness:
-              enabled: false
+              enabled: true
+              type: http
+              path: /
             readiness:
-              enabled: false
+              enabled: true
+              type: http
+              path: /
             startup:
-              enabled: false
+              enabled: true
+              type: http
+              path: /
           env:
             TMPDIR: /tmpdir
             DN_API_KEY: "CHANGEME"
