@@ -50,31 +50,18 @@ j8j9Image:
   repository: tccr.io/truecharts/minecraft-java8-openj9
   tag: 2023.3.0@sha256:f71de8d5b2206b49fffa47d908b52424520bde8d670752b24aa063b523950369
   pullPolicy: Always
-service:
-  main:
-    ports:
-      main:
-        port: 25565
-  rcon:
-    enabled: true
-    ports:
-      rcon:
-        enabled: true
-        port: 25575
-        targetPort: 25575
-persistence:
-  data:
-    enabled: true
-    mountPath: "/data"
-portal:
-  open:
-    enabled: false
+mcBackupImage:
+  repository: tccr.io/truecharts/mc-backup
+  tag: latest@sha256:8d05b409d622acc4f9bc976a7f192f9fae27394233e270c13edaf0051cfd6a05
+  pullPolicy: Always
+
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
+
 workload:
   main:
     podSpec:
@@ -101,6 +88,7 @@ workload:
             SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
             EULA: "TRUE"
             GUI: "FALSE"
+            RCON_PASSWORD: "secretrconpass"
             OVERRIDE_SERVER_PROPERTIES: true
             VERSION: "LATEST"
             TYPE: "VANILLA"
@@ -171,4 +159,24 @@ workload:
             # JVM_OPTS: ""
             # JVM_XX_OPTS: ""
 
-            RCON_PASSWORD: "secretrconpass"
+service:
+  main:
+    ports:
+      main:
+        port: 25565
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        port: 25575
+        targetPort: 25575
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+
+portal:
+  open:
+    enabled: false
