@@ -10,7 +10,6 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-# Include{containerConfig}
 # Include{controllerExpert}
   - variable: tfaAppOptions
     group: App Configuration
@@ -285,6 +284,7 @@ questions:
             type: dict
             attrs:
 # Include{serviceSelector}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
