@@ -11,65 +11,64 @@ questions:
 
 
                                 - variable: env
-                                  group: "App Configuration"
-                                  label: "Image Environment"
+                                  group: App Configuration
+                                  label: Image Environment
                                   schema:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
                                       - variable: CACHE_DOMAINS_REPO
-                                        label: "CACHE DOMAINS REPO"
-                                        description: "The github repo url for the cache_domains files to use to populate the cdn maps."
+                                        label: Cache Domains Repo
+                                        description: The github repo url for the cache_domains files to use to populate the cdn maps.
                                         schema:
                                           type: string
-                                          default: "https://github.com/uklans/cache-domains.git"
+                                          default: https://github.com/uklans/cache-domains.git
                                       - variable: CACHE_DOMAINS_BRANCH
-                                        label: "CACHE DOMAINS BRANCH"
-                                        description: "The branch of the CACHE_DOMAINS_REPO to use"
+                                        label: Cache Domains Branch
+                                        description: The branch of the CACHE_DOMAINS_REPO to use
                                         schema:
                                           type: string
-                                          default: "master"
+                                          default: master
                                       - variable: UPSTREAM_DNS
-                                        label: "UPSTREAM DNS"
-                                        description: "Upstream DNS server(s) the cache should use(separated by spaces). Do NOT point this at lancache-dns)"
+                                        label: Upstream DNS
+                                        description: Upstream DNS server(s) the cache should use(separated by spaces). Do NOT point this at lancache-dns)
                                         schema:
                                           type: string
-                                          default: "1.1.1.1;1.0.0.1"
+                                          default: 1.1.1.1;1.0.0.1
                                       - variable: USE_GENERIC_CACHE
-                                        label: "USE GENERIC CACHE"
-                                        description: "If you are using a single monolithic instance set this to true"
+                                        label: Use Generic Cache
+                                        description: If you are using a single monolithic instance set this to true
                                         schema:
                                           type: boolean
                                           default: false
                                           show_subquestions_if: true
                                           subquestions:
                                             - variable: LANCACHE_IP
-                                              label: "LANCACHE IP"
-                                              description: "Set the IP for the lancache-monolithic app only if USE_GENERIC_CACHE is true"
+                                              label: Lancache IP
+                                              description: Set the IP for the lancache-monolithic app.
                                               schema:
                                                 type: string
                                                 required: true
                                                 default: ""
                                             - variable: customdisable
-                                              label: "Disable Cache DNS Resolvers"
+                                              label: Disable Cache DNS Resolvers
                                               schema:
-                                                show_if: [["USE_GENERIC_CACHE", "=", true]]
                                                 type: boolean
                                                 default: false
                                                 show_subquestions_if: true
                                                 subquestions:
                                                   - variable: DISABLE_BLIZZARD
-                                                    label: "Disable BLIZZARD"
+                                                    label: Disable Blizzard
                                                     schema:
                                                       type: boolean
                                                       default: false
                                                   - variable: DISABLE_RIOT
-                                                    label: "Disable RIOT"
+                                                    label: Disable Riot
                                                     schema:
                                                       type: boolean
                                                       default: false
                                                   - variable: DISABLE_UPLAY
-                                                    label: "Disable UPLAY"
+                                                    label: Disable UPlay
                                                     schema:
                                                       type: boolean
                                                       default: false
@@ -78,8 +77,8 @@ questions:
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -87,27 +86,27 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 53
                               required: true
                     - variable: dns
-                      label: "DNS Service Port Configuration"
+                      label: DNS Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 53
@@ -119,7 +118,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -131,14 +130,14 @@ questions:
 # Include{securityContextRoot}
 
               - variable: runAsUser
-                label: "runAsUser"
-                description: "The UserID of the user running the application"
+                label: runAsUser
+                description: The UserID of the user running the application
                 schema:
                   type: int
                   default: 0
               - variable: runAsGroup
-                label: "runAsGroup"
-                description: "The groupID of the user running the application"
+                label: runAsGroup
+                description: The groupID of the user running the application
                 schema:
                   type: int
                   default: 0
@@ -146,8 +145,8 @@ questions:
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
               - variable: fsGroup
-                label: "fsGroup"
-                description: "The group that should own ALL storage."
+                label: fsGroup
+                description: The group that should own ALL storage.
                 schema:
                   type: int
                   default: 568
