@@ -1,5 +1,6 @@
 # Include{groups}
-portals: {}
+portals:
+  open:
 # Include{portalLink}
 questions:
 # Include{global}
@@ -9,8 +10,6 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-
                                 - variable: env
                                   group: "App Configuration"
                                   label: "Image Environment"

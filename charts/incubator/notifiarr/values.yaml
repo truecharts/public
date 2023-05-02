@@ -38,9 +38,7 @@ persistence:
     mountPath: /var/run/utmp
   machine-id:
     enabled: true
-    type: hostPath
     mountPath: /etc/machine-id
-    hostPath: /etc/machine-id
     readOnly: true
   tmpdir:
     enabled: true
