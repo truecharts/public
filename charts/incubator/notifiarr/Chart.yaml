@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "0.5.0.1419"
+appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.4.20
+    version: 12.6.4
 deprecated: false
 description: "This is the unified client for Notifiarr.com. The client enables content requests from Media Bot in your Discord Server and also provides reports for Plex usage and system health among many other features."
 home: https://truecharts.org/charts/incubator/notifiarr
@@ -24,7 +24,7 @@ sources:
   - https://github.com/Notifiarr/notifiarr
   - https://hub.docker.com/r/golift/notifiarr
 type: application
-version: 0.5.0
+version: 0.0.1
 annotations:
   truecharts.org/catagories: |
     - MediaApp-Other
