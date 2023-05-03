@@ -104,12 +104,6 @@ questions:
                       description: multiSite
                     - value: multiAccounts
                       description: multiAccounts
-        - variable: default_locale
-          label: Default Locale
-          description: Locale to use as fallback when Grist cannot honour the browser locale.
-          schema:
-            type: string
-            default: ""
         - variable: max_upload_import_mb
           label: Max Upload Import in MB
           description: Max allowed size for imports (except .grist files) (0 for unlimited).
