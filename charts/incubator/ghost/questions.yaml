@@ -30,12 +30,6 @@ questions:
           schema:
             type: string
             default: "http://localhost:10166"
-        - variable: useMinFiles
-          label: "useMinFiles"
-          description: "Generate assets url with .min notation"
-          schema:
-            type: boolean
-            default: true
         - variable: imageOptimization__resize
           label: "Image Optimization: Resize"
           description: "Automatically process and compress"

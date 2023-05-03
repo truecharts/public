@@ -34,12 +34,6 @@ questions:
                                           type: boolean
                                           default: false
                                       - variable: ENABLE_CACHE_FILE
-                                        label: "Enable Firebase File"
-                                        description: "If set to true, it enables the firebase file by setting the NTFY_FIREBASE_KEY_FILE to \"/etc/ntfy/firebase-key.json\""
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: ENABLE_CACHE_FILE
                                         label: "Enable Cache File"
                                         description: "If set to true, it enables the cache file by setting the NTFY_CACHE_FILE to \"/var/cache/ntfy/cache.db\""
                                         schema:
