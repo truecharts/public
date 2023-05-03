@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "2023.2.2"
+appVersion: "2023.4.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -20,7 +20,7 @@ name: cloudflared
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/cloudflared
 type: application
-version: 3.0.16
+version: 3.0.17
 annotations:
   truecharts.org/catagories: |
     - network

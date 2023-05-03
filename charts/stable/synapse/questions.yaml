@@ -10,10 +10,12 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+
 # Include{containerBasic}
 # Include{containerAdvanced}
-
 # Include{containerConfig}
+# Include{podOptions}
   - variable: synapse
     group: "App Configuration"
     label: "Synapse Configuration"
@@ -304,11 +306,6 @@ questions:
                 schema:
                   type: string
                   default: "WARNING"
-              - variable: sqlLogLevel
-                label: "Root Log Level"
-                schema:
-                  type: string
-                  default: "WARNING"
   - variable: mail
     group: "App Configuration"
     label: "Mail Configuration"
@@ -460,12 +457,12 @@ questions:
                 schema:
                   type: int
                   default: 568
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 568
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
