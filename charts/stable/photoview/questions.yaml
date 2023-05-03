@@ -10,42 +10,44 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
+
 
   # Docker specific env
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: MAPBOX_TOKEN
-          label: "Mapbox Token"
-          description: "Enable map related features, you need to create a mapbox token. A token can be generated for free at https://account.mapbox.com/access-tokens/"
-          schema:
-            type: string
-            default: ""
-        - variable: PHOTOVIEW_DISABLE_FACE_RECOGNITION
-          label: "Disable Face Recognition"
-          description: "Completely disable face recognition and hide the icon from the side menu."
-          schema:
-            type: boolean
-            default: false
-        - variable: PHOTOVIEW_DISABLE_VIDEO_ENCODING
-          label: "Disable Video Encoding"
-          description: "Disable ffmpeg encoding, but still show web compatible videos that doesn't need encoding."
-          schema:
-            type: boolean
-            default: false
-        - variable: PHOTOVIEW_DISABLE_RAW_PROCESSING
-          label: "Disable Raw Processing"
-          description: "Disable processing of RAW photos using darktable-cli."
-          schema:
-            type: boolean
-            default: false
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: MAPBOX_TOKEN
+                                        label: "Mapbox Token"
+                                        description: "Enable map related features, you need to create a mapbox token. A token can be generated for free at https://account.mapbox.com/access-tokens/"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PHOTOVIEW_DISABLE_FACE_RECOGNITION
+                                        label: "Disable Face Recognition"
+                                        description: "Completely disable face recognition and hide the icon from the side menu."
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: PHOTOVIEW_DISABLE_VIDEO_ENCODING
+                                        label: "Disable Video Encoding"
+                                        description: "Disable ffmpeg encoding, but still show web compatible videos that doesn't need encoding."
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: PHOTOVIEW_DISABLE_RAW_PROCESSING
+                                        label: "Disable Raw Processing"
+                                        description: "Disable processing of RAW photos using darktable-cli."
+                                        schema:
+                                          type: boolean
+                                          default: false
+# Include{containerBasic}
+# Include{containerAdvanced}
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -102,12 +104,12 @@ questions:
                 schema:
                   type: int
                   default: 568
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 568
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}

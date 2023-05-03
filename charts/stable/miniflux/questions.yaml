@@ -10,49 +10,42 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ADMIN_USERNAME
+                                        label: "ADMIN_USERNAME"
+                                        description: "Sets the ADMIN_USERNAME env var"
+                                        schema:
+                                          type: string
+                                          default: "admin"
+                                      - variable: ADMIN_PASSWORD
+                                        label: "ADMIN_PASSWORD"
+                                        description: "Sets the ADMIN_PASSWORD env var"
+                                        schema:
+                                          type: string
+                                          default: "changeme"
+                                          private: true
+                                      - variable: RUN_MIGRATIONS
+                                        label: "RUN_MIGRATIONS"
+                                        description: "Sets the RUN_MIGRATIONS env var"
+                                        schema:
+                                          type: int
+                                          default: 1
+                                      - variable: CREATE_ADMIN
+                                        label: "CREATE_ADMIN"
+                                        description: "Sets the CREATE_ADMIN env var"
+                                        schema:
+                                          type: int
+                                          default: 1
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ADMIN_USERNAME
-          label: "ADMIN_USERNAME"
-          description: "Sets the ADMIN_USERNAME env var"
-          schema:
-            type: string
-            default: "admin"
-        - variable: ADMIN_PASSWORD
-          label: "ADMIN_PASSWORD"
-          description: "Sets the ADMIN_PASSWORD env var"
-          schema:
-            type: string
-            default: "changeme"
-            private: true
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: RUN_MIGRATIONS
-          label: "RUN_MIGRATIONS"
-          description: "Sets the RUN_MIGRATIONS env var"
-          schema:
-            type: int
-            default: 1
-        - variable: CREATE_ADMIN
-          label: "CREATE_ADMIN"
-          description: "Sets the CREATE_ADMIN env var"
-          schema:
-            type: int
-            default: 1
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -109,12 +102,12 @@ questions:
                 schema:
                   type: int
                   default: 568
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 568
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
