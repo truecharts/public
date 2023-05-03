@@ -295,7 +295,7 @@ questions:
 # Include{ingressTraefik}
 # Include{ingressList}
 
-# Include{podSecurityContextRoot}
+# Include{securityContextRoot}
         - variable: runAsUser
           label: runAsUser
           description: The UserID of the user running the application
