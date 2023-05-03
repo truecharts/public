@@ -24,7 +24,7 @@ configmap:
       IMMICH_MACHINE_LEARNING_URL: http://localhost:3003
       TYPESENSE_URL: http://localhost:8108
       TYPESENSE_PROTOCOL: http
-      TYPSENSE_HOST: localhost
+      TYPESENSE_HOST: localhost
       TYPESENSE_PORT: "8108"
       {{/*
       It's unclear where this URL is being used, but poking in their code, seems to be used internally?
