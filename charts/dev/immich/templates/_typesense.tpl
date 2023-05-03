@@ -5,6 +5,8 @@ imageSelector: typesenseImage
 envFrom:
   - secretRef:
       name: typesense-secret
+  - configMapRef:
+      name: common-config
 probes:
   readiness:
     enabled: true
