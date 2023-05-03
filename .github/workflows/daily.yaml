@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     name: "Generate readme files"
     container:
-      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:819c4d1d0ad0e917a76827b4cb088b2e0a1b0544f9a1433a0dbcc18844e311c5
+      image: ghcr.io/truecharts/devcontainer:3.1.2@sha256:8d35d6bfc4fbe99fa911260c87ab62d49adf7132dd7c11b181e19d264d90a1c2
     steps:
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
@@ -222,7 +222,7 @@ jobs:
     runs-on: ubuntu-latest
     name: "Generate Security Reports"
     container:
-      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:819c4d1d0ad0e917a76827b4cb088b2e0a1b0544f9a1433a0dbcc18844e311c5
+      image: ghcr.io/truecharts/devcontainer:3.1.2@sha256:8d35d6bfc4fbe99fa911260c87ab62d49adf7132dd7c11b181e19d264d90a1c2
     steps:
       - name: Install Kubernetes tools
         uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
