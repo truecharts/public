@@ -11,30 +11,30 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: GUACD_HOSTNAME
+                                        label: "Guacd Hostname"
+                                        description: "The hostname of the guacd instance to use to establish remote desktop connections"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: GUACD_PORT
+                                        label: "Guacd Port"
+                                        description: "The port that Guacamole should use when connecting to guacd"
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 4822
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: GUACD_HOSTNAME
-          label: "Guacd Hostname"
-          description: "The hostname of the guacd instance to use to establish remote desktop connections"
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: GUACD_PORT
-          label: "Guacd Port"
-          description: "The port that Guacamole should use when connecting to guacd"
-          schema:
-            type: int
-            required: true
-            default: 4822
   - variable: general
     group: "App Configuration"
     label: "General Configuration"
@@ -690,7 +690,9 @@ questions:
                 schema:
                   type: string
                   default: ""
+
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -738,12 +740,12 @@ questions:
                 schema:
                   type: int
                   default: 1001
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 1001
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 1001
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}

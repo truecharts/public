@@ -10,10 +10,12 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+
 # Include{containerBasic}
 # Include{containerAdvanced}
-
 # Include{containerConfig}
+# Include{podOptions}
   - variable: synapse
     group: "App Configuration"
     label: "Synapse Configuration"
@@ -295,6 +297,11 @@ questions:
             attrs:
 # TODO: Find the log levels and make the enum's
               - variable: rootLogLevel
+                label: "Root Log Level"
+                schema:
+                  type: string
+                  default: "WARNING"
+              - variable: sqlLogLevel
                 label: "Root Log Level"
                 schema:
                   type: string
