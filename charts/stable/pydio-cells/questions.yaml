@@ -10,22 +10,23 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: CELLS_EXTERNAL
+                                        label: "Cells External URL"
+                                        description: "https://cells.mydomain.com"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: CELLS_EXTERNAL
-          label: "Cells External URL"
-          description: "https://cells.mydomain.com"
-          schema:
-            type: string
-            default: ""
   - variable: pydioinstall
     group: "App Configuration"
     label: "Pydio Cells Initial Configuration"
@@ -55,6 +56,7 @@ questions:
             required: true
             default: ""
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -149,12 +151,12 @@ questions:
                 schema:
                   type: int
                   default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
