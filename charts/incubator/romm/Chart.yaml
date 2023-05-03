@@ -4,6 +4,10 @@ dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 12.6.1
+  - condition: mariadb.enabled
+    name: mariadb
+    repository: https://deps.truecharts.org/
+    version: 5.0.35
 deprecated: false
 description: game library manager focused in retro gaming
 home: https://truecharts.org/charts/incubator/romm
