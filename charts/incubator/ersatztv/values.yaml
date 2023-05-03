@@ -1,14 +1,14 @@
 image:
   repository: tccr.io/truecharts/ersatztv
   pullPolicy: IfNotPresent
-  tag: 0.7.4@sha256:5caa442c2dd24e5107f91340d479105d0d771a0ef67f7f81581eddc95b4da7e3
+  tag: 0.7.7@sha256:915cf27fa3b7c1cdc3c897c12320afa046868ddc9a8851ab39522694e2a31c89
 nvidiaImage:
   repository: tccr.io/truecharts/ersatztv-nvidia
-  tag: 0.7.4@sha256:63308f3fc235796effc6df09222217512a1b81a8c3f89d8bf3f32fe479825e41
+  tag: 0.7.7@sha256:3f2c8f48ee4c2818a521ae623642cc4e5b726555a87c3d76677667041e7fad8c
   pullPolicy: Always
 vaapiImage:
   repository: tccr.io/truecharts/ersatztv-vaapi
-  tag: 0.7.4@sha256:b5b456d22a3f9758ed23a636d2771072cae969cc4b014d4212ac35dec6e14959
+  tag: 0.7.7@sha256:4141b82a156b08ef881854b591425a63ee765707b422c05711a99084f1843e57
   pullPolicy: Always
 
 imageSelector: image
