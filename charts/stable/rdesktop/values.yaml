@@ -1,10 +1,10 @@
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rdesktop
-  tag: latest@sha256:b997016b6e92278485f0806e8213114f7586a25e46d4c9173aed36fc05a039d2
+  tag: latest@sha256:1996b26971212ae67f59229fe3f43fdf4efc3b0bb0cd624c71b833bea03ddc46
 ubuntuXFCEImage:
   repository: tccr.io/truecharts/rdesktop-ubuntu-xfce
-  tag: latest@sha256:61ff64ba43dd1b244e0334555750cc783beb46cdd9885f98af7f324baee08237
+  tag: latest@sha256:467d410af2c17cf3d4811f66e8d89bc4a0658da33332222d71485024b0879dd8
   pullPolicy: Always
 fedoraXFCEImage:
   repository: tccr.io/truecharts/rdesktop-fedora-xfce
@@ -20,7 +20,7 @@ alpineKDEImage:
   pullPolicy: Always
 ubuntuKDEImage:
   repository: tccr.io/truecharts/rdesktop-ubuntu-kde
-  tag: latest@sha256:d9c2442bc04f77692477345aa9444b4208c482852a8ff2365f8ab3c99adfb7f2
+  tag: latest@sha256:e455ee3bf6c011f422b0a494b59e7cc7bd0a252919d6d8714fbd64f57abae4ca
   pullPolicy: Always
 fedoraKDEImage:
   repository: tccr.io/truecharts/rdesktop-fedora-kde
@@ -36,7 +36,7 @@ alpineMATEImage:
   pullPolicy: Always
 ubuntuMATEImage:
   repository: tccr.io/truecharts/rdesktop-ubuntu-mate
-  tag: latest@sha256:012fba78ab5177db21c6d51ea41a665036d09b73afbfdc0a62484c4cd6001a7c
+  tag: latest@sha256:f5c1db78646385329fe4972fe9c0d5108e1bd97017aae4f5108cea934faf6778
   pullPolicy: Always
 fedoraMATEImage:
   repository: tccr.io/truecharts/rdesktop-fedora-mate
@@ -52,7 +52,7 @@ alpineI3Image:
   pullPolicy: Always
 ubuntuI3Image:
   repository: tccr.io/truecharts/rdesktop-ubuntu-i3
-  tag: latest@sha256:cd21f2600dff90a1faa9b3d27ad8ce17b41d89a7faac4cac0be73f97e333346e
+  tag: latest@sha256:a4c68751070359c90f3747c953957748271e79fcc1f569401f94a434b481a301
   pullPolicy: Always
 fedoraI3Image:
   repository: tccr.io/truecharts/rdesktop-fedora-i3
@@ -68,7 +68,7 @@ alpineOpenBoxImage:
   pullPolicy: Always
 ubuntuOpenBoxImage:
   repository: tccr.io/truecharts/rdesktop-ubuntu-openbox
-  tag: latest@sha256:5c743193e52aecc6220dd79d73dcccdb47047d27c4ac949793f26a117e760f8e
+  tag: latest@sha256:61d967ead32b00a1a8c7ab10396493bf39aa1bdf67a6eb7fe2ad288afeec1fa7
   pullPolicy: Always
 fedoraOpenBoxImage:
   repository: tccr.io/truecharts/rdesktop-fedora-openbox

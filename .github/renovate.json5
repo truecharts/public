@@ -182,7 +182,7 @@
       "bumpVersion": "minor",
       "enabled": true,
       "labels": ["update/docker/general/major", "automerge"],
-      "matchPaths": ["charts/dependency/**", "charts/SCALE/**", "charts/incubator/**", "charts/dev/**", "charts/stable/**", "templates/app/**"],
+      "matchPaths": ["charts/dependency/**", "charts/SCALE/**", "charts/dev/**", "charts/stable/**", "templates/app/**"],
     },
     {
       "matchDatasources": ["docker"],
@@ -196,7 +196,7 @@
       "bumpVersion": "patch",
       "enabled": true,
       "labels": ["update/docker/general/non-major", "automerge"],
-      "matchPaths": ["charts/dependency/**", "charts/SCALE/**",  "charts/incubator/**", "charts/dev/**", "charts/library/**", "charts/stable/**", "templates/app/**"],
+      "matchPaths": ["charts/dependency/**", "charts/SCALE/**", "charts/dev/**", "charts/library/**", "charts/stable/**", "templates/app/**"],
     },
     //
     // Tag semantic version type based on regex

@@ -95,12 +95,6 @@ questions:
             schema:
               type: string
               default: ""
-          - variable: WEBLATE_SERVER_EMAIL
-            label: "WEBLATE_SERVER_EMAIL (Leave empty for default)"
-            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
-            schema:
-              type: string
-              default: ""
           - variable: WEBLATE_DEFAULT_FROM_EMAIL
             label: "WEBLATE_DEFAULT_FROM_EMAIL (Leave empty for default)"
             description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
