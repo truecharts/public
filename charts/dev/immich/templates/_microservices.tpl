@@ -14,26 +14,11 @@ envFrom:
   - configMapRef:
       name: server-config
 probes:
+  {{/* TODO: Create probes */}}
   readiness:
-    enabled: true
-    type: exec
-    command:
-      - /bin/sh
-      - -c
-      - |
-        ps -a | grep -v grep | grep -q microservices || exit 1
+    enabled: false
   liveness:
-    type: exec
-    command:
-      - /bin/sh
-      - -c
-      - |
-        ps -a | grep -v grep | grep -q microservices || exit 1
+    enabled: false
   startup:
-    type: exec
-    command:
-      - /bin/sh
-      - -c
-      - |
-        ps -a | grep -v grep | grep -q microservices || exit 1
+    enabled: false
 {{- end -}}
