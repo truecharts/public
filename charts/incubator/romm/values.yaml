@@ -22,27 +22,27 @@ workload:
               type: http
             startup:
               type: http
-    env:
-      ROMM_DB_DRIVER: mariadb
-      DB_HOST:
-        secretKeyRef:
-          expandObjectName: false
-          name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-          key: plainhost
-      DB_PORT: 3306
-      DB_USER: romm
-      DB_NAME: romm
-      DB_PASSWD:
-        secretKeyRef:
-          expandObjectName: false
-          name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-          key: mariadb-password
-      # IGDB client id
-      CLIENT_ID: ""
-      # IGDB client secret
-      CLIENT_SECRET: ""
-      # WIP
-      STEAMGRIDDB_API_KEY: ""
+          env:
+            ROMM_DB_DRIVER: mariadb
+            # IGDB client id
+            CLIENT_ID: ""
+            # IGDB client secret
+            CLIENT_SECRET: ""
+            # WIP
+            STEAMGRIDDB_API_KEY: ""
+            DB_PORT: 3306
+            DB_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
+            DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
+            DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            DB_PASSWD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
 
 service:
   main:
