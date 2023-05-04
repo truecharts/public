@@ -24,10 +24,12 @@ portainer:
 serviceAccount:
   main:
     enabled: true
+    primary: true
 
 rbac:
   main:
     enabled: true
+    primary: true
     rules:
       - apiGroups:
           - "*"
