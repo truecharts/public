@@ -9,16 +9,16 @@ probes:
   readiness:
     enabled: true
     type: http
-    path: /
+    path: /health
     port: 8108
   liveness:
     enabled: true
     type: http
-    path: /
+    path: /health
     port: 8108
   startup:
     enabled: true
     type: http
-    path: /
+    path: /health
     port: 8108
 {{- end -}}

@@ -22,10 +22,12 @@ configmap:
       IMMICH_WEB_URL: http://localhost:3000
       IMMICH_SERVER_URL: http://localhost:3001
       IMMICH_MACHINE_LEARNING_URL: http://localhost:3003
+      {{- if .Values.immich.enable_typesense }}
       TYPESENSE_URL: http://localhost:8108
       TYPESENSE_PROTOCOL: http
       TYPESENSE_HOST: localhost
       TYPESENSE_PORT: "8108"
+      {{- end }}
       {{/*
       It's unclear where this URL is being used, but poking in their code, seems to be used internally?
       It's set to the value of IMMICH_SERVER_URL on their compose. If something doesn't work remotely,

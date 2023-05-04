@@ -14,16 +14,16 @@ probes:
   readiness:
     enabled: true
     type: http
-    path: /
+    path: /robots.txt
     port: 3000
   liveness:
     enabled: true
     type: http
-    path: /
+    path: /robots.txt
     port: 3000
   startup:
     enabled: true
     type: http
-    path: /
+    path: /robots.txt
     port: 3000
 {{- end -}}

@@ -13,9 +13,18 @@ envFrom:
       name: secret
 probes:
   readiness:
-    enabled: false
+    enabled: true
+    type: http
+    path: /ping
+    port: 3003
   liveness:
-    enabled: false
+    enabled: true
+    type: http
+    path: /ping
+    port: 3003
   startup:
-    enabled: false
+    enabled: true
+    type: http
+    path: /ping
+    port: 3003
 {{- end -}}
