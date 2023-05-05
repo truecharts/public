@@ -1,7 +1,8 @@
 remote: origin
 target-branch: master
 chart-yaml-schema: .github/chart_schema.yaml
-helm-extra-args: --timeout 600s
+helm-extra-args: --timeout 300s
+helm-dependency-extra-args: --verify --keyring $gpg_dir/secring.gpg
 chart-dirs:
   - charts/incubator
   - charts/stable
