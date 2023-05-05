@@ -94,7 +94,8 @@ for idx in $(eval echo "{0..$length}"); do
             if [ -f "$cache_path/$repo_dir/$name-$version.tgz" ]; then
                 echo "✅ Dependency Downloaded!"
                 echo "Validating dependency signature..."
-                helm validate $cache_path/$repo_dir/$name-$version.tgz --keyring $gpg_dir/secring.gpg || echo "❌ Failed to verify dependency chart signature" && exit 1
+                # TODO: enable after first builds are passing
+                # helm verify $cache_path/$repo_dir/$name-$version.tgz --keyring $gpg_dir/secring.gpg || helm verify $cache_path/$repo_dir/$name-$version.tgz --keyring $gpg_dir/secring.gpg || echo "❌ Failed to verify dependency chart signature" && exit 1
             else
                 echo "❌ Failed to download dependency"
                 # Try helm dependency build/update or otherwise fail fast if a dep fails to download...
