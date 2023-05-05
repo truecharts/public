@@ -29,11 +29,9 @@ jobs:
           helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add bitnami https://charts.bitnami.com/bitnami
-
           helm repo add prometheus https://prometheus-community.github.io/helm-charts
           helm repo update
 
-      # Optional step if GPG signing is used
       - name: Prepare GPG key
         shell: bash
         run: |
@@ -52,7 +50,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
 
       - name: Setting repo parent dir as safe safe.directory
@@ -72,6 +69,7 @@ jobs:
           for changed in ${CHARTS[@]}; do
             .github/scripts/fetch_helm_deps.sh "${changed}"
           done
+
   generate-lint-matrix:
     name: Generate matrix for lint
     runs-on: ubuntu-latest
@@ -167,8 +165,6 @@ jobs:
       max-parallel: 10
     runs-on: ubuntu-latest
     steps:
-      # Optional step if GPG signing is used
-
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
@@ -203,8 +199,6 @@ jobs:
       max-parallel: 10
     runs-on: ubuntu-latest
     steps:
-      # Optional step if GPG signing is used
-
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
@@ -239,8 +233,6 @@ jobs:
       max-parallel: 10
     runs-on: ubuntu-latest
     steps:
-      # Optional step if GPG signing is used
-
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
@@ -275,8 +267,6 @@ jobs:
       max-parallel: 10
     runs-on: ubuntu-latest
     steps:
-      # Optional step if GPG signing is used
-
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
@@ -311,8 +301,6 @@ jobs:
       max-parallel: 10
     runs-on: ubuntu-latest
     steps:
-      # Optional step if GPG signing is used
-
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
@@ -347,8 +335,6 @@ jobs:
       max-parallel: 10
     runs-on: ubuntu-latest
     steps:
-      # Optional step if GPG signing is used
-
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
