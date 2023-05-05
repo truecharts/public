@@ -5,3 +5,7 @@ charts-dir: charts/*
 charts_repo_url: "https://charts.truecharts.org"
 SkipExisting: true
 skipExisting: true
+# Set to true for GPG signing
+sign: true
+# UID of the GPG key to use
+key: info@truecharts.org
