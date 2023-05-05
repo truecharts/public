@@ -51,6 +51,10 @@ jobs:
       with:
         charts_dir: library
         charts_repo_url: https://library-charts.truecharts.org
+        # Set to true for GPG signing
+        sign: true
+        # UID of the GPG key to use
+        key: info@truecharts.org
       env:
         CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
         CR_SKIP_EXISTING: "true"
