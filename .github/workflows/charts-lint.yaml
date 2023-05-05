@@ -59,7 +59,7 @@ jobs:
         id: collect-changes
         uses: ./.github/actions/collect-changes
 
-      - name: build catalog
+      - name: Fetch and Verify dependencies
         shell: bash
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
