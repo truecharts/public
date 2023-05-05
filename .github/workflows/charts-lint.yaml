@@ -13,6 +13,7 @@ on:
 jobs:
   verify-dep-sig:
     runs-on: ubuntu-latest
+    name: Verify Dependency Signatures
     container:
       image: ghcr.io/truecharts/devcontainer:3.1.10@sha256:c239addf725eb5cedf79517f8089fdafdc32b5270d1893ee87ae6e511b9bcae3
     steps:
@@ -34,6 +35,7 @@ jobs:
 
       # Optional step if GPG signing is used
       - name: Prepare GPG key
+        shell: bash
         run: |
           gpg_dir=.cr-gpg
           mkdir "$gpg_dir"
@@ -166,19 +168,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Optional step if GPG signing is used
-      - name: Prepare GPG key
-        run: |
-          gpg_dir=~/.gnupg
-          mkdir "$gpg_dir" || echo "gpg dir already exists"
-          keyring="$gpg_dir/pubring.gpg"
-          base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
-          passphrase_file="$gpg_dir/passphrase"
-          echo "$GPG_PASSPHRASE" > "$passphrase_file"
-          echo "CR_PASSPHRASE_FILE=$passphrase_file" >> "$GITHUB_ENV"
-          echo "CR_KEYRING=$keyring" >> "$GITHUB_ENV"
-        env:
-          GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
-          GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
 
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
@@ -215,19 +204,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Optional step if GPG signing is used
-      - name: Prepare GPG key
-        run: |
-          gpg_dir=~/.gnupg
-          mkdir "$gpg_dir" || echo "gpg dir already exists"
-          keyring="$gpg_dir/pubring.gpg"
-          base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
-          passphrase_file="$gpg_dir/passphrase"
-          echo "$GPG_PASSPHRASE" > "$passphrase_file"
-          echo "CR_PASSPHRASE_FILE=$passphrase_file" >> "$GITHUB_ENV"
-          echo "CR_KEYRING=$keyring" >> "$GITHUB_ENV"
-        env:
-          GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
-          GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
 
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
@@ -264,19 +240,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Optional step if GPG signing is used
-      - name: Prepare GPG key
-        run: |
-          gpg_dir=~/.gnupg
-          mkdir "$gpg_dir" || echo "gpg dir already exists"
-          keyring="$gpg_dir/pubring.gpg"
-          base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
-          passphrase_file="$gpg_dir/passphrase"
-          echo "$GPG_PASSPHRASE" > "$passphrase_file"
-          echo "CR_PASSPHRASE_FILE=$passphrase_file" >> "$GITHUB_ENV"
-          echo "CR_KEYRING=$keyring" >> "$GITHUB_ENV"
-        env:
-          GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
-          GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
 
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
@@ -313,19 +276,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Optional step if GPG signing is used
-      - name: Prepare GPG key
-        run: |
-          gpg_dir=~/.gnupg
-          mkdir "$gpg_dir" || echo "gpg dir already exists"
-          keyring="$gpg_dir/pubring.gpg"
-          base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
-          passphrase_file="$gpg_dir/passphrase"
-          echo "$GPG_PASSPHRASE" > "$passphrase_file"
-          echo "CR_PASSPHRASE_FILE=$passphrase_file" >> "$GITHUB_ENV"
-          echo "CR_KEYRING=$keyring" >> "$GITHUB_ENV"
-        env:
-          GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
-          GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
 
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
@@ -362,19 +312,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Optional step if GPG signing is used
-      - name: Prepare GPG key
-        run: |
-          gpg_dir=~/.gnupg
-          mkdir "$gpg_dir" || echo "gpg dir already exists"
-          keyring="$gpg_dir/pubring.gpg"
-          base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
-          passphrase_file="$gpg_dir/passphrase"
-          echo "$GPG_PASSPHRASE" > "$passphrase_file"
-          echo "CR_PASSPHRASE_FILE=$passphrase_file" >> "$GITHUB_ENV"
-          echo "CR_KEYRING=$keyring" >> "$GITHUB_ENV"
-        env:
-          GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
-          GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
 
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
@@ -411,19 +348,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Optional step if GPG signing is used
-      - name: Prepare GPG key
-        run: |
-          gpg_dir=~/.gnupg
-          mkdir "$gpg_dir" || echo "gpg dir already exists"
-          keyring="$gpg_dir/pubring.gpg"
-          base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
-          passphrase_file="$gpg_dir/passphrase"
-          echo "$GPG_PASSPHRASE" > "$passphrase_file"
-          echo "CR_PASSPHRASE_FILE=$passphrase_file" >> "$GITHUB_ENV"
-          echo "CR_KEYRING=$keyring" >> "$GITHUB_ENV"
-        env:
-          GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
-          GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
 
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
