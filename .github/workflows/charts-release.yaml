@@ -80,6 +80,7 @@ jobs:
           
       # Optional step if GPG signing is used
       - name: Prepare GPG key
+        shell: bash
         run: |
           gpg_dir=.cr-gpg
           mkdir "$gpg_dir"
