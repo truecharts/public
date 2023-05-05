@@ -109,9 +109,9 @@ jobs:
       # Optional step if GPG signing is used
       - name: Prepare GPG key
         run: |
-          gpg_dir=.cr-gpg
-          mkdir "$gpg_dir"
-          keyring="$gpg_dir/secring.gpg"
+          gpg_dir=~/.gnupg
+          mkdir "$gpg_dir" || echo "gpg dir already exists"
+          keyring="$gpg_dir/pubring.gpg"
           base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
           passphrase_file="$gpg_dir/passphrase"
           echo "$GPG_PASSPHRASE" > "$passphrase_file"
@@ -120,7 +120,7 @@ jobs:
         env:
           GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
-          
+
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
@@ -158,9 +158,9 @@ jobs:
       # Optional step if GPG signing is used
       - name: Prepare GPG key
         run: |
-          gpg_dir=.cr-gpg
-          mkdir "$gpg_dir"
-          keyring="$gpg_dir/secring.gpg"
+          gpg_dir=~/.gnupg
+          mkdir "$gpg_dir" || echo "gpg dir already exists"
+          keyring="$gpg_dir/pubring.gpg"
           base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
           passphrase_file="$gpg_dir/passphrase"
           echo "$GPG_PASSPHRASE" > "$passphrase_file"
@@ -169,7 +169,7 @@ jobs:
         env:
           GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
-          
+
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
@@ -207,9 +207,9 @@ jobs:
       # Optional step if GPG signing is used
       - name: Prepare GPG key
         run: |
-          gpg_dir=.cr-gpg
-          mkdir "$gpg_dir"
-          keyring="$gpg_dir/secring.gpg"
+          gpg_dir=~/.gnupg
+          mkdir "$gpg_dir" || echo "gpg dir already exists"
+          keyring="$gpg_dir/pubring.gpg"
           base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
           passphrase_file="$gpg_dir/passphrase"
           echo "$GPG_PASSPHRASE" > "$passphrase_file"
@@ -218,7 +218,7 @@ jobs:
         env:
           GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
-          
+
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
@@ -256,9 +256,9 @@ jobs:
       # Optional step if GPG signing is used
       - name: Prepare GPG key
         run: |
-          gpg_dir=.cr-gpg
-          mkdir "$gpg_dir"
-          keyring="$gpg_dir/secring.gpg"
+          gpg_dir=~/.gnupg
+          mkdir "$gpg_dir" || echo "gpg dir already exists"
+          keyring="$gpg_dir/pubring.gpg"
           base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
           passphrase_file="$gpg_dir/passphrase"
           echo "$GPG_PASSPHRASE" > "$passphrase_file"
@@ -267,7 +267,7 @@ jobs:
         env:
           GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
-          
+
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
@@ -305,9 +305,9 @@ jobs:
       # Optional step if GPG signing is used
       - name: Prepare GPG key
         run: |
-          gpg_dir=.cr-gpg
-          mkdir "$gpg_dir"
-          keyring="$gpg_dir/secring.gpg"
+          gpg_dir=~/.gnupg
+          mkdir "$gpg_dir" || echo "gpg dir already exists"
+          keyring="$gpg_dir/pubring.gpg"
           base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
           passphrase_file="$gpg_dir/passphrase"
           echo "$GPG_PASSPHRASE" > "$passphrase_file"
@@ -316,7 +316,7 @@ jobs:
         env:
           GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
-          
+
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
@@ -354,9 +354,9 @@ jobs:
       # Optional step if GPG signing is used
       - name: Prepare GPG key
         run: |
-          gpg_dir=.cr-gpg
-          mkdir "$gpg_dir"
-          keyring="$gpg_dir/secring.gpg"
+          gpg_dir=~/.gnupg
+          mkdir "$gpg_dir" || echo "gpg dir already exists"
+          keyring="$gpg_dir/pubring.gpg"
           base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
           passphrase_file="$gpg_dir/passphrase"
           echo "$GPG_PASSPHRASE" > "$passphrase_file"
@@ -365,7 +365,7 @@ jobs:
         env:
           GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
-          
+
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
