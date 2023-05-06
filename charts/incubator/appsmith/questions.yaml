@@ -19,7 +19,6 @@ questions:
                                   schema:
                                     additional_attrs: true
                                     type: dict
-
                                     attrs:
                                       - variable: APPSMITH_ADMIN_EMAILS
                                         label: "APPSMITH_ADMIN_EMAILS"
@@ -27,7 +26,7 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
-                                          
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

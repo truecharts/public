@@ -34,7 +34,6 @@ questions:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
-                                    attrs:
                                       - variable: APPRISE_STATEFUL_MODE
                                         label: Apprise Stateful Mode
                                         description: Stores the server configuration data.
@@ -110,7 +109,7 @@ questions:
                                           type: int
                                           default: 1
                                           min: 1
-                                          
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
