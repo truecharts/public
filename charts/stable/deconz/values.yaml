@@ -15,6 +15,10 @@ workload:
     podSpec:
       containers:
         main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
           env:
             DECONZ_WEB_PORT: "{{ .Values.service.main.ports.main.port }}"
             DECONZ_WS_PORT: "{{ .Values.service.websocket.ports.websocket.port }}"
