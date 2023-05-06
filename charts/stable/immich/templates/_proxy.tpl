@@ -6,7 +6,7 @@ podSpec:
     wait-server:
       {{- include "immich.wait" (dict "variable" "IMMICH_SERVER_URL" "path" "server-info/ping") | nindent 6 }}
   containers:
-    main:
+    proxy:
       enabled: true
       primary: true
       imageSelector: proxyImage

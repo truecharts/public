@@ -1,19 +1,24 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
+{{- $_ := set .Values.workload "proxy" (include "immich.proxy" . | fromYaml) -}}
+
 {{- $_ := set .Values.workload.main.podSpec.containers "main" (include "immich.server" . | fromYaml) -}}
 {{- if .Values.immich.enable_typesense -}}
   {{- $_ := set .Values.workload.main.podSpec.initContainers "wait-typesense" (include "immich.wait" (dict "variable" "TYPESENSE_URL" "path" "health") | fromYaml) -}}
 {{- end -}}
-{{- $_ := set .Values.workload "proxy" (include "immich.proxy" . | fromYaml) -}}
+
 {{- $_ := set .Values.service "web" (include "immich.web.service" . | fromYaml) -}}
 {{- $_ := set .Values.workload "web" (include "immich.web" . | fromYaml) -}}
+
 {{- $_ := set .Values.service "microservices" (include "immich.microservices.service" . | fromYaml) -}}
 {{- $_ := set .Values.workload "microservices" (include "immich.microservices" . | fromYaml) -}}
+
 {{- if .Values.immich.enable_ml -}}
   {{- $_ := set .Values.service "machinelearning" (include "immich.machinelearning.service" . | fromYaml) -}}
   {{- $_ := set .Values.workload "machinelearning" (include "immich.machinelearning" . | fromYaml) -}}
 {{- end -}}
+
 {{- if .Values.immich.enable_typesense -}}
   {{- $_ := set .Values.service "typesense" (include "immich.typesense.service" . | fromYaml) -}}
   {{- $_ := set .Values.workload "typesense" (include "immich.typesense" . | fromYaml) -}}
