@@ -26,18 +26,18 @@ questions:
             type: string
             private: true
             default: ""
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: WEBPAGE_TITLE
-          label: WEBPAGE_TITLE
-          schema:
-            type: string
-            default: HexChat
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: WEBPAGE_TITLE
+                                        label: WEBPAGE_TITLE
+                                        schema:
+                                          type: string
+                                          default: HexChat
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
