@@ -63,6 +63,7 @@ portal:
 workload:
   main:
     podSpec:
+      automountServiceAccountToken: true
       containers:
         main:
           imageSelector: image
