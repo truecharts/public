@@ -31,25 +31,25 @@ questions:
             type: string
             private: true
             default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DISABLE_AUTH
-          label: "DISABLE_AUTH"
-          description: "Allows you to disable auth on nginx"
-          schema:
-            type: boolean
-            default: true
-        - variable: SET_CONTAINER_TIMEZONE
-          label: "SET_CONTAINER_TIMEZONE"
-          description: "Allow manage time of container"
-          schema:
-            type: boolean
-            default: true
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: DISABLE_AUTH
+                                        label: "DISABLE_AUTH"
+                                        description: "Allows you to disable auth on nginx"
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: SET_CONTAINER_TIMEZONE
+                                        label: "SET_CONTAINER_TIMEZONE"
+                                        description: "Allow manage time of container"
+                                        schema:
+                                          type: boolean
+                                          default: true
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

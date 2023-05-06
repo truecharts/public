@@ -27,19 +27,19 @@ questions:
             type: string
             private: true
             default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: enable_integration
-          label: "Enable Kubernetes Integration"
-          description: "Defines RBAC, ClusterRole, ClusterRoleBinding and Service Account"
-          schema:
-            type: boolean
-            default: false
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: enable_integration
+                                        label: "Enable Kubernetes Integration"
+                                        description: "Defines RBAC, ClusterRole, ClusterRoleBinding and Service Account"
+                                        schema:
+                                          type: boolean
+                                          default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
