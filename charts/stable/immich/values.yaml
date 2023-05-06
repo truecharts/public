@@ -26,40 +26,6 @@ securityContext:
     runAsUser: 0
     runAsGroup: 0
 
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          command:
-            - /bin/sh
-            - ./start-server.sh
-          envFrom:
-            - configMapRef:
-                name: server-config
-            - configMapRef:
-                name: common-config
-            - secretRef:
-                name: deps-secret
-            - secretRef:
-                name: secret
-          probes:
-            liveness:
-              enabled: true
-              type: http
-              path: /server-info/ping
-              port: 3001
-            readiness:
-              enabled: true
-              type: http
-              path: /server-info/ping
-              port: 3001
-            startup:
-              enabled: true
-              type: http
-              path: /server-info/ping
-              port: 3001
-
 immich:
   enable_ml: true
   enable_typesense: true
@@ -73,35 +39,59 @@ immich:
 
 service:
   main:
+    # Main service targets the proxy
+    targetSelector: proxy
     ports:
       main:
         port: 10323
         protocol: http
+        targetSelector: proxy
         targetPort: 8080
+  server:
+    enabled: true
+    type: ClusterIP
+    # Server is the main container
+    targetSelector: main
+    ports:
+      server:
+        enabled: true
+        primary: true
+        port: 10001
+        protocol: http
+        targetSelector: main
 
 persistence:
   uploads:
     enabled: true
     mountPath: /usr/src/app/upload
     targetSelector:
-      main:
-        main: {}
-        machinelearning: {}
+      server:
+        server: {}
+      microservices:
         microservices: {}
-  modelcache:
-    enabled: true
-    type: emptyDir
-    mountPath: /cache
-    targetSelector:
-      main:
+      machinelearning:
         machinelearning: {}
-  typesensedata:
+  mlcache:
     enabled: true
     type: emptyDir
-    mountPath: /data
     targetSelector:
-      main:
-        typesense: {}
+      machinelearning:
+        machinelearning:
+          mountPath: /mlcache
+  microcache:
+    enabled: true
+    type: emptyDir
+    targetSelector:
+      microservices:
+        microservices:
+          mountPath: /microcache
+  typesense:
+    enabled: true
+    type: emptyDir
+    targetSelector:
+      typesense:
+        typesense:
+          mountPath: /typesensedata
 
 cnpg:
   main:
