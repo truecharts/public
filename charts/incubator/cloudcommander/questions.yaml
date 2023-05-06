@@ -13,19 +13,19 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: HOME
-          label: "HOME"
-          description: "Container Variable HOME"
-          schema:
-            type: string
-            default: "/root"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: HOME
+                                        label: "HOME"
+                                        description: "Container Variable HOME"
+                                        schema:
+                                          type: string
+                                          default: "/root"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
