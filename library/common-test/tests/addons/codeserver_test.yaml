@@ -104,3 +104,68 @@ tests:
         equal:
           path: metadata.name
           value: release-name-common-test
+
+  - it: addon enabled should pass and mount volume with targetSelector on other container only
+    set:
+      workload: &workload
+        main:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              main:
+                enabled: true
+                primary: true
+      persistence:
+        data:
+          enabled: true
+          type: emptyDir
+          targetSelector:
+            main:
+              main:
+                mountPath: /data
+                readOnly: true
+        data2:
+          enabled: true
+          type: emptyDir
+          mountPath: /some/path
+          targetSelector:
+            main:
+              main:
+                readOnly: false
+      addons:
+        codeserver:
+          enabled: true
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: metadata.name
+          value: release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: release-name-common-test-codeserver
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            mountPath: /data
+            name: data
+            readOnly: true
+      - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            mountPath: /some/path
+            name: data2
+            readOnly: false
