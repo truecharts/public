@@ -13,30 +13,30 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SETUP_MODE
-          label: "SETUP_MODE"
-          description: "Select if you will provide Environment Variables or Configuration File, to overwrite the default configuration."
-          schema:
-            type: string
-            default: "MANUAL"
-            enum:
-              - value: "MANUAL"
-                description: "Configuration File"
-              - value: "AUTO"
-                description: "Environment Variables"
-        - variable: ENABLE_RESET_LOG
-          label: "ENABLE_RESET_LOG"
-          description: "Write to log detailing password resets."
-          schema:
-            type: boolean
-            default: false
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: SETUP_MODE
+                                        label: "SETUP_MODE"
+                                        description: "Select if you will provide Environment Variables or Configuration File, to overwrite the default configuration."
+                                        schema:
+                                          type: string
+                                          default: "MANUAL"
+                                          enum:
+                                            - value: "MANUAL"
+                                              description: "Configuration File"
+                                            - value: "AUTO"
+                                              description: "Environment Variables"
+                                      - variable: ENABLE_RESET_LOG
+                                        label: "ENABLE_RESET_LOG"
+                                        description: "Write to log detailing password resets."
+                                        schema:
+                                          type: boolean
+                                          default: false
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

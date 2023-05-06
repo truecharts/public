@@ -13,19 +13,19 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: HOSTS
-          label: "HOSTS"
-          description: "Container Variable HOSTS"
-          schema:
-            type: string
-            default: "['qemu:///system']"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: HOSTS
+                                        label: "HOSTS"
+                                        description: "Container Variable HOSTS"
+                                        schema:
+                                          type: string
+                                          default: "['qemu:///system']"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

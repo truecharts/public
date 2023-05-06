@@ -14,19 +14,19 @@ questions:
 # Include{containerAdvanced}
 
 # Include{containerConfig}
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: BASE_URL
-          label: Base URL
-          description: Set hostname https://search.mydomain.com
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: BASE_URL
+                                        label: Base URL
+                                        description: Set hostname https://search.mydomain.com
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{serviceRoot}
         - variable: main
           label: Main Service

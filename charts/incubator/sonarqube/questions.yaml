@@ -13,19 +13,19 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SONAR_ES_BOOTSTRAP_CHECKS_DISABLE
-          label: "SONAR_ES_BOOTSTRAP_CHECKS_DISABLE"
-          description: "Container Variable SONARESBOOTSTRAPCHECKSDISABLE"
-          schema:
-            type: string
-            default: "true"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: SONAR_ES_BOOTSTRAP_CHECKS_DISABLE
+                                        label: "SONAR_ES_BOOTSTRAP_CHECKS_DISABLE"
+                                        description: "Container Variable SONARESBOOTSTRAPCHECKSDISABLE"
+                                        schema:
+                                          type: string
+                                          default: "true"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

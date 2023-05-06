@@ -11,25 +11,25 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: TVH_URL
-          label: "TVH_URL"
-          description: "Container Variable TVHURL"
-          schema:
-            type: string
-            default: "http://username:password@tvheadendip:9981"
-        - variable: TVH_TUNER_COUNT
-          label: "TVH_TUNER_COUNT"
-          description: "Container Variable TVHTUNERCOUNT"
-          schema:
-            type: string
-            default: "4"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: TVH_URL
+                                        label: "TVH_URL"
+                                        description: "Container Variable TVHURL"
+                                        schema:
+                                          type: string
+                                          default: "http://username:password@tvheadendip:9981"
+                                      - variable: TVH_TUNER_COUNT
+                                        label: "TVH_TUNER_COUNT"
+                                        description: "Container Variable TVHTUNERCOUNT"
+                                        schema:
+                                          type: string
+                                          default: "4"
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

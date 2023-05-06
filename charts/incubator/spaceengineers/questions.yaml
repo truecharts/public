@@ -13,33 +13,33 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: WINEPREFIX
-          label: "WINEPREFIX"
-          schema:
-            type: string
-            default: "/root/server"
-        - variable: WINEARCH
-          label: "WINEARCH"
-          schema:
-            type: string
-            default: "win64"
-        - variable: WINEDEBUG
-          label: "WINEDEBUG"
-          schema:
-            type: string
-            default: "-all"
-        - variable: APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE
-          label: "APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE"
-          schema:
-            type: string
-            default: "1"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: WINEPREFIX
+                                        label: "WINEPREFIX"
+                                        schema:
+                                          type: string
+                                          default: "/root/server"
+                                      - variable: WINEARCH
+                                        label: "WINEARCH"
+                                        schema:
+                                          type: string
+                                          default: "win64"
+                                      - variable: WINEDEBUG
+                                        label: "WINEDEBUG"
+                                        schema:
+                                          type: string
+                                          default: "-all"
+                                      - variable: APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE
+                                        label: "APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE"
+                                        schema:
+                                          type: string
+                                          default: "1"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

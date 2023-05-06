@@ -13,25 +13,25 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DBTYPE
-          label: "DBTYPE"
-          description: "Container Variable DBTYPE"
-          schema:
-            type: string
-            default: "sqlite"
-        - variable: DBNAME
-          label: "DBNAME"
-          description: "Container Variable DBNAME"
-          schema:
-            type: string
-            default: "data/tasmobackup"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: DBTYPE
+                                        label: "DBTYPE"
+                                        description: "Container Variable DBTYPE"
+                                        schema:
+                                          type: string
+                                          default: "sqlite"
+                                      - variable: DBNAME
+                                        label: "DBNAME"
+                                        description: "Container Variable DBNAME"
+                                        schema:
+                                          type: string
+                                          default: "data/tasmobackup"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

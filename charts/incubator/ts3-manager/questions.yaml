@@ -13,34 +13,34 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: WHITELIST
-          label: "WHITELIST"
-          description: "Comma separated list of TeamSpeak servers you can connect to (ip or domain)"
-          schema:
-            type: string
-            default: ""
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: JWT_SECRET
-          label: "JWT SECRET"
-          description: "Secret for decrypting and encrypting the token"
-          schema:
-            type: string
-            private: true
-            required: false
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: WHITELIST
+                                        label: "WHITELIST"
+                                        description: "Comma separated list of TeamSpeak servers you can connect to (ip or domain)"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                - variable: secretEnv
+                                  group: "App Configuration"
+                                  label: "Image Secrets"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: JWT_SECRET
+                                        label: "JWT SECRET"
+                                        description: "Secret for decrypting and encrypting the token"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          required: false
+                                          default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
