@@ -65,8 +65,9 @@ persistence:
     enabled: true
     mountPath: /usr/src/app/upload
     targetSelector:
-      server:
-        server: {}
+      # Main pod/container is server
+      main:
+        main: {}
       microservices:
         microservices: {}
       machinelearning:
