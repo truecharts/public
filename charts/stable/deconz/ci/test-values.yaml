@@ -1,6 +1,7 @@
 workload:
   main:
     podSpec:
-      main:
-        env:
-          DECONZ_DEVICE: 0
+      containers:
+        main:
+          env:
+            DECONZ_DEVICE: 0
