@@ -13,19 +13,19 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: LIVEBOOK_PASSWORD
-          label: "LIVEBOOK_PASSWORD"
-          description: "Password needed to access livebook (must be at least 12 characters)"
-          schema:
-            type: string
-            default: "livebookiscool"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: LIVEBOOK_PASSWORD
+                                        label: "LIVEBOOK_PASSWORD"
+                                        description: "Password needed to access livebook (must be at least 12 characters)"
+                                        schema:
+                                          type: string
+                                          default: "livebookiscool"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
