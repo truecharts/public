@@ -17,7 +17,6 @@ configmap:
     enabled: true
     data:
       {{/* User Defined */}}
-      TYPESENSE_ENABLED: {{ .Values.immich.enable_typesense | quote }}
       DISABLE_REVERSE_GEOCODING: {{ .Values.immich.disable_reverse_geocoding | quote }}
       REVERSE_GEOCODING_PRECISION: {{ .Values.immich.reverse_geocoding_precision | quote }}
       ENABLE_MAPBOX: {{ .Values.immich.mapbox_enable | quote }}
@@ -41,7 +40,10 @@ configmap:
       IMMICH_SERVER_URL: {{ printf "http://%v-server:%v" $fname .Values.service.server.ports.server.port }}
       {{- if .Values.immich.enable_ml }}
       IMMICH_MACHINE_LEARNING_URL: {{ printf "http://%v-machinelearning:%v" $fname .Values.service.machinelearning.ports.machinelearning.port }}
+      {{- else }}
+      IMMICH_MACHINE_LEARNING_URL: "false"
       {{- end }}
+      TYPESENSE_ENABLED: {{ .Values.immich.enable_typesense | quote }}
       {{- if .Values.immich.enable_typesense }}
       TYPESENSE_URL: {{ printf "http://%v-typesense:%v" $fname .Values.service.typesense.ports.typesense.port }}
       TYPESENSE_PROTOCOL: http
