@@ -46,117 +46,116 @@ questions:
 
 # Include{containerBasic}
 # Include{containerAdvanced}
+                                  - variable: probes
+                                    label: "Healthcheck Probes"
+                                    schema:
+                                      additional_attrs: true
+                                      type: dict
+                                      attrs:
+                                        - variable: liveness
+                                          label: "Liveness"
+                                          description: "Liveness Probe"
+                                          schema:
+                                            additional_attrs: true
+                                            type: dict
+                                            attrs:
+                                              - variable: enabled
+                                                label: "Enable Probe"
+                                                description: "Enables the probe"
+                                                schema:
+                                                  type: boolean
+                                                  default: true
+                                                  show_subquestions_if: true
+                                                  subquestions:
+                                                    - variable: type
+                                                      label: "Probe Type"
+                                                      description: "Probe Type"
+                                                      schema:
+                                                        type: string
+                                                        default: "tcp"
+                                                        enum:
+                                                          - value: "tcp"
+                                                            description: "tcp"
+                                                          - value: "http"
+                                                            description: "http"
+                                                          - value: "https"
+                                                            description: "https"
+                                                    - variable: path
+                                                      label: "Probe Path"
+                                                      description: "Probe Path"
+                                                      schema:
+                                                        type: string
+                                                        default: "/"
+                                        - variable: readiness
+                                          label: "Readiness"
+                                          description: "Readiness Probe"
+                                          schema:
+                                            additional_attrs: true
+                                            type: dict
+                                            attrs:
+                                              - variable: enabled
+                                                label: "Enable Probe"
+                                                description: "Enables the probe"
+                                                schema:
+                                                  type: boolean
+                                                  default: true
+                                                  show_subquestions_if: true
+                                                  subquestions:
+                                                    - variable: type
+                                                      label: "Probe Type"
+                                                      description: "Probe Type"
+                                                      schema:
+                                                        type: string
+                                                        default: "tcp"
+                                                        enum:
+                                                          - value: "tcp"
+                                                            description: "tcp"
+                                                          - value: "http"
+                                                            description: "http"
+                                                          - value: "https"
+                                                            description: "https"
+                                                    - variable: path
+                                                      label: "Probe Path"
+                                                      description: "Probe Path"
+                                                      schema:
+                                                        type: string
+                                                        default: "/"
+                                        - variable: startup
+                                          label: "Startup"
+                                          description: "Startup Probe"
+                                          schema:
+                                            additional_attrs: true
+                                            type: dict
+                                            attrs:
+                                              - variable: enabled
+                                                label: "Enable Probe"
+                                                description: "Enables the probe"
+                                                schema:
+                                                  type: boolean
+                                                  default: true
+                                                  show_subquestions_if: true
+                                                  subquestions:
+                                                    - variable: type
+                                                      label: "Probe Type"
+                                                      description: "Probe Type"
+                                                      schema:
+                                                        type: string
+                                                        default: "tcp"
+                                                        enum:
+                                                          - value: "tcp"
+                                                            description: "tcp"
+                                                          - value: "http"
+                                                            description: "http"
+                                                          - value: "https"
+                                                            description: "https"
+                                                    - variable: path
+                                                      label: "Probe Path"
+                                                      description: "Probe Path"
+                                                      schema:
+                                                        type: string
+                                                        default: "/"
 # Include{containerConfig}
 # Include{podOptions}
-  - variable: probes
-    group: "App Configuration"
-    label: "Healthcheck Probes"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: liveness
-          label: "Liveness"
-          description: "Liveness Probe"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enable Probe"
-                description: "Enables the probe"
-                schema:
-                  type: boolean
-                  default: true
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: type
-                      label: "Probe Type"
-                      description: "Probe Type"
-                      schema:
-                        type: string
-                        default: "tcp"
-                        enum:
-                          - value: "tcp"
-                            description: "tcp"
-                          - value: "http"
-                            description: "http"
-                          - value: "https"
-                            description: "https"
-                    - variable: path
-                      label: "Probe Path"
-                      description: "Probe Path"
-                      schema:
-                        type: string
-                        default: "/"
-        - variable: readiness
-          label: "Readiness"
-          description: "Readiness Probe"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enable Probe"
-                description: "Enables the probe"
-                schema:
-                  type: boolean
-                  default: true
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: type
-                      label: "Probe Type"
-                      description: "Probe Type"
-                      schema:
-                        type: string
-                        default: "tcp"
-                        enum:
-                          - value: "tcp"
-                            description: "tcp"
-                          - value: "http"
-                            description: "http"
-                          - value: "https"
-                            description: "https"
-                    - variable: path
-                      label: "Probe Path"
-                      description: "Probe Path"
-                      schema:
-                        type: string
-                        default: "/"
-        - variable: startup
-          label: "Startup"
-          description: "Startup Probe"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enable Probe"
-                description: "Enables the probe"
-                schema:
-                  type: boolean
-                  default: true
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: type
-                      label: "Probe Type"
-                      description: "Probe Type"
-                      schema:
-                        type: string
-                        default: "tcp"
-                        enum:
-                          - value: "tcp"
-                            description: "tcp"
-                          - value: "http"
-                            description: "http"
-                          - value: "https"
-                            description: "https"
-                    - variable: path
-                      label: "Probe Path"
-                      description: "Probe Path"
-                      schema:
-                        type: string
-                        default: "/"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -177,6 +176,7 @@ questions:
                             label: "Enable the port"
                             schema:
                               type: boolean
+                              hidden: true
                               default: true
                           - variable: protocol
                             label: "Port Type"
