@@ -13,19 +13,19 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: EXTRA_JAVA_OPTIONS
-          label: "EXTRA_JAVA_OPTIONS"
-          description: "Container Variable EXTRAJAVAOPTIONS"
-          schema:
-            type: string
-            default: "-Xms512m -Xmx4g"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: EXTRA_JAVA_OPTIONS
+                                        label: "EXTRA_JAVA_OPTIONS"
+                                        description: "Container Variable EXTRAJAVAOPTIONS"
+                                        schema:
+                                          type: string
+                                          default: "-Xms512m -Xmx4g"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

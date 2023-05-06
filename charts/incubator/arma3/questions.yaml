@@ -33,37 +33,37 @@ questions:
             type: string
             private: true
             default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: GAME_ID
-          label: "GAME_ID"
-          description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
-          schema:
-            type: string
-            default: "233780"
-        - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
-          description: "Enter your start up commands for the server.Note To change the Port of the server please click on Show more settings button, dont forget to change the other ports."
-          schema:
-            type: string
-            default: "-config=server.cfg -mod="
-        - variable: VALIDATE
-          label: "VALIDATE"
-          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
-          schema:
-            type: boolean
-            default: true
-        - variable: GAME_PORT
-          label: "GAME_PORT"
-          description: "Container Variable GAMEPORT"
-          schema:
-            type: string
-            default: "2302"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: GAME_ID
+                                        label: "GAME_ID"
+                                        description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
+                                        schema:
+                                          type: string
+                                          default: "233780"
+                                      - variable: GAME_PARAMS
+                                        label: "GAME_PARAMS"
+                                        description: "Enter your start up commands for the server.Note To change the Port of the server please click on Show more settings button, dont forget to change the other ports."
+                                        schema:
+                                          type: string
+                                          default: "-config=server.cfg -mod="
+                                      - variable: VALIDATE
+                                        label: "VALIDATE"
+                                        description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: GAME_PORT
+                                        label: "GAME_PORT"
+                                        description: "Container Variable GAMEPORT"
+                                        schema:
+                                          type: string
+                                          default: "2302"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
