@@ -11,19 +11,19 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: token
-          label: token
-          description: Discord Bot Token
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: token
+                                        label: token
+                                        description: Discord Bot Token
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
