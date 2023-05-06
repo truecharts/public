@@ -26,19 +26,19 @@ questions:
           schema:
             type: string
             default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: MINUTES_BETWEEN_VIDEO_SCANS
-          label: "MINUTES_BETWEEN_VIDEO_SCANS"
-          description: "How often in minutes Fireshare will scan for new videos"
-          schema:
-            type: int
-            default: 5
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: MINUTES_BETWEEN_VIDEO_SCANS
+                                        label: "MINUTES_BETWEEN_VIDEO_SCANS"
+                                        description: "How often in minutes Fireshare will scan for new videos"
+                                        schema:
+                                          type: int
+                                          default: 5
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

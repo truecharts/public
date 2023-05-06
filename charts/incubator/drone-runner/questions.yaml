@@ -13,32 +13,32 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DRONE_RPC_HOST
-          label: "DRONE_RPC_HOST"
-          description: "DRONE RPC HOST"
-          schema:
-            type: string
-            default: ""
-            required: true
-        - variable: DRONE_RPC_PROTO
-          label: "DRONE_RPC_PROTO"
-          description: "DRONE RPC PROTO"
-          schema:
-            type: string
-            default: "http"
-            required: true
-            enum:
-              - value: "http"
-                description: "http"
-              - value: "https"
-                description: "https"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: DRONE_RPC_HOST
+                                        label: "DRONE_RPC_HOST"
+                                        description: "DRONE RPC HOST"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                      - variable: DRONE_RPC_PROTO
+                                        label: "DRONE_RPC_PROTO"
+                                        description: "DRONE RPC PROTO"
+                                        schema:
+                                          type: string
+                                          default: "http"
+                                          required: true
+                                          enum:
+                                            - value: "http"
+                                              description: "http"
+                                            - value: "https"
+                                              description: "https"
   - variable: secretEnv
     group: "App Configuration"
     label: "Image Secrets"

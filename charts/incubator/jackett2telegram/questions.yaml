@@ -34,20 +34,20 @@ questions:
             private: true
             required: true
             default: ""
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DELAY
-          label: Delay
-          description: Delay in seconds.
-          schema:
-            type: int
-            required: true
-            default: 600
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: DELAY
+                                        label: Delay
+                                        description: Delay in seconds.
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 600
 # Include{containerConfig}
 # Include{serviceExpertRoot}
             default: false
