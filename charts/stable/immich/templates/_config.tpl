@@ -29,8 +29,8 @@ configmap:
       TYPESENSE_PORT: "8108"
       {{- end }}
       {{/*
-      It's unclear where this URL is being used, but poking in their code, seems to be used internally?
-      It's set to the value of IMMICH_SERVER_URL on their compose. If something doesn't work remotely,
+      Its unclear where this URL is being used, but poking in their code, seems to be used internally?
+      Its set to the value of IMMICH_SERVER_URL on their compose. If something doesn't work remotely,
       This is the place to start looking
       https://github.com/immich-app/immich/blob/b5d75e20167b92de12cc50a816da214779cb0807/web/src/api/api.ts#L55
       */}}
