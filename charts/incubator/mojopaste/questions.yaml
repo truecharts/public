@@ -13,19 +13,19 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PASTE_ENABLE_CHARTS
-          label: "PASTE_ENABLE_CHARTS"
-          description: "The application can make charts from the input data. (10)"
-          schema:
-            type: string
-            default: "0"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PASTE_ENABLE_CHARTS
+                                        label: "PASTE_ENABLE_CHARTS"
+                                        description: "The application can make charts from the input data. (10)"
+                                        schema:
+                                          type: string
+                                          default: "0"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

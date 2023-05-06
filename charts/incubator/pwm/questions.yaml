@@ -13,19 +13,19 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PWM_APPLICATIONFLAGS
-          label: "PWM_APPLICATIONFLAGS"
-          description: "Container Variable PWMAPPLICATIONFLAGS"
-          schema:
-            type: string
-            default: "NoFileLock"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PWM_APPLICATIONFLAGS
+                                        label: "PWM_APPLICATIONFLAGS"
+                                        description: "Container Variable PWMAPPLICATIONFLAGS"
+                                        schema:
+                                          type: string
+                                          default: "NoFileLock"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

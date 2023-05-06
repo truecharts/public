@@ -13,31 +13,31 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: UMASK
-          label: "UMASK"
-          description: "Container Variable UMASK"
-          schema:
-            type: string
-            default: "000"
-        - variable: CUSTOM_RES_W
-          label: "CUSTOM_RES_W"
-          description: "Container Variable CUSTOMRESW"
-          schema:
-            type: string
-            default: "800"
-        - variable: CUSTOM_RES_H
-          label: "CUSTOM_RES_H"
-          description: "Container Variable CUSTOMRESH"
-          schema:
-            type: string
-            default: "600"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: UMASK
+                                        label: "UMASK"
+                                        description: "Container Variable UMASK"
+                                        schema:
+                                          type: string
+                                          default: "000"
+                                      - variable: CUSTOM_RES_W
+                                        label: "CUSTOM_RES_W"
+                                        description: "Container Variable CUSTOMRESW"
+                                        schema:
+                                          type: string
+                                          default: "800"
+                                      - variable: CUSTOM_RES_H
+                                        label: "CUSTOM_RES_H"
+                                        description: "Container Variable CUSTOMRESH"
+                                        schema:
+                                          type: string
+                                          default: "600"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
