@@ -22,7 +22,7 @@ jobs:
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 1
-          
+
       - name: Checkout Helm-Staging
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
@@ -30,7 +30,7 @@ jobs:
           repository: truecharts/helm-staging
           token: ${{ secrets.BOT_TOKEN }}
           path: helm
-          
+
       - name: Fix Pre-Commit issues
         shell: bash
         run: |
@@ -38,7 +38,7 @@ jobs:
           pre-commit run --all ||:
           # Fix sh files to always be executable
           find . -name '*.sh' | xargs chmod +x
-          
+
       - name: Commit Helm Changes
         run: |
           rm -rf helm/charts
@@ -77,13 +77,13 @@ jobs:
 
           helm repo add prometheus https://prometheus-community.github.io/helm-charts
           helm repo update
-          
+
       # Optional step if GPG signing is used
       - name: Prepare GPG key
         shell: bash
         run: |
           gpg_dir=.cr-gpg
-          mkdir "$gpg_dir"
+          mkdir -p "$gpg_dir"
           keyring="$gpg_dir/secring.gpg"
           base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
           passphrase_file="$gpg_dir/passphrase"
@@ -239,7 +239,7 @@ jobs:
           git add --all
           git commit -sm "Commit released docs for TrueCharts" || exit 0
           git push
-        
+
 
       - name: Checkout Catalog
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
@@ -287,13 +287,13 @@ jobs:
         run: |
           git config user.name "TrueCharts-Bot"
           git config user.email "bot@truecharts.org"
-  
+
         # Optional step if GPG signing is used
       - name: Prepare GPG key
         shell: bash
         run: |
           gpg_dir=.cr-gpg
-          mkdir "$gpg_dir"
+          mkdir -p "$gpg_dir"
           keyring="$gpg_dir/secring.gpg"
           base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
           passphrase_file="$gpg_dir/passphrase"
@@ -303,7 +303,7 @@ jobs:
         env:
           GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
-  
+
       - name: Run chart-releaser for dependency apps
         uses: helm/chart-releaser-action@be16258da8010256c6e82849661221415f031968 # v1.5.0
         if: |
