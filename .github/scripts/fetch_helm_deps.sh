@@ -26,7 +26,7 @@ echo ""
 echo "⏬ Downloading and Loading TrueCharts pgp Public Key"
 gpg_dir=.cr-gpg
 mkdir "$gpg_dir"
-curl https://keybase.io/hashicorp/pgp_keys.asc | gpg --dearmor > $gpg_dir/pubring.gpg || echo "❌ Couldn't load  Public Key." && exit 1
+curl https://keybase.io/truecharts/pgp_keys.asc | gpg --dearmor > $gpg_dir/pubring.gpg || echo "❌ Couldn't load  Public Key."
 echo "✅ Public Key loaded successfully..."
 echo ""
 }
