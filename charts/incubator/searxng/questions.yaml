@@ -13,25 +13,25 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: INSTANCE_NAME
-          label: Instance Name
-          description: Your SearXNG instance name
-          schema:
-            type: string
-            default: SearXng
-        - variable: BASE_URL
-          label: Base URL
-          description: Set base url like so https://search.mydomain.com
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: INSTANCE_NAME
+                                        label: Instance Name
+                                        description: Your SearXNG instance name
+                                        schema:
+                                          type: string
+                                          default: SearXng
+                                      - variable: BASE_URL
+                                        label: Base URL
+                                        description: Set base url like so https://search.mydomain.com
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

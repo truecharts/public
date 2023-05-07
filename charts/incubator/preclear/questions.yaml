@@ -13,28 +13,28 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: WEBPAGE_TITLE
-          label: "WEBPAGE_TITLE"
-          schema:
-            type: string
-            default: "Preclear"
-        - variable: VNC_PASSWORD
-          label: "VNC_PASSWORD"
-          schema:
-            type: string
-            default: ""
-        - variable: UMASK
-          label: "UMASK"
-          schema:
-            type: string
-            default: "000"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: WEBPAGE_TITLE
+                                        label: "WEBPAGE_TITLE"
+                                        schema:
+                                          type: string
+                                          default: "Preclear"
+                                      - variable: VNC_PASSWORD
+                                        label: "VNC_PASSWORD"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: UMASK
+                                        label: "UMASK"
+                                        schema:
+                                          type: string
+                                          default: "000"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

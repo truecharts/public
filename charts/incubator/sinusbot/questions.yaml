@@ -13,18 +13,18 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: OVERRIDE_PASSWORD
-          label: "OVERRIDE_PASSWORD"
-          schema:
-            type: string
-            default: "foobar"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: OVERRIDE_PASSWORD
+                                        label: "OVERRIDE_PASSWORD"
+                                        schema:
+                                          type: string
+                                          default: "foobar"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

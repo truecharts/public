@@ -13,19 +13,19 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: VNC_PASSWD
-          label: "VNC_PASSWD"
-          description: "Container Variable VNCPASSWD"
-          schema:
-            type: string
-            default: "123456"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: VNC_PASSWD
+                                        label: "VNC_PASSWD"
+                                        description: "Container Variable VNCPASSWD"
+                                        schema:
+                                          type: string
+                                          default: "123456"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

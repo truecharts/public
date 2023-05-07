@@ -11,25 +11,25 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PREFIX
-          label: "PREFIX"
-          description: "The prefix you want Red-DiscordBot to use."
-          schema:
-            type: string
-            default: ""
-        - variable: TOKEN
-          label: "TOKEN"
-          description: "The bot token you want Red-DiscordBot to use."
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PREFIX
+                                        label: "PREFIX"
+                                        description: "The prefix you want Red-DiscordBot to use."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: TOKEN
+                                        label: "TOKEN"
+                                        description: "The bot token you want Red-DiscordBot to use."
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}

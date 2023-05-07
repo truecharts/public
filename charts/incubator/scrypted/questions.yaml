@@ -26,25 +26,25 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SCRYPTED_WEBHOOK_UPDATE_AUTHORIZATION
-          label: Scrypted WebHook Update Authorization
-          schema:
-            type: string
-            required: true
-            default: Bearer MAKE_ME_SECURE
-        - variable: SCRYPTED_WEBHOOK_UPDATE
-          label: Scrypted WebHook Update
-          schema:
-            type: string
-            required: true
-            default: http://localhost:10611/v1/update
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: SCRYPTED_WEBHOOK_UPDATE_AUTHORIZATION
+                                        label: Scrypted WebHook Update Authorization
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: Bearer MAKE_ME_SECURE
+                                      - variable: SCRYPTED_WEBHOOK_UPDATE
+                                        label: Scrypted WebHook Update
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: http://localhost:10611/v1/update
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

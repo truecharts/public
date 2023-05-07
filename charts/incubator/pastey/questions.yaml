@@ -13,61 +13,61 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PASTEY_RESTRICT_PASTING
-          label: "PASTEY_RESTRICT_PASTING"
-          description: "Enabledisable restricting of pasting to whitelisted users."
-          schema:
-            type: string
-            default: "False"
-        - variable: PASTEY_RESTRICT_RAW_PASTING
-          label: "PASTEY_RESTRICT_RAW_PASTING"
-          description: "Enabledisable restricting of pasting via raw to whitelisted users."
-          schema:
-            type: string
-            default: "True"
-        - variable: PASTEY_RATE_LIMIT
-          label: "PASTEY_RATE_LIMIT"
-          description: "Rate limit for pasting, for non-whitelisted users."
-          schema:
-            type: string
-            default: "5/hour"
-        - variable: PASTEY_RECENT_PASTES
-          label: "PASTEY_RECENT_PASTES"
-          description: "Number of recent pastes to show on the home page."
-          schema:
-            type: string
-            default: "10"
-        - variable: PASTEY_BEHIND_PROXY
-          label: "PASTEY_BEHIND_PROXY"
-          description: "Inform Pastey if it is behind a reverse proxy (nginx, etc.). If this is the case, it will rely on HTTP headers X-Real-IP or X-Forwarded-For. NOTE Make sure your proxy config sets these values."
-          schema:
-            type: string
-            default: "False"
-        - variable: PASTEY_USE_WHITELIST
-          label: "PASTEY_USE_WHITELIST"
-          description: "Enabledisable whitelisting for admin tasks (view recent, delete, config)."
-          schema:
-            type: string
-            default: "True"
-        - variable: PASTEY_WHITELIST_CIDR
-          label: "PASTEY_WHITELIST_CIDR"
-          description: "List of whitelisted IP addresses or networks (in CIDR format)."
-          schema:
-            type: string
-            default: "127.0.0.1/32,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
-        - variable: PASTEY_GUESS_THRESHOLD
-          label: "PASTEY_GUESS_THRESHOLD"
-          description: "Threshold for automatic language detection guesses. If a result is below this value, it is treated as Plaintext."
-          schema:
-            type: string
-            default: "0.20"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PASTEY_RESTRICT_PASTING
+                                        label: "PASTEY_RESTRICT_PASTING"
+                                        description: "Enabledisable restricting of pasting to whitelisted users."
+                                        schema:
+                                          type: string
+                                          default: "False"
+                                      - variable: PASTEY_RESTRICT_RAW_PASTING
+                                        label: "PASTEY_RESTRICT_RAW_PASTING"
+                                        description: "Enabledisable restricting of pasting via raw to whitelisted users."
+                                        schema:
+                                          type: string
+                                          default: "True"
+                                      - variable: PASTEY_RATE_LIMIT
+                                        label: "PASTEY_RATE_LIMIT"
+                                        description: "Rate limit for pasting, for non-whitelisted users."
+                                        schema:
+                                          type: string
+                                          default: "5/hour"
+                                      - variable: PASTEY_RECENT_PASTES
+                                        label: "PASTEY_RECENT_PASTES"
+                                        description: "Number of recent pastes to show on the home page."
+                                        schema:
+                                          type: string
+                                          default: "10"
+                                      - variable: PASTEY_BEHIND_PROXY
+                                        label: "PASTEY_BEHIND_PROXY"
+                                        description: "Inform Pastey if it is behind a reverse proxy (nginx, etc.). If this is the case, it will rely on HTTP headers X-Real-IP or X-Forwarded-For. NOTE Make sure your proxy config sets these values."
+                                        schema:
+                                          type: string
+                                          default: "False"
+                                      - variable: PASTEY_USE_WHITELIST
+                                        label: "PASTEY_USE_WHITELIST"
+                                        description: "Enabledisable whitelisting for admin tasks (view recent, delete, config)."
+                                        schema:
+                                          type: string
+                                          default: "True"
+                                      - variable: PASTEY_WHITELIST_CIDR
+                                        label: "PASTEY_WHITELIST_CIDR"
+                                        description: "List of whitelisted IP addresses or networks (in CIDR format)."
+                                        schema:
+                                          type: string
+                                          default: "127.0.0.1/32,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+                                      - variable: PASTEY_GUESS_THRESHOLD
+                                        label: "PASTEY_GUESS_THRESHOLD"
+                                        description: "Threshold for automatic language detection guesses. If a result is below this value, it is treated as Plaintext."
+                                        schema:
+                                          type: string
+                                          default: "0.20"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

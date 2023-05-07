@@ -13,38 +13,38 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: tg_user
-          label: "Username"
-          schema:
-            type: string
-            default: ""
-            required: true
-        - variable: tg_pass
-          label: "Password"
-          schema:
-            type: string
-            default: ""
-            required: true
-            private: true
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: TIMETAGGER_LOG_LEVEL
-          label: "TIMETAGGER_LOG_LEVEL"
-          schema:
-            type: string
-            default: "info"
+                                - variable: secretEnv
+                                  group: "App Configuration"
+                                  label: "Image Secrets"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: tg_user
+                                        label: "Username"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                      - variable: tg_pass
+                                        label: "Password"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                          private: true
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: TIMETAGGER_LOG_LEVEL
+                                        label: "TIMETAGGER_LOG_LEVEL"
+                                        schema:
+                                          type: string
+                                          default: "info"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

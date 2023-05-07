@@ -13,28 +13,28 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: COMMUNITY_NAME
-          label: "COMMUNITY_NAME"
-          schema:
-            type: string
-            default: "myslackteam"
-        - variable: SLACK_URL
-          label: "SLACK_URL"
-          schema:
-            type: string
-            default: "myslackteam.slack.com"
-        - variable: SLACK_TOKEN
-          label: "SLACK_TOKEN"
-          schema:
-            type: string
-            default: "Enter YOur slack token here"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: COMMUNITY_NAME
+                                        label: "COMMUNITY_NAME"
+                                        schema:
+                                          type: string
+                                          default: "myslackteam"
+                                      - variable: SLACK_URL
+                                        label: "SLACK_URL"
+                                        schema:
+                                          type: string
+                                          default: "myslackteam.slack.com"
+                                      - variable: SLACK_TOKEN
+                                        label: "SLACK_TOKEN"
+                                        schema:
+                                          type: string
+                                          default: "Enter YOur slack token here"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

@@ -13,25 +13,25 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PS_LOG_LEVEL
-          label: "PS_LOG_LEVEL"
-          description: "Valid values are debug, info, warn, and error. Default is error, which (should be) quiet."
-          schema:
-            type: string
-            default: ""
-        - variable: UMASK
-          label: "UMASK"
-          description: "Files written by PhotoStructure will be applied with this umask."
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PS_LOG_LEVEL
+                                        label: "PS_LOG_LEVEL"
+                                        description: "Valid values are debug, info, warn, and error. Default is error, which (should be) quiet."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: UMASK
+                                        label: "UMASK"
+                                        description: "Files written by PhotoStructure will be applied with this umask."
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main

@@ -11,38 +11,38 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ACCESS_KEY
-          label: "ACCESS_KEY"
-          schema:
-            type: string
-            default: "Your AWS Access key"
-        - variable: SECRET_KEY
-          label: "SECRET_KEY"
-          schema:
-            type: string
-            default: "Your AWS Access secret"
-        - variable: S3PATH
-          label: "S3PATH"
-          schema:
-            type: string
-            default: "s3://mybucket/"
-        - variable: S3CMDPARAMS
-          label: "S3CMDPARAMS"
-          schema:
-            type: string
-            default: ""
-        - variable: CRON_SCHEDULE
-          label: "CRON_SCHEDULE"
-          schema:
-            type: string
-            default: "0 * * * *"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ACCESS_KEY
+                                        label: "ACCESS_KEY"
+                                        schema:
+                                          type: string
+                                          default: "Your AWS Access key"
+                                      - variable: SECRET_KEY
+                                        label: "SECRET_KEY"
+                                        schema:
+                                          type: string
+                                          default: "Your AWS Access secret"
+                                      - variable: S3PATH
+                                        label: "S3PATH"
+                                        schema:
+                                          type: string
+                                          default: "s3://mybucket/"
+                                      - variable: S3CMDPARAMS
+                                        label: "S3CMDPARAMS"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: CRON_SCHEDULE
+                                        label: "CRON_SCHEDULE"
+                                        schema:
+                                          type: string
+                                          default: "0 * * * *"
 # Include{serviceExpertRoot}
             default: false
 # Include{serviceExpert}
