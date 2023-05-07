@@ -32,6 +32,18 @@ jobs:
           helm repo add prometheus https://prometheus-community.github.io/helm-charts
           helm repo update
 
+      - name: Checkout
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        with:
+          fetch-depth: 0
+
+      - name: Setting repo parent dir as safe safe.directory
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Collect changes
+        id: collect-changes
+        uses: ./.github/actions/collect-changes
+
       - name: Prepare GPG key
         shell: bash
         run: |
@@ -46,18 +58,6 @@ jobs:
         env:
           GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
-
-      - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
-        with:
-          fetch-depth: 0
-
-      - name: Setting repo parent dir as safe safe.directory
-        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
-
-      - name: Collect changes
-        id: collect-changes
-        uses: ./.github/actions/collect-changes
 
       - name: Fetch and Verify dependencies
         shell: bash
