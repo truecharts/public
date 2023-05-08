@@ -18,23 +18,48 @@ questions:
                                     type: dict
                                     attrs:
                                       - variable: DN_API_KEY
-                                        label: "DN_API_KEY"
+                                        label: "Notifiarr All API Key"
                                         description: "Notifiarr All Integrations API key from https://notifiarr.com"
                                         schema:
                                           type: string
                                           default: "CHANGEME"
-                                      - variable: DN_UPSTREAMS_0
-                                        label: "DN_UPSTREAMS_0"
+                                      - variable: upstream1
+                                        label: "Upstream 1"
                                         description: "Controls which IP is written to the web server log file (requestor or x-forwarded-for header). Also allows the x-webauth-user header for proxy authentication. Separate with spaces. The default kubernetes network is pre-filled."
                                         schema:
                                           type: string
-                                          default: "172.16.0.0/16"
-                                      - variable: DN_UI_PASSWORD
-                                        label: "DN_UI_PASSWORD"
-                                        description: "None by default. Set a username:password & change the password to encrypt it. If you don't set this you will need to check the logs on first start to find the generated password."
+                                          default: ""
+                                      - variable: upstream2
+                                        label: "Upstream 2"
+                                        description: "Controls which IP is written to the web server log file (requestor or x-forwarded-for header). Also allows the x-webauth-user header for proxy authentication. Separate with spaces. The default kubernetes network is pre-filled."
                                         schema:
                                           type: string
-                                          default: "username:9CharacterPassword"
+                                          default: ""
+                                      - variable: upstream3
+                                        label: "Upstream 3"
+                                        description: "Controls which IP is written to the web server log file (requestor or x-forwarded-for header). Also allows the x-webauth-user header for proxy authentication. Separate with spaces. The default kubernetes network is pre-filled."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: upstream4
+                                        label: "Upstream 4"
+                                        description: "Controls which IP is written to the web server log file (requestor or x-forwarded-for header). Also allows the x-webauth-user header for proxy authentication. Separate with spaces. The default kubernetes network is pre-filled."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: username
+                                        label: "Web UI Username"
+                                        description: "Default username is adminl. Change it here."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: password
+                                        label: "Web UI Password"
+                                        description: "Set a first time login password (minimum 9 characters) & change the password from the Web UI to encrypt it. If you don't set this you will need to check the logs on first start to find the generated password."
+                                        schema:
+                                          type: string
+                                          default: ""
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 

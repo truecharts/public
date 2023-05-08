@@ -3,6 +3,17 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:913c71f5e325dd9af53c9e96f3d5d7d1b2d058a41f8253489320a4c69fbb0a44
 
+notifiarr:
+  upstreams:
+    - 172.16.0.0/16
+    - upstream1
+    - upstream2
+    - upstream3
+    - upstream4
+  credentials:
+    - username
+    - password
+
 service:
   main:
     ports:
@@ -19,8 +30,8 @@ workload:
           env:
             TMPDIR: /tmpdir
             DN_API_KEY: "CHANGEME"
-            DN_UPSTREAMS_0: "172.16.0.0/16"
-            DN_UI_PASSWORD: "username:9CharacterPassword"
+            DN_UPSTREAMS_0: "{{ join " " .Values.notifiarr.upstreams }}"
+            DN_UI_PASSWORD: "{{ join ":" .Values.notifiarr.credentials }}"
 
 persistence:
   config:
