@@ -37,11 +37,10 @@ persistence:
   config:
     enabled: true
     mountPath: /config
-  utmp:
-    enabled: true
-    mountPath: /var/run/utmp
   machine-id:
     enabled: true
+    type: hostPath
+    hostPath: /etc/machine-id
     mountPath: /etc/machine-id
     readOnly: true
   tmpdir:
