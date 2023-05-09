@@ -1,27 +1,27 @@
 image:
   repository: tccr.io/truecharts/jupyter-base
   pullPolicy: IfNotPresent
-  tag: v2023-04@sha256:212839ba1371ad984616b6eef64f6ad8cdc9b5a40b028d12089bfa9643f57fa1
+  tag: v2023-05@sha256:4bd01b17fab58e012bdc7ccfabfe53ebb1037e245d1005c71680048610349343
 minimalImage:
   repository: tccr.io/truecharts/jupyter-minimal
   pullPolicy: IfNotPresent
-  tag: v2023-04@sha256:37ca0f339d701b053e2c41684c83489598d25ce55205a79dee4ba2b74e57f07a
+  tag: v2023-05@sha256:869f722c4bf3fbbb7a2a4c827557be48e3ca0688e548c6824fc821825694cc49
 rImage:
   repository: tccr.io/truecharts/jupyter-r
   pullPolicy: IfNotPresent
-  tag: v2023-04@sha256:814e8937bc36d1a4cef5ed621d5c06d6157564eece8435143d53036f43202fac
+  tag: v2023-05@sha256:539f552a7efe09244030067daff4cc4c314f8ad21ea779ef6830fd22b8b8a80d
 scipyImage:
   repository: tccr.io/truecharts/jupyter-scipy
   pullPolicy: IfNotPresent
-  tag: v2023-04@sha256:5b98277b003af729af43bdd8612d8a9542d3a7f56630d2488f529b8987893b9a
+  tag: v2023-05@sha256:eb6d05c745e3e3713f1915b38be80ebb057646987c9dfb68fbb43fa6315e5eab
 tensorflowImage:
   repository: tccr.io/truecharts/jupyter-tensorflow
   pullPolicy: IfNotPresent
-  tag: v2023-04@sha256:e2b79e33f89a816d73e220fe62fa3776a625bd3fad6f29a2ef6ca780ae5da909
+  tag: v2023-05@sha256:d47933dc697069d4beffa7c325c7f27a0a164cc41ecad661af7523cf9c0aa92c
 datascienceImage:
   repository: tccr.io/truecharts/jupyter-datascience
   pullPolicy: IfNotPresent
-  tag: v2023-04@sha256:dcaa17fcdb680b10883e876f75bf0fd67c841bccfb6941d2fc6fb341b35ccbd2
+  tag: v2023-05@sha256:9c98a957ceef18e189bda606c231ee9fac5b8c731aaf20792f97debfdde53195
 pysparkImage:
   repository: tccr.io/truecharts/jupyter-pyspark
   pullPolicy: IfNotPresent
@@ -29,7 +29,7 @@ pysparkImage:
 allsparkImage:
   repository: tccr.io/truecharts/jupyter-all-spark
   pullPolicy: IfNotPresent
-  tag: v2023-04@sha256:6b878d12a56bbcfbea04610c5bf9780a1fd6fd3db66a80e56201378af1b6829d
+  tag: v2023-05@sha256:1f3a822c5530e1ca992ea874e4aa8eb6414b6b3229808d6ccb4810bf08c53677
 jupyter:
   jupyter_cmd: lab
   restartable: true
