@@ -49,8 +49,7 @@ questions:
                                         description: Database name
                                         schema:
                                           type: string
-                                          required: true
-                                          default: mongo-express
+                                          default: ""
                                       - variable: ME_CONFIG_MONGODB_AUTH_USERNAME
                                         label: MongoDB Database username
                                         description: Database username
