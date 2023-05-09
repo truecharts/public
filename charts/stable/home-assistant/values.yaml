@@ -59,11 +59,13 @@ configmap:
           if grep -q recorder: "$config_file"; then
             echo "configuration.yaml already contains recorder"
           else
+            echo "" >> "$config_file"
             cat /config/init/recorder.default >> "$config_file"
           fi
           if grep -q http: "$config_file"; then
             echo "configuration.yaml already contains http section"
           else
+            echo "" >> "$config_file"
             cat /config/init/http.default >> "$config_file"
           fi
         else

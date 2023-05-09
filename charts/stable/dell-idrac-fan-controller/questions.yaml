@@ -1,5 +1,4 @@
 # Include{groups}
-portals: {}
 questions:
 # Include{global}
 # Include{workload}
@@ -70,10 +69,7 @@ questions:
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-# Include{persistenceRoot}
-# Include{persistenceBasic}
 # Include{persistenceList}
-
 # Include{securityContextRoot}
               - variable: runAsUser
                 label: "runAsUser"

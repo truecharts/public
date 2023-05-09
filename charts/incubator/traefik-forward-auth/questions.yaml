@@ -10,7 +10,6 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-# Include{containerConfig}
 # Include{controllerExpert}
   - variable: tfaAppOptions
     group: App Configuration
@@ -285,6 +284,7 @@ questions:
             type: dict
             attrs:
 # Include{serviceSelector}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
@@ -385,19 +385,19 @@ questions:
                   type: boolean
                   default: true
 # Include{securityContextAdvanced}
-# Include{podSecurityContextRoot}
+# Include{securityContextRoot}
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
                   default: 568
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 568
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
@@ -414,5 +414,4 @@ questions:
 # Include{codeserver}
 # Include{netshoot}
 # Include{promtail}
-# Include{netshoot}
 # Include{vpn}
