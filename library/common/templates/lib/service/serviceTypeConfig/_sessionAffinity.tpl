@@ -26,7 +26,7 @@ sessionAffinity: {{ $affinity }}
           {{- end -}}
 
           {{- $timeout = int $timeout -}}
-          {{- if and $timeout (mustHas (kindOf $timeout) (list "float64" "int")) -}}
+          {{- if and $timeout (mustHas (kindOf $timeout) (list "float64" "int64" "int")) -}}
             {{- if or (lt $timeout 0) (gt $timeout 86400) -}}
               {{- fail (printf "Service - Expected <sessionAffinityConfig.clientIP.timeoutSeconds> to be between [0 - 86400], but got [%v]" $timeout) -}}
             {{- end }}

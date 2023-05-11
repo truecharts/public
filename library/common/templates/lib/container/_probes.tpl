@@ -80,8 +80,8 @@ objectData: The object data to be used to render the container.
   {{- $keys := (list "initialDelaySeconds" "failureThreshold" "successThreshold" "timeoutSeconds" "periodSeconds") -}}
   {{- range $key := $keys -}}
     {{- $number := get $timeouts $key -}}
-    {{- if not (mustHas (kindOf $number) (list "float64" "int")) -}}
-      {{- fail (printf "Container - Expected <probes> <%s> to be a number, but got [%s]" $key $number) -}}
+    {{- if not (mustHas (kindOf $number) (list "float64" "int" "int64")) -}}
+      {{- fail (printf "Container - Expected <probes> <%s> to be a number, but got [%v]" $key $number) -}}
     {{- end -}}
   {{- end -}}
 

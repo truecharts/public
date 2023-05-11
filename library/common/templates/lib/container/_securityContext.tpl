@@ -77,8 +77,8 @@ objectData: The object data to be used to render the container.
   {{/* Validations, as we might endup with null values after merge */}}
   {{- range $key := (list "runAsUser" "runAsGroup") -}}
     {{- $value := (get $secContext $key) -}}
-    {{- if not (mustHas (kindOf $value) (list "float64" "int")) -}}
-      {{- fail (printf "Container - Expected <securityContext.%s> to be [int], but got [%s] of type [%s]" $key $value (kindOf $value)) -}}
+    {{- if not (mustHas (kindOf $value) (list "float64" "int" "int64")) -}}
+      {{- fail (printf "Container - Expected <securityContext.%s> to be [int], but got [%v] of type [%s]" $key $value (kindOf $value)) -}}
     {{- end -}}
   {{- end -}}
 
