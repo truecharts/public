@@ -154,6 +154,65 @@ questions:
                                                     schema:
                                                       type: string
                                                       default: "/"
+  - variable: portal
+    group: "General Settings"
+    label: "Portal Configuration"
+    schema:
+      type: dict
+      additional_attrs: true
+      attrs:
+        - variable: open
+          label: "Open"
+          schema:
+            type: dict
+            additional_attrs: true
+            attrs:
+              - variable: enabled
+                label: "Enable WebUI Portal"
+                description: "Enable WebUI Portal"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: overrides
+                label: "Override Portal Configuration"
+                description: "Override Portal Configuration"
+                schema:
+                  type: boolean
+                  default: false
+                  show_if: [["enabled", "=", true]]
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: override
+                      label: "Override Portal Configuration"
+                      description: "Override Portal Configuration"
+                      schema:
+                        type: dict
+                        additional_attrs: true
+                        attrs:
+                          - variable: protocol
+                            label: "Protocol"
+                            description: "Portal Protocol Override"
+                            schema:
+                              type: string
+                              enum:
+                                - value: ""
+                                  description: ""
+                                - value: "http"
+                                  description: "HTTP"
+                                - value: "https"
+                                  description: "HTTPS"
+                          - variable: host
+                            label: "Host"
+                            description: "Portal Host Override"
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: port
+                            label: "Port"
+                            description: "Portal Port Override"
+                            schema:
+                              type: string
+                              default: ""
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
