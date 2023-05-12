@@ -705,6 +705,8 @@ cnpg:
   main:
     enabled: false
     primary: true
+    # -- Puts the cnpg cluster in hibernation mode
+    hibernate: false
     # -- number of instances for both postgres and pgbouncer
     instances: 2
     database: "app"
@@ -724,6 +726,7 @@ cnpg:
     storage:
       size: "256Gi"
       walsize: "256Gi"
+    # -- Gets scaled to 0 if hibernation is true
     pooler:
       instances: 2
     # -- set to enable prometheus metrics

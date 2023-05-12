@@ -21,7 +21,7 @@ spec:
   cluster:
     name: {{ $cnpgClusterName }}
 
-  instances: {{ $values.pooler.instances | default 2 }}
+  instances: {{ if $values.hibernate}}0{{ else }}{{ $values.pooler.instances | default 2 }}{{ end }}
   type: {{ $values.pooler.type }}
   pgbouncer:
     poolMode: session
