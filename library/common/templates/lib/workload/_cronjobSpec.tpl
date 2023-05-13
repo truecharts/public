@@ -13,14 +13,18 @@ objectData:
 */}}
 {{- define "tc.v1.common.lib.workload.cronjobSpec" -}}
   {{- $objectData := .objectData -}}
-  {{- $rootCtx := .rootCtx }}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $suspend := $objectData.suspend | default false -}}
+  {{- if $rootCtx.Values.global.stopAll -}}
+    {{- $suspend = true -}}
+  {{- end }}
 timeZone: {{ (tpl ($objectData.timezone | default $rootCtx.Values.TZ) $rootCtx) | quote }}
 schedule: {{ (tpl $objectData.schedule $rootCtx) | quote }}
 concurrencyPolicy: {{ $objectData.concurrencyPolicy | default "Forbid" }}
 failedJobsHistoryLimit: {{ $objectData.failedJobsHistoryLimit | default 1 }}
 successfulJobsHistoryLimit: {{ $objectData.successfulJobsHistoryLimit | default 3 }}
 startingDeadlineSeconds: {{ $objectData.startingDeadlineSeconds | default 600 }}
-suspend: {{ if $rootCtx.Values.global.stopAll }}true {{ else }}{{ $objectData.suspend | default false }}{{ end }}
+suspend: {{ $suspend }}
 jobTemplate:
   spec:
     {{- include "tc.v1.common.lib.workload.jobSpec" (dict "rootCtx" $rootCtx "objectData" $objectData) | indent 4 }}

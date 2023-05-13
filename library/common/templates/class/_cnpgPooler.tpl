@@ -10,8 +10,11 @@
   {{- $cnpgName := $values.cnpgName -}}
   {{- $cnpgPoolerName := $values.poolerName -}}
   {{- $cnpgClusterLabels := $values.labels -}}
-  {{- $cnpgClusterAnnotations := $values.annotations }}
-
+  {{- $cnpgClusterAnnotations := $values.annotations -}}
+  {{- $instances := $values.pooler.instances | default 2 -}}
+  {{- if or $values.hibernate $.Values.global.stopAll -}}
+    {{- $instances = 0 -}}
+  {{- end }}
 ---
 apiVersion: {{ include "tc.v1.common.capabilities.cnpg.pooler.apiVersion" $ }}
 kind: Pooler
@@ -20,8 +23,7 @@ metadata:
 spec:
   cluster:
     name: {{ $cnpgClusterName }}
-
-  instances: {{ if or $values.hibernate $.Values.global.stopAll }}0{{ else }}{{ $values.pooler.instances | default 2 }}{{ end }}
+  instances: {{ $instances }}
   type: {{ $values.pooler.type }}
   pgbouncer:
     poolMode: session

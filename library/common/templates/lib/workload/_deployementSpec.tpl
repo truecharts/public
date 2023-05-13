@@ -10,8 +10,15 @@ objectData:
 {{- define "tc.v1.common.lib.workload.deploymentSpec" -}}
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx -}}
-  {{- $strategy := $objectData.strategy | default "Recreate" }}
-replicas: {{ if $rootCtx.Values.global.stopAll }}0{{ else }}{{ $objectData.replicas | default 1 }}{{ end }}
+  {{- $strategy := $objectData.strategy | default "Recreate" -}}
+  {{- $replicas := 1 -}}
+  {{- if hasKey $objectData "replicas" -}}
+    {{- $replicas = $objectData.replicas -}}
+  {{- end -}}
+  {{- if $rootCtx.Values.global.stopAll -}}
+    {{- $replicas = 0 -}}
+  {{- end }}
+replicas: {{ $replicas }}
 revisionHistoryLimit: {{ $objectData.revisionHistoryLimit | default 3 }}
 strategy:
   type: {{ $strategy }}

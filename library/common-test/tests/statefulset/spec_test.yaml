@@ -21,6 +21,7 @@ tests:
         isSubset:
           path: spec
           content:
+            replicas: 1
             revisionHistoryLimit: 3
             updateStrategy:
               type: RollingUpdate
@@ -91,3 +92,55 @@ tests:
               type: RollingUpdate
               rollingUpdate:
                 maxUnavailable: 0
+
+  - it: should apply replicas
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          replicas: 2
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isSubset:
+          path: spec
+          content:
+            replicas: 2
+            updateStrategy:
+              type: RollingUpdate
+
+  - it: should set replicas to 0
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          replicas: 0
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isSubset:
+          path: spec
+          content:
+            replicas: 0
+
+  - it: should set replicas to 0 on stopAll
+    set:
+      global:
+        stopAll: true
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          replicas: 2
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isSubset:
+          path: spec
+          content:
+            replicas: 0

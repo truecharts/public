@@ -52,3 +52,39 @@ tests:
             parallelism: 5
             ttlSecondsAfterFinished: 100
             activeDeadlineSeconds: 100
+
+  - it: should set parallelism to 0
+    set:
+      global:
+        stopAll: true
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Job
+          parallelism: 0
+          podSpec: {}
+    asserts:
+      - documentIndex: *jobDoc
+        isSubset:
+          path: spec
+          content:
+            parallelism: 0
+
+  - it: should set parallelism to 0 on stopAll
+    set:
+      global:
+        stopAll: true
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Job
+          parallelism: 3
+          podSpec: {}
+    asserts:
+      - documentIndex: *jobDoc
+        isSubset:
+          path: spec
+          content:
+            parallelism: 0

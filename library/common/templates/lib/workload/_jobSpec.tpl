@@ -12,11 +12,18 @@ objectData:
 */}}
 {{- define "tc.v1.common.lib.workload.jobSpec" -}}
   {{- $objectData := .objectData -}}
-  {{- $rootCtx := .rootCtx }}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $parallelism := 1 -}}
+  {{- if hasKey $objectData "parallelism" -}}
+    {{- $parallelism = $objectData.parallelism -}}
+  {{- end -}}
+  {{- if $rootCtx.Values.global.stopAll -}}
+    {{- $parallelism = 0 -}}
+  {{- end }}
 backoffLimit: {{ $objectData.backoffLimit | default 5 }}
 completionMode: {{ $objectData.completionMode | default "NonIndexed" }}
 completions: {{ $objectData.completions | default nil }}
-parallelism: {{ if $rootCtx.Values.global.stopAll }}0{{ else }}{{ $objectData.parallelism | default 1 }}{{ end }}
+parallelism: {{ $parallelism }}
 ttlSecondsAfterFinished: {{ $objectData.ttlSecondsAfterFinished | default 120 }}
   {{- with $objectData.activeDeadlineSeconds }}
 activeDeadlineSeconds: {{ . }}

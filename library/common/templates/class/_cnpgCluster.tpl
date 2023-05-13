@@ -8,8 +8,11 @@
   {{- end -}}
   {{- $cnpgClusterName := $values.name -}}
   {{- $cnpgClusterLabels := $values.labels -}}
-  {{- $cnpgClusterAnnotations := $values.annotations }}
-
+  {{- $cnpgClusterAnnotations := $values.annotations -}}
+  {{- $hibernation := "off" -}}
+  {{- if or $values.hibernate $.Values.global.stopAll -}}
+    {{- $hibernation = "on" -}}
+  {{- end }}
 ---
 apiVersion: {{ include "tc.v1.common.capabilities.cnpg.cluster.apiVersion" $ }}
 kind: Cluster
@@ -23,12 +26,12 @@ metadata:
   {{- end }}
   {{- $annotations := (mustMerge ($cnpgClusterAnnotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $ | fromYaml)) }}
   annotations:
-    cnpg.io/hibernation: {{ if or $values.hibernate $.Values.global.stopAll }}"on"{{ else }}"off"{{ end }}
+    cnpg.io/hibernation: {{ $hibernation | quote }}
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "annotations" $annotations) | trim) }}
     {{- . | nindent 4 }}
   {{- end }}
 spec:
-  instances: {{ $values.instances | default 2  }}
+  instances: {{ $values.instances | default 2 }}
 
   bootstrap:
     initdb:

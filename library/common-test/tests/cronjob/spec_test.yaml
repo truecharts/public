@@ -81,3 +81,43 @@ tests:
             parallelism: 5
             ttlSecondsAfterFinished: 100
             activeDeadlineSeconds: 100
+
+  - it: should set suspend to true
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "*/5 * * * *"
+          suspend: true
+          podSpec: {}
+    asserts:
+      - documentIndex: *cronJobDoc
+        isSubset:
+          path: spec
+          content:
+            schedule: "*/5 * * * *"
+            timeZone: UTC
+            suspend: true
+
+  - it: should set suspend to true on stopAll
+    set:
+      global:
+        stopAll: true
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "*/5 * * * *"
+          suspend: false
+          podSpec: {}
+    asserts:
+      - documentIndex: *cronJobDoc
+        isSubset:
+          path: spec
+          content:
+            schedule: "*/5 * * * *"
+            timeZone: UTC
+            suspend: true
