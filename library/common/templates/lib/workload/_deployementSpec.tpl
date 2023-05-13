@@ -11,7 +11,7 @@ objectData:
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx -}}
   {{- $strategy := $objectData.strategy | default "Recreate" }}
-replicas: {{ $objectData.replicas | default 1 }}
+replicas: {{ if $rootCtx.Values.global.stopAll }}0{{ else }}{{ $objectData.replicas | default 1 }}{{ end }}
 revisionHistoryLimit: {{ $objectData.revisionHistoryLimit | default 3 }}
 strategy:
   type: {{ $strategy }}

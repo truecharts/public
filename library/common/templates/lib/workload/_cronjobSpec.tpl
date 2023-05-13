@@ -20,6 +20,7 @@ concurrencyPolicy: {{ $objectData.concurrencyPolicy | default "Forbid" }}
 failedJobsHistoryLimit: {{ $objectData.failedJobsHistoryLimit | default 1 }}
 successfulJobsHistoryLimit: {{ $objectData.successfulJobsHistoryLimit | default 3 }}
 startingDeadlineSeconds: {{ $objectData.startingDeadlineSeconds | default 600 }}
+suspend: {{ if $rootCtx.Values.global.stopAll }}true {{ else }}{{ $objectData.suspend | default false }}{{ end }}
 jobTemplate:
   spec:
     {{- include "tc.v1.common.lib.workload.jobSpec" (dict "rootCtx" $rootCtx "objectData" $objectData) | indent 4 }}

@@ -23,7 +23,7 @@ metadata:
   {{- end }}
   {{- $annotations := (mustMerge ($cnpgClusterAnnotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $ | fromYaml)) }}
   annotations:
-    cnpg.io/hibernation: {{ if $values.hibernate }}"on"{{ else }}"off"{{ end }}
+    cnpg.io/hibernation: {{ if or $values.hibernate $.Values.global.stopAll }}"on"{{ else }}"off"{{ end }}
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "annotations" $annotations) | trim) }}
     {{- . | nindent 4 }}
   {{- end }}

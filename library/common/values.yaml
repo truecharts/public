@@ -10,6 +10,9 @@ global:
   addTraefikAnnotations: true
   # -- Minimum nodePort value
   minNodePort: 9000
+  # -- Enable to stop most pods and containers including cnpg
+  # does not include stand-alone pods
+  stopAll: false
 
 fallbackDefaults:
   # -- Define a storageClassName that will be used for all PVCs
