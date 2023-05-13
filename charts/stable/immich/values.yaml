@@ -1,37 +1,34 @@
 image:
   repository: tccr.io/truecharts/immich-server
-  tag: 1.49.0@sha256:baa95afb670ee0e8d013a29eacff6ddc96751998854ba6882c242ce257ac8fbd
+  tag: 1.55.1@sha256:c53b10695ed95b26a098e20788dcf0599b18f09d23dc54dd97717ed189370393
   pullPolicy: IfNotPresent
-
 mlImage:
   repository: tccr.io/truecharts/immich-ml
-  tag: 1.49.0@sha256:779e1d486d7ac5a1ed98b67b6f4a556e8e5baf334e4f0b9480315226384922c4
+  tag: 1.55.1@sha256:5253b8bedf856669ca0d260190640fccbe7d19a3ff56af61b70b1e587a76d383
   pullPolicy: IfNotPresent
-
 webImage:
   repository: tccr.io/truecharts/immich-web
-  tag: 1.49.0@sha256:983a1f8b736ba337e7370fa19232febf0469c7748f670f15fb0ed4f35f9d88af
+  tag: 1.55.1@sha256:9bd918a3c7e48e750867f16fc813913c5f00829fe0f187ec71168c789a3009db
   pullPolicy: IfNotPresent
-
 proxyImage:
   repository: tccr.io/truecharts/immich-proxy
-  tag: 1.49.0@sha256:08e467d09e6f4abf10e4ea93e0310e6bc323e4ea6b0a6c05fb128bb46ed38578
+  tag: 1.55.1@sha256:794dd24898a12eb7ab91f6f7322743e0ef9fe1d224fbd62fb7ec1349246d55c4
+  pullPolicy: IfNotPresent
+typesenseImage:
+  repository: tccr.io/truecharts/immich-typesense
+  tag: v0.24.1@sha256:1e46a13a98670c98b483e0cbbf66f05aa418146e7edf447446ae72f3bb8477ac
   pullPolicy: IfNotPresent
 
-command:
-  - /bin/sh
-  - ./start-server.sh
-
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
 immich:
   enable_ml: true
+  enable_typesense: true
   public_login_page_message: Immich
   disable_reverse_geocoding: false
   reverse_geocoding_precision: 3
@@ -40,54 +37,73 @@ immich:
   mapbox_enable: false
   mapbox_key: ""
 
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-server-config'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-common-config'
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-immich-secret'
-
-probes:
-  liveness:
-    path: /server-info/ping
-    type: HTTP
-    port: 3001
-  readiness:
-    path: /server-info/ping
-    type: HTTP
-    port: 3001
-  startup:
-    path: /server-info/ping
-    type: HTTP
-    port: 3001
-
 service:
   main:
+    # Main service targets the proxy
+    targetSelector: proxy
     ports:
       main:
         port: 10323
-        protocol: HTTP
+        protocol: http
+        targetSelector: proxy
         targetPort: 8080
+  server:
+    enabled: true
+    type: ClusterIP
+    # Server is the main container
+    targetSelector: main
+    ports:
+      server:
+        enabled: true
+        primary: true
+        port: 10001
+        protocol: http
+        targetSelector: main
 
 persistence:
   uploads:
     enabled: true
     mountPath: /usr/src/app/upload
-  modelcache:
+    targetSelector:
+      # Main pod/container is server
+      main:
+        main: {}
+      microservices:
+        microservices: {}
+      machinelearning:
+        machinelearning: {}
+  mlcache:
     enabled: true
     type: emptyDir
-    mountPath: /cache
+    targetSelector:
+      machinelearning:
+        machinelearning:
+          mountPath: /mlcache
+  microcache:
+    enabled: true
+    type: emptyDir
+    targetSelector:
+      microservices:
+        microservices:
+          mountPath: /microcache
+  typesense:
+    enabled: true
+    type: emptyDir
+    targetSelector:
+      typesense:
+        typesense:
+          mountPath: /typesensedata
 
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlUsername: immich
-  postgresqlDatabase: immich
+cnpg:
+  main:
+    enabled: true
+    user: immich
+    database: immich
 
 redis:
   enabled: true
-  existingSecret: rediscreds
+  redisUsername: default
 
 portal:
-  enabled: true
+  open:
+    enabled: true
