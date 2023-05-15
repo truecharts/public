@@ -1,8 +1,17 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
-{{/* Plausible environment variables */}}
-{{- include "wordpress.env" . }}
+{{/* Render configmap for wordpress */}}
+{{- $configmap := include "wordpess.env.configmap" . | fromYaml -}}
+{{- if $configmap -}}
+  {{- $_ := set .Values.configmap "wordpress-env-config" $configmap -}}
+{{- end -}}
+
+{{/* Render secret for wordpress */}}
+{{- $secret := include "wordpress.config-secret" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "wordpress-config-secret" $secret -}}
+{{- end -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
