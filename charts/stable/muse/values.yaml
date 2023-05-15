@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/duckdns
+  repository: tccr.io/truecharts/muse
   pullPolicy: IfNotPresent
-  tag: latest@sha256:845d6313424f0bc2098c9cd6a20f1c35384966c488fa2398b46e4ceeac952743
+  tag: 2.2.4@sha256:95198b1b560aacfbfd3332b5d74f6482dafb3b7cd7510ea4d744c30f1fc08acb
 
 securityContext:
   container:
@@ -30,9 +30,16 @@ workload:
             startup:
               enabled: false
           env:
-            SUBDOMAINS: ""
-            LOG_FILE: false
-            TOKEN: ""
+            DATA_DIR: /config
+            DISCORD_TOKEN: ""
+            SPOTIFY_CLIENT_ID: ""
+            SPOTIFY_CLIENT_SECRET: ""
+            YOUTUBE_API_KEY: ""
+            # CACHE_LIMIT: 2GB
+            # BOT_STATUS: online
+            # BOT_ACTIVITY_TYPE: PLAYING
+            # BOT_ACTIVITY: A incubator app
+            # BOT_ACTIVITY_URL: https://www.youtube.com/truecharts
 
 persistence:
   config:
