@@ -116,6 +116,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
+# Include{persistenceBasic}
         - variable: thumbs
           label: App Thumbnails Storage
           description: Stores the Application Thumbnails.
@@ -123,6 +124,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
+# Include{persistenceBasic}
         - variable: profile
           label: App Profiles Storage
           description: Stores the Application Profiles.
@@ -130,6 +132,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
+# Include{persistenceBasic}
         - variable: video
           label: App Encoded Video Storage
           description: Stores the Encoded Videos.
@@ -137,6 +140,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
