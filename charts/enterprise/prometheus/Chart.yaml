@@ -3,7 +3,7 @@ appVersion: "2.43.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.6.6
+    version: 12.8.1
 deprecated: false
 description: kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/prometheus.png
@@ -21,7 +21,7 @@ sources:
   - https://github.com/prometheus-community/helm-charts
   - https://github.com/prometheus-operator/kube-prometheus
 type: application
-version: 9.0.1
+version: 9.0.2
 annotations:
   truecharts.org/catagories: |
     - metrics
