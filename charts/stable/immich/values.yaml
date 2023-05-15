@@ -61,17 +61,6 @@ service:
         targetSelector: main
 
 persistence:
-  uploads:
-    enabled: true
-    mountPath: /usr/src/app/upload
-    targetSelector:
-      # Main pod/container is server
-      main:
-        main: {}
-      microservices:
-        microservices: {}
-      machinelearning:
-        machinelearning: {}
   mlcache:
     enabled: true
     type: emptyDir
@@ -93,6 +82,61 @@ persistence:
       typesense:
         typesense:
           mountPath: /typesensedata
+  library:
+    enabled: true
+    mountPath: /usr/src/app/upload/library
+    targetSelector:
+      # Main pod/container is server
+      main:
+        main: {}
+      microservices:
+        microservices: {}
+      machinelearning:
+        machinelearning: {}
+  uploads:
+    enabled: true
+    mountPath: /usr/src/app/upload/upload
+    targetSelector:
+      # Main pod/container is server
+      main:
+        main: {}
+      microservices:
+        microservices: {}
+      machinelearning:
+        machinelearning: {}
+  thumbs:
+    enabled: true
+    mountPath: /usr/src/app/upload/thumbs
+    targetSelector:
+      # Main pod/container is server
+      main:
+        main: {}
+      microservices:
+        microservices: {}
+      machinelearning:
+        machinelearning: {}
+  profile:
+    enabled: true
+    mountPath: /usr/src/app/upload/profile
+    targetSelector:
+      # Main pod/container is server
+      main:
+        main: {}
+      microservices:
+        microservices: {}
+      machinelearning:
+        machinelearning: {}
+  video:
+    enabled: true
+    mountPath: /usr/src/app/upload/encoded-video
+    targetSelector:
+      # Main pod/container is server
+      main:
+        main: {}
+      microservices:
+        microservices: {}
+      machinelearning:
+        machinelearning: {}
 
 cnpg:
   main:
