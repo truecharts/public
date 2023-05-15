@@ -4,10 +4,9 @@ image:
   tag: 6.2.0@sha256:b7676e38a56732d740702fae64ec135222303d2073a50826aa15df06e5f352b4
 
 securityContext:
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsGroup: 0
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
 
 wordpress:
   user: user
@@ -60,4 +59,5 @@ mariadb:
   existingSecret: mariadbcreds
 
 portal:
-  enabled: true
+  open:
+    enabled: true
