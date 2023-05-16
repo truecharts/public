@@ -50,7 +50,7 @@ workload:
             DATABASE_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: std
+                key: host
             DATABASE_PASSWORD:
               secretKeyRef:
                 name: cnpg-main-user
