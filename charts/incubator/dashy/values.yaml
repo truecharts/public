@@ -22,13 +22,13 @@ dashyConfig:
   # pageInfo:
   #   title: Home Lab
 
-
-
 workload:
   main:
     podSpec:
       containers:
         main:
+          env:
+            NODE_ENV: production
           probes:
             liveness:
               enabled: true
@@ -54,9 +54,6 @@ workload:
                   command:
                     - node
                     - /app/services/healthcheck
-          env:
-            NODE_ENV: production
-
 service:
   main:
     ports:
