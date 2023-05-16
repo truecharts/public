@@ -59,7 +59,7 @@ service:
     ports:
       main:
         port: 10310
-        protocol: HTTP
+        protocol: http
         targetPort: 80
 
 persistence:
