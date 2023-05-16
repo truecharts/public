@@ -50,7 +50,7 @@ env-config:
     PHP_UPLOAD_MAX_FILESIZE: {{ . | quote }}
     {{- end }}
 
-{{- $secretName := printf "%s-env-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-env-secret" (include "tc.v1.common.names.fullname" .) }}
 secret:
   env-secret:
     enabled: true
