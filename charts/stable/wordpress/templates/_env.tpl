@@ -81,7 +81,7 @@ secret:
   {{- $secret := .secret }}
   {{- $ret := randAlphaNum 32 -}}
 
-  {{- with (lookup "v1" "Secret" .Release.Namespace $secret -}}
+  {{- with (lookup "v1" "Secret" .Release.Namespace $secret) -}}
     {{- $ret = index .data $var | b64dec -}}
   {{- end -}}
 
