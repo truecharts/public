@@ -49,8 +49,7 @@ questions:
                                         description: Database name
                                         schema:
                                           type: string
-                                          required: true
-                                          default: mongo-express
+                                          default: ""
                                       - variable: ME_CONFIG_MONGODB_AUTH_USERNAME
                                         label: MongoDB Database username
                                         description: Database username
@@ -98,8 +97,6 @@ questions:
             default: false
 # Include{serviceExpert}
 # Include{serviceList}
-# Include{persistenceRoot}
-# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

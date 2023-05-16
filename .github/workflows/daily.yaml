@@ -235,8 +235,7 @@ jobs:
         run: |
           helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-library https://library-charts.truecharts.org
-          helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo add prometheus https://prometheus-community.github.io/helm-charts
+          helm repo add truecharts-deps https://deps.truecharts.org
           helm repo update
 
       - name: Checkout
