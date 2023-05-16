@@ -1,16 +1,9 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
-{{/* Render configmap for wordpress */}}
-{{- $configmap := include "wordpess.env.configmap" . | fromYaml -}}
-{{- if $configmap -}}
-  {{- $_ := set .Values.configmap "wordpress-env-config" $configmap -}}
-{{- end -}}
-
-{{/* Render secret for wordpress */}}
-{{- $secret := include "wordpress.config-secret" . | fromYaml -}}
-{{- if $secret -}}
-  {{- $_ := set .Values.secret "wordpress-config-secret" $secret -}}
+{{- $config := include "wordpress.env" . | fromYaml -}}
+{{- if $config -}}
+  {{- $_ := mustMergeOverwrite .Values $config -}}
 {{- end -}}
 
 {{/* Render the templates */}}

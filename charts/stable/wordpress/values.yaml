@@ -8,6 +8,17 @@ securityContext:
     readOnlyRootFilesystem: false
     runAsGroup: 0
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - configMapRef:
+                name: env-config
+            - secretRef:
+                name: env-secret
+
 wordpress:
   user: user
   pass: bitnami
@@ -33,12 +44,6 @@ php-config:
   PHP_MEMORY_LIMIT: 512M
   PHP_POST_MAX_SIZE: ""
   PHP_UPLOAD_MAX_FILESIZE: ""
-
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-env-config'
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-env-secret'
 
 service:
   main:
