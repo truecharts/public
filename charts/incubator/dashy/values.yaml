@@ -4,12 +4,11 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
 dashy:
   # Enable config file mount from host path
@@ -23,34 +22,40 @@ dashyConfig:
   # pageInfo:
   #   title: Home Lab
 
-env:
-  NODE_ENV: production
 
-probes:
-  liveness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - node
-          - /app/services/healthcheck
-  readiness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - node
-          - /app/services/healthcheck
-  startup:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - node
-          - /app/services/healthcheck
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - node
+                    - /app/services/healthcheck
+            readiness:
+              enabled: true
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - node
+                    - /app/services/healthcheck
+            startup:
+              enabled: true
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - node
+                    - /app/services/healthcheck
+          env:
+            NODE_ENV: production
 
 service:
   main:
@@ -66,4 +71,5 @@ persistence:
     mountPath: /app/public/item-icons
 
 portal:
-  enabled: true
+  open:
+    enabled: true
