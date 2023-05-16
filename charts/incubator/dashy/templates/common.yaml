@@ -4,6 +4,7 @@
 {{- define "dashy.configvolume" -}}
 enabled: true
 type: configmap
+objectName: dashy-config
 readOnly: true
 defaultMode: "0755"
 mountPath: /app/public
