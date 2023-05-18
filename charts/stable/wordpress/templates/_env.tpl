@@ -66,22 +66,23 @@ secret:
       {{- end }}
 
       {{/* Salts */}}
-      WORDPRESS_AUTH_KEY: {{ include "wordpress.fetch" (dict "var" "WORDPRESS_AUTH_KEY" "secret" $secretName) }}
-      WORDPRESS_SECURE_AUTH_KEY: {{ include "wordpress.fetch" (dict "var" "WORDPRESS_SECURE_AUTH_KEY" "secret" $secretName) }}
-      WORDPRESS_LOGGED_IN_KEY: {{ include "wordpress.fetch" (dict "var" "WORDPRESS_LOGGED_IN_KEY" "secret" $secretName) }}
-      WORDPRESS_NONCE_KEY: {{ include "wordpress.fetch" (dict "var" "WORDPRESS_NONCE_KEY" "secret" $secretName) }}
-      WORDPRESS_AUTH_SALT: {{ include "wordpress.fetch" (dict "var" "WORDPRESS_AUTH_SALT" "secret" $secretName) }}
-      WORDPRESS_SECURE_AUTH_SALT: {{ include "wordpress.fetch" (dict "var" "WORDPRESS_SECURE_AUTH_SALT" "secret" $secretName) }}
-      WORDPRESS_LOGGED_IN_SALT: {{ include "wordpress.fetch" (dict "var" "WORDPRESS_LOGGED_IN_SALT" "secret" $secretName) }}
-      WORDPRESS_NONCE_SALT: {{ include "wordpress.fetch" (dict "var" "WORDPRESS_NONCE_SALT" "secret" $secretName) }}
+      WORDPRESS_AUTH_KEY: {{ include "wordpress.fetch" (dict "ns" .Release.Namespace "var" "WORDPRESS_AUTH_KEY" "secret" $secretName) }}
+      WORDPRESS_SECURE_AUTH_KEY: {{ include "wordpress.fetch" (dict "ns" .Release.Namespace "var" "WORDPRESS_SECURE_AUTH_KEY" "secret" $secretName) }}
+      WORDPRESS_LOGGED_IN_KEY: {{ include "wordpress.fetch" (dict "ns" .Release.Namespace "var" "WORDPRESS_LOGGED_IN_KEY" "secret" $secretName) }}
+      WORDPRESS_NONCE_KEY: {{ include "wordpress.fetch" (dict "ns" .Release.Namespace "var" "WORDPRESS_NONCE_KEY" "secret" $secretName) }}
+      WORDPRESS_AUTH_SALT: {{ include "wordpress.fetch" (dict "ns" .Release.Namespace "var" "WORDPRESS_AUTH_SALT" "secret" $secretName) }}
+      WORDPRESS_SECURE_AUTH_SALT: {{ include "wordpress.fetch" (dict "ns" .Release.Namespace "var" "WORDPRESS_SECURE_AUTH_SALT" "secret" $secretName) }}
+      WORDPRESS_LOGGED_IN_SALT: {{ include "wordpress.fetch" (dict "ns" .Release.Namespace "var" "WORDPRESS_LOGGED_IN_SALT" "secret" $secretName) }}
+      WORDPRESS_NONCE_SALT: {{ include "wordpress.fetch" (dict "ns" .Release.Namespace "var" "WORDPRESS_NONCE_SALT" "secret" $secretName) }}
 {{- end }}
 
 {{- define "wordpress.fetch" -}}
   {{- $var := .var -}}
-  {{- $secret := .secret }}
+  {{- $secret := .secret -}}
+  {{- $ns := .ns -}}
   {{- $ret := randAlphaNum 32 -}}
 
-  {{- with (lookup "v1" "Secret" .Release.Namespace $secret) -}}
+  {{- with (lookup "v1" "Secret" $ns $secret) -}}
     {{- $ret = index .data $var | b64dec -}}
   {{- end -}}
 
