@@ -225,6 +225,44 @@ tests:
               - name: net.ipv4.ip_unprivileged_port_start
                 value: "443"
 
+  - it: should pass with sysctls net.ipv4.ip_unprivileged_port_start NOT appended with hostnet
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            hostNetwork: true
+        workload-name2:
+          enabled: true
+          type: Deployment
+          podSpec: {}
+      service:
+        service-name:
+          enabled: true
+          primary: true
+          type: ClusterIP
+          targetSelector: workload-name2
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 568
+            fsGroupChangePolicy: OnRootMismatch
+            supplementalGroups:
+              - 568
+            sysctls: []
+
   - it: should pass with fsGroup 0
     set:
       securityContext:

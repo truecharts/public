@@ -15,7 +15,7 @@ objectData: The object data to be used to render the Pod.
   {{/* Initialize from the "global" option */}}
   {{- $secContext := mustDeepCopy $rootCtx.Values.securityContext.pod -}}
 
-  {{/* Override with pod's option */}}
+  {{/* Override with pods option */}}
   {{- with $objectData.podSpec.securityContext -}}
     {{- $secContext = mustMergeOverwrite $secContext . -}}
   {{- end -}}
@@ -27,7 +27,7 @@ objectData: The object data to be used to render the Pod.
       {{- if mustHas $objectData.shortName ($GPUValues.targetSelector | keys) -}}
         {{- $gpuAdded = true -}}
       {{- end -}}
-    {{/* If there isn't a selector, but pod is primary */}}
+    {{/* If there is not a selector, but pod is primary */}}
     {{- else if $objectData.primary -}}
       {{- $gpuAdded = true -}}
     {{- end -}}
@@ -66,8 +66,12 @@ objectData: The object data to be used to render the Pod.
   {{- end -}}
 
   {{- $portRange := fromJson (include "tc.v1.common.lib.helpers.securityContext.getPortRange" (dict "rootCtx" $rootCtx "objectData" $objectData)) -}}
-  {{- if and $portRange.low (le (int $portRange.low) 1024) -}} {{/* If a container wants to bind a port <= 1024 change the unprivileged_port_start */}}
-    {{- $_ := set $secContext "sysctls" (mustAppend $secContext.sysctls (dict "name" "net.ipv4.ip_unprivileged_port_start" "value" (printf "%v" $portRange.low))) -}}
+  {{/* If a container wants to bind a port <= 1024 change the unprivileged_port_start */}}
+  {{- if and $portRange.low (le (int $portRange.low) 1024) -}}
+    {{/* That sysctl is not supported when hostNet is enabled */}}
+    {{- if ne (include "tc.v1.common.lib.pod.hostNetwork" (dict "rootCtx" $rootCtx "objectData" $objectData)) "true" -}}
+      {{- $_ := set $secContext "sysctls" (mustAppend $secContext.sysctls (dict "name" "net.ipv4.ip_unprivileged_port_start" "value" (printf "%v" $portRange.low))) -}}
+    {{- end -}}
   {{- end -}}
 
   {{- if or (kindIs "invalid" $secContext.fsGroup) (eq (toString $secContext.fsGroup) "") -}}
