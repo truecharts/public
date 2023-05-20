@@ -4,10 +4,20 @@ image:
   tag: 6.2.0@sha256:b7676e38a56732d740702fae64ec135222303d2073a50826aa15df06e5f352b4
 
 securityContext:
-  readOnlyRootFilesystem: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
 
-podSecurityContext:
-  runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - configMapRef:
+                name: env-config
+            - secretRef:
+                name: env-secret
 
 wordpress:
   user: user
@@ -35,17 +45,11 @@ php-config:
   PHP_POST_MAX_SIZE: ""
   PHP_UPLOAD_MAX_FILESIZE: ""
 
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-env-config'
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-env-secret'
-
 service:
   main:
     ports:
       main:
-        protocol: HTTP
+        protocol: http
         port: 10591
 
 persistence:
@@ -57,7 +61,7 @@ mariadb:
   enabled: true
   mariadbUsername: wordpress
   mariadbDatabase: wordpress
-  existingSecret: mariadbcreds
 
 portal:
-  enabled: true
+  open:
+    enabled: true
