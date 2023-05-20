@@ -57,7 +57,8 @@ secret:
     enabled: true
     data:
       WORDPRESS_DATABASE_HOST: {{ .Values.mariadb.creds.plainhost }}
-      WORDPRESS_DATABASE_PASSWORD: {{ .Values.mariadb.creds.mariadbPassword | trimAll "\""  }}
+      WORDPRESS_DATABASE_PASSWORD: {{ .Values.mariadb.creds.mariadbPassword | trimAll "\"" }}
+
 
       WORDPRESS_PASSWORD: {{ .Values.wordpress.pass }}
 
