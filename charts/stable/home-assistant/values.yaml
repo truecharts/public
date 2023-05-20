@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/home-assistant
   pullPolicy: IfNotPresent
-  tag: 2023.4.6@sha256:b4b66d07de766312343a160cae2a48bae2c1c44abea97138ebdb6ea4e57662bf
+  tag: v2023.5.2@sha256:8c3a10ef601bb1c500c6245a666edcef0a9e959099e61287d63a87620a1f871b
 service:
   main:
     ports:
@@ -59,11 +59,13 @@ configmap:
           if grep -q recorder: "$config_file"; then
             echo "configuration.yaml already contains recorder"
           else
+            echo "" >> "$config_file"
             cat /config/init/recorder.default >> "$config_file"
           fi
           if grep -q http: "$config_file"; then
             echo "configuration.yaml already contains http section"
           else
+            echo "" >> "$config_file"
             cat /config/init/http.default >> "$config_file"
           fi
         else
@@ -154,3 +156,7 @@ securityContext:
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
+    capabilities:
+      add:
+        - CAP_NET_RAW
+        - CAP_NET_BIND_SERVICE

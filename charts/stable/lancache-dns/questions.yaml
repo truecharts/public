@@ -18,25 +18,25 @@ questions:
                                     type: dict
                                     attrs:
                                       - variable: CACHE_DOMAINS_REPO
-                                        label: "CACHE DOMAINS REPO"
+                                        label: "Cache Domains Repo"
                                         description: "The github repo url for the cache_domains files to use to populate the cdn maps."
                                         schema:
                                           type: string
                                           default: "https://github.com/uklans/cache-domains.git"
                                       - variable: CACHE_DOMAINS_BRANCH
-                                        label: "CACHE DOMAINS BRANCH"
+                                        label: "Cache Domains Branch"
                                         description: "The branch of the CACHE_DOMAINS_REPO to use"
                                         schema:
                                           type: string
                                           default: "master"
                                       - variable: UPSTREAM_DNS
-                                        label: "UPSTREAM DNS"
+                                        label: "Upstream DNS"
                                         description: "Upstream DNS server(s) the cache should use(separated by spaces). Do NOT point this at lancache-dns)"
                                         schema:
                                           type: string
                                           default: "1.1.1.1;1.0.0.1"
                                       - variable: USE_GENERIC_CACHE
-                                        label: "USE GENERIC CACHE"
+                                        label: "Use Generic Cache"
                                         description: "If you are using a single monolithic instance set this to true"
                                         schema:
                                           type: boolean
@@ -44,8 +44,8 @@ questions:
                                           show_subquestions_if: true
                                           subquestions:
                                             - variable: LANCACHE_IP
-                                              label: "LANCACHE IP"
-                                              description: "Set the IP for the lancache-monolithic app only if USE_GENERIC_CACHE is true"
+                                              label: "Lancache IP"
+                                              description: "Set the IP for the lancache-monolithic"
                                               schema:
                                                 type: string
                                                 required: true
@@ -53,23 +53,42 @@ questions:
                                             - variable: customdisable
                                               label: "Disable Cache DNS Resolvers"
                                               schema:
-                                                show_if: [["USE_GENERIC_CACHE", "=", true]]
                                                 type: boolean
                                                 default: false
                                                 show_subquestions_if: true
                                                 subquestions:
                                                   - variable: DISABLE_BLIZZARD
-                                                    label: "Disable BLIZZARD"
+                                                    label: "Disable Blizzard"
                                                     schema:
                                                       type: boolean
                                                       default: false
                                                   - variable: DISABLE_RIOT
-                                                    label: "Disable RIOT"
+                                                    label: "Disable Riot"
                                                     schema:
                                                       type: boolean
                                                       default: false
                                                   - variable: DISABLE_UPLAY
-                                                    label: "Disable UPLAY"
+                                                    label: "Disable Uplay"
+                                                    schema:
+                                                      type: boolean
+                                                      default: false
+                                                  - variable: DISABLE_STEAM
+                                                    label: "Disable Steam"
+                                                    schema:
+                                                      type: boolean
+                                                      default: false
+                                                  - variable: DISABLE_ORIGIN
+                                                    label: "Disable Origin"
+                                                    schema:
+                                                      type: boolean
+                                                      default: false
+                                                  - variable: DISABLE_SONY
+                                                    label: "Disable Sony"
+                                                    schema:
+                                                      type: boolean
+                                                      default: false
+                                                  - variable: DISABLE_SQUARE
+                                                    label: "Disable Square"
                                                     schema:
                                                       type: boolean
                                                       default: false

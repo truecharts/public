@@ -195,9 +195,6 @@ prep_helm() {
     if [[ -z "$standalone" ]]; then
     helm repo add truecharts https://charts.truecharts.org
     helm repo add truecharts-library https://library-charts.truecharts.org
-    helm repo add bitnami https://charts.bitnami.com/bitnami
-
-    helm repo add prometheus https://prometheus-community.github.io/helm-charts
     helm repo update
     fi
     }

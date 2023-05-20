@@ -1,14 +1,12 @@
 image:
   repository: tccr.io/truecharts/portainer-ce
-  tag: 2.18.1@sha256:5cf05964150cd20101e793c4cebcd4a28ea3d157c843d3a55843ab7d79278fd1
+  tag: v2.18.2@sha256:7e3edb1ef79e249285f9acd60fba5a63e5d1029035c49b2453b699c39a927df5
   pullPolicy: IfNotPresent
 
 imageBe:
   repository: tccr.io/truecharts/portainer-be
-  tag: 2.17.1@sha256:d83c8fa439ce749d4bdc68710b9c8ca2ae6e2a54b963ec47ddba6d97d4a34f36
+  tag: v2.18.2@sha256:f76c5d84859c5dc692f08f705073c25cb26b0fc7b5f43554d7a9b96a71783efb
   pullPolicy: IfNotPresent
-
-imageSelector: image
 
 portainer:
   # Logo URL
@@ -18,16 +16,17 @@ portainer:
   # Sets Snapshot interval
   snapshot_interval: 5m
   hide_labels:
-    # - label1=value1
-    # - label2=value2
-
+  # - label1=value1
+  # - label2=value2
 serviceAccount:
   main:
     enabled: true
-
+    primary: true
 rbac:
   main:
     enabled: true
+    primary: true
+    clusterWide: true
     rules:
       - apiGroups:
           - "*"
@@ -35,36 +34,12 @@ rbac:
           - "*"
         verbs:
           - "*"
-
-probes:
-  liveness:
-    custom: true
-    spec:
-      httpGet:
-        path: /
-        port: 9443
-        scheme: HTTPS
-  readiness:
-    custom: true
-    spec:
-      httpGet:
-        path: /
-        port: 9443
-        scheme: HTTPS
-  startup:
-    custom: true
-    spec:
-      httpGet:
-        path: /
-        port: 9443
-        scheme: HTTPS
-
 service:
   main:
     ports:
       main:
         port: 10400
-        protocol: HTTPS
+        protocol: https
         targetPort: 9443
   edge:
     enabled: true
@@ -73,7 +48,6 @@ service:
         enabled: true
         port: 10401
         targetPort: 10401
-
 persistence:
   data:
     enabled: true
@@ -82,6 +56,24 @@ persistence:
     enabled: true
     mountPath: "/.cache"
     type: emptyDir
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+
+workload:
+  main:
+    podSpec:
+      automountServiceAccountToken: true
+      containers:
+        main:
+          imageSelector: image
+          probes:
+            liveness:
+              port: 9443
+              scheme: https
+            readiness:
+              port: 9443
+              scheme: https
+            startup:
+              port: 9443
+              scheme: https

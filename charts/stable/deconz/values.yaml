@@ -4,29 +4,35 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-secretEnv:
-  DECONZ_VNC_PASSWORD: ""
-
-env:
-  # -- Override the location where deCONZ looks for the RaspBee/Conbee device.
-  # Example: /dev/ttyUSB0
-  DECONZ_DEVICE: ""
-  DECONZ_UPNP: 0
-  DECONZ_START_VERBOSE: 0
-  # -- Enable VNC access to the container to view the deCONZ ZigBee mesh
-  DECONZ_VNC_MODE: 1
-  DECONZ_WEB_PORT: "{{ .Values.service.main.ports.main.port }}"
-  DECONZ_WS_PORT: "{{ .Values.service.websocket.ports.websocket.port }}"
-  DECONZ_VNC_PORT: "{{ .Values.service.vnc.ports.vnc.port }}"
-  DECONZ_UID: "{{ .Values.security.PUID }}"
-  DECONZ_GID: "{{ .Values.podSecurityContext.fsGroup }}"
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+          env:
+            DECONZ_WEB_PORT: "{{ .Values.service.main.ports.main.port }}"
+            DECONZ_WS_PORT: "{{ .Values.service.websocket.ports.websocket.port }}"
+            DECONZ_VNC_PORT: "{{ .Values.service.vnc.ports.vnc.port }}"
+            DECONZ_UID: "{{ .Values.securityContext.container.PUID }}"
+            DECONZ_GID: "{{ .Values.securityContext.pod.fsGroup }}"
+            # -- Override the location where deCONZ looks for the RaspBee/Conbee device.
+            # Example: /dev/ttyUSB0
+            DECONZ_DEVICE: ""
+            DECONZ_UPNP: 0
+            DECONZ_START_VERBOSE: 0
+            # -- Enable VNC access to the container to view the deCONZ ZigBee mesh
+            DECONZ_VNC_MODE: 1
+            DECONZ_VNC_PASSWORD: ""
 
 service:
   main:
@@ -51,17 +57,6 @@ persistence:
     enabled: true
     mountPath: "/opt/deCONZ"
 
-# -- Affinity constraint rules to place the Pod on a specific node.
-# [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)
-affinity: {}
-#   nodeAffinity:
-#     requiredDuringSchedulingIgnoredDuringExecution:
-#       nodeSelectorTerms:
-#       - matchExpressions:
-#         - key: app
-#           operator: In
-#           values:
-#           - zigbee-controller
-
 portal:
-  enabled: true
+  open:
+    enabled: true
