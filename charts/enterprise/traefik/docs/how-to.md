@@ -44,7 +44,7 @@ Ensure you are accessing your WebUI from the new ports before proceeding.
 
 :::note
 
-Traefik is part of the `enterprise` train, so make sure you have it enabled as specified in the [guide](https://truecharts.org/manual/guides/Adding-TrueCharts#adding-truecharts).
+Traefik is part of the `enterprise` train, so make sure you have it enabled as specified in the [guide](https://truecharts.org/manual/SCALE/guides/getting-started#adding-truecharts).
 
 :::
 

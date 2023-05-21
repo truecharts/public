@@ -8,6 +8,45 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PAPERLESS_ADMIN_USER
+                                        label: "PAPERLESS_ADMIN_USER (First Install Only)"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: PAPERLESS_ADMIN_PASSWORD
+                                        label: "PAPERLESS_ADMIN_PASSWORD (First Install Only)"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          private: true
+                                          default: ""
+                                      - variable: PAPERLESS_ADMIN_MAIL
+                                        label: "PAPERLESS_ADMIN_MAIL (First Install Only)"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PAPERLESS_URL
+                                        label: "PAPERLESS_URL"
+                                        description: "This is required if you will be exposing Paperless-ngx on a public domain."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PAPERLESS_WEBSERVER_WORKERS
+                                        label: "PAPERLESS_WEBSERVER_WORKERS"
+                                        description: "The number of worker processes the webserver should spawn."
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 2
 # Include{containerBasic}
 # Include{containerAdvanced}
 
@@ -38,14 +77,9 @@ questions:
             type: boolean
             default: false
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -133,12 +167,12 @@ questions:
                 schema:
                   type: int
                   default: 568
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 568
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
