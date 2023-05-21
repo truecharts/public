@@ -34,6 +34,7 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -58,7 +59,6 @@ questions:
                               default: 10026
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceList}
