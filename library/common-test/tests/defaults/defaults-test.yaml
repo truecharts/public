@@ -4,6 +4,8 @@ templates:
 tests:
   - it: should pass with defaults
     set:
+      global:
+        createTCNamespace: true
       service:
         main:
           enabled: true
@@ -20,11 +22,21 @@ tests:
                 enabled: true
     asserts:
       - hasDocuments:
-          count: 2
-      - documentIndex: &deploymentDoc 0
+          count: 3
+      - documentIndex: &namespaceDoc 0
+        isKind:
+          of: Namespace
+      - documentIndex: *namespaceDoc
+        equal:
+          path: metadata.name
+          value: tc-system
+      - documentIndex: *namespaceDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: &deploymentDoc 1
         isKind:
           of: Deployment
-      - documentIndex: &serviceDoc 1
+      - documentIndex: &serviceDoc 2
         isKind:
           of: Service
       - documentIndex: *serviceDoc

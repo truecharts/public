@@ -9,6 +9,7 @@ objectData:
   annotations: The annotations of the secret.
   type: The type of the secret.
   data: The data of the secret.
+  namespace: The namespace of the secret. (Optional)
 */}}
 
 {{- define "tc.v1.common.class.secret" -}}
@@ -39,6 +40,9 @@ metadata:
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
+  {{- end -}}
+  {{- with $objectData.namespace }}
+  namespace: {{ tpl . $rootCtx }}
   {{- end -}}
   {{- if (mustHas $objectData.type (list "certificate" "imagePullSecret")) }}
 data:

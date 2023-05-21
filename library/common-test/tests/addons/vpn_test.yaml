@@ -153,16 +153,7 @@ tests:
             down: |
               echo "down"
               echo "done"
-      workload:
-        main:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec:
-            containers:
-              main:
-                enabled: true
-                primary: true
+      workload: *workload
       service:
         main:
           enabled: true
@@ -279,16 +270,7 @@ tests:
         vpn:
           type: gluetun
           existingSecret: existing-secret
-      workload:
-        main:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec:
-            containers:
-              main:
-                enabled: true
-                primary: true
+      workload: *workload
       service:
         main:
           enabled: true
@@ -347,16 +329,7 @@ tests:
         vpn:
           type: gluetun
           configFile: /path/to/file
-      workload:
-        main:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec:
-            containers:
-              main:
-                enabled: true
-                primary: true
+      workload: *workload
       service:
         main:
           enabled: true
@@ -412,16 +385,7 @@ tests:
         vpn:
           type: gluetun
           configFolder: /path/to/folder
-      workload:
-        main:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec:
-            containers:
-              main:
-                enabled: true
-                primary: true
+      workload: *workload
       service:
         main:
           enabled: true
@@ -480,16 +444,7 @@ tests:
           env:
             key: value
             key1: value1
-      workload:
-        main:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec:
-            containers:
-              main:
-                enabled: true
-                primary: true
+      workload: *workload
     asserts:
       - hasDocuments:
           count: 1
@@ -591,16 +546,7 @@ tests:
         vpn:
           type: openvpn
           configFile: /path/to/file
-      workload:
-        main:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec:
-            containers:
-              main:
-                enabled: true
-                primary: true
+      workload: *workload
       service:
         main:
           enabled: true
@@ -656,16 +602,7 @@ tests:
         vpn:
           type: wireguard
           configFile: /path/to/file
-      workload:
-        main:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec:
-            containers:
-              main:
-                enabled: true
-                primary: true
+      workload: *workload
       service:
         main:
           enabled: true

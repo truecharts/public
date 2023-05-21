@@ -61,16 +61,7 @@ tests:
 
   - it: addon enabled should pass without other service
     set:
-      workload: &workload
-        main:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec:
-            containers:
-              main:
-                enabled: true
-                primary: true
+      workload: *workload
       service:
         main:
           enabled: false
@@ -107,16 +98,7 @@ tests:
 
   - it: addon enabled should pass and mount volume with targetSelector on other container only
     set:
-      workload: &workload
-        main:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec:
-            containers:
-              main:
-                enabled: true
-                primary: true
+      workload: *workload
       persistence:
         data:
           enabled: true

@@ -13,6 +13,8 @@ global:
   # -- Enable to stop most pods and containers including cnpg
   # does not include stand-alone pods
   stopAll: false
+  # -- Creates the tc-system namespace. Used for operator charts
+  createTCNamespace: true
 
 fallbackDefaults:
   # -- Define a storageClassName that will be used for all PVCs
@@ -551,6 +553,16 @@ metrics:
         #   rules: []
         #   # list to support adding rules via the SCALE GUI without overwrithing the rules
         #   additionalrules: []
+
+# -- Contains specific settings for helm charts containing or using operators
+operator:
+  # -- Adds a configmap in tc-system namespace to register this chart as an operator
+  register: false
+  # -- Verified wether required operators for this chart are actually installed and registered
+  verify:
+    enabled: true
+    # -- a list of extra operators to check for
+    additionalOperators: []
 
 # -- The common chart supports several add-ons. These can be configured under this key.
 # @default -- See below

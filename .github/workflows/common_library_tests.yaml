@@ -131,6 +131,7 @@ jobs:
           - cnpg-multi-values.yaml
           - manifest-values.yaml
           - stagingmanifest-values.yaml
+          - register-operator-values.yaml
 
     steps:
       - name: Checkout
@@ -247,6 +248,7 @@ jobs:
           - extra-containers-values.yaml
           - rbac-values.yaml
           - networkPolicy-values.yaml
+          - register-operator-values.yaml
           # Runs as root, so test results become obviously red
           # - codeserver-values.yaml
           # - netshoot-values.yaml

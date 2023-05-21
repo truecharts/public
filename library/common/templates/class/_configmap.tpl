@@ -8,6 +8,7 @@ objectData:
   labels: The labels of the configmap.
   annotations: The annotations of the configmap.
   data: The data of the configmap.
+  namespace: The namespace of the configmap. (Optional)
 */}}
 
 {{- define "tc.v1.common.class.configmap" -}}
@@ -28,6 +29,9 @@ metadata:
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}
+  {{- end -}}
+  {{- with $objectData.namespace }}
+  namespace: {{ tpl . $rootCtx }}
   {{- end }}
 data:
   {{- tpl (toYaml $objectData.data) $rootCtx | nindent 2 }}
