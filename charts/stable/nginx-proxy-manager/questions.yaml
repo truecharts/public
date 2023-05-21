@@ -28,6 +28,7 @@ questions:
 # Include{containerAdvanced}
 
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
 # Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
@@ -87,8 +88,7 @@ questions:
                               type: int
                               default: 10584
                               required: true
-# Include{serviceExpertRoot}
-            default: false
+# Include{serviceExpertRoot}0
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
