@@ -61,6 +61,7 @@ tests:
             automountServiceAccountToken: false
             runtimeClassName:
             hostNetwork: false
+            hostPID: false
             enableServiceLinks: false
             restartPolicy: Always
             dnsPolicy: ClusterFirst
