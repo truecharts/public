@@ -76,6 +76,7 @@ questions:
                   default: false
 
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
 # Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
@@ -116,7 +117,6 @@ questions:
                               default: 10259
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
