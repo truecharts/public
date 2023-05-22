@@ -7,5 +7,4 @@ data:
   {{- else }}
   secret.txt: {{ randAlphaNum 32 }}
   {{- end }}
-
-{{- end }}
+{{- end -}}

@@ -50,7 +50,8 @@ workload:
             DATABASE_PORT: 5432
             REDIS_URI:
               secretKeyRef:
-                name: rediscreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: plainhost
             # Superuser
             SUPER_USER: "admin"
