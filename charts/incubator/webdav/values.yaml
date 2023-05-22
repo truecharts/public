@@ -41,7 +41,6 @@ persistence:
     enabled: true
     type: emptyDir
     medium: Memory
-    #TODO: Is this enough?
     size: 500Mi
     targetSelector:
       webdav:
