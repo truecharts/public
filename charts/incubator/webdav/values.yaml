@@ -1,0 +1,64 @@
+image:
+  repository: httpd
+  pullPolicy: IfNotPresent
+  tag: "2.4.57"
+
+persistence:
+  httpd-conf:
+    enabled: true
+    type: configmap
+    objectName: config
+    targetSelector:
+      webdav:
+        webdav:
+          mountPath: /usr/local/apache2/conf/httpd.conf
+          subPath: httpd.conf
+          readOnly: true
+  webdav-conf:
+    # Mount config only if http is enabled
+    enabled: true
+    type: configmap
+    objectName: config
+    targetSelector:
+      webdav:
+        webdav:
+          mountPath: /usr/local/apache2/conf/Includes/webdav.conf
+          readOnly: true
+          subPath: webdav.conf
+  htauth:
+    # Mount config only if auth is enabled
+    enabled: '{{ ne .Values.webdavConfig.authType "none" }}'
+    type: secret
+    objectName: htauth
+    targetSelector:
+      webdav:
+        webdav:
+          mountPath: "/etc/apache2/webdavht{{ .Values.webdavConfig.authType }}"
+          subPath: htauth
+          readOnly: true
+  apachelock:
+    # Stores PID file and DavLockDB file
+    enabled: true
+    type: emptyDir
+    medium: Memory
+    #TODO: Is this enough?
+    size: 500Mi
+    targetSelector:
+      webdav:
+        webdav:
+          mountPath: /usr/local/apache2/var
+  shares:
+    enabled: true
+    type: hostPath
+    hostPath: /tmp
+    targetSelector:
+      webdav:
+        webdav:
+          # This path is used in the Alias directive in the webdav.conf
+          mountPath: /shares
+
+webdavConfig:
+  authType: none
+  username: ""
+  password: ""
+  additionalEnvs: []
