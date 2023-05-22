@@ -23,6 +23,7 @@ questions:
                 schema:
                   type: string
                   default: "info"
+
   - variable: prometheus
     group: "App Configuration"
     label: "Prometheus Settings"
@@ -79,6 +80,37 @@ questions:
                 schema:
                   type: boolean
                   default: false
+
+  - variable: exporters
+    group: "App Configuration"
+    label: "Exporter Settings"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: node-exporter
+          label: "node-exporter"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable"
+                schema:
+                  type: boolean
+                  default: true
+        - variable: kube-state-metrics
+          label: "Kube-State-Metrics"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable"
+                schema:
+                  type: boolean
+                  default: true
+
   - variable: alertmanager
     group: "App Configuration"
     label: "Alertmanager Settings"
@@ -151,7 +183,6 @@ questions:
                               default: 10087
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceList}
