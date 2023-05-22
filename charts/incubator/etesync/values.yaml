@@ -70,7 +70,7 @@ persistence:
     mountPath: "/data"
   secret:
     enabled: true
-    type: configmap
+    type: secret
     readOnly: true
     mountPath: "/data/secret.txt"
     subPath: "secret.txt"
