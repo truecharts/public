@@ -6,7 +6,10 @@
 
 :::danger Memory Requirements
 
-Please be aware of memory requirements if you memory for emptyDir. Plex transcode storage requirement is size of file being transcoded + 100MB per simultaneous stream.
+Please be aware of memory requirements if you memory for emptyDir. 
+Plex transcode storage requirement is size of file being transcoded + 100MB per simultaneous stream.
+
+Keep in mind that emptyDir's memory counts against the resources defined.
 
 :::
 
