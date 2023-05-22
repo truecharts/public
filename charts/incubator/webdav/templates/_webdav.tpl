@@ -10,9 +10,9 @@ workload:
           imageSelector: image
           envList:
           probes:
+            {{ $port := $.Values.service.main.ports.main.port }}
             liveness:
               enabled: true
-              type: {{ $scheme }}
               path: /health
               port: {{ $port }}
             {{ if eq .Values.webdavConfig.authType "basic" }}
@@ -21,7 +21,6 @@ workload:
             {{ end }}
             readiness:
               enabled: true
-              type: {{ $scheme }}
               path: /health
               port: {{ $port }}
             {{ if eq .Values.webdavConfig.authType "basic" }}
@@ -30,7 +29,6 @@ workload:
             {{ end }}
             startup:
               enabled: true
-              type: {{ $scheme }}
               path: /health
               port: {{ $port }}
             {{ if eq .Values.webdavConfig.authType "basic" }}
