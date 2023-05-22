@@ -3,10 +3,12 @@ image:
   pullPolicy: IfNotPresent
   tag: 0.11.0@sha256:47478da0d1b3ab18d5bfbcd4537fa80305ace94746b01c32e609c7e9e663d860
 
-podSecurityContext:
-  runAsUser: 373
-  runAsGroup: 373
-  fsGroup: 373
+securityContext:
+  container:
+    runAsUser: 373
+    runAsGroup: 373
+  pod:
+    fsGroup: 373
 
 # Docker image configuration docs:
 # https://github.com/victor-rds/docker-etebase#settings-and-customization
@@ -58,7 +60,7 @@ service:
   main:
     ports:
       main:
-        protocol: HTTP
+        protocol: http
         targetPort: 3735
         port: 10254
 
@@ -87,4 +89,5 @@ redis:
   enabled: true
 
 portal:
-  enabled: true
+  open:
+    enabled: true
