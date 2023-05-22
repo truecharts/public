@@ -1,7 +1,4 @@
 # Include{groups}
-portals:
-  open:
-# Include{portalLink}
 questions:
 # Include{global}
 # Include{workload}
@@ -37,7 +34,30 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 9100
+                              default: 8080
+                              required: true
+# Include{serviceRoot}
+        - variable: selfmonitor
+          label: "selfmonitor Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: selfmonitor
+                      label: "selfmonitor Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 8081
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
