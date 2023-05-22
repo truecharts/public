@@ -3,9 +3,9 @@
 enabled: true
 data:
   {{- with (lookup "v1" "Secret" .Release.Namespace "etesync-secret") }}
-  secret.txt: {{ index .data "secret.txt" }}
+  secret.txt: {{ index .data "secret.txt" | b64dec }}
   {{- else }}
-  secret.txt: {{ randAlphaNum 32 | b64enc }}
+  secret.txt: {{ randAlphaNum 32 }}
   {{- end }}
 
 {{- end }}
