@@ -70,13 +70,11 @@ persistence:
     mountPath: "/data"
   secret:
     enabled: true
-    type: "custom"
+    type: configmap
     readOnly: true
     mountPath: "/data/secret.txt"
     subPath: "secret.txt"
-    volumeSpec:
-      secret:
-        secretName: "etesync-secret"
+    objectName: "etesync-secret"
 
 # Enabled postgres
 cnpg:
