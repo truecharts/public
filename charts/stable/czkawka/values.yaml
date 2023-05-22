@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/czkawka
   pullPolicy: IfNotPresent
-  tag: 23.02.3@sha256:ac64a6cd11fce855ac3b5d6af2c8768d4e53fa7631a887edbfc41de11bb63dcb
+  tag: v23.04.1@sha256:042868292fd83bc3037f8c7529b42a87851e1ba267c9a5432a0752bc8052590e
 
 securityContext:
   container:
@@ -48,6 +48,11 @@ workload:
     podSpec:
       containers:
         main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+                - KILL
           probes:
             liveness:
               type: http

@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/baserow
-  tag: 1.14.0@sha256:343c212865ad11bb41eb88652f8c39cdfe4697027322dfe6ed2f761dd6719b5e
+  tag: v1.17.1@sha256:c37b42000c08e8150740ac376ff785d63bcd32c73a9afc95ff3900005ee99a7c
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -50,7 +50,7 @@ workload:
             DATABASE_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: std
+                key: host
             DATABASE_PASSWORD:
               secretKeyRef:
                 name: cnpg-main-user

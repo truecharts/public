@@ -26,6 +26,8 @@ workload:
             capabilities:
               add:
                 - SYS_CHROOT
+                - KILL
+                - NET_BIND_SERVICE
           probes:
             liveness:
               type: http

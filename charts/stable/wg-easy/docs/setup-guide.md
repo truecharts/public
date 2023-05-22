@@ -26,9 +26,7 @@ Set them to `1` and `Enabled`
 
 ## Wg-Easy Chart Setup
 
-Step 1-2: Name chart and leave defaults for Step 2
-
-Step 3:
+### Container Configuration
 
 - Change `WG_HOST` _required_ domain name (or WAN IP if you have a Static IP)
 - Change `WG_DEFAULT_ADDRESS` only if it conflicts with other IP addresses on your network
@@ -37,13 +35,21 @@ Step 3:
 
 ![wg-easy-chart-config](img/wg-easy-chart-config.png)
 
-Step 4:
+### Networking and Services
 
 - The default port for the Wireguard UDP service is `51820` and it needs to be accessible outside your network in order for the Wireguard tunnel to work. Therefore if you change this port make sure you change the port on your Firewall as well.
 
 ![wg-easy-networking](img/wg-easy-networking.png)
 
-Steps 5-8: Adjust as necessary but defaults are fine unless using Ingress, where you can refer to our [Quick-Start Guides](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/add-ingress) for an overview
+### Security and Permissions
+
+:::warning
+
+Must change the `PUID` to 0 for this chart to work
+
+:::
+
+![WG-easy PUID](img/wg-easy-PUID.png)
 
 > **Recommended** If you're creating multiple users setting up Ingress for the Portal/GUI page is a secure and easy way to download your Wireguard configs or use the handy QR code scanner from your mobile device with the Wireguard app on iOS or Android.
 >

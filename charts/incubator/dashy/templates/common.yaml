@@ -1,17 +1,16 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{- define "dashy.configvolume" -}}
 enabled: true
-mountPath: /app/public
-type: custom
+type: configmap
+objectName: dashy-config
 readOnly: true
-volumeSpec:
-  configMap:
-    name: {{ include "tc.common.names.fullname" . }}-dashy-config
-    items:
-    - key: conf.yml
-      path: conf.yml
+defaultMode: "0755"
+mountPath: /app/public
+items:
+- key: conf.yml
+  path: conf.yml
 {{- end -}}
 
 {{- define "dashy.confighostpath" -}}
@@ -24,12 +23,15 @@ mountPath: /app/public/conf.yml
 {{- end -}}
 
 {{- if .Values.dashyConfig -}}
-{{/* Render config for dashy */}}
-{{- include "dashy.config" . -}}
-{{- $_ := set .Values.persistence "dashy-config" (include "dashy.configvolume" . | fromYaml) -}}
+  {{/* Render config for dashy */}}
+  {{- $config := include "dashy.config" . | fromYaml -}}
+  {{- if $config -}}
+    {{- $_ := mustMergeOverwrite .Values $config -}}
+  {{- end -}}
+  {{- $_ := set .Values.persistence "dashy-config" (include "dashy.configvolume" . | fromYaml) -}}
 {{- else if .Values.dashy.enabled -}}
-{{- $_ := set .Values.persistence "dashy-config" (include "dashy.confighostpath" . | fromYaml) -}}
+  {{- $_ := set .Values.persistence "dashy-config" (include "dashy.confighostpath" . | fromYaml) -}}
 {{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

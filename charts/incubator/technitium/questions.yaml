@@ -303,7 +303,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressList}
         - variable: dns-https-proxy
           label: "DNS-over-HTTPS Reverse Proxy"
           schema:
@@ -322,16 +321,16 @@ questions:
                 schema:
                   type: int
                   default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-             - variable: fsGroup
+              - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:
