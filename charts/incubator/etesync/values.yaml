@@ -52,7 +52,7 @@ workload:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: plainhost
+                key: url
             # Superuser
             SUPER_USER: "admin"
             SUPER_PASS: ""
