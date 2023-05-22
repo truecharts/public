@@ -2,12 +2,7 @@
 {{- define "etesync.secret" -}}
 ---
 {{- $secretName := "etesync-secret" }}
-apiVersion: v1
-kind: Secret
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+enabled: true
 data:
   {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
   secret.txt: {{ index .data "secret.txt" }}

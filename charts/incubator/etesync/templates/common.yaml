@@ -4,5 +4,11 @@
 {{/* Render secret for etesync */}}
 {{- include "etesync.secret" . }}
 
+{{/* Render secrets for etesync */}}
+{{- $secrets := include "etesync.secret" . | fromYaml -}}
+{{- if $secrets -}}
+{{- $_ := set .Values.secret "secret" $secrets -}}
+{{- end -}}
+
 {{/* Render the templates */}}
 {{ include "tc.common.loader.apply" . }}

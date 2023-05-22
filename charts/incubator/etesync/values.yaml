@@ -14,37 +14,42 @@ podSecurityContext:
 # EteSync configuration docs:
 # https://github.com/etesync/server#configuration
 
-env:
-  # App
-  SERVER: http
-  AUTO_UPDATE: true
-  ALLOWED_HOSTS: "localhost"
-  AUTO_SIGNUP: false
-  LANGUAGE_CODE: "en-us"
-  TIME_ZONE: "{{ .Values.TZ }}"
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            # App
+            SERVER: http
+            AUTO_UPDATE: true
+            ALLOWED_HOSTS: "localhost"
+            AUTO_SIGNUP: false
+            LANGUAGE_CODE: "en-us"
+            TIME_ZONE: "{{ .Values.TZ }}"
 
-  # Debugging
-  DEBUG: false
-  SHELL_DEBUG: false
-  DEBUG_DJANGO: false
+            # Debugging
+            DEBUG: false
+            SHELL_DEBUG: false
+            DEBUG_DJANGO: false
 
-  # Postgres
-  DB_ENGINE: postgres
-  DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
-  DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  DATABASE_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  DATABASE_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  DATABASE_PORT: 5432
-  REDIS_URI:
-    secretKeyRef:
-      name: rediscreds
-      key: url
+            # Postgres
+            DB_ENGINE: postgres
+            DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
+            DATABASE_USER: "{{ .Values.cnpg.main.user }}"
+            DATABASE_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: postgresql-password
+            DATABASE_HOST:
+              secretKeyRef:
+                name: dbcreds
+                key: plainhost
+            DATABASE_PORT: 5432
+            REDIS_URI:
+              secretKeyRef:
+                name: rediscreds
+                key: url
 
 secretEnv:
   # Superuser
