@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/kitchenowl-web
   pullPolicy: IfNotPresent
-  tag: latest@sha256:b0174bc8e44e464d4472a905be2a4f637379279d2b79640b497cfb2be203eb22
+  tag: latest@sha256:a59332a658bc75df12fcef926b5f05efed22a1e63081481d2541e5a35213d92a
 backendImage:
   repository: tccr.io/truecharts/kitchenowl-backend
   pullPolicy: IfNotPresent
-  tag: latest@sha256:e07fa95de912f0b03dee923f5bbfd0f8f67976be49b82cebbdbb33ed3338b679
+  tag: latest@sha256:d41645fbcf3886aa0a7857b3600227805ca79454a23bc2285e1520db3dcb4409
 service:
   main:
     ports:
