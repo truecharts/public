@@ -50,13 +50,10 @@ workload:
               secretKeyRef:
                 name: rediscreds
                 key: plainhost
-
-secretEnv:
-  # Superuser
-  SUPER_USER: "admin"
-  SUPER_PASS: ""
-  SUPER_EMAIL: ""
-
+            # Superuser
+            SUPER_USER: "admin"
+            SUPER_PASS: ""
+            SUPER_EMAIL: ""
 service:
   main:
     ports:
