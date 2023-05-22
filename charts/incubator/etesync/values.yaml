@@ -48,8 +48,7 @@ workload:
             DATABASE_PORT: 5432
             REDIS_URI:
               secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                name: rediscreds
                 key: plainhost
 
 secretEnv:

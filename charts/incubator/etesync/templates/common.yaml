@@ -1,11 +1,11 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secrets for etesync */}}
-{{- $secrets := include "etesync.secret" . | fromYaml -}}
-{{- if $secrets -}}
-{{- $_ := set .Values.secret "secret" $secrets -}}
+{{- $secret := include "etesync.secret" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "etesync-secret" $secret -}}
 {{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}
