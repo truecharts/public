@@ -24,6 +24,8 @@ Please be aware of memory requirements if you memory for emptyDir. Plex transcod
 
 ## Require HTTPS
 
+![Plex App Config](img/Plex-App-Config.png)
+
 - This option cannot be enabled until initial plex setup is complete and remote access is enabled and functioning as shown below.
 
 ![remote access](./img/plex-remote-access.png)
