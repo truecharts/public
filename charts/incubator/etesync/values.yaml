@@ -22,6 +22,7 @@ workload:
       containers:
         main:
           env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
             # App
             SERVER: http
             AUTO_UPDATE: true
@@ -62,7 +63,6 @@ service:
     ports:
       main:
         protocol: http
-        targetPort: 3735
         port: 10254
 
 persistence:
