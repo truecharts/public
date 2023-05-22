@@ -51,7 +51,7 @@ workload:
             REDIS_URI:
               secretKeyRef:
                 expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" "6379" }}'
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: url
             # Superuser
             SUPER_USER: "admin"
