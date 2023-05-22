@@ -11,7 +11,6 @@ Please be aware of memory requirements if you memory for emptyDir. Plex transcod
 :::
 
 1. Under Additional App Storage click add.
-
 2. Setup either a Disk Transcode or Memory Transcode as shown below.
 
 ### Disk Transcode
