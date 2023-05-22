@@ -1,4 +1,4 @@
-# Installation notes
+# Plex Installation Notes
 
 ## Transcode Folder
 
