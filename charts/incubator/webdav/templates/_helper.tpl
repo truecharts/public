@@ -1,24 +1,8 @@
 {{/* Webdav HTTP Config */}}
 {{- define "webdav.http.config" -}}
-Listen {{ .Values.webdavNetwork.httpPort }}
-<VirtualHost *:{{ .Values.webdavNetwork.httpPort }}>
+Listen {{ $.Values.service.main.ports.main.port }}
+<VirtualHost *:{{ $.Values.service.main.ports.main.port }}>
   {{- include "webdav.health.config" $ | nindent 2 }}
-  {{- include "webdav.core.config" $ | nindent 2 }}
-</VirtualHost>
-{{- end -}}
-
-{{/* Webdav HTTPS Config */}}
-{{- define "webdav.https.config" -}}
-Listen {{ .Values.webdavNetwork.httpsPort }}
-<VirtualHost *:{{ .Values.webdavNetwork.httpsPort }}>
-  {{- if not .Values.webdavNetwork.http }}
-    {{- include "webdav.health.config" $ | nindent 2 }}
-  {{- end }}
-  SSLEngine on
-  SSLCertificateFile "{{ include "webdav.path.cert.crt" $ }}"
-  SSLCertificateKeyFile "{{ include "webdav.path.cert.key" $ }}
-  SSLProtocol +TLSv1.2 +TLSv1.3
-  SSLCipherSuite HIGH:MEDIUM
   {{- include "webdav.core.config" $ | nindent 2 }}
 </VirtualHost>
 {{- end -}}
@@ -38,7 +22,7 @@ DavLockDB "/usr/local/apache2/var/DavLock"
   Allow from all
   Options Indexes FollowSymLinks
 </Directory>
-{{- range .Values.webdavStorage.shares }}
+{{- range .Values.persistenceList }}
   {{- if .enabled }}
 # WebDav Share - {{ .name }}
 # Description: {{ .description }}
