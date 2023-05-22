@@ -13,51 +13,51 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ALLOWED_HOSTS
-          label: "ALLOWED_HOSTS"
-          description: "Must be a valid domain or * (* is not recommended for production)"
-          schema:
-            type: string
-            default: "localhost"
-            required: true
-        - variable: AUTO_SIGNUP
-          label: "AUTO_SIGNUP"
-          description: "Enable automatic signup"
-          schema:
-            type: boolean
-            default: false
-        - variable: LANGUAGE_CODE
-          label: "LANGUAGE_CODE"
-          description: "Django language code"
-          schema:
-            type: string
-            default: "en-us"
-            required: true
-        - variable: DEBUG
-          label: "DEBUG"
-          description: "Output additional messages from `/entrypoint.sh`. It doesn't change the output of the Etebase server."
-          schema:
-            type: boolean
-            default: false
-        - variable: SHELL_DEBUG
-          label: "SHELL_DEBUG"
-          description: "Run `/entrypoint.sh` with `set -x`"
-          schema:
-            type: boolean
-            default: false
-        - variable: DEBUG_DJANGO
-          label: "DEBUG_DJANGO"
-          description: "Enable Django debug mode (not recommended for production)"
-          schema:
-            type: boolean
-            default: false
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ALLOWED_HOSTS
+                                        label: "ALLOWED_HOSTS"
+                                        description: "Must be a valid domain or * (* is not recommended for production)"
+                                        schema:
+                                          type: string
+                                          default: "localhost"
+                                          required: true
+                                      - variable: AUTO_SIGNUP
+                                        label: "AUTO_SIGNUP"
+                                        description: "Enable automatic signup"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: LANGUAGE_CODE
+                                        label: "LANGUAGE_CODE"
+                                        description: "Django language code"
+                                        schema:
+                                          type: string
+                                          default: "en-us"
+                                          required: true
+                                      - variable: DEBUG
+                                        label: "DEBUG"
+                                        description: "Output additional messages from `/entrypoint.sh`. It doesn't change the output of the Etebase server."
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: SHELL_DEBUG
+                                        label: "SHELL_DEBUG"
+                                        description: "Run `/entrypoint.sh` with `set -x`"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: DEBUG_DJANGO
+                                        label: "DEBUG_DJANGO"
+                                        description: "Enable Django debug mode (not recommended for production)"
+                                        schema:
+                                          type: boolean
+                                          default: false
   - variable: secretEnv
     group: "App Configuration"
     label: "Image Secrets"
@@ -86,6 +86,7 @@ questions:
             type: string
             default: ""
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

@@ -1,9 +1,6 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.common.loader.init" . }}
 
-{{/* Render secret for etesync */}}
-{{- include "etesync.secret" . }}
-
 {{/* Render secrets for etesync */}}
 {{- $secrets := include "etesync.secret" . | fromYaml -}}
 {{- if $secrets -}}
