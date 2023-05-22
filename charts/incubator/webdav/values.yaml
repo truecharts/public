@@ -2,6 +2,12 @@ image:
   repository: httpd
   pullPolicy: IfNotPresent
   tag: "2.4.57"
+  
+service:
+  main:
+   ports:
+     main:
+       port: 8080
 
 persistence:
   httpd-conf:
