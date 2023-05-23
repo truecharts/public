@@ -143,7 +143,9 @@ workload:
           enabled: true
           imageSelector: image
           type: init
-          command: ["/bin/bash", "-c"]
+          command:
+            - /bin/bash
+            - -c
           args:
             - |-
               copy_config () {
