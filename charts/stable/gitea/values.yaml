@@ -100,7 +100,8 @@ workload:
           enabled: true
           imageSelector: image
           type: init
-          command: ["/usr/sbin/init_directory_structure.sh"]
+          command:
+            - "/usr/sbin/init_directory_structure.sh"
           securityContext:
             runAsUser: 0
             runAsNonRoot: false
@@ -111,7 +112,8 @@ workload:
           enabled: true
           imageSelector: image
           type: init
-          command: ["/usr/sbin/configure_gitea.sh"]
+          command:
+            - "/usr/sbin/configure_gitea.sh"
           envFrom:
             - configMapRef:
                 name: gitea-env

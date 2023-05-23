@@ -41,7 +41,9 @@ workload:
             ZIGBEE2MQTT_CONFIG_SERIAL_PORT: "{{ .Values.workload.main.podSpec.containers.main.env.ZIGBEE2MQTT_CONFIG_SERIAL_PORT }}"
             ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER: "{{ .Values.workload.main.podSpec.containers.main.env.ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER }}"
             USE_CUSTOM_CONFIG_FILE: "{{ .Values.workload.main.podSpec.containers.main.env.USE_CUSTOM_CONFIG_FILE }}"
-          command: ["/bin/sh", "-c"]
+          command:
+            - /bin/sh
+            - -c"
           args:
             - >
               if [ -f /data/configuration.yaml ] || [ ${USE_CUSTOM_CONFIG_FILE} == true ]; then
