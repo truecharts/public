@@ -10,8 +10,10 @@ workload:
     podSpec:
       containers:
         main:
-          command: ["authelia"]
-          args: ["--config=/configuration.yaml"]
+          command:
+            - authelia
+          args:
+            - --config=/configuration.yaml
           envFrom:
             - configMapRef:
                 name: authelia-paths
