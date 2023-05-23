@@ -39,7 +39,8 @@ workload:
               type: tcp
             startup:
               type: tcp
-          args: ["serve"]
+          args:
+            - "serve"
           env:
             NTFY_LISTEN_HTTP: ":{{ .Values.service.main.ports.main.port }}"
             # User Defined

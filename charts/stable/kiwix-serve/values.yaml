@@ -29,4 +29,5 @@ workload:
           env:
             DOWNLOAD: http://download.kiwix.org/zim/wikipedia_en_chemistry_nopic.zim
             PORT: "{{ .Values.service.main.ports.main.port }}"
-          args: ["*.zim"]
+          args:
+            - "*.zim"

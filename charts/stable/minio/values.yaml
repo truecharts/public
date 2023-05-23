@@ -49,14 +49,12 @@ workload:
                   path: "/minio/health/ready"
                   port: 10106
           args:
-            [
-              "server",
-              "/data",
-              "--address",
-              ":10106",
-              "--console-address",
-              ":10107",
-            ]
+            - "server"
+            - "/data"
+            - "--address"
+            - ":10106"
+            - "--console-address"
+            - ":10107"
           env:
             MINIO_ROOT_USER: "minio"
             MINIO_BROWSER_REDIRECT_URL: ""

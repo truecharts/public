@@ -36,11 +36,13 @@ workload:
               secretKeyRef:
                 name: secrets
                 key: SECRET_KEY
-          command: ["sh", "-c"]
+          command:
+            - sh
+            - -c
           args:
             - |
-              keyfile="/data/production_secret_key.txt"; if [ ! -f ${keyfile} ]; then
-
+              keyfile="/data/production_secret_key.txt";
+              if [ ! -f ${keyfile} ]; then
                 echo "No ${keyfile} File...";
                 echo "Creating ${keyfile} file...";
                 echo "${SECRET_KEY}" > ${keyfile};
@@ -51,7 +53,6 @@ workload:
                   echo "Failed.";
                 fi;
               else
-
                 echo "${keyfile} File exists. Skipping...";
               fi;
       containers:
