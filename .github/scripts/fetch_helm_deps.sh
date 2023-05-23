@@ -19,6 +19,7 @@ trains=(
     "stable"
     "incubator"
     "dependency"
+    "operators"
 )
 
 load_gpg_key() {
