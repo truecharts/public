@@ -24,6 +24,6 @@ cat .env
 
 copy the contents of the output after **APP_KEY=**.
 
-edit the app again and add the contents to  App Key in the web gui for servas.
+edit the app again and add the contents to App Key in the web gui for servas.
 
 restart the app and access it here to create a account -> <http://truenas.local:11080/register>.
