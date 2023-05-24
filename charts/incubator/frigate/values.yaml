@@ -4,12 +4,11 @@ image:
   tag: 0.11.1@sha256:8dd7273eebf396563d7bbc14778fd3d58c624e5063ffcf74b5b0afe63e7cdd7f
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
 # -- The "render_config" key is only used internally to "render" or not the configuration
 # - Some parts of the config bellow are slightly modified so they can be added on SCALE UI. Mainly lists.
@@ -448,7 +447,7 @@ service:
     ports:
       main:
         port: 10500
-        protocol: HTTP
+        protocol: http
         targetPort: 5000
   rtmp:
     enabled: true
@@ -481,10 +480,11 @@ persistence:
     enabled: true
     mountPath: /config
     type: configMap
-    objectName: '{{ template "tc.common.names.fullname" . }}-frigate-config'
+    objectName: '{{ template "tc.v1.common.names.fullname" . }}-frigate-config'
     items:
       - key: config.yml
         path: config.yml
 
 portal:
-  enabled: true
+  open:
+    enabled: true
