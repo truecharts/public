@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/traefik
-  tag: 2.9.10@sha256:53a8cc0ea5d6fb681aa1e39864fbf0d1ecec8fab3547df4a59f68989bdf10925
+  tag: 2.10.1@sha256:b654073e7f5645b74e9d63369f6df473203b8d32d26adc8bfb76a3c5eeb4cb64
   pullPolicy: IfNotPresent
 manifestManager:
   enabled: true
@@ -291,8 +291,8 @@ rbac:
         verbs:
           - update
       - apiGroups:
-          - traefik.io
           - traefik.containo.us
+          - traefik.io
         resources:
           - middlewares
           - middlewaretcps
@@ -414,5 +414,3 @@ portal:
   open:
     enabled: true
     path: /dashboard/
-    override:
-      protocol: http

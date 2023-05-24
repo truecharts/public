@@ -1,34 +1,31 @@
 {{- $values := .Values }}
-{{- $namespace := ( printf "ix-%s" .Release.Name ) }}
-{{- if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}
-{{- $namespace = "default" }}
-{{- end }}
+
 ---
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: compress
-  namespace: {{ $namespace }}
+  name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}compress
+  namespace: tc-system
 spec:
   compress: {}
 ---
 # Here, an average of 300 requests per second is allowed.
 # In addition, a burst of 200 requests is allowed.
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: basic-ratelimit
-  namespace: {{ $namespace }}
+  name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}basic-ratelimit
+  namespace: tc-system
 spec:
   rateLimit:
     average: 600
     burst: 400
 ---
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: basic-secure-headers
-  namespace: {{ $namespace }}
+  name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}basic-secure-headers
+  namespace: tc-system
 spec:
   headers:
     accessControlAllowMethods:
@@ -49,14 +46,14 @@ spec:
     customResponseHeaders:
       server: ''
 ---
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: chain-basic
-  namespace: {{ $namespace }}
+  name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}chain-basic
+  namespace: tc-system
 spec:
   chain:
     middlewares:
-    - name: basic-ratelimit
-    - name: basic-secure-headers
-    - name: compress
+    - name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}basic-ratelimit
+    - name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}basic-secure-headers
+    - name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}compress
