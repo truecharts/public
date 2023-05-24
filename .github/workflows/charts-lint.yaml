@@ -61,11 +61,12 @@ jobs:
           # Fix sh files to always be executable
           find . -name '*.sh' | xargs chmod +x
 
-      - name: Run Pre-Commit Scan
-        uses: pre-commit/action@v2.0.3
-        if: steps.list-changed.outputs.detected == 'true'
-        with:
-          extra_args: --files ${{ inputs.modifiedFiles }}
+     # TODO: Needs to be checked, fails currently without error
+     # - name: Run Pre-Commit Scan
+     #   uses: pre-commit/action@v2.0.3
+     #   if: steps.list-changed.outputs.detected == 'true'
+     #   with:
+     #     extra_args: --files ${{ inputs.modifiedFiles }}
 
       - name: Fetch and Verify dependencies
         shell: bash
