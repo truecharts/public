@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "0.3.3"
+appVersion: "0.3.4"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -21,7 +21,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/k8s-gateway
   - https://github.com/ori-edge/k8s_gateway
 type: application
-version: 8.0.10
+version: 8.0.11
 annotations:
   truecharts.org/catagories: |
     - networking
