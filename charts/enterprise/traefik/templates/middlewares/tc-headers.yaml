@@ -4,7 +4,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}tc-opencors-headers
+  name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}tc-opencors-headers
   namespace: tc-system
 spec:
   headers:
@@ -34,7 +34,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}tc-closedcors-headers
+  name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}tc-closedcors-headers
   namespace: tc-system
 spec:
   headers:

@@ -5,7 +5,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ $middlewareData.name }}
+  name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ $middlewareData.name }}
   namespace: tc-system
 spec:
   forwardAuth:

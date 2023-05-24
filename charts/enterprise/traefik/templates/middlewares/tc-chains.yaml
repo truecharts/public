@@ -4,14 +4,14 @@
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}tc-opencors-chain
+  name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}tc-opencors-chain
   namespace: tc-system
 spec:
   chain:
     middlewares:
-    - name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}basic-ratelimit
-    - name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}tc-opencors-headers
-    - name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}compress
+    - name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}basic-ratelimit
+    - name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}tc-opencors-headers
+    - name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}compress
 ---
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
@@ -21,6 +21,6 @@ metadata:
 spec:
   chain:
     middlewares:
-    - name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}basic-ratelimit
-    - name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}tc-closedcors-headers
-    - name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}compress
+    - name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}basic-ratelimit
+    - name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}tc-closedcors-headers
+    - name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}compress

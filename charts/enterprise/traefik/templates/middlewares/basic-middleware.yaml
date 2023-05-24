@@ -4,7 +4,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}compress
+  name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}compress
   namespace: tc-system
 spec:
   compress: {}
@@ -14,7 +14,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}basic-ratelimit
+  name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}basic-ratelimit
   namespace: tc-system
 spec:
   rateLimit:
@@ -24,7 +24,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}basic-secure-headers
+  name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}basic-secure-headers
   namespace: tc-system
 spec:
   headers:
@@ -49,11 +49,11 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}chain-basic
+  name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}chain-basic
   namespace: tc-system
 spec:
   chain:
     middlewares:
-    - name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}basic-ratelimit
-    - name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}basic-secure-headers
-    - name: {{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if .Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}compress
+    - name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}basic-ratelimit
+    - name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}basic-secure-headers
+    - name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}compress

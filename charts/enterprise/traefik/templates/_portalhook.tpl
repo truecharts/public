@@ -6,7 +6,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: portalhook{{ if .Values.ingressClass.enabled }}-{{ .Release.Name }}{{ end }}
+  name: portalhook{{ if $.Values.ingressClass.enabled }}-{{ .Release.Name }}{{ end }}
   namespace: tc-system
 data:
   {{- $ports := dict }}
