@@ -20,17 +20,10 @@ command:
   - /usr/local/bin/containerboot
 
 securityContext:
-{{- if $.Values.addons.vpn.tailscale.userspace }}
-  runAsUser: 1000
-  runAsGroup: 1000
-  runAsNonRoot: true
-  readOnlyRootFilesystem: true
-{{- else }}
-  runAsUser: 0
   runAsGroup: 0
+  runAsUser: 0
   runAsNonRoot: false
-  readOnlyRootFilesystem: false
-{{- end }}
+  readOnlyRootFilesystem: true
   capabilities:
     add:
       - NET_ADMIN
@@ -69,7 +62,7 @@ env:
   TS_TAILSCALED_EXTRA_ARGS: {{ . | quote }}
   {{- end -}}
   {{- with $.Values.addons.vpn.tailscale.authkey }}
-  TS_AUTH_KEY: {{ . | b64enc }}
+  TS_AUTH_KEY: {{ . }}
   {{- end }}
 
 {{- range $envList := $.Values.addons.vpn.envList -}}

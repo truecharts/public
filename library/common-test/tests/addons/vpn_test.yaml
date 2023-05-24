@@ -496,6 +496,12 @@ tests:
             name: TS_ACCEPT_DNS
             value: "false"
       - documentIndex: *DeploymentDocument
+        contains:
+          path: spec.template.spec.containers[1].env
+          content:
+            name: TS_AUTH_KEY
+            value: something
+      - documentIndex: *DeploymentDocument
         notContains:
           path: spec.template.spec.containers[0].env
           content:
