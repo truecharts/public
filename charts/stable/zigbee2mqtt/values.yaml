@@ -43,7 +43,7 @@ workload:
             USE_CUSTOM_CONFIG_FILE: "{{ .Values.workload.main.podSpec.containers.main.env.USE_CUSTOM_CONFIG_FILE }}"
           command:
             - /bin/sh
-            - -c"
+            - -c
           args:
             - >
               if [ -f /data/configuration.yaml ] || [ ${USE_CUSTOM_CONFIG_FILE} == true ]; then
