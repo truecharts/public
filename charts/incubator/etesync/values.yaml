@@ -21,6 +21,13 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
           env:
             PORT: "{{ .Values.service.main.ports.main.port }}"
             # App
