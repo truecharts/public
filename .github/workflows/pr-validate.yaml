@@ -11,15 +11,6 @@ jobs:
   pr-metadata:
     uses: ./.github/workflows/pr-metadata.yaml
 
-  #charts-changelog:
-  #  uses: ./.github/workflows/charts-changelog.yaml
-  #  needs:
-  #    - pr-metadata
-  #    - pre-commit-check
-  #  with:
-  #    isRenovatePR: ${{ needs.pr-metadata.outputs.isRenovatePR }}
-  #    modifiedCharts: ${{ needs.pr-metadata.outputs.addedOrModifiedCharts }}
-
   charts-lint:
     uses: ./.github/workflows/charts-lint.yaml
     needs:
