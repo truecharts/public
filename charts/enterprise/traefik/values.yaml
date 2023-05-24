@@ -2,7 +2,8 @@ image:
   repository: tccr.io/truecharts/traefik
   tag: 2.9.10@sha256:53a8cc0ea5d6fb681aa1e39864fbf0d1ecec8fab3547df4a59f68989bdf10925
   pullPolicy: IfNotPresent
-
+manifestManager:
+  enabled: true
 workload:
   main:
     replicas: 2
