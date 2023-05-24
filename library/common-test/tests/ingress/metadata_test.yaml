@@ -30,7 +30,7 @@ tests:
           path: metadata.annotations
           value:
             traefik.ingress.kubernetes.io/router.entrypoints: websecure
-            traefik.ingress.kubernetes.io/router.middlewares: default-chain-basic@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: tc-system-chain-basic@kubernetescrd
 
       - documentIndex: *ingressDocument
         equal:
@@ -76,7 +76,7 @@ tests:
           value:
             test_annotation: test
             traefik.ingress.kubernetes.io/router.entrypoints: websecure
-            traefik.ingress.kubernetes.io/router.middlewares: default-chain-basic@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: tc-system-chain-basic@kubernetescrd
       - documentIndex: *ingressDocument
         equal:
           path: metadata.labels

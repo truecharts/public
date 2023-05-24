@@ -16,6 +16,7 @@ imagePullSecrets:
   {{- end }}
 hostNetwork: {{ include "tc.v1.common.lib.pod.hostNetwork" (dict "rootCtx" $rootCtx "objectData" $objectData) }}
 hostPID: {{ include "tc.v1.common.lib.pod.hostPID" (dict "rootCtx" $rootCtx "objectData" $objectData) }}
+shareProcessNamespace: {{ include "tc.v1.common.lib.pod.shareProcessNamespace" (dict "rootCtx" $rootCtx "objectData" $objectData) }}
 enableServiceLinks: {{ include "tc.v1.common.lib.pod.enableServiceLinks" (dict "rootCtx" $rootCtx "objectData" $objectData) }}
 restartPolicy: {{ include "tc.v1.common.lib.pod.restartPolicy" (dict "rootCtx" $rootCtx "objectData" $objectData) }}
   {{- with (include "tc.v1.common.lib.pod.schedulerName" (dict "rootCtx" $rootCtx "objectData" $objectData)) }}
