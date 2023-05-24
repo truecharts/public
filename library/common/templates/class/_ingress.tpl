@@ -29,9 +29,9 @@ within the common library.
   {{- end -}}
   {{- $defaultServicePort := get $primaryService.ports (include "tc.v1.common.lib.util.service.ports.primary" (dict "svcValues" $primaryService "svcName" $primarySeriviceName )) -}}
 
-  {{- $mddwrNamespace := "default" -}}
+  {{- $mddwrNamespace := "tc-system" -}}
   {{- if $values.ingressClassName -}}
-    {{- $mddwrNamespace = ( printf "ix-%s" $values.ingressClassName ) -}}
+    {{- $mddwrNamespace = ( printf "tc-system-%s" $values.ingressClassName ) -}}
   {{- end -}}
 
   {{- $fixedMiddlewares := "" -}}
