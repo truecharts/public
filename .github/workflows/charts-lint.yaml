@@ -9,6 +9,9 @@ on:
       chartChangesDetected:
         required: true
         type: string
+      modifiedFiles:
+        required: true
+        type: string
 
 jobs:
   lint-and-verify:
@@ -48,6 +51,12 @@ jobs:
           if [[ $(echo ${OUTPUT_JSON} | jq --compact-output '. | length') -gt 0 ]]; then
             echo "detected=true" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Run against changes
+        uses: pre-commit/action@v2.0.3
+        if: steps.list-changed.outputs.detected == 'true'
+        with:
+          extra_args: --files ${{ inputs.modifiedFiles }}
 
       - name: Fetch and Verify dependencies
         shell: bash
