@@ -51,8 +51,17 @@ jobs:
           if [[ $(echo ${OUTPUT_JSON} | jq --compact-output '. | length') -gt 0 ]]; then
             echo "detected=true" >> "$GITHUB_OUTPUT"
           fi
+          
+      - name: Fix Fixable Pre-Commit issues
+        shell: bash
+        if: inputs.chartChangesDetected == 'true'
+        run: |
+          echo "Running pre-commit test-and-cleanup..."
+          pre-commit run --all ||:
+          # Fix sh files to always be executable
+          find . -name '*.sh' | xargs chmod +x
 
-      - name: Run against changes
+      - name: Run Pre-Commit Scan
         uses: pre-commit/action@v2.0.3
         if: steps.list-changed.outputs.detected == 'true'
         with:
