@@ -15,16 +15,15 @@ jobs:
     uses: ./.github/workflows/charts-lint.yaml
     needs:
       - pr-metadata
-    #  - charts-changelog
     with:
       checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
       chartChangesDetected: ${{ needs.pr-metadata.outputs.addedOrModified }}
+      modifiedFiles: ${{ needs.pr-metadata.outputs.addedOrModifiedFiles }}
 
   charts-test:
     uses: ./.github/workflows/charts-test.yaml
     needs:
       - pr-metadata
-      #  - charts-changelog
       - charts-lint
     with:
       checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
