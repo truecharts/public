@@ -52,7 +52,7 @@ jobs:
             echo "detected=true" >> "$GITHUB_OUTPUT"
           fi
           
-      - name: Fix Fixable Pre-Commit issues
+      - name: Test and Fix Pre-Commit Issues
         shell: bash
         if: inputs.chartChangesDetected == 'true'
         run: |
@@ -60,13 +60,7 @@ jobs:
           pre-commit run --all ||:
           # Fix sh files to always be executable
           find . -name '*.sh' | xargs chmod +x
-
-     # TODO: Needs to be checked, fails currently without error
-     # - name: Run Pre-Commit Scan
-     #   uses: pre-commit/action@v2.0.3
-     #   if: steps.list-changed.outputs.detected == 'true'
-     #   with:
-     #     extra_args: --files ${{ inputs.modifiedFiles }}
+          pre-commit run --all
 
       - name: Fetch and Verify dependencies
         shell: bash
