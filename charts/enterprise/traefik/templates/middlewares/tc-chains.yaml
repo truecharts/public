@@ -16,7 +16,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: tc-closedcors-chain
+  name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}tc-closedcors-chain
   namespace: tc-system
 spec:
   chain:
