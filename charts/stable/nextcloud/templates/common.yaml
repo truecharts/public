@@ -7,9 +7,15 @@
   {{- $_ := mustMergeOverwrite .Values.configmap $configmaps -}}
 {{- end -}}
 
+{{/* Disable things if needed */}}
 {{- if not .Values.nextcloud.notify_push.enabled -}}
   {{- $_ := set .Values.workload.notify "enabled" false -}}
   {{- $_ := set .Values.service.notify "enabled" false -}}
+{{- end -}}
+
+{{- if not .Values.nextcloud.clamav.enabled -}}
+  {{- $_ := set .Values.workload.clamav "enabled" false -}}
+  {{- $_ := set .Values.service.clamav "enabled" false -}}
 {{- end -}}
 
 {{- if or (not .Values.nextcloud.previews.imaginary) (not .Values.nextcloud.previews.enabled) -}}

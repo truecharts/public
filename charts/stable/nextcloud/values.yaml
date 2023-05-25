@@ -77,8 +77,7 @@ nextcloud:
     log_date_format: d/m/Y H:i:s
   # ClamAV settings
   clamav:
-    # TODO: Enable
-    enabled: false
+    enabled: true
     stream_max_length: 26214400
     file_max_size: -1
     infected_action: only_log
@@ -229,6 +228,33 @@ workload:
               enabled: true
               path: /health
               port: "{{ .Values.service.imaginary.ports.imaginary.port }}"
+  clamav:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 2
+    podSpec:
+      containers:
+        clamav:
+          primary: true
+          enabled: true
+          imageSelector: clamavImage
+          envFrom:
+            - configMapRef:
+                name: clamav-config
+          probes:
+            readiness:
+              enabled: true
+              type: exec
+              command: clamdcheck.sh
+            liveness:
+              enabled: true
+              type: exec
+              command: clamdcheck.sh
+            startup:
+              enabled: true
+              type: exec
+              command: clamdcheck.sh
 
 # cronjobs:
 #   - name: nextcloud-cron
@@ -273,6 +299,15 @@ service:
         enabled: true
         port: 9090
         targetSelector: imaginary
+  clamav:
+    enabled: true
+    targetSelector: clamav
+    ports:
+      clamav:
+        enabled: true
+        port: 3310
+        targetPort: 3310
+        targetSelector: clamav
 
 # hostAliases:
 #   - ip: '{{ .Values.workload.main.podSpec.containers.main.env.AccessIP | default "127.0.0.1" }}'

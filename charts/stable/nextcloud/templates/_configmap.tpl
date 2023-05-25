@@ -46,6 +46,14 @@ hpb-config:
     NEXTCLOUD_URL: {{ printf "%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}
     METRICS_PORT: {{ .Values.service.notify.ports.metrics.port | quote }}
 
+clamav-config:
+  enabled: {{ .Values.nextcloud.clamav.enabled }}
+  data:
+    CLAMAV_NO_CLAMD: "false"
+    CLAMAV_NO_FRESHCLAMD: "true"
+    CLAMAV_NO_MILTERD: "true"
+    CLAMD_STARTUP_TIMEOUT: 1800
+
 nextcloud-config:
   enabled: true
   data:
@@ -116,11 +124,13 @@ nextcloud-config:
 
     {{/* ClamAV */}}
     NX_CLAMAV: {{ .Values.nextcloud.clamav.enabled | quote }}
-    NX_CLAMAV_HOST:  # TODO: Update to svc name
-    NX_CLAMAV_PORT: # TODO: Update to svc port
+    {{- if .Values.nextcloud.clamav.enabled }}
+    NX_CLAMAV_HOST: {{ printf "http://%v-clamav" (include "tc.v1.common.lib.chart.names.fullname" $) }}
+    NX_CLAMAV_PORT: {{ .Values.service.clamav.ports.clamav.targetPort | quote }}
     NX_CLAMAV_STREAM_MAX_LENGTH: {{ .Values.nextcloud.clamav.stream_max_length | quote }}
     NX_CLAMAV_FILE_MAX_SIZE: {{ .Values.nextcloud.clamav.file_max_size | quote }}
     NX_CLAMAV_INFECTED_ACTION: {{ .Values.nextcloud.clamav.infected_action | quote }}
+    {{- end }}
 
     {{/* Collabora */}}
     NX_COLLABORA: {{ .Values.nextcloud.collabora.enabled | quote }}
