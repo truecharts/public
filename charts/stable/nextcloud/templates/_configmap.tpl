@@ -52,7 +52,7 @@ clamav-config:
     CLAMAV_NO_CLAMD: "false"
     CLAMAV_NO_FRESHCLAMD: "true"
     CLAMAV_NO_MILTERD: "true"
-    CLAMD_STARTUP_TIMEOUT: 1800
+    CLAMD_STARTUP_TIMEOUT: "1800"
 
 nextcloud-config:
   enabled: true
