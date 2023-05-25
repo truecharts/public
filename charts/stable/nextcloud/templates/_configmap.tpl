@@ -1,6 +1,7 @@
 {{/* Define the configmap */}}
 {{- define "nextcloud.configmaps" -}}
 
+{{/* TODO: */}}
 {{- $hosts := "" -}}
 {{- if .Values.ingress.main.enabled -}}
   {{- range .Values.ingress -}}
@@ -19,6 +20,7 @@
   {{- $aliasgroup1 = (  printf "https://%s" .host ) -}}
   {{- end -}}
 {{- end }}
+
 php-tune:
   enabled: true
   data:
@@ -129,7 +131,7 @@ nextcloud-config:
     # TODO: Verify what is needed
     NX_TRUSTED_DOMAINS: |
       127.0.0.1
-      {{ $hosts }}
+      {{ $hosts | default "TODO:fix" }}
       kube.internal.healthcheck
       {{ printf "%s-nextcloud" .Release.Name }}
       {{ printf "%v-nextcloud-backend" .Release.Name }}
@@ -148,7 +150,6 @@ nginx-config:
   data:
     nginx.conf: |
       worker_processes auto;
-
       error_log  /var/log/nginx/error.log warn;
 
       # Set to /tmp so it can run as non-root
@@ -157,7 +158,6 @@ nginx-config:
       events {
           worker_connections  1024;
       }
-
       http {
           # Set to /tmp so it can run as non-root
           client_body_temp_path /tmp/nginx/client_temp;
@@ -183,7 +183,6 @@ nginx-config:
           server_tokens   off;
 
           keepalive_timeout  65;
-
           #gzip  on;
 
           upstream php-handler {
@@ -339,7 +338,7 @@ nginx-config:
               }
           }
       }
-
+# TODO:
 collabora-config:
   enabled: true
   data:

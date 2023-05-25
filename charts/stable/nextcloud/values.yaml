@@ -25,7 +25,8 @@ nextcloud:
   # Often the service or nodePort IP
   # Defaults to the main serviceName for CI purposes.
   # Also TODO:: put it on a category and adjust configmap
-  AccessIP:  # TODO:
+  # TODO:
+  AccessIP:
   # PHP settings
   php:
     memory_limit: 1G
@@ -50,7 +51,8 @@ nextcloud:
   # Previews settings
   previews:
     enabled: true
-    imaginary: false # TODO: Enable
+    # TODO: Enable
+    imaginary: false
     providers:
       - PNG
       - JPEG
@@ -75,16 +77,19 @@ nextcloud:
     log_date_format: d/m/Y H:i:s
   # ClamAV settings
   clamav:
-    enabled: false # TODO: Enable
+    # TODO: Enable
+    enabled: false
     stream_max_length: 26214400
     file_max_size: -1
     infected_action: only_log
   # Collabora settings
   collabora:
-    enabled: false # TODO: Enable
+    # TODO: Enable
+    enabled: false
   # Notify Push settings
   notify_push:
-    enabled: false # TODO: Enable
+    # Don't disable this
+    enabled: true
 
 workload:
   # Nextcloud php-fpm
