@@ -1,7 +1,7 @@
 {{/* Define the configmap */}}
 {{- define "nextcloud.configmaps" -}}
 
-{{/* TODO: */}}
+{{/* TODO: check how to generate the ingress url or fallback to .. ? */}}
 {{- $hosts := "" -}}
 {{- if .Values.ingress.main.enabled -}}
   {{- range .Values.ingress -}}
