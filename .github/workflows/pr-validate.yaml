@@ -8,35 +8,46 @@ concurrency:
   # cancel-in-progress: true
 
 jobs:
-  pr-metadata:
-    uses: ./.github/workflows/pr-metadata.yaml
+  pr-changes:
+    name: Collect PR changes
+    runs-on: ubuntu-latest
+    outputs:
+      addedOrModified: ${{ steps.collect-changes.outputs.changesDetected }}
+      addedOrModifiedFiles: ${{ steps.collect-changes.outputs.addedOrModifiedFiles }}
+      addedOrModifiedCharts: ${{ steps.collect-changes.outputs.addedOrModifiedCharts }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+
+      - name: Collect changes
+        id: collect-changes
+        uses: ./.github/actions/collect-changes
 
   charts-lint:
     uses: ./.github/workflows/charts-lint.yaml
     needs:
-      - pr-metadata
+      - pr-changes
     with:
       checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
-      chartChangesDetected: ${{ needs.pr-metadata.outputs.addedOrModified }}
+      chartChangesDetected: ${{ needs.pr-changes.outputs.addedOrModified }}
       modifiedFiles: ${{ needs.pr-metadata.outputs.addedOrModifiedFiles }}
 
   charts-test:
     uses: ./.github/workflows/charts-test.yaml
     needs:
-      - pr-metadata
+      - pr-changes
       - charts-lint
     with:
       checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
-      chartChangesDetected: ${{ needs.pr-metadata.outputs.addedOrModified }}
+      chartChangesDetected: ${{ needs.pr-changes.outputs.addedOrModified }}
 
   catalog-test:
     uses: ./.github/workflows/catalog-test.yaml
     needs:
-      - pr-metadata
-    #  - charts-changelog
+      - pr-changes
     with:
       checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
-      chartChangesDetected: ${{ needs.pr-metadata.outputs.addedOrModified }}
+      chartChangesDetected: ${{ needs.pr-changes.outputs.addedOrModified }}
 
   print_head_msg:
     name: print commit message
@@ -56,7 +67,7 @@ jobs:
 
   automerge-and-approve:
     needs:
-      - pr-metadata
+      - pr-changes
       - catalog-test
       - charts-test
       - charts-lint
