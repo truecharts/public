@@ -1,18 +1,10 @@
 {{/* EteSync superuser credentials and Django SECRET_KEY */}}
 {{- define "etesync.secret" -}}
----
-{{- $secretName := "etesync-secret" }}
-apiVersion: v1
-kind: Secret
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+enabled: true
 data:
-  {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
-  secret.txt: {{ index .data "secret.txt" }}
+  {{- with (lookup "v1" "Secret" .Release.Namespace "etesync-secret") }}
+  secret.txt: {{ index .data "secret.txt" | b64dec }}
   {{- else }}
-  secret.txt: {{ randAlphaNum 32 | b64enc }}
+  secret.txt: {{ randAlphaNum 32 }}
   {{- end }}
-
-{{- end }}
+{{- end -}}

@@ -51,7 +51,7 @@ jobs:
           if [[ $(echo ${OUTPUT_JSON} | jq --compact-output '. | length') -gt 0 ]]; then
             echo "detected=true" >> "$GITHUB_OUTPUT"
           fi
-          
+
       - name: Test and Fix Pre-Commit Issues
         shell: bash
         if: inputs.chartChangesDetected == 'true'
@@ -92,6 +92,7 @@ jobs:
           filePath: /tmp/lint_result.txt
           comment_tag: lint_results
           mode: recreate
+          GITHUB_TOKEN: ${{ github.token }}
 
       - name: Lint Result
         if: steps.list-changed.outputs.detected == 'true'
