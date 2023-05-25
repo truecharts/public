@@ -444,7 +444,7 @@ persistence:
   frigate-config:
     enabled: true
     mountPath: /config
-    type: configMap
+    type: configmap
     objectName: '{{ template "tc.v1.common.names.fullname" . }}-frigate-config'
     items:
       - key: config.yml
