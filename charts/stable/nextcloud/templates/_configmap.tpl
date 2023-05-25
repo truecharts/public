@@ -203,7 +203,7 @@ nginx-config:
           #gzip  on;
 
           upstream php-handler {
-              server 127.0.0.1:9000;
+              server {{ include "tc.v1.common.lib.chart.names.fullname" $ }}:9000;
           }
 
           server {
