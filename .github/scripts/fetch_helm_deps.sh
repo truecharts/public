@@ -112,10 +112,12 @@ for idx in $(eval echo "{0..$length}"); do
 
             if [ -f "$cache_path/$repo_dir/$name-$version.tgz" ]; then
                 echo "✅ Dependency Downloaded!"
-                echo "Validating dependency signature..."
                 if [[ $train_chart != "incubator" ]]; then
+                  echo "Validating dependency signature..."
                   helm verify $cache_path/$repo_dir/$name-$version.tgz --keyring $gpg_dir/pubring.gpg || \
                   helm verify $cache_path/$repo_dir/$name-$version.tgz --keyring $gpg_dir/pubring.gpg || exit 1
+                else
+                  echo "Train $train_chart is Incubator skipping dependency signature verification..."
                 fi
             else
                 echo "❌ Failed to download dependency"
