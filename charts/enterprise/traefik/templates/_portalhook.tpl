@@ -6,7 +6,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: portalhook{{ if $.Values.ingressClass.enabled }}-{{ .Release.Name }}{{ end }}
+  name: {{ ternary "portalhook" (printf "portalhook-%v" .Release.Name ) $.Values.ingressClass.enabled }}
   namespace: tc-system
 data:
   {{- $ports := dict }}

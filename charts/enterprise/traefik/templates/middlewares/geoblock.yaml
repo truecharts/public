@@ -6,7 +6,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ $middlewareData.name }}
+  name: {{ ternary (printf "%v-%v" .Release.Name $middlewareData.name) $middlewareData.name $.Values.ingressClass.enabled }}
   namespace: tc-system
 spec:
   plugin:
