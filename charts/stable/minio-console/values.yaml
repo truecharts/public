@@ -29,4 +29,5 @@ workload:
             CONSOLE_MINIO_SERVER: ""
             CONSOLE_PBKDF_PASSPHRASE: "changeme"
             CONSOLE_PBKDF_SALT: "changeme"
-          args: ["server"]
+          args:
+            - "server"

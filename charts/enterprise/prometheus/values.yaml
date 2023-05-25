@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/prometheus
-  tag: v2.44.0@sha256:9d971b08b955f20a810f81a1d43b2a52d75903917cbaac27944bb0e30ef69a81
+  tag: v2.44.0@sha256:48aa3e3b18118bea2ffddc916517a400f483f68bf2cdc48c75ebb2c6e84543fa
 
 thanosImage:
   repository: tccr.io/truecharts/thanos
@@ -9,7 +9,8 @@ thanosImage:
 alertmanagerImage:
   repository: tccr.io/truecharts/alertmanager
   tag: 0.25.0@sha256:6b534671b83aa7fbd91d1b10bf0f1b29b948e4b300f8359a86043d0deba07207
-
+manifestManager:
+  enabled: true
 global:
   labels: {}
 workload:
@@ -972,7 +973,8 @@ alertmanager:
     global:
       resolve_timeout: 5m
     route:
-      group_by: ["job"]
+      group_by:
+        - job
       group_wait: 30s
       group_interval: 5m
       repeat_interval: 12h

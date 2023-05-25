@@ -31,7 +31,7 @@ jobs:
       - name: generate readme.md
         shell: bash
         run: |
-          for train in stable SCALE incubator games enterprise develop non-free deprecated dependency core; do
+          for train in stable operators SCALE incubator games enterprise develop non-free deprecated dependency core; do
             for chart in charts/${train}/*; do
               if [ -d "${chart}" ]; then
                 echo "Generating readme.md for ${train}/${chart}"
@@ -44,7 +44,7 @@ jobs:
       - name: generate HelmIgnore
         shell: bash
         run: |
-          for train in stable SCALE incubator games enterprise develop non-free deprecated dependency core; do
+          for train in stable operators SCALE incubator games enterprise develop non-free deprecated dependency core; do
             for chart in charts/${train}/*; do
               if [ -d "${chart}" ]; then
                 echo "Attempting to sync HelmIgnore file for: ${chartname}"
@@ -196,13 +196,22 @@ jobs:
           }
           export -f sync_tag
 
-          for train in enterprise stable incubator dependency; do
+          for train in enterprise stable operators incubator dependency; do
             echo "Correcting Chart.yaml for Train: ${train}..."
             for chart in $(ls "charts/${train}"); do
               echo "Correcting Chart.yaml for Chart: ${chart}..."
               sync_tag "charts/${train}/${chart}" "${chart}" "${train}"
             done
           done
+          
+      - name: Fix Fixable Pre-Commit issues
+        shell: bash
+        if: inputs.chartChangesDetected == 'true'
+        run: |
+          echo "Running pre-commit test-and-cleanup..."
+          pre-commit run --all ||:
+          # Fix sh files to always be executable
+          find . -name '*.sh' | xargs chmod +x
 
       - name: Cleanup
         run: |
@@ -325,7 +334,7 @@ jobs:
               sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/helm-security.md ||:
               sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/container-security.md ||:
               }
-          for train in enterprise stable incubator dependency; do
+          for train in enterprise stable operators incubator dependency; do
             echo "Processing Charts for Train: ${train}..."
             for chart in $(ls "charts/${train}"); do
               render "charts/${train}/${chart}" ${chart} ${train} || echo "rendering failed for ${chart}"
