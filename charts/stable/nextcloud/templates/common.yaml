@@ -6,6 +6,11 @@
 {{- if $configmaps -}}
   {{- $_ := mustMergeOverwrite .Values.configmap $configmaps -}}
 {{- end -}}
+
+{{- if not .Values.nextcloud.notify_push.enabled -}}
+  {{- $_ := set .Values.workload.notify "enabled" false -}}
+  {{- $_ := set .Values.service.notify "enabled" false -}}
+{{- end -}}
 {{/*
 {{- $cronjobs := include "nextcloud.cronjobs" . | fromYaml -}}
 {{- if $cronjobs -}}

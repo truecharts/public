@@ -41,7 +41,7 @@ redis-session:
        redis.session.lock_wait_time = 10000
 
 hpb-config:
-  enabled: true
+  enabled: {{ .Values.nextcloud.notify_push.enabled }}
   data:
     NEXTCLOUD_URL: {{ printf "%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}
     METRICS_PORT: {{ .Values.service.notify.ports.metrics.port | quote }}
@@ -68,8 +68,10 @@ nextcloud-config:
 
     {{/* Notify Push */}}
     NX_NOTIFY_PUSH: {{ .Values.nextcloud.notify_push.enabled | quote }}
+    {{- if .Values.nextcloud.notify_push.enabled }}
     # TODO: Verify if this generates the correct url
     NX_NOTIFY_PUSH_ENDPOINT: {{ .Values.chartContext.APPURL }}/push
+    {{- end }}
 
     {{/* Previews */}}
     NX_PREVIEWS: {{ .Values.nextcloud.previews.enabled | quote }}
@@ -92,8 +94,8 @@ nextcloud-config:
 
     {{/* Expirations */}}
     NX_ACTIVITY_EXPIRE_DAYS: {{ .Values.nextcloud.expirations.activity_expire_days | quote }}
-    NX_TRASH_RETENTION: {{ .Values.nextcloud.expirations.trash_retention | quote }}
-    NX_VERSIONS_RETENTION: {{ .Values.nextcloud.expirations.versions_retention | quote }}
+    NX_TRASH_RETENTION: {{ .Values.nextcloud.expirations.trash_retention_obligation | quote }}
+    NX_VERSIONS_RETENTION: {{ .Values.nextcloud.expirations.versions_retention_obligation | quote }}
 
     {{/* General */}}
     NX_RUN_OPTIMIZE: {{ .Values.nextcloud.general.run_optimize | quote }}
@@ -101,12 +103,12 @@ nextcloud-config:
 
     {{/* Files */}}
     NX_SHARED_FOLDER_NAME: {{ .Values.nextcloud.files.shared_folder_name | quote }}
-    NX_MAX_CHUNKSIZE: {{ .Values.nextcloud.files.max_chunksize | quote }}
+    NX_MAX_CHUNKSIZE: {{ .Values.nextcloud.files.max_chunk_size | quote }}
 
     {{/* Logging */}}
     NX_LOG_LEVEL: {{ .Values.nextcloud.logging.log_level | quote }}
     NX_LOG_FILE: {{ .Values.nextcloud.logging.log_file | quote }}
-    NX_LOG_FILE_AUDIT: {{ .Values.nextcloud.logging.log_file_audit | quote }}
+    NX_LOG_FILE_AUDIT: {{ .Values.nextcloud.logging.log_audit_file | quote }}
     NX_LOG_DATE_FORMAT: {{ .Values.nextcloud.logging.log_date_format | quote }}
     NX_LOG_TIMEZONE: {{ .Values.TZ | quote }}
 
