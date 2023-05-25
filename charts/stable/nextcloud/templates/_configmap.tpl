@@ -134,9 +134,11 @@ nextcloud-config:
 
     {{/* Collabora */}}
     NX_COLLABORA: {{ .Values.nextcloud.collabora.enabled | quote }}
-    NX_COLLABORA_URL: # TODO: Update to ingress name
-    # Haven't managed to get this to work more strict
-    NX_COLLABORA_ALLOWLIST: 0.0.0.0/0
+    {{- if .Values.nextcloud.collabora.enabled }}
+    # TODO: Update to ingress name
+    NX_COLLABORA_URL:
+    NX_COLLABORA_ALLOWLIST: {{ join "," .Values.nextcloud.collabora.allow_list | quote }}
+    {{- end }}
 
     {{/* URLs TODO: */}}
     NX_OVERWRITE_HOST: {{ .Values.chartContext.APPURL | quote }}
@@ -159,6 +161,7 @@ nextcloud-config:
       {{ .Values.chartContext.podCIDR }}
       {{ .Values.chartContext.svcCIDR }}
 
+# TODO: Review nginx config?
 nginx-config:
   enabled: true
   data:

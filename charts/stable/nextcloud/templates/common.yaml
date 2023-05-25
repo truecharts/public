@@ -22,12 +22,12 @@
   {{- $_ := set .Values.workload.imaginary "enabled" false -}}
   {{- $_ := set .Values.service.imaginary "enabled" false -}}
 {{- end -}}
-{{/*
 {{- $cronjobs := include "nextcloud.cronjobs" . | fromYaml -}}
 {{- if $cronjobs -}}
   {{- $_ := mustMergeOverwrite .Values.workload $cronjobs -}}
 {{- end -}}
 
+{{/*
 {{- $newMiddlewares := mustAppend .Values.ingress.main.fixedMiddlewares "tc-nextcloud-chain" -}}
 {{- $_ := set .Values.ingress.main "fixedMiddlewares" $newMiddlewares -}}
 */}}

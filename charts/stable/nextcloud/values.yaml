@@ -52,6 +52,7 @@ nextcloud:
   previews:
     enabled: true
     imaginary: true
+    schedule: "*/5 * * * *"
     # Casings are important
     providers:
       - PNG
@@ -85,6 +86,8 @@ nextcloud:
   collabora:
     # TODO: Enable
     enabled: false
+    allow_list:
+      - 0.0.0.0/0
   # Notify Push settings
   notify_push:
     enabled: false
@@ -256,21 +259,22 @@ workload:
               type: exec
               command: clamdcheck.sh
 
-# cronjobs:
-#   - name: nextcloud-cron
-#     enabled: true
-#     schedule: "*/5 * * * *"
-#     cmd: |
-#       echo "Running Nextcloud CronJob..."
-#       php -f /var/www/html/cron.php
-#       echo "cronjob finished"
-#   - name: preview-cron
-#     enabled: "{{ .Values.previews.enabled }}"
-#     schedule: "{{ .Values.previews.schedule }}"
-#     cmd: |
-#       echo "Running Pre-Generate Previews..."
-#       occ preview:pre-generate
-#       echo "Previews generated."
+cronjobs:
+    # Don't change names, it's used in the persistence
+  - name: nextcloud-cron
+    enabled: true
+    schedule: "*/5 * * * *"
+    cmd:
+      - echo "Running [php -f /var/www/html/cron.php] ..."
+      - php -f /var/www/html/cron.php
+      - echo "Finished [php -f /var/www/html/cron.php]"
+  - name: preview-cron
+    enabled: "{{ .Values.nextcloud.previews.enabled }}"
+    schedule: "{{ .Values.nextcloud.previews.schedule }}"
+    cmd:
+      - echo "Running [occ preview:pre-generate] ..."
+      - occ preview:pre-generate
+      - echo "Finished [occ preview:pre-generate]"
 
 service:
   main:
@@ -352,6 +356,12 @@ persistence:
       main:
         main:
           mountPath: /var/www/html
+      nextcloud-cron:
+        nextcloud-cron:
+          mountPath: /var/www/html
+      preview-cron:
+        preview-cron:
+          mountPath: /var/www/html
       nginx:
         nginx:
           mountPath: /var/www/html
@@ -362,6 +372,12 @@ persistence:
       main:
         main:
           mountPath: /var/www/html/config
+      nextcloud-cron:
+        nextcloud-cron:
+          mountPath: /var/www/html
+      preview-cron:
+        preview-cron:
+          mountPath: /var/www/html
       notify:
         notify:
           mountPath: /var/www/html/config
@@ -376,6 +392,12 @@ persistence:
       main:
         main:
           mountPath: /var/www/html/data
+      nextcloud-cron:
+        nextcloud-cron:
+          mountPath: /var/www/html
+      preview-cron:
+        preview-cron:
+          mountPath: /var/www/html
       nginx:
         nginx:
           mountPath: /var/www/html/data

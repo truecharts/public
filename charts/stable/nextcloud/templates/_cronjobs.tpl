@@ -1,7 +1,8 @@
 {{- define "nextcloud.cronjobs" -}}
 {{- range $cj := .Values.cronjobs }}
-{{- $name := $cj.name | required "Nextcloud - Expected non-empty name in cronjob" -}}
-{{- $schedule := $cj.schedule | required "Nextcloud - Expected non-empty schedule in cronjob" }}
+  {{- $name := $cj.name | required "Nextcloud - Expected non-empty name in cronjob" -}}
+  {{- $schedule := $cj.schedule | required "Nextcloud - Expected non-empty schedule in cronjob" }}
+
 {{ $name }}:
   enabled: {{ $cj.enabled | quote }}
   type: CronJob
@@ -17,7 +18,11 @@
           - /bin/bash
           - -c
           - |
-            {{ $cj.cmd | required "Nextcloud - Expected non-empty cmd in cronjob" | nindent 12 }}
+            {{- range $cj.cmd }}
+              {{- . | nindent 12 }}
+            {{- else -}}
+              {{- fail "Nextcloud - Expected non-empty cmd in cronjob" -}}
+            {{- end }}
         probes:
           liveness:
             enabled: false
