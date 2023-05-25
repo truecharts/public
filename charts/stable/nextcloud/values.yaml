@@ -1,0 +1,392 @@
+# TODO: Update images
+image:
+  repository: ghcr.io/stavros-k/nextcloud-fpm
+  pullPolicy: IfNotPresent
+  tag: 26.0.1-fpm@sha256:d7a82669c24a660d9c4dcdf70a34ba54d30b77e2ac34957579ad44a662fed8e5
+nginxImage:
+  repository: nginxinc/nginx-unprivileged
+  pullPolicy: IfNotPresent
+  tag: 1.24.0@sha256:86bdcc5a0b2c8efba5147356de9e1562d1091eabe7603502ef6166716d0d315e
+imaginaryImage:
+  repository: ghcr.io/stavros-k/nextcloud-imaginary
+  pullPolicy: IfNotPresent
+  tag: 20230524@sha256:fa8cd4077ebfaf3e1fa74d0339fe450d8c66c811a8b7c65c28b32b2103795cc6
+hpbImage:
+  repository:  ghcr.io/stavros-k/nextcloud-notify_push
+  pullPolicy: IfNotPresent
+  tag: 0.6.3@sha256:4fd9a813f341f815f5675fd5a1947d06aab5a0d2e7b3e6d598920884a42db1ae
+clamavImage:
+  repository: clamav/clamav
+  pullPolicy: IfNotPresent
+  tag: 1.1.0@sha256:37501c13ada7a67bb28122dce328972acacbede8a5efd27c07da293461e84c77
+
+nextcloud:
+  # IP used for exposing nextcloud
+  # Often the service or nodePort IP
+  # Defaults to the main serviceName for CI purposes.
+  # Also TODO:: put it on a category and adjust configmap
+  AccessIP:  # TODO:
+  # PHP settings
+  php:
+    memory_limit: 1G
+    upload_limit: 10G
+    pm_max_children: 180
+    pm_start_servers: 18
+    pm_min_spare_servers: 12
+    pm_max_spare_servers: 30
+  # Initial Credentials
+  credentials:
+    initialAdminUser: admin
+    initialAdminPassword: adminpass
+  # General settings
+  general:
+    # Custom Nextcloud Scripts
+    run_optimize: true
+    default_phone_region: GR
+  # File settings
+  files:
+    shared_folder_name: Shared
+    max_chunk_size: 10485760
+  # Previews settings
+  previews:
+    enabled: true
+    imaginary: false # TODO: Enable
+    providers:
+      - PNG
+      - JPEG
+    max_x: 2048
+    max_y: 2048
+    max_memory: 1024
+    max_filesize_image: 50
+    jpeg_quality: 60
+    square_sizes: 32 256
+    width_sizes: 256 384
+    height_sizes: 256
+  # Expiration settings
+  expirations:
+    activity_expire_days: 90
+    trash_retention_obligation: auto
+    versions_retention_obligation: auto
+  # Logging settings
+  logging:
+    log_level: 2
+    log_file: /var/www/html/data/logs/nextcloud.log
+    log_audit_file: /var/www/html/data/logs/audit.log
+    log_date_format: d/m/Y H:i:s
+  # ClamAV settings
+  clamav:
+    enabled: false # TODO: Enable
+    stream_max_length: 26214400
+    file_max_size: -1
+    infected_action: only_log
+  # Collabora settings
+  collabora:
+    enabled: false # TODO: Enable
+  # Notify Push settings
+  notify_push:
+    enabled: false # TODO: Enable
+
+workload:
+  # Nextcloud php-fpm
+  main:
+    type: Deployment
+    podSpec:
+#       initContainers:
+#         prestart:
+#           enabled: true
+#           imageSelector: image
+#           # TODO: Maybe make it "install" and/or "upgrade"
+#           type: init
+#           securityContext:
+#             runAsUser: 0
+#             runAsGroup: 0
+#           command:
+#             - "/bin/sh"
+#             - "-c"
+#             - |
+#               /bin/sh <<'EOF'
+#               echo "Forcing permissions on userdata folder..."
+#               chmod 770 /var/www/html/data || echo "Failed to chmod..."
+#               EOF
+      containers:
+        main:
+          enabled: true
+          primary: true
+          probes:
+            liveness:
+              enabled: true
+              type: exec
+              command: /healthcheck.sh
+            readiness:
+              enabled: true
+              type: exec
+              command: /healthcheck.sh
+            startup:
+              enabled: true
+              type: exec
+              command: /healthcheck.sh
+          envFrom:
+            - configMapRef:
+                name: nextcloud-config
+  nginx:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        nginx:
+          enabled: true
+          primary: true
+          imageSelector: nginxImage
+          probes:
+            readiness:
+              enabled: true
+              path: /status.php
+              port: "{{ .Values.service.main.ports.main.port }}"
+              httpHeaders:
+                Host: kube.internal.healthcheck
+            liveness:
+              enabled: true
+              path: /status.php
+              port: "{{ .Values.service.main.ports.main.port }}"
+              httpHeaders:
+                Host: kube.internal.healthcheck
+            startup:
+              enabled: true
+              path: /status.php
+              port: "{{ .Values.service.main.ports.main.port }}"
+              httpHeaders:
+                Host: kube.internal.healthcheck
+#   hpb:
+#     enabled: true
+#     type: Deployment
+#     strategy: RollingUpdate
+#     replicas: 2
+#     podSpec:
+#       containers:
+#         hpb:
+#           primary: true
+#           enabled: true
+#           imageSelector: hpbImage
+#           # While it can be configured with envs instead of a config file
+#           # There is a bug in the current version of notify_push that prevents it from working
+#           # in certain situations. Also it picks the database prefix from the config file,
+#           # which is something that can change in the future from upstream.
+#           args:
+#             - /var/www/html/config/config.php
+#           env:
+#             # https://github.com/nextcloud/notify_push#configuration
+#             # This points to the nginx service internally
+#             NEXTCLOUD_URL: http://{{ printf "%s-nextcloud" .Release.Name }}:{{ $.Values.service.main.ports.main.port }}
+#             METRICS_PORT: 7868
+#           probes:
+#             readiness:
+#               enabled: true
+#               path: /push/test/cookie
+#               port: 7867
+#               httpHeaders:
+#                 Host: kube.internal.healthcheck
+#             liveness:
+#               enabled: true
+#               path: /push/test/cookie
+#               port: 7867
+#               httpHeaders:
+#                 Host: kube.internal.healthcheck
+#             startup:
+#               enabled: true
+#               path: /push/test/cookie
+#               port: 7867
+#               httpHeaders:
+#                 Host: kube.internal.healthcheck
+
+#   imaginary:
+#     enabled: "{{ .Values.previews.imaginary }}"
+#     type: Deployment
+#     strategy: RollingUpdate
+#     replicas: 2
+#     podSpec:
+#       containers:
+#         imaginary:
+#           primary: true
+#           enabled: true
+#           imageSelector: imaginaryImage
+#           command: imaginary
+#           args:
+#             - -concurrency
+#             - "10"
+#             - -enable-url-source
+#             - -return-size
+#           env:
+#             PORT: 9090
+#           probes:
+#             readiness:
+#               enabled: true
+#               path: /
+#               port: 9090
+#             liveness:
+#               enabled: true
+#               path: /
+#               port: 9090
+#             startup:
+#               enabled: true
+#               path: /
+#               port: 9090
+
+# cronjobs:
+#   - name: nextcloud-cron
+#     enabled: true
+#     schedule: "*/5 * * * *"
+#     cmd: |
+#       echo "Running Nextcloud CronJob..."
+#       php -f /var/www/html/cron.php
+#       echo "cronjob finished"
+#   - name: preview-cron
+#     enabled: "{{ .Values.previews.enabled }}"
+#     schedule: "{{ .Values.previews.schedule }}"
+#     cmd: |
+#       echo "Running Pre-Generate Previews..."
+#       occ preview:pre-generate
+#       echo "Previews generated."
+
+
+
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+#   hpb:
+#     enabled: true
+#     ports:
+#       hpb:
+#         enabled: true
+#         port: 7867
+#         targetPort: 7867
+#   backend:
+#     enabled: true
+#     ports:
+#       hpb-metrics:
+#         enabled: true
+#         port: 7868
+#         targetPort: 7868
+#       imaginary:
+#         enabled: true
+#         port: 9090
+#         targetPort: 9090
+
+# hostAliases:
+#   - ip: '{{ .Values.workload.main.podSpec.containers.main.env.AccessIP | default "127.0.0.1" }}'
+#     hostnames:
+#       - "{{ if .Values.ingress.main.enabled }}{{ with (first .Values.ingress.main.hosts) }}{{ .host }}{{ end }}{{ else }}placeholder.fakedomain.dns{{ end }}"
+
+persistence:
+  php-tune:
+    enabled: true
+    readOnly: true
+    type: configmap
+    objectName: php-tune
+    targetSelector:
+      main:
+        main:
+          mountPath: /usr/local/etc/php-fpm.d/zz-tune.conf
+          subPath: zz-tune.conf
+  redis-session:
+    enabled: true
+    readOnly: true
+    type: configmap
+    objectName: redis-session
+    targetSelector:
+      main:
+        main:
+          mountPath: /usr/local/etc/php/conf.d/redis-session.ini
+          subPath: redis-session.ini
+  nginx:
+    enabled: true
+    type: configmap
+    objectName: nginx-config
+    targetSelector:
+      nginx:
+        nginx:
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+          readOnly: true
+
+#   html:
+#     enabled: true
+#     mountPath: /var/www/html
+#     targetSelector:
+#       hpb:
+#         hpb: {}
+#       main:
+#         main: {}
+#         nginx: {}
+#         prestart: {}
+#       nc-cron:
+#         nc-cron: {}
+#       preview-cron:
+#         preview-cron: {}
+#       imaginary:
+#         imaginary: {}
+#   data:
+#     enabled: true
+#     mountPath: /var/www/html/data
+#     targetSelector:
+#       hpb:
+#         hpb: {}
+#       main:
+#         main: {}
+#         nginx: {}
+#         prestart: {}
+#       nc-cron:
+#         nc-cron: {}
+#       preview-cron:
+#         preview-cron: {}
+#       imaginary:
+#         imaginary: {}
+#   ## TODO: CHECK IF NEEDED
+#   #  varrun:
+#   #    enabled: true
+#   #    mountPath: "/var/run"
+#   #    targetSelector:
+#   #       cron:
+#   #         cron: {}
+#   #      main:
+#   #        hpb: {}
+#   #        main: {}
+
+#   ## TODO: CHECK IF NEEDED
+#   #  cache:
+#   #    enabled: true
+#   #    type: emptyDir
+#   #    mountPath: /var/cache/nginx
+#   #    medium: Memory
+#   #    targetSelector:
+#   #      main:
+#   #        nginx: {}
+
+
+
+# collabora:
+#   enabled: false
+#   env:
+#     aliasgroup1:
+#       configMapRef:
+#         name: nextcloudconfig
+#         key: aliasgroup1
+#     dictionaries: "de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru"
+#     extra_params: "--o:welcome.enable=false --o:logging.level=information --o:user_interface.mode=notebookbar --o:ssl.termination=true --o:ssl.enable=false "
+#     server_name: ""
+#     DONT_GEN_SSL_CERT: true
+
+cnpg:
+  main:
+    enabled: true
+    user: nextcloud
+    database: nextcloud
+
+redis:
+  enabled: true
+
+portal:
+  open:
+    enabled: true

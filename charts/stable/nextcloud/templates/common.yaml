@@ -1,0 +1,47 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . -}}
+
+{{/* Render configmaps for nextcloud */}}
+{{- $configmaps := include "nextcloud.configmaps" . | fromYaml -}}
+{{- if $configmaps -}}
+  {{- $_ := mustMergeOverwrite .Values.configmap $configmaps -}}
+{{- end -}}
+{{/*
+{{- $cronjobs := include "nextcloud.cronjobs" . | fromYaml -}}
+{{- if $cronjobs -}}
+  {{- $_ := mustMergeOverwrite .Values.workload $cronjobs -}}
+{{- end -}}
+
+{{- $newMiddlewares := mustAppend .Values.ingress.main.fixedMiddlewares "tc-nextcloud-chain" -}}
+{{- $_ := set .Values.ingress.main "fixedMiddlewares" $newMiddlewares -}}
+*/}}
+{{/* Define path for websocket
+{{- define "nextcloud.hpb.ingress" -}}
+{{- $fullname := include "tc.v1.common.lib.chart.names.fullname" . -}}
+path: "/push/"
+# -- Ignored if not kubeVersion >= 1.14-0
+pathType: Prefix
+service:
+  # -- Overrides the service name reference for this path
+  name: {{ printf "%s-hpb" $fullname }}
+  port: {{ .Values.service.hpb.ports.hpb.port }}
+{{- end -}}
+*/}}
+
+{{/* inject websocket path to all main ingress hosts
+{{- define "nextcloud.hpb.ingressInjector" -}}
+  {{- $path := list (include "nextcloud.hpb.ingress" . | fromYaml) -}}
+  {{- if .Values.ingress.main.enabled -}}
+    {{- range .Values.ingress.main.hosts -}}
+      {{- $newpaths := list -}}
+      {{- $newpaths := concat .paths $path -}}
+      {{- $_ := set . "paths" ( deepCopy $newpaths ) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+*/}}
+{{/* inject websocket paths in ingress
+{{- include "nextcloud.hpb.ingressInjector" . -}}
+*/}}
+{{/* Render the templates */}}
+{{- include "tc.v1.common.loader.apply" . -}}
