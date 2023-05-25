@@ -101,7 +101,7 @@ for idx in $(eval echo "{0..$length}"); do
 
             if [ ! $? ]; then
                 echo "❌ wget encountered an error..."
-              if [[ "$train_chart" == "incubator/*" ]]; then
+              if [[ "$train_chart" =~ "incubator/*" ]]; then
                   helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
                   helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
               else
@@ -112,7 +112,7 @@ for idx in $(eval echo "{0..$length}"); do
 
             if [ -f "$cache_path/$repo_dir/$name-$version.tgz" ]; then
                 echo "✅ Dependency Downloaded!"
-                if [[ "$train_chart" != "incubator/*" ]]; then
+                if [[ ! "$train_chart" =~ "incubator/*" ]]; then
                   echo "Validating dependency signature..."
                   helm verify $cache_path/$repo_dir/$name-$version.tgz --keyring $gpg_dir/pubring.gpg || \
                   helm verify $cache_path/$repo_dir/$name-$version.tgz --keyring $gpg_dir/pubring.gpg || exit 1
@@ -122,7 +122,7 @@ for idx in $(eval echo "{0..$length}"); do
             else
                 echo "❌ Failed to download dependency"
                 # Try helm dependency build/update or otherwise fail fast if a dep fails to download...
-              if [[ "$train_chart" == "incubator/*" ]]; then
+              if [[ "$train_chart" =~ "incubator/*" ]]; then
                   helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
                   helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
               else
