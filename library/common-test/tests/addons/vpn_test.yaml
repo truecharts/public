@@ -441,6 +441,7 @@ tests:
           type: tailscale
           tailscale:
             authkey: something
+            userspace: true
           env:
             key: value
             key1: value1
@@ -451,6 +452,10 @@ tests:
       - documentIndex: &DeploymentDocument 0
         isKind:
           of: Deployment
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.automountServiceAccountToken
+          value: true
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[0].name
@@ -476,7 +481,7 @@ tests:
           path: spec.template.spec.containers[1].env
           content:
             name: TS_STATE_DIR
-            value: /var/lib/tailscale
+            value: /var/lib/tailscale/state
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.containers[1].env
@@ -545,6 +550,40 @@ tests:
           content:
             name: tailscalestate
             emptyDir: {}
+
+  - it: tailscale addon enabled with authkey without userspace should pass
+    set:
+      addons:
+        vpn:
+          type: tailscale
+          tailscale:
+            authkey: something
+            userspace: false
+            key1: value1
+      workload: *workload
+    asserts:
+      - hasDocuments:
+          count: 1
+      - documentIndex: &DeploymentDocument 0
+        isKind:
+          of: Deployment
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[0].name
+          value: release-name-common-test
+      - documentIndex: *DeploymentDocument
+        equal:
+          path: spec.template.spec.containers[1].name
+          value: release-name-common-test-tailscale
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[1].securityContext
+          content:
+            privileged: false
+            readOnlyRootFilesystem: false
+            runAsNonRoot: false
+            runAsUser: 0
+            runAsGroup: 0
 
   - it: addon vpn openvpn enabled with configFile
     set:

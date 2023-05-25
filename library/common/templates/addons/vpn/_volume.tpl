@@ -25,7 +25,6 @@ targetSelector:
   {{- end -}}
 {{- end -}}
 
-
 {{/*
 The volume (referencing VPN config) to be inserted into persistence.
 */}}

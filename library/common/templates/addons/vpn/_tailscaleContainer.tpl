@@ -18,12 +18,18 @@ probes:
     enabled: false
 command:
   - /usr/local/bin/containerboot
-
 securityContext:
-  runAsGroup: 0
-  runAsUser: 0
+  {{- if $.Values.addons.vpn.tailscale.userspace }}
+  runAsUser: 1000
+  runAsGroup: 1000
   runAsNonRoot: false
   readOnlyRootFilesystem: true
+  {{- else }}
+  runAsUser: 0
+  runAsGroup: 0
+  runAsNonRoot: true
+  readOnlyRootFilesystem: false
+  {{- end }}
   capabilities:
     add:
       - NET_ADMIN
@@ -39,7 +45,7 @@ use a custom ServiceAccount and will lead to falure.
 env:
   TS_KUBE_SECRET: ""
   TS_SOCKET: /var/run/tailscale/tailscaled.sock
-  TS_STATE_DIR: /var/lib/tailscale
+  TS_STATE_DIR: /var/lib/tailscale/state
   TS_AUTH_ONCE: {{ $.Values.addons.vpn.tailscale.auth_once | quote }}
   TS_USERSPACE: {{ $.Values.addons.vpn.tailscale.userspace | quote }}
   TS_ACCEPT_DNS: {{ $.Values.addons.vpn.tailscale.accept_dns | quote }}
