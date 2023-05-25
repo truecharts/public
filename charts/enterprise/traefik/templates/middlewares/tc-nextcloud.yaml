@@ -4,7 +4,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}tc-nextcloud-redirectregex-dav
+  name: {{ ternary (printf "%v-%v" .Release.Name "tc-nextcloud-redirectregex-dav") "tc-nextcloud-redirectregex-dav" $.Values.ingressClass.enabled }}
   namespace: tc-system
 spec:
   redirectRegex:
@@ -14,9 +14,9 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}tc-nextcloud-chain
+  name: {{ ternary (printf "%v-%v" .Release.Name "tc-nextcloud-chain") "tc-nextcloud-chain" $.Values.ingressClass.enabled }}
   namespace: tc-system
 spec:
   chain:
     middlewares:
-    - name: {{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}{{ if $.Values.ingressClass.enabled }}{{ .Release.Name }}-{{ end }}tc-nextcloud-redirectregex-dav
+    - name: {{ ternary (printf "%v-%v" .Release.Name "tc-nextcloud-redirectregex-dav") "tc-nextcloud-redirectregex-dav" $.Values.ingressClass.enabled }}
