@@ -1,8 +1,4 @@
 {{- $values := .Values }}
-{{- $name := $middlewareData.name }}
-{{- if $.Values.ingressClass.enabled }}
-  {{- $name = printf "%s-%s" .Release.Name $name }}
-{{- end }}
 ---
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
