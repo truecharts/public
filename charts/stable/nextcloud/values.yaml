@@ -51,8 +51,8 @@ nextcloud:
   # Previews settings
   previews:
     enabled: true
-    # TODO: Enable
-    imaginary: false
+    imaginary: true
+    # Casings are important
     providers:
       - PNG
       - JPEG
@@ -197,39 +197,38 @@ workload:
               port: 7867
               httpHeaders:
                 Host: kube.internal.healthcheck
-
-#   imaginary:
-#     enabled: "{{ .Values.previews.imaginary }}"
-#     type: Deployment
-#     strategy: RollingUpdate
-#     replicas: 2
-#     podSpec:
-#       containers:
-#         imaginary:
-#           primary: true
-#           enabled: true
-#           imageSelector: imaginaryImage
-#           command: imaginary
-#           args:
-#             - -concurrency
-#             - "10"
-#             - -enable-url-source
-#             - -return-size
-#           env:
-#             PORT: 9090
-#           probes:
-#             readiness:
-#               enabled: true
-#               path: /
-#               port: 9090
-#             liveness:
-#               enabled: true
-#               path: /
-#               port: 9090
-#             startup:
-#               enabled: true
-#               path: /
-#               port: 9090
+  imaginary:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 2
+    podSpec:
+      containers:
+        imaginary:
+          primary: true
+          enabled: true
+          imageSelector: imaginaryImage
+          command: imaginary
+          args:
+            - -p
+            - "{{ .Values.service.imaginary.ports.imaginary.port }}"
+            - -concurrency
+            - "10"
+            - -enable-url-source
+            - -return-size
+          probes:
+            readiness:
+              enabled: true
+              path: /health
+              port: "{{ .Values.service.imaginary.ports.imaginary.port }}"
+            liveness:
+              enabled: true
+              path: /health
+              port: "{{ .Values.service.imaginary.ports.imaginary.port }}"
+            startup:
+              enabled: true
+              path: /health
+              port: "{{ .Values.service.imaginary.ports.imaginary.port }}"
 
 # cronjobs:
 #   - name: nextcloud-cron
@@ -254,19 +253,26 @@ service:
         port: 8080
   notify:
     enabled: true
+    targetSelector: notify
     ports:
       notify:
         enabled: true
         primary: true
         port: 7867
         targetPort: 7867
+        targetSelector: notify
       metrics:
         enabled: true
         port: 7868
-#       imaginary:
-#         enabled: true
-#         port: 9090
-#         targetPort: 9090
+        targetSelector: notify
+  imaginary:
+    enabled: true
+    targetSelector: imaginary
+    ports:
+      imaginary:
+        enabled: true
+        port: 9090
+        targetSelector: imaginary
 
 # hostAliases:
 #   - ip: '{{ .Values.workload.main.podSpec.containers.main.env.AccessIP | default "127.0.0.1" }}'

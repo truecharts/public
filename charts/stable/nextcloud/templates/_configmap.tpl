@@ -90,7 +90,9 @@ nextcloud-config:
 
     {{/* Imaginary */}}
     NX_IMAGINARY: {{ and .Values.nextcloud.previews.enabled .Values.nextcloud.previews.imaginary | quote }}
-    NX_IMAGINARY_URL: http://imaginary:9000 # TODO: Update to svc name
+    {{- if and .Values.nextcloud.previews.enabled .Values.nextcloud.previews.imaginary }}
+    NX_IMAGINARY_URL: {{ printf "http://%v-imaginary:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.imaginary.ports.imaginary.port }}
+    {{- end }}
 
     {{/* Expirations */}}
     NX_ACTIVITY_EXPIRE_DAYS: {{ .Values.nextcloud.expirations.activity_expire_days | quote }}

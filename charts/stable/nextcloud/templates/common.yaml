@@ -11,6 +11,11 @@
   {{- $_ := set .Values.workload.notify "enabled" false -}}
   {{- $_ := set .Values.service.notify "enabled" false -}}
 {{- end -}}
+
+{{- if or (not .Values.nextcloud.previews.imaginary) (not .Values.nextcloud.previews.enabled) -}}
+  {{- $_ := set .Values.workload.imaginary "enabled" false -}}
+  {{- $_ := set .Values.service.imaginary "enabled" false -}}
+{{- end -}}
 {{/*
 {{- $cronjobs := include "nextcloud.cronjobs" . | fromYaml -}}
 {{- if $cronjobs -}}
