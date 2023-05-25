@@ -125,7 +125,7 @@ nextcloud-config:
     {{/* ClamAV */}}
     NX_CLAMAV: {{ .Values.nextcloud.clamav.enabled | quote }}
     {{- if .Values.nextcloud.clamav.enabled }}
-    NX_CLAMAV_HOST: {{ printf "http://%v-clamav" (include "tc.v1.common.lib.chart.names.fullname" $) }}
+    NX_CLAMAV_HOST: {{ printf "%v-clamav" (include "tc.v1.common.lib.chart.names.fullname" $) }}
     NX_CLAMAV_PORT: {{ .Values.service.clamav.ports.clamav.targetPort | quote }}
     NX_CLAMAV_STREAM_MAX_LENGTH: {{ .Values.nextcloud.clamav.stream_max_length | quote }}
     NX_CLAMAV_FILE_MAX_SIZE: {{ .Values.nextcloud.clamav.file_max_size | quote }}
