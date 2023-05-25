@@ -156,47 +156,41 @@ workload:
               port: "{{ .Values.service.main.ports.main.port }}"
               httpHeaders:
                 Host: kube.internal.healthcheck
-#   hpb:
-#     enabled: true
-#     type: Deployment
-#     strategy: RollingUpdate
-#     replicas: 2
-#     podSpec:
-#       containers:
-#         hpb:
-#           primary: true
-#           enabled: true
-#           imageSelector: hpbImage
-#           # While it can be configured with envs instead of a config file
-#           # There is a bug in the current version of notify_push that prevents it from working
-#           # in certain situations. Also it picks the database prefix from the config file,
-#           # which is something that can change in the future from upstream.
-#           args:
-#             - /var/www/html/config/config.php
-#           env:
-#             # https://github.com/nextcloud/notify_push#configuration
-#             # This points to the nginx service internally
-#             NEXTCLOUD_URL: http://{{ printf "%s-nextcloud" .Release.Name }}:{{ $.Values.service.main.ports.main.port }}
-#             METRICS_PORT: 7868
-#           probes:
-#             readiness:
-#               enabled: true
-#               path: /push/test/cookie
-#               port: 7867
-#               httpHeaders:
-#                 Host: kube.internal.healthcheck
-#             liveness:
-#               enabled: true
-#               path: /push/test/cookie
-#               port: 7867
-#               httpHeaders:
-#                 Host: kube.internal.healthcheck
-#             startup:
-#               enabled: true
-#               path: /push/test/cookie
-#               port: 7867
-#               httpHeaders:
-#                 Host: kube.internal.healthcheck
+  notify:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 2
+    podSpec:
+      containers:
+        notify:
+          primary: true
+          enabled: true
+          imageSelector: hpbImage
+          args:
+            - /var/www/html/config/config.php
+          envFrom:
+            - configMapRef:
+                name: hpb-config
+          probes:
+            readiness:
+              enabled: true
+              path: /push/test/cookie
+              port: 7867
+              httpHeaders:
+                Host: kube.internal.healthcheck
+            liveness:
+              enabled: true
+              path: /push/test/cookie
+              port: 7867
+              httpHeaders:
+                Host: kube.internal.healthcheck
+            startup:
+              enabled: true
+              path: /push/test/cookie
+              port: 7867
+              httpHeaders:
+                Host: kube.internal.healthcheck
 
 #   imaginary:
 #     enabled: "{{ .Values.previews.imaginary }}"
@@ -247,28 +241,22 @@ workload:
 #       occ preview:pre-generate
 #       echo "Previews generated."
 
-
-
-
 service:
   main:
     ports:
       main:
         port: 8080
-#   hpb:
-#     enabled: true
-#     ports:
-#       hpb:
-#         enabled: true
-#         port: 7867
-#         targetPort: 7867
-#   backend:
-#     enabled: true
-#     ports:
-#       hpb-metrics:
-#         enabled: true
-#         port: 7868
-#         targetPort: 7868
+  notify:
+    enabled: true
+    ports:
+      notify:
+        enabled: true
+        primary: true
+        port: 7867
+        targetPort: 7867
+      metrics:
+        enabled: true
+        port: 7868
 #       imaginary:
 #         enabled: true
 #         port: 9090
@@ -310,61 +298,41 @@ persistence:
           mountPath: /etc/nginx/nginx.conf
           subPath: nginx.conf
           readOnly: true
-
-#   html:
-#     enabled: true
-#     mountPath: /var/www/html
-#     targetSelector:
-#       hpb:
-#         hpb: {}
-#       main:
-#         main: {}
-#         nginx: {}
-#         prestart: {}
-#       nc-cron:
-#         nc-cron: {}
-#       preview-cron:
-#         preview-cron: {}
-#       imaginary:
-#         imaginary: {}
-#   data:
-#     enabled: true
-#     mountPath: /var/www/html/data
-#     targetSelector:
-#       hpb:
-#         hpb: {}
-#       main:
-#         main: {}
-#         nginx: {}
-#         prestart: {}
-#       nc-cron:
-#         nc-cron: {}
-#       preview-cron:
-#         preview-cron: {}
-#       imaginary:
-#         imaginary: {}
-#   ## TODO: CHECK IF NEEDED
-#   #  varrun:
-#   #    enabled: true
-#   #    mountPath: "/var/run"
-#   #    targetSelector:
-#   #       cron:
-#   #         cron: {}
-#   #      main:
-#   #        hpb: {}
-#   #        main: {}
-
-#   ## TODO: CHECK IF NEEDED
-#   #  cache:
-#   #    enabled: true
-#   #    type: emptyDir
-#   #    mountPath: /var/cache/nginx
-#   #    medium: Memory
-#   #    targetSelector:
-#   #      main:
-#   #        nginx: {}
-
-
+  # TODO: Cron mounts
+  html:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /var/www/html
+      nginx:
+        nginx:
+          mountPath: /var/www/html
+          readOnly: true
+  config:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /var/www/html/config
+      notify:
+        notify:
+          mountPath: /var/www/html/config
+          readOnly: true
+      nginx:
+        nginx:
+          mountPath: /var/www/html/config
+          readOnly: true
+  data:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /var/www/html/data
+      nginx:
+        nginx:
+          mountPath: /var/www/html/data
+          readOnly: true
 
 # collabora:
 #   enabled: false

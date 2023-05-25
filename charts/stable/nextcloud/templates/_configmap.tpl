@@ -38,6 +38,12 @@ redis-session:
        redis.session.lock_retries = -1
        redis.session.lock_wait_time = 10000
 
+hpb-config:
+  enabled: true
+  data:
+    NEXTCLOUD_URL: {{ printf "%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}
+    METRICS_PORT: {{ .Values.service.notify.ports.metrics.port | quote }}
+
 nextcloud-config:
   enabled: true
   data:
