@@ -13,6 +13,10 @@ on:
         required: true
         type: string
 
+# Used to allow creating comments
+permissions:
+   pull-requests: write
+
 jobs:
   lint-and-verify:
     name: Lint Charts and Verify Dependencies
