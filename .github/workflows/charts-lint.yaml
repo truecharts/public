@@ -19,9 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: tccr.io/truecharts/devcontainer:v3.1.38@sha256:2fd9355bc6791461430db87a04f5fe7b49c46bc5957bc348f1efbff4c6c7913d
-    # Used to allow creating comments
-    permissions:
-       pull-requests: write
     steps:
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
@@ -89,6 +86,7 @@ jobs:
 
       - name: Create/Update comment
         if: steps.list-changed.outputs.detected == 'true'
+        continue-on-error: true
         uses: thollander/actions-comment-pull-request@632cf9ce90574d125be56b5f3405cda41a84e2fd # v2
         with:
           filePath: /tmp/lint_result.txt
