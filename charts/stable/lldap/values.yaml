@@ -26,8 +26,10 @@ workload:
     podSpec:
       containers:
         main:
-          command: ["/app/lldap"]
-          args: ["run"]
+          command:
+            - "/app/lldap"
+          args:
+            - "run"
           env:
             LLDAP_LDAP_BASE_DN: "dc=example,dc=com"
             LLDAP_JWT_SECRET:

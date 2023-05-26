@@ -35,5 +35,5 @@ workload:
         main:
           env:
             LISTENER_PORT: "{{ .Values.service.main.ports.main.port }}"
-            SERIAL_DEVICE: "{{ .Values.persistence.usb.mountPath }}"
+            SERIAL_DEVICE: ""
             BAUD_RATE: 115200

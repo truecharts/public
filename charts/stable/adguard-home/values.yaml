@@ -25,6 +25,7 @@ workload:
             startup:
               type: http
               path: /
+          command: ["/opt/adguardhome/AdGuardHome"]
           args:
             - --no-check-update
             - --host

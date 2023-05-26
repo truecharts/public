@@ -67,7 +67,7 @@ args:
   - "--providers.kubernetesingress.namespaces={{ template "providers.kubernetesIngress.namespaces" . }}"
   {{- end }}
   {{- end }}
-  {{- if .Values.ingressClass.enabled }}
+  {{- if $.Values.ingressClass.enabled }}
   - "--providers.kubernetesingress.ingressclass={{ .Release.Name }}"
   {{- end }}
   {{- range $entrypoint, $config := $ports }}

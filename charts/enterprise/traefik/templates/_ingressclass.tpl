@@ -1,7 +1,7 @@
 {{/* Define the ingressClass */}}
 {{- define "traefik.ingressClass" -}}
 ---
-{{ if .Values.ingressClass.enabled }}
+{{ if $.Values.ingressClass.enabled }}
   {{- if .Capabilities.APIVersions.Has "networking.k8s.io/v1/IngressClass" }}
 apiVersion: networking.k8s.io/v1
   {{- else if .Capabilities.APIVersions.Has "networking.k8s.io/v1beta1/IngressClass" }}

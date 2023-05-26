@@ -2,6 +2,10 @@ image:
   repository: tccr.io/truecharts/verysync
   tag: 2.16.0@sha256:815042c0fe90f623d0fff9de007a22e3a9014bc5c3a065c3cfad1a6f03056e0f
   pullPolicy: IfNotPresent
+securityContext:
+  container:
+    runAsUser: 0
+    runAsGroup: 0
 service:
   main:
     ports:
@@ -48,3 +52,4 @@ workload:
         main:
           env:
             PORT: "{{ .Values.service.main.ports.main.port }}"
+            VUID: "{{- $.Values.securityContext.container.PUID -}}"

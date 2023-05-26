@@ -2,12 +2,12 @@
 args:
   - --host=0.0.0.0
   - --port={{ .Values.service.main.ports.main.port }}
-  {{- if eq .Values.imageSelector "image" }}
+  {{- if eq .Values.workload.main.podSpec.containers.main.imageSelector "image" }}
   - --device=cpu
     {{- if .Values.lamacleaner.sd_cpu_text_encoder }}
   - --sd-cpu-textencoder
     {{- end }}
-  {{- else if eq .Values.imageSelector "gpuImage" }}
+  {{- else if eq .Values.workload.main.podSpec.containers.main.imageSelector "gpuImage" }}
   - --device=cuda
   {{- end }}
   {{- with .Values.lamacleaner.model }}
