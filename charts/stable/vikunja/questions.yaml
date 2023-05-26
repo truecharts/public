@@ -682,7 +682,6 @@ questions:
                           - variable: providers
                             label: Providers
                             schema:
-                              additional_attrs: true
                               type: list
                               default: []
                               items:
@@ -865,7 +864,6 @@ questions:
                               default: 10220
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}

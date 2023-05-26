@@ -28,7 +28,9 @@ workload:
           type: install
           enabled: true
           imageSelector: "image"
-          command: ["recyclarr", "create-config"]
+          command:
+            - recyclarr
+            - create-config
       containers:
         main:
           probes:

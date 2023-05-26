@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: "1.5.0"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.10.2
+deprecated: false
+description: Prometheus exporter for hardware and OS metrics exposed by UNIX kernels, with pluggable metric collectors.
+home: https://truecharts.org/charts/dependency/node-exporter
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/node-exporter.png
+keywords:
+  - prometheus
+  - node-exporter
+  - monitoring
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: node-exporter
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/dependency/node-exporter
+type: application
+version: 1.0.6
+annotations:
+  truecharts.org/catagories: |
+    - metrics
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

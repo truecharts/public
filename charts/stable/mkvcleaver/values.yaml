@@ -6,14 +6,15 @@ service:
   main:
     ports:
       main:
-        port: 10270
+        type: tcp
+        port: 5800
         targetPort: 5800
   vnc:
     enabled: true
     ports:
       vnc:
         enabled: true
-        port: 10271
+        port: 5900
         targetPort: 5900
 mkvcleaver:
   KEEP_APP_RUNNING: false

@@ -1,0 +1,36 @@
+image:
+  repository: tccr.io/truecharts/dell-idrac-fan-controller
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:67acb14f25058469f79227b049f7d8419f83d00ed73c4115a14354048c96a5f3
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            IDRAC_HOST: ""
+            IDRAC_USERNAME: ""
+            IDRAC_PASSWORD: ""
+            FAN_SPEED: 5
+            CPU_TEMPERATURE_THRESHOLD: 50
+            CHECK_INTERVAL: 60
+            DISABLE_THIRD_PARTY_PCIE_CARD_DELL_DEFAULT_COOLING_RESPONSE: false
+
+portal:
+  open:
+    enabled: false

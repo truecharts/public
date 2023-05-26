@@ -8,7 +8,7 @@ frontendImage:
   pullPolicy: IfNotPresent
 nginxImage:
   repository: tccr.io/truecharts/nginx
-  tag: 1.23.3@sha256:5d9a186494a97cf2ffbd8ce7dd5d89846826c033bf2100bcadb5aca85e9d18a6
+  tag: 1.24.0@sha256:7eee831d79f11786149bd02a0d4d438057772285ec7b62fc2976ee70676707fa
 
 workload:
   main:
@@ -109,7 +109,7 @@ vikunja:
     http: stdout
     echo: "off"
     events: stdout
-    eventslevel: info
+    eventslevel: INFO
   defaultsettings:
     avatar_provider: initials
     avatar_file_id: 0

@@ -1,15 +1,16 @@
 image:
   repository: tccr.io/truecharts/prometheus
-  tag: 2.43.0@sha256:18fbd3c506a9124b9e2a519f4e23910909b0b1b8fa330146574d25643ef109fe
+  tag: v2.44.0@sha256:48aa3e3b18118bea2ffddc916517a400f483f68bf2cdc48c75ebb2c6e84543fa
 
 thanosImage:
   repository: tccr.io/truecharts/thanos
-  tag: 0.31.0@sha256:c3dd4d4b01b3da8739ef7f8e51aab210fcaa728b5a18c1c97ff3f926958cf030
+  tag: 0.31.0@sha256:28282d3e63f84cdeeb05e965b173b610d5597997acc7ce75d5849207b0f97b28
 
 alertmanagerImage:
   repository: tccr.io/truecharts/alertmanager
-  tag: 0.25.0@sha256:6a60eb713187099601ae625fb4a283dc557f02e6e121fcb575bf5b79e616fb92
-
+  tag: 0.25.0@sha256:6b534671b83aa7fbd91d1b10bf0f1b29b948e4b300f8359a86043d0deba07207
+manifestManager:
+  enabled: true
 global:
   labels: {}
 workload:
@@ -972,7 +973,8 @@ alertmanager:
     global:
       resolve_timeout: 5m
     route:
-      group_by: ["job"]
+      group_by:
+        - job
       group_wait: 30s
       group_interval: 5m
       repeat_interval: 12h
@@ -1129,37 +1131,14 @@ exporters:
     ## @param exporters.kube-state-metrics.enabled Enable kube-state-metrics
     ##
     enabled: true
-## @param node-exporter [object] Node Exporter deployment configuration
-##
-node-exporter:
-  service:
-    port: 9910
-    targetPort: 9910
-    labels:
-      jobLabel: node-exporter
-  serviceMonitor:
-    enabled: true
-    jobLabel: jobLabel
-  extraArgs:
-    collector.filesystem.ignored-mount-points: "^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+|var/db/system/.+|mnt/[a-zA-Z0-9-_\\.]+/ix-applications/.+)($|/)"
-    collector.filesystem.ignored-fs-types: "^(autofs|binfmt_misc|cgroup|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|mqueue|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|sysfs|tracefs)$"
-    collector.netdev.device-exclude: "^veth.*$"
-    collector.netclass.ignored-devices: "^veth.*$"
-    path.rootfs: /host
-  extraVolumes:
-    - name: host
-      hostPath:
-        path: /
-  extraVolumeMounts:
-    - name: host
-      mountPath: /host
-      readOnly: true
+
 ## @param kube-state-metrics [object] Node Exporter deployment configuration
 ##
 kube-state-metrics:
   serviceMonitor:
     enabled: true
     honorLabels: true
+
 ## Component scraping for kubelet and kubelet hosted cAdvisor
 ##
 kubelet:
