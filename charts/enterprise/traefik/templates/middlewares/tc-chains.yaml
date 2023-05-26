@@ -4,23 +4,23 @@
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: {{ ternary (printf "%v-%v" .Release.Name "tc-opencors-chain") "tc-opencors-chain" $.Values.ingressClass.enabled }}
+  name: {{ ternary (printf "%v-%v" $.Release.Name "tc-opencors-chain") "tc-opencors-chain" $.Values.ingressClass.enabled }}
   namespace: tc-system
 spec:
   chain:
     middlewares:
-    - name: {{ ternary (printf "%v-%v" .Release.Name "basic-ratelimit") "basic-ratelimit" $.Values.ingressClass.enabled }}
-    - name: {{ ternary (printf "%v-%v" .Release.Name "tc-opencors-headers") "tc-opencors-headers" $.Values.ingressClass.enabled }}
-    - name: {{ ternary (printf "%v-%v" .Release.Name "compress") "compress" $.Values.ingressClass.enabled }}
+    - name: {{ ternary (printf "%v-%v" $.Release.Name "basic-ratelimit") "basic-ratelimit" $.Values.ingressClass.enabled }}
+    - name: {{ ternary (printf "%v-%v" $.Release.Name "tc-opencors-headers") "tc-opencors-headers" $.Values.ingressClass.enabled }}
+    - name: {{ ternary (printf "%v-%v" $.Release.Name "compress") "compress" $.Values.ingressClass.enabled }}
 ---
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: {{ ternary (printf "%v-%v" .Release.Name "tc-closedcors-chain") "tc-closedcors-chain" $.Values.ingressClass.enabled }}
+  name: {{ ternary (printf "%v-%v" $.Release.Name "tc-closedcors-chain") "tc-closedcors-chain" $.Values.ingressClass.enabled }}
   namespace: tc-system
 spec:
   chain:
     middlewares:
-    - name: {{ ternary (printf "%v-%v" .Release.Name "basic-ratelimit") "basic-ratelimit" $.Values.ingressClass.enabled }}
-    - name: {{ ternary (printf "%v-%v" .Release.Name "tc-closedcors-headers") "tc-closedcors-headers" $.Values.ingressClass.enabled }}
-    - name: {{ ternary (printf "%v-%v" .Release.Name "compress") "compress" $.Values.ingressClass.enabled }}
+    - name: {{ ternary (printf "%v-%v" $.Release.Name "basic-ratelimit") "basic-ratelimit" $.Values.ingressClass.enabled }}
+    - name: {{ ternary (printf "%v-%v" $.Release.Name "tc-closedcors-headers") "tc-closedcors-headers" $.Values.ingressClass.enabled }}
+    - name: {{ ternary (printf "%v-%v" $.Release.Name "compress") "compress" $.Values.ingressClass.enabled }}
