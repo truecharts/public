@@ -143,7 +143,6 @@ nextcloud-config:
     NX_TRUSTED_DOMAINS: |
       127.0.0.1
       localhost
-      {{ $hosts }}
       {{ $fullname }}
       {{ printf "%v-*" $fullname }}
       kube.internal.healthcheck

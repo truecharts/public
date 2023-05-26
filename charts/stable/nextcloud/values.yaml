@@ -22,14 +22,6 @@ clamavImage:
 
 # TODO: Check if we need to add any waiting checks on pods.
 nextcloud:
-  # PHP settings
-  php:
-    memory_limit: 1G
-    upload_limit: 10G
-    pm_max_children: 180
-    pm_start_servers: 18
-    pm_min_spare_servers: 12
-    pm_max_spare_servers: 30
   # Initial Credentials
   credentials:
     initialAdminUser: admin
@@ -39,23 +31,24 @@ nextcloud:
     # Custom Nextcloud Scripts
     run_optimize: true
     default_phone_region: GR
-    # Optional - IP used for
-    # exposing nextcloud, often the
-    # loadbalancer IP
+    # IP used for exposing nextcloud,
+    # often the loadbalancer IP
     accessIP: ""
   # File settings
   files:
     shared_folder_name: Shared
     max_chunk_size: 10485760
+  # Expiration settings
+  expirations:
+    activity_expire_days: 90
+    trash_retention_obligation: auto
+    versions_retention_obligation: auto
   # Previews settings
   previews:
     enabled: true
     imaginary: true
-    schedule: "*/5 * * * *"
-    # Casings are important
-    providers:
-      - PNG
-      - JPEG
+    cron: true
+    schedule: "*/30 * * * *"
     max_x: 2048
     max_y: 2048
     max_memory: 1024
@@ -64,11 +57,12 @@ nextcloud:
     square_sizes: 32 256
     width_sizes: 256 384
     height_sizes: 256
-  # Expiration settings
-  expirations:
-    activity_expire_days: 90
-    trash_retention_obligation: auto
-    versions_retention_obligation: auto
+    # Casings are important
+    # https://github.com/nextcloud/server/blob/master/config/config.sample.php#L1269
+    # Only the last part of the provider is needed
+    providers:
+      - PNG
+      - JPEG
   # Logging settings
   logging:
     log_level: 2
@@ -81,6 +75,9 @@ nextcloud:
     stream_max_length: 26214400
     file_max_size: -1
     infected_action: only_log
+  # Notify Push settings
+  notify_push:
+    enabled: true
   # Collabora settings
   collabora:
     # It will not deploy the container
@@ -96,12 +93,16 @@ nextcloud:
     url: ""
     jwt: ""
     jwt_header: Authorization
-  # Notify Push settings
-  notify_push:
-    enabled: true
+  # PHP settings
+  php:
+    memory_limit: 1G
+    upload_limit: 10G
+    pm_max_children: 180
+    pm_start_servers: 18
+    pm_min_spare_servers: 12
+    pm_max_spare_servers: 30
 
 # Do NOT edit below this line
-
 workload:
   # Nextcloud php-fpm
   main:
@@ -260,7 +261,7 @@ cronjobs:
       - php -f /var/www/html/cron.php
       - echo "Finished [php -f /var/www/html/cron.php]"
   - name: preview-cron
-    enabled: "{{ .Values.nextcloud.previews.enabled }}"
+    enabled: "{{ .Values.nextcloud.previews.cron }}"
     schedule: "{{ .Values.nextcloud.previews.schedule }}"
     cmd:
       - echo "Running [occ preview:pre-generate] ..."
