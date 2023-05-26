@@ -83,10 +83,19 @@ nextcloud:
     infected_action: only_log
   # Collabora settings
   collabora:
-    # TODO: Enable
+    # It will not deploy the container
+    # Only add the Collabora settings
     enabled: false
+    url: ""
     allow_list:
       - 0.0.0.0/0
+  onlyoffice:
+    # It will not deploy the container
+    # Only add the Onlyoffice settings
+    enabled: false
+    url: ""
+    jwt: ""
+    jwt_header: Authorization
   # Notify Push settings
   notify_push:
     enabled: true
@@ -98,23 +107,6 @@ workload:
   main:
     type: Deployment
     podSpec:
-#       initContainers:
-#         prestart:
-#           enabled: true
-#           imageSelector: image
-#           # TODO: Maybe make it "install" and/or "upgrade"
-#           type: init
-#           securityContext:
-#             runAsUser: 0
-#             runAsGroup: 0
-#           command:
-#             - "/bin/sh"
-#             - "-c"
-#             - |
-#               /bin/sh <<'EOF'
-#               echo "Forcing permissions on userdata folder..."
-#               chmod 770 /var/www/html/data || echo "Failed to chmod..."
-#               EOF
       containers:
         main:
           enabled: true
@@ -396,17 +388,6 @@ persistence:
           mountPath: /var/www/html/data
           readOnly: true
 
-# collabora:
-#   enabled: false
-#   env:
-#     aliasgroup1:
-#       configMapRef:
-#         name: nextcloudconfig
-#         key: aliasgroup1
-#     dictionaries: "de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru"
-#     extra_params: "--o:welcome.enable=false --o:logging.level=information --o:user_interface.mode=notebookbar --o:ssl.termination=true --o:ssl.enable=false "
-#     server_name: ""
-#     DONT_GEN_SSL_CERT: true
 
 cnpg:
   main:

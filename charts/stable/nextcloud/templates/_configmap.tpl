@@ -1,25 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "nextcloud.configmaps" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
-{{/* TODO: check how to generate the ingress url or fallback to .. ? */}}
-{{- $hosts := "" -}}
-{{- if .Values.ingress.main.enabled -}}
-  {{- range .Values.ingress -}}
-    {{- range $index, $host := .hosts -}}
-      {{- if $index -}}
-        {{- $hosts = ( printf "%v %v" $hosts $host.host ) -}}
-      {{- else -}}
-        {{- $hosts = ( printf "%s" $host.host ) -}}
-      {{- end -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-{{- $aliasgroup1 := (  printf "http://%s" ( .Values.nextcloud.AccessIP | default ( printf "%v-%v" .Release.Name "nextcloud" ) ) ) -}}
-{{- if .Values.ingress.main.enabled -}}
-  {{- with (first .Values.ingress.main.hosts) -}}
-  {{- $aliasgroup1 = (  printf "https://%s" .host ) -}}
-  {{- end -}}
-{{- end }}
 
 php-tune:
   enabled: true
@@ -130,12 +111,23 @@ nextcloud-config:
     NX_CLAMAV_INFECTED_ACTION: {{ .Values.nextcloud.clamav.infected_action | quote }}
     {{- end }}
 
+    {{- if and .Values.nextcloud.collabora.enabled .Values.nextcloud.onlyoffice.enabled -}}
+      {{- fail "Nextcloud - Expected only one of [Collabora, OnlyOffice] to be enabled" -}}
+    {{- end }}
+
     {{/* Collabora */}}
     NX_COLLABORA: {{ .Values.nextcloud.collabora.enabled | quote }}
     {{- if .Values.nextcloud.collabora.enabled }}
-    # TODO: Update to ingress name
-    NX_COLLABORA_URL:
+    NX_COLLABORA_URL: {{ .Values.nextcloud.collabora.url | quote }}
     NX_COLLABORA_ALLOWLIST: {{ join "," .Values.nextcloud.collabora.allow_list | quote }}
+    {{- end }}
+
+    {{/* Only Office */}}
+    NX_ONLYOFFICE: {{ .Values.nextcloud.onlyoffice.enabled | quote }}
+    {{- if .Values.nextcloud.onlyoffice.enabled }}
+    NX_ONLYOFFICE_URL: {{ .Values.nextcloud.onlyoffice.url | quote }}
+    NX_ONLYOFFICE_JWT: {{ .Values.nextcloud.onlyoffice.jwt | quote }}
+    NX_ONLYOFFICE_JWT_HEADER: {{ .Values.nextcloud.onlyoffice.jwt_header | quote }}
     {{- end }}
 
     {{/* URLs */}}
@@ -354,9 +346,4 @@ nginx-config:
           }
         }
       }
-# TODO:
-collabora-config:
-  enabled: true
-  data:
-    aliasgroup1: {{ $aliasgroup1 }}
 {{- end -}}
