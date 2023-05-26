@@ -22,12 +22,6 @@ clamavImage:
 
 # TODO: Check if we need to add any waiting checks on pods.
 nextcloud:
-  # IP used for exposing nextcloud
-  # Often the service or nodePort IP
-  # Defaults to the main serviceName for CI purposes.
-  # Also TODO:: put it on a category and adjust configmap
-  # TODO:
-  AccessIP:
   # PHP settings
   php:
     memory_limit: 1G
@@ -45,6 +39,10 @@ nextcloud:
     # Custom Nextcloud Scripts
     run_optimize: true
     default_phone_region: GR
+    # Optional - IP used for
+    # exposing nextcloud, often the
+    # loadbalancer IP
+    accessIP: ""
   # File settings
   files:
     shared_folder_name: Shared
@@ -61,7 +59,7 @@ nextcloud:
     max_x: 2048
     max_y: 2048
     max_memory: 1024
-    max_filesize_image: 50
+    max_file_size_image: 50
     jpeg_quality: 60
     square_sizes: 32 256
     width_sizes: 256 384
@@ -314,11 +312,6 @@ service:
         targetPort: 3310
         targetSelector: clamav
 
-# hostAliases:
-#   - ip: '{{ .Values.workload.main.podSpec.containers.main.env.AccessIP | default "127.0.0.1" }}'
-#     hostnames:
-#       - "{{ if .Values.ingress.main.enabled }}{{ with (first .Values.ingress.main.hosts) }}{{ .host }}{{ end }}{{ else }}placeholder.fakedomain.dns{{ end }}"
-
 persistence:
   php-tune:
     enabled: true
@@ -350,7 +343,6 @@ persistence:
           mountPath: /etc/nginx/nginx.conf
           subPath: nginx.conf
           readOnly: true
-  # TODO: Cron mounts
   html:
     enabled: true
     targetSelector:
@@ -375,10 +367,10 @@ persistence:
           mountPath: /var/www/html/config
       nextcloud-cron:
         nextcloud-cron:
-          mountPath: /var/www/html
+          mountPath: /var/www/html/config
       preview-cron:
         preview-cron:
-          mountPath: /var/www/html
+          mountPath: /var/www/html/config
       notify:
         notify:
           mountPath: /var/www/html/config
@@ -395,10 +387,10 @@ persistence:
           mountPath: /var/www/html/data
       nextcloud-cron:
         nextcloud-cron:
-          mountPath: /var/www/html
+          mountPath: /var/www/html/data
       preview-cron:
         preview-cron:
-          mountPath: /var/www/html
+          mountPath: /var/www/html/data
       nginx:
         nginx:
           mountPath: /var/www/html/data
