@@ -22,3 +22,30 @@ securityContext:
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 20
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            readiness:
+              enabled: true
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - ps -aux | grep -v grep | grep oscam
+            liveness:
+              enabled: true
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - ps -aux | grep -v grep | grep oscam
+            startup:
+              enabled: true
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - ps -aux | grep -v grep | grep oscam
