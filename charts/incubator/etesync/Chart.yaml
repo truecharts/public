@@ -3,11 +3,11 @@ appVersion: "0.11.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.9.2
+    version: 12.10.2
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
-    version: 6.0.43
+    version: 6.0.46
 deprecated: false
 description: Secure, end-to-end encrypted, and privacy respecting sync for your contacts, calendars, tasks and notes.
 home: https://truecharts.org/charts/incubator/etesync
@@ -31,7 +31,7 @@ sources:
   - https://github.com/etesync
   - https://github.com/victor-rds/docker-etebase
 type: application
-version: 4.0.0
+version: 4.0.1
 annotations:
   truecharts.org/catagories: |
     - productivity
