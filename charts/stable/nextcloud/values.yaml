@@ -2,7 +2,7 @@
 image:
   repository: ghcr.io/stavros-k/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: 26.0.1-fpm@sha256:d7a82669c24a660d9c4dcdf70a34ba54d30b77e2ac34957579ad44a662fed8e5
+  tag: 26.0.1-fpm@sha256:bc94e13a208b6ce732a540c996399cfbc8d297e6ecea382130062b6402b4188c
 nginxImage:
   repository: nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
@@ -14,7 +14,7 @@ imaginaryImage:
 hpbImage:
   repository:  ghcr.io/stavros-k/nextcloud-notify_push
   pullPolicy: IfNotPresent
-  tag: 0.6.3@sha256:4fd9a813f341f815f5675fd5a1947d06aab5a0d2e7b3e6d598920884a42db1ae
+  tag: 0.6.3@sha256:943aa7bd74072c602ad858c460678f46eaa5497d9ca721ee17bc879616a408a2
 clamavImage:
   repository: clamav/clamav
   pullPolicy: IfNotPresent
@@ -71,7 +71,7 @@ nextcloud:
     log_date_format: d/m/Y H:i:s
   # ClamAV settings
   clamav:
-    enabled: false
+    enabled: true
     stream_max_length: 26214400
     file_max_size: -1
     infected_action: only_log
@@ -135,7 +135,7 @@ workload:
     enabled: true
     type: Deployment
     strategy: RollingUpdate
-    replicas: 1
+    replicas: 2
     podSpec:
       containers:
         nginx:
@@ -165,7 +165,7 @@ workload:
     enabled: true
     type: Deployment
     strategy: RollingUpdate
-    replicas: 1
+    replicas: 2
     podSpec:
       containers:
         notify:
@@ -198,7 +198,7 @@ workload:
     enabled: true
     type: Deployment
     strategy: RollingUpdate
-    replicas: 1
+    replicas: 2
     podSpec:
       containers:
         imaginary:

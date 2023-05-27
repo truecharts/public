@@ -146,7 +146,7 @@ nextcloud-config:
     {{- end }}
 
     {{/* URLs */}}
-    NX_OVERWRITE_HOST: {{ .Values.chartContext.APPURL }}
+    NX_OVERWRITE_HOST: {{ regexReplaceAll ".*://(.*)" .Values.chartContext.APPURL "${1}" }}
     NX_OVERWRITE_CLI_URL: {{ .Values.chartContext.APPURL }}
     # Return the protocol part of the URL
     NX_OVERWRITE_PROTOCOL: {{ regexReplaceAll "(.*)://.*" .Values.chartContext.APPURL "${1}" | lower }}
@@ -159,9 +159,9 @@ nextcloud-config:
       127.0.0.1
       localhost
       {{ $fullname }}
-      {{ printf "%v-*" $fullname | quote }}
+      {{ printf "%v-*" $fullname }}
       kube.internal.healthcheck
-      {{ .Values.chartContext.APPURL }}
+      {{ regexReplaceAll ".*://(.*)" .Values.chartContext.APPURL "${1}" }}
       {{- with .Values.nextcloud.general.accessIP }}
       {{ . }}
       {{- end }}
