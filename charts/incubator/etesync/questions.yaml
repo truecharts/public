@@ -13,79 +13,73 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ALLOWED_HOSTS
-          label: "ALLOWED_HOSTS"
-          description: "Must be a valid domain or * (* is not recommended for production)"
-          schema:
-            type: string
-            default: "localhost"
-            required: true
-        - variable: AUTO_SIGNUP
-          label: "AUTO_SIGNUP"
-          description: "Enable automatic signup"
-          schema:
-            type: boolean
-            default: false
-        - variable: LANGUAGE_CODE
-          label: "LANGUAGE_CODE"
-          description: "Django language code"
-          schema:
-            type: string
-            default: "en-us"
-            required: true
-        - variable: DEBUG
-          label: "DEBUG"
-          description: "Output additional messages from `/entrypoint.sh`. It doesn't change the output of the Etebase server."
-          schema:
-            type: boolean
-            default: false
-        - variable: SHELL_DEBUG
-          label: "SHELL_DEBUG"
-          description: "Run `/entrypoint.sh` with `set -x`"
-          schema:
-            type: boolean
-            default: false
-        - variable: DEBUG_DJANGO
-          label: "DEBUG_DJANGO"
-          description: "Enable Django debug mode (not recommended for production)"
-          schema:
-            type: boolean
-            default: false
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SUPER_USER
-          label: "SUPER_USER"
-          description: "Username of the Django superuser (First Install Only)"
-          schema:
-            type: string
-            default: "admin"
-            required: true
-        - variable: SUPER_PASS
-          label: "SUPER_PASS"
-          description: "Password of the Django superuser (First Install Only). Will be generated if left unset."
-          schema:
-            type: string
-            default: ""
-            private: true
-        - variable: SUPER_EMAIL
-          label: "SUPER_EMAIL"
-          description: "Email of the Django superuser (First Install Only)"
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ALLOWED_HOSTS
+                                        label: "ALLOWED_HOSTS"
+                                        description: "Must be a valid domain or * (* is not recommended for production)"
+                                        schema:
+                                          type: string
+                                          default: "localhost"
+                                          required: true
+                                      - variable: AUTO_SIGNUP
+                                        label: "AUTO_SIGNUP"
+                                        description: "Enable automatic signup"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: LANGUAGE_CODE
+                                        label: "LANGUAGE_CODE"
+                                        description: "Django language code"
+                                        schema:
+                                          type: string
+                                          default: "en-us"
+                                          required: true
+                                      - variable: DEBUG
+                                        label: "DEBUG"
+                                        description: "Output additional messages from `/entrypoint.sh`. It doesn't change the output of the Etebase server."
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: SHELL_DEBUG
+                                        label: "SHELL_DEBUG"
+                                        description: "Run `/entrypoint.sh` with `set -x`"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: DEBUG_DJANGO
+                                        label: "DEBUG_DJANGO"
+                                        description: "Enable Django debug mode (not recommended for production)"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: SUPER_USER
+                                        label: "SUPER_USER"
+                                        description: "Username of the Django superuser (First Install Only)"
+                                        schema:
+                                          type: string
+                                          default: "admin"
+                                          required: true
+                                      - variable: SUPER_PASS
+                                        label: "SUPER_PASS"
+                                        description: "Password of the Django superuser (First Install Only). Will be generated if left unset."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          private: true
+                                      - variable: SUPER_EMAIL
+                                        label: "SUPER_EMAIL"
+                                        description: "Email of the Django superuser (First Install Only)"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -134,28 +128,27 @@ questions:
 # Include{ingressTraefik}
 # Include{ingressList}
 # Include{securityContextRoot}
-
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
                   default: 373
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 373
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 373
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-        - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
-          schema:
-            type: int
-            default: 373
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 373
 
 # Include{resources}
 # Include{advanced}

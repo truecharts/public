@@ -9,6 +9,9 @@ on:
       chartChangesDetected:
         required: true
         type: string
+      modifiedFiles:
+        required: true
+        type: string
 
 jobs:
   lint-and-verify:
@@ -49,6 +52,16 @@ jobs:
             echo "detected=true" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Test and Fix Pre-Commit Issues
+        shell: bash
+        if: inputs.chartChangesDetected == 'true'
+        run: |
+          echo "Running pre-commit test-and-cleanup..."
+          pre-commit run --all ||:
+          # Fix sh files to always be executable
+          find . -name '*.sh' | xargs chmod +x
+          pre-commit run --all
+
       - name: Fetch and Verify dependencies
         shell: bash
         if: steps.list-changed.outputs.detected == 'true'
@@ -73,11 +86,13 @@ jobs:
 
       - name: Create/Update comment
         if: steps.list-changed.outputs.detected == 'true'
+        continue-on-error: true
         uses: thollander/actions-comment-pull-request@632cf9ce90574d125be56b5f3405cda41a84e2fd # v2
         with:
           filePath: /tmp/lint_result.txt
           comment_tag: lint_results
           mode: recreate
+          GITHUB_TOKEN: ${{ github.token }}
 
       - name: Lint Result
         if: steps.list-changed.outputs.detected == 'true'

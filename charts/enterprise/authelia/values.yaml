@@ -2,7 +2,8 @@ image:
   repository: tccr.io/truecharts/authelia
   pullPolicy: IfNotPresent
   tag: 4.37.5@sha256:76a4617539534cec140fd98a12f721b878524f2df3a3653f3df8ff2b7eaab586
-
+manifestManager:
+  enabled: true
 workload:
   main:
     replicas: 2

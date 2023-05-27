@@ -203,6 +203,15 @@ jobs:
               sync_tag "charts/${train}/${chart}" "${chart}" "${train}"
             done
           done
+          
+      - name: Fix Fixable Pre-Commit issues
+        shell: bash
+        if: inputs.chartChangesDetected == 'true'
+        run: |
+          echo "Running pre-commit test-and-cleanup..."
+          pre-commit run --all ||:
+          # Fix sh files to always be executable
+          find . -name '*.sh' | xargs chmod +x
 
       - name: Cleanup
         run: |

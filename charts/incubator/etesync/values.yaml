@@ -3,10 +3,13 @@ image:
   pullPolicy: IfNotPresent
   tag: 0.11.0@sha256:47478da0d1b3ab18d5bfbcd4537fa80305ace94746b01c32e609c7e9e663d860
 
-podSecurityContext:
-  runAsUser: 373
-  runAsGroup: 373
-  fsGroup: 373
+securityContext:
+  container:
+    runAsUser: 373
+    runAsGroup: 373
+    readOnlyRootFilesystem: false
+  pod:
+    fsGroup: 373
 
 # Docker image configuration docs:
 # https://github.com/victor-rds/docker-etebase#settings-and-customization
@@ -14,50 +17,60 @@ podSecurityContext:
 # EteSync configuration docs:
 # https://github.com/etesync/server#configuration
 
-env:
-  # App
-  SERVER: http
-  AUTO_UPDATE: true
-  ALLOWED_HOSTS: "localhost"
-  AUTO_SIGNUP: false
-  LANGUAGE_CODE: "en-us"
-  TIME_ZONE: "{{ .Values.TZ }}"
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            # App
+            SERVER: http
+            AUTO_UPDATE: true
+            ALLOWED_HOSTS: "localhost"
+            AUTO_SIGNUP: false
+            LANGUAGE_CODE: "en-us"
+            TIME_ZONE: "{{ .Values.TZ }}"
 
-  # Debugging
-  DEBUG: false
-  SHELL_DEBUG: false
-  DEBUG_DJANGO: false
+            # Debugging
+            DEBUG: false
+            SHELL_DEBUG: false
+            DEBUG_DJANGO: false
 
-  # Postgres
-  DB_ENGINE: postgres
-  DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
-  DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  DATABASE_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  DATABASE_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  DATABASE_PORT: 5432
-  REDIS_URI:
-    secretKeyRef:
-      name: rediscreds
-      key: url
-
-secretEnv:
-  # Superuser
-  SUPER_USER: "admin"
-  SUPER_PASS: ""
-  SUPER_EMAIL: ""
-
+            # Postgres
+            DB_ENGINE: postgres
+            DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
+            DATABASE_USER: "{{ .Values.cnpg.main.user }}"
+            DATABASE_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            DATABASE_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            DATABASE_PORT: 5432
+            REDIS_URI:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: url
+            # Superuser
+            SUPER_USER: "admin"
+            SUPER_PASS: ""
+            SUPER_EMAIL: ""
 service:
   main:
     ports:
       main:
-        protocol: HTTP
-        targetPort: 3735
+        protocol: http
         port: 10254
 
 persistence:
@@ -66,23 +79,22 @@ persistence:
     mountPath: "/data"
   secret:
     enabled: true
-    type: "custom"
+    type: secret
     readOnly: true
     mountPath: "/data/secret.txt"
     subPath: "secret.txt"
-    volumeSpec:
-      secret:
-        secretName: "etesync-secret"
+    objectName: "etesync-secret"
 
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: etesync
-  postgresqlDatabase: etesync
+# Enabled postgres
+cnpg:
+  main:
+    enabled: true
+    user: etesync
+    database: etesync
 
 redis:
   enabled: true
-  existingSecret: rediscreds
 
 portal:
-  enabled: true
+  open:
+    enabled: true
