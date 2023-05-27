@@ -26,6 +26,7 @@ hpb-config:
   data:
     NEXTCLOUD_URL: {{ printf "%v:%v" $fullname .Values.service.main.ports.main.port }}
     HPB_HOST: kube.internal.healthcheck
+    CONFIG_FILE: {{ printf "%v/config.php" .Values.persistence.config.targetSelector.notify.notify.mountPath }}
     METRICS_PORT: {{ .Values.service.notify.ports.metrics.port | quote }}
 
 clamav-config:
@@ -66,7 +67,11 @@ nextcloud-config:
     {{/* Notify Push */}}
     NX_NOTIFY_PUSH: {{ .Values.nextcloud.notify_push.enabled | quote }}
     {{- if .Values.nextcloud.notify_push.enabled }}
-    NX_NOTIFY_PUSH_ENDPOINT: {{ .Values.chartContext.APPURL }}/push
+      {{- $endpoint := .Values.chartContext.APPURL -}}
+      {{- if or (contains "127.0.0.1" $endpoint) (contains "localhost" $endpoint) -}}
+        {{- $endpoint = printf "%v:%v" $fullname .Values.service.main.ports.main.port -}}
+      {{- end }}
+    NX_NOTIFY_PUSH_ENDPOINT: {{ $endpoint }}/push
     {{- end }}
 
     {{/* Previews */}}

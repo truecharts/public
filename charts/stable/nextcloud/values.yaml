@@ -172,8 +172,6 @@ workload:
           primary: true
           enabled: true
           imageSelector: hpbImage
-          args:
-            - /var/www/html/config/config.php
           envFrom:
             - configMapRef:
                 name: hpb-config
@@ -279,6 +277,8 @@ cronjobs:
       - echo "Finished [occ preview:pre-generate]"
 
 service:
+  # Main service links to ingress easier
+  # That's why the nginx is swapped with nextcloud
   main:
     targetSelector: nginx
     ports:
