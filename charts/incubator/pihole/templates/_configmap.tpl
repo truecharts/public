@@ -1,10 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "pihole.configmap" -}}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: pihole-env
+enabled: true
 data:
   WEBPASSWORD: {{ .Values.pihole.WEBPASSWORD | squote }}
   {{- if .Values.pihole.DNS1 }}
