@@ -24,7 +24,7 @@ redis-session:
 hpb-config:
   enabled: {{ .Values.nextcloud.notify_push.enabled }}
   data:
-    NEXTCLOUD_URL: {{ printf "%v:%v" $fullname .Values.service.main.ports.main.port }}
+    NEXTCLOUD_URL: {{ printf "http://%v:%v" $fullname .Values.service.main.ports.main.port }}
     HPB_HOST: kube.internal.healthcheck
     CONFIG_FILE: {{ printf "%v/config.php" .Values.persistence.config.targetSelector.notify.notify.mountPath }}
     METRICS_PORT: {{ .Values.service.notify.ports.metrics.port | quote }}
@@ -159,7 +159,7 @@ nextcloud-config:
       127.0.0.1
       localhost
       {{ $fullname }}
-      {{ printf "%v-*" $fullname }}
+      {{ printf "%v-*" $fullname | quote }}
       kube.internal.healthcheck
       {{ .Values.chartContext.APPURL }}
       {{- with .Values.nextcloud.general.accessIP }}
