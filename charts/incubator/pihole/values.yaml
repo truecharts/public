@@ -33,7 +33,7 @@ service:
     ports:
       dns:
         enabled: true
-        protocol: UDP
+        protocol: udp
         port: 53
         targetPort: 53
 
