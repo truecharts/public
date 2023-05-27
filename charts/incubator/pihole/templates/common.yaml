@@ -4,7 +4,7 @@
 {{/* Render configmap for pihole */}}
 {{- $config := include "pihole.config" . | fromYaml -}}
 {{- if $config -}}
-  {{- $_ := mustMergeOverwrite .Values $pihole -}}
+  {{- $_ := mustMergeOverwrite .Values $config -}}
 {{- end -}}
 
 {{/* Render the templates */}}
