@@ -3,11 +3,11 @@ appVersion: "0.14.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.10.2
+    version: 12.10.4
   - condition: mariadb.enabled
     name: mariadb
     repository: https://deps.truecharts.org/
-    version: 7.0.33
+    version: 7.0.34
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
@@ -26,7 +26,7 @@ name: anonaddy
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/anonaddy
   - https://github.com/anonaddy/docker
-version: 13.0.9
+version: 13.0.10
 annotations:
   truecharts.org/catagories: |
     - email
