@@ -69,7 +69,7 @@ nextcloud-config:
     {{- if .Values.nextcloud.notify_push.enabled }}
       {{- $endpoint := .Values.chartContext.APPURL -}}
       {{- if or (contains "127.0.0.1" $endpoint) (contains "localhost" $endpoint) -}}
-        {{- $endpoint = printf "%v:%v" $fullname .Values.service.main.ports.main.port -}}
+        {{- $endpoint = printf "http://%v:%v" $fullname .Values.service.main.ports.main.port -}}
       {{- end }}
     NX_NOTIFY_PUSH_ENDPOINT: {{ $endpoint }}/push
     {{- end }}
