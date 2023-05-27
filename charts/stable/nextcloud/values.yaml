@@ -285,6 +285,15 @@ service:
       main:
         targetSelector: nginx
         port: 8080
+  nextcloud:
+    enabled: true
+    targetSelector: main
+    ports:
+      nextcloud:
+        enabled: true
+        targetSelector: main
+        port: 9000
+        targetPort: 9000
   notify:
     enabled: true
     targetSelector: notify

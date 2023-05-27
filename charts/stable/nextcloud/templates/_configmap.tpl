@@ -205,7 +205,7 @@ nginx-config:
         #gzip  on;
 
         upstream php-handler {
-          server {{ $fullname }}:9000;
+          server {{ printf "%v-nextcloud" $fullname }}:{{ .Values.service.nextcloud.ports.nextcloud.targetPort }};
         }
 
         server {
