@@ -28,7 +28,7 @@
   {{- $_ := mustMergeOverwrite .Values.workload $cronjobs -}}
 {{- end -}}
 
-{{/*
+{{/* TODO: fix middlewares
 {{- $newMiddlewares := mustAppend .Values.ingress.main.fixedMiddlewares "tc-nextcloud-chain" -}}
 {{- $_ := set .Values.ingress.main "fixedMiddlewares" $newMiddlewares -}}
 */}}
@@ -60,5 +60,6 @@ service:
 {{/* inject websocket paths in ingress
 {{- include "nextcloud.hpb.ingressInjector" . -}}
 */}}
+
 {{/* Render the templates */}}
 {{- include "tc.v1.common.loader.apply" . -}}

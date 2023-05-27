@@ -158,7 +158,6 @@ nextcloud-config:
       {{ . }}
       {{- end }}
 
-# TODO: Review nginx config?
 nginx-config:
   enabled: true
   data:
