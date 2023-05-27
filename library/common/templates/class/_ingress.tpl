@@ -19,15 +19,15 @@ within the common library.
 
 
   {{/* Get the name of the primary service, if any */}}
-  {{- $primarySeriviceName := (include "tc.v1.common.lib.util.service.primary" (dict "services" .Values.service "root" .)) -}}
+  {{- $primaryServiceName := (include "tc.v1.common.lib.util.service.primary" (dict "services" .Values.service "root" .)) -}}
   {{/* Get service values of the primary service, if any */}}
-  {{- $primaryService := get .Values.service $primarySeriviceName -}}
+  {{- $primaryService := get .Values.service $primaryServiceName -}}
   {{- $defaultServiceName := $fullName -}}
 
   {{- if and (hasKey $primaryService "nameOverride") $primaryService.nameOverride -}}
     {{- $defaultServiceName = printf "%v-%v" $defaultServiceName $primaryService.nameOverride -}}
   {{- end -}}
-  {{- $defaultServicePort := get $primaryService.ports (include "tc.v1.common.lib.util.service.ports.primary" (dict "svcValues" $primaryService "svcName" $primarySeriviceName )) -}}
+  {{- $defaultServicePort := get $primaryService.ports (include "tc.v1.common.lib.util.service.ports.primary" (dict "svcValues" $primaryService "svcName" $primaryServiceName )) -}}
 
   {{- $mddwrNamespace := "tc-system" -}}
   {{- if $values.ingressClassName -}}
