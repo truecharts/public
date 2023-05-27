@@ -27,9 +27,9 @@ workload:
               path: "/"
             startup:
               path: "/"
-        env:
-          ASR_MODEL: base
-          ASR_ENGINE: faster_whisper
+          env:
+            ASR_MODEL: base
+            ASR_ENGINE: faster_whisper
 
 service:
   main:
