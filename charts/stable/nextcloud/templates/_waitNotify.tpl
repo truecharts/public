@@ -7,9 +7,9 @@ command: /bin/sh
 args:
   - -c
   - |
-    echo "Waiting for notify container to be ready ..."
+    echo "Waiting for [Notify Push] container to be ready ..."
     until curl --silent --output /dev/null http://{{ printf "%v-notify" $fullname }}:{{ .Values.service.notify.ports.notify.targetPort }}/push/test/cookie; do
-      echo "Waiting for notify container to be ready ..."
+      echo "Waiting for [Notify Push] container to be ready ..."
       sleep 5
     done
     echo "Done"
