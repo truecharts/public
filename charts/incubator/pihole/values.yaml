@@ -10,6 +10,10 @@ securityContext:
     allowPrivilegeEscalation: true
     runAsUser: 0
     runAsGroup: 0
+    capabilities:
+      add:
+        - NET_ADMIN
+        - CAP_SETFCAP
 
 envFrom:
   - configMapRef:
