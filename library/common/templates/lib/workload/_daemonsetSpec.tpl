@@ -3,7 +3,6 @@
 {{ include "tc.v1.common.lib.workload.daemonsetSpec" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
 rootCtx: The root context of the chart.
 objectData:
-  replicas: The number of replicas.
   revisionHistoryLimit: The number of old ReplicaSets to retain to allow rollback.
   strategy: The daemonset strategy to use to replace existing pods with new ones.
 */}}
