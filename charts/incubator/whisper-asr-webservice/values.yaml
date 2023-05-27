@@ -22,10 +22,13 @@ workload:
           imageSelector: image
           probes:
             liveness:
+              type: http
               path: "/"
             readiness:
+              type: http
               path: "/"
             startup:
+              type: http
               path: "/"
           env:
             ASR_MODEL: base
