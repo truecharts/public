@@ -25,6 +25,7 @@ hpb-config:
   enabled: {{ .Values.nextcloud.notify_push.enabled }}
   data:
     NEXTCLOUD_URL: {{ printf "%v:%v" $fullname .Values.service.main.ports.main.port }}
+    HPB_HOST: kube.internal.healthcheck
     METRICS_PORT: {{ .Values.service.notify.ports.metrics.port | quote }}
 
 clamav-config:

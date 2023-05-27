@@ -280,8 +280,10 @@ cronjobs:
 
 service:
   main:
+    targetSelector: nginx
     ports:
       main:
+        targetSelector: nginx
         port: 8080
   notify:
     enabled: true
