@@ -179,7 +179,7 @@ nginx-config:
         fastcgi_temp_path     /tmp/nginx/fastcgi_temp;
         uwsgi_temp_path       /tmp/nginx/uwsgi_temp;
         scgi_temp_path        /tmp/nginx/scgi_temp;
-        proxy_cache_path      /tmp/nginx/cache
+        proxy_cache_path      /tmp/nginx/cache;
 
         include       /etc/nginx/mime.types;
         default_type  application/octet-stream;
