@@ -158,15 +158,17 @@ nextcloud-config:
       {{ . }}
       {{- end }}
 
+# TODO: Replace locations with ingress
+# like /push, /.well-known/carddav, /.well-known/caldav
 nginx-config:
   enabled: true
   data:
     nginx.conf: |
       worker_processes auto;
 
-      error_log  /var/log/nginx/error.log warn;
+      error_log               /var/log/nginx/error.log warn;
       # Set to /tmp so it can run as non-root
-      pid        /tmp/nginx.pid;
+      pid                     /tmp/nginx.pid;
 
       events {
         worker_connections  1024;
@@ -179,10 +181,10 @@ nginx-config:
         fastcgi_temp_path     /tmp/nginx/fastcgi_temp;
         uwsgi_temp_path       /tmp/nginx/uwsgi_temp;
         scgi_temp_path        /tmp/nginx/scgi_temp;
-        proxy_cache_path      /tmp/nginx/cache;
+        proxy_cache_path      /tmp/nginx/proxy_cache;
 
-        include       /etc/nginx/mime.types;
-        default_type  application/octet-stream;
+        include               /etc/nginx/mime.types;
+        default_type          application/octet-stream;
 
         log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
                           '$status $body_bytes_sent "$http_referer" '
