@@ -164,14 +164,15 @@ nginx-config:
   data:
     nginx.conf: |
       worker_processes auto;
-      error_log  /var/log/nginx/error.log warn;
 
+      error_log  /var/log/nginx/error.log warn;
       # Set to /tmp so it can run as non-root
       pid        /tmp/nginx.pid;
 
       events {
         worker_connections  1024;
       }
+
       http {
         # Set to /tmp so it can run as non-root
         client_body_temp_path /tmp/nginx/client_temp;
@@ -197,6 +198,7 @@ nginx-config:
         server_tokens   off;
 
         keepalive_timeout  65;
+
         #gzip  on;
 
         upstream php-handler {
@@ -207,6 +209,17 @@ nginx-config:
           listen {{ .Values.service.main.ports.main.port }};
           absolute_redirect off;
 
+          # Forward Notify_Push "High Performance Backend"  to it's own container
+          location ^~ /push/ {
+              # The trailing "/" is important!
+              proxy_pass http://{{ printf "%v-notify" $fullname }}:{{ .Values.service.notify.ports.notify.targetPort }}/;
+              proxy_http_version 1.1;
+              proxy_set_header Upgrade $http_upgrade;
+              proxy_set_header Connection "Upgrade";
+              proxy_set_header Host $host;
+              proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          }
+
           # HSTS settings
           # WARNING: Only add the preload option once you read about
           # the consequences in https://hstspreload.org/. This option
@@ -215,7 +228,7 @@ nginx-config:
           # could take several months.
           #add_header Strict-Transport-Security "max-age=15768000; includeSubDomains; preload;" always;
 
-          # set max upload size
+          # Set max upload size
           client_max_body_size {{ .Values.nextcloud.php.upload_limit | default "512M" }};
           fastcgi_buffers 64 4K;
 
@@ -244,7 +257,7 @@ nginx-config:
           fastcgi_hide_header X-Powered-By;
 
           # Path to the root of your installation
-          root /var/www/html;
+          root {{ .Values.persistence.html.targetSelector.nginx.nginx.mountPath }};
 
           # Specify how to handle directories -- specifying `/index.php$request_uri`
           # here as the fallback means that Nginx always exhibits the desired behaviour
@@ -323,7 +336,6 @@ nginx-config:
 
             fastcgi_intercept_errors on;
             fastcgi_request_buffering off;
-
             proxy_send_timeout 3600s;
             proxy_read_timeout 3600s;
             fastcgi_send_timeout 3600s;
