@@ -43,6 +43,7 @@ nextcloud-config:
     POSTGRES_USER: {{ .Values.cnpg.main.user | quote }}
     POSTGRES_PASSWORD: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
     POSTGRES_HOST: {{ .Values.cnpg.main.creds.host | trimAll "\"" }}
+
     {{/* Redis */}}
     NX_REDIS_HOST: {{ .Values.redis.creds.plainhost | trimAll "\"" }}
     NX_REDIS_PASS: {{ .Values.redis.creds.redisPassword | trimAll "\"" }}
@@ -96,6 +97,7 @@ nextcloud-config:
     {{/* General */}}
     NX_RUN_OPTIMIZE: {{ .Values.nextcloud.general.run_optimize | quote }}
     NX_DEFAULT_PHONE_REGION: {{ .Values.nextcloud.general.default_phone_region | quote }}
+    NEXTCLOUD_DATA_DIR: {{ .Values.persistence.data.targetSelector.main.main.mountPath }}
 
     {{/* Files */}}
     NX_SHARED_FOLDER_NAME: {{ .Values.nextcloud.files.shared_folder_name | quote }}
