@@ -1,6 +1,8 @@
 {{/* Define the configmap */}}
 {{- define "nextcloud.configmaps" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
+{{- $urlNoProtocol := regexReplaceAll ".*://(.*)" .Values.chartContext.APPURL "${1}" -}}
+{{- $protocolOnly := regexReplaceAll "(.*)://.*" .Values.chartContext.APPURL "${1}" }}
 
 php-tune:
   enabled: true
@@ -146,10 +148,10 @@ nextcloud-config:
     {{- end }}
 
     {{/* URLs */}}
-    NX_OVERWRITE_HOST: {{ regexReplaceAll ".*://(.*)" .Values.chartContext.APPURL "${1}" }}
+    NX_OVERWRITE_HOST: {{ $urlNoProtocol }}
     NX_OVERWRITE_CLI_URL: {{ .Values.chartContext.APPURL }}
     # Return the protocol part of the URL
-    NX_OVERWRITE_PROTOCOL: {{ regexReplaceAll "(.*)://.*" .Values.chartContext.APPURL "${1}" | lower }}
+    NX_OVERWRITE_PROTOCOL: {{ $protocolOnly | lower }}
     # IP (or range in this case) of the proxy(ies)
     NX_TRUSTED_PROXIES: |
       {{ .Values.chartContext.svcCIDR }}
@@ -161,9 +163,11 @@ nextcloud-config:
       {{ $fullname }}
       {{ printf "%v-*" $fullname }}
       kube.internal.healthcheck
-      {{ regexReplaceAll ".*://(.*)" .Values.chartContext.APPURL "${1}" }}
+      {{- if ne $urlNoProtocol "127.0.0.1" }}
+        {{- $urlNoProtocol | nindent 6 }}
+      {{- end -}}
       {{- with .Values.nextcloud.general.accessIP }}
-      {{ . }}
+        {{- . | nindent 6 }}
       {{- end }}
 
 # TODO: Replace locations with ingress
