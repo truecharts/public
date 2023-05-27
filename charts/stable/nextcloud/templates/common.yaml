@@ -7,7 +7,12 @@
   {{- $_ := mustMergeOverwrite .Values.configmap $configmaps -}}
 {{- end -}}
 
-{{/* Disable things if needed */}}
+{{- if not (get .Values.workload.main.podSpec "initContainers") -}}
+  {{- $_ := set .Values.workload.main.podSpec "initContainers" dict -}}
+{{- end -}}
+{{- $initPerms := (include "nextcloud.init.perms" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.initContainers "init-perms" $initPerms -}}
+
 {{- if not .Values.nextcloud.notify_push.enabled -}}
   {{- $_ := set .Values.workload.notify "enabled" false -}}
   {{- $_ := set .Values.service.notify "enabled" false -}}
@@ -15,8 +20,8 @@
   {{- if not (get .Values.workload.nginx.podSpec "initContainers") -}}
     {{- $_ := set .Values.workload.nginx.podSpec "initContainers" dict -}}
   {{- end -}}
-  {{- $notify := (include "nextcloud.wait.notify" . | fromYaml) -}}
-  {{- $_ := set .Values.workload.nginx.podSpec.initContainers "wait-notify" $notify -}}
+  {{- $notifyWait := (include "nextcloud.wait.notify" . | fromYaml) -}}
+  {{- $_ := set .Values.workload.nginx.podSpec.initContainers "wait-notify" $notifyWait -}}
 {{- end -}}
 
 {{- if not .Values.nextcloud.clamav.enabled -}}

@@ -108,28 +108,6 @@ workload:
   main:
     type: Deployment
     podSpec:
-      initContainers:
-        init-perms:
-          enabled: true
-          # TODO: Expose to UI?
-          type: init
-          imageSelector: image
-          securityContext:
-            runAsUser: 0
-            runAsGroup: 0
-            runAsNonRoot: false
-            capabilities:
-              add:
-                - DAC_OVERRIDE
-                - FOWNER
-                - CHOWN
-          command: /bin/sh
-          args:
-            - -c
-            - |
-              echo "Setting permissions to 700 on data directory (not recursively) ..."
-              chmod 700 /var/www/html/data
-              echo "Done"
       containers:
         main:
           enabled: true
