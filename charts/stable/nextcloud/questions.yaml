@@ -227,6 +227,7 @@ questions:
                             schema:
                               type: string
                               required: true
+                              default: ""
                               enum:
                                 - value: BMP
                                   description: BMP
@@ -286,17 +287,17 @@ questions:
                 schema:
                   type: string
                   required: true
-                  default: 2
+                  default: "2"
                   enum:
-                    - value: 0
+                    - value: "0"
                       description: Debug
-                    - value: 1
+                    - value: "1"
                       description: Info
-                    - value: 2
+                    - value: "2"
                       description: Warning
-                    - value: 3
+                    - value: "3"
                       description: Error
-                    - value: 4
+                    - value: "4"
                       description: Fatal
               - variable: log_date_format
                 label: Log Date Format
@@ -477,8 +478,8 @@ questions:
 # Include{podOptions}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -486,14 +487,14 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 10020
@@ -503,8 +504,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+          label: App Config Storage
+          description: Stores the Application Configuration.
           schema:
             additional_attrs: true
             type: dict
@@ -513,7 +514,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -524,14 +525,14 @@ questions:
 # Include{ingressList}
 # Include{securityContextRoot}
               - variable: runAsUser
-                label: "runAsUser"
-                description: "The UserID of the user running the application"
+                label: runAsUser
+                description: The UserID of the user running the application
                 schema:
                   type: int
                   default: 568
               - variable: runAsGroup
-                label: "runAsGroup"
-                description: "The groupID of the user running the application"
+                label: runAsGroup
+                description: The groupID of the user running the application
                 schema:
                   type: int
                   default: 568
@@ -539,8 +540,8 @@ questions:
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
               - variable: fsGroup
-                label: "fsGroup"
-                description: "The group that should own ALL storage."
+                label: fsGroup
+                description: The group that should own ALL storage.
                 schema:
                   type: int
                   default: 568
