@@ -181,7 +181,6 @@ nginx-config:
         fastcgi_temp_path     /tmp/nginx/fastcgi_temp;
         uwsgi_temp_path       /tmp/nginx/uwsgi_temp;
         scgi_temp_path        /tmp/nginx/scgi_temp;
-        proxy_cache_path      /tmp/nginx/proxy_cache;
 
         include               /etc/nginx/mime.types;
         default_type          application/octet-stream;
@@ -210,6 +209,7 @@ nginx-config:
           listen {{ .Values.service.main.ports.main.port }};
           absolute_redirect off;
 
+          {{- if .Values.nextcloud.notify_push.enabled }}
           # Forward Notify_Push "High Performance Backend"  to it's own container
           location ^~ /push/ {
               # The trailing "/" is important!
@@ -220,6 +220,7 @@ nginx-config:
               proxy_set_header Host $host;
               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
           }
+          {{- end }}
 
           # HSTS settings
           # WARNING: Only add the preload option once you read about
