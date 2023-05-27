@@ -63,6 +63,19 @@ questions:
                   type: string
                   required: true
                   default: ""
+              - variable: fix_data_permissions
+                label: Fix Data Permissions
+                description: |
+                  Regardless of the setting here,</br>
+                  on first install will set permissions to [770] for the data directory.</br>
+                  and set ownership to [runAsUser:runAsGroup].</br>
+
+                  If this setting is checked it will also apply the above on each startup.</br>
+                  It's recommended to only check this setting if you have permissions issues.</br>
+                  Please come back and uncheck this setting once the permissions are fixed.
+                schema:
+                  type: boolean
+                  default: false
               - variable: default_phone_region
                 label: Default Phone Region
                 description: |
@@ -497,15 +510,31 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 10020
+                              default: 12000
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
+        - variable: html
+          label: App HTML Storage
+          description: Stores the Application HTML.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
         - variable: config
           label: App Config Storage
-          description: Stores the Application Configuration.
+          description: Stores the Application Config.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: data
+          label: User Data Storage
+          description: Stores the User Data.
           schema:
             additional_attrs: true
             type: dict

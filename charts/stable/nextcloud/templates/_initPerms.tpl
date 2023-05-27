@@ -3,9 +3,7 @@
 {{- $gid := .Values.securityContext.container.runAsGroup -}}
 {{- $path := .Values.persistence.data.targetSelector.main.main.mountPath -}}
 enabled: true
-# TODO: Expose to UI?
-# init or install? (Watch out, its recursive!)
-type: install
+type: {{ ternary "init" "install" .Values.nextcloud.general.fix_data_permissions }}
 imageSelector: image
 securityContext:
   runAsUser: 0
