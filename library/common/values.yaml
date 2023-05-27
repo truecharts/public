@@ -312,8 +312,11 @@ APPURL: ""
 
 # -- Used to inject our own operator manifests into SCALE
 manifestManager:
-  enabled: false
+  enabled: true
   staging: false
+  install: true
+  check: true
+  delete: false
 
 gluetunImage:
   repository: tccr.io/truecharts/gluetun

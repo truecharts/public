@@ -83,11 +83,14 @@ spec:
                 {{- $handleErr = "&& echo 'Job failed...'" -}}
               {{- end }}
 
+              {{- if .Values.manifestManager.install }}
               kubectl apply --server-side --force-conflicts --grace-period 30 --v=4 -k https://github.com/truecharts/manifests/{{ $branch }} || \
               kubectl apply --server-side --force-conflicts --grace-period 30 -k https://github.com/truecharts/manifests/{{ $branch }} {{ $handleErr }}
 
               echo "Install finished..."
+              {{- end }}
 
+              {{- if .Values.manifestManager.check }}
               echo "Starting waits and checks..."
               kubectl delete pod --field-selector=status.phase==Succeeded -n cnpg-system || echo "Delete of Completed Pods failed..."
               kubectl delete pod --field-selector=status.phase==Failed -n cnpg-system || echo "Delete of Failed Pods failed..."
@@ -102,6 +105,16 @@ spec:
               kubectl wait --namespace cert-manager --for=condition=ready pod --selector=app.kubernetes.io/instance=cert-manager --timeout=60s || echo "cert-manager wait failed..."
 
               cmctl check api --wait=1m || echo "cmctl wait failed..."
+
+              echo "Checks finished..."
+              {{- end }}
+
+              {{- if .Values.manifestManager.delete -}}
+              echo "Deleting manifests..."
+              kubectl delete  --grace-period 30 --v=4 -k https://github.com/truecharts/manifests/delete && kubectl delete --grace-period 30 --v=4 -k https://github.com/truecharts/manifests/delete || \
+              kubectl delete --force --grace-period 30 -k https://github.com/truecharts/manifests/delete {{ $handleErr }}
+              echo "Deletion finished..."
+              {{- end }}
               EOF
           volumeMounts:
             - name: {{ $fullName }}-manifests-temp
