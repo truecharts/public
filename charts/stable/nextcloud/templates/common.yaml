@@ -11,6 +11,11 @@
 {{- if not .Values.nextcloud.notify_push.enabled -}}
   {{- $_ := set .Values.workload.notify "enabled" false -}}
   {{- $_ := set .Values.service.notify "enabled" false -}}
+  {{- if not (get .Values.workload.nginx "initContainers") -}}
+    {{- $_ := set .Values.workload.nginx "initContainers" dict -}}
+  {{- end -}}
+  {{- $notify := (include "nextcloud.wait.notify" . | fromYaml) -}}
+  {{- $_ := set .Values.workload.nginx.initContainers "wait-notify" $notify -}}
 {{- end -}}
 
 {{- if not .Values.nextcloud.clamav.enabled -}}
