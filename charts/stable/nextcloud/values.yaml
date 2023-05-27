@@ -388,8 +388,9 @@ persistence:
         nginx:
           mountPath: /var/www/html/data
           readOnly: true
-
-
+# TODO: Remove
+manifestManager:
+  enabled: true
 cnpg:
   main:
     enabled: true
