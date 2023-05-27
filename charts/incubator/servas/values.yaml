@@ -60,9 +60,6 @@ service:
         port: 11080
 
 persistence:
-  html:
-    enabled: true
-    mountPath: /var/www/html
   nginx:
     enabled: true
     mountPath: /var/run/nginx

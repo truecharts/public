@@ -76,14 +76,6 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: html
-          label: "App Html Storage"
-          description: "Stores the Application Html."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
         - variable: nginx
           label: "App Nginx Storage"
           description: "Stores the Application Nginx."
