@@ -71,7 +71,7 @@ nextcloud:
     log_date_format: d/m/Y H:i:s
   # ClamAV settings
   clamav:
-    enabled: true
+    enabled: false
     stream_max_length: 26214400
     file_max_size: -1
     infected_action: only_log
@@ -157,7 +157,7 @@ workload:
     enabled: true
     type: Deployment
     strategy: RollingUpdate
-    replicas: 2
+    replicas: 1
     podSpec:
       containers:
         nginx:
@@ -167,19 +167,19 @@ workload:
           probes:
             readiness:
               enabled: true
-              path: /status.php
+              path: /robots.txt
               port: "{{ .Values.service.main.ports.main.port }}"
               httpHeaders:
                 Host: kube.internal.healthcheck
             liveness:
               enabled: true
-              path: /status.php
+              path: /robots.txt
               port: "{{ .Values.service.main.ports.main.port }}"
               httpHeaders:
                 Host: kube.internal.healthcheck
             startup:
               enabled: true
-              path: /status.php
+              path: /robots.txt
               port: "{{ .Values.service.main.ports.main.port }}"
               httpHeaders:
                 Host: kube.internal.healthcheck
@@ -187,7 +187,7 @@ workload:
     enabled: true
     type: Deployment
     strategy: RollingUpdate
-    replicas: 2
+    replicas: 1
     podSpec:
       containers:
         notify:
@@ -222,7 +222,7 @@ workload:
     enabled: true
     type: Deployment
     strategy: RollingUpdate
-    replicas: 2
+    replicas: 1
     podSpec:
       containers:
         imaginary:
@@ -254,7 +254,7 @@ workload:
     enabled: true
     type: Deployment
     strategy: RollingUpdate
-    replicas: 2
+    replicas: 1
     podSpec:
       containers:
         clamav:
@@ -370,6 +370,13 @@ persistence:
           mountPath: /etc/nginx/nginx.conf
           subPath: nginx.conf
           readOnly: true
+  nginx-temp:
+    enabled: true
+    type: emptyDir
+    targetSelector:
+      nginx:
+        nginx:
+          mountPath: /tmp/nginx
   html:
     enabled: true
     targetSelector:
