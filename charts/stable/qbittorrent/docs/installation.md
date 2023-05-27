@@ -4,9 +4,7 @@
 
 This is the location your completed bittorrent files will be located
 
-Typical setting user:group to `apps`, nothing fancy here
-
-- Placed the created `nzb` dataset within the `downloads` folder
+Setting user:group to `apps`.
 
 :::note
 
@@ -25,7 +23,7 @@ When configuring your application you'll typically see user:group `568`, this is
 
 ### Networking
 
-If you want to use ingress, its probably better to use `clusterIP` instead of `Simple`
+If you want to use ingress, its probably better to use `clusterIP` instead of `LoadBalancer`
 
 ![!Networking: qbittorrent](images/networking.png)
 
@@ -64,24 +62,19 @@ This is ALSO the port Sonarr/Radarr and other services will use to connect to qB
 
 The setup is default
 
-![!Storage: NZBGet](images/storage_config.png)
+![!Storage: qbittorrent](images/storage_config.png)
 
 #### Data
 
 I always mount to the root directory of the container
 
-I also try to use the applications name for the mountpath, since its typically never going to be a file or folder thats already present
-
-![!Storage: NZBGet](images/storage_data.png)
+![!Storage: qbittorrent](images/storage_data.png)
 
 <br />
 
 ### VPN
 
-- Using a Wireguard setup
-- Added the kubernetes network, as well as my LAN network to the killswitch
-
-![!Storage: NZBGet](images/vpn.png)
+Use the [Gluetun VPN Add-on Setup Guide](https://truecharts.org/manual/SCALE/guides/vpn-setup)
 
 <br />
 
@@ -89,18 +82,18 @@ I also try to use the applications name for the mountpath, since its typically n
 
 ### Downloads
 
-??? qBittorrent "qBittorrent Table + Explanation"
+#### qBittorrent "qBittorrent Table + Explanation"
 
-    |          Setting                                   |         Value                  |          Explanation                                                                |
+    |          Setting                                   |         Value                  |          Explanation                                                                 |
     |------------------------------------------------    |----------------------------    |----------------------------------------------------------------------------------    |
-    | Default Torrent Management Mode:                  | Automatic                     | This is to automatically move the files torrents based on catagory                |
+    | Default Torrent Management Mode:                   | Automatic                      | This is to automatically move the files torrents based on catagory                   |
     | When Torrent Category changed:                     | Relocate Torrent               | This is to automatically move the files torrents based on catagory                   |
     | When Default Save Path changed:                    | Relocate Affected Torrents     | This is to automatically move the files torrents based on catagory                   |
     | When Category Save Path changed:                   | Relocate Affected Torrents     | This is to automatically move the files torrents based on catagory                   |
-    | Default Save Path:                                 | `/qbitvpn/complete `             | Set this to what you set your dataset mountpoint as                                  |
-    | Keep incomplete torrents in:                       | `/qbitvpn/temp`                  | Keep incomplete torrents in a folder no apps are monitoring                          |
-    | Copy .torrent files for finished downloads to:     | `/qbitvpn/backup`                | Its nice to have a backup folder of all your `.torrents` in the event of a crash     |
-    | Monitored Folder                                   | `/qbitvpn/monitor`               | Place `.torrent` files in this directory to automatically start those torrents       |
+    | Default Save Path:                                 | `/qbitvpn/complete `           | Set this to what you set your dataset mountpoint as                                  |
+    | Keep incomplete torrents in:                       | `/qbitvpn/temp`                | Keep incomplete torrents in a folder no apps are monitoring                          |
+    | Copy .torrent files for finished downloads to:     | `/qbitvpn/backup`              | Its nice to have a backup folder of all your `.torrents` in the event of a crash     |
+    | Monitored Folder                                   | `/qbitvpn/monitor`             | Place `.torrent` files in this directory to automatically start those torrents       |
 
 ![!Downloads: qbit](images/settings_downloads.png)
 
@@ -165,14 +158,14 @@ Since We am using `Traefik`, We decided to add the Kubernetes LAN to:
 
 ### Advanced
 
-??? qBittorrent "qBittorrent Table + Explanation"
+#### qBittorrent "qBittorrent Table + Explanation"
 
     |          Setting                                                       |         Value         |          Explanation                                                                    |
-    |------------------------------------------------                        |-----------------------|----------------------------------------------------------------------------------        |
-    | Network interface:                                                       | `wg0` or `tun0`       | Bind this to `wg0` or `tun0` if you are using Wireguard (wg0) or Openvpn(tun0)        |
-    | Optional IP address to bind to:                                          | All Ipv4 Addresses     | Kubernetes doesnt support ipv6 now anyway so, We set this to just ipv4                   |
-    | Resolve peer countries:                                                  | True                   | Just so We can see what countries We am leeching/seeding from                             |
-    | Reannounce to all trackers when IP or port changed:                      | True                   | In the event my IP or port changes, We want everyone to know, so We can seed or leech     |
+    |------------------------------------------------                        |-----------------------|----------------------------------------------------------------------------------       |
+    | Network interface:                                                     | `wg0` or `tun0`       | Bind this to `tun0` if you are using Gluetun                                            |
+    | Optional IP address to bind to:                                        | All Ipv4 Addresses    | Kubernetes doesnt support ipv6 now anyway so, We set this to just ipv4                  |
+    | Resolve peer countries:                                                | True                  | Just so We can see what countries We am leeching/seeding from                           |
+    | Reannounce to all trackers when IP or port changed:                    | True                  | In the event my IP or port changes, We want everyone to know, so We can seed or leech   |
 
 ![!Speed: qbit](images/settings_advanced.png)
 
