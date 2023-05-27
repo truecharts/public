@@ -88,7 +88,7 @@ nextcloud:
       - 0.0.0.0/0
   onlyoffice:
     # It will not deploy the container
-    # Only add the Onlyoffice settings
+    # Only add the OnlyOffice settings
     enabled: false
     url: ""
     jwt: ""
@@ -131,6 +131,8 @@ workload:
   nginx:
     enabled: true
     type: Deployment
+    strategy: RollingUpdate
+    replicas: 2
     podSpec:
       containers:
         nginx:
@@ -316,6 +318,7 @@ persistence:
         main:
           mountPath: /usr/local/etc/php-fpm.d/zz-tune.conf
           subPath: zz-tune.conf
+          readOnly: true
   redis-session:
     enabled: true
     readOnly: true
@@ -326,6 +329,7 @@ persistence:
         main:
           mountPath: /usr/local/etc/php/conf.d/redis-session.ini
           subPath: redis-session.ini
+          readOnly: true
   nginx:
     enabled: true
     type: configmap
@@ -388,9 +392,11 @@ persistence:
         nginx:
           mountPath: /var/www/html/data
           readOnly: true
+
 # TODO: Remove
 manifestManager:
   enabled: true
+
 cnpg:
   main:
     enabled: true

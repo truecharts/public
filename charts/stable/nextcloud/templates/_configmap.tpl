@@ -11,6 +11,7 @@ php-tune:
       pm.start_servers = {{ .Values.nextcloud.php.pm_start_servers }}
       pm.min_spare_servers = {{ .Values.nextcloud.php.pm_min_spare_servers }}
       pm.max_spare_servers = {{ .Values.nextcloud.php.pm_max_spare_servers }}
+
 redis-session:
   enabled: true
   data:
@@ -51,6 +52,12 @@ nextcloud-config:
     NEXTCLOUD_ADMIN_PASSWORD: {{ .Values.nextcloud.credentials.initialAdminPassword | quote }}
 
     {{/* PHP Variables */}}
+    {{- if not (mustRegexMatch "^[0-9]+(M|G){1}$" .Values.nextcloud.php.memory_limit) -}}
+      {{- fail (printf "Nextcloud - Expected Memory Limit to be in format [1M, 1G] but got [%v]" .Values.nextcloud.php.memory_limit) -}}
+    {{- end -}}
+    {{- if not (mustRegexMatch "^[0-9]+(M|G){1}$" .Values.nextcloud.php.upload_limit) -}}
+      {{- fail (printf "Nextcloud - Expected Memory Limit to be in format [1M, 1G] but got [%v]" .Values.nextcloud.php.upload_limit) -}}
+    {{- end }}
     PHP_MEMORY_LIMIT: {{ .Values.nextcloud.php.memory_limit | quote }}
     PHP_UPLOAD_LIMIT: {{ .Values.nextcloud.php.upload_limit | quote }}
 
