@@ -136,7 +136,7 @@ workload:
     enabled: true
     type: Deployment
     strategy: RollingUpdate
-    replicas: 2
+    replicas: 1
     podSpec:
       containers:
         nginx:
@@ -166,7 +166,7 @@ workload:
     enabled: true
     type: Deployment
     strategy: RollingUpdate
-    replicas: 2
+    replicas: 1
     podSpec:
       containers:
         notify:
@@ -199,7 +199,7 @@ workload:
     enabled: true
     type: Deployment
     strategy: RollingUpdate
-    replicas: 2
+    replicas: 1
     podSpec:
       containers:
         imaginary:
