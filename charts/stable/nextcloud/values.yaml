@@ -109,7 +109,7 @@ workload:
     type: Deployment
     podSpec:
       initContainers:
-        initPerms:
+        init-perms:
           enabled: true
           # TODO: Expose to UI?
           type: init
@@ -411,6 +411,8 @@ persistence:
     targetSelector:
       main:
         main:
+          mountPath: /var/www/html/data
+        init-perms:
           mountPath: /var/www/html/data
       nextcloud-cron:
         nextcloud-cron:
