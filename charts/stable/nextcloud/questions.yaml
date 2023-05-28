@@ -155,6 +155,9 @@ questions:
                   subquestions:
                     - variable: imaginary
                       label: Enable imaginary
+                      description: |
+                        Enable imaginary to generate previews in the background.</br>
+                        It will also deploy the needed container.
                       schema:
                         type: boolean
                         default: true

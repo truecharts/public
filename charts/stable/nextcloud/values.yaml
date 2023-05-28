@@ -46,6 +46,7 @@ nextcloud:
   # Previews settings
   previews:
     enabled: true
+    # It will also deploy the container
     imaginary: true
     cron: true
     schedule: "*/30 * * * *"
@@ -71,12 +72,15 @@ nextcloud:
     log_date_format: d/m/Y H:i:s
   # ClamAV settings
   clamav:
-    enabled: true
+    # It will also deploy the container
+    # Note that this runs as root
+    enabled: false
     stream_max_length: 26214400
     file_max_size: -1
     infected_action: only_log
   # Notify Push settings
   notify_push:
+    # It will also deploy the container
     enabled: true
   # Collabora settings
   collabora:
