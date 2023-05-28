@@ -15,6 +15,7 @@ securityContext:
         - NET_ADMIN
         - SETFCAP
         - SETPCAP
+        - KILL
 
 envFrom:
   - configMapRef:
