@@ -1,6 +1,6 @@
 {{- define "tc.v1.common.lib.util.operator.register" -}}
   {{- if .Values.operator.register -}}
-    {{- with (lookup "v1" "Namespace" "tc-system" "") -}}
+    {{- if (lookup "v1" "Namespace" "tc-system" "") -}}
       {{- with (lookup "v1" "ConfigMap" "tc-system" $.Chart.Name) -}}
         {{- fail (printf "You cannot install the [%s] operator twice..." $.Chart.Name) -}}
       {{- end -}}
