@@ -12,6 +12,9 @@ on:
       modifiedFiles:
         required: true
         type: string
+      modifiedCharts:
+        required: true
+        type: string
 
 jobs:
   lint-and-verify:
@@ -23,7 +26,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
+          ref: master
+    
+      - name: Checkout
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        with:
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Setting repo parent dir as safe safe.directory
@@ -42,7 +51,9 @@ jobs:
         if: inputs.chartChangesDetected == 'true'
         shell: bash
         run: |
-          CHARTS=$(ct list-changed --config .github/ct-lint.yaml)
+          CHARTS=${{ inputs.modifiedCharts }}
+          echo "Modified Charts: ${CHARTS}"
+          
           EXCLUDED_JSON=$(go-yq eval -o=json '.excluded-charts // []' .github/ct-lint.yaml)
           CHARTS_JSON=$(echo "${CHARTS}" | jq --raw-input '.' | jq --compact-output --slurp '.')
           OUTPUT_JSON=$(echo "{\"excluded\": ${EXCLUDED_JSON}, \"all\": ${CHARTS_JSON}}" | jq --compact-output '.all-.excluded')
