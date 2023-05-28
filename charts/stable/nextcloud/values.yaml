@@ -242,7 +242,7 @@ workload:
             # runAsUser: 0
             # runAsGroup: 0
             # runAsNonRoot: false
-            # readOnlyRootFilesystem: false
+            readOnlyRootFilesystem: false
           envFrom:
             - configMapRef:
                 name: clamav-config
@@ -348,12 +348,6 @@ persistence:
           mountPath: /usr/local/etc/php/conf.d/redis-session.ini
           subPath: redis-session.ini
           readOnly: true
-  clamav:
-    enabled: true
-    targetSelector:
-      clamav:
-        clamav:
-          mountPath: /var/lib/clamav
   nginx:
     enabled: true
     type: configmap
