@@ -44,8 +44,8 @@ operator:
   register: true
 
 manifestManager:
-  enabled: false
+  enabled: true
   staging: false
   install: false
   check: false
-  delete: false
+  delete: true
