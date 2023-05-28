@@ -13,6 +13,8 @@ securityContext:
     capabilities:
       add:
         - NET_ADMIN
+        - SETFCAP
+        - SETPCAP
 
 envFrom:
   - configMapRef:
