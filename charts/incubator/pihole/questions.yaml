@@ -19,7 +19,7 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
-# Include{podOptions}
+
   - variable: pihole
     group: "App Configuration"
     label: "Pi-Hole Configuration"
@@ -46,6 +46,7 @@ questions:
           schema:
             type: string
             default: "149.112.112.112"
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

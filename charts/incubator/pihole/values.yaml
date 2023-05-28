@@ -4,13 +4,34 @@ image:
   tag: 2023.03.1@sha256:e48aa04bcdef84fb42f35fa2aaf54dd3ee868e2b80ab535a0ca59a8c6901453b
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-  allowPrivilegeEscalation: true
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    allowPrivilegeEscalation: true
+    runAsUser: 0
+    runAsGroup: 0
+    capabilities:
+      add:
+        - NET_ADMIN
+        - SETFCAP
+        - SETPCAP
+        - KILL
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /admin/index.php
+            readiness:
+              type: http
+              path: /admin/index.php
+            startup:
+              type: http
+              path: /admin/index.php
 
 envFrom:
   - configMapRef:
@@ -34,7 +55,7 @@ service:
     ports:
       dns:
         enabled: true
-        protocol: UDP
+        protocol: udp
         port: 53
         targetPort: 53
 
@@ -52,4 +73,5 @@ persistence:
     mountPath: "/etc/dnsmasq.d"
 
 portal:
-  enabled: true
+  open:
+    enabled: true
