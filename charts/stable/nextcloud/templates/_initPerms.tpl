@@ -24,6 +24,7 @@ args:
 
     # echo "Setting ownership to {{ $uid }}:{{ $gid }} on data directory [{{ $path }}] (recursively) ..."
     # chown -R {{ $uid }}:{{ $gid }} {{ $path }}
+    chown {{ $uid }}:{{ $gid }} {{ $path }}
 
     echo "Finished."
 {{- end -}}
