@@ -230,7 +230,7 @@ questions:
                       schema:
                         type: string
                         required: true
-                        show_if: [["selfSigned", "=", "true"]]
+                        show_if: [["selfSigned", "=", true]]
                         default: "my-selfsigned-ca"
                     - variable: crt
                       label: "Custom CA cert (experimental)"
@@ -238,7 +238,7 @@ questions:
                       schema:
                         type: string
                         required: true
-                        show_if: [["selfSigned", "=", "false"]]
+                        show_if: [["selfSigned", "=", false]]
                         default: ""
                     - variable: key
                       label: "Custom CA key (experimental)"
@@ -246,7 +246,7 @@ questions:
                       schema:
                         type: string
                         required: true
-                        show_if: [["selfSigned", "=", "false"]]
+                        show_if: [["selfSigned", "=", false]]
                         default: ""
 
         - variable: selfSigned
