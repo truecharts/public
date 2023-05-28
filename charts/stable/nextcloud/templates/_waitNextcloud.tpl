@@ -15,7 +15,7 @@ args:
     SCRIPT_FILENAME="status.php"
 
     echo "Waiting Nextcloud [{{ $ncURL }}] to be ready and installed..."
-    until timeout 3 cgi-fcgi -bind -connect "{{ $ncURL }}" | grep -q '"installed":true';
+    until cgi-fcgi -bind -connect "{{ $ncURL }}" | grep -q '"installed":true';
     do
       echo "Waiting Nextcloud [{{ $ncURL }}] to be ready and installed..."
       sleep 3
