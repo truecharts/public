@@ -82,6 +82,7 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
         - variable: http
           label: HTTP Ingress
           schema:
@@ -91,6 +92,7 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
 
 # Include{podSecurityContextRoot}
