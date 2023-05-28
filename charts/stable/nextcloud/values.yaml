@@ -237,12 +237,9 @@ workload:
           primary: true
           enabled: true
           imageSelector: clamavImage
-          # TODO: Test without root
           securityContext:
-            # runAsUser: 0
-            # runAsGroup: 0
-            # runAsNonRoot: false
-            readOnlyRootFilesystem: false
+            runAsUser: 100
+            runAsGroup: 101
           envFrom:
             - configMapRef:
                 name: clamav-config
