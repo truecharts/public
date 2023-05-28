@@ -17,6 +17,22 @@ securityContext:
         - SETPCAP
         - KILL
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /admin/index.php
+            readiness:
+              type: http
+              path: /admin/index.php
+            startup:
+              type: http
+              path: /admin/index.php
+
 envFrom:
   - configMapRef:
       name: pihole-env
