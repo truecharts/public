@@ -1,9 +1,9 @@
 apiVersion: v2
 appVersion: "latest"
 deprecated: false
-description: Certificate management for Kubernetes
-home: https://truecharts.org/charts/enterprise/cert-manager
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/cert-manager.png
+description: A network load-balancer implementation for Kubernetes using standard routing protocols
+home: https://truecharts.org/charts/enterprise/metallb
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/metallb.png
 keywords:
   - metallb
   - loadbalancer
@@ -16,12 +16,13 @@ maintainers:
   - email: info@truecharts.org
     name: TrueCharts
     url: https://truecharts.org
-name: cert-manager
+name: metallb-config
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/enterprise/cert-manager
-  - https://cert-manager.io/
+  - https://github.com/truecharts/charts/tree/master/charts/enterprise/metallb
+  - https://github.com/metallb/metallb
+  - https://metallb.universe.tf
 type: application
-version: 1.0.37
+version: 1.0.0
 annotations:
   truecharts.org/catagories: |
     - core
