@@ -23,13 +23,13 @@ workload:
           probes:
             liveness:
               type: http
-              path: "/"
+              path: "/docs"
             readiness:
               type: http
-              path: "/"
+              path: "/docs"
             startup:
               type: http
-              path: "/"
+              path: "/docs"
           env:
             ASR_MODEL: base
             ASR_ENGINE: faster_whisper
