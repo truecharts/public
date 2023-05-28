@@ -31,7 +31,7 @@ jobs:
       checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
       chartChangesDetected: ${{ needs.pr-changes.outputs.addedOrModified }}
       modifiedFiles: ${{ needs.pr-metadata.outputs.addedOrModifiedFiles }}
-
+      modifiedCharts: ${{ needs.pr-metadata.outputs.addedOrModifiedCharts }}
   charts-test:
     uses: ./.github/workflows/charts-test.yaml
     needs:
