@@ -1,5 +1,7 @@
 # Include{groups}
-portals: {}
+portals:
+  open:
+# Include{portalLink}
 questions:
 # Include{global}
 # Include{workload}
@@ -232,7 +234,7 @@ questions:
 # Include{persistenceBasic}
 # Include{persistenceList}
 
-# Include{podSecurityContextRoot}
+# Include{SecurityContextRoot}
         - variable: runAsUser
           label: runAsUser
           description: The UserID of the user running the application
