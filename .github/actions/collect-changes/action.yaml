@@ -48,6 +48,7 @@ runs:
         # Remove duplicates
         CHARTS=( `printf "%s\n" "${CHARTS[@]}" | sort -u` )
         # Set output to changed charts
+        echo "Changed charts: ${CHARTS[*]}"
         printf "::set-output name=addedOrModified::%s\n" "${CHARTS[*]}"
         
 
@@ -109,7 +110,7 @@ runs:
         CHARTS=( `printf "%s\n" "${CHARTS[@]}" | sort -u` )
 
         echo "Number of detected changed charts: ${#CHARTS[@]}"
-        if [ ${#CHARTS[@]} -eq 0 ] || [ "${CHARTS[0]}" = " " ] || [ "${CHARTS[0]}" = "/" ]; then
+        if [ ${#CHARTS[@]} -eq 0 ] || [ "${CHARTS[0]}" == ' ' ] || [ "${CHARTS[0]}" == '/' ]; then
           echo "No Changed Charts detected since latest tag..."
           printf "::set-output name=changesDetectedAfterTag::%s\n" "false"
         else
