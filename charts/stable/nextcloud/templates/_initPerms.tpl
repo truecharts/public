@@ -19,10 +19,11 @@ args:
   - -c
   - |
     echo "Setting permissions to 700 on data directory [{{ $path }}] (recursively) ..."
-    chmod 770 -R {{ $path }}
+    # chmod 770 -R {{ $path }}
+    chmod 770 {{ $path }}
 
-    echo "Setting ownership to {{ $uid }}:{{ $gid }} on data directory [{{ $path }}] (recursively) ..."
-    chown -R {{ $uid }}:{{ $gid }} {{ $path }}
+    # echo "Setting ownership to {{ $uid }}:{{ $gid }} on data directory [{{ $path }}] (recursively) ..."
+    # chown -R {{ $uid }}:{{ $gid }} {{ $path }}
 
     echo "Finished."
 {{- end -}}
