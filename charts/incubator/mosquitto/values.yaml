@@ -70,4 +70,5 @@ persistence:
         name: '{{ template "tc.common.names.fullname" . }}-config'
 
 portal:
-  enabled: false
+  open:
+    enabled: false
