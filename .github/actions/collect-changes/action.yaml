@@ -42,7 +42,7 @@ runs:
         for CHARTPATH in "${PATHS[@]}"
         do
           IFS='/' read -r -a path_parts <<< "${CHARTPATH}"
-          CHARTS+=(${path_parts[0]}/${path_parts[1]}/${path_parts[2]}")
+          CHARTS+=("${path_parts[0]}/${path_parts[1]}/${path_parts[2]}")
         done
 
         # Remove duplicates
