@@ -330,7 +330,6 @@ service:
 persistence:
   php-tune:
     enabled: true
-    readOnly: true
     type: configmap
     objectName: php-tune
     targetSelector:
@@ -341,7 +340,6 @@ persistence:
           readOnly: true
   redis-session:
     enabled: true
-    readOnly: true
     type: configmap
     objectName: redis-session
     targetSelector:
@@ -350,6 +348,12 @@ persistence:
           mountPath: /usr/local/etc/php/conf.d/redis-session.ini
           subPath: redis-session.ini
           readOnly: true
+  clamav:
+    enabled: true
+    targetSelector:
+      clamav:
+        clamav:
+          mountPath: /var/lib/clamav
   nginx:
     enabled: true
     type: configmap

@@ -65,6 +65,7 @@ questions:
                   default: ""
               - variable: fix_data_permissions
                 label: Fix Data Permissions
+                # TODO: Remove and move this to common and under the fix permissions in storage section
                 description: |
                   Regardless of the setting here,</br>
                   on first install will set permissions to [770] for the data directory.</br>
@@ -536,6 +537,14 @@ questions:
         - variable: data
           label: User Data Storage
           description: Stores the User Data.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: clamav
+          label: User ClamAV Storage
+          description: Stores the ClamAV Data.
           schema:
             additional_attrs: true
             type: dict
