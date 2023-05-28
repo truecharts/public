@@ -240,6 +240,7 @@ workload:
           securityContext:
             runAsUser: 100
             runAsGroup: 101
+            readOnlyRootFilesystem: false
           envFrom:
             - configMapRef:
                 name: clamav-config
