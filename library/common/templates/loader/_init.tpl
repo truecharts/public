@@ -38,7 +38,7 @@
   {{- include "tc.v1.common.lib.util.operator.register" . }}
 
   {{/* Verify if required operators are present */}}
-  {{- include "tc.v1.common.lib.util.operator.verify" . }}
+  {{- include "tc.v1.common.lib.util.operator.verifyAll" . }}
 
   {{/* Enable code-server add-on if required */}}
   {{- if .Values.addons.codeserver.enabled }}
