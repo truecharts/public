@@ -1,6 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "frigate.configmap" -}}
-
+enabled: true
 data:
   config.yml: |
     database:
