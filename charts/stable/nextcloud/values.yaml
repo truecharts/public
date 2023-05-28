@@ -20,7 +20,6 @@ clamavImage:
   pullPolicy: IfNotPresent
   tag: 1.1.0@sha256:37501c13ada7a67bb28122dce328972acacbede8a5efd27c07da293461e84c77
 
-# TODO: Check if we need to add any waiting checks on pods.
 nextcloud:
   # Initial Credentials
   credentials:
