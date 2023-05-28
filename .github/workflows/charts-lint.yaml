@@ -50,7 +50,7 @@ jobs:
           echo $CHARTS
           echo "---"
           echo "modif charts out"
-          echo ${{ inputs.chartChangesDetected }}
+          echo ${{ .input.modifiedCharts }}
           echo "---"
 
           EXCLUDED_JSON=$(go-yq eval -o=json '.excluded-charts // []' .github/ct-lint.yaml)
