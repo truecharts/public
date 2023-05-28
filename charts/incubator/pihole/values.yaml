@@ -3,11 +3,16 @@ image:
   pullPolicy: IfNotPresent
   tag: 2023.03.1@sha256:e48aa04bcdef84fb42f35fa2aaf54dd3ee868e2b80ab535a0ca59a8c6901453b
 
+pihole:
+  webPassword: "somepassword"
+  dnsServers:
+    - "9.9.9.9"
+    - "149.112.112.112"
+
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
-    allowPrivilegeEscalation: true
     runAsUser: 0
     runAsGroup: 0
     capabilities:
@@ -22,6 +27,9 @@ workload:
     podSpec:
       containers:
         main:
+          envFrom:
+            - configMapRef:
+                name: pihole-env
           probes:
             liveness:
               type: http
@@ -32,10 +40,6 @@ workload:
             startup:
               type: http
               path: /admin/index.php
-
-envFrom:
-  - configMapRef:
-      name: pihole-env
 
 service:
   main:
@@ -58,11 +62,6 @@ service:
         protocol: udp
         port: 53
         targetPort: 53
-
-pihole:
-  WEBPASSWORD: "somepassword"
-  DNS1: "9.9.9.9"
-  DNS2: "149.112.112.112"
 
 persistence:
   config:
