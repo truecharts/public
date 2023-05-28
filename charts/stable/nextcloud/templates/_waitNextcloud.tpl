@@ -9,13 +9,12 @@ command: /bin/sh
 args:
   - -c
   - |
-    # Set cgi variables for the request
-    REQUEST_METHOD="GET"
-    SCRIPT_NAME="status.php"
-    SCRIPT_FILENAME="status.php"
-
     echo "Waiting Nextcloud [{{ $ncURL }}] to be ready and installed..."
-    until cgi-fcgi -bind -connect "{{ $ncURL }}" | grep -q '"installed":true';
+    until \
+          REQUEST_METHOD="GET" \
+          SCRIPT_NAME="status.php" \
+          SCRIPT_FILENAME="status.php" \
+          cgi-fcgi -bind -connect "{{ $ncURL }}" | grep -q '"installed":true';
     do
       echo "Waiting Nextcloud [{{ $ncURL }}] to be ready and installed..."
       sleep 3

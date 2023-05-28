@@ -2,7 +2,7 @@
 image:
   repository: ghcr.io/stavros-k/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: 26.0.1-fpm@sha256:8ccd746b497eeda71c7c7c54c162035961b34feab6bdba45734db0f392d06e98
+  tag: 26.0.1-fpm@sha256:2ff93558c77c23d301807b238e634267f25096ecfcc0e2d44eaac07d4b18765e
 nginxImage:
   repository: nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
@@ -10,11 +10,11 @@ nginxImage:
 imaginaryImage:
   repository: ghcr.io/stavros-k/nextcloud-imaginary
   pullPolicy: IfNotPresent
-  tag: 20230528@sha256:db250cae2076dfe6426ffb256d08daabaff3c6d15373b5abade9bf7fa0f079ea
+  tag: 20230528@sha256:9c942a71ade5bee25abcd8727fac8ea6e8c61e6d01f67615734daf8db24ecb70
 hpbImage:
   repository:  ghcr.io/stavros-k/nextcloud-notify_push
   pullPolicy: IfNotPresent
-  tag: 0.6.3@sha256:f0f3b3e6dad7b0eca4f5aad4e02dbec5775a440f056b30a087b6be86b789e76e
+  tag: 0.6.3@sha256:9c15a23463a14ff6e987dbaeaeb07423c6944498e021548eb2c20e32c0b08b81
 clamavImage:
   repository: clamav/clamav
   pullPolicy: IfNotPresent
