@@ -345,7 +345,9 @@ questions:
                 label: Enable ClamAV
                 description: |
                   Enable and configure ClamAV.</br>
-                  It will also deploy the needed container</br>
+                  It will also deploy the needed container.</br>
+                  Keep in mind that this will run as root.</br>
+                  https://github.com/Cisco-Talos/clamav/issues/478
                 schema:
                   type: boolean
                   default: false

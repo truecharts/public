@@ -238,8 +238,9 @@ workload:
           enabled: true
           imageSelector: clamavImage
           securityContext:
-            runAsUser: 100
-            runAsGroup: 101
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
             readOnlyRootFilesystem: false
           envFrom:
             - configMapRef:
