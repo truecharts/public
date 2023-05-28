@@ -4,7 +4,7 @@
 {{- $path := .Values.persistence.data.targetSelector.main.main.mountPath }}
 enabled: true
 type: {{ ternary "init" "install" .Values.nextcloud.general.fix_data_permissions }}
-imageSelector: image
+imageSelector: alpineImage
 securityContext:
   runAsUser: 0
   runAsGroup: 0
