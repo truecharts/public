@@ -1,33 +1,47 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secrets for gitea */}}
-{{- include "gitea.secrets" . }}
+{{- $secrets := include "gitea.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := mustMergeOverwrite .Values.secret $secrets -}}
+{{- end -}}
 
 {{/* Render configmap for gitea */}}
-{{- include "gitea.configmap" . }}
+{{- $configmap := include "gitea.configmap" . | fromYaml -}}
+{{- if $configmap -}}
+  {{- $_ := set .Values.configmap "gitea-env" $configmap -}}
+{{- end -}}
 
 {{/* Append the general secret volumes to the volumes */}}
 {{- define "gitea.initvolume" -}}
-enabled: "true"
-mountPath: "/secrets/ini"
+enabled: true
 readOnly: true
-type: "custom"
-volumeSpec:
-  secret:
-    secretName: {{ include "tc.common.names.fullname" . }}-init
-    defaultMode: 0777
+type: secret
+objectName: init
+defaultMode: "0777"
+targetSelector:
+  main:
+    main:
+      mountPath: /secrets/ini
+    1-init-directories:
+      mountPath: "/usr/sbin"
+    2-configure-gitea:
+      mountPath: "/usr/sbin"
 {{- end -}}
 
 {{/* Append the general secret volumes to the volumes */}}
 {{- define "gitea.configvolume" -}}
-enabled: "true"
-mountPath: "/secrets/config"
+enabled: true
 readOnly: true
-type: "custom"
-volumeSpec:
-  secret:
-    secretName: {{ include "tc.common.names.fullname" . }}
+type: secret
+objectName: secret
+targetSelector:
+  main:
+    main:
+      mountPath: /secrets/config
+    1-init-directories:
+      mountPath: /etc/gitea/conf
 {{- end -}}
 
 {{- $_ := set .Values.persistence "init" (include "gitea.initvolume" . | fromYaml) -}}
@@ -35,4 +49,4 @@ volumeSpec:
 
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

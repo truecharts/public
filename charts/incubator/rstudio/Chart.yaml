@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "4.2.2"
+appVersion: "4.3.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -19,10 +19,9 @@ maintainers:
 name: rstudio
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/rstudio
-  - https://hub.docker.com/r/rocker/rstudio
   - https://github.com/rocker-org/rocker-versioned2
 type: application
-version: 3.0.6
+version: 3.0.8
 annotations:
   truecharts.org/catagories: |
     - Productivity

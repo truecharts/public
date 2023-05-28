@@ -1,32 +1,32 @@
 image:
   repository: tccr.io/truecharts/sickgear
   pullPolicy: IfNotPresent
-  tag: latest@sha256:63072b4b2814422131493cc918588cfef11805686a464bc1d4126bafdc2c70b4
-
-env:
-  APP_DATA: /config
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
+  tag: latest@sha256:c541e0876f23ea3c9ad3e664bf8fe961caf6182d10dadfda58cc8423461eaba8
 service:
   main:
     ports:
       main:
         port: 10066
         targetPort: 8081
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
   varrun:
     enabled: true
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            APP_DATA: /config

@@ -1,24 +1,14 @@
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/posterr
-  tag: latest@sha256:f72a497911296378b19e8441a1bde217e40d524adb45bde69924ab90bfe090c5
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
+  tag: latest@sha256:141b757a5434780939d0238491fe7ca0799eda3ae48c14ef22e4b6f6ac588842
 service:
   main:
     ports:
       main:
         port: 9876
-        protocol: HTTP
+        protocol: http
         targetPort: 3000
-
 persistence:
   config:
     enabled: true
@@ -26,6 +16,12 @@ persistence:
   custom:
     enabled: true
     mountPath: /usr/src/app/public/custom
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0

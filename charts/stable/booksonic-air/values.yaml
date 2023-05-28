@@ -1,27 +1,45 @@
 image:
   repository: tccr.io/truecharts/booksonic-air
   pullPolicy: IfNotPresent
-  tag: v2201.1.0@sha256:29d7239372dce6c179f2655b15f6cfc1b5d3a1f3ff1ec9c52e5d43b23c5ed4d9
+  tag: v2201.1.0@sha256:027786d9c5cdea27d504ff1a0a07ec9ccf53927d1a0f8b645f6cb13b90e76958
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
     ports:
       main:
         port: 10048
+        protocol: http
         targetPort: 4040
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
 
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
 
 portal:
-  enabled: true
+  open:
+    enabled: true

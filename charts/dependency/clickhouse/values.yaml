@@ -1,54 +1,67 @@
 image:
   repository: tccr.io/truecharts/clickhouse
   pullPolicy: IfNotPresent
-  tag: 23.1.3.5@sha256:3da895503f8a0e59fb66a730b312b81fced672d85d1eced4cbaec4a772178daa
+  tag: v23.4.2.11@sha256:c12f70ed3f189415fac14cb4e1cb861575817fe6d1e385dc88024341eca10cca
 
-controller:
-  type: statefulset
-  strategy: RollingUpdate
-  rollingUpdate:
-    unavailable: 1
+workload:
+  main:
+    replicas: 1
+    podSpec:
+      containers:
+        main:
+          env:
+            CLICKHOUSE_DB: "{{ .Values.clickhouseDatabase }}"
+            CLICKHOUSE_USER: "{{ .Values.clickhouseUsername }}"
+            CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: "{{ .Values.clickhouseDefaultAccessManagement }}"
+            CLICKHOUSE_PASSWORD:
+              secretKeyRef:
+                expandObjectName: "{{ if .Values.clickhousePassword }}true{{ else }}false{{ end }}"
+                name: '{{ if .Values.clickhousePassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "clickhousecreds" }}{{ end }}'
+                key: "clickhouse-password"
+          probes:
+            liveness:
+              type: http
+              path: /ping
+            readiness:
+              type: http
+              path: /ping
+            startup:
+              type: http
+              path: /ping
 
 securityContext:
-  readOnlyRootFilesystem: false
-  # Optional capabilities advanced ClickHouse features. See also:
-  # https://github.com/ClickHouse/ClickHouse/blob/master/docker/server/README.md#linux-capabilities
-  # https://kb.altinity.com/altinity-kb-setup-and-maintenance/altinity-kb-clickhouse-in-docker/
-  # https://github.com/ClickHouse/ClickHouse/blob/b844c36a9d5e76300a88b4f49e6debccf1ad22e4/programs/install/Install.cpp#L793-L804
-  # capabilities:
-  #   add:
-  #     - IPC_LOCK
-  #     - NET_ADMIN
-  #     - SYS_NICE
+  container:
+    readOnlyRootFilesystem: false
+    # Optional capabilities advanced ClickHouse features. See also:
+    # https://github.com/ClickHouse/ClickHouse/blob/master/docker/server/README.md#linux-capabilities
+    # https://kb.altinity.com/altinity-kb-setup-and-maintenance/altinity-kb-clickhouse-in-docker/
+    # https://github.com/ClickHouse/ClickHouse/blob/b844c36a9d5e76300a88b4f49e6debccf1ad22e4/programs/install/Install.cpp#L793-L804
+    # capabilities:
+    #   add:
+    #     - IPC_LOCK
+    #     - NET_ADMIN
+    #     - SYS_NICE
 
 service:
   main:
     ports:
       main:
         port: 8123
-        protocol: HTTP
+        protocol: http
         targetPort: 8123
 
-volumeClaimTemplates:
+persistence:
   data:
     enabled: true
     mountPath: /var/lib/clickhouse
 
-probes:
-  liveness:
-    type: HTTP
-    path: /ping
-  readiness:
-    type: HTTP
-    path: /ping
-  startup:
-    type: HTTP
-    path: /ping
-
 clickhouseDatabase: "test"
 clickhouseUsername: "test"
-clickhousePassword: "testpass"
 clickhouseDefaultAccessManagement: 0
+
+# -- Secret or password
+# One of these options is required, unless used as a dependency for another TrueCharts chart.
+clickhousePassword: ""
 existingSecret: ""
 
 secret:
@@ -57,17 +70,9 @@ secret:
     data:
       clickhouse-password: '{{ ( .Values.clickhousePassword | default "empty" ) }}'
 
-env:
-  CLICKHOUSE_DB: "{{ .Values.clickhouseDatabase }}"
-  CLICKHOUSE_USER: "{{ .Values.clickhouseUsername }}"
-  CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: "{{ .Values.clickhouseDefaultAccessManagement }}"
-  CLICKHOUSE_PASSWORD:
-    secretKeyRef:
-      name: '{{ .Values.existingSecret | default ( printf "%s-credentials" ( include "tc.common.names.fullname" . ) ) }}'
-      key: "clickhouse-password"
-
 portal:
-  enabled: false
+  open:
+    enabled: false
 
-manifests:
+manifestManager:
   enabled: false

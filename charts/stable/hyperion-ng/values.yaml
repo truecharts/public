@@ -1,15 +1,7 @@
 image:
   repository: tccr.io/truecharts/hyperion.ng
-  tag: 2.0.14@sha256:d2a68d14655b0aca7c9babda8e2fba5abde5e1439607b7e92d38eafe8f0d85dc
+  tag: 2.0.15@sha256:876943c6b970cae5ef0692b133c13a52a832e76e2f39e11f82cf397fa764b754
   pullPolicy: IfNotPresent
-
-securityContext:
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
@@ -37,11 +29,15 @@ service:
         enabled: true
         port: 19333
         targetPort: 19333
-
 persistence:
   config:
     enabled: true
     mountPath: "/root/.hyperion"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

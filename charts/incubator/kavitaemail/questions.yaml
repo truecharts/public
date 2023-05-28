@@ -2,10 +2,15 @@
 portals: {}
 questions:
 # Include{global}
-# Include{controller}
-# Include{replicas}
-# Include{replica1}
-# Include{controllerExpertExtraArgs}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+# Include{containerBasic}
+# Include{containerAdvanced}
+
   - variable: secretEnv
     group: App Configuration
     label: Image Secrets
@@ -88,7 +93,6 @@ questions:
                               default: 15003
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
@@ -111,29 +115,9 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
-# Include{security}
-# Include{securityContextAdvancedRoot}
-              - variable: privileged
-                label: Privileged mode
-                schema:
-                  type: boolean
-                  default: false
-              - variable: readOnlyRootFilesystem
-                label: ReadOnly Root Filesystem
-                schema:
-                  type: boolean
-                  default: false
-              - variable: allowPrivilegeEscalation
-                label: Allow Privilege Escalation
-                schema:
-                  type: boolean
-                  default: false
-              - variable: runAsNonRoot
-                label: runAsNonRoot
-                schema:
-                  type: boolean
-                  default: false
+
 # Include{podSecurityContextRoot}
         - variable: runAsUser
           label: runAsUser
@@ -147,16 +131,20 @@ questions:
           schema:
             type: int
             default: 0
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
         - variable: fsGroup
           label: fsGroup
           description: The group that should own ALL storage.
           schema:
             type: int
             default: 0
-# Include{podSecurityContextAdvanced}
+
 # Include{resources}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
+# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

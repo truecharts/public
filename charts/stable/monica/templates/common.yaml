@@ -1,8 +1,11 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render appkey for monica */}}
-{{- include "monica.appkey" . }}
+{{- $secret := include "monica.appkey" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "appkey" $secret -}}
+{{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

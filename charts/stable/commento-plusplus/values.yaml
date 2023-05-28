@@ -3,36 +3,51 @@ image:
   tag: v1.8.7@sha256:9e64c97771e6d875c465fd047bc98978c7ffc4ff6c0841a878c790753a8cfca1
   pullPolicy: IfNotPresent
 
-env:
-  COMMENTO_PORT: "{{ .Values.service.main.ports.main.port }}"
-  # User Defined
-  COMMENTO_FORBID_NEW_OWNERS: false
-  COMMENTO_GZIP_STATIC: true
-  COMMENTO_ORIGIN: "http://localhost:8080"
-  COMMENTO_ENABLE_WILDCARDS: true
-  COMMENTO_ENABLE_LOGGING: false
-  SMTP_SKIP_HOST_VERIFY: false
-  COMMENTO_SMTP_USERNAME: ""
-  COMMENTO_SMTP_PASSWORD: ""
-  COMMENTO_SMTP_HOST: ""
-  COMMENTO_SMTP_FROM_ADDRESS: ""
-  COMMENTO_SMTP_PORT: 587
-  COMMENTO_POSTGRES:
-    secretKeyRef:
-      name: dbcreds
-      key: urlnossl
-
 service:
   main:
     ports:
       main:
         port: 10240
+        protocol: http
 
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: comment-plusplus
-  postgresqlDatabase: comment-plusplus
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+          env:
+            COMMENTO_PORT: "{{ .Values.service.main.ports.main.port }}"
+            # User Defined
+
+            COMMENTO_FORBID_NEW_OWNERS: false
+            COMMENTO_GZIP_STATIC: true
+            COMMENTO_ORIGIN: "http://localhost:8080"
+            COMMENTO_ENABLE_WILDCARDS: true
+            COMMENTO_ENABLE_LOGGING: false
+            SMTP_SKIP_HOST_VERIFY: false
+            COMMENTO_SMTP_USERNAME: ""
+            COMMENTO_SMTP_PASSWORD: ""
+            COMMENTO_SMTP_HOST: ""
+            COMMENTO_SMTP_FROM_ADDRESS: ""
+            COMMENTO_SMTP_PORT: 587
+            COMMENTO_POSTGRES:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: std
+
+cnpg:
+  main:
+    enabled: true
+    user: comment-plusplus
+    database: comment-plusplus
 
 portal:
-  enabled: true
+  open:
+    enabled: true

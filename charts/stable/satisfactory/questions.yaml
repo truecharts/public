@@ -2,71 +2,78 @@
 portals: {}
 questions:
 # Include{global}
-# Include{controller}
-# Include{replicas}
-# Include{replica1}
-# Include{controllerExpertExtraArgs}
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: AUTOPAUSE
-          label: "Enable/Disable Auto pause"
-          schema:
-            type: boolean
-            default: true
-        - variable: AUTOSAVEINTERVAL
-          label: "Auto save interval"
-          schema:
-            type: int
-            required: true
-            default: 300
-        - variable: AUTOSAVENUM
-          label: "Number of auto saves"
-          schema:
-            type: int
-            required: true
-            default: 3
-        - variable: AUTOSAVEONDISCONNECT
-          label: "Auto save on Disconnect"
-          schema:
-            type: boolean
-            default: true
-        - variable: CRASHREPORT
-          label: "Crash report"
-          schema:
-            type: boolean
-            default: true
-        - variable: DEBUG
-          label: "Debug"
-          schema:
-            type: boolean
-            default: false
-        - variable: DISABLESEASONALEVENTS
-          label: "Disable seasonal events"
-          schema:
-            type: boolean
-            default: false
-        - variable: MAXPLAYERS
-          label: "Max players"
-          schema:
-            type: int
-            required: true
-            default: 4
-        - variable: SKIPUPDATE
-          label: "Skip update"
-          schema:
-            type: boolean
-            default: false
-        - variable: STEAMBETA
-          label: "Steam beta"
-          schema:
-            type: boolean
-            default: false
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: AUTOPAUSE
+                                        label: "Enable/Disable Auto pause"
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: AUTOSAVEINTERVAL
+                                        label: "Auto save interval"
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 300
+                                      - variable: AUTOSAVENUM
+                                        label: "Number of auto saves"
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 3
+                                      - variable: AUTOSAVEONDISCONNECT
+                                        label: "Auto save on Disconnect"
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: CRASHREPORT
+                                        label: "Crash report"
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: DEBUG
+                                        label: "Debug"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: DISABLESEASONALEVENTS
+                                        label: "Disable seasonal events"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: MAXPLAYERS
+                                        label: "Max players"
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 4
+                                      - variable: SKIPUPDATE
+                                        label: "Skip update"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: STEAMBETA
+                                        label: "Steam beta"
+                                        schema:
+                                          type: boolean
+                                          default: false
+# Include{containerBasic}
+# Include{containerAdvanced}
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -135,7 +142,6 @@ questions:
                               default: 15777
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
@@ -148,51 +154,34 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceList}
-# Include{security}
-# Include{securityContextAdvancedRoot}
-              - variable: privileged
-                label: "Privileged mode"
+# Include{securityContextRoot}
+
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
                 schema:
-                  type: boolean
-                  default: false
-              - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
                 schema:
-                  type: boolean
-                  default: false
-              - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                  type: int
+                  default: 0
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
                 schema:
-                  type: boolean
-                  default: false
-              - variable: runAsNonRoot
-                label: "runAsNonRoot"
-                schema:
-                  type: boolean
-                  default: false
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
-        - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
-          schema:
-            type: int
-            default: 568
-# Include{podSecurityContextAdvanced}
+                  type: int
+                  default: 568
+
 # Include{resources}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
+# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

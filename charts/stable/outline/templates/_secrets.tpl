@@ -1,25 +1,17 @@
 {{/* Define the secrets */}}
 {{- define "outline.secrets" -}}
----
+{{- $secretName := (printf "%s-outline-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: outline-secrets
-{{- $outlineprevious := lookup "v1" "Secret" .Release.Namespace "outline-secrets" }}
-{{- $secret_key := "" }}
-{{- $utils_secret := "" }}
+{{/* Outline wants a HEX 32 char string */}}
+{{- $secret_key := (printf "%x" (randAlphaNum 32)) }}
+{{- $utils_secret := (printf "%x" (randAlphaNum 32)) }}
+{{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
+  {{- $secret_key = index .data "SECRET_KEY" | b64dec }}
+  {{- $utils_secret = index .data "UTILS_SECRET" | b64dec }}
+{{- end }}
+enabled: true
 data:
-  {{- if $outlineprevious}}
-  SECRET_KEY: {{ index $outlineprevious.data "SECRET_KEY" }}
-  UTILS_SECRET: {{ index $outlineprevious.data "UTILS_SECRET" }}
-  {{- else }}
-  {{- $secret_key := randAlphaNum 32 }}
-  {{- $utils_secret := randAlphaNum 32 }}
-  {{/* Outline wants a HEX 32 char string */}}
-  SECRET_KEY: {{ (printf "%x" $secret_key) | b64enc }}
-  UTILS_SECRET: {{ (printf "%x" $utils_secret) | b64enc }}
-  {{- end }}
-
+  SECRET_KEY: {{ $secret_key }}
+  UTILS_SECRET: {{ $utils_secret  }}
+  REDIS_CUSTOM_URL: {{ .Values.redis.creds.url | trimAll "\""  }}
 {{- end -}}

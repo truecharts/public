@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "23.2.9"
+appVersion: "23.5.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
 deprecated: false
 description: Actual is a super fast privacy-focused app for managing your finances.
 home: https://truecharts.org/charts/stable/actualserver
@@ -19,11 +19,10 @@ maintainers:
 name: actualserver
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/actualserver
-  - https://hub.docker.com/r/jlongster/actual-server
   - https://github.com/Kippenhof/docker-templates
 type: application
 annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |
     - finance
-version: 3.0.13
+version: 4.0.19

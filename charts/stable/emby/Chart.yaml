@@ -3,7 +3,7 @@ appVersion: "4.7.11.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
 deprecated: false
 description: Emby Server is a home media server
 home: https://truecharts.org/charts/stable/emby
@@ -20,12 +20,10 @@ maintainers:
 name: emby
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/emby
-  - https://ghcr.io/onedr0p/emby
   - https://github.com/linuxserver/docker-emby.git
 type: application
-version: 13.0.17
+version: 14.0.18
 annotations:
   truecharts.org/catagories: |
     - media
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

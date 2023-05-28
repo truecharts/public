@@ -3,13 +3,18 @@ image:
   pullPolicy: IfNotPresent
   tag: vminimal@sha256:fb868c6ad4b810d197941e10b1a004be72e0b839c9e0b8d13a6c934c17599b12
 
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            startup:
+              type: tcp
+            readiness:
+              type: tcp
 
 service:
   main:
@@ -18,5 +23,13 @@ service:
         port: 1688
         targetPort: 1688
 
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
 portal:
-  enabled: false
+  open:
+    enabled: false

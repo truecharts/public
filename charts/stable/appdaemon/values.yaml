@@ -1,40 +1,52 @@
 image:
   repository: tccr.io/truecharts/appdaemon
   pullPolicy: IfNotPresent
-  tag: v4.2.1@sha256:e9c2639389084bd3ea7b272d5239cf6da7b5e3eb49069bbcafd002e551681dda
+  tag: 4.4.2@sha256:a0705dcc407656fa8df4382574048956ec75d8fd923e1f69bf05c6fc74fcca6d
 
 securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-secretEnv:
-  TOKEN: "REPLACETHIS"
-
-env:
-  DASH_URL: "http://$HOSTNAME:5050"
-  HA_URL: ""
-  LATITUDE: 46
-  LONGITUDE: -94
-  ELEVATION: 1217
-  TIMEZONE: "{{ .Values.TZ }}"
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
     ports:
       main:
         port: 5050
+        protocol: http
         targetPort: 5050
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            DASH_URL: "http://$HOSTNAME:5050"
+            HA_URL: ""
+            LATITUDE: 46
+            LONGITUDE: -94
+            ELEVATION: 1217
+            TIMEZONE: "{{ .Values.TZ }}"
+            TOKEN: "REPLACETHIS"
 
 persistence:
   conf:
     enabled: true
-    mountPath: "/conf"
-  varrun:
-    enabled: true
+    mountPath: /conf
 
 portal:
-  enabled: true
+  open:
+    enabled: true

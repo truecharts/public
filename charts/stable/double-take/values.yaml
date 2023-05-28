@@ -10,10 +10,28 @@ service:
         targetPort: 3000
         port: 10200
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+
 persistence:
   data:
     enabled: true
-    mountPath: "/.storage"
+    mountPath: /.storage
 
 portal:
-  enabled: true
+  open:
+    enabled: true

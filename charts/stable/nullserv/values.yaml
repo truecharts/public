@@ -1,18 +1,7 @@
-controller:
-  replicas: 2
-
 image:
   repository: tccr.io/truecharts/nullserv
   tag: v1.3.0@sha256:e4fb3f05491af583b715fc483f6780dfa03d3a103b0daff0e06e3d783f5e7925
   pullPolicy: IfNotPresent
-
-securityContext:
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
@@ -26,20 +15,29 @@ service:
         enabled: true
         port: 10005
         targetPort: 443
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-
-probes:
-  readiness:
-    enabled: true
-    custom: true
-    spec:
-      httpGet:
-        path: /welcome.txt
-        port: main
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            readiness:
+              enabled: true
+              custom: true
+              spec:
+                httpGet:
+                  path: /welcome.txt
+                  port: main
+    replicas: 2

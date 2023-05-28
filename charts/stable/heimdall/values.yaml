@@ -1,31 +1,31 @@
 image:
   repository: tccr.io/truecharts/heimdall
-  tag: 2.5.5@sha256:c9cae6d835994f4d098feb2d3d1f8d133a58e1b96b0e9d5b58de755b3a6539f0
+  tag: 2.5.6@sha256:093de204da5125c16f2c60227950844705f51186f748ba15e78f7ce57d1dfb1b
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 10014
         targetPort: 80
-
-probes:
-  startup:
-    enabled: true
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            startup:
+              enabled: true

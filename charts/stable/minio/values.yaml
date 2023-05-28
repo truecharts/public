@@ -1,34 +1,7 @@
 image:
   repository: tccr.io/truecharts/minio
-  tag: latest@sha256:6e5c1345b4fbd2b9ee7d12805a04840872d60cc70af44c99584d3884df7d8556
+  tag: latest@sha256:122ee377445077dd25b2bdad63f04a60d381dd47bf360bd1fc3adc8fb4166ea8
   pullPolicy: IfNotPresent
-
-args: ["server", "/data", "--address", ":10106", "--console-address", ":10107"]
-
-secretEnv:
-  MINIO_ROOT_PASSWORD: "changeme"
-
-env:
-  MINIO_ROOT_USER: "minio"
-  MINIO_BROWSER_REDIRECT_URL: ""
-  MINIO_SERVER_URL: ""
-
-probes:
-  liveness:
-    custom: true
-    spec:
-      httpGet:
-        scheme: HTTP
-        path: "/minio/health/live"
-        port: 10106
-  readiness:
-    custom: true
-    spec:
-      httpGet:
-        scheme: HTTP
-        path: "/minio/health/ready"
-        port: 10106
-
 service:
   main:
     ports:
@@ -42,18 +15,48 @@ service:
         enabled: true
         targetPort: 10106
         port: 10106
-
 ingress:
   api:
     autoLink: true
-
-securityContext:
-  readOnlyRootFilesystem: false
-
 persistence:
   config:
     enabled: true
     mountPath: "/data"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              custom: true
+              spec:
+                httpGet:
+                  scheme: HTTP
+                  path: "/minio/health/live"
+                  port: 10106
+            readiness:
+              custom: true
+              spec:
+                httpGet:
+                  scheme: HTTP
+                  path: "/minio/health/ready"
+                  port: 10106
+          args:
+            - "server"
+            - "/data"
+            - "--address"
+            - ":10106"
+            - "--console-address"
+            - ":10107"
+          env:
+            MINIO_ROOT_USER: "minio"
+            MINIO_BROWSER_REDIRECT_URL: ""
+            MINIO_SERVER_URL: ""
+            MINIO_ROOT_PASSWORD: "changeme"

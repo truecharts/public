@@ -1,29 +1,25 @@
 image:
   repository: tccr.io/truecharts/mstream
   pullPolicy: IfNotPresent
-  tag: v5.11.4@sha256:87b6944b6b6bacb15ef0a5995738ec24ca20f70edffda68b85eb173f7e7599b5
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
+  tag: v5.11.4@sha256:9b34dba13567c0ac4ee6c96ff849df9f848930c5b1ed65b6257597a8bfbe3026
 service:
   main:
     ports:
       main:
         port: 10041
         targetPort: 3000
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
   varrun:
     enabled: true
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

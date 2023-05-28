@@ -1,79 +1,74 @@
 image:
   repository: tccr.io/truecharts/nocodb
-  tag: 0.105.3@sha256:cb70326f19d1d89688f61e70c383553cfaac62e24904f881268a5036609a694d
+  tag: 0.106.1@sha256:ea59e982b4b453096ed60b0be51f91c5d42e7ae23abc5e8edbc4dc2741602741
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-secretEnv:
-AWS_ACCESS_KEY_ID: ""
-AWS_SECRET_ACCESS_KEY: ""
-AWS_BUCKET: ""
-AWS_BUCKET_PATH: ""
-NC_GOOGLE_CLIENT_ID: ""
-NC_GOOGLE_CLIENT_SECRET: ""
-
-env:
-  NC_MIN: ""
-  PORT: "{{ .Values.service.main.ports.main.port }}"
-  # User Defined
-  NC_PUBLIC_URL: "http://localhost:10226"
-  NC_DISABLE_TELE: true
-  DISABLE_SPLASH_SCREEN: false
-  NC_JWT_EXPIRES_IN: "10h"
-  NC_INVITE_ONLY_SIGNUP: false
-  NC_DISABLE_CACHE: false
-  NC_DISABLE_ERR_REPORT: true
-  NC_REQUEST_BODY_SIZE: "1MB"
-  NC_EXPORT_MAX_TIMEOUT: 5000
-  NC_SENTRY_DSN: ""
-  NC_REDIS_URL:
-    secretKeyRef:
-      name: rediscreds
-      key: url
-  NC_AUTH_JWT_SECRET:
-    secretKeyRef:
-      name: nocodb-secrets
-      key: NC_AUTH_JWT_SECRET
-
-envFrom:
-  - configMapRef:
-      name: nocodb-configmap
-
-probes:
-  liveness:
-    path: "/dashboard"
-  readiness:
-    path: "/dashboard"
-  startup:
-    path: "/dashboard"
-
 service:
   main:
     ports:
       main:
         port: 10226
-
 persistence:
   data:
     enabled: true
     mountPath: "/usr/app/data"
+cnpg:
+  main:
+    enabled: true
 
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: nocodb
-  postgresqlDatabase: nocodb
-
+    user: nocodb
+    database: nocodb
 redis:
   enabled: true
-  existingSecret: "rediscreds"
 
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/dashboard"
+            readiness:
+              path: "/dashboard"
+            startup:
+              path: "/dashboard"
+          envFrom:
+            - configMapRef:
+                name: configmap
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            # User Defined
+            NC_PUBLIC_URL: "http://localhost:10226"
+            NC_DISABLE_TELE: true
+            DISABLE_SPLASH_SCREEN: false
+            NC_JWT_EXPIRES_IN: "10h"
+            NC_INVITE_ONLY_SIGNUP: false
+            NC_DISABLE_CACHE: false
+            NC_DISABLE_ERR_REPORT: true
+            NC_REQUEST_BODY_SIZE: "1MB"
+            NC_EXPORT_MAX_TIMEOUT: 5000
+            NC_SENTRY_DSN: ""
+            NC_REDIS_URL:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: url
+            NC_AUTH_JWT_SECRET:
+              secretKeyRef:
+                name: secrets
+                key: NC_AUTH_JWT_SECRET
+            AWS_ACCESS_KEY_ID: ""
+            AWS_SECRET_ACCESS_KEY: ""
+            AWS_BUCKET: ""
+            AWS_BUCKET_PATH: ""
+            NC_GOOGLE_CLIENT_ID: ""
+            NC_GOOGLE_CLIENT_SECRET: ""

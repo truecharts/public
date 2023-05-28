@@ -1,20 +1,14 @@
 {{/* Define the secrets */}}
 {{- define "pinry.secrets" -}}
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: pinry-secrets
-{{- $pinryprevious := lookup "v1" "Secret" .Release.Namespace "pinry-secrets" }}
-{{- $secret_key := "" }}
+{{- $secretName := (printf "%s-pinry-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+{{- $pinryprevious := lookup "v1" "Secret" .Release.Namespace $secretName }}
+enabled: true
 data:
-  {{- if $pinryprevious}}
-  SECRET_KEY: {{ index $pinryprevious.data "SECRET_KEY" }}
+  {{- if $pinryprevious }}
+  SECRET_KEY: {{ index $pinryprevious.data "SECRET_KEY" | b64dec }}
   {{- else }}
   {{- $secret_key := randAlphaNum 32 }}
-  SECRET_KEY: {{ $secret_key | b64enc }}
+  SECRET_KEY: {{ $secret_key }}
   {{- end }}
 
 {{- end -}}

@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "3.4.3"
+appVersion: "3.6.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
 deprecated: false
 description: This tool will help manage tedious tasks in qBittorrent and automate them. Tag, categorize, remove orphaned data, remove unregistered torrents and much much more.
 home: https://truecharts.org/charts/stable/qbitmanage
@@ -20,10 +20,9 @@ maintainers:
 name: qbitmanage
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/qbitmanage
-  - https://hub.docker.com/r/bobokun/qbit_manage
   - https://github.com/StuffAnThings/qbit_manage/wiki/Docker-Installation
 type: application
-version: 3.0.12
+version: 4.0.19
 annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |

@@ -1,0 +1,9 @@
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            TRANSMISSION_RPC_USERNAME: "transmission"
+            TRANSMISSION_RPC_PASSWORD: "transmission"
+            TRANSMISSION_RPC_AUTHENTICATION_REQUIRED: true

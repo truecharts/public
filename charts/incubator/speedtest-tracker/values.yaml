@@ -1,48 +1,54 @@
 image:
   repository: tccr.io/truecharts/speedtest-tracker
-  tag: latest@sha256:c2ccb23dbc72bd05d49f6be3c9a2d6fb29d59b7bd055e29e82a9bfcb865fa64b
+  tag: latest@sha256:77fbe15f6bad2371442f1a76cc9e084f45b202ad171ec5acfd449444e60f7a41
   pullPolicy: IfNotPresent
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-env:
-  DB_CONNECTION: pgsql
-  DB_PORT: 5432
-  DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
-  DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
-  DB_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  DB_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
     ports:
       main:
         port: 8765
-        protocol: HTTPS
+        protocol: https
         targetPort: 443
+
+workload:
+  main:
+    enabled: true
+    primary: true
+    podSpec:
+      containers:
+        env:
+          DB_CONNECTION: pgsql
+          DB_PORT: 5432
+          DB_DATABASE: "{{ .Values.cnpg.main.database }}"
+          DB_USERNAME: "{{ .Values.cnpg.main.user }}"
+          DB_HOST:
+            secretKeyRef:
+              name: cnpg-main-urls
+              key: std
+          DB_PASSWORD:
+            secretKeyRef:
+              name: cnpg-main-user
+              key: password
 
 persistence:
   config:
     enabled: true
     mountPath: /config
 
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlDatabase: speedtest_tracker
-  postgresqlUsername: speedtest_tracker
+cnpg:
+  main:
+    enabled: true
+    user: speedtest_tracker
+    database: speedtest_tracker
 
 portal:
-  enabled: true
+  open:
+    enabled: true

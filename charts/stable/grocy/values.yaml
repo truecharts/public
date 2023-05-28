@@ -1,27 +1,23 @@
 image:
   repository: tccr.io/truecharts/grocy
-  tag: 3.3.2@sha256:f701a56867d23871eefa0630c0f49ac01aefc41f462ac999d85de147b2ab44e3
+  tag: 3.3.2@sha256:fce8882e17946c0a9c6703945a833c96dfea6c374257a5437eef6b58bdce199e
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 10013
         targetPort: 80
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

@@ -1,36 +1,7 @@
 image:
   repository: tccr.io/truecharts/scrutiny
   pullPolicy: IfNotPresent
-  tag: 0.6.0@sha256:db378aa16404d19afecfe0e38330799b2aeb3c5d0cc670b9d40881ad1d13c4ab
-
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-  privileged: true
-  allowPrivilegeEscalation: true
-  capabilities:
-    # RawIO is for HDDs
-    # SYS_ADMIN is for NVMEs
-    add:
-      - SYS_RAWIO
-      - SYS_ADMIN
-
-env:
-  COLLECTOR_CRON_SCHEDULE: "0 0 * * *"
-  COLLECTOR_HOST_ID: "TrueNAS"
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-probes:
-  liveness:
-    path: "/api/health"
-  readiness:
-    path: "/api/health"
-  startup:
-    path: "/api/health"
-
+  tag: 0.7.1@sha256:26c8258c6963367ff609fd080af1b84be53792831122ce019fa071cca72ad1a8
 service:
   main:
     ports:
@@ -55,4 +26,36 @@ persistence:
     readOnly: true
 
 portal:
-  enabled: true
+  open:
+    enabled: true
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    privileged: true
+    allowPrivilegeEscalation: true
+    capabilities:
+      # RawIO is for HDDs
+      # SYS_ADMIN is for NVMEs
+      add:
+        - SYS_RAWIO
+        - SYS_ADMIN
+    runAsUser: 0
+    runAsGroup: 0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/api/health"
+            readiness:
+              path: "/api/health"
+            startup:
+              path: "/api/health"
+          env:
+            COLLECTOR_CRON_SCHEDULE: "0 0 * * *"
+            COLLECTOR_HOST_ID: "TrueNAS"

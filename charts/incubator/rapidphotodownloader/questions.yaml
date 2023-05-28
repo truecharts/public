@@ -4,10 +4,15 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
-# Include{controller}
-# Include{replicas}
-# Include{replica1}
-# Include{controllerExpertExtraArgs}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+# Include{containerBasic}
+# Include{containerAdvanced}
+
   - variable: env
     group: "App Configuration"
     label: "Image Environment"
@@ -64,7 +69,6 @@ questions:
                               default: 8080
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
@@ -103,52 +107,36 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
-# Include{security}
-# Include{securityContextAdvancedRoot}
-              - variable: privileged
-                label: "Privileged mode"
+# Include{securityContextRoot}
+
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
                 schema:
-                  type: boolean
-                  default: false
-              - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
                 schema:
-                  type: boolean
-                  default: false
-              - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                  type: int
+                  default: 0
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
                 schema:
-                  type: boolean
-                  default: false
-              - variable: runAsNonRoot
-                label: "runAsNonRoot"
-                schema:
-                  type: boolean
-                  default: false
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
-        - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
-          schema:
-            type: int
-            default: 568
-# Include{podSecurityContextAdvanced}
+                  type: int
+                  default: 568
+
 # Include{resources}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
+# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

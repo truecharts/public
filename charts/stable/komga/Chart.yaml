@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "0.161.0"
+appVersion: "0.165.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
 description: A comics/mangas server to serve/stream pages via API
 home: https://truecharts.org/charts/stable/komga
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/komga.png
@@ -20,12 +20,10 @@ maintainers:
 name: komga
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/komga
-  - https://hub.docker.com/r/gotson/komga
   - https://komga.org/
   - https://github.com/gotson/komga
-version: 8.0.12
+version: 9.0.18
 annotations:
   truecharts.org/catagories: |
     - media
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

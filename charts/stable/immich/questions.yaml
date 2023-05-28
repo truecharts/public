@@ -4,10 +4,15 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
-# Include{controller}
-# Include{replicas}
-# Include{replica1}
-# Include{controllerExpertExtraArgs}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+# Include{containerBasic}
+# Include{containerAdvanced}
+
   - variable: immich
     group: App Configuration
     label: Immich Configuration
@@ -31,7 +36,7 @@ questions:
           description: Reverse geocoding is done locally which has a small impact on memory usage. (Valid options 0 - 3)
           schema:
             type: int
-            show_if: [["disable_reverse_geocoding", "=", "false"]]
+            show_if: [["disable_reverse_geocoding", "=", false]]
             default: 3
         - variable: mapbox_enable
           label: Enable MapBox
@@ -43,7 +48,7 @@ questions:
           schema:
             type: string
             private: true
-            show_if: [["maxbox_enable", "=", "false"]]
+            show_if: [["maxbox_enable", "=", false]]
             default: ""
         - variable: log_level
           label: Log Level
@@ -60,7 +65,14 @@ questions:
           schema:
             type: boolean
             default: true
+        - variable: enable_typesense
+          label: Enable Typesense Container
+          schema:
+            type: boolean
+            default: true
+
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: Main Service
@@ -85,13 +97,44 @@ questions:
                               default: 10323
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
+        - variable: library
+          label: App Library Storage
+          description: Stores the Application Uploads.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
         - variable: uploads
           label: App Uploads Storage
           description: Stores the Application Uploads.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: thumbs
+          label: App Thumbnails Storage
+          description: Stores the Application Thumbnails.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: profile
+          label: App Profiles Storage
+          description: Stores the Application Profiles.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: video
+          label: App Encoded Video Storage
+          description: Stores the Encoded Videos.
           schema:
             additional_attrs: true
             type: dict
@@ -108,52 +151,35 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
-# Include{security}
-# Include{securityContextAdvancedRoot}
-              - variable: privileged
-                label: Privileged mode
+# Include{securityContextRoot}
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
                 schema:
-                  type: boolean
-                  default: false
-              - variable: readOnlyRootFilesystem
-                label: ReadOnly Root Filesystem
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
                 schema:
-                  type: boolean
-                  default: false
-              - variable: allowPrivilegeEscalation
-                label: Allow Privilege Escalation
+                  type: int
+                  default: 0
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
                 schema:
-                  type: boolean
-                  default: false
-              - variable: runAsNonRoot
-                label: runAsNonRoot
-                schema:
-                  type: boolean
-                  default: false
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 0
-        - variable: fsGroup
-          label: fsGroup
-          description: The group that should own ALL storage.
-          schema:
-            type: int
-            default: 568
-# Include{podSecurityContextAdvanced}
+                  type: int
+                  default: 568
+
 # Include{resources}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
+# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

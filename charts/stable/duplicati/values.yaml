@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/duplicati
-  tag: latest@sha256:c8c569e61786f11210dcfd3e5dad3255c7f0487f4f1be469606402bf9b94a1a6
+  tag: latest@sha256:bfd3741e9e2ca4403f192f0729a08bfeceee26f95897322a836d363f49b75245
   pullPolicy: IfNotPresent
 
 service:
@@ -10,10 +10,28 @@ service:
         port: 8200
         targetPort: 8200
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+
 persistence:
   config:
     enabled: true
-    mountPath: "/data"
+    mountPath: /data
 
 portal:
-  enabled: true
+  open:
+    enabled: true

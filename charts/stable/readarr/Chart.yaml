@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "0.1.3.1584"
+appVersion: "0.1.4.1596"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
 deprecated: false
 description: A fork of Radarr to work with Books & AudioBooks
 home: https://truecharts.org/charts/stable/readarr
@@ -22,13 +22,11 @@ maintainers:
 name: readarr
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/readarr
-  - https://ghcr.io/onedr0p/readarr-develop
   - https://github.com/Readarr/Readarr
   - https://readarr.com
 type: application
-version: 13.0.14
+version: 16.0.13
 annotations:
   truecharts.org/catagories: |
     - media
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

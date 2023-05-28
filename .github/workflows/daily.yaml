@@ -2,7 +2,7 @@ name: "Chore: Daily Tasks"
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 permissions:
@@ -17,10 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     name: "Generate readme files"
     container:
-      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:3b53132c6c6e14393f8f69e64e2237c8460a466753c285542324aa993ed1795d
+      image: ghcr.io/truecharts/devcontainer:3.1.10@sha256:c239addf725eb5cedf79517f8089fdafdc32b5270d1893ee87ae6e511b9bcae3
     steps:
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 1
@@ -31,7 +31,7 @@ jobs:
       - name: generate readme.md
         shell: bash
         run: |
-          for train in stable SCALE incubator games enterprise develop non-free deprecated dependency core; do
+          for train in stable operators SCALE incubator games enterprise develop non-free deprecated dependency core; do
             for chart in charts/${train}/*; do
               if [ -d "${chart}" ]; then
                 echo "Generating readme.md for ${train}/${chart}"
@@ -44,7 +44,7 @@ jobs:
       - name: generate HelmIgnore
         shell: bash
         run: |
-          for train in stable SCALE incubator games enterprise develop non-free deprecated dependency core; do
+          for train in stable operators SCALE incubator games enterprise develop non-free deprecated dependency core; do
             for chart in charts/${train}/*; do
               if [ -d "${chart}" ]; then
                 echo "Attempting to sync HelmIgnore file for: ${chartname}"
@@ -55,7 +55,7 @@ jobs:
           done
 
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
           repository: truecharts/website
           path: website
@@ -196,13 +196,22 @@ jobs:
           }
           export -f sync_tag
 
-          for train in enterprise stable incubator dependency; do
+          for train in enterprise stable operators incubator dependency; do
             echo "Correcting Chart.yaml for Train: ${train}..."
             for chart in $(ls "charts/${train}"); do
               echo "Correcting Chart.yaml for Chart: ${chart}..."
               sync_tag "charts/${train}/${chart}" "${chart}" "${train}"
             done
           done
+          
+      - name: Fix Fixable Pre-Commit issues
+        shell: bash
+        if: inputs.chartChangesDetected == 'true'
+        run: |
+          echo "Running pre-commit test-and-cleanup..."
+          pre-commit run --all ||:
+          # Fix sh files to always be executable
+          find . -name '*.sh' | xargs chmod +x
 
       - name: Cleanup
         run: |
@@ -222,7 +231,7 @@ jobs:
     runs-on: ubuntu-latest
     name: "Generate Security Reports"
     container:
-      image: ghcr.io/truecharts/devcontainer:v3.1.1@sha256:3b53132c6c6e14393f8f69e64e2237c8460a466753c285542324aa993ed1795d
+      image: ghcr.io/truecharts/devcontainer:3.1.10@sha256:c239addf725eb5cedf79517f8089fdafdc32b5270d1893ee87ae6e511b9bcae3
     steps:
       - name: Install Kubernetes tools
         uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
@@ -235,12 +244,11 @@ jobs:
         run: |
           helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-library https://library-charts.truecharts.org
-          helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo add prometheus https://prometheus-community.github.io/helm-charts
+          helm repo add truecharts-deps https://deps.truecharts.org
           helm repo update
 
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 1
@@ -249,7 +257,7 @@ jobs:
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Checkout website
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
           fetch-depth: 1
           repository: truecharts/website
@@ -326,7 +334,7 @@ jobs:
               sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/helm-security.md ||:
               sed -i 's|<hr>|<hr />|g' website/docs/charts/${train}/${chartname}/container-security.md ||:
               }
-          for train in enterprise stable incubator dependency; do
+          for train in enterprise stable operators incubator dependency; do
             echo "Processing Charts for Train: ${train}..."
             for chart in $(ls "charts/${train}"); do
               render "charts/${train}/${chart}" ${chart} ${train} || echo "rendering failed for ${chart}"
@@ -355,11 +363,35 @@ jobs:
       - uses: dessant/lock-threads@c1b35aecc5cdb1a34539d14196df55838bb2f836 # v4
         with:
           github-token: ${{ secrets.BOT_TOKEN }}
-          issue-inactive-days: '7'
-          exclude-any-issue-labels: ''
-          issue-comment: 'This issue is locked to prevent necro-posting on closed issues. Please create a new issue or contact staff on discord of the problem persists'
-          issue-lock-reason: ''
-          pr-inactive-days: '7'
-          pr-comment: 'This PR is locked to prevent necro-posting on closed PRs. Please create a issue or contact staff on discord if you want to further discuss this'
-          pr-lock-reason: 'resolved'
+          issue-inactive-days: "7"
+          exclude-any-issue-labels: ""
+          issue-comment: "This issue is locked to prevent necro-posting on closed issues. Please create a new issue or contact staff on discord of the problem persists"
+          issue-lock-reason: ""
+          pr-inactive-days: "7"
+          pr-comment: "This PR is locked to prevent necro-posting on closed PRs. Please create a issue or contact staff on discord if you want to further discuss this"
+          pr-lock-reason: "resolved"
           log-output: true
+
+  check-contributors:
+    name: Check Contributors
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          fetch-depth: 1
+
+      - uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3
+        with:
+          node-version: 18
+
+      - uses: borales/actions-yarn@97ba8bebfe5b549bb7999261698a52a81fd62f1b # v4.2.0
+        with:
+          cmd: install --frozen-lockfile
+
+      - name: List missing and unknown contributors
+        env:
+          PRIVATE_TOKEN: ${{ secrets.BOT_TOKEN }}
+        run: |
+          awk -F', ' '{ for( i=1; i<=NF; i++ ) print $i }' <<<$(yarn all-contributors check)

@@ -1,8 +1,8 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: restreamer
-version: 2.0.12
-appVersion: "2.4.2"
+version: 2.0.13
+appVersion: "2.5.0"
 description: "Allows smart free video streaming in real time."
 type: application
 deprecated: false
@@ -15,7 +15,6 @@ keywords:
   - Productivity
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/restreamer
-  - https://hub.docker.com/r/datarhei/restreamer
   - https://datarhei.github.io/restreamer/
 dependencies:
   - name: common

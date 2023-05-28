@@ -32,9 +32,9 @@ spec:
         {{- end }}
       {{- end }}
       {{- if .Values.kubeControllerManager.serviceMonitor.metricRelabelings }}
-      metricRelabelings: {{- include "tc.common.tplvalues.render" (dict "value" .Values.kubeControllerManager.serviceMonitor.metricRelabelings "context" $) | nindent 6 }}
+      metricRelabelings: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.kubeControllerManager.serviceMonitor.metricRelabelings "context" $) | nindent 6 }}
       {{- end }}
       {{- if .Values.kubeControllerManager.serviceMonitor.relabelings }}
-      relabelings: {{- include "tc.common.tplvalues.render" (dict "value" .Values.kubeControllerManager.serviceMonitor.relabelings "context" $) | nindent 6 }}
+      relabelings: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.kubeControllerManager.serviceMonitor.relabelings "context" $) | nindent 6 }}
       {{- end }}
 {{- end }}

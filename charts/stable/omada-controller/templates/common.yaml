@@ -1,5 +1,5 @@
 {{/* Render the templates */}}
-{{ include "tc.common.loader.init" . }}
+{{ include "tc.v1.common.loader.init" . }}
 
 {{/*
 Omada automatically redirects to that port.
@@ -13,12 +13,12 @@ When ingress is enabled, set this to 443, otherwise set it to whatever `port` is
   {{- $port = 443 -}}
 {{- end -}}
 
-{{- $_ := set .Values.env "MANAGE_HTTPS_PORT" $port -}}
+{{- $_ := set .Values.workload.main.podSpec.containers.main.env "MANAGE_HTTPS_PORT" $port -}}
 
 {{- $_ := set .Values.service.main.ports.main "targetPort" $port -}}
 
-{{- $_ := set .Values.probes.liveness "port" $port -}}
-{{- $_ := set .Values.probes.readiness "port" $port -}}
-{{- $_ := set .Values.probes.startup "port" $port -}}
+{{- $_ := set .Values.workload.main.podSpec.containers.main.probes.liveness "port" $port -}}
+{{- $_ := set .Values.workload.main.podSpec.containers.main.probes.readiness "port" $port -}}
+{{- $_ := set .Values.workload.main.podSpec.containers.main.probes.startup "port" $port -}}
 
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

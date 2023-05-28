@@ -1,8 +1,8 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: scrutiny
-version: 5.0.9
-appVersion: "0.6.0"
+version: 6.0.18
+appVersion: "0.7.1"
 description: Scrutiny WebUI for smartd S.M.A.R.T monitoring. Scrutiny is a Hard Drive Health Dashboard & Monitoring solution.
 type: application
 deprecated: false
@@ -12,11 +12,10 @@ keywords:
   - scrutiny
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/scrutiny
-  - https://ghcr.io/analogj/scrutiny
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
     # condition:
 maintainers:
   - email: info@truecharts.org
@@ -24,6 +23,6 @@ maintainers:
     url: https://truecharts.org
 annotations:
   truecharts.org/catagories: |
-    - incubator
+    - utilities
+    - storage
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

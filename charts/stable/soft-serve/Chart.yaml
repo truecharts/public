@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "0.4.6"
+appVersion: "0.5.4"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
 deprecated: false
 description: A tasty, self-hostable Git server for the command line.
 home: https://truecharts.org/charts/stable/soft-serve
@@ -19,12 +19,10 @@ maintainers:
 name: soft-serve
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/soft-serve
-  - https://hub.docker.com/r/charmcli/soft-serve
   - https://github.com/charmbracelet/soft-serve
 type: application
-version: 1.0.4
+version: 2.0.19
 annotations:
   truecharts.org/catagories: |
     - git
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

@@ -1,51 +1,6 @@
-                    - variable: clusterIssuer
-                      label: clusterIssuer
+                    - variable: certificateIssuer
+                      label: Cert-Manager clusterIssuer
                       description: 'add the name of your cert-manager clusterIssuer here for automatic tls certificates. Cannot be used combined with tls option below'
                       schema:
                         type: string
                         default: ""
-                    - variable: tls
-                      label: TLS-Settings
-                      schema:
-                        type: list
-                        show_if: [["clusterIssuer", "=", ""]]
-                        default: []
-                        items:
-                          - variable: tlsEntry
-                            label: Host
-                            schema:
-                              additional_attrs: true
-                              type: dict
-                              attrs:
-                                - variable: hosts
-                                  label: Certificate Hosts
-                                  schema:
-                                    type: list
-                                    default: []
-                                    items:
-                                      - variable: host
-                                        label: Host
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          required: true
-                                          
-                                - variable: clusterIssuer
-                                  label: Use Cert-Manager clusterIssuer
-                                  description: 'add the name of your cert-manager clusterIssuer here for automatic tls certificates.'
-                                  schema:
-                                    type: string
-                                    default: ""
-                                - variable: scaleCert
-                                  label: Use TrueNAS SCALE Certificate (Deprecated)
-                                  schema:
-                                    show_if: [["clusterIssuer", "=", ""]]
-                                    type: int
-                                    $ref:
-                                      - "definitions/certificate"
-                                - variable: secretName
-                                  label: Use Custom Secret (Advanced)
-                                  schema:
-                                    show_if: [["clusterIssuer", "=", ""]]
-                                    type: string
-                                    default: ""

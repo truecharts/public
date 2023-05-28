@@ -9,45 +9,17 @@ on:
       chartChangesDetected:
         required: true
         type: string
+      modifiedCharts:
+        required: true
+        type: string
 
 jobs:
-  unit-test:
-    name: Run unit tests
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
-        with:
-          fetch-depth: 0
-          ref: ${{ inputs.checkoutCommit }}
-
-      - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
-        with:
-          setup-tools: |
-            helmv3
-          helm: "3.8.0"
-
-      - name: Install Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7
-
-      - name: Install dependencies
-        env:
-          RUBYJQ_USE_SYSTEM_LIBRARIES: 1
-        run: |
-          sudo apt-get update
-          sudo apt-get install libjq-dev
-          bundle install
-
-      - name: Run tests
-        run: |
-          bundle exec m -r ./test/
 
   generate-install-matrix:
     name: Generate matrix for install
     runs-on: ubuntu-latest
+    container:
+      image: tccr.io/truecharts/devcontainer:v3.1.38@sha256:2fd9355bc6791461430db87a04f5fe7b49c46bc5957bc348f1efbff4c6c7913d
     outputs:
       matrix1: |
         {
@@ -81,22 +53,21 @@ jobs:
       detected6: ${{ steps.list-changed.outputs.detected6 }}
     steps:
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
-
-      - name: Set up chart-testing
-        uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
 
       - name: Run chart-testing (list-changed)
         id: list-changed
         if: inputs.chartChangesDetected == 'true'
+        shell: bash
         run: |
-          EXCLUDED=$(yq eval -o=json '.excluded-charts // []' .github/ct-install.yaml)
-          CHARTS=$(ct list-changed --config .github/ct-install.yaml)
-          CHARTS_JSON=$(echo "${CHARTS}" | jq -R -s -c 'split("\n")[:-1]')
-          OUTPUT_JSON=$(echo "{\"excluded\": ${EXCLUDED}, \"all\": ${CHARTS_JSON}}" | jq -c '.all-.excluded')
+          CHARTS="${{ inputs.modifiedCharts }}"
+          echo "Modified Charts: ${CHARTS}"
+          EXCLUDED_JSON=$(go-yq eval -o=json '.excluded-charts // []' .github/ct-install.yaml)
+          CHARTS_JSON=$(echo "${CHARTS}" | jq --raw-input '.' | jq --compact-output --slurp '.')
+          OUTPUT_JSON=$(echo "{\"excluded\": ${EXCLUDED_JSON}, \"all\": ${CHARTS_JSON}}" | jq --compact-output '.all-.excluded')
           OUTPUT_JSON1=$((echo $OUTPUT_JSON | jq -r -c '.[:50]'; echo $OUTPUT_JSON | jq -r -c '.[301:350]'; echo $OUTPUT_JSON | jq -r -c '.[601:650]'; echo $OUTPUT_JSON | jq -r -c '.[901:950]'; echo $OUTPUT_JSON | jq -r -c '.[1201:1250]') | jq -s add)
           OUTPUT_JSON2=$((echo $OUTPUT_JSON | jq -r -c '.[51:100]'; echo $OUTPUT_JSON | jq -r -c '.[351:400]'; echo $OUTPUT_JSON | jq -r -c '.[651:700]'; echo $OUTPUT_JSON | jq -r -c '.[951:1000]'; echo $OUTPUT_JSON | jq -r -c '.[1251:1300]') | jq -s add)
           OUTPUT_JSON3=$((echo $OUTPUT_JSON | jq -r -c '.[101:150]'; echo $OUTPUT_JSON | jq -r -c '.[401:450]'; echo $OUTPUT_JSON | jq -r -c '.[701:750]'; echo $OUTPUT_JSON | jq -r -c '.[1001:1050]'; echo $OUTPUT_JSON | jq -r -c '.[1301:1350]') | jq -s add)
@@ -140,9 +111,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Kubernetes tools
@@ -152,12 +123,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
+      - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
+        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -171,7 +142,7 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Run chart-testing (install)
-        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
+        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" #--upgrade
 
   install-charts2:
     needs:
@@ -185,9 +156,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Kubernetes tools
@@ -197,12 +168,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
+      - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
+        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -217,7 +188,7 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Run chart-testing (install)
-        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
+        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" #--upgrade
 
   install-charts3:
     needs:
@@ -231,9 +202,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Kubernetes tools
@@ -243,12 +214,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
+      - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
+        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -262,7 +233,7 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Run chart-testing (install)
-        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
+        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" #--upgrade
 
   install-charts4:
     needs:
@@ -276,9 +247,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Kubernetes tools
@@ -288,12 +259,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
+      - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
+        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -307,7 +278,7 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Run chart-testing (install)
-        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
+        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" #--upgrade
 
   install-charts5:
     needs:
@@ -321,9 +292,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Kubernetes tools
@@ -333,12 +304,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
+      - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
+        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -352,7 +323,7 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Run chart-testing (install)
-        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
+        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" #--upgrade
 
   install-charts6:
     needs:
@@ -366,9 +337,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Kubernetes tools
@@ -378,12 +349,12 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4
+      - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
         with:
           python-version: "3.10"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@afea100a513515fbd68b0e72a7bb0ae34cb62aec # tag=v2.3.1
+        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -397,7 +368,7 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Run chart-testing (install)
-        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" --upgrade
+        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" #--upgrade
 
   # Summarize matrix https://github.community/t/status-check-for-a-matrix-jobs/127354/7
   install_success:

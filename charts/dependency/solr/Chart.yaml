@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "9.1.1"
+appVersion: "9.2.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
 deprecated: false
 description: Apache Solr
 home: https://truecharts.org/charts/dependency/solr
@@ -20,10 +20,9 @@ maintainers:
 name: solr
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/dependency/solr
-  - https://hub.docker.com/r/bitnami/solr
   - https://github.com/apache/solr
 type: application
-version: 2.0.30
+version: 4.0.35
 annotations:
   truecharts.org/catagories: |
     - search

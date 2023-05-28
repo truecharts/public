@@ -2,74 +2,100 @@
 portals: {}
 questions:
 # Include{global}
-# Include{controller}
-# Include{replicas}
-# Include{replica1}
-# Include{controllerExpertExtraArgs}
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: CACHE_DOMAINS_REPO
-          label: "CACHE DOMAINS REPO"
-          description: "The github repo url for the cache_domains files to use to populate the cdn maps."
-          schema:
-            type: string
-            default: "https://github.com/uklans/cache-domains.git"
-        - variable: CACHE_DOMAINS_BRANCH
-          label: "CACHE DOMAINS BRANCH"
-          description: "The branch of the CACHE_DOMAINS_REPO to use"
-          schema:
-            type: string
-            default: "master"
-        - variable: UPSTREAM_DNS
-          label: "UPSTREAM DNS"
-          description: "Upstream DNS server(s) the cache should use(separated by spaces). Do NOT point this at lancache-dns)"
-          schema:
-            type: string
-            default: "1.1.1.1;1.0.0.1"
-        - variable: USE_GENERIC_CACHE
-          label: "USE GENERIC CACHE"
-          description: "If you are using a single monolithic instance set this to true"
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: LANCACHE_IP
-                label: "LANCACHE IP"
-                description: "Set the IP for the lancache-monolithic app only if USE_GENERIC_CACHE is true"
-                schema:
-                  type: string
-                  required: true
-                  default: ""
-        - variable: customdisable
-          label: "Disable Cache DNS Resolvers"
-          schema:
-            show_if: [["USE_GENERIC_CACHE", "=", true]]
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: DISABLE_BLIZZARD
-                label: "Disable BLIZZARD"
-                schema:
-                  type: boolean
-                  default: false
-              - variable: DISABLE_RIOT
-                label: "Disable RIOT"
-                schema:
-                  type: boolean
-                  default: false
-              - variable: DISABLE_UPLAY
-                label: "Disable UPLAY"
-                schema:
-                  type: boolean
-                  default: false
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: CACHE_DOMAINS_REPO
+                                        label: "Cache Domains Repo"
+                                        description: "The github repo url for the cache_domains files to use to populate the cdn maps."
+                                        schema:
+                                          type: string
+                                          default: "https://github.com/uklans/cache-domains.git"
+                                      - variable: CACHE_DOMAINS_BRANCH
+                                        label: "Cache Domains Branch"
+                                        description: "The branch of the CACHE_DOMAINS_REPO to use"
+                                        schema:
+                                          type: string
+                                          default: "master"
+                                      - variable: UPSTREAM_DNS
+                                        label: "Upstream DNS"
+                                        description: "Upstream DNS server(s) the cache should use(separated by spaces). Do NOT point this at lancache-dns)"
+                                        schema:
+                                          type: string
+                                          default: "1.1.1.1;1.0.0.1"
+                                      - variable: USE_GENERIC_CACHE
+                                        label: "Use Generic Cache"
+                                        description: "If you are using a single monolithic instance set this to true"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                          show_subquestions_if: true
+                                          subquestions:
+                                            - variable: LANCACHE_IP
+                                              label: "Lancache IP"
+                                              description: "Set the IP for the lancache-monolithic"
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: ""
+                                            - variable: customdisable
+                                              label: "Disable Cache DNS Resolvers"
+                                              schema:
+                                                type: boolean
+                                                default: false
+                                                show_subquestions_if: true
+                                                subquestions:
+                                                  - variable: DISABLE_BLIZZARD
+                                                    label: "Disable Blizzard"
+                                                    schema:
+                                                      type: boolean
+                                                      default: false
+                                                  - variable: DISABLE_RIOT
+                                                    label: "Disable Riot"
+                                                    schema:
+                                                      type: boolean
+                                                      default: false
+                                                  - variable: DISABLE_UPLAY
+                                                    label: "Disable Uplay"
+                                                    schema:
+                                                      type: boolean
+                                                      default: false
+                                                  - variable: DISABLE_STEAM
+                                                    label: "Disable Steam"
+                                                    schema:
+                                                      type: boolean
+                                                      default: false
+                                                  - variable: DISABLE_ORIGIN
+                                                    label: "Disable Origin"
+                                                    schema:
+                                                      type: boolean
+                                                      default: false
+                                                  - variable: DISABLE_SONY
+                                                    label: "Disable Sony"
+                                                    schema:
+                                                      type: boolean
+                                                      default: false
+                                                  - variable: DISABLE_SQUARE
+                                                    label: "Disable Square"
+                                                    schema:
+                                                      type: boolean
+                                                      default: false
+# Include{containerBasic}
+# Include{containerAdvanced}
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -93,15 +119,6 @@ questions:
                               type: int
                               default: 53
                               required: true
-        - variable: dns
-          label: "DNS Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
                     - variable: dns
                       label: "DNS Service Port Configuration"
                       schema:
@@ -116,7 +133,6 @@ questions:
                               default: 53
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceList}
@@ -130,52 +146,36 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
-# Include{security}
-# Include{securityContextAdvancedRoot}
-              - variable: privileged
-                label: "Privileged mode"
+# Include{securityContextRoot}
+
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
                 schema:
-                  type: boolean
-                  default: false
-              - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
                 schema:
-                  type: boolean
-                  default: false
-              - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                  type: int
+                  default: 0
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
                 schema:
-                  type: boolean
-                  default: false
-              - variable: runAsNonRoot
-                label: "runAsNonRoot"
-                schema:
-                  type: boolean
-                  default: false
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
-        - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
-          schema:
-            type: int
-            default: 568
-# Include{podSecurityContextAdvanced}
+                  type: int
+                  default: 568
+
 # Include{resources}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
+# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

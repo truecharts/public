@@ -1,34 +1,46 @@
 image:
   repository: tccr.io/truecharts/prometheus
-  tag: 2.42.0@sha256:6ec9df78e3d17cd1802065cf0246cb800fc65009bc20ef61b546f0b73d85f26f
+  tag: v2.44.0@sha256:b4baeb2de94c734dbe36910e3e1a28c51e915ff355760863ad80af4fe7f88d29
 
 thanosImage:
   repository: tccr.io/truecharts/thanos
-  tag: 0.30.2@sha256:9373cdacde1653924d895fd484a680492cb9506b3384508c093154ad285b0d2d
+  tag: 0.31.0@sha256:28282d3e63f84cdeeb05e965b173b610d5597997acc7ce75d5849207b0f97b28
 
 alertmanagerImage:
   repository: tccr.io/truecharts/alertmanager
-  tag: 0.25.0@sha256:099e1971a4f8aaa95a8096bb849b69cf5e08022efaad603ccdfc40c939e02d69
-
+  tag: 0.25.0@sha256:6b534671b83aa7fbd91d1b10bf0f1b29b948e4b300f8359a86043d0deba07207
+manifestManager:
+  enabled: true
 global:
   labels: {}
-
-controller:
-  enabled: false
+workload:
+  main:
+    enabled: false
+    podSpec:
+      containers:
+        main:
+          enabled: false
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
 
 service:
   main:
-    selector:
+    selectorLabels:
       app.kubernetes.io/name: prometheus
       prometheus: '{{ template "kube-prometheus.prometheus.fullname" . }}'
     ports:
       main:
         port: 10086
         targetPort: 9090
-        protocol: HTTP
+        protocol: http
   alertmanager:
     enabled: true
-    selector:
+    selectorLabels:
       app.kubernetes.io/name: alertmanager
       alertmanager: '{{ template "kube-prometheus.alertmanager.fullname" . }}'
     ports:
@@ -36,10 +48,10 @@ service:
         enabled: true
         port: 10087
         targetPort: 9093
-        protocol: HTTP
+        protocol: http
   thanos:
     enabled: true
-    selector:
+    selectorLabels:
       app.kubernetes.io/name: prometheus
       prometheus: '{{ template "kube-prometheus.prometheus.fullname" . }}'
     ports:
@@ -47,7 +59,7 @@ service:
         enabled: true
         port: 10901
         targetPort: 10901
-        protocol: HTTP
+        protocol: http
 
 ingress:
   main:
@@ -67,10 +79,14 @@ env:
       name: prometheus-operator-config
       key: prometheus-config-reloader
 
-# -- Whether Role Based Access Control objects like roles and rolebindings should be created
+podOptions:
+  automountServiceAccountToken: true
+
 rbac:
   main:
     enabled: true
+    primary: true
+    clusterWide: true
     rules:
       - apiGroups:
           - apiextensions.k8s.io
@@ -168,6 +184,7 @@ rbac:
 serviceAccount:
   main:
     enabled: true
+    primary: true
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -812,7 +829,7 @@ prometheus:
       ##   - name: http
       ##     port: 10902
       ##     targetPort: http
-      ##     protocol: TCP
+      ##     protocol: tcp
       ##
       extraPorts: []
   ## @param prometheus.portName Port name used for the pods and governing service. This defaults to web
@@ -956,7 +973,8 @@ alertmanager:
     global:
       resolve_timeout: 5m
     route:
-      group_by: ["job"]
+      group_by:
+        - job
       group_wait: 30s
       group_interval: 5m
       repeat_interval: 12h
@@ -1113,37 +1131,14 @@ exporters:
     ## @param exporters.kube-state-metrics.enabled Enable kube-state-metrics
     ##
     enabled: true
-## @param node-exporter [object] Node Exporter deployment configuration
-##
-node-exporter:
-  service:
-    port: 9910
-    targetPort: 9910
-    labels:
-      jobLabel: node-exporter
-  serviceMonitor:
-    enabled: true
-    jobLabel: jobLabel
-  extraArgs:
-    collector.filesystem.ignored-mount-points: "^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+|var/db/system/.+|mnt/[a-zA-Z0-9-_\\.]+/ix-applications/.+)($|/)"
-    collector.filesystem.ignored-fs-types: "^(autofs|binfmt_misc|cgroup|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|mqueue|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|sysfs|tracefs)$"
-    collector.netdev.device-exclude: "^veth.*$"
-    collector.netclass.ignored-devices: "^veth.*$"
-    path.rootfs: /host
-  extraVolumes:
-    - name: host
-      hostPath:
-        path: /
-  extraVolumeMounts:
-    - name: host
-      mountPath: /host
-      readOnly: true
+
 ## @param kube-state-metrics [object] Node Exporter deployment configuration
 ##
 kube-state-metrics:
   serviceMonitor:
     enabled: true
     honorLabels: true
+
 ## Component scraping for kubelet and kubelet hosted cAdvisor
 ##
 kubelet:
@@ -1361,4 +1356,5 @@ kubeProxy:
   enabled: false
 
 portal:
-  enabled: true
+  open:
+    enabled: true

@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "1.2.0"
+appVersion: "1.2.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -17,9 +17,8 @@ maintainers:
 name: microbin
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/microbin
-  - https://hub.docker.com/r/danielszabo99/microbin
   - https://github.com/szabodanika/microbin
-version: 2.0.9
+version: 2.0.10
 annotations:
   truecharts.org/catagories: |
     - utility

@@ -1,29 +1,25 @@
 image:
   repository: tccr.io/truecharts/znc
   pullPolicy: IfNotPresent
-  tag: v1.8.2@sha256:1011c7257e92564006c1f8705e58e321ea53fa9c21664ef3c65ed913670c8884
-
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
+  tag: v1.8.2@sha256:ccae8db985b6665477b6ded0e6070bff039693aa1ebf638f7a7edc4031921957
 service:
   main:
     ports:
       main:
         targetPort: 6501
         port: 6501
-
 persistence:
   varrun:
     enabled: true
   config:
     enabled: true
     mountPath: "/config"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0

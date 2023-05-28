@@ -3,7 +3,7 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
 deprecated: false
 description: TVheadend - a TV streaming server and digital video recorder
 home: https://truecharts.org/charts/stable/tvheadend
@@ -21,12 +21,10 @@ maintainers:
 name: tvheadend
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/tvheadend
-  - https://ghcr.io/linuxserver/tvheadend
   - https://github.com/tvheadend/tvheadend
 type: application
-version: 14.0.11
+version: 15.0.25
 annotations:
   truecharts.org/catagories: |
     - media
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

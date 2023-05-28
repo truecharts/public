@@ -4,68 +4,70 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
-# Include{controller}
-# Include{replicas}
-# Include{replica1}
-# Include{controllerExpertExtraArgs}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: NEXT_PUBLIC_URL
+                                        label: Next Public URL
+                                        description: Used for meta tags, no trailing slash.
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: NEXT_TELEMETRY_DISABLED
+                                        label: Next Telemetry Disabled
+                                        schema:
+                                          type: string
+                                          default: "1"
+                                          enum:
+                                            - value: "0"
+                                              description: "False"
+                                            - value: "1"
+                                              description: "True"
+                                      - variable: axios
+                                        label: Show AXIOS Settings
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                          show_subquestions_if: true
+                                          subquestions:
+                                            - variable: AXIOS_USERAGENT
+                                              label: Axios User Agent
+                                              description: Default user agent for requesting data from IMDB.
+                                              schema:
+                                                type: string
+                                                default: "Mozilla/5.0 (X11; Linux x86_64; rv:104.0) Gecko/20100101 Firefox/104.0"
+                                            - variable: AXIOS_ACCEPT
+                                              label: Axios Accept
+                                              description: Default Accept Header.
+                                              schema:
+                                                type: string
+                                                default: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8"
+                                            - variable: AXIOS_LANGUAGE
+                                              label: Axios Language
+                                              description: Forcing a certain language for data we get from IMDB.
+                                              schema:
+                                                type: string
+                                                default: "en-US,en;q=0.5"
+
+# Include{containerBasic}
+# Include{containerAdvanced}
+
 # Include{containerConfig}
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: NEXT_PUBLIC_URL
-          label: Next Public URL
-          description: Used for meta tags, no trailing slash.
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: NEXT_TELEMETRY_DISABLED
-          label: Next Telemetry Disabled
-          schema:
-            type: string
-            default: "1"
-            enum:
-              - value: "0"
-                description: "False"
-              - value: "1"
-                description: "True"
-        - variable: axios
-          label: Show AXIOS Settings
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: AXIOS_USERAGENT
-                label: Axios User Agent
-                description: Default user agent for requesting data from IMDB.
-                schema:
-                  type: string
-                  default: "Mozilla/5.0 (X11; Linux x86_64; rv:104.0) Gecko/20100101 Firefox/104.0"
-              - variable: AXIOS_ACCEPT
-                label: Axios Accept
-                description: Default Accept Header.
-                schema:
-                  type: string
-                  default: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8"
-              - variable: AXIOS_LANGUAGE
-                label: Axios Language
-                description: Forcing a certain language for data we get from IMDB.
-                schema:
-                  type: string
-                  default: "en-US,en;q=0.5"
+# Include{podOptions}
 # Include{serviceRoot}
-        - variable: main
-          label: Main Service
-          description: The Primary service on which the healthcheck runs, often the webUI
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -82,7 +84,6 @@ questions:
                               default: 10593
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
@@ -105,52 +106,36 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
-# Include{security}
-# Include{securityContextAdvancedRoot}
-              - variable: privileged
-                label: Privileged mode
+# Include{securityContextRoot}
+
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
                 schema:
-                  type: boolean
-                  default: false
-              - variable: readOnlyRootFilesystem
-                label: ReadOnly Root Filesystem
+                  type: int
+                  default: 568
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
                 schema:
-                  type: boolean
-                  default: false
-              - variable: allowPrivilegeEscalation
-                label: Allow Privilege Escalation
+                  type: int
+                  default: 568
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
                 schema:
-                  type: boolean
-                  default: false
-              - variable: runAsNonRoot
-                label: runAsNonRoot
-                schema:
-                  type: boolean
-                  default: true
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 568
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 568
-        - variable: fsGroup
-          label: fsGroup
-          description: The group that should own ALL storage.
-          schema:
-            type: int
-            default: 568
-# Include{podSecurityContextAdvanced}
+                  type: int
+                  default: 568
+
 # Include{resources}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
+# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

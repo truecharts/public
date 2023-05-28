@@ -1,14 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "wg.env.configmap" -}}
-
-{{- $configName := printf "%s-wg-env-config" (include "tc.common.names.fullname" .) }}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $configName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+enabled: true
 data:
   SEPARATOR: ";"
   IPTABLES_BACKEND: nft

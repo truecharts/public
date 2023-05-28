@@ -4,10 +4,15 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
-# Include{controller}
-# Include{replicas}
-# Include{replica1}
-# Include{controllerExpertExtraArgs}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+
+# Include{containerBasic}
+# Include{containerAdvanced}
   - variable: weblate
     group: "App Configuration"
     label: "Weblate Configuration"
@@ -84,12 +89,6 @@ questions:
                   description: "remote"
                 - value: "full"
                   description: "full"
-          - variable: WEBLATE_SERVER_EMAIL
-            label: "WEBLATE_SERVER_EMAIL (Leave empty for default)"
-            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
-            schema:
-              type: string
-              default: ""
           - variable: WEBLATE_SERVER_EMAIL
             label: "WEBLATE_SERVER_EMAIL (Leave empty for default)"
             description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
@@ -1207,15 +1206,11 @@ questions:
                   schema:
                     type: string
                     default: ""
+
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -1232,7 +1227,6 @@ questions:
                               default: 10158
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
@@ -1255,52 +1249,36 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
-# Include{security}
-# Include{securityContextAdvancedRoot}
-              - variable: privileged
-                label: "Privileged mode"
+# Include{securityContextRoot}
+
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
                 schema:
-                  type: boolean
-                  default: false
-              - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                  type: int
+                  default: 1000
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
                 schema:
-                  type: boolean
-                  default: false
-              - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                  type: int
+                  default: 0
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
                 schema:
-                  type: boolean
-                  default: false
-              - variable: runAsNonRoot
-                label: "runAsNonRoot"
-                schema:
-                  type: boolean
-                  default: true
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
-          schema:
-            type: int
-            default: 1000
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
-        - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
-          schema:
-            type: int
-            default: 1000
-# Include{podSecurityContextAdvanced}
+                  type: int
+                  default: 1000
+
 # Include{resources}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
+# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

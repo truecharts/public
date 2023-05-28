@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "1.7.18"
+appVersion: "1.7.41"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
 description: A Fast, Simple, and Flexible, file-based Web-platform.
 home: https://truecharts.org/charts/stable/grav
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/grav.png
@@ -20,13 +20,11 @@ maintainers:
 name: grav
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/grav
-  - https://ghcr.io/linuxserver/grav
   - https://github.com/linuxserver/docker-grav
   - https://github.com/getgrav/grav/
 type: application
-version: 6.0.8
+version: 7.0.20
 annotations:
   truecharts.org/catagories: |
     - media
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

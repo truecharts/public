@@ -4,99 +4,98 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
-# Include{controller}
-# Include{replicas}
-# Include{replica1}
-# Include{controllerExpertExtraArgs}
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SPOTWEB_USERNAME
-          label: "Admin username"
-          description: "Username to configure for the admin of this installation."
-          schema:
-            type: string
-            default: ""
-            valid_chars: ^((?!god|mod|spot|admin|drazix|superuser|supervisor|root|anonymous)[^<>])*$
-            required: true
-        - variable: SPOTWEB_PASSWORD
-          label: "Admin password"
-          description: "Password to configure for the admin of this installation."
-          schema:
-            type: string
-            default: ""
-            valid_chars: "[a-zA-Z0-9!@#$%^&*?]{8,}"
-            private: true
-            required: true
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SPOTWEB_SYSTEMTYPE
-          label: "System Type"
-          description: "System type to configure during initialization."
-          schema:
-            type: string
-            required: true
-            default: "single"
-            enum:
-              - value: "single"
-                description: "Singe User System"
-              - value: "shared"
-                description: "Shared System"
-              - value: "public"
-                description: "Public System"
-        - variable: SPOTWEB_FIRSTNAME
-          label: "Admin first name"
-          description: "The first name of the admin user."
-          schema:
-            type: string
-            required: true
-            default: "firstname"
-            valid_chars: ^([^<>]{2})([^<>]*)$
-        - variable: SPOTWEB_LASTNAME
-          label: "Admin last name"
-          description: "Last name of the admin user."
-          schema:
-            type: string
-            required: true
-            default: "lastname"
-            valid_chars: ^([^<>]{2})([^<>]*)$
-        - variable: SPOTWEB_MAIL
-          label: "Admin mail adres"
-          description: "Email adres to configure for the provided admin user."
-          schema:
-            type: string
-            required: true
-            default: firstname@lastname.com
-            valid_chars: ^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$
-        - variable: SPOTWEB_RETRIEVE
-          label: "SPOTWEB_RETRIEVE"
-          description: "Schedule on which to automatically retrieve new spots."
-          schema:
-            type: string
-            default: "15min"
-            enum:
-              - value: "1min"
-                description: "Each minute"
-              - value: "5min"
-                description: "Every 5 minutes"
-              - value: "15min"
-                description: "Every 15 minutes"
-              - value: "hourly"
-                description: "Every hour"
-              - value: "weekly"
-                description: "Once a week"
-              - value: "monthly"
-                description: "Once a month"
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: SPOTWEB_USERNAME
+                                        label: "Admin username"
+                                        description: "Username to configure for the admin of this installation."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          valid_chars: ^((?!god|mod|spot|admin|drazix|superuser|supervisor|root|anonymous)[^<>])*$
+                                          required: true
+                                      - variable: SPOTWEB_PASSWORD
+                                        label: "Admin password"
+                                        description: "Password to configure for the admin of this installation."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          valid_chars: "[a-zA-Z0-9!@#$%^&*?]{8,}"
+                                          private: true
+                                          required: true
+                                      - variable: SPOTWEB_SYSTEMTYPE
+                                        label: "System Type"
+                                        description: "System type to configure during initialization."
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "single"
+                                          enum:
+                                            - value: "single"
+                                              description: "Singe User System"
+                                            - value: "shared"
+                                              description: "Shared System"
+                                            - value: "public"
+                                              description: "Public System"
+                                      - variable: SPOTWEB_FIRSTNAME
+                                        label: "Admin first name"
+                                        description: "The first name of the admin user."
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "firstname"
+                                          valid_chars: ^([^<>]{2})([^<>]*)$
+                                      - variable: SPOTWEB_LASTNAME
+                                        label: "Admin last name"
+                                        description: "Last name of the admin user."
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "lastname"
+                                          valid_chars: ^([^<>]{2})([^<>]*)$
+                                      - variable: SPOTWEB_MAIL
+                                        label: "Admin mail adres"
+                                        description: "Email adres to configure for the provided admin user."
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: firstname@lastname.com
+                                          valid_chars: ^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$
+                                      - variable: SPOTWEB_RETRIEVE
+                                        label: "SPOTWEB_RETRIEVE"
+                                        description: "Schedule on which to automatically retrieve new spots."
+                                        schema:
+                                          type: string
+                                          default: "15min"
+                                          enum:
+                                            - value: "1min"
+                                              description: "Each minute"
+                                            - value: "5min"
+                                              description: "Every 5 minutes"
+                                            - value: "15min"
+                                              description: "Every 15 minutes"
+                                            - value: "hourly"
+                                              description: "Every hour"
+                                            - value: "weekly"
+                                              description: "Once a week"
+                                            - value: "monthly"
+                                              description: "Once a month"
+# Include{containerBasic}
+# Include{containerAdvanced}
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -122,7 +121,6 @@ questions:
                               editable: true
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceList}
@@ -136,52 +134,36 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
-# Include{security}
-# Include{securityContextAdvancedRoot}
-              - variable: privileged
-                label: "Privileged mode"
+# Include{securityContextRoot}
+
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
                 schema:
-                  type: boolean
-                  default: false
-              - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
                 schema:
-                  type: boolean
-                  default: false
-              - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                  type: int
+                  default: 0
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
                 schema:
-                  type: boolean
-                  default: false
-              - variable: runAsNonRoot
-                label: "runAsNonRoot"
-                schema:
-                  type: boolean
-                  default: false
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
-        - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
-          schema:
-            type: int
-            default: 568
-# Include{podSecurityContextAdvanced}
+                  type: int
+                  default: 568
+
 # Include{resources}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
+# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

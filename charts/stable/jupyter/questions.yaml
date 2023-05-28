@@ -4,33 +4,38 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
-  - variable: imageSelector
-    group: Container Image
-    label: Select Image
-    schema:
-      type: string
-      default: image
-      enum:
-        - value: image
-          description: Base Notebook
-        - value: minimalImage
-          description: Minimal Notebook
-        - value: rImage
-          description: R Notebook
-        - value: scipyImage
-          description: Scipy Notebook
-        - value: tensorflowImage
-          description: Tensorflow Notebook
-        - value: datascienceImage
-          description: Data Science Notebook
-        - value: pysparkImage
-          description: Pyspark Notebook
-        - value: allsparkImage
-          description: All Spark Notebook
-# Include{controller}
-# Include{replicas}
-# Include{replica1}
-# Include{controllerExpertExtraArgs}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+                                - variable: imageSelector
+                                  label: Select Image
+                                  schema:
+                                    type: string
+                                    default: image
+                                    enum:
+                                      - value: image
+                                        description: Base Notebook
+                                      - value: minimalImage
+                                        description: Minimal Notebook
+                                      - value: rImage
+                                        description: R Notebook
+                                      - value: scipyImage
+                                        description: Scipy Notebook
+                                      - value: tensorflowImage
+                                        description: Tensorflow Notebook
+                                      - value: datascienceImage
+                                        description: Data Science Notebook
+                                      - value: pysparkImage
+                                        description: Pyspark Notebook
+                                      - value: allsparkImage
+                                        description: All Spark Notebook
+
+# Include{containerBasic}
+# Include{containerAdvanced}
+
   - variable: jupyter
     group: App Configuration
     label: Jupyter Configuration
@@ -59,15 +64,11 @@ questions:
           schema:
             type: boolean
             default: true
+
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
-        - variable: main
-          label: Main Service
-          description: The Primary service on which the healthcheck runs, often the webUI
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -84,7 +85,6 @@ questions:
                               default: 10300
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
@@ -107,52 +107,36 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
-# Include{security}
-# Include{securityContextAdvancedRoot}
-              - variable: privileged
-                label: Privileged mode
+
+# Include{securityContextRoot}
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
                 schema:
-                  type: boolean
-                  default: false
-              - variable: readOnlyRootFilesystem
-                label: ReadOnly Root Filesystem
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
                 schema:
-                  type: boolean
-                  default: false
-              - variable: allowPrivilegeEscalation
-                label: Allow Privilege Escalation
+                  type: int
+                  default: 0
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
                 schema:
-                  type: boolean
-                  default: false
-              - variable: runAsNonRoot
-                label: runAsNonRoot
-                schema:
-                  type: boolean
-                  default: false
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 0
-        - variable: fsGroup
-          label: fsGroup
-          description: The group that should own ALL storage.
-          schema:
-            type: int
-            default: 568
-# Include{podSecurityContextAdvanced}
+                  type: int
+                  default: 568
+
 # Include{resources}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
+# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

@@ -1,14 +1,7 @@
 {{/* Define the config */}}
 {{- define "blocky.configmap" -}}
-{{- $configName := printf "%s-config" (include "tc.common.names.fullname" .) }}
-{{- $config := merge ( include "blocky.config" . | fromYaml ) ( .Values.blockyConfig ) }}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $configName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+{{- $config := mustMerge ( include "blocky.config" . | fromYaml ) ( .Values.blockyConfig ) }}
+enabled: true
 data:
   config.yml: |
 {{ $config | toYaml | indent 4 }}
@@ -17,7 +10,7 @@ data:
 {{- define "blocky.config" -}}
 redis:
   address: {{ printf "%v-%v" .Release.Name "redis" }}:6379
-  password: {{ .Values.redis.redisPassword | trimAll "\"" }}
+  password: {{ .Values.redis.creds.redisPassword | trimAll "\"" }}
   database: 0
   required: true
   connectionAttempts: 10
@@ -25,6 +18,23 @@ redis:
 prometheus:
   enable: true
   path: /metrics
+queryLog:
+  # optional one of: postgresql, csv, csv-client. If empty, log to console
+  type: {{ .Values.queryLog.type }}
+  # directory (should be mounted as volume in docker) for csv, db connection string for mysql/postgresql
+  #postgresql target: postgres://user:password@db_host_or_ip:5432/db_name
+  {{- if eq .Values.queryLog.type "postgresql" }}
+  target: {{ .Values.cnpg.main.creds.std }}
+  {{- else }}
+  target: {{ .Values.queryLog.target }}
+  {{- end }}
+  # if > 0, deletes log files which are older than ... days
+  logRetentionDays: {{ .Values.queryLog.logRetentionDays | default 0 }}
+  # optional: Max attempts to create specific query log writer
+  creationAttempts: {{ .Values.queryLog.creationAttempts | default 3 }}
+  # optional: Time between the creation attempts
+  creationCooldown: {{ .Values.queryLog.creationAttempts | default "2s" }}
+
 upstream:
   default:
 {{- .Values.defaultUpstreams | toYaml | nindent 8 }}
@@ -33,21 +43,19 @@ upstream:
 {{- $value.dnsservers | toYaml | nindent 8 }}
 {{- end }}
 
-{{- if .Values.service.dnsudp.enabled }}
-port: {{ .Values.service.dnsudp.ports.dnsudp.targetPort }}
-{{- end }}
-
-{{- if .Values.service.dot.enabled }}
-tlsPort: {{ .Values.service.dot.ports.dot.targetPort }}
-{{- end }}
-
-{{- if .Values.service.http.enabled }}
-httpPort: {{ .Values.service.http.ports.http.targetPort }}
-{{- end }}
-
-{{- if .Values.service.https.enabled }}
-httpsPort: {{ .Values.service.https.ports.https.targetPort }}
-{{- end }}
+ports:
+  {{- if .Values.service.dnsudp.enabled }}
+  dns: {{ .Values.service.dnsudp.ports.dnsudp.targetPort }}
+  {{- end }}
+  {{- if .Values.service.dot.enabled }}
+  tls: {{ .Values.service.dot.ports.dot.targetPort }}
+  {{- end }}
+  {{- if .Values.service.main.enabled }}
+  http: {{ .Values.service.main.ports.main.targetPort }}
+  {{- end }}
+  {{- if .Values.service.https.enabled }}
+  https: {{ .Values.service.https.ports.https.targetPort }}
+  {{- end }}
 
 {{- if .Values.certFile }}
 certFile: {{ .Values.certFile }}
@@ -57,17 +65,16 @@ certFile: {{ .Values.certFile }}
 keyFile: {{ .Values.keyFile }}
 {{- end }}
 
-{{- if .Values.logLevel }}
-logLevel: {{ .Values.logLevel }}
-{{- end }}
-
-{{- if .Values.logTimestamp }}
-logTimestamp: {{ .Values.logTimestamp }}
-{{- end }}
-
-{{- if .Values.logPrivacy }}
-logPrivacy: {{ .Values.logPrivacy }}
-{{- end }}
+log:
+  {{- if .Values.logLevel }}
+  level: {{ .Values.logLevel }}
+  {{- end }}
+  {{- if .Values.logTimestamp }}
+  timestamp: {{ .Values.logTimestamp }}
+  {{- end }}
+  {{- if .Values.logPrivacy }}
+  privacy: {{ .Values.logPrivacy }}
+  {{- end }}
 
 {{- if .Values.dohUserAgent }}
 dohUserAgent: {{ .Values.dohUserAgent }}
@@ -88,15 +95,27 @@ hostsFile:
 
 {{- if or .Values.bootstrapDns.upstream .Values.bootstrapDns.ips }}
 bootstrapDns:
-{{- if .Values.bootstrapDns.upstream }}
-  upstream: {{ .Values.bootstrapDns.upstream }}
-{{- end }}
-{{- if .Values.bootstrapDns.ips }}
-  ips:
-{{- range $id, $value := .Values.bootstrapDns.ips }}
-    - {{ $value }}
-{{- end }}
-{{- end }}
+  {{- if .Values.bootstrapDns.upstream }}
+  - upstream: {{ .Values.bootstrapDns.upstream }}
+  {{- end }}
+  {{- if .Values.bootstrapDns.ips }}
+    ips:
+    {{- range $id, $value := .Values.bootstrapDns.ips }}
+      - {{ $value }}
+    {{- end }}
+  {{- end }}
+  {{/* Add additional Bootstrap DNS */}}
+  {{- range .Values.additionalBootstrapDns }}
+  {{- with .upstream }}
+  - upstream: {{ . }}
+  {{- end }}
+  {{- if .ips }}
+    ips:
+    {{- range $id, $value := .ips }}
+      - {{ $value }}
+    {{- end }}
+  {{- end }}
+  {{- end }}
 {{- end }}
 
 {{- if or .Values.filtering.filtering }}
@@ -183,7 +202,7 @@ blocking:
   downloadTimeout: {{ .Values.blocking.downloadTimeout }}
   downloadAttempts: {{ .Values.blocking.downloadAttempts }}
   downloadCooldown: {{ .Values.blocking.downloadCooldown }}
-  failStartOnListError: {{ .Values.blocking.failStartOnListError }}
+  startStrategy: {{ .Values.blocking.startStrategy }}
   processingConcurrency: {{ .Values.blocking.processingConcurrency }}
 {{- if .Values.blocking.whitelist }}
   whiteLists:

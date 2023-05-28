@@ -16,32 +16,36 @@ args:
   {{- end }}
   {{- range $name, $config := $ports }}
   {{- if $config }}
-  {{- if or ( eq $config.protocol "HTTP" ) ( eq $config.protocol "HTTPS" ) ( eq $config.protocol "TCP" ) }}
-  {{- $_ := set $config "protocol" "TCP" }}
+  {{- if or ( eq $config.protocol "http" ) ( eq $config.protocol "https" ) ( eq $config.protocol "tcp" ) }}
+  {{- $_ := set $config "protocol" "tcp" }}
   {{- end }}
   - "--entryPoints.{{$name}}.address=:{{ $config.port }}/{{ default "tcp" $config.protocol | lower }}"
   {{- end }}
   {{- end }}
   - "--api.dashboard=true"
   - "--ping=true"
-  {{- if .Values.metrics }}
-  {{- if .Values.metrics.datadog }}
+  {{- if .Values.traefikMetrics }}
+  {{- if .Values.traefikMetrics.datadog }}
   - "--metrics.datadog=true"
-  - "--metrics.datadog.address={{ .Values.metrics.datadog.address }}"
+  - "--metrics.datadog.address={{ .Values.traefikMetrics.datadog.address }}"
   {{- end }}
-  {{- if .Values.metrics.influxdb }}
+  {{- if .Values.traefikMetrics.influxdb }}
   - "--metrics.influxdb=true"
-  - "--metrics.influxdb.address={{ .Values.metrics.influxdb.address }}"
-  - "--metrics.influxdb.protocol={{ .Values.metrics.influxdb.protocol }}"
+  - "--metrics.influxdb.address={{ .Values.traefikMetrics.influxdb.address }}"
+  - "--metrics.influxdb.protocol={{ .Values.traefikMetrics.influxdb.protocol }}"
   {{- end }}
-  {{- if .Values.metrics.prometheus }}
-  - "--metrics.prometheus=true"
-  - "--metrics.prometheus.entrypoint={{ .Values.metrics.prometheus.entryPoint }}"
-  {{- end }}
-  {{- if .Values.metrics.statsd }}
+  {{- if .Values.traefikMetrics.statsd }}
   - "--metrics.statsd=true"
-  - "--metrics.statsd.address={{ .Values.metrics.statsd.address }}"
+  - "--metrics.statsd.address={{ .Values.traefikMetrics.statsd.address }}"
+  {{- if or .Values.traefikMetrics.prometheus }}
+  - "--metrics.prometheus=true"
+  - "--metrics.prometheus.entrypoint=metrics"
   {{- end }}
+  {{- end }}
+  {{- end }}
+  {{- if or .Values.metrics.main.enabled }}
+  - "--metrics.prometheus=true"
+  - "--metrics.prometheus.entrypoint=metrics"
   {{- end }}
   {{- if .Values.providers.kubernetesCRD.enabled }}
   - "--providers.kubernetescrd"
@@ -63,7 +67,7 @@ args:
   - "--providers.kubernetesingress.namespaces={{ template "providers.kubernetesIngress.namespaces" . }}"
   {{- end }}
   {{- end }}
-  {{- if .Values.ingressClass.enabled }}
+  {{- if $.Values.ingressClass.enabled }}
   - "--providers.kubernetesingress.ingressclass={{ .Release.Name }}"
   {{- end }}
   {{- range $entrypoint, $config := $ports }}
@@ -98,8 +102,8 @@ args:
   - "--entrypoints.{{ $entrypoint }}.http.redirections.entryPoint.scheme=https"
   {{- end }}
   {{- end }}
-  {{- if or ( $config.tls ) ( eq $config.protocol "HTTPS" ) }}
-  {{- if or ( $config.tls.enabled ) ( eq $config.protocol "HTTPS" ) }}
+  {{- if or ( $config.tls ) ( eq $config.protocol "https" ) }}
+  {{- if or ( $config.tls.enabled ) ( eq $config.protocol "https" ) }}
   - "--entrypoints.{{ $entrypoint }}.http.tls=true"
   {{- if $config.tls.options }}
   - "--entrypoints.{{ $entrypoint }}.http.tls.options={{ $config.tls.options }}"

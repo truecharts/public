@@ -3,7 +3,7 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
 description: Snapdrop A local file sharing in your browser. Inspired by Apple's Airdrop.
 home: https://truecharts.org/charts/stable/snapdrop
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/snapdrop.png
@@ -17,11 +17,9 @@ maintainers:
 name: snapdrop
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/snapdrop
-  - https://hub.docker.com/r/linuxserver/snapdrop
   - https://github.com/linuxserver/docker-snapdrop
-version: 4.0.16
+version: 5.0.19
 annotations:
   truecharts.org/catagories: |
     - media
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

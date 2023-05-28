@@ -1,21 +1,21 @@
 image:
   repository: tccr.io/truecharts/avidemux
-  tag: v1.4.0@sha256:38c59d301698c84ac7c3ca6b40af1ccaf32ad6dc80073413e20ac5f3af739281
+  tag: v23.04.1@sha256:cb1f9093704196a2891eef4f587564fe0702e0bf82fec8ec8d611a093505c255
   pullPolicy: IfNotPresent
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
     ports:
       main:
         port: 10272
+        protocol: http
         targetPort: 5800
   vnc:
     enabled: true
@@ -23,14 +23,8 @@ service:
       vnc:
         enabled: true
         port: 10273
+        protocol: tcp
         targetPort: 5900
-
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-avidemux'
-
-secretEnv:
-  VNC_PASSWORD: ""
 
 avidemux:
   KEEP_APP_RUNNING: false
@@ -49,13 +43,30 @@ configmap:
       DISPLAY_WIDTH: "{{ .Values.avidemux.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.avidemux.DISPLAY_HEIGHT }}"
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+                - KILL
+          envFrom:
+            - configMapRef:
+                name: "avidemux"
+          env:
+            VNC_PASSWORD: ""
+
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
   storage:
     enabled: true
-    mountPath: "/storage"
+    mountPath: /storage
 
 portal:
-  enabled: true
+  open:
+    enabled: true

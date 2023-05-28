@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "1.4.6"
+appVersion: "1.4.8"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
 deprecated: false
 description: Satisfactory Dedicated Server
 home: https://truecharts.org/charts/stable/satisfactory
@@ -18,12 +18,10 @@ maintainers:
 name: satisfactory
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/satisfactory
-  - https://hub.docker.com/r/wolveix/satisfactory-server
   - https://github.com/wolveix/satisfactory-server
 type: application
-version: 4.0.15
+version: 5.0.16
 annotations:
   truecharts.org/catagories: |
     - games
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

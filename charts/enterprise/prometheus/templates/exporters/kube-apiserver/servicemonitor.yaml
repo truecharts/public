@@ -27,7 +27,7 @@ spec:
       interval: {{ .Values.kubeApiServer.serviceMonitor.interval }}
       {{- end }}
       {{- if .Values.kubeApiServer.serviceMonitor.metricRelabelings }}
-      metricRelabelings: {{- include "tc.common.tplvalues.render" ( dict "value" .Values.kubeApiServer.serviceMonitor.metricRelabelings "context" $) | nindent 8 }}
+      metricRelabelings: {{- include "tc.v1.common.tplvalues.render" ( dict "value" .Values.kubeApiServer.serviceMonitor.metricRelabelings "context" $) | nindent 8 }}
       {{- end }}
       {{- if .Values.kubeApiServer.serviceMonitor.relabelings }}
       relabelings: {{- toYaml .Values.kubeApiServer.serviceMonitor.relabelings | nindent 8 }}

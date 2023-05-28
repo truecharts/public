@@ -1,8 +1,7 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{ include "tc.v1.common.loader.init" . }}
 
-{{/* Render secret */}}
-{{- include "meshcentral.secret" . }}
+{{- $_ := mustMergeOverwrite .Values (include "meshcentral.secret" $ | fromYaml) -}}
 
 {{- define "meshcentral.probes" -}}
 probes:
@@ -17,7 +16,7 @@ probes:
     path: /health.ashx
 {{- end -}}
 
-{{- $_ := mergeOverwrite .Values (include "meshcentral.probes" . | fromYaml) -}}
+{{- $_ := mergeOverwrite .Values.workload.main.podSpec.containers.main (include "meshcentral.probes" . | fromYaml) -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

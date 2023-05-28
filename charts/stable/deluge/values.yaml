@@ -1,15 +1,14 @@
 image:
   repository: tccr.io/truecharts/deluge
   pullPolicy: IfNotPresent
-  tag: v2.1.1@sha256:1e70aa107cc40d01307234405814adbf91ed1f796c0e72467cdc70eab8a20126
+  tag: v2.1.1@sha256:fb4841fbf1184c0ac2ef1712fdcf41a5253b916aaca1fead2093be257c5959bd
 
 securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
@@ -31,14 +30,29 @@ service:
         enabled: true
         port: 51413
         targetPort: 51413
-        protocol: UDP
+        protocol: udp
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
 
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
-  varrun:
-    enabled: true
-
+    mountPath: /config
 portal:
-  enabled: true
+  open:
+    enabled: true

@@ -1,0 +1,77 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{/* Render configmap for authelia */}}
+{{- $configmapPaths := include "authelia.configmap.paths" . | fromYaml -}}
+{{- if $configmapPaths -}}
+  {{- $_ := set .Values.configmap "authelia-paths" $configmapPaths -}}
+{{- end -}}
+
+{{- $configmapFile := include "authelia.configmap.configfile" . | fromYaml -}}
+{{- if $configmapFile -}}
+  {{- $_ := set .Values.configmap "authelia-configfile" $configmapFile -}}
+{{- end -}}
+
+{{/* Render secrets for authelia */}}
+{{- $secret := include "authelia.secrets" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "authelia-secrets" $secret -}}
+{{- end -}}
+
+{{/* Append the general configMap volume to the volumes */}}
+{{- define "authelia.configmapVolume" -}}
+enabled: true
+mountPath: /configuration.yaml
+subPath: configuration.yaml
+readOnly: true
+type: "configmap"
+objectName: authelia-configfile
+{{- end -}}
+
+{{/* Append the general secret volumes to the volumes */}}
+{{- define "authelia.secretVolumes" -}}
+enabled: true
+mountPath: "/secrets"
+readOnly: true
+type: "secret"
+objectName: authelia-secrets
+items:
+  - key: "JWT_TOKEN"
+    path: JWT_TOKEN
+  - key: "SESSION_ENCRYPTION_KEY"
+    path: SESSION_ENCRYPTION_KEY
+  - key: "ENCRYPTION_KEY"
+    path: ENCRYPTION_KEY
+  - key: "STORAGE_PASSWORD"
+    path: STORAGE_PASSWORD
+    {{- if .Values.authentication_backend.ldap.enabled }}
+  - key: "LDAP_PASSWORD"
+    path: LDAP_PASSWORD
+    {{- end }}
+    {{- if and .Values.notifier.smtp.enabled .Values.notifier.smtp.plain_password }}
+  - key: "SMTP_PASSWORD"
+    path: SMTP_PASSWORD
+    {{- end }}
+  - key: "REDIS_PASSWORD"
+    path: REDIS_PASSWORD
+    {{- if .Values.redisProvider.high_availability.enabled}}
+  - key: "REDIS_SENTINEL_PASSWORD"
+    path: REDIS_SENTINEL_PASSWORD
+    {{- end }}
+    {{- if .Values.duo_api.enabled }}
+  - key: "DUO_API_KEY"
+    path: DUO_API_KEY
+    {{- end }}
+    {{- if .Values.identity_providers.oidc.enabled }}
+  - key: "OIDC_PRIVATE_KEY"
+    path: OIDC_PRIVATE_KEY
+  - key: "OIDC_HMAC_SECRET"
+    path: OIDC_HMAC_SECRET
+    {{- end }}
+{{- end -}}
+
+{{- $_ := set .Values.persistence "authelia-configfile" (include "authelia.configmapVolume" . | fromYaml) -}}
+{{- $_ := set .Values.persistence "authelia-secrets" (include "authelia.secretVolumes" . | fromYaml) -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

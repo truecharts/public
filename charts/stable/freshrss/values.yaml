@@ -1,15 +1,14 @@
 image:
   repository: tccr.io/truecharts/freshrss
   pullPolicy: IfNotPresent
-  tag: 1.20.2@sha256:53e1d57bed40196065af1f2a1fd4dc65281997927fca855df61a2913bdfb3609
+  tag: 1.21.0@sha256:ab5a65207ab29b1780e036fe680228ff86a58626ebb79140186436645fb3aefa
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
@@ -21,7 +20,8 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: /config
 
 portal:
-  enabled: true
+  open:
+    enabled: true

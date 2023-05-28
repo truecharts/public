@@ -1,0 +1,58 @@
+image:
+  repository: tccr.io/truecharts/lldap
+  pullPolicy: IfNotPresent
+  tag: v0.4.3@sha256:69a54e6f0b7f2793ce8fd7771ae37c3c2a3ef3499c6fb48a27088457fc5bbfb6
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 17170
+        port: 17170
+  ldap:
+    enabled: true
+    ports:
+      ldap:
+        enabled: true
+        targetPort: 3890
+        port: 3890
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          command:
+            - "/app/lldap"
+          args:
+            - "run"
+          env:
+            LLDAP_LDAP_BASE_DN: "dc=example,dc=com"
+            LLDAP_JWT_SECRET:
+              - secretRef:
+                  name: secrets
+                  key: LLDAP_JWT_SECRET
+            LLDAP_key_file: "/data/private_key"
+            LLDAP_database_url:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: std
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+cnpg:
+  main:
+    enabled: true
+    user: lldap
+    database: lldap
+
+portal:
+  open:
+    enabled: true

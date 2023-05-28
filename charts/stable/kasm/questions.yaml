@@ -11,30 +11,38 @@ portals:
       - "$variable-service.admin.ports.admin.port"
 questions:
 # Include{global}
-# Include{controller}
-# Include{replicas}
-# Include{replica1}
-# Include{controllerExpertExtraArgs}
-  - variable: secretEnv
-    group: App Configuration
-    label: Image Secrets
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DOCKER_HUB_USERNAME
-          label: Docker Hub Username
-          description: Optionally specify a DockerHub Username to pull private images.
-          schema:
-            type: string
-            default: ""
-        - variable: DOCKER_HUB_PASSWORD
-          label: Docker Hub Password
-          description: Optionally specify a DockerHub password to pull private images.
-          schema:
-            type: string
-            private: true
-            default: ""
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: DOCKER_HUB_USERNAME
+                                        label: Docker Hub Username
+                                        description: Optionally specify a DockerHub Username to pull private images.
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: DOCKER_HUB_PASSWORD
+                                        label: Docker Hub Password
+                                        description: Optionally specify a DockerHub password to pull private images.
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+
+# Include{containerBasic}
+# Include{containerAdvanced}
+
   - variable: kasm
     group: App Configuration
     label: KASM Configuration
@@ -54,15 +62,11 @@ questions:
           schema:
             type: boolean
             default: false
+
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
-        - variable: main
-          label: Main Service
-          description: The Primary service on which the healthcheck runs, often the webUI
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -101,7 +105,6 @@ questions:
                               default: 10351
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
@@ -124,52 +127,36 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
-# Include{security}
-# Include{securityContextAdvancedRoot}
-              - variable: privileged
-                label: Privileged mode
+# Include{securityContextRoot}
+
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
                 schema:
-                  type: boolean
-                  default: true
-              - variable: readOnlyRootFilesystem
-                label: ReadOnly Root Filesystem
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
                 schema:
-                  type: boolean
-                  default: false
-              - variable: allowPrivilegeEscalation
-                label: Allow Privilege Escalation
+                  type: int
+                  default: 0
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
                 schema:
-                  type: boolean
-                  default: true
-              - variable: runAsNonRoot
-                label: runAsNonRoot
-                schema:
-                  type: boolean
-                  default: false
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 0
-        - variable: fsGroup
-          label: fsGroup
-          description: The group that should own ALL storage.
-          schema:
-            type: int
-            default: 0
-# Include{podSecurityContextAdvanced}
+                  type: int
+                  default: 0
+
 # Include{resources}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
+# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

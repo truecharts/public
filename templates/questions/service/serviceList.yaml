@@ -111,15 +111,15 @@
                                   label: Port Type
                                   schema:
                                     type: string
-                                    default: TCP
+                                    default: tcp
                                     enum:
-                                      - value: HTTP
+                                      - value: http
                                         description: HTTP
-                                      - value: HTTPS
+                                      - value: https
                                         description: HTTPS
-                                      - value: TCP
+                                      - value: tcp
                                         description: TCP
-                                      - value: UDP
+                                      - value: udp
                                         description: UDP
                                 - variable: targetPort
                                   label: Target Port

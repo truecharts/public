@@ -6,25 +6,3 @@
       default: "Etc/UTC"
       $ref:
         - "definitions/timezone"
-  - variable: envList
-    label: Extra Environment Variables
-    description: "Please be aware that some variables are set in the background, adding duplicates here might cause issues or prevent the app from starting..."
-    group: "General Settings"
-    schema:
-      type: list
-      default: []
-      items:
-        - variable: envItem
-          label: Environment Variable
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: name
-                label: Name
-                schema:
-                  type: string
-              - variable: value
-                label: Value
-                schema:
-                  type: string

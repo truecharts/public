@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "1.25.1"
+appVersion: "23.04.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
 deprecated: false
 description: HandBrake is a tool for converting video from nearly any format to a selection of modern, widely supported codecs.
 home: https://truecharts.org/charts/stable/handbrake
@@ -20,13 +20,11 @@ maintainers:
 name: handbrake
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/handbrake
-  - https://hub.docker.com/r/jlesage/handbrake
   - https://github.com/jlesage/docker-handbrake
   - https://handbrake.fr/
 type: application
-version: 15.0.9
+version: 16.0.10
 annotations:
   truecharts.org/catagories: |
     - media
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

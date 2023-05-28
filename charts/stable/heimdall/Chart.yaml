@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "2.5.5"
+appVersion: "2.5.6"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
 deprecated: false
 description: An Application dashboard and launcher
 home: https://truecharts.org/charts/stable/heimdall
@@ -18,12 +18,10 @@ maintainers:
 name: heimdall
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/heimdall
-  - https://hub.docker.com/r/linuxserver/heimdall
   - https://github.com/linuxserver/Heimdall/
 type: application
-version: 14.0.8
+version: 15.0.19
 annotations:
   truecharts.org/catagories: |
     - organizers
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

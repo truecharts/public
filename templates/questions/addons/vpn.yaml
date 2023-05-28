@@ -12,12 +12,14 @@
                   enum:
                     - value: disabled
                       description: disabled
-                    - value: openvpn
-                      description: OpenVPN
-                    - value: wireguard
-                      description: Wireguard
+                    - value: gluetun
+                      description: Gluetun
                     - value: tailscale
                       description: Tailscale
+                    - value: openvpn
+                      description: OpenVPN (Deprecated)
+                    - value: wireguard
+                      description: Wireguard (Deprecated)
               - variable: openvpn
                 label: OpenVPN Settings
                 schema:
@@ -35,6 +37,7 @@
                       description: Authentication Credentials
                       schema:
                         type: string
+                        show_if: [["username", "!=", ""]]
                         default: ""
                         required: true
               - variable: tailscale
@@ -139,39 +142,10 @@
               - variable: configFile
                 label: VPN Config File Location
                 schema:
-                  type: dict
+                  type: string
                   show_if: [["type", "!=", "disabled"]]
-                  attrs:
-                    - variable: enabled
-                      label: Enabled
-                      schema:
-                        type: boolean
-                        default: true
-                        hidden: true
-                    - variable: type
-                      label: Type
-                      schema:
-                        type: string
-                        default: hostPath
-                        hidden: true
-                    - variable: hostPathType
-                      label: hostPathType
-                      schema:
-                        type: string
-                        default: File
-                        hidden: true
-                    - variable: noMount
-                      label: noMount
-                      schema:
-                        type: boolean
-                        default: true
-                        hidden: true
-                    - variable: hostPath
-                      label: Full Path to File
-                      description: "Path to your local VPN config file for example: /mnt/tank/vpn.conf or /mnt/tank/vpn.ovpn"
-                      schema:
-                        type: string
-                        default: ""
+                  default: ""
+
               - variable: envList
                 label: VPN Environment Variables
                 schema:

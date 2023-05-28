@@ -3,7 +3,7 @@ appVersion: "2023.1.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
 description: An Automatic Video Library Manager for TV Shows
 home: https://truecharts.org/charts/stable/sickchill
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sickchill.png
@@ -20,13 +20,11 @@ maintainers:
 name: sickchill
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/sickchill
-  - https://ghcr.io/linuxserver/sickchill
   - https://github.com/linuxserver/docker-sickchill
   - https://github.com/SickChill/SickChill
 type: application
-version: 5.0.16
+version: 6.0.19
 annotations:
   truecharts.org/catagories: |
     - media
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

@@ -2,19 +2,6 @@ image:
   repository: tccr.io/truecharts/odoo
   pullPolicy: IfNotPresent
   tag: v15.0@sha256:f7d2ab13cf5214ddfbc09d5322bd61ad064a877edbec1620579392838a0a44d7
-
-env:
-  USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  PORT: 5432
-  PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-
 service:
   main:
     ports:
@@ -32,7 +19,6 @@ service:
         enabled: true
         port: 8072
         targetPort: 8072
-
 persistence:
   odoo:
     enabled: true
@@ -40,13 +26,30 @@ persistence:
   addons:
     enabled: true
     mountPath: "/mnt/extra-addons"
-
 # Enabled postgres
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: odoo
-  postgresqlDatabase: postgres
+cnpg:
+  main:
+    enabled: true
 
+    user: odoo
+    database: postgres
 portal:
-  enabled: true
+  open:
+    enabled: true
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            USER: "{{ .Values.cnpg.main.user }}"
+            PORT: 5432
+            PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host

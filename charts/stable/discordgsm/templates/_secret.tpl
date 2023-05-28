@@ -1,19 +1,9 @@
 {{/* Define the secret */}}
 {{- define "gsm.secret" -}}
 
-{{- $secretName := printf "%s-gsm-secret" (include "tc.common.names.fullname" .) }}
-
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
-  DATABASE_URL: {{ .Values.postgresql.url.complete | trimAll "\"" }}
+enabled: true
+data:
+  DATABASE_URL: {{ .Values.cnpg.main.creds.std | trimAll "\""  }}
   DB_CONNECTION: {{ print "postgres" }}
   APP_TOKEN: {{ .Values.gsm.app_token | quote }}
   {{- with .Values.gsm.whitelist_guilds }}

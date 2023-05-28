@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "1.0.9"
+appVersion: "1.1.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
 description: An application that lets you automatically process files through a simple rule flow.
 home: https://truecharts.org/charts/stable/fileflows
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fileflows.png
@@ -17,11 +17,9 @@ maintainers:
 name: fileflows
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/fileflows
-  - https://hub.docker.com/r/revenz/fileflows
   - https://github.com/revenz/FileFlows
-version: 4.0.12
+version: 5.0.19
 annotations:
   truecharts.org/catagories: |
     - media
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

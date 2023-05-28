@@ -20,7 +20,7 @@ spec:
       {{- end }}
       path: {{ trimSuffix "/" .Values.prometheus.routePrefix }}/metrics
       {{- if .Values.prometheus.serviceMonitor.metricRelabelings }}
-      metricRelabelings: {{- include "tc.common.tplvalues.render" ( dict "value" .Values.prometheus.serviceMonitor.metricRelabelings "context" $) | nindent 8 }}
+      metricRelabelings: {{- include "tc.v1.common.tplvalues.render" ( dict "value" .Values.prometheus.serviceMonitor.metricRelabelings "context" $) | nindent 8 }}
       {{- end }}
       {{- if .Values.prometheus.serviceMonitor.relabelings }}
       relabelings: {{- toYaml .Values.prometheus.serviceMonitor.relabelings | nindent 8 }}

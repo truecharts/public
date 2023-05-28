@@ -3,7 +3,7 @@ appVersion: "1.6.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
 description: A music library manager and not, for the most part, a music player.
 home: https://truecharts.org/charts/stable/beets
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/beets.png
@@ -21,13 +21,11 @@ maintainers:
 name: beets
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/beets
-  - https://ghcr.io/linuxserver/beets
   - https://github.com/linuxserver/docker-beets
   - https://beets.io/
 type: application
-version: 6.0.14
+version: 7.0.22
 annotations:
   truecharts.org/catagories: |
     - media
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

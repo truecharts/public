@@ -1,43 +1,45 @@
 image:
   repository: tccr.io/truecharts/readarr
   pullPolicy: IfNotPresent
-  tag: 0.1.3.1584@sha256:c8edb5626f3ff593086dd9596e4d08cd50c9677c3df1228e8b3deeaf9c33ac0b
-
-securityContext:
-  readOnlyRootFilesystem: false
-
+  tag: v0.1.4.1596@sha256:a59d3805ac60d1bb605e66a68ee88ea6205c719bd08b3d534083756fda136a20
 service:
   main:
     ports:
       main:
         port: 8787
-        targetPort: 8787
-
-probes:
-  liveness:
-    enabled: true
-    ## Set this to true if you wish to specify your own livenessProbe
-    custom: true
-    ## The spec field contains the values for the default livenessProbe.
-    ## If you selected custom: true, this field holds the definition of the livenessProbe.
-    spec:
-      exec:
-        command:
-          - /usr/bin/env
-          - bash
-          - -c
-          - curl --fail localhost:8787/api/v1/system/status?apiKey=`IFS=\> && while
-            read -d \< E C; do if [[ $E = "ApiKey" ]]; then echo $C; fi; done < /config/config.xml`
-      failureThreshold: 5
-      initialDelaySeconds: 60
-      periodSeconds: 10
-      successThreshold: 1
-      timeoutSeconds: 10
-
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
-
+    mountPath: /config
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              ## Set this to true if you wish to specify your own livenessProbe
+              custom: true
+              ## The spec field contains the values for the default livenessProbe.
+              ## If you selected custom: true, this field holds the definition of the livenessProbe.
+              spec:
+                exec:
+                  command:
+                    - /usr/bin/env
+                    - bash
+                    - -c
+                    - curl --fail localhost:8787/api/v1/system/status?apiKey=`IFS=\> && while read -d \< E C; do if [[ $E = "ApiKey" ]]; then echo $C; fi; done < /config/config.xml`
+                failureThreshold: 5
+                initialDelaySeconds: 60
+                periodSeconds: 10
+                successThreshold: 1
+                timeoutSeconds: 10
+          env:
+            READARR__PORT: "{{ .Values.service.main.ports.main.port }}"

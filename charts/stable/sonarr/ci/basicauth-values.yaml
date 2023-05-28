@@ -1,0 +1,7 @@
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SONARR__AUTHENTICATION_METHOD: Basic

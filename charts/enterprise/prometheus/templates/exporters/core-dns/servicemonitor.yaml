@@ -21,9 +21,9 @@ spec:
       {{- end }}
       bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
       {{- if .Values.coreDns.serviceMonitor.metricRelabelings }}
-      metricRelabelings: {{- include "tc.common.tplvalues.render" (dict "value" .Values.coreDns.serviceMonitor.metricRelabelings "context" $) | nindent 6 }}
+      metricRelabelings: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.coreDns.serviceMonitor.metricRelabelings "context" $) | nindent 6 }}
       {{- end }}
       {{- if .Values.coreDns.serviceMonitor.relabelings }}
-      relabelings: {{- include "tc.common.tplvalues.render" (dict "value" .Values.coreDns.serviceMonitor.relabelings "context" $) | nindent 6 }}
+      relabelings: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.coreDns.serviceMonitor.relabelings "context" $) | nindent 6 }}
       {{- end }}
 {{- end }}

@@ -10,37 +10,40 @@ service:
       main:
         enabled: false
 
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-
-secretEnv:
-  # -- User name used to connect to the Amcrest device
-  AMCREST_USERNAME: "admin"
-  # -- Password used to connect to the Amcrest device
-  AMCREST_PASSWORD: "changeme"
-  # -- User name used to connect to the MQTT broker
-  MQTT_USERNAME: "mqttuser"
-  # -- Password used to connect to the MQTT broker
-  MQTT_PASSWORD: "changeme"
-
-env:
-  # -- Host name used to connect to the Amcrest device
-  AMCREST_HOST: "localhost"
-  # -- Port used to connect to the Amcrest device
-  AMCREST_PORT: 80
-  # -- Host name used to connect to the MQTT broker
-  MQTT_HOST: "localhost"
-  # -- Port used to connect to the MQTT broker
-  MQTT_PORT: 1883
-  # -- Enable Home Assistant autodiscovery
-  HOME_ASSISTANT: "false"
-  # -- Home Assistant autodiscovery prefix
-  HOME_ASSISTANT_PREFIX: "homeassistant"
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            # -- Host name used to connect to the Amcrest device
+            AMCREST_HOST: "localhost"
+            # -- Port used to connect to the Amcrest device
+            AMCREST_PORT: 80
+            # -- Host name used to connect to the MQTT broker
+            MQTT_HOST: "localhost"
+            # -- Port used to connect to the MQTT broker
+            MQTT_PORT: 1883
+            # -- Enable Home Assistant autodiscovery
+            HOME_ASSISTANT: "false"
+            # -- Home Assistant autodiscovery prefix
+            HOME_ASSISTANT_PREFIX: "homeassistant"
+            # -- User name used to connect to the Amcrest device
+            AMCREST_USERNAME: "admin"
+            # -- Password used to connect to the Amcrest device
+            AMCREST_PASSWORD: "changeme"
+            # -- User name used to connect to the MQTT broker
+            MQTT_USERNAME: "mqttuser"
+            # -- Password used to connect to the MQTT broker
+            MQTT_PASSWORD: "changeme"
 
 portal:
-  enabled: false
+  open:
+    enabled: false

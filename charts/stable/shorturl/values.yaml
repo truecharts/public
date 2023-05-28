@@ -3,14 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: version-v0.1.0@sha256:3893eab50b4d790958b31cbb7fd5d545369e7f91ee2d77551352a6510c86ba03
 
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
 service:
   main:
     ports:
@@ -21,9 +13,17 @@ service:
 persistence:
   data:
     enabled: true
-    mountPath: "/data"
+    mountPath: /data
   varrun:
     enabled: true
 
 portal:
-  enabled: true
+  open:
+    enabled: true
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0

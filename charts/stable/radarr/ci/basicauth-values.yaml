@@ -1,0 +1,7 @@
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            RADARR__AUTHENTICATION_METHOD: Basic

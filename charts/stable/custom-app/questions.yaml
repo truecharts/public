@@ -35,121 +35,186 @@ questions:
               - value: "Never"
                 description: "Never"
 # Include{global}
-# Include{controller}
-# Include{replicas}
-# Include{replica1}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+
 # Include{controllerExpertCommand}
-# Include{controllerExpertExtraArgs}
-# Include{containerConfig}
-  - variable: probes
-    group: "App Configuration"
-    label: "Healthcheck Probes"
+
+# Include{containerBasic}
+# Include{containerAdvanced}
+                                - variable: probes
+                                  label: "Healthcheck Probes"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: liveness
+                                        label: "Liveness"
+                                        description: "Liveness Probe"
+                                        schema:
+                                          additional_attrs: true
+                                          type: dict
+                                          attrs:
+                                            - variable: enabled
+                                              label: "Enable Probe"
+                                              description: "Enables the probe"
+                                              schema:
+                                                type: boolean
+                                                default: true
+                                                show_subquestions_if: true
+                                                subquestions:
+                                                  - variable: type
+                                                    label: "Probe Type"
+                                                    description: "Probe Type"
+                                                    schema:
+                                                      type: string
+                                                      default: "tcp"
+                                                      enum:
+                                                        - value: "tcp"
+                                                          description: "tcp"
+                                                        - value: "http"
+                                                          description: "http"
+                                                        - value: "https"
+                                                          description: "https"
+                                                  - variable: path
+                                                    label: "Probe Path"
+                                                    description: "Probe Path"
+                                                    schema:
+                                                      type: string
+                                                      default: "/"
+                                      - variable: readiness
+                                        label: "Readiness"
+                                        description: "Readiness Probe"
+                                        schema:
+                                          additional_attrs: true
+                                          type: dict
+                                          attrs:
+                                            - variable: enabled
+                                              label: "Enable Probe"
+                                              description: "Enables the probe"
+                                              schema:
+                                                type: boolean
+                                                default: true
+                                                show_subquestions_if: true
+                                                subquestions:
+                                                  - variable: type
+                                                    label: "Probe Type"
+                                                    description: "Probe Type"
+                                                    schema:
+                                                      type: string
+                                                      default: "tcp"
+                                                      enum:
+                                                        - value: "tcp"
+                                                          description: "tcp"
+                                                        - value: "http"
+                                                          description: "http"
+                                                        - value: "https"
+                                                          description: "https"
+                                                  - variable: path
+                                                    label: "Probe Path"
+                                                    description: "Probe Path"
+                                                    schema:
+                                                      type: string
+                                                      default: "/"
+                                      - variable: startup
+                                        label: "Startup"
+                                        description: "Startup Probe"
+                                        schema:
+                                          additional_attrs: true
+                                          type: dict
+                                          attrs:
+                                            - variable: enabled
+                                              label: "Enable Probe"
+                                              description: "Enables the probe"
+                                              schema:
+                                                type: boolean
+                                                default: true
+                                                show_subquestions_if: true
+                                                subquestions:
+                                                  - variable: type
+                                                    label: "Probe Type"
+                                                    description: "Probe Type"
+                                                    schema:
+                                                      type: string
+                                                      default: "tcp"
+                                                      enum:
+                                                        - value: "tcp"
+                                                          description: "tcp"
+                                                        - value: "http"
+                                                          description: "http"
+                                                        - value: "https"
+                                                          description: "https"
+                                                  - variable: path
+                                                    label: "Probe Path"
+                                                    description: "Probe Path"
+                                                    schema:
+                                                      type: string
+                                                      default: "/"
+  - variable: portal
+    group: "General Settings"
+    label: "Portal Configuration"
     schema:
-      additional_attrs: true
       type: dict
+      additional_attrs: true
       attrs:
-        - variable: liveness
-          label: "Liveness"
-          description: "Liveness Probe"
+        - variable: open
+          label: "Open"
           schema:
-            additional_attrs: true
             type: dict
+            additional_attrs: true
             attrs:
               - variable: enabled
-                label: "Enable Probe"
-                description: "Enables the probe"
+                label: "Enable WebUI Portal"
+                description: "Enable WebUI Portal"
                 schema:
                   type: boolean
                   default: true
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: type
-                      label: "Probe Type"
-                      description: "Probe Type"
-                      schema:
-                        type: string
-                        default: "TCP"
-                        enum:
-                          - value: "TCP"
-                            description: "TCP"
-                          - value: "HTTP"
-                            description: "HTTP"
-                          - value: "HTTPS"
-                            description: "HTTPS"
-                    - variable: path
-                      label: "Probe Path"
-                      description: "Probe Path"
-                      schema:
-                        type: string
-                        default: "/"
-        - variable: readiness
-          label: "Readiness"
-          description: "Readiness Probe"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enable Probe"
-                description: "Enables the probe"
+              - variable: overrides
+                label: "Override Portal Configuration"
+                description: "Override Portal Configuration"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
+                  show_if: [["enabled", "=", true]]
                   show_subquestions_if: true
                   subquestions:
-                    - variable: type
-                      label: "Probe Type"
-                      description: "Probe Type"
+                    - variable: override
+                      label: "Override Portal Configuration"
+                      description: "Override Portal Configuration"
                       schema:
-                        type: string
-                        default: "TCP"
-                        enum:
-                          - value: "TCP"
-                            description: "TCP"
-                          - value: "HTTP"
-                            description: "HTTP"
-                          - value: "HTTPS"
-                            description: "HTTPS"
-                    - variable: path
-                      label: "Probe Path"
-                      description: "Probe Path"
-                      schema:
-                        type: string
-                        default: "/"
-        - variable: startup
-          label: "Startup"
-          description: "Startup Probe"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enable Probe"
-                description: "Enables the probe"
-                schema:
-                  type: boolean
-                  default: true
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: type
-                      label: "Probe Type"
-                      description: "Probe Type"
-                      schema:
-                        type: string
-                        default: "TCP"
-                        enum:
-                          - value: "TCP"
-                            description: "TCP"
-                          - value: "HTTP"
-                            description: "HTTP"
-                          - value: "HTTPS"
-                            description: "HTTPS"
-                    - variable: path
-                      label: "Probe Path"
-                      description: "Probe Path"
-                      schema:
-                        type: string
-                        default: "/"
+                        type: dict
+                        additional_attrs: true
+                        attrs:
+                          - variable: protocol
+                            label: "Protocol"
+                            description: "Portal Protocol Override"
+                            schema:
+                              type: string
+                              enum:
+                                - value: ""
+                                  description: ""
+                                - value: "http"
+                                  description: "HTTP"
+                                - value: "https"
+                                  description: "HTTPS"
+                          - variable: host
+                            label: "Host"
+                            description: "Portal Host Override"
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: port
+                            label: "Port"
+                            description: "Portal Port Override"
+                            schema:
+                              type: string
+                              default: ""
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -170,22 +235,22 @@ questions:
                             label: "Enable the port"
                             schema:
                               type: boolean
-                              default: true
                               hidden: true
+                              default: true
                           - variable: protocol
                             label: "Port Type"
                             schema:
                               type: string
-                              default: "HTTP"
+                              default: "http"
                               enum:
-                                - value: HTTP
-                                  description: "HTTP"
-                                - value: "HTTPS"
-                                  description: "HTTPS"
-                                - value: TCP
-                                  description: "TCP"
-                                - value: "UDP"
-                                  description: "UDP"
+                                - value: http
+                                  description: "http"
+                                - value: "https"
+                                  description: "https"
+                                - value: tcp
+                                  description: "tcp"
+                                - value: "udp"
+                                  description: "udp"
                           - variable: targetPort
                             label: "Target Port"
                             description: "This port exposes the container port on the service"
@@ -225,16 +290,16 @@ questions:
                             label: "Port Type"
                             schema:
                               type: string
-                              default: "TCP"
+                              default: "tcp"
                               enum:
-                                - value: HTTP
-                                  description: "HTTP"
-                                - value: "HTTPS"
-                                  description: "HTTPS"
-                                - value: TCP
-                                  description: "TCP"
-                                - value: "UDP"
-                                  description: "UDP"
+                                - value: http
+                                  description: "http"
+                                - value: "https"
+                                  description: "https"
+                                - value: tcp
+                                  description: "tcp"
+                                - value: "udp"
+                                  description: "udp"
                           - variable: targetPort
                             label: "Target Port"
                             description: "This port exposes the container port on the service"
@@ -248,7 +313,6 @@ questions:
                               type: int
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceList}
@@ -262,52 +326,36 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
-# Include{security}
-# Include{securityContextAdvancedRoot}
-              - variable: privileged
-                label: "Privileged mode"
+# Include{securityContextRoot}
+
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
                 schema:
-                  type: boolean
-                  default: false
-              - variable: readOnlyRootFilesystem
-                label: "ReadOnly Root Filesystem"
+                  type: int
+                  default: 568
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
                 schema:
-                  type: boolean
-                  default: false
-              - variable: allowPrivilegeEscalation
-                label: "Allow Privilege Escalation"
+                  type: int
+                  default: 568
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
                 schema:
-                  type: boolean
-                  default: false
-              - variable: runAsNonRoot
-                label: "runAsNonRoot"
-                schema:
-                  type: boolean
-                  default: true
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
-          schema:
-            type: int
-            default: 568
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 568
-        - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
-          schema:
-            type: int
-            default: 568
-# Include{podSecurityContextAdvanced}
+                  type: int
+                  default: 568
+
 # Include{resources}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
+# Include{netshoot}
 # Include{vpn}
 # Include{documentation}

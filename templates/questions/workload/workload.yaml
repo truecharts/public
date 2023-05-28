@@ -1,0 +1,13 @@
+  - variable: workload
+    group: "Workload Settings"
+    label: ""
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: main
+          label: ""
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:

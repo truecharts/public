@@ -1,13 +1,23 @@
 image:
   repository: tccr.io/truecharts/wordpress
   pullPolicy: IfNotPresent
-  tag: 6.1.1@sha256:8bda7518c8a4c84260f198ec8bb4a6db0f3d4b4ddb430bf76d3e77f8429fdae6
+  tag: v6.2.1@sha256:0a59f48a22df1c09499c0adfcd8b98e9dd66e347ecca17bb6d3cf15d871abb9d
 
 securityContext:
-  readOnlyRootFilesystem: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
 
-podSecurityContext:
-  runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - configMapRef:
+                name: env-config
+            - secretRef:
+                name: env-secret
 
 wordpress:
   user: user
@@ -35,17 +45,11 @@ php-config:
   PHP_POST_MAX_SIZE: ""
   PHP_UPLOAD_MAX_FILESIZE: ""
 
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-env-config'
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-env-secret'
-
 service:
   main:
     ports:
       main:
-        protocol: HTTP
+        protocol: http
         port: 10591
 
 persistence:
@@ -57,7 +61,7 @@ mariadb:
   enabled: true
   mariadbUsername: wordpress
   mariadbDatabase: wordpress
-  existingSecret: mariadbcreds
 
 portal:
-  enabled: true
+  open:
+    enabled: true

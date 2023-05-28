@@ -4,32 +4,12 @@ image:
   tag: v1.6.2@sha256:cdc290aec4bec537d50b7ec97587691f1115ba0d4ffbe78956c4a37b9f565c85
 
 securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-  fsGroup: 33
-
-env:
-  CHEVERETO_DB_DRIVER: mysql
-  CHEVERETO_DB_NAME: "{{ .Values.mariadb.mariadbUsername }}"
-  CHEVERETO_DB_USER: "{{ .Values.mariadb.mariadbDatabase }}"
-  CHEVERETO_DB_PORT: "3306"
-  CHEVERETO_TAG: "free"
-  CHEVERETO_DB_HOST:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainporthost
-  CHEVERETO_DB_PASS:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
-
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-chevereto'
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+    fsGroup: 33
 
 chevereto:
   https: false
@@ -49,21 +29,57 @@ service:
     ports:
       main:
         targetPort: 80
+        protocol: http
         port: 10197
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            CHEVERETO_DB_DRIVER: mysql
+            CHEVERETO_DB_NAME: "{{ .Values.mariadb.mariadbUsername }}"
+            CHEVERETO_DB_USER: "{{ .Values.mariadb.mariadbDatabase }}"
+            CHEVERETO_DB_PORT: "3306"
+            CHEVERETO_TAG: "free"
+            CHEVERETO_DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainporthost
+            CHEVERETO_DB_PASS:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
+          envFrom:
+            - configMapRef:
+                name: "chevereto"
 
 persistence:
   storage:
     enabled: true
-    mountPath: "/var/www/html/images/"
+    mountPath: /var/www/html/images/
   content:
     enabled: true
-    mountPath: "/var/www/html/content/"
+    mountPath: /var/www/html/content/
 
 mariadb:
   enabled: true
   mariadbUsername: chevereto
   mariadbDatabase: chevereto
-  existingSecret: "mariadbcreds"
 
 portal:
-  enabled: true
+  open:
+    enabled: true

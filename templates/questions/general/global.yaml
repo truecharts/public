@@ -1,13 +1,13 @@
   - variable: global
-    label: Global Settings
-    group: "General Settings"
+    group: General Settings
+    label: "Global Settings"
     schema:
+      additional_attrs: true
       type: dict
-      hidden: true
       attrs:
-        - variable: isSCALE
-          label: Flag this is SCALE
+        - variable: stopAll
+          label: Stop All
+          description: "Stops All Running pods and hibernates cnpg"
           schema:
             type: boolean
-            default: true
-            hidden: true
+            default: false

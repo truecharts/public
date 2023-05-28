@@ -1,35 +1,40 @@
 image:
   repository: tccr.io/truecharts/docusaurus
   pullPolicy: IfNotPresent
-  tag: latest@sha256:00ca680f4ebfcb01f8f082c70a737db29963b3b2323b71eb701b0a4eef0170c9
+  tag: latest@sha256:53df5c58a9baade51eecf30e9432b6c603f0b7bdefd34f3feb0e27dbc1ff36a5
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
     ports:
       main:
-        protocol: HTTP
+        protocol: http
         targetPort: 80
         port: 13080
 
-env:
-  TARGET_UID: "{{ .Values.security.PUID }}"
-  TARGET_GID: "{{ .Values.podSecurityContext.fsGroup }}"
-  AUTO_UPDATE: true
-  WEBSITE_NAME: "Docusaurus HomeLab Website"
-  TEMPLATE: classic
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            TARGET_UID: "{{ .Values.securityContext.container.PUID }}"
+            TARGET_GID: "{{ .Values.securityContext.pod.fsGroup }}"
+            AUTO_UPDATE: true
+            WEBSITE_NAME: "Docusaurus HomeLab Website"
+            TEMPLATE: classic
 
 persistence:
   config:
     enabled: true
-    mountPath: "/docusaurus"
+    mountPath: /docusaurus
 
 portal:
-  enabled: true
+  open:
+    enabled: true

@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "1.0.11"
+appVersion: "1.0.13"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
 description: An automatic Video Library Manager for TV Shows
 home: https://truecharts.org/charts/stable/medusa
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/medusa.png
@@ -22,13 +22,11 @@ maintainers:
 name: medusa
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/medusa
-  - https://ghcr.io/linuxserver/medusa
   - https://github.com/linuxserver/docker-medusa
   - https://pymedusa.com/
 type: application
-version: 5.0.16
+version: 6.0.19
 annotations:
   truecharts.org/catagories: |
     - media
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

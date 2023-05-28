@@ -1,30 +1,28 @@
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: lancache-dns
-version: 3.0.11
 appVersion: "latest"
-description: DNS Chart service for a steam cache.
-type: application
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.10.4
 deprecated: false
+description: DNS Chart service for a steam cache.
 home: https://truecharts.org/charts/stable/lancache-dns
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lancache-dns.png
 keywords:
   - lancache-dns
   - dns
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/lancache-dns
-  - https://hub.docker.com/r/lancachenet/lancache-dns
-  - https://github.com/lancachenet/lancache-dns
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
     url: https://truecharts.org
+name: lancache-dns
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/lancache-dns
+  - https://github.com/lancachenet/lancache-dns
+type: application
+version: 4.0.17
 annotations:
   truecharts.org/catagories: |
     - networking
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

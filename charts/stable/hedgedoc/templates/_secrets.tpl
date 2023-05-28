@@ -1,14 +1,8 @@
 {{/* Define the secrets */}}
 {{- define "hedgedoc.secrets" -}}
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: hedgedoc-secrets
 {{- $hedgedocprevious := lookup "v1" "Secret" .Release.Namespace "hedgedoc-secrets" }}
 {{- $session_secret := "" }}
+enabled: true
 data:
   {{- if $hedgedocprevious}}
   CMD_SESSION_SECRET: {{ index $hedgedocprevious.data "CMD_SESSION_SECRET" }}

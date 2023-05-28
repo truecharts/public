@@ -1,56 +1,40 @@
 image:
   repository: tccr.io/truecharts/uptime-kuma
   pullPolicy: IfNotPresent
-  tag: 1.20.1@sha256:7b37a9b0000cfbdcf8b7dd9e01852c079c5be253cfec2e753e8ef52f4ac19ec6
-
-securityContext:
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
+  tag: v1.21.3@sha256:40637d43f5f246170200ef61164036f41d2b53109f1710303f09de05de89baa4
 security:
   PUID: 0
-
-env:
-  UPTIME_KUMA_PORT: "{{ .Values.service.main.ports.main.port }}"
-
 service:
   main:
     ports:
       main:
         port: 3001
-
 persistence:
   config:
     enabled: true
     mountPath: "/app/data"
-
 portal:
-  enabled: true
-
+  open:
+    enabled: true
 metrics:
-  # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
-  # @default -- See values.yaml
-  enabled: false
-  serviceMonitor:
-    interval: 1m
-    scrapeTimeout: 30s
-    labels: {}
-  prometheusRule:
-    enabled: false
-    labels: {}
-    # -- Configure additionial rules for the chart under this key.
-    # @default -- See prometheusrules.yaml
-    rules:
-      []
-      # - alert: UnifiPollerAbsent
-      #   annotations:
-      #     description: Unifi Poller has disappeared from Prometheus service discovery.
-      #     summary: Unifi Poller is down.
-      #   expr: |
-      #     absent(up{job=~".*unifi-poller.*"} == 1)
-      #   for: 5m
-      #   labels:
-      #     severity: critical
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: metrics
+        path: /metrics
+    prometheusRule:
+      enabled: false
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            UPTIME_KUMA_PORT: "{{ .Values.service.main.ports.main.port }}"

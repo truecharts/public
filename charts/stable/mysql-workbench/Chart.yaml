@@ -1,8 +1,8 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: mysql-workbench
-version: 4.0.15
-appVersion: "8.0.32"
+version: 5.0.17
+appVersion: "8.0.33"
 description: MySQL Workbench is a unified visual tool for database architects, developers and DBAs.
 type: application
 deprecated: false
@@ -12,11 +12,10 @@ keywords:
   - mysql-workbench
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/mysql-workbench
-  - https://ghcr.io/linuxserver/mysql-workbench
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
     # condition:
 maintainers:
   - email: info@truecharts.org
@@ -26,4 +25,3 @@ annotations:
   truecharts.org/catagories: |
     - incubator
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

@@ -1,19 +1,7 @@
 image:
   repository: tccr.io/truecharts/tvheadend
   pullPolicy: IfNotPresent
-  tag: latest@sha256:71cf300613f48dfb4694532c36076c7acfcf464e3c38b640be2fd3cb3510aa2f
-
-securityContext:
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-# See https://github.com/linuxserver/docker-tvheadend#parameters
-env:
-  RUN_OPTS: ""
-
+  tag: latest@sha256:f006a0a172a26fb844e325b0990a414ebfea20768b2093fc0467078f645faabf
 service:
   main:
     ports:
@@ -27,13 +15,35 @@ service:
         enabled: true
         port: 9982
         targetPort: 9982
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
   varrun:
     enabled: true
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.port }}"
+            readiness:
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.port }}"
+            startup:
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.port }}"
+          env:
+            RUN_OPTS: ""

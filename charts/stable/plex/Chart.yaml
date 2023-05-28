@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "1.31.0.665"
+appVersion: "1.32.1.699"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
 deprecated: false
 description: Plex Media Server
 home: https://truecharts.org/charts/stable/plex
@@ -19,12 +19,10 @@ maintainers:
 name: plex
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/plex
-  - https://ghcr.io/onedr0p/plex
   - https://github.com/k8s-at-home/container-images/pkgs/container/plex
 type: application
-version: 12.0.14
+version: 13.0.23
 annotations:
   truecharts.org/catagories: |
     - media
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
