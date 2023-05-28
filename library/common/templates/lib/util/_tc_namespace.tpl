@@ -9,6 +9,9 @@ metadata:
   name: tc-system
   annotations:
     "helm.sh/resource-policy": keep
+    "helm.sh/hook": pre-install
+    "helm.sh/hook-weight": "-20"
+    "helm.sh/hook-delete-policy": hook-failed
     {{- end -}}
   {{- end -}}
 {{- end -}}
