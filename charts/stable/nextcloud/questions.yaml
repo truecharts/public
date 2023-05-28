@@ -344,10 +344,11 @@ questions:
                 label: Enable ClamAV
                 description: |
                   Enable and configure ClamAV.</br>
-                  It will also deploy the needed container
+                  It will also deploy the needed container</br>
+                  Keep in mind this container runs as root.
                 schema:
                   type: boolean
-                  default: true
+                  default: false
                   show_subquestions_if: true
                   subquestions:
                     - variable: stream_max_length
