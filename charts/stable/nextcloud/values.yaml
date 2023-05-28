@@ -10,7 +10,7 @@ nginxImage:
 imaginaryImage:
   repository: ghcr.io/stavros-k/nextcloud-imaginary
   pullPolicy: IfNotPresent
-  tag: 20230527@sha256:402adf60654ad86338b95c8af8dfa360a7d48ad3b4519b8e98b6bb3c84b97832
+  tag: 20230527@sha256:e429f6bd50c53c4fea425add5c1f26703023ad22d80016fe10c16ed17e60c649
 hpbImage:
   repository:  ghcr.io/stavros-k/nextcloud-notify_push
   pullPolicy: IfNotPresent
@@ -421,10 +421,6 @@ persistence:
         nginx:
           mountPath: /var/www/html/data
           readOnly: true
-
-# TODO: Remove
-manifestManager:
-  enabled: true
 
 cnpg:
   main:
