@@ -49,6 +49,7 @@ runs:
         CHARTS=( `printf "%s\n" "${CHARTS[@]}" | sort -u` )
         # Set output to changed charts
         printf "::set-output name=addedOrModified::%s\n" "${CHARTS[*]}"
+        
 
     - name: Collect bumped charts after last tag
       id: filter-bumped-charts
@@ -106,8 +107,6 @@ runs:
 
         # Remove duplicates
         CHARTS=( `printf "%s\n" "${CHARTS[@]}" | sort -u` )
-        # Set output to changed charts
-        printf "::set-output name=addedOrModifiedAfterTag::%s\n" "${CHARTS[*]}"
 
         echo "Number of detected changed charts: ${#CHARTS[@]}"
         if [ ${#CHARTS[@]} -eq 0 ] || [ "${CHARTS[0]}" = " " ] || [ "${CHARTS[0]}" = "/" ]; then
@@ -120,7 +119,7 @@ runs:
           # Get only the chart paths
 
           # Set output to changed charts
-          echo "Changed charts: ${CHARTS[*]}"
+          echo "Changed charts since latest tag: ${CHARTS[*]}"
           printf "::set-output name=modifiedChartsAfterTag::%s\n" "${CHARTS[*]}"
         fi
         popd > /dev/null
