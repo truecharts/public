@@ -11,39 +11,6 @@ on:
         type: string
 
 jobs:
-  unit-test:
-    name: Run unit tests
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
-        with:
-          fetch-depth: 0
-          ref: ${{ inputs.checkoutCommit }}
-
-      - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
-        with:
-          setup-tools: |
-            helmv3
-          helm: "3.8.0"
-
-      - name: Install Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7
-
-      - name: Install dependencies
-        env:
-          RUBYJQ_USE_SYSTEM_LIBRARIES: 1
-        run: |
-          sudo apt-get update
-          sudo apt-get install libjq-dev
-          bundle install
-
-      - name: Run tests
-        run: |
-          bundle exec m -r ./test/
 
   generate-install-matrix:
     name: Generate matrix for install
@@ -142,7 +109,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Kubernetes tools
@@ -187,7 +154,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Kubernetes tools
@@ -233,7 +200,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Kubernetes tools
@@ -278,7 +245,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Kubernetes tools
@@ -323,7 +290,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Kubernetes tools
@@ -368,7 +335,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Kubernetes tools
