@@ -237,6 +237,7 @@ workload:
           primary: true
           enabled: true
           imageSelector: clamavImage
+          # FIXME: https://github.com/Cisco-Talos/clamav/issues/478
           securityContext:
             runAsUser: 0
             runAsGroup: 0
