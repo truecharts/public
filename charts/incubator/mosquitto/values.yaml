@@ -67,7 +67,7 @@ persistence:
     type: "configmap"
     volumeSpec:
       configMap:
-        name: '{{ template "tc.common.names.fullname" . }}-config'
+        name: '{{ template "tc.v1.common.names.fullname" . }}-config'
 
 portal:
   open:
