@@ -12,6 +12,9 @@ on:
       modifiedFiles:
         required: true
         type: string
+      modifiedCharts:
+        required: true
+        type: string
 
 jobs:
   lint-and-verify:
@@ -43,6 +46,13 @@ jobs:
         shell: bash
         run: |
           CHARTS=$(ct list-changed --config .github/ct-lint.yaml)
+          echo "ct list  out"
+          echo $CHARTS
+          echo "---"
+          echo "modif charts out"
+          echo ${{ inputs.chartChangesDetected }}
+          echo "---"
+
           EXCLUDED_JSON=$(go-yq eval -o=json '.excluded-charts // []' .github/ct-lint.yaml)
           CHARTS_JSON=$(echo "${CHARTS}" | jq --raw-input '.' | jq --compact-output --slurp '.')
           OUTPUT_JSON=$(echo "{\"excluded\": ${EXCLUDED_JSON}, \"all\": ${CHARTS_JSON}}" | jq --compact-output '.all-.excluded')
