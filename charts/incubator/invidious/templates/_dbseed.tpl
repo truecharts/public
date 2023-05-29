@@ -2,22 +2,16 @@
 image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
 env:
   - name: POSTGRES_DB
-    value: {{ .Values.postgresql.postgresqlDatabase }}
+    value: {{ .Values.cnpg.main.database }}
   - name: POSTGRES_USER
-    value: {{ .Values.postgresql.postgresqlUsername }}
+    value: {{ .Values.cnpg.main.user }}
 {{/* PG* variables are for the psql client */}}
   - name: PGPORT
     value: "5432"
   - name: PGHOST
-    valueFrom:
-      secretKeyRef:
-        name: dbcreds
-        key: plainhost
+    value: {{ .Values.cnpg.main.creds.host }}
   - name: PGPASSWORD
-    valueFrom:
-      secretKeyRef:
-        name: dbcreds
-        key: postgresql-password
+    value: {{ .Values.cnpg.main.creds.password }}
 command:
   - /bin/sh
   - -c
