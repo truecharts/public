@@ -30,8 +30,8 @@ jobs:
     with:
       checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
       chartChangesDetected: ${{ needs.pr-changes.outputs.addedOrModified }}
-      modifiedFiles: ${{ needs.pr-metadata.outputs.addedOrModifiedFiles }}
-
+      modifiedFiles: ${{ needs.pr-changes.outputs.addedOrModifiedFiles }}
+      modifiedCharts: ${{ needs.pr-changes.outputs.addedOrModifiedCharts }}
   charts-test:
     uses: ./.github/workflows/charts-test.yaml
     needs:
@@ -40,6 +40,7 @@ jobs:
     with:
       checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
       chartChangesDetected: ${{ needs.pr-changes.outputs.addedOrModified }}
+      modifiedCharts: ${{ needs.pr-changes.outputs.addedOrModifiedCharts }}
 
   catalog-test:
     uses: ./.github/workflows/catalog-test.yaml

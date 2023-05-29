@@ -689,7 +689,7 @@ questions:
           schema:
             type: boolean
             default: false
-            show_if: [["enabled", "=", "true"]]
+            show_if: [["enabled", "=", true]]
             show_subquestions_if: true
             subquestions:
               - variable: ttl
@@ -827,6 +827,7 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
               - variable: runAsUser

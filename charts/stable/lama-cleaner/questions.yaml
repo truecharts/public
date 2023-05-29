@@ -70,7 +70,7 @@ questions:
           description: Stable diffusion need HuggingFace access token to download model
           schema:
             type: string
-            show_if: [[ "sd_run_local", "=", "true"]]
+            show_if: [[ "sd_run_local", "=", true]]
             private: true
             default: ""
         - variable: sd_disable_nsfw
@@ -148,6 +148,7 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
 
 # Include{securityContextRoot}

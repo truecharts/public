@@ -1,0 +1,347 @@
+image:
+  repository: quay.io/metallb/controller
+  tag: v0.13.9
+  pullPolicy:
+speakerImage:
+  repository: quay.io/metallb/speaker
+  tag: v0.13.9
+  pullPolicy:
+
+workload:
+  main:
+    labels:
+      component: controller
+    podSpec:
+      labels:
+        component: controller
+      containers:
+        main:
+          args:
+            - --port=7472
+            - --log-level=all
+            - --cert-service-name='{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
+            - --webhook-mode=enabled
+          probes:
+            liveness:
+              port: controllermon
+              path: /metrics
+            readiness:
+              port: controllermon
+              path: /metrics
+            startup:
+              port: controllermon
+              type: tcp
+          env:
+            METALLB_ML_SECRET_NAME: "memberlist"
+            METALLB_DEPLOYMENT: '{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
+            METALLB_NAMESPACE: "{{$.Release.Namespace}}"
+
+  speaker:
+    enabled: true
+    type: DaemonSet
+    labels:
+      component: speaker
+    podSpec:
+      labels:
+        component: speaker
+      shareProcessNamespace: true
+      containers:
+        speaker:
+          enabled: true
+          primary: true
+          args:
+            - --port=7472
+            - --log-level=all
+            - --cert-service-name='{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
+          probes:
+            liveness:
+              port: speakermon
+              path: /metrics
+            readiness:
+              port: speakermon
+              path: /metrics
+            startup:
+              port: speakermon
+              type: tcp
+          env:
+            METALLB_NODE_NAME:
+              fieldRef:
+                fieldPath: spec.nodeName
+            METALLB_HOST:
+              fieldRef:
+                fieldPath: status.hostIP
+            METALLB_ML_BIND_ADDR:
+              fieldRef:
+                fieldPath: status.podIP
+            METALLB_ML_LABELS: "release={{ $.Release.Name }},pod.name=main"
+            METALLB_ML_BIND_PORT: "{{ $.Values.service.memberlist.ports.memberlisttcp }}"
+            METALLB_ML_SECRET_KEY_PATH: "/etc/ml_secret_key"
+            METALLB_NAMESPACE: "{{$.Release.Namespace}}"
+          securityContext:
+            capabilities:
+              add:
+                - NET_RAW
+
+podOptions:
+  automountServiceAccountToken: true
+
+service:
+  main:
+    ports:
+      main:
+        port: 443
+        targetPort: 9443
+  memberlist:
+    enabled: true
+    targetSelector: speaker
+    ports:
+      memberlisttcp:
+        enabled: true
+        protocol: tcp
+        port: 7946
+      memberlistudp:
+        enabled: true
+        protocol: udp
+        port: 7946
+  speakermon:
+    enabled: true
+    targetSelector: speaker
+    ports:
+      speakermon:
+        enabled: true
+        port: 7472
+  controllermon:
+    enabled: true
+    ports:
+      controllermon:
+        enabled: true
+        port: 7472
+
+operator:
+  register: true
+
+configmap:
+  metallb-excludel2:
+    enabled: true
+    data:
+      excludel2.yaml: |
+        announcedInterfacesToExclude:
+        - docker.*
+        - cbr.*
+        - dummy.*
+        - virbr.*
+        - lxcbr.*
+        - veth.*
+        - lo
+        - ^cali.*
+        - ^tunl.*
+        - flannel.*
+        - kube-ipvs.*
+        - cni.*
+        - ^nodelocaldns.*
+
+persistence:
+  webhook-server-cert:
+    enabled: true
+    type: secret
+    objectName: webhook-server-cert
+    expandObjectName: false
+    defaultMode: "0420"
+    readOnly: true
+    targetSelector:
+      main:
+        main:
+          mountPath: "/tmp/k8s-webhook-server/serving-certs"
+  metallb-excludel2:
+    enabled: "{{ if $.Values.speaker.excludeInterfaces.enabled }}true{{ else }}false{{ end }}"
+    type: configmap
+    objectName: metallb-excludel2
+    defaultMode: "0256"
+    readOnly: true
+    targetSelector:
+      speaker:
+        speaker:
+          mountPath: "/etc/metallb"
+  memberlist:
+    enabled: true
+    type: secret
+    objectName: memberlist
+    expandObjectName: false
+    defaultMode: "0420"
+    readOnly: true
+    targetSelector:
+      speaker:
+        speaker:
+          mountPath: "/etc/ml_secret_key"
+
+portal:
+  open:
+    enabled: false
+
+# -- Whether Role Based Access Control objects like roles and rolebindings should be created
+rbac:
+  main:
+    enabled: true
+    primary: true
+    clusterWide: true
+    allServiceAccounts: true
+    rules:
+      - apiGroups: [""]
+        resources: ["services", "endpoints", "nodes", "namespaces"]
+        verbs: ["get", "list", "watch"]
+      - apiGroups: [""]
+        resources: ["nodes"]
+        verbs: ["list"]
+      - apiGroups: [""]
+        resources: ["services/status"]
+        verbs: ["update"]
+      - apiGroups: [""]
+        resources: ["events"]
+        verbs: ["create", "patch"]
+      - apiGroups: ["admissionregistration.k8s.io"]
+        resources:
+          ["validatingwebhookconfigurations", "mutatingwebhookconfigurations"]
+        resourceNames: ["metallb-webhook-configuration"]
+        verbs: ["create", "delete", "get", "list", "patch", "update", "watch"]
+      - apiGroups: ["admissionregistration.k8s.io"]
+        resources:
+          ["validatingwebhookconfigurations", "mutatingwebhookconfigurations"]
+        verbs: ["list", "watch"]
+      - apiGroups: ["apiextensions.k8s.io"]
+        resources: ["customresourcedefinitions"]
+        resourceNames:
+          [
+            "addresspools.metallb.io",
+            "bfdprofiles.metallb.io",
+            "bgpadvertisements.metallb.io",
+            "bgppeers.metallb.io",
+            "ipaddresspools.metallb.io",
+            "l2advertisements.metallb.io",
+            "communities.metallb.io",
+          ]
+        verbs: ["create", "delete", "get", "list", "patch", "update", "watch"]
+      - apiGroups: ["apiextensions.k8s.io"]
+        resources: ["customresourcedefinitions"]
+        verbs: ["list", "watch"]
+      - apiGroups: ["discovery.k8s.io"]
+        resources: ["endpointslices"]
+        verbs: ["get", "list", "watch"]
+  controller:
+    enabled: true
+    primary: false
+    clusterWide: false
+    serviceAccounts:
+      - main
+    rules:
+      - apiGroups: [""]
+        resources: ["secrets"]
+        verbs: ["create", "get", "list", "watch"]
+      - apiGroups: [""]
+        resources: ["secrets"]
+        verbs: ["list"]
+      - apiGroups: ["apps"]
+        resources: ["deployments"]
+        verbs: ["get"]
+      - apiGroups: [""]
+        resources: ["secrets"]
+        verbs: ["create", "delete", "get", "list", "patch", "update", "watch"]
+      - apiGroups: ["metallb.io"]
+        resources: ["addresspools"]
+        verbs: ["get", "list", "watch"]
+      - apiGroups: ["metallb.io"]
+        resources: ["ipaddresspools"]
+        verbs: ["get", "list", "watch"]
+      - apiGroups: ["metallb.io"]
+        resources: ["bgppeers"]
+        verbs: ["get", "list"]
+      - apiGroups: ["metallb.io"]
+        resources: ["bgpadvertisements"]
+        verbs: ["get", "list"]
+      - apiGroups: ["metallb.io"]
+        resources: ["l2advertisements"]
+        verbs: ["get", "list"]
+      - apiGroups: ["metallb.io"]
+        resources: ["communities"]
+        verbs: ["get", "list", "watch"]
+      - apiGroups: ["metallb.io"]
+        resources: ["bfdprofiles"]
+        verbs: ["get", "list", "watch"]
+  pod-lister:
+    enabled: true
+    primary: false
+    clusterWide: false
+    serviceAccounts:
+      - speaker
+    rules:
+      - apiGroups: [""]
+        resources: ["pods"]
+        verbs: ["list"]
+      - apiGroups: [""]
+        resources: ["secrets"]
+        verbs: ["get", "list", "watch"]
+      - apiGroups: [""]
+        resources: ["configmaps"]
+        verbs: ["get", "list", "watch"]
+      - apiGroups: ["metallb.io"]
+        resources: ["addresspools"]
+        verbs: ["get", "list", "watch"]
+      - apiGroups: ["metallb.io"]
+        resources: ["bfdprofiles"]
+        verbs: ["get", "list", "watch"]
+      - apiGroups: ["metallb.io"]
+        resources: ["bgppeers"]
+        verbs: ["get", "list", "watch"]
+      - apiGroups: ["metallb.io"]
+        resources: ["l2advertisements"]
+        verbs: ["get", "list", "watch"]
+      - apiGroups: ["metallb.io"]
+        resources: ["bgpadvertisements"]
+        verbs: ["get", "list", "watch"]
+      - apiGroups: ["metallb.io"]
+        resources: ["ipaddresspools"]
+        verbs: ["get", "list", "watch"]
+      - apiGroups: ["metallb.io"]
+        resources: ["communities"]
+        verbs: ["get", "list", "watch"]
+
+# -- The service account the pods will use to interact with the Kubernetes API
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
+    targetSelector:
+      - main
+  speaker:
+    enabled: true
+    primary: false
+    targetSelector:
+      - speaker
+
+# controller contains configuration specific to the MetalLB cluster
+# controller.
+controller:
+  enabled: true
+  # -- Controller log level. Must be one of: `all`, `debug`, `info`, `warn`, `error` or `none`
+  logLevel: info
+  # command: /controller
+  # webhookMode: enabled
+
+# speaker contains configuration specific to the MetalLB speaker
+# daemonset.
+speaker:
+  enabled: true
+  # command: /speaker
+  # -- Speaker log level. Must be one of: `all`, `debug`, `info`, `warn`, `error` or `none`
+  logLevel: info
+  tolerateMaster: true
+  excludeInterfaces:
+    enabled: true
+
+validationFailurePolicy: Fail
+
+manifestManager:
+  enabled: true
+  staging: false
+  install: false
+  check: false
+  delete: true

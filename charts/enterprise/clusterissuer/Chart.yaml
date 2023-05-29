@@ -2,26 +2,26 @@ apiVersion: v2
 appVersion: "latest"
 deprecated: false
 description: Certificate management for Kubernetes
-home: https://truecharts.org/charts/enterprise/cert-manager
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/cert-manager.png
+home: https://truecharts.org/charts/enterprise/clusterissuer
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/clusterissuer.png
 keywords:
-  - metallb
-  - loadbalancer
+  - cert-manager
+  - certificates
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.10.2
+    version: 12.10.4
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
     url: https://truecharts.org
-name: cert-manager
+name: clusterissuer
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/enterprise/cert-manager
+  - https://github.com/truecharts/charts/tree/master/charts/enterprise/clusterissuer
   - https://cert-manager.io/
 type: application
-version: 1.0.36
+version: 1.0.1
 annotations:
   truecharts.org/catagories: |
     - core
