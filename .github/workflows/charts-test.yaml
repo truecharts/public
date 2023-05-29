@@ -18,8 +18,6 @@ jobs:
   generate-install-matrix:
     name: Generate matrix for install
     runs-on: ubuntu-latest
-    container:
-      image: tccr.io/truecharts/devcontainer:v3.1.38@sha256:2fd9355bc6791461430db87a04f5fe7b49c46bc5957bc348f1efbff4c6c7913d
     outputs:
       matrix1: |
         {
@@ -57,6 +55,13 @@ jobs:
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
+          
+      - name: Install go-yq
+        run: |
+          mkdir -p $HOME/.local/bin
+          wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O $HOME/.local/bin/go-yq && \
+          chmod +x $HOME/.local/bin/go-yq
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Run chart-testing (list-changed)
         id: list-changed
