@@ -20,8 +20,6 @@ jobs:
   lint-and-verify:
     name: Lint Charts and Verify Dependencies
     runs-on: ubuntu-latest
-    container:
-      image: tccr.io/truecharts/devcontainer:v3.1.38@sha256:2fd9355bc6791461430db87a04f5fe7b49c46bc5957bc348f1efbff4c6c7913d
     steps:
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
@@ -37,6 +35,17 @@ jobs:
 
       - name: Setting repo parent dir as safe safe.directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+        
+      - name: Install go-yq
+        run: |
+          mkdir -p $HOME/.local/bin
+          wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O $HOME/.local/bin/go-yq && \
+          chmod +x $HOME/.local/bin/go-yq
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          
+      - name: Install pre-commit, yamale and yamllint
+        run: |
+          pip3 install --no-cache-dir pre-commit yamale yamllint
 
       - name: Prep Helm
         run: |
@@ -62,16 +71,15 @@ jobs:
           if [[ $(echo ${OUTPUT_JSON} | jq --compact-output '. | length') -gt 0 ]]; then
             echo "detected=true" >> "$GITHUB_OUTPUT"
           fi
-
+          
       - name: Test and Fix Pre-Commit Issues
         shell: bash
         if: inputs.chartChangesDetected == 'true'
         run: |
           echo "Running pre-commit test-and-cleanup..."
-          pre-commit run --all ||:
           # Fix sh files to always be executable
           find . -name '*.sh' | xargs chmod +x
-          pre-commit run --all
+          pre-commit run --all || pre-commit run --all
 
       - name: Fetch and Verify dependencies
         shell: bash
