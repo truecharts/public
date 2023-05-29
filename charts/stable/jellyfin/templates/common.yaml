@@ -1,16 +1,15 @@
 {{- include "tc.v1.common.loader.init" . }}
 
-{{/* Define the broadcast relay workload */}}
+{{/* Define the broadcast proxy workload */}}
 {{- define "broadcastProxy.workload" -}}
 enabled: true
 type: Deployment
 podSpec:
   hostNetwork: true
-  {{/* Proxy doesn't seem to respect the TERM signal, so by default
-     * this ends up just hanging until the default grace period ends.
-     * This is unnecesary since this workload only proxies autodiscovery
-     * messages.
-     */}}
+  # Proxy doesn't seem to respect the TERM signal, so by default
+  # this ends up just hanging until the default grace period ends.
+  # This is unnecesary since this workload only proxies autodiscovery
+  # messages.
   terminationGracePeriodSeconds: 3
   containers:
     broadcastproxy:
