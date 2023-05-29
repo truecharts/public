@@ -26,11 +26,12 @@ jobs:
       - name: Setting repo parent dir as safe safe.directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
-      - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
-        with:
-          repository: truecharts/catalog
-          path: catalog
+      ## TODO: Only run on the existing catalog when CI or template changes are actually detected
+      # - name: Checkout
+      #   uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+      #   with:
+      #     repository: truecharts/catalog
+      #     path: catalog
 
       - name: build-and-run
         run: |
