@@ -10,8 +10,7 @@ podSpec:
       enabled: true
       primary: true
       imageSelector: image
-      command: /bin/sh
-      args: ./start-microservices.sh
+      args: start-microservices.sh
       envFrom:
         - secretRef:
             name: secret

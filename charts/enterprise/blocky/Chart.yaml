@@ -3,7 +3,7 @@ appVersion: "0.21.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.10.2
+    version: 12.10.4
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
@@ -25,7 +25,7 @@ sources:
   - https://0xerr0r.github.io/blocky/
   - https://github.com/0xERR0R/blocky
   - https://github.com/Mozart409/blocky-frontend
-version: 5.0.33
+version: 5.0.35
 annotations:
   truecharts.org/catagories: |
     - network

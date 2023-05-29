@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/romm
   pullPolicy: IfNotPresent
-  tag: v1.8.1@sha256:b8e1b4d352c223b73b049e48aa960827bc59e7587d5b64452a3fa99ca219f71f
+  tag: v1.8.4@sha256:2caadd52ad96c4f674030ea0176361e796fdc158c5f1eb48406863aa6e03ec4d
 
 securityContext:
   container:
@@ -53,12 +53,12 @@ service:
         port: 10680
 
 persistence:
-  romm:
-    enabled: true
-    mountPath: /romm
   library:
     enabled: true
     mountPath: /romm/library
+  resources:
+    enabled: true
+    mountPath: /romm/resources
 
 mariadb:
   enabled: true

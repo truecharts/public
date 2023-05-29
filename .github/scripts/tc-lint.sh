@@ -12,14 +12,16 @@ function check_version() {
         curr_result=1
     fi
 
-    echo -e "\t🔙 Old Chart Version: $old"
-    echo -e "\t🆕 New Chart Version: $new"
-
-    if [[ $(echo "$new\n$old" | sort -V -r | head -n1) != "$old" ]]; then
-        echo -e "\t✅ Chart version: Bumped"
-    else
-        echo -e "\t❌ Chart version: Not bumped or downgraded"
-        curr_result=1
+    if [[ -n "$new" ]]; then
+        echo -e "\t🔙 Old Chart Version: $old"
+        echo -e "\t🆕 New Chart Version: $new"
+        
+        if [[ $(echo "$new\n$old" | sort -V -r | head -n1) != "$old" ]]; then
+            echo -e "\t✅ Chart version: Bumped"
+        else
+            echo -e "\t❌ Chart version: Not bumped or downgraded"
+            curr_result=1
+        fi
     fi
 }
 export -f check_version

@@ -19,7 +19,7 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
-# Include{podOptions}
+
   - variable: pihole
     group: "App Configuration"
     label: "Pi-Hole Configuration"
@@ -27,25 +27,26 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: WEBPASSWORD
-          label: "WEBPASSWORD"
+        - variable: webPassword
+          label: "Web Password"
           description: "Sets admin password for the GUI"
           schema:
             type: string
             default: ""
             required: true
-        - variable: DNS1
-          label: "DNS1"
-          description: "Sets the first DNS server (use #port suffix for ports)"
+        - variable: dnsServers
+          label: "DNS Servers"
+          description: "Set DNS servers. Max 2. Use #port suffix for ports"
           schema:
-            type: string
-            default: "9.9.9.9"
-        - variable: DNS2
-          label: "DNS2"
-          description: "Sets the second DNS server (use #port suffix for ports), only if DNS1 is entered"
-          schema:
-            type: string
-            default: "149.112.112.112"
+            type: list
+            default: ["9.9.9.9", "149.112.112.112"]
+            items:
+              - variable: dnsEntry
+                label: "DNS Server Entry"
+                schema:
+                  type: string
+                  default: ""
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -144,6 +145,7 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
 
