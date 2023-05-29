@@ -43,6 +43,9 @@ jobs:
           chmod +x $HOME/.local/bin/go-yq
           echo "$HOME/.local/bin" >> $GITHUB_PATH
           
+      - name: Install pre-commit, yamale and yamllint
+        run: |
+          pip3 install --no-cache-dir pre-commit yamale yamllint
 
       - name: Prep Helm
         run: |
@@ -68,11 +71,7 @@ jobs:
           if [[ $(echo ${OUTPUT_JSON} | jq --compact-output '. | length') -gt 0 ]]; then
             echo "detected=true" >> "$GITHUB_OUTPUT"
           fi
-
-      - name: Install pre-commit
-        run: |
-          pip3 install --no-cache-dir pre-commit
-
+          
       - name: Test and Fix Pre-Commit Issues
         shell: bash
         if: inputs.chartChangesDetected == 'true'
