@@ -19,13 +19,15 @@
 
   {{/* Go over all configmaps */}}
   {{- range $index, $cm := (lookup "v1" "ConfigMap" "" "").items -}}
-    {{/* If "tc-operator-name" does not exist will return "" */}}
-    {{- $name := (get $cm.data "tc-operator-name") -}}
+    {{- if $cm.data -}}
+      {{/* If "tc-operator-name" does not exist will return "" */}}
+      {{- $name := (get $cm.data "tc-operator-name") -}}
 
-    {{/* If fetched name matches the "$opName"... */}}
-    {{- if eq $name $opName -}}
-      {{/* Mark operator as found*/}}
-      {{- $opExists = true -}}
+      {{/* If fetched name matches the "$opName"... */}}
+      {{- if eq $name $opName -}}
+        {{/* Mark operator as found*/}}
+        {{- $opExists = true -}}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
 

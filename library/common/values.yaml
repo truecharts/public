@@ -13,8 +13,6 @@ global:
   # -- Enable to stop most pods and containers including cnpg
   # does not include stand-alone pods
   stopAll: false
-  # -- Creates the tc-system namespace. Used for operator charts
-  createTCNamespace: true
 
 fallbackDefaults:
   # -- Define a storageClassName that will be used for all PVCs
