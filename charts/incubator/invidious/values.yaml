@@ -36,10 +36,8 @@ workload:
                 secretKeyRef:
                   name: cnpg-main-user
                   key: password
-            command:
-              - "/bin/sh"
+            command: ["sh", "-c"]
             args:
-              - -c
               - |
                 echo "Starting DB Seed..."
                 mkdir -p invidious && cd invidious
