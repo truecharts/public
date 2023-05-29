@@ -14,13 +14,13 @@ questions:
 
                                 - variable: autodiscovery
                                   group: "App Configuration"
-                                  label: "Jellyfin LAN autodiscovery configuration"
+                                  label: "Autodiscovery"
                                   schema:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
                                     - variable: enabled
-                                      label: "Enable"
+                                      label: "Enable Autodiscovery on LAN"
                                       schema:
                                         type: boolean
                                         default: false
