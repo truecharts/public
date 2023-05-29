@@ -55,6 +55,11 @@ jobs:
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
+          
+      - name: Install go-yq
+        run: |
+          wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O /usr/bin/go-yq && \
+          chmod +x /usr/bin/go-yq
 
       - name: Run chart-testing (list-changed)
         id: list-changed
