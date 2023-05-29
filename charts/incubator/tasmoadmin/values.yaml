@@ -3,16 +3,16 @@ image:
   repository: tccr.io/truecharts/tasmoadmin
   tag: 2.4.2@sha256:5144a471e58004c129a0d800977e1e31ba4b46c52e37b9258591086161d2d96f
 
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
 env:
-  TASMO_DATADIR: /data
+  TASMO_DATADIR: /data/
   TASMO_DEBUG: 1
 
 service:
@@ -20,7 +20,7 @@ service:
     ports:
       main:
         port: 9541
-        protocol: HTTP
+        protocol: http
         targetPort: 80
 
 persistence:
@@ -29,4 +29,5 @@ persistence:
     mountPath: /data
 
 portal:
-  enabled: true
+  open:
+    enabled: true
