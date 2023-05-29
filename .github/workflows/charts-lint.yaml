@@ -77,10 +77,9 @@ jobs:
         if: inputs.chartChangesDetected == 'true'
         run: |
           echo "Running pre-commit test-and-cleanup..."
-          pre-commit run --all ||:
           # Fix sh files to always be executable
           find . -name '*.sh' | xargs chmod +x
-          pre-commit run --all
+          pre-commit run --all || pre-commit run --all
 
       - name: Fetch and Verify dependencies
         shell: bash
