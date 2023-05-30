@@ -19,7 +19,7 @@ workload:
           args:
             - --port=7472
             - --log-level=all
-            - --cert-service-name={{ include 'tc.v1.common.lib.chart.names.fullname' $ }}
+            - --cert-service-name={{ include "tc.v1.common.lib.chart.names.fullname" $ }}
             - --webhook-mode=enabled
           probes:
             liveness:
@@ -33,7 +33,7 @@ workload:
               type: tcp
           env:
             METALLB_ML_SECRET_NAME: "memberlist"
-            METALLB_DEPLOYMENT: "{{ include 'tc.v1.common.lib.chart.names.fullname' $ }}"
+            METALLB_DEPLOYMENT: '{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
             METALLB_NAMESPACE: "{{$.Release.Namespace}}"
 
   speaker:
@@ -49,10 +49,11 @@ workload:
         speaker:
           enabled: true
           primary: true
+          imageSelector: speakerImage
           args:
             - --port=7472
             - --log-level=all
-            - --cert-service-name={{ include 'tc.v1.common.lib.chart.names.fullname' $ }}
+            - --cert-service-name={{ include "tc.v1.common.lib.chart.names.fullname" $ }}
           probes:
             liveness:
               port: speakermon
