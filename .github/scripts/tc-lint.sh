@@ -204,6 +204,8 @@ echo '' | tee -a "$result_file"
 
 if [ $exit_code -ne 0 ]; then
     echo "❌ Linting: **Failed** - Took $diff_time seconds" | tee -a "$result_file"
+    echo "🖱️ Open [Lint Charts and Verify Dependencies] job" | tee -a "$result_file"
+    echo "👀 Expand [Run Chart Linting] step to view the results" | tee -a "$result_file"
 else
     echo "✅ Linting: **Passed** - Took $diff_time seconds" | tee -a "$result_file"
 fi
