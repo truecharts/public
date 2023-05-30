@@ -22,7 +22,7 @@ securityContext:
         - SETPCAP
         - KILL
         - SETGID
-        - SETPID
+        - SETUID 
 
 workload:
   main:
