@@ -10,16 +10,16 @@ speakerImage:
 workload:
   main:
     labels:
-      component: controller
+      app.kubernetes.io/component: controller
     podSpec:
       labels:
-        component: controller
+        app.kubernetes.io/component: controller
       containers:
         main:
           args:
             - --port=7472
             - --log-level=all
-            - --cert-service-name='{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
+            - --cert-service-name={{ include "tc.v1.common.lib.chart.names.fullname" $ }}
             - --webhook-mode=enabled
           probes:
             liveness:
@@ -40,19 +40,19 @@ workload:
     enabled: true
     type: DaemonSet
     labels:
-      component: speaker
+      app.kubernetes.io/component: controller
     podSpec:
       labels:
-        component: speaker
+        app.kubernetes.io/component: controller
       shareProcessNamespace: true
       containers:
         speaker:
           enabled: true
           primary: true
+          imageSelector: speakerImage
           args:
-            - --port=7472
+            - --port=7473
             - --log-level=all
-            - --cert-service-name='{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
           probes:
             liveness:
               port: speakermon
@@ -73,8 +73,8 @@ workload:
             METALLB_ML_BIND_ADDR:
               fieldRef:
                 fieldPath: status.podIP
-            METALLB_ML_LABELS: "release={{ $.Release.Name }},pod.name=main"
-            METALLB_ML_BIND_PORT: "{{ $.Values.service.memberlist.ports.memberlisttcp }}"
+            METALLB_ML_LABELS: "release={{ $.Release.Name }},app.kubernetes.io/component=speaker"
+            METALLB_ML_BIND_PORT: "{{ $.Values.service.memberlist.ports.memberlisttcp.port }}"
             METALLB_ML_SECRET_KEY_PATH: "/etc/ml_secret_key"
             METALLB_NAMESPACE: "{{$.Release.Namespace}}"
           securityContext:
@@ -106,12 +106,14 @@ service:
   speakermon:
     enabled: true
     targetSelector: speaker
+    clusterIP: None
     ports:
       speakermon:
         enabled: true
-        port: 7472
+        port: 7473
   controllermon:
     enabled: true
+    clusterIP: None
     ports:
       controllermon:
         enabled: true
@@ -168,12 +170,10 @@ persistence:
     objectName: memberlist
     expandObjectName: false
     defaultMode: "0420"
-    readOnly: true
     targetSelector:
       speaker:
         speaker:
           mountPath: "/etc/ml_secret_key"
-
 portal:
   open:
     enabled: false
