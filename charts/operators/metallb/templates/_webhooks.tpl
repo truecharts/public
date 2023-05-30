@@ -14,7 +14,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: main
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
       namespace: {{ .Release.Namespace }}
       path: /validate-metallb-io-v1beta1-addresspool
   failurePolicy: {{ .Values.validationFailurePolicy }}
@@ -34,7 +34,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: main
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
       namespace: {{ .Release.Namespace }}
       path: /validate-metallb-io-v1beta2-bgppeer
   failurePolicy: {{ .Values.validationFailurePolicy }}
@@ -54,7 +54,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: main
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
       namespace: {{ .Release.Namespace }}
       path: /validate-metallb-io-v1beta1-ipaddresspool
   failurePolicy: {{ .Values.validationFailurePolicy }}
@@ -74,7 +74,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: main
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
       namespace: {{ .Release.Namespace }}
       path: /validate-metallb-io-v1beta1-bgpadvertisement
   failurePolicy: {{ .Values.validationFailurePolicy }}
@@ -94,7 +94,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: main
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
       namespace: {{ .Release.Namespace }}
       path: /validate-metallb-io-v1beta1-community
   failurePolicy: {{ .Values.validationFailurePolicy }}
@@ -114,7 +114,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: main
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
       namespace: {{ .Release.Namespace }}
       path: /validate-metallb-io-v1beta1-bfdprofile
   failurePolicy: {{ .Values.validationFailurePolicy }}
@@ -134,7 +134,7 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: main
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
       namespace: {{ .Release.Namespace }}
       path: /validate-metallb-io-v1beta1-l2advertisement
   failurePolicy: {{ .Values.validationFailurePolicy }}
