@@ -53,7 +53,6 @@ workload:
           args:
             - --port=7472
             - --log-level=all
-            - --cert-service-name={{ include "tc.v1.common.lib.chart.names.fullname" $ }}
           probes:
             liveness:
               port: speakermon
@@ -174,7 +173,6 @@ persistence:
       speaker:
         speaker:
           mountPath: "/etc/ml_secret_key"
-
 portal:
   open:
     enabled: false
