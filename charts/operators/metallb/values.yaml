@@ -106,12 +106,14 @@ service:
   speakermon:
     enabled: true
     targetSelector: speaker
+    clusterIP: None
     ports:
       speakermon:
         enabled: true
-        port: 7472
+        port: 7473
   controllermon:
     enabled: true
+    clusterIP: None
     ports:
       controllermon:
         enabled: true
