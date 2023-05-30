@@ -184,7 +184,6 @@ questions:
                               default: 2457
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
@@ -215,6 +214,7 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
         - variable: supervisor
           label: supervisor Ingress
           schema:
@@ -224,6 +224,7 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
 
 # Include{securityContextRoot}

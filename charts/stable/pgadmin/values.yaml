@@ -19,8 +19,8 @@ securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
-    runAsUser: 0
-    runAsGroup: 0
+    runAsUser: 5050
+    runAsGroup: 5050
     fsGroup: 5050
 workload:
   main:

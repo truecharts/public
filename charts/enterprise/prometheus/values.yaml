@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/prometheus
-  tag: 2.43.0@sha256:61242035a0a233a9cc40d2cd209033aa592526c8eca3fb4dbeda65ed13c793f1
+  tag: v2.44.0@sha256:b4baeb2de94c734dbe36910e3e1a28c51e915ff355760863ad80af4fe7f88d29
 
 thanosImage:
   repository: tccr.io/truecharts/thanos
@@ -9,7 +9,8 @@ thanosImage:
 alertmanagerImage:
   repository: tccr.io/truecharts/alertmanager
   tag: 0.25.0@sha256:6b534671b83aa7fbd91d1b10bf0f1b29b948e4b300f8359a86043d0deba07207
-
+manifestManager:
+  enabled: true
 global:
   labels: {}
 workload:
@@ -972,7 +973,8 @@ alertmanager:
     global:
       resolve_timeout: 5m
     route:
-      group_by: ["job"]
+      group_by:
+        - job
       group_wait: 30s
       group_interval: 5m
       repeat_interval: 12h
@@ -1129,37 +1131,14 @@ exporters:
     ## @param exporters.kube-state-metrics.enabled Enable kube-state-metrics
     ##
     enabled: true
-## @param node-exporter [object] Node Exporter deployment configuration
-##
-node-exporter:
-  service:
-    port: 9910
-    targetPort: 9910
-    labels:
-      jobLabel: node-exporter
-  serviceMonitor:
-    enabled: true
-    jobLabel: jobLabel
-  extraArgs:
-    collector.filesystem.ignored-mount-points: "^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+|var/db/system/.+|mnt/[a-zA-Z0-9-_\\.]+/ix-applications/.+)($|/)"
-    collector.filesystem.ignored-fs-types: "^(autofs|binfmt_misc|cgroup|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|mqueue|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|sysfs|tracefs)$"
-    collector.netdev.device-exclude: "^veth.*$"
-    collector.netclass.ignored-devices: "^veth.*$"
-    path.rootfs: /host
-  extraVolumes:
-    - name: host
-      hostPath:
-        path: /
-  extraVolumeMounts:
-    - name: host
-      mountPath: /host
-      readOnly: true
+
 ## @param kube-state-metrics [object] Node Exporter deployment configuration
 ##
 kube-state-metrics:
   serviceMonitor:
     enabled: true
     honorLabels: true
+
 ## Component scraping for kubelet and kubelet hosted cAdvisor
 ##
 kubelet:

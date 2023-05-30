@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/minio
-  tag: latest@sha256:38fc24a73cb956b57f2cbe07f01c7781084165b07d6096a034c9b379ab845b4a
+  tag: latest@sha256:588424f4b6fc405c0ea62e9e181bd618b7569eecf6a8f0c232d5221e20b4c810
   pullPolicy: IfNotPresent
 service:
   main:
@@ -49,14 +49,12 @@ workload:
                   path: "/minio/health/ready"
                   port: 10106
           args:
-            [
-              "server",
-              "/data",
-              "--address",
-              ":10106",
-              "--console-address",
-              ":10107",
-            ]
+            - "server"
+            - "/data"
+            - "--address"
+            - ":10106"
+            - "--console-address"
+            - ":10107"
           env:
             MINIO_ROOT_USER: "minio"
             MINIO_BROWSER_REDIRECT_URL: ""

@@ -9,41 +9,11 @@ on:
       chartChangesDetected:
         required: true
         type: string
+      modifiedCharts:
+        required: true
+        type: string
 
 jobs:
-  unit-test:
-    name: Run unit tests
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
-        with:
-          fetch-depth: 0
-          ref: ${{ inputs.checkoutCommit }}
-
-      - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
-        with:
-          setup-tools: |
-            helmv3
-          helm: "3.8.0"
-
-      - name: Install Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7
-
-      - name: Install dependencies
-        env:
-          RUBYJQ_USE_SYSTEM_LIBRARIES: 1
-        run: |
-          sudo apt-get update
-          sudo apt-get install libjq-dev
-          bundle install
-
-      - name: Run tests
-        run: |
-          bundle exec m -r ./test/
 
   generate-install-matrix:
     name: Generate matrix for install
@@ -83,20 +53,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
-
-      - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
+          
+      - name: Install go-yq
+        run: |
+          mkdir -p $HOME/.local/bin
+          wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O $HOME/.local/bin/go-yq && \
+          chmod +x $HOME/.local/bin/go-yq
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Run chart-testing (list-changed)
         id: list-changed
         if: inputs.chartChangesDetected == 'true'
+        shell: bash
         run: |
-          EXCLUDED=$(yq eval -o=json '.excluded-charts // []' .github/ct-install.yaml)
-          CHARTS=$(ct list-changed --config .github/ct-install.yaml)
-          CHARTS_JSON=$(echo "${CHARTS}" | jq -R -s -c 'split("\n")[:-1]')
-          OUTPUT_JSON=$(echo "{\"excluded\": ${EXCLUDED}, \"all\": ${CHARTS_JSON}}" | jq -c '.all-.excluded')
+          CHARTS="${{ inputs.modifiedCharts }}"
+          echo "Modified Charts: ${CHARTS}"
+          EXCLUDED_JSON=$(go-yq eval -o=json '.excluded-charts // []' .github/ct-install.yaml)
+          CHARTS_JSON=$(echo ${CHARTS} | jq --raw-input '.' | jq --compact-output --slurp '.' | jq 'map(. |= split(" "))[]' )
+          OUTPUT_JSON=$(echo "{\"excluded\": ${EXCLUDED_JSON}, \"all\": ${CHARTS_JSON}}" | jq --compact-output '.all-.excluded')
           OUTPUT_JSON1=$((echo $OUTPUT_JSON | jq -r -c '.[:50]'; echo $OUTPUT_JSON | jq -r -c '.[301:350]'; echo $OUTPUT_JSON | jq -r -c '.[601:650]'; echo $OUTPUT_JSON | jq -r -c '.[901:950]'; echo $OUTPUT_JSON | jq -r -c '.[1201:1250]') | jq -s add)
           OUTPUT_JSON2=$((echo $OUTPUT_JSON | jq -r -c '.[51:100]'; echo $OUTPUT_JSON | jq -r -c '.[351:400]'; echo $OUTPUT_JSON | jq -r -c '.[651:700]'; echo $OUTPUT_JSON | jq -r -c '.[951:1000]'; echo $OUTPUT_JSON | jq -r -c '.[1251:1300]') | jq -s add)
           OUTPUT_JSON3=$((echo $OUTPUT_JSON | jq -r -c '.[101:150]'; echo $OUTPUT_JSON | jq -r -c '.[401:450]'; echo $OUTPUT_JSON | jq -r -c '.[701:750]'; echo $OUTPUT_JSON | jq -r -c '.[1001:1050]'; echo $OUTPUT_JSON | jq -r -c '.[1301:1350]') | jq -s add)
@@ -142,7 +118,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Kubernetes tools
@@ -152,7 +128,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@57ded4d7d5e986d7296eab16560982c6dd7c923b # v4
+      - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
         with:
           python-version: "3.10"
 
@@ -187,7 +163,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Kubernetes tools
@@ -197,7 +173,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@57ded4d7d5e986d7296eab16560982c6dd7c923b # v4
+      - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
         with:
           python-version: "3.10"
 
@@ -233,7 +209,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Kubernetes tools
@@ -243,7 +219,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@57ded4d7d5e986d7296eab16560982c6dd7c923b # v4
+      - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
         with:
           python-version: "3.10"
 
@@ -278,7 +254,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Kubernetes tools
@@ -288,7 +264,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@57ded4d7d5e986d7296eab16560982c6dd7c923b # v4
+      - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
         with:
           python-version: "3.10"
 
@@ -323,7 +299,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Kubernetes tools
@@ -333,7 +309,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@57ded4d7d5e986d7296eab16560982c6dd7c923b # v4
+      - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
         with:
           python-version: "3.10"
 
@@ -368,7 +344,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Kubernetes tools
@@ -378,7 +354,7 @@ jobs:
             helmv3
           helm: "3.8.0"
 
-      - uses: actions/setup-python@57ded4d7d5e986d7296eab16560982c6dd7c923b # v4
+      - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
         with:
           python-version: "3.10"
 

@@ -3,3 +3,11 @@ persistence:
     enabled: false
     type: hostPath
     mountPath: /dev/ttyUSB0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SERIAL_DEVICE: "{{ .Values.persistence.usb.mountPath }}"

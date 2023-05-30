@@ -19,14 +19,15 @@ trains=(
     "stable"
     "incubator"
     "dependency"
+    "operators"
 )
 
 load_gpg_key() {
 echo ""
 echo "⏬ Downloading and Loading TrueCharts pgp Public Key"
 gpg_dir=.cr-gpg
-mkdir "$gpg_dir"
-curl https://keybase.io/truecharts/pgp_keys.asc | gpg --dearmor > $gpg_dir/pubring.gpg || echo "❌ Couldn't load  Public Key."
+mkdir -p "$gpg_dir"
+curl --silent https://keybase.io/truecharts/pgp_keys.asc | gpg --dearmor > $gpg_dir/pubring.gpg || echo "❌ Couldn't load  Public Key."
 echo "✅ Public Key loaded successfully..."
 echo ""
 }
@@ -100,17 +101,34 @@ for idx in $(eval echo "{0..$length}"); do
 
             if [ ! $? ]; then
                 echo "❌ wget encountered an error..."
-                helm dependency build "$charts_path/$train_chart/Chart.yaml" --verify --keyring $gpg_dir/pubring.gpg || helm dependency update "$charts_path/$train_chart/Chart.yaml" --verify --keyring $gpg_dir/pubring.gpg || exit 1
+              if [[ "$train_chart" =~ incubator\/.* ]]; then
+                  helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
+                  helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
+              else
+                  helm dependency build "$charts_path/$train_chart/Chart.yaml" --verify --keyring $gpg_dir/pubring.gpg || \
+                  helm dependency update "$charts_path/$train_chart/Chart.yaml" --verify --keyring $gpg_dir/pubring.gpg || exit 1
+              fi
             fi
 
             if [ -f "$cache_path/$repo_dir/$name-$version.tgz" ]; then
                 echo "✅ Dependency Downloaded!"
-                echo "Validating dependency signature..."
-                helm verify $cache_path/$repo_dir/$name-$version.tgz --keyring $gpg_dir/pubring.gpg || helm verify $cache_path/$repo_dir/$name-$version.tgz --keyring $gpg_dir/pubring.gpg ||  exit 1
+                if [[ ! "$train_chart" =~ incubator\/.* ]]; then
+                  echo "Validating dependency signature..."
+                  helm verify $cache_path/$repo_dir/$name-$version.tgz --keyring $gpg_dir/pubring.gpg || \
+                  helm verify $cache_path/$repo_dir/$name-$version.tgz --keyring $gpg_dir/pubring.gpg || exit 1
+                else
+                  echo "Skipping dependency signature verification for $train_chart..."
+                fi
             else
                 echo "❌ Failed to download dependency"
                 # Try helm dependency build/update or otherwise fail fast if a dep fails to download...
-                helm dependency build "$charts_path/$train_chart/Chart.yaml" --verify --keyring $gpg_dir/pubring.gpg || helm dependency update "$charts_path/$train_chart/Chart.yaml" --verify --keyring $gpg_dir/pubring.gpg || exit 1
+              if [[ "$train_chart" =~ incubator\/.* ]]; then
+                  helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
+                  helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
+              else
+                  helm dependency build "$charts_path/$train_chart/Chart.yaml" --verify --keyring $gpg_dir/pubring.gpg || \
+                  helm dependency update "$charts_path/$train_chart/Chart.yaml" --verify --keyring $gpg_dir/pubring.gpg || exit 1
+              fi
             fi
         fi
         echo ""
@@ -125,12 +143,13 @@ for idx in $(eval echo "{0..$length}"); do
         else
             echo "❌ Failed to copy dependency"
             # Try helm dependency build/update or otherwise fail fast if a dep fails to copy...
-            helm dependency build "$charts_path/$train_chart/Chart.yaml" || helm dependency update "$charts_path/$train_chart/Chart.yaml" || exit 1
+            helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
+            helm dependency update "$charts_path/$train_chart/Chart.yaml" || exit 1
         fi
     fi
 done
 }
-export -f 
+export -f download_deps
 
 load_gpg_key
 

@@ -280,7 +280,6 @@ questions:
                               default: 10204
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
@@ -303,6 +302,7 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
         - variable: dns-https-proxy
           label: "DNS-over-HTTPS Reverse Proxy"
           schema:
@@ -312,6 +312,7 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
 

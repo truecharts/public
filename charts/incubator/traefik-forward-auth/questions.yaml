@@ -337,7 +337,6 @@ questions:
                                     type: int
                                     default: 4181
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{ingressRoot}
@@ -349,6 +348,7 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressExpert}
 # Include{ingressList}
   - variable: advancedSecurity

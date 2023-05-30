@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/minio-console
-  tag: v0.26.4@sha256:cd832d8ff12006b73eb077f33d9f50068ef251800932b67b4b6f0e8b981c3dc6
+  tag: v0.28.0@sha256:bc429772457af819b3fc9d6c8e5f2ccd42b5461ee78f2f2eaaef8ccb80803035
   pullPolicy: IfNotPresent
 service:
   main:
@@ -29,4 +29,5 @@ workload:
             CONSOLE_MINIO_SERVER: ""
             CONSOLE_PBKDF_PASSPHRASE: "changeme"
             CONSOLE_PBKDF_SALT: "changeme"
-          args: ["server"]
+          args:
+            - "server"

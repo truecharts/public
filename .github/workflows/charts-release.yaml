@@ -11,7 +11,6 @@ on:
       - "charts/**"
 
 jobs:
-
   release-helm:
     runs-on: ubuntu-latest
     container:
@@ -73,9 +72,7 @@ jobs:
         run: |
           helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-library https://library-charts.truecharts.org
-          helm repo add bitnami https://charts.bitnami.com/bitnami
-
-          helm repo add prometheus https://prometheus-community.github.io/helm-charts
+          helm repo add truecharts-deps https://deps.truecharts.org
           helm repo update
 
       # Optional step if GPG signing is used
@@ -239,7 +236,6 @@ jobs:
           git add --all
           git commit -sm "Commit released docs for TrueCharts" || exit 0
           git push
-
 
       - name: Checkout Catalog
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3

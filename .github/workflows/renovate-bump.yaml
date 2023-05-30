@@ -117,6 +117,8 @@ jobs:
               train="games"
             elif test -f "./charts/enterprise/${chart}/Chart.yaml"; then
               train="enterprise"
+            elif test -f "./charts/operators/${chart}/Chart.yaml"; then
+              train="operators"
             else
               train="incubator"
             fi

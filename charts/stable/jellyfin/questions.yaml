@@ -29,6 +29,7 @@ questions:
 # Include{containerAdvanced}
 
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
 # Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
@@ -47,7 +48,6 @@ questions:
                               default: 8096
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
@@ -78,6 +78,7 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
 

@@ -1,6 +1,6 @@
 remote: origin
 target-branch: master
-helm-extra-args: --timeout 120s
+helm-extra-args: --timeout 180s
 chart-yaml-schema: .github/chart_schema.yaml
 chart-dirs:
   - charts/incubator
@@ -8,6 +8,7 @@ chart-dirs:
   - charts/dependency
   - charts/dev
   - charts/enterprise
+  - charts/operators
 excluded-charts:
   - charts/dependency/subchart
   - charts/incubator/frigate
@@ -32,6 +33,7 @@ excluded-charts:
   - charts/stable/promcord
   - charts/stable/rdesktop
   - charts/stable/reg
+  - charts/incubator/romm
   - charts/stable/ser2sock
   - charts/stable/storj-node
   - charts/stable/tailscale
@@ -42,6 +44,3 @@ chart-repos:
   - truecharts=https://charts.truecharts.org
   - truecharts-library=https://library-charts.truecharts.org
   - truecharts-deps=https://deps.truecharts.org
-  - bitnami=https://charts.bitnami.com/bitnami
-  - grafana=https://grafana.github.io/helm-charts
-  - prometheus=https://prometheus-community.github.io/helm-charts
