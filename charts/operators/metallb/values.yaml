@@ -51,7 +51,7 @@ workload:
           primary: true
           imageSelector: speakerImage
           args:
-            - --port=7472
+            - --port=7473
             - --log-level=all
           probes:
             liveness:
@@ -74,7 +74,7 @@ workload:
               fieldRef:
                 fieldPath: status.podIP
             METALLB_ML_LABELS: "release={{ $.Release.Name }},component=speaker"
-            METALLB_ML_BIND_PORT: "{{ $.Values.service.memberlist.ports.memberlisttcp }}"
+            METALLB_ML_BIND_PORT: "{{ $.Values.service.memberlist.ports.memberlisttcp.port }}"
             METALLB_ML_SECRET_KEY_PATH: "/etc/ml_secret_key"
             METALLB_NAMESPACE: "{{$.Release.Namespace}}"
           securityContext:
