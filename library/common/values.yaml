@@ -564,6 +564,7 @@ operator:
   # -- Verified wether required operators for this chart are actually installed and registered
   verify:
     enabled: true
+    failOnError: false
     # -- a list of extra operators to check for
     additionalOperators: []
 

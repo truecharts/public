@@ -19,6 +19,9 @@ service:
     ports:
       main:
         enabled: false
+operator:
+  verify:
+    failOnError: true
 
 manifestManager:
   enabled: false
