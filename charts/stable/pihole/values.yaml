@@ -13,6 +13,7 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+    allowPrivilegeEscalation: true
     runAsUser: 0
     runAsGroup: 0
     capabilities:
@@ -21,8 +22,6 @@ securityContext:
         - SETFCAP
         - SETPCAP
         - KILL
-        - SETGID
-        - SETUID 
 
 workload:
   main:
