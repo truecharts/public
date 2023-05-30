@@ -35,14 +35,14 @@ jobs:
 
       - name: Setting repo parent dir as safe safe.directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
-        
+
       - name: Install go-yq
         run: |
           mkdir -p $HOME/.local/bin
           wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O $HOME/.local/bin/go-yq && \
           chmod +x $HOME/.local/bin/go-yq
           echo "$HOME/.local/bin" >> $GITHUB_PATH
-          
+
       - name: Install pre-commit, yamale and yamllint
         run: |
           pip3 install --no-cache-dir pre-commit yamale yamllint
@@ -71,7 +71,7 @@ jobs:
           if [[ $(echo ${OUTPUT_JSON} | jq --compact-output '. | length') -gt 0 ]]; then
             echo "detected=true" >> "$GITHUB_OUTPUT"
           fi
-          
+
       - name: Test and Fix Pre-Commit Issues
         shell: bash
         if: inputs.chartChangesDetected == 'true'
@@ -118,7 +118,10 @@ jobs:
         shell: bash
         run: |
           if [ "${{ steps.lint.outcome }}" != "success" ]; then
-            echo "Linting failed"
+            echo "❌ Linting failed ❌"
+            echo '###############################################################'
+            echo '## 👀 Expand [Run Chart Linting] step to view the results 👀 ##'
+            echo '###############################################################'
             exit 1
           fi
 
