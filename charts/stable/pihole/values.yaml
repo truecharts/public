@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/pihole
   pullPolicy: IfNotPresent
-  tag: 2023.03.1@sha256:e48aa04bcdef84fb42f35fa2aaf54dd3ee868e2b80ab535a0ca59a8c6901453b
+  tag: v2023.05.0@sha256:2a34bfd4117cbef30624fa41dc2cdb87bd053da09dec6b80b2b1e1087e677f64
 
 pihole:
   webPassword: "somepassword"
@@ -13,6 +13,7 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+    allowPrivilegeEscalation: true
     runAsUser: 0
     runAsGroup: 0
     capabilities:

@@ -14,12 +14,9 @@ on:
         type: string
 
 jobs:
-
   generate-install-matrix:
     name: Generate matrix for install
     runs-on: ubuntu-latest
-    container:
-      image: tccr.io/truecharts/devcontainer:v3.1.38@sha256:2fd9355bc6791461430db87a04f5fe7b49c46bc5957bc348f1efbff4c6c7913d
     outputs:
       matrix1: |
         {
@@ -58,6 +55,13 @@ jobs:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
+      - name: Install go-yq
+        run: |
+          mkdir -p $HOME/.local/bin
+          wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O $HOME/.local/bin/go-yq && \
+          chmod +x $HOME/.local/bin/go-yq
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
       - name: Run chart-testing (list-changed)
         id: list-changed
         if: inputs.chartChangesDetected == 'true'
@@ -66,7 +70,7 @@ jobs:
           CHARTS="${{ inputs.modifiedCharts }}"
           echo "Modified Charts: ${CHARTS}"
           EXCLUDED_JSON=$(go-yq eval -o=json '.excluded-charts // []' .github/ct-install.yaml)
-          CHARTS_JSON=$(echo "${CHARTS}" | jq --raw-input '.' | jq --compact-output --slurp '.')
+          CHARTS_JSON=$(echo ${CHARTS} | jq --raw-input '.' | jq --compact-output --slurp '.' | jq 'map(. |= split(" "))[]' )
           OUTPUT_JSON=$(echo "{\"excluded\": ${EXCLUDED_JSON}, \"all\": ${CHARTS_JSON}}" | jq --compact-output '.all-.excluded')
           OUTPUT_JSON1=$((echo $OUTPUT_JSON | jq -r -c '.[:50]'; echo $OUTPUT_JSON | jq -r -c '.[301:350]'; echo $OUTPUT_JSON | jq -r -c '.[601:650]'; echo $OUTPUT_JSON | jq -r -c '.[901:950]'; echo $OUTPUT_JSON | jq -r -c '.[1201:1250]') | jq -s add)
           OUTPUT_JSON2=$((echo $OUTPUT_JSON | jq -r -c '.[51:100]'; echo $OUTPUT_JSON | jq -r -c '.[351:400]'; echo $OUTPUT_JSON | jq -r -c '.[651:700]'; echo $OUTPUT_JSON | jq -r -c '.[951:1000]'; echo $OUTPUT_JSON | jq -r -c '.[1251:1300]') | jq -s add)
@@ -74,29 +78,29 @@ jobs:
           OUTPUT_JSON4=$((echo $OUTPUT_JSON | jq -r -c '.[151:200]'; echo $OUTPUT_JSON | jq -r -c '.[451:500]'; echo $OUTPUT_JSON | jq -r -c '.[751:800]'; echo $OUTPUT_JSON | jq -r -c '.[1051:1100]'; echo $OUTPUT_JSON | jq -r -c '.[1351:1400]') | jq -s add)
           OUTPUT_JSON5=$((echo $OUTPUT_JSON | jq -r -c '.[201:250]'; echo $OUTPUT_JSON | jq -r -c '.[501:550]'; echo $OUTPUT_JSON | jq -r -c '.[801:850]'; echo $OUTPUT_JSON | jq -r -c '.[1101:1150]'; echo $OUTPUT_JSON | jq -r -c '.[1401:1450]') | jq -s add)
           OUTPUT_JSON6=$((echo $OUTPUT_JSON | jq -r -c '.[251:300]'; echo $OUTPUT_JSON | jq -r -c '.[551:600]'; echo $OUTPUT_JSON | jq -r -c '.[851:900]'; echo $OUTPUT_JSON | jq -r -c '.[1151:1200]'; echo $OUTPUT_JSON | jq -r -c '.[1451:1500]') | jq -s add)
-          echo ::set-output name=charts1::${OUTPUT_JSON1}
-          echo ::set-output name=charts2::${OUTPUT_JSON2}
-          echo ::set-output name=charts3::${OUTPUT_JSON3}
-          echo ::set-output name=charts4::${OUTPUT_JSON4}
-          echo ::set-output name=charts5::${OUTPUT_JSON5}
-          echo ::set-output name=charts6::${OUTPUT_JSON6}
+          echo charts1=${OUTPUT_JSON1} >> $GITHUB_OUTPUT
+          echo charts2=${OUTPUT_JSON2} >> $GITHUB_OUTPUT
+          echo charts3=${OUTPUT_JSON3} >> $GITHUB_OUTPUT
+          echo charts4=${OUTPUT_JSON4} >> $GITHUB_OUTPUT
+          echo charts5=${OUTPUT_JSON5} >> $GITHUB_OUTPUT
+          echo charts6=${OUTPUT_JSON6} >> $GITHUB_OUTPUT
           if [[ $(echo ${OUTPUT_JSON1} | jq -c '. | length') -gt 0 ]]; then
-            echo "::set-output name=detected1::true"
+            echo "detected1=true" >> $GITHUB_OUTPUT
           fi
           if [[ $(echo ${OUTPUT_JSON2} | jq -c '. | length') -gt 0 ]]; then
-            echo "::set-output name=detected2::true"
+            echo "detected2=true" >> $GITHUB_OUTPUT
           fi
           if [[ $(echo ${OUTPUT_JSON3} | jq -c '. | length') -gt 0 ]]; then
-            echo "::set-output name=detected3::true"
+            echo "detected3=true" >> $GITHUB_OUTPUT
           fi
           if [[ $(echo ${OUTPUT_JSON4} | jq -c '. | length') -gt 0 ]]; then
-            echo "::set-output name=detected4::true"
+            echo "detected4=true" >> $GITHUB_OUTPUT
           fi
           if [[ $(echo ${OUTPUT_JSON5} | jq -c '. | length') -gt 0 ]]; then
-            echo "::set-output name=detected5::true"
+            echo "detected5=true" >> $GITHUB_OUTPUT
           fi
           if [[ $(echo ${OUTPUT_JSON6} | jq -c '. | length') -gt 0 ]]; then
-            echo "::set-output name=detected6::true"
+            echo "detected6=true" >> $GITHUB_OUTPUT
           fi
 
   install-charts1:
@@ -121,11 +125,11 @@ jobs:
         with:
           setup-tools: |
             helmv3
-          helm: "3.8.0"
+          helm: "3.9.4"
 
       - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
         with:
-          python-version: "3.10"
+          python-version: "3.11"
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
@@ -166,11 +170,11 @@ jobs:
         with:
           setup-tools: |
             helmv3
-          helm: "3.8.0"
+          helm: "3.9.4"
 
       - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
         with:
-          python-version: "3.10"
+          python-version: "3.11"
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
@@ -212,11 +216,11 @@ jobs:
         with:
           setup-tools: |
             helmv3
-          helm: "3.8.0"
+          helm: "3.9.4"
 
       - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
         with:
-          python-version: "3.10"
+          python-version: "3.11"
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
@@ -257,11 +261,11 @@ jobs:
         with:
           setup-tools: |
             helmv3
-          helm: "3.8.0"
+          helm: "3.9.4"
 
       - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
         with:
-          python-version: "3.10"
+          python-version: "3.11"
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
@@ -302,11 +306,11 @@ jobs:
         with:
           setup-tools: |
             helmv3
-          helm: "3.8.0"
+          helm: "3.9.4"
 
       - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
         with:
-          python-version: "3.10"
+          python-version: "3.11"
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
@@ -347,11 +351,11 @@ jobs:
         with:
           setup-tools: |
             helmv3
-          helm: "3.8.0"
+          helm: "3.9.4"
 
       - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
         with:
-          python-version: "3.10"
+          python-version: "3.11"
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
@@ -394,43 +398,43 @@ jobs:
           res6="${{needs.install-charts6.result}}"
 
           if [[ $res1 == "success" || $res1 == "skipped" ]]; then
-            echo "install tests 1 successfull..."
+            echo "Install test suite [1] was successful..."
           else
-            echo "install tests 1 error, stopping due to failure..."
+            echo "Install test suite [1] failed, stopping..."
             exit 1
           fi
 
           if [[ $res2 == "success" || $res2 == "skipped" ]]; then
-            echo "install tests 2 successfull..."
+            echo "Install test suite [2] was successful..."
           else
-            echo "install tests 2 error, stopping due to failure..."
+            echo "Install test suite [2] failed, stopping..."
             exit 1
           fi
 
           if [[ $res3 == "success" || $res3 == "skipped" ]]; then
-            echo "install tests 3 successfull..."
+            echo "Install test suite [3] was successful..."
           else
-            echo "install tests 3 error, stopping due to failure..."
+            echo "Install test suite [3] failed, stopping..."
             exit 1
           fi
 
           if [[ $res4 == "success" || $res4 == "skipped" ]]; then
-            echo "install tests 4 successfull..."
+            echo "Install test suite [4] was successful..."
           else
-            echo "install tests 4 error, stopping due to failure..."
+            echo "Install test suite [4] failed, stopping..."
             exit 1
           fi
 
           if [[ $res5 == "success" || $res5 == "skipped" ]]; then
-            echo "install tests 5 successfull..."
+            echo "Install test suite [5] was successful..."
           else
-            echo "install tests 5 error, stopping due to failure..."
+            echo "Install test suite [5] failed, stopping..."
             exit 1
           fi
 
           if [[ $res6 == "success" || $res6 == "skipped" ]]; then
-            echo "install tests 6 successfull..."
+            echo "Install test suite [6] was successful..."
           else
-            echo "install tests 6 error, stopping due to failure..."
+            echo "Install test suite [6] failed, stopping..."
             exit 1
           fi

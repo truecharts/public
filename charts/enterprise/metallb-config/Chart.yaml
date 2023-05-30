@@ -2,8 +2,8 @@ apiVersion: v2
 appVersion: "latest"
 deprecated: false
 description: A network load-balancer implementation for Kubernetes using standard routing protocols
-home: https://truecharts.org/charts/enterprise/metallb
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/metallb.png
+home: https://truecharts.org/charts/enterprise/metallb-config
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/metallb-config.png
 keywords:
   - metallb
   - loadbalancer
@@ -18,11 +18,11 @@ maintainers:
     url: https://truecharts.org
 name: metallb-config
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/enterprise/metallb
+  - https://github.com/truecharts/charts/tree/master/charts/enterprise/metallb-config
   - https://github.com/metallb/metallb
   - https://metallb.universe.tf
 type: application
-version: 1.0.0
+version: 1.0.1
 annotations:
   truecharts.org/catagories: |
     - core

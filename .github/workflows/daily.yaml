@@ -203,7 +203,7 @@ jobs:
               sync_tag "charts/${train}/${chart}" "${chart}" "${train}"
             done
           done
-          
+
       - name: Fix Fixable Pre-Commit issues
         shell: bash
         if: inputs.chartChangesDetected == 'true'
