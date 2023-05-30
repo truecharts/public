@@ -159,11 +159,6 @@ metadata:
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "labels" $labels) | trim) }}
     {{- . | nindent 4 }}
   {{- end }}
-{{- $secretObj := (lookup "v1" "Secret" .Release.Namespace "webhook-server-cert") }}
-{{- if $secretObj }}
-{{- $secretData := (get $secretObj "data") | default dict }}
-data: {{ $secretData }}
-{{- end }}
 ---
 apiVersion: v1
 kind: Secret
@@ -173,9 +168,4 @@ metadata:
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "labels" $labels) | trim) }}
     {{- . | nindent 4 }}
   {{- end }}
-{{- $secretObj2 := (lookup "v1" "Secret" .Release.Namespace "memberlist") }}
-{{- if $secretObj2 }}
-{{- $secretData2 := (get $secretObj "data") | default dict }}
-data: {{ $secretData2 }}
-{{- end }}
 {{- end -}}
