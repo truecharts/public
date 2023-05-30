@@ -159,13 +159,4 @@ metadata:
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "labels" $labels) | trim) }}
     {{- . | nindent 4 }}
   {{- end }}
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: memberlist
-  labels:
-  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "labels" $labels) | trim) }}
-    {{- . | nindent 4 }}
-  {{- end }}
 {{- end -}}
