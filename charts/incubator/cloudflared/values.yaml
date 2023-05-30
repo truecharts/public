@@ -32,6 +32,13 @@ workload:
           env:
             token: ""
 
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
 portal:
   open:
     enabled: false
