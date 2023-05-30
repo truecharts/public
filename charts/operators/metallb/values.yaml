@@ -45,6 +45,7 @@ workload:
       labels:
         app.kubernetes.io/component: controller
       shareProcessNamespace: true
+      hostNetwork: true
       containers:
         speaker:
           enabled: true
