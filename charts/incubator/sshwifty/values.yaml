@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/sshwifty
   pullPolicy: IfNotPresent
-  tag: latest@sha256:3f4f3c44825a1bf3b1320194077b9e1fda44b5ad30f9070c4db2a638512bbf10
+  tag: vlatest@sha256:6e3b1db5e973f4177039fcca867f4a799ad71a691a9912a1110c1ded7165266e
 
 securityContext:
   container:
@@ -42,7 +42,8 @@ workload:
             # SSHWIFTY_TLSCERTIFICATEFILE: ""
             # SSHWIFTY_TLSCERTIFICATEKEYFILE: ""
             # SSHWIFTY_PRESETS: [] json obj array https://github.com/nirui/sshwifty#configuration-file | preset section.
-            SSHWIFTY_ONLYALLOWPRESETREMOTES: false
+            # Can not set this variable, only functional via config file.
+            # SSHWIFTY_ONLYALLOWPRESETREMOTES:
 
 service:
   main:
