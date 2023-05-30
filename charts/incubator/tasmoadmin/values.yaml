@@ -3,7 +3,6 @@ image:
   repository: tccr.io/truecharts/tasmoadmin
   tag: 2.4.2@sha256:5144a471e58004c129a0d800977e1e31ba4b46c52e37b9258591086161d2d96f
 
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -11,9 +10,14 @@ securityContext:
     runAsUser: 0
     runAsGroup: 0
 
-env:
-  TASMO_DATADIR: /data/
-  TASMO_DEBUG: 1
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            TASMO_DATADIR: /data/
+            TASMO_DEBUG: 1
 
 service:
   main:
