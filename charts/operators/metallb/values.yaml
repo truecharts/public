@@ -79,6 +79,7 @@ workload:
             METALLB_ML_SECRET_KEY_PATH: "/etc/ml_secret_key"
             METALLB_NAMESPACE: "{{$.Release.Namespace}}"
           securityContext:
+            runAsUser: 0
             capabilities:
               add:
                 - NET_RAW
