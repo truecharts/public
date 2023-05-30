@@ -21,6 +21,8 @@ securityContext:
         - SETFCAP
         - SETPCAP
         - KILL
+        - SETGID
+        - SETUID 
 
 workload:
   main:
