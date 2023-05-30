@@ -10,10 +10,10 @@ speakerImage:
 workload:
   main:
     labels:
-      component: controller
+      app.kubernetes.io/component: controller
     podSpec:
       labels:
-        component: controller
+        app.kubernetes.io/component: controller
       containers:
         main:
           args:
@@ -40,10 +40,10 @@ workload:
     enabled: true
     type: DaemonSet
     labels:
-      component: speaker
+      app.kubernetes.io/component: controller
     podSpec:
       labels:
-        component: speaker
+        app.kubernetes.io/component: controller
       shareProcessNamespace: true
       containers:
         speaker:
@@ -73,7 +73,7 @@ workload:
             METALLB_ML_BIND_ADDR:
               fieldRef:
                 fieldPath: status.podIP
-            METALLB_ML_LABELS: "release={{ $.Release.Name }},component=speaker"
+            METALLB_ML_LABELS: "release={{ $.Release.Name }},app.kubernetes.io/component=speaker"
             METALLB_ML_BIND_PORT: "{{ $.Values.service.memberlist.ports.memberlisttcp.port }}"
             METALLB_ML_SECRET_KEY_PATH: "/etc/ml_secret_key"
             METALLB_NAMESPACE: "{{$.Release.Namespace}}"
