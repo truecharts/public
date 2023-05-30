@@ -21,13 +21,13 @@ jobs:
     name: Lint Charts and Verify Dependencies
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout [master]
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
           fetch-depth: 1
           ref: master
 
-      - name: Checkout
+      - name: Checkout [commit]
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
           fetch-depth: 1
@@ -74,6 +74,7 @@ jobs:
 
       - name: Test and Fix Pre-Commit Issues
         shell: bash
+        # TODO: Only run pre-commit on changed files
         if: inputs.chartChangesDetected == 'true'
         run: |
           echo "Running pre-commit test-and-cleanup..."
