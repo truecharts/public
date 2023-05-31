@@ -16,6 +16,7 @@
   {{- $rootCtx := .rootCtx -}}
   {{- $opName := .opName -}}
   {{- $opExists := false -}}
+  {{- $operatorData := dict -}}
 
   {{/* Go over all configmaps */}}
   {{- range $index, $cm := (lookup "v1" "ConfigMap" "" "").items -}}
@@ -31,12 +32,16 @@
         {{- end -}}
         {{/* Mark operator as found*/}}
         {{- $opExists = true -}}
-        {{- $operatorData := dict "name" $name "namespace" $cm.metadata.namespace "version" $version -}}
-        {{- $_ := set $.Values.operator $opName $operatorData -}}
+        {{- $operatorData = dict "name" $name "namespace" $cm.metadata.namespace "version" $version -}}
+        
       {{- end -}}
     {{- end -}}
   {{- end -}}
-
-  {{/* Return the status stringified */}}
-  {{- $opExists | toString -}}
+  
+  {{/* Return the data stringified */}}
+  {{- if $opExists -}}
+  {{- $operatorData | toJson }}
+  {{- else -}}
+""
+  {{- end -}}
 {{- end -}}
