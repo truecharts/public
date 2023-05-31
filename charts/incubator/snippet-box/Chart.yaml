@@ -1,16 +1,11 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Productivity
-    - Tools-Utilities
 apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.10.4
 deprecated: false
-description: Snippet Box is a simple self-hosted app for organizing your code snippets. It allows you to easily create, edit, browse and manage your snippets in various languages.
+description: Snippet Box is a simple self-hosted app for organizing your code snippets.
 home: https://truecharts.org/charts/incubator/snippet-box
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/snippet-box.png
 keywords:
@@ -27,4 +22,9 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/snippet-box
   - https://github.com/pawelmalak/snippet-box
 type: application
-version: 2.0.9
+version: 3.0.0
+annotations:
+  truecharts.org/catagories: |
+    - Productivity
+    - Tools-Utilities
+  truecharts.org/SCALE-support: "true"
