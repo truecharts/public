@@ -6,7 +6,7 @@ The main service runs a Interactive Swagger API documentation is available at <h
 
 ## Models
 
-the **ASR Model** has the following values:
+The **ASR Model** has the following values:
 
 | Model   | Required VRAM | Relative speed |
 |---------|--------------|----------------|
