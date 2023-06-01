@@ -11,8 +11,6 @@ podSpec:
       enabled: true
       primary: true
       imageSelector: webImage
-      command: /bin/sh
-      args: ./entrypoint.sh
       envFrom:
         - configMapRef:
             name: common-config

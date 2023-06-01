@@ -16,25 +16,34 @@ questions:
 
 # Include{containerConfig}
 # Include{podOptions}
-  - variable: ingressClass
-    label: "ingressClass"
-    group: "App Configuration"
+  - variable: expertIngressClass
+    label: Expert Mode
+    group: App Configuration
+    description: |
+      Expert Mode contains settings like: </br>
+      - IngressClass </br>
     schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: enabled
-          label: "Enable"
-          description: "When enabled, ingressClass will match the entered name of this app"
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: ingressClass
+          label: "ingressClass"
           schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable"
+                description: "When enabled, ingressClass will match the entered name of this app"
+                schema:
+                  type: boolean
+                  default: false
               - variable: isDefaultClass
                 label: "isDefaultClass"
                 schema:
                   type: boolean
+                  show_if: [["enabled", "=", true]]
                   default: false
   - variable: logs
     label: "Logs"
@@ -365,9 +374,9 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
-
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"

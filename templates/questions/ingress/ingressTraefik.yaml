@@ -1,15 +1,3 @@
-                    - variable: entrypoint
-                      label: (Advanced) Traefik Entrypoint
-                      description: Entrypoint used by Traefik when using Traefik as Ingress Provider
-                      schema:
-                        type: string
-                        default: websecure
-                        required: true
-                    - variable: ingressClassName
-                      label: (Advanced/Optional) IngressClass Name
-                      schema:
-                        type: string
-                        default: ""
                     - variable: middlewares
                       label: Traefik Middlewares
                       description: Add previously created Traefik Middlewares to this Ingress

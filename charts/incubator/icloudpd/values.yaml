@@ -99,7 +99,7 @@ env:
   photo_album: "{{ .Values.icloudpd.photo_album }}"
   convert_heic_to_jpeg: '{{ ternary "True" "False" .Values.icloudpd.convert_heic_to_jpeg }}'
   jpeg_quality: "{{ .Values.icloudpd.jpeg_quality }}"
-  icloud_china: '{{ ternary "True" "False" .Values.icloudpd.icloud_china }}'
+  icloud_china: '{{ ternary "True" "" .Values.icloudpd.icloud_china }}'
   command_line_options: "{{ .Values.icloudpd.command_line_options }}"
   notification_title: "{{ .Values.icloudpd.notification_title }}"
   notification_type: "{{ .Values.icloudpd.notification_type }}"

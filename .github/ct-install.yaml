@@ -8,6 +8,7 @@ chart-dirs:
   - charts/dependency
   - charts/dev
   - charts/enterprise
+  - charts/operators
 excluded-charts:
   - charts/dependency/subchart
   - charts/incubator/frigate
@@ -32,7 +33,7 @@ excluded-charts:
   - charts/stable/promcord
   - charts/stable/rdesktop
   - charts/stable/reg
-  - charts/incubator/romm
+  - charts/stable/romm
   - charts/stable/ser2sock
   - charts/stable/storj-node
   - charts/stable/tailscale

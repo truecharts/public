@@ -2,8 +2,7 @@
 enabled: true
 primary: true
 imageSelector: image
-command: /bin/sh
-args: ./start-server.sh
+args: start-server.sh
 envFrom:
   - configMapRef:
       name: server-config
