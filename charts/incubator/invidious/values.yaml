@@ -31,6 +31,7 @@ workload:
                 name: cnpg-main-urls
                 key: std
             POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            # PG* variables are for the psql client
             PGPORT: "5432"
             PGPASSWORD:
               secretKeyRef:
