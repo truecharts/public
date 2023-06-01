@@ -20,43 +20,43 @@ service:
 workload:
   main:
     podSpec:
+      initContainers:
+        dbseed:
+          type: install
+          enabled: true
+          imageSelector: image
+          env:
+            POSTGRES_DB:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: std
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            PGPORT: "5432"
+            PGPASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+          command: ["sh", "-c"]
+          args:
+            - |
+              echo "Starting DB Seed..."
+              mkdir -p invidious && cd invidious
+  
+              echo "Fetching seed files..."
+              git init && \
+              git remote add invidious https://github.com/iv-org/invidious.git && \
+              git fetch invidious && \
+              # Fetch config and docker dirs
+              git checkout invidious/master -- docker config
+  
+              # Move config into docker dir
+              echo "Preparing directory structure..."
+              mv -fv config docker
+  
+              echo "Performing the seed..."
+              cd docker
+              ./init-invidious-db.sh
       containers:
-        initContainers:
-          dbseed:
-            type: install
-            enabled: true
-            imageSelector: image
-            env:
-              POSTGRES_DB:
-                secretKeyRef:
-                  name: cnpg-main-urls
-                  key: std
-              POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
-              PGPORT: "5432"
-              PGPASSWORD:
-                secretKeyRef:
-                  name: cnpg-main-user
-                  key: password
-            command: ["sh", "-c"]
-            args:
-              - |
-                echo "Starting DB Seed..."
-                mkdir -p invidious && cd invidious
-
-                echo "Fetching seed files..."
-                git init && \
-                git remote add invidious https://github.com/iv-org/invidious.git && \
-                git fetch invidious && \
-                # Fetch config and docker dirs
-                git checkout invidious/master -- docker config
-
-                # Move config into docker dir
-                echo "Preparing directory structure..."
-                mv -fv config docker
-
-                echo "Performing the seed..."
-                cd docker
-                ./init-invidious-db.sh
         main:
           probes:
             liveness:
