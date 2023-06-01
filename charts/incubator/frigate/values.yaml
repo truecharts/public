@@ -452,7 +452,7 @@ persistence:
     enabled: true
     mountPath: /config
     type: configmap
-    objectName: '{{ template "tc.v1.common.lib.chart.names.fullname" . }}-frigate-config'
+    objectName: frigate-config
     items:
       - key: config.yml
         path: config.yml
