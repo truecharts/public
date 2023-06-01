@@ -15,7 +15,7 @@ function check_version() {
     if [[ -n "$new" ]]; then
         echo -e "\t🔙 Old Chart Version: $old"
         echo -e "\t🆕 New Chart Version: $new"
-        
+
         if [[ $(echo "$new\n$old" | sort -V -r | head -n1) != "$old" ]]; then
             echo -e "\t✅ Chart version: Bumped"
         else
@@ -142,6 +142,33 @@ exit_code=0
 
 result_file=${result_file:?"No result file provided"}
 
+rm -f "$status_file"
+rm -f "$status_file"
+
+command -v yamale >/dev/null 2>&1 || {
+    printf >&2 "%s\n" "yamale (https://github.com/23andMe/Yamale#pip) is not installed. Aborting."
+    printf >&2 "%s\n" "Install it with 'pip install yamale'"
+    exit 1
+}
+
+command -v yamllint >/dev/null 2>&1 || {
+    printf >&2 "%s\n" "yamllint (https://yamllint.readthedocs.io/en/stable/quickstart.html#installing-yamllint) is not installed. Aborting."
+    printf >&2 "%s\n" "Install it with 'pip install yamllint'"
+    exit 1
+}
+
+command -v helm >/dev/null 2>&1 || {
+    printf >&2 "%s\n" "helm (https://helm.sh/docs/intro/install) is not installed. Aborting."
+    printf >&2 "%s\n" "Install it with 'curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash'"
+    exit 1
+}
+
+command -v parallel >/dev/null 2>&1 || {
+    printf >&2 "%s\n" "parallel (https://www.gnu.org/software/parallel) is not installed. Aborting."
+    printf >&2 "%s\n" "Install it with 'sudo apt install parallel'"
+    exit 1
+}
+
 changed=$(echo $charts | jq --raw-output '.[]')
 
 echo "📂 Charts to lint:"
@@ -177,6 +204,8 @@ echo '' | tee -a "$result_file"
 
 if [ $exit_code -ne 0 ]; then
     echo "❌ Linting: **Failed** - Took $diff_time seconds" | tee -a "$result_file"
+    echo "🖱️ Open [Lint Charts and Verify Dependencies] job" | tee -a "$result_file"
+    echo "👀 Expand [Run Chart Linting] step to view the results" | tee -a "$result_file"
 else
     echo "✅ Linting: **Passed** - Took $diff_time seconds" | tee -a "$result_file"
 fi
