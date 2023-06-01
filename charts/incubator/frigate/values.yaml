@@ -2,6 +2,13 @@ image:
   repository: tccr.io/truecharts/frigate
   pullPolicy: IfNotPresent
   tag: 0.11.1@sha256:8dd7273eebf396563d7bbc14778fd3d58c624e5063ffcf74b5b0afe63e7cdd7f
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0  
 # -- The "render_config" key is only used internally to "render" or not the configuration
 # - Some parts of the config bellow are slightly modified so they can be added on SCALE UI. Mainly lists.
 # - Do not blindly copy paste configuration from upstream. As this won't work on all cases
@@ -452,9 +459,3 @@ persistence:
 portal:
   open:
     enabled: true
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsUser: 0
-    runAsGroup: 0
