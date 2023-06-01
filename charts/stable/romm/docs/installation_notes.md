@@ -1,11 +1,13 @@
 # Installation Notes
 
 Set Client Id and Client Secret with the API key from [IGDB](https://api-docs.igdb.com/#about)
-SteamGridDB API Key is still WIP and doesnt need to be set.
+SteamGridDB API Key is WIP and can be optionally set.
 
 This app has two folder structures found [here](https://github.com/zurdi15/romm/blob/master/README.md#-folder-structure).
 
 Structure 1 (high priority) - roms folder at root of library folder:
+
+Just set the library PVC to hostpath or nfs mount.
 
 ```txt
 library/
