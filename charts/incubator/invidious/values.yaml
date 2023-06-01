@@ -24,7 +24,7 @@ workload:
         dbseed:
           type: install
           enabled: true
-          imageSelector: image
+          imageSelector: postgresClientImage
           env:
             POSTGRES_DB:
               secretKeyRef:
