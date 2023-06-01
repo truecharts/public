@@ -61,10 +61,10 @@ persistence:
     enabled: true
     mountPath: "/mosquitto/configinc"
   mosquitto-config:
-    enabled: "true"
+    enabled: true
     mountPath: "/mosquitto/config/mosquitto.conf"
     subPath: "mosquitto.conf"
-    type: "configmap"
+    type: configmap
     volumeSpec:
       configMap:
         name: '{{ template "tc.v1.common.lib.chart.names.fullname" . }}-config'
