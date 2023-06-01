@@ -16,11 +16,11 @@ the **ASR Model** has the following values:
 | medium  | ~5 GB        | ~2x            |
 | large   | ~10 GB       | ~1x            |
 
-default is **Base**.
+Default is **Base**.
 
 ## Engines
 
-the **ASR Engine** is default to **Faster Whisper**, explained [here](https://github.com/guillaumekln/faster-whisper#faster-whisper-transcription-with-ctranslate2).
+The **ASR Engine** is default to **Faster Whisper**, explained [here](https://github.com/guillaumekln/faster-whisper#faster-whisper-transcription-with-ctranslate2).
 
 A list of Engines available.
 
@@ -29,7 +29,7 @@ A list of Engines available.
 | Faster Whisper     |
 | OpenAI Whisper     |
 
-## cache
+## Cache
 
 > The ASR model is downloaded each time you start the container, using the large model this can take some time. If you want to decrease the time it takes to start your container by skipping the download, you can store the cache directory (/root/.cache/whisper) to an persistent storage. Next time you start your container the ASR Model will be taken from the cache instead of being downloaded again.
 Important this will prevent you from receiving any updates to the models.
