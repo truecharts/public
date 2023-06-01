@@ -29,7 +29,7 @@ service:
         
 operator:
   verify:
-    enabled: false
+    enabled: true
     additionalOperators: ["metallb"]
 
 portal:
