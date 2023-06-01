@@ -4,7 +4,7 @@
 {{/* Render configmap for frigate */}}
 {{- $config := include "frigate.configmap" . | fromYaml -}}
 {{- if $config -}}
-{{- $_ := set .Values.configmap "frigate-config" $config -}}
+  {{- $_ := set .Values.configmap "frigate-config" $config -}}
 {{- end -}}
 
 {{/* Render the templates */}}
