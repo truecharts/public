@@ -37,6 +37,7 @@ frigate:
     #   device: usb
     #   # -- This value is only used for CPU types
     #   num_threads: 3
+
   model:
     # -- Enable it to add the configuration in the config file
     render_config: false
@@ -54,6 +55,7 @@ frigate:
     #   name: vehicle
     # - model: 3
     #   name: vehicle
+
   logger:
     # -- Enable it to add the configuration in the config file
     render_config: false
@@ -63,6 +65,7 @@ frigate:
     logs: []
     # - component: frigate.event
     #   verbosity: debug
+
   birdseye:
     # -- Enable it to add the configuration in the config file
     render_config: false
@@ -167,6 +170,7 @@ frigate:
     #   # -- Optional: Mask to prevent this object type from being detected in certain areas
     #   # - Checks based on the bottom center of the bounding box of the object
     #   mask: 0,0,1000,0,1000,200,0,200
+
   motion:
     # -- Enable it to add the configuration in the config file
     render_config: false
