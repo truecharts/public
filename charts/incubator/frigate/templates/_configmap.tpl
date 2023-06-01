@@ -1,16 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "frigate.configmap" -}}
-
-{{- $configName := printf "%s-frigate-config" (include "tc.common.names.fullname" .) }}
-
----
-
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $configName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+enabled: true
 data:
   config.yml: |
     database:
