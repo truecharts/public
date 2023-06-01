@@ -80,6 +80,7 @@ frigate:
     # - motion - cameras are included if motion was detected in the last 30 seconds
     # - continuous - all cameras are included always
     mode: ""
+
   ffmpeg:
     # -- Enable it to add the configuration in the config file
     render_config: true
@@ -98,6 +99,7 @@ frigate:
       record: ""
       # -- Optional: output args for rtmp streams
       rtmp: ""
+
   detect:
     # -- Enable it to add the configuration in the config file
     render_config: false
@@ -135,6 +137,7 @@ frigate:
       #   objects:
       #     - object: person
       #       frames: 1000
+
   objects:
     # -- Enable it to add the configuration in the config file
     render_config: false
@@ -201,6 +204,7 @@ frigate:
     improve_contrast: false
     # -- Optional: Delay when updating camera motion through MQTT from ON -> OFF
     mqtt_off_delay: null
+
   record:
     # -- Enable it to add the configuration in the config file
     render_config: false
@@ -257,6 +261,7 @@ frigate:
         objects: []
         # - object: person
         #   days: 15
+
   snapshots:
     # -- Enable it to add the configuration in the config file
     render_config: false
@@ -285,11 +290,13 @@ frigate:
       objects: []
       # - object: person
       #   days: 15
+
   rtmp:
     # -- Enable it to add the configuration in the config file
     render_config: false
     # - Optional: Enable the RTMP stream
     enabled: true
+
   live:
     # -- Enable it to add the configuration in the config file
     render_config: false
@@ -300,6 +307,7 @@ frigate:
     # -- Optional: Set the encode quality of the live stream (default: shown below)
     # - 1 is the highest quality, and 31 is the lowest. Lower quality feeds utilize less CPU resources.
     quality: null
+
   timestamp_style:
     # -- Enable it to add the configuration in the config file
     render_config: false
@@ -325,6 +333,7 @@ frigate:
     # - "solid" (solid background in inverse color of font)
     # - "shadow" (shadow for font)
     effect: ""
+
   cameras:
     # -- Required: name of the camera
     - camera_name: back
@@ -412,9 +421,11 @@ frigate:
         order: null
         # -- Optional: Whether or not to show the camera in the Frigate UI
         dashboard: true
+
 ingress:
   rtmp:
     autoLink: true
+
 service:
   main:
     ports:
@@ -429,6 +440,7 @@ service:
         enabled: true
         port: 1935
         targetPort: 1935
+
 persistence:
   media:
     enabled: true
@@ -456,6 +468,7 @@ persistence:
     items:
       - key: config.yml
         path: config.yml
+
 portal:
   open:
     enabled: true
