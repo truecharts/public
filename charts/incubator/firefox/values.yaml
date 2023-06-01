@@ -14,7 +14,7 @@ service:
   main:
     ports:
       main:
-        protocol: https
+        protocol: http
         port: 10131
 
 workload:
@@ -24,13 +24,13 @@ workload:
         main:
           probes:
             liveness:
-              type: https
+              type: http
             readiness:
-              type: https
+              type: http
             startup:
-              type: https
+              type: http
           env:
-            CUSTOM_HTTPS_PORT: "{{ .Values.service.main.ports.main.port }}"
+            CUSTOM_PORT: "{{ .Values.service.main.ports.main.port }}"
             CUSTOM_USER: "abc"
             PASSWORD: "abc"
             TITLE: "TrueChartVNC Client"
