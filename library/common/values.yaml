@@ -165,7 +165,7 @@ workload:
               port: "{{ $.Values.service.main.ports.main.targetPort | default .Values.service.main.ports.main.port }}"
             startup:
               enabled: true
-              type: "tcp"
+              type: "{{ .Values.service.main.ports.main.protocol }}"
               port: "{{ $.Values.service.main.ports.main.targetPort | default .Values.service.main.ports.main.port }}"
 
 # -- Timezone used everywhere applicable
