@@ -134,6 +134,7 @@ tests:
             secret:
               secretName: release-name-common-test-vpnconfig
               defaultMode: 0777
+              optional: false
               items:
                 - key: vpn.conf
                   path: vpn.conf
@@ -247,6 +248,7 @@ tests:
             secret:
               secretName: release-name-common-test-vpnconfig
               defaultMode: 0777
+              optional: false
               items:
                 - key: vpn.conf
                   path: vpn.conf
@@ -258,6 +260,7 @@ tests:
             configMap:
               name: vpnscripts
               defaultMode: 0777
+              optional: false
               items:
                 - key: up.sh
                   path: up.sh
@@ -319,6 +322,7 @@ tests:
             secret:
               secretName: existing-secret
               defaultMode: 0777
+              optional: false
               items:
                 - key: vpn.conf
                   path: vpn.conf

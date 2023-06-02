@@ -35,6 +35,7 @@ tests:
             configMap:
               name: release-name-common-test-some-object-name
               defaultMode: 0777
+              optional: false
 
   - it: should pass with configmap volume with items
     set:
@@ -72,6 +73,7 @@ tests:
             configMap:
               name: release-name-common-test-some-object-name
               defaultMode: 0777
+              optional: false
               items:
                 - key: some-key
                   path: some-path
@@ -104,6 +106,34 @@ tests:
             name: conf-vol
             configMap:
               name: some-object-name
+              optional: false
+
+  - it: should pass with configmap volume marked as optional
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        configmap-vol:
+          enabled: true
+          type: configmap
+          objectName: some-non-existent-object
+          optional: true
+    asserts:
+      - documentIndex: &otherDeploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *otherDeploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: configmap-vol
+            configMap:
+              name: release-name-common-test-some-non-existent-object
+              optional: true
 
 # Failures
   - it: should fail without objectName in configmap
@@ -218,3 +248,21 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Persistence - Expected non-empty <items.path>
+
+  - it: should fail with optional not bool
+    set:
+      workload:
+        some-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        volume1:
+          enabled: true
+          type: configmap
+          objectName: some-object-name
+          optional: not-a-bool
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistence - Expected <optional> to be [bool], but got [string]
