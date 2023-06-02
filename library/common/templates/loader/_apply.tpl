@@ -1,6 +1,9 @@
 {{/* Loads all spawners */}}
 {{- define "tc.v1.common.loader.apply" -}}
 
+  {{/* Inject custom tpl files, as defined in values.yaml */}}
+  {{- include "tc.v1.common.spawner.extraTpl" . | nindent 0 -}}
+
   {{/* Make sure there are not any YAML errors */}}
   {{- include "tc.v1.common.values.validate" .Values -}}
 

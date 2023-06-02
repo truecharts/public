@@ -82,3 +82,35 @@ tests:
               - name: varrun
                 emptyDir:
                   medium: Memory
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            livenessProbe:
+              failureThreshold: 5
+              httpGet:
+                path: /
+                port: 1025
+                scheme: HTTP
+              initialDelaySeconds: 10
+              periodSeconds: 10
+              successThreshold: 1
+              timeoutSeconds: 5
+            readinessProbe:
+              failureThreshold: 5
+              httpGet:
+                path: /
+                port: 1025
+                scheme: HTTP
+              initialDelaySeconds: 10
+              periodSeconds: 10
+              successThreshold: 2
+              timeoutSeconds: 5
+            startupProbe:
+              failureThreshold: 60
+              tcpSocket:
+                port: 1025
+              initialDelaySeconds: 10
+              periodSeconds: 5
+              successThreshold: 1
+              timeoutSeconds: 2
