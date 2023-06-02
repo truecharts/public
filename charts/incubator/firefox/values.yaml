@@ -30,11 +30,9 @@ workload:
             startup:
               type: http
           env:
-            CUSTOM_PORT: "{{ .Values.service.main.ports.main.port }}"
-            CUSTOM_USER: "abc"
-            PASSWORD: "abc"
-            TITLE: "TrueChartVNC Client"
             FM_HOME: "/config"
+            CUSTOM_PORT: "{{ .Values.service.main.ports.main.port }}"
+            TITLE: "TrueChartVNC Client"
 
 persistence:
   config:

@@ -1,8 +1,3 @@
-# Include{groups}
-portals:
-  open:
-# Include{portalLink}
-questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
@@ -10,38 +5,32 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
                                 - variable: env
                                   label: Image Environment
                                   schema:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
-                                      - variable: CUSTOM_USER
-                                        label: Custome User
-                                        description: HTTP Basic auth username
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: PASSWORD
-                                        label: Password
-                                        description: HTTP Basic auth password
-                                        schema:
-                                          type: string
-                                          private: true
-                                          default: ""
-                                      - variable: TITLE
-                                        label: Title
-                                        description: The page title displayed on the web browser
-                                        schema:
-                                          type: string
-                                          default: "TrueChartVNC Client"
+                                       - variable: TITLE
+                                         label: Title
+                                         description: The page title displayed on the web browser
+                                         schema:
+                                           type: string
+                                           default: "TrueChartVNC Client"
 
 # Include{containerBasic}
 # Include{containerAdvanced}
-
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
-# Include{serviceMain}
+        - variable: main
+          label: Main Service
+          description: The Primary service on which the Minecraft Server runs on
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -70,29 +59,17 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceList}
-# Include{ingressRoot}
-        - variable: main
-          label: Main Ingress
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
-# Include{ingressAdvanced}
-# Include{ingressList}
-# Include{securityContextRoot}
 
+# Include{securityContextRoot}
               - variable: runAsUser
-                label: runAsUser
-                description: The UserID of the user running the application
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
                 schema:
                   type: int
                   default: 0
               - variable: runAsGroup
-                label: runAsGroup
-                description: The groupID this App of the user running the application
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
                 schema:
                   type: int
                   default: 0
@@ -100,8 +77,8 @@ questions:
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
               - variable: fsGroup
-                label: fsGroup
-                description: The group that should own ALL storage.
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
                 schema:
                   type: int
                   default: 568
