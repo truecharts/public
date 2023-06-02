@@ -15,7 +15,10 @@ args:
   - --no-autoupdate
   - run
   - --token
-  - "{{ .Values.env.token }}"
+  - "{{ .Values.cloudflared.token }}"
+
+cloudflared:
+  token: ""
 
 workload:
   main:
@@ -29,8 +32,6 @@ workload:
               enabled: false
             startup:
               enabled: false
-          env:
-            token: ""
 
 service:
   main:

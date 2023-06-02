@@ -9,8 +9,9 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-                                - variable: env
-                                  label: Image Environment
+                                - variable: cloudflared
+                                  group: App Configuration
+                                  label: Cloudflared Configuration
                                   schema:
                                     additional_attrs: true
                                     type: dict
