@@ -1,7 +1,5 @@
 # Include{groups}
-portals:
-  open:
-# Include{portalLink}
+portals: {}
 questions:
 # Include{global}
 # Include{workload}
@@ -107,7 +105,7 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: App Storage
+          label: App Config Storage
           description: Container Path factorio
           schema:
             additional_attrs: true
