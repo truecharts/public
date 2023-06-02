@@ -80,6 +80,8 @@ tests:
             release: RELEASE-NAME
             helm-revision: "0"
             helm.sh/chart: common-test-1.0.0
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/version: *appVer
             g_label1: global_label1
@@ -105,6 +107,8 @@ tests:
             release: RELEASE-NAME
             helm-revision: "0"
             helm.sh/chart: common-test-1.0.0
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/version: *appVer
             g_label1: global_label1
@@ -130,6 +134,8 @@ tests:
             release: RELEASE-NAME
             helm-revision: "0"
             helm.sh/chart: common-test-1.0.0
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/version: *appVer
             g_label1: global_label1
@@ -155,6 +161,8 @@ tests:
             release: RELEASE-NAME
             helm-revision: "0"
             helm.sh/chart: common-test-1.0.0
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/version: *appVer
             g_label1: global_label1

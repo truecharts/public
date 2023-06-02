@@ -9,18 +9,27 @@
   {{- $annotations := .annotations -}}
   {{- $rootCtx := .rootCtx -}}
 
+  {{- $seenLabels := list -}}
+  {{- $seenAnnotations := list -}}
+
   {{- with $labels -}}
     {{- range $k, $v := . -}}
-      {{- if and $k $v }}
+      {{- if and $k $v -}}
+        {{- if not (mustHas $k $seenLabels) }}
 {{ $k }}: {{ tpl $v $rootCtx | quote }}
+         {{- $seenLabels = mustAppend $seenLabels $k -}}
+        {{- end -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
 
   {{- with $annotations -}}
     {{- range $k, $v := . -}}
-      {{- if and $k $v }}
+      {{- if and $k $v -}}
+        {{- if not (mustHas $k $seenAnnotations) }}
 {{ $k }}: {{ tpl $v $rootCtx | quote }}
+         {{- $seenAnnotations = mustAppend $seenAnnotations $k -}}
+        {{- end -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}

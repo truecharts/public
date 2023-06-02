@@ -116,6 +116,8 @@ tests:
           path: metadata.labels
           value:
             kubernetes.io/service-name: release-name-common-test
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/version: *appVer
             helm.sh/chart: common-test-1.0.0
@@ -298,6 +300,8 @@ tests:
         equal:
           path: metadata.labels
           value:
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/instance: RELEASE-NAME
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/version: *appVer
             helm.sh/chart: common-test-1.0.0
