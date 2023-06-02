@@ -48,9 +48,8 @@ service:
 
 persistence:
   config:
-    path:
-      enabled: true
-      mountPath: /factorio
+    enabled: true
+    mountPath: /factorio
 
 portal:
   open:
