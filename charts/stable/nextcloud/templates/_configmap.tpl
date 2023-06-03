@@ -172,6 +172,9 @@ nextcloud-config:
 
 # TODO: Replace locations with ingress
 # like /push, /.well-known/carddav, /.well-known/caldav
+# needs some work as nginx converts urls to pretty urls
+# before matching them to locations, so ingress needs to
+# take that into consideration.
 nginx-config:
   enabled: true
   data:
