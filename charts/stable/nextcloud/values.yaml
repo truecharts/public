@@ -117,7 +117,7 @@ workload:
           enabled: true
           primary: true
           env:
-          # FIXME: Remove after changing images
+            # FIXME: Remove after changing images
             NX_TUNE_FPM: "false"
           probes:
             liveness:
