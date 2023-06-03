@@ -35,7 +35,7 @@ workload:
             PGPORT: "5432"
             PGPASSWORD:
               secretKeyRef:
-                name: cnpg-main-user
+                name: cnpg-main-username
                 key: password
           command: ["sh", "-c"]
           args:
