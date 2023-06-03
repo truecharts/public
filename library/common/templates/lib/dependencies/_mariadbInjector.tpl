@@ -5,8 +5,7 @@ This template generates a random password and ensures it persists across updates
 
 {{- if .Values.mariadb.enabled -}}
   {{/* Initialize variables */}}
-  {{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
-  {{- $fetchname := printf "%s-mariadbcreds" $basename -}}
+  {{- $fetchname := printf "%s-mariadbcreds" .Release.Name -}}
   {{- $dbprevious := lookup "v1" "Secret" .Release.Namespace $fetchname -}}
   {{- $dbpreviousold := lookup "v1" "Secret" .Release.Namespace "mariadbcreds" -}}
   {{- $dbPass := randAlphaNum 50 -}}

@@ -5,8 +5,7 @@ This template generates a random password and ensures it persists across updates
 
 {{- if .Values.solr.enabled -}}
   {{/* Initialize variables */}}
-  {{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
-  {{- $fetchname := printf "%s-solrcreds" $basename -}}
+  {{- $fetchname := printf "%s-solrcreds" .Release.Name -}}
   {{- $solrprevious := lookup "v1" "Secret" .Release.Namespace $fetchname -}}
   {{- $solrpreviousold := lookup "v1" "Secret" .Release.Namespace "solrcreds" -}}
   {{- $solrPass := randAlphaNum 50 -}}

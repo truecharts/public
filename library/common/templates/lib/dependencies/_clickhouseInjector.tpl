@@ -5,8 +5,7 @@
 
 {{- if .Values.clickhouse.enabled -}}
   {{/* Initialize variables */}}
-  {{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
-  {{- $fetchname := printf "%s-clickhousecreds" $basename -}}
+  {{- $fetchname := printf "%s-clickhousecreds" .Release.Name -}}
   {{- $dbprevious := lookup "v1" "Secret" .Release.Namespace $fetchname -}}
   {{- $dbpreviousold := lookup "v1" "Secret" .Release.Namespace "clickhousecreds" -}}
   {{- $dbPass := randAlphaNum 50 -}}

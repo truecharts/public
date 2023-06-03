@@ -5,8 +5,7 @@ This template generates a random password and ensures it persists across updates
 
 {{- if .Values.redis.enabled -}}
   {{/* Initialize variables */}}
-  {{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
-  {{- $fetchname := printf "%s-rediscreds" $basename -}}
+  {{- $fetchname := printf "%s-rediscreds" .Release.Name -}}
   {{- $dbprevious := lookup "v1" "Secret" .Release.Namespace $fetchname -}}
   {{- $dbPass := randAlphaNum 50 -}}
   {{- $dbIndex := .Values.redis.redisDatabase | default "0" -}}
