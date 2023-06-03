@@ -21,7 +21,7 @@ data:
     # Database
     check_tables: true
     db:
-      user: {{ .Values.cnpg.main.user }}
+      user: {{ .Values.cnpg.main.username }}
       dbname: {{ .Values.cnpg.main.database }}
       password: {{ .Values.cnpg.main.creds.password }}
       host: {{ .Values.cnpg.main.creds.host }}
