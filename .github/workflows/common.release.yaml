@@ -50,7 +50,6 @@ jobs:
       uses: helm/chart-releaser-action@be16258da8010256c6e82849661221415f031968 # tag=v1.5.0
       with:
         charts_dir: library
-        charts_repo_url: https://library-charts.truecharts.org
         config: cr.yaml
       env:
         CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
