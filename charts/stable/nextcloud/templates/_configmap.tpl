@@ -2,7 +2,10 @@
 {{- define "nextcloud.configmaps" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 {{- $urlNoProtocol := regexReplaceAll ".*://(.*)" .Values.chartContext.APPURL "${1}" -}}
-{{- $protocolOnly := regexReplaceAll "(.*)://.*" .Values.chartContext.APPURL "${1}" }}
+{{- $protocolOnly := regexReplaceAll "(.*)://.*" .Values.chartContext.APPURL "${1}" -}}
+{{- $redisHost := .Values.redis.creds.plainhost | trimAll "\"" -}}
+{{- $redisPass := .Values.redis.creds.redisPassword | trimAll "\"" -}}
+{{- $healthHost := "kube.internal.healthcheck" -}}
 
 php-tune:
   enabled: true
@@ -18,16 +21,16 @@ redis-session:
   enabled: true
   data:
     redis-session.ini: |
-       session.save_path = {{ printf "tcp://%v?auth=%v" .Values.redis.creds.plainport .Values.redis.creds.redisPassword | quote }}
-       redis.session.locking_enabled = 1
-       redis.session.lock_retries = -1
-       redis.session.lock_wait_time = 10000
+      session.save_path = {{ printf "tcp://%v:6379?auth=%v" $redisHost $redisPass | quote }}
+      redis.session.locking_enabled = 1
+      redis.session.lock_retries = -1
+      redis.session.lock_wait_time = 10000
 
 hpb-config:
   enabled: {{ .Values.nextcloud.notify_push.enabled }}
   data:
     NEXTCLOUD_URL: {{ printf "http://%v:%v" $fullname .Values.service.main.ports.main.port }}
-    HPB_HOST: kube.internal.healthcheck
+    HPB_HOST: {{ $healthHost }}
     CONFIG_FILE: {{ printf "%v/config.php" .Values.persistence.config.targetSelector.notify.notify.mountPath }}
     METRICS_PORT: {{ .Values.service.notify.ports.metrics.port | quote }}
 
@@ -49,8 +52,8 @@ nextcloud-config:
     POSTGRES_HOST: {{ .Values.cnpg.main.creds.host | trimAll "\"" }}
 
     {{/* Redis */}}
-    NX_REDIS_HOST: {{ .Values.redis.creds.plainhost | trimAll "\"" }}
-    NX_REDIS_PASS: {{ .Values.redis.creds.redisPassword | trimAll "\"" }}
+    NX_REDIS_HOST: {{ $redisHost }}
+    NX_REDIS_PASS: {{ $redisPass }}
 
     {{/* Nextcloud INITIAL credentials */}}
     NEXTCLOUD_ADMIN_USER: {{ .Values.nextcloud.credentials.initialAdminUser | quote }}
@@ -162,7 +165,7 @@ nextcloud-config:
       localhost
       {{ $fullname }}
       {{ printf "%v-*" $fullname }}
-      kube.internal.healthcheck
+      {{ $healthHost }}
       {{- if ne $urlNoProtocol "127.0.0.1" }}
         {{- $urlNoProtocol | nindent 6 }}
       {{- end -}}
