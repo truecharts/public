@@ -24,7 +24,7 @@ data:
       user: {{ .Values.cnpg.main.username }}
       dbname: {{ .Values.cnpg.main.database }}
       password: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
-      host: {{ .Values.cnpg.main.creds.host }}
+      host: {{ .Values.cnpg.main.creds.host | trimAll "\"" }}
       port: 5432
 
     # Network
