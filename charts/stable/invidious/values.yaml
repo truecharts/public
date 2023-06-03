@@ -53,7 +53,7 @@ workload:
               # Move config into docker dir
               echo "Preparing directory structure..."
               mv -fv config docker
-  
+
               echo "Performing the seed..."
               cd docker
               ./init-invidious-db.sh
