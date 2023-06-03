@@ -30,7 +30,7 @@ workload:
               secretKeyRef:
                 name: cnpg-main-urls
                 key: std
-            POSTGRES_USER: "{{ .Values.cnpg.main.username }}"
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
             # PG* variables are for the psql client
             PGPORT: "5432"
             PGPASSWORD:
@@ -42,14 +42,14 @@ workload:
             - |
               echo "Starting DB Seed..."
               mkdir -p invidious && cd invidious
-  
+
               echo "Fetching seed files..."
               git init && \
               git remote add invidious https://github.com/iv-org/invidious.git && \
               git fetch invidious && \
               # Fetch config and docker dirs
               git checkout invidious/master -- docker config
-  
+
               # Move config into docker dir
               echo "Preparing directory structure..."
               mv -fv config docker
@@ -170,7 +170,7 @@ cnpg:
     database: invidious
     # DB User cannot be changed
     # hardcoded from upstream
-    username: kemal
+    user: kemal
 
 portal:
   open:
