@@ -17,7 +17,7 @@ securityContext:
 frigate:
   mqtt:
     # -- Enable it to add the configuration in the config file
-    render_config: false
+    render_config: true
     # -- Enables MQTT
     enabled: false
     host: mqtt.server.com
