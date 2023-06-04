@@ -37,3 +37,18 @@ probes:
       - /tmp/healthy
 {{- end -}}
 
+{{/* Define the broadcast proxy workload */}}
+{{- define "broadcastProxy.workload" -}}
+enabled: true
+type: Deployment
+podSpec:
+  hostNetwork: true
+  # Proxy doesn't seem to respect the TERM signal, so by default
+  # this ends up just hanging until the default grace period ends.
+  # This is unnecesary since this workload only proxies autodiscovery
+  # messages.
+  terminationGracePeriodSeconds: 3
+  containers:
+    broadcastproxy:
+    {{ include "broadcastProxy.container" . | nindent 6 }}
+{{- end -}}
