@@ -1,20 +1,11 @@
 {{/* Define the configmap */}}
 {{- define "frigate.configmap" -}}
-
-{{- $configName := printf "%s-frigate-config" (include "tc.common.names.fullname" .) }}
-
----
-
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $configName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+enabled: true
 data:
   config.yml: |
     database:
       path: /db/frigate.db
+
     mqtt:
       {{- include "frigate.mqtt" .Values.frigate.mqtt | indent 6 }}
 
@@ -480,6 +471,8 @@ logs:
 
 {{- define "frigate.mqtt" -}}
 {{- $mqtt := . }}
+{{- if $mqtt.render_config }}
+enabled: {{ ternary "True" "False" $mqtt.enabled }}
 host: {{ required "You need to provide an MQTT host" $mqtt.host }}
 {{- with $mqtt.port }}
 port: {{ . }}
@@ -498,5 +491,6 @@ user: {{ . }}
 {{- end -}}
 {{- with $mqtt.password }}
 password: {{ . }}
+{{- end -}}
 {{- end -}}
 {{- end -}}

@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-192-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-193-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -366,7 +366,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/CommanderStarhump"><img src="https://avatars.githubusercontent.com/u/91758053?v=4?s=100" width="100px;" alt="CommanderStarhump"/><br /><sub><b>CommanderStarhump</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3ACommanderStarhump" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/vianchiel"><img src="https://avatars.githubusercontent.com/u/123665622?v=4?s=100" width="100px;" alt="Vianchiel"/><br /><sub><b>Vianchiel</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Avianchiel" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/b-m-f"><img src="https://avatars.githubusercontent.com/u/2843450?v=4?s=100" width="100px;" alt="Maximilian Ehlers"/><br /><sub><b>Maximilian Ehlers</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Ab-m-f" title="Bug reports">🐛</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/nautilus7"><img src="https://avatars.githubusercontent.com/u/1540233?v=4?s=100" width="100px;" alt="nautilus7"/><br /><sub><b>nautilus7</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Anautilus7" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/nautilus7"><img src="https://avatars.githubusercontent.com/u/1540233?v=4?s=100" width="100px;" alt="nautilus7"/><br /><sub><b>nautilus7</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Anautilus7" title="Bug reports">🐛</a> <a href="https://github.com/truecharts/charts/commits?author=nautilus7" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/kqmaverick"><img src="https://avatars.githubusercontent.com/u/121722567?v=4?s=100" width="100px;" alt="kqmaverick"/><br /><sub><b>kqmaverick</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Akqmaverick" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/ccalby"><img src="https://avatars.githubusercontent.com/u/680553?v=4?s=100" width="100px;" alt="ccalby"/><br /><sub><b>ccalby</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Accalby" title="Bug reports">🐛</a></td>
     </tr>
@@ -383,6 +383,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://fnichol.com"><img src="https://avatars.githubusercontent.com/u/261548?v=4?s=100" width="100px;" alt="Fletcher Nichol"/><br /><sub><b>Fletcher Nichol</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=fnichol" title="Code">💻</a> <a href="https://github.com/truecharts/charts/issues?q=author%3Afnichol" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://marcofaggian.com"><img src="https://avatars.githubusercontent.com/u/19221001?v=4?s=100" width="100px;" alt="Marco Faggian"/><br /><sub><b>Marco Faggian</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=marcofaggian" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Emalton"><img src="https://avatars.githubusercontent.com/u/9328458?v=4?s=100" width="100px;" alt="John P"/><br /><sub><b>John P</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Emalton" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/kryojenik"><img src="https://avatars.githubusercontent.com/u/845427?v=4?s=100" width="100px;" alt="kryojenik"/><br /><sub><b>kryojenik</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=kryojenik" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/malcolmcdixon"><img src="https://avatars.githubusercontent.com/u/56974882?v=4?s=100" width="100px;" alt="Malcolm"/><br /><sub><b>Malcolm</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=malcolmcdixon" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
