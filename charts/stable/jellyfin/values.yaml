@@ -36,7 +36,7 @@ workload:
       containers:
         main:
           env:
-            JELLYFIN_PublishedServerUrl: "https://jelly.mydomain.com"
+            JELLYFIN_PublishedServerUrl: "{{ $.Values.chartContext.APPURL }}"
 
 # -- enable Jellyfin autodiscovery on LAN
 autodiscovery:
