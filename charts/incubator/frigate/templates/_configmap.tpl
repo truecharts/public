@@ -5,8 +5,13 @@ data:
   config.yml: |
     database:
       path: /db/frigate.db
+
     mqtt:
+      {{- if .Values.frigate.mqtt.render_config }}
       {{- include "frigate.mqtt" .Values.frigate.mqtt | indent 6 }}
+      {{- else -}}
+      enabled: False
+      {{- end }}
 
     {{- if and .Values.frigate.detectors.render_config .Values.frigate.detectors.config }}
     detectors:
