@@ -26,12 +26,19 @@ questions:
                                         default: false
                                         show_subquestions_if: true
                                         subquestions:
-                                        - variable: autodiscoveryUrl
-                                          description: "Published Server URL"
-                                          label: "(Optional) The Server URL to publish in UDP Auto Discovery response (default: the app URL)."
+                                        - variable: overrideUrl
+                                          label: "Override Autodiscovery URL"
                                           schema:
-                                            type: string
-                                            default: ""
+                                            type: boolean
+                                            default: false
+                                            show_subquestions_if: true
+                                            subquestions:
+                                            - variable: autodiscoveryUrl
+                                              description: "Published Server URL"
+                                              label: "The Server URL to publish in UDP Auto Discovery response."
+                                              schema:
+                                                type: string
+                                                default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 
