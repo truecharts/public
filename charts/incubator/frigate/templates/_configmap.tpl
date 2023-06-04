@@ -5,6 +5,7 @@ data:
   config.yml: |
     database:
       path: /db/frigate.db
+
     mqtt:
       {{- include "frigate.mqtt" .Values.frigate.mqtt | indent 6 }}
 
@@ -470,6 +471,8 @@ logs:
 
 {{- define "frigate.mqtt" -}}
 {{- $mqtt := . }}
+{{- if $mqtt.render_config }}
+enabled: {{ ternary "True" "False" $mqtt.enabled }}
 host: {{ required "You need to provide an MQTT host" $mqtt.host }}
 {{- with $mqtt.port }}
 port: {{ . }}
@@ -488,5 +491,6 @@ user: {{ . }}
 {{- end -}}
 {{- with $mqtt.password }}
 password: {{ . }}
+{{- end -}}
 {{- end -}}
 {{- end -}}

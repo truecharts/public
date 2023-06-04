@@ -26,47 +26,68 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-              - variable: host
-                label: Host
+              - variable: render_config
+                label: Render Configuration
+                description: Enable it to add the configuration in the config file
                 schema:
-                  type: string
-                  required: true
-                  default: ""
-              - variable: port
-                label: Port
-                schema:
-                  type: int
-                  default: 1883
-              - variable: topic_prefix
-                label: Topic Prefix
-                description: Must be unique if you are running multiple instances
-                schema:
-                  type: string
-                  default: ""
-              - variable: client_id
-                label: Client ID
-                description: Must be unique if you are running multiple instances
-                schema:
-                  type: string
-                  default: ""
-              - variable: stats_interval
-                label: Stats Interval
-                description: Interval in seconds for publishing stats
-                schema:
-                  type: int
-                  "null": true
-                  default: 60
-              - variable: user
-                label: Username
-                schema:
-                  type: string
-                  default: ""
-              - variable: password
-                label: Password
-                schema:
-                  type: string
-                  private: true
-                  default: ""
+                  type: boolean
+                  default: true
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: enabled
+                      label: Enabled
+                      schema:
+                        type: boolean
+                        show_if: [["enabled", "=", true]]
+                        default: true
+                    - variable: host
+                      label: Host
+                      schema:
+                        type: string
+                        show_if: [["enabled", "=", true]]
+                        required: true
+                        default: ""
+                    - variable: port
+                      label: Port
+                      schema:
+                        type: int
+                        show_if: [["enabled", "=", true]]
+                        default: 1883
+                    - variable: topic_prefix
+                      label: Topic Prefix
+                      description: Must be unique if you are running multiple instances
+                      schema:
+                        type: string
+                        show_if: [["enabled", "=", true]]
+                        default: ""
+                    - variable: client_id
+                      label: Client ID
+                      description: Must be unique if you are running multiple instances
+                      schema:
+                        type: string
+                        show_if: [["enabled", "=", true]]
+                        default: ""
+                    - variable: stats_interval
+                      label: Stats Interval
+                      description: Interval in seconds for publishing stats
+                      schema:
+                        type: int
+                        show_if: [["enabled", "=", true]]
+                        "null": true
+                        default: 60
+                    - variable: user
+                      label: Username
+                      schema:
+                        type: string
+                        show_if: [["enabled", "=", true]]
+                        default: ""
+                    - variable: password
+                      label: Password
+                      schema:
+                        type: string
+                        show_if: [["enabled", "=", true]]
+                        private: true
+                        default: ""
         - variable: detectors
           label: Detectors
           schema:
