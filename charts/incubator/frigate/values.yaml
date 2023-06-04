@@ -16,6 +16,10 @@ securityContext:
 # - Those "nulls" should be replaced with integers (if you want to set a value)
 frigate:
   mqtt:
+    # -- Enable it to add the configuration in the config file
+    render_config: false
+    # -- Enables MQTT
+    enabled: false
     host: mqtt.server.com
     port: 1883
     # -- NOTE: Must be unique if you are running multiple instances

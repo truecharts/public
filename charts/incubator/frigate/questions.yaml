@@ -34,6 +34,11 @@ questions:
                   default: false
                   show_subquestions_if: true
                   subquestions:
+                    - variable: enabled
+                      label: Enabled
+                      schema:
+                        type: boolean
+                        default: true
                     - variable: host
                       label: Host
                       schema:
