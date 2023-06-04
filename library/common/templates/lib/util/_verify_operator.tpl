@@ -36,23 +36,25 @@
   {{- if $cache.data -}}
     {{/* Fetch data that the operator itself stored in the tc-data configmap */}}
     {{- $viaCache := (lookup "v1" "ConfigMap" $cache.data.namespace (printf "%v-tc-data" $fullname)) | default dict -}}
-    {{- if $viaCache.data -}}
-      {{- $name := (get $viaCache.data "tc-operator-name") -}}
-      {{- $version := (get $viaCache.data "tc-operator-version") -}}
-
-      {{/* If fetched name matches the "$opName"... */}}
-      {{- if eq $name $opName -}}
-        {{/* Mark operator as found*/}}
-        {{- $opExists = true -}}
-        {{/* Prepare the data */}}
-        {{- $opData = (dict "name" $name
-                            "namespace" $viaCache.metadata.namespace
-                            "version" $version) -}}
-      {{- else -}} {{/* If $name does not match $opName, something went very wrong. */}}
-        {{- fail (printf "Operator - ConfigMap [tc-data] does not contain the operator [%v] name. Something went wrong." $opName) -}}
+    {{- if $viaCache -}}
+      {{- if $viaCache.data -}}
+        {{- $name := (get $viaCache.data "tc-operator-name") -}}
+        {{- $version := (get $viaCache.data "tc-operator-version") -}}
+  
+        {{/* If fetched name matches the "$opName"... */}}
+        {{- if eq $name $opName -}}
+          {{/* Mark operator as found*/}}
+          {{- $opExists = true -}}
+          {{/* Prepare the data */}}
+          {{- $opData = (dict "name" $name
+                              "namespace" $viaCache.metadata.namespace
+                              "version" $version) -}}
+        {{- else -}} {{/* If $name does not match $opName, something went very wrong. */}}
+          {{- fail (printf "Operator - ConfigMap [tc-data] does not contain the operator [%v] name. Something went wrong." $opName) -}}
+        {{- end -}}
+      {{- else -}}
+        {{- fail (printf "Operator - Expected [tc-data] ConfigMap to have non-empty [data] for operator [%v]" $opName) -}}
       {{- end -}}
-    {{- else -}}
-      {{- fail (printf "Operator - Expected [tc-data] ConfigMap to have non-empty [data] for operator [%v]" $opName) -}}
     {{- end -}}
   {{- end -}}
 
