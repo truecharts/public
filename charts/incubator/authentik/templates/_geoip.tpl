@@ -12,9 +12,9 @@ volumeMounts:
     mountPath: "/usr/share/GeoIP"
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-geoip-secret'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-geoip-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-geoip-config'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-geoip-config'
 {{/* TODO: Add healthchecks */}}
 {{/* TODO: https://github.com/maxmind/geoipupdate/issues/105 */}}
 {{- end -}}

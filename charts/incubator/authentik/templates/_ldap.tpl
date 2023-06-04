@@ -9,9 +9,9 @@ securityContext:
   runAsNonRoot: true
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-ldap-secret'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-ldap-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-ldap-config'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-ldap-config'
 ports:
   - containerPort: {{ .Values.service.ldapldaps.ports.ldapldaps.targetPort }}
     name: ldapldaps
