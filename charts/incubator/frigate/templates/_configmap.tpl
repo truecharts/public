@@ -471,7 +471,7 @@ logs:
 
 {{- define "frigate.mqtt" -}}
 {{- $mqtt := . }}
-enabled: {{ ternary "True" "False $mqtt.render_config }}
+enabled: {{ ternary "True" "False" $mqtt.render_config }}
 {{- if $mqtt.render_config }}
 host: {{ required "You need to provide an MQTT host" $mqtt.host }}
 {{- with $mqtt.port }}
