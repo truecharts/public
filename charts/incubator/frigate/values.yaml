@@ -450,12 +450,9 @@ persistence:
   media:
     enabled: true
     mountPath: /media
-    size: 256Gi
   db:
     enabled: true
     mountPath: /db
-    size: 256Gi
-    type: emptyDir
   frigate-config:
     enabled: true
     mountPath: /config
