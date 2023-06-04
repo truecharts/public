@@ -16,6 +16,10 @@ spec:
     spec:
       automountServiceAccountToken: true
       serviceAccountName: {{ $fullName }}-manifests
+      dnsConfig:
+        options:
+          - name: ndots
+            value: "1"
       containers:
         - name: {{ $fullName }}-manifests
           image: {{ .Values.kubectlImage.repository }}:{{ .Values.kubectlImage.tag }}
