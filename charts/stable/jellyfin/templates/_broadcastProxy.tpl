@@ -40,7 +40,7 @@ probes:
 {{/* Define the broadcast proxy workload */}}
 {{- define "broadcastProxy.workload" -}}
 enabled: true
-type: Deployment
+type: DaemonSet
 podSpec:
   hostNetwork: true
   # Proxy doesn't seem to respect the TERM signal, so by default
