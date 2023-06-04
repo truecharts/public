@@ -8,22 +8,24 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: cloudflared
+                                  group: App Configuration
+                                  label: Cloudflared Configuration
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: token
+                                        label: Tunnel Token
+                                        description: Token for tunnel (Tunnel managed by Cloudflare not locally)
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+
 # Include{containerBasic}
 # Include{containerAdvanced}
-  - variable: cloudflared
-    group: App Configuration
-    label: Cloudflared Configuration
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: token
-          label: Tunnel Token
-          description: Token for tunnel (Tunnel managed by Cloudflare not locally)
-          schema:
-            type: string
-            required: true
-            default: ""
 
 # Include{containerConfig}
 # Include{podOptions}
