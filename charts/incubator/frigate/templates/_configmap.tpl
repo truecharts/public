@@ -7,11 +7,7 @@ data:
       path: /db/frigate.db
 
     mqtt:
-      {{- if .Values.frigate.mqtt.render_config }}
       {{- include "frigate.mqtt" .Values.frigate.mqtt | indent 6 }}
-      {{else}}
-      enabled: False
-      {{- end }}
 
     {{- if and .Values.frigate.detectors.render_config .Values.frigate.detectors.config }}
     detectors:
@@ -475,6 +471,8 @@ logs:
 
 {{- define "frigate.mqtt" -}}
 {{- $mqtt := . }}
+enabled: {{ ternary "True" "False $mqtt.render_config }}
+{{- if $mqtt.render_config }}
 host: {{ required "You need to provide an MQTT host" $mqtt.host }}
 {{- with $mqtt.port }}
 port: {{ . }}
@@ -493,5 +491,6 @@ user: {{ . }}
 {{- end -}}
 {{- with $mqtt.password }}
 password: {{ . }}
+{{- end -}}
 {{- end -}}
 {{- end -}}

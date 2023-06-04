@@ -8,7 +8,7 @@ securityContext:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
-    runAsGroup: 0  
+    runAsGroup: 0
 # -- The "render_config" key is only used internally to "render" or not the configuration
 # - Some parts of the config bellow are slightly modified so they can be added on SCALE UI. Mainly lists.
 # - Do not blindly copy paste configuration from upstream. As this won't work on all cases
