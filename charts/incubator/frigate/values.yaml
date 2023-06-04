@@ -4,13 +4,11 @@ image:
   tag: 0.11.1@sha256:8dd7273eebf396563d7bbc14778fd3d58c624e5063ffcf74b5b0afe63e7cdd7f
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0  
 # -- The "render_config" key is only used internally to "render" or not the configuration
 # - Some parts of the config bellow are slightly modified so they can be added on SCALE UI. Mainly lists.
 # - Do not blindly copy paste configuration from upstream. As this won't work on all cases
@@ -31,16 +29,15 @@ frigate:
   detectors:
     # -- Enable it to add the configuration in the config file
     render_config: false
-    config:
-      []
-      # -- Required: Name of the detector
-      # - name: coral
-      #   # -- Valid values are 'edgetpu' (requires device property below) and 'cpu'.
-      #   type: edgetpu
-      #   # -- Device name as defined here: https://coral.ai/docs/edgetpu/multiple-edgetpu/#using-the-tensorflow-lite-python-api
-      #   device: usb
-      #   # -- This value is only used for CPU types
-      #   num_threads: 3
+    config: []
+    # -- Required: Name of the detector
+    # - name: coral
+    #   # -- Valid values are 'edgetpu' (requires device property below) and 'cpu'.
+    #   type: edgetpu
+    #   # -- Device name as defined here: https://coral.ai/docs/edgetpu/multiple-edgetpu/#using-the-tensorflow-lite-python-api
+    #   device: usb
+    #   # -- This value is only used for CPU types
+    #   num_threads: 3
 
   model:
     # -- Enable it to add the configuration in the config file
@@ -54,12 +51,11 @@ frigate:
     # -- Optional: Path to the labelmap
     labelmap_path: ""
     # -- Optional: Label name modifications.
-    labelmap:
-      []
-      # - model: "2"
-      #   name: vehicle
-      # - model: 3
-      #   name: vehicle
+    labelmap: []
+    # - model: "2"
+    #   name: vehicle
+    # - model: 3
+    #   name: vehicle
 
   logger:
     # -- Enable it to add the configuration in the config file
@@ -67,10 +63,9 @@ frigate:
     # -- Optional: Default log verbosity (default: shown below)
     default: info
     # -- Optional: Component specific logger overrides
-    logs:
-      []
-      # - component: frigate.event
-      #   verbosity: debug
+    logs: []
+    # - component: frigate.event
+    #   verbosity: debug
 
   birdseye:
     # -- Enable it to add the configuration in the config file
@@ -151,33 +146,31 @@ frigate:
     # -- Enable it to add the configuration in the config file
     render_config: false
     # -- Optional: list of objects to track from labelmap.txt
-    track:
-      []
-      # - person
-      # - car
+    track: []
+    # - person
+    # - car
     # -- Optional: mask to prevent all object types from being detected in certain areas (default: no mask)
     # - Checks based on the bottom center of the bounding box of the object.
     # - NOTE: This mask is COMBINED with the object type specific mask below
     mask: ""
     # - Optional: filters to reduce false positives for specific object types
-    filters:
-      []
-      # - object: person
-      #   # -- Optional: Minimum width*height of the bounding box for the detected object
-      #   min_area: 5000
-      #   # -- Optional: Maximum width*height of the bounding box for the detected object
-      #   max_area: 100000
-      #   # -- Optional: Minimum width/height of the bounding box for the detected object
-      #   min_ratio: "0.5"
-      #   # -- Optional: Maximum width/height of the bounding box for the detected object
-      #   max_ratio: "2.0"
-      #   # -- Optional: Minimum score for the object to initiate tracking
-      #   min_score: "0.5"
-      #   # -- Optional: Minimum decimal percentage for tracked object's computed score to be considered a true positive
-      #   threshold: "0.7"
-      #   # -- Optional: Mask to prevent this object type from being detected in certain areas
-      #   # - Checks based on the bottom center of the bounding box of the object
-      #   mask: 0,0,1000,0,1000,200,0,200
+    filters: []
+    # - object: person
+    #   # -- Optional: Minimum width*height of the bounding box for the detected object
+    #   min_area: 5000
+    #   # -- Optional: Maximum width*height of the bounding box for the detected object
+    #   max_area: 100000
+    #   # -- Optional: Minimum width/height of the bounding box for the detected object
+    #   min_ratio: "0.5"
+    #   # -- Optional: Maximum width/height of the bounding box for the detected object
+    #   max_ratio: "2.0"
+    #   # -- Optional: Minimum score for the object to initiate tracking
+    #   min_score: "0.5"
+    #   # -- Optional: Minimum decimal percentage for tracked object's computed score to be considered a true positive
+    #   threshold: "0.7"
+    #   # -- Optional: Mask to prevent this object type from being detected in certain areas
+    #   # - Checks based on the bottom center of the bounding box of the object
+    #   mask: 0,0,1000,0,1000,200,0,200
 
   motion:
     # -- Enable it to add the configuration in the config file
@@ -254,9 +247,8 @@ frigate:
       # -- Optional: Number of seconds after the event to include
       post_capture: null
       # -- Optional: Objects to save recordings for. Defaults to all
-      objects:
-        []
-        # - person
+      objects: []
+      # - person
       # -- Optional: Restrict recordings to objects that entered any of the listed zones
       required_zones: []
       # -- Optional: Retention settings for recordings of events
@@ -271,10 +263,9 @@ frigate:
         # - active_objects - save all recording segments for event with active/moving objects
         mode: ""
         # -- Optional: Per object retention days
-        objects:
-          []
-          # - object: person
-          #   days: 15
+        objects: []
+        # - object: person
+        #   days: 15
 
   snapshots:
     # -- Enable it to add the configuration in the config file
@@ -301,10 +292,9 @@ frigate:
       # -- Required: Default retention days (default: shown below)
       default: 10
       # -- Optional: Per object retention days
-      objects:
-        []
-        # - object: person
-        #   days: 15
+      objects: []
+      # - object: person
+      #   days: 15
 
   rtmp:
     # -- Enable it to add the configuration in the config file
@@ -398,17 +388,15 @@ frigate:
           # - NOTE: Presence in a zone is evaluated only based on the bottom center of the objects bounding box.
           coordinates: 545,1077,747,939,788,805
           # -- Optional: List of objects that can trigger this zone (default: all tracked objects)
-          objects:
-            []
-            # - person
+          objects: []
+          # - person
           # -- Optional: Zone level object filters.
           # -NOTE: The global and camera filters are applied upstream.
-          filters:
-            []
-            # - object: person
-            #   min_area: null
-            #   max_area: null
-            #   threshold: ""
+          filters: []
+          # - object: person
+          #   min_area: null
+          #   max_area: null
+          #   threshold: ""
       # -- Optional: Configuration for the jpg snapshots published via MQTT
       mqtt:
         # -- Enable it to add the configuration in the config file
@@ -448,7 +436,7 @@ service:
     ports:
       main:
         port: 10500
-        protocol: HTTP
+        protocol: http
         targetPort: 5000
   rtmp:
     enabled: true
@@ -480,11 +468,12 @@ persistence:
   frigate-config:
     enabled: true
     mountPath: /config
-    type: configMap
-    objectName: '{{ template "tc.common.names.fullname" . }}-frigate-config'
+    type: configmap
+    objectName: frigate-config
     items:
       - key: config.yml
         path: config.yml
 
 portal:
-  enabled: true
+  open:
+    enabled: true

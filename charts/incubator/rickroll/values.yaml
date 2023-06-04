@@ -1,41 +1,41 @@
 image:
   repository: tccr.io/truecharts/rickroll
   pullPolicy: IfNotPresent
-  tag: latest@sha256:7e44d66152b7a24d0ff41480992dcfbe24ae320c0d1bbed364726af86b26152e
-fhdImage:
-  repository: tccr.io/truecharts/rickroll-fhd
-  pullPolicy: IfNotPresent
-  tag: latest@sha256:bc833e52ed8bb0e0abbd110c2afbb94a8ac794f8d5c758ad9ba992f2f75b1e14
-fhdgameImage:
-  repository: tccr.io/truecharts/rickroll-fhd-game
-  pullPolicy: IfNotPresent
-  tag: latest@sha256:ab13300ce0913219cd2f5bf4a390901185c4e51411e1be9fb25280c028f7af25
-fhdonclickImage:
-  repository: tccr.io/truecharts/rickroll-fhd-onclick
-  pullPolicy: IfNotPresent
-  tag: latest@sha256:a55428843ae3de037b1b346b1200eb6bc58fb661acc970e8dbffe7a255a45048
-onclickImage:
-  repository: tccr.io/truecharts/rickroll-onclick
-  pullPolicy: IfNotPresent
-  tag: latest@sha256:c01c92f2acf2a939802ea76732f931f2f07705a282422ba43fb3db2f96293cd5
-
-imageSelector: "image"
+  tag: vlatest@sha256:0a74da4a4f146236124e2e1826d96e2ea6a3422401cf10da2152011c6832e634
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
     ports:
       main:
-        protocol: HTTP
-        targetPort: 8080
+        protocol: http
         port: 10289
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+            readiness:
+              type: http
+            startup:
+              type: http
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            TITLE: "Rickroll"
+            HEIGHT: "100vh"
+            WIDTH: "100%"
+            HEADLINE: ""
+
 portal:
-  enabled: true
+  open:
+    enabled: true

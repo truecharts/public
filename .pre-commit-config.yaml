@@ -22,7 +22,7 @@ repos:
       - id: fix-byte-order-marker # removes utf-8 byte order marker.
       - id: requirements-txt-fixer # sorts entries in requirements.txt.
       - id: check-added-large-files # prevents giant files from being committed.
-        exclude: \.(png|jpg|jpeg|svg)$
+        exclude: \.(png|jpg|jpeg|svg|yaml|yml|tpl)$
       - id: check-yaml # checks yaml files for parseable syntax.
         exclude: (templates\/.*|crds\/.*|questions.yaml|chart_schema.yaml)
       - id: detect-private-key # detects the presence of private keys.

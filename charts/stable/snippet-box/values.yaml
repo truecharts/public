@@ -1,0 +1,41 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/snippet-box
+  tag: latest@sha256:cddcb706538f65fcf69a2d86f30c400f2dddbf04ea65e9801b8376a5c6f3e5e1
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+            readiness:
+              type: http
+            startup:
+              type: http
+
+service:
+  main:
+    ports:
+      main:
+        port: 5039
+        protocol: http
+        targetPort: 5000
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data
+
+portal:
+  open:
+    enabled: true
