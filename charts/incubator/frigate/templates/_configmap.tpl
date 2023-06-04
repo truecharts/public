@@ -9,7 +9,7 @@ data:
     mqtt:
       {{- if .Values.frigate.mqtt.render_config }}
       {{- include "frigate.mqtt" .Values.frigate.mqtt | indent 6 }}
-      {{- else -}}
+      {{else}}
       enabled: False
       {{- end }}
 
