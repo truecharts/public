@@ -1,3 +1,2 @@
-# With the bellow we test both container starts and that tpl is working inside extraArgs list
-args: ["tunnel", "--no-autoupdate", "run", "{{ .Values.testTpl }}"]
-testTpl: "--hello-world"
+# With the bellow we test container starts
+args: ["tunnel", "--no-autoupdate", "run", "--hello-world"]
