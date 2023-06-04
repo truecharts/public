@@ -28,7 +28,7 @@ questions:
                                         subquestions:
                                         - variable: autodiscoveryUrl
                                           description: "Published Server URL"
-                                          label: "The Server URL to publish in UDP Auto Discovery response."
+                                          label: "(Optional) The Server URL to publish in UDP Auto Discovery response (default: the app URL)."
                                           schema:
                                             type: string
                                             default: ""
