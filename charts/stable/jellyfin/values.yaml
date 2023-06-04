@@ -12,6 +12,14 @@ service:
       main:
         port: 8096
         targetPort: 8096
+  autodiscovery:
+    enabled: true
+    ports:
+      autodiscovery:
+        enabled: true
+        protocol: udp
+        port: 7359
+        targetPort: 7359
 persistence:
   config:
     enabled: true

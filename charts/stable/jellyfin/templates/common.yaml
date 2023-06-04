@@ -16,20 +16,8 @@ podSpec:
     {{ include "broadcastProxy.container" . | nindent 6 }}
 {{- end -}}
 
-{{- define "broadcastProxy.jellyfinAutodiscoveryService" -}}
-enabled: true
-ports:
-  autodiscovery:
-    enabled: true
-    protocol: udp
-    port: 7359
-    targetPort: 7359
-{{- end -}}
-
 
 {{- if .Values.autodiscovery.enabled -}}
-{{/* Append autodiscovery service */}}
-{{- $_ := set .Values.service "autodiscovery" (include "broadcastProxy.jellyfinAutodiscoveryService" . | fromYaml) -}}
 {{/* Add proxy workload */}}
 {{- $_ := set .Values.workload "broadcastproxy" (include "broadcastProxy.workload" . | fromYaml) -}}
 {{- end -}}
