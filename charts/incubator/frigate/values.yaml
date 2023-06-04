@@ -456,15 +456,6 @@ persistence:
     mountPath: /db
     size: 256Gi
     type: emptyDir
-  cache:
-    enabled: true
-    mountPath: /tmp/cache
-    type: emptyDir
-  shm:
-    enabled: true
-    mountPath: /dev/shm
-    type: emptyDir
-    medium: Memory
   frigate-config:
     enabled: true
     mountPath: /config
