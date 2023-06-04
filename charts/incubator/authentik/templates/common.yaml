@@ -7,8 +7,11 @@
   {{- $_ := set .Values "secret" $secrets -}}
 {{- end -}}
 
-{{/* Render config */}}
-{{- include "authentik.config" . }}
+{{/* Render configmaps for authentik and friends */}}
+{{- $configmaps := include "authentik.configmaps" . | fromYaml -}}
+{{- if $configmaps -}}
+  {{- $_ := set .Values "configmap" $configmaps -}}
+{{- end -}}
 
 {{- if hasKey .Values "metrics" -}}
 {{- if .Values.metrics.enabled -}}
