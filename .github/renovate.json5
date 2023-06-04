@@ -62,7 +62,7 @@
       "bumpVersion": "major",
       "labels": ["update/helm/dependency/major"],
       "groupName": ["helm dependency major"],
-      "matchPaths": ["charts/dependency/**"],
+      "matchPaths": ["charts/dependency/**", "templates/**"],
     },
     {
       "matchDatasources": ["helm"],
@@ -73,7 +73,7 @@
       ],
       "bumpVersion": "patch",
       "labels": ["update/helm/dependency/non-major", "automerge"],
-      "matchPaths": ["charts/dependency/**"],
+      "matchPaths": ["charts/dependency/**", "templates/**"],
       "groupName": "helm dependency non-major",
     },
     //
