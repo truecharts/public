@@ -24,28 +24,33 @@ questions:
                                           type: string
                                           required: true
                                           default: ""
-                                      - variable: admin
-                                        label: Admin Settings
+                                      - variable: DEFAULT_ADMIN_EMAIL
+                                        label: Default Admin Email
+                                        description: Primary administrator email.
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: DEFAULT_ADMIN_PASSWORD
+                                        label: Default Admin Password
+                                        description: Primary administrator password.
+                                        schema:
+                                          type: string
+                                          required: true
+                                          private: true
+                                          default: ""
+                                      - variable: RESET_ADMIN_ON_BOOT
+                                        label: Reset Admin On Boot
+                                        description: to create or reset the admin password every time FireZone starts.
                                         schema:
                                           type: boolean
-                                          default: true
-                                          show_subquestions_if: true
-                                          subquestions:
-                                            - variable: DEFAULT_ADMIN_EMAIL
-                                              label: Default Admin Email
-                                              description: Primary administrator email.
-                                              schema:
-                                                type: string
-                                                required: true
-                                                default: ""
-                                            - variable: DEFAULT_ADMIN_PASSWORD
-                                              label: Default Admin Password
-                                              description: Primary administrator password.
-                                              schema:
-                                                type: string
-                                                required: true
-                                                private: true
-                                                default: ""
+                                          default: false
+                                      - variable: TELEMETRY_ENABLED
+                                        label: Telemetry Enabled
+                                        description: Enable or disable the FireZone telemetry collection.
+                                        schema:
+                                          type: boolean
+                                          default: false
                                       - variable: devices
                                         label: Devices Settings
                                         schema:
@@ -67,7 +72,7 @@ questions:
                                                 default: true
                                             - variable: VPN_SESSION_DURATION
                                               label: VPN Session Duration
-                                              description: Optionally require users to periodically authenticate to the Firezone, Interval for WireGuard persistent keepalive.
+                                              description: Optionally require users to periodically authenticate to the FireZone, Interval for WireGuard persistent keepalive.
                                               schema:
                                                 type: int
                                                 default: 0
@@ -97,7 +102,7 @@ questions:
                                                 default: "1.1.1.1,1.0.0.1"
                                             - variable: DEFAULT_CLIENT_ALLOWED_IPS
                                               label: Default Client Allowed IPs
-                                              description: AllowedIPs determines which destination IPs get routed through Firezone.
+                                              description: AllowedIPs determines which destination IPs get routed through FireZone.
                                               schema:
                                                 type: string
                                                 default: "0.0.0.0/0,::/0"
@@ -146,7 +151,7 @@ questions:
                                                 type: boolean
                                                 default: false
                                       - variable: outbound
-                                        label: OutBound Settings
+                                        label: OutBound Email Settings
                                         schema:
                                           type: boolean
                                           default: false
@@ -165,50 +170,50 @@ questions:
                                                 type: string
                                                 default: "Elixir.FzHttpWeb.Mailer.NoopAdapter"
                                                 enum:
-                                                  - value: Elixir.FzHttpWeb.Mailer.AmazonSES
-                                                    description: AmazonSES
-                                                  - value: Elixir.FzHttpWeb.Mailer.CustomerIO
-                                                    description: CustomerIO
-                                                  - value: Elixir.FzHttpWeb.Mailer.Dyn
+                                                  - value: "Elixir.FzHttpWeb.Mailer.AmazonSES"
+                                                    description: "AmazonSES"
+                                                  - value: "Elixir.FzHttpWeb.Mailer.CustomerIO"
+                                                    description: CustomerIO"
+                                                  - value: "Elixir.FzHttpWeb.Mailer.Dyn"
                                                     description: Dyn
-                                                  - value: Elixir.FzHttpWeb.Mailer.ExAwsAmazonSES
-                                                    description: ExAwsAmazonSES
-                                                  - value: Elixir.FzHttpWeb.Mailer.Gmail
-                                                    description: Gmail
-                                                  - value: Elixir.FzHttpWeb.Mailer.MailPace
-                                                    description: MailPace
-                                                  - value: Elixir.FzHttpWeb.Mailer.Mailgun
-                                                    description: Mailgun
-                                                  - value: Elixir.FzHttpWeb.Mailer.Mailjet
-                                                    description: Mailjet
-                                                  - value: Elixir.FzHttpWeb.Mailer.Mandrill
-                                                    description: Mandrill
-                                                  - value: Elixir.FzHttpWeb.Mailer.Postmark
-                                                    description: Postmark
-                                                  - value: Elixir.FzHttpWeb.Mailer.ProtonBridge
-                                                    description: ProtonBridge
-                                                  - value: Elixir.FzHttpWeb.Mailer.SMTP
-                                                    description: SMTP
-                                                  - value: Elixir.FzHttpWeb.Mailer.SMTP2GO
-                                                    description: SMTP2GO
-                                                  - value: Elixir.FzHttpWeb.Mailer.Sendgrid
-                                                    description: Sendgrid
-                                                  - value: Elixir.FzHttpWeb.Mailer.Sendinblue
-                                                    description: Sendinblue
-                                                  - value: Elixir.FzHttpWeb.Mailer.Sendmail
-                                                    description: Sendmail
-                                                  - value: Elixir.FzHttpWeb.Mailer.SocketLabs
-                                                    description: SocketLabs
-                                                  - value: Elixir.FzHttpWeb.Mailer.SparkPost
-                                                    description: SparkPost
-                                                  - value: Elixir.FzHttpWeb.Mailer.NoopAdapter
-                                                    description: NoopAdapter
+                                                  - value: "Elixir.FzHttpWeb.Mailer.ExAwsAmazonSES"
+                                                    description: ExAwsAmazonSES"
+                                                  - value: "Elixir.FzHttpWeb.Mailer.Gmail"
+                                                    description: Gmail"
+                                                  - value: "Elixir.FzHttpWeb.Mailer.MailPace"
+                                                    description: MailPace"
+                                                  - value: "Elixir.FzHttpWeb.Mailer.Mailgun"
+                                                    description: Mailgun"
+                                                  - value: "Elixir.FzHttpWeb.Mailer.Mailjet"
+                                                    description: MailJet"
+                                                  - value: "Elixir.FzHttpWeb.Mailer.Mandrill"
+                                                    description: Mandrill"
+                                                  - value: "Elixir.FzHttpWeb.Mailer.Postmark"
+                                                    description: Postmark"
+                                                  - value: "Elixir.FzHttpWeb.Mailer.ProtonBridge"
+                                                    description: ProtonBridge"
+                                                  - value: "Elixir.FzHttpWeb.Mailer.SMTP"
+                                                    description: SMTP"
+                                                  - value: "Elixir.FzHttpWeb.Mailer.SMTP2GO"
+                                                    description: SMTP2GO"
+                                                  - value: "Elixir.FzHttpWeb.Mailer.Sendgrid"
+                                                    description: SendGrid"
+                                                  - value: "Elixir.FzHttpWeb.Mailer.Sendinblue"
+                                                    description: "SendInBlue"
+                                                  - value: "Elixir.FzHttpWeb.Mailer.Sendmail"
+                                                    description: "Sendmail"
+                                                  - value: "Elixir.FzHttpWeb.Mailer.SocketLabs"
+                                                    description: "SocketLabs"
+                                                  - value: "Elixir.FzHttpWeb.Mailer.SparkPost"
+                                                    description: "SparkPost"
+                                                  - value: "Elixir.FzHttpWeb.Mailer.NoopAdapter"
+                                                    description: "NoopAdapter"
                                             - variable: OUTBOUND_EMAIL_ADAPTER_OPTS
                                               label: Outbound Email Adapter OPTS
                                               description: Adapter configuration, see https://github.com/swoosh/swoosh#adapters.
                                               schema:
                                                 type: string
-                                                default: "{}"
+                                                default: ""
                                       - variable: connectivity
                                         label: Connectivity Settings
                                         schema:
@@ -228,13 +233,6 @@ questions:
                                               schema:
                                                 type: int
                                                 default: 43200
-                                      - variable: TELEMETRY_ENABLED
-                                        label: Telemetry Enabled
-                                        description: Enable or disable the Firezone telemetry collection.
-                                        schema:
-                                          type: boolean
-                                          default: false
-
 
 # Include{containerBasic}
 # Include{containerAdvanced}
@@ -244,8 +242,8 @@ questions:
 # Include{serviceRoot}
 # Include{serviceMain}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the Minecraft Server runs on
           schema:
             additional_attrs: true
             type: dict
@@ -253,37 +251,36 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Web GUI port configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 51821
+                              default: 13000
                               required: true
-        - variable: vpn
-          label: "Wireguard Internal"
-          description: "Wireguard Internal Port"
+        - variable: wireguard
+          label: Wireguard Service
+          description: The Wireguard service.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: vpn
-                      label: "Wireguard Interal Port"
-                      description: "Omada Controller or EAP Discovery Utility discovers Omada devices."
+                    - variable: wireguard
+                      label: Wireguard Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 51820
