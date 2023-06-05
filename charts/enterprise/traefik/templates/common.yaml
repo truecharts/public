@@ -1,4 +1,8 @@
 {{/* Make sure all variables are set properly */}}
+{{- if not .Values.ingressClass.enabled -}}
+  {{- $_ := set .Values.operator "register" true -}}
+{{- end -}}
+
 {{- include "tc.v1.common.loader.init" . }}
 
 {{- $newArgs :=  (include "traefik.args" . | fromYaml) }}
