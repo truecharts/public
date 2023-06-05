@@ -30,7 +30,7 @@
 {{- end -}}
 
 {{- if .Values.outposts.ldap.enabled -}}
-{{- $_ := set .Values.additionalContainers "ldap-outpost" (include "authentik.ldap" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "ldap-outpost" (include "authentik.ldap.container" . | fromYaml) -}}
 {{/* - if .Values.metrics.enabled - */}}
 {{/* https://github.com/prometheus/prometheus/issues/3756 */}}
 {{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}
