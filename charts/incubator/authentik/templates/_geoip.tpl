@@ -13,4 +13,11 @@ envFrom:
       name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-geoip-config'
 {{/* TODO: Add healthchecks */}}
 {{/* TODO: https://github.com/maxmind/geoipupdate/issues/105 */}}
+probes:
+  readiness:
+    enabled: false
+  liveness:
+    enabled: false
+  startup:
+    enabled: false
 {{- end -}}

@@ -9,19 +9,23 @@ envFrom:
       name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-authentik-secret'
   - configMapRef:
       name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-authentik-config'
-readinessProbe:
-  exec:
+probes:
+  readiness:
+    enabled: true
+    type: exec
     command:
-      - /lifecycle/ak
-      - healthcheck
-livenessProbe:
-  exec:
+        - /lifecycle/ak
+        - healthcheck
+  liveness:
+    enabled: true
+    type: exec
     command:
-      - /lifecycle/ak
-      - healthcheck
-startupProbe:
-  exec:
+        - /lifecycle/ak
+        - healthcheck
+  startup:
+    enabled: true
+    type: exec
     command:
-      - /lifecycle/ak
-      - healthcheck
+        - /lifecycle/ak
+        - healthcheck
 {{- end -}}

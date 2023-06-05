@@ -20,16 +20,20 @@ ports:
   - containerPort: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
     name: proxymetrics
 {{- end }}
-readinessProbe:
-  httpGet:
+probes:
+  readiness:
+    enabled: true
+    type: {{ .Values.service.proxymetrics.ports.proxymetrics.protocol }}
     path: /outpost.goauthentik.io/ping
     port: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
-livenessProbe:
-  httpGet:
+  liveness:
+    enabled: true
+    type: {{ .Values.service.proxymetrics.ports.proxymetrics.protocol }}
     path: /outpost.goauthentik.io/ping
     port: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
-startupProbe:
-  httpGet:
+  startup:
+    enabled: true
+    type: {{ .Values.service.proxymetrics.ports.proxymetrics.protocol }}
     path: /outpost.goauthentik.io/ping
     port: {{ .Values.service.proxymetrics.ports.proxymetrics.targetPort }}
 {{- end -}}

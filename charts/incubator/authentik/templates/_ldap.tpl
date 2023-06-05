@@ -20,16 +20,20 @@ ports:
   - containerPort: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
     name: ldapmetrics
 {{- end }}
-readinessProbe:
-  httpGet:
+probes:
+  readiness:
+    enabled: true
+    type: {{ .Values.service.ldapmetrics.ports.ldapmetrics.protocol }}
     path: /outpost.goauthentik.io/ping
     port: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
-livenessProbe:
-  httpGet:
+  liveness:
+    enabled: true
+    type: {{ .Values.service.ldapmetrics.ports.ldapmetrics.protocol }}
     path: /outpost.goauthentik.io/ping
     port: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
-startupProbe:
-  httpGet:
+  startup:
+    enabled: true
+    type: {{ .Values.service.ldapmetrics.ports.ldapmetrics.protocol }}
     path: /outpost.goauthentik.io/ping
     port: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
 {{- end -}}
