@@ -1,0 +1,13 @@
+  - variable: crds
+    group: "General Settings"
+    label: CRDS options
+    description: configures CRD options
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: install
+          label: Install CRDs
+          schema:
+            type: boolean
+            default: true
