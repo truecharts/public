@@ -18,135 +18,40 @@ proxyImage:
   tag: 2023.4.1@sha256:b6e40435836333bdc53afde38f4c4bfb342005b0636d769c641c79348ce1aae4
   pullPolicy: IfNotPresent
 
-args: ["server"]
-
-podSecurityContext:
-  runAsUser: 1000
-  runAsGroup: 1000
-
 securityContext:
-  readOnlyRootFilesystem: false
+  container:
+    runAsUser: 1000
+    runAsGroup: 1000
+    readOnlyRootFilesystem: false
 
-workerContainer:
-  enabled: true
-
-authentik:
-  credentials:
-    password: "supersecret"
-  general:
-    disable_update_check: false
-    disable_startup_analytics: true
-    allow_user_name_change: true
-    allow_user_mail_change: true
-    allow_user_username_change: true
-    gdpr_compliance: true
-    impersonation: true
-    avatars: "gravatar,initials"
-    token_length: 128
-    # Use single quotes for footer_links
-    footer_links: '[{"name": "Link Name", "href": "https://mylink.com"}]'
-  mail:
-    host: ""
-    port: 25
-    tls: false
-    ssl: false
-    timeout: 10
-    user: ""
-    pass: ""
-    from: ""
-  error_reporting:
-    enabled: false
-    send_pii: false
-    environment: "customer"
-  logging:
-    log_level: "info"
-  ldap:
-    tls_ciphers: "null"
-geoip:
-  enabled: false
-  account_id: ""
-  license_key: ""
-  proxy: ""
-  proxy_user_pass: ""
-  edition_ids: "GeoLite2-City"
-  frequency: 8
-  host_server: "updates.maxmind.com"
-  preserve_file_times: false
-  verbose: false
-
-outposts:
-  ldap:
-    # -- First you have to create an Outpost in the GUI. Applications > Outposts
-    enabled: false
-    # -- Host Browser by default is set to the first ingress host you set
-    # host_browser: ""
-    # -- Host should not need to be overridden. Defaults to https://localhost:9443
-    # host: ""
-    # -- As we use https://localhost:9443 it's an unsecure connection
-    # insecure: false
-    # -- Token is only needed if you accidentally deleted the token within the UI
-    # token: ""
-  proxy:
-    # -- First you have to create an Outpost in the GUI. Applications > Outposts
-    enabled: false
-    # -- Host Browser by default is set to the first ingress host you set
-    # host_browser: ""
-    # -- As we use https://localhost:9443 it's an unsecure connection
-    # insecure: false
-    # -- Host should not need to be overridden. Defaults to https://localhost:9443
-    # host: ""
-    # -- Token is only needed if you accidentally deleted the token within the UI
-    # token: ""
-
-metrics:
-  # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
-  # @default -- See values.yaml
-  enabled: false
-  serviceMonitor:
-    interval: 1m
-    scrapeTimeout: 30s
-    labels: {}
-  # -- Enable and configure Prometheus Rules for the chart under this key.
-  # @default -- See values.yaml
-  prometheusRule:
-    enabled: false
-    useDefault: true
-    labels: {}
-    # -- Configure additional rules for the chart under this key.
-    # @default -- See prometheusrules.yaml
-    rules:
-      []
-      # - alert: UnifiPollerAbsent
-      #   annotations:
-      #     description: Unifi Poller has disappeared from Prometheus service discovery.
-      #     summary: Unifi Poller is down.
-      #   expr: |
-      #     absent(up{job=~".*unifi-poller.*"} == 1)
-      #   for: 5m
-      #   labels:
-      #     severity: critical
-
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-authentik-secret'
-  - configMapRef:
-      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-authentik-config'
-  - configMapRef:
-      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-authentik-server-config'
-
-probes:
-  liveness:
-    type: HTTPS
-    path: /-/health/live/
-    port: "{{ .Values.service.main.ports.main.targetPort }}"
-  readiness:
-    type: HTTPS
-    path: /-/health/ready/
-    port: "{{ .Values.service.main.ports.main.targetPort }}"
-  startup:
-    type: HTTPS
-    path: /-/health/ready/
-    port: "{{ .Values.service.main.ports.main.targetPort }}"
+workload:
+  main:
+    replicas: 1
+    strategy: RollingUpdate
+    podSpec:
+      containers:
+        main:
+          args: ["server"]
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-authentik-secret'
+            - configMapRef:
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-authentik-config'
+            - configMapRef:
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-authentik-server-config'
+          probes:
+            liveness:
+              type: HTTPS
+              path: /-/health/live/
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            readiness:
+              type: HTTPS
+              path: /-/health/ready/
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            startup:
+              type: HTTPS
+              path: /-/health/ready/
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
 
 service:
   main:
@@ -226,6 +131,37 @@ service:
         protocol: HTTP
         targetPort: 9303
 
+metrics:
+  # TODO
+  main:
+    # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
+    # @default -- See values.yaml
+    enabled: false
+    type: "servicemonitor"
+    endpoints:
+      - port: main
+        path: /metrics
+        interval: 1m
+        scrapeTimeout: 30s
+    # -- Enable and configure Prometheus Rules for the chart under this key.
+    # @default -- See values.yaml
+    prometheusRule:
+      enabled: false
+      labels: {}
+      # -- Configure additionial rules for the chart under this key.
+      # @default -- See prometheusrules.yaml
+      rules:
+        []
+        # - alert: UnifiPollerAbsent
+        #   annotations:
+        #     description: Unifi Poller has disappeared from Prometheus service discovery.
+        #     summary: Unifi Poller is down.
+        #   expr: |
+        #     absent(up{job=~".*unifi-poller.*"} == 1)
+        #   for: 5m
+        #   labels:
+        #     severity: critical
+
 ingress:
   proxyhttps:
     autoLink: true
@@ -244,15 +180,88 @@ persistence:
     enabled: true
     mountPath: "/geoip"
 
+redis:
+  enabled: true
+
+workerContainer:
+  enabled: true
+
+authentik:
+  credentials:
+    password: "supersecret"
+  general:
+    disable_update_check: false
+    disable_startup_analytics: true
+    allow_user_name_change: true
+    allow_user_mail_change: true
+    allow_user_username_change: true
+    gdpr_compliance: true
+    impersonation: true
+    avatars: "gravatar,initials"
+    token_length: 128
+    # Use single quotes for footer_links
+    footer_links: '[{"name": "Link Name", "href": "https://mylink.com"}]'
+  mail:
+    host: ""
+    port: 25
+    tls: false
+    ssl: false
+    timeout: 10
+    user: ""
+    pass: ""
+    from: ""
+  error_reporting:
+    enabled: false
+    send_pii: false
+    environment: "customer"
+  logging:
+    log_level: "info"
+  ldap:
+    tls_ciphers: "null"
+
+geoip:
+  enabled: false
+  account_id: ""
+  license_key: ""
+  proxy: ""
+  proxy_user_pass: ""
+  edition_ids: "GeoLite2-City"
+  frequency: 8
+  host_server: "updates.maxmind.com"
+  preserve_file_times: false
+  verbose: false
+
+outposts:
+  ldap:
+    # -- First you have to create an Outpost in the GUI. Applications > Outposts
+    enabled: false
+    # -- Host Browser by default is set to the first ingress host you set
+    # host_browser: ""
+    # -- Host should not need to be overridden. Defaults to https://localhost:9443
+    # host: ""
+    # -- As we use https://localhost:9443 it's an unsecure connection
+    # insecure: false
+    # -- Token is only needed if you accidentally deleted the token within the UI
+    # token: ""
+  proxy:
+    # -- First you have to create an Outpost in the GUI. Applications > Outposts
+    enabled: false
+    # -- Host Browser by default is set to the first ingress host you set
+    # host_browser: ""
+    # -- As we use https://localhost:9443 it's an unsecure connection
+    # insecure: false
+    # -- Host should not need to be overridden. Defaults to https://localhost:9443
+    # host: ""
+    # -- Token is only needed if you accidentally deleted the token within the UI
+    # token: ""
+
+# TODO
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: authentik
   postgresqlDatabase: authentik
 
-redis:
-  enabled: true
-  existingSecret: "rediscreds"
-
 portal:
-  enabled: true
+  open:
+    enabled: true
