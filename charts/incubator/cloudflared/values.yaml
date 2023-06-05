@@ -3,13 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v2023.5.1@sha256:2136a26cb736c3219c523c3dfdfa53efd5834a82cfefcb2b991b47237c0e149f
 
-args:
-  - tunnel
-  - --no-autoupdate
-  - run
-  - --token
-  - "{{ .Values.cloudflared.token }}"
-
 cloudflared:
   token: ""
 
@@ -25,6 +18,13 @@ workload:
               enabled: false
             startup:
               enabled: false
+          command:
+            - tunnel
+          args:
+            - --no-autoupdate
+            - run
+            - --token
+            - "{{ .Values.cloudflared.token }}"
 
 service:
   main:

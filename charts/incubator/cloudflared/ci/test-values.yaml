@@ -1,4 +1,10 @@
-args:
-  - tunnel
-  - --no-autoupdate
-  - --hello-world
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          command:
+            - tunnel
+          args:
+            - --no-autoupdate
+            - --hello-world
