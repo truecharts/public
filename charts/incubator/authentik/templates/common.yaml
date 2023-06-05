@@ -22,7 +22,7 @@
 {{- end -}}
 
 {{- if .Values.workerContainer.enabled -}}
-{{- $_ := set .Values.additionalContainers "worker" (include "authentik.worker" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "worker" (include "authentik.worker.container" . | fromYaml) -}}
 {{- end -}}
 
 {{- if .Values.geoip.enabled -}}

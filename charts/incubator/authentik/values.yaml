@@ -166,16 +166,29 @@ ingress:
   proxyhttps:
     autoLink: true
 
+# Target selectors taken from authentik's compose file:
+# See https://github.com/goauthentik/authentik/blob/main/docker-compose.yml
 persistence:
   media:
     enabled: true
     mountPath: "/media"
+    targetSelector:
+      main:
+        main: {}
+        worker: {}
   templates:
     enabled: true
     mountPath: "/templates"
+    targetSelector:
+      main:
+        main: {}
+        worker: {}
   certs:
     enabled: true
     mountPath: "/certs"
+    targetSelector:
+      main:
+        worker: {}
   geoip:
     enabled: true
     mountPath: "/geoip"
