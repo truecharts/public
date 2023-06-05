@@ -8,17 +8,16 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-                                - variable: cloudflared
-                                  group: App Configuration
-                                  label: Cloudflared Configuration
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
                                   schema:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
-                                      - variable: token
-                                        label: Tunnel Token
-                                        description: Token for tunnel (Tunnel managed by Cloudflare not locally)
+                                      - variable: TUNNEL_TOKEN
+                                        label: "Tunnel Token"
+                                        description: "Token for tunnel (Tunnel managed by Cloudflare not locally)"
                                         schema:
                                           type: string
                                           required: true

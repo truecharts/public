@@ -1,4 +1,3 @@
-# With the bellow we test both container starts and that tpl is working inside extraArgs list
 workload:
   main:
     podSpec:
@@ -7,6 +6,4 @@ workload:
           args:
             - tunnel
             - --no-autoupdate
-            - "{{ .Values.testTpl }}"
-
-testTpl: "--hello-world"
+            - --hello-world
