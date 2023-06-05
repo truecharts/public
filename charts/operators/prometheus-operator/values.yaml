@@ -31,11 +31,11 @@ workload:
             - --localhost=127.0.0.1
             # - --prometheus-default-base-image={{ .Values.global.imageRegistry | default .Values.prometheusOperator.prometheusDefaultBaseImageRegistry }}/{{ .Values.prometheusOperator.prometheusDefaultBaseImage }}
             # - --alertmanager-default-base-image={{ .Values.global.imageRegistry | default .Values.prometheusOperator.alertmanagerDefaultBaseImageRegistry }}/{{ .Values.prometheusOperator.alertmanagerDefaultBaseImage }}
-            - --prometheus-config-reloader={{ $configReloaderRegistry }}/{{ .Values.prometheusOperator.prometheusConfigReloader.image.repository }}:{{ .Values.prometheusOperator.prometheusConfigReloader.image.tag | default .Chart.AppVersion }}
-            - --config-reloader-cpu-request={{ .Values.prometheusOperator.prometheusConfigReloader.resources.requests.cpu }}
-            - --config-reloader-cpu-limit={{ .Values.prometheusOperator.prometheusConfigReloader.resources.limits.cpu }}
-            - --config-reloader-memory-request={{ .Values.prometheusOperator.prometheusConfigReloader.resources.requests.memory }}
-            - --config-reloader-memory-limit={{ .Values.prometheusOperator.prometheusConfigReloader.resources.limits.memory }}
+            - --prometheus-config-reloader={{ .Values.configReloaderImage.repository }}:{{ .Values.configReloaderImage.tag }}
+            - --config-reloader-cpu-request={{ .Values..resources.requests.cpu }}
+            - --config-reloader-cpu-limit={{ .Values.resources.limits.cpu }}
+            - --config-reloader-memory-request={{ .Values.resources.requests.memory }}
+            - --config-reloader-memory-limit={{ .Values.resources.limits.memory }}
             - --enable-config-reloader-probes={{ .Values.prometheusOperator.prometheusConfigReloader.probes.enabled }}
             # - --alertmanager-instance-namespaces={{ .Values.prometheusOperator.alertmanagerInstanceNamespaces | join "," }}
             # - --alertmanager-instance-selector={{ .Values.prometheusOperator.alertmanagerInstanceSelector }}
