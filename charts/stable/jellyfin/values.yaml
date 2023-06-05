@@ -49,6 +49,4 @@ workload:
 # -- enable Jellyfin autodiscovery on LAN
 autodiscovery:
   enabled: false
-  # Uncomment this to override the advertised URL.
-  # "{{ $.Values.chartContext.APPURL }}" is used by default
-  # autodiscoveryUrl: "https://jelly.mydomain.com"
+  autodiscoveryUrl: "https://jelly.mydomain.com"
