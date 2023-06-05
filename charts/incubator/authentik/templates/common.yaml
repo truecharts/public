@@ -39,7 +39,7 @@
 {{- end -}}
 
 {{- if .Values.outposts.proxy.enabled -}}
-{{- $_ := set .Values.additionalContainers "proxy-outpost" (include "authentik.proxy" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "proxy-outpost" (include "authentik.proxy.container" . | fromYaml) -}}
 {{/* - if .Values.metrics.enabled - */}}
 {{/* https://github.com/prometheus/prometheus/issues/3756 */}}
 {{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}
