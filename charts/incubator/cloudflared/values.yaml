@@ -18,9 +18,8 @@ workload:
               enabled: false
             startup:
               enabled: false
-          command:
-            - tunnel
           args:
+            - tunnel
             - --no-autoupdate
             - run
             - --token
