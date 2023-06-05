@@ -11,46 +11,6 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-                                - variable: env
-                                  label: Image Environment
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: EXTERNAL_URL
-                                        label: External Url
-                                        description: Must be a valid and public FQDN for ACME SSL issuance to function.
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: ""
-                                      - variable: DEFAULT_ADMIN_EMAIL
-                                        label: Default Admin Email
-                                        description: Primary administrator email.
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: ""
-                                      - variable: DEFAULT_ADMIN_PASSWORD
-                                        label: Default Admin Password
-                                        description: Primary administrator password.
-                                        schema:
-                                          type: string
-                                          required: true
-                                          private: true
-                                          default: ""
-                                      - variable: RESET_ADMIN_ON_BOOT
-                                        label: Reset Admin On Boot
-                                        description: to create or reset the admin password every time FireZone starts.
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: TELEMETRY_ENABLED
-                                        label: Telemetry Enabled
-                                        description: Enable or disable the FireZone telemetry collection.
-                                        schema:
-                                          type: boolean
-                                          default: false
 
 # Include{containerBasic}
 # Include{containerAdvanced}
@@ -58,10 +18,9 @@ questions:
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
-# Include{serviceMain}
         - variable: main
           label: Main Service
-          description: The Primary service on which the Minecraft Server runs on
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -83,7 +42,7 @@ questions:
                               required: true
         - variable: wireguard
           label: Wireguard Service
-          description: The Wireguard service.
+          description: The Wireguard service
           schema:
             additional_attrs: true
             type: dict
@@ -108,8 +67,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+          label: App Config Storage
+          description: Stores the Application Config.
           schema:
             additional_attrs: true
             type: dict
@@ -118,7 +77,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -126,19 +85,17 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-# Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
-
               - variable: runAsUser
-                label: "runAsUser"
-                description: "The UserID of the user running the application"
+                label: runAsUser
+                description: The UserID of the user running the application
                 schema:
                   type: int
                   default: 0
               - variable: runAsGroup
-                label: "runAsGroup"
-                description: "The groupID this App of the user running the application"
+                label: runAsGroup
+                description: The groupID of the user running the application
                 schema:
                   type: int
                   default: 0
@@ -146,13 +103,14 @@ questions:
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
               - variable: fsGroup
-                label: "fsGroup"
-                description: "The group that should own ALL storage."
+                label: fsGroup
+                description: The group that should own ALL storage.
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
+# Include{metrics}
+# Include{prometheusRule}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
