@@ -41,15 +41,15 @@ workload:
                 name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-authentik-server-config'
           probes:
             liveness:
-              type: HTTPS
+              type: https
               path: /-/health/live/
               port: "{{ .Values.service.main.ports.main.targetPort }}"
             readiness:
-              type: HTTPS
+              type: https
               path: /-/health/ready/
               port: "{{ .Values.service.main.ports.main.targetPort }}"
             startup:
-              type: HTTPS
+              type: https
               path: /-/health/ready/
               port: "{{ .Values.service.main.ports.main.targetPort }}"
 
@@ -57,7 +57,7 @@ service:
   main:
     ports:
       main:
-        protocol: HTTPS
+        protocol: https
         port: 10229
         targetPort: 9443
   http:
@@ -66,7 +66,7 @@ service:
     ports:
       http:
         enabled: true
-        protocol: HTTP
+        protocol: http
         port: 10230
         targetPort: 9000
   # LDAP Outpost Services
@@ -91,7 +91,7 @@ service:
       proxyhttps:
         enabled: true
         port: 10233
-        protocol: HTTPS
+        protocol: https
         targetPort: 9444
   proxyhttp:
     enabled: true
@@ -100,7 +100,7 @@ service:
       proxyhttp:
         enabled: true
         port: 10234
-        protocol: HTTP
+        protocol: http
         targetPort: 9001
   # Metrics Services
   metrics:
@@ -109,7 +109,7 @@ service:
     ports:
       metrics:
         enabled: true
-        protocol: HTTP
+        protocol: http
         port: 10231
         targetPort: 9301
   ldapmetrics:
@@ -119,7 +119,7 @@ service:
       ldapmetrics:
         enabled: true
         port: 10232
-        protocol: HTTP
+        protocol: http
         targetPort: 9302
   proxymetrics:
     enabled: true
@@ -128,7 +128,7 @@ service:
       proxymetrics:
         enabled: true
         port: 10235
-        protocol: HTTP
+        protocol: http
         targetPort: 9303
 
 metrics:
