@@ -191,7 +191,10 @@ persistence:
         worker: {}
   geoip:
     enabled: true
-    mountPath: "/geoip"
+    mountPath: "/usr/share/GeoIP"
+    targetSelector:
+      main:
+        geoip: {}
 
 redis:
   enabled: true

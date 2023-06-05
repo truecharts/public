@@ -1,15 +1,11 @@
 {{/* Define the geoip container */}}
-{{- define "authentik.geoip" -}}
-image: {{ .Values.geoipImage.repository }}:{{ .Values.geoipImage.tag }}
-imagePullPolicy: {{ .Values.geoipImage.pullPolicy }}
+{{- define "authentik.geoip.container" -}}
+enabled: true
+primary: false
+imageSelector: geoipImage
 securityContext:
   runAsUser: 0
   runAsGroup: 0
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-volumeMounts:
-  - name: geoip
-    mountPath: "/usr/share/GeoIP"
 envFrom:
   - secretRef:
       name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-geoip-secret'
