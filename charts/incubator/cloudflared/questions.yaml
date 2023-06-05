@@ -16,8 +16,8 @@ questions:
                                     type: dict
                                     attrs:
                                       - variable: TUNNEL_TOKEN
-                                        label: TUNNEL_TOKEN
-                                        description: Container Variable TUNNEL_TOKEN
+                                        label: "Tunnel Token"
+                                        description: "Token for tunnel (Tunnel managed by Cloudflare not locally)""
                                         schema:
                                           type: string
                                           required: true
