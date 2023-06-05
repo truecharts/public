@@ -23,7 +23,7 @@ workload:
             - --no-autoupdate
             - run
           env:
-            TUNNEL_TOKEN: "{{ .Values.cloudflared.token }}"
+            TUNNEL_TOKEN: ""
 
 service:
   main:
