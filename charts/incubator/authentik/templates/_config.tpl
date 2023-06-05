@@ -22,13 +22,13 @@
     {{/* Dependencies */}}
     AUTHENTIK_REDIS__HOST: {{ .Values.redis.creds.plain }}
     {{- with $redis := .Values.redisProvider }}
-    AUTHENTIK_REDIS__PORT: {{ default 6379 $redis.port }}
+    AUTHENTIK_REDIS__PORT: {{ default 6379 $redis.port | quote }}
     {{- end }}
     AUTHENTIK_POSTGRESQL__NAME: {{ .Values.cnpg.main.database }}
     AUTHENTIK_POSTGRESQL__USER: {{ .Values.cnpg.main.user }}
     AUTHENTIK_POSTGRESQL__HOST: {{ .Values.cnpg.main.creds.host }}
     {{- with $cnpg := .Values.cnpgProvider }}
-    AUTHENTIK_POSTGRESQL__PORT: {{ default 5432 $cnpg.port }}
+    AUTHENTIK_POSTGRESQL__PORT: {{ default 5432 $cnpg.port | quote }}
     {{- end }}
     {{/* Mail */}}
     {{- with .Values.authentik.mail.port }}
