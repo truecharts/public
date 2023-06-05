@@ -19,13 +19,17 @@
 {{ $authServerWorkerConfigName }}:
   enabled: true
   data:
-    {{/* TODO: Dependencies */}}
-    AUTHENTIK_REDIS__HOST: {{ printf "%v-%v" .Release.Name "redis" }}
-    AUTHENTIK_REDIS__PORT: "6379"
-    AUTHENTIK_POSTGRESQL__NAME: {{ .Values.postgresql.postgresqlDatabase }}
-    AUTHENTIK_POSTGRESQL__USER: {{ .Values.postgresql.postgresqlUsername }}
-    AUTHENTIK_POSTGRESQL__HOST: {{ printf "%v-%v" .Release.Name "postgresql" }}
-    AUTHENTIK_POSTGRESQL__PORT: "5432"
+    {{/* Dependencies */}}
+    AUTHENTIK_REDIS__HOST: {{ .Values.redis.creds.plain }}
+    {{- with $redis := .Values.redisProvider }}
+    AUTHENTIK_REDIS__PORT: {{ default 6379 $redis.port }}
+    {{- end }}
+    AUTHENTIK_POSTGRESQL__NAME: {{ .Values.cnpg.main.database }}
+    AUTHENTIK_POSTGRESQL__USER: {{ .Values.cnpg.main.user }}
+    AUTHENTIK_POSTGRESQL__HOST: {{ .Values.cnpg.main.creds.host }}
+    {{- with $cnpg := .Values.cnpgProvider }}
+    AUTHENTIK_POSTGRESQL__PORT: {{ default 5432 $cnpg.port }}
+    {{- end }}
     {{/* Mail */}}
     {{- with .Values.authentik.mail.port }}
     AUTHENTIK_EMAIL__PORT: {{ . | quote }}

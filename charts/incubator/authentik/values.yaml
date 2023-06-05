@@ -196,8 +196,22 @@ persistence:
       main:
         geoip: {}
 
+cnpg:
+  main:
+    enabled: true
+    user: authentik
+    database: authentik
+
+cnpgProvider:
+  port: 5432
+
+# Enabled redis
+# ... for more options see https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/redis
 redis:
   enabled: true
+
+redisProvider:
+  port: 6379
 
 workerContainer:
   enabled: true
@@ -270,13 +284,6 @@ outposts:
     # host: ""
     # -- Token is only needed if you accidentally deleted the token within the UI
     # token: ""
-
-# TODO
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: authentik
-  postgresqlDatabase: authentik
 
 portal:
   open:

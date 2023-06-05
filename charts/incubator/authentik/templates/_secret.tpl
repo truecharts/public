@@ -19,9 +19,9 @@
     AUTHENTIK_SECRET_KEY: {{ randAlphaNum 32 | b64enc }}
     {{- end }}
     AUTHENTIK_BOOTSTRAP_TOKEN: {{ $token }}
-    {{/* TODO: Dependencies */}}
-    AUTHENTIK_POSTGRESQL__PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
-    AUTHENTIK_REDIS__PASSWORD: {{ .Values.redis.redisPassword | trimAll "\"" | b64enc }}
+    {{/* Dependencies */}}
+    AUTHENTIK_POSTGRESQL__PASSWORD: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
+    AUTHENTIK_REDIS__PASSWORD: {{ .Values.redis.creds.redisPassword | trimAll "\"" }}
     {{/* Credentials */}}
     {{- with .Values.authentik.credentials.password }}
     AUTHENTIK_BOOTSTRAP_PASSWORD: {{ . | b64enc }}
