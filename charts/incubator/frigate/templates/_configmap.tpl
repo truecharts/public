@@ -6,8 +6,10 @@ data:
     database:
       path: /db/frigate.db
 
+    {{- if .Values.frigate.mqtt.render_config }}
     mqtt:
       {{- include "frigate.mqtt" .Values.frigate.mqtt | indent 6 }}
+    {{- end }}
 
     {{- if and .Values.frigate.detectors.render_config .Values.frigate.detectors.config }}
     detectors:
@@ -62,6 +64,11 @@ data:
     {{- if .Values.frigate.rtmp.render_config }}
     rtmp:
       {{- include "frigate.rtmp" .Values.frigate.rtmp | indent 6 }}
+    {{- end }}
+
+    {{- if .Values.frigate.go2rtc.render_config }}
+    go2rtc:
+      {{- include "frigate.go2rtc" .Values.frigate.go2rtc | indent 6 }}
     {{- end }}
 
     {{- if .Values.frigate.live.render_config }}
@@ -153,6 +160,16 @@ data:
         {{- end -}} {{/* end with ui */}}
         {{- end -}} {{/* end if ui.render_config */}}
     {{- end -}} {{/* end range cameras */}}
+
+    {{- if .Values.frigate.ui.render_config }}
+    live:
+      {{- include "frigate.ui" .Values.frigate.ui | indent 6 }}
+    {{- end }}
+
+    {{- if .Values.frigate.telemetry.render_config }}
+    live:
+      {{- include "frigate.telemetry" .Values.frigate.telemetry | indent 6 }}
+    {{- end }}
 {{- end }}
 
 {{- define "frigate.ffmpeg" -}}
@@ -161,11 +178,11 @@ data:
 {{- with $ffmpeg.global_args }}
 global_args: {{ . }}
 {{- end -}}
-{{- with $ffmpeg.input_args }}
-input_args: {{ . }}
-{{- end -}}
 {{- with $ffmpeg.hwaccel_args }}
 hwaccel_args: {{ . }}
+{{- end -}}
+{{- with $ffmpeg.input_args }}
+input_args: {{ . }}
 {{- end -}}
 {{- if $ffmpeg.output_args -}}
 {{- if or $ffmpeg.output_args.detect $ffmpeg.output_args.record $ffmpeg.output_args.rtmp }}
@@ -287,14 +304,14 @@ events:
   {{- end -}}
   {{- if $record.events.retain.render_config }}
   retain:
-    default: {{ $record.events.retain.default | required "You need to provide default retain days" }}
+    default: {{ $record.events.retain.default | required "You need to provide default retention days" }}
     {{- with $record.events.retain.mode }}
     mode: {{ . }}
     {{- end -}}
     {{- with $record.events.retain.objects }}
     objects:
     {{- range $obj := . }}
-      {{ $obj.object | required "You need to provide an object" }}: {{ $obj.days | required "You need to provide default retain days" }}
+      {{ $obj.object | required "You need to provide an object" }}: {{ $obj.days | required "You need to provide per object retention days" }}
     {{- end -}}
     {{- end -}}
   {{- end -}}
@@ -345,6 +362,7 @@ filters:
 {{- define "frigate.birdseye" -}}
 {{- $birdseye := . }}
 enabled: {{ ternary "True" "False" $birdseye.enabled }}
+restream: {{ ternary "True" "False" $birdseye.restream }}
 {{- with $birdseye.width }}
 width: {{ . }}
 {{- end -}}
@@ -397,6 +415,22 @@ quality: {{ . }}
 enabled: {{ ternary "True" "False" $rtmp.enabled }}
 {{- end -}}
 
+{{- define "frigate.go2rtc" -}}
+{{- $go2rtc := . -}}
+{{- if $go2rtc.rtsp.render_config }}
+rtsp:
+  username: {{ $go2rtc.rtsp.username | required "You need to provide a username" }}
+  password: {{ $go2rtc.rtsp.password | required "You need to provide a password" }}
+{{- end -}}
+streams:
+  {{- range $stream := . }}
+  {{ $stream.stream_name | required "You have to specify a stream name" }}:
+    {{- range $path := $stream.stream_path }}
+    - {{ $path | required "You have to specify a stream path" }}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
 {{- define "frigate.snapshots" -}}
 {{- $snapshots := . }}
 enabled: {{ ternary "True" "False" $snapshots.enabled }}
@@ -415,11 +449,11 @@ required_zones:
 {{- end -}}
 {{- if $snapshots.retain.render_config }}
 retain:
-  default: {{ $snapshots.retain.default | required "You need to provide default retain days" }}
+  default: {{ $snapshots.retain.default | required "You need to provide default retention days" }}
   {{- with $snapshots.retain.objects }}
   objects:
   {{- range $obj := . }}
-    {{ $obj.object | required "You need to provide an object" }}: {{ $obj.days | required "You need to provide default retain days" }}
+    {{ $obj.object | required "You need to provide an object" }}: {{ $obj.days | required "You need to provide per object retention days" }}
   {{- end -}}
   {{- end -}}
 {{- end -}}
@@ -442,13 +476,22 @@ retain:
 
 {{- define "frigate.model" -}}
 {{ $model := . }}
-width: {{ $model.width | required "You need to provide a model width" }}
-height: {{ $model.height | required "You need to provide a model height" }}
 {{- with $model.path }}
 path: {{ . }}
 {{- end -}}
 {{- with $model.labelmap_path }}
 labelmap_path: {{ . }}
+{{- end -}}
+width: {{ $model.width | required "You need to provide a model width" }}
+height: {{ $model.height | required "You need to provide a model height" }}
+{{- with $model.input_pixel_format }}
+input_pixel_format: {{ . }}
+{{- end -}}
+{{- with $model.input_tensor }}
+input_tensor: {{ . }}
+{{- end -}}
+{{- with $model.model_type }}
+model_type: {{ . }}
 {{- end -}}
 {{- with $model.labelmap }}
 labelmap:
@@ -460,18 +503,19 @@ labelmap:
 
 {{- define "frigate.logger" -}}
 {{- $logger := . }}
+{{- with $logger.default }}
 default: {{ $logger.default }}
+{{- end -}}
 {{- with $logger.logs }}
 logs:
   {{- range $log := . }}
-  {{ $log.component | required "You need to provide a logger cmponent" }}: {{ $log.verbosity | required "You need to provide logger verbosity" }}
+  {{ $log.component | required "You need to provide a logger component" }}: {{ $log.verbosity | required "You need to provide logger verbosity" }}
   {{- end -}}
 {{- end -}}
 {{- end -}}
 
 {{- define "frigate.mqtt" -}}
 {{- $mqtt := . }}
-{{- if $mqtt.render_config }}
 enabled: {{ ternary "True" "False" $mqtt.enabled }}
 host: {{ required "You need to provide an MQTT host" $mqtt.host }}
 {{- with $mqtt.port }}
@@ -483,14 +527,51 @@ topic_prefix: {{ . }}
 {{- with $mqtt.client_id }}
 client_id: {{ . }}
 {{- end -}}
-{{- if not (kindIs "invalid" $mqtt.stats_interval) }}
-stats_interval: {{ $mqtt.stats_interval }}
-{{- end -}}
 {{- with $mqtt.user }}
 user: {{ . }}
 {{- end -}}
 {{- with $mqtt.password }}
 password: {{ . }}
 {{- end -}}
+{{- with $mqtt.tls_ca_certs }}
+tls_ca_certs: {{ . }}
 {{- end -}}
+{{- with $mqtt.tls_client_cert }}
+tls_client_cert: {{ . }}
+{{- end -}}
+{{- with $mqtt.tls_client_key }}
+tls_client_key: {{ . }}
+{{- end -}}
+tls_insecure: {{ ternary "True" "False" $mqtt.tls_insecure }}
+{{- if not (kindIs "invalid" $mqtt.stats_interval) }}
+stats_interval: {{ $mqtt.stats_interval }}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.ui" -}}
+{{- $ui := . }}
+{{- with $ui.live_mode }}
+live_mode: {{ . }}
+{{- end -}}
+{{- with $ui.timezone }}
+timezone: {{ . }}
+{{- end -}}
+use_experimental: {{ ternary "True" "False" $ui.use_experimental }}
+{{- with $ui.time_format }}
+time_format: {{ . }}
+{{- end -}}
+{{- with $ui.date_style }}
+date_style: {{ . }}
+{{- end -}}
+{{- with $ui.time_style }}
+time_style: {{ . }}
+{{- end -}}
+{{- with $ui.strftime_fmt }}
+strftime_fmt: {{ . }}
+{{- end -}}
+{{- end -}}
+
+{{- define "frigate.telemetry" -}}
+{{- $telemetry := . }}
+version_check: {{ ternary "True" "False" $telemetry.version_check }}
 {{- end -}}

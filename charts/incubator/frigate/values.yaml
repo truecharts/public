@@ -18,17 +18,32 @@ frigate:
   mqtt:
     # -- Enable it to add the configuration in the config file
     render_config: true
-    # -- Enables MQTT
+    # -- Optional: Enable mqtt server
     enabled: false
+    # -- Required: host name
     host: mqtt.server.com
-    port: 1883
-    # -- NOTE: Must be unique if you are running multiple instances
+    # -- Optional: port
+    port: null
+    # -- Optional: topic prefix
+    # - NOTE: Must be unique if you are running multiple instances
     topic_prefix: ""
-    # -- NOTE: Must be unique if you are running multiple instances
+    # -- Optional: client id
+    # - NOTE: Must be unique if you are running multiple instances
     client_id: ""
+    # -- Optional: user
     user: ""
+    # -- Optional: password
     password: ""
-    stats_interval: 60
+    # -- Optional: tls_ca_certs for enabling TLS using self-signed certs
+    tls_ca_certs: ""
+    # -- Optional: tls_client_cert and tls_client_key in order to use self-signed client certificates
+    # - NOTE: certificate must not be password-protected do not set user and password when using a client certificate
+    tls_client_cert: ""
+    tls_client_key: ""
+    # -- Optional: tls_insecure (true/false) for enabling TLS verification of the server hostname in the server certificate
+    tls_insecure: false
+    # -- Optional: interval in seconds for publishing stats
+    stats_interval: null
 
   detectors:
     # -- Enable it to add the configuration in the config file
@@ -46,19 +61,26 @@ frigate:
   model:
     # -- Enable it to add the configuration in the config file
     render_config: false
-    # -- Required: Object detection model input width
-    width: 320
-    # -- Required: Object detection model input height
-    height: 320
     # -- Optional: Path to the model
     path: ""
     # -- Optional: Path to the labelmap
     labelmap_path: ""
-    # -- Optional: Label name modifications.
+    # -- Required: Object detection model input width
+    width: 320
+    # -- Required: Object detection model input height
+    height: 320
+    # -- Optional: Object detection model input colorspace
+    # - Valid values are rgb, bgr, or yuv.
+    input_pixel_format: ""
+    # -- Optional: Object detection model input tensor format
+    # - Valid values are nhwc or nchw
+    input_tensor: ""
+    # -- Optional: Object detection model type, currently only used with the OpenVINO detector
+    # - Valid values are ssd, yolox, yolov5, or yolov8
+    model_type: ""
+    # -- Optional: Label name modifications. These are merged into the standard labelmap.
     labelmap: []
-    # - model: "2"
-    #   name: vehicle
-    # - model: 3
+    # - model: 2
     #   name: vehicle
 
   logger:
@@ -76,6 +98,9 @@ frigate:
     render_config: false
     # -- Enables birdseye
     enabled: true
+    # -- Optional: Restream birdseye via RTSP
+    # - NOTE: Enabling this will set birdseye to run 24/7 which may increase CPU usage somewhat.
+    restream: false
     # -- Optional: Width of the output resolution
     width: null
     # -- Optional: Height of the output resolution
@@ -94,11 +119,11 @@ frigate:
     render_config: false
     # -- Optional: global ffmpeg args
     global_args: ""
-    # -- Optional: global input args
-    input_args: ""
     # -- Optional: global hwaccel args
     # - NOTE: See hardware acceleration docs for your specific device
     hwaccel_args: ""
+    # -- Optional: global input args
+    input_args: ""
     # -- Optional: global output args
     output_args:
       # -- Optional: output args for detect streams
@@ -111,9 +136,6 @@ frigate:
   detect:
     # -- Enable it to add the configuration in the config file
     render_config: false
-    # -- Enables detection for the camera.
-    # - This value can be set via MQTT and will be updated in startup based on retained value
-    enabled: true
     # -- Optional: width of the frame for the input with the detect role
     width: null
     # -- Optional: height of the frame for the input with the detect role
@@ -121,7 +143,9 @@ frigate:
     # -- Optional: desired fps for your camera for the input with the detect role
     # - NOTE: Recommended value of 5. Ideally, try and reduce your FPS on the camera.
     fps: null
-    # -- Optional: Number of frames without a detection before frigate considers an object to be gone. (default: 5x the frame rate)
+    # -- Optional: enables detection for the camera
+    enabled: true
+    # -- Optional: Number of frames without a detection before Frigate considers an object to be gone. (default: 5x the frame rate)
     max_disappeared: null
     # -- Optional: Configuration for stationary object tracking
     stationary:
@@ -152,7 +176,6 @@ frigate:
     # -- Optional: list of objects to track from labelmap.txt
     track: []
     # - person
-    # - car
     # -- Optional: mask to prevent all object types from being detected in certain areas (default: no mask)
     # - Checks based on the bottom center of the bounding box of the object.
     # - NOTE: This mask is COMBINED with the object type specific mask below
@@ -220,14 +243,10 @@ frigate:
     # -- Optional: Enable recording
     # - WARNING: If recording is disabled in the config, turning it on via
     # - the UI or MQTT later will have no effect.
-    # - WARNING: Frigate does not currently support limiting recordings based
-    # - on available disk space automatically. If using recordings,
-    # - you must specify retention settings for a number of days that
-    # - will fit within the available disk space of your drive or Frigate will crash.
     enabled: false
     # -- Optional: Number of minutes to wait between cleanup runs
     # - This can be used to reduce the frequency of deleting recording segments from disk if you want to minimize i/o
-    expire_interval:
+    expire_interval: null
     # -- Optional: Retention settings for recording
     retain:
       # -- Render retain config
@@ -235,7 +254,7 @@ frigate:
       # -- Optional: Number of days to retain recordings regardless of events
       # - NOTE: This should be set to 0 and retention should be defined in events section below
       # - if you only want to retain recordings of events.
-      days:
+      days: null
       # -- Optional: Mode for retention. Available options are: all, motion, and active_objects
       # - all - save all recording segments regardless of activity
       # - motion - save all recordings segments with any detected motion
@@ -259,12 +278,16 @@ frigate:
       retain:
         # -- Render retain config
         render_config: false
-        # -- Required: Default retention days
+        # -- Required: Default retention days (default: shown below)
         default: 10
         # -- Optional: Mode for retention.
         # - all - save all recording segments for events regardless of activity
         # - motion - save all recordings segments for events with any detected motion
         # - active_objects - save all recording segments for event with active/moving objects
+        # - NOTE: If the retain mode for the camera is more restrictive than the mode configured
+        # - here, the segments will already be gone by the time this mode is applied.
+        # - For example, if the camera retain mode is "motion", the segments without motion are
+        # - never stored, so setting the mode to "all" here won't bring them back.
         mode: ""
         # -- Optional: Per object retention days
         objects: []
@@ -275,7 +298,6 @@ frigate:
     # -- Enable it to add the configuration in the config file
     render_config: false
     # -- Optional: Enable writing jpg snapshot to /media/frigate/clips
-    # - This value can be set via MQTT and will be updated in startup based on retained value
     enabled: false
     # -- Optional: Save a clean PNG copy of the snapshot image
     clean_copy: true
@@ -286,7 +308,7 @@ frigate:
     # -- Optional: crop the snapshot
     crop: false
     # -- Optional: height to resize the snapshot to (default: original size)
-    height:
+    height: null
     # -- Optional: Restrict snapshots to objects that entered any of the listed zones (default: no required zones)
     required_zones: []
     # -- Optional: Camera override for retention settings (default: global values)
@@ -302,9 +324,31 @@ frigate:
 
   rtmp:
     # -- Enable it to add the configuration in the config file
+    # - NOTE: RTMP is deprecated in favor of restream
     render_config: false
     # - Optional: Enable the RTMP stream
-    enabled: true
+    enabled: false
+
+  # -- Optional: Restream configuration
+  # - Uses https://github.com/AlexxIT/go2rtc (v1.2.0)
+  go2rtc:
+    # -- Enable it to add the configuration in the config file
+    render_config: false
+    # -- Optional: RTSP based username / password authentication
+    rtsp:
+      # -- Enable it to add the configuration in the config file
+      render_config: false
+      # -- Required: Username
+      username: admin
+      # -- Required: Password
+      password: pass
+    # -- Required: RTSP streams
+    streams:
+      # -- Required: Name of the stream
+      - stream_name: rtsp_cam
+        # -- Required: Path to the stream
+        stream_path:
+          - rtsp://192.168.1.5:554/live0
 
   live:
     # -- Enable it to add the configuration in the config file
@@ -313,7 +357,7 @@ frigate:
     # - This must be less than or equal to the height of the detect stream. Lower resolutions
     # - reduce bandwidth required for viewing the live stream. Width is computed to match known aspect ratio.
     height: null
-    # -- Optional: Set the encode quality of the live stream (default: shown below)
+    # -- Optional: Set the encode quality of the live stream
     # - 1 is the highest quality, and 31 is the lowest. Lower quality feeds utilize less CPU resources.
     quality: null
 
@@ -335,9 +379,9 @@ frigate:
       red: 255
       green: 255
       blue: 255
-    # -- Optional: Line thickness of font (default: shown below)
+    # -- Optional: Line thickness of font
     thickness: null
-    # -- Optional: Effect of lettering (default: shown below)
+    # -- Optional: Effect of lettering
     # - None (No effect),
     # - "solid" (solid background in inverse color of font)
     # - "shadow" (shadow for font)
@@ -346,6 +390,10 @@ frigate:
   cameras:
     # -- Required: name of the camera
     - camera_name: back
+      # -- Optional: Enable/Disable the camera
+      # - If disabled: config is used but no live stream and no capture etc.
+      # - Events/Recordings are still viewable.
+      enabled: true
       # -- Required: ffmpeg settings for the camera
       ffmpeg:
         # -- Required: A list of input streams for the camera. See documentation for more information.
@@ -357,6 +405,7 @@ frigate:
             # - they must also be enabled in the camera config.
             roles:
               - detect
+              - record
               - rtmp
             # -- Optional: stream specific global args
             global_args: ""
@@ -364,11 +413,6 @@ frigate:
             hwaccel_args: ""
             # - Optional: stream specific input args
             input_args: ""
-            # - Optional: stream specific output args
-            output_args:
-              detect: ""
-              record: ""
-              rtmp: ""
         # -- Optional: camera specific global args
         global_args: ""
         # -- Optional: camera specific hwaccel args
@@ -376,13 +420,10 @@ frigate:
         # -- Optional: camera specific input args
         input_args: ""
         # -- Optional: camera specific output args
-        output_args:
-          detect: ""
-          record: ""
-          rtmp: ""
+        output_args: ""
       # -- Optional: timeout for highest scoring image before allowing it
       # - to be replaced by a newer image.
-      best_image_timeout: 60
+      best_image_timeout: null
       # -- Optional: zones for this camera
       zones:
         # -- Required: name of the zone
@@ -430,6 +471,45 @@ frigate:
         order: null
         # -- Optional: Whether or not to show the camera in the Frigate UI
         dashboard: true
+
+  ui:
+    # -- Enable it to add the configuration in the config file
+    render_config: false
+    # -- Optional: Set the default live mode for cameras in the UI
+    live_mode: ""
+    # -- Optional: Set a timezone to use in the UI (default: use browser local time)
+    timezone: ""
+    # -- Optional: Use an experimental recordings / camera view UI
+    use_experimental: false
+    # - Optional: Set the time format used.
+    # - Options are browser, 12hour, or 24hour (default: shown below)
+    time_format: browser
+    # -- Optional: Set the date style for a specified length.
+    # - Options are: full, long, medium, short
+    # - Examples:
+    # - short: 2/11/23
+    # - medium: Feb 11, 2023
+    # - full: Saturday, February 11, 2023
+    # - (default: shown below)
+    date_style: short
+    # -- Optional: Set the time style for a specified length.
+    # - Options are: full, long, medium, short
+    # - Examples:
+    # - short: 8:14 PM
+    # - medium: 8:15:22 PM
+    # - full: 8:15:22 PM Mountain Standard Time
+    # - (default: shown below)
+    time_style: medium
+    # -- Optional: Ability to manually override the date / time styling to use strftime format
+    # - https://www.gnu.org/software/libc/manual/html_node/Formatting-Calendar-Time.html
+    strftime_fmt: ""
+
+  telemetry:
+    # -- Enable it to add the configuration in the config file
+    render_config: false
+    # -- Optional: Enable the latest version outbound check
+    # - NOTE: If you use the HomeAssistant integration, disabling this will prevent it from reporting new versions
+    version_check: true
 
 ingress:
   rtmp:

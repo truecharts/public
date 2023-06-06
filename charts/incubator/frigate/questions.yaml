@@ -51,7 +51,7 @@ questions:
                       schema:
                         type: int
                         show_if: [["enabled", "=", true]]
-                        default: 1883
+                        "null": true
                     - variable: topic_prefix
                       label: Topic Prefix
                       description: Must be unique if you are running multiple instances
@@ -66,14 +66,6 @@ questions:
                         type: string
                         show_if: [["enabled", "=", true]]
                         default: ""
-                    - variable: stats_interval
-                      label: Stats Interval
-                      description: Interval in seconds for publishing stats
-                      schema:
-                        type: int
-                        show_if: [["enabled", "=", true]]
-                        "null": true
-                        default: 60
                     - variable: user
                       label: Username
                       schema:
@@ -87,6 +79,41 @@ questions:
                         show_if: [["enabled", "=", true]]
                         private: true
                         default: ""
+                    - variable: tls_ca_certs
+                      label: TLS CA Certs
+                      description: tls_ca_certs for enabling TLS using self-signed certs
+                      schema:
+                        type: string
+                        show_if: [["enabled", "=", true]]
+                        default: ""
+                    - variable: tls_client_cert
+                      label: TLS Client Cert
+                      description: tls_client_cert in order to use self-signed client
+                      schema:
+                        type: string
+                        show_if: [["enabled", "=", true]]
+                        default: ""
+                    - variable: tls_client_key
+                      label: TLS Client Key
+                      description: tls_client_key in order to use self-signed client
+                      schema:
+                        type: string
+                        show_if: [["enabled", "=", true]]
+                        default: ""
+                    - variable: tls_insecure
+                      label: TLS Insecure
+                      description: tls_insecure for enabling TLS verification of the server hostname in the server certificate
+                      schema:
+                        type: boolean
+                        show_if: [["enabled", "=", true]]
+                        default: false
+                    - variable: stats_interval
+                      label: Stats Interval
+                      description: Interval in seconds for publishing stats
+                      schema:
+                        type: int
+                        show_if: [["enabled", "=", true]]
+                        "null": true
         - variable: detectors
           label: Detectors
           schema:
@@ -223,7 +250,6 @@ questions:
                       label: Default Log Verbosity
                       schema:
                         type: string
-                        required: true
                         default: info
                         enum:
                           - value: info
@@ -259,7 +285,6 @@ questions:
                                   label: Default Log Verbosity
                                   schema:
                                     type: string
-                                    required: true
                                     default: info
                                     enum:
                                       - value: info
@@ -288,39 +313,52 @@ questions:
                   subquestions:
                     - variable: enabled
                       label: Enabled
-                      description: Enables the birdseye
+                      description: Enable birdseye view
                       schema:
                         type: boolean
                         default: true
+                    - variable: restream
+                      label: Restream
+                      description: Restream birdseye via RTSP
+                      schema:
+                        type: boolean
+                        show_if: [["enabled", "=", true]]
+                        default: false
                     - variable: width
                       label: Width
                       description: Width of the output resolution
                       schema:
                         type: int
+                        show_if: [["enabled", "=", true]]
                         "null": true
                     - variable: height
                       label: Height
                       description: Height of the output resolution
                       schema:
                         type: int
+                        show_if: [["enabled", "=", true]]
                         "null": true
                     - variable: quality
                       label: Quality
-                      description: Encoding quality of the mpeg1 feed. Where 1 is the highest quality, and 31 is the lowest. Lower quality feeds utilize less CPU resources.
+                      description: |
+                        Encoding quality of the mpeg1 feed.
+                        1 is the highest quality, and 31 is the lowest. Lower quality feeds utilize less CPU resources.
                       schema:
                         type: int
+                        show_if: [["enabled", "=", true]]
                         min: 1
                         max: 31
                         "null": true
                     - variable: mode
                       label: Mode
                       description: |
-                        Mode of the view.
+                        Mode of the view. Available options are: objects, motion, and continuous
                         Objects - Cameras are included if they have had a tracked object within the last 30 seconds.
                         Motion - Cameras are included if motion was detected in the last 30 seconds.
                         Continuous - All cameras are included always.
                       schema:
                         type: string
+                        show_if: [["enabled", "=", true]]
                         default: ""
                         enum:
                           - value: ""
@@ -416,7 +454,9 @@ questions:
                         "null": true
                     - variable: fps
                       label: FPS
-                      description: Desired fps for your camera for the input with the detect role. Recommended value of 5. Ideally, try and reduce your FPS on the camera.
+                      description: |
+                        Desired fps for your camera for the input with the detect role.
+                        Recommended value of 5. Ideally, try and reduce your FPS on the camera.
                       schema:
                         type: int
                         "null": true
@@ -428,6 +468,7 @@ questions:
                         "null": true
                     - variable: stationary
                       label: Stationary
+                      description: Configuration for stationary object tracking
                       schema:
                         additional_attrs: true
                         type: dict
@@ -456,6 +497,14 @@ questions:
                               subquestions:
                                 - variable: max_frames
                                   label: Max Frames
+                                  description: |
+                                    Define a maximum number of frames for tracking a stationary object (default: not set, track forever)
+                                    This can help with false positives for objects that should only be stationary for a limited amount of time.
+                                    It can also be used to disable stationary object tracking. For example, you may want to set a value for person, but leave
+                                    car at the default.
+                                    WARNING: Setting these values overrides default behavior and disables stationary object tracking.
+                                    There are very few situations where you would want it disabled. It is NOT recommended to
+                                    copy these values from the example config into your config unless you know they are needed.
                                   schema:
                                     additional_attrs: true
                                     type: dict
@@ -468,6 +517,7 @@ questions:
                                           "null": true
                                       - variable: objects
                                         label: Objects
+                                        description: Object specific values
                                         schema:
                                           type: list
                                           default: []
@@ -521,7 +571,7 @@ questions:
                       description: |
                         Mask to prevent all object types from being detected in certain areas
                         Checks based on the bottom center of the bounding box of the object.
-                        This mask is COMBINED with the object type specific mask below
+                        NOTE: This mask is COMBINED with the object type specific mask below
                       schema:
                         type: string
                         default: ""
@@ -662,7 +712,7 @@ questions:
                         "null": true
                     - variable: mask
                       label: Mask
-                      description: See docs for more detailed info on creating masks
+                      description: Motion mask. See docs for more detailed info on creating masks
                       schema:
                         type: string
                         default: ""
@@ -697,14 +747,14 @@ questions:
                       description: |
                         Enable recording
                         WARNING: If recording is disabled in the config, turning it on via the UI or MQTT later will have no effect.
-                        WARNING: Frigate does not currently support limiting recordings based on available disk space automatically.
-                        If using recordings,you must specify retention settings for a number of days that will fit within the available disk space of your drive or Frigate will crash.
                       schema:
                         type: boolean
-                        default: true
+                        default: false
                     - variable: expire_interval
                       label: Expire Interval
-                      description: Number of minutes to wait between cleanup runs
+                      description: |
+                        Number of minutes to wait between cleanup runs
+                        This can be used to reduce the frequency of deleting recording segments from disk if you want to minimize i/o
                       schema:
                         type: int
                         "null": true
@@ -716,7 +766,8 @@ questions:
                         type: dict
                         attrs:
                           - variable: render_config
-                            label: Render Retain Config
+                            label: Render Configuration
+                            description: Enable it to add the configuration in the config file
                             schema:
                               type: boolean
                               default: false
@@ -812,7 +863,8 @@ questions:
                                     type: dict
                                     attrs:
                                       - variable: render_config
-                                        label: Render Retain Config
+                                        label: Render Configuration
+                                        description: Enable it to add the configuration in the config file
                                         schema:
                                           type: boolean
                                           default: false
@@ -887,12 +939,10 @@ questions:
                   subquestions:
                     - variable: enabled
                       label: Enabled
-                      description: |
-                        Optional: Enable writing jpg snapshot to /media/frigate/clips
-                        This value can be set via MQTT and will be updated in startup based on retained value
+                      description: Enable writing jpg snapshot to /media/frigate/clips
                       schema:
                         type: boolean
-                        default: true
+                        default: false
                     - variable: clean_copy
                       label: Clean Copy
                       description: Save a clean PNG copy of the snapshot image
@@ -925,7 +975,7 @@ questions:
                         "null": true
                     - variable: required_zones
                       label: Required Zones
-                      description: Restrict recordings to objects that entered any of the listed zones
+                      description: Restrict snapshots to objects that entered any of the listed zones
                       schema:
                         type: list
                         default: []
@@ -938,13 +988,14 @@ questions:
                               default: ""
                     - variable: retain
                       label: Snapshots > Retain
-                      description: Retention settings for snapshots of events
+                      description: Camera override for retention settings
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: render_config
-                            label: Render Retain Config
+                            label: Render Configuration
+                            description: Enable it to add the configuration in the config file
                             schema:
                               type: boolean
                               default: false
@@ -986,6 +1037,7 @@ questions:
                                                 default: 15
         - variable: rtmp
           label: RTMP
+          description: RTMP is deprecated in favor of restream
           schema:
             additional_attrs: true
             type: dict
@@ -1003,9 +1055,10 @@ questions:
                       description: Enable the RTMP stream
                       schema:
                         type: boolean
-                        default: true
-        - variable: live
-          label: Live
+                        default: false
+        - variable: go2rtc
+          label: go2rtc
+          description: Restream configuration
           schema:
             additional_attrs: true
             type: dict
@@ -1018,10 +1071,93 @@ questions:
                   default: false
                   show_subquestions_if: true
                   subquestions:
+                    - variable: rtsp
+                      label: RTSP
+                      description: RTSP based username / password authentication
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: render_config
+                            label: Render Configuration
+                            description: Enable it to add the configuration in the config file
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: username
+                                  label: Username
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: ""
+                                - variable: password
+                                  label: Password
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: ""
+                    - variable: streams
+                      label: Streams
+                      description: RTSP streams
+                      schema:
+                        type: list
+                        required: true
+                        default: []
+                        items:
+                          - variable: stream_entry
+                            label: ""
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: stream_name
+                                  label: Name
+                                  description: Name of the stream
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: ""
+                                - variable: stream_path
+                                  label: Path to the stream
+                                  description: List of paths for this stream
+                                  schema:
+                                    type: list
+                                    required: true
+                                    default: []
+                                    items:
+                                      - variable: path_entry
+                                        label: ""
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+        - variable: live
+          label: Live
+          description: jsmpeg stream configuration for WebUI
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: render_config
+                label: Render Configuration
+                description: Enable it to add the configuration in the config file
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: stream_name
+                      label: Stream Name
+                      description: Set the name of the stream that should be used for live view in frigate WebUI.
+                      schema:
+                        type: string
+                        default: ""
                     - variable: height
                       label: Height
                       description: |
-                        Set the height of the live stream.
+                        Set the height of the jsmpeg stream.
                         This must be less than or equal to the height of the detect stream. Lower resolutions
                         reduce bandwidth required for viewing the live stream. Width is computed to match known aspect ratio.
                       schema:
@@ -1075,7 +1211,8 @@ questions:
                         type: string
                         default: ""
                     - variable: color
-                      label: Timestamp Style > Color
+                      label: Color
+                      description: Color of font
                       schema:
                         additional_attrs: true
                         type: dict
@@ -1092,18 +1229,24 @@ questions:
                                   label: Red
                                   schema:
                                     type: int
-                                    default: 255
+                                    min: 0
+                                    max: 255
                                     required: true
+                                    default: 255
                                 - variable: green
                                   label: Green
                                   schema:
                                     type: int
+                                    min: 0
+                                    max: 255
                                     required: true
                                     default: 255
                                 - variable: blue
                                   label: Blue
                                   schema:
                                     type: int
+                                    min: 0
+                                    max: 255
                                     required: true
                                     default: 255
                     - variable: thickness
@@ -1150,6 +1293,15 @@ questions:
                         type: string
                         required: true
                         default: ""
+                    - variable: enabled
+                      label: Enabled
+                      description: |
+                        Enable/Disable the camera
+                        If disabled: config is used but no live stream and no capture etc.
+                        Events/Recordings are still viewable.
+                      schema:
+                        type: boolean
+                        default: true
                     - variable: ffmpeg
                       label: ffmpeg
                       description: ffmpeg Settings for the camera
@@ -1173,13 +1325,16 @@ questions:
                                     attrs:
                                       - variable: path
                                         label: Path
-                                        description: The path to the stream
+                                        description: |
+                                          The path to the stream
+                                          NOTE: path may include environment variables, which must begin with 'FRIGATE_' and be referenced in {}
                                         schema:
                                           type: string
                                           required: true
                                           default: ""
                                       - variable: roles
                                         label: Roles
+                                        description: List of roles for this stream
                                         schema:
                                           type: list
                                           required: true
@@ -1194,10 +1349,10 @@ questions:
                                                 enum:
                                                   - value: detect
                                                     description: Detect
-                                                  - value: rtmp
-                                                    description: RTMP
                                                   - value: record
                                                     description: Record
+                                                  - value: rtmp
+                                                    description: RTMP
                                       - variable: global_args
                                         label: Global Args
                                         description: Stream specific global args
@@ -1216,27 +1371,6 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
-                                      - variable: output_args
-                                        label: Output Args
-                                        schema:
-                                          additional_attrs: true
-                                          type: dict
-                                          attrs:
-                                            - variable: detect
-                                              label: Detect
-                                              schema:
-                                                type: string
-                                                default: ""
-                                            - variable: record
-                                              label: Record
-                                              schema:
-                                                type: string
-                                                default: ""
-                                            - variable: rtmp
-                                              label: RTMP
-                                              schema:
-                                                type: string
-                                                default: ""
                           - variable: global_args
                             label: Global Args
                             description: Camera specific global args
@@ -1257,25 +1391,10 @@ questions:
                               default: ""
                           - variable: output_args
                             label: Output Args
+                            description: Camera specific output args
                             schema:
-                              additional_attrs: true
-                              type: dict
-                              attrs:
-                                - variable: detect
-                                  label: Detect
-                                  schema:
-                                    type: string
-                                    default: ""
-                                - variable: record
-                                  label: Record
-                                  schema:
-                                    type: string
-                                    default: ""
-                                - variable: rtmp
-                                  label: RTMP
-                                  schema:
-                                    type: string
-                                    default: ""
+                              type: string
+                              default: ""
                     - variable: best_image_timeout
                       label: Best Image Timeout
                       description: Timeout for highest scoring image before allowing it to be replaced by a newer image.
@@ -1297,13 +1416,18 @@ questions:
                               attrs:
                                 - variable: name
                                   label: Zone Name
+                                  description: |
+                                    Name of the zone
+                                    NOTE: This must be different than any camera names, but can match with another zone on another camera.
                                   schema:
                                     type: string
                                     required: true
                                     default: ""
                                 - variable: coordinates
                                   label: Coordinates
-                                  description: List of x,y coordinates to define the polygon of the zone.
+                                  description: |
+                                    List of x,y coordinates to define the polygon of the zone.
+                                    NOTE: Presence in a zone is evaluated only based on the bottom center of the objects bounding box.
                                   schema:
                                     type: string
                                     required: true
@@ -1323,7 +1447,9 @@ questions:
                                           default: ""
                                 - variable: filters
                                   label: Filters
-                                  description: Zone level object filters
+                                  description: |
+                                    Zone level object filters
+                                    NOTE: The global and camera filters are applied upstream.
                                   schema:
                                     type: list
                                     default: []
@@ -1363,7 +1489,7 @@ questions:
                                                 valid_chars: '^[0-9]+(\.[0-9]*)?$'
                     - variable: mqtt
                       label: MQTT
-                      description: MQTT Configuration for jpg snapshots published for this camera
+                      description: Configuration for the jpg snapshots published via MQTT
                       schema:
                         additional_attrs: true
                         type: dict
@@ -1445,16 +1571,123 @@ questions:
                               subquestions:
                                 - variable: order
                                   label: order
-                                  description: Adjust sort order of cameras in the UI. Larger numbers come later By default the cameras are sorted alphabetically.
+                                  description: |
+                                    Adjust sort order of cameras in the UI. Larger numbers come later.
+                                    By default the cameras are sorted alphabetically.
                                   schema:
-                                    "null": true
                                     type: int
+                                    "null": true
                                 - variable: dashboard
                                   label: Dashboard
                                   description: Whether or not to show the camera in the Frigate UI
                                   schema:
                                     type: boolean
                                     default: true
+        - variable: ui
+          label: UI
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: render_config
+                label: Render Configuration
+                description: Enable it to add the configuration in the config file
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: live_mode
+                      label: Live Mode
+                      description: Set the default live mode for cameras in the UI
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: timezone
+                      label: Timezone
+                      description: Set a timezone to use in the UI
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: use_experimental
+                      label: Use Experimental
+                      description: Use an experimental recordings / camera view UI
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: time_format
+                      label: Time Format
+                      description: Set the time format used
+                      schema:
+                        type: string
+                        default: browser
+                        enum:
+                          - value: browser
+                            description: Browser
+                          - value: 12hour
+                            description: 12 Hour
+                          - value: 24hour
+                            description: 24 Hour
+                    - variable: date_style
+                      label: Date Style
+                      description: Set the date style for a specified length
+                      schema:
+                        type: string
+                        default: short
+                        enum:
+                          - value: full
+                            description: Full
+                          - value: long
+                            description: Long
+                          - value: medium
+                            description: Medium
+                          - value: short
+                            description: Short
+                    - variable: time_style
+                      label: Time Style
+                      description: Set the time style for a specified length
+                      schema:
+                        type: string
+                        default: medium
+                        enum:
+                          - value: full
+                            description: Full
+                          - value: long
+                            description: Long
+                          - value: medium
+                            description: Medium
+                          - value: short
+                            description: Short
+                    - variable: strftime_fmt
+                      label: Override
+                      description: |
+                        Ability to manually override the date / time styling to use strftime format
+                        https://www.gnu.org/software/libc/manual/html_node/Formatting-Calendar-Time.html
+                      schema:
+                        type: string
+                        default: ""
+        - variable: telemetry
+          label: Telemetry
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: render_config
+                label: Render Configuration
+                description: Enable it to add the configuration in the config file
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: version_check
+                      label: Version Check
+                      description: |
+                        Enable the latest version outbound check
+                        NOTE: If you use the HomeAssistant integration, disabling this will prevent it from reporting new versions
+                      schema:
+                        type: boolean
+                        default: true
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -1462,22 +1695,22 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 10500
                               editable: true
                               required: true
         - variable: rtmp
-          label: "RTMP Service"
-          description: "The service on which nodes connect to."
+          label: RTMP Service
+          description: The service on which nodes connect to.
           schema:
             additional_attrs: true
             type: dict
@@ -1485,14 +1718,14 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: rtmp
-                      label: "RTMP Service Port Configuration"
+                      label: RTMP Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 1935
@@ -1503,16 +1736,16 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: media
-          label: "App Media"
-          description: "Stores the Application Media"
+          label: App Media
+          description: Stores the Application Media
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
         - variable: db
-          label: "App DB"
-          description: "Stores the Application DB"
+          label: App DB
+          description: Stores the Application DB
           schema:
             additional_attrs: true
             type: dict
@@ -1521,7 +1754,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -1534,14 +1767,14 @@ questions:
 
 # Include{securityContextRoot}
               - variable: runAsUser
-                label: "runAsUser"
-                description: "The UserID of the user running the application"
+                label: runAsUser
+                description: The UserID of the user running the application
                 schema:
                   type: int
                   default: 0
               - variable: runAsGroup
-                label: "runAsGroup"
-                description: "The groupID this App of the user running the application"
+                label: runAsGroup
+                description: The groupID this App of the user running the application
                 schema:
                   type: int
                   default: 0
@@ -1549,8 +1782,8 @@ questions:
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
               - variable: fsGroup
-                label: "fsGroup"
-                description: "The group that should own ALL storage."
+                label: fsGroup
+                description: The group that should own ALL storage.
                 schema:
                   type: int
                   default: 568
